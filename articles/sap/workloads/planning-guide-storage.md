@@ -281,11 +281,20 @@ Azure NetApp Files is currently supported for several SAP workload scenarios:
 > [!NOTE]
 > So far no DBMS workloads are supported on SMB based on Azure NetApp Files.
 
-As already with Azure premium storage, a fixed or linear throughput size per GB can be a problem when you're required to adhere to some minimum numbers in throughput. Like this is the case for SAP HANA. With Azure NetApp Files, this problem can become more pronounced than with Azure premium disk. Using Azure premium disk, you can take several smaller disks with a relatively high throughput per GiB and stripe across them to be cost efficient and have higher throughput at lower capacity. This kind of striping doesn't work for NFS or SMB shares hosted on Azure NetApp Files. This restriction resulted in deployment of overcapacity like:
+Storage for database applications typically has throughput requirements that do not scale linearly with the size of the volumes, ie log volumes are relatively small in size but require high levels of throughput.
 
-- To achieve, for example, a throughput of 250 MiB/sec on an NFS volume hosted on Azure NetApp Files, you need to deploy 1.95 TiB capacity of the Ultra service level. 
-- To achieve 400 MiB/sec, you would need to deploy 3.125 TiB capacity. But you may need the over-provisioning of capacity to achieve the throughput you require of the volume. This over-provisioning of capacity impacts the pricing of smaller HANA instances. 
-- Using NFS on top of Azure NetApp Files for the SAP /sapmnt directory, you're usually going far with the minimum capacity of 100 GiB to 150 GiB that is enforced by Azure NetApp Files. However customer experience showed that the related throughput of 12.8 MiB/sec (using Ultra service level) may not be enough and may have negative impact on the stability of the SAP system. In such cases, customers could avoid issues by increasing the volume of the /sapmnt volume, so, that more throughput is provided to that volume.
+Azure NetApp Files allows you to allocate volume throughput independently from volume sizes when using a capacity pool of type [manual QoS](../../azure-netapp-files/azure-netapp-files-service-levels.md#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool).
+
+Here's an example:
+
+- A volume for database files requires 500 MiB/s throughput and 39 TiB capacity
+- A volume for log files requires 2000 MiB/s throughput and 1 TiB capacity
+
+You can create a manual QoS capacity pool for this scenario and allocate throughput independently of the volume sizes. The total capacity required is 40 TiB, and the total throughput is 2500 MiB/s. A capacity pool in the Premium service level (64 MiB/s per allocated TiB) accommodates both performance and capacity requirements (40 TiB * 64 TiB/s/TiB = 2560 TiB).
+
+Linear performance scaling would require considerable overprovisioning of the log volume to achieve the throughput requirement. To achieve the 2000 MiB/s throughput for the log volume, you'd need to deploy a capacity pool in the Ultra tier (128 MiB/s per allocated TiB) of 16 TiB, resulting in a wasted capacity of 15 TiB.
+
+Use the [Azure NetApp Files Performance Calculator](https://aka.ms/anfcalc) to get an estimate for your scenario.
 
 The capability matrix for SAP workload looks like:
 
@@ -298,16 +307,15 @@ The capability matrix for SAP workload looks like:
 | Backup storage | Suitable | - |
 | Shares/shared disk | Yes | SMB 3.0, NFS v3, and NFS v4.1 |
 | Resiliency | LRS and GRS | [GRS available](../../azure-netapp-files/cross-region-replication-introduction.md) |
-| Latency | Very low | - |
+| Latency | Very low | Typically less than 1 ms |
 | IOPS SLA | Yes | - |
-| IOPS linear to capacity | strictly linear  | Dependent on [Service Level](../../azure-netapp-files/azure-netapp-files-service-levels.md) |
+| IOPS linear to capacity | Linear with auto QoS; independent with Manual QoS | Three [service levels](../../azure-netapp-files/azure-netapp-files-service-levels.md) available |
 | Throughput SLA | Yes | - |
-| Throughput linear to capacity | linear | Dependent on [Service Level](../../azure-netapp-files/azure-netapp-files-service-levels.md) |
+| Throughput linear to capacity | Linear with auto QoS; independent with Manual QoS | Three [service levels](../../azure-netapp-files/azure-netapp-files-service-levels.md) available |
 | HANA certified | Yes | - |
 | Disk snapshots possible | Yes | - |
-| Azure Backup VM snapshots possible | No | - |
-| Costs | Higher than Premium storage | - |
-
+| Azure Backup VM snapshots possible | No | Use [AzAcSnap](../../azure-netapp-files/azacsnap-introduction.md) or [SnapCenter](https://docs.netapp.com/us-en/snapcenter/concept/concept_snapcenter_overview.html) |
+| Costs | Competitive when including benefits of snapshots and integrated backup | - |
 
 Other built-in functionality of Azure NetApp Files storage:
 
