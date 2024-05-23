@@ -113,4 +113,4 @@ For more information about getting out-of-the-box detections, see [Get built-in-
 
 - Turn on Log Analytics query logs to get all queries run from your workspace. For more information, see [Audit Microsoft Sentinel queries and activities](audit-sentinel-data.md).
 
-- Learn about the queries used behind the **Overview** dashboard widgets. For more information, see [Deep dive into Microsoft Sentinel’s new Overview dashboard](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/deep-dive-into-microsoft-sentinel-s-new-overview-dashboard/ba-p/3860688) and 
+- Learn about the queries used behind the **Overview** dashboard widgets. For more information, see [Deep dive into Microsoft Sentinel’s new Overview dashboard](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/deep-dive-into-microsoft-sentinel-s-new-overview-dashboard/ba-p/3860688).
