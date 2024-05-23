@@ -61,7 +61,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ### Usage notes
 
-* API Management uses a single counter for each `counter-key` value. The counter is updated at all scopes at which the policy is configured with that key value. If you want to configure separate counters at different scopes (for example, a specific API or product), specify different key values at the different scopes. For example, append a string that identifies the scope to the key value.
+* [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
 * [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
 
 
