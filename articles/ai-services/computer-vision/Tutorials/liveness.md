@@ -53,7 +53,7 @@ The app server/orchestrator is responsible for controlling the lifecycle of a li
 
 #### Create environment variables
 
-[!INCLUDE [create environment variables](../environment-variables.md)]
+[!INCLUDE [create environment variables](../includes/face-environment-variables.md)]
 
 ## Perform liveness detection
 
@@ -112,6 +112,8 @@ curl --request POST --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliv
       "sendResultsToClient": "false"
 }'
 ```
+
+---
 
 Here is an example of the response body:
 ```json 
@@ -180,6 +182,8 @@ curl --request GET --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectliven
 curl --request GET --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" \
 --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
 ```
+
+---
 
 Here is an example of the response body:
 ```json
@@ -262,6 +266,8 @@ curl --request DELETE --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectl
 --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
 ```
 
+---
+
 ## Perform liveness detection with face verification
 
 Combining face verification with liveness detection enables biometric verification of a particular person of interest with an added guarantee that the person is physically present in the system. 
@@ -342,6 +348,8 @@ curl --request POST --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliv
 --form 'VerifyImage=@"test.png"'
 ```
 
+---
+
 Here is an example of the response body:
 ```json
 {
@@ -361,18 +369,18 @@ Here is an example of the response body:
 
     - The mobile application provides the reference image when initializing the SDK. This is not a supported scenario in the web solution.
 
-	```kotlin
-	val singleFaceImageSource = VisionSource.fromFile("/path/to/image.jpg")
-	mFaceAnalysisOptions?.setRecognitionMode(RecognitionMode.valueOfVerifyingMatchToFaceInSingleFaceImage(singleFaceImageSource))
-	```
+```kotlin
+val singleFaceImageSource = VisionSource.fromFile("/path/to/image.jpg")
+mFaceAnalysisOptions?.setRecognitionMode(RecognitionMode.valueOfVerifyingMatchToFaceInSingleFaceImage(singleFaceImageSource))
+```
 
-	```swift
-	if let path = Bundle.main.path(forResource: "<IMAGE_RESOURCE_NAME>", ofType: "<IMAGE_RESOURCE_TYPE>"),
-	   let image = UIImage(contentsOfFile: path),
-	   let singleFaceImageSource = try? VisionSource(uiImage: image) {
-		try methodOptions.setRecognitionMode(.verifyMatchToFaceIn(singleFaceImage: singleFaceImageSource))
-	}
-	```
+```swift
+if let path = Bundle.main.path(forResource: "<IMAGE_RESOURCE_NAME>", ofType: "<IMAGE_RESOURCE_TYPE>"),
+   let image = UIImage(contentsOfFile: path),
+   let singleFaceImageSource = try? VisionSource(uiImage: image) {
+	try methodOptions.setRecognitionMode(.verifyMatchToFaceIn(singleFaceImage: singleFaceImageSource))
+}
+```
 
 1. The app server can now query for the verification result in addition to the liveness result.
     
@@ -405,6 +413,8 @@ curl --request GET --location '<insert-api-endpoint>/face/v1.1-preview.1/detectl
 --form 'Content=@"content.bin"' \
 --form 'Metadata="<insert-metadata>"
 ```
+
+---
 
 An example of the response body:
 ```json
@@ -482,6 +492,8 @@ An example of the response body:
 curl --request DELETE --location '<insert-api-endpoint>/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>' \
 --header 'Ocp-Apim-Subscription-Key: <insert-api-key>
 ```
+
+---
 
 ## Clean up resources
 
