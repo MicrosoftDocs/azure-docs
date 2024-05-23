@@ -31,7 +31,7 @@ If you are starting from scratch, see [Understand data store models](/azure/arch
 
 ## At a glance
 
-Start with the amount of data that you plan to store. Then, consider the size of your files and number of CPU cores used by your workload. These factors help you to narrow down which core storage service best suits your workload and whether to use an accelerator to enhance performance.
+Start with the amount of data that you plan to store. Then, consider the number of CPU cores used by your workload and the size of your files. These factors help you to narrow down which core storage service best suits your workload and whether to use an accelerator to enhance performance.
 
 
 |Configuration  |CPU cores  |Sizes of files  |Core Storage Recommendation  |Accelerator Reccomendation  |
@@ -39,7 +39,7 @@ Start with the amount of data that you plan to store. Then, consider the size of
 |Under 50 TiB     |N/A |N/A        | [Azure Files](/azure/storage/files/) or [Azure NetApp Files](/azure/azure-netapp-files/).        |No accelerator  |
 |50 TiB - 5,000 TiB |Less than 500 |N/A|[Azure Files](/azure/storage/files/) or [Azure NetApp Files](/azure/azure-netapp-files/).        |No accelerator  |
 |50 TiB - 5,000 TiB |Over 500      |1 MiB and larger| [Azure Standard Blob](/azure/storage/blobs/). It’s supported by all accelerators, supports many protocols, and is cost-effective. | [Azure Managed Lustre](/azure/azure-managed-lustre/).    |
-|50 TiB - 5,000 TiB |Over 500      |Smaller than 1 MiB| Azure Premium Blob](/azure/storage/blobs/storage-blob-block-blob-premium) or [Azure Standard Blob](/azure/storage/blobs/). | [Azure Managed Lustre](/azure/azure-managed-lustre/).     |
+|50 TiB - 5,000 TiB |Over 500      |Smaller than 1 MiB| [Azure Premium Blob](/azure/storage/blobs/storage-blob-block-blob-premium) or [Azure Standard Blob](/azure/storage/blobs/). | [Azure Managed Lustre](/azure/azure-managed-lustre/).     |
 |50 TiB - 5,000 TiB |Over 500      |Smaller than 512 KiB| [Azure NetApp Files](/azure/azure-netapp-files/).    |No accelerator  |
 |Over 5,000 TiB |N/A      |N/A|    |Talk to your field or account team.   |
 <!---|     |[Use ZRS disks when sharing disks between VMs](#use-zrs-disks-when-sharing-disks-between-vms).         |Prevents a shared disk from becoming a single point of failure.         | --->
@@ -50,10 +50,10 @@ If you are still stuck between options after using the decision trees, here are 
 
 |Solution |Optimal Performance & Scale |Data Access (Access Protocol) |Billing Model |Core Storage or Accelerator |
 |---|---|---|---|---|
-| [**Azure Standard Blob**](/azure/storage/blobs/) | Good for large file, bandwidth-intensive workloads. | Good for traditional (file) and cloud-native (REST) HPC apps. Easy to access, share, manage datasets. Works with all accelerators. | Pay for what you use. | Core Storage. |
-| [**Azure Premium Blob**](/azure/storage/blobs/storage-blob-block-blob-premium) | IOPS and latency better than Standard Blob. <br><br> Good for datasets with many medium-sized files and mixed file sizes.  | Good for traditional (file) and cloud-native (REST) HPC apps. <br><br> Easy to access, share, manage datasets. Works with all accelerators. | Pay for what you use. | Core Storage. |
+| [**Azure Standard Blob**](/azure/storage/blobs/) | Good for large file, bandwidth-intensive workloads. | Good for traditional (file) and cloud-native (REST) HPC apps. <br><br> Easy to access, share, manage datasets.<br><br> Works with all accelerators. | Pay for what you use. | Core Storage. |
+| [**Azure Premium Blob**](/azure/storage/blobs/storage-blob-block-blob-premium) | IOPS and latency better than Standard Blob. <br><br> Good for datasets with many medium-sized files and mixed file sizes.  | Good for traditional (file) and cloud-native (REST) HPC apps. <br><br> Easy to access, share, manage datasets. <br><br> Works with all accelerators.| Pay for what you use. | Core Storage. |
 | [**Azure Premium Files**](/azure/storage/files/) | Capacity and bandwidth suited for smaller scale (<1k cores). <br><br> IOPS and latency good for medium sized files (>512 KiB). | Easy integration with Linux (NFS) and Windows (SMB), but can't use both NFS+SMB to access the same data. | Pay for what you provision. | Core Storage. |
-| [**Azure NetApp Files**](/azure/azure-netapp-files/) | Capacity and bandwidth good for midrange jobs (1k-10k cores). <br><br> IOPS and latency good for small-file datasets (<512 KiB). <br><br>Excellent for small, many-file workloads. | Easy to integrate for Linux and Windows, supports multiprotocol for workflows using both Linux + Windows. | Pay what you provision. | Either. |
+| [**Azure NetApp Files**](/azure/azure-netapp-files/) | Capacity and bandwidth good for midrange jobs (1k-10k cores). <br><br> IOPS and latency good for small-file datasets (<512 KiB). <br><br> Excellent for small, many-file workloads. | Easy to integrate for Linux and Windows, supports multiprotocol for workflows using both Linux + Windows. | Pay what you provision. | Either. |
 | [**Azure Managed Lustre**](/azure/azure-managed-lustre/) | Bandwidth to support all job sizes (1k - >10k cores). <br><br> IOPS and latency good for thousands of medium-sized files (>512 KiB). <br><br> Best for bandwidth-intensive read and write workloads. | Lustre, CSI. | Pay for what you provision. | Durable enough to run as standalone (core) storage, most cost-effective as an accelerator. |
 
 ## Core storage price comparison
