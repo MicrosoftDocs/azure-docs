@@ -147,7 +147,7 @@ The `FeatureManagement` section of the json document is used by convention to lo
 
 The detailed schema of the `FeatureManagement` section can be found [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json).
 
-**Advanced:** The usage of colon ':' in feature flag names is forbidden.
+**Advanced:** The usage of colon ':' is forbidden in feature flag names.
 
 #### On/Off Declaration
  
@@ -175,7 +175,7 @@ The `RequirementType` property of a feature flag is used to determine if the fil
 * `Any` means only one filter needs to evaluate to true for the feature to be enabled. 
 * `All` means every filter needs to evaluate to true for the feature to be enabled.
 
-A `RequirementType` of `All` changes the traversal. First, if there are no filters, the feature is disabled. Then, the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, it is considered enabled.
+A `RequirementType` of `All` changes the traversal. First, if there are no filters, the feature is disabled. Then, the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, it's considered enabled.
 
 ``` JavaScript
 "FeatureW": {
@@ -278,18 +278,18 @@ Below we have an example of declaring feature flags in a json file.
 }
 ```
 
-The `feature_management` section of the json document is used by convention to load feature flag settings. Feature flag objects must be listed in the `feature_flags` array under the `feature_management` section. In the section above, we see that we have provided three different features. A feature flag has `id` and `enabled` properties. The `id` is the name used to identify and reference the feature flag. The `enabled` property specifies the enabled state of the feature flag. A feature is *OFF* if `enabled` is false. If `enabled` is true, then the state of the feature depends on the `conditions`. If there are no `conditions` then the feature is *ON*. If there are `conditions` and they are met then the feature is *ON*. If there are `conditions` and they are not met then the feature is *OFF*. The `conditions` property declares the conditions used to dynamically enabled the feature. Features define their feature filters in the `client_filters` array. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. This is an example of a configurable feature filter. We can see in the example that the filter has a `Parameters` property. This is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
+The `feature_management` section of the json document is used by convention to load feature flag settings. Feature flag objects must be listed in the `feature_flags` array under the `feature_management` section. In the section above, we see that we have provided three different features. A feature flag has `id` and `enabled` properties. The `id` is the name used to identify and reference the feature flag. The `enabled` property specifies the enabled state of the feature flag. A feature is *OFF* if `enabled` is false. If `enabled` is true, then the state of the feature depends on the `conditions`. If there are no `conditions` then the feature is *ON*. If there are `conditions` and they're met then the feature is *ON*. If there are `conditions` and they aren't met then the feature is *OFF*. The `conditions` property declares the conditions used to dynamically enable the feature. Features define their feature filters in the `client_filters` array. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. This is an example of a configurable feature filter. We can see in the example that the filter has a `Parameters` property. This is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
 
-**Advanced:** The usage of colon ':' in feature flag names is forbidden.
+**Advanced:** The usage of colon ':' is forbidden in feature flag names.
 
 #### RequirementType
 
-The `requirement_type` property of `conditions` is used to determine if the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` is not specified, the default value is `Any`.
+The `requirement_type` property of `conditions` is used to determine if the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`.
 
 * `Any` means only one filter needs to evaluate to true for the feature to be enabled. 
 * `All` means every filter needs to evaluate to true for the feature to be enabled.
 
-A `requirement_type` of `All` changes the traversal. First, if there are no filters, the feature will be disabled. If there are filters, then the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, then it will be considered enabled.
+A `requirement_type` of `All` changes the traversal. First, if there is no filter, the feature will be disabled. If there are filters, then the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, then it will be considered enabled.
 
 ``` JavaScript
 {
@@ -316,11 +316,11 @@ A `requirement_type` of `All` changes the traversal. First, if there are no filt
 }
 ```
 
-In the above example, `FeatureW` specifies a `requirement_type` of `All`, meaning all of it's filters must evaluate to true for the feature to be enabled. In this case, the feature will be enabled for 50% of users during the specified time window.
+In the above example, `FeatureW` specifies a `requirement_type` of `All`, meaning all of its filters must evaluate to true for the feature to be enabled. In this case, the feature will be enabled for 50% of users during the specified time window.
 
 ### .NET Feature Management schema
 
-In previous versions, the primary schema for the feature management library was the [`.NET feature management schema`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json). Starting from v4.0.0, new features including variants and telemetry will not be supported for the .NET feature management schema.
+In previous versions, the primary schema for the feature management library was the [`.NET feature management schema`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json). Starting from v4.0.0, new features including variants and telemetry won't be supported for the .NET feature management schema.
 
 **Note:** If a feature flag written with `Microsoft Feature Management schema` can be found in the configuration, any feature flag written with `.NET feature management schema` will be ignored.
 
@@ -490,7 +490,7 @@ You can also negate the tag helper evaluation to display content when a feature 
 
 ``` HTML+Razor
 <feature negate="true" name="FeatureX" variant="Alpha">
-  <p>This can only be seen if variant 'Alpha' of 'FeatureX' is not assigned.</p>
+  <p>This can only be seen if variant 'Alpha' of 'FeatureX' isn't assigned.</p>
 </feature>
 ```
 
@@ -815,7 +815,7 @@ The `Recurrence` settings are made up of two parts: `Pattern` (how often the tim
 
 #### Recurrence Pattern
 
-There are two possible recurrence pattern types: `Daily` and `Weekly`. For example, a time window could repeat "every day", "every 3 days", "every Monday" or "every other Friday". 
+There are two possible recurrence pattern types: `Daily` and `Weekly`. For example, a time window could repeat "every day", "every three days", "every Monday" or "every other Friday". 
 
 Depending on the type, certain fields of the `Pattern` are required, optional, or ignored.
 
@@ -965,7 +965,7 @@ This filter provides the capability to enable a feature for a target audience. A
 
 ### Feature Filter Alias Namespaces
 
-All of the built-in feature filter alias' are in the 'Microsoft' feature filter namespace. This is to prevent conflicts with other feature filters that may share the same alias. The segments of a feature filter namespace are split by the '.' character. A feature filter can be referenced by its fully qualified alias such as 'Microsoft.Percentage' or by the last segment which in the case of 'Microsoft.Percentage' is 'Percentage'.
+All of the built-in feature filter alias' are in the `Microsoft` feature filter namespace. This is to prevent conflicts with other feature filters that may share the same alias. The segments of a feature filter namespace are split by the '.' character. A feature filter can be referenced by its fully qualified alias such as `Microsoft.Percentage` or by the last segment which in the case of `Microsoft.Percentage` is `Percentage`.
 
 ## Targeting
 
@@ -1061,7 +1061,7 @@ When defining an Audience, users and groups can be excluded from the audience. T
 }
 ```
 
-In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It is also enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
+In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It's also enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
 
 :::zone target="docs" pivot="preview-version"
 
@@ -1250,15 +1250,15 @@ In the above example, if the feature is not enabled, the feature manager will as
 
 If the feature is enabled, the feature manager will check the `user`, `group`, and `percentile` allocations in that order to assign a variant. For this particular example, if the user being evaluated is named `Marsha`, in the group named `Ring1`, or the user happens to fall between the 0 and 10th percentile, then the specified variant is assigned to the user. In this case, all of these would return the `Big` variant. If none of these allocations match, the user is assigned the `default_when_enabled` variant, which is `Small`.
 
-Allocation logic is similar to the [Microsoft.Targeting](#microsofttargeting) feature filter, but there are some parameters that are present in targeting that aren't in allocation, and vice versa. The outcomes of targeting and allocation are not related.
+Allocation logic is similar to the [Microsoft.Targeting](#microsofttargeting) feature filter, but there are some parameters that are present in targeting that aren't in allocation, and vice versa. The outcomes of targeting and allocation aren't related.
 
 **Note:** To allow allocating feature variants, you need to register `ITargetingContextAccessor`. This can be done by calling the `WithTargeting<T>` method.
 
 ### Overriding Enabled State with a Variant
 
-You can use variants to override the enabled state of a feature flag. This gives variants an opportunity to extend the evaluation of a feature flag. If a caller is checking whether a flag that has variants is enabled, the feature manager will check if the variant assigned to the current user is set up to override the result. This is done using the optional variant property `status_override`. By default, this property is set to `None`, which means the variant doesn't affect whether the flag is considered enabled or disabled. Setting `status_override` to `Enabled` allows the variant, when chosen, to override a flag to be enabled. Setting `status_override` to `Disabled` provides the opposite functionality, therefore disabling the flag when the variant is chosen. A feature with a `Status` of `Disabled` cannot be overridden.
+You can use variants to override the enabled state of a feature flag. This gives variants an opportunity to extend the evaluation of a feature flag. If a caller is checking whether a flag that has variants is enabled, the feature manager will check if the variant assigned to the current user is set up to override the result. This is done using the optional variant property `status_override`. By default, this property is set to `None`, which means the variant doesn't affect whether the flag is considered enabled or disabled. Setting `status_override` to `Enabled` allows the variant, when chosen, to override a flag to be enabled. Setting `status_override` to `Disabled` provides the opposite functionality, therefore disabling the flag when the variant is chosen. A feature with a `Status` of `Disabled` can't be overridden.
 
-If you are using a feature flag with binary variants, the `status_override` property can be very helpful. It allows you to continue using APIs like `IsEnabledAsync` and `FeatureGateAttribute` in your application, all while benefiting from the new features that come with variants, such as percentile allocation and seed.
+If you're using a feature flag with binary variants, the `status_override` property can be very helpful. It allows you to continue using APIs like `IsEnabledAsync` and `FeatureGateAttribute` in your application, all while benefiting from the new features that come with variants, such as percentile allocation and seed.
 
 ``` javascript
 {
@@ -1291,7 +1291,7 @@ In the above example, the feature is always enabled. If the current user is in t
 
 ### Variants in Dependency Injection
 
-Variant feature flags can be used in conjunction with dependency injection to surface different implementations of a service for different users. This is accomplished through the use of the `IVariantServiceProvider<TService>` interface.
+Variant feature flags can be used in conjunction with dependency injection to surface different implementations of a service for different users. This is accomplished by using the `IVariantServiceProvider<TService>` interface.
 
 ``` C#
 IVariantServiceProvider<IAlgorithm> algorithmServiceProvider;
@@ -1300,7 +1300,7 @@ IVariantServiceProvider<IAlgorithm> algorithmServiceProvider;
 IAlgorithm forecastAlgorithm = await algorithmServiceProvider.GetServiceAsync(cancellationToken); 
 ```
 
-In the snippet above, the `IVariantServiceProvider<IAlgorithm>` will retrieve an implementation of `IAlgorithm` from the dependency injection container. The chosen implementation is dependent upon:
+In the snippet above, the `IVariantServiceProvider<IAlgorithm>` retrieves an implementation of `IAlgorithm` from the dependency injection container. The chosen implementation is dependent upon:
 * The feature flag that the `IAlgorithm` service was registered with.
 * The allocated variant for that feature.
 
@@ -1311,7 +1311,7 @@ services.AddFeatureManagement()
         .WithVariantService<IAlgorithm>("ForecastAlgorithm");
 ```
 
-The call above makes `IVariantServiceProvider<IAlgorithm>` available in the service collection. Implementation(s) of `IAlgorithm` must be added separately via an add method such as `services.AddSingleton<IAlgorithm, SomeImplementation>()`. The implementation of `IAlgorithm` that the `IVariantServiceProvider` uses depends on the `ForecastAlgorithm` variant feature flag. If no implementation of `IAlgorithm` is added to the service collection, then the `IVariantServiceProvider<IAlgorithm>.GetServiceAsync()` will return a task with a *null* result.
+The call above makes `IVariantServiceProvider<IAlgorithm>` available in the service collection. Implementations of `IAlgorithm` must be added separately via an add method such as `services.AddSingleton<IAlgorithm, SomeImplementation>()`. The implementation of `IAlgorithm` that the `IVariantServiceProvider` uses depends on the `ForecastAlgorithm` variant feature flag. If no implementation of `IAlgorithm` is added to the service collection, the `IVariantServiceProvider<IAlgorithm>.GetServiceAsync()` returns a task with a *null* result.
 
 ``` javascript
 {
@@ -1341,7 +1341,7 @@ The variant service provider will use the type names of implementations to match
 
 ## Telemetry
 
-When a feature flag change is deployed, it is often important to analyze its effect on an application. For example, here are a few questions that may arise:
+When a feature flag change is deployed, it's often important to analyze its effect on an application. For example, here are a few questions that may arise:
 
 * Are my flags enabled/disabled as expected?
 * Are targeted users getting access to a certain feature as expected?
@@ -1352,9 +1352,9 @@ These types of questions can be answered through the emission and analysis of fe
 
 ### Enabling Telemetry
 
-By default, feature flags will not have telemetry emitted. To publish telemetry for a given feature flag, the flag *MUST* declare that it is enabled for telemetry emission.
+By default, feature flags don't have telemetry emitted. To publish telemetry for a given feature flag, the flag *MUST* declare that it is enabled for telemetry emission.
 
-For flags defined in `appsettings.json`, that is done by using the `telemetry` property on feature flags.
+For feature flags defined in `appsettings.json`, this is done by using the `telemetry` property.
 
 ``` javascript
 {
@@ -1372,7 +1372,7 @@ For flags defined in `appsettings.json`, that is done by using the `telemetry` p
 }
 ```
 
-The appsettings snippet above defines a feature flag named `MyFeatureFlag` that is enabled for telemetry. This is indicated by the `telemetry` object which sets `enabled` to true. The value of the `enabled` property must be `true` to publish telemetry for the flag.
+The appsettings snippet above defines a feature flag named `MyFeatureFlag` that is enabled for telemetry. This is indicated by the `telemetry` object that sets `enabled` to true. The value of the `enabled` property must be `true` to publish telemetry for the flag.
 
 The `telemetry` section of a feature flag has the following properties:
 
@@ -1383,7 +1383,7 @@ The `telemetry` section of a feature flag has the following properties:
 
 ### Custom Telemetry Publishers
 
-Custom handling of feature flag telemetry is made possible by implementing an `ITelemetryPublisher` and registering it in the feature manager. Whenever a feature flag that has telemetry enabled is evaluated the registered telemetry publisher will get a chance to publish the corresponding evaluation event.
+Custom handling of feature flag telemetry is made possible by implementing an `ITelemetryPublisher` and registering it in the feature manager. Whenever a feature flag that has telemetry enabled is evaluated, the registered telemetry publisher gets a chance to publish the corresponding evaluation event.
 
 ``` C#
 public interface ITelemetryPublisher
@@ -1394,7 +1394,7 @@ public interface ITelemetryPublisher
 
 The `EvaluationEvent` type can be found [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement/Telemetry/EvaluationEvent.cs) for reference.
 
-Registering telemetry publishers is done when calling `AddFeatureManagement()`. Here is an example setting up feature management to emit telemetry with an implementation of `ITelemetryPublisher` called `MyTelemetryPublisher`.
+Registering telemetry publishers is done when calling `AddFeatureManagement()`. Here's an example setting up feature management to emit telemetry with an implementation of `ITelemetryPublisher` called `MyTelemetryPublisher`.
 
 ``` C#
 builder.services
@@ -1412,7 +1412,7 @@ builder.services
     .AddTelemetryPublisher<ApplicationInsightsTelemetryPublisher>();
 ```
 
-**Note:** The base `Microsoft.FeatureManagement` package does not include this telemetry publisher.
+**Note:** The base `Microsoft.FeatureManagement` package doesn't include this telemetry publisher.
 
 An example of its usage can be found in the [EvaluationDataToApplicationInsights](https://github.com/microsoft/FeatureManagement-Dotnet/tree/preview/examples/EvaluationDataToApplicationInsights) example.
 
