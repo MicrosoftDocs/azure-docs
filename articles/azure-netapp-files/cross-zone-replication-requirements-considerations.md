@@ -34,6 +34,26 @@ This article describes requirements and considerations about [using the volume c
 * Data replication volumes support [customer-managed keys](configure-customer-managed-keys.md).
 * [Large volumes](large-volumes-requirements-considerations.md) are supported with cross-zone replication only with an hourly or daily replication schedule.
 
+## Large volumes configuration
+
+[Large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) are supported in cross-zone replication. You must [first register for the large volumes feature](large-volumes-requirements-considerations.md#register-the-feature) then register to use large volumes with cross-zone replication:
+
+1.  Register the feature by running the following commands:
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumesCRR
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumesCRR
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
 ## Next steps
 * [Understand cross-zone replication](cross-zone-replication-introduction.md)
 * [Create cross-zone replication relationships](create-cross-zone-replication.md)

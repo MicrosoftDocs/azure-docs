@@ -18,7 +18,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Large volumes](large-volumes-requirements-considerations.md) are now generally available (GA).
 
-    Cross-zone replication and cross-region replication now support large volumes. 
+    [Cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md)) now support large volumes. 
 
 * [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) (Preview)
 
