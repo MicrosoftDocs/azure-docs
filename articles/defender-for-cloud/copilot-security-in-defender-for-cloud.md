@@ -10,35 +10,13 @@ ms.topic: concept-article
 
 # Copilot for Security in Defender for Cloud
 
-Microsoft Copilot for Security is a generative AI-powered security solution that helps increase the efficiency and capabilities of defenders to improve security outcomes at machine speed and scale. Copilot for Security provides a natural language, assistive experience that support security professionals in end-to-end scenarios such as incident response, threat hunting, intelligence gathering, and posture management.
+Microsoft Copilot for Security is a cloud-based AI platform that provides natural language copilot experience. It can help support security professionals to understand the context of a recommendation, the impact of implementing a recommendation, and assist with remediating or delegating a recommendation. For more information about what it can do, go to [What is Microsoft Copilot for Security?](/copilot/security/microsoft-security-copilot)
 
-Microsoft Defender for Cloud has integrated Copilot into the security experience in order to provide users with the ability to ask questions and get answers in natural language. Copilot can help you understand the context of a recommendation, the impact of implementing a recommendation, and the steps to take to implement a recommendation. Copilot can also help you understand the security posture of your organization and the impact of implementing a recommendation on your security posture.
+**Copilot for Security integrates with Microsoft Defender for Cloud**
 
-## How does Copilot for Security work?
+Microsoft Defender for Cloud's integration with Copilot for Security enables users to understand the security posture of connected environments and understand and assist with the remediation process of those recommendations.
 
-Microsoft Copilot for Security capabilities can be accessed through an immersive standalone experience and through intuitive embedded experiences available in other Microsoft security products. The foundation language model and proprietary Microsoft technologies work together in an underlying system that helps increase the efficiency and capabilities of defenders.
-
-- Microsoft security solutions such as Microsoft Defender XDR, Microsoft Sentinel, Microsoft Intune integrate seamlessly with Copilot for Security. There are some embedded experiences available in Microsoft security solutions that give access to Copilot for Security and prompting capabilities in the context of their work within those solutions.
-
-- Plugins from Microsoft and third-party security products are a means to extend and integrate services with Copilot for Security. Plugins bring more context from event logs, alerts, incidents, and policies from both Microsoft security products and supported third-party solutions such as ServiceNow.
-
-- Copilot for Security also has access to threat intelligence and authoritative content through plugins. These plugins can search across Microsoft Defender Threat Intelligence articles and intel profiles, Microsoft Defender XDR threat analytics reports, and vulnerability disclosure publications, among others.
-
-    :::image type="content" source="media/copilot-security-in-defender-for-cloud/security-copilot-diagram.png" alt-text="Image of how Copilot for Security works." lightbox="media/security-copilot-diagram.png":::
-
-Here's an explanation of how Microsoft Copilot for Security works:
-
-- User prompts from security products are sent to Copilot for Security.
-
-- Copilot for Security then preprocesses the input prompt through an approach called grounding, which improves the specificity of the prompt to help you get answers that are relevant and actionable to your prompt. Copilot for Security accesses plugins for preprocessing, then sends the modified prompt to the language model.
-
-- Copilot for Security takes the response from the language model and post-processes it. This post-processing includes accessing plugins to gain contextualized information.
-
-- Copilot for Security returns the response, where the user can review and assess the response.
-
-Copilot for Security iteratively processes and orchestrates these sophisticated services to help produce results that are relevant to your organization because they're contextually based on your organizational data.
-
-## How Copilot for Security works  in Defender for Cloud
+## How Copilot for Security works in Defender for Cloud
 
 Defender for Cloud has integrated copilot into the recommendation experience by allowing you to analyze your recommendations with Copilot.
 
@@ -60,4 +38,7 @@ By selecting summarize with Copilot, you are presented a quick summary of the re
 
 ## Related content
 
-- [Review recommendations with Copilot](review-with-copilot.md)
+- [Analyze recommendations with Copilot for Security](analyze-with-copilot.md)
+- [Summarize recommendations wih Copilot for Security](summarize-with-copilot.md)
+- Remediate recommendations with Copilot for Security
+- Delegate recommendations with Copilot for Security
