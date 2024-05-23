@@ -91,6 +91,8 @@ The following URLs and ports are required for the provisioning of dev boxes and 
 - prau01.prod.cpcgateway.trafficmanager.net
 
 # [Dev box communication endpoints](#tab/DevBox)
+- .agentmanagement.dc.azure.com
+
 - endpointdiscovery.cmdagent.trafficmanager.net
 - registration.prna01.cmdagent.trafficmanager.net
 - registration.preu01.cmdagent.trafficmanager.net
