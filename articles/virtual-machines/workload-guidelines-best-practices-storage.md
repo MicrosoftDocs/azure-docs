@@ -23,7 +23,6 @@ Storage for HPC workloads consists of core storage and in some cases, an acceler
 
 Core storage acts as the permanent home for your data. It contains rich data management features and is durable, available, scalable, elastic, and secure. An accelerator enhances core storage by providing high-performance data access. An accelerator can be provisioned on demand and gives your computational workload much faster access to data.
 
-<!--- :::image type="content" source="media/hpc/core-accelarator-model-for-hpc-storage.png" alt-text="Diagram depicting storage options for HPC workloads." lightbox="media/hpc/core-accelarator-model-for-hpc-storage.png"::: --->
 
 ## Initial consideration
 
