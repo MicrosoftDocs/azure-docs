@@ -1131,6 +1131,8 @@ items:
               href: resources/troubleshooting/voice-video-calling/video-issues/video-is-frozen.md
         - name: References
           items:
+          - name: How to collect call info
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-call-info.md
           - name: How to collect client logs
             href: resources/troubleshooting/voice-video-calling/references/how-to-collect-client-logs.md
           - name: How to collect diagnostic audio recordings from the browser
