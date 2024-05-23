@@ -1,7 +1,7 @@
 ---
 title: Fine-tune Llama models in Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to fine-tune Llama models in Azure AI Studio.
+description: Learn how to fine-tune Meta Llama models in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
@@ -13,7 +13,7 @@ author: ssalgadodev
 ms.custom: references_regions, build-2024
 ---
 
-# Fine-tune Llama models in Azure AI Studio
+# Fine-tune Meta Llama models in Azure AI Studio
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
@@ -250,9 +250,9 @@ You can delete a fine-tuned model from the fine-tuning model list in [Azure AI S
 
 ## Cost and quotas
 
-### Cost and quota considerations for Llama models fine-tuned as a service
+### Cost and quota considerations for Meta Llama models fine-tuned as a service
 
-Llama models fine-tuned as a service are offered by Meta through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when [deploying](./deploy-models-llama.md) or fine-tuning the models.
+Meta Llama models fine-tuned as a service are offered by Meta through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when [deploying](./deploy-models-llama.md) or fine-tuning the models.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 
