@@ -103,7 +103,7 @@ In the last section, you configured two policies: `hiveuser1` has the select per
 
 1. For the first use, an **ODBC driver** dialog opens. Select **Windows** from the left menu. Then select **Connect** to open the **Navigator** window.
 
-1. Wait for the **Select Database and Table** dialog to open. This step can take a few seconds.
+1. Wait for the `Select Database and Table` dialog to open. This step can take a few seconds.
 
 1. Select **hivesampletable** > **Next**.
 
@@ -146,7 +146,7 @@ To test the second policy (read-hivesampletable-devicemake) that you created in 
     SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
     ```
 
-    When it's finished, you see two columns of imported data.
+    When finished, you see two columns of imported data.
 
 ## Next steps
 

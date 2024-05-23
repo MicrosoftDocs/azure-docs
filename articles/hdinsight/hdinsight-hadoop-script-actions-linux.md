@@ -34,7 +34,7 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 * [Target the Apache Hadoop version](#bPS1)
 * [Target the OS Version](#bps10)
 * [Provide stable links to script resources](#bPS2)
-* [Use pre-compiled resources](#bPS4)
+* [Use precompiled resources](#bPS4)
 * [Ensure that the cluster customization script is idempotent](#bPS3)
 * [Ensure high availability of the cluster architecture](#bPS5)
 * [Configure the custom components to use Azure Blob storage](#bPS6)
@@ -68,7 +68,7 @@ fi
 
 ### <a name="bps10"></a> Target the operating system version
 
-HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may change how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Versions 3.5 and greater are based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
+HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may change how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Versions 3.5 and greater are based on Ubuntu 16.04, which uses `Systemd`. `Systemd` and Upstart rely on different commands, so your script should be written to work with both.
 
 Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8. The following code demonstrates how to determine if the script is running on Ubuntu 14 or 16:
 
@@ -105,7 +105,7 @@ You can find the full script that contains these snippets at https://hdiconfigac
 
 For the version of Ubuntu that is used by HDInsight, see the [HDInsight component version](hdinsight-component-versioning.md) document.
 
-To understand the differences between Systemd and Upstart, see [Systemd for Upstart users](https://wiki.ubuntu.com/SystemdForUpstartUsers).
+To understand the differences between `Systemd` and Upstart, see [`Systemd` for Upstart users](https://wiki.ubuntu.com/SystemdForUpstartUsers).
 
 ### <a name="bPS2"></a>Provide stable links to script resources
 
@@ -118,15 +118,15 @@ The best practice is to download and archive everything in an Azure Storage acco
 
 For example, the samples provided by Microsoft are stored in the `https://hdiconfigactions.blob.core.windows.net/`  storage account. This location is a public, read-only container maintained by the HDInsight team.
 
-### <a name="bPS4"></a>Use pre-compiled resources
+### <a name="bPS4"></a>Use precompiled resources
 
-To reduce the time it takes to run the script, avoid operations that compile resources from source code. For example, pre-compile resources and store them in an Azure Storage account blob in the same data center as HDInsight.
+To reduce the time it takes to run the script, avoid operations that compile resources from source code. For example, precompile resources and store them in an Azure Storage account blob in the same data center as HDInsight.
 
 ### <a name="bPS3"></a>Ensure that the cluster customization script is idempotent
 
 Scripts must be idempotent. If the script runs multiple times, it should return the cluster to the same state every time.
 
-For example, a script that modifies configuration files shouldn't add duplicate entries if ran multiple times.
+If the script runs multiple times, the script modifies configuration files shouldn't add duplicate entries.
 
 ### <a name="bPS5"></a>Ensure high availability of the cluster architecture
 
@@ -181,7 +181,7 @@ line 1: #!/usr/bin/env: No such file or directory
 
 ### <a name="bps9"></a> Use retry logic to recover from transient errors
 
-When downloading files, installing packages using apt-get, or other actions that transmit data over the internet, the action may fail because of transient networking errors. For example, the remote resource you're communicating with may be in the process of failing over to a backup node.
+When you download files, installing packages using apt-get, or other actions that transmit data over the internet, the action may fail because of transient networking errors. For example, the remote resource you're communicating with may be in the process of failing over to a backup node.
 
 To make your script resilient to transient errors, you can implement retry logic. The following function demonstrates how to implement retry logic. It retries the operation three times before failing.
 

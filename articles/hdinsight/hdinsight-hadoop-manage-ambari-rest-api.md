@@ -1,6 +1,6 @@
 ---
 title: Monitor and manage Hadoop with Ambari REST API - Azure HDInsight
-description: Learn how to use Ambari to monitor and manage Hadoop clusters in Azure HDInsight. In this document, you'll learn how to use the Ambari REST API included with HDInsight clusters.
+description: Learn how to use Ambari to monitor and manage Hadoop clusters in Azure HDInsight. In this document, you learn how to use the Ambari REST API included with HDInsight clusters.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -21,7 +21,7 @@ Apache Ambari simplifies the management and monitoring of Hadoop clusters by pro
 
 * A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* Bash on Ubuntu on Windows 10.  The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.  The examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use Windows PowerShell.
+* Bash on Ubuntu on Windows 10.  The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) works as well.  The examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use Windows PowerShell.
 
 * jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
@@ -41,10 +41,10 @@ For Enterprise Security Package clusters, instead of `admin`, use a fully qualif
 
 ### Setup (Preserve credentials)
 
-Preserve your credentials to avoid reentering them for each example.  The cluster name will be preserved in a separate step.
+Preserve your credentials to avoid reentering them for each example.  The cluster name preserved in a separate step.
 
 **A. Bash**  
-Edit the script below by replacing `PASSWORD` with your actual password.  Then enter the command.
+Edit the script by replacing `PASSWORD` with your actual password.  Then enter the command.
 
 ```bash
 export password='PASSWORD'
@@ -58,9 +58,9 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 
 ### Identify correctly cased cluster name
 
-The actual casing of the cluster name may be different than you expect.  The steps here will show the actual casing, and then store it in a variable for all later examples.
+The actual casing of the cluster name may be different than you expect.  The following steps show the actual casing, and then store it in a variable for all later examples.
 
-Edit the scripts below to replace `CLUSTERNAME` with your cluster name. Then enter the command. (The cluster name for the FQDN isn't case-sensitive.)
+Edit the scripts to replace `CLUSTERNAME` with your cluster name. Then enter the command. (The cluster name for the FQDN isn't case-sensitive.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -185,7 +185,7 @@ foreach($item in $respObj.items) {
 
 ### Get the default storage
 
-HDInsight clusters must use an Azure Storage Account or Data Lake Storage as the default storage. You can use Ambari to retrieve this information after the cluster has been created. For example, if you want to read/write data to the container outside HDInsight.
+HDInsight clusters must use an Azure Storage Account or Data Lake Storage as the default storage. You can use Ambari to retrieve this information after the cluster created. For example, if you want to read/write data to the container outside HDInsight.
 
 The following examples retrieve the default storage configuration from the cluster:
 
@@ -202,7 +202,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 ```
 
 > [!IMPORTANT]  
-> These examples return the first configuration applied to the server (`service_config_version=1`) which contains this information. If you retrieve a value that has been modified after cluster creation, you may need to list the configuration versions and retrieve the latest one.
+> These examples return the first configuration applied to the server (`service_config_version=1`) which contains this information. If you retrieve a value that modified after cluster creation, you may need to list the configuration versions and retrieve the latest one.
 
 The return value is similar to one of the following examples:
 
@@ -297,7 +297,7 @@ This example returns a JSON document containing the current configuration for th
 ### Update configuration
 
 1. Create `newconfig.json`.  
-   Modify, and then enter the commands below:
+   Modify, and then enter the commands as follows:
 
    * Replace `livy2-conf` with the new component.
    * Replace `INITIAL` with actual value retrieved for `tag` from [Get all configurations](#get-all-configurations).
@@ -310,7 +310,7 @@ This example returns a JSON document containing the current configuration for th
      ```
 
      **B. PowerShell**  
-     The PowerShell script uses [jq](https://stedolan.github.io/jq/).  Edit `C:\HD\jq\jq-win64` below to reflect your actual path and version of [jq](https://stedolan.github.io/jq/).
+     The PowerShell script uses [jq](https://stedolan.github.io/jq/).  Edit `C:\HD\jq\jq-win64` to reflect your actual path and version of [jq](https://stedolan.github.io/jq/).
 
      ```powershell
      $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
@@ -385,7 +385,7 @@ This example returns a JSON document containing the current configuration for th
 
 At this point, the Ambari web UI indicates the Spark service  needs to be restarted before the new configuration can take effect. Use the following steps to restart the service.
 
-1. Use the following to enable maintenance mode for the Spark2 service:
+1. Use the following to enable maintenance mode for the Spark 2 service:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -420,7 +420,7 @@ At this point, the Ambari web UI indicates the Spark service  needs to be restar
 
     The return value is `ON`.
 
-3. Next, use the following to turn off the Spark2 service:
+3. Next, use the following to turn off the Spark 2 service:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -453,7 +453,7 @@ At this point, the Ambari web UI indicates the Spark service  needs to be restar
     > The `href` value returned by this URI is using the internal IP address of the cluster node. To use it from outside the cluster, replace the `10.0.0.18:8080` portion with the FQDN of the cluster.  
 
 4. Verify request.  
-    Edit the command below by replacing `29` with the actual value for `id` returned from the  prior step.  The following commands retrieve the status of the request:
+    Edit the command by replacing `29` with the actual value for `id` returned from the  prior step.  The following commands retrieve the status of the request:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -468,9 +468,9 @@ At this point, the Ambari web UI indicates the Spark service  needs to be restar
     $respObj.Requests.request_status
     ```
 
-    A response of `COMPLETED` indicates that the request has finished.
+    A response of `COMPLETED` indicates that the request finished.
 
-5. Once the previous request completes, use the following to start the Spark2 service.
+5. Once the previous request completes, use the following to start the Spark 2 service.
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
