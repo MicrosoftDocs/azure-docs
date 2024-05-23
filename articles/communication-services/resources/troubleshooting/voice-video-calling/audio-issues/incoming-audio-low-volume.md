@@ -32,8 +32,16 @@ If the `audioOutputLevel` value is low, this is likely that the volume sent by t
 To troubleshoot this issue, users should investigate why the audio input volume is low on the sender's side.
 This problem could be due to various factors, such as microphone settings, or hardware issues.
 
-If the `audioOutputLevel` value appears normal, the issue may be related to system volume settings or speaker issues on the receiver's side.
 Users can check their device's volume settings and speaker output to ensure that they're set to an appropriate level.
+If the `audioOutputLevel` value appears normal, the issue may be related to system volume settings or speaker issues on the receiver's side.
+
+For example, if the user uses Windows, they should check the volume mixer settings and apps volume settings.
+
+:::image type="content" source="./media/apps-volume-mixer.png" alt-text="Screenshot of volume mixer.":::
+
+Below is a flow diagram of the debugging process for this issue.
+
+:::image type="content" source="./media/low-volume-debugging.png" alt-text="Diagram of debugging the low volume issue.":::
 
 ### Using Web Audio GainNode to increase the volume
 It may be possible to address this issue at the application layer using Web Audio GainNode.
