@@ -2,7 +2,7 @@
 title: "Azure HPC workload best practices guide"
 description: A comprehensive guide to choosing a storage solution best suited to your HPC workloads.
 author: christinechen2
-ms.author: christchen
+ms.author: padmalathas
 ms.reviewer: normesta
 ms.date: 05/09/2024
 ms.service: virtual-machines
@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 <!-- [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)] -->
 
-This guide provides best practices and guidelines to a storage solution that is best suited to your high-performance computing (HPC) workload..
+This guide provides best practices and guidelines to a storage solution that is best suited to your high-performance computing (HPC) workload.
 
 There's typically a trade-off between optimizing for costs and optimizing for performance. This workload best practices series is focused on getting the *best* storage solution for HPC workloads on Azure VMs. If your workload is less demanding, you might not require every recommended optimization. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
@@ -51,10 +51,10 @@ If you are still stuck between options after using the decision trees, here are 
 |Solution |Optimal Performance & Scale |Data Access (Access Protocol) |Billing Model |Core Storage or Accelerator |
 |---|---|---|---|---|
 | [**Azure Standard Blob**](/azure/storage/blobs/) | Good for large file, bandwidth-intensive workloads. | Good for traditional (file) and cloud-native (REST) HPC apps. Easy to access, share, manage datasets. Works with all accelerators. | Pay for what you use. | Core Storage. |
-| [**Azure Premium Blob**](/azure/storage/blobs/storage-blob-block-blob-premium) | IOPS and latency better than Standard Blob. Good for datasets with many medium-sized files and mixed file sizes.  | Good for traditional (file) and cloud-native (REST) HPC apps. Easy to access, share, manage datasets. Works with all accelerators. | Pay for what you use. | Core Storage. |
-| [**Azure Premium Files**](/azure/storage/files/) | Capacity and bandwidth suited for smaller scale (<1k cores). IOPS and latency good for medium sized files (>512 KiB). | Easy integration with Linux (NFS) and Windows (SMB), but can't use both NFS+SMB to access the same data. | Pay for what you provision. | Core Storage. |
-| [**Azure NetApp Files**](/azure/azure-netapp-files/) | Capacity and bandwidth good for midrange jobs (1k-10k cores). IOPS and latency good for small-file datasets (<512 KiB). Excellent for small, many-file workloads. | Easy to integrate for Linux and Windows, supports multiprotocol for workflows using both Linux + Windows. | Pay what you provision. | Either. |
-| [**Azure Managed Lustre**](/azure/azure-managed-lustre/) | Bandwidth to support all job sizes (1k - >10k cores). IOPS and latency good for thousands of medium-sized files (>512 KiB). Best for bandwidth-intensive read and write workloads. | Lustre, CSI. | Pay for what you provision. | Durable enough to run as standalone (core) storage, most cost-effective as an accelerator. |
+| [**Azure Premium Blob**](/azure/storage/blobs/storage-blob-block-blob-premium) | IOPS and latency better than Standard Blob. <br><br> Good for datasets with many medium-sized files and mixed file sizes.  | Good for traditional (file) and cloud-native (REST) HPC apps. <br><br> Easy to access, share, manage datasets. Works with all accelerators. | Pay for what you use. | Core Storage. |
+| [**Azure Premium Files**](/azure/storage/files/) | Capacity and bandwidth suited for smaller scale (<1k cores). <br><br> IOPS and latency good for medium sized files (>512 KiB). | Easy integration with Linux (NFS) and Windows (SMB), but can't use both NFS+SMB to access the same data. | Pay for what you provision. | Core Storage. |
+| [**Azure NetApp Files**](/azure/azure-netapp-files/) | Capacity and bandwidth good for midrange jobs (1k-10k cores). <br><br> IOPS and latency good for small-file datasets (<512 KiB). <br><br>Excellent for small, many-file workloads. | Easy to integrate for Linux and Windows, supports multiprotocol for workflows using both Linux + Windows. | Pay what you provision. | Either. |
+| [**Azure Managed Lustre**](/azure/azure-managed-lustre/) | Bandwidth to support all job sizes (1k - >10k cores). <br><br> IOPS and latency good for thousands of medium-sized files (>512 KiB). <br><br> Best for bandwidth-intensive read and write workloads. | Lustre, CSI. | Pay for what you provision. | Durable enough to run as standalone (core) storage, most cost-effective as an accelerator. |
 
 ## Core storage price comparison
 
