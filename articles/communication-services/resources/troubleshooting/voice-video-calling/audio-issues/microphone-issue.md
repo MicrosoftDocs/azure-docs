@@ -42,3 +42,7 @@ For example, a hardware mute button of some headset models can trigger this even
 The application should listen to the [User Facing Diagnostics API](../../../../concepts/voice-video-calling/user-facing-diagnostics.md) events.
 The application should display a warning message when receiving events.
 By doing so, the user is aware of the issue and can troubleshoot by switching to a different microphone device or by unplugging and plugging in their current microphone device.
+
+Below is a flow diagram of the debugging process for this issue.
+
+:::image type="content" source="./media/microphone-issue-debugging.png" alt-text="Diagram of debugging the microphone issue.":::
