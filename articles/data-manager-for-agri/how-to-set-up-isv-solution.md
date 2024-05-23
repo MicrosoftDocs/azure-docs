@@ -5,7 +5,7 @@ author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: how-to
-ms.date: 09/01/2023
+ms.date: 05/23/2024
 ms.custom: template-how-to
 ---
 
@@ -49,7 +49,7 @@ A high level view of how you can create a new request and get responses from the
 2. If the request is valid, the Data Manager creates a PUT request to ISV Partners solution API.
 3. The ISV solution then makes a GET request to the weather service in data manager that is required for processing.
 4. The ISV solution completes the processing the request and submits a response back to the Data Manager.
-    * If there's any error when this request is submitted, then you may have to verify the configuration and parameters. If you're unable to resolve the issue then contact us at madma@microsoft.com
+    * If there's any error when this request is submitted, then you may have to verify the configuration and parameters. If you're unable to resolve the issue then reach out to us by creating a [support ticket](how-to-create-azure-support-request.md).
 5. Now you make a call to Data Manager using the Job ID to get the final response.
     *  If the request processing is completed by the ISV Solution, you get the insight response back.  
     * If the request processing is still in progress, you get the  message “Processing in progress”

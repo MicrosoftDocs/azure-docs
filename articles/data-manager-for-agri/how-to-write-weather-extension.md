@@ -649,4 +649,4 @@ In the below example, to pick the precipitation of `"type": "RAIN"` this functio
 * **GetValueFromObject(string jsonString, string key)** - Given a json object as string, it gets the value based on key.
 
 > [!NOTE]
-> If the extension you are writing requires additional helper functions to parse the API response write to us at madma@microsoft.com
+> If the extension you are writing requires additional helper functions to parse the API response then reach out to us by creating a [support ticket](how-to-create-azure-support-request.md).
