@@ -196,7 +196,7 @@ This script using Node starts an HTTP server and hosts the `index.html` file and
 
 ![Home page of js bundle sample app](../media/calling-widget/js-bundle-splash.png)
 
-Clicking the `start call` button seen in the [UI Library `CallComposite`](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-basicexample--basic-example)  will initiate a call to your Teams voice app.
+Click the `start call` button seen in the [UI Library `CallComposite`](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-basicexample--basic-example) to initiate a call to your Teams voice app.
 
 ## Next steps
 
