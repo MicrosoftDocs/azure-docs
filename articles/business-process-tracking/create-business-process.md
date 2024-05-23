@@ -15,7 +15,7 @@ ms.date: 06/07/2024
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-After you create an integration environment and an application group with existing Azure resources, you can add business information about these resources by adding flow charts for the business processes that these resources implement. A business process is a sequence of stages that show the flow through a real-world business scenario. This business process also specifies a single business identifer, such as a ticket number, order number, case number, and so on, to identify a transaction that's available across all the stages in the business process and to correlate those stages together.
+You can add business information about Azure resources in your integration solution by creating flow charts for the business processes that these resources implement. A business process is a sequence of stages that show the flow through a real-world business scenario. This business process also specifies a single business identifer or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that's available across all the stages in the business process and to correlate those stages together.
 
 If your organization wants to capture and track key business data that moves through a business process stage, you can define the specific business properties to capture so that you can later map these properties to operations and data in Standard logic app workflows. For more information, see [What is Azure Integration Environments](overview.md)?
 
@@ -23,7 +23,7 @@ For example, suppose you're a business analyst at a power company. Your company'
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
-For each application group, you can use the process designer to add a flow chart that visually describes this business process, for example:
+After you create a **Business Process** resource in Azure, you can use the process designer to create a flow chart that visually describes this business process, for example:
 
 :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
@@ -33,36 +33,65 @@ Although this example shows a sequential business process, your process can also
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [integration environment](create-integration-environment.md) that includes at least one [application group](create-application-group.md) with the Azure resources for your integration solution
+- An existing or new [Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database)
+
+  This Azure resource is required to store the business property values, or transactions, that you want capture and track throughout your business process and across your workflows. When you create a business process, you specify the cluster, database, and table to use for storing the desired data.
+
+  > [!NOTE]
+  >
+  > Although Business Process Tracking doesn't incur charges during preview, Azure Data 
+  > Explorer incurs charges, based on the selected pricing option. For more information, see 
+  > [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
 
 ## Create a business process
 
-1. In the [Azure portal](https://portal.azure.com), find and open your integration environment.
+1. In the [Azure portal](https://portal.azure.com) search box, enter and select **Business Process Tracking**.
 
-1. On your integration environment menu, under **Environment**, select **Applications**.
+   :::image type="content" source="media/create-business-process/select-business-process-tracking.png" alt-text="Screenshot shows Azure portal search box with business process tracking entered." lightbox="media/create-business-process/select-business-process-tracking.png":::
 
-1. On the **Applications** page, select an application group.
+1. On the **Business Process Tracking** toolbar, select **Create**.
 
-1. On the application group menu, under **Business process tracking**, select **Business processes**.
-
-1. On the **Business processes** toolbar, select **Create**.
-
-   :::image type="content" source="media/create-business-process/create-business-process.png" alt-text="Screenshot shows Azure portal, application group, and business processes toolbar with Create new selected." lightbox="media/create-business-process/create-business-process.png":::
-
-1. On the **Create business process** pane, provide the following information:
+1. On the **Create business process** page, on the **Basics** tab, provide the following information:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Name** | Yes | <*process-name*> | Name for your business process that uses only alphanumeric characters, hyphens, underscores, parentheses, or periods. <br><br>**Note**: When you deploy your business process, the platform uses this name to create a table in the Data Explorer database that's associated with your application group. Although you can use the same name as an existing table, which updates that table, for security purposes, create a unique and separate table for each business process. This practice helps you avoid mixing sensitive data with non-sensitive data and is useful for redeployment scenarios. <br><br>This example uses **Resolve-Power-Outage**. |
-   | **Description** | No | <*process-description*> | Purpose for your business process |
-   | **Business identifier** | Yes | <*business-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. <br><br>This example uses the **TicketNumber** property value as the identifier. |
-   | **Type** | Yes | <*ID-data-type*> | Data type for your business identifier: **String** or **Integer**. <br><br>This example uses the **String** data type. |
+   | **Subscription** | Yes | <*Azure-subscription*> | The Azure subscription to use for your business process. |
+   | **Resource group** | Yes | <*Azure-resource-group-name*> | A new or existing Azure resource group. <br><br>This example uses **City-Power-and-Light-RG**. |
+   | **Business process name** | Yes | <*process-name*> | A name for your business process that uses only alphanumeric characters, hyphens, underscores, parentheses, or periods. <br><br>This example uses **Resolve-Power-Outage**. |
+   | **Description** | No | <*process-description*> | The purpose for your business process |
+   | **Region** | Yes | <*Azure-region*> | The Azure region for your business process. |
 
    The following example shows the information for the sample business process:
 
-   :::image type="content" source="media/create-business-process/business-process-details.png" alt-text="Screenshot shows pane for Create business process." lightbox="media/create-business-process/business-process-details.png":::
+   :::image type="content" source="media/create-business-process/business-process-details.png" alt-text="Screenshot shows page for Create business process with Basics tab selected." lightbox="media/create-business-process/business-process-details.png":::
 
-1. When you're done, select **Create**.
+1. When you're done, select **Next: Transaction ID**. On the **Transaction ID** tab, provide the following information:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. <br><br>This example uses the **TicketNumber** property value as the identifier. |
+   | **Data type** | Yes | <*ID-data-type*> | The data type for your business identifier: **String** or **Integer**. <br><br>This example uses the **String** data type. |
+
+   > [!NOTE]
+   >
+   > Although you can define only a single transaction ID when you create a business process, 
+   > you can later define more transaction IDs to track when you add a stage to your business process.
+
+   The following example shows the sample transaction ID:
+
+   :::image type="content" source="media/create-business-process/define-transaction-id.png" alt-text="Screenshot shows page for Create business process page with Transaction Id tab selected." lightbox="media/create-business-process/define-transaction-id.png":::
+
+1. When you're done, select **Next: Data storage**. On the **Data storage** tab, provide the following information:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Subscription** | Yes | <*Azure-subscription*> | The Azure subscription for your Data Explorer instance |
+   | **Cluster** | Yes | <*cluster-name*> | The name for the cluster in your Data Explorer instance. |
+   | **Database** | Yes | <*database-name*> | The name for the database in your Data Explorer instance. |
+   | **Table** | Yes | <*table-name*> | The name for the table to create or use. To update an existing table, select the option to **Use an existing table**. <br><br>**Note**: Although you can use the same name as an existing table, which updates that table, for security purposes, create a unique and separate table for each business process. This practice helps you avoid mixing sensitive data with non-sensitive data and is useful for redeployment scenarios. |
+   | **Use an existing table** | No | Enabled or disabled | To update an existing table, select this option. |
+
+1. When you're done, select **Review + create**.
 
    The **Business processes** list now includes the business process that you created.
 

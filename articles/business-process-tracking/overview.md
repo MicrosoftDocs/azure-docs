@@ -15,66 +15,11 @@ ms.date: 06/07/2024
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-As a developer who works on solutions that integrate services and systems in the cloud, on premises, or both, you often have multiple or different Azure resources to implement your solutions. If you have many Azure resources across various solutions, you might struggle to find and manage these resources across the Azure portal and to keep these resources organized per solution.
-
-Azure Integration Environments simplifies this complexity by providing a central area in the Azure portal where you can create *integration environments* to help you organize and manage your deployed Azure resources. Within an integration environment, you create application groups to further arrange resources into smaller collections.
-
-For example, your integration environments might be based on your organization's business units, such as Operations, Customer Service, or Finance. Or, your environments might be based on your infrastructure landscapes for development, test, staging, and production. Your application groups might be based on a specific business or customer scenario, such as employee onboarding, order processing, bank reconciliation, shipping notifications, and so on.
-
-The following diagram shows how you can organize Azure resources from various Azure services into one or more application groups, based on business or customer scenarios:
-
-:::image type="content" source="media/overview/organize-conceptual.png" alt-text="Conceptual diagram that shows organizing separate Azure resources into application groups based on business or customer scenario." lightbox="media/overview/organize-conceptual.png":::
-
-For more information, see [Central organization and management](#central-resource).
-
-As a business analyst, you can include business information about an application group by adding flow charts that show the business processes and stages implemented by the Azure resources in each group. For each business process, you provide a business identifier, such as an order number, case number, or ticket number, for a transaction that's available across all the business stages to correlate these stages together. To get insights about business data flowing through each stage in a business process, you define the key business properties to capture and track in deployed resources. You then map each business stage, the specified business properties, and the business identifier to actual Azure resources and data sources.
+As a business analyst, you can include business information about Azure resources in your integration solution by creating flow charts that show the business processes and stages implemented by the Azure resources. For each business process, you provide a business identifier, such as an order number, case number, or ticket number, for a transaction that's available across all the business stages to correlate these stages together. To get insights about business data flowing through each stage in a business process, you define the key business properties to capture and track in deployed resources. You then map each business stage, the specified business properties, and the business identifier to actual Azure resources and data sources.
 
 The following diagram shows how you can represent a real-world business flow as a business process in an application group, and map each stage in the business process to the Azure resources in the same application group:
 
 :::image type="content" source="media/overview/business-process.png" alt-text="Conceptual diagram that shows a real-world business flow visualized as a business process that maps to Azure resources in an application group." lightbox="media/overview/business-process.png":::
-
-For more information, see [Business process design and tracking](#business-process-design-tracking).
-
-<a name="central-resource"></a>
-
-## Central organization and management
-
-In Azure, an integration environment gives you a centralized way to organize the Azure resources used by your development team to build solutions that integrate the services and systems used by your organization. At the next level in your integration environment, application groups provide a way to sort resources into smaller collections based on specific business scenarios. For example, an integration environment can have many application groups where each group serves a specific purpose such as payroll, order processing, employee onboarding, bank reconciliation, shipping notifications, and so on.
-
-This architecture offers the flexibility for you to create and use integration environments based on your organization's conventions, standards, and principles. For example, you can have integration environments that are based on business units or teams such as Operations, Customer Service, Marketing, Finance, HR, Corporate Services, and so on. Or, you might have integration environments based on infrastructure landscapes such as development, test, staging, user acceptance testing, and production. Regardless how your organization structures itself, integration environments provide the flexibility to meet your organization's needs.
-
-Suppose you're a developer who works on solutions that integrate various services and systems used at a power company. You create an integration environment that contains application groups for the Azure resources that implement the following business scenarios:
-
-| Business scenario | Application group |
-|-------------------|-------------------|
-| Open a new customer account. | **CustomerService-NewAccount** |
-| Resolve a customer ticket for a power outage. | **CustomerService-PowerOutage** |
-
-:::image type="content" source="media/overview/integration-environment.png" alt-text="Screenshot shows Azure portal, integration environment resource, and application groups." lightbox="media/overview/integration-environment.png":::
-
-The **CustomerService-PowerOutage** application group includes following Azure resources:
-
-:::image type="content" source="media/overview/application-group.png" alt-text="Screenshot shows Azure portal, integration environment resource, and an application group with Azure resources." lightbox="media/overview/application-group.png":::
-
-Each expanded Azure resource includes the following components:
-
-:::image type="content" source="media/overview/resource-components.png" alt-text="Screenshot shows Azure portal, each Azure resource and their components." lightbox="media/overview/resource-components.png":::
-
-To get started, see [Create an integration environment](create-integration-environment.md).
-
-<a name="supported-resources"></a>
-
-### Supported Azure resources
-
-The following table lists the currently supported Azure resources that you can include in an application group during this release:
-
-| Azure service | Resources |
-|---------------|-----------|
-| Azure Logic Apps | Standard logic apps |
-| Azure Service Bus | Queues and topics |
-| Azure API Management | APIs |
-
-For more information about other Azure resource types planned for support, see the [Azure Integration Environments preview announcement](https://aka.ms/azure-integration-environments).
 
 <a name="business-process-design-tracking"></a>
 
