@@ -12,9 +12,9 @@ ms.author: jenhayes
 author: JnHs
 ---
 
-# Get information about Azure Monitor metrics and logs using Microsoft Copilot for Azure
+# Get information about Azure Monitor metrics, logs, and alerts using Microsoft Copilot for Azure (preview)
 
-You can ask Microsoft Copilot for Azure (preview) questions about metrics and logs collected by [Azure Monitor](/azure/azure-monitor/).
+You can ask Microsoft Copilot for Azure (preview) questions about metrics and logs collected by [Azure Monitor](/azure/azure-monitor/), and about Azure Monitor alerts.
 
 When you ask Microsoft Copilot for Azure for this information, it automatically pulls context when possible, based on the current conversation or on the page you're viewing in the Azure portal. If the context of a query isn't clear, you'll be prompted to specify the resource for which you want information.
 
@@ -50,6 +50,21 @@ Here are a few examples of the kinds of prompts you can use to get information a
 - "Show me container logs that include word 'error' for the last day for namespace 'xyz'"
 - "Check in logs which containers keep restarting"
 - "Show me all Kubernetes events"
+
+## Answer questions about Azure Monitor alerts
+
+Use Microsoft Copilot for Azure (preview) to ask questions about your Azure Monitor alerts. When asked about alerts, Microsoft Copilot for Azure (preview) summarizes the list of alerts, their severity, and allows you to further explore the data in the alerts page. 
+
+### Sample prompts
+
+Here are a few examples of the kinds of prompts you can use to get information about Azure Monitor alerts. Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
+
+- "Are there any alerts for my resource?"
+- "Tell me more about these alerts. How many critical alerts are there?"
+- "Show me all the alerts in my resource group"
+- "List all the alerts for the subscription"
+- "Show me all alerts triggered during the last 24 hours"
+
 
 ## Next steps
 
