@@ -166,6 +166,8 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_RE
 
 ### [Kubernetes](#tab/kubernetes)
 
+Not available.
+
 ---
 
 The failover may occur if the App Configuration provider observes the following conditions.
