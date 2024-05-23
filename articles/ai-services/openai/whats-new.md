@@ -40,7 +40,6 @@ You can now create messages with the [assistant](.//assistants-reference-message
     * UK South
     * West US
     * West US 3
-    * India South
     * Norway east
 
 For more information, see the [blog post](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/announcing-azure-openai-service-assistants-preview-refresh/ba-p/4143217) about assistants.
