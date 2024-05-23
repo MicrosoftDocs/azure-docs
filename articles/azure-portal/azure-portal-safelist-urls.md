@@ -55,6 +55,7 @@ management.azure.com
 *.ext.azure.com
 *.graph.windows.net
 *.graph.microsoft.com
+*.admin.microsoft.com
 ```
 
 #### Account data
@@ -145,6 +146,7 @@ ux.console.azure.com (Azure Cloud Shell)
 *.usgovtrafficmanager.net
 *.windowsazure.us
 graph.microsoftazure.us
+*.portal.office365.us
 ```
 
 ### [Microsoft Azure operated by 21Vianet Cloud](#tab/azure-china-cloud)
