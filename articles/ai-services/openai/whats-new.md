@@ -40,7 +40,6 @@ You can now create messages with the [assistant](.//assistants-reference-message
     * UK South
     * West US
     * West US 3
-    * India South
     * Norway east
 
 For more information, see the [blog post](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/announcing-azure-openai-service-assistants-preview-refresh/ba-p/4143217) about assistants.
@@ -80,19 +79,6 @@ Prompt Shields protect applications powered by Azure OpenAI models from two type
 ### 2024-05-01-preview API release
 
 - For more information, see the [API version lifecycle](./api-version-deprecation.md).
-
-### GPT-4 Turbo model general availability (GA)
-
-[!INCLUDE [GPT-4 Turbo](./includes/gpt-4-turbo.md)]
-
-### GPT-4o preview model available for early access
-
-GPT-4o ("o is for "omni") is the latest preview model from OpenAI launched on May 13, 2024.
-
-- GPT-4o integrates text, and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions.
-- GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and in vision tasks, setting new benchmarks for AI capabilities.
-
-<!--To start testing out the model today, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).-->
 
 ### GPT-4 Turbo model general availability (GA)
 

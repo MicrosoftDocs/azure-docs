@@ -29,7 +29,7 @@ You may use the HPC images when creating a VM from either Azure Marketplace or A
 
 ### Azure Marketplace
 
-Search for "Ubuntu HPC" by the publisher "Microsoft-DSVM", or "AlmaLinux HPC" by the publisher "AlmaLinux".
+Search for `Ubuntu HPC` by the publisher `Microsoft-DSVM`, or `AlmaLinux HPC` by the publisher `AlmaLinux`.
 
 ### Azure CLI
 

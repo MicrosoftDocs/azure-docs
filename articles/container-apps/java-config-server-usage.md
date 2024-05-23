@@ -1,12 +1,12 @@
 ---
-title: Configure settings for the Spring Cloud Configure Server component in Azure Container Apps (preview)
+title: Configure settings for the Spring Cloud Config Server component in Azure Container Apps (preview)
 description: Learn how to configure a Spring Cloud Config Server component for your container app.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/13/2024
+ms.date: 05/23/2024
 ms.author: cshoe
 ---
 
