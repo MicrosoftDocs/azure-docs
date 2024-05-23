@@ -621,7 +621,7 @@ items:
     href: data-sources.md
   - name: Data collection methods
     items:
-    - name: Azure Monitor pipeline
+    - name: Data collection rules
       items:
       - name: Overview
         displayName: Pipeline
