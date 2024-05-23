@@ -29,7 +29,7 @@ Following this tutorial will:
 These steps **need** to be completed before you can complete the whole experience. Reach out to your Teams administrator if you have questions about setting up the Teams Voice Applications or Teams tenant federation.
 
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions [Node 20 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
+- [Node.js](https://nodejs.org/), Active LTS, and Maintenance LTS versions [Node 20 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
 - An Azure Communication Services resource. [Create a Communications Resource](../../quickstarts/create-communication-resource.md)
 - Complete the [Teams tenant setup](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md) for interoping with your Azure Communication Services resource
 - Working with [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md) and Azure Communication Services.
