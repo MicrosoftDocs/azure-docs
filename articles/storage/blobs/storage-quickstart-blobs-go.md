@@ -1,19 +1,19 @@
 ---
-title: "Quickstart: Azure Blob Storage client library for Go"
+title: "Quickstart: Azure Blob Storage client module for Go"
 titleSuffix: Azure Storage
-description: In this quickstart, you learn how to use the Azure Blob Storage client library for Go to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+description: In this quickstart, you learn how to use the Azure Blob Storage client module for Go to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 08/29/2023
+ms.date: 05/22/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: golang
 ms.custom: mode-api, passwordless-go, devx-track-go
 ---
 
-# Quickstart: Azure Blob Storage client library for Go
+# Quickstart: Azure Blob Storage client module for Go
 
-Get started with the Azure Blob Storage client library for Go to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks.
+Get started with the Azure Blob Storage client module for Go to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks.
 
 [API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob) | [Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob)
 
@@ -25,7 +25,7 @@ Get started with the Azure Blob Storage client library for Go to manage blobs an
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library for Go.
+This section walks you through preparing a project to work with the Azure Blob Storage client module for Go.
 
 ### Download the sample application
 
@@ -175,6 +175,8 @@ _, err = client.CreateContainer(ctx, containerName, nil)
 handleError(err)
 ```
 
+To learn more about creating a container, and to explore more code samples, see [Create a blob container with Go](storage-blob-container-create-go.md).
+
 ### Upload blobs to the container
 
 The code sample creates a byte array with some data, and uploads the data as a buffer to a new blob resource in the specified container. 
@@ -190,6 +192,8 @@ fmt.Printf("Uploading a blob named %s\n", blobName)
 _, err = client.UploadBuffer(ctx, containerName, blobName, data, &azblob.UploadBufferOptions{})
 handleError(err)
 ```
+
+To learn more about uploading blobs, and to explore more code samples, see [Upload a blob with Go](storage-blob-upload-go.md).
 
 ### List the blobs in a container
 
@@ -215,6 +219,8 @@ for pager.More() {
 }
 ```
 
+To learn more about listing blobs, and to explore more code examples, see [List blobs with Go](storage-blobs-list-go.md).
+
 ### Download the blob
 
 The code sample downloads a blob using the [DownloadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadStream) method, and creates a retry reader for reading data. If a connection fails while reading, the retry reader makes other requests to re-establish a connection and continue reading. You can specify retry reader options using the [RetryReaderOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#RetryReaderOptions) struct.
@@ -239,6 +245,8 @@ fmt.Println("Blob contents:")
 fmt.Println(downloadedData.String())
 ```
 
+To learn more about downloading blobs, and to explore more code examples, see [Download a blob with Go](storage-blob-download-go.md).
+
 ### Clean up resources
 
 If you no longer need the blobs uploaded in this quickstart, you can delete the individual blob using the [DeleteBlob](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DeleteBlob) method, or the entire container and its contents using the [DeleteContainer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DeleteContainer) method.
@@ -256,6 +264,8 @@ _, err = client.DeleteContainer(ctx, containerName, nil)
 handleError(err)
 ```
 
+To learn more about deleting blobs and containers, and to explore more code examples, see [Delete a blob with Go](storage-blob-delete-go.md) and [Delete a container with Go](storage-blob-container-delete-go.md).
+
 ## Next steps
 
 In this quickstart, you learned how to upload, download, and list blobs using Go.
@@ -265,5 +275,5 @@ To see Blob storage sample apps, continue to:
 > [!div class="nextstepaction"]
 > [Azure Blob Storage library for Go samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#example-package)
 
-- To learn more, see the [Azure Blob Storage client library for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob).
+- To learn more, see the [Azure Blob Storage client module for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob).
 - For tutorials, samples, quickstarts, and other documentation, visit [Azure for Go Developers](/azure/developer/go/overview).

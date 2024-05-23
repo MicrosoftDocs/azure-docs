@@ -64,8 +64,8 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - DCsv2 series
     - DCasv5 series
     - DCesv5 and DCedsv5 series
-    - Dplsv5 series
-    - Dpsv series, v5 and newer
+    - Dplsv5 and Dpldsv5 series
+    - Dpsv and Dpds series, v5 and newer
     - Dpdsv6 series
     - Dplsv6 series
     - Dpldsv6 series
@@ -75,6 +75,7 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - Eav4 and Easv4 series
     - ECasv5 and ECadsv5 series
     - ECesv5 and ECedsv5 series
+    - Epsv5 and Epdsv5 series
     - F series, all versions
     - Fasv6 and Falsv6 series
     - Fx series
@@ -83,9 +84,10 @@ From this example accumulation of Minutes Not Available, here's the calculation 
 - Support for below VM Series for Capacity Reservation is in Public Preview: 
     - M-series, v3
     - NC-series,v3
+    - NC A100 v4 series
     - NV-series,v3 and newer
     - Lsv2
-    - For above mentioned N series, at VM deployment, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation.
+    - For above mentioned M and N series, at VM deployment, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation.
 - Support for other VM Series isn't currently available:  
     - M series, v1 and v2 
     - ND-series 
