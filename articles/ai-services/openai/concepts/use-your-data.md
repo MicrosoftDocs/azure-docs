@@ -579,39 +579,29 @@ This means the storage account isn't accessible with the given credentials. In t
 
 Each user message can translate to multiple search queries, all of which get sent to the search resource in parallel. This can produce throttling behavior when the number of search replicas and partitions is low. The maximum number of queries per second that a single partition and single replica can support may not be sufficient. In this case, consider increasing your replicas and partitions, or adding sleep/retry logic in your application. See the [Azure AI Search documentation](../../../search/performance-benchmarks.md) for more information.
 
-## Regional availability and model support
-
-You can use Azure OpenAI On Your Data with an Azure OpenAI resource in the following regions:
-* Australia East
-* Brazil South
-* Canada East
-* East US
-* East US 2
-* France Central
-* Japan East
-* North Central US
-* Norway East
-* South Africa North
-* South Central US
-* South India
-* Sweden Central
-* Switzerland North
-* UK South
-* West Europe
-* West US
-
 ### Supported models
 
-* `gpt-4` (0314)
-* `gpt-4` (0613)
-* `gpt-4` (0125)
-* `gpt-4-32k` (0314)
-* `gpt-4-32k` (0613)
-* `gpt-4` (1106-preview)
-* `gpt-35-turbo-16k` (0613)
-* `gpt-35-turbo` (1106)
+| Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125-preview)` | `gpt-4-32k (0314)`** | `gpt-4 (0613)` | `gpt-4 (0314)`** | `gpt-4o`   | `gpt-turbo (409)` |
+|------|---|---|---|---|---|----|----|----|----|---|
+| Australia East | ✅ | ✅ | ✅ |✅ |   | ✅ | ✅ | ✅ | | |
+| Canada East | ✅ | ✅ | ✅ |✅ |   | ✅ | ✅ | ✅ | | |
+| East US | ✅ |   |   |  |✅  | ✅ |   | ✅ | ✅| |
+| East US 2 | ✅ |   |   |✅ |    | ✅ |   | ✅ |✅ | ✅|
+| France Central | ✅ | ✅ | ✅ |✅ |    | ✅ | ✅ | ✅ | | |
+| Japan East | ✅ |   |   |  |   | ✅ |   | ✅ | | |
+| North Central US | ✅ |   |   | |✅  | ✅ |   | ✅ |✅ | |
+| Norway East | ✅ |   |   |✅ |   | ✅ |  | ✅ | | |
+| South Central US |  |   |   | | ✅ | ✅|   | ✅ | ✅ | |
+| South India |  | ✅ |   |✅ |   | ✅ |   | ✅ | |  |
+| Sweden Central | ✅ | ✅ | ✅ |✅ |   | ✅ | ✅ | ✅ | | ✅ |
+| Switzerland North | ✅ |   | ✅ |  |  | ✅ | ✅ | ✅ | | |
+| UK South | ✅ | ✅ | |✅ |✅  | ✅ |  | ✅ | | |
+| West US  |  |✅ | |✅|   | ✅ |  | ✅ |✅ | |
 
-If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI On Your Data.
+** Models are being retired no sooner than 31 July 2024
+
+
+
 
 ## Next steps
 * [Get started using your data with Azure OpenAI](../use-your-data-quickstart.md)
