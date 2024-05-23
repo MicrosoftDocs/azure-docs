@@ -360,4 +360,4 @@ resource backupInstance 'Microsoft.DataProtection/backupVaults/backupInstances@2
 
 ## Next step
 
-[Learn how](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md?tabs=CLI) to create Bicep templates.
+Learn [how to create Bicep templates](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md?tabs=CLI).

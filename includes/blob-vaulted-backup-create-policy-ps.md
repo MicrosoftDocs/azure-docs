@@ -14,7 +14,7 @@ To create a backup policy for blob vaulted backup, run the following commands:
    $defaultPol = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureBlob`
    ```
 
-2. To create a vaulted backup policy, define the schedule and retention for backups. The following commands create a backup policy with backup frequency every week on Friday and Tuesday at 10 AM and retention of 3 months.
+2. To create a vaulted backup policy, define the schedule and retention for backups. The following commands create a backup policy with backup frequency every week on Friday and Tuesday at 10 AM and retention of three months.
 
     ```azurepowershell-interactive
     $schDates = @( 

@@ -6,7 +6,7 @@ ms.date: 05/30/2024
 ms.author: v-abhmallick
 ---
 
-Once all the relevant permissions are set, the configuration of backup is performed in two steps. 
+Once all the relevant permissions are set, configure the blob backup by running the following commands: 
 
 1. Prepare the relevant request by using the relevant vault, policy, storage account using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-initialize) command. 
 
@@ -63,4 +63,4 @@ Once all the relevant permissions are set, the configuration of backup is perfor
     ```
 
 > [!IMPORTANT]
-> Once a storage account is configured for blobs backup, a few capabilities are affected, such as change feed and delete lock. [Learn more](/azure/backup/blob-backup-configure-manage#effects-on-backed-up-storage-accounts).
+> Once a storage account is configured for blobs backup, a few capabilities, such as change feed and delete lock are affected. [Learn more](../articles/backup/blob-backup-configure-manage.md?tabs=vaulted-backup#effects-on-backed-up-storage-accounts).

@@ -13,7 +13,7 @@ ms.author: v-abhmallick
 This article describes how to use the PowerShell to perform restores for Azure Blob from [operational](blob-backup-overview.md?tabs=operational-backup) or [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups. With operational backups, you can restore all block blobs in storage accounts with operational backup configured or a subset of blob content to any point-in-time within the retention range. With vaulted backups, you can perform restores using a recovery point created, based on your backup schedule.
 
 > [!IMPORTANT]
-> Support for Azure blobs is available from Az 5.9.0 version.
+> Support for Azure blobs is available from version **Az 5.9.0**.
 
 > [!IMPORTANT]
 > Before proceeding to restore Azure blobs using Azure Backup, see [important points](blob-restore.md#before-you-start).
@@ -75,7 +75,7 @@ Once the point-in-time to restore is fixed, there are multiple options to restor
 
 #### Restore all the blobs to a point-in-time
 
-Using this option restores all block blobs in the storage account by rolling them back to the selected point in time. Storage accounts containing large amounts of data or witnessing a high churn may take longer times to restore.
+You can restore all block blobs in the storage account by rolling them back to the selected point in time. Storage accounts containing large amounts of data or witnessing a high churn may take longer times to restore.
 
 ```azurepowershell-interactive
 $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureBlob -SourceDataStore OperationalStore -RestoreLocation $TestBkpVault.Location  -RestoreType OriginalLocation -PointInTime (Get-Date -Date "2021-04-23T02:47:02.9500000Z") -BackupInstance $AllInstances[2]
@@ -83,7 +83,7 @@ $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType Azur
 
 #### Restore selected containers
 
-Using this option allows you to browse and select up to 10 containers to restore.
+You can browse and select up to 10 containers to restore.
 
 ```azurepowershell-interactive
 $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureBlob -SourceDataStore OperationalStore -RestoreLocation $TestBkpVault.Location  -RestoreType OriginalLocation -PointInTime (Get-Date -Date "2021-04-23T02:47:02.9500000Z") -BackupInstance $AllInstances[2] -ItemLevelRecovery -ContainersList "abc","xyz"
@@ -91,7 +91,7 @@ $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType Azur
 
 #### Restore containers using a prefix match
 
-This option lets you restore a subset of blobs using a prefix match. You can specify up to 10 lexicographical ranges of blobs within a single container or across multiple containers to return those blobs to their previous state at a given point in time. Here are a few things to keep in mind:
+You can restore a subset of blobs using a prefix match. You can specify up to 10 lexicographical ranges of blobs within a single container or across multiple containers to return those blobs to their previous state at a given point in time. Here are a few things to keep in mind:
 
 - You can use a forward slash (/) to delineate the container name from the blob prefix
 - The start of the range specified is inclusive, however the specified range is exclusive.
@@ -118,7 +118,7 @@ Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $AllInstances[2]
 
 ## Tracking job
 
-Track all jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob) command. You can list all jobs and fetch a particular job detail.
+You can track all jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob) command. You can list all jobs and fetch a particular job detail.
 
 You can also use Az.ResourceGraph to track all jobs across all backup vaults. Use the [Search-AzDataProtectionJobInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph) command to get the relevant job which can be across any backup vault.
 

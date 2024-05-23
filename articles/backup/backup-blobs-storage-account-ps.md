@@ -15,7 +15,7 @@ This article describes how to back up all [Azure blobs](./blob-backup-overview.m
 For information on the Azure blob region availability, supported scenarios and limitations, see the [support matrix](blob-backup-support-matrix.md).
 
 > [!IMPORTANT]
-> Support for Azure blobs is available from Az 5.9.0 version.
+> Support for Azure blobs is available from version **Az 5.9.0**.
 
 ## Before you start
 

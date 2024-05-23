@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Quickstart: Back up a storage account with Blob data with an ARM template
+# Quickstart: Back up a storage account with Blob data using an ARM template
 
 This quickstart describes how to back up a storage account with Azure Blob data with a vaulted backup policy using an ARM template.
 
@@ -439,4 +439,4 @@ This template allows you to configure backup for two containers in a storage acc
 
 ## Next step
 
-[Learn how](../azure-resource-manager/templates/template-tutorial-create-first-template.md) to create ARM templates.
+Learn [how to create ARM templates](../azure-resource-manager/templates/template-tutorial-create-first-template.md).

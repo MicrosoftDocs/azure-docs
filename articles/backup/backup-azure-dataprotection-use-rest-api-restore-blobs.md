@@ -402,7 +402,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 ## Track jobs
 
-The trigger restore requests triggered the restore job and the resultant Job ID should be tracking using the [GET Jobs API](/rest/api/dataprotection/jobs/get).
+The trigger restore requests starts the restore job and the resultant Job ID is tracked using the [GET Jobs API](/rest/api/dataprotection/jobs/get).
 
 Use the simple GET command to track the JobId given in the [trigger restore response](#example-response-to-trigger-restore-request) above.
 

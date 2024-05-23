@@ -48,7 +48,7 @@ Once you create the vault and policy, you need to consider two critical points t
 
 ### Assign permissions
 
-You need to assign a few permissions via Azure role-based access control (Azure RBAC) to vault (represented by vault Managed Service Identity) and the relevant storage account. You can do these via Azure portal, PowerShell, or REST API. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
+You need to assign a few permissions via Azure role-based access control (Azure RBAC) to the created vault (represented by vault Managed Service Identity) and the relevant storage account. You can do these via Azure portal, PowerShell, or REST API. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
 
 ### Prepare the request to configure blob backup
 
@@ -130,7 +130,7 @@ For example, this translates to:
 POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/validateForBackup?api-version=2021-01-01
 ```
 
-The [request body](#prepare-the-request-to-configure-blob-backup) that you prepared earlier is used to give the details of the storage account to be protected.
+The [request body](#prepare-the-request-to-configure-blob-backup    ) that you prepared earlier is used to give the details of the storage account to be protected.
 
 #### Example request body
 

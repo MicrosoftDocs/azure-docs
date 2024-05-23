@@ -25,9 +25,11 @@ Before you configure blob vaulted backup, ensure that:
 
 ## Before you start
 
+Somethings to remember before you start configuring blob vaulted backup:
+
 - Vaulted backup of blobs is a managed offsite backup solution that transfers data to the backup vault and retains as per the retention configured in the backup policy. You can retain data for a maximum of *10 years*.
 - Currently, you can use the vaulted backup solution to restore data to a different storage account only. While performing restores, ensure that the target storage account doesn't contain any *containers* with the same name as those backed up in a recovery point. If any conflicts arise due to the same name of containers, the restore operation fails.
-- Ensure the storage accounts that need to be backed up have cross-tenant replication enabled. You can check this in the **storage account** > **Object replication** > **Advanced settings**. Once here, ensure that the checkbox is enabled.
+- Storage accounts to be backed up need to have *cross-tenant replication* enabled. To ensure if the checkbox for this setting is enabled, go to the **storage account** > **Object replication** > **Advanced settings**.
 
 For more information about the supported scenarios, limitations, and availability, see the [support matrix](blob-backup-support-matrix.md).
 

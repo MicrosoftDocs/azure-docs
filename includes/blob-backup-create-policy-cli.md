@@ -8,7 +8,9 @@ ms.author: v-abhmallick
 
 To create a backup policy for blob vaulted backup, run the following commands:
 
-1. To understand the inner components of a Backup policy for Azure Blobs backup, retrieve the policy template using the `az dataprotection backup-policy get-default-policy-template` command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
+1. To understand the inner components of a Backup policy for Azure Blobs backup, retrieve the policy template using the `az dataprotection backup-policy get-default-policy-template` command.
+
+    This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
 2. Once you have saved the policy JSON with  all the required values, proceed to create a new policy from the policy object using the `az dataprotection backup-policy create` command.
 

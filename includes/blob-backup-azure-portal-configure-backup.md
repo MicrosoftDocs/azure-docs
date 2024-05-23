@@ -38,30 +38,35 @@ To configure backup for storage accounts, follow these steps:
   
    If you've chosen the vaulted backup policy in step 4, you can also select specific containers to back up. Select **Change** under the **Selected containers** column. In the context blade, choose **browse containers to backup** and unselect the ones you don't want to back up.
 
-6. When you select the storage accounts and containers to protect, Azure Backup performs the following validations to ensure all prerequisites are met. The **Backup readiness** column shows if the Backup vault has enough permissions to configure backups for each storage account.
+   When you select the storage accounts and containers to protect, Azure Backup performs the following validations to ensure all prerequisites are met.
+   >[!Note]
+   >The **Backup readiness** column shows if the Backup vault has enough permissions to configure backups for each storage account.
 
-   1. Validates that the Backup vault has the required permissions to configure backup (the vault has the **Storage account backup contributor** role on all the selected storage accounts. If validation shows errors, then the selected storage accounts don't have **Storage account backup contributor** role. You can assign the required role, based on your current permissions. The error message helps you understand if you have the required permissions, and take the appropriate action:
+   1. The Backup vault has the required permissions to configure backup; the vault has the **Storage account backup contributor** role on all the selected storage accounts. If validation shows errors, then the selected storage accounts don't have **Storage account backup contributor** role. You can assign the required role, based on your current permissions. The error message helps you understand if you have the required permissions, and take the appropriate action:
 
-      - **Role assignment not done**: This indicates that you (the user) have permissions to assign the **Storage account backup contributor** role and the other required roles for the storage account to the vault.
+      - **Role assignment not done**: Indicates that you (the user) have permissions to assign the **Storage account backup contributor** role and the other required roles for the storage account to the vault.
 
         Select the roles, and then select **Assign missing roles** on the toolbar to automatically assign the required role to the Backup vault, and trigger an autorevalidation.
 
-        The role propagation may take some time (up to 10 minutes) causing the revalidation to fail. In this scenario, you need to wait for a few minutes and select **Revalidate** to retry validation.
+        If the role propagation takes more than 10 minutes, then the validation will fail. In this scenario, you need to wait for a few minutes and select **Revalidate** to retry validation.
 
-      - **Insufficient permissions for role assignment**: This indicates that the vault doesn't have the required role to configure backups, and you (the user) don't have enough permissions to assign the required role. To make the role assignment easier, Azure Backup allows you to download the role assignment template, which you can share with users with permissions to assign roles for storage accounts. 
+      - **Insufficient permissions for role assignment**: Indicates that the vault doesn't have the required role to configure backups, and you (the user) don't have enough permissions to assign the required role. To make the role assignment easier, Azure Backup allows you to download the role assignment template, which you can share with users with permissions to assign roles for storage accounts. 
 
-        To do this, select the storage accounts, and then select **Download role assignment template** to download the template. Once the role assignments are complete, select **Revalidate** to validate the permissions again, and then configure backup.
+     >[!Note]
+     >The template contains details for selected storage accounts only. If there are multiple users that need to assign roles for different storage accounts, you can select and download different templates accordingly.
 
-        :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/vaulted-backup-role-assignment-success.png" alt-text="Screenshot shows that the role assignment is successful.":::
+   1. The number of containers to be backed up is less than *100* in case of vaulted backups. By default, all containers are selected; however, you can exclude containers that shouldn't be backed up. If your storage account has *>100* containers, you must exclude containers to reduce the count to *100 or below*.
 
-        >[!Note]
-        >The template contains details for selected storage accounts only. So, if there are multiple users that need to assign roles for different storage accounts, you can select and download different templates accordingly.
-
-    1. In case of vaulted backups, validates that the number of containers to be backed up is less than *100*. By default, all containers are selected; however, you can exclude containers that shouldn't be backed up. If your storage account has *>100* containers, you must exclude containers to reduce the count to *100 or below*.
-
-      >[!Note]
+     >[!Note]
       >In case of vaulted backups, the storage accounts to be backed up must contain at least *1 container*. If the selected storage account doesn't contain any containers or if no containers are selected, you may get an error while configuring backups.
 
+
+
+6. To assign the required roles, select the storage accounts, and then select **Download role assignment template** to download the template. Once the role assignments are complete, select **Revalidate** to validate the permissions again, and then configure backup.
+
+   :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/vaulted-backup-role-assignment-success.png" alt-text="Screenshot shows that the role assignment is successful.":::
+
+   
 7. Once validation succeeds, select the **Review + configure** tab.
 
 8. Review the details on the **Review + configure** tab and select **Next** to initiate the *configure backup* operation.
