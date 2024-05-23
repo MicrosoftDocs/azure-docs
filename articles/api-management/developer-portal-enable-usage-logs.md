@@ -7,7 +7,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: 
 ms.topic: how-to
-ms.date: 05/13/2024
+ms.date: 05/23/2024
 ms.author: danlep
 ---
 
@@ -38,7 +38,10 @@ To configure a diagnostic setting for developer portal usage logs:
     1. **Diagnostic setting name**: Enter a descriptive name.
     1. **Category groups**: Optionally make a selection for your scenario. 
     1. Under **Categories**: Select **Logs related to Developer Portal usage**. Optionally select other categories as needed.
-    1. Under **Destination details**, select one or more options and specify details for the destination. For example, archive logs to a storage account, stream them to an event hub, or send them to a Log Analytics workspace or partner solution. [Learn more](../azure-monitor/essentials/diagnostic-settings.md)
+    1. Under **Destination details**, select one or more options and specify details for the destination. For example, archive logs to a storage account or stream them to an event hub. [Learn more](../azure-monitor/essentials/diagnostic-settings.md)
+        > [!NOTE]
+        > Currently, the **Send to Log Analytics workspace** destination isn't supported for developer portal usage logs.
+
     1. Select **Save**. 
  
 ## View diagnostic log data
@@ -53,20 +56,8 @@ If you send logs to a storage account, you can access the data in the Azure port
 1. Navigate to the container for the logs in your API Management instance. The logs are partitioned in intervals of 1 hour.
 1. To retrieve the data for further analysis, select **Download**.
 
-If you selected a Log Analytics workspace as a destination, you can view the data in the Azure portal. To query the data:
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, select **Logs**.
-1. Run queries to view the data. Several [sample queries](../azure-monitor/logs/queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the DeveloperPortalAuditLogs table:
-
-```kusto
-DeveloperPortalAuditLogs
-| where TimeGenerated > ago(1d)
-```
-        
+       
 ## Related content
-
-* [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md), or try the [Log Analytics demo environment](https://ms.portal.azure.com/#view/Microsoft_OperationsManagementSuite_Workspace/LogsDemo.ReactView).
 
 * [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
