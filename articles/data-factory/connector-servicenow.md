@@ -148,9 +148,9 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). | No (if "tableName" in dataset is specified) |
 | *Under `expression`* |  |  |
 | type | The expression type. Values can be Constant (default), Unary, Binary, and Field.  | No  |
-| value | The constant value. | Required when the expression type is Constant or Field |
-| operators | The operator value. For more information about operators, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Required when the expression type is Unary or Binary |
-| operands | List of expressions on which operator is applied.| Required when the expression type is Unary or Binary |
+| value | The constant value. |Yes when the expression type is Constant or Field |
+| operators | The operator value. For more information about operators, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
+| operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
 
 
 **Example:**
