@@ -34,7 +34,7 @@ If you are starting from scratch, see [Understand data store models](/azure/arch
 Start with the amount of data that you plan to store. Then, consider the number of CPU cores used by your workload and the size of your files. These factors help you to narrow down which core storage service best suits your workload and whether to use an accelerator to enhance performance.
 
 
-|Configuration  |CPU cores  |Sizes of files  |Core Storage Recommendation  |Accelerator Reccomendation  |
+|Configuration  |CPU cores  |Sizes of files  |Core Storage Recommendation  |Accelerator Recommendation  |
 |---------|---------|---------|---------|---------|
 |Under 50 TiB     |N/A |N/A        | [Azure Files](/azure/storage/files/) or [Azure NetApp Files](/azure/azure-netapp-files/).        |No accelerator  |
 |50 TiB - 5,000 TiB |Less than 500 |N/A|[Azure Files](/azure/storage/files/) or [Azure NetApp Files](/azure/azure-netapp-files/).        |No accelerator  |
