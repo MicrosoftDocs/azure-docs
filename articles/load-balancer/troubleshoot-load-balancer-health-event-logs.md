@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot load balancer health event logs
 titleSuffix: Azure Load Balancer
-description: 
+description: Learn how to troubleshoot load balancer health event log types
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: troubleshooting
@@ -64,7 +64,7 @@ Critical - NoHealthyBackends: the frontend IP {FrontendIPAddress} is completely 
 1. Refer to [Troubleshoot Azure Load Balancer health probe status](load-balancer-troubleshoot-health-probe-status.md) | for common reasons why your backend instances may not be responding to the configured health probes.
 
 ## HighSnatPortUsage event
-This event indicates you are approaching SNAT port exhaustion on specific backend instances. You may need to review your outbound connectivity architecture. 
+This event indicates you are approaching SNAT port exhaustion on specific backend instances. You may need to review your outbound connectivity architecture.
 
 ### Sample event
 
