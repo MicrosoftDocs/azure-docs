@@ -1,6 +1,6 @@
 ---
-title: "Set up Advanced Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
-description: Get started with Advanced Network Observability for your AKS cluster using Azure managed Prometheus and Grafana.
+title: "Set up Advanced Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana"
+description: Get started with Advanced Network Observability for your AKS cluster using Bring-Your-Own (BYO) Prometheus and Grafana.
 author: Khushbu-Parekh
 ms.author: kparekh
 ms.service: azure-kubernetes-service
@@ -10,11 +10,11 @@ ms.date: 05/10/2024
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
-# Set up Advanced Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana (Preview)
+# Set up Advanced Network Observability for Azure Kubernetes Service (AKS) (Preview)
 
-This article shows you how to set up Advanced Network Observability for Azure Kubernetes Service (AKS) using Managed Prometheus and Grafana to visualize the scraped metrics.
+This article shows you how to set up Advanced Network Observability for Azure Kubernetes Service (AKS) and use bring your own (BYO) Prometheus and Grafana to visualize the metrics.
 
-You can use Advanced Network Observability to collect data about the network traffic of your AKS clusters. It enables a centralized platform for monitoring application and network health. Currently, metrics are stored in Prometheus and Grafana can be used to visualize them. Advanced Network Observability also offers the ability to enable Hubble. These capabilities are supported for both Cilium and non-Cilium clusters. 
+You can use Advanced Network Observability to collect data about the network traffic data in your AKS clusters. It enables a centralized platform for monitoring application and network health. Currently, metrics are stored in Prometheus and Grafana can be used to visualize them. Advanced Network Observability also offers the ability to enable Hubble. These capabilities are supported for both Cilium and non-Cilium clusters.
 
 Advanced Network Observability is one of the features of Advanced Container Networking Services. For more information about Advanced Container Networking Services for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
 
@@ -34,27 +34,27 @@ Advanced Network Observability is one of the features of Advanced Container Netw
 
 Install or update the Azure CLI preview extension using the [`az extension add`](/cli/azure/extension#az_extension_add) or [`az extension update`](/cli/azure/extension#az_extension_update) command.
 
-    ```azurecli-interactive
-    # Install the aks-preview extension
-    az extension add --name aks-preview
-    
-    # Update the extension to make sure you have the latest version installed
-    az extension update --name aks-preview
-    ```
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Register the `AdvancedNetworkingPreview` feature flag
 
 Register the `az feature register --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
 ` feature flag using the [`az feature register`](/cli/azure/feature#az_feature_register) command.
 
-    ```azurecli-interactive 
-    az feature register --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
-    ```
+```azurecli-interactive 
+az feature register --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
+```
 Verify successful registration using the [`az feature show`](/cli/azure/feature#az_feature_show) command. It takes a few minutes for the registration to complete.
-    
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
-    ```
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
+```
 
 Once the feature shows `Registered`, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`](/cli/azure/provider#az_provider_register) command.
 
@@ -62,20 +62,19 @@ Once the feature shows `Registered`, refresh the registration of the `Microsoft.
 
 A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using the [`az group create`](/cli/azure/group#az_group_create) command.
 
-    ```azurecli-interactive
-    # Set environment variables for the resource group name and location. Make sure to replace the placeholders with your own values.
-    export RESOURCE_GROUP="<resource-group-name>"
-    export LOCATION="<azure-region>"
-    
-    # Create a resource group
-    az group create --name $RESOURCE_GROUP --location $LOCATION
-    ```
+```azurecli-interactive
+# Set environment variables for the resource group name and location. Make sure to replace the placeholders with your own values.
+export RESOURCE_GROUP="<resource-group-name>"
+export LOCATION="<azure-region>"
+
+# Create a resource group
+az group create --name $RESOURCE_GROUP --location $LOCATION
+```
 
 ## Create an AKS cluster with Advanced Network Observability
 
 ### [**Non-Cilium**](#tab/non-cilium)
 Create an AKS cluster with Advanced Network Observability with a non-Cilium data plane using the [`az aks create`](/cli/azure/aks#az_aks_create) command and the `--enable-advanced-networking-observability` flag.
-    
     ```azurecli-interactive
     # Set an environment variable for the AKS cluster name. Make sure to replace the placeholder with your own value.
     export CLUSTER_NAME="<aks-cluster-name>"
@@ -90,14 +89,13 @@ Create an AKS cluster with Advanced Network Observability with a non-Cilium data
         --pod-cidr 192.168.0.0/16 \
         --enable-advanced-network-observability
     ```
-    
+
 ### [**Cilium**](#tab/cilium)
 
-Create an AKS cluster with Advanced Network Observability with a Cilium data plane using the [`az aks create`](/cli/azure/aks#az_aks_create) command and the `--enable-advanced-networking-observability` flag.
+Create an AKS cluster with Advanced Network Observability with Cilium using the [`az aks create`](/cli/azure/aks#az_aks_create) command and the `--enable-advanced-networking-observability` flag.
 
 > [!NOTE]
-> Clusters with the Cilium data plane support Advanced Network Observability starting with Kubernetes version 1.29.
-
+> Clusters with Cilium support Advanced Observability starting with Kubernetes version 1.29.
 
     ```azurecli-interactive
     # Set an environment variable for the AKS cluster name. Make sure to replace the placeholder with your own value.
@@ -126,7 +124,7 @@ Create an AKS cluster with Advanced Network Observability with a Cilium data pla
 Enable Advanced Network Observability on an existing cluster using the [`az aks update`](/cli/azure/aks#az_aks_update) command.
 
 > [!NOTE]
-> Clusters with the Cilium data plane support Advanced Network Observability starting with Kubernetes version 1.29.
+> Clusters with the Cilium data plane support Advanced Observability starting with Kubernetes version 1.29.
 
     ```azurecli-interactive
     az aks update \
@@ -134,7 +132,7 @@ Enable Advanced Network Observability on an existing cluster using the [`az aks 
         --name $CLUSTER_NAME \
         --enable-advanced-network-observability
     ```
-    
+
 ## Get cluster credentials 
 
 Get your cluster credentials using the [`az aks get-credentials`](/cli/azure/aks#az_aks_get_credentials) command.
@@ -143,117 +141,58 @@ Get your cluster credentials using the [`az aks get-credentials`](/cli/azure/aks
     az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
     ```
 
-## Azure managed Prometheus and Grafana
-
-Use the following example to install and enable Prometheus and Grafana for your AKS cluster.
-
-### Create Azure Monitor resource
-
-    ```azurecli-interactive
-    #Set an environment variable for the Grafana name. Make sure to replace the placeholder with your own value.
-    export AZURE_MONITOR_NAME="<azure-monitor-name>"
-    
-    # Create Azure monitor resource
-    az resource create \
-        --resource-group $RESOURCE_GROUP \
-        --namespace microsoft.monitor \
-        --resource-type accounts \
-        --name $AZURE_MONITOR_NAME \
-        --location eastus \
-        --properties '{}'
-    ```
-
-### Create Grafana instance
-
-Use [az grafana create](/cli/azure/grafana#az-grafana-create) to create a Grafana instance. The name of the Grafana instance must be unique.
-
-    ```azurecli-interactive
-    # Set an environment variable for the Grafana name. Make sure to replace the placeholder with your own value.
-    export GRAFANA_NAME="<grafana-name>"
-    
-    # Create Grafana instance
-    az grafana create \
-        --name $GRAFANA_NAME \
-        --resource-group $RESOURCE_GROUP 
-    ```
-
-### Place the Grafana and Azure Monitor resource IDs in variables
-
-Use [az grafana show](/cli/azure/grafana#az-grafana-show) to place the Grafana resource ID in a variable. Use [az resource show](/cli/azure/resource#az-resource-show) to place the Azure Monitor resource ID in a variable. Replace **myGrafana** with the name of your Grafana instance.
-
-    ```azurecli-interactive
-    grafanaId=$(az grafana show \
-                    --name $GRAFANA_NAME \
-                    --resource-group $RESOURCE_GROUP \
-                    --query id \
-                    --output tsv)
-    azuremonitorId=$(az resource show \
-                        --resource-group $RESOURCE_GROUP \
-                        --name $AZURE_MONITOR_NAME \
-                        --resource-type "Microsoft.Monitor/accounts" \
-                        --query id \
-                        --output tsv)
-    ```
-
-### Link Azure Monitor and Grafana to the AKS cluster
-
-Use [az aks update](/cli/azure/aks#az-aks-update) to link the Azure Monitor and Grafana resources to your AKS cluster.
-
-    ```azurecli-interactive
-    az aks update \
-        --name $CLUSTER_NAME \
-        --resource-group $RESOURCE_GROUP \
-        --enable-azure-monitor-metrics \
-        --azure-monitor-workspace-resource-id $azuremonitorId \
-        --grafana-resource-id $grafanaId
-    ```
-
 ## Visualization using Grafana
 
-> [!NOTE]
-> The `hubble_flows_processed_total` metric isn't scraped by default due to high metric cardinality in large scale clusters. 
-> Because of this, the *Pods Flows* dashboards have panels with missing data. To change this, you can modify the ama metrics settings to include `hubble_flows_processed_total` in the metric keep list. To learn how to do this, see the [Minimal Ingestion Doumentation](../../articles/azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal.md).
-> 
+1. Add the following scrape job to your existing Prometheus configuration and restart your Prometheus server:
 
-1. Make sure the Azure Monitor pods are running using the `kubectl get pods` command.
+    ```yml
+    - job_name: networkobservability-hubble
+      kubernetes_sd_configs:
+        - role: pod
+      relabel_configs:
+        - target_label: cluster
+          replacement: myAKSCluster
+          action: replace
+        - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_pod_label_k8s_app]
+          regex: kube-system;(retina|cilium)
+          action: keep
+        - source_labels: [__address__]
+          action: replace
+          regex: ([^:]+)(?::\d+)?
+          replacement: $1:9965
+          target_label: __address__
+        - source_labels: [__meta_kubernetes_pod_node_name]
+          target_label: instance
+          action: replace
+      metric_relabel_configs:
+        - source_labels: [__name__]
+          regex: '|hubble_dns_queries_total|hubble_dns_responses_total|hubble_drop_total|hubble_tcp_flags_total' # if desired, add |hubble_flows_processed_total
+          action: keep
+    ``` 
 
-    ```azurecli-interactive
-    kubectl get pods -o wide -n kube-system | grep ama-
-    ```
+1. In **Targets** of Prometheus, verify the **network-obs-pods** are present.
 
-    Your output should look similar to the following example output:
-
-    ```output
-    ama-metrics-5bc6c6d948-zkgc9          2/2     Running   0 (21h ago)   26h
-    ama-metrics-ksm-556d86b5dc-2ndkv      1/1     Running   0 (26h ago)   26h
-    ama-metrics-node-lbwcj                2/2     Running   0 (21h ago)   26h
-    ama-metrics-node-rzkzn                2/2     Running   0 (21h ago)   26h
-    ama-metrics-win-node-gqnkw            2/2     Running   0 (26h ago)   26h
-    ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
-    ```
-
-1. We have created sample dashboards. They can be found under the **Dashboards > Azure Managed Prometheus** folder. They have names like **"Kubernetes / Networking / `<name>`"**. The suite of dashboards includes:
-      * **Clusters:** shows Node-level metrics for your clusters.
-      * **DNS (Cluster):** shows DNS metrics on a cluster or selection of Nodes.
-      * **DNS (Workload):** shows DNS metrics for the specified workload (e.g. Pods of a DaemonSet or Deployment such as CoreDNS).
-      * **Drops (Workload):** shows drops to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
+1. Sign in to Grafana and import following example dashboards using the following IDs:
+      * **Clusters:** shows Node-level metrics for your clusters. (ID: [18814](https://grafana.com/grafana/dashboards/18814-kubernetes-networking-clusters/))
+      * **DNS (Cluster):** shows DNS metrics on a cluster or selection of Nodes.(ID: [20925](https://grafana.com/grafana/dashboards/20925-kubernetes-networking-dns-cluster/))
+      * **DNS (Workload):** shows DNS metrics for the specified workload (e.g. Pods of a DaemonSet or Deployment such as CoreDNS). (ID: [20926] https://grafana.com/grafana/dashboards/20926-kubernetes-networking-dns-workload/)
+      * **Drops (Workload):** shows drops to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).(ID: [20927](https://grafana.com/grafana/dashboards/20927-kubernetes-networking-drops-workload/)). 
       * **Pod Flows (Namespace):** shows L4/L7 packet flows to/from the specified namespace (i.e. Pods in the
-      Namespace).
-      * **Pod Flows (Workload):** shows L4/L7 packet flows to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
+      Namespace). (ID: [20928](https://grafana.com/grafana/dashboards/20928-kubernetes-networking-pod-flows-namespace/))
+      * **Pod Flows (Workload):** shows L4/L7 packet flows to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).(ID: [20929](https://grafana.com/grafana/dashboards/20929-kubernetes-networking-pod-flows-workload/))
 
-> [!NOTE] 
-> * Cilium data plane does not currently support DNS metrics/dashboards.
+    > [!NOTE] 
+    > * Depending on your Prometheus/Grafana instances’ settings, some dashboard panels may require tweaks to display all data.
+    > * Cilium does not currently support DNS metrics/dashboards.
 
-## Install Hubble CLI
-
-Install the Hubble CLI to access the data it collects using the following commands:
+1. Install Hubble CLI to access the data it collects using the following commands:
 
     ```azurecli-interactive
     # Set environment variables
     export HUBBLE_VERSION=0.11  
     export HUBBLE_ARCH=amd64
     
-    #Install Hubble CLI
+    # Install Hubble CLI
     if [ "$(uname -m)" = "aarch64" ]; then HUBBLE_ARCH=arm64; fi
     curl -L --fail --remote-name-all https://github.com/cilium/hubble/releases/download/$HUBBLE_VERSION/hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
     sha256sum --check hubble-linux-${HUBBLE_ARCH}.tar.gz.sha256sum
@@ -263,26 +202,24 @@ Install the Hubble CLI to access the data it collects using the following comman
 
 ## Visualize the Hubble Flows
 
-1. Make sure the Hubble pods are running using the `kubectl get pods` command.
+1. Make sure the Hubble pods are running using the `kubectl get pods` command. 
 
     ```azurecli-interactive
     kubectl get pods -o wide -n kube-system -l k8s-app=hubble-relay
     ```
-    
     Your output should look similar to the following example output:
-    
+
     ```output
     hubble-relay-7ddd887cdb-h6khj     1/1  Running     0       23h 
     ```
-    
-    1. Port forward Hubble Relay using the `kubectl port-forward` command.
-    
+
+1. Set up port forwarding for Hubble Relay using the `kubectl port-forward` command.
+
     ```azurecli-interactive
     kubectl port-forward -n kube-system svc/hubble-relay --address 127.0.0.1 4245:443
     ```
-    
-1. Mutual TLS (mTLS) ensures the security of the Hubble Relay server. To enable the Hubble client to retrieve flows, you need to get the appropriate certificates and configure the client with them. Apply the certificates using the following commands:
 
+1. Mutual TLS (mTLS) ensures the security of the Hubble Relay server. To enable the Hubble client to retrieve flows, you need to get the appropriate certificates and configure the client with them. Apply the certificates using the following commands:
     ```azurecli-interactive
     #!/usr/bin/env bash
     
@@ -311,7 +248,7 @@ Install the Hubble CLI to access the data it collects using the following comman
       # Set the appropriate hubble CLI config
       hubble config set "$KEY" "$CERT_DIR/$FILE"
     done
-        
+    
     hubble config set tls true
     hubble config set tls-server-name instance.hubble-relay.cilium.io
     ```
@@ -332,7 +269,7 @@ Install the Hubble CLI to access the data it collects using the following comman
     ```
 
 1. Make sure the Hubble Relay pod is running using the `hubble relay service` command.
-
+    
     ```azurecli-interactive
     hubble relay service 
     ```
@@ -340,6 +277,7 @@ Install the Hubble CLI to access the data it collects using the following comman
 ## Visualize using Hubble UI
 
 1. To use Hubble UI, save the following into hubble-ui.yaml
+
     ```yml
     apiVersion: v1
     kind: ServiceAccount
@@ -582,7 +520,7 @@ Install the Hubble CLI to access the data it collects using the following comman
     kubectl apply -f hubble-ui.yaml
     ```
 
-1. Set up port forwarding for Hubble UI using the `kubectl port-forward` command.
+1. Expose the service by setting up port forwarding using the `kubectl port-forward` command.
 
     ```azurecli-interactive
     kubectl port-forward svc/hubble-ui 12000:80
@@ -596,9 +534,9 @@ Install the Hubble CLI to access the data it collects using the following comman
 
 If you don't plan on using this application, delete the other resources you created in this article using the [`az group delete`](/cli/azure/#az_group_delete) command.
 
-```azurecli-interactive
-  az group delete --name $RESOURCE_GROUP
-```
+    ```azurecli-interactive
+      az group delete --name $RESOURCE_GROUP
+    ```
 
 ## Next steps
 
@@ -606,5 +544,4 @@ In this how-to article, you learned how to install and enable Advanced Network O
 
 * For more information about Advanced Container Networking Services for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
 
-* To create an Advanced Network Observability - BYO Prometheus and Grafana, see [Setup Advanced Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana](advanced-network-observability-byo-cli.md).
-
+* To create an AKS cluster with Advanced Network Observability and Azure managed Prometheus and Grafana, see [Setup Advanced Network Observability for Azure Kubernetes Service (AKS) Azure managed Prometheus and Grafana](advanced-network-observability-cli.md).
