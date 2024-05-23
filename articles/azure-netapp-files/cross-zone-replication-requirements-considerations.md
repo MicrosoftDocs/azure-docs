@@ -32,8 +32,7 @@ This article describes requirements and considerations about [using the volume c
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after you've deleted replication relationship. You cannot delete manual snapshots for the destination volume until you break the replication relationship.
 * When reverting a source volume with an active volume replication relationship, only snapshots that are more recent than the SnapMirror snapshot can be used in the revert operation. For more information, see [Revert a volume using snapshot revert with Azure NetApp Files](snapshots-revert-volume.md).
 * Data replication volumes support [customer-managed keys](configure-customer-managed-keys.md).
-* You can't currently use cross-zone replication with [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes).
-
+* [Large volumes](large-volumes-requirements-considerations.md) are supported with cross-zone replication only with an hourly or daily replication schedule.
 
 ## Next steps
 * [Understand cross-zone replication](cross-zone-replication-introduction.md)
