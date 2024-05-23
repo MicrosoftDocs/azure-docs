@@ -149,7 +149,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 <tr><td><code>connectionStatus</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Partial</td></tr>
 <tr><td><code>dataSize</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 <tr><td><code>dbHash</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td><code>dbStats</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>dbStats</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>driverOIDTest</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
 <tr><td><code>explain</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>features</code></td><td>As a PaaS service, this will be managed by Azure.</td></tr>
@@ -275,12 +275,12 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 <tr><td><code>$indexOfArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$isArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$lastN</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td><code>$map</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$map</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$maxN</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 <tr><td><code>$minN</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 <tr><td><code>$objectToArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$range</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td><code>$reduce</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$reduce</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$reverseArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$size</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$slice</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
@@ -309,14 +309,14 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 <tr><td rowspan="2">Data Size Operators</td><td><code>$bsonSize</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$binarySize</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 
-<tr><td rowspan="22">Date Expression Operators</td><td><code>$dateAdd</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td><code>$dateDiff</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td><code>$dateFromParts</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td><code>$dateFromString</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td><code>$dateSubtract</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td rowspan="22">Date Expression Operators</td><td><code>$dateAdd</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$dateDiff</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$dateFromParts</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$dateFromString</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$dateSubtract</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$dateToParts</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$dateToString</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
-<tr><td><code>$dateTrunc</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>$dateTrunc</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$dayOfMonth</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$dayOfWeek</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$dayOfYear</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
@@ -397,7 +397,7 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 <tr><td><code>$avg</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$bottom</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
 <tr><td><code>$bottomN</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
-<tr><td><code>$count</code>/td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>$count</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$first</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$firstN</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
 <tr><td><code>$last</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>

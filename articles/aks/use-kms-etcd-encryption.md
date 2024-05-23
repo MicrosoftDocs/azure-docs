@@ -16,7 +16,7 @@ This article shows you how to turn on encryption at rest for your Azure Kubernet
 * Provide encryption at rest for secrets that are stored in etcd.
 * Rotate the keys in a key vault.
 
-For more information on using KMS, see [Encrypting Secret Data at Rest](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/).
+For more information on using KMS, see [Using a KMS provider for data encryption](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/).
 
 ## Prerequisites
 

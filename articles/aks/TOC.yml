@@ -4,6 +4,8 @@
   items:
     - name: What is AKS?
       href: what-is-aks.md
+    - name: What is AKS Automatic?
+      href: intro-aks-automatic.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
     - name: Track releases and region availability
@@ -31,6 +33,8 @@
     - name: Create a Linux-based AKS Cluster
       expanded: true
       items:
+        - name: Use AKS Automatic
+          href: learn/quick-kubernetes-automatic-deploy.md
         - name: Use the Azure CLI
           href: learn/quick-kubernetes-deploy-cli.md
         - name: Use the Azure Developer CLI
@@ -454,7 +458,7 @@
               items:
                 - name: Workload identity overview
                   href: workload-identity-overview.md
-                - name: Deploy and configure cluster
+                - name: Deploy and configure workload identity for a cluster
                   href: workload-identity-deploy-cluster.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
@@ -558,8 +562,6 @@
               href: api-server-vnet-integration.md
             - name: Private Endpoint
               href: private-clusters.md#use-a-private-endpoint-connection
-        - name: Diagnose and solve UDP packet drops
-          href: troubleshoot-udp-packet-drops.md
     - name: Storage
       items:
         - name: CSI storage drivers
@@ -676,6 +678,8 @@
               href: istio-about.md
             - name: Deploy Istio service mesh add-on
               href: istio-deploy-addon.md
+            - name: Enable native sidecar mode (Preview)
+              href: istio-native-sidecar.md
             - name: Configure Istio service mesh add-on
               href: istio-meshconfig.md
             - name: Deploy external or internal Istio Ingress
@@ -838,6 +842,18 @@
               href: /troubleshoot/azure/azure-kubernetes/troubleshoot-dapr-extension-installation-errors?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Build applications with Azure App Configuration
+          items:
+            - name: Install the Azure App Configuration extension
+              href: azure-app-configuration.md
+            - name: Configure the Azure App Configuration extension
+              href: azure-app-configuration-settings.md
+            - name: Azure App Configuration extension quickstart
+              href: /azure/azure-app-configuration/quickstart-azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+            - name: Azure App Configuration extension reference
+              href: /azure/azure-app-configuration/reference-kubernetes-provider?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+            - name: Troubleshoot the Azure App Configuration extension
+              href: /troubleshoot/azure/azure-kubernetes/troubleshoot-app-configuration-extension-installation-errors?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Deploy Intelligent Apps on AKS
       items:
         - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 

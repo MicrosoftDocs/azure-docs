@@ -55,7 +55,7 @@ We also recommend setting the **Minimum API version** in your API Management ins
 
 ### Update Minimum API version setting on your API Management instance
 
-We recommend setting the **Minimum API version** for your API Management instance using the Azure portal. This setting limits control plane API calls to your instance to an API version equal to or newer than this value. By setting this value to **2021-08-01**, you can assess the impact of the API version retirements on your tooling.
+We recommend setting the **Minimum API version** for your API Management instance using the Azure portal or using the REST API or other tools. This setting limits control plane API calls to your instance to an API version equal to or newer than this value. By setting this value to **2021-08-01**, you can assess the impact of the API version retirements on your tooling.
 
 
 
@@ -66,6 +66,9 @@ To set the **Minimum API version** in the portal:
 1. Select the **Management API settings** tab.
 1. Under **Enforce minimum API version**, select **Yes**. The **Minimum API version** appears.
 1. Select **Save**.
+
+> [!IMPORTANT]
+> If the **Minimum API version** in the portal is grayed out, you can only update the setting programmatically, for example, using the [REST API](/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2022-08-01) or the [az apim update](/cli/azure/apim#az-apim-update) command in the Azure CLI.
    
 ## More information
 

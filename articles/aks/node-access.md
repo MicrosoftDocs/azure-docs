@@ -30,9 +30,9 @@ Complete these steps if you don't have an SSH key. Create an SSH key depending o
 
 ### Linux and macOS
 
-Linux and macOS users can SSH to access their node using `kubectl debug` or their private IP Address. Windows users should skip to the Windows Server Proxy section for a workaround to SSH via proxy.
+Linux and macOS users can access their node using `kubectl debug` or their private IP Address. Windows users should skip to the Windows Server Proxy section for a workaround to SSH via proxy.
 
-#### SSH using kubectl debug
+#### Connect using kubectl debug
 
 To create an interactive shell connection, use the `kubectl debug` command to run a privileged container on your node.
 
@@ -292,4 +292,3 @@ To learn about managing your SSH keys, see [Manage SSH configuration][manage-ssh
 [agent-pool-rest-api]: /rest/api/aks/agent-pools/get#agentpool
 [manage-ssh-node-access]: manage-ssh-node-access.md
 [azure-bastion-linux]:../bastion/bastion-connect-vm-ssh-linux.md
-
