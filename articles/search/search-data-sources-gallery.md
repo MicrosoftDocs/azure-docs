@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
 ms.topic: conceptual
 layout: LandingPage
-ms.date: 01/11/2024
+ms.date: 05/22/2024
 ---
 
 # Data sources gallery
@@ -526,7 +526,7 @@ The Azure Data Lake connector crawls content from the Azure Data Lake Store clou
 
 by [Accenture](https://www.accenture.com)
 
-crawlscontent from an Azure Events Hub, allowing incremental crawling and retrieval of any type of event or attributes.
+Crawls content from an Azure Events Hub, allowing incremental crawling and retrieval of any type of event or attributes.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Azure+Events+Hub+Connector)
 
@@ -576,7 +576,7 @@ The BAI Bentley AssetWise Connector makes it possible to surface content from As
 
 by [Accenture](https://www.accenture.com)
 
-The Box connector crawlscontent from a Box repository. The connector retrieves the supported elements via the REST API, providing full or incremental crawling, metadata extraction, fetching ACLs, and more.
+The Box connector crawls content from a Box repository. The connector retrieves the supported elements via the REST API, providing full or incremental crawling, metadata extraction, fetching ACLs, and more.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Box++Connector)
 
@@ -626,7 +626,7 @@ Secure enterprise search connector for reliably indexing content from Box and in
 
 by [Accenture](https://www.accenture.com)
 
-The Confluence connector crawlscontent from any Confluence content repository. The connector retrieves spaces, pages, blogs, attachments, and comments through a REST API, allowing incremental crawling, fetching ACLs, support for HTTP and HTTPS, and more.
+The Confluence connector crawls content from any Confluence content repository. The connector retrieves spaces, pages, blogs, attachments, and comments through a REST API, allowing incremental crawling, fetching ACLs, support for HTTP and HTTPS, and more.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Atlassian+Confluence+Connector)
 
@@ -702,7 +702,7 @@ The CuadraSTAR Connector crawls content in CuadraSTAR and creates a single index
 
 by [Accenture](https://www.accenture.com)
 
-The Database Server connector crawlscontent from a Relational Database server, scanning all databases on the server and extracting rows and table information.
+The Database Server connector crawls content from a Relational Database server, scanning all databases on the server and extracting rows and table information.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Database+Server+Connector)
 
@@ -739,7 +739,7 @@ The Deltek Vision Connector honors the security of the source system and provide
 
 by [Accenture](https://www.accenture.com)
 
-The Aspire Documentum DQL connector crawlscontent from Documentum, allowing crawls based on user-defined DQL SELECT statements, incremental crawling, fetching of ACLs, group expansion of nested permissions, and more.
+The Aspire Documentum DQL connector crawls content from Documentum, allowing crawls based on user-defined DQL SELECT statements, incremental crawling, fetching of ACLs, group expansion of nested permissions, and more.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Documentum+DQL+Connector)
 
@@ -826,7 +826,7 @@ The Egnyte Connector supports both full and incremental crawls and indexes with 
 
 by [Accenture](https://www.accenture.com)
 
-The Elasticsearch connector crawlscontent from an Elasticsearch index, allowing crawling of multiple indexes, Slice support, use of Get of MGet methods for fetching content, and connection throttling.
+The Elasticsearch connector crawls content from an Elasticsearch index, allowing crawling of multiple indexes, Slice support, use of Get of MGet methods for fetching content, and connection throttling.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Elasticsearch+Connector)
 
@@ -925,7 +925,7 @@ The File Share Connector makes it possible to surface content from File Shares (
 
 by [Accenture](https://www.accenture.com)
 
-The File System connector crawlscontent from a file system location, allowing incremental crawling, metadata extraction, filtering of documents by path, supporting Windows/Linux/macOS file systems.
+The File System connector crawls content from a file system location, allowing incremental crawling, metadata extraction, filtering of documents by path, supporting Windows/Linux/macOS file systems.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/File+System+Connector)
 
@@ -1076,7 +1076,7 @@ BA Insight's HP Consolidated Archive Connector securely indexes both the full te
 
 by [Accenture](https://www.accenture.com)
 
-The IBM Connections connector crawlscontent from IBM Connections server, featuring incremental crawling, metadata extraction, fetching of ACLs, filtering documents by regex patterns, and more.
+The IBM Connections connector crawls content from IBM Connections server, featuring incremental crawling, metadata extraction, fetching of ACLs, filtering documents by regex patterns, and more.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/IBM+Connections+Connector)
 
@@ -1752,7 +1752,7 @@ The Objective Connector was developed for Objective, establishing a secure conne
 
 by [Accenture](https://www.accenture.com)
 
-The OneDrive connector crawlscontent from Microsoft OneDrive, allowing incremental crawling, including and excluding items based on regex patterns, metadata extraction, retrieving several types of documents.
+The OneDrive connector crawls content from Microsoft OneDrive, allowing incremental crawling, including and excluding items based on regex patterns, metadata extraction, retrieving several types of documents.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/OneDrive+Connector)
 
@@ -2001,7 +2001,7 @@ The BA Insight Connector for Pro Law connects any portal to ProLaw, enabling inf
 
 by [Accenture](https://www.accenture.com)
 
-The RDB via Snapshots connector crawlscontent from any relational database that can be accessed using JDBC and performs incremental crawls using a snapshot database. It extracts data directly based on SQL statements.
+The RDB via Snapshots connector crawls content from any relational database that can be accessed using JDBC and performs incremental crawls using a snapshot database. It extracts data directly based on SQL statements.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/RDB+via+Snapshots+Connector)
 
@@ -2038,7 +2038,7 @@ The RDB via Tables connector crawls content from any relational database that ca
 
 by [Accenture](https://www.accenture.com)
 
-The Amazon S3 connector crawlscontent from any Amazon Simple Storage Service. It performs incremental crawls, fetch object ACLs for S3 document level security and includes documents stored in buckets, folders and subfolders.
+The Amazon S3 connector crawls content from any Amazon Simple Storage Service. It performs incremental crawls, fetch object ACLs for S3 document level security and includes documents stored in buckets, folders and subfolders.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Amazon+S3+Connector)
 
@@ -2051,7 +2051,7 @@ The Amazon S3 connector crawlscontent from any Amazon Simple Storage Service. It
 
 by [Accenture](https://www.accenture.com)
 
-The Salesforce connector crawlscontent from a Salesforce repository. The connector supports Salesforce Knowledge Base and Chatter, metadata and custom metadata retrieval, performs full or incremental crawls, fetches ACLs, selectable element types and group expansion.
+The Salesforce connector crawls content from a Salesforce repository. The connector supports Salesforce Knowledge Base and Chatter, metadata and custom metadata retrieval, performs full or incremental crawls, fetches ACLs, selectable element types and group expansion.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Salesforce+Connector)
 
@@ -2202,7 +2202,7 @@ Secure enterprise search connector for reliably indexing content from SAP PLM DM
 
 by [Accenture](https://www.accenture.com)
 
-The Selenium connector crawlscontent from websites using an internet browser to retrieve several types of documents like web pages, sitemaps, binary documents, and more. It avoids compatibility issues with frameworks like Angular and React.
+The Selenium connector crawls content from websites using an internet browser to retrieve several types of documents like web pages, sitemaps, binary documents, and more. It avoids compatibility issues with frameworks like Angular and React.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Selenium+Crawler)
 
@@ -2302,7 +2302,7 @@ BA Insight's SharePoint 2010 Connector allows you to connect to SharePoint 2010,
 
 by [Accenture](https://www.accenture.com)
 
-The SharePoint 2013 connector crawlscontent from any SharePoint 2013 site collection URL. It performs incremental crawls using SharePoint's change log timestamp or a snapshot database, fetches ACLs, supports NTLM and HTTPS, BCS external lists, and runs without installing anything on SharePoint.
+The SharePoint 2013 connector crawls content from any SharePoint 2013 site collection URL. It performs incremental crawls using SharePoint's change log timestamp or a snapshot database, fetches ACLs, supports NTLM and HTTPS, BCS external lists, and runs without installing anything on SharePoint.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/SharePoint+2013+Connector)
 
@@ -2339,7 +2339,7 @@ BA Insight's SharePoint 2013 Connector allows you to connect to SharePoint 2013,
 
 by [Accenture](https://www.accenture.com)
 
-The SharePoint 2016 connector crawlscontent from any SharePoint 2016 site collection URL. It performs incremental crawls using SharePoint's change log timestamp or a snapshot database, fetches ACLs, supports NTLM and HTTPS, BCS external lists, and runs without installing anything on SharePoint.
+The SharePoint 2016 connector crawls content from any SharePoint 2016 site collection URL. It performs incremental crawls using SharePoint's change log timestamp or a snapshot database, fetches ACLs, supports NTLM and HTTPS, BCS external lists, and runs without installing anything on SharePoint.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/SharePoint+2016+Connector)
 
@@ -2389,7 +2389,7 @@ BA Insight's SharePoint Connector allows you to connect to SharePoint 2019, fetc
 
 by [Accenture](https://www.accenture.com)
 
-The SharePoint connector crawlscontent from any SharePoint site collection URL. The connector retrieves Sites, Lists, Folders, List Items and Attachments, and other pages (in .aspx format). Supports SharePoint running in the Microsoft 365 offering.
+The SharePoint connector crawls content from any SharePoint site collection URL. The connector retrieves Sites, Lists, Folders, List Items and Attachments, and other pages (in .aspx format). Supports SharePoint running in the Microsoft 365 offering.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/SharePoint+Online+Connector)
 
@@ -2553,7 +2553,7 @@ Secure enterprise search connector for reliably indexing content from Symantec E
 
 by [Accenture](https://www.accenture.com)
 
-The Twitter connector crawlscontent from any twitter account. It performs full and incremental crawls, supports authentication using Twitter user, consumer key and consumer secret key.
+The Twitter connector crawls content from any twitter account. It performs full and incremental crawls, supports authentication using Twitter user, consumer key and consumer secret key.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Twitter+Connector)
 
@@ -2702,7 +2702,7 @@ Secure enterprise search connector for reliably indexing content from Xerox Docu
 
 by [Accenture](https://www.accenture.com)
 
-The Yammer connector crawlscontent from Yammer messages. It retrieves messages by Group, Thread or Topic and gets User, Group and Thread details.
+The Yammer connector crawls content from Yammer messages. It retrieves messages by Group, Thread or Topic and gets User, Group and Thread details.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Yammer+Connector)
 
