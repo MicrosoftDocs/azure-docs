@@ -3,9 +3,7 @@ title: Stream database backups using Oracle Recovery Manager
 description: Streaming database backups using Oracle Recovery Manager (RMAN). 
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: virtual-machines
-ms.subservice: oracle
-ms.collection: oracle
+ms.service: oracle-on-azure
 ms.topic: article
 ms.date: 06/5/2023
 ---

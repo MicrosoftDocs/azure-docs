@@ -95,7 +95,7 @@ When you integrate Microsoft Entra ID with your AKS cluster, you can use [Condit
 6. Create the AKS cluster with AKS-managed Microsoft Entra integration using the [`az aks create`][az-aks-create] command with the `--aad-admin-group-objects-ids` and `--aad-tenant-id parameters` and include the values noted in the steps earlier.
 
     ```azurecli-interactive
-    az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
+    az aks create --resource-group myResourceGroup --name myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
     ```
 
 7. In the Azure portal, select **Activity** > **Privileged Access (Preview)** > **Enable Privileged Access**.

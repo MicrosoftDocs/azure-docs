@@ -110,7 +110,7 @@ When you create or update an action group in the Azure portal, you can test the 
 1. [Create an action group in the Azure portal](#create-an-action-group-in-the-azure-portal). 
 
    > [!NOTE]
-   > If you're editing an existing action group, save the changes to the action group before testing.
+   > The action group must be created and saved before testing. If you're editing an existing action group, save the changes to the action group before testing.
 
 1. On the action group page, select **Test action group**.
 
@@ -372,7 +372,7 @@ You may have a limited number of email actions per action group. To check which 
 
 When you set up the Resource Manager role:
 
-1. Assign an entity of type **User** to the role.
+1. Assign an entity of type **User** or **Group** to the role.
 1. Make the assignment at the **subscription** level.
 1. Make sure an email address is configured for the user in their **Microsoft Entra profile**.
 > - If a user is not a member of the above Role Memberships with the correct permissions to generate this notification, the minimum permission required to test an action group is "**Microsoft.Insights/createNotifications/***"

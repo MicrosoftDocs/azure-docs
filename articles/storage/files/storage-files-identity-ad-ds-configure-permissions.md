@@ -1,16 +1,16 @@
 ---
-title: Control what a user can do at the directory and file level - Azure Files
-description: Learn how to configure Windows ACLs for directory and file level permissions for Active Directory authentication to Azure file shares, allowing you to take advantage of granular access control.
+title: Configure directory and file level permissions for Azure Files
+description: Learn how to configure Windows ACLs for directory and file level permissions for Active Directory (AD) authentication to Azure file shares over SMB for granular access control.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/03/2024
+ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
 ---
 
-# Configure directory and file-level permissions over SMB
+# Configure directory and file-level permissions for Azure file shares
 
 Before you begin this article, make sure you've read [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md) to ensure that your share-level permissions are in place with Azure role-based access control (RBAC).
 

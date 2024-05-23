@@ -38,8 +38,6 @@ Use the following steps to create an instance of Azure Spring Apps using the Azu
 
 1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** from the results.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-start.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps service highlighted in the search results." lightbox="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-start.png":::
-
 1. On the Azure Spring Apps page, select **Create**.
 
    :::image type="content" source="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-create.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps resource with the Create button highlighted." lightbox="media/quickstart-provision-standard-consumption-service-instance/azure-spring-apps-create.png":::
