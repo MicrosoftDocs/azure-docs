@@ -34,27 +34,27 @@ Advanced Network Observability is one of the features of Advanced Container Netw
 
 Install or update the Azure CLI preview extension using the [`az extension add`](/cli/azure/extension#az_extension_add) or [`az extension update`](/cli/azure/extension#az_extension_update) command.
 
-    ```azurecli-interactive
-    # Install the aks-preview extension
-    az extension add --name aks-preview
-    
-    # Update the extension to make sure you have the latest version installed
-    az extension update --name aks-preview
-    ```
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Register the `AdvancedNetworkingPreview` feature flag
 
 Register the `az feature register --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
 ` feature flag using the [`az feature register`](/cli/azure/feature#az_feature_register) command.
 
-    ```azurecli-interactive 
-    az feature register --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
-    ```
+```azurecli-interactive 
+az feature register --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
+```
 Verify successful registration using the [`az feature show`](/cli/azure/feature#az_feature_show) command. It takes a few minutes for the registration to complete.
     
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
-    ```
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
+```
 
 Once the feature shows `Registered`, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`](/cli/azure/provider#az_provider_register) command.
 
@@ -62,34 +62,34 @@ Once the feature shows `Registered`, refresh the registration of the `Microsoft.
 
 A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using the [`az group create`](/cli/azure/group#az_group_create) command.
 
-    ```azurecli-interactive
-    # Set environment variables for the resource group name and location. Make sure to replace the placeholders with your own values.
-    export RESOURCE_GROUP="<resource-group-name>"
-    export LOCATION="<azure-region>"
-    
-    # Create a resource group
-    az group create --name $RESOURCE_GROUP --location $LOCATION
-    ```
+```azurecli-interactive
+# Set environment variables for the resource group name and location. Make sure to replace the placeholders with your own values.
+export RESOURCE_GROUP="<resource-group-name>"
+export LOCATION="<azure-region>"
+
+# Create a resource group
+az group create --name $RESOURCE_GROUP --location $LOCATION
+```
 
 ## Create an AKS cluster with Advanced Network Observability
 
 ### [**Non-Cilium**](#tab/non-cilium)
 Create an AKS cluster with Advanced Network Observability with a non-Cilium data plane using the [`az aks create`](/cli/azure/aks#az_aks_create) command and the `--enable-advanced-networking-observability` flag.
     
-    ```azurecli-interactive
-    # Set an environment variable for the AKS cluster name. Make sure to replace the placeholder with your own value.
-    export CLUSTER_NAME="<aks-cluster-name>"
-    
-    # Create an AKS cluster
-    az aks create \
-        --name $CLUSTER_NAME \
-        --resource-group $RESOURCE_GROUP \
-        --generate-ssh-keys \
-        --network-plugin azure \
-        --network-plugin-mode overlay \
-        --pod-cidr 192.168.0.0/16 \
-        --enable-advanced-network-observability
-    ```
+```azurecli-interactive
+# Set an environment variable for the AKS cluster name. Make sure to replace the placeholder with your own value.
+export CLUSTER_NAME="<aks-cluster-name>"
+
+# Create an AKS cluster
+az aks create \
+    --name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --generate-ssh-keys \
+    --network-plugin azure \
+    --network-plugin-mode overlay \
+    --pod-cidr 192.168.0.0/16 \
+    --enable-advanced-network-observability
+```
     
 ### [**Cilium**](#tab/cilium)
 
@@ -99,25 +99,25 @@ Create an AKS cluster with Advanced Network Observability with a Cilium data pla
 > Clusters with the Cilium data plane support Advanced Network Observability starting with Kubernetes version 1.29.
 
 
-    ```azurecli-interactive
-    # Set an environment variable for the AKS cluster name. Make sure to replace the placeholder with your own value.
-    export CLUSTER_NAME="<aks-cluster-name>"
-    
-    # Create an AKS cluster
-    az aks create \
-        --name $CLUSTER_NAME \
-        --resource-group $RESOURCE_GROUP \
-        --generate-ssh-keys \
-        --location eastus \
-        --max-pods 250 \
-        --network-plugin azure \
-        --network-plugin-mode overlay \
-        --network-dataplane cilium \
-        --node-count 2 \
-        --pod-cidr 192.168.0.0/16 \
-        --kubernetes-version 1.29 \
-        --enable-advanced-network-observability
-    ```
+```azurecli-interactive
+# Set an environment variable for the AKS cluster name. Make sure to replace the placeholder with your own value.
+export CLUSTER_NAME="<aks-cluster-name>"
+
+# Create an AKS cluster
+az aks create \
+    --name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --generate-ssh-keys \
+    --location eastus \
+    --max-pods 250 \
+    --network-plugin azure \
+    --network-plugin-mode overlay \
+    --network-dataplane cilium \
+    --node-count 2 \
+    --pod-cidr 192.168.0.0/16 \
+    --kubernetes-version 1.29 \
+    --enable-advanced-network-observability
+```
 
 ---
 
@@ -128,20 +128,20 @@ Enable Advanced Network Observability on an existing cluster using the [`az aks 
 > [!NOTE]
 > Clusters with the Cilium data plane support Advanced Network Observability starting with Kubernetes version 1.29.
 
-    ```azurecli-interactive
-    az aks update \
-        --resource-group $RESOURCE_GROUP \
-        --name $CLUSTER_NAME \
-        --enable-advanced-network-observability
-    ```
+```azurecli-interactive
+az aks update \
+    --resource-group $RESOURCE_GROUP \
+    --name $CLUSTER_NAME \
+    --enable-advanced-network-observability
+```
     
 ## Get cluster credentials 
 
 Get your cluster credentials using the [`az aks get-credentials`](/cli/azure/aks#az_aks_get_credentials) command.
 
-    ```azurecli-interactive
-    az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
-    ```
+```azurecli-interactive
+az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
+```
 
 ## Azure managed Prometheus and Grafana
 
@@ -149,64 +149,64 @@ Use the following example to install and enable Prometheus and Grafana for your 
 
 ### Create Azure Monitor resource
 
-    ```azurecli-interactive
-    #Set an environment variable for the Grafana name. Make sure to replace the placeholder with your own value.
-    export AZURE_MONITOR_NAME="<azure-monitor-name>"
-    
-    # Create Azure monitor resource
-    az resource create \
-        --resource-group $RESOURCE_GROUP \
-        --namespace microsoft.monitor \
-        --resource-type accounts \
-        --name $AZURE_MONITOR_NAME \
-        --location eastus \
-        --properties '{}'
-    ```
+```azurecli-interactive
+#Set an environment variable for the Grafana name. Make sure to replace the placeholder with your own value.
+export AZURE_MONITOR_NAME="<azure-monitor-name>"
+
+# Create Azure monitor resource
+az resource create \
+    --resource-group $RESOURCE_GROUP \
+    --namespace microsoft.monitor \
+    --resource-type accounts \
+    --name $AZURE_MONITOR_NAME \
+    --location eastus \
+    --properties '{}'
+```
 
 ### Create Grafana instance
 
 Use [az grafana create](/cli/azure/grafana#az-grafana-create) to create a Grafana instance. The name of the Grafana instance must be unique.
 
-    ```azurecli-interactive
-    # Set an environment variable for the Grafana name. Make sure to replace the placeholder with your own value.
-    export GRAFANA_NAME="<grafana-name>"
-    
-    # Create Grafana instance
-    az grafana create \
-        --name $GRAFANA_NAME \
-        --resource-group $RESOURCE_GROUP 
-    ```
+```azurecli-interactive
+# Set an environment variable for the Grafana name. Make sure to replace the placeholder with your own value.
+export GRAFANA_NAME="<grafana-name>"
+
+# Create Grafana instance
+az grafana create \
+    --name $GRAFANA_NAME \
+    --resource-group $RESOURCE_GROUP 
+```
 
 ### Place the Grafana and Azure Monitor resource IDs in variables
 
 Use [az grafana show](/cli/azure/grafana#az-grafana-show) to place the Grafana resource ID in a variable. Use [az resource show](/cli/azure/resource#az-resource-show) to place the Azure Monitor resource ID in a variable. Replace **myGrafana** with the name of your Grafana instance.
 
-    ```azurecli-interactive
-    grafanaId=$(az grafana show \
-                    --name $GRAFANA_NAME \
+```azurecli-interactive
+grafanaId=$(az grafana show \
+                --name $GRAFANA_NAME \
+                --resource-group $RESOURCE_GROUP \
+                --query id \
+                --output tsv)
+azuremonitorId=$(az resource show \
                     --resource-group $RESOURCE_GROUP \
+                    --name $AZURE_MONITOR_NAME \
+                    --resource-type "Microsoft.Monitor/accounts" \
                     --query id \
                     --output tsv)
-    azuremonitorId=$(az resource show \
-                        --resource-group $RESOURCE_GROUP \
-                        --name $AZURE_MONITOR_NAME \
-                        --resource-type "Microsoft.Monitor/accounts" \
-                        --query id \
-                        --output tsv)
-    ```
+```
 
 ### Link Azure Monitor and Grafana to the AKS cluster
 
 Use [az aks update](/cli/azure/aks#az-aks-update) to link the Azure Monitor and Grafana resources to your AKS cluster.
 
-    ```azurecli-interactive
-    az aks update \
-        --name $CLUSTER_NAME \
-        --resource-group $RESOURCE_GROUP \
-        --enable-azure-monitor-metrics \
-        --azure-monitor-workspace-resource-id $azuremonitorId \
-        --grafana-resource-id $grafanaId
-    ```
+```azurecli-interactive
+az aks update \
+    --name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --enable-azure-monitor-metrics \
+    --azure-monitor-workspace-resource-id $azuremonitorId \
+    --grafana-resource-id $grafanaId
+```
 
 ## Visualization using Grafana
 
@@ -217,20 +217,20 @@ Use [az aks update](/cli/azure/aks#az-aks-update) to link the Azure Monitor and 
 
 1. Make sure the Azure Monitor pods are running using the `kubectl get pods` command.
 
-```azurecli-interactive
-kubectl get pods -o wide -n kube-system | grep ama-
-```
-
-Your output should look similar to the following example output:
-
-```output
-ama-metrics-5bc6c6d948-zkgc9          2/2     Running   0 (21h ago)   26h
-ama-metrics-ksm-556d86b5dc-2ndkv      1/1     Running   0 (26h ago)   26h
-ama-metrics-node-lbwcj                2/2     Running   0 (21h ago)   26h
-ama-metrics-node-rzkzn                2/2     Running   0 (21h ago)   26h
-ama-metrics-win-node-gqnkw            2/2     Running   0 (26h ago)   26h
-ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
-```
+    ```azurecli-interactive
+    kubectl get pods -o wide -n kube-system | grep ama-
+    ```
+    
+    Your output should look similar to the following example output:
+    
+    ```output
+    ama-metrics-5bc6c6d948-zkgc9          2/2     Running   0 (21h ago)   26h
+    ama-metrics-ksm-556d86b5dc-2ndkv      1/1     Running   0 (26h ago)   26h
+    ama-metrics-node-lbwcj                2/2     Running   0 (21h ago)   26h
+    ama-metrics-node-rzkzn                2/2     Running   0 (21h ago)   26h
+    ama-metrics-win-node-gqnkw            2/2     Running   0 (26h ago)   26h
+    ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
+    ```
 
 1. We have created sample dashboards. They can be found under the **Dashboards > Azure Managed Prometheus** folder. They have names like **"Kubernetes / Networking / `<name>`"**. The suite of dashboards includes:
       * **Clusters:** shows Node-level metrics for your clusters.
