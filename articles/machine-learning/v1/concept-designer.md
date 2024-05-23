@@ -18,7 +18,7 @@ ms.custom: UpdateFrequency5, designer, training
 The Azure Machine Learning designer is a drag-and-drop interface used to train and deploy models in Azure Machine Learning studio. This article describes the tasks you can do in the designer.
 
 > [!IMPORTANT]
-> Designer in Azure Machine Learning supports two types of pipeline components: classic prebuilt (v1) or custom (v2). *This article applies to classic prebuilt (v1) components.* The two component types aren't compatible in pipelines, and designer v1 isn't compatible with CLI v2 and SDK v2.
+> Designer in Azure Machine Learning supports two types of pipelines that use classic prebuilt (v1) or custom (v2)components. The two component types aren't compatible within pipelines, and designer v1 isn't compatible with CLI v2 and SDK v2. *This article applies to pipelines that use classic prebuilt (v1) components.*
 > 
 > - **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new prebuilt components are being added.
 > 
@@ -41,18 +41,17 @@ The designer uses your Azure Machine Learning [workspace](../concept-workspace.m
 - [Published pipeline jobs](#publish)
 - [Real-time endpoints](#deploy)
 
-The following diagram illustrates how you can use the Designer visual canvas to build an end-to-end machine learning workflow. You can train, test, and deploy models, all in the designer interface.
+The following diagram illustrates how you can use the designer to build an end-to-end machine learning workflow. You can train, test, and deploy models, all in the designer interface.
 
-:::image type="content" source="../media/concept-designer/designer-workflow-diagram.png" alt-text="Workflow diagram for training, batch inference, and real-time inference in the designer." border="none":::
+:::image type="content" source="../media/concept-designer/designer-workflow-diagram.png" alt-text="Workflow diagram for training, batch inference, and real-time inference in the designer." border="false":::
 
-1. Drag-and-drop [data assets](#data) and [components](#components) onto the canvas.
-1. Connect the components to create a [pipeline draft](#pipeline-draft).
-1. Submit a [pipeline job](#pipeline-jobs) that uses the compute resources in your Azure Machine Learning workspace.
-1. Convert your *training pipelines* to *inference pipelines*.
-1. [Publish](#publish) your pipelines to a REST *pipeline endpoint* to submit new pipelines that run with different parameters and data assets.
-   - Publish a *training pipeline* to reuse a single pipeline to train multiple models while changing parameters and data assets.
-   - Publish a *batch inference pipeline* to make predictions on new data by using a previously trained model.
-1. [Deploy](#deploy) a *real-time inference pipeline* to an online endpoint to make predictions on new data in real time.
+- Drag-and-drop [data assets](#data) and [components](#components) onto the designer visual canvas, and connect the components to create a [pipeline draft](#pipeline-drafts).
+- Submit a [pipeline job](#pipeline-jobs) that uses the compute resources in your Azure Machine Learning workspace.
+- Convert your **training pipelines** to **inference pipelines**.
+- [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit new pipelines that run with different parameters and data assets.
+  - Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and data assets.
+  - Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
+- [Deploy](#deploy) a **real-time inference pipeline** to an online endpoint to make predictions on new data in real time.
 
 ## Data
 
@@ -96,7 +95,7 @@ When you're ready to run your pipeline draft, you save the pipeline and submit a
 
 Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a *pipeline job*. Pipeline jobs are grouped into *experiments* to organize job history.
 
-You can go back to any pipeline job to inspect it for troubleshooting or auditing. *Clone* a pipeline job to create a new pipeline draft to edit.
+You can go back to any pipeline job to inspect it for troubleshooting or auditing. **Clone** a pipeline job to create a new pipeline draft to edit.
 
 ## <a name="compute"></a> Compute resources
 
