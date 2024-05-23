@@ -1,19 +1,20 @@
 ---
 title: "MySQL on-premises to Azure Database for MySQL sample applications"
 description: "Download extra documentation we created for this Migration Guide and learn how to configure."
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: rothja
-ms.author: jroth
-ms.reviewer: maghan
-ms.custom: devx-track-arm-template
-ms.date: 06/21/2021
+ms.custom:
+  - devx-track-arm-template
 ---
 
 # Migrate MySQL on-premises to Azure Database for MySQL sample applications
 
-[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
+[!INCLUDE [applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Overview
 
@@ -21,7 +22,7 @@ This article explains how to deploy a sample application with an end-to-end MySQ
 
 ## Environment setup
 
-[Download more documentation](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1%20Appendix%20A.pdf) we created for this Migration Guide and learn how to configure an environment to perform the guide’s migration steps for the sample [conference demo application.](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/sample-app).
+[Download more documentation](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1%20Appendix%20A.pdf) we created for this Migration Guide and learn how to configure an environment to perform the guide's migration steps for the sample [conference demo application.](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/sample-app).
 
 ## Azure Resource Manager (ARM) templates
 

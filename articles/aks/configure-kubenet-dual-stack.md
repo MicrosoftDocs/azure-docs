@@ -71,19 +71,19 @@ The following attributes are provided to support dual-stack clusters:
 1. Create an Azure resource group for the cluster using the [`az group create`][az-group-create] command.
 
     ```azurecli-interactive
-    az group create -l <region> -n <resourceGroupName>
+    az group create --location <region> --name <resourceGroupName>
     ```
 
 2. Create a dual-stack AKS cluster using the [`az aks create`][az-aks-create] command with the `--ip-families` parameter set to `ipv4,ipv6`.
 
     ```azurecli-interactive
-    az aks create -l <region> -g <resourceGroupName> -n <clusterName> --ip-families ipv4,ipv6
+    az aks create --location <region> --resource-group <resourceGroupName> --name <clusterName> --ip-families ipv4,ipv6
     ```
 
 3. Once the cluster is created, get the cluster admin credentials using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials -g <resourceGroupName> -n <clusterName>
+    az aks get-credentials --resource-group <resourceGroupName> --name <clusterName>
     ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
@@ -151,7 +151,7 @@ The following attributes are provided to support dual-stack clusters:
 2. Once the cluster is created, get the cluster admin credentials using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials -g <resourceGroupName> -n <clusterName>
+    az aks get-credentials --resource-group <resourceGroupName> --name <clusterName>
     ```
 
 > [!NOTE]
@@ -198,7 +198,7 @@ The following attributes are provided to support dual-stack clusters:
 2. Once the cluster is created, get the cluster admin credentials using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials -g <resourceGroupName> -n <clusterName>
+    az aks get-credentials --resource-group <resourceGroupName> --name <clusterName>
     ```
 
 > [!NOTE]

@@ -247,7 +247,7 @@ The `eraser-aks-xxxxx` pod deletes within 10 minutes after work completion. You 
 2. Get the Log Analytics resource ID using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-      az aks show -g myResourceGroup -n myManagedCluster
+      az aks show --resource-group myResourceGroup --name myManagedCluster
     ```
 
      After a few minutes, the command returns JSON-formatted information about the solution, including the workspace resource ID:

@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 04/02/2024
 ---
@@ -300,6 +301,7 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
   "description": "Connects a deployed embedding model.",
   "resourceUri": "https://url.openai.azure.com/",
   "deploymentId": "text-embedding-ada-002",
+  "modelName": "text-embedding-ada-002",
   "inputs": [
     {
       "name": "text",
@@ -321,7 +323,8 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
       "kind": "azureOpenAI",
       "azureOpenAIParameters": {
         "resourceUri": "https://url.openai.azure.com",
-        "deploymentId": "text-embedding-ada-002"
+        "deploymentId": "text-embedding-ada-002",
+        "modelName": "text-embedding-ada-002"
       }
     }
   ]

@@ -1,14 +1,14 @@
 ---
-title: Microsoft Defender for open-source relational databases
+title: Respond to Defender open-source database alerts
 description: Configure Microsoft Defender for open-source relational databases to detect potential security threats.
-ms.date: 04/02/2024
+ms.date: 05/01/2024
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
 #customer intent: As a reader, I want to learn how to configure Microsoft Defender for open-source relational databases to enhance the security of my databases.
 ---
 
-# Enable Microsoft Defender for open-source relational databases and respond to alerts
+# Respond to Defender open-source database alerts
 
 Microsoft Defender for Cloud detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases for the following services:
 
@@ -16,30 +16,34 @@ Microsoft Defender for Cloud detects anomalous activities indicating unusual and
 - [Azure Database for MySQL](../mysql/index.yml)
 - [Azure Database for MariaDB](../mariadb/index.yml)
 
-To get alerts from the Microsoft Defender plan you'll first need to enable it as [shown below](#enable-enhanced-security).
+and for RDS instances on AWS (Preview):
+
+- Aurora PostgreSQL
+- Aurora MySQL
+- PostgreSQL
+- MySQL
+- MariaDB
+
+To get alerts from the Microsoft Defender plan you'll first need to enable Defender for open-source relational databases on your [Azure](enable-defender-for-databases-azure.md) or [AWS](enable-defender-for-databases-aws.md) account.
 
 Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
-## Enable enhanced security
+## Prerequisites
 
-1. From [the Azure portal](https://portal.azure.com), open the configuration page of the database server you want to protect.
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
-1. From the security menu on the left, select **Microsoft Defender for Cloud**.
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-1. If enhanced security isn't enabled, you'll see a button as shown in the following screenshot. Select **Enable Microsoft Defender for [Database type]** (for example, "Microsoft Defender for MySQL") and select **Save**.
+- **AWS users only** - Connect your [AWS account](quickstart-onboard-aws.md).
 
-    :::image type="content" source="media/defender-for-databases-usage/enable-defender-for-mysql.png" alt-text="Enable Microsoft Defender for MySQL." lightbox="media/defender-for-databases-usage/enable-defender-for-mysql.png":::
-
-    > [!TIP]
-    > This page in the portal will be the same regardless of the database type (PostgreSQL, MySQL, or MariaDB).
-
-## Respond to security alerts
+## Respond to alerts in Defender for Cloud
 
 When Microsoft Defender for Cloud is enabled on your database, it detects anomalous activities and generates alerts. These alerts are available from multiple locations, including:
 
 - In the Azure portal:
   - **Microsoft Defender for Cloud's security alerts page** - Shows alerts for all resources protected by Defender for Cloud in the subscriptions you've got permissions to view.
-  - The resource's **Microsoft Defender for Cloud** page - Shows alerts and recommendations for one specific resource, as shown above in [Enable enhanced security](#enable-enhanced-security).
+  - The resource's **Microsoft Defender for Cloud** page - Shows alerts and recommendations for one specific resource.
+
 - In the inbox of whoever in your organization has been [designated to receive email alerts](configure-email-notifications.md).  
 
 > [!TIP]

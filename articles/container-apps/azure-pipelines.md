@@ -26,7 +26,7 @@ The task supports the following scenarios:
 * Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Java, Node.js, PHP, and Python
 * Deploy an existing container image to Container Apps
 
-With the production release this task comes with Azure DevOps and no longer requires explicit installation. For the complete documentation please see [AzureContainerApps@1 - Azure Container Apps Deploy v1 task](/azure/devops/pipelines/tasks/reference/azure-container-apps-v1).
+With the production release this task comes with Azure DevOps and no longer requires explicit installation. For the complete documentation, see [AzureContainerApps@1 - Azure Container Apps Deploy v1 task](/azure/devops/pipelines/tasks/reference/azure-container-apps-v1).
 
 ### Usage examples
 
@@ -98,7 +98,7 @@ Take the following steps to configure an Azure DevOps pipeline to deploy to Azur
 
 Before creating a pipeline, the source code for your app must be in a repository. 
 
-1. Log in to [Azure DevOps](https://dev.azure.com/) and navigate to your project.
+1. Sign in to [Azure DevOps](https://dev.azure.com/) and navigate to your project.
 
 1. Open the **Repos** page.
 
