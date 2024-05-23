@@ -17,9 +17,9 @@ ms.custom: designer
 Designer in Azure Machine Learning studio is a drag-and-drop user interface for building machine learning pipelines in Azure Machine Learning workspaces.
 
 > [!IMPORTANT]
-> Designer in Azure Machine Learning supports two types of pipeline components: classic prebuilt (v1) or custom (v2). *This article applies to custom (v2) components.* The two component types aren't compatible in pipelines.
+> Designer in Azure Machine Learning supports two types of pipelines, which use classic prebuilt (v1) or custom (v2) components. The two component types aren't compatible within pipelines. *This article applies to Designer (v2) with custom components.* 
 > 
-> - **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new prebuilt components are being added. For information about classic prebuilt components and the v1 designer, see [Azure Machine Learning designer (v1)](https://learn.microsoft.com/azure/machine-learning/concept-designer?view=azureml-api-1&preserve-view=true).
+> - **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new classic prebuilt components are being added. For information about classic prebuilt components and the v1 designer, see [Azure Machine Learning designer (v1)](v1/concept-designer.md?view=azureml-api-1&preserve-view=true).
 > 
 > - **Custom components (v2)** let you wrap your own code as components, enabling sharing across workspaces and seamless authoring across Azure Machine Learning studio, CLI v2, and SDK v2 interfaces. It's best to use custom components for new projects, because they're compatible with Azure Machine Learning v2 and continue to receive new updates.
 
@@ -35,16 +35,16 @@ Designer uses building blocks from Azure Machine Learning asset libraries to cre
  - [Models](how-to-manage-models.md?view=azureml-api-2&preserve-view=true&tabs=cli)
  - [Components](concept-component.md)
 
-The asset libraries on the left side of Designer show assets created in your workspace and shared assets in all Azure Machine Learning [registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md) that you have access to.
+The **Data**, **Model**, and **Components** tabs on the left side of Designer show assets in your workspace and in all Azure Machine Learning [registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md) that you have access to.
 
 :::image type="content" source="./media/concept-designer/asset-library.png" alt-text="Screenshot of the asset libraries filtered for one registry." lightbox= "./media/concept-designer/asset-library.png":::
 
-To view assets from specific registries, select the **Registry name** filter above the asset libraries. The assets you created in your current workspace are in the **Workspace** registry. The assets provided by Azure Machine Learning are in the **azureml** registry.
+To view assets from specific registries, select the **Registry name** filter. The assets you created in your current workspace are in the **Workspace** registry. The assets provided by Azure Machine Learning are in the **azureml** registry.
 
 To learn how to create data and component assets in your workspace, see the following articles:
 
-- [How to create data assets](./how-to-create-data-assets.md)
-- [How to create components](./how-to-create-component-pipelines-ui.md)
+- [Create and manage data assets](./how-to-create-data-assets.md)
+- [Create and run pipelines using components](./how-to-create-component-pipelines-ui.md)
 
 ## Pipelines
 
@@ -52,7 +52,7 @@ You can use Designer to visually build pipelines with your assets. You can eithe
 
 ### New pipelines
 
-Selecting the **+** symbol under **New pipeline** at the top of the Designer screen creates a new pipeline to build from scratch. Be sure to select the **Custom** option to create the pipeline with custom components.
+Selecting the **+** symbol under **New pipeline** at the top of the Designer screen creates a new pipeline to build from scratch. Be sure to select the **Custom** option so you can use custom components.
 
 :::image type="content" source="./media/concept-designer/new-pipeline.png" alt-text="Screenshot of selecting new pipeline with custom components." lightbox= "./media/concept-designer/new-pipeline.png":::
 
@@ -60,9 +60,11 @@ The two tabs under **Pipelines** at the bottom of the Designer screen show the e
 
 ### Pipeline drafts
 
-As you build a pipeline, Designer saves your progress as a pipeline draft. You can edit a pipeline draft anytime by adding or removing components, configuring compute targets, and setting parameters.
+As you build a pipeline, Designer saves your progress as a pipeline draft.
 
 :::image type="content" source="./media/concept-designer/pipeline-draft-and-job.png" alt-text="Screenshot of pipeline draft list." lightbox= "./media/concept-designer/pipeline-draft-and-job.png":::
+
+:::image type="content" source="./media/concept-designer/edit-pipeline.png" alt-text="Screenshot of a draft pipeline being edited." lightbox= "./media/concept-designer/edit-pipeline.png":::
 
 A valid pipeline draft has the following characteristics:
 
