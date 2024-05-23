@@ -43,7 +43,7 @@ Two Azure resources are defined in the template:
 - [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backup-resource-storage-configs): configures the vault's backup redundancy settings.
 
 The template includes optional parameters for the vault's backup configuration. The storage
-redundancy settings are locally-redundant storage (LRS) or geo-redundant storage (GRS). For more
+redundancy settings are locally redundant storage (LRS) or geo-redundant storage (GRS). For more
 information, see [Set storage redundancy](../backup/backup-create-rs-vault.md#set-storage-redundancy).
 
 For more Azure Recovery Services templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
