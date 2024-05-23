@@ -269,8 +269,8 @@ ms.topic: include
 | Category       | Preset Options |
 | Description    | Shows the size of the server's main shared memory area (rounded up to the nearest MB). |
 | Data type      | integer   |
-| Default value  | `2168`        |
-| Allowed values | `2168`         |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
+| Allowed values | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
 | Parameter type | read-only      |
 | Documentation  |               |
 
@@ -286,8 +286,8 @@ ms.topic: include
 | Category       | Preset Options |
 | Description    | Shows the number of huge pages needed for the main shared memory area.                 |
 | Data type      | integer   |
-| Default value  | `1084`        |
-| Allowed values | `1084`         |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
+| Allowed values | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
 | Parameter type | read-only      |
 | Documentation  |               |
 
