@@ -149,7 +149,7 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | *Under `expression`* |  |  |
 | type | The expression type. Values can be Constant (default), Unary, Binary, and Field.  | No  |
 | value | The constant value. |Yes when the expression type is Constant or Field |
-| operators | The operator value. For more information about operators, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
+| operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
 
 
