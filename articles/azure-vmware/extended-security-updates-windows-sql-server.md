@@ -22,20 +22,20 @@ In this section, you learn how to configure the VMs that run SQL Server and Wind
 
 For SQL Server environments that run in a VM in Azure VMware Solution, you can use ESUs enabled by Azure Arc to configure ESUs and automate patching.
 
-First, you need to Arc-enable VMware vSphere for Azure VMware Solution. The Azure Extension for SQL Server must be installed on the VM.
+First, you need to Azure Arc-enable VMware vSphere for Azure VMware Solution. The Azure Extension for SQL Server must be installed on the VM.
 
-1. Arc-enable the VMware vSphere in Azure VMware Solution. Follow the steps in [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](deploy-arc-for-azure-vmware-solution.md?tabs=windows).
+1. Azure Arc-enable the VMware vSphere in Azure VMware Solution. Follow the steps in [Deploy Azure Arc-enabled VMware vSphere for Azure VMware Solution private cloud](deploy-arc-for-azure-vmware-solution.md?tabs=windows).
 
-1. Enable guest management for the individual VMs that run SQL Server. Make sure the Azure Extension for SQL Server is installed. To confirm that the extension is installed, see the section "View ESU subscription status."
+1. Enable guest management for the individual VMs that run SQL Server. Make sure the Azure Extension for SQL Server is installed. To confirm that the extension is installed, see the section [View ESU subscription status](#view-esu-subscription-status).
 
 > [!WARNING]
 > If you register SQL Server instances in a different manner from the preceding steps, the VM won't be registered as part of Azure VMware Solution. As a result, you will be billed for ESUs.
 
-After you Arc-enable the VMware vSphere in Azure VMware Solution and enable guest management, you can subscribe to ESUs by updating the SQL Server configuration on the Azure Arc-enabled VM.
+After you Azure Arc-enable the VMware vSphere in Azure VMware Solution and enable guest management, you can subscribe to ESUs by updating the SQL Server configuration on the Azure Arc-enabled VM.
 
 To find the SQL Server configuration from the Azure portal:
 
-1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** by clicking through one of the Arc-enabled VMs. The **Machine-Azure Arc (AVS)** page appears.
+1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** by clicking through one of the Azure Arc-enabled VMs. The **Machine-Azure Arc (AVS)** page appears.
 1. On the left pane, under **Operations**, select **SQL Server Configuration**.
 1. Follow the steps in the section [Subscribe to Extended Security Updates enabled by Azure Arc](/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-to-extended-security-updates-enabled-by-azure-arc). This section also provides syntax to configure by using Azure PowerShell or the Azure CLI.
 
@@ -45,7 +45,7 @@ For machines that run SQL Server where guest management is enabled, the Azure Ex
 
 - Use the Azure portal:
 
-    1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** by clicking through one of the Arc-enabled VMs. The **Machine-Azure Arc (AVS)** page appears.
+    1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** by clicking through one of the Azure Arc-enabled VMs. The **Machine-Azure Arc (AVS)** page appears.
     1. As part of the **Overview** section on the left pane, the **Properties/Extensions** view lists the `WindowsAgent.SqlServer` (*Microsoft.HybridCompute/machines/extensions*), if installed. Alternatively, you can expand **Settings** on the left pane and select **Extensions**. The `WindowsAgent.SqlServer` name and type appear, if configured.
 
 - Use Azure Resource Graph queries:
