@@ -21,7 +21,15 @@ The following table lists the current versions available for the public and beta
 
 In this release, we made the following changes:
 
-- Quick update to add support for the new iPads released by Apple this month.
+- Added support for the new iPad models released in May 2024.
+
+## Updates for version 10.5.6
+
+*Published: March 25, 2024*
+
+In this release, we made the following changes:
+
+- Fixed bugs reported by users.
 
 ## Updates for version 10.5.5
 
