@@ -9,8 +9,8 @@ ms.reviewer: nikeist
 ms.custom: references_regions
 ---
 
-# Data collection rules in Azure Monitor
-*Data collection rules (DCR)* are part of an [ETL](/azure/architecture/data-guide/relational-data/etl)-like data collection process that improves on legacy data collection methods for Azure Monitor. This process uses a common data ingestion pipeline, the Azure Monitor pipeline, for all data sources and a standard method of configuration that's more manageable and scalable than other methods. Specific advantages of DCR-based data collection include the following:
+# Data collection rules (DCRs) in Azure Monitor
+*Data collection rules (DCRs)* are part of an [ETL](/azure/architecture/data-guide/relational-data/etl)-like data collection process that improves on legacy data collection methods for Azure Monitor. This process uses a common data ingestion pipeline, the Azure Monitor pipeline, for all data sources and a standard method of configuration that's more manageable and scalable than other methods. Specific advantages of DCR-based data collection include the following:
 
 - Consistent method for configuration of different data sources.
 - Ability to apply a transformation to filter or modify incoming data before it's stored.
@@ -26,7 +26,7 @@ Data collection using the Azure Monitor pipeline is shown in the diagram below. 
 :::image type="content" source="media/pipeline-overview/pipeline-overview.png" lightbox="media/pipeline-overview/pipeline-overview.png" alt-text="Diagram that shows the data flow for Azure Monitor pipeline." border="false":::
 
 
-## Data collection rules
+## Using data collection rules
 
 Data collection rules (DCRs) are stored in Azure so they can be centrally deployed and managed like any other Azure resource. They're sets of instructions supporting data collection using the Azure Monitor pipeline. They provide a consistent and centralized way to define and customize different data collection scenarios. Depending on the scenario, DCRs specify such details as what data should be collected, how to transform that data, and where to send it. 
 
