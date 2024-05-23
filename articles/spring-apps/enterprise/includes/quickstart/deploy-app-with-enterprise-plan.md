@@ -212,7 +212,7 @@ Use the following command to deploy the *.jar* file for the app:
 az spring app deploy \
     --service ${SERVICE_NAME} \
     --name ${APP_NAME} \
-    --artifact-path target/demo-0.0.2-SNAPSHOT.jar
+    --artifact-path target/demo-0.0.1-SNAPSHOT.jar
 ```
 
 Deploying the application can take a few minutes.
