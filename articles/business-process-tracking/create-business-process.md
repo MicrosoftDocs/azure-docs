@@ -43,6 +43,8 @@ Although this example shows a sequential business process, your process can also
   > Explorer incurs charges, based on the selected pricing option. For more information, see 
   > [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
 
+<a name="create-business-process"></a>
+
 ## Create a business process
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter and select **Business Process Tracking**.
@@ -57,7 +59,7 @@ Although this example shows a sequential business process, your process can also
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription*> | The Azure subscription to use for your business process. |
    | **Resource group** | Yes | <*Azure-resource-group-name*> | A new or existing Azure resource group. <br><br>This example uses **City-Power-and-Light-RG**. |
-   | **Business process name** | Yes | <*process-name*> | A name for your business process that uses only alphanumeric characters, hyphens, underscores, parentheses, or periods. <br><br>This example uses **Resolve-Power-Outage**. |
+   | **Business process name** | Yes | <*process-name*> | A name for your business process. Use only alphanumeric characters, hyphens, underscores, parentheses, or periods. <br><br>This example uses **Resolve-Power-Outage**. |
    | **Description** | No | <*process-description*> | The purpose for your business process |
    | **Region** | Yes | <*Azure-region*> | The Azure region for your business process. |
 
@@ -70,7 +72,7 @@ Although this example shows a sequential business process, your process can also
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. <br><br>This example uses the **TicketNumber** property value as the identifier. |
-   | **Data type** | Yes | <*ID-data-type*> | The data type for your business identifier: **String** or **Integer**. <br><br>This example uses the **String** data type. |
+   | **Data type** | Yes | <*ID-data-type*> | The data type for your transaction ID: **String** or **Integer**. <br><br>This example uses the **String** data type. |
 
    > [!NOTE]
    >
@@ -91,27 +93,27 @@ Although this example shows a sequential business process, your process can also
    | **Table** | Yes | <*table-name*> | The name for the table to create or use. To update an existing table, select the option to **Use an existing table**. <br><br>**Note**: Although you can use the same name as an existing table, which updates that table, for security purposes, create a unique and separate table for each business process. This practice helps you avoid mixing sensitive data with non-sensitive data and is useful for redeployment scenarios. |
    | **Use an existing table** | No | Enabled or disabled | To update an existing table, select this option. |
 
-1. When you're done, select **Review + create**.
+1. When you're done, select **Create**.
 
-   The **Business processes** list now includes the business process that you created.
-
-   :::image type="content" source="media/create-business-process/business-process-created.png" alt-text="Screenshot shows Azure portal, application group, and business processes list with new business process." lightbox="media/create-business-process/business-process-created.png":::
+   When deployment completes, Azure opens the **Overview** page for your **Business Process** resource.
 
 1. Now, add the stages for your business process.
 
+<a name="add-stage"></a>
+
 ## Add a business process stage
 
-After you create your business process, add the stages in that process.
-
-Suppose you're an integration developer at a power company. You manage a solution for a customer work order processor service that's implemented by multiple Standard logic app resources and their workflows. Your customer service team follows the following business process to resolve a customer ticket for a power outage:
+After you create your business process, add the stages for that process. For example, suppose you're an integration developer at a power company. You manage a solution for a customer work order processor service that's implemented by multiple Standard logic app resources and their workflows. Your customer service team follows the following business process to resolve a customer ticket for a power outage:
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
-1. From the **Business processes** list, select your business process, which opens the process designer.
+1. In the [Azure portal](https://portal.azure.com), open your business process resource, if not already open.
 
-1. On the designer, select **Add stage**.
+1. On the resource menu, under **Business process tracking**, select **Editor**.
 
-   :::image type="content" source="media/create-business-process/add-stage.png" alt-text="Screenshot shows business process designer with Add stage selected." lightbox="media/create-business-process/add-stage.png":::
+1. In the editor, select **Add stage**.
+
+   :::image type="content" source="media/create-business-process/add-stage.png" alt-text="Screenshot shows business process editor with Add stage selected." lightbox="media/create-business-process/add-stage.png":::
 
 1. On the **Add stage** pane, provide the following information:
 
@@ -123,17 +125,44 @@ Suppose you're an integration developer at a power company. You manage a solutio
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Name** | Yes | <*stage-name*> | Name for this process stage that uses only alphanumeric characters, hyphens, underscores, parentheses, or periods. |
-   | **Description** | No | <*stage-description*> | Purpose for this stage |
-   | **Show data source** | No | True or false | Show or hide the available data sources: <br><br>- **Logic app**: Name for an available Standard logic app resource <br><br>- **Workflow**: Name for the workflow in the selected Standard logic app resource <br><br>- **Action**: Name for the operation that you want to select and map to this stage <br><br>**Note**: If no options appear, the designer didn't find any Standard logic apps in your application group. |
-   | **Add property** | No | None | Add a property and value for key business data that your organization wants to capture and track: <br><br>- **Property**: Name for the property, for example, **CustomerName**, **CustomerPhone**, and **CustomerEmail**. The platform automatically includes and captures the transaction timestamp, so you don't have to add this value for tracking. <br><br>- **Type**: Property value's data type, which is either a **String** or **Integer** |
-   | **Business identifier** | Yes | <*business-ID*>, read-only | Visible only when **Show data source** is selected. This unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier that exists across all your business stages. This ID is automatically populated from when defined the parent business process. <br><br>In this example, **TicketNumber** is the identifier that's automatically populated. |
+   | **Stage name** | Yes | <*stage-name*> | The name for this process stage. Use only alphanumeric characters, hyphens, underscores, parentheses, or periods. |
+   | **Description** | No | <*stage-description*> | The purpose for this stage. |
 
-   The following example shows a stage named **Create_ticket** without the other values, which you provide when you [map the business process to a Standard logic app workflow](map-business-process-workflow.md):
+   :::image type="content" source="media/create-business-process/add-stage-quick.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and properties to track." lightbox="media/create-business-process/add-stage-quick.png":::
 
-   :::image type="content" source="media/create-business-process/add-stage-quick.png" alt-text="Screenshot shows pane named Add stage." lightbox="media/create-business-process/add-stage-quick.png":::
+   By default, in the **Properties to track** section, the transaction ID that you defined when you created the business process automatically appears in this section. 
 
-1. When you're done, select **Add**.
+   To add more properties that you want to capture and track, follow these steps:
+
+   1. Under the properties list, select **Add property**.
+
+   1. Enter the property name and type to capture and track. The type is either a **String** or **Integer**.
+
+   > [!NOTE]
+   >
+   > Business Process Tracking automatically includes and captures the transaction 
+   > timestamp, so you don't have to add this value to capture and track.
+
+   For example, this stage specifies a few more properties, such as **CustomerName**, **CustomerEmail**, and **CustomerPhone**:
+
+   :::image type="content" source="media/create-business-process/add-properties.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and more properties to track." lightbox="media/create-business-process/add-properties.png":::
+
+1. In the editor's upper-right corner, you can optionally enable **Show data source settings**, which shows or hides the available data sources that you can map to each stage.
+
+   > [!NOTE]
+   >
+   > In this release, business process tracking is available only for 
+   > Standard logic app resources and their workflows in Azure Logic Apps.
+
+   To choose a data source, provide the following information:
+
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | **Subscription** | <*Azure-subscription*> | The Azure subscription for an existing Standard logic app resource. |
+   | **Logic app** | <*logic-app-name*> | The name for the Standard logic app resource. <br><br>**Note**: If no options appear, the editor didn't find any eligible Standard logic apps. |
+   | **Workflow** | <*workflow-name*> | The name for the workflow in the selected Standard logic app resource. |
+
+1. When you're done, select **Add stage**.
 
 1. To add another stage, choose one of the following options:
 
@@ -155,7 +184,7 @@ Suppose you're an integration developer at a power company. You manage a solutio
 
 1. Now, [define key business data properties to capture for each stage and map each stage to an operation in a Standard logic app workflow](map-business-process-workflow.md#define-business-property) so that you can get insights about your deployed resource.
 
-## Next steps
+## Related content
 
 - [Map a business process to a Standard logic app workflow](map-business-process-workflow.md)
 - [Manage a business process](manage-business-process.md)
