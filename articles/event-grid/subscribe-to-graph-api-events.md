@@ -5,7 +5,7 @@ author: robece
 ms.author: robece
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python, build-2024
-ms.date: 12/08/2023
+ms.date: 05/22/2024
 ---
 
 # Receive Microsoft Graph API change events through Azure Event Grid 
@@ -13,17 +13,19 @@ ms.date: 12/08/2023
 This article describes steps to subscribe to events published by Microsoft Graph API. The following table lists the event sources for which events are available through Graph API. For most resources, events announcing its creation, update, and deletion are supported. For detailed information about the resources for which events are raised for event sources, see [supported resources by Microsoft Graph API change notifications](/graph/webhooks#supported-resources)
 .
 
-|Microsoft event source |Available event types | 
-|:--- | :----|
-|Microsoft Entra ID| [Microsoft Entra event types](azure-active-directory-events.md) |
-|Microsoft Outlook| [Microsoft Outlook event types](outlook-events.md) |
-|Microsoft 365 group conversations ||
-|Microsoft Teams| [Microsoft Teams event types](teams-events.md) |
-|Microsoft SharePoint and OneDrive|  |
-|Microsoft SharePoint| |
-|Security alerts| |
-|Microsoft Conversations|  |
-|Microsoft Universal Print||
+|Microsoft event source |Resource(s) | Available event types | 
+|:--- | :--- | :----|
+| Microsoft Entra ID | [User](/graph/api/resources/user), [Group](/graph/api/resources/group) | [Microsoft Entra event types](microsoft-entra-events.md) |
+| Microsoft Outlook|[Event](/graph/api/resources/event) (calendar meeting), [Message](/graph/api/resources/message) (email), [Contact](/graph/api/resources/contact) | [Microsoft Outlook event types](outlook-events.md) |
+| Microsoft Teams |[ChatMessage](/graph/api/resources/callrecords-callrecord), [CallRecord](/graph/api/resources/callrecords-callrecord) (meeting) | [Microsoft Teams event types](teams-events.md) |
+| OneDrive | [DriveItem](/graph/api/resources/driveitem)| [Microsoft OneDrive events](one-drive-events.md) |
+| Microsoft SharePoint | [List](/graph/api/resources/list) | [Microsoft SharePoint events](share-point-events.md) |
+| To Do | [To Do Task](/graph/api/resources/todotask) | [Microsoft ToDo events](to-do-events.md) |
+| Security alerts | [Alert](/graph/api/resources/alert)| [Microsoft Security Alert events](security-alert-events.md) |
+| Cloud printing | [Printer](/graph/api/resources/printer), [Print Task Definition](/graph/api/resources/printtaskdefinition) | [Microsoft Cloud Printing events](cloud-printing-events.md) |
+| Microsoft Conversations | [Conversation](/graph/api/resources/conversation) | [Microsoft 365 Group Conversation events](conversation-events.md) |
+
+You create a Microsoft Graph API subscription to enable Graph API events to flow into a partner topic. The partner topic is automatically created for you as part of the Graph API subscription creation. You use that partner topic to [create event subscriptions](event-filtering.md) to send your events to any of the supported [event handlers](event-handlers.md) that best meets your requirements to process the events.
 
 > [!IMPORTANT]
 >If you aren't familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md).

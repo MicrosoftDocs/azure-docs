@@ -2,7 +2,7 @@
 title: Microsoft Graph API events in Azure Event Grid
 description: This article describes events published by Microsoft Graph API.
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 05/22/2024
 ---
 
 # Microsoft Graph API events
@@ -10,6 +10,7 @@ ms.date: 06/09/2022
 Microsoft Graph API provides a unified programmable model that you can use to receive events about state changes of resources in Microsoft Outlook, Teams, SharePoint, Microsoft Entra ID, Microsoft Conversations, and security alerts. For every resource in the following table, events for create, update and delete state changes are supported. 
 
 ## Graph API event sources
+
 
 |Microsoft event source |Resource(s) | Available event types | 
 |:--- | :--- | :----|
