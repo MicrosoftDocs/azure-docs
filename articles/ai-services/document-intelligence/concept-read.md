@@ -378,7 +378,7 @@ Find more samples on GitHub:
 
 ::: moniker-end
 
-> ::: moniker range="doc-intel-3.1.0"
+::: moniker range="doc-intel-3.1.0"
 Find more samples on GitHub:
 > [!div class="nextstepaction"]
 > [Read model.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Read_model)
