@@ -58,7 +58,7 @@ With max spreading, the scale set spreads your VMs across as many fault domains 
 ### Placement groups
 
 > [!IMPORTANT]
-> Placement groups only apply to Virtual Machine Scale Sets running in Uniform orchestration mode.
+> Placement groups only apply to Virtual Machine Scale Sets running in Uniform Orchestration.
 
 When you deploy a scale set, you can deploy with a single [placement group](./virtual-machine-scale-sets-placement-groups.md) per Availability Zone, or with multiple per zone. For regional (non-zonal) scale sets, the choice is to have a single placement group in the region or to have multiple in the region. If the scale set property called `singlePlacementGroup` is set to false, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. When set to the default value of true, the scale set is composed of a single placement group, and has a range of 0-100 VMs. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional (non-zonal) scale sets.
 
@@ -290,12 +290,12 @@ You can update the zones parameter and the scale set capacity in the same ARM te
 
 When you are satisfied that the new instances are ready, scale in your scale set to remove the original regional instances. You can either manually delete the specific regional instances, or scale in by reducing the scale set capacity. When scaling in via reducing scale set capacity, the platform will always prefer removing the regional instances, then follow the scale in policy.
 
-#### Automate with Rolling upgrades + MaxSurge (preview)
+#### Automate with rolling upgrades + MaxSurge (preview)
 
-With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md), new zonal instances are created and brought up-to-date with the latest scale model in batches. Once a batch of new instances is added to the scale set and report as healthy, a batch of old instances are automated removed from the scale set. Upgrades continue until all instances are brought up-to-date.
+With [rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md), new zonal instances are created and brought up-to-date with the latest scale model in batches. Once a batch of new instances is added to the scale set and report as healthy, a batch of old instances are automated removed from the scale set. Upgrades continue until all instances are brought up-to-date.
 
 > [!IMPORTANT]
-> Rolling upgrades with MaxSurge is currently in preview for Virtual Machine Scale Sets with Flexible and Uniform orchestration. For more information, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)
+> Rolling upgrades with MaxSurge is currently in preview for Virtual Machine Scale Sets with Flexible and Uniform Orchestration. For more information, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)
 
 ### Known issues and limitations
 
