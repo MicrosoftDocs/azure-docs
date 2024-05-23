@@ -113,11 +113,11 @@ In this quickstart, you used a document Intelligence model to analyze various fo
 ::: moniker-end
 
 ::: moniker range="doc-intel-4.0.0" 
-* [**Find more samples**](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main).
+* [**Find more samples on GitHub**](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main).
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0" 
-* [**Find more samples**](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)).
+* [**Find more samples on GitHub**](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)).
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
