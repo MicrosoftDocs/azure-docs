@@ -9,7 +9,7 @@ ms.date: 05/22/2024
 
 # Set up the PySpark interactive environment for Visual Studio Code
 
-The following steps show how to set up the PySpark interactive environment in VSCode. This step is only for non-Windows users.
+The following steps show how to set up the PySpark interactive environment in VS Code. This step is only for non-Windows users.
 
 We use **python/pip** command to build virtual environment in your Home path. If you want to use another version, you need to change default version of **python/pip** command manually. More details see [update-alternatives](https://linux.die.net/man/8/update-alternatives).
 
@@ -42,7 +42,7 @@ sudo apt-get install libkrb5-dev
 sudo apt-get install python-dev
 ```
 
-Restart VSCode, and then go back to the VSCode editor and run **Spark: PySPark Interactive** command.
+Restart VS Code, and then go back to the VS Code editor and run **Spark: PySPark Interactive** command.
 
 ## Next steps
 
