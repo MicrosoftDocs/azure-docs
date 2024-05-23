@@ -416,9 +416,45 @@ When updating a deployment stack, you might encounter the following stack-out-of
 The deployment stack '{0}' may not have an accurate list of managed resources. To ensure no resources are accidentally deleted, please check that the managed resource list does not have any additional values. If there is any uncertainty, we recommend redeploying the stack with the same template and parameters as the current iteration. To bypass this warning, please specify the 'BypassStackOutOfSyncError' flag.
 ```
 
-The `BypassStackOutOfSyncError` swith in Azure PowerShell ( or `bypass-stack-out-of-sync-error` in Azure CLI) should only be used after thoroughly review the list of resources in the stack before re-running the command. This switch should never be used by default.
+You can obtain an accurate list of the resources from the Azure portal or redeploy the currently deployed Bicep file with the same parameters. The output shows the managed resources
 
-To obtain an accurate list of resources in a stack, you can redeploy the currently deployed template with the same parameters.
+# [PowerShell](#tab/azure-powershell)
+
+```output
+...
+Resources: /subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
+           /subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
+```
+
+# [CLI](#tab/azure-cli)
+
+```output
+"resources": [
+  {
+    "denyStatus": "none",
+    "id": "/subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
+    "resourceGroup": "demoRg",
+    "status": "managed"
+  },
+  {
+    "denyStatus": "none",
+    "id": "/subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
+    "resourceGroup": "demoRg",
+    "status": "managed"
+  }
+]
+```
+
+# [Portal](#tab/azure-portal)
+
+1. Open the Azure portal.
+1. Open the Resource group that contains the stack.
+1. From the left menu, expand **Settings**, and then select **Deployment stacks**.
+1. Select the stack name to open the stack.
+
+---
+
+After you have reviewed and verified the list of resources in the stack, you can re-run the command with the `BypassStackOutOfSyncError` switch in Azure PowerShell ( or `bypass-stack-out-of-sync-error` in Azure CLI). This switch should only be used after thoroughly review the list of resources in the stack before re-running the command. This switch should never be used by default.
 
 ## Delete deployment stacks
 
