@@ -63,4 +63,4 @@ In order of most to least expensive, the core storage option prices are:
 - Azure Premium Blob and Azure Premium Files
 - Azure Standard Blob
 
-For more info on the pricing, see [Azure product pricing](https://azure.microsoft.com/en-us/pricing/#product-pricing).
+For more info on the pricing, see [Azure product pricing](https://azure.microsoft.com/pricing/#product-pricing).
