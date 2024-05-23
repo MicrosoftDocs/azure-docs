@@ -248,15 +248,88 @@ items:
         href: tutorial-app-containerization-azure-pipeline.md  
 - name: How-to
   items:
-  - name: Create project with private endpoint 
-    href: how-to-use-azure-migrate-with-private-endpoints.md
-  - name: Discover and assess using Azure Private Link
-    href: discover-and-assess-using-private-endpoints.md
-  - name: Migrate servers to Azure using Private Link
-    href: migrate-servers-to-azure-using-private-link.md
-  - name: Troubleshoot network connectivity for private endpoint
-    href: troubleshoot-network-connectivity.md
-  - name: Discovery
+  - name: General
+    items:
+    - name: Azure Migrate support
+      href: migrate-support-matrix.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-migrate-security-baseline?context=/azure/migrate/context/migrate-context
+  - name: Discover
+    items:
+    - name: VMware discovery support
+      href: migrate-support-matrix-vmware.md
+    - name: Hyper-V discovery support
+      href: migrate-support-matrix-hyper-v.md
+    - name: Physical server discovery support
+      href: migrate-support-matrix-physical.md
+    - name: Azure Migrate appliance requirements
+      href: migrate-appliance.md
+    - name: Discovery of metadata by Azure Migrate appliance
+      href: discovered-metadata.md
+    - name: Dependency analysis overview
+      href: concepts-dependency-visualization.md
+  - name: Decide
+    items:
+    - name: Business case overview
+      href: concepts-business-case-calculation.md
+  - name: Assess
+    items:
+    - name: Assessments overview (migrate to Azure VMs)
+      href: concepts-assessment-calculation.md
+    - name: Assessments overview (migrate to Azure SQL)
+      href: concepts-azure-sql-assessment-calculation.md
+    - name: Assessments overview (migrate to App Service)
+      href: concepts-azure-webapps-assessment-calculation.md
+    - name: Assessments overview (migrate to Azure Spring Apps)
+      href: concepts-azure-spring-apps-assessment-calculation.md
+    - name: Assessments overview (migrate to AVS)
+      href: concepts-azure-vmware-solution-assessment-calculation.md
+    - name: Assessment best practices
+      href: best-practices-assessment.md
+    - name: Assessment overview (discover and assess SAP Systems) (preview)
+      href: concepts-azure-sap-systems-assessment.md
+  - name: Migrate
+    items:
+    - name: Build a migration plan
+      href: concepts-migration-planning.md
+    - name: VMware migration support
+      href: migrate-support-matrix-vmware-migration.md
+    - name: Hyper-V migration support
+      href: migrate-support-matrix-hyper-v-migration.md
+    - name: Physical server migration support
+      href: migrate-support-matrix-physical-migration.md
+    - name: Replication appliance requirements
+      href: migrate-replication-appliance.md
+    - name: VMware agentless migration architecture
+      href: concepts-vmware-agentless-migration.md
+      items:
+        - name: Prepare for VMware agentless migration
+          href: prepare-for-agentless-migration.md
+    - name: Hyper-V migration architecture
+      href: hyper-v-migration-architecture.md
+    - name: VMware agent-based migration architecture
+      href: agent-based-migration-architecture.md
+    - name: Web apps migration support
+      href: concepts-migration-webapps.md
+- name: How-to guides
+  items:
+  - name: Create and manage Azure Migrate projects
+    href: create-manage-projects.md
+  - name: Use Azure Migrate with private endpoints 
+    items:
+      - name: Support requirements and considerations
+        href: how-to-use-azure-migrate-with-private-endpoints.md
+      - name: Discover and assess using Azure Private Link
+        href: discover-and-assess-using-private-endpoints.md
+      - name: Migrate servers to Azure using Private Link
+        href: migrate-servers-to-azure-using-private-link.md
+      - name: Troubleshoot network connectivity
+        href: troubleshoot-network-connectivity.md
+  - name: Prepare to work with ISV tools/Movere
+    href: prepare-isv-movere.md
+  - name: Discover
     items:
     - name: Deploy appliance in Azure Government
       href: deploy-appliance-script-government.md
@@ -274,6 +347,20 @@ items:
     items:
     - name: Enable application and code assessment
       href: appcat/index.yml
+    - name: Add assessment tools
+      href: how-to-assess.md
+    - name: Group machines for assessment
+      href: how-to-create-a-group.md
+    - name: Create an Azure VM assessment
+      href: how-to-create-assessment.md
+    - name: Create an Azure SQL assessment
+      href: how-to-create-azure-sql-assessment.md
+    - name: Create an Azure App Service assessment
+      href: how-to-create-azure-app-service-assessment.md
+    - name: Create an Azure Spring Apps assessment
+      href: how-to-create-azure-spring-apps-assessment.md
+    - name: Create an AVS assessment
+      href: how-to-create-azure-vmware-solution-assessment.md
     - name: Assess a SQL Server database
       href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
     - name: Customize an assessment

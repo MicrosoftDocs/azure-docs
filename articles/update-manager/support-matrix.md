@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/02/2024
+ms.date: 05/15/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -118,7 +118,7 @@ United States | USGovVirginia </br>  USGovArizona </br> USGovTexas | For both Az
 
 **Geography** | **Supported regions** | **Details** 
 --- | --- | ---
-China | ChinaEast </br> ChinaEast3 </br>  ChinaNorth </br> ChinaNorth3 </br> ChinaEast2 </br>  ChinaNorth2 | For Azure VMs only </br> For Azure VMs only </br> For Azure VMs only </br> For Azure VMs only </br> For both Azure VMs and Azure Arc-enabled servers </br> For both Azure VMs and Azure Arc-enabled servers.
+China | ChinaEast </br> ChinaEast3 </br>  ChinaNorth </br> ChinaNorth3 </br> ChinaEast2 </br>  ChinaNorth2 | For Azure VMs only </br> For Azure VMs only </br> For Azure VMs only </br> For both Azure VMs and Azure Arc-enabled servers </br> For both Azure VMs and Azure Arc-enabled servers </br> For both Azure VMs and Azure Arc-enabled servers.
 
 
 ---
@@ -241,7 +241,7 @@ Following is the list of supported images and no other marketplace images releas
 
 ### Custom images
 
-We support VMs created from customized images (including images) uploaded to [Azure Compute gallery](../virtual-machines/linux/tutorial-custom-images.md#overview) and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
+We support VMs created from customized images (including images uploaded to [Azure Compute gallery](../virtual-machines/linux/tutorial-custom-images.md#overview)) and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
 
 
    |**Windows operating system**|
@@ -270,7 +270,6 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
    |-------------|
    | Amazon Linux 2023 |
    | Windows Server 2012 R2 and higher (including Server Core) |
-   | Windows Server 2008 R2 SP1 with PowerShell enabled and .NET Framework 4.0+ |
    | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
    | CentOS Linux 7 and 8 (x64) |
    | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
