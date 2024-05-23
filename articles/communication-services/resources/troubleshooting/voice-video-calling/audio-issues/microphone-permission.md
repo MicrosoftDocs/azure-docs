@@ -33,4 +33,4 @@ It's also important to listen for the `microphonePermissionDenied` event. Displa
 
 Below is a flow diagram of the debugging process for this issue.
 
-:::image type="content" source="./media/permission-issue-debugging.png alt-text="Diagram of debugging the permission issue.":::
+:::image type="content" source="./media/permission-issue-debugging.png" alt-text="Diagram of debugging the permission issue.":::
