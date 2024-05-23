@@ -30,7 +30,7 @@ The in-place migration provides a highly resilient and self-healing offline migr
 
 ## Eligibility
 
-If you own a Single Server workload with Basic, General Purpose or Memory Optimized SKU, data storage used <= 20 GiB and no complex features (CMK, Microsoft Entra ID, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for automigration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
+If you own a Single Server workload with data storage used <= 100 GiB and no complex features (CMK, Microsoft Entra ID, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for automigration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
 
 ## Configure migration alerts and review migration schedule
 
