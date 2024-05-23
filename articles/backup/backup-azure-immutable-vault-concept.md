@@ -22,6 +22,9 @@ Immutable vault can help you protect your backup data by blocking any operations
 - Immutable vault applies to all the data in the vault. Therefore, all instances that are protected in the vault have immutability applied to them.
 - Immutability doesn't apply to operational backups, such as operational backup of blobs, files, and disks.
 
+>[!Note]
+>Ensure that the resource provider is registered in your subscription for Microsoft.RecoveryServices otherwise Zone-redundant and vault property options “Enable immutability” will not be accessible.
+
 ## How does immutability work?
 
 While Azure Backup stores data in isolation from production workloads, it allows performing management operations to help you manage your backups, including those operations that allow you to delete recovery points. However, in certain scenarios, you may want to make the backup data immutable by preventing any such operations that, if used by malicious actors, could lead to the loss of backups. The Immutable vault setting on your vault enables you to block such operations to ensure that your backup data is protected, even if any malicious actors try to delete them to affect the recoverability of data.
