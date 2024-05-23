@@ -176,8 +176,6 @@ items:
         href: secure-file-transfer-protocol-performance.md
       - name: Limitations and known issues
         href: secure-file-transfer-protocol-known-issues.md
-    - name: Data Movement library
-      href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data management
     items:
     - name: Containers and blobs
@@ -1007,6 +1005,8 @@ items:
         href: storage-blob-event-overview.md
       - name: Route events to a custom endpoint
         href: storage-blob-event-quickstart.md
+    - name: Data Movement library (.NET)
+      href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Troubleshooting
     href: /troubleshoot/azure/azure-storage/welcome-azure-storage?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Samples
