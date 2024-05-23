@@ -526,7 +526,7 @@ The Azure Data Lake connector crawls content from the Azure Data Lake Store clou
 
 By [Accenture](https://www.accenture.com)
 
-Crawls content from an Azure Events Hub, allowing incremental crawling and retrieval of any type of event or attributes.
+Crawls content from an Azure event hub, allowing incremental crawling and retrieval of any type of event or attributes.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Azure+Events+Hub+Connector)
 
@@ -1772,7 +1772,7 @@ The OneDrive connector crawls content from Microsoft OneDrive, allowing incremen
 
 ---
 
-### OneDrive for Business
+### OneDrive for work or school
 
 By [BA Insight](https://www.bainsight.com/)
 
