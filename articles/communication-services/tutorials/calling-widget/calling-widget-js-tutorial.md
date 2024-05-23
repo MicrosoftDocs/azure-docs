@@ -69,7 +69,7 @@ For Windows using the command prompt, use this command:
 mkdir ui-library-js-test-application; cd ui-library-js-test-application
 ```
 
-For MacOS using terminal use this command
+For macOS using terminal, use this command:
 
 ```bash
 mkdir ui-library-js-test-application && cd ui-library-js-test-application
