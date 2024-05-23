@@ -372,14 +372,14 @@ Explore our REST API:
 > [Document Intelligence API v4.0](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)
 
 ::: moniker range="doc-intel-4.0.0"
-Find more samples:
+Find more samples on GitHub:
 > [!div class="nextstepaction"]
 > [Read model.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Python(v4.0)/Read_model)
 
 ::: moniker-end
 
 > ::: moniker range="doc-intel-3.1.0"
-Find more samples:
+Find more samples on GitHub:
 > [!div class="nextstepaction"]
 > [Read model.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Read_model)
 
