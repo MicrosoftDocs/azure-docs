@@ -31,6 +31,6 @@ This way gives the user a chance to grant the device permission if they didn't d
 
 It's also important to listen for the `microphonePermissionDenied` event. Display a warning message if the user revokes the permission during the call. By doing so, the user is aware of the issue and can adjust their browser or system settings accordingly.
 
-Below is a flow diagram of the debugging process for this issue.
+Below is a flow diagram of the troubleshooting process for this issue.
 
-:::image type="content" source="./media/permission-issue-debugging.png" alt-text="Diagram of debugging the permission issue.":::
+:::image type="content" source="./media/permission-issue-troubleshooting.png" alt-text="Diagram of troubleshooting the permission issue.":::

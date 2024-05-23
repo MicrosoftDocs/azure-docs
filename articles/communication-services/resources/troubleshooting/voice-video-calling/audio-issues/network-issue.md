@@ -32,6 +32,6 @@ so that the user is aware of the issue and understands that the audio loss is du
 However, if the network reconnection occurs at the sender's side,
 users on the receiving end are unable to know about it because currently the SDK doesn't support notifying receivers that the sender has network issues.
 
-Below is a flow diagram of the debugging process for this issue.
+Below is a flow diagram of the troubleshooting process for this issue.
 
-:::image type="content" source="./media/network-issue-debugging.png" alt-text="Diagram of debugging the network issue.":::
+:::image type="content" source="./media/network-issue-troubleshooting.png" alt-text="Diagram of troubleshooting the network issue.":::

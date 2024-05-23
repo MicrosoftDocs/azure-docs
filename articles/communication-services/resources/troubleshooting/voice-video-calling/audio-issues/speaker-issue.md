@@ -39,6 +39,6 @@ If your are using Web Audio API in your application, you might also check if the
 This error occurs when there are too many AudioContext instances open at the same time, particularly if the application doesn't properly close the AudioContext or 
 if there is an AudioContext creation associated with the UI component refresh logic.
 
-Below is a flow diagram of the debugging process for this issue.
+Below is a flow diagram of the troubleshooting process for this issue.
 
-:::image type="content" source="./media/speaker-issue-debugging.png" alt-text="Diagram of debugging the speaker issue.":::
+:::image type="content" source="./media/speaker-issue-troubleshooting.png" alt-text="Diagram of troubleshooting the speaker issue.":::

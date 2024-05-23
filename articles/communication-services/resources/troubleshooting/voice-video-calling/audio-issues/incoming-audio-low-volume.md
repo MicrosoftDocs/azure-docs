@@ -39,9 +39,9 @@ For example, if the user uses Windows, they should check the volume mixer settin
 
 :::image type="content" source="./media/apps-volume-mixer.png" alt-text="Screenshot of volume mixer.":::
 
-Below is a flow diagram of the debugging process for this issue.
+Below is a flow diagram of the troubleshooting process for this issue.
 
-:::image type="content" source="./media/low-volume-debugging.png" alt-text="Diagram of debugging the low volume issue.":::
+:::image type="content" source="./media/low-volume-troubleshooting.png" alt-text="Diagram of troubleshooting the low volume issue.":::
 
 ### Using Web Audio GainNode to increase the volume
 It may be possible to address this issue at the application layer using Web Audio GainNode.
