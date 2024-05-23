@@ -49,5 +49,5 @@ Each event log is published with a timestamp that indicates the time that Azure 
 In this article, you learned about Azure Load Balancer health event logs and health event types.
 
 For more information about how to collect, analyze, and create alerts using these logs, along with troubleshooting each health event type, see:
-* [Learn to monitor and alert with Azure Load Balancer health event logs](monitor-alert-load-balancer-health-event-logs.md).
-* [Troubleshoot Azure Load Balancer health event logs](troubleshoot-load-balancer-health-event-logs.md)
+* [Learn to monitor and alert with Azure Load Balancer health event logs](load-balancer-monitor-alert-health-event-logs.md).
+* [Troubleshoot Azure Load Balancer health event logs](load-balancer-troubleshoot-health-event-logs.md)
