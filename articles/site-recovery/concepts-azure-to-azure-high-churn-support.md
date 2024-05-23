@@ -1,6 +1,6 @@
 ---
-title: Azure virtual machine Disaster Recovery - High Churn support
-description: Describes how to protect your Azure virtual machines having high churning workloads.
+title: Azure Virtual Machines disaster recovery - High Churn support
+description: Describes how to protect your Azure Virtual Machines having high churning workloads.
 services: site-recovery
 author: ankitaduttaMSFT
 ms.service: site-recovery
@@ -9,7 +9,7 @@ ms.date: 05/23/2024
 ms.author: ankitadutta
 ---
 
-# Azure virtual machine Disaster Recovery - High Churn Support 
+# Azure Virtual Machines disaster recovery - High Churn support 
 
 Azure Site Recovery supports churn (data change rate) up to 100 MB/s per virtual machine. You'll  be able to protect your Azure virtual machines having high churning workloads (like databases) using the *High Churn* option in Azure Site Recovery, which supports churn up to 100 MB/s per virtual machine. You may be able to achieve better Recovery Point Objective performance for your high churning workloads. With the default Normal Churn option, you can [support churn only up to 54 MB/s per virtual machine](./azure-to-azure-support-matrix.md#limits-and-data-change-rates). 
 
