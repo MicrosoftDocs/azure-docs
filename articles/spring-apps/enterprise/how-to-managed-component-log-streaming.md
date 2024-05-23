@@ -50,7 +50,7 @@ To stream logs of managed components, you must have the relevant Azure roles ass
 |-----------------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------------------|
 | Application Configuration Service | Azure Spring Apps Application Configuration Service Log Reader Role | `Microsoft.AppPlatform/Spring/ApplicationConfigurationService/logstream/action` |
 | Spring Cloud Gateway              | Azure Spring Apps Spring Cloud Gateway Log Reader Role              | `Microsoft.AppPlatform/Spring/SpringCloudGateway/logstream/action`              |
-| Spring Cloud Config Server        | Azure Spring Apps Config Server Log Reader Role                     | `Microsoft.AppPlatform/Spring/configService/logstream/action`                   |
+| Spring Cloud Config Server        | Azure Spring Apps Spring Cloud Config Server Log Reader Role        | `Microsoft.AppPlatform/Spring/configService/logstream/action`                   |
 
 ### [Azure portal](#tab/azure-Portal)
 
