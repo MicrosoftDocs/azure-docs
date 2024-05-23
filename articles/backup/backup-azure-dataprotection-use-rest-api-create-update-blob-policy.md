@@ -94,7 +94,7 @@ The policy says:
 }
 ```
 
-To configure a backup policy using the vaulted backup, use the following JSON script:
+To configure a backup policy with the vaulted backup, use the following JSON script:
 
 ```json
 {

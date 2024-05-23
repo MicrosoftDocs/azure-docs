@@ -585,7 +585,7 @@ Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprote
 az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036 --restore-request-object restore.json
 ```
 
-## Track job
+## Track a job
 
 You can track all the jobs using the [az dataprotection job list](/cli/azure/dataprotection/job#az-dataprotection-job-list) command. You can list all jobs and fetch a particular job detail.
 

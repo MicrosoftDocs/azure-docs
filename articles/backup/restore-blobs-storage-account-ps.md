@@ -116,7 +116,7 @@ Use the [Start-AzDataProtectionBackupInstanceRestore](/powershell/module/az.data
 Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $AllInstances[2].BackupInstanceName -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Parameter $restorerequest
 ```
 
-## Track job
+## Track a job
 
 You can track all the jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob) command. You can list all jobs and fetch a particular job detail.
 
