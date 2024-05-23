@@ -5,7 +5,7 @@ ms.date: 09/20/2022
 ms.topic: install-set-up-deploy
 ---
 
-# Configure encapsulated remote switched port analyzer (ERSPAN) traffic mirroring with a Sisco switch
+# Configure encapsulated remote switched port analyzer (ERSPAN) traffic mirroring with a Cisco switch
 
 This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT.
 
