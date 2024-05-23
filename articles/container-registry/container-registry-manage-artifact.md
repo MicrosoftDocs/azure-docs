@@ -474,7 +474,7 @@ oras repo tags $REGISTRY/$REPO
 
 ### Deleting all artifacts in the graph
 
-Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the subject artifact. Use the [`oras delete`][oras-cli] command to delete the graph of artifacts (signature, SBOM, and the signature of the SBOM).
+Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the subject artifact. Use the [`oras manifest delete`][oras-cli] command to delete the graph of artifacts (signature, SBOM, and the signature of the SBOM).
 
 ```azurecli
 oras manifest delete -f $REGISTRY/$REPO:$TAG
@@ -501,9 +501,9 @@ In this article, you learned how to use Azure Container Registry to store, manag
 
 ## Next steps
 
-* Learn about [Artifact References](container-registry-oras-artifacts.md), associating signatures, software bill of materials and other reference types
-* Learn more about [the ORAS Project](https://oras.land/), including how to configure a manifest for an artifact
-* Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types
+* Learn about [Artifact References](https://oras.land/docs/concepts/reftypes), associating signatures, software bill of materials and other reference types.
+* Learn more about [the ORAS Project](https://oras.land/), including how to configure a manifest for an artifact.
+* Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types.
 
 
 <!-- LINKS - external -->
