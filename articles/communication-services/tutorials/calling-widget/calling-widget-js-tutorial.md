@@ -81,7 +81,7 @@ Next we want to make a new file called `index.html`. This is the webpage that we
 
 #### 2. Getting the code
 
-First you want to download the **JavaScript bundle** from [here](https://github.com/Azure/communication-ui-library/releases/download/PublicPreview%2F1.16.0-beta.1/outboundCallComposite.js). Put this bundle in the same directory as your `index.html`.
+First, download the **JavaScript bundle** from [Outbound Call Composite JavaScript file](https://github.com/Azure/communication-ui-library/releases/download/PublicPreview%2F1.16.0-beta.1/outboundCallComposite.js). Put this bundle in the same directory as your `index.html`.
 
 Next you want to open `index.html` in VS Code and add the following snippet.
 
