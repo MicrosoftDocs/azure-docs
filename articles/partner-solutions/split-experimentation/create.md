@@ -20,7 +20,7 @@ Split Experimentation allows you to run A/B tests for your applications and gath
 ## Prerequisites
 
 - An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
-- An [Entra ID app with required configuration](./how-to-set-up-data-access.md).
+- A [Microsoft Entra ID app with required configuration](./how-to-set-up-data-access.md).
 - An [Azure storage account](../../storage/common/storage-account-create.md)
 - A [Workspace-based Application Insights resource connected to an App Configuration store](../../azure-app-configuration/run-experiments-aspnet-core.md#connect-an-application-insights-preview-resource-to-your-configuration-store).
 
