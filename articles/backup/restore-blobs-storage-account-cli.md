@@ -569,7 +569,7 @@ Prepare a JSON file with the details of the containers and the prefixes you want
 }
 ```
 
-Run the `az dataprotection backup-instance restore initialize-for-item-recovery` command with the JSON (container_prefix.json)you created previously.
+Run the `az dataprotection backup-instance restore initialize-for-item-recovery` command with the JSON (container_prefix.json) you created previously.
 
 ```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location EastUS --source-datastore VaultStore --target-resource-id /subscriptions/xxxxxxxx /resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/contosohr --recovery-point-id 31e7ab6b0db94c1eacacf8a5a4ddbf19 --vaulted-blob-prefix-pattern .\container_prefix.json
