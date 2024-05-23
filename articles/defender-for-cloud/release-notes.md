@@ -22,7 +22,9 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## May 2024
 
-| May 23 | General Availability of Unified Disk Encryption recommendations[General Availability of Unified Disk Encryption recommendations](#general-availability-of-unified-disk-encryption-recommendations) |
+|Date | Update |
+|--|--|
+| May 23 | [General Availability of Unified Disk Encryption recommendations](#general-availability-of-unified-disk-encryption-recommendations) |
 | May 22 | [Configure email notifications for attack paths](#configure-email-notifications-for-attack-paths) |
 | May 21 | [Advanced hunting in Microsoft Defender XDR now includes Defender for Cloud alerts and incidents](#advanced-hunting-in-microsoft-defender-xdr-now-includes-defender-for-cloud-alerts-and-incidents) |
 | May 9 | [Checkov integration for IaC scanning in Defender for Cloud (Preview)](#checkov-integration-for-iac-scanning-in-defender-for-cloud-preview) |
@@ -119,6 +121,7 @@ Learn more about [Defender for open-source databases](defender-for-databases-int
 ## April 2024
 
 |Date | Update |
+|--|--|
 | April 15 | [Defender for Containers is now generally available (GA) for AWS and GCP](#defender-for-containers-is-now-generally-available-ga-for-aws-and-gcp) |
 | April 3 | [Risk prioritization is now the default experience in Defender for Cloud](#risk-prioritization-is-now-the-default-experience-in-defender-for-cloud) |
 | April 3 | [New container vulnerability assessment recommendations](#new-container-vulnerability-assessment-recommendations) |
