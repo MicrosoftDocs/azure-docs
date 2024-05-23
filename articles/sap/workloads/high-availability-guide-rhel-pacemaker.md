@@ -227,7 +227,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 
    ```bash
    sudo pcs host auth prod-cl1-0 prod-cl1-1 -u hacluster
-   sudo pcs cluster setup nw1-azr prod-cl1-0 prod-cl1-1 totem token=30000
+   sudo pcs cluster setup --name nw1-azr prod-cl1-0 prod-cl1-1
    sudo pcs cluster start --all
    ```
 
