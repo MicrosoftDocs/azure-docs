@@ -12,21 +12,20 @@ ms.date: 05/21/2024
 ms.custom: designer
 ---
 
-# What is Designer (v2) in Azure Machine Learning studio?
+# What is Designer (v2) in Azure Machine Learning?
 
 Designer in Azure Machine Learning studio is a drag-and-drop user interface for building machine learning pipelines in Azure Machine Learning workspaces.
+
+> [!IMPORTANT]
+> Designer in Azure Machine Learning supports two types of pipeline components: classic prebuilt (v1) or custom (v2). *This article applies to custom (v2) components.* The two component types aren't compatible in pipelines.
+> 
+> - **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new prebuilt components are being added. For information about classic prebuilt components and the v1 designer, see [Azure Machine Learning designer (v1)](https://learn.microsoft.com/azure/machine-learning/concept-designer?view=azureml-api-1&preserve-view=true).
+> 
+> - **Custom components (v2)** let you wrap your own code as components, enabling sharing across workspaces and seamless authoring across Azure Machine Learning studio, CLI v2, and SDK v2 interfaces. It's best to use custom components for new projects, because they're compatible with Azure Machine Learning v2 and continue to receive new updates.
 
 The following animated GIF shows how you can build a pipeline visually in Designer by dragging and dropping assets and connecting them.
 
 :::image type="content" source="./media/concept-designer/designer-drag-and-drop.gif" alt-text="GIF of a building a pipeline in the designer." lightbox= "./media/concept-designer/designer-drag-and-drop.gif":::
-
-## Classic prebuilt (v1) or custom (v2) components
-
-Designer supports two types of pipeline components: classic prebuilt (v1) or custom (v2). These two types aren't compatible in pipelines. *This article applies to custom components.*
-
-- **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new prebuilt components are being added. For information about classic prebuilt components and Designer (v1), see [Azure Machine Learning designer (v1)](https://learn.microsoft.com/azure/machine-learning/concept-designer?view=azureml-api-1&preserve-view=true).
-
-- **Custom components (v2)** let you wrap your own code as components, enabling sharing across workspaces and seamless authoring across Azure Machine Learning studio, CLI v2, and SDK v2 interfaces. It's best to use custom components for new projects, because they're compatible with Azure Machine Learning v2 and continue to receive new updates.
 
 ## Asset libraries
 
