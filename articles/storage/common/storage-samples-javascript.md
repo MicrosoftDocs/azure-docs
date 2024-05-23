@@ -3,7 +3,7 @@ title: Azure Storage samples using JavaScript
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the JavaScript/Node.js storage client libraries.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 05/22/2024
+ms.date: 05/23/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: sample
@@ -13,7 +13,9 @@ ms.devlang: javascript
 
 # Azure Storage samples using JavaScript client libraries
 
-This article provides an overview of code sample scenarios found in our developer guides and samples repository. Click on the links to view the corresponding samples, either in our developer guides or in GitHub.
+This article provides an overview of code sample scenarios found in our developer guides and samples repository. Click on the links to view the corresponding samples, either in our developer guides or in GitHub repositories. 
+
+Developer guides are collections of articles that provide detailed information and code examples for specific scenarios related to Azure Storage services. To learn more about the Blob Storage developer guide for JavaScript, see [Get started with Azure Blob Storage and JavaScript](../blobs/storage-blob-javascript-get-started.md).
 
 > [!NOTE]
 > These samples use the latest Azure Storage JavaScript v12 library. For legacy v11 code, see [Getting Started with Azure Blob Service in Node.js](https://github.com/Azure-Samples/storage-blob-node-getting-started) in the GitHub repository.

@@ -4,7 +4,7 @@ description: View developer guides and sample code for Azure Storage. Discover g
 ms.custom: devx-track-java, devx-track-extended-java
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 05/22/2024
+ms.date: 05/23/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: sample
@@ -13,7 +13,9 @@ ms.devlang: java
 
 # Azure Storage samples using Java client libraries
 
-This article provides an overview of code sample scenarios found in our developer guides and samples repository. Click on the links to view the corresponding samples, either in our developer guides or in GitHub.
+This article provides an overview of code sample scenarios found in our developer guides and samples repository. Click on the links to view the corresponding samples, either in our developer guides or in GitHub repositories. 
+
+Developer guides are collections of articles that provide detailed information and code examples for specific scenarios related to Azure Storage services. To learn more about the Blob Storage developer guide for Java, see [Get started with Azure Blob Storage and Java](../blobs/storage-blob-java-get-started.md).
 
 > [!NOTE]
 > These samples use the latest Azure Storage Java v12 library. For legacy v8 code, see [Getting Started with Azure Blob Service in Java](https://github.com/Azure-Samples/storage-blob-java-getting-started) in the GitHub repository.

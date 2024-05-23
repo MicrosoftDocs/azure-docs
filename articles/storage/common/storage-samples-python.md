@@ -5,7 +5,7 @@ description: View, download, and run sample code and applications for Azure Stor
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 12/21/2022
+ms.date: 05/23/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: sample
@@ -15,10 +15,12 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Azure Storage samples using Python client libraries
 
-This article provides an overview of code sample scenarios found in our developer guides and samples repository. Click on the links to view the corresponding samples, either in our developer guides or in GitHub.
+This article provides an overview of code sample scenarios found in our developer guides and samples repository. Click on the links to view the corresponding samples, either in our developer guides or in GitHub repositories. 
+
+Developer guides are collections of articles that provide detailed information and code examples for specific scenarios related to Azure Storage services. To learn more about the Blob Storage developer guide for Python, see [Get started with Azure Blob Storage and Python](../blobs/storage-blob-python-get-started.md).
 
 > [!NOTE]
-> These samples use the latest [Azure Storage .NET v12 library](/python/api/overview/azure/storage). For legacy v2.1 code, see [Azure Storage: Getting Started with Azure Storage in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started) in the GitHub repository.
+> These samples use the latest [Azure Storage Python v12 library](/python/api/overview/azure/storage). For legacy v2.1 code, see [Azure Storage: Getting Started with Azure Storage in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started) in the GitHub repository.
 
 ## Blob samples
 

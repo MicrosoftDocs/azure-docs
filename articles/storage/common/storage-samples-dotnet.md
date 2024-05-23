@@ -3,7 +3,7 @@ title: Azure Storage samples using .NET
 description: View developer guides and sample code for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET storage client libraries.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 05/22/2024
+ms.date: 05/23/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: sample
@@ -13,7 +13,9 @@ ms.custom: devx-track-dotnet
 
 # Azure Storage samples using .NET client libraries
 
-This article provides an overview of code sample scenarios found in our developer guides and samples repository. Click on the links to view the corresponding samples, either in our developer guides or in GitHub.
+This article provides an overview of code sample scenarios found in our developer guides and samples repository. Click on the links to view the corresponding samples, either in our developer guides or in GitHub repositories. 
+
+Developer guides are collections of articles that provide detailed information and code examples for specific scenarios related to Azure Storage services. To learn more about the Blob Storage developer guide for .NET, see [Get started with Azure Blob Storage and .NET](../blobs/storage-blob-dotnet-get-started.md).
 
 > [!NOTE]
 > These samples use the latest Azure Storage .NET v12 library. For legacy v11 code, see [Azure Blob Storage Samples for .NET](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started) in the GitHub repository.
