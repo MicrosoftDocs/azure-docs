@@ -192,7 +192,7 @@ Open a terminal or  command prompt window in that directory and run the followin
 ```bash
 npx http-server@latest -p 3000
 ```
-This script using Node starts an HTTP server and host the `index.html` file and JavaScript bundle. In a browser open http://localhost:3000. You should see a white page with a button and when you click it you should see the following screen. **Note**, if you try to go to the page not using local host our calling experience will not work due to security reasons.
+This script using Node starts an HTTP server and hosts the `index.html` file and JavaScript bundle. In a browser open http://localhost:3000. You should see a white page with a button, and when you click it you should see the following screen. **Note**, if you try to go to the page not using local host, your calling experience won't work due to security reasons.
 
 ![Home page of js bundle sample app](../media/calling-widget/js-bundle-splash.png)
 
