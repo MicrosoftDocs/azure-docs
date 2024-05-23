@@ -52,7 +52,7 @@ You need to assign a few permissions via Azure role-based access control (Azure 
 
 ### Prepare the request to configure blob backup
 
-Once you set the relevant permissions to the vault and storage account, and configure the vault and policy, prepare the request to configure backup.
+Once the relevant permissions to the vault and storage account are set, and the vault and policy configuration are done, prepare the request to configure backup.
 
 The following is the request body to configure backup for all blobs within a storage account. The Azure Resource Manager ID (ARM ID) of the storage account and its details are mentioned in the *datasourceinfo* section and the policy information is present in the *policyinfo* section.
 
@@ -130,7 +130,7 @@ For example, this translates to:
 POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/validateForBackup?api-version=2021-01-01
 ```
 
-The [request body](#prepare-the-request-to-configure-blob-backup    ) that you prepared earlier is used to give the details of the storage account to be protected.
+The [request body](#prepare-the-request-to-configure-blob-backup) that you prepared earlier is used to give the details of the storage account to be protected.
 
 #### Example request body
 

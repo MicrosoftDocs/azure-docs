@@ -42,6 +42,11 @@ To configure backup for storage accounts, follow these steps:
    >[!Note]
    >The **Backup readiness** column shows if the Backup vault has enough permissions to configure backups for each storage account.
 
+   1. The number of containers to be backed up is less than *100* in case of vaulted backups. By default, all containers are selected; however, you can exclude containers that shouldn't be backed up. If your storage account has *>100* containers, you must exclude containers to reduce the count to *100 or below*.
+
+      >[!Note]
+      >In case of vaulted backups, the storage accounts to be backed up must contain at least *1 container*. If the selected storage account doesn't contain any containers or if no containers are selected, you may get an error while configuring backups.
+
    1. The Backup vault has the required permissions to configure backup; the vault has the **Storage account backup contributor** role on all the selected storage accounts. If validation shows errors, then the selected storage accounts don't have **Storage account backup contributor** role. You can assign the required role, based on your current permissions. The error message helps you understand if you have the required permissions, and take the appropriate action:
 
       - **Role assignment not done**: Indicates that you (the user) have permissions to assign the **Storage account backup contributor** role and the other required roles for the storage account to the vault.
@@ -52,15 +57,8 @@ To configure backup for storage accounts, follow these steps:
 
       - **Insufficient permissions for role assignment**: Indicates that the vault doesn't have the required role to configure backups, and you (the user) don't have enough permissions to assign the required role. To make the role assignment easier, Azure Backup allows you to download the role assignment template, which you can share with users with permissions to assign roles for storage accounts. 
 
-     >[!Note]
-     >The template contains details for selected storage accounts only. If there are multiple users that need to assign roles for different storage accounts, you can select and download different templates accordingly.
-
-   1. The number of containers to be backed up is less than *100* in case of vaulted backups. By default, all containers are selected; however, you can exclude containers that shouldn't be backed up. If your storage account has *>100* containers, you must exclude containers to reduce the count to *100 or below*.
-
-     >[!Note]
-      >In case of vaulted backups, the storage accounts to be backed up must contain at least *1 container*. If the selected storage account doesn't contain any containers or if no containers are selected, you may get an error while configuring backups.
-
-
+        >[!Note]
+        >The template contains details for selected storage accounts only. If there are multiple users that need to assign roles for different storage accounts, you can select and download different templates accordingly.
 
 6. To assign the required roles, select the storage accounts, and then select **Download role assignment template** to download the template. Once the role assignments are complete, select **Revalidate** to validate the permissions again, and then configure backup.
 
@@ -71,4 +69,4 @@ To configure backup for storage accounts, follow these steps:
 
 8. Review the details on the **Review + configure** tab and select **Next** to initiate the *configure backup* operation.
 
-You'll receive notifications about the status of configuring protection and its completion.
+You'll receive notifications about the status of protection configuration and its completion.
