@@ -29,13 +29,13 @@ Our global deployments will be the first location for all new models and feature
 Azure OpenAI offers three types of deployments. These provide a varied level of capabilities that provide trade-offs on: throughput, SLAs, and price. Below is a summary of the options followed by a deeper description of each.
 
 | **Offering** | **Global-Standard** <sup>**1**</sup> | **Standard** | **Provisioned**  |
-|---|---|---|---|
+|---|:---|:---|:---|
 | **Best suited for**      | Applications that don’t require data residency. Recommended starting place for customers. | For customers with data residency requirements. Optimized for low to medium volume. | Real-time scoring for large consistent volume. Includes the highest commitments and limits.|
 | **How it works**         | Traffic may be routed anywhere in the world | | |
 | **Getting started**      | [Model deployment](./create-resource.md) | [Model deployment](./create-resource.md) | [Provisioned onboarding](./provisioned-throughput-onboarding.md) |
 | **Cost**                 | [Baseline](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) | [Regional Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) | May experience cost savings for consistent usage |
 | **What you get**         | Easy access to all new models with highest default pay-per-call limits.<br><br> Customers with high volume usage may see higher latency variability | Easy access with [SLA on availability](https://azure.microsoft.com/support/legal/sla/). Optimized for low to medium volume workloads with high burstiness. <br><br>Customers with high consistent volume may experience greater latency variability. | Regional access with very high & predictable throughput. Determine throughput per PTU using the provided [capacity calculator](./provisioned-throughput-onboarding.md#estimate-provisioned-throughput-and-cost) |
-| **What you don’t get**   | Data residency guarantees | High volume w/consistent low latency | Pay-per-call flexibility |
+| **What you don’t get**   | ❌Data residency guarantees | ❌High volume w/consistent low latency | ❌Pay-per-call flexibility |
 | **Per-call Latency**     | Optimized for real-time calling & low to medium volume usage. Customers with high volume usage may see higher latency variability. Threshold set per model | Optimized for real-time calling & low to medium volume usage. Customers with high volume usage may see higher latency variability. Threshold set per model | Optimized for real-time. |
 | **Sku Name in code**     |    `GlobalStandard`               | `Standard`   |      `ProvisionedManaged`       |
 | **Billing model**        | Pay-per-token | Pay-per-token | Monthly Commitments |

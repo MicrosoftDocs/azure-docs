@@ -123,7 +123,7 @@ In this section, you use the virtual machine you created in the previous steps t
 1. To verify name resolution of the private endpoint, enter the following command in the terminal window:
 
     ```bash
-    nslookup sql-server-1.database.windows.net
+    nslookup server-name.database.windows.net
     ```
 
     You receive a message similar to the following example. The IP address returned is the private IP address of the private endpoint.
@@ -149,7 +149,7 @@ In this section, you use the virtual machine you created in the previous steps t
     * Replace **sql-server-1** with the name of your SQL server.
 
     ```bash
-    sqlcmd -S sql-server-1.database.windows.net -U '<server-admin>' -P '<admin-password>'
+    sqlcmd -S server-name.database.windows.net -U '<server-admin>' -P '<admin-password>'
     ```
 
 1. A SQL command prompt is displayed on successful sign in. Enter **exit** to exit the **sqlcmd** tool.
