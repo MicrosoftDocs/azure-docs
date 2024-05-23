@@ -27,7 +27,7 @@ The system presents a summary of the issue and outlines what we know, a possible
 Azure Monitor Investigator (preview) automates analysis to simplify the identification of anomalies across Azure resources and provides recommended next steps with the following capabilities:
 
 ### Metric analysis
-- •	Scans the Azure resources in the investigation target and scope for anomalies in platform metrics and custom metrics.
+- Scans the Azure resources in the investigation target and scope for anomalies in platform metrics and custom metrics.
 - Assigns scores to metrics that show a correlation with the incident start time.
 - Generates explanations for the incident by conducting sub-pattern analysis to explain anomalies based on metric dimensions or labels that generate the most impact. 
 - Groups and ranks explanations to present the most likely causes.
