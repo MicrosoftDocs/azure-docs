@@ -1,9 +1,11 @@
 ---
 title: Azure Event Grid on Kubernetes - Features
 description: This article compares features of Event Grid on Kubernetes with Event Grid on Azure.
-author: jfggdl
+author: robece
 ms.subservice: kubernetes
-ms.author: jafernan
+ms.custom:
+  - build-2024
+ms.author: robece
 ms.date: 05/25/2021
 ms.topic: conceptual
 ---

@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/24/2024
+ms.date: 05/17/2024
 ms.author: greglin 
 ---
 
@@ -134,7 +134,10 @@ The access log is generated only if you've enabled it on each Application Gatewa
 ### For Application Gateway and WAF v2 SKU
 
 > [!NOTE]
-> For TLS/TCP proxy related information, visit [data reference](monitor-application-gateway-reference.md#tlstcp-proxy-logs).
+> * For TLS/TCP proxy related information, visit [data reference](monitor-application-gateway-reference.md#tlstcp-proxy-logs).
+> * Some columns from the shared AzureDiagnostics table are still being ported to the dedicated tables. Therefore, the columns with Mutual Authentication details are currently available only through the [AzureDiagnostics table](#storage-locations).
+> * Access logs with clientIP value 127.0.0.1 originate from an internal security process running on the application gateway instances. You can safely ignore these log entries.
+
 
 |Value  |Description  |
 |---------|---------|
@@ -212,8 +215,6 @@ The access log is generated only if you've enabled it on each Application Gatewa
     }
 }
 ```
-> [!Note]
->Access logs with clientIP value 127.0.0.1 originate from an internal security process running on the application gateway instances. You can safely ignore these log entries.
 
 ### For Application Gateway Standard and WAF SKU (v1)
 
