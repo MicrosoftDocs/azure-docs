@@ -18,7 +18,7 @@ Azure Key Vault safeguards encryption keys and secrets like certificates, connec
 
 ## Use separate key vaults
 
-Our recommendation is to use a vault per application per environment (development, pre-production, and production), per region. Granular isolation helps you not share secrets across applications, environments and regions, and it also reduce the threat if there is a breach.
+Our recommendation is to use a vault per application per environment (development, preproduction, and production), per region. Granular isolation helps you not share secrets across applications, environments and regions, and it also reduce the threat if there is a breach.
 
 ### Why we recommend separate key vaults
 
@@ -31,7 +31,7 @@ Encryption keys and secrets like certificates, connection strings, and passwords
 Recommendations for controlling access to your vault are as follows:
 - Lock down access to your subscription, resource group, and key vaults using role-based access control (RBAC) permission model for data plane.
   - Assign RBAC roles at Key Vault scope for applications, services, and workloads requiring persistent access to Key Vault
-  - Assign just-in-time eligible RBAC roles for operators, administrators and other user accounts requiring privileged access to Key Vault using [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) 
+  - Assign just-in-time eligible RBAC roles for operators, administrators, and other user accounts requiring privileged access to Key Vault using [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) 
     - Require at least one approver
     - Enforce multi-factor authentication
 - Restrict network access with [Private Link](private-link-service.md), [firewall and virtual networks](network-security.md)
@@ -42,7 +42,7 @@ Recommendations for controlling access to your vault are as follows:
 
 Turn on purge protection to guard against malicious or accidental deletion of the secrets and key vault even after soft-delete is turned on.
 
-For more information, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)
+For more information, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
 
 ## Turn on logging
 
@@ -52,7 +52,7 @@ For more information, see [Azure Key Vault soft-delete overview](soft-delete-ove
 
 Purge protection prevents malicious and accidental deletion of vault objects for up to 90 days. In scenarios, when purge protection is not a possible option, we recommend backup vault objects, which can't be recreated from other sources like encryption keys generated within the vault.
 
-For more information about backup, see [Azure Key Vault backup and restore](backup.md)
+For more information about backup, see [Azure Key Vault backup and restore](backup.md).
 
 ## Multitenant solutions and Key Vault
 
