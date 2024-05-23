@@ -15,22 +15,22 @@ ms.subservice: calling
 # How to collect call info
 When you report an issue, providing important call information can help us quickly locate the problematic area and gain a deeper understanding of the issue.
 
-* ACS resource id
-* call id
-* participant id
+* ACS resource ID
+* call ID
+* participant ID
 
-## How to get ACS resource id
+## How to get ACS resource ID
 
 You can get this information from [https://portal.azure.com](https://portal.azure.com).
 
-:::image type="content" source="./media/get-acs-resource-id.png" alt-text="Screenshot of getting ACS resource id.":::
+:::image type="content" source="./media/get-acs-resource-id.png" alt-text="Screenshot of getting ACS resource ID.":::
 
-## How to get call id and participant id
-The participant id is important when there are multiple users in the same call.
+## How to get call ID and participant ID
+The participant ID is important when there are multiple users in the same call.
 ```typescript
-// call id
+// call ID
 call.id
-// local participant id
+// local participant ID
 call.info.participantId
 
 ```
