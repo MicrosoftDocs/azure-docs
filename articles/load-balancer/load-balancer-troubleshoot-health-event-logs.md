@@ -106,5 +106,5 @@ For more information about Azure Load Balancer health event logs and health even
 
 > [!div class="nextstepaction"]
 > [> [!div class="nextstepaction"]
-> [Azure Load Balancer health event logs](/load-balancer-health-event-logs.md)
+> [Azure Load Balancer health event logs](./load-balancer-health-event-logs.md)
 > [Learn to monitor and alert with Azure Load Balancer health event logs](load-balancer-monitor-alert-health-event-logs.md)
