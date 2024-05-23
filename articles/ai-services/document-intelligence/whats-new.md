@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: whats-new
-ms.date: 02/29/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions

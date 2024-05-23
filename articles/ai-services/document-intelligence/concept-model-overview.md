@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 03/06/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 ---
 
