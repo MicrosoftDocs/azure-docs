@@ -12,7 +12,7 @@ ms.author: aahi
 recommendations: false
 ---
 
-## Troubleshooting and best practices for Azure OpenAI On Your Data
+# Troubleshooting and best practices for Azure OpenAI On Your Data
 
 Use this article to help you guide through the common issues you might run into while developing a solution using Azure OpenAI On Your Data, a service that allows you to use the power of OpenAI models with your own data. By following the best practices and tips in this article, you can optimize your output with Azure OpenAI On Your Data and achieve the best AI quality possible.
 
@@ -88,7 +88,7 @@ TBD -->   _NB: This is the first time index fields are mentioned. What are they 
 
 1. Do you have semi-structured data in your documents, such as a lot of tables? There might be an **ingestion issue**. Your data might need special handling during ingestion.
    - If the file format is PDF, we offer optimized ingestion for tables using the offline scripts available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts). to use the scripts, you need to have a [Document Intelligence](../../document-intelligence/overview.md) resource and use the `Layout` [model](../../document-intelligence/concept-layout.md). You can also:
-   - Adjust your chunk size to make sure your largest table fits within the specified chunk size. To read more about chunking in general, go <here> 
+   - Adjust your chunk size to make sure your largest table fits within the specified [chunk size](../concepts/use-your-data.md#chunk-size-preview).
 
 TBD -->   **(create a section for this?)** _NB: Write a brief discussion of chunking and how to optimize size against content._
 
