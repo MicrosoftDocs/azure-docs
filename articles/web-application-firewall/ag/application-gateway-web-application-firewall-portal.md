@@ -55,7 +55,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
      :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png" alt-text="Screenshot of Create new application gateway: Basics tab." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png":::
 
-2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and then later add another for the backend servers.
+2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and then later add another for the backend servers.
 
     Under **Configure virtual network**,  select **Create new** to create a new virtual network. In the **Create virtual network** window that opens, enter the following values to create the virtual network and a subnet:
 
@@ -64,7 +64,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     - **Name**: Enter *myVNet* for the name of the virtual network.
     - **Address space** : Accept the **10.0.0.0/16** address range.
 
-    - **Subnet name** (Application Gateway subnet): The **Subnets** area shows a subnet named *Default*. Change the name of this subnet to *myAGSubnet*, and leave the default IPv4 Adddress range of **10.0.0.0/24**.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
+    - **Subnet name** (Application Gateway subnet): The **Subnets** area shows a subnet named *Default*. Change the name of this subnet to *myAGSubnet*, and leave the default IPv4 Address range of **10.0.0.0/24**.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
 
        Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
@@ -74,7 +74,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Frontends tab
 
-1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be **Public** or **Both** as per your use case. In this example, you'll choose a Public Frontend IP.
+1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be **Public** or **Both** as per your use case. In this example, you choose a Public Frontend IP.
    > [!NOTE]
    > For the Application Gateway v2 SKU, **Public** and **Both** Frontend IP address types are supported today.  **Private** frontend IP configuration only is not currently supported.
 
@@ -86,7 +86,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then later add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multitenant back-ends like Azure App Service. In this example, you create an empty backend pool with your application gateway and then later add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
@@ -103,7 +103,7 @@ The backend pool is used to route requests to the backend servers that serve the
 
 ### Configuration tab
 
-On the **Configuration** tab, you'll connect the frontend and backend pool you created using a routing rule.
+On the **Configuration** tab, you connect the frontend and backend pool you created using a routing rule.
 
 1. Select **Add a routing rule** in the **Routing rules** column.
 
@@ -133,7 +133,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 ### Review + create tab
 
-Review the settings on the **Review + create** tab, and then select **Create** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for Azure to create the application gateway. 
+Review the settings on the **Review + create** tab, and then select **Create** to create the virtual network, the public IP address, and the application gateway. It might take several minutes for Azure to create the application gateway. 
 
 Wait until the deployment finishes successfully before moving on to the next section.
 
@@ -148,7 +148,7 @@ Wait until the deployment finishes successfully before moving on to the next sec
 
 ## Add backend targets
 
-In this example, you'll use virtual machines as the target backend. You can either use existing virtual machines or create new ones. You'll create two virtual machines that Azure uses as backend servers for the application gateway.
+In this example, you use virtual machines as the target backend. You can either use existing virtual machines or create new ones. You create two virtual machines that Azure uses as backend servers for the application gateway.
 
 To do this, you'll:
 
@@ -185,7 +185,7 @@ In this example, you install NGINX on the virtual machines only to verify Azure 
 1. Open a Bash Cloud Shell. To do so, select the **Cloud Shell** icon from the top navigation bar of the Azure portal and then select **Bash** from the drop-down list.
 
    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/bash-shell.png" alt-text="Screenshot showing the Bash Cloud Shell.":::
-1. Ensure your bash session is set for your suscription:
+1. Ensure your bash session is set for your subscription:
    
    `account set --subscription "<your subscription name>"`
 
@@ -201,7 +201,7 @@ In this example, you install NGINX on the virtual machines only to verify Azure 
     --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
    ```
 
-3. Create a second virtual machine and install NGINX using these steps that you previously completed. Use *myVM2* for the virtual machine name and for the **--vm-name** setting of the cmdlet.
+3. Create a second virtual machine and install NGINX using these steps that you previously completed. Use *myVM2* for the virtual machine name and for the `--vm-name` setting of the cmdlet.
 
 ### Add backend servers to backend pool
 
