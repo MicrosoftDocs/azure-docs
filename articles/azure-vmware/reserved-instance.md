@@ -30,7 +30,7 @@ These requirements apply to buying a reserved dedicated host instance:
 
 -   To buy a reservation, you must have the owner role or reservation purchaser role on an Azure subscription.
 -   For EA subscriptions, you must enable the **Add Reserved Instances** option in the [EA portal](https://ea.azure.com/). If disabled, you must be an EA Admin for the subscription to enable it.
--   For a subscription under a Cloud Solution Provider (CSP) Azure Plan, the partner must purchase the customer's reserved instances in the Azure portal.
+-   For a subscription under a Cloud Solution Provider (CSP) Azure plan, the partner must purchase the customer's reserved instances in the Azure portal.
 
 ### Buy reserved instances for an EA subscription
 
