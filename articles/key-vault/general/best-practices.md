@@ -29,12 +29,14 @@ Key vaults define security boundaries for stored secrets. Grouping secrets into 
 Encryption keys and secrets like certificates, connection strings, and passwords are sensitive and business critical. You need to secure access to your key vaults by allowing only authorized applications and users. [Azure Key Vault security features](security-features.md) provides an overview of the Key Vault access model. It explains authentication and authorization. It also describes how to secure access to your key vaults.
 
 Recommendations for controlling access to your vault are as follows:
-- Lock down access to your subscription, resource group, and key vaults using role-based access control (RBAC).
+- Lock down access to your subscription, resource group, and key vaults using role-based access control (RBAC) permission model for data plane.
   - Assign RBAC roles at Key Vault scope for applications, services, and workloads requiring persistent access to Key Vault
   - Assign just-in-time eligible RBAC roles for operators, administrators and other user accounts requiring privileged access to Key Vault using [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) 
     - Require at least one approver
     - Enforce multi-factor authentication
 - Restrict network access with [Private Link](private-link-service.md), [firewall and virtual networks](network-security.md)
+> [!IMPORTANT]
+> Legacy Access Policies permission model has known security vulnerabilities and lack of Priviliged Identity Management support and should not be used for critical data and workloads.
 
 ## Turn on data protection for your vault
 
@@ -54,7 +56,7 @@ For more information about backup, see [Azure Key Vault backup and restore](back
 
 ## Multitenant solutions and Key Vault
 
-A multitenant solution is built on an architecture where components are used to serve multiple customers or tenants. Multitenant solutions are often used to support software as a service (SaaS) solutions. If you're building a multitenant solution that includes Key Vault, review [Multitenancy and Azure Key Vault](/azure/architecture/guide/multitenant/service/key-vault).
+A multitenant solution is built on an architecture where components are used to serve multiple customers or tenants. Multitenant solutions are often used to support software as a service (SaaS) solutions. If you're building a multitenant solution that includes Key Vault, it is recommended to use one Key Vault per customer to provide isolation for customers data and workloads, review [Multitenancy and Azure Key Vault](/azure/architecture/guide/multitenant/service/key-vault).
 
 ## Frequently Asked Questions:
 ### Can I use Key Vault role-based access control (RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
