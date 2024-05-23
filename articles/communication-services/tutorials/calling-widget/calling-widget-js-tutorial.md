@@ -63,7 +63,7 @@ We create this project through **4** easy steps.
 
 To get started, we're going to make a new folder for the project run the following command in terminal or command prompt.
 
-For Windows users using command prompt use this command
+For Windows using the command prompt, use this command:
 
 ```bash
 mkdir ui-library-js-test-application; cd ui-library-js-test-application
