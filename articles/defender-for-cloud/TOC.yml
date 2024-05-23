@@ -376,7 +376,7 @@
           displayName: security, recommendations, owner, azure, resource, graph, azure
             resource graph, csv report
           href: review-security-recommendations.md
-        - name: Review recommendations with Copilot
+        - name: Analyze recommendations wih Copilot for Security
           displayName: copilot, security, recommendations
           href: review-with-copilot.md
         - name: Review resources exempted from recommendations
