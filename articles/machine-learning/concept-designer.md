@@ -64,6 +64,8 @@ As you build a pipeline, Designer saves your progress as a pipeline draft.
 
 :::image type="content" source="./media/concept-designer/pipeline-draft-and-job.png" alt-text="Screenshot of pipeline draft list." lightbox= "./media/concept-designer/pipeline-draft-and-job.png":::
 
+You can edit a pipeline draft anytime by adding or removing components, configuring compute targets, and setting parameters.
+
 :::image type="content" source="./media/concept-designer/edit-pipeline.png" alt-text="Screenshot of a draft pipeline being edited." lightbox= "./media/concept-designer/edit-pipeline.png":::
 
 A valid pipeline draft has the following characteristics:
