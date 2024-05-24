@@ -6,9 +6,9 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Deploy a virtual machine in an Extended Zone - Portal
+  - name: Deploy a VM in an Extended Zone - Portal
     href: deploy-vm-portal.md
-  - name: Deploy a virtual machine in an Extended Zone - ARM template
+  - name: Deploy a VM in an Extended Zone - ARM template
     href: deploy-vm-arm-template.md
   expanded: true
 - name: Tutorials
