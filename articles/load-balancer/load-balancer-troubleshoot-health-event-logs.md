@@ -5,7 +5,7 @@ description: Learn how to troubleshoot load balancer health event log types.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.date: 05/21/2024
+ms.date: 05/24/2024
 ms.author: mbender
 ---
 
@@ -104,7 +104,5 @@ In this article, you learned how to troubleshoot each Azure Load Balancer health
 
 For more information about Azure Load Balancer health event logs and health event types, or how to collect, analyze, and create alerts using these logs, see:
 
-> [!div class="nextstepaction"]
-> [> [!div class="nextstepaction"]
-> [Azure Load Balancer health event logs](load-balancer-health-event-logs.md)
-> [Learn to monitor and alert with Azure Load Balancer health event logs](load-balancer-monitor-alert-health-event-logs.md)
+- [Azure Load Balancer health event logs](load-balancer-health-event-logs.md)
+- [Learn to monitor and alert with Azure Load Balancer health event logs](load-balancer-monitor-alert-health-event-logs.md)
