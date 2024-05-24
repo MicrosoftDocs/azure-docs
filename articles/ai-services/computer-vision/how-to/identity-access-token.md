@@ -19,7 +19,7 @@ Independent software vendors (ISVs) can manage the Face API usage of their clien
 
 This guide shows you how to generate the access tokens, if you're an approved ISV, and how to use the tokens if you're a client. 
 
-The limited access token feature is a part of the existing [Azure AI services token service](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueScopedToken).  We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature.
+The limited access token feature is a part of the existing Azure AI Services token service. We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature.
 
 ## Example use case
 
@@ -172,5 +172,4 @@ static void Main(string[] args)
 ```
 ---
 
-## Next steps
-* [LimitedAccessToken API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueLimitedAccessToken)
+
