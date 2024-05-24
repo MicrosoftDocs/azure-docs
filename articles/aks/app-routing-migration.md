@@ -25,7 +25,7 @@ In this article, you learn how to migrate your Azure Kubernetes Service (AKS) cl
 1. Enable the application routing add-on.
 
     ```azurecli-interactive
-    az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
+    az aks approuting enable --resource-group <ResourceGroupName> --name <ClusterName>
     ```
 
 2. Update your Ingresses, setting `ingressClassName` to `webapprouting.kubernetes.azure.com`. Remove the `kubernetes.io/ingress.class` annotation. You also need to update the host to one that you own, as the application routing add-on doesn't have a managed cluster DNS zone. If you don't have a DNS zone, follow instructions to [create][app-routing-dns-create] and [configure][app-routing-dns-configure] one.
@@ -84,7 +84,7 @@ In this article, you learn how to migrate your Azure Kubernetes Service (AKS) cl
 4. Disable the HTTP application routing add-on.
 
     ```azurecli-interactive
-    az aks disable-addons -g <ResourceGroupName> -n <ClusterName> --addons http_application_routing
+    az aks disable-addons --resource-group <ResourceGroupName> --name <ClusterName> --addons http_application_routing
     ```
 
 ## Remove and delete all HTTP application routing resources

@@ -90,6 +90,8 @@ items:
       href: complete-private-mobile-network-prerequisites.md
     - name: Commission the AKS cluster
       href: commission-cluster.md
+    - name: Configure routers for a Highly Available (HA) deployment
+      href: configure-routers-high-availability.md
   - name: Request support
     items:
     - name: How to open a support request 

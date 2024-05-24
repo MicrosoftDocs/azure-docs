@@ -16,9 +16,4 @@ ms.date: 01/19/2024
 
     :::image type="content" source="../media/prediction-resources-example-query.png" alt-text="example query in the prediction resources section" lightbox="../media/prediction-resources-example-query.png":::
     
-    Paste the URL into a new browser tab. If you don't see the URL, you don't have a prediction resource and will need to create one. 
-
-    
-
-    
-
+    Paste the URL into a new browser tab. If you don't see the URL, you don't have a prediction resource and will need to create one.

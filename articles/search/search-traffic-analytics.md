@@ -8,10 +8,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/26/2023
-ms.custom:
-  - devx-track-csharp
-  - ignite-2023
+ms.date: 05/23/2024
 ---
 
 # Collect telemetry data for search traffic analytics
@@ -80,7 +77,7 @@ var telemetryClient = new TelemetryClient();
 telemetryClient.InstrumentationKey = "0000000000000000000000000000";
 ```
 
-<!-- ### Request a Search ID for correlation
+### Request a Search ID for correlation
 
 > [!IMPORTANT]
 > In the Azure portal, the snippets for request headers are made using an outdated version of the Azure SDK. Updates are pending.
@@ -98,7 +95,7 @@ string searchId = string.Empty;
 if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out headerValues)){
 	 searchId = headerValues.FirstOrDefault();
 } 
-```-->
+```
 
 ### Log search events
 

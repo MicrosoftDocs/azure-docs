@@ -378,6 +378,8 @@ items:
         href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-android-api-reference
       - name: Swift (iOS)
         href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-api-reference
+      - name: JavaScript (Web)
+        href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-web-api-reference
 - name: Video Analysis
   items:
   - name: Video Analysis overview
