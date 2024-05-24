@@ -36,7 +36,7 @@ az aks nodepool list --resource-group <resource group> --cluster-name <cluster n
 
 The following is an example of output.
 
-```
+```output
 PoolName    VmSize
 ----------  ---------------
 nodepool1   standard_l8s_v3
