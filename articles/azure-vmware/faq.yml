@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: faq
   ms.service: azure-vmware
-  ms.date:  2/29/2024
+  ms.date:  5/24/2024
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 
@@ -235,7 +235,7 @@ sections:
 
       - question: Why can't I reach the Azure VMware Solution vCenter Server Appliance and NSX Manager from on-premises or Azure Virtual Network?
         answer: |
-          By design, you won't be able to reach NSX Manager and vCenter Server Appliance (vCSA) from on-premises when only 0.0.0.0/0 (default route) is being advertised over ExpressRoute Global Reach between Azure VMware Solution and your on-premises ExpressRoute or through Azure Virtual Network to Azure VMware Solution. You need to advertise specific networking routes/subnets to access NSX-T Manager and vCSA. 
+          By design, you won't be able to reach NSX Manager and vCenter Server Appliance (vCSA) from on-premises when only 0.0.0.0/0 (default route) is being advertised over ExpressRoute Global Reach between Azure VMware Solution and your on-premises ExpressRoute or through Azure Virtual Network to Azure VMware Solution. You need to advertise specific networking routes/subnets to access NSX Manager and vCSA. 
 
 
   - name: Storage
