@@ -66,7 +66,7 @@ Search for trace messages and custom events sent by Profiler to your Application
 
    - Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the `ServiceProfilerSample` custom event is displayed, it means that a profile was captured and is available in the **Application Insights Performance** pane.
 
-   If no records are displayed, Profiler isn't running or has timed out. Make sure you've [enabled Profiler on your Azure service](./profiler.md).
+   If no records are displayed, Profiler isn't running or took too long to respond. Make sure [Profiler is enabled on your Azure service](./profiler.md).
 
 ## Double counting in parallel threads
 
@@ -106,7 +106,7 @@ If Profiler still isn't working for you, download the log and [submit an Azure s
 
 #### Check the Diagnostic Services site extension status page
 
-If Profiler was enabled through the [Application Insights pane](profiler.md) in the portal, it was enabled by the Diagnostic Services site extension. You can check the status page of this extension by going to
+If you enabled Profiler through the [Application Insights pane](profiler.md) in the portal, it is managed by the Diagnostic Services site extension. You can check the status page of this extension by going to
 `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`.
 
 > [!NOTE]
@@ -140,7 +140,7 @@ When you configure Profiler, updates are made to the web app's settings. If nece
 
 In Azure App Service, there's a limit of only **one profiling session at a time**. This limit is enforced at the VM level across all applications and deployment slots running in an App Service Plan. 
 This limit applies equally to profiling sessions started via *Diagnose and solve problems*, Kudu, and Application Insights Profiler.
-If the Application Insights Profiler tries to start a session when another is already running, an error is logged in the Application Log and also the continuous WebJob log for ApplicationInsightsProfiler3.
+If Profiler tries to start a session when another is already running, an error is logged in the Application Log and also the continuous WebJob log for ApplicationInsightsProfiler3.
 
 You may see one of the following messages in the logs:
 
@@ -149,7 +149,7 @@ You may see one of the following messages in the logs:
 
 The error code 0xE111005E indicates that a profiling session couldn't start because another session is already running.
 
-To avoid the error, move some web apps to a different App Service Plan or disable the profiler on some of the applications. If you use deployment slots, be sure to stop any unused slots.
+To avoid the error, move some web apps to a different App Service Plan or disable Profiler on some of the applications. If you use deployment slots, be sure to stop any unused slots.
 
 #### Deployment error: Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
@@ -199,7 +199,7 @@ To check the settings that were used to configure Azure Diagnostics:
 
 1. Check to see whether the iKey used by the Profiler sink is correct.
 
-1. Check the command line that's used to start Profiler. The arguments that are used to launch Profiler are in the following file (the drive could be `c:` or `d:` and the directory might be hidden):
+1. Check the command line that starts Profiler. The command line arguments are in the following file (the drive could be `c:` or `d:` and the directory might be hidden):
 
     For VMs:
     ```
