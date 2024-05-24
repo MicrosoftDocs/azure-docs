@@ -127,6 +127,8 @@ A native document refers to the file format used to create the original document
 
 For more information, *see* [**Use native documents for language processing**](../native-document-support/use-native-documents.md)
 
+---
+
 ## Get started with summarization
 
 [!INCLUDE [development options](./includes/development-options.md)]

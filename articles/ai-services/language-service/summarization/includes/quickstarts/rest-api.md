@@ -46,10 +46,10 @@ To call the API, you need the following information:
 
 Choose the type of summarization you would like to perform, and select one of the tabs below to see an example API call:
 
-|Feature  |Description  |
-|---------|---------|
+| Feature | Description |
+|---------|-------------|
 |Text summarization     | Use extractive text summarization to produce a summary of important or relevant information within a document.        |
-|Conversation summarization     | Use abstractive text summarization to produce a summary of issues and resolutions in transcripts between customer-service agents, and customers.         |m
+|Conversation summarization     | Use abstractive text summarization to produce a summary of issues and resolutions in transcripts between customer-service agents, and customers.         |
 
 # [Text summarization](#tab/text-summarization)
 
