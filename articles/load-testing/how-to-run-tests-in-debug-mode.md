@@ -12,7 +12,9 @@ ms.topic: how-to
 
 # Run load test in debug mode
 
-In this article, learn how you can run load tests in debug mode in Azure Load Testing. Debug mode enables you to run a load test with a single engine and upto 10 minutes of duration to validate the test configuration and application behavior. You can use debug mode to troubleshoot issues with your test plan configuration. Test runs in debug mode have debug logs enabled, which can help you identify issues with your test script. It also has request and response data for every failed request during the test run. This enables you to identify the root cause of the issue and make necessary changes to your test script or application.
+Learn how to run load tests in debug mode in Azure Load Testing. With debug mode in Azure Load Testing, you can validate your test configuration and application behavior by running a load test with a single engine for up to 10 minutes.
+
+You can use debug mode to troubleshoot issues with your test plan configuration. Test runs in debug mode have debug logs enabled, which can help you identify issues with your test script. Debug mode also includes request and response data for every failed request during the test run. With this information, you can identify the root cause of any issues and make necessary changes to your test script or application.
 
 
 ## Prerequisites
