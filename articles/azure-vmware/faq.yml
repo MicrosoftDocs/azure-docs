@@ -136,6 +136,9 @@ sections:
 
       - question: Is NSX Identity Firewall and distributed IDS/IPS supported with Azure VMware Solution?
         answer: Yes with an add-on license. Azure VMware Solution supports distributed IDFW and distributed IDS/IPS with add-on firewall license. This add-on license needs to be bought from VMware and Microsoft will apply that license to the Azure VMware Solution private cloud with a support request.
+
+      - question: Is NSX Service Insertion supported with Azure VMware Solution?
+        answer: No.
         
       - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
