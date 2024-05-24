@@ -184,7 +184,7 @@ Represents an image generated.
 
 | Name      | Type                                | Description                                                                                      |
 | --------- | ----------------------------------- | ------------------------------------------------------------------------------------------------ |
-| embedding | number\[\]                          | The embedding vector, which is a list of floats. The length of vector depends on the model used. |
+| embedding | number\[\]                          | The embedding vector. The length of vector depends on the model used and the type depends on the `encoding_format` used. |
 | index     | integer                             | The index of the embedding in the list of embeddings.                                            |
 | object    | [EmbeddingObject](#embeddingobject) | The object type, which is always "embedding".                                                    |
 
@@ -207,9 +207,9 @@ The type of the input. Either `text`, `query`, or `document`. Returns a 422 erro
 
 | Name     | Type   | Description |
 | -------- | ------ | ----------- |
-| document | string |             |
-| query    | string |             |
-| text     | string |             |
+| document | string | Indicates the input represents a document that is stored in a vector database.            |
+| query    | string | Indicates the input represents a search queries to find the most relevant documents in your vector database. |
+| text     | string | Indicates the input is a general text input. |
 
 
 ### EmbeddingObject

@@ -88,7 +88,7 @@ POST /images/embeddings?api-version=2024-04-01-preview
   "input": [
     {
       "text": "A nice picture of a cat",
-      "image": "qwertyuiopasdfghjklqwrtyuio"
+      "image": "data:image/jpeg;base64,iVBORw0KG..."
     }
   ],
   "encoding_format": "float",
@@ -243,7 +243,7 @@ Represents an image with optional text.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| image | string | The input image, in PNG format. |
+| image | string | The input image encoded in `base64` string as a data URL. Example: `data:image/{format};base64,{data}`. |
 | text | string | Optional. The text input to feed into the model (like DINO, CLIP). Returns a 422 error if the model doesn't support the value or parameter. |
 
 
