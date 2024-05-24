@@ -45,6 +45,8 @@ Each event log is published with a timestamp that indicates the time that Azure 
 | **Preview** | *HighSnatPortUsage* | Warning | This event is published on a per backend instance-level, when a backend instance utilizes more than 75% of its allocated ports from a single frontend IP. | On-demand | 5 minutes | Backend IP address, Frontend IP address |
 | **Preview** | *SnatPortExhaustion* | Critical | This event is published on a per backend instance-level. Publication occurs when a backend instance exhausts all allocated ports and fails any further outbound connections. This event continues until ports are released or more ports are allocated. | On-demand | 5 minutes | Backend IP address, Frontend IP address |
 
+For more information on the properties published with each health event log, refer to the Azure Log Analytics reference documentation for the log table [ALBHealthEvent](../azure-monitor/reference/tables/albhealthevent.md).
+
 ## Next steps
 In this article, you learned about Azure Load Balancer health event logs and health event types.
 
