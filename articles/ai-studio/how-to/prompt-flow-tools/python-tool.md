@@ -118,12 +118,6 @@ Create a custom connection that stores all your large language model API key or 
 
     :::image type="content" source="../../media/prompt-flow/create-connection.png" alt-text="Screenshot that shows creating a connection in AI Studio." lightbox = "../../media/prompt-flow/create-connection.png":::
 
-1. Add the following custom keys to the connection:
-    - `azureml.flow.connection_type`: `Custom`
-    - `azureml.flow.module`: `promptflow.connections`
-    
-    :::image type="content" source="../../media/prompt-flow/custom-connection-keys.png" alt-text="Screenshot that shows adding extra information to a custom connection in AI Studio." lightbox = "../../media/prompt-flow/custom-connection-keys.png":::
-
 ### Consume a custom connection in Python
 
 To consume a custom connection in your Python code:
