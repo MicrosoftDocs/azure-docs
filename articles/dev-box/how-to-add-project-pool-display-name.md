@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 05/24/2024
 ---
 
-# Add a Display Name to Projects and Pools
+# Add a display name to projects and pools
 
 Display names create a friendly name to use for resources that developers can view and use in the developer portal. You can add a display name to projects and pools after creating resources. Display names are helpful in several circumstances like:  
 
