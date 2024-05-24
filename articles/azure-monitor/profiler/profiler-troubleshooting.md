@@ -139,7 +139,7 @@ When you configure Profiler, updates are made to the web app's settings. If nece
 #### Too many active profiling sessions
 
 In Azure App Service, there is a limit of only **one profiling session at a time**. This limit is enforced at the VM level across all applications and deployment slots running in an App Service Plan. 
-This limit applies equally to profiling sessions started via *Diagnose and solve problems*, Kudu and Application Insights Profiler.
+This limit applies equally to profiling sessions started via *Diagnose and solve problems*, Kudu, and Application Insights Profiler.
 If the Application Insights Profiler tries to start a session when another is already running, an error is logged in the Application Log and also the continuous WebJob log for ApplicationInsightsProfiler3.
 
 You may see one of the following messages in the logs:
