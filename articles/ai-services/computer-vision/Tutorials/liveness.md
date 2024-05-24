@@ -12,7 +12,7 @@ ms.date: 11/06/2023
 
 # Tutorial: Detect liveness in faces
 
-Face Liveness detection can be used to determine if a face in an input video stream is real (live) or fake (spoof). This is a crucial building block in a biometric authentication system to prevent spoofing attacks from imposters trying to gain access to the system using a photograph, video, mask, or other means to impersonate another person.
+Face Liveness detection can be used to determine if a face in an input video stream is real (live) or fake (spoof). It is a crucial building block in a biometric authentication system to prevent spoofing attacks from imposters trying to gain access to the system using a photograph, video, mask, or other means to impersonate another person.
 
 The goal of liveness detection is to ensure that the system is interacting with a physically present live person at the time of authentication. Such systems have become increasingly important with the rise of digital finance, remote access control, and online identity verification processes.
 
@@ -23,14 +23,14 @@ The liveness detection solution successfully defends against various spoof types
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+- Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 - Your Azure account must have a **Cognitive Services Contributor** role assigned in order for you to agree to the responsible AI terms and create a resource. To get this role assigned to your account, follow the steps in the [Assign roles](/azure/role-based-access-control/role-assignments-steps) documentation, or contact your administrator. 
 - Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**. 
-    - You need the key and endpoint from the resource you create to connect your application to the Face service. You'll paste your key and endpoint into the code later in the quickstart.
+    - You need the key and endpoint from the resource you create to connect your application to the Face service.
     - You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - Access to the Azure AI Vision Face Client SDK for mobile (IOS and Android) and web. To get started, you need to apply for the [Face Recognition Limited Access features](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to get access to the SDK. For more information, see the [Face Limited Access](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext) page.
 
-## Perform liveness detection
+## Setup frontend applications and app-server to perform liveness detection
 
 The liveness solution integration involves two different components: a frontend mobile/web application and an app server/orchestrator.
 
@@ -43,7 +43,19 @@ Once you have access to the SDK, follow instruction in the [azure-ai-vision-sdk]
 
 Once you've added the code into your application, the SDK handles starting the camera, guiding the end-user to adjust their position, composing the liveness payload, and calling the Azure AI Face cloud service to process the liveness payload.
 
-### Orchestrate the liveness solution
+### Download Azure AI Face client library for an app server
+
+The app server/orchestrator is responsible for controlling the lifecycle of a liveness session. The app server has to create a session before performing liveness detection, and then it can query the result and delete the session when the liveness check is finished. We offer a library in various languages for easily implementing your app server. Follow these steps to install the package you want:
+- For C#, follow the instructions in the [dotnet readme](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/face/Azure.AI.Vision.Face/README.md)
+- For Java, follow the instructions in the [Java readme](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/face/azure-ai-vision-face/README.md)
+- For Python, follow the instructions in the [Python readme](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/README.md)
+- For JavaScript, follow the instructions in the [JavaScript readme](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/face/ai-vision-face-rest/README.md)
+
+#### Create environment variables
+
+[!INCLUDE [create environment variables](../includes/face-environment-variables.md)]
+
+## Perform liveness detection
 
 The high-level steps involved in liveness orchestration are illustrated below:  
 
@@ -52,22 +64,56 @@ The high-level steps involved in liveness orchestration are illustrated below:
 1. The frontend application starts the liveness check and notifies the app server. 
 
 1. The app server creates a new liveness session with Azure AI Face Service. The service creates a liveness-session and responds back with a session-authorization-token. More information regarding each request parameter involved in creating a liveness session is referenced in [Liveness Create Session Operation](https://aka.ms/face-api-reference-createlivenesssession).
-    
-    ```json
-    Request:
-    curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectliveness/singlemodal/sessions' \
-    --header 'Ocp-Apim-Subscription-Key:<insert-api-key>
-    --header 'Content-Type: application/json' \
-    --data '{
-      "livenessOperationMode": "passive",
-      "deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd",
-      "sendResultsToClient": "false"
+
+    #### [C#](#tab/csharp)
+    ```csharp
+    ```
+
+    #### [Java](#tab/java)
+    ```java
+    ```
+
+    #### [Python](#tab/python)
+    ```python
+    ```
+
+    #### [JavaScript](#tab/javascript)
+    ```javascript
+    ```
+
+    #### [REST API (Windows)](#tab/cmd)
+    ```console
+    curl --request POST --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions" ^
+    --header "Ocp-Apim-Subscription-Key: %VISION_KEY%" ^
+    --header "Content-Type: application/json" ^
+    --data ^
+    "{ ^
+        ""livenessOperationMode"": ""passive"", ^
+        ""deviceCorrelationId"": ""723d6d03-ef33-40a8-9682-23a1feb7bccd"", ^
+        ""sendResultsToClient"": ""false"" ^
+    }"
+    ```
+
+    #### [REST API (Linux)](#tab/bash)
+    ```bash
+    curl --request POST --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions" \
+    --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}" \
+    --header "Content-Type: application/json" \
+    --data \
+    '{
+        "livenessOperationMode": "passive",
+        "deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd",
+        "sendResultsToClient": "false"
     }'
-     
-    Response:
+    ```
+
+    ---
+
+    An example of the response body:
+    ```json 
     {
         "sessionId": "a6e7193e-b638-42e9-903f-eaf60d2b40a5",
-        "authToken": <session-authorization-token>
+        "authToken": "<session-authorization-token>"
     }
     ```
 
@@ -75,19 +121,24 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
 1. The frontend application provides the session-authorization-token during the Azure AI Vision SDK’s initialization. 
 
+    #### [Android](#tab/mobile-kotlin)
     ```kotlin
     mServiceOptions?.setTokenCredential(com.azure.android.core.credential.TokenCredential { _, callback ->
         callback.onSuccess(com.azure.android.core.credential.AccessToken("<INSERT_TOKEN_HERE>", org.threeten.bp.OffsetDateTime.MAX))
     })
     ```
-    
+
+    #### [iOS](#tab/mobile-swift)
     ```swift
     serviceOptions?.authorizationToken = "<INSERT_TOKEN_HERE>"
     ```
 
+    #### [Web](#tab/web-javascript)
     ```javascript
     azureAIVisionFaceAnalyzer.token = "<INSERT_TOKEN_HERE>"
     ```
+
+    ---
 
 1. The SDK then starts the camera, guides the user to position correctly and then prepares the payload to call the liveness detection service endpoint. 
  
@@ -96,13 +147,39 @@ The high-level steps involved in liveness orchestration are illustrated below:
 1. The frontend application relays the liveness check completion to the app server. 
 
 1. The app server can now query for the liveness detection result from the Azure AI Vision Face service. 
-    
+
+    #### [C#](#tab/csharp)
+    ```csharp
+    ```
+
+    #### [Java](#tab/java)
+    ```java
+    ```
+
+    #### [Python](#tab/python)
+    ```python
+    ```
+
+    #### [JavaScript](#tab/javascript)
+    ```javascript
+    ```
+
+    #### [REST API (Windows)](#tab/cmd)
+    ```console
+    curl --request GET --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" ^
+    --header "Ocp-Apim-Subscription-Key: %VISION_KEY%"
+    ```
+
+    #### [REST API (Linux)](#tab/bash)
+    ```bash
+    curl --request GET --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" \
+    --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
+    ```
+
+    ---
+
+    An example of the response body:
     ```json
-    Request:
-    curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectliveness/singlemodal/sessions/a3dc62a3-49d5-45a1-886c-36e7df97499a' \
-    --header 'Ocp-Apim-Subscription-Key: <insert-api-key>
-    
-    Response:
     {
         "status": "ResultAvailable",
         "result": {
@@ -144,17 +221,48 @@ The high-level steps involved in liveness orchestration are illustrated below:
         "deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd",
         "sessionExpired": false
     }
-    
     ```
+
+1. The app server can delete the session if you don't query its result anymore.
+
+    #### [C#](#tab/csharp)
+    ```csharp
+    ```
+
+    #### [Java](#tab/java)
+    ```java
+    ```
+
+    #### [Python](#tab/python)
+    ```python
+    ```
+
+    #### [JavaScript](#tab/javascript)
+    ```javascript
+    ```
+
+    #### [REST API (Windows)](#tab/cmd)
+    ```console
+    curl --request DELETE --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" ^
+    --header "Ocp-Apim-Subscription-Key: %VISION_KEY%"
+    ```
+
+    #### [REST API (Linux)](#tab/bash)
+    ```bash
+    curl --request DELETE --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" \
+    --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
+    ```
+
+    ---
 
 ## Perform liveness detection with face verification
 
 Combining face verification with liveness detection enables biometric verification of a particular person of interest with an added guarantee that the person is physically present in the system. 
 There are two parts to integrating liveness with verification:
-1.	Select a good reference image.
-2.	Set up the orchestration of liveness with verification.
+1. Select a good reference image.
+2. Set up the orchestration of liveness with verification.
 
-:::image type="content" source="../media/liveness/liveness-verify-diagram.jpg" alt-text="Diagram of the liveness-with-verify workflow of Azure AI Face." lightbox="../media/liveness/liveness-verify-diagram.jpg":::
+:::image type="content" source="../media/liveness/liveness-verify-diagram.jpg" alt-text="Diagram of the liveness-with-face-verification workflow of Azure AI Face." lightbox="../media/liveness/liveness-verify-diagram.jpg":::
 
 ### Select a good reference image
 
@@ -165,34 +273,62 @@ Use the following tips to ensure that your input images give the most accurate r
 * You can utilize the `qualityForRecognition` attribute in the [face detection](../how-to/identity-detect-faces.md) operation when using applicable detection models as a general guideline of whether the image is likely of sufficient quality to attempt face recognition on. Only `"high"` quality images are recommended for person enrollment and quality at or above `"medium"` is recommended for identification scenarios.
 
 #### Composition requirements:
--	Photo is clear and sharp, not blurry, pixelated, distorted, or damaged. 
--	Photo is not altered to remove face blemishes or face appearance.
--	Photo must be in an RGB color supported format (JPEG, PNG, WEBP, BMP). Recommended Face size is 200 pixels x 200 pixels. Face sizes larger than 200 pixels x 200 pixels will not result in better AI quality, and no larger than 6 MB in size.
--	User is not wearing glasses, masks, hats, headphones, head coverings, or face coverings. Face should be free of any obstructions.
--	Facial jewelry is allowed provided they do not hide your face. 
--	Only one face should be visible in the photo.
--	Face should be in neutral front-facing pose with both eyes open, mouth closed, with no extreme facial expressions or head tilt.
--	Face should be free of any shadows or red eyes. Retake photo if either of these occur.
--	Background should be uniform and plain, free of any shadows. 
--	Face should be centered within the image and fill at least 50% of the image.
+- Photo is clear and sharp, not blurry, pixelated, distorted, or damaged.
+- Photo is not altered to remove face blemishes or face appearance.
+- Photo must be in an RGB color supported format (JPEG, PNG, WEBP, BMP). Recommended Face size is 200 pixels x 200 pixels. Face sizes larger than 200 pixels x 200 pixels will not result in better AI quality, and no larger than 6 MB in size.
+- User is not wearing glasses, masks, hats, headphones, head coverings, or face coverings. Face should be free of any obstructions.
+- Facial jewelry is allowed provided they do not hide your face.
+- Only one face should be visible in the photo.
+- Face should be in neutral front-facing pose with both eyes open, mouth closed, with no extreme facial expressions or head tilt.
+- Face should be free of any shadows or red eyes. Retake photo if either of these occur.
+- Background should be uniform and plain, free of any shadows.
+- Face should be centered within the image and fill at least 50% of the image.
 
 ### Set up the orchestration of liveness with verification.
 
 The high-level steps involved in liveness with verification orchestration are illustrated below:
-1.	Provide the verification reference image by either of the following two methods:
+1. Providing the verification reference image by either of the following two methods:
     - The app server provides the reference image when creating the liveness session. More information regarding each request parameter involved in creating a liveness session with verification is referenced in [Liveness With Verify Create Session Operation](https://aka.ms/face-api-reference-createlivenesswithverifysession).
 
-        ```json
-        Request:
-        curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions' \
-        --header 'Ocp-Apim-Subscription-Key: <api_key>' \
+        #### [C#](#tab/csharp)
+        ```csharp
+        ```
+
+        #### [Java](#tab/java)
+        ```java
+        ```
+
+        #### [Python](#tab/python)
+        ```python
+        ```
+
+        #### [JavaScript](#tab/javascript)
+        ```javascript
+        ```
+
+        #### [REST API (Windows)](#tab/cmd)
+        ```console
+        curl --request POST --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions" ^
+        --header "Ocp-Apim-Subscription-Key: %VISION_KEY%" ^
+        --form "Parameters=""{\\\""livenessOperationMode\\\"": \\\""passive\\\"", \\\""deviceCorrelationId\\\"": \\\""723d6d03-ef33-40a8-9682-23a1feb7bccd\\\""}""" ^
+        --form "VerifyImage=@""test.png"""
+        ```
+
+        #### [REST API (Linux)](#tab/bash)
+        ```bash
+        curl --request POST --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions" \
+        --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}" \
         --form 'Parameters="{
-          \"livenessOperationMode\": \"passive\",
-          \"deviceCorrelationId\": \"723d6d03-ef33-40a8-9682-23a1feb7bccd\"
+            \"livenessOperationMode\": \"passive\",
+            \"deviceCorrelationId\": \"723d6d03-ef33-40a8-9682-23a1feb7bccd\"
         }"' \
         --form 'VerifyImage=@"test.png"'
-        
-        Response:
+        ```
+
+        ---
+
+        An example of the response body:
+        ```json
         {
             "verifyImage": {
                 "faceRectangle": {
@@ -204,38 +340,68 @@ The high-level steps involved in liveness with verification orchestration are il
                 "qualityForRecognition": "high"
             },
             "sessionId": "3847ffd3-4657-4e6c-870c-8e20de52f567",
-            "authToken":<session-authorization-token>
+            "authToken": "<session-authorization-token>"
         }
-        
         ```
 
-    - The mobile application provides the reference image when initializing the SDK. This is not a supported scenario in the web solution.
+    - The mobile application provides the reference image when initializing the SDK. This scenario is not supported in the web solution.
 
+        #### [Android](#tab/mobile-kotlin)
         ```kotlin
         val singleFaceImageSource = VisionSource.fromFile("/path/to/image.jpg")
         mFaceAnalysisOptions?.setRecognitionMode(RecognitionMode.valueOfVerifyingMatchToFaceInSingleFaceImage(singleFaceImageSource))
         ```
 
+        #### [iOS](#tab/mobile-swift)
         ```swift
         if let path = Bundle.main.path(forResource: "<IMAGE_RESOURCE_NAME>", ofType: "<IMAGE_RESOURCE_TYPE>"),
            let image = UIImage(contentsOfFile: path),
            let singleFaceImageSource = try? VisionSource(uiImage: image) {
-            try methodOptions.setRecognitionMode(.verifyMatchToFaceIn(singleFaceImage: singleFaceImageSource))
+           try methodOptions.setRecognitionMode(.verifyMatchToFaceIn(singleFaceImage: singleFaceImageSource))
         }
         ```
 
+        #### [Web](#tab/web-javascript)
+        ```javascript
+        Not supported.
+        ```
+
+        ---
+
 1. The app server can now query for the verification result in addition to the liveness result.
-    
+
+    #### [C#](#tab/csharp)
+    ```csharp
+    ```
+
+    #### [Java](#tab/java)
+    ```java
+    ```
+
+    #### [Python](#tab/python)
+    ```python
+    ```
+
+    #### [JavaScript](#tab/javascript)
+    ```javascript
+    ```
+
+    #### [REST API (Windows)](#tab/cmd)
+    ```console
+    curl --request GET --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" ^
+    --header "Ocp-Apim-Subscription-Key: %VISION_KEY%"
+    ```
+
+    #### [REST API (Linux)](#tab/bash)
+    ```bash
+    curl --request GET --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" \
+    --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
+    ```
+
+    ---
+
+    An example of the response body:
     ```json
-    Request:
-    curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/3847ffd3-4657-4e6c-870c-8e20de52f567' \
-    --header 'Content-Type: multipart/form-data' \
-    --header 'apim-recognition-model-preview-1904: true' \
-    --header 'Authorization: Bearer.<session-authorization-token> \
-    --form 'Content=@"content.bin"' \
-    --form 'Metadata="<insert-metadata>"
-    
-    Response:
     {
         "status": "ResultAvailable",
         "result": {
@@ -283,6 +449,38 @@ The high-level steps involved in liveness with verification orchestration are il
     }
     ```
 
+1. The app server can delete the session if you don't query its result anymore.
+
+    #### [C#](#tab/csharp)
+    ```csharp
+    ```
+
+    #### [Java](#tab/java)
+    ```java
+    ```
+
+    #### [Python](#tab/python)
+    ```python
+    ```
+
+    #### [JavaScript](#tab/javascript)
+    ```javascript
+    ```
+
+    #### [REST API (Windows)](#tab/cmd)
+    ```console
+    curl --request DELETE --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" ^
+    --header "Ocp-Apim-Subscription-Key: %VISION_KEY%"
+    ```
+
+    #### [REST API (Linux)](#tab/bash)
+    ```bash
+    curl --request DELETE --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>" \
+    --header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
+    ```
+
+    ---
+
 ## Clean up resources
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
@@ -292,12 +490,12 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 
 ## Next steps
 
-See the Azure AI Vision SDK reference to learn about other options in the liveness APIs.
+To learn about other options in the liveness APIs, see the Azure AI Vision SDK reference.
 
 - [Kotlin (Android)](https://aka.ms/liveness-sample-java)
 - [Swift (iOS)](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme)
 - [JavaScript (Web)](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-web-readme)
 
-See the Session REST API reference to learn more about the features available to orchestrate the liveness solution.
+To learn more about the features available to orchestrate the liveness solution, see the Session REST API reference.
 
 - [Liveness Session Operations](/rest/api/face/liveness-session-operations)
