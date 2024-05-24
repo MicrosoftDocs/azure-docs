@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 04/05/2024
+ms.date: 05/15/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -103,28 +103,6 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
    ```
 
    You can also check the configurations of topic maps, QoS, and message routes by adding the `--detail-level 2` parameter for a verbose view.
-
-### Configure cluster network (AKS EE)
-
-On AKS Edge Essentials clusters, enable inbound connections to Azure IoT MQ Preview broker and configure port forwarding:
-
-1. Enable a firewall rule for port 8883:
-
-    ```powershell
-    New-NetFirewallRule -DisplayName "Azure IoT MQ" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
-    ```
-
-1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
-
-    ```cmd
-    kubectl get svc aio-mq-dmqtt-frontend -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
-    ```
-
-1. Enable port forwarding for port 8883. Replace `<aio-mq-dmqtt-frontend IP address>` with the IP address you noted in the previous step:
-
-    ```cmd
-    netsh interface portproxy add v4tov4 listenport=8883 listenaddress=0.0.0.0 connectport=8883 connectaddress=<aio-mq-dmqtt-frontend IP address>
-    ```
 
 ## View resources in your cluster
 

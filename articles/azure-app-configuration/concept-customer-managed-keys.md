@@ -19,7 +19,7 @@ Azure App Configuration encrypts sensitive information at rest by using a 256-bi
 > [!IMPORTANT]
 > If the identity assigned to the App Configuration instance is no longer authorized to unwrap the instance's encryption key, or if the managed key is permanently deleted, then it will no longer be possible to decrypt sensitive information stored in the App Configuration instance. By using Azure Key Vault's [soft delete](../key-vault/general/soft-delete-overview.md) function, you mitigate the chance of accidentally deleting your encryption key.
 
-When users enable the customer managed key capability on their Azure App Configuration instance, they control the service’s ability to access their sensitive information. The managed key serves as a root encryption key. Users can revoke their App Configuration instance’s access to their managed key by changing their key vault access policy. When this access is revoked, App Configuration will lose the ability to decrypt user data within one hour. At this point, the App Configuration instance will forbid all access attempts. This situation is recoverable by granting the service access to the managed key once again. Within one hour, App Configuration will be able to decrypt user data and operate under normal conditions.
+When users enable the customer-managed key capability on their Azure App Configuration instance, they control the service’s ability to access their sensitive information. The managed key serves as a root encryption key. Users can revoke their App Configuration instance’s access to their managed key by changing their key vault access policy. When this access is revoked, App Configuration will lose the ability to decrypt user data within one hour. At this point, the App Configuration instance will forbid all access attempts. This situation is recoverable by granting the service access to the managed key once again. Within one hour, App Configuration will be able to decrypt user data and operate under normal conditions.
 
 > [!NOTE]
 > All Azure App Configuration data is stored for up to 24 hours in an isolated backup. This includes the unwrapped encryption key. This data isn't immediately available to the service or service team. In the event of an emergency restore, Azure App Configuration will revoke itself again from the managed key data.
@@ -40,30 +40,24 @@ After these resources are configured, use the following steps so that the Azure 
 
 ## Enable customer-managed key encryption for your App Configuration store
 
-1. [Create an App Configuration store](./quickstart-azure-app-configuration-create.md) if you don't have one.
+1. [Create an App Configuration store](./quickstart-azure-app-configuration-create.md) in the Standard tier if you don't have one.
 
-1. Create an Azure Key Vault by using the Azure CLI. Both `vault-name` and `resource-group-name` are user-provided and must be unique. We use `contoso-vault` and `contoso-resource-group` in these examples.
-
-    ```azurecli
-    az keyvault create --name contoso-vault --resource-group contoso-resource-group
-    ```
-
-1. Enable soft-delete and purge-protection for the Key Vault. Substitute the names of the Key Vault (`contoso-vault`) and Resource Group (`contoso-resource-group`) created in step 1.
+1. Using the Azure CLI, create an Azure Key Vault with purge protection enabled. Soft delete is enabled by default. Both `vault-name` and `resource-group-name` are user-provided and must be unique. We use `contoso-vault` and `contoso-resource-group` in these examples. 
 
     ```azurecli
-    az keyvault update --name contoso-vault --resource-group contoso-resource-group --enable-purge-protection --enable-soft-delete
+    az keyvault create --name contoso-vault --resource-group contoso-resource-group --enable-purge-protection
     ```
 
-1. Create a Key Vault key. Provide a unique `key-name` for this key, and substitute the names of the Key Vault (`contoso-vault`) created in step 1. Specify whether you prefer `RSA` or `RSA-HSM` encryption.
+1. Create a Key Vault key. Provide a unique `key-name` for this key, and substitute the name of the Key Vault (`contoso-vault`) created in step 2. Specify whether you prefer `RSA` or `RSA-HSM` encryption (`RSA-HSM` is only available in the Premium tier).
 
     ```azurecli
     az keyvault key create --name key-name --kty {RSA or RSA-HSM} --vault-name contoso-vault
     ```
 
-    The output from this command shows the key ID ("kid") for the generated key. Make a note of the key ID to use later in this exercise. The key ID has the form: `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}`. The key ID has three important components:
-    1. Key Vault URI: `https://{my key vault}.vault.azure.net
-    1. Key Vault key name: {Key Name}
-    1. Key Vault key version: {Key version}
+    The output from this command shows the key ID (`kid`) for the generated key. Make a note of the key ID to use later in this exercise. The key ID has the form: `https://{my key vault}.vault.azure.net/keys/{key-name}/{key-version}`. The key ID has three important components:
+    1. Key Vault URI: `https://{my key vault}.vault.azure.net`
+    1. Key Vault key name: `{key-name}`
+    1. Key Vault key version: `{key-version}`
 
 1. Create a system-assigned managed identity by using the Azure CLI, substituting the name of your App Configuration instance and resource group used in the previous steps. The managed identity will be used to access the managed key. We use `contoso-app-config` to illustrate the name of an App Configuration instance:
 
@@ -75,20 +69,20 @@ After these resources are configured, use the following steps so that the Azure 
 
     ```json
     {
-    "principalId": {Principal Id},
-    "tenantId": {Tenant Id},
-    "type": "SystemAssigned",
-    "userAssignedIdentities": null
+        "principalId": {Principal Id},
+        "tenantId": {Tenant Id},
+        "type": "SystemAssigned",
+        "userAssignedIdentities": null
     }
     ```
 
-1. The managed identity of the Azure App Configuration instance needs access to the key to perform key validation, encryption, and decryption. The specific set of actions to which it needs access includes: `GET`, `WRAP`, and `UNWRAP` for keys. Granting access requires the principal ID of the App Configuration instance's managed identity. This value was obtained in the previous step. It's shown below as `contoso-principalId`. Grant permission to the managed key by using the command line:
+1. The managed identity of the Azure App Configuration instance needs access to the key to perform key validation, encryption, and decryption. The specific set of actions to which it needs access includes: `GET`, `WRAP`, and `UNWRAP` for keys. Granting access requires the principal ID of the App Configuration instance's managed identity. Replace the value shown below as `contoso-principalId` with the principal ID obtained in the previous step. Grant permission to the managed key by using the command line:
 
     ```azurecli
     az keyvault set-policy -n contoso-vault --object-id contoso-principalId --key-permissions get wrapKey unwrapKey
     ```
 
-1. After the Azure App Configuration instance can access the managed key, we can enable the customer-managed key capability in the service by using the Azure CLI. Recall the following properties recorded during the key creation steps: `key name` `key vault URI`.
+1. Now that the Azure App Configuration instance can access the managed key, we can enable the customer-managed key capability in the service by using the Azure CLI. Recall the following properties recorded during the key creation steps: `key name` `key vault URI`.
 
     ```azurecli
     az appconfig update -g contoso-resource-group -n contoso-app-config --encryption-key-name key-name --encryption-key-version key-version --encryption-key-vault key-vault-Uri

@@ -13,7 +13,7 @@ services: iot-edge
 
 # dTPM access for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 A Trusted platform module (TPM) chip is a secure crypto-processor that is designed to carry out cryptographic operations. This technology is designed to provide hardware-based, security-related functions. The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine doesn't have a virtual TPMs attached to the VM. However, the user can enable or disable the TPM passthrough feature, that allows the EFLOW virtual machine to use the Windows host OS TPM. The TPM passthrough feature enables two main scenarios:
 
@@ -27,7 +27,7 @@ This article describes how to develop a sample code in C# to read cryptographic 
 
 ## Prerequisites
 
-- A Windows host OS with a TPM or vTPM (ig using Windows host OS virtual machine).
+- A Windows host OS with a TPM or vTPM (if using Windows host OS virtual machine).
 - EFLOW virtual machine with TPM passthrough enabled. Using an elevated PowerShell session, use `Set-EflowVmFeature -feature "DpsTpm" -enable` to enable TPM passthrough. For more information, see [Set-EflowVmFeature to enable TPM passthrough](./reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvmfeature).
 - Ensure that the NV index (default index=3001) is initialized with 8 bytes of data. The default AuthValue used by the sample is {1,2,3,4,5,6,7,8} which corresponds to the NV (Windows) Sample in the TSS.MSR libraries when writing to the TPM. All index initialization must take place on the Windows Host before reading from the EFLOW VM. For more information about TPM samples, see [TSS.MSR](https://github.com/microsoft/TSS.MSR).
 
@@ -87,7 +87,7 @@ Once the executable file and dependency files are created, you need to copy the 
     cd "C:\Users\User"
     ```
 
-1. Create a *tar* file with all the files created in previous steps. For more information about PowerShell *tar* support, see [Tar and Curl Come to Windows](/virtualization/community/team-blog/2017/20171219-tar-and-curl-come-to-windows).
+1. Create a *tar* file with all the files created in previous steps.
     For example, if you have all your files under the folder _TPM_, you can use the following command to create the _TPM.tar_ file.
     ```powershell
      tar -cvzf TPM.tar ".\TPM"

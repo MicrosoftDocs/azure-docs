@@ -1170,6 +1170,57 @@ You can control this tracing capability at the application level by adding the f
    > If you download a log or trace file that your logic app workflow opened 
    > and is currently in use, your download might result in an empty file.
 
+## Enable SAP Common Crypto Library (CCL) tracing (built-in connector only)
+
+If you have to investigate any problems with the crypto library while using SNC authentication, you can set up custom text file-based CCL tracing. You can use these CCL logs to troubleshoot SNC authentication issues, or share them with Microsoft or SAP support, if requested. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
+
+You can control this tracing capability at the application level by adding the following settings:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On Standard logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
+
+1. On the **Kudu** toolbar, select **Debug Console** > **CMD**.
+
+1. Browse to a location under **C:\home\site\wwwroot**, and create a text file, for example: **CCLPROFILE.txt**.
+
+   For more information about logging parameters, see [**Tracing** > SAP NOTE 2338952](https://me.sap.com/notes/2338952/E). The following sample provides an example tracing configuration:
+   
+   ```
+   ccl/trace/directory=C:\home\LogFiles\CCLLOGS
+   ccl/trace/level=4
+   ccl/trace/rotatefilesize=10000000
+   ccl/trace/rotatefilenumber=10
+   ```
+   
+1. On the logic app menu, under **Settings**, select **Environment variables** to review the application settings.
+
+1. On the **Environment variables** page, on the **App settings** tab, add the following application setting:
+
+   **CCL_PROFILE**: The directory where **CCLPROFILE.txt** was created, for example, **C:\home\site\wwwroot\CCLPROFILE.txt**.
+
+1. Save your changes. This step restarts the application.
+
+### View the trace
+
+1. On Standard logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
+
+1. On the **Kudu** toolbar, select **Debug Console** > **CMD**.
+
+1. Browse to the folder for the **$ccl/trace/directory** parameter, which is from the **CCLPROFILE.txt** file.
+
+    Usually, the trace files are named **sec-Microsoft.Azure.Work-$processId.trc** and **sec-sapgenpse.exe-$processId.trc**.
+
+   Your logic app workflow performs SNC authentication as a two-step process:
+
+   1. Your logic app workflow invokes **sapgenpse.exe** to generate a **cred_v2** file from the PSE file.
+   
+      You can find the traces related to this step in a file named **sec-sapgenpse.exe-$processId.trc**.
+
+   1. Your logic app workflow authenticates access to your SAP server by consuming the generated **cred_v2** file, with the SAP client library invoking the common crypto library.
+
+       You can find the traces related to this step in a file named **sec-Microsoft.Azure.Work-$processId.trc**.
+
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
 With the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP NCo client library and traces from the Microsoft SAP Adapter to [Application Insights](../../azure-monitor/app/app-insights-overview.md), which is a capability in Azure Monitor. This telemetry primarily includes the following data:

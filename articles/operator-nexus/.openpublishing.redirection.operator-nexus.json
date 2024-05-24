@@ -36,6 +36,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "how-to-apply-access-control-list-to-network-to-network-interconnects.md",
+            "redirect_url": "howto-apply-access-control-list-to-network-to-network-interconnects",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "howto-use-azure-policy-for-aks-cluster-security.md",
             "redirect_url": "howto-use-azure-policy",
             "redirect_document_id": false

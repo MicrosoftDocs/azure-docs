@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
 services: container-instances
-ms.date: 06/17/2022
+ms.date: 04/26/2024
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 

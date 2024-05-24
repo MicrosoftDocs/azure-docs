@@ -1,0 +1,383 @@
+### YamlMime:FAQ
+metadata:
+  title: NVMe - Temp NVMe Disks FAQ
+  description: Provides answers to some of the common questions about working with Temp NVMe disks on virtual machines
+  ms.service: virtual-machines
+  ms.topic: faq
+  ms.custom: references_regions
+title: NVMe - Temp NVMe Disks FAQ
+summary: |
+  This article addresses some common questions about support for Temp NVMe Disks on virtual machines created in Azure.
+
+
+
+sections:
+  - name: Azure Storage Considerations for temp NVMe Disks
+    questions:
+      - question: |
+          What are the prerequisites to enable the temp NVMe interface on my virtual machine (VM)?
+        answer: |
+          To enable the temp NVMe interface, the following prerequisites must be met:
+          - Choose a VM family that supports NVMe (such as our v6 VMs). 
+          - Select the operating system image that is tagged with NVMe support.
+          - Only Gen2 images are supported.
+          By meeting these three conditions, you're able to enable temp NVMe on the supported VM family.
+      - question: |
+          How are temp NVMe disks in our Dl/D/E_v6 VMs different?
+        answer: |
+          A key difference is that temp NVMe disks are transient and data on the VM can disappear, but data on remote NVMe disks stays. This difference should be factored in when choosing your VM’s storage options.
+          Unlike our previous D/E series VMs, the new v6 VMs come with raw, unformatted NVMe disks. Customers should initialize and format the disks into a file system of their preference after the VM boots up. The Dl/D/E v6 series VMs are optimized to use the local temp NVMe disk on the node attached directly to the VM rather than previously used local small computer system interface (SCSI) disks. This method allows for greater IOPS and throughput for your workloads. 
+      - question: |
+          What changes should you prepare for when configuring your VMs with temp NVMe disks?
+        answer: |
+          - Disks should be initialized and formatted after the VM boots up. After user-initiated stop, deallocate, or planned maintenance and Azure-initiated autorecovery events, the VMs boot up with only raw temp NVMe disks. Therefore, no temp NVMe disks are visible to applications until after they're initialized and formatted. 
+          - Separate NVMe drives can be spanned into one by customers as needed after VM boots up.
+          - Windows pagefile is placed to persistent OS disk (except if Ephemeral OS feature is used), but it can be moved to temp NVMe disk as needed after VM boots up.
+          - Ephemeral OS feature, if used, convert one or several NVMe disks (depending on the VM and image size) into a slower SCSI/VHD based disk, similar to how it was on v5 and older VMs. For the larger VM sizes, the remaining drives stay raw unformatted NVMe.
+          - The [Resource Skus - List - REST API](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list?tabs=HTTP) exposes several capabilities of virtual machines. The next iteration of virtual machine sizes uses the faster and more efficient NVMe protocol for local storage, instead of the SCSI protocol used by earlier virtual machine sizes. For Azure virtual machines, SCSI-based local storage is referred to as a temporary resource disk, and MaxResourceVolumeMB value specifies the size of this disk. In contrast, the NVMeDiskSizeInMiB value specifies the size of NVMe-based local storage. 
+      - question: |
+          How can I encrypt my temp NVMe disks?
+        answer: |
+          The temp NVMe disks support the Data Encryption-at-Rest feature. A unique Data encryption key encrypts the data for each temp NVMe disk assigned to the VM, protected by a Key Encryption Key (KEK). Upon the VM deletion, the data on its temp NVMe disk is cryptographically erased. 
+      - question: |
+          How can I resize a v5 or older VM with temp disk to v6?
+        answer: |
+          [FAQ Azure VM sizes with no local temporary disk - Azure Virtual Machines | Microsoft Learn](/azure/virtual-machines/azure-vms-no-temp-disk#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---)
+      - question: |
+          How can I identify my temp NVMe disk?
+        answer: |
+          - You can run the following command for Windows:
+          ```PowerShell
+          Get-PhysicalDisk | where { $_.FriendlyName.contains("NVMe Direct Disk")}
+          ```
+          - You can run the following command for Linux:
+          ```
+          sudo nvme id-ns /dev/nvme0n1 -b | dd bs=1 skip=384 status=none | sed 's/\x00*$//'
+          ```
+      - question: |
+          How can I format and initialize temp NVMe disks in Windows at first VM launch?
+        answer: |
+          You can either use the GUI or the following PowerShell instructions.
+          
+          ### GUI
+          >[!TIP]
+          > Note: The following GUI example is meant for illustrative purposes. It's recommended that scripts be created to automate this workflow for production deployments.
+          1. Press the **Windows key + R** to open the Run dialog box. Type **diskmgmt.msc** and press **Enter**.
+          
+          :::image type="content" source="./media/enable-nvme/nvme-temp-init-1.png" alt-text="Screenshot of the Run dialog box opening diskmgmt.msc.":::
+          
+          2. Select partition style (MBR or GPT) and the disks to be initialized and click on **OK** button.
+          
+          :::image type="content" source="./media/enable-nvme/nvme-temp-init-2.png" alt-text="Screenshot of the Disk Management Initialize Disk dialog box.":::          
+          
+          3. Right click on the disk to be partitioned and select **New Simple Volume** menu item.
+          
+          :::image type="content" source="./media/enable-nvme/nvme-temp-init-3.png" alt-text="Screenshot of the menu for selecting new volume types.":::
+          
+          4. To specify items such as Volume size, Drive letter, File system, and Volume label, follow the **New Simple Volume Wizard** in the next few steps. Select the **Next** button to advance through the wizard. 
+          
+          :::image type="content" source="./media/enable-nvme/nvme-temp-init-4.png" alt-text="Screenshot of specifying the volume size in the New Simple Volume Wizard.":::
+          
+          :::image type="content" source="./media/enable-nvme/nvme-temp-init-5.png" alt-text="Screenshot of specifying the drive letter in the New Simple Volume Wizard.":::
+          
+          :::image type="content" source="./media/enable-nvme/nvme-temp-init-6.png" alt-text="Screenshot of specifying how to format the partition in the New Simple Volume Wizard.":::
+          
+          5. To complete the partition and format, review your settings and select the **Finish** button.
+          
+          :::image type="content" source="./media/enable-nvme/nvme-temp-init-7.png" alt-text="Screenshot of completing the New Simple Volume Wizard.":::
+          
+          6. The formatted and initialized NVMe disks show up in the Windows Disk Management utility similar to how the "New Volume (E:)" does in this example.
+          
+          :::image type="content" source="./media/enable-nvme/nvme-temp-init-8.png" alt-text="Screenshot of Disk Management utility showing the New Volume (E:).":::
+          
+          ### PowerShell Script – Initialize, format, and assign drive letters
+          >[!TIP]
+          > Note: The following script erases all data on the disk. You should thoroughly test it on your VMs before deploying it in production.
+          ```PowerShell
+          # Select the raw NVMe disks to partition and format 
+          
+          $RawNvmeDisks = Get-PhysicalDisk -CanPool $True | where { $_.FriendlyName.contains("NVMe Direct Disk")} 
+          
+          # Create a Pool of the existing Disks
+          
+          New-StoragePool -FriendlyName NVMePool -StorageSubsystemFriendlyName "Windows Storage*" -PhysicalDisks $RawNvmeDisks -ResiliencySettingNameDefault Simple 
+          
+          #Create New Disk, Initialize, Partition, and Format
+          
+          $Disk = New-VirtualDisk -FriendlyName NVMeTemporary -StoragePoolFriendlyName NVMePool -NumberOfColumns @($RawNvmeDisks).count  -PhysicalDiskRedundancy 0 -ResiliencySettingName "Simple" -UseMaximumSize
+          
+          $Disk | Initialize-Disk 
+          
+          #Create partition and Format. Ignore the popup. 
+          
+          New-Partition -DiskId $Disk.UniqueId  -AssignDriveLetter -UseMaximumSize | Format-Volume
+          ```
+      - question: |
+          How can I format and initialize temp NVMe disks in Linux?
+        answer: |
+          The following script provides an example of initializing temp NVMe disks in Linux. The script enumerates all temp NVMe disks on the VM, combines the disks into a single RAID0 array, and creates a formatted partition of the specified filesystem.
+          Temp NVMe disks are distinguished by the model number, which appears as "Microsoft NVMe Direct Disk" to the guest OS. This script uses the nvme-cli id-ctrl command to query the model number of each NVMe device.
+          The script first checks for any already-created temp NVMe disk volumes (identified by the filesystem label). If an array appears to be present, the script verifies the array integrity and repeats the initialization process if necessary. The array re-initializes in the following cases: 
+          - One or more array temp disks are missing.
+          - There are temp disks not already incorporated into the array.
+          - The disk array is in an otherwise invalid or unknown state.
+          - Associated configuration files are missing or invalid.
+          ```
+          #!/bin/bash 
+          
+          # Script requirements:
+          #   nvme-cli
+          #   mdadm
+          #   gdisk
+           
+          readonly USAGE="Usage: $(basename "$0") <filesystem> <filesystem mount point (optional)>"
+           
+          # Label used to identify the NVMe array filesystem and associated disks
+          # Can't exceed 16 characters
+          readonly RAID0_FILESYSTEM_LABEL="azure_nvme_temp"
+          # Device path used for the RAID 0 NVMe array
+          # Choose any unoccupied device path of format /dev/mdX (X = 0 to 99)
+          readonly RAID0_DEVICE_PATH="/dev/md0"
+          # Formatted RAID 0 partition is mounted here
+          readonly DEFAULT_MOUNT_POINT="/mnt/${RAID0_FILESYSTEM_LABEL}"
+           
+          filesystem="$1"
+          if [ ! "$filesystem" ]; then
+              printf "No filesystem specified. Usage: $USAGE\n"
+              exit 1
+          fi
+          if ! [ -x "$(command -v mkfs.$filesystem)" ]; then
+              printf "Filesystem \"$filesystem\" not supported by mkfs\n$USAGE\n"
+              exit 1
+          fi
+           
+          mount_point="$2"
+          if [ ! "$mount_point" ]; then
+              printf "No mount point specified. Using default: $DEFAULT_MOUNT_POINT\n"
+              mount_point=$DEFAULT_MOUNT_POINT
+          fi
+           
+          # Make sure mdadm.conf is present
+          mdadm_conf_path=""
+          if [ -e "/etc/mdadm/mdadm.conf" ]; then
+              mdadm_conf_path="/etc/mdadm/mdadm.conf"
+          elif [ -e "/etc/mdadm.conf" ]; then
+              mdadm_conf_path="/etc/mdadm.conf"
+          else
+              print "Couldn't find mdadm.conf file"
+              exit 1
+          fi
+           
+          # Enumerate unmounted NVMe direct disks
+          devices=$(lsblk -p -o NAME,TYPE,MOUNTPOINT | grep "nvme" | awk '$2 == "disk" && $3 == "" {print $1}')
+          nvme_direct_disks=()
+          for device in $devices
+          do
+              if nvme id-ctrl "$device" | grep -q "Microsoft NVMe Direct Disk"; then
+                  nvme_direct_disks+=("$device")
+              fi
+          done
+          nvme_direct_disk_count=${#nvme_direct_disks[@]}
+          printf "Found $nvme_direct_disk_count NVMe Direct Disks\n"
+           
+          # Check if there's already an NVMe Direct Disk RAID 0 disk (or remnant data)
+          if grep "$RAID0_FILESYSTEM_LABEL" /etc/fstab > /dev/null; then
+              fstab_entry_present=true
+          fi
+          if grep "$RAID0_FILESYSTEM_LABEL" $mdadm_conf_path > /dev/null; then
+              mdadm_conf_entry_present=true
+          fi
+          if [ -e $RAID0_DEVICE_PATH ]; then
+              nvme_raid0_present=true
+          fi
+          if [ "$fstab_entry_present" = true ] || [ "$mdadm_conf_entry_present" = true ] || [ "$nvme_raid0_present" = true ]; then
+              # Check if the RAID 0 volume and associated configs are still intact or need to be reinitialized
+              #
+              # If re-initialization is needed, then clear the old RAID 0 information and associated files
+           
+              reinit_raid0=false
+              if [ "$fstab_entry_present" = true ] && [ "$mdadm_conf_entry_present" = true ] && [ "$nvme_raid0_present" = true ]; then
+                  # Check RAID 0 device status
+                  if ! mdadm --detail --test $RAID0_DEVICE_PATH &> /dev/null; then
+                      reinit_raid0=true
+                  # Test the NVMe direct disks for valid mdadm superblocks
+                  else
+                      for device in "${nvme_direct_disks[@]}"
+                      do
+                          if ! mdadm --examine $device &> /dev/null; then
+                              reinit_raid0=true
+                              break
+                          fi
+                      done
+                  fi
+              else
+                  reinit_raid0=true
+              fi
+           
+              if [ "$reinit_raid0" = true ]; then
+                  echo "Errors found in NVMe RAID 0 temp array device or configuration. Reinitializing."
+           
+                  # Remove filesystem, partition table, and stop the RAID 0 array
+                  if [ "$nvme_raid0_present" = true ]; then
+                      if [ -e ${RAID0_DEVICE_PATH}p1 ]; then
+                          umount ${RAID0_DEVICE_PATH}p1
+                          wipefs -a -f ${RAID0_DEVICE_PATH}p1
+                      fi
+                      sgdisk -o $RAID0_DEVICE_PATH &> /dev/null
+                      mdadm --stop $RAID0_DEVICE_PATH
+                  fi
+           
+                  # Remove any mdadm metadata from all NVMe Direct Disks
+                  for device in "${nvme_direct_disks[@]}"
+                  do
+                      printf "Clearing mdadm superblock from $device\n"
+                      mdadm --zero-superblock $device &> /dev/null
+                  done
+           
+                  # Remove any associated entries in fstab and mdadm.conf
+                  sed -i.bak "/$RAID0_FILESYSTEM_LABEL/d" /etc/fstab
+                  sed -i.bak "/$RAID0_FILESYSTEM_LABEL/d" $mdadm_conf_path
+              else
+                  printf "Valid NVMe RAID 0 array present and no additional Direct Disks found. Skipping\n"
+                  exit 0
+              fi
+          fi
+           
+          if [ "$nvme_direct_disk_count" -eq 0 ]; then
+              printf "No NVMe Direct Disks found\n"
+              exit 1
+          elif [ "$nvme_direct_disk_count" -eq 1 ]; then
+              additional_mdadm_params="--force"
+          fi
+           
+          # Initialize enumerated disks as RAID 0
+          printf "Creating RAID 0 array from:\n"
+          printf "${nvme_direct_disks[*]}\n\n"
+          if ! mdadm --create $RAID0_DEVICE_PATH --verbose $additional_mdadm_params --name=$RAID0_FILESYSTEM_LABEL --level=0 --raid-devices=$nvme_direct_disk_count ${nvme_direct_disks[*]}; then
+              printf "Failed to create RAID 0 array\n"
+              exit 1
+          fi
+           
+          # Create GPT and partition entry
+          readonly GPT_PARTITION_TYPE_GUID="0FC63DAF-8483-4772-8E79-3D69D8477DE4"
+          printf "\nCreating GPT on $RAID0_DEVICE_PATH..\n"
+          sgdisk -o $RAID0_DEVICE_PATH &> /dev/null
+          if ! sgdisk --new 1::0 --typecode 1:$GPT_PARTITION_TYPE_GUID $RAID0_DEVICE_PATH  &> /dev/null; then
+              printf "Failed to create partition on $RAID0_DEVICE_PATH\n"
+              exit 1
+          fi
+           
+          # Format the partition
+          partition_path="${RAID0_DEVICE_PATH}p1"
+          printf "\nCreating $filesystem filesystem..\n"
+          if ! mkfs.$filesystem -q -L $RAID0_FILESYSTEM_LABEL $partition_path; then
+              printf "Failed to create $filesystem filesystem\n"
+              exit 1
+          fi
+          printf "The operation has completed successfully.\n"
+           
+          # Add the partition to /etc/fstab
+          echo "LABEL=$RAID0_FILESYSTEM_LABEL $mount_point $filesystem defaults,nofail 0 0" >> /etc/fstab
+           
+          # Add RAID 0 array to mdadm.conf
+          mdadm --detail --scan >> $mdadm_conf_path
+          update-initramfs -u
+           
+          # Mount the partition
+          printf "\nMounting filesystem to $mount_point..\n"
+          mkdir $mount_point &> /dev/null
+          if ! mount -a; then
+              printf "Failed to automount partition\n"
+              exit 1
+          fi
+          printf "The operation has completed successfully.\n"
+           
+          exit 0
+          ```
+      - question: |
+          How can I move the Windows pagefile from OS disk to a temp NVMe disk?
+        answer: |
+          You can either use the GUI or the following PowerShell instructions.
+          ### GUI
+          >[!TIP]
+          > Note: The following GUI example is meant for illustrative purposes. It's recommended that scripts be created to automate this workflow for production deployments.be created to automate this workflow for production deployments.
+          
+          1. Press the **Windows key + R** to open the Run dialog box. Type **sysdm.cpl** and press **Enter**.
+          
+          :::image type="content" source="./media/enable-nvme/nvme-temp-pagefile-1.png" alt-text="Screenshot of the Run dialog box opening sysdm.cpl.":::
+          
+          2. Click on the **Advanced** tab and then click on the **Settings** button under the **Performance** section.
+
+          :::image type="content" source="./media/enable-nvme/nvme-temp-pagefile-2.png" alt-text="Screenshot of the Performance Settings button highlighted on the Advanced tab of System Properties.":::
+
+          3. In the Performance Options window, click on the **Advanced** tab and then click on the **Change** button under the **Virtual memory** section.
+
+          :::image type="content" source="./media/enable-nvme/nvme-temp-pagefile-3.png" alt-text="Screenshot of the Advanced tab of the Performance Options.":::
+
+          4. Uncheck the option that says **Automatically manage paging file size for all drives**. If there’s a paging file set to your OS disk, select your OS disk and click on the **No paging file** radio button, and then click on the **Set** button. Select your local temp NVMe drive and click on the **System managed size** radio button, and then click on the **Set** button. Click on **OK** to close all windows.
+          
+          :::image type="content" source="./media/enable-nvme/nvme-temp-pagefile-4.png" alt-text="Screenshot of Virtual Memory dialog box.":::
+          
+          >[!TIP]
+          > You may need to restart your VM for these changes to take effect.
+          
+          ### PowerShell script
+
+          ```PowerShell
+          $OsDisk = "C:"
+          # This can vary, depends on which drive letter being assigned to the disk
+          $NVMeDisk = "E:"
+          
+          # Disable automatic pagefile management
+          $Computer = Get-WmiObject Win32_computersystem -EnableAllPrivileges
+          $Computer.AutomaticManagedPagefile = $false
+          $Computer.Put()
+          
+          # Delete the pagefile on the OS disk
+          $PageFile = Get-WmiObject -Query "select * from Win32_PageFileSetting where name='$OsDisk\\pagefile.sys'"
+          $PageFile.Delete()
+          
+          # Create a new pagefile on the NVMe drive with system-managed size
+          Set-WMIInstance -Class Win32_PageFileSetting -Arguments @{name="$NVMeDisk\\pagefile.sys"; InitialSize=0; MaximumSize=0} -EnableAllPrivileges
+          
+          >[!TIP]
+          > You may need to restart your VM for these changes to take effect.
+      - question: |
+          How can I move the Linux swap file from OS disk to a temp NVMe disk?
+        answer: |
+          1. Select NVMe disk used for swap space
+            ```
+            root@D2adsv6:/ # lsblk -p
+                NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+                /dev/nvme1n1      259:0    0   30G  0 disk
+                ├─/dev/nvme1n1p1  259:1    0 29.9G  0 part /
+                └─/dev/nvme1n1p15 259:3    0  106M  0 part /boot/efi
+                /dev/nvme0n1      259:4    0   75G  0 disk
+            ```
+          2. Create swap space on the disk
+            ```
+            root@D2adsv6:/ # mkswap /dev/nvme0n1
+            Setting up swapspace version 1, size = 75 GiB (80530632704 bytes)
+            no label, UUID=064bdcfb-86ae-49f3-bf9d-b956493e2a1d
+            ```
+          3. Enable the swap space
+            ```
+            root@D2adsv6:/ # swapon /dev/nvme0n1
+            ```
+          4. Check the swap space being set up properly
+            ```
+            root@D2adsv6:/ # swapon -s
+            Filename                                Type            Size    Used    Priority
+            /dev/nvme0n1                            partition       78643196        0       -2
+            ```
+          5. Append the swap space to /etc/fstab to make it persistent across reboots
+            ```
+            root@D2adsv6:/ # echo '/dev/nvme0n1 swap swap defaults 0 0' >> /etc/fstab 
+            ```
+      - question: |
+          What considerations do I need to be aware of for Maintenance Events, VM Redeploys, and VM Reboots?
+        answer: |
+          Temp NVMe disks attached to V6 VMs are ephemeral, similar to temp drives on other VM series. This means that you lose all data on the VM when you redeploy or during a maintenance event.
+          For more information on maintenance events and downtime, see [Understand VM reboots - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/understand-vm-reboots).
+          If the VM moved to new hardware, these drives unmount and new unmounted disks are presented to the operating system when it comes back up. If the VM didn't changed hardware, the temp NVME disks might still be present. In the scripts above for mounting the drives, it checks for unmounted drives before it tries to mount. 
+          It's best practice to run the mounting script automatically every time the VM boots and delay any other boot scripts that need the drives until after the mounting script is finished running.

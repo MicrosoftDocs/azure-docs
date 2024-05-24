@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/15/2024
+ms.date: 05/04/2024
 ---
 
 # Search over Azure Blob Storage content
@@ -78,7 +78,7 @@ The Azure blob indexer comes with configuration parameters and supports change t
 
 ### Supported access tiers
 
-Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
+Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, cold, and archive. Indexers can retrieve blobs on hot, cool, and cold access tiers. 
 
 ### Supported content types
 

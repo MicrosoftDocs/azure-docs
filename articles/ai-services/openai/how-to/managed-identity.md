@@ -29,7 +29,7 @@ In the following sections, you'll use the Azure CLI to sign in, and obtain a bea
 - Azure CLI - [Installation Guide](/cli/azure/install-azure-cli)
 - The following Python libraries: os, requests, json, openai, azure-identity
 
-## Assign yourself to the Cognitive Services User role
+## Assign role
 
 Assign yourself either the [Cognitive Services OpenAI User](role-based-access-control.md#cognitive-services-openai-user) or [Cognitive Services OpenAI Contributor](role-based-access-control.md#cognitive-services-openai-contributor) role to allow you to use your account to make Azure OpenAI inference API calls rather than having to use key-based auth. After you make this change it can take up to 5 minutes before the change takes effect.
 

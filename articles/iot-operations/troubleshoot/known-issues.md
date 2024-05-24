@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom:
   - ignite-2023
-ms.date: 12/06/2023
+ms.date: 05/03/2024
 ---
 
 # Known issues: Azure IoT Operations Preview
@@ -99,9 +99,86 @@ If the OPC PLC simulator isn't sending data to the IoT MQ broker after you creat
 kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 ```
 
-## Azure IoT Operations (preview) portal
+## Azure IoT Akri Preview
 
-To sign in to the Azure IoT Operations (preview) portal, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create an account in your Azure tenant:
+A sporadic issue might cause the handler to restart with the following error in the logs: `opcua@311 exception="System.IO.IOException: Failed to bind to address http://unix:/var/lib/akri/opcua-asset.sock: address already in use.`.
+
+To work around this issue, use the following steps to update the **DaemonSet** specification:
+
+1. Locate the **Target** custom resource provided by **orchestration.iotoperations.azure.com** that contains the deployment specifications for **aio-opc-asset-discovery**.
+1. In the **aio-opc-asset-discovery** component of the target file, find the `spect.components.aio-opc-asset-discovery.properties.resource.spec.template.spec.containers.env` parameter.
+1. Add the following environment variables:
+
+```yml
+- name: ASPNETCORE_URLS 
+  value: http://+8443 
+- name: POD_IP 
+  valueFrom: 
+    fieldRef: 
+      fieldPath: "status.podIP" 
+```
+
+The final specification should look like the following example:
+
+```yml
+apiVersion: orchestrator.iotoperations.azure.com/v1 
+kind: Target 
+metadata: 
+  name: <cluster-name>-target 
+  namespace: azure-iot-operations 
+spec: 
+  displayName: <cluster-name>-target 
+  scope: azure-iot-operations 
+  topologies: 
+  ...
+  version: 1.0.0.0 
+  components: 
+    ... 
+    - name: aio-opc-asset-discovery 
+      type: yaml.k8s 
+      properties: 
+        resource: 
+          apiVersion: apps/v1 
+          kind: DaemonSet 
+          metadata: 
+            labels: 
+              app.kubernetes.io/part-of: aio 
+            name: aio-opc-asset-discovery 
+          spec: 
+            selector: 
+              matchLabels: 
+                name: aio-opc-asset-discovery 
+            template: 
+              metadata: 
+                labels: 
+                  app.kubernetes.io/part-of: aio 
+                  name: aio-opc-asset-discovery 
+              spec: 
+                containers: 
+                  - env: 
+                      - name: ASPNETCORE_URLS 
+                        value: http://+8443 
+                      - name: POD_IP 
+                        valueFrom: 
+                          fieldRef: 
+                            fieldPath: status.podIP 
+                      - name: DISCOVERY_HANDLERS_DIRECTORY 
+                        value: /var/lib/akri 
+                      - name: AKRI_AGENT_REGISTRATION 
+                        value: 'true' 
+                    image: >- 
+                      edgeappmodel.azurecr.io/opcuabroker/discovery-handler:0.4.0-preview.3 
+                    imagePullPolicy: Always 
+                    name: aio-opc-asset-discovery 
+                    ports: ... 
+                    resources: ...
+                    volumeMounts: ...
+                volumes: ...
+```
+
+## Azure IoT Operations Preview portal
+
+To sign in to the Azure IoT Operations portal, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create an account in your Azure tenant:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
 1. In the Azure portal, navigate to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.
@@ -110,4 +187,4 @@ To sign in to the Azure IoT Operations (preview) portal, you need a Microsoft En
 1. On the **Members** page, add your new user to the role.
 1. Select **Review and assign** to complete setting up the new user.
 
-You can now use the new user account to sign in to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal.
+You can now use the new user account to sign in to the [Azure IoT Operations](https://iotoperations.azure.com) portal.

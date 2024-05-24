@@ -4,8 +4,9 @@ ms.author: jenhayes
 ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: include
-ms.date: 11/15/2023
+ms.date: 05/21/2024
 ---
 
 > [!NOTE]

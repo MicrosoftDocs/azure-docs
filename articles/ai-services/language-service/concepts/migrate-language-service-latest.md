@@ -138,4 +138,3 @@ The key phrase extraction feature functionality currently has not changed outsid
     * [Personally Identifying Information (PII) detection](../personally-identifiable-information/quickstart.md)
     * [Sentiment analysis and opinion mining](../sentiment-opinion-mining/quickstart.md)
     * [Text analytics for health](../text-analytics-for-health/quickstart.md)
-    

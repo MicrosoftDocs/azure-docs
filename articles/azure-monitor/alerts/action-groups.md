@@ -9,7 +9,7 @@ ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref, azu
 ---
 # Action groups
 
-When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
+When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences and actions which are performed when alert is triggered. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
 This article shows you how to create and manage action groups. 
 
 Each action is made up of:
@@ -23,6 +23,7 @@ Global requests from clients can be processed by action group services in any re
 - You can add up to five action groups to an alert rule.
 - Action groups are executed concurrently, in no specific order.
 - Multiple alert rules can use the same action group.
+- Action Groups are defined by the unique set of actions and the users to be notified. For example, if you want to notify User1, User2 and User3 by email for two different alert rules, you only need to create one action group which you can apply to both alert rules.
 
 ## Create an action group in the Azure portal
 1. Go to the [Azure portal](https://portal.azure.com/).
@@ -109,7 +110,7 @@ When you create or update an action group in the Azure portal, you can test the 
 1. [Create an action group in the Azure portal](#create-an-action-group-in-the-azure-portal). 
 
    > [!NOTE]
-   > If you're editing an existing action group, save the changes to the action group before testing.
+   > The action group must be created and saved before testing. If you're editing an existing action group, save the changes to the action group before testing.
 
 1. On the action group page, select **Test action group**.
 
@@ -371,7 +372,7 @@ You may have a limited number of email actions per action group. To check which 
 
 When you set up the Resource Manager role:
 
-1. Assign an entity of type **User** to the role.
+1. Assign an entity of type **User** or **Group** to the role.
 1. Make the assignment at the **subscription** level.
 1. Make sure an email address is configured for the user in their **Microsoft Entra profile**.
 > - If a user is not a member of the above Role Memberships with the correct permissions to generate this notification, the minimum permission required to test an action group is "**Microsoft.Insights/createNotifications/***"
