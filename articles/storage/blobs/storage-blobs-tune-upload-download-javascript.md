@@ -28,50 +28,34 @@ You can configure properties in [BlockBlobParallelUploadOptions](/javascript/api
 
 | Property | Description |
 | --- | --- |
-| [`blockSize`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-blocksize) | The maximum block size to transfer for each request as part of an upload operation. |
-| [`concurrency`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-concurrency) | The maximum number of parallel requests that are issued at any given time as a part of a single parallel transfer.
-| [`maxSingleShotSize`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-maxsingleshotsize) | If the size of the data is less than or equal to this value, it's uploaded in a single put rather than broken up into chunks. If the data is uploaded in a single shot, the block size is ignored. Default value is 256 MiB. |
+| [`blockSize`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-blocksize) | The maximum block size to transfer for each request as part of an upload operation. To learn more, see [blockSize](#blocksize). |
+| [`maxSingleShotSize`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-maxsingleshotsize) | If the size of the data is less than or equal to this value, it's uploaded in a single put rather than broken up into chunks. If the data is uploaded in a single shot, the block size is ignored. Default value is 256 MiB. To learn more, see [maxSingleShotSize](#maxsingleshotsize). |
+| [`concurrency`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-concurrency) | The maximum number of parallel requests that are issued at any given time as a part of a single parallel transfer. |
 
 > [!NOTE]
 > The client libraries will use defaults for each data transfer option, if not provided. These defaults are typically performant in a data center environment, but not likely to be suitable for home consumer environments. Poorly tuned data transfer options can result in excessively long operations and even request timeouts. It's best to be proactive in testing these values, and tuning them based on the needs of your application and environment.
 
-#### maxSingleUploadSize
+#### maxSingleShotSize
 
-The `maxSingleUploadSize` value is the maximum blob size in bytes for a single request upload. This value can be set using the following method:
+The `maxSingleShotSize` value is the maximum blob size in bytes for a single request upload.
 
-- [`setMaxSingleUploadSizeLong(Long maxSingleUploadSize)`](/java/api/com.azure.storage.blob.models.paralleltransferoptions#com-azure-storage-blob-models-paralleltransferoptions-setmaxsingleuploadsizelong(java-lang-long))
+If the size of the data is less than or equal to `maxSingleShotSize`, the blob is uploaded with a single [Put Blob](/rest/api/storageservices/put-blob) request. If the blob size is greater than `maxSingleShotSize`, or if the blob size is unknown, the blob is uploaded in chunks using a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list).
 
-If the size of the data is less than or equal to `maxSingleUploadSize`, the blob is uploaded with a single [Put Blob](/rest/api/storageservices/put-blob) request. If the blob size is greater than `maxSingleUploadSize`, or if the blob size is unknown, the blob is uploaded in chunks using a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list).
+It's important to note that the value you specify for `blockSize` *does not* limit the value that you define for `maxSingleShotSize`. The `maxSingleShotSize` argument defines a separate size limitation for a request to perform the entire operation at once, with no subtransfers. It's often the case that you want `maxSingleShotSize` to be *at least* as large as the value you define for `blockSize`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
 
-It's important to note that the value you specify for `blockSize` *does not* limit the value that you define for `maxSingleUploadSize`. The `maxSingleUploadSize` argument defines a separate size limitation for a request to perform the entire operation at once, with no subtransfers. It's often the case that you want `maxSingleUploadSize` to be *at least* as large as the value you define for `blockSize`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
-
-If you're unsure of what value is best for your situation, a safe option is to set `maxSingleUploadSize` to the same value used for `blockSize`.
+If you're unsure of what value is best for your situation, a safe option is to set `maxSingleShotSize` to the same value used for `blockSize`.
 
 #### blockSize
 
-The `blockSize` value is the maximum length of a transfer in bytes when uploading a block blob in chunks. This value can be set using the following method:
+The `blockSize` value is the maximum length of a transfer in bytes when uploading a block blob in chunks. 
 
-- [`setBlockSizeLong(Long blockSize)`](/java/api/com.azure.storage.blob.models.paralleltransferoptions#com-azure-storage-blob-models-paralleltransferoptions-setblocksizelong(java-lang-long))
-
-The `blockSize` value is the maximum length of a transfer in bytes when uploading a block blob in chunks. As mentioned earlier, this value *does not* limit `maxSingleUploadSize`, which can be larger than `blockSize`. 
+As mentioned earlier, this value *does not* limit `maxSingleShotSize`, which can be larger than `blockSize`. 
 
 To keep data moving efficiently, the client libraries may not always reach the `blockSize` value for every transfer. Depending on the operation, the maximum supported value for transfer size can vary. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
-#### maxConcurrency
-
-The `maxConcurrency` value is the maximum number of parallel requests issued at any given time as a part of a single parallel transfer. This value can be set using the following method:
-
-- [`setMaxConcurrency(Integer maxConcurrency)`](/java/api/com.azure.storage.blob.models.paralleltransferoptions#com-azure-storage-blob-models-paralleltransferoptions-setmaxconcurrency(java-lang-integer))
-
 #### Code example
 
-Make sure you have the following `import` directive to use `ParallelTransferOptions` for an upload:
-
-```java
-import com.azure.storage.blob.models.*;
-```
-
-The following code example shows how to set values for [ParallelTransferOptions](/java/api/com.azure.storage.blob.models.paralleltransferoptions) and include the options as part of a [BlobUploadFromFileOptions](/java/api/com.azure.storage.blob.options.blobuploadfromfileoptions) instance. If you're not uploading from a file, you can set similar options using [BlobParallelUploadOptions](/java/api/com.azure.storage.blob.options.blobparalleluploadoptions). The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
+The following code example shows how to set values for [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) and include the options as part of an upload method call. The values provided in the samples aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
 ```javascript
 // Specify data transfer options
@@ -84,7 +68,7 @@ const uploadOptions = {
 // Create blob client from container client
 const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
-// Upload blob with index tags
+// Upload blob with transfer options
 await blockBlobClient.uploadFile(localFilePath, uploadOptions);
 ```
 
@@ -92,7 +76,7 @@ In this example, we set the maximum number of parallel transfer workers to 2 usi
 
 ### Performance considerations for uploads
 
-During an upload, the Storage client libraries split a given upload stream into multiple subuploads based on the configuration options defined by `ParallelTransferOptions`. Each subupload has its own dedicated call to the REST operation. For a `BlobClient` object, this operation is [Put Block](/rest/api/storageservices/put-block). The Storage client library manages these REST operations in parallel (depending on transfer options) to complete the full upload.
+During an upload, the Storage client libraries split a given upload stream into multiple subuploads based on the configuration options defined by `BlockBlobParallelUploadOptions`. Each subupload has its own dedicated call to the REST operation. In this example, the operation is [Put Block](/rest/api/storageservices/put-block). The Storage client library manages these REST operations in parallel (depending on transfer options) to complete the full upload.
 
 > [!NOTE]
 > Block blobs have a maximum block count of 50,000 blocks. The maximum size of your block blob, then, is 50,000 times `block_size`.
@@ -103,35 +87,14 @@ The Storage REST layer doesn’t support picking up a REST upload operation wher
 
 ## Performance tuning for downloads
 
-Properly tuning data transfer options is key to reliable performance for downloads. Storage transfers are partitioned into several subtransfers based on the values defined in `ParallelTransferOptions`.
+Properly tuning data transfer options is key to reliable performance for downloads. Storage transfers are partitioned into several subtransfers based on the values defined in [BlobDownloadToBufferOptions](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions).
 
 ### Set transfer options for downloads
 
 The following values can be tuned for downloads based on the needs of your app:
 
-- `blockSize`: The maximum block size to transfer for each request. You can set this value by using the [setBlockSizeLong](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setblocksizelong(java-lang-long)) method.
-- `maxConcurrency`: The maximum number of parallel requests issued at any given time as a part of a single parallel transfer. You can set this value by using the [setMaxConcurrency](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setmaxconcurrency(java-lang-integer)) method.
-
-#### Code example
-
-Make sure you have the following `import` directive to use `ParallelTransferOptions` for a download:
-
-```java
-import com.azure.storage.common.*;
-```
-
-The following code example shows how to set values for [ParallelTransferOptions](/java/api/com.azure.storage.common.paralleltransferoptions) and include the options as part of a [BlobDownloadToFileOptions](/java/api/com.azure.storage.blob.options.blobdownloadtofileoptions) instance.
-
-```java
-ParallelTransferOptions parallelTransferOptions = new ParallelTransferOptions()
-        .setBlockSizeLong((long) (4 * 1024 * 1024)) // 4 MiB block size
-        .setMaxConcurrency(2);
-
-BlobDownloadToFileOptions options = new BlobDownloadToFileOptions("<localFilePath>");
-options.setParallelTransferOptions(parallelTransferOptions);
-
-blobClient.downloadToFileWithResponse(options, null, null);
-```
+- [blockSize](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions#@azure-storage-blob-blobdownloadtobufferoptions-blocksize): The maximum block size to transfer for each request.
+- [concurrency](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions#@azure-storage-blob-blobdownloadtobufferoptions-concurrency): The maximum number of parallel requests issued at any given time as a part of a single parallel transfer. You can set this value by using the [setMaxConcurrency](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setmaxconcurrency(java-lang-integer)) method.
 
 ### Performance considerations for downloads
 
