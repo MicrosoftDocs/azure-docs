@@ -24,13 +24,21 @@ This article assumes you have a basic understanding of Kubernetes concepts. For 
 
 ## Prerequisites
 
-* [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * This article requires version 2.47.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 * Make sure that the identity that you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 * If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set][az-account-set] command.
 
 > [!NOTE]
 > You can use _Service Connector_ to help you configure some steps automatically. See also: [Tutorial: Connect to Azure storage account in Azure Kubernetes Service (AKS) with Service Connector using workload identity][tutorial-python-aks-storage-workload-identity].
+
+## Set the active subscription
+
+First, set your subscription as the current active subscription by calling the [az account set][az-account-set] command and passing in your subscription ID.
+
+```azurecli-interactive
+az account set --subscription <subscription-id>
+```
 
 ## Export environment variables
 
@@ -47,7 +55,7 @@ To help simplify steps to configure the identities required, the steps below def
     export SUBSCRIPTION="$(az account show --query id --output tsv)"
     export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
     export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity"
-    # Include these variables if you want to access key vault secrets from a pod.
+    # Include these variables to access key vault secrets from a pod.
     export KEYVAULT_NAME="keyvault-workload-id"
     export KEYVAULT_SECRET_NAME="my-secret"
     ```
@@ -56,13 +64,7 @@ To help simplify steps to configure the identities required, the steps below def
 
 An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation.
 
-First, set a specific subscription as the current active subscription using the [az account set][az-account-set] command.
-
-```azurecli-interactive
-az account set --subscription "${SUBSCRIPTION}"
-```
-
-Next, create a resource group by calling the [az group create][az-group-create] command.
+Create a resource group by calling the [az group create][az-group-create] command:
 
 ```azurecli-interactive
 az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}"
@@ -328,7 +330,7 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 <!-- INTERNAL LINKS -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [workload-identity-overview]: workload-identity-overview.md
-[azure-resource-group]: ../../azure-resource-manager/management/overview.md
+[azure-resource-group]: ../azure-resource-manager/management/overview.md
 [az-group-create]: /cli/azure/group#az-group-create
 [create-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
 [az-keyvault-list]: /cli/azure/keyvault#az-keyvault-list
