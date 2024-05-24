@@ -38,11 +38,19 @@ The articles in the [Next steps](#next-steps) section help you:
 
 ## Prerequisites
 
-**Point-to-site VPN gateway:** If you already have an existing P2S gateway, the steps in this article help you configure the gateway for Microsoft Entra ID authentication. If you don't already have a functioning P2S gateway environment, see [Create and manage a VPN gateway - Azure portal](tutorial-create-gateway-portal.md). Certain gateway options are incompatible with P2S VPN gateways (the Basic SKU and policy-based VPN type). For more information about settings values, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
+This article assumes the following prerequisites:
 
-**Microsoft Entra tenant:** The steps in this article require a Microsoft Entra tenant. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
+* **A VPN gateway**
 
-## <a name="addresspool"></a>Add the address pool to your gateway
+  * Certain gateway options are incompatible with P2S VPN gateways that use Microsoft Entra ID authentication. The VPN gateway can't use the Basic SKU  or a policy-based VPN type. For more information about gateway SKUs, see [About gateway SKUs](about-gateway-skus.md). For more information about VPN types, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
+
+  * If you don't already have a functioning VPN gateway that's compatible with Microsoft Entra ID authentication, see [Create and manage a VPN gateway - Azure portal](tutorial-create-gateway-portal.md). Create a compatible VPN gateway, then return to this article to configure P2S settings.
+
+* **A Microsoft Entra tenant**
+
+  * The steps in this article require a Microsoft Entra tenant. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
+
+## <a name="addresspool"></a>Add the VPN client address pool
 
 The client address pool is a range of private IP addresses that you specify. The clients that connect over a point-to-site VPN dynamically receive an IP address from this range. Use a private IP address range that doesn't overlap with the on-premises location that you connect from, or the VNet that you want to connect to. If you configure multiple protocols and SSTP is one of the protocols, then the configured address pool is split between the configured protocols equally.
 
@@ -53,6 +61,7 @@ The client address pool is a range of private IP addresses that you specify. The
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png" alt-text="Screenshot of Point-to-site configuration page - address pool." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png":::
 
 1. On the **Point-to-site configuration** page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
+1. Continue to the next section to configure more settings.
 
 ## <a name="configure-vpn"></a>Configure tunnel type and authentication
 
