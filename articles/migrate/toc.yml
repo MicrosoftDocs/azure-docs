@@ -230,8 +230,8 @@ items:
         href: tutorial-discover-sap-systems.md
       - name: Assess SAP systems for migration (preview)
         href: tutorial-assess-sap-systems.md
-   - name: Use Azure Migrate with private endpoints 
-    items:
+    - name: Use Azure Migrate with private endpoints 
+      items:
       - name: Support requirements and considerations
         href: how-to-use-azure-migrate-with-private-endpoints.md
       - name: Discover and assess using Azure Private Link
