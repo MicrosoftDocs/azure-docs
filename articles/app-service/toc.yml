@@ -55,7 +55,15 @@
         - name: Configure Python
           href: configure-language-python.md
         - name: Configure Java SE, Tomcat, or JBoss
-          href: configure-language-java-1.md
+          items:
+            - name: Deployment and runtime
+              href: configure-language-java-deployment-runtime.md
+            - name: Data sources
+              href: configure-language-java-data-sources.md
+            - name: APM integration
+              href: configure-language-java-apm.md
+            - name: Security
+              href: configure-language-java-security.md
     - name: Deployment methods
       items:
         - name: Use ZIP or WAR
