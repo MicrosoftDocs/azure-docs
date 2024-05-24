@@ -3,9 +3,8 @@ title: Configure managed identities with Azure App Configuration
 description: Learn how managed identities work in Azure App Configuration and how to configure a managed identity
 author: maud-lv
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 05/24/2024
 ms.author: malev
-ms.reviewer: lcozzens
 ms.service: azure-app-configuration
 ms.custom: devx-track-azurecli
 ---
@@ -104,6 +103,3 @@ A system-assigned identity can be removed by disabling the feature by using the 
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
-
-[az appconfig identity assign]: /cli/azure/appconfig/identity#az_appconfig_identity_assign
-[az login]: /cli/azure/reference-index#az_login
