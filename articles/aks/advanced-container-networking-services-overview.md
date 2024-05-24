@@ -6,7 +6,7 @@ ms.author: kparekh
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: overview
-ms.date: 05/10/2024
+ms.date: 05/24/2024
 ---
 
 # What is Advanced Container Networking Services?
@@ -19,11 +19,11 @@ With Advanced Container Networking Services, the focus is on delivering a seamle
 
 Advanced Network Observability is the inaugural feature of the Advanced Container Networking Services suite bringing the power of Hubble’s control plane to both Cilium and Non-Cilium Linux data planes. While Advanced Network Observability is the foundation of the Advanced Container Networking Services suite, the feature set will evolve over time offering even more insights and providing yet more new & powerful ways to manage your AKS networks.
 
-## What is Advanced Network Observability?
+## Advanced Network Observability
 
-Advanced Network Observability unlocks Hubble metrics, Hubble’s command line interface (CLI) and the Hubble user interface (UI) on your AKS clusters providing deep, actionable insights into your containerized workloads. It allows you to precisely detect and root-cause network related issues in AKS through its next-level monitoring and diagnostics tools that provide unparalleled visibility. This ensures that your containerized applications are not only secure and compliant but also meet or exceed your performance and reliability goals, allowing you to confidently manage and scale your infrastructure.
+Advanced Network Observability equips you with next-level monitoring and diagnostics tools, providing unparalleled visibility into your containerized workloads. It unlocks Hubble metrics, Hubble’s command line interface (CLI) and the Hubble user interface (UI) on your AKS clusters providing deep, actionable insights into your containerized workloads. It allows you to precisely detect and root-cause network related issues in AKS through its next-level monitoring and diagnostics tools that provide unparalleled visibility. This ensures that your containerized applications are not only secure and compliant but also meet or exceed your performance and reliability goals, allowing you to confidently manage and scale your infrastructure.
 
-For more information about Advanced Network Observability, see [What is Advanced Network Observability?](/azure/aks/intro-kubernetes).
+For more information about Advanced Network Observability, see [What is Advanced Network Observability?](advanced-network-observability-concepts.md).
 
 ## Pricing
 > [!IMPORTANT]
@@ -34,5 +34,3 @@ For more information about Advanced Network Observability, see [What is Advanced
 * For more information about Azure Kubernetes Service (AKS), see [What is Azure Kubernetes Service (AKS)?](/azure/aks/intro-kubernetes).
 
 * For more information about Advanced Network Observability, see [What is Advanced Network Observability?](advanced-network-observability-concepts.md).
-
-
