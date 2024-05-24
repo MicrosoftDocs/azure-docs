@@ -42,7 +42,7 @@ In this section, you create a virtual network in the Azure Extended Zone that yo
     | Resource Group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
     | **Instance details** |  |
     | Virtual network name | Enter *myVNet*. |
-    | Region | Select **Deploy to an Azure Extended Zone**. </br> In  **Azure Extended Zones**, select the Azure extended zone that you want to create your virtual machine in. </br> Select **Select**. |
+    | Region | Select **Deploy to an Azure Extended Zone**. </br> In  **Azure Extended Zones**, select the Azure extended zone that you want to create your virtual machine in. </br> Select the **Select** button. |
 
     :::image type="content" source="./media/deploy-vm-portal/create-vnet-basics.png" alt-text="Screenshot that shows the Basics tab of creating a virtual network in the Azure portal." lightbox="./media/deploy-vm-portal/create-vnet-basics.png":::
 
