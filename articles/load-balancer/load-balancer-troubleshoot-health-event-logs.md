@@ -61,7 +61,7 @@ Critical - NoHealthyBackends: the frontend IP {FrontendIPAddress} is completely 
 ```
 
 ### Troubleshooting steps
-1. Refer to [Troubleshoot Azure Load Balancer health probe status](load-balancer-troubleshoot-health-probe-status.md) | for common reasons why your backend instances aren't responding to the configured health probes.
+Refer to [Troubleshoot Azure Load Balancer health probe status](load-balancer-troubleshoot-health-probe-status.md) | for common reasons why your backend instances aren't responding to the configured health probes.
 
 ## HighSnatPortUsage event
 This event indicates you're approaching SNAT port exhaustion on specific backend instances. You want to review your outbound connectivity architecture.
@@ -72,8 +72,8 @@ This event indicates you're approaching SNAT port exhaustion on specific backend
 Warning - High SNAT Port Usage: Backend IP {BackendIPAddress} is utilizing more than 75% of SNAT ports allocated from frontend IP {FrontendIPAddress} and is at-risk for SNAT port exhaustion. To reduce the risk of SNAT exhaustion, please refer to aka.ms/lbhealth for more detailed event definitions and troubleshooting guidance.
 ```
 ### Troubleshooting steps
-1. For more information about Azure’s common outbound connectivity options, see [Source Network Address Translation (SNAT) for outbound connections - Azure Load Balancer](./load-balancer-outbound-connections.md).
-2. For production scenarios, we recommend using NAT Gateway for your outbound connectivity needs. NAT Gateway provides dynamic SNAT allocation, therefore reducing the risk of failed connections due to SNAT port exhaustion. For detailed steps on improving your outbound connectivity architecture, refer to the Troubleshooting steps section under the SnatPortExhaustion event section in this article.
+- For more information about Azure’s common outbound connectivity options, see [Source Network Address Translation (SNAT) for outbound connections - Azure Load Balancer](./load-balancer-outbound-connections.md).
+- For production scenarios, we recommend using NAT Gateway for your outbound connectivity needs. NAT Gateway provides dynamic SNAT allocation, therefore reducing the risk of failed connections due to SNAT port exhaustion. For detailed steps on improving your outbound connectivity architecture, refer to the Troubleshooting steps section under the SnatPortExhaustion event section in this article.
 
 ## SnatPortExhaustion event
 This event indicates that all allocated SNAT ports are exhausted for one or more backend instances have exhausted. 
