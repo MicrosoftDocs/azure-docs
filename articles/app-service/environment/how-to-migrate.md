@@ -1,6 +1,6 @@
 ---
 title: Use the in-place migration feature to migrate your App Service Environment to App Service Environment v3
-description: Learn how to migrate your App Service Environment to App Service Environment v3 by using the in-place migration feature.
+description: Deprecated - Learn how to migrate your App Service Environment to App Service Environment v3 by using the in-place migration feature.
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
