@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 05/22/2024
 ms.author: anfdocs
 ---
 # Use availability zones zonal placement for application high availability with Azure NetApp Files
@@ -21,7 +21,6 @@ The use of high availability (HA) architectures with availability zones are now 
 
 Many applications are built for HA across multiple availability zones using application-based replication and failover technologies, like [SQL Server Always-On Availability Groups (AOAG)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server), [SAP HANA with HANA System Replication (HSR)](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md), and [Oracle with Data Guard](../virtual-machines/workloads/oracle/oracle-reference-architecture.md#high-availability-for-oracle-databases). 
 
-
 Before using an availability zone, understand the following concepts:
 
 - **Zonal placement**: Resources are pinned to a specific availability zone. You can combine multiple zonal deployments across different zones to meet high reliability requirements. You're responsible for managing data replication and distributing requests across zones. If an outage occurs in a single availability zone, you're responsible for failover to another availability zone.
@@ -30,8 +29,6 @@ Before using an availability zone, understand the following concepts:
 
 >[!IMPORTANT]
 >Although the use of zonal placement with Azure NetApp Files combined with application-based replication and failover technologies can be used to create a highly-available architecture, using Azure NetApp Files zonal placement alone does not provide zonal redundancy. If your workload does not support application-based replication and failover, consider using Azure NetApp Files [cross-zone replication](cross-zone-replication-introduction.md) for additional redundancy.
-
-[!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
 
 Azure NetApp Files' [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy each volume in the specific availability zone of your choice, in alignment with Azure compute and other services in the same zone. 
 
