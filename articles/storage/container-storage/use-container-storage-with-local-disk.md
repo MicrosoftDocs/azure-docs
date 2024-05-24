@@ -14,7 +14,7 @@ ms.custom: references_regions
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using either local NVMe or temp SSD as its storage.
 
 > [!IMPORTANT]
-> Local disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. You can only create [Kubernetes generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes) from an Ephemeral Disk storage pool. If you want to create a persistent volume, you have to enable [replication for your storage pool](#optional-create-storage-pool-with-volume-replication-nvme-only).
+> Local disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. You can only create [Kubernetes generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes) from an Ephemeral Disk storage pool. If you want to create a persistent volume, you have to enable [replication for your storage pool](#create-storage-pool-with-volume-replication-nvme-only).
 
 ## Prerequisites
 
