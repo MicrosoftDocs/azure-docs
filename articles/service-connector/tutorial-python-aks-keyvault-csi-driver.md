@@ -20,6 +20,9 @@ Learn how to connect to Azure Key Vault using CSI driver in an Azure Kubernetes 
 > * Create a `SecretProviderClass` CRD and a `pod` consuming the CSI provider to test the connection.
 > * Clean up resources.
 
+> [!IMPORTANT]
+> Service Connect within AKS is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
@@ -73,7 +76,7 @@ Learn how to connect to Azure Key Vault using CSI driver in an Azure Kubernetes 
         --value MyAKSExampleSecret
     ```
 
-## Create a service connection with Service Connector
+## Create a service connection in AKS with Service Connector (preview)
 
 Create a service connection between an AKS cluster and an Azure Key Vault using the Azure portal or the Azure CLI.
 

@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: larryfr
-ms.date: 11/02/2023
+ms.date: 04/09/2024
 ms.topic: how-to
 ms.custom: devx-track-azurecli, build-2023
 ---

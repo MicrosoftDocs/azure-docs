@@ -8,8 +8,8 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
-ms.date: 08/01/2023
-ms.author: bemabonsu
+ms.date: 04/24/2024
+ms.author: lajanuar
 zone_pivot_groups: cloud-location
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -46,7 +46,7 @@ monikerRange: '<=doc-intel-4.0.0'
 
 :::moniker-end
 
-Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. A Logic App is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a Logic App:
+Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and your applications with your apps, data, services, and systems. A Logic App is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a Logic App:
 
 * Create business processes and workflows visually.
 * Integrate workflows with software as a service (SaaS) and enterprise applications.
@@ -74,7 +74,7 @@ Choose a workflow using a file from either your Microsoft OneDrive account or Mi
 
 ## Test the automation flow
 
-Let's quickly review what we've done before we test our flow:
+Let's quickly review what we completed before we test our flow:
 
 > [!div class="checklist"]
 >
@@ -82,7 +82,7 @@ Let's quickly review what we've done before we test our flow:
 > * We added a Document Intelligence action to our flow. In this scenario, we decided to use the invoice API to automatically analyze an invoice from the OneDrive folder.
 > * We added an Outlook.com action to our flow. We sent some of the analyzed invoice data to a pre-determined email address.
 
-Now that we've created the flow, the last thing to do is to test it and make sure that we're getting the expected behavior.
+Now that we created the flow, the last thing to do is to test it and make sure that we're getting the expected behavior.
 
 1. To test the Logic App, first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Add this file to the OneDrive folder [Sample invoice.](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
 
@@ -114,7 +114,7 @@ Now that we've created the flow, the last thing to do is to test it and make sur
 
    :::image type="content" source="media/logic-apps-tutorial/disable-delete.png" alt-text="Screenshot of disable and delete buttons.":::
 
-Congratulations! You've officially completed this tutorial.
+Congratulations! You completed this tutorial.
 
 ## Next steps
 

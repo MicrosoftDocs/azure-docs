@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 04/16/2023
 ms.author: lajanuar
 ---
 
@@ -53,10 +53,11 @@ Field confidence indicates an estimated probability between 0 and 1 that the pre
 ## Interpret accuracy and confidence scores for custom models
 
 When interpreting the confidence score from a custom model, you should consider all the confidence scores returned from the model. Let's start with a list of all the confidence scores.
-1. **Document type confidence score**: The document type confidence is an indicator of closely the analyzed document resembleds documents in the training dataset. When the document type confidence is low, this is indicative of template or structural variations in the analyzed document. To improve the document type confidence, label a document with that specific variation and add it to your training dataset. Once the model is re-trained, it should be better equipped to handl that class of variations.
-2. **Field level confidence**: Each labled field extracted has an associated confidence score. This score reflects the model's confidence on the position of the value extracted. While evaluating the confidence you should also look at the underlying extraction confidence to generate a comprehensive confidence for the extracted result. Evaluate the OCR results for text extraction or selection marks depending on the field type to generate a composite confidence score for the field.
-3. **Word confidence score** Each word extracted within the document has an associated confidence score. The score represents the confidence of the transcription. The pages array contains an array of words, each word has an associated span and confidence. Spans from the custom field extracted values will match the spans of the extracted words.
-4. **Selection mark confidence score**: The pages array also contains an array of selection marks, each selection mark has a confidence score representing the confidence of the seletion mark and selection state detection. When a labeled field is a selection mark, the custom field selection confidence combined with the selection mark confidence is an accurate representation of the overall confidence that the field was extracted correctly.
+
+1. **Document type confidence score**: The document type confidence is an indicator of closely the analyzed document resembles documents in the training dataset. When the document type confidence is low, it's indicative of template or structural variations in the analyzed document. To improve the document type confidence, label a document with that specific variation and add it to your training dataset. Once the model is retrained, it should be better equipped to handle that class of variations.
+2. **Field level confidence**: Each labeled field extracted has an associated confidence score. This score reflects the model's confidence on the position of the value extracted. While evaluating confidence scores, you should also look at the underlying extraction confidence to generate a comprehensive confidence for the extracted result. Evaluate the `OCR` results for text extraction or selection marks depending on the field type to generate a composite confidence score for the field.
+3. **Word confidence score** Each word extracted within the document has an associated confidence score. The score represents the confidence of the transcription. The pages array contains an array of words and each word has an associated span and confidence score. Spans from the custom field extracted values match the spans of the extracted words.
+4. **Selection mark confidence score**: The pages array also contains an array of selection marks. Each selection mark has a confidence score representing the confidence of the selection mark and selection state detection. When a labeled field has a selection mark, the custom field selection combined with the selection mark confidence is an accurate representation of overall confidence accuracy.
 
 The following table demonstrates how to interpret both the accuracy and confidence scores to measure your custom model's performance.
 
@@ -69,7 +70,7 @@ The following table demonstrates how to interpret both the accuracy and confiden
 
 ## Table, row, and cell confidence
 
-With the addition of table, row and cell confidence with the ```2024-02-29-preview``` API, here are some common questions that should help with interpreting the table, row and cell scores:
+With the addition of table, row and cell confidence with the ```2024-02-29-preview``` API, here are some common questions that should help with interpreting the table, row, and cell scores:
 
 **Q:** Is it possible to see a high confidence score for cells, but a low confidence score for the row?<br>
 

@@ -41,8 +41,6 @@
       href: container-instances-multi-container-yaml.md
     - name: Deploy a container group - Resource Manager
       href: container-instances-multi-container-group.md
-    - name: Deploy a container group - Docker Compose
-      href: tutorial-docker-compose.md
   - name: Integrate with Azure services
     items:
     - name: Trigger with Azure Functions
@@ -105,8 +103,8 @@
       href: container-instances-encrypt-data.md
     - name: Deploy on dedicated hosts
       href: container-instances-dedicated-hosts.md
-    - name: Deploy in availability zones (preview)
-      href: availability-zones.md
+    - name: Availability zones and disaster recovery 
+      href: ../reliability/reliability-containers.md?toc=/azure/container-instances/toc.json
     - name: Configure DNS name reuse
       href: how-to-reuse-dns-names.md
     - name: Use Logic Apps connector

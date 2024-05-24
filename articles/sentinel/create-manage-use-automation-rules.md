@@ -92,6 +92,8 @@ Use the options in the **Conditions** area to define conditions for your automat
 
 - Rules you create for when an alert is created support only the **If Analytic rule name** property in your condition. Select whether you want the rule to be inclusive (*Contains*) or exclusive (*Does not contain*), and then select the analytic rule name from the drop-down list.
 
+    Analytic rule name values include only analytics rules, and don't include other types of rules, such as threat intelligence or anomaly rules.
+
 - Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the unified security operations platform:
 
     #### [Onboarded workspaces](#tab/onboarded)

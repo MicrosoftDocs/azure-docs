@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/12/2024
+ms.date: 04/22/2024
 ---
 
 # Synonyms in Azure AI Search
@@ -39,7 +39,7 @@ POST /synonymmaps?api-version=2023-11-01
 To create a synonym map, do so programmatically (the portal doesn't support synonym map definitions):
 
 + [Create Synonym Map (REST API)](/rest/api/searchservice/create-synonym-map). This reference is the most descriptive.
-+ [SynonymMap class (.NET)](/dotnet/api/azure.search.documents.indexes.models.synonymmap) and [Add Synonyms using C#](search-synonyms-tutorial-sdk.md)
++ [SynonymMap class (.NET)](/dotnet/api/azure.search.documents.indexes.models.synonymmap) and [Create a synonym map(Azure SDK sample)](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample02_Service.md#create-a-synonym-map)
 + [SynonymMap class (Python)](/python/api/azure-search-documents/azure.search.documents.indexes.models.synonymmap)
 + [SynonymMap interface (JavaScript)](/javascript/api/@azure/search-documents/synonymmap)
 + [SynonymMap class (Java)](/java/api/com.azure.search.documents.indexes.models.synonymmap)
@@ -125,7 +125,7 @@ Creating, updating, and deleting a synonym map is always a whole-document operat
 After uploading a synonym map, you can enable the synonyms on fields of the type `Edm.String` or `Collection(Edm.String)`, on fields having `"searchable":true`. As noted, a field definition can use only one synonym map.
 
 ```http
-POST /indexes?api-version=2020-06-30
+POST /indexes?api-version=2023-11-01
 {
     "name":"hotels-sample-index",
     "fields":[
