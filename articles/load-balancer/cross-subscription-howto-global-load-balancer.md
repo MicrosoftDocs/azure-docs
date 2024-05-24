@@ -5,72 +5,19 @@ description:
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: 
+ms.topic: how-to
 ms.date: 05/24/2024
 ms.author: mbender
 ms.custom: 
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a Tutorial - General article pattern. See the
-[instructions - Tutorial](../level4/article-tutorial.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-Tutorial is an article pattern that leads a user through a common scenario showing them how a product or service can address their needs.
-
-You only use tutorials to show the single best procedure for completing a top customer task.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "Tutorial: <verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the scenario the user will complete.
-
-For example: "Tutorial: Create a Node.js and Express app in Visual Studio".
-
-* Include only a single H1 in the article.
-* If the Tutorial is part of a numbered series, don't include the number in the H1.
-* Don't start with a gerund.
-* Don't add "Tutorial:" to the H1 of any article that's not a Tutorial.
-
--->
-
-# Tutorial: \<verb\> * \<noun\>
+# Create a cross-subscription global load balancer
 TODO: Add your heading
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
-
-Required: Lead with a light intro that describes, in customer-friendly language, what common scenario the 
-customer will accomplish in the Tutorial. Answer the fundamental “why would I want to do this?” question. Keep it short.
-
-Readers should have a clear idea of what they will do in this article after reading the introduction.
-
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Don’t link away from the article to other content.
-* Don't use a bulleted list of article H2 sections.
-
-Example: Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. Metric alert rules create an alert when a metric value from an Azure resource exceeds a threshold.
-
--->
 
 TODO: Add your introductory paragraph
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
 
--->
-
-<!-- 3. Outline
-------------------------------------------------------------------------------
-
-Required: Before your first H2, use the green checkmark format for the bullets that outline what you'll cover in the Tutorial.
-
--->
-
-TODO Add your outline
 
 In this tutorial, you learn how to:
 
@@ -88,35 +35,10 @@ Required, if a free trial account exists Because Tutorials are intended to help 
 If you don’t have a \<service\> subscription, create a free trial account...
 TODO: Add the free account information if it exists
 
-<!-- 5. Prerequisites --------------------------------------------------------------------
-
-Make Prerequisites the first H2 after the H1. 
-
-The prerequisites H2 is never numbered.
-
-Provide a bulleted list of items that the user needs to complete the scenario. Omit any preliminary text to the list.
-
-If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
-
-If the prerequisite is something to install, link to the applicable and specific installer or download.
-
-List each as an _item_, not instructions, to minimize the verbiage. For example, use "Python 3.6" instead of "Install Python 3.6". Include an action word only if necessary to make the meaning clear.
-
-If there are specific versions of software a user needs, call out those versions (for example: Visual Studio 2019 or later).
-
--->
 
 ## Prerequisites
 
-- (Include as needed) Accounts
-- (Include as needed) Completion of a previous Tutorial
-- (Include as needed) Language runtimes
-- (Include as needed) Packages
-- (Include as needed) Tools
-- (Include as needed) Sample code
-- (Include as needed) Specialized hardware
-- (Include as needed) Other preparatory work
-- (Include as needed) Service keys
+
 
 <!-- 6. Account sign in --------------------------------------------------------------------
 

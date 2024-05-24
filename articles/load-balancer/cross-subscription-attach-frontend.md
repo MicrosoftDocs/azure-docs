@@ -26,7 +26,7 @@ ms.custom:
   
 # [Azure CLI](#tab/azurecli/)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - Access to the Azure portal.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/)
