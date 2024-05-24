@@ -38,20 +38,41 @@ The articles in the [Next steps](#next-steps) section help you:
 
 ## Prerequisites
 
-**Point-to-site VPN gateway:** If you already have an existing P2S gateway, the steps in this article help you configure the gateway for Microsoft Entra ID authentication. If you don't already have a functioning P2S gateway environment, see [Create and manage a VPN gateway - Azure portal](tutorial-create-gateway-portal.md). Certain gateway options are incompatible with P2S VPN gateways (the Basic SKU and policy-based VPN type). For more information about settings values, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
+This article assumes the following prerequisites:
 
-**Microsoft Entra tenant:** The steps in this article require a Microsoft Entra tenant. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
+* **A VPN gateway**
 
-## <a name="configure-vpn"></a>Configure P2S VPN
+  * Certain gateway options are incompatible with P2S VPN gateways that use Microsoft Entra ID authentication. The VPN gateway can't use the Basic SKU  or a policy-based VPN type. For more information about gateway SKUs, see [About gateway SKUs](about-gateway-skus.md). For more information about VPN types, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
+
+  * If you don't already have a functioning VPN gateway that's compatible with Microsoft Entra ID authentication, see [Create and manage a VPN gateway - Azure portal](tutorial-create-gateway-portal.md). Create a compatible VPN gateway, then return to this article to configure P2S settings.
+
+* **A Microsoft Entra tenant**
+
+  * The steps in this article require a Microsoft Entra tenant. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
+
+## <a name="addresspool"></a>Add the VPN client address pool
+
+The client address pool is a range of private IP addresses that you specify. The clients that connect over a point-to-site VPN dynamically receive an IP address from this range. Use a private IP address range that doesn't overlap with the on-premises location that you connect from, or the VNet that you want to connect to. If you configure multiple protocols and SSTP is one of the protocols, then the configured address pool is split between the configured protocols equally.
+
+1. In the Azure portal, go to your VPN gateway.
+1. On the page for your gateway, in the left pane, select **Point-to-site configuration**.
+1. Click **Configure now** to open the configuration page.
+
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png" alt-text="Screenshot of Point-to-site configuration page - address pool." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png":::
+
+1. On the **Point-to-site configuration** page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
+1. Continue to the next section to configure more settings.
+
+## <a name="configure-vpn"></a>Configure tunnel type and authentication
 
 > [!IMPORTANT]
 > [!INCLUDE [Microsoft Entra ID note for portal pages](../../includes/vpn-gateway-entra-portal-note.md)]
 
 1. Locate the tenant ID of the directory that you want to use for authentication. For help with finding your tenant ID, see [How to find your Microsoft Entra tenant ID](/entra/fundamentals/how-to-find-tenant).
 
-1. Go to the virtual network gateway. In the left pane, click **Point-to-site configuration**, then **Configure now** to open the Point-to-site configuration page.
+1. Configure tunnel type and authentication values.
 
-   :::image type="content" source="./media/point-to-site-entra-gateway/configuration.png" alt-text="Screenshot showing settings for Tunnel type, Authentication type, and Microsoft Entra settings." lightbox="./media/point-to-site-entra-gateway/configuration.png":::
+   :::image type="content" source="./media/point-to-site-entra-gateway/values.png" alt-text="Screenshot showing settings for Tunnel type, Authentication type, and Microsoft Entra ID  settings." lightbox="./media/point-to-site-entra-gateway/values.png":::
 
    Configure the following values:
 
@@ -59,15 +80,11 @@ The articles in the [Next steps](#next-steps) section help you:
    * **Tunnel type:** OpenVPN (SSL)
    * **Authentication type**: Microsoft Entra ID
 
-   For **Microsoft Entra ID** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {MicrosoftEntra TenantID} with your tenant ID, taking care to remove **{}** from the examples when you replace this value.
+   For **Microsoft Entra ID** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {Microsoft ID Entra Tenant ID} with your tenant ID, taking care to remove **{}** from the examples when you replace this value.
 
-   > [!NOTE]
-   > Azure Government, Azure Germany, and Azure operated by China 21Vianet are not currently supported for the Microsoft-registered Azure VPN Client App ID.
-   >
-  
    * **Tenant:** TenantID for the Microsoft Entra ID tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL doesn't have a `\` (backslash) at the end. Forward slash is permissible.
 
-      * Azure Public: `https://login.microsoftonline.com/{MicrosoftEntra TenantID}`
+      * Azure Public: `https://login.microsoftonline.com/{Microsoft ID Entra Tenant ID}`
 
    * **Audience**: The corresponding value for the Microsoft-registered Azure VPN Client App ID. Custom audience is also supported for this field.
 
@@ -75,7 +92,7 @@ The articles in the [Next steps](#next-steps) section help you:
 
    * **Issuer**: URL of the Secure Token Service. Include a trailing slash at the end of the **Issuer** value. Otherwise, the connection might fail. Example:
 
-     * `https://sts.windows.net/{MicrosoftEntra TenantID}/`
+     * `https://sts.windows.net/{Microsoft ID Entra Tenant ID}/`
 
 1. You don't need to click **Grant administrator consent for Azure VPN client application**. This link is only for manually registered VPN clients that use the older Audience values. It opens a page in the Azure portal.
 1. Once you finish configuring settings, click **Save** at the top of the page.
