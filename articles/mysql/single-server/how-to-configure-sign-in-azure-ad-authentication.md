@@ -84,7 +84,7 @@ Invoke the Azure CLI tool to acquire an access token for the Microsoft Entra aut
 Example (for Public Cloud):
 
 ```azurecli-interactive
-az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+az account get-access-token --resource https://server-name.database.windows.net.database.windows.net
 ```
 The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using:
 
@@ -100,7 +100,7 @@ az account get-access-token --resource-type oss-rdbms
 Using PowerShell, you can use the following command to acquire access token:
 
 ```azurepowershell-interactive
-$accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net
+$accessToken = Get-AzAccessToken -ResourceUrl https://server-name.database.windows.net
 $accessToken.Token | out-file C:\temp\MySQLAccessToken.txt
 ```
 
