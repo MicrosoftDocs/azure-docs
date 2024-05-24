@@ -700,7 +700,7 @@
 	"articles/event-hubs/**/*": "Standard",
 	"articles/hdinsight/**/*": "Standard",
 	"articles/hdinsight-aks/**/*": "Standard",
-        "articles/iot-operations/**/*": "GitHub"	      
+        "articles/iot-operations/**/*": "GitHub",	      
 	"articles/messaging-services/**/*": "Standard",
         "articles/lab-services/**/*": "Standard",
         "articles/load-testing/**/*": "Standard",
@@ -708,7 +708,7 @@
 	"articles/service-bus-messaging/**/*": "Standard",
 	"articles/synapse-analytics/**/*": "Standard",
         "articles/virtual-machines/linux/classic/**/*": "None",
-        "articles/virtual-machines/windows/classic/**/*": "None",
+        "articles/virtual-machines/windows/classic/**/*": "None"
       },
       "feedback_help_link_url": {
         "articles/deployment-environments/**/*": "https://developercommunity.microsoft.com/deploymentenvironments",
