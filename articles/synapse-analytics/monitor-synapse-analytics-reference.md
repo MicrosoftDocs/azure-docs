@@ -22,6 +22,18 @@ The following table lists the metrics available for the Microsoft.Synapse/worksp
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Synapse/workspaces](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-synapse-workspaces-metrics-include.md)]
 
+### Azure Synapse Link metrics
+
+Azure Synapse Link emits the following metrics to Azure Monitor:
+
+| **Metric**  | **Aggregation types**  | **Description**  |
+|---------|---------|---------|
+| Link connection events | Sum | Number of Synapse Link connection events, including start, stop, and failure |
+| Link latency in seconds | Max, Min, Avg | Synapse Link data processing latency in seconds |
+| Link processed data volume (bytes) | Sum | Data volume in bytes processed by Synapse Link |
+| Link processed rows | Sum | Row counts processed by Synapse Link |
+| Link table events | Sum | Number of Synapse Link table events, including snapshot, removal, and failure |
+
 ### Supported metrics for Microsoft.Synapse/workspaces/bigDataPools
 The following table lists the metrics available for the Microsoft.Synapse/workspaces/bigDataPools resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
@@ -108,6 +120,8 @@ For more information on these logs, see the following information:
 - [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 - [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
+To view the list of DMVs that apply to Synapse SQL, see [System views supported in Synapse SQL](./sql/reference-tsql-system-views.md#dedicated-sql-pool-dynamic-management-views-dmvs).
+
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 ### Synapse Workspaces
@@ -137,6 +151,27 @@ Microsoft.Synapse/workspaces
 - [SynapseDXSucceededIngestion](/azure/azure-monitor/reference/tables/SynapseDXSucceededIngestion#columns)
 - [SynapseDXTableUsageStatistics](/azure/azure-monitor/reference/tables/SynapseDXTableUsageStatistics#columns)
 - [SynapseDXTableDetails](/azure/azure-monitor/reference/tables/SynapseDXTableDetails#columns)
+
+### Available Apache Spark configurations
+
+| Configuration name | Default value | Description |
+| ------------------ | ------------- | ----------- |
+| spark.synapse.logAnalytics.enabled | false | To enable the Log Analytics sink for the Spark applications, true. Otherwise, false. |
+| spark.synapse.logAnalytics.workspaceId | - | The destination Log Analytics workspace ID. |
+| spark.synapse.logAnalytics.secret | - | The destination Log Analytics workspace secret. |
+| spark.synapse.logAnalytics.keyVault.linkedServiceName   | - | The Key Vault linked service name for the Log Analytics workspace ID and key. |
+| spark.synapse.logAnalytics.keyVault.name | - | The Key Vault name for the Log Analytics ID and key. |
+| spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | The Key Vault secret name for the Log Analytics workspace ID. |
+| spark.synapse.logAnalytics.keyVault.key.secret | SparkLogAnalyticsSecret | The Key Vault secret name for the Log Analytics workspace |
+| spark.synapse.logAnalytics.uriSuffix | ods.opinsights.azure.com | The destination Log Analytics workspace [URI suffix](../azure-monitor/logs/data-collector-api.md#request-uri). If your workspace isn't in Azure global, you need to update the URI suffix according to the respective cloud. |
+| spark.synapse.logAnalytics.filter.eventName.match | - | Optional. The comma-separated spark event names, you can specify which events to collect. For example: `SparkListenerJobStart,SparkListenerJobEnd` |
+| spark.synapse.logAnalytics.filter.loggerName.match | - | Optional. The comma-separated log4j logger names, you can specify which logs to collect. For example: `org.apache.spark.SparkContext,org.example.Logger` |
+| spark.synapse.logAnalytics.filter.metricName.match | - | Optional. The comma-separated spark metric name suffixes, you can specify which metrics to collect. For example: `jvm.heap.used`|
+
+> [!NOTE]  
+> - For Microsoft Azure operated by 21Vianet, the `spark.synapse.logAnalytics.uriSuffix` parameter should be `ods.opinsights.azure.cn`. 
+> - For Azure Government, the `spark.synapse.logAnalytics.uriSuffix` parameter should be `ods.opinsights.azure.us`. 
+> - For any cloud except Azure, the `spark.synapse.logAnalytics.keyVault.name` parameter should be the fully qualified domain name (FQDN) of the Key Vault. For example, `AZURE_KEY_VAULT_NAME.vault.usgovcloudapi.net` for AzureUSGovernment.
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
