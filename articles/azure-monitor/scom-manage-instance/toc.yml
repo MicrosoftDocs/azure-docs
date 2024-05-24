@@ -1,0 +1,20 @@
+- name: Azure Monitor SCOM Managed Instance
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Monitor SCOM Managed Instance
+    href: overview.md
+  - name: What's new in SCOM Managed Instance
+    href: whats-new-scom-managed-instance.md
+- name: Quickstarts
+  items:
+  - name: Migrate from Operations Manager on-premises to SCOM Managed Instance
+    href: migrate-to-operations-manager-managed-instance.md
+- name: Tutorials
+  items:
+  - name: Create SCOM Managed Instance
+    href: tutorial-create-scom-managed-instance.md
+- name: Concepts
+  items:
+  - name: SCOM Managed Instance Service Health Dashboard
+    href: monitor-health-scom-managed-instance.md
