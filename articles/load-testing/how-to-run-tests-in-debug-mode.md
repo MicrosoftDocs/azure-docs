@@ -78,7 +78,7 @@ The test run is now created in debug mode. Similarly, you can rerun a test run i
 
 ## View results of a test run in debug mode
 
-You can view the results of a test run in debug mode in the same way as you view the results of a regular test run. The results of a test run in debug mode also include the debug logs and request and response data for every failed request during the test run. The files are available in the storage account container. Follow the steps mentioned [here](./how-to-export-test-results#copy-test-artifacts-from-a-storage-account-container) to export the files.
+You can view the results of a test run in debug mode in the same way as you view the results of a regular test run. The results of a test run in debug mode also include the debug logs and request and response data for every failed request during the test run. The files are available in the storage account container. Follow the steps mentioned [here](./how-to-export-test-results#copy-test-artifacts-from-a-storage-account-container.md) to export the files.
 
 
 ## Related content
