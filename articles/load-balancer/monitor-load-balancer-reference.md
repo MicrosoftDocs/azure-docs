@@ -1,5 +1,5 @@
 ---
-title: Monitoring Load Balancer data reference
+title: Load balancer metrics and log definitions
 titleSuffix: Azure Load Balancer
 description: Important reference material needed when you monitor Load Balancer.
 author: mbender-ms
@@ -56,13 +56,13 @@ Load Balancer has the following **dimensions** associated with its metrics.
 
 ## Resource logs
 
-Resource logs are currently unsupported by Azure Load Balancer
+Azure Load Balancer supports Azure Activity logs and the LoadBalancerHealthEvent log category.
 
-## Azure Monitor logs tables
-### Diagnostics tables
+### LoadBalancerHealthEvent logs
 
-Diagnostics tables are currently unsupported by Azure Load Balancer.
-## Activity log
+For more information on the LoadBalancerHealthEvent log category, see [Azure Load Balancer health event logs](load-balancer-health-event-logs.md).
+
+### Azure Activity logs
 
 The following table lists the **operations** related to Load Balancer that may be created in the Activity log.
 
