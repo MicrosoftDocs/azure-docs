@@ -46,3 +46,7 @@ sections:
       - question: How is virtual network encryption priced?
         answer: |
           Azure Virtual Network encryption is a free feature offered under the Azure subscription within Azure Virtual Network. Standard charges are applicable for resources, such as Virtual Machines (VMs) and other products that you use.
+
+      - question: Is asymmetric encryption supported for a scenario where one direction is encryption enabled and the reverse is encryption disabled?
+        answer: |
+          Asymmetric encryption can happen when there is asymmetric routing and traffic is flowing encrypted in one direction and un-encrypted in the other direction. Asymmetric encryption is not supported and is not recommended.

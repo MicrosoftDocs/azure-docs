@@ -92,8 +92,6 @@ The following options are available for configuring Query Store parameters:
 | pg_qs.max_plan_size | Sets the maximum number of bytes that will be saved for query plan text for pg_qs; longer plans will be truncated. | 7500 | 100 - 10k |
 | pg_qs.max_query_text_length | Sets the maximum query length that can be saved; longer queries will be truncated. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Sets the retention period window in days for pg_qs - after this time data will be deleted. | 7 | 1 - 30 |
-| pg_qs.index_generation_interval (*) | Sets the query_store index auto generation interval in minutes for pg_qs. | 720 | 15 - 10080 |
-| pg_qs.index_recommendations | Enables or disables index recommendations. pg_qs.query_capture_mode must also be 'TOP' or 'ALL'. | off | off, recommend |
 | pg_qs.track_utility | Sets whether utility commands are tracked by pg_qs. | on | on, off |
 
 (*) Static server parameter which requires a server restart for a change in its value to take effect. 
@@ -276,6 +274,8 @@ This function discards all statistics gathered so far by Query Store. It discard
 
 This function discards all statistics gathered in-memory by Query Store (that is, the data in memory that hasn't been flushed yet to the on disk tables supporting persistence of collected data for Query Store). This function can only be executed by the server admin role (**azure_pg_admin**).
 
+## Limitations and known issues
+[!INCLUDE [Note Query store and Azure storage compability](includes/note-query-store-azure-storage-compability.md)]
 
 ### Read-only mode
 When an Azure Database for PostgreSQL - Flexible Server instance is in read-only mode, such as when the `default_transaction_read_only` parameter is set to `on`, or if read-only mode is [automatically enabled due to reaching storage capacity](concepts-limits.md#storage), Query Store does not capture any data.

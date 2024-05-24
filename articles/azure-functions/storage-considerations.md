@@ -95,6 +95,9 @@ A key scenario for Functions is file processing of files in a blob container, su
 
 ### Trigger on a blob container
 
+>[!NOTE]  
+>The Flex Consumption plan supports only the event-based Blob storage trigger.  
+
 There are several ways to execute your function code based on changes to blobs in a storage container. Use the following table to determine which function trigger best fits your needs:
 
 | Consideration | Blob storage (polling) | Blob storage (event-based) | Queue storage | Event Grid | 

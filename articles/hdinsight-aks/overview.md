@@ -4,7 +4,7 @@ description: An introduction to Azure HDInsight on AKS.
 ms.custom: references_regions
 ms.service: hdinsight-aks
 ms.topic: overview
-ms.date: 02/06/2024
+ms.date: 05/23/2024
 ---
 
 # What is HDInsight on AKS? (Preview)
@@ -92,6 +92,12 @@ For more information, see [HDInsight on AKS security](./concept-security.md).
 * Canada Central
 * North Europe
 * Brazil South
+* Norway East
+* Switzerland North
+* France Central
+* Central US
+* Southeast Asia
+* South Central US
 
 > [!Note]
 > - The Trino brand and trademarks are owned and managed by the [Trino Software Foundation](https://trino.io/foundation.html). No endorsement by The Trino Software Foundation is implied by the use of these marks.
