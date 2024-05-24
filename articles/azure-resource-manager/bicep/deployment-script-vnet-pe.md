@@ -15,7 +15,7 @@ To run deployment scripts privately you need the following infrastructure as see
     - Subnet for Azure Container Instance, this subnet needs a `Microsoft.ContainerInstance/containerGroups` delegation.
 - Create a storage account with public network access `disabled`
 - Create a private endpoint configured with the `file` sub-resource on the storage account
-- Create a private DNS zone `file.core.windows.net` and register the private endpoint IP address as an A record. Link the private DNS zone to the created virtual network.
+- Create a private DNS zone `privatelink.file.core.windows.net` and register the private endpoint IP address as an A record. Link the private DNS zone to the created virtual network.
 - Create a user-assigned managed identity with `Storage File Data Privileged Contributor` permissions on the storage account and specify it in the `identity` property in the deployment script resource. To assign the identity, see [Identity](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-script-develop#identity).
 
 The Azure Container Instance is deployed implicitly by the deployment script resource.
