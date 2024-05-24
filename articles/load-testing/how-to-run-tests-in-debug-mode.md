@@ -25,7 +25,7 @@ You can use debug mode to troubleshoot issues with your test plan configuration.
 
 ## Debug mode
 
-A test can be run in a debug mode to validate the test plan configuration and application behavior. The characteristics of a test run in debug mode are as follows:
+A test can be run in a debug mode to validate the test plan configuration and application behavior. The characteristics of a test run in debug mode are:
 
 - The test run is executed with a single engine, irrespective of number of engines specified in the test configuration.
 
