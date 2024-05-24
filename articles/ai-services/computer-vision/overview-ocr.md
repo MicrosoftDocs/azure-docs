@@ -26,7 +26,7 @@ Intelligent Document Processing (IDP) uses OCR as its foundational technology to
 Microsoft's **Read** OCR engine is composed of multiple advanced machine-learning based models supporting [global languages](./language-support.md). It can extract printed and handwritten text including mixed languages and writing styles. **Read** is available as cloud service and on-premises container for deployment flexibility. With the latest preview, it's also available as a synchronous API for single, non-document, image-only scenarios with performance enhancements that make it easier to implement OCR-assisted user experiences.
 
 > [!WARNING]
-> The Azure AI Vision legacy [OCR API in v3.2](/rest/api/computervision/read?view=rest-computervision-v3.2-preview) and [RecognizeText API in v2.1](/rest/api/computervision/recognize-printed-text?view=rest-computervision-v3.1) operations are not recommended for use.
+> The Azure AI Vision legacy [OCR API in v3.2](/rest/api/computervision/recognize-printed-text?view=rest-computervision-v3.2) and [RecognizeText API in v2.1](/rest/api/computervision/recognize-printed-text/recognize-printed-text?view=rest-computervision-v2.1) operations are not recommended for use.
 
 [!INCLUDE [read-editions](includes/read-editions.md)]
 
