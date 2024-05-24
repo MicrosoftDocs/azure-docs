@@ -1,11 +1,11 @@
 ---
-title: "Deploy a virtual machine in an Extended Zone - Portal"
+title: "Quickstart: Deploy a virtual machine in an Extended Zone - Azure portal"
 description: Learn how to deploy a virtual machine in an Azure Extended Zone using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: quickstart  #Don't change
-ms.date: 05/23/2024
+ms.date: 05/24/2024
 
 ---
   
@@ -33,7 +33,7 @@ In this section, you create a virtual network in the Azure Extended Zone that yo
 
 1. In the **Virtual networks** page, select **+ Create**.
 
-1. On the **Basics** tab of **Create virtual network**, enter or select the following information:
+1. On the **Basics** tab of **Create virtual network**, enter, or select the following information:
 
     | Setting | Value |
     | --- | --- |
@@ -58,7 +58,7 @@ In this section, you create a virtual network in the Azure Extended Zone that yo
 
 1. In the **Virtual machines** page, select **+ Create** and then select **Azure virtual machine**.
 
-1. On the **Basics** tab of **Create a virtual machine**, enter or select the following information:
+1. On the **Basics** tab of **Create a virtual machine**, enter, or select the following information:
 
     | Setting | Value |
     | --- | --- |
