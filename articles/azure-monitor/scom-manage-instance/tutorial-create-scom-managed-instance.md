@@ -36,22 +36,6 @@ This tutorial describes how to create an instance of the service (a SCOM Managed
 - West US 2
 - West US 3
 
-## Prerequisites
-
-Before you create a SCOM Managed Instance, follow these steps:
-
-- [Step 1. Register the SCOM Managed Instance resource provider](register-scom-managed-instance-resource-provider.md).
-- [Step 2. Create separate subnet in a VNet](create-separate-subnet-in-vnet.md).
-- [Step 3. Create a SQL Managed Instance](create-sql-managed-instance.md).
-- [Step 4. Create a Key vault](create-key-vault.md).
-- [Step 5. Create a user assigned identity](create-user-assigned-identity.md).
-- [Step 6. Create a computer group and gMSA account](create-gmsa-account.md).
-- [Step 7. Store domain credentials in Key vault](store-domain-credentials-in-key-vault.md).
-- [Step 8. Create a static IP](create-static-ip.md).
-- [Step 9. Configure the network firewall](configure-network-firewall.md).
-- [Step 10. Verify Azure and internal GPO policies](verify-azure-and-internal-gpo-policies.md).
-- [Step 11. SCOM Managed Instance self-verification of steps](self-verification-of-steps.md).
-
 ## Create a SCOM Managed Instance
 
 To create a SCOM Managed Instance, follow these steps:

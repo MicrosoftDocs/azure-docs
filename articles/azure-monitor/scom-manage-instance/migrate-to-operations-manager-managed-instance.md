@@ -219,7 +219,3 @@ To migrate from System Center Operations Manager agent to SCOM Managed Instance,
 - Agent mapping and configuration
 - Gateways 
 - Custom and 3P Solutions 
-
-## Next steps
-
-[Create a SCOM Managed Instance on Azure](create-operations-manager-managed-instance.md).

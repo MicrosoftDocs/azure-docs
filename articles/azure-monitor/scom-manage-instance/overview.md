@@ -98,21 +98,3 @@ In customer subscription, SCOM Managed Instance, creates a Virtual Machine Scale
 
 Operations Manager Management server and monitored agents are connected through ER/VPN. Agents establish session with Operations Manager Management server using the Kerberos authentication, where Operations Manager Virtual Machine Scale Sets VMs are joined to the AD domain of the monitored agents. 
 
-## Next steps
-
-  To create SCOM Managed Instance, follow these steps:
-
-   - [Step 1. Register the SCOM Managed Instance resource provider](register-scom-managed-instance-resource-provider.md).
-   - [Step 2. Create separate subnet in a VNet](create-separate-subnet-in-vnet.md).
-   - [Step 3. Create a SQL Managed Instance](create-sql-managed-instance.md).
-   - [Step 4. Create a Key vault](create-key-vault.md).
-   - [Step 5. Create a user assigned identity](create-user-assigned-identity.md).
-   - [Step 6. Create a computer group and gMSA account](create-gmsa-account.md).
-   - [Step 7. Store domain credentials in Key vault](store-domain-credentials-in-key-vault.md).
-   - [Step 8. Create a static IP](create-static-ip.md).
-   - [Step 9. Configure the network firewall](configure-network-firewall.md).
-   - [Step 10. Verify Azure and internal GPO policies](verify-azure-and-internal-gpo-policies.md).
-   - [Step 11. SCOM Managed Instance self-verification of steps](self-verification-of-steps.md).
-   - [Step 12. Create a SCOM Managed Instance](create-operations-manager-managed-instance.md).
-
-[Migrate from Operations Manager on-premises to Azure Monitor SCOM Managed Instance](migrate-to-operations-manager-managed-instance.md).
