@@ -30,7 +30,7 @@ A refresh of the Assistants API is now publicly available. It contains the follo
 You can now create messages with the [assistant](.//assistants-reference-messages.md#create-message) role to create custom conversation histories in Threads.
 * Support for `temperature`, `top_p`, `response_format` [parameters](./assistants-reference.md#create-an-assistant).
 * Streaming and polling support. You can use the helper functions in our Python SDK to create runs and stream responses. We have also added polling SDK helpers to share object status updates without the need for polling. 
-* Experiment with Logic Apps and Function Calling using Azure OpenAI Studio. Import your REST APIs implemented in Logic Apps as functions and the studio invokes the function (as a Logic Apps workflow) automatically based on the user prompt.
+* Experiment with [Logic Apps and Function Calling using Azure OpenAI Studio](./how-to/assistants-logic-apps.md). Import your REST APIs implemented in Logic Apps as functions and the studio invokes the function (as a Logic Apps workflow) automatically based on the user prompt.
 * AutoGen by Microsoft Research provides a multi-agent conversation framework to enable convenient building of Large Language Model (LLM) workflows across a wide range of applications. Azure OpenAI assistants are now integrated into AutoGen via `GPTAssistantAgent`, a new experimental agent that lets you seamlessly add Assistants into AutoGen-based multi-agent workflows. This enables multiple Azure OpenAI assistants that could be task or domain specialized to collaborate and tackle complex tasks.
 * Support for fine-tuned `gpt-3.5-turbo-0125` [models](./concepts/models.md#assistants-preview) in the following regions:
     * East US 2
@@ -40,7 +40,6 @@ You can now create messages with the [assistant](.//assistants-reference-message
     * UK South
     * West US
     * West US 3
-    * India South
     * Norway east
 
 For more information, see the [blog post](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/announcing-azure-openai-service-assistants-preview-refresh/ba-p/4143217) about assistants.
@@ -80,19 +79,6 @@ Prompt Shields protect applications powered by Azure OpenAI models from two type
 ### 2024-05-01-preview API release
 
 - For more information, see the [API version lifecycle](./api-version-deprecation.md).
-
-### GPT-4 Turbo model general availability (GA)
-
-[!INCLUDE [GPT-4 Turbo](./includes/gpt-4-turbo.md)]
-
-### GPT-4o preview model available for early access
-
-GPT-4o ("o is for "omni") is the latest preview model from OpenAI launched on May 13, 2024.
-
-- GPT-4o integrates text, and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions.
-- GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and in vision tasks, setting new benchmarks for AI capabilities.
-
-<!--To start testing out the model today, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).-->
 
 ### GPT-4 Turbo model general availability (GA)
 
