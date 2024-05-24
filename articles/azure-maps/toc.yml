@@ -201,6 +201,8 @@ items:
       href: how-to-use-best-practices-for-search.md
     - name: Best Practices using Route Service
       href: how-to-use-best-practices-for-routing.md
+    - name: Create multi-itinerary optimization service
+      href: itinerary-optimization-service.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
     - name: Request real-time and forecasted weather data

@@ -69,6 +69,8 @@ landingContent:
             url: how-to-configure-extensibility-bicep-container-image.md
           - text: Configure a Terraform custom container image
             url: how-to-configure-extensibility-terraform-container-image.md
+          - text: Configure a Pulumi custom container image
+            url: how-to-configure-extensibility-pulumi-container-image.md  
 
   # Card
   - title: Configure environment types

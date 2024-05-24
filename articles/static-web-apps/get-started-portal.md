@@ -101,7 +101,7 @@ In the _Basics_ section, begin by configuring your new app and linking it to a G
 | Resource Group | Select the **Create new** link, and enter **static-web-apps-test** in the textbox. |
 | Name | Enter **my-first-static-web-app** in the textbox. |
 | Plan type | Select **Free**. |
-| Source | Select **GitHub**. |
+| Source | Select **GitHub** and sign in to GitHub if necessary. |
 
 If necessary sign in with GitHub, and enter the following repository information.
 

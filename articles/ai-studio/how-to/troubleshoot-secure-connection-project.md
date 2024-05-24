@@ -4,16 +4,19 @@ titleSuffix: Azure AI Studio
 description: 'Learn how to troubleshoot connectivity problems to a project that is configured with a private endpoint.'
 manager: scottpolly
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: how-to
-ms.date: 01/19/2024
+ms.date: 5/21/2024
 ms.reviewer: meerakurup
-ms.author: larryfr 
-author: Blackmist 
+ms.author: larryfr
+author: Blackmist
 ---
 
 # Troubleshoot connection to a project with a private endpoint
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 When connecting to a project that has been configured with a private endpoint, you may encounter a 403 or a messaging saying that access is forbidden. Use the information in this article to check for common configuration problems that can cause this error.
 
 ## Securely connect to your project
@@ -118,6 +121,3 @@ If you use a proxy, it may prevent communication with a secured project. To test
 * Temporarily disable the proxy setting and see if you can connect.
 * Create a [Proxy auto-config (PAC)](https://wikipedia.org/wiki/Proxy_auto-config) file that allows direct access to the FQDNs listed on the private endpoint. It should also allow direct access to the FQDN for any compute instances.
 * Configure your proxy server to forward DNS requests to Azure DNS.
-
-
-
