@@ -6,15 +6,13 @@ description: Configure an indexer connection to access content in an Azure SQL M
 author: mattgotteiner
 ms.author: magottei
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: how-to
-ms.date: 09/29/2023
+ms.date: 05/23/2024
 ---
 
 # Create a shared private link for a SQL managed instance from Azure AI Search
 
-This article explains how to configure an indexer in Azure AI Search for a private connection to a SQL managed instance that runs within a virtual network.
+This article explains how to configure an indexer in Azure AI Search for a private connection to a SQL managed instance that runs within a virtual network. The private connection is through a [shared private link](search-indexer-howto-access-private.md) and Azure Private Link.
 
 On a private connection to a managed instance, the fully qualified domain name (FQDN) of the instance must include the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture). Currently, only the Azure AI Search Management REST API provides a `resourceRegion` parameter for accepting the DNS zone specification.
 
@@ -36,7 +34,7 @@ Although you can call the Management REST API directly, it's easier to use the A
 + Azure SQL Managed Instance connection string. Managed identity is not currently supported with shared private link. Your connection string must include a user name and password.
 
 > [!NOTE]
-> Azure Private Link is used internally, at no charge, to set up the shared private link.
+> Shared private links are billable through [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/) and charges are invoiced based on usage.
 
 ## 1 - Retrieve connection information
 
