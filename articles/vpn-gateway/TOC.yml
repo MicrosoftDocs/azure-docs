@@ -181,6 +181,8 @@
           href: point-to-site-entra-gateway.md
         - name: Configure P2S - manually registered VPN client
           href: openvpn-azure-ad-tenant.md
+        - name: Change Audience for P2S gateway
+          href: point-to-site-entra-gateway-update.md
         - name: Configure access based on users and groups
           href: openvpn-azure-ad-tenant-multi-app.md
         - name: Configure Multi-Factor Authentication (MFA)
