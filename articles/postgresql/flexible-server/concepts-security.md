@@ -112,7 +112,7 @@ However, the server admin account isn't part of the `azuresu` role, which has su
 
  
 
-You can periodically audit the list of roles in your server. For example, you can connect using `psql` client and query the `pg_roles` table , which lists all the roles along with privileges such as create additional roles, create databases, replication etc.
+You can periodically audit the list of roles in your server. For example, you can connect using `psql` client and query the `pg_roles` table, which lists all the roles along with privileges such as create other roles, create databases, replication etc.
 
 ```sql
 
@@ -134,10 +134,15 @@ oid            | 24827
 
 ```
 
-Important to note that number of **superuser only permissions**, such as creation of certain [implicit casts](https://www.postgresql.org/docs/current/sql-createcast.html), are **not available** with Azure Database for PostgreSQL - Flexible Server, since **`azure_pg_admin` role doesn't align to permissions of PostgreSQL superuser role**. 
+> [!IMPORTANT]
+> Important to note that number of superuser only permissions, such as creation of certain **[binary-coercible implicit casts](https://www.postgresql.org/docs/current/sql-createcast.html)**, are not available with Azure Database for PostgreSQL - Flexible Server, since `azure_pg_admin` role doesn't align to permissions of PostgreSQL superuser role. 
+> A **[binary-coercible cast](https://www.postgresql.org/docs/current/sql-createcast.html)** is a type of cast that does not require any function to perform the conversion, because the source and target types have the same internal representation
+> Non binary-coercible casts, including containing options WITH `IN OUT` and `WITH FUNCTION` are supported.
 
 
 [Audit logging in Azure Database for PostgreSQL - Flexible Server](concepts-audit.md) is also available with Azure Database for PostgreSQL - Flexible Server to track activity in your databases.
+
+
 
 
 
@@ -186,7 +191,7 @@ In this example, user *user1* can connect and has all privileges in our test dat
 ### Public schema ownership changes in PostgreSQL 15
 
 From Postgres version 15, ownership of the public schema has been changed to the new pg_database_owner role. It enables every database owner to own the database’s public schema.  
-More information can be found in [PostgreSQL release notes](https://www.postgresql.org/docs/release/15.0/)
+More information can be found in [PostgreSQL release notes.](https://www.postgresql.org/docs/release/15.0/)
 
 ### PostgreSQL 16 changes with role based security
 
@@ -223,7 +228,7 @@ You can drop a row security policy by using DROP POLICY command, as in his examp
 
 DROP POLICY account_managers ON accounts;
 ```
-Although you may have have dropped the policy, role manager is still not able to view any data that belong to any other manager. This is because the row-level security policy is still enabled on the accounts table. If row-level security is enabled by default, PostgreSQL uses a default-deny policy. You can disable row level security, as in example below:
+Although you may have dropped the policy, role manager is still not able to view any data that belong to any other manager. This is because the row-level security policy is still enabled on the accounts table. If row-level security is enabled by default, PostgreSQL uses a default-deny policy. You can disable row level security, as in example below:
 
 ```sql
 ALTER TABLE accounts DISABLE ROW LEVEL SECURITY;
@@ -234,8 +239,8 @@ ALTER TABLE accounts DISABLE ROW LEVEL SECURITY;
 
 PostgreSQL has **BYPASSRLS** and **NOBYPASSRLS** permissions, which can be assigned to a role; NOBYPASSRLS is assigned by default. 
 With **newly provisioned servers** in Azure Database for PostgreSQL - Flexible Server bypassing row level security privilege (BYPASSRLS) is implemented as follows:
-* For Postgres 16 and above versioned servers we follow [standard PostgreSQL 16 behavior](#postgresql-16-changes-with-role-based-security).  Non-administrative users created by **azure_pg_admin** administrator role allows you to create roles with BYPASSRLS attribute\privilege as necessary. 
-* For Postgres 15 and below versioned servers. , you can use **azure_pg_admin** user to do administrative tasks that require BYPASSRLS privilege, but can't create non-admin users with BypassRLS privilege, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL services.
+* For Postgres 16 and above versioned servers we follow [standard PostgreSQL 16 behavior](#postgresql-16-changes-with-role-based-security).  Nonadministrative users created by **azure_pg_admin** administrator role allows you to create roles with BYPASSRLS attribute\privilege as necessary. 
+* For Postgres 15 and below versioned servers. , you can use **azure_pg_admin** user to do administrative tasks that require BYPASSRLS privilege, but can't create nonadmin users with BypassRLS privilege, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL services.
 
 
 ## Update passwords

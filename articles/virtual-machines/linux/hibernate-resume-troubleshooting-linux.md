@@ -37,6 +37,7 @@ systemctl status hibernation-setup-tool
 A successful status should return "Inactive (dead)”, and the log messages should say "Swap file for VM hibernation set up successfully"
 
 Example:
+
 ```
 azureuser@:~$ systemctl status hibernation-setup-tool
 ● hibernation-setup-tool.service - Hibernation Setup Tool
@@ -47,12 +48,12 @@ azureuser@:~$ systemctl status hibernation-setup-tool
 
 linuxhib2 hibernation-setup-tool[1131]: INFO: update-grub2 finished successfully.
 linuxhib2 hibernation-setup-tool[1131]: INFO: udev rule to hibernate with systemd set up in /etc/udev/rules.d/99-vm-hibernation.rules.  Telling udev about it.
-…
-…
+...
+...
 linuxhib2 hibernation-setup-tool[1131]: INFO: systemctl finished successfully.
 linuxhib2 hibernation-setup-tool[1131]: INFO: Swap file for VM hibernation set up successfully
-
 ```
+
 If the guest OS isn't configured for hibernation, take the appropriate action to resolve the issue. For example, if the guest failed to configure hibernation due to insufficient space, resize the OS disk to resolve the issue.    
 
 
