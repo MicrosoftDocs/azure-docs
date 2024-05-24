@@ -5,7 +5,7 @@ author: iyervarsha
 ms.author: varshaiyer
 ms.service: devbox
 ms.topic: article
-ms.date: 05/21/2024
+ms.date: 05/24/2024
 ---
 
 # Add a Display Name to Projects and Pools
@@ -34,12 +34,16 @@ You  see a similar **Display Name** text box for pools as you did for projects. 
 
 :::image type="content" source="media/how-to-add-project-pool-display-name/pool-properties.png" alt-text="Screenshot showing the properties for a pool." lightbox="media/how-to-add-project-pool-display-name/pool-properties.png":::
 
-> [!Note]
-> If there are duplicate display names for a project, the resource name  also surfaces in the developer portal to differentiate projects. This is not the case for pools; we recommend creating unique pool names. You can view your changes to the display name in the Azure portal next to the resource name.  
-
 > [!Important]
-> Resources created before the rollout of this feature will not have a display name. However, you can still add a display name to these resources.   
+> Resources created before the release of the display names feature will not have a display name. However, you can still add a display name to these resources. 
 
+### Duplicate display names
+
+You should create unique display names for projects and pools. 
+
+When you're creating a dev box in the developer portal, if there are duplicate display names for a project the resource name appears in the project list alongside the display name to differentiate projects.
+
+Pools with duplicate names don't show the resource name in the developer portal; you should create unique pool names to avoid confusion. You can view your changes to the display name in the Azure portal next to the resource name.  
 
 ## Find resource names in the developer portal 
 
