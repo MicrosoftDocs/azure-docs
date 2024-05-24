@@ -1,7 +1,7 @@
 ---
-title: 'How to use studio UI to debug pipeline failure'
+title: Use Azure Machine Learning studio to debug pipeline failures
 titleSuffix: Azure Machine Learning
-description: Learn how to debug compare pipeline failure with pipeline UI in studio.
+description: Learn how to debug pipeline failures and compare pipelines by using the Azure Machine Learning studio UI.
 ms.reviewer: lagayhar
 author: likebupt
 ms.author: keli19
@@ -9,99 +9,87 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 05/27/2023
+ms.date: 05/23/2024
 ms.custom: designer
 ---
 
-# How to use pipeline UI to debug Azure Machine Learning pipeline failures
+# Use Designer in Azure Machine Learning studio to debug pipeline failures
 
-After submitting a pipeline, you'll see a link to the pipeline job in your Azure Machine Learning workspace. The link lands you in the pipeline job page in Azure Machine Learning studio, in which you can check result and debug your pipeline job. 
-
-This article introduces how to use the pipeline job page to debug machine learning pipeline failures.
+After you submit a pipeline job, you can select a link to the job in your workspace in Azure Machine Learning studio. The link opens the pipeline job detail page, where you can check results and debug your pipeline job. This article explains how to use the pipeline job detail page to debug machine learning pipeline failures.
 
 > [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Items marked (preview) in this article are currently in public preview. The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Use outline to quickly find a node
 
-## Using outline to quickly find a node
+On the pipeline job detail page, the **Outline** pane on the left shows the overall structure of your pipeline job. Hover on any row and select the **Locate in canvas** icon to highlight that node on the canvas and open an information pane for the node on the right.
 
-In pipeline job detail page, there's an outline left to the canvas, which shows the overall structure of your pipeline job. Hovering on any row, you can select the "Locate" button to locate that node in the canvas.
+:::image type="content" source="./media/how-to-debug-pipeline-failure/outline-detail.png" alt-text="Screenshot showing outline and locate in the canvas." lightbox= "./media/how-to-debug-pipeline-failure/outline.png":::
 
-:::image type="content" source="./media/how-to-debug-pipeline-failure/outline.png" alt-text="Screenshot showing outline and locate in the canvas." lightbox= "./media/how-to-debug-pipeline-failure/outline.png":::
+In the **Outline** pane, you can select the **Filter** icon to quickly filter the view to **Completed nodes only**, **Component only**, or **Dataset only**. You can also filter the list by entering node names or component names in the Search box, or by selecting **Add filter** and choosing from a list of filters.
 
-You can filter failed or completed nodes, and filter by only components or dataset for further search. The left pane shows the matched nodes with more information including status, duration, and created time.
+:::image type="content" source="./media/how-to-debug-pipeline-failure/quick-filter-detail.png" alt-text="Screenshot showing quick filter and search in the Outline pane." lightbox= "./media/how-to-debug-pipeline-failure/quick-filter.png":::
 
-:::image type="content" source="./media/how-to-debug-pipeline-failure/quick-filter.png" alt-text="Screenshot showing the quick filter by in outline > search." lightbox= "./media/how-to-debug-pipeline-failure/quick-filter.png":::
+The left pane shows the matched nodes with more information including status, duration, and run time and date. You can sort the filtered nodes.
 
-You can also sort the filtered nodes.
+:::image type="content" source="./media/how-to-debug-pipeline-failure/sort-detail.png" alt-text="Screenshot of sorting search results in the Outline pane." lightbox= "./media/how-to-debug-pipeline-failure/sort.png":::
 
-:::image type="content" source="./media/how-to-debug-pipeline-failure/sort.png" alt-text="Screenshot of sorting search result in outline > search." lightbox= "./media/how-to-debug-pipeline-failure/sort.png":::
-
-## Check logs and outputs of component
+## Check component logs and outputs
 
 If your pipeline fails or gets stuck on a node, first view the logs.
 
-1. You can select the specific node and open the right pane.
+![Animated screenshot showing how to check node logs.](media/how-to-debug-pipeline-failure/node-logs.gif)
 
-1. Select **Outputs+logs** tab and you can explore all the outputs and logs of this node.
+1. Select the node to open the information pane on the right.
 
-    The **user_logs folder** contains information about user code generated logs. This folder is open by default, and the **std_log.txt** log is selected. The **std_log.txt** is where your code's logs (for example, print statements) show up.
+1. Select **Outputs + logs** tab to view all the outputs and logs of this node.
 
-    The **system_logs folder** contains logs generated by Azure Machine Learning. Learn more about [View and download diagnostic logs](how-to-log-view-metrics.md#view-and-download-diagnostic-logs).
+   :::image type="content" source="./media/how-to-debug-pipeline-failure/log-detail.png" alt-text="Screenshot of the user_logs in the node information pane." lightbox= "./media/how-to-debug-pipeline-failure/log-detail.png":::
+   
+   - The *user_logs* folder contains information about user code generated logs. This folder is open by default, and the *std_log.txt* log is selected. The **std_log.txt** is where your code's logs (for example, print statements) show up.
 
-    ![Screenshot of how to check node logs.](media/how-to-debug-pipeline-failure/node-logs.gif)
+   - The *system_logs* folder contains logs generated by Azure Machine Learning. To learn more, see [View and download diagnostic logs](how-to-log-view-metrics.md#view-and-download-diagnostic-logs).
 
-    If you don't see those folders, this is due to the compute run time update isn't released to the compute cluster yet, and you can look at **70_driver_log.txt** under **azureml-logs** folder first.
+   If you don't see those folders, the compute run time update might not be released to the compute cluster yet, and you can look at *70_driver_log.txt* in the *azureml-logs* folder first.
 
-## Compare different pipelines to debug failure or other unexpected issues (preview)
+## Compare pipeline jobs (preview)
 
-Pipeline comparison identifies the differences (including topology, component properties, and job properties) between multiple jobs. For example you can compare a successful pipeline and a failed pipeline, which helps you find what modifications make your pipeline fail.
+You can compare different pipeline jobs to debug failure or other unexpected issues (preview). Pipeline comparison identifies the differences, such as topology, component properties, and job properties, between pipeline jobs.
 
-Two major scenarios where you can use pipeline comparison to help with debugging:
+For example, you can compare successful and failed pipeline jobs to find differences that might have made one pipeline job fail. You can debug a failed pipeline job by comparing it to a completed job, or debug a failed node in a pipeline by comparing it to a similar completed node.
 
-- Debug your failed pipeline job by comparing it to a completed one.
-- Debug your failed node in a pipeline by comparing it to a similar completed one.
+To enable this feature in Azure Machine Learning studio, select the megaphone icon at top right to manage preview features. In the **Managed preview feature** panel, make sure **Compare pipeline jobs to debug failures or unexpected issues** is set to **Enabled**.
 
-To enable this feature:
+:::image type="content" source="./media/how-to-debug-pipeline-failure/enable-preview.png" alt-text="Screenshot of the preview feature toggled on." lightbox= "./media/how-to-debug-pipeline-failure/enable-preview.png":::
 
-1. Navigate to Azure Machine Learning studio UI.
-2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
-3. In **Managed preview feature** panel, toggle on **Compare pipeline jobs to debug failures or unexpected issues** feature.
+### Debug a failed pipeline job by comparing it to a completed job
 
-:::image type="content" source="./media/how-to-debug-pipeline-failure/enable-preview.png" alt-text="Screenshot of manage preview features toggled on." lightbox= "./media/how-to-debug-pipeline-failure/enable-preview.png":::
+During iterative model development, you might clone and modify a successful baseline pipeline by changing a parameter, dataset, compute resource, or other setting. If the new pipeline fails, you can use pipeline comparison to help figure out the failure by identifying the changes from the parent pipeline.
 
-### How to debug your failed pipeline job by comparing it to a completed one
-
-During iterative model development, you may have a baseline pipeline, and then do some modifications such as changing a parameter, dataset or compute resource, etc. If your new pipeline failed, you can use pipeline comparison to identify what has changed by comparing it to the baseline pipeline, which could help with figuring out why it failed.
+For example, if you get an error message that your new pipeline failed due to an out-of-memory issue, you can use pipeline comparison to see what changed from a completed parent pipeline.
 
 #### Compare a pipeline with its parent
 
-The first thing you should check when debugging is to locate the failed node and check the logs.
+1. On the failed pipeline job page, select **Show lineage**.
+1. Select the link in the **Cloned from** popup to open the parent pipeline job page in a new browser tab.
 
-For example, you may get an error message showing that your pipeline failed due to out-of-memory. If your pipeline is cloned from a completed parent pipeline, you can use pipeline comparison to see what has changed.
+   :::image type="content" source="./media/how-to-debug-pipeline-failure/cloned-from.png" alt-text="Screenshot showing the cloned from link, with the previous step, the lineage button highlighted." lightbox= "./media/how-to-debug-pipeline-failure/cloned-from.png":::
 
-1. Select **Show lineage**.
-1. Select the link under "Cloned From". This will open a new browser tab with the parent pipeline.
+1. On both pages, select **Add to compare** on the top menu bar to add both jobs to the **Compare** list.
 
-      :::image type="content" source="./media/how-to-debug-pipeline-failure/cloned-from.png" alt-text="Screenshot showing the cloned from link, with the previous step, the lineage button highlighted." lightbox= "./media/how-to-debug-pipeline-failure/cloned-from.png":::
+   :::image type="content" source="./media/how-to-debug-pipeline-failure/comparison-list-detail.png" alt-text="Screenshot showing the comparison list with a parent and child pipeline added." lightbox= "./media/how-to-debug-pipeline-failure/comparison-list.png":::
 
-1. Select **Add to compare** on the failed pipeline and the parent pipeline. This adds them in the comparison candidate list.
+Once you add both pipelines to the comparison list, select **Compare detail** or **Compare graph**.
 
-      :::image type="content" source="./media/how-to-debug-pipeline-failure/comparison-list.png" alt-text="Screenshot showing the comparison list with a parent and child pipeline added." lightbox= "./media/how-to-debug-pipeline-failure/comparison-list.png":::
+#### Compare graph
 
-### Compare topology
+**Compare graph** shows the topology changes between pipelines **A** and **B**. Nodes specific to pipeline A are highlighted in red and marked with **A**, and nodes specific to pipeline B are highlighted in green and marked with **B**. A description of changes is shown at the tops of the nodes.
 
-Once the two pipelines are added to the comparison list, you have two options: **Compare detail** and **Compare graph**. **Compare graph** allows you to compare pipeline topology.
+Select a node to open the **Component information** pane, where depending on the node selected you can see **Dataset properties** or **Component properties** like **parameters**, **runSettings**, and **outputSettings**.
 
-**Compare graph** shows you the graph topology changes between pipeline A and B. The special nodes in pipeline A are highlighted in red and marked with "A only". The special nodes in pipeline B are in green and marked with "B only". The shared nodes are in gray. If there are differences on the shared nodes, what has been changed is shown on the top of node.
+:::image type="content" source="./media/how-to-debug-pipeline-failure/parameter-changed.png" alt-text="Screenshot showing the parameter changed and the component information tab." lightbox= "./media/how-to-debug-pipeline-failure/parameter-changed.png":::
 
-There are three categories of changes with summaries viewable in the detail page, parameter change, input source, pipeline component. When the pipeline component is changed this means that there's a topology change inside or an inner node parameter change, you can select the folder icon on the pipeline component node to dig down into the details. Other changes can be detected by viewing the colored nodes in the compare graph.
-
-   :::image type="content" source="./media/how-to-debug-pipeline-failure/parameter-changed.png" alt-text="Screenshot showing the parameter changed and the component information tab." lightbox= "./media/how-to-debug-pipeline-failure/parameter-changed.png":::
-
-### Compare pipeline meta info and properties
+#### Compare pipeline metadata and properties
 
 If you investigate the dataset difference and find that data or topology doesn't seem to be the root cause of failure, you can also check the pipeline details like pipeline parameter, output or run settings.
 
@@ -122,11 +110,11 @@ To quickly check the topology comparison, select the pipeline name and select **
 
 :::image type="content" source="./media/how-to-debug-pipeline-failure/compare-graph.png" alt-text="Screenshot of detail comparison with compare graph highlighted." lightbox= "./media/how-to-debug-pipeline-failure/compare-graph.png":::
 
-### How to debug your failed node in a pipeline by comparing to similar completed node
+### Debug a failed node in a pipeline by comparing to a similar completed node
 
 If you only updated node properties and changed nothing in the pipeline, then you can debug the node by comparing it with the jobs that are submitted from the same component.
 
-#### Find the job to compare with
+To find the job to compare with
 
 1. Find a successful job to compare with by viewing all runs submitted from the same component.
     1. Right select the failed node and select *View Jobs*. This gives you a list of all the jobs.
