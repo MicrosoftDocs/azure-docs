@@ -80,6 +80,8 @@ items:
         href: how-to/fine-tune-model-llama.md
     - name: Deploy JAIS models
       href: how-to/deploy-jais-models.md
+    - name: Deploy Jamba models
+      href: how-to/deploy-jamba-models.md
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
       displayName: maas
