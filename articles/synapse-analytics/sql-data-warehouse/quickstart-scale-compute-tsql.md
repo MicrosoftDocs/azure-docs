@@ -45,7 +45,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    | Setting       | Suggested value | Description  |
    | --- | --- | --- |
    | Server type | Database engine | This value is required |
-   | Server name | The fully qualified server name | Here's an example: **mySampleDataWarehouseservername.database.windows.net**. |
+   | Server name | The fully qualified server name | Here's an example: **server-name.database.windows.net**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
    | Login | The server admin account | The account that you specified when you created the server. |
    | Password | The password for your server admin account | The password you specified when you created the server. |
@@ -64,7 +64,7 @@ The service objective setting contains the number of data warehouse units for th
 
 To view the current data warehouse units for your dedicated SQL pool (formerly SQL DW):
 
-1. Under the connection to `mySampleDataWarehouseservername.database.windows.net`, expand **System Databases**.
+1. Under the connection to `server-name.database.windows.net`, expand **System Databases**.
 1. Right-click on the `master` system database and select **New Query**. A new query window opens.
 1. Run the following query to select from the `sys.database_service_objectives` dynamic management view.
 
