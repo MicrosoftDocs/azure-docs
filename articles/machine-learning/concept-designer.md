@@ -17,11 +17,11 @@ ms.custom: designer
 Designer in Azure Machine Learning studio is a drag-and-drop user interface for building machine learning pipelines in Azure Machine Learning workspaces.
 
 > [!IMPORTANT]
-> Designer in Azure Machine Learning supports two types of pipelines, which use classic prebuilt (v1) or custom (v2) components. The two component types aren't compatible within pipelines. *This article applies to Designer (v2) with custom components.* 
-> 
-> - **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new classic prebuilt components are being added. For information about classic prebuilt components and the v1 designer, see [Azure Machine Learning designer (v1)](v1/concept-designer.md?view=azureml-api-1&preserve-view=true).
+> Designer in Azure Machine Learning supports two types of pipelines, which use classic prebuilt (v1) or custom (v2) components. The two component types aren't compatible within pipelines. **This article applies to Designer (v2) with custom components.** 
 > 
 > - **Custom components (v2)** let you wrap your own code as components, enabling sharing across workspaces and seamless authoring across Azure Machine Learning studio, CLI v2, and SDK v2 interfaces. It's best to use custom components for new projects, because they're compatible with Azure Machine Learning v2 and continue to receive new updates.
+> 
+> - **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new classic prebuilt components are being added. For information about classic prebuilt components and the v1 designer, see [Azure Machine Learning designer (v1)](v1/concept-designer.md?view=azureml-api-1&preserve-view=true).
 
 The following animated GIF shows how you can build a pipeline visually in Designer by dragging and dropping assets and connecting them.
 
@@ -35,7 +35,7 @@ Designer uses building blocks from Azure Machine Learning asset libraries to cre
  - [Models](how-to-manage-models.md?view=azureml-api-2&preserve-view=true&tabs=cli)
  - [Components](concept-component.md)
 
-The **Data**, **Model**, and **Components** tabs on the left side of Designer show assets in your workspace and in all Azure Machine Learning [registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md) that you have access to.
+The **Data**, **Model**, and **Component** tabs on the left side of Designer show assets in your workspace and in all Azure Machine Learning [registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md) that you have access to.
 
 :::image type="content" source="./media/concept-designer/asset-library.png" alt-text="Screenshot of the asset libraries filtered for one registry." lightbox= "./media/concept-designer/asset-library.png":::
 
