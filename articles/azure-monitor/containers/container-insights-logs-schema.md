@@ -57,62 +57,6 @@ resources
 ```
 
 
-## Kubernetes metadata
-When Kubernetes Logs Metadata is enabled, it adds a column to `ContainerLogV2` called `KubernetesMetadata` that enhances troubleshooting with simple Log Analytics queries and removes the need for joining with other tables. 
-The field in this column include: `PodLabels`, `PodAnnotations`, `PodUid`, `Image`, `ImageID`, `ImageRepo`, `ImageTag`.
-
-Enable Kubernetes metadata using [ConfigMap](./container-insights-data-collection-filter.md#configure-using-configmap) with the following settings. All metadata fields are collected by default when the `metadata_collection` is enabled. Uncomment `include_fields` to specify individual fields to be collected.
-
-    ```yaml
-    [log_collection_settings.metadata_collection]
-      # kube_meta_cache_ttl_secs is a configurable option for K8s cached metadata. Default is 60s. You may adjust it in below section [agent_settings.k8s_metadata_config]. Reference link: https://docs.fluentbit.io/manual/pipeline/filters/kubernetes#configuration-parameters
-      # if enabled will collect kubernetes metadata for ContainerLogv2 schema. Default is false.
-      enabled = true
-      # if include_fields commented out or empty, all fields will be included. If include_fields is set, only the fields listed will be included.
-      include_fields = ["podLabels","podAnnotations","podUid","image","imageID","imageRepo","imageTag"]
-    ```
-    
-
-## Annotation based filtering for workloads
-Annotation-based filtering enables you to exclude log collection for certain pods and containers by annotating the pod. This can reduce your logs ingestion cost significantly and allow you to focus on relevant information without sifting through noise. 
-
-Enable annotation based filtering using [ConfigMap](./container-insights-data-collection-filter.md#configure-using-configmap) with the following settings. 
-
-```yml
-[log_collection_settings.filter_using_annotations]
-  # if enabled will exclude logs from pods with annotations fluenbit.io/exclude: "true".
-  # Read more: https://docs.fluentbit.io/manual/pipeline/filters/kubernetes#kubernetes-annotations
-   enabled = true
-```
-
-You must also add the required annotations on your workload pod spec. The following table highlights different possible pod annotations.
-
-| Annotation | Description |
-| ------------ | ------------- |
-| `fluentbit.io/exclude: "true"` | Excludes both stdout & stderr streams on all the containers in the Pod |
-| `fluentbit.io/exclude_stdout: "true"` | Excludes only stdout stream on all the containers in the Pod |
-| `fluentbit.io/exclude_stderr: "true"` | Excludes only stderr stream on all the containers in the Pod |
-| `fluentbit.io/exclude_container1: "true"` | Exclude both stdout & stderr streams only for the container1 in the pod |
-| `fluentbit.io/exclude_stdout_container1: "true"` | Exclude only stdout only for the container1 in the pod |
-
->[!NOTE]
->These annotations are fluent bit based. If you use your own fluent-bit based log collection solution with the Kubernetes plugin filter and annotation based exclusion, it will stop collecting logs from both Container Insights and your solution.
-
-Here is an example of `fluentbit.io/exclude: "true"` annotation in Pod spec:
-
-```
-apiVersion: v1 
-kind: Pod 
-metadata: 
- name: apache-logs 
- labels: 
-  app: apache-logs 
- annotations: 
-  fluentbit.io/exclude: "true" 
-spec: 
- containers: 
- - name: apache 
-  image: edsiper/apache_logs 
 
 
 
@@ -123,10 +67,8 @@ spec:
 - **Enhanced ContainerLogV2 schema with log level:** Users can now assess application health based on color coded severity levels such as CRITICAL, ERROR, WARNING, INFO, DEBUG, TRACE, or UNKNOWN. It’s a crucial tool for incident response and proactive monitoring. By visually distinguishing severity levels, users can quickly pinpoint affected resources. The color-coded system streamlines the investigation process and allows users to drill down even further by selecting the panel for an explore experience for further debugging. However, it’s important to note that this functionality is only applicable when using Grafana. If you’re using Log Analytics Workspace, the LogLevel is simply another column in the ContainerLogV2 table.
 
 
-- **ConfigMap based log filtering for platform logs (System Kubernetes Namespaces):** Platform logs are emitted by containers in the system (or similar restricted) namespaces. By default, all the container logs from the system namespace are excluded to minimize the Log Analytics cost. However, in specific troubleshooting scenarios, container logs of system container play a crucial role. For instance, consider the coredns container within the kube-system namespace. To collect logs (stdout and stderr) exclusively from the coredns container form kube-system, you can enable the following settings in the [configmap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml).
 
-<!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/configmap-filtering.png" lightbox="./media/container-insights-logging-v2/configmap-filtering.png" alt-text="Screenshot that shows filtering fields." border="false":::
+
 
 - **Grafana dashboard for visualization:** The Grafana dashboard not only displays color-coded visualizations of log levels ranging from CRITICAL to UNKNOWN, but also dives into Log Volume, Log Rate, Log Records, Logs. Users can get Time-Sensitive Analysis, dynamic insights into log level trends over time, and crucial real-time monitoring. We also provide a Detailed breakdown by Computer, Pod, and Container, which empowers in-depth analysis and pinpointed troubleshooting.​ And finally in the new Logs table experience, users can view in depth details with expand view, and view the data in each column and zoom into the information they want to see.
 
@@ -188,19 +130,7 @@ The [ContainerLogV2 Grafana Dashboard](https://grafana.com/grafana/dashboards/20
 > When you initially load the Grafana Dashboard, it could throw some errors due to variables not yet being selected. To prevent this from recurring, save the dashboard after selecting a set of variables so that it becomes default on the first open.
 
 
-```
-#### ConfigMap based log filtering for platform logs (System Kubernetes Namespaces)
 
-1. Download the [configmap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) and modify the settings related to `collect_system_pod_logs` and `exclude_namespaces`.
-
-For example, in order to collect stdout & stderr logs of coredns container in the kube-system namespace, make sure that kube-system namespace is not in `exclude_namespaces` and this feature is restricted only to the following system namespaces:  kube-system, gatekeeper-system, calico-system, azure-arc, kube-public and kube-node-lease namespaces.
-
-<!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/configmap-filtering.png" lightbox="./media/container-insights-logging-v2/configmap-filtering.png" alt-text="Screenshot that shows filtering fields." border="false":::
-
-
-
-2. Apply the ConfigMap. See [configure configmap](./container-insights-data-collection-configmap.md#configure-and-deploy-configmap) to learn more about deploying and configuring the ConfigMap.
 
 
 ## Multi-line logging
