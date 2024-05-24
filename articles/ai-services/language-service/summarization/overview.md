@@ -69,31 +69,6 @@ This documentation contains the following article types:
 * **[Quickstarts](quickstart.md?pivots=rest-api&tabs=conversation-summarization)** are getting-started instructions to guide you through making requests to the service.
 * **[How-to guides](how-to/conversation-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
-# [Document summarization](#tab/document-summarization)
-
-This documentation contains the following article types:
-
-* **[Quickstarts](quickstart.md?pivots=rest-api&tabs=text-summarization)** are getting-started instructions to guide you through making requests to the service.
-* **[How-to guides](how-to/document-summarization.md)** contain instructions for using the service in more specific or customized ways.
-
-Document summarization uses natural language processing techniques to generate a summary for documents. There are two supported API approaches to automatic summarization: extractive and abstractive. 
-
----
-
-# [Text summarization](#tab/text-summarization)
-
-A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for both [**AbstractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-abstractive-summarization) and [**ExtractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-extractive-summarization) capabilities.
-
- Currently **Text Summarization** supports the following native document formats:
-
-|File type|File extension|Description|
-|---------|--------------|-----------|
-|Text| `.txt`|An unformatted text document.|
-|Adobe PDF| `.pdf`       |A portable document file formatted document.|
-|Microsoft Word|`.docx`|A Microsoft Word document file.|
-
-For more information, *see* [**Use native documents for language processing**](../native-document-support/use-native-documents.md)
-
 ## Key features for conversation summarization
 
 Conversation summarization supports the following features:
@@ -103,14 +78,6 @@ Conversation summarization supports the following features:
 * [**Recap**](how-to/conversation-summarization.md#get-narrative-summarization): Summarizes a conversation into a brief paragraph.
 * [**Narrative summarization**](how-to/conversation-summarization.md#get-narrative-summarization): Generates detail call notes, meeting notes or chat summaries of the input conversation.
 * [**Follow-up tasks**](how-to/conversation-summarization.md#get-narrative-summarization): Gives a list of follow-up tasks discussed in the input conversation.
-
-## When to use issue and resolution summarization
-
-* When there are aspects of an "issue" and "resolution" such as:
-   * The reason for a service chat/call (the issue).
-   * That resolution for the issue. 
-* You only want a summary that focuses on related information about issues and resolutions.
-* When there are two participants in the conversation, and you want to summarize what each had said.
 
 As an example, consider the following example conversation:
 
@@ -139,16 +106,26 @@ Conversation summarization feature would simplify the text as follows:
 | Customer wants to use the wifi connection on their Smart Brew 300. But it didn't work. |  One or two sentences     | issue  |
 | Checked if the power light is blinking slowly. Checked the Contoso coffee app. It had no prompt. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
 
-# [Conversation summarization](#tab/conversation-summarization)
-
-No information currently available.
-
 # [Document summarization](#tab/document-summarization)
 
-No information currently available.
+This documentation contains the following article types:
 
----
+* **[Quickstarts](quickstart.md?pivots=rest-api&tabs=text-summarization)** are getting-started instructions to guide you through making requests to the service.
+* **[How-to guides](how-to/document-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
+Document summarization uses natural language processing techniques to generate a summary for documents. There are two supported API approaches to automatic summarization: extractive and abstractive. 
+
+A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for both [**AbstractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-abstractive-summarization) and [**ExtractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-extractive-summarization) capabilities.
+
+ Currently **Text Summarization** supports the following native document formats:
+
+|File type|File extension|Description|
+|---------|--------------|-----------|
+|Text| `.txt`|An unformatted text document.|
+|Adobe PDF| `.pdf`       |A portable document file formatted document.|
+|Microsoft Word|`.docx`|A Microsoft Word document file.|
+
+For more information, *see* [**Use native documents for language processing**](../native-document-support/use-native-documents.md)
 
 ## Get started with summarization
 
@@ -171,9 +148,7 @@ No information currently available.
 * Summarization takes text for analysis. For more information, see [Data and service limits](../concepts/data-limits.md) in the how-to guide.
 * Summarization works with various written languages. For more information, see [language support](language-support.md?tabs=document-summarization).
 
-
 ---
-
 
 ## Reference documentation and code samples
 
