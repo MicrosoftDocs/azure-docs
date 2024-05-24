@@ -37,7 +37,7 @@ A test can be run in a debug mode to validate the test plan configuration and ap
 
 - This is applicable only for URL based and JMeter based tests. Locust tests don't support debug mode.
 
-- A test run in debug mode cannot be marked as baseline test run.
+- A test run in debug mode can't be marked as baseline test run.
 
 - A test run in debug mode is not inclided in the metrics trends.
 
