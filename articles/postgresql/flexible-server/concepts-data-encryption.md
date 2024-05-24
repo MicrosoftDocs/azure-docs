@@ -64,8 +64,10 @@ For a PostgreSQL server to use CMKs stored in Key Vault for encryption of the DE
 
 The Key Vault administrator can also [enable logging of Key Vault audit events](../../key-vault/general/howto-logging.md?tabs=azure-cli), so they can be audited later.
 
+Alternative to *access rights* assignment , as explained above, you can create a new Azure RBAC role assignment with the role [Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations).
+
 > [!IMPORTANT]  
-> Not providing the preceding access rights to a managed identity for access to Key Vault might result in failure to fetch an encryption key and failure to set up the CMK feature.
+> Not providing the preceding access rights or RBAC assignment to a managed identity for access to Key Vault might result in failure to fetch an encryption key and failure to set up the CMK feature.
 
 When you configure the server to use the CMK stored in Key Vault, the server sends the DEK to Key Vault for encryption. Key Vault returns the encrypted DEK stored in the user database. When necessary, the server sends the protected DEK to Key Vault for decryption. Auditors can use Azure Monitor to review Key Vault audit event logs, if logging is turned on.
 
@@ -85,7 +87,7 @@ Here are requirements for configuring Key Vault:
 
 - Enable purge protection to enforce a mandatory retention period for deleted vaults and vault objects.
 
-- Grant the Azure Database for PostgreSQL flexible server instance access to Key Vault with the **get**, **list**, **wrapKey**, and **unwrapKey** permissions, by using its unique managed identity.
+- Grant the Azure Database for PostgreSQL flexible server instance access to Key Vault with the **get**, **list**, **wrapKey**, and **unwrapKey** permissions, by using its unique managed identity.  Alternatively, create a new Azure RBAC role assignment with the role **[Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations)** for the managed identity.
 
 Here are requirements for configuring the CMK in Azure Database for PostgreSQL flexible server:
 
@@ -170,7 +172,7 @@ Some of the reasons why the server state becomes **Inaccessible** are:
 
 - If you delete the Key Vault instance, the Azure Database for PostgreSQL flexible server instance can't access the key and moves to an **Inaccessible** state. To make the server **Available**, [recover the Key Vault instance](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption.
 - If you delete the key from Key Vault, the Azure Database for PostgreSQL flexible server instance can't access the key and moves to an **Inaccessible** state. To make the server **Available**, [recover the key](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption.
-- If you delete, from Microsoft Entra ID, a [managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) that's used to retrieve a key from Key Vault, the Azure Database for PostgreSQL flexible server instance can't access the key and moves to an **Inaccessible** state. To make the server **Available**, [recover the identity](../../active-directory/fundamentals/recover-from-deletions.md) and revalidate data encryption.
+- If you delete, from Microsoft Entra ID, a [managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) that's used to retrieve a key from Key Vault,  or by delete Azure RBAC role assignment with the role [Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations). the Azure Database for PostgreSQL flexible server instance can't access the key and moves to an **Inaccessible** state. To make the server **Available**, [recover the identity](../../active-directory/fundamentals/recover-from-deletions.md) and revalidate data encryption.
 - If you revoke the Key Vault **list**, **get**, **wrapKey**, and **unwrapKey** access policies from the [managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) that's used to retrieve a key from Key Vault, the Azure Database for PostgreSQL flexible server instance can't access the key and moves to an **Inaccessible** state. [Add required access policies](../../key-vault/general/assign-access-policy.md) to the identity in Key Vault.
 - If you set up overly restrictive Key Vault firewall rules, Azure Database for PostgreSQL flexible server can't communicate with Key Vault to retrieve keys. When you configure a Key Vault firewall, be sure to select the option to allow [trusted Microsoft services](../../key-vault/general/overview-vnet-service-endpoints.md#trusted-services) to bypass the firewall.
 
@@ -178,6 +180,16 @@ Some of the reasons why the server state becomes **Inaccessible** are:
 > When a key is disabled, deleted, expired, or not reachable, a server that has data encrypted through that key becomes **Inaccessible**, as stated earlier. The server won't become available until you re-enable the key or assign a new key.
 >
 > Generally, a server becomes **Inaccessible** within 60 minutes after a key is disabled, deleted, expired, or not reachable. After key the becomes available, the server might take up to 60 minutes to become **Accessible** again.
+
+## Recovering from Managed Identity Deletion 
+
+In rare case when Entra ID managed identity, which used by CMK to retrieve a key from Azure Key Vault (AKV), is deleted in Microsoft Entra ID following are recommended steps to recover:
+1. Either [recover the identity](../../active-directory/fundamentals/recover-from-deletions.md) or create new managed Entra ID identity 
+2. Make sure this identity has proper permissions for operations on key in Azure Key Vault (AKV). Depending on the permission model of the key vault (access policy or Azure RBAC), key vault access can be granted either by creating an access policy on the key vault (**list**, **get**, **wrapKey**, and **unwrapKey** access policies), or by creating a new Azure RBAC role assignment with the role [Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations).
+3. Revalidate CMK data encryption with a new or recovered identity in Azure Database for PostgreSQL - Flexible Server Data Encryption Azure portal screen. 
+> [!IMPORTANT]
+> Simply creating new Entra ID identity with the same name as deleted identity doesn't recover from managed identity deletion.
+
 
 ## Using data encryption with CMKs and geo-redundant business continuity features
 
