@@ -4,7 +4,7 @@ description: Learn how to configure macOS client computers to connect to Azure u
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: howto
-ms.date: 05/09/2024
+ms.date: 05/24/2024
 ms.author: cherylmc
 ---
 
@@ -14,8 +14,7 @@ This article helps you configure your macOS client computer to connect to an Azu
 
 ## Prerequisites
 
-* Configure your VPN gateway for point-to-site VPN connections that specify Microsoft Entra ID authentication. See [Configure a P2S VPN gateway for Microsoft Entra ID authentication](point-to-site-entra-gateway.md).
-* If your device is running macOS M1 or macOS M2, you must install Rosetta software if it's not already installed. See [If you need to install Rosetta on your Mac](https://support.apple.com/en-us/HT211861).
+Configure your VPN gateway for point-to-site VPN connections that specify Microsoft Entra ID authentication. See [Configure a P2S VPN gateway for Microsoft Entra ID authentication](point-to-site-entra-gateway.md).
 
 ## Workflow
 
