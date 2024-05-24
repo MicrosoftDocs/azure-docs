@@ -40,7 +40,7 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * The maximum number of secrets that are supported by a cluster that has KMS turned on is 2,000. However, it's important to note that [KMS v2][kms-v2-support] isn't limited by this restriction and can handle a higher number of secrets.
 * Bring your own (BYO) Azure key vault from another tenant isn't supported.
 * With KMS turned on, you can't change the associated key vault mode (public versus private). To [update a key vault mode][update-a-key-vault-mode], you must first turn off KMS, and then turn it on again.
-* If a cluster has KMS turned on, has a private key vault, it must use the API Server VNet integration tunnel. Konnectivity is not supported.
+* If a cluster has KMS turned on and has a private key vault, it must use the [API Server VNet Integration (preview)][api-server-vnet-integration] tunnel. Konnectivity isn't supported.
 * Using the Virtual Machine Scale Sets API to scale the nodes in the cluster down to zero deallocates the nodes. The cluster then goes down and becomes unrecoverable.
 * After you turn off KMS, you can't destroy the keys. Destroying the keys causes the API server to stop working.
 
