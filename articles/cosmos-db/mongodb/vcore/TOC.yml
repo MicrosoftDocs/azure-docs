@@ -36,6 +36,8 @@
           href: vector-search-ai.md
     - name: MongoDB feature support
       href: compatibility.md
+    - name: Cross-region replication
+      href: cross-region-replication.md
     - name: Reliability
       href: /azure/reliability/reliability-cosmos-mongodb?toc=/azure/cosmos-db/mongodb/vcore/toc.json
     - name: Migration options
@@ -70,6 +72,8 @@
       href: how-to-scale-cluster.md
     - name: Restore cluster
       href: how-to-restore-cluster.md
+    - name: Manage replication
+      href: how-to-cluster-replica.md
     - name: Search and query text
       href: how-to-create-text-index.md
     - name: Monitor diagnostics logs

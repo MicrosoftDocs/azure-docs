@@ -76,7 +76,7 @@ sections:
           Does Document Intelligence integrate with other Microsoft services?
         answer: |
 
-          Yes, Document Intelligence integrates with the following services:
+          "Yes, Document Intelligence integrates with the following services:"
 
           - [AI Builder workflows](/ai-builder/create-form-processing-model?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json)
 
@@ -256,6 +256,17 @@ sections:
 
           - Re-create a custom project with the migrated Document Intelligence resource and specify the same storage account.
 
+      - question: |
+         Are there separate URL endpoints for Document Intelligence sovereign cloud regions?
+        answer: |
+
+          "Yes. Document Intelligence Studio has separate URL endpoints for sovereign cloud regions:"
+
+          - "URL for the Azure US Government cloud (Azure Fairfax): [Document Intelligence Studio US Government](https://formrecognizer.appliedai.azure.us/studio)".
+
+          - "URL Microsoft Azure operated by 21Vianet (Azure in China): [Document Intelligence Studio China](https://formrecognizer.appliedai.azure.cn/studio)".
+
+
   - name: App development
     questions:
       - question: |
@@ -284,7 +295,7 @@ sections:
 
             | Supported language Azure SDK reference|Supported API versions|
             | ----- | -----|
-            | &bull; C#/.NET: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)<br><br>&bull; Java: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)<br><br>&bull; JavaScript: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)<br><br>&bull; Python [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html)  |[2023-10-31-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&branch=docintelligence&tabs=HTTP)<br>[v3.0](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
+            | &bull; C#/.NET: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)<br><br>&bull; Java: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html)<br><br>&bull; JavaScript: [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)<br><br>&bull; Python [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html)  |[2023-10-31-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&branch=docintelligence&tabs=HTTP)<br>[v3.0](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [v2.1](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) |
 
           For more information, see [Supported clients for v4.0](sdk-overview-v4-0.md#supported-clients) and [Supported clients for v3.1](sdk-overview-v3-1.md#supported-clients).
 
@@ -335,7 +346,7 @@ sections:
 
            - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool](/azure/ai-services/document-intelligence/label-tool) and a [Document Intelligence container](/azure/ai-services/document-intelligence/containers/install-run).
 
-           - Your project is highly dependent on [Document Intelligence v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), and you want to keep using the v2.1 APIs.
+           - Your project is highly dependent on [Document Intelligence v2.1](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true), and you want to keep using the v2.1 APIs.
 
   - name: Service limits and pricing
     questions:

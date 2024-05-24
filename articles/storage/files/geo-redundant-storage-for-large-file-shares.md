@@ -4,7 +4,7 @@ description: Azure Files geo-redundancy for large file shares significantly impr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 04/22/2024
+ms.date: 05/21/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -76,7 +76,7 @@ Register-AzProviderFeature -FeatureName AllowLfsForGRS -ProviderNamespace Micros
 ## Configure geo-redundancy and 100 TiB capacity for standard SMB file shares 
 
 In regions that are now generally available:
-- All standard SMB file shares (new and existing) support up to 100 TiB capacity and you can select any redundancy option supported in the region. Since all standard SMB file shares now support up to 100 TiB capacity, the LargeFileSharesState property on storage accounts is no longer used and will be removed in the future. 
+- All standard SMB file shares (new and existing) support up to 100 TiB capacity and you can select any redundancy option supported in the region. Since all standard SMB file shares now support up to 100 TiB capacity, the large file share (LargeFileSharesState) property on storage accounts is no longer used and will be removed in the future. 
 - If you have existing file shares, you can now increase the file share size up to 100 TiB (share quotas aren't automatically increased).
 - Performance limits (IOPS and throughput) for your file shares have automatically increased to the storage account limits. 
 
