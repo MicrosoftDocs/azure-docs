@@ -23,7 +23,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
     - [User.Read](/graph/permissions-reference#applicationreadall)
     - [User.ReadBasic.All](/graph/permissions-reference#userreadbasicall)
    
-Upon first login to the Admin UI it will request the necessary permissions. You can also grant the required permissions in advance, see [App Registration API Permission documentation](/entra/identity-platform/quickstart-configure-app-access-web-apis#application-permission-to-microsoft-graph).
+  Upon first login to the Admin UI it will request the necessary permissions. You can also grant the required permissions in advance, see [App Registration API Permission documentation](/entra/identity-platform/quickstart-configure-app-access-web-apis#application-permission-to-microsoft-graph).
 
 ## Environment setup
 1. Use the Dev Container in Visual Studio Code to deploy the OSDU Admin UI to eliminate conflicts from your local machine.
