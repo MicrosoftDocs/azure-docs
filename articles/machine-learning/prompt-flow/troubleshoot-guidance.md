@@ -44,6 +44,7 @@ To resolve the issue, you have two options:
       | Vector Index Lookup | promptflow_vectordb.tool.vector_index_lookup.VectorIndexLookup.search |
       | Vector DB Lookup | promptflow_vectordb.tool.vector_db_lookup.VectorDBLookup.search |
       | Content Safety (Text) | content_safety_text.tools.content_safety_text_tool.analyze_text |
+
   - Save the *flow.dag.yaml* file.
 
 - **Option 2**
@@ -265,3 +266,18 @@ After you deploy the endpoint and want to test it in the **Test tab** in the end
 ### Access denied to list workspace secret
 
 If you encounter an error like "Access denied to list workspace secret", check whether you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint).
+
+## Authentication and identity related issues
+
+### How do I use credential-less data store in prompt flow?
+
+You can follow [Identity-based data authentication](../how-to-administrate-data-authentication.md#identity-based-data-authentication) this part to make your data store credential-less. 
+
+To use credential-less data store in prompt flow, you need to grand enough permissions to user identity or managed identity to access the data store.
+- If you're using user identity this default option in prompt flow, you need to make sure the user identity has following role on the storage account:
+    - `Storage Blob Data Contributor` on the storage account, at least need read/write (better have delete) permission.
+    - `Storage File Data Privileged Contributor` on the storage account, at least need read/write (better have delete) permission
+- If you're using user assigned managed identity, you need to make sure the managed identity has following role on the storage account:
+    - `Storage Blob Data Contributor` on the storage account, at least need read/write (better have delete) permission.
+    - `Storage File Data Privileged Contributor` on the storage account, at least need read/write (better have delete) permission
+    - Meanwhile, you need to assign user identity `Storage Blob Data Read` role to storage account, if your want use prompt flow to authoring and test flow.
