@@ -283,7 +283,7 @@ items:
       href: how-to-create-group-machine-dependencies.md
     - name: Analyze machine dependencies (agentless)
       href: how-to-create-group-machine-dependencies-agentless.md
-  - name: Assessments
+  - name: Assessment
     items:
     - name: Enable application and code assessment
       href: appcat/index.yml
