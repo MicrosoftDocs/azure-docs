@@ -614,8 +614,7 @@ Define an imperative binding as follows:
 
 ### Single attribute example
 
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md)
-with blob path that's defined at run time, then writes a string to the blob.
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md) with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs
 public static class IBinderExample
