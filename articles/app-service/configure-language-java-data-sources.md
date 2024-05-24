@@ -417,9 +417,6 @@ To confirm that the datasource was added to the JBoss server, SSH into your weba
 
 ::: zone-end
 
-[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
-
-
 ## Next steps
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
