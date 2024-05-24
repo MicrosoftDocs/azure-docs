@@ -23,11 +23,11 @@ Advanced Network Observability is the inaugural feature of the Advanced Containe
 
 Advanced Network Observability unlocks Hubble metrics, Hubble’s command line interface (CLI) and the Hubble user interface (UI) on your AKS clusters providing deep, actionable insights into your containerized workloads. It allows you to precisely detect and root-cause network related issues in AKS through its next-level monitoring and diagnostics tools that provide unparalleled visibility. This ensures that your containerized applications are not only secure and compliant but also meet or exceed your performance and reliability goals, allowing you to confidently manage and scale your infrastructure.
 
-For more information about Advanced Network Observability, see [What is Advanced Network Observability?](/azure/aks/intro-kubernetes).
+For more information about Advanced Network Observability, see [What is Advanced Network Observability?](advanced-network-observability-concepts.md).
 
 ## Pricing
 > [!IMPORTANT]
-> Advanced Container Networking Services will be a paid offering starting May 30th, 2024. 
+> Advanced Container Networking Services will be a paid offering starting June 4th, 2024. 
 
 ## Next steps
 
