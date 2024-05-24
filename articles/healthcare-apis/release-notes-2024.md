@@ -80,7 +80,7 @@ Learn more:
 Bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we enabled parallel processing.
 
 Learn more:
-- [Bundle parallelization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+- [Bundle parallelization](./../healthcare-apis/fhir/rest-api-capabilities.md)
 
 #### Import operation accepts multiple resource types in single file
 

@@ -70,6 +70,10 @@ You can experience flexible and cost-efficient event streaming through Event Hub
 ### Scalable
 With Event Hubs, you can start with data streams in megabytes, and grow to gigabytes or terabytes. The [Auto inflate](event-hubs-auto-inflate.md) feature is one of the many options available to scale the number of throughput units or processing units to meet your usage needs.
 
+### Supports streaming large messages 
+
+In most streaming scenarios, data is characterized by being lightweight, typically less than 1 MB, and having a high throughput. However, there are instances where messages cannot be divided into smaller segments. Azure Event Hubs can effortlessly accommodate events up to 20 MB with self-serve scalable [dedicated clusters](event-hubs-dedicated-overview.md)at no extra charge. This capability allows Event Hubs to handle a wide range of message sizes, thereby ensuring uninterrupted business operations. For more information, refer stream [large messages](event-hubs-quickstart-stream-large-messages.md).
+
 ### Capture streaming data for long term retention and batch analytics
 Capture your data in near-real time in an Azure Blob storage or Azure Data Lake Storage for long-term retention or micro-batch processing. You can achieve this behavior on the same stream you use for deriving real-time analytics. Setting up capture of event data is fast.  
 

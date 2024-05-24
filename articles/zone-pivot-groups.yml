@@ -38,6 +38,24 @@ groups:
     title: Single Server
   - id: postgres-flexible-server
     title: Flexible Server
+# Owner: ialonso
+- id: postgresql-server-version
+  title: PostgreSQL Server Versions
+  prompt: Choose a PostgreSQL version
+  pivots:
+  - id: postgresql-16
+    title: PostgreSQL 16
+  - id: postgresql-15
+    title: PostgreSQL 15
+  - id: postgresql-14
+    title: PostgreSQL 14
+  - id: postgresql-13
+    title: PostgreSQL 13
+  - id: postgresql-12
+    title: PostgreSQL 12
+  - id: postgresql-11
+    title: PostgreSQL 11
+# Owner: kraigb
 # Programming language groups
 - id: programming-languages-set-one
   title: Programming languages
@@ -464,10 +482,10 @@ groups:
   title: Container hosting
   prompt: Choose a container host
   pivots:
+  - id: container-apps
+    title: Azure Container Apps
   - id: azure-functions
     title: Azure Functions
-  - id: container-apps
-    title: Azure Container Apps (preview)
   - id: azure-arc
     title: Azure Arc (preview)
 - id: df-languages
@@ -938,6 +956,31 @@ groups:
     title: CLI
   - id: programming-language-rest
     title: REST
+- id: programming-languages-speech-services-studio
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language or tool
+  pivots:
+  - id: ai-studio
+    title: AI Studio
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-cli
+    title: CLI
+  - id: programming-language-rest
+    title: REST
 - id: programming-languages-ai-services
 # Owner: eur
   title: Programming languages
@@ -1000,6 +1043,15 @@ groups:
   pivots:
   - id: speech-studio
     title: Speech Studio
+  - id: rest-api
+    title: REST
+- id: ai-studio-rest
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: ai-studio
+    title: AI Studio
   - id: rest-api
     title: REST
 - id: speech-cli-rest
@@ -2104,6 +2156,37 @@ groups:
     title: Python
   - id: openai-java
     title: Java
+# Owner: msangapu
+- id: app-spaces-component-types
+  title: App Spaces components
+  prompt: Select the component type
+  pivots:
+  - id: static
+    title: Static app component (front end)
+  - id: app
+    title: App component (back end)
+  - id: database
+    title: Database
+# Owner: msangapu
+- id: app-spaces-add-component
+  title: App Spaces apps
+  prompt: Add component from
+  pivots:
+  - id: custom
+    title: GitHub repository
+  - id: sample
+    title: Starter app (Template)
+  - id: database
+    title: Database
+# Owner: msangapu
+- id: app-spaces-frontend-backend
+  title: App Spaces apps
+  prompt: Choose an app type
+  pivots:
+  - id: frontend
+    title: Front end (Static Web App)
+  - id: backend
+    title: Back end (Azure Container App)
 # Owner: mbullwin
 - id: qnamaker-quickstart
   title: Programming languages
@@ -2467,16 +2550,16 @@ groups:
   - id: aca-vnet-custom
     title: Custom
 # Onwer: cshoe
-- id: azure-portal-cli-azd
+- id: azure-azd-cli-portal
   title: Interface
   prompt: Choose your interface
   pivots:
-  - id: portal
-    title: Azure portal
-  - id: azurecli
-    title: Azure CLI
   - id: azd
     title: Azure Developer CLI
+  - id: azurecli
+    title: Azure CLI
+  - id: portal
+    title: Azure portal
 # Owner: cshoe
 - id: container-apps-java-artifacts
   title: Artifact type
@@ -2535,6 +2618,17 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
+# Owner: asabbour
+- id: bicep-azure-cli-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
+  - id: bicep
+    title: Bicep
 # Owner: ruslany
 - id: azure-cli-bicep
   title: Interaction type

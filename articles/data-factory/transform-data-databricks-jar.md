@@ -8,7 +8,7 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Transform data by running a Jar activity in Azure Databricks
