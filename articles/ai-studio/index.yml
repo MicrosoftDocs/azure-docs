@@ -4,14 +4,15 @@ title: Azure AI Studio documentation # < 60 chars
 summary:  Build cutting-edge, market-ready, responsible applications for your organization with AI.
 metadata:
   title: Azure AI Studio documentation
-  description: Azure AI Studio helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.  
+  description: Azure AI Studio helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
   ms.service: azure-ai-studio
+  ms.custom:
+    - build-2024
   ms.topic: landing-page
   ms.reviewer: eur
   ms.author: eur
   author: eric-urban
   ms.date: 5/21/2024
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -65,7 +66,7 @@ landingContent:
         links:
           - text: Get started with the Azure AI SDK
             url: how-to/develop/sdk-overview.md
-          - text: Work with Azure AI projects in VS Code
+          - text: Work with AI Studio projects in VS Code
             url: how-to/develop/vscode.md
       - linkListType: concept
         links:

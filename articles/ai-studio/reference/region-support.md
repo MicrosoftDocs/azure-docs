@@ -9,7 +9,7 @@ ms.date: 5/21/2024
 ms.reviewer: deeikele
 ms.author: eur
 author: eric-urban
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ---
 
 # Azure AI Studio feature availability across clouds regions
@@ -59,6 +59,10 @@ For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/op
 ## Speech capabilities
 
 Azure AI Speech capabilities including custom neural voice vary in regional availability due to underlying hardware availability. See [Speech service supported regions](../../ai-services/speech-service/regions.md) for an overview.
+
+## Serverless API deployments
+
+Some models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. For information on the regions where each model is available, see [Region availability for models in Serverless API endpoints](../how-to/deploy-models-serverless-availability.md).
 
 ## Next steps
 

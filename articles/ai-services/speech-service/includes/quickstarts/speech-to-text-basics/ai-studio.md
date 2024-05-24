@@ -1,6 +1,8 @@
 ---
 author: eric-urban
 ms.service: azure-ai-speech
+ms.custom:
+  - build-2024
 ms.topic: include
 ms.date: 5/21/2024
 ms.author: eur
@@ -44,4 +46,3 @@ In this quickstart, you try real-time speech to text in [Azure AI Studio](https:
 1. You can view the real-time speech to text results in the **Results** section.
 
     :::image type="content" source="../../../media/ai-studio/real-time-speech-to-text-results.png" alt-text="Screenshot of the real-time transcription results in Azure AI Studio." lightbox="../../../media/ai-studio/real-time-speech-to-text-results.png":::
-

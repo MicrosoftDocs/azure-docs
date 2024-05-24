@@ -6,11 +6,12 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
 ms.date: 5/21/2024
 ms.reviewer: siarora
 ms.author: larryfr
-author: Blackmist 
+author: Blackmist
 ---
 
 # Plan and manage costs for Azure AI Studio
@@ -73,7 +74,7 @@ Each VM is billed per hour it's running. Cost depends on VM specifications. VMs 
 Compute instances also incur P10 disk costs even in stopped state. This cost is because any user content saved to disk is persisted across the stopped state similar to Azure VMs. We're working on making the OS disk size/ type configurable to better control costs. For Azure Virtual Networks, one virtual network is billed per subscription and per region. Virtual networks can't span regions or subscriptions. Setting up private endpoints in virtual network setups might also incur charges. If your virtual network uses an Azure Firewall, the firewall might also incur charges. Bandwidth usage is charged; the more data transferred, the more you're charged. 
 
 > [!TIP]
-> Using an managed virtual network is free. However some features of the managed network rely on Azure Private Link (for private endpoints) and Azure Firewall (for FQDN rules) and will incur charges. For more information, see [Managed virtual network isolation](configure-managed-network.md#pricing).
+> Using a managed virtual network is free. However some features of the managed network rely on Azure Private Link (for private endpoints) and Azure Firewall (for FQDN rules) and will incur charges. For more information, see [Managed virtual network isolation](configure-managed-network.md#pricing).
 
 ### Costs might accrue after resource deletion
 

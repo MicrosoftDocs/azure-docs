@@ -103,8 +103,7 @@ In the _Basics_ section, begin by configuring your new app and linking it to a G
 | Resource Group | Select the **Create new** link, and enter **static-web-apps-test** in the textbox. |
 | Name | Enter **my-first-static-web-app** in the textbox. |
 | Plan type | Select **Free**. |
-| Azure Functions and staging details | Select a region closest to you. |
-| Source | Select **GitHub**. |
+| Source | Select **GitHub** and sign in to GitHub if necessary. |
 
 Select **Sign-in with GitHub** and authenticate with GitHub.
 
@@ -135,7 +134,6 @@ In the _Basics_ section, begin by configuring your new app and linking it to an 
 | Resource Group | Select the **Create new** link, and enter **static-web-apps-test** in the textbox. |
 | Name | Enter **my-first-static-web-app** in the textbox. |
 | Plan type | Select **Free**. |
-| Azure Functions and staging details | Select a region closest to you. |
 | Source | Select **DevOps**. |
 | Organization | Select your organization. |
 | Project | Select your project. |

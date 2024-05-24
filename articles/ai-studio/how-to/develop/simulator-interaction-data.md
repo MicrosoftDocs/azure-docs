@@ -6,6 +6,7 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: eur
@@ -29,7 +30,7 @@ pip install promptflow-evals
 
 from promptflow.evals.synthetic import AdversarialSimulator
 ```
-The adversarial simulator works by setting up a service-hosted GPT large language model to simulate an adversarial user and interact with your application. An Azure AI project is required to run the adversarial simulator:
+The adversarial simulator works by setting up a service-hosted GPT large language model to simulate an adversarial user and interact with your application. An AI Studio project is required to run the adversarial simulator:
 ```python
 from azure.identity import DefaultAzureCredential
 
@@ -121,12 +122,6 @@ The `messages` in `output` is a list of role-based turns. For each turn, it cont
 
 ```json
 {
-    "template_parameters": [
-        {
-            "name": "<name_of_simulated_agent>",
-            "chatbot_name": "<name_of_chatbot>"
-        }
-    ],
     "messages": [
         {
             "content": "<conversation_turn_content>", 

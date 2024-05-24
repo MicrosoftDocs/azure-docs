@@ -4,6 +4,8 @@ titleSuffix: Azure AI Studio
 description: This article provides instructions on how to get started with Azure AI SDKs.
 manager: nitinme
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: overview
 ms.date: 5/21/2024
 ms.reviewer: eur

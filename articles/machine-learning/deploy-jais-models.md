@@ -9,7 +9,7 @@ ms.date: 05/02/2024
 ms.reviewer: haelhamm
 ms.author: mopeakande
 author: msakande
-ms.custom: [references_regions]
+ms.custom: references_regions, build-2024
 ---
 
 # How to deploy JAIS with Azure Machine Learning Studio
@@ -251,9 +251,11 @@ Response:
 
 ##### More inference examples
 
-| **Package**       | **Sample Notebook**                             |
+| **Sample Type**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| CLI using CURL and Python web requests - JAIS   | [jais.ipynb](https://aka.ms/samples/jais/webrequests)|
+| CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/jais/webrequests-sample) |
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/jais/openaisdk) |
+| LiteLLM | [litellm.ipynb](https://aka.ms/jais/litellm-sample) |
 
 
 ## Cost and quotas

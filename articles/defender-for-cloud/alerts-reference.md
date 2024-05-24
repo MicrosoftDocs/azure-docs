@@ -833,6 +833,16 @@ While this action might be legitimate, attackers can try utilizing VM Access ext
 
 **Severity**: Low
 
+### **AzureHound tool invocation detected**
+
+(ARM_AzureHound)
+
+**Description**: AzureHound was run in your subscription and performed information gathering operations to enumerate resources. Threat actors use automated tools, like AzureHound, to enumerate resources and use them to access sensitive data or perform lateral movement. This was detected by analyzing Azure Resource Manager operations in your subscription. This operation might indicate that an identity in your organization was breached, and that the threat actor is trying to compromise your environment.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Discovery
+
+**Severity**: Medium
+
 ## Alerts for Linux machines
 
 Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in addition to the ones provided by Microsoft Defender for Endpoint. The alerts provided for Linux machines are:

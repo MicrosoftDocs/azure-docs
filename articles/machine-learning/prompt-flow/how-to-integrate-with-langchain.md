@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao

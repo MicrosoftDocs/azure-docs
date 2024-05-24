@@ -691,6 +691,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-maps/migrate-from-bing-maps-web-services.md",
+            "redirect_url": "/azure/azure-maps/migrate-bing-maps-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/migrate-from-bing-maps.md",
+            "redirect_url": "/azure/azure-maps/migrate-bing-maps-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-portal/resource-group-portal-linked-resources.md",
             "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
             "redirect_document_id": false
@@ -1859,6 +1869,14 @@
             "source_path_from_root": "/articles/jenkins/java-deploy-webapp-tutorial.md",
             "redirect_url": "/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-spaces/quickstart-deploy-web-app.md",
+            "redirect_url": "/azure/app-spaces/quickstart-deploy-sample-app"
+        },
+        {
+            "source_path_from_root": "/articles/app-spaces/deploy-app-spaces-template.md",
+            "redirect_url": "/azure/app-spaces/quickstart-deploy-your-app"        
         },
         {
             "source_path_from_root": "/articles/application-insights/app-insights-analytics-reference.md",
@@ -3616,6 +3634,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-web.md",
+            "redirect_url": "/azure/azure-functions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/twilio-dotnet-how-to-use-for-voice-sms.md",
             "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
             "redirect_document_id": false
@@ -4037,7 +4060,22 @@
         },
         {
             "source_path_from_root":"/articles/cosmos-db/high-availability.md",
-            "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql.md",
+            "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql",
+            "redirect_document_id":false
+        },
+        {
+            "source_path_from_root":"/articles/migrate/how-to-assess.md",
+            "redirect_url":"/azure/migrate/whats-new#update-april-2024",
+            "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root":"/articles/migrate/prepare-isv-movere.md",
+            "redirect_url":"/azure/migrate/whats-new#update-april-2024",
+            "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root":"/articles/aks/troubleshoot-udp-packet-drops.md",
+            "redirect_url":"/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id":false
         }
     ]

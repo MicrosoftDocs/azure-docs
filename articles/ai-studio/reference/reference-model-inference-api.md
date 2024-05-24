@@ -14,7 +14,7 @@ ms.custom:
  - build-2024
 ---
 
-# Azure AI Model Inference API
+# Azure AI Model Inference API | Azure AI Studio
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
@@ -43,8 +43,8 @@ Models deployed to [serverless API endpoints](../how-to/deploy-models-serverless
 > [!div class="checklist"]
 > * [Cohere Embed V3](../how-to/deploy-models-cohere-embed.md) family of models
 > * [Cohere Command R](../how-to/deploy-models-cohere-command.md) family of models
-> * [Llama2](../how-to/deploy-models-llama.md) family of models
-> * [Llama3](../how-to/deploy-models-llama.md) family of models
+> * [Meta Llama 2](../how-to/deploy-models-llama.md) family of models
+> * [Meta Llama 3](../how-to/deploy-models-llama.md) family of models
 > * [Mistral-Small](../how-to/deploy-models-mistral.md)
 > * [Mistral-Large](../how-to/deploy-models-mistral.md)
 > * [Phi-3](../how-to/deploy-models-phi-3.md) family of models

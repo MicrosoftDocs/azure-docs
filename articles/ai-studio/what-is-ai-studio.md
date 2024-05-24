@@ -10,7 +10,7 @@ ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
-ms.custom: ignite-2023
+ms.custom: ignite-2023, build-2024
 ---
 
 # What is Azure AI Studio?
@@ -73,7 +73,7 @@ Design and safeguard applications.
 ### Enterprise-grade production at scale 
 
 Deploy AI innovations to Azure’s managed infrastructure with continuous monitoring and governance across environments. 
-- Collaborative AI hubs
+- Collaborative hubs
 - LLMOps
 - Monitoring & observability
 - IT governance
@@ -145,7 +145,7 @@ After you've created a hub (whether or not you have a project in it), you can vi
 From the left navigation pane on the **Hub overview** page, you can access the same model catalog, model benchmarks, prompt catalog, and AI Services pages that you can access from the [**Home** page](#home-page). You can also access the following pages:
 
 - **All projects:** This is one of the places in AI Studio where you can create new projects. You can view a list of all the projects that you have access to in the hub. You can also filter the projects by project name, hub name, or region. For more information about creating projects, see [Create a project](how-to/create-projects.md).
-- **Playgrounds:** This is where you can experiment with your data and prompts for generative AI models. Available playgrounds include chat and assistants. 
+- **Playgrounds:** This is where you can experiment with your data and prompts for generative AI models. Available playgrounds include chat, assistants, and more. 
 - **Shared resources:** This is where you can view and manage shared resources in the hub. Shared resources include [deployments](./concepts/deployments-overview.md), [connections](./concepts/connections.md), [compute instances](./how-to/create-manage-compute.md), [users](./concepts/rbac-ai-studio.md), policies, and [content filters](./concepts/content-filtering.md). 
 
 ## Project view
@@ -165,12 +165,11 @@ You can also access the following pages:
 - Tools: This is where you can access tools for prompt flow, tracing, evaluations, and fine-tuning. You can also access the [Visual Studio Code (Web)](how-to/develop/vscode.md) experience from this page. 
 - Components: This is where you can view and manage components in the project. Components include data, indexes, deployments, and content filters.
 
-## Build your own copilot demo
+## Pricing and billing
 
-Learn how to build your own copilot with AI Studio in this [overview video from Microsoft Mechanics on YouTube](https://youtu.be/3hZorLy6JiA).
-> [!VIDEO https://www.youtube.com/embed/3hZorLy6JiA]
+Azure AI Studio is monetized through individual products customer access and consume in the platform, including API and models, complete AI toolchain, and responsible AI and enterprise grade production at scale products. Each product has its own billing model and price. 
 
-## Pricing and Billing
+The platform is free to use and explore. Pricing occurs at deployment level. For more information abut AI Studio pricing, see [AI Studio pricing](https://aka.ms/Azure-AI-Studio-New-Pricing-Page).
 
 Using AI Studio also incurs cost associated with the underlying services, to learn more read [Plan and manage costs for Azure AI services](./how-to/costs-plan-manage.md).
 

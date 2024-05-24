@@ -6,11 +6,12 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: siarora
 ms.author: larryfr
-author: Blackmist 
+author: Blackmist
 ---
 
 # Manage and increase quotas for resources with Azure AI Studio
@@ -94,11 +95,9 @@ Use quotas to manage compute target allocation between multiple Azure AI Studi
 
 By default, all hubs share the same quota as the subscription-level quota for VM families. However, you can set a maximum quota for individual VM families for more granular cost control and governance on hubs in a subscription. Quotas for individual VM families let you share capacity and avoid resource contention issues. 
 
-1. In Azure AI Studio, select your hub and then select **View subscription quota** from **Hub properties**.
+1. In Azure AI Studio, go to the **Home** page and select **Quota**. 
 
-    :::image type="content" source="../media/cost-management/view-subscription-quota.png" alt-text="Screenshot of the hub properties page in Azure AI Studio." lightbox="../media/cost-management/view-subscription-quota.png":::
-
-1. From **Quota**, select the **Azure ML** tab to view the quota for the VM families. The quota is displayed at the subscription level in the selected Azure region. To request more quota, select the VM family and then select **Request quota**. 
+1. Select the **Azure ML** tab to view the quota for the VM families. The quota is displayed at the subscription level in the selected Azure region. To request more quota, select the VM family and then select **Request quota**. 
 
     :::image type="content" source="../media/cost-management/quota-manage.png" alt-text="Screenshot of the page to view and request quota for VM families in Azure AI Studio." lightbox="../media/cost-management/quota-manage.png":::
 
@@ -106,9 +105,3 @@ By default, all hubs share the same quota as the subscription-level quota for VM
 
 - [Plan to manage costs](./costs-plan-manage.md)
 - [How to create compute](./create-manage-compute.md)
-
-
- 
-
- 
-

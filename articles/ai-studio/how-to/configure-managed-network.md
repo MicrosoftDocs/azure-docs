@@ -6,6 +6,7 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: jhirono
@@ -25,7 +26,7 @@ We have two network isolation aspects. One is the network isolation to access an
 You need to configure following network isolation configurations.
 
 - Choose network isolation mode. You have two options: allow internet outbound mode or allow only approved outbound mode.
-- Create private endpoint outbound rules to your private Azure resources. Private Azure AI services and Azure AI Search aren't supported yet. 
+- Create private endpoint outbound rules to your private Azure resources. Private Azure AI Search isn't supported yet. 
 - If you use Visual Studio Code integration with allow only approved outbound mode, create FQDN outbound rules described in the [use Visual Studio Code](#scenario-use-visual-studio-code) section.
 - If you use HuggingFace models in Models with allow only approved outbound mode, create FQDN outbound rules described in the [use HuggingFace models](#scenario-use-huggingface-models) section.
 
@@ -46,7 +47,7 @@ There are three different configuration modes for outbound traffic from the mana
 * Always use private endpoints to access Azure resources. 
 
     > [!IMPORTANT]
-    > While you can create a private endpoint for Azure AI services and Azure AI Search, the connected services must allow public networking. For more information, see [Connectivity to other services](#connectivity-to-other-services).
+    > While you can create a private endpoint for Azure AI Search, the connected services must allow public networking. For more information, see [Connectivity to other services](#connectivity-to-other-services).
 
 * You must add rules for each outbound connection you need to allow.
 * Adding FQDN outbound rules __increase your costs__ as this rule type uses Azure Firewall.
@@ -152,7 +153,7 @@ Before following the steps in this article, make sure you have the following pre
 
 ### Connectivity to other services
 
-* Azure AI services provisioned with Azure AI hub and Azure AI Search attached with Azure AI hub should be public.
+* Azure AI Search should be public with your provisioned private Azure AI Studio hub.
 * The "Add your data" feature in the Azure AI Studio playground doesn't support using a virtual network or private endpoint on the following resources:
     * Azure AI Search
     * Azure OpenAI

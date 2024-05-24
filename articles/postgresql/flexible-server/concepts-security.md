@@ -78,6 +78,8 @@ To get alerts from the Microsoft Defender plan, you'll first need to **enable it
 > [!NOTE]
 > If you have the "open-source relational databases" feature enabled in your Microsoft Defender plan, you will observe that Microsoft Defender is automatically enabled by default for your Azure Database for PostgreSQL flexible server resource.
 
+
+
 ## Access management
 
 The best way to manage Azure Database for PostgreSQL - Flexible Server database access permissions at scale is using the concept of [roles](https://www.postgresql.org/docs/current/user-manag.html). A role can be either a database user or a group of database users. Roles can own the database objects and assign privileges on those objects to other roles to control who has access to which objects. It's also possible to grant membership in a role to another role, thus allowing the member role to use privileges assigned to another role.
@@ -110,7 +112,7 @@ However, the server admin account isn't part of the `azuresu` role, which has su
 
  
 
-You can periodically audit the list of roles in your server. For example, you can connect using `psql` client and query the `pg_roles` table , which lists all the roles along with privileges such as create additional roles, create databases, replication etc.
+You can periodically audit the list of roles in your server. For example, you can connect using `psql` client and query the `pg_roles` table, which lists all the roles along with privileges such as create other roles, create databases, replication etc.
 
 ```sql
 
@@ -132,10 +134,15 @@ oid            | 24827
 
 ```
 
-Important to note that number of **superuser only permissions**, such as creation of certain [implicit casts](https://www.postgresql.org/docs/current/sql-createcast.html), are **not available** with Azure Database for PostgreSQL - Flexible Server, since **`azure_pg_admin` role doesn't align to permissions of PostgreSQL superuser role**. 
+> [!IMPORTANT]
+> Important to note that number of superuser only permissions, such as creation of certain **[binary-coercible implicit casts](https://www.postgresql.org/docs/current/sql-createcast.html)**, are not available with Azure Database for PostgreSQL - Flexible Server, since `azure_pg_admin` role doesn't align to permissions of PostgreSQL superuser role. 
+> A **[binary-coercible cast](https://www.postgresql.org/docs/current/sql-createcast.html)** is a type of cast that does not require any function to perform the conversion, because the source and target types have the same internal representation
+> Non binary-coercible casts, including containing options WITH `IN OUT` and `WITH FUNCTION` are supported.
 
 
 [Audit logging in Azure Database for PostgreSQL - Flexible Server](concepts-audit.md) is also available with Azure Database for PostgreSQL - Flexible Server to track activity in your databases.
+
+
 
 
 
@@ -181,12 +188,21 @@ Newly created databases in Azure Database for PostgreSQL - Flexible Server have 
   ```
 In this example, user *user1* can connect and has all privileges in our test database *Test_db*, but not any other db on the server. It would be recommended further, instead of giving this user\role *ALL PRIVILEGES* on that database and its objects, to provide more selective permissions, such as *SELECT*,*INSERT*,*EXECUTE*, etc. For more information about privileges in PostgreSQL databases, see the [GRANT](https://www.postgresql.org/docs/current/sql-grant.html) and [REVOKE](https://www.postgresql.org/docs/current/sql-revoke.html) commands in the PostgreSQL docs.
 
+### Public schema ownership changes in PostgreSQL 15
+
+From Postgres version 15, ownership of the public schema has been changed to the new pg_database_owner role. It enables every database owner to own the database’s public schema.  
+More information can be found in [PostgreSQL release notes.](https://www.postgresql.org/docs/release/15.0/)
+
 ### PostgreSQL 16 changes with role based security
 
 In PostgreSQL database role can have many attributes that define its privileges.One such attribute is the [**CREATEROLE** attribute](https://www.postgresql.org/docs/current/role-attributes.html), which is important to PostgreSQL database management of users and roles. In PostgreSQL 16 significant changes were introduced to this attribute.
 In PostgreSQL 16, users with **CREATEROLE** attribute no longer have the ability to hand out membership in any role to anyone; instead, like other users, without this attribute, they can only hand out memberships in roles for which they possess **ADMIN OPTION**. Also, in PostgreSQL 16, the **CREATEROLE** attribute still allows a nonsuperuser the ability to provision new users, however they can only drop users that they themselves created. Attempts to drop users, which isn't create by user with **CREATEROLE** attribute, will result in an error.
 
 PostgreSQL 16 also introduced new and improved built-in roles. New *pg_use_reserved_connections* role in PostgreSQL 16 allows the use of connection slots reserved via reserved_connections.The *pg_create_subscription* role allows superusers to create subscriptions.
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server does not allow users to be granted *pg_write_all_data* attribute, which allows user to write all data (tables, views, sequences), as if having INSERT, UPDATE, and DELETE rights on those objects, and USAGE rights on all schemas, even without having it explicitly granted. As a workaround recommended to grant similar permissions on a more finite level per database and object. 
+
 
 ## Row level security
 
@@ -212,7 +228,7 @@ You can drop a row security policy by using DROP POLICY command, as in his examp
 
 DROP POLICY account_managers ON accounts;
 ```
-Although you may have have dropped the policy, role manager is still not able to view any data that belong to any other manager. This is because the row-level security policy is still enabled on the accounts table. If row-level security is enabled by default, PostgreSQL uses a default-deny policy. You can disable row level security, as in example below:
+Although you may have dropped the policy, role manager is still not able to view any data that belong to any other manager. This is because the row-level security policy is still enabled on the accounts table. If row-level security is enabled by default, PostgreSQL uses a default-deny policy. You can disable row level security, as in example below:
 
 ```sql
 ALTER TABLE accounts DISABLE ROW LEVEL SECURITY;
@@ -223,8 +239,8 @@ ALTER TABLE accounts DISABLE ROW LEVEL SECURITY;
 
 PostgreSQL has **BYPASSRLS** and **NOBYPASSRLS** permissions, which can be assigned to a role; NOBYPASSRLS is assigned by default. 
 With **newly provisioned servers** in Azure Database for PostgreSQL - Flexible Server bypassing row level security privilege (BYPASSRLS) is implemented as follows:
-* For Postgres 16 and above versioned servers we follow [standard PostgreSQL 16 behavior](#postgresql-16-changes-with-role-based-security).  Non-administrative users created by **azure_pg_admin** administrator role allows you to create roles with BYPASSRLS attribute\privilege as necessary. 
-* For Postgres 15 and below versioned servers. , you can use **azure_pg_admin** user to do administrative tasks that require BYPASSRLS privilege, but can't create non-admin users with BypassRLS privilege, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL services.
+* For Postgres 16 and above versioned servers we follow [standard PostgreSQL 16 behavior](#postgresql-16-changes-with-role-based-security).  Nonadministrative users created by **azure_pg_admin** administrator role allows you to create roles with BYPASSRLS attribute\privilege as necessary. 
+* For Postgres 15 and below versioned servers. , you can use **azure_pg_admin** user to do administrative tasks that require BYPASSRLS privilege, but can't create nonadmin users with BypassRLS privilege, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL services.
 
 
 ## Update passwords

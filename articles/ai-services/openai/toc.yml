@@ -8,6 +8,9 @@ items:
       href: overview.md
     - name: Quotas and limits
       href: quotas-limits.md
+    - name: Deployment types
+      href: ./how-to/deployment-types.md
+      displayName: global, Global, globalstandard, global-standard, Global-Standard, standard, provisioned 
     - name: Models
       href: ./concepts/models.md
     - name: Model retirements
@@ -87,7 +90,13 @@ items:
       - name: Code Interpreter
         href: ./how-to/code-interpreter.md
       - name: Function calling
-        href: ./how-to/assistant-functions.md
+        items:
+        - name: Assistants function calling
+          href: ./how-to/assistant-functions.md
+        - name: Function calling with Azure Logic Apps
+          href: ./how-to/assistants-logic-apps.md
+      - name: File search
+        href: ./how-to/file-search.md
   - name: Completions & chat completions
     items:
     - name: GPT-35-Turbo & GPT-4 
@@ -302,8 +311,3 @@ items:
       href: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA#ServiceSpecificTerms
     - name: Azure compliance offerings
       href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
-    
-
-
-
-

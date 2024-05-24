@@ -7,7 +7,7 @@ ms.author: eric-urban
 ms.service: azure-ai-studio
 ms.topic: include
 ms.date: 5/21/2024
-ms.custom: include
+ms.custom: include, build-2024
 ---
 
 To complete this section, you need a local copy of product data. The [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data) contains sample retail customer and product information that's relevant for this tutorial scenario. Clone the repository or copy the files from [3-product-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/3-product-info). 
@@ -63,7 +63,7 @@ Follow these steps to add your data in the chat playground to help the assistant
 
    :::image type="content" source="../media/tutorials/chat/add-your-data-ingestion-in-progress.png" alt-text="Screenshot of the chat playground with the status of data ingestion in view." lightbox="../media/tutorials/chat/add-your-data-ingestion-in-progress.png":::
 
-1. Enter a name for the playground configuration and select **Save** > **Save configuration**. All configuration items are saved by default. Items include deployment, system message, parameters, added data, examples, and variables. Saving a configuration with the same name will save over the previous version.
+1. Enter a name for the playground configuration and select **Save** > **Save configuration**. All configuration items are saved by default. Items include deployment, system message, safety message, parameters, added data, examples, and variables. Saving a configuration with the same name will save over the previous version.
 
    :::image type="content" source="../media/tutorials/chat/playground-configuration-save.png" alt-text="Screenshot of the playground configuration name and Save button." lightbox="../media/tutorials/chat/playground-configuration-save.png":::
 

@@ -6,17 +6,17 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 5/21/2024
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.author: mopeakande
+author: msakande
+ms.reviewer: fasantia
+reviewer: santiagxf
 ms.custom: 
  - build-2024
  - serverless
  - references_regions
 ---
 
-# Region availability for models in Serverless API endpoints
+# Region availability for models in serverless API endpoints | Azure AI Studio
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
@@ -26,18 +26,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
 ## Region availability
 
-Serverless API endpoints are available in the following regions for the indicated models:
-
-| Model             | East US 2   | West US 3      | Sweden Central | France Central |
-| ----------------- | ----------- | -------------- | -------------- | -------------- |
-| Mistral-Small     | **&check;** |                | **&check;**    |                |
-| Mistral-Large     | **&check;** |                | **&check;**    | **&check;**    |
-| Cohere Command R  | **&check;** |                | **&check;**    |                |
-| Cohere Command R+ | **&check;** |                | **&check;**    |                |
-| Cohere Embed v3   | **&check;** |                | **&check;**    |                |
-| Meta Llama 2      | **&check;** | **&check;**    |                |                |
-| Meta Llama 3      | **&check;** |                |                |                |
-| Phi-3             | **&check;** |                | **&check;**    |                |
+[!INCLUDE [region-availabilitity-serverless-api](../includes/region-availabilitity-serverless-api.md)]
 
 ## Alternatives to region availability
 
