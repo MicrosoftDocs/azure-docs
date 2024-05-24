@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Ephemeral Disk using
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 05/24/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -21,13 +21,14 @@ ms.custom: references_regions
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
 - If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
-- Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability)
+- Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
 
-## Ensure VM with Ephemeral Disk support
+## Choose a VM type that supports Ephemeral Disk
 
-Ephemeral Disk is available in certain types of VM. If you plan to use Ephemeral Disk with local NVMe, a [storage optimized VM](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3** is required. If you plan to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
+Ephemeral Disk is only available in certain types of VMs. If you plan to use Ephemeral Disk with local NVMe, a [storage optimized VM](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3** is required. If you plan to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
 
-You can run the following command to get VM type that is used with your node pool.
+You can run the following command to get the VM type that's used with your node pool.
+
 ```azurecli-interactive
 az aks nodepool list --resource-group <resource group> --cluster-name <cluster name> --query "[].{PoolName:name, VmSize:vmSize}" -o table
 ```
@@ -141,6 +142,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
 
 1. Paste in the following code and save the file.
+
    ```yml
    kind: Pod
    apiVersion: v1
@@ -387,7 +389,6 @@ To check which persistent volume a persistent volume claim is bound to, run:
 ```azurecli-interactive
 kubectl get pvc <persistent-volume-claim-name>
 ```
-
 
 ## See also
 
