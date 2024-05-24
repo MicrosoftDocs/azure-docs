@@ -41,55 +41,7 @@ Specific configuration you can perform with the DCR includes:
 
 
 
-## Applicable tables and metrics
-The settings for **collection frequency** and **namespace filtering** don't apply to all Container insights data. The following tables list the tables in the Log Analytics workspace used by Container insights and the metrics it collects along with the settings that apply to each. 
 
->[!NOTE]
->This feature configures settings for all container insights tables except for ContainerLog and ContainerLogV2. To configure settings for these tables, update the ConfigMap described in [agent data collection settings](../containers/container-insights-data-collection-configmap.md).
-
-
-| Table name | Interval? | Namespaces? | Remarks |
-|:---|:---:|:---:|:---|
-| ContainerInventory | Yes | Yes | |
-| ContainerNodeInventory | Yes | No | Data collection setting for namespaces isn't applicable since Kubernetes Node isn't a namespace scoped resource |
-| KubeNodeInventory | Yes | No | Data collection setting for namespaces isn't applicable Kubernetes Node isn't a namespace scoped resource |
-| KubePodInventory | Yes | Yes ||
-| KubePVInventory | Yes | Yes | |
-| KubeServices | Yes | Yes | |
-| KubeEvents | No | Yes | Data collection setting for interval isn't applicable for the Kubernetes Events |
-| Perf | Yes | Yes | Data collection setting for namespaces isn't applicable for the Kubernetes Node related metrics since the Kubernetes Node isn't a namespace scoped object. |
-| InsightsMetrics| Yes | Yes | Data collection settings are only applicable for the metrics collecting the following namespaces: container.azm.ms/kubestate, container.azm.ms/pv and container.azm.ms/gpu |
-
-
-| Metric namespace | Interval? | Namespaces? | Remarks |
-|:---|:---:|:---:|:---|
-| Insights.container/nodes| Yes | No | Node isn't a namespace scoped resource |
-|Insights.container/pods | Yes | Yes| |
-| Insights.container/containers | Yes | Yes | |
-| Insights.container/persistentvolumes | Yes | Yes | |
-
-
-
-## Stream values
-When you specify the tables to collect using CLI or ARM, you specify a stream name that corresponds to a particular table in the Log Analytics workspace. The following table lists the stream name for each table.
-
-> [!NOTE]
-> If you're familiar with the [structure of a data collection rule](../essentials/data-collection-rule-structure.md), the stream names in this table are specified in the [dataFlows](../essentials/data-collection-rule-structure.md#dataflows) section of the DCR.
-
-| Stream | Container insights table |
-| --- | --- |
-| Microsoft-ContainerInventory | ContainerInventory |
-| Microsoft-ContainerLog | ContainerLog |
-| Microsoft-ContainerLogV2 | ContainerLogV2 |
-| Microsoft-ContainerNodeInventory | ContainerNodeInventory |
-| Microsoft-InsightsMetrics | InsightsMetrics |
-| Microsoft-KubeEvents | KubeEvents |
-| Microsoft-KubeMonAgentEvents | KubeMonAgentEvents |
-| Microsoft-KubeNodeInventory | KubeNodeInventory |
-| Microsoft-KubePodInventory | KubePodInventory |
-| Microsoft-KubePVInventory | KubePVInventory |
-| Microsoft-KubeServices | KubeServices |
-| Microsoft-Perf | Perf |
 
 
 ## Impact on visualizations and alerts
