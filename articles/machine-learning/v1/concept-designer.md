@@ -18,9 +18,9 @@ ms.custom: UpdateFrequency5, designer, training
 The Azure Machine Learning designer is a drag-and-drop interface used to train and deploy models in Azure Machine Learning studio. This article describes the tasks you can do in the designer.
 
 > [!IMPORTANT]
-> Designer in Azure Machine Learning supports two types of pipelines that use classic prebuilt (v1) or custom (v2)components. The two component types aren't compatible within pipelines, and designer v1 isn't compatible with CLI v2 and SDK v2. *This article applies to pipelines that use classic prebuilt (v1) components.*
+> Designer in Azure Machine Learning supports two types of pipelines that use classic prebuilt (v1) or custom (v2) components. The two component types aren't compatible within pipelines, and designer v1 isn't compatible with CLI v2 and SDK v2. **This article applies to pipelines that use classic prebuilt (v1) components.**
 > 
-> - **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new prebuilt components are being added.
+> - **Classic prebuilt components (v1)** include typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new prebuilt components are being added.
 > 
 > - **Custom components (v2)** let you wrap your own code as components, enabling sharing across workspaces and seamless authoring across Azure Machine Learning studio, CLI v2, and SDK v2 interfaces. It's best to use custom components for new projects, because they're compatible with Azure Machine Learning v2 and continue to receive new updates. For more information about custom components and Designer (v2), see [Azure Machine Learning designer (v2)](../concept-designer.md?view=azureml-api-2&preserve-view=true).
 
@@ -45,7 +45,7 @@ The following diagram illustrates how you can use the designer to build an end-t
 
 :::image type="content" source="../media/concept-designer/designer-workflow-diagram.png" alt-text="Workflow diagram for training, batch inference, and real-time inference in the designer." border="false":::
 
-- Drag-and-drop [data assets](#data) and [components](#components) onto the designer visual canvas, and connect the components to create a [pipeline draft](#pipeline-drafts).
+- Drag and drop [data assets](#data) and [components](#components) onto the designer visual canvas, and connect the components to create a [pipeline draft](#pipeline-drafts).
 - Submit a [pipeline job](#pipeline-jobs) that uses the compute resources in your Azure Machine Learning workspace.
 - Convert your **training pipelines** to **inference pipelines**.
 - [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit new pipelines that run with different parameters and data assets.
