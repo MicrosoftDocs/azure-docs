@@ -29,13 +29,15 @@ Azure VM sizes follow specific naming conventions to denote varying features and
 
 VM naming is further broken down into the 'Series' name and the 'Size' name. Size names include extra characters representing the number of vCPUs, type of storage, etc.
 
-| Category name | Description | Examples |
+| Category | Description | Links |
 |---| --- | --- |
-| **Type** | Types refer to the basic categorization of VMs based on their general purpose and capabilities. | <ul><li>General-purpose <li>GPU-accelerated <li>High performance compute |
-| **Series** | Series denotes the generation or version of the CPUs and other hardware used. | <ul><li>Dv2-series <li>NVv3-series <li>HBv4-series|
-| **Size** | Specifies the exact configuration of a VM within a series such as the number of CPU cores available to your VM while using said size. | <ul><li>Standard_D4s_v3 <li>Standard_NV12s_v3 <li>Standard_HB176-144rs_v4 |
+| **[Type](#list-of-size-families-by-type)** | 	Basic categorization by intended workload. | [General purpose](#general-purpose) <br>[Compute optimized](#compute-optimized) <br>[Memory optimized](#memory-optimized) <br>[Storage optimized](#storage-optimized) <br>[GPU acelerated](#gpu-accelerated) <br>[FPGA accelerated](#fpga-accelerated) |
+| **[Series](#sizes)** | Group of sizes with similar hardware and features.| [Click here and enter the 'Series' tab.](#name-structure-breakdown) |
+| **[Size](#series)** | Specific VM configuration, including vCPUs, memory, and accelerators. | [Click here and enter the 'Size' tab.](#name-structure-breakdown) |
 
-### [Series](#tab/breakdownseries)
+### Name structure breakdown
+
+#### [Series](#tab/breakdownseries)
 
 Here's a breakdown of a 'General purpose, **DCads_v5**-series' size series.
 
@@ -57,7 +59,7 @@ Here's a breakdown of a 'General purpose, **DCads_v5**-series' size series.
 > [!NOTE]
 > Not all sizes will have subfamilies, support accelerators, or specify the CPU vendor. For more details on VM size naming conventions, see **[Azure VM sizes naming conventions](../vm-naming-conventions.md)**.
 
-### [Sizes](#tab/breakdowninstance)
+#### [Sizes](#tab/breakdowninstance)
 
 Here's a breakdown of a 'Standard_**DC8ads_v5**' size in the 'DCadsv5-series'
 
