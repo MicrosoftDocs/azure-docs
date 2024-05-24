@@ -6,7 +6,7 @@ ms.custom: engagement-fy23
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/16/2024
+ms.date: 05/17/2024
 ms.author: cshoe
 ---
 
@@ -425,13 +425,13 @@ For example, the following configuration shows how you can add a unique identifi
 
 ## Trailing slash
 
-A trailing slash is the `/` at the end of a URL. Conventionally, trailing slash URL refers to a directory on the web server, while a nontrailing slash indicates a file. 
+A trailing slash is the `/` at the end of a URL. Conventionally, a trailing slash URL refers to a directory on the web server, while a nontrailing slash indicates a file.
 
-Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content, which can negatively affect search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO. 
+Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content, which can negatively affect search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO performance.
 
 The following normalization and redirect rules apply for each of the available configurations:
 
-### Always 
+### Always
 
 When you're setting `trailingSlash` to `always`, all requests that don't include a trailing slash are redirected to a trailing slash URL. For example, `/contact` is redirected to `/contact/`.
 
@@ -444,9 +444,7 @@ When you're setting `trailingSlash` to `always`, all requests that don't include
 | _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
 | _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
 | _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
-| _/contact_ | The _/contact.html_ file | `301` | _/contact/_ |
-| _/contact/_ | The _/contact.html_ file | `200` | _/contact/_ |
-| _/contact.html_ | The _/contact.html_ file | `301` | _/contact/_ |
+| _/privacy.html_ | The _/privacy.html_ file | `301` | _/privacy/_ |
 
 ### Never
 
@@ -461,9 +459,7 @@ When setting `trailingSlash` to `never`, all requests ending in a trailing slash
 | _/about_ | The _/about/index.html_ file | `200` | _/about_ |
 | _/about/_ | The _/about/index.html_ file | `301` | _/about_ |
 | _/about/index.html_ | The _/about/index.html_ file | `301` | _/about_ |
-| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
-| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
-| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/privacy.html_ | The _/privacy.html_ file | `301` | _/privacy_ |
 
 ### Auto
 
@@ -478,23 +474,18 @@ When you set `trailingSlash` to `auto`, all requests to folders are redirected t
 | _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
 | _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
 | _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
-| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
-| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
-| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/privacy.html_ | The _/privacy.html_ file | `301` | _/privacy_ |
 
 For optimal website performance, configure a trailing slash strategy using one of the `always`, `never`, or `auto` modes.
 
-By default, when the `trailingSlash` configuration is omitted, Static Web Apps applies the following rules: 
+By default, when the `trailingSlash` configuration is omitted, Static Web Apps applies the following rules:
 
 | Requests to... | returns... | with the status... | and path... |
 |--|--|--|--|
 | _/about_ | The _/about/index.html_ file | `200` | _/about_ |
 | _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
 | _/about/index.html_ | The _/about/index.html_ file | `200` | _/about/index.html_ |
-| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
-| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
-| _/contact.html_ | The _/contact.html_ file | `200` | _/contact.html_ |
-
+| _/privacy.html_ | The _/privacy.html_ file | `200` | _/privacy.html_ |
 
 ## Example configuration file
 
