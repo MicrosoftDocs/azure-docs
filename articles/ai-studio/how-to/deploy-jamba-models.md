@@ -1,7 +1,7 @@
 ---
-title: How to deploy Jamba models with Azure Machine Learning Studio
+title: How to deploy Jamba models with Azure AI Studio
 titleSuffix: Azure Machine Learning Studio
-description: How to deploy Jamba models with Azure Machine Learning Studio
+description: How to deploy Jamba models with Azure AI Studio
 manager: scottpolly
 ms.service: machine-learning
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.reviewer: haelhamm
 ms.custom: references_regions
 ---
 
-# How to deploy Jamba models with Azure Machine Learning Studio
+# How to deploy Jamba models with Azure AI Studio
 
 In this article, you learn how to use Azure Machine Learning Studio to deploy the JAIS model as a service with pay-as you go billing.
 
