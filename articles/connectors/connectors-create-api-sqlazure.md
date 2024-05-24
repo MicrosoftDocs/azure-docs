@@ -264,7 +264,7 @@ In the connection information box, complete the following steps:
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Server name** | Yes | The address for your SQL server, for example, **Fabrikam-Azure-SQL.database.windows.net** |
+   | **Server name** | Yes | The address for your SQL server, for example, **server-name.database.windows.net** |
    | **Database name** | Yes | The name for your SQL database, for example, **Fabrikam-Azure-SQL-DB** |
    | **Table name** | Yes | The table that you want to use, for example, **SalesLT.Customer** |
 
@@ -311,7 +311,7 @@ In the connection information box, complete the following steps:
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **SQL server name** | Yes | The address for your SQL server, for example, `Fabrikam-Azure-SQL.database.windows.net` |
+   | **SQL server name** | Yes | The address for your SQL server, for example, `server-name.database.windows.net` |
    | **SQL database name** | Yes | The name for your SQL Server database, for example, `Fabrikam-Azure-SQL-DB` |
    | **Username** | Yes | Your user name for the SQL server and database |
    | **Password** | Yes | Your password for the SQL server and database |

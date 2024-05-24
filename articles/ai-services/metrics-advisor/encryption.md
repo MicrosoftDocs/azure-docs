@@ -69,11 +69,11 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
     1. Set 'Allow access to Azure services' as 'Yes'. 
     2. Add your clientIP address to sign in to Azure Database for PostgreSQL.
 
-- Get the access-token for your account with resource type 'https://ossrdbms-aad.database.windows.net'. The access token is the password you need to sign in to the Azure Database for PostgreSQL by your account. An example using `az` client:
+- Get the access-token for your account with resource type 'https://server-name.database.windows.net'. The access token is the password you need to sign in to the Azure Database for PostgreSQL by your account. An example using `az` client:
 
    ```
    az login
-   az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+   az account get-access-token --resource https://server-name.database.windows.net
    ```
 
 - After getting the token, use it to sign in to your Azure Database for PostgreSQL. Replace the 'servername' as the one that you can find in the 'overview' of your Azure Database for PostgreSQL.
