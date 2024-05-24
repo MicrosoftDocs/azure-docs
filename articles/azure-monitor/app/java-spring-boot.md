@@ -71,8 +71,7 @@ public class SpringBootApp {
 
 ### Configuration
 
-Programmatic enablement supports all the same [configuration options](./java-standalone-config.md)
-as the JVM argument enablement, with the differences that are described in the next sections.
+Programmatic enablement supports all the same [configuration options](./java-standalone-config.md) as the JVM argument enablement, with the differences that are described in the next sections.
 
 #### Configuration file location
 
@@ -139,7 +138,6 @@ Enable connection string configured at runtime:
 
 #### Self-diagnostic log file location
 
-By default, when enabling Application Insights Java programmatically, the `applicationinsights.log` file containing
-the agent logs are located in the directory from where the JVM is launched (user directory).
+By default, when enabling Application Insights Java programmatically, the `applicationinsights.log` file containing the agent logs are located in the directory from where the JVM is launched (user directory).
 
 To learn how to change this location, see your [self-diagnostic configuration options](./java-standalone-config.md#self-diagnostics).
