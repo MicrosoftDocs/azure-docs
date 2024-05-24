@@ -63,13 +63,13 @@ To enable this feature in Azure Machine Learning studio, select the megaphone ic
 
 :::image type="content" source="./media/how-to-debug-pipeline-failure/enable-preview.png" alt-text="Screenshot of the preview feature toggled on." lightbox= "./media/how-to-debug-pipeline-failure/enable-preview.png":::
 
-### Debug a failed pipeline job by comparing it to a successful job
+### Compare a failed pipeline job to a successful job
 
 During iterative model development, you might clone and modify a successful baseline pipeline by changing a parameter, dataset, compute resource, or other setting. If the new pipeline fails, you can use pipeline comparison to help figure out the failure by identifying the changes from the parent pipeline.
 
 For example, if you get an error message that your new pipeline failed due to an out-of-memory issue, you can use pipeline comparison to see what changes from the parent pipeline might cause memory issues.
 
-#### Compare a pipeline with its parent
+#### Compare the pipeline with its parent
 
 1. On the failed pipeline job page, select **Show lineage**.
 1. Select the link in the **Cloned from** popup to open the parent pipeline job page in a new browser tab.
@@ -107,9 +107,10 @@ You can choose to **Show only differences** and **See differences inline**, or s
 The following screenshot shows an example of using the detail comparison where the **defaultCompute** setting might be the reason for failure.
 
 :::image type="content" source="./media/how-to-debug-pipeline-failure/compute-detail.png" alt-text="Screenshot showing the comparison overview of the default compute." lightbox= "./media/how-to-debug-pipeline-failure/compute.png":::
-### Debug a failed node in a pipeline by comparing to a similar completed node
 
-If you only updated node properties, you can debug the node by comparing it in other jobs that used the same node.
+### Compare a failed pipeline node to a similar completed node
+
+If you only updated node properties, you can debug the node by comparing it with the same node in other jobs.
 
 1. Right select a failed node and select **View jobs** to get a list of jobs.
 
@@ -119,9 +120,9 @@ If you only updated node properties, you can debug the node by comparing it in o
 1. On both job pages, select **Add to compare** on the top menu bar to add both jobs to the **Compare** list.
 1. Once the two jobs are in the comparison list, select **Compare details** to show the differences.
 
-### Share comparison results
+## Share debug results
 
-To share the comparison results with your teammates or other stakeholders, select **Share** on the top menu bar. You can choose to **Copy shareable link to graph** or **Copy pipeline job ID**.
+To share debug results with your teammates or other stakeholders, select **Share** on the top menu bar. You can choose to **Copy shareable link to graph** or **Copy pipeline job ID** to share with others.
 
 :::image type="content" source="./media/how-to-debug-pipeline-failure/share-detail.png" alt-text="Screenshot showing the share button and the link you should copy." lightbox= "./media/how-to-debug-pipeline-failure/share.png":::
 
