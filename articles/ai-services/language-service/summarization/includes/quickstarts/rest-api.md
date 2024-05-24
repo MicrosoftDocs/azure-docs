@@ -40,7 +40,7 @@ Use this quickstart to send text summarization requests using the REST API. In t
 ## Example request
 
 > [!NOTE]
-> * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
+> * The following BASH exaples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 > * You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
 To call the API, you need the following information:
 
@@ -49,7 +49,7 @@ Choose the type of summarization you would like to perform, and select one of th
 |Feature  |Description  |
 |---------|---------|
 |Text summarization     | Use extractive text summarization to produce a summary of important or relevant information within a document.        |
-|Conversation summarization     | Use abstractive text summarization to produce a summary of issues and resolutions in transcripts between customer-service agents, and customers.         |
+|Conversation summarization     | Use abstractive text summarization to produce a summary of issues and resolutions in transcripts between customer-service agents, and customers.         |m
 
 # [Text summarization](#tab/text-summarization)
 
@@ -440,7 +440,7 @@ Here's a sample response:
 
 You receive a 202 (Success) response that includes a read-only Operation-Location header. The value of this header contains a jobId that can be queried to get the status of the asynchronous operation and retrieve the results using a GET request:
 
-  :::image type="content" source="media/operation-location-result-id.png" alt-text="Screenshot showing the operation-location value in the POST response.":::
+  :::image type="content" source="../../../native-document-support/media/operation-location-result-id.png" alt-text="Screenshot showing the operation-location value in the POST response.":::
 
 ### Get analyze results (GET request)
 
