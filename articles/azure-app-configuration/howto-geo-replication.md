@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 # ms.devlang: csharp, java
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 05/24/2024
 ms.author: mametcal
 ms.custom: devx-track-azurecli
 
