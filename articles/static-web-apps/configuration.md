@@ -6,7 +6,7 @@ ms.custom: engagement-fy23
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/17/2024
+ms.date: 05/24/2024
 ms.author: cshoe
 ---
 
@@ -250,6 +250,8 @@ For example, with the following directory structure, the above navigation fallba
 
 > [!IMPORTANT]
 > If you are migrating from the deprecated [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) file, do not include the legacy fallback route (`"route": "/*"`) in the [routing rules](#routes).
+
+Routes aren't applied on requests that trigger `navigationFallback`.
 
 ## Global headers
 
