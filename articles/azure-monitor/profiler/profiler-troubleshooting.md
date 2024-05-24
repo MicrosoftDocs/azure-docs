@@ -106,7 +106,7 @@ If Profiler still isn't working for you, download the log and [submit an Azure s
 
 #### Check the Diagnostic Services site extension status page
 
-If you enabled Profiler through the [Application Insights pane](profiler.md) in the portal, it is managed by the Diagnostic Services site extension. You can check the status page of this extension by going to
+If you enabled Profiler through the [Application Insights pane](profiler.md) in the portal, it's managed by the Diagnostic Services site extension. You can check the status page of this extension by going to
 `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`.
 
 > [!NOTE]
