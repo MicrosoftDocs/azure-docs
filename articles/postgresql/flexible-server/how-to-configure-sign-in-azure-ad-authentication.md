@@ -104,7 +104,7 @@ The command opens a browser window to the Microsoft Entra authentication page. I
 Use the Azure CLI to acquire an access token for the Microsoft Entra authenticated user to access Azure Database for PostgreSQL. Here's an example of the public cloud:
 
 ```azurecli-interactive
-az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+az account get-access-token --resource https://server-name.database.windows.net
 ```
 
 The preceding resource value must be specified as shown. For other clouds, you can look up the resource value by using the following command:
@@ -228,7 +228,7 @@ az login
 Use the Azure CLI to acquire an access token for the Microsoft Entra authenticated user to access Azure Database for PostgreSQL. Here's an example of the public cloud:
 
 ```azurecli-interactive
-az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+az account get-access-token --resource https://server-name.database.windows.net
 ```
 
 You must specify the initial resource value exactly as shown. For other clouds, you can look up the resource value by using the following command:
