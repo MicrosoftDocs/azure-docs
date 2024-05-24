@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 05/22/2024
+ms.date: 05/29/2024
 ---
 
 ## Latest client versions
@@ -11,9 +11,16 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.5.7         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.5.7         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.8         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.8         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
 
+## Updates for version 10.5.8
+
+*Published: May 29, 2024*
+
+In this release, we made the following changes:
+
+- Added Microsoft Intune MAM support for configuring redirection settings. It includes MAM SDK version 19.3.1.
 
 ## Updates for version 10.5.7
 

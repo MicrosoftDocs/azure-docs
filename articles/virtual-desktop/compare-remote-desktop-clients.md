@@ -81,3 +81,14 @@ The following table shows which other devices can be redirected with each Remote
 \* Limited to uploading and downloading files through the Remote Desktop Web client.
 
 \*\* For printer redirection, the macOS app supports the Publisher Imagesetter printer driver by default. The app doesn't support the native printer drivers.
+
+### Client device redirection management
+
+The following table shows which platforms you can manage device redirections using Microsoft Intune:
+
+| Redirection | Windows Desktop<br />&<br />Azure Virtual Desktop Store app | Remote Desktop app | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
+|--|--|--|--|--|--|--|
+| Camera |  |  | X | X |  |  |
+| Clipboard |  |  | X | X |  |  |
+| Local drive/storage |  |  | X | X |  |  |
+| Microphones |  |  | X | X |  |  |
