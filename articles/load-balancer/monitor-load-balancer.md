@@ -53,7 +53,7 @@ Resource Logs aren't collected and stored until you create a diagnostic setting 
 
 ## Creating a diagnostic setting
 
-You can create a diagnostic setting by using the Azure portal, PowerShell, or the Azure CLI.
+You can create a diagnostic setting with the Azure portal, Azure PowerShell, or the Azure CLI.
 
 
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).

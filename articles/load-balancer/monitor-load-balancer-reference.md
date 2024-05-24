@@ -46,13 +46,13 @@ Load Balancer has the following **dimensions** associated with its metrics.
 
 | **Dimension Name** | **Description** |
 | -------------- | ----------- |
-| Frontend IP | The frontend IP address of the relevant load balancing rule(s) |
-| Frontend Port | The frontend port of the relevant load balancing rule(s) | 
-| Backend IP | The backend IP address of the relevant load balancing rule(s) |
-| Backend Port | The backend port of the relevant load balancing rule(s) |
-| Protocol Type | The protocol of the relevant load balancing rule, this can be TCP or UDP |
+| Frontend IP | The frontend IP address of one or more relevant load balancing rules |
+| Frontend Port | The frontend port of one or more relevant load balancing rules | 
+| Backend IP | The backend IP address of one or more relevant load balancing rules |
+| Backend Port | The backend port of one or more relevant load balancing rules |
+| Protocol Type | The protocol of the relevant load balancing rule. The protocol can be TCP or UDP |
 | Direction | The direction traffic is flowing. This can be inbound or outbound. | 
-| Connection state | The state of SNAT connection, this can be pending, successful, or failed | 
+| Connection state | The state of SNAT connection. The state can be pending, successful, or failed | 
 
 ## Resource logs
 
