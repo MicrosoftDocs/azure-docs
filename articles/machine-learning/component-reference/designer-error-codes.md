@@ -1591,12 +1591,13 @@ To get more help, we recommend that you post the detailed message that accompani
 |Library exception: {exception}.|
 |Unknown library exception: {exception}. {customer_support_guidance}.|
 
+## Troubleshooting guide
 
-## Execute Python Script component
+### Execute Python Script component error
 
 Search **in azureml_main** in **70_driver_logs** of **Execute Python Script component** and you could find which line occurred error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your Python script.
 
-## Distributed training
+### Distributed training
 
 Currently designer supports distributed training for and [Train PyTorch Model](train-pytorch-model.md) component.
 
@@ -1615,3 +1616,12 @@ If the component enabled distributed training fails without any `70_driver` logs
 Otherwise, you can check `70_driver_log` for each process. `70_driver_log_0` is for master process.
 
   [ ![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png) ](./media/module/distributed-training-error-driver-log.png#lightbox)
+
+### Sample dataset not found in pipeline
+If you encounter this error, please follow the steps below to resolve the issue:
+
+- Double click data node to go to detail page of datastore.
+    [ ![Datastore of sample data](./media/module/sample-data-datastore.png.png) ](./media/module/sample-data-datastore.png#lightbox)
+- `Unregister` this `azureml_globaldatasets` data store.
+    [ ![Datastore of sample data](./media/module/unregister-sample-datastore.png) ](./media/module/unregister-sample-datastore.png#lightbox)
+- Drag and drop a new `Sample Data` node to the pipeline to have another try.
