@@ -187,7 +187,7 @@ resource privateDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-
 
 ## Firewall
 
-The Azure Container Instance downloads container images from the Microsoft Container Registry. If you make use of a firewall whitelist the URL `[mcr.microsoft.com](http://mcr.microsoft.com)` to download the image successfully. If the container image cannot be downloaded it will go into a `waiting` state and will eventually throw a timeout error.
+The Azure Container Instance downloads container images from the Microsoft Container Registry. If you make use of a firewall whitelist the URL [mcr.microsoft.com](http://mcr.microsoft.com) to download the image successfully. If the container image cannot be downloaded it will go into a `waiting` state and will eventually throw a timeout error.
 
 ## Next steps
 
