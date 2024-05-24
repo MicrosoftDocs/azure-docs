@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Extended Zones documentation # < 60 chars
-summary: Azure Extended Zones are small-footprint extensions of Azure to serve low latency or data residency workloads. # < 160 chars
+summary: Azure Extended Zones are small-footprint extensions of Azure to serve low latency or data residency workloads.
 
 metadata:
-  title: Azure Extended Zones documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Extended Zones documentation
   description: Azure Extended Zones are small-footprint extensions of Azure to serve low latency or data residency workloads. Learn how to use Azure Extended Zones with our quickstarts, tutorials, and samples. # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: azure #Required; use either service or product per approved list. 
-  ms.topic: landing-page # Required
-  author: halkazwini #Required; your GitHub user alias, with correct capitalization.
-  ms.author: halkazwini #Required; microsoft alias of author; optional team alias.
-  ms.date: 05/08/2024 #Required; mm/dd/yyyy format.
+  author: halkazwini
+  ms.author: halkazwini
+  ms.service: azure
+  ms.topic: landing-page
+  ms.date: 05/24/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -38,5 +38,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Azure CLI
+            url: /cli/azure/edge-zones
           - text: Azure PowerShell
             url: /powershell/module/az.edgezones
