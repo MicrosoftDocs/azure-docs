@@ -57,11 +57,12 @@ Spark provides its own native caching mechanisms, which can be used through diff
 Spark operates by placing data in memory, so managing memory resources is a key aspect of optimizing the execution of Spark jobs.  There are several techniques you can apply to use your cluster's memory efficiently.
 
 * Prefer smaller data partitions and account for data size, types, and distribution in your partitioning strategy.
-* In Synapse Spark (Runtime 3.1 or higher) you get Kryo data serialization enabled by default [Kryo data serialization](https://github.com/EsotericSoftware/kryo).
-* You can customize the kryoserializer buffer size using Spark configuration based on your workload requirements
+* In Synapse Spark (Runtime 3.1 or higher), Kryo data serialization is enabled by default Kryo data serialization.
+* You can customize the kryoserializer buffer size using Spark configuration based on your workload requirements:
 
-`// Set the desired property`
-`spark.conf.set("spark.kryoserializer.buffer.max", "256m") `
+  ```scala
+  // Set the desired property
+  spark.conf.set("spark.kryoserializer.buffer.max", "256m")
 
 * Monitor and tune Spark configuration settings.
 
