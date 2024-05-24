@@ -423,17 +423,13 @@ App Service Environment v3 requires the subnet that it's in to have a single del
 
 ### 5. Acknowledge instance size changes
 
-Your App Service plans are converted from Isolated to the corresponding Isolated v2 tier. For example, I2 is converted to I2v2. Your apps might be overprovisioned after the migration, because the Isolated v2 tier has more memory and CPU per corresponding instance size. You have the opportunity to scale your environment as needed after migration is complete. For more information, review the [pricing details](https://azure.microsoft.com/pricing/details/app-service/windows/).
+Select the **Confirm** button to confirm that you understand that your App Service plans are converted from the Isolated to the corresponding Isolated v2 tier as part of the migration.
 
 :::image type="content" source="./media/migration/ack-instance-size.png" alt-text="Screenshot that shows acknowledging the instance size changes when migrating.":::
 
 ### 6. Confirm that the virtual network has no locks
 
-Virtual network locks block platform operations during migration. If your virtual network has locks, you need to remove them before migrating. If necessary, you can add back the locks after migration is complete.
-
-Locks can exist at three scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription, resource group, or resource scope, you need to remove them before the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
-
-For details on how to check if your subscription or resource group has locks, see [Configure locks](../../azure-resource-manager/management/lock-resources.md#configure-locks).
+Virtual network locks block platform operations during migration. If your virtual network has locks, you need to remove them before migrating. For details on how to check if your subscription or resource group has locks, see [Configure locks](../../azure-resource-manager/management/lock-resources.md#configure-locks).
 
 :::image type="content" source="./media/migration/vnet-locks.png" alt-text="Screenshot that shows where to find and remove virtual network locks.":::
 
@@ -476,7 +472,7 @@ At this time, detailed migration statuses are available only when you're using t
 When migration is complete, you have an App Service Environment v3 resource, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
 
 > [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the migration step is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help with the confirming the new IPs.
+> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the migration step is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help confirming the new IPs.
 >
 
 If your migration includes a custom domain suffix, the domain appeared in the **Essentials** section of the **Overview** page of the portal for App Service Environment v1/v2, but it no longer appears there in App Service Environment v3. Instead, for App Service Environment v3, go to the **Custom domain suffix** page to confirm that your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously.
