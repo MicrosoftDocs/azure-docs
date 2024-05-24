@@ -6,7 +6,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/13/2024
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
-zone_pivot_groups: app-service-platform-windows-linux
+zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
