@@ -23,7 +23,7 @@ Currently, the only regions that require endpoint modifications are [Azure Gover
 
 Profiler is supported on the [.NET Framework later than 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework).
 
-If your web app is an ASP.NET Core application, it must be running on the [latest supported ASP.NET Core runtime](https://dotnet.microsoft.com/download/dotnet/6.0).
+If your web app is an ASP.NET Core application, it must be running on the [latest supported ASP.NET Core runtime](https://dotnet.microsoft.com/download/dotnet/8.0).
 
 ## Are you using the right Azure service plan?
 
@@ -138,11 +138,18 @@ When you configure Profiler, updates are made to the web app's settings. If nece
 
 #### Too many active profiling sessions
 
-You can enable Profiler on a maximum of four web apps that are running in the same service plan. If you have more than four, Profiler might throw the following error:
+Only one profiler session at a time is allowed on Azure App Service. This limit is enforced at the VM level across all applications running in an App Service Plan. 
+This limit applies equally to profiling sessions started via *Diagnose and solve problems*, Kudu and Application Insights Profiler.
+If the Application Insights Profiler tries to start a session when another is already running, an error will be logged in the Application Log and also the continuous WebJob log for ApplicationInsightsProfiler3.
 
-`Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException`
+You may see one of the following messages in the logs:
 
-To solve it, move some web apps to a different service plan.
+- `Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException`
+- `Error: StartProfiler failed. Details: System.Runtime.InteropServices.COMException (0xE111005E): Exception from HRESULT: 0xE111005E`
+
+The error code 0xE111005E indicates that the maximum number of active profiling sessions has been reached.
+
+To avoid the error, move some web apps to a different service plan or disable the profiler on some of the applications.
 
 #### Deployment error: Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
