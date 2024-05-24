@@ -39,7 +39,7 @@ A test can be run in a debug mode to validate the test plan configuration and ap
 
 - A test run in debug mode can't be marked as baseline test run.
 
-- A test run in debug mode is not inclided in the metrics trends.
+- A test run in debug mode isn't included in the metrics trends.
 
 
 ## Run tests in debug mode
