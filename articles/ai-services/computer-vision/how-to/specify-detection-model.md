@@ -64,7 +64,7 @@ A request URL for the [Detect] REST API will look like this:
 If you are using the client library, you can assign the value for `detectionModel` by passing in an appropriate string. If you leave it unassigned, the API will use the default model version (`detection_01`). See the following code example for the .NET client library.
 
 ```csharp
-string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
 var faces = await faceClient.Face.DetectWithUrlAsync(url: imageUrl, returnFaceId: false, returnFaceLandmarks: false, recognitionModel: "recognition_04", detectionModel: "detection_03");
 ```
 
@@ -81,7 +81,7 @@ await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", 
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
-string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_03");
 ```
 
@@ -97,7 +97,7 @@ You can also specify a detection model when you add a face to an existing **Face
 ```csharp
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 
-string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_03");
 ```
 
