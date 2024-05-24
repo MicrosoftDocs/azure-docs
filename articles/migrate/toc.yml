@@ -197,19 +197,6 @@ items:
 - name: Tutorials 
   items:
   - name: Migration Scenarios
-  - name: Create and manage Azure Migrate projects
-    href: create-manage-projects.md
-  - name: Use Azure Migrate with private endpoints 
-    items:
-      - name: Support requirements and considerations
-        href: how-to-use-azure-migrate-with-private-endpoints.md
-      - name: Discover and assess using Azure Private Link
-        href: discover-and-assess-using-private-endpoints.md
-      - name: Migrate servers to Azure using Private Link
-        href: migrate-servers-to-azure-using-private-link.md
-      - name: Troubleshoot network connectivity
-        href: troubleshoot-network-connectivity.md
-  - name: Discover
     items:
     - name: Migrate servers hosted on VMware
       items:
@@ -243,6 +230,16 @@ items:
         href: tutorial-discover-sap-systems.md
       - name: Assess SAP systems for migration (preview)
         href: tutorial-assess-sap-systems.md
+    - name: Use Azure Migrate with private endpoints 
+      items:
+      - name: Support requirements and considerations
+        href: how-to-use-azure-migrate-with-private-endpoints.md
+      - name: Discover and assess using Azure Private Link
+        href: discover-and-assess-using-private-endpoints.md
+      - name: Migrate servers to Azure using Private Link
+        href: migrate-servers-to-azure-using-private-link.md
+      - name: Troubleshoot network connectivity
+        href: troubleshoot-network-connectivity.md
     - name: Modernize applications 
       items:
       - name: Containerize ASP.NET apps and migrate to AKS
@@ -283,7 +280,7 @@ items:
       href: how-to-create-group-machine-dependencies.md
     - name: Analyze machine dependencies (agentless)
       href: how-to-create-group-machine-dependencies-agentless.md
-  - name: Assess
+  - name: Assessment
     items:
     - name: Enable application and code assessment
       href: appcat/index.yml
