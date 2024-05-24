@@ -161,7 +161,7 @@ See [High-availability configuration](configure-system.md#high-availability-conf
 > | `database_vm_authentication_type`  | Defines the authentication type (key/password)                                     | Optional     |        |
 > | `database_use_avset`               | Controls if the database servers are placed in availability sets                   | Optional     |        |
 > | `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups          | Optional     |        |
-> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional     | Primarily used with ANF pinning. |
+> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional     | Primarily used with Azure NetApp Files pinning. |
 > | `database_use_premium_v2_storage`  | Controls if the database tier will use premium storage v2 (HANA)                   | Optional     |        |
 > | `database_dual_nics`               | Controls if the HANA database servers will have dual network interfaces            | Optional     |        |
 > | `database_tags`	                   | Defines a list of tags to be applied to the database servers                       | Optional  |         |
