@@ -1,7 +1,7 @@
 ---
-title: "Use the incident response API"
+title: "Use the custom categories (rapid) API"
 titleSuffix: Azure AI services
-description: Learn how to use the incident response API to mitigate harmful content incidents quickly.
+description: Learn how to use the custom categories (rapid) API to mitigate harmful content incidents quickly.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: pafarley
 ---
 
 
-# Use the incident response API
+# Use the custom categories (rapid) API
 
-The incident response API lets you quickly respond to emerging harmful content incidents. You can define an incident with a few examples in a specific topic, and the service will start detecting similar content.
+The custom categories (rapid) API lets you quickly respond to emerging harmful content incidents. You can define an incident with a few examples in a specific topic, and the service will start detecting similar content.
 
 Follow these steps to define an incident with a few examples of text content and then analyze new text content to see if it matches the incident.
 
@@ -37,7 +37,7 @@ Follow these steps to define an incident with a few examples of text content and
 
 <!--tbd env vars-->
 
-## Test the text incident response API
+## Test the text custom categories (rapid) API
 
 Use the sample code in this section to create a text incident, add samples to the incident, deploy the incident, and then detect text incidents.
 
@@ -231,7 +231,7 @@ print(response.text)
 ```
 ---
 
-## Test the image incident response API
+## Test the image custom categories (rapid) API
 
 Use the sample code in this section to create an image incident, add samples to the incident, deploy the incident, and then detect image incidents.
 
@@ -801,5 +801,5 @@ print(response.text)
 
 ## Related content
 
-- [Incident response concepts](../concepts/incident-response.md)
+- [Custom categories (rapid) concepts](../concepts/custom-categories-rapid.md)
 - [What is Azure AI Content Safety?](../overview.md)
