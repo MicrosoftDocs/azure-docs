@@ -271,7 +271,7 @@ If you encounter an error like "Access denied to list workspace secret", check w
 
 ### How do I use credential-less data store in prompt flow?
 
-You can follow [Identity-based data authentication](../../how-to-administrate-data-authentication.md#identity-based-data-authentication) this part to make your data store credential-less. 
+You can follow [Identity-based data authentication](../how-to-administrate-data-authentication.md#identity-based-data-authentication) this part to make your data store credential-less. 
 
 To use credential-less data store in prompt flow, you need to grand enough permissions to user identity or managed identity to access the data store.
 - If you're using user identity this default option in prompt flow, you need to make sure the user identity has following role on the storage account:
