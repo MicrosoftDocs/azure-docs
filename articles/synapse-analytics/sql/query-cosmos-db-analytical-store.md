@@ -19,7 +19,7 @@ For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transa
 
 In this article, you'll learn how to write a query with a serverless SQL pool that will query data from Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this tutorial](./tutorial-data-analyst.md). This tutorial uses a container with an [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). You can also check out the Learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).
 
->[!NOTE[]
+>[!NOTE]
 > You can’t use managed identity to access an Azure Cosmos DB container from serverless SQL pool.
 
 
