@@ -25,7 +25,7 @@ ms.custom: references_regions
 
 ## Ensure VM with Ephemeral Disk support
 
-Ephemeral Disk is available in certain types of VM. If you plan to use Ephemeral Disk with local NVMe, a [storage optimized VM](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3** is required. If you plan to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series) is required.
+Ephemeral Disk is available in certain types of VM. If you plan to use Ephemeral Disk with local NVMe, a [storage optimized VM](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3** is required. If you plan to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
 
 You can run the following command to get VM type that is used with your node pool.
 ```azurecli-interactive
