@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 05/24/2024
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-js, devx-track-extended-js
 ---
@@ -94,11 +94,11 @@ Properly tuning data transfer options is key to reliable performance for downloa
 The following values can be tuned for downloads based on the needs of your app:
 
 - [blockSize](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions#@azure-storage-blob-blobdownloadtobufferoptions-blocksize): The maximum block size to transfer for each request.
-- [concurrency](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions#@azure-storage-blob-blobdownloadtobufferoptions-concurrency): The maximum number of parallel requests issued at any given time as a part of a single parallel transfer. You can set this value by using the [setMaxConcurrency](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setmaxconcurrency(java-lang-integer)) method.
+- [concurrency](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions#@azure-storage-blob-blobdownloadtobufferoptions-concurrency): The maximum number of parallel requests issued at any given time as a part of a single parallel transfer.
 
 ### Performance considerations for downloads
 
-During a download, the Storage client libraries split a given download request into multiple subdownloads based on the configuration options defined by `ParallelTransferOptions`. Each subdownload has its own dedicated call to the REST operation. Depending on transfer options, the client libraries manage these REST operations in parallel to complete the full download.
+During a download, the Storage client libraries split a given download request into multiple subdownloads based on the configuration options defined by `BlobDownloadToBufferOptions`. Each subdownload has its own dedicated call to the REST operation. Depending on transfer options, the client libraries manage these REST operations in parallel to complete the full download.
 
 ## Next steps
 
