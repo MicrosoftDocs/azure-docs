@@ -101,7 +101,7 @@ Internally, Microsoft collects telemetry data about your service and the platfor
 
 Semantic ranking is free for the first 1,000 requests per month, but you must opt-in to get the free quota. 
 
-In Azure portal, under **Settings** on the leftmost pane, select **Semantic ranker** and then choose the Free plan. For more information, see [Enable semantic rankger](semantic-how-to-enable-disable.md).
+In Azure portal, under **Settings** on the leftmost pane, select **Semantic ranker** and then choose the Free plan. For more information, see [Enable semantic ranker](semantic-how-to-enable-disable.md).
 
 ### Configure user access
 

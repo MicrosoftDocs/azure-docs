@@ -227,19 +227,19 @@ Maximum quota for a given tier and region combination is an extra 100 search ser
 
 1. Sign in to the Azure portal, search for "quotas" in your dashboard, and then select the **Quotas** service.
 
-   :::image type="content" source="media/search-create-service-portal/quota-search.png" alt-text="Screenshot of the quota search term and Quotas service in the results.":::
+   :::image type="content" source="media/search-create-service-portal/quota-search.png" lightbox="media/search-create-service-portal/quota-search.png" alt-text="Screenshot of the quota search term and Quotas service in the results.":::
 
 1. In the Quota's Overview page, select **Search**.
 
-   :::image type="content" source="media/search-create-service-portal/quota-overview-page.png" alt-text="Screenshot of the search tile in the Quota's overview page.":::
+   :::image type="content" source="media/search-create-service-portal/quota-overview-page.png" lightbox="media/search-create-service-portal/quota-overview-page.png" alt-text="Screenshot of the search tile in the Quota's overview page.":::
 
 1. Set filters so that you can review existing quota for search services in the current subscription. We recommend filtering by usage.
 
 1. Find the region and tier that needs more quota and select the **Edit** pencil icon to begin your request.
 
-   :::image type="content" source="media/search-create-service-portal/quota-pencil-edit.png" alt-text="Screenshot of the My Quotas page with a region at maximum quota.":::
+   :::image type="content" source="media/search-create-service-portal/quota-pencil-edit.png" lightbox="media/search-create-service-portal/quota-pencil-edit.png" alt-text="Screenshot of the My Quotas page with a region at maximum quota.":::
 
-1. In **Quota details**, specify the location, tier, and a new limit for your subscription quota. None of the values can be empty. The new limit must be greater than the current limit, and equal to or lower than the number in the auto-approved quota increase column. For example, for the Basic tier in a given region, if the current limits is 16, your new limit can be between 17 and 80.
+1. In **Quota details**, specify the location, tier, and a new limit for your subscription quota. None of the values can be empty. The new limit must be greater than the current limit, and equal to or lower than the number in the auto-approved quota increase column. For example, for the Basic tier in a given region, if the current limit is 16, your new limit can be between 17 and 80.
 
    | Tier | Default limit | Auto-approved quota increase | Combined total |
    |--|--|--|--|
