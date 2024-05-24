@@ -947,6 +947,14 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ::: moniker-end
 
+::: moniker range="doc-intel-4.0.0"
+* [Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Python(v4.0)/Layout_model)
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+* [Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model)
+::: moniker-end
+
 ::: moniker range="doc-intel-2.1.0"
 
 * [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/).

@@ -1020,3 +1020,15 @@ Invoice number: 34278587
 > [!div class="nextstepaction"]
 > SDK samples:
 > [**python**](/python/api/overview/azure/ai-documentintelligence-readme)
+
+::: moniker range="doc-intel-4.0.0"
+> [!div class="nextstepaction"]
+> Find more samples:
+> [**Add-on capabilities**](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Python(v4.0)/Add-on_capabilities)
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+> [!div class="nextstepaction"]
+> Find more samples:
+> [**Add-on capabilities**](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Add-on_capabilities)
+::: moniker-end

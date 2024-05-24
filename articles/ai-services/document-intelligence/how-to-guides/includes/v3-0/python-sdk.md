@@ -154,6 +154,9 @@ if __name__ == "__main__":
 
 ```
 
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Read_model/sample_analyze_read.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Read_model)
+
 Visit the Azure samples repository on GitHub and view the [`read` model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/read-model-output.md).
 
 ## Use the Layout model
@@ -266,6 +269,9 @@ if __name__ == "__main__":
     analyze_layout()
 
 ```
+
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model/sample_analyze_layout.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model)
 
 Visit the Azure samples repository on GitHub and view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/layout-model-output.md).
 
@@ -718,6 +724,9 @@ if __name__ == "__main__":
 
 ```
 
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model/sample_analyze_tax_us_w2.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model)
+
 Visit the Azure samples repository on GitHub and view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
 ## Use the Invoice model
@@ -1010,6 +1019,9 @@ if __name__ == "__main__":
 
 ```
 
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model/sample_analyze_invoices.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model)
+
 Visit the Azure samples repository on GitHub and view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/invoice-model-output.md).
 
 ## Use the Receipt model
@@ -1107,6 +1119,9 @@ if __name__ == "__main__":
 
 ```
 
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model/sample_analyze_receipts.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model)
+
 Visit the Azure samples repository on GitHub and view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/receipt-model-output.md).
 
 ## Use the ID document model
@@ -1197,6 +1212,8 @@ if __name__ == "__main__":
     analyze_identity_documents()
 
 ```
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model/sample_analyze_identity_documents.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model)
 
 Visit the Azure samples repository on GitHub and view the [ID document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/id-document-output.md).
 
