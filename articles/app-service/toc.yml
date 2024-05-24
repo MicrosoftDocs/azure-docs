@@ -57,7 +57,7 @@
         - name: Configure Java SE, Tomcat, or JBoss
           items:
             - name: Deployment and runtime
-              href: configure-language-java-deployment-runtime.md
+              href: configure-language-java-deploy-run.md
             - name: Data sources
               href: configure-language-java-data-sources.md
             - name: APM integration

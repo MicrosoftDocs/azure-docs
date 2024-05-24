@@ -1,6 +1,6 @@
 ---
-title: Configure Tomcat, JBoss, or Java SE apps
-description: Learn how to configure Tomcat, JBoss, or Java SE apps to run on Azure App Service. This article shows the most common configuration tasks.
+title: Deploy and configure Tomcat, JBoss, or Java SE apps
+description: Learn how to deploy and configure Tomcat, JBoss, or Java SE apps to run on Azure App Service.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
 ms.topic: article

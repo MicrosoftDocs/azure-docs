@@ -1,6 +1,6 @@
 ---
-title: Configure Java apps
-description: Learn how to configure Java apps to run on Azure App Service. This article shows the most common configuration tasks.
+title: Configure data sources for Tomcat, JBoss, or Java SE apps
+description: Learn how to configure data sources for Tomcat, JBoss, or Java SE apps on Azure App Service. 
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
 ms.topic: article
@@ -12,7 +12,7 @@ author: cephalin
 ms.author: cephalin
 ---
 
-# Configure data sources for a Java app in Azure App Service
+# Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service
 
 This article shows how to configure data sources in a Java SE, Tomcat, or JBoss app in App Service.
 

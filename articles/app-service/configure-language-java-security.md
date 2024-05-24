@@ -1,6 +1,6 @@
 ---
-title: Configure Java apps
-description: Learn how to configure Java apps to run on Azure App Service. This article shows the most common configuration tasks.
+title: Configure security for Tomcat, JBoss, or Java SE apps
+description: Learn how to configure security for Tomcat, JBoss, or Java SE apps on Azure App Service.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
 ms.topic: article
@@ -12,13 +12,13 @@ author: cephalin
 ms.author: cephalin
 ---
 
-## Configure security for a Java app in Azure App Service
+# Configure security for a Tomcat, JBoss, or Java SE app in Azure App Service
 
 This article shows how to confgure Java-specific security settings in App Service. Java applications running in App Service have the same set of [security best practices](../security/fundamentals/paas-applications-using-app-services.md) as other applications.
 
 [!INCLUDE [java-variants](includes/configure-language-java/java-variants.md)]
 
-### Authenticate users (Easy Auth)
+## Authenticate users (Easy Auth)
 
 Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Microsoft Entra ID or social sign-ins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Microsoft Entra sign-in](configure-authentication-provider-aad.md) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in [Customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md).
 
@@ -70,11 +70,11 @@ For JBoss EAP, `[TODO]`.
 
 ::: zone-end
 
-### Configure TLS/SSL
+## Configure TLS/SSL
 
 To upload an existing TLS/SSL certificate and bind it to your application's domain name, follow the instructions in [Secure a custom DNS name with an TLS/SSL binding in Azure App Service](configure-ssl-bindings.md). You can also configure the app to enforce TLS/SSL.
 
-### Use KeyVault References
+## Use KeyVault References
 
 [Azure KeyVault](../key-vault/general/overview.md) provides centralized secret management with access policies and audit history. You can store secrets (such as passwords or connection strings) in KeyVault and access these secrets in your application through environment variables.
 
@@ -94,7 +94,7 @@ To inject these secrets in your Tomcat configuration file, use environment varia
 
 ::: zone-end
 
-### Use the Java key store in Linux
+## Use the Java key store in Linux
 
 By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) are loaded into the respective Java key stores as the container starts. After uploading your certificate, you'll need to restart your App Service for it to be loaded into the Java key store. Public certificates are loaded into the key store at `$JRE_HOME/lib/security/cacerts`, and private certificates are stored in `$JRE_HOME/lib/security/client.jks`.
 
@@ -105,7 +105,7 @@ More configuration might be necessary for encrypting your JDBC connection with c
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
-#### Initialize the Java key store in Linux
+### Initialize the Java key store in Linux
 
 To initialize the `import java.security.KeyStore` object, load the keystore file with the password. The default password for both key stores is `changeit`.
 
@@ -121,40 +121,11 @@ keyStore.load(
     "changeit".toCharArray());
 ```
 
-#### Manually load the key store in Linux
+### Manually load the key store in Linux
 
 You can load certificates manually to the key store. Create an app setting, `SKIP_JAVA_KEYSTORE_LOAD`, with a value of `1` to disable App Service from loading the certificates into the key store automatically. All public certificates uploaded to App Service via the Azure portal are stored under `/var/ssl/certs/`. Private certificates are stored under `/var/ssl/private/`.
 
 You can interact or debug the Java Key Tool by [opening an SSH connection](configure-linux-open-ssh-session.md) to your App Service and running the command `keytool`. See the [Key Tool documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) for a list of commands. For more information on the KeyStore API, see [the official documentation](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
-
-# [Linux](#tab/linux)
-
-1. Create an AppDynamics account at [AppDynamics.com](https://www.appdynamics.com/community/register/)
-2. Download the Java agent from the AppDynamics website. The file name is similar to *AppServerAgent-x.x.x.xxxxx.zip*
-3. [SSH into your App Service instance](configure-linux-open-ssh-session.md) and create a new directory */home/site/wwwroot/apm*.
-4. Upload the Java agent files into a directory under */home/site/wwwroot/apm*. The files for your agent should be in */home/site/wwwroot/apm/appdynamics*.
-5. In the Azure portal, browse to your application in App Service and create a new Application Setting.
-
-    ::: zone pivot="java-javase"
-
-    Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name. If you already have an environment variable for `JAVA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
-
-    ::: zone-end
-
-    ::: zone pivot="java-tomcat"
-
-    Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name. If you already have an environment variable for `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
-
-    ::: zone-end
-
-    ::: zone pivot="java-jboss"
-
-    For **JBoss EAP**, `[TODO]`.
-
-    ::: zone-end
-
-
----
 
 ## Next steps
 
