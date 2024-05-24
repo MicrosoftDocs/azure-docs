@@ -400,6 +400,9 @@
       - name: Access private virtual networks
         displayName: deployment script
         href: deployment-script-vnet.md
+      - name: Deployment scripts over private endpoint
+        displayName: deployment script
+        href: deployment-script-vnet-pe.md
       - name: Create script development environments
         displayName: deployment script
         href: deployment-script-bicep-configure-dev.md
