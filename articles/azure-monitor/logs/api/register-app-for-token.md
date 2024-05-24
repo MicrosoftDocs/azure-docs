@@ -113,7 +113,7 @@ Before you can generate a token using your app, client ID, and secret, assign th
 For example,
 - To grant your app read from a Log Analytics Workspace, add your app as a member to the **Reader** role using Access control (IAM) for your Log Analytics Workspace. For more information, see [Access the API](./access-api.md)
 
-- To grant access to send custom metrics for a resource,  add your app as a member to the **Monitoring Metrics Publisher** role using Access control (IAM) for your resource. For more information, see [ Send metrics to the Azure Monitor metric database using REST API](../../essentials/metrics-store-custom-rest-api.md)
+- To grant access to send custom metrics for a resource,  add your app as a member to the **Monitoring Metrics Publisher** role using Access control (IAM) for your resource. For more information, see [Send metrics to the Azure Monitor metric database using REST API](../../essentials/metrics-store-custom-rest-api.md)
 
 For more information, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.yml)
 
