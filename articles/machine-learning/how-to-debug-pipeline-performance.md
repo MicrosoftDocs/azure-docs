@@ -70,6 +70,6 @@ The following table presents the definition of each job status, the time it's ex
 
 ## Related content
 
-- [How to build pipeline using python sdk v2](./how-to-create-component-pipeline-python.md)
-- [How to build pipeline using python CLI v2](./how-to-create-component-pipelines-cli.md)
-- [What is machine learning component](./concept-component.md)
+- [Build pipelines with components by using the Python SDK v2](./how-to-create-component-pipeline-python.md)
+- [Build pipelines with components by using the Azure Machine Learning CLI](./how-to-create-component-pipelines-cli.md)
+- [What is an Azure Machine Learning component?](./concept-component.md)
