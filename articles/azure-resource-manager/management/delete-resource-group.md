@@ -13,6 +13,9 @@ ai-usage: ai-assisted
 
 This article shows how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when you delete a resource group.
 
+> [!NOTE]  
+> To delete a resource group, firstly you need to delete its underlying resource locks as well as backup data.
+> 
 ## How order of deletion is determined
 
 When you delete a resource group, Resource Manager determines the order to delete resources. It uses the following order:
