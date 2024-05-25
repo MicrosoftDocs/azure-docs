@@ -56,7 +56,7 @@ Set and document expectations for monitoring readiness with your business. These
 
 Consider using [Azure Monitor](../../azure-monitor/overview.md) to collect, analyze, and act on telemetry data from your Azure and on-premises environments. Azure Monitor helps you maximize performance and availability of your applications by proactively identify problems in seconds.
 
-List all the important metrics to monitor for each service in your solution along with their acceptable thresholds. For example, to view metrics to monitor for a dedicated SQL pool, see [Supported metrics for Microsoft.Synapse/workspaces/sqlPools](../monitor-synapse-analytics-reference.md#supported-metrics-for-microsoftsynapseworkspacessqlpools).
+List all the important metrics to monitor for each service in your solution along with their acceptable thresholds. For example, you can [view metrics](../monitor-synapse-analytics-reference.md#supported-metrics-for-microsoftsynapseworkspacessqlpools) to monitor for a dedicated SQL pool.
 
 Consider using [Azure Service Health](https://azure.microsoft.com/features/service-health/) to notify you about Azure service incidents and planned maintenance. That way, you can take action to mitigate downtime. You can set up customizable cloud alerts and use a personalized dashboard to analyze health issues, monitor the impact to your cloud resources, get guidance and support, and share details and updates.
 
