@@ -249,7 +249,7 @@
         - name: Analyze recommendations with Copilot for Security
           displayName: copilot, security, recommendations
           href: analyze-with-copilot.md
-        - name: Summarize recommendations wih Copilot for Security
+        - name: Summarize recommendations with Copilot for Security
           displayName: copilot, security, recommendations
           href: summarize-with-copilot.md
         - name: Remediate recommendations with Copilot for Security

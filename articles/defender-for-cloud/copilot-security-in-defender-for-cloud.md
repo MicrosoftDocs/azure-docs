@@ -20,7 +20,7 @@ Microsoft Defender for Cloud's integration with Copilot for Security enables use
 
 Defender for Cloud has integrated copilot into the recommendation experience by allowing you to analyze your recommendations with Copilot.
 
-:::image type="content" source="media/copilot-security-in-defender-for-cloud/analyze-copilot.png" alt-text="Screenshot that shows the analyze with copilot button located on the recommendations page." lightbox="media/copilot/analyze-copilot.png":::
+:::image type="content" source="media/copilot-security-in-defender-for-cloud/analyze-copilot.png" alt-text="Screenshot that shows the analyze with copilot button located on the recommendations page." lightbox="media/copilot-security-in-defender-for-cloud/analyze-copilot.png":::
 
 When you open Copilot, you can use natural language prompts to ask questions about the recommendation. Copilot will provide you with a response in natural language that helps you understand the context of the recommendation, the impact of implementing the recommendation, and the steps to take to implement the recommendation.
 
@@ -32,13 +32,13 @@ Some sample prompts include:
 
 Copilot is also available within recommendations and give you the ability to summarize the recommendations with Copilot.
 
-:::image type="content" source="media/copilot-security-in-defender-for-cloud/summarize-copilot.png" alt-text="Screenshot of a recommendation that shows where the Summarize with Copilot button is located." lightbox="media/copilot/summarize-copilot.png":::
+:::image type="content" source="media/copilot-security-in-defender-for-cloud/summarize-copilot.png" alt-text="Screenshot of a recommendation that shows where the Summarize with Copilot button is located." lightbox="media/copilot-security-in-defender-for-cloud/summarize-copilot.png":::
 
 By selecting summarize with Copilot, you are presented a quick summary of the recommendation in natural language. You can then use Copilot to learn more about the recommendation or remediate it using common language.
 
 ## Related content
 
 - [Analyze recommendations with Copilot for Security](analyze-with-copilot.md)
-- [Summarize recommendations wih Copilot for Security](summarize-with-copilot.md)
+- [Summarize recommendations with Copilot for Security](summarize-with-copilot.md)
 - Remediate recommendations with Copilot for Security
 - Delegate recommendations with Copilot for Security

@@ -1,5 +1,5 @@
 ---
-title: Analyze recommendations wih Copilot for Security
+title: Analyze recommendations with Copilot for Security
 author: Elazark
 ms.author: elkrieger
 description: Learn how to analyze recommendations with Copilot in Microsoft Defender for Cloud.
@@ -49,4 +49,4 @@ The recommendations page will update with the appropriate filters applied based 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Summarize recommendations wih Copilot for Security](summarize-with-copilot.md)
+> [Summarize recommendations with Copilot for Security](summarize-with-copilot.md)

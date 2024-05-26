@@ -1,14 +1,14 @@
 ---
-title: Summarize recommendations wih Copilot for Security
+title: Summarize recommendations with Copilot for Security
 author: Elazark
 ms.author: elkrieger
-description: Learn how to summarize recommendations with Copilot for Security in Microsoft Defender for Cloud.
+description: Learn how to summarize recommendations with Copilot for Security in Microsoft Defender for Cloud and improve your security posture.
 ms.topic: how-to
 ms.date: 05/23/2024
 #customer intent: As a security professional, I want to understand how to use Copilot to summarize recommendations in Defender for Cloud so that I can improve my security posture.
 ---
 
-# Summarize recommendations wih Copilot for Security
+# Summarize recommendations with Copilot for Security
 
 Microsoft Defender for Cloud's integration with Microsoft Copilot for Security allows you to summarize a recommendation to get a better understanding of the risks and vulnerabilities that are present in your environment.
 
@@ -38,7 +38,7 @@ Once you have selected a recommendation you can summarize it with Copilot. By us
 
 Once you have gained a better understanding of the recommendation you can decide how best to handle it. Copilot will remain open and you can enter additional prompts as needed.
 
-## Related content
+## Next step
 
-- Remediate recommendations with Copilot for Security
-- Delegate recommendations with Copilot for Security
+> [!div class="nextstepaction"]
+> Remediate recommendations with Copilot for Security
