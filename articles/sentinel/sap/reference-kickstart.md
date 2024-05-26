@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications container kickstart deployment script reference | Microsoft Docs
+title: Microsoft Sentinel solution for SAP applications container kickstart deployment script reference | Microsoft Docs
 description: Description of command line options available with kickstart deployment script
 author: batamig
 ms.author: bagol
@@ -11,7 +11,7 @@ ms.date: 04/03/2024
 
 ## Script overview
 
-Simplify the [deployment of the container hosting the SAP data connector](deploy-data-connector-agent-container.md) by using the provided **Kickstart script** (available at [Microsoft Sentinel solution for SAP® applications GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)), which can also enable different modes of secrets storage, configure Secure Network Communications (SNC), and more.
+Simplify the [deployment of the container hosting the SAP data connector](deploy-data-connector-agent-container.md) by using the provided **Kickstart script** (available at [Microsoft Sentinel solution for SAP applications GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)), which can also enable different modes of secrets storage, configure Secure Network Communications (SNC), and more.
 
 ## Parameter reference
 
@@ -152,7 +152,7 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. The script attempts to locate the nwrfc*.zip file in the current folder. If it isn't found, the user is prompted to supply a valid NetWeaver SDK archive file.
 
-**Explanation:** NetWeaver SDK file path. A valid SDK is required for the data collector to operate. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#table-of-prerequisites).
+**Explanation:** NetWeaver SDK file path. A valid SDK is required for the data collector to operate. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#table-of-prerequisites).
 
 #### Enterprise Application ID
 
@@ -344,10 +344,10 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel solution for SAP® applications:
+Learn more about the Microsoft Sentinel solution for SAP applications:
 
-- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
@@ -358,12 +358,12 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel solution for SAP® applications solution deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP applications solution deployment](sap-deploy-troubleshoot.md)
 
 Reference files:
 
-- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
 

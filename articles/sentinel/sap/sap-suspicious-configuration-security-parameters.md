@@ -1,6 +1,6 @@
 ---
-title: SAP security parameters monitored by the Microsoft Sentinel solution for SAP® to detect suspicious configuration changes
-description: Learn about the security parameters in the SAP system that the Microsoft Sentinel solution for SAP® applications monitors for suspicious configuration changes.
+title: SAP security parameters monitored by the Microsoft Sentinel solution for SAP to detect suspicious configuration changes
+description: Learn about the security parameters in the SAP system that the Microsoft Sentinel solution for SAP applications monitors for suspicious configuration changes.
 author: batamig
 ms.author: bagol
 ms.topic: reference
@@ -9,16 +9,16 @@ ms.date: 03/26/2023
 
 # Monitored SAP security parameters for detecting suspicious configuration changes
 
-This article details the security parameters in the SAP system that the Microsoft Sentinel solution for SAP® applications monitors as part of the ["SAP - (Preview) Sensitive Static Parameter has Changed" analytics rule](sap-solution-security-content.md#monitoring-the-configuration-of-static-sap-security-parameters-preview).
+This article details the security parameters in the SAP system that the Microsoft Sentinel solution for SAP applications monitors as part of the ["SAP - (Preview) Sensitive Static Parameter has Changed" analytics rule](sap-solution-security-content.md#monitoring-the-configuration-of-static-sap-security-parameters-preview).
 
-The Microsoft Sentinel solution for SAP® applications will provide updates for this content according to SAP best practice changes. You can also add parameters to watch for, change values according to your organization's needs, and disable specific parameters in the [SAPSystemParameters watchlist](sap-solution-security-content.md#systemparameters).
+The Microsoft Sentinel solution for SAP applications will provide updates for this content according to SAP best practice changes. You can also add parameters to watch for, change values according to your organization's needs, and disable specific parameters in the [SAPSystemParameters watchlist](sap-solution-security-content.md#systemparameters).
 
 > [!NOTE]
-> For the Microsoft Sentinel solution for SAP® applications to successfully monitor the SAP security parameters, the solution needs to successfully monitor the SAP PAHI table at regular intervals. [Verify that the solution can successfully monitor the PAHI table](preparing-sap.md#verify-that-the-pahi-table-history-of-system-database-and-sap-parameters-is-updated-at-regular-intervals).
+> For the Microsoft Sentinel solution for SAP applications to successfully monitor the SAP security parameters, the solution needs to successfully monitor the SAP PAHI table at regular intervals. [Verify that the solution can successfully monitor the PAHI table](preparing-sap.md#verify-that-the-pahi-table-history-of-system-database-and-sap-parameters-is-updated-at-regular-intervals).
 
 ## Monitored static SAP security parameters
 
-This list includes the static SAP security parameters that the Microsoft Sentinel solution for SAP® applications monitors to protect your SAP system. The list isn't a recommendation for configuring these parameters. For configuration considerations, consult your SAP admins. 
+This list includes the static SAP security parameters that the Microsoft Sentinel solution for SAP applications monitors to protect your SAP system. The list isn't a recommendation for configuring these parameters. For configuration considerations, consult your SAP admins. 
 
 |Parameter  |Description  |Security value/considerations |
 |---------|---------|---------|
@@ -79,11 +79,11 @@ This list includes the static SAP security parameters that the Microsoft Sentine
 
 For more information, see:
 
-- [Deploying Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Deploying Microsoft Sentinel solution for SAP applications](deployment-overview.md)
 - [SAP solution security content](sap-solution-security-content.md)
-- [Microsoft Sentinel solution for SAP® applications logs reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP applications logs reference](sap-solution-log-reference.md)
 - [Monitor the health of your SAP system](../monitor-sap-system-health.md)
-- [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel solution for SAP applications data connector with SNC](configure-snc.md)
 - [Configuration file reference](configuration-file-reference.md)
-- [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
+- [Prerequisites for deploying the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)

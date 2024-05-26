@@ -49,10 +49,10 @@ If you have SAP HANA database audit logs configured with Syslog, you'll also nee
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel solution for SAP® applications:
+Learn more about the Microsoft Sentinel solution for SAP applications:
 
-- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
@@ -62,12 +62,12 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
 
 Reference files:
 
-- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)

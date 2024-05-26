@@ -24,7 +24,7 @@ The automatic or manual updates described in this article are relevant to the SA
 
 Before you start, make sure that you have all the prerequisites for deploying Microsoft Sentinel solution for SAP applications.
 
-For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
+For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
 ## Automatically update the SAP data connector agent (Preview)
 
@@ -76,7 +76,7 @@ The SAP data connector Docker container on your machine is updated.
 Be sure to check for any other available updates, such as:
 
 - Relevant SAP change requests, in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR).
-- Microsoft Sentinel solution for SAP® applications security content, in the **Microsoft Sentinel solution for SAP® applications** solution.
+- Microsoft Sentinel solution for SAP applications security content, in the **Microsoft Sentinel solution for SAP applications** solution.
 - Relevant watchlists, in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists).
 
 ## Update your system for attack disruption
@@ -202,10 +202,10 @@ To apply and assign the **/MSFTSEN/SENTINEL_RESPONDER** SAP role:
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel solution for SAP® applications:
+Learn more about the Microsoft Sentinel solution for SAP applications:
 
-- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
@@ -216,12 +216,12 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
 
 Reference files:
 
-- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)

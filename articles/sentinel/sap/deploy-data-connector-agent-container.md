@@ -23,7 +23,7 @@ Alternatively, you can deploy the data connector Docker container agent manually
 
 ## Deployment milestones
 
-Deployment of the Microsoft Sentinel solution for SAP® applications is divided into the following sections:
+Deployment of the Microsoft Sentinel solution for SAP applications is divided into the following sections:
 
 1. [Deployment overview](deployment-overview.md)
 
@@ -39,7 +39,7 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
 
 1. [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md) 
 
-1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
+1. [Configure Microsoft Sentinel solution for SAP applications](deployment-solution-configuration.md)
 
 1. Optional deployment steps   
    - [Configure data connector to use SNC](configure-snc.md)
@@ -741,7 +741,7 @@ Create a new agent using the command line, authenticating with a Microsoft Entra
 
 ## Next steps
 
-Once the connector is deployed, proceed to deploy Microsoft Sentinel solution for SAP® applications content:
+Once the connector is deployed, proceed to deploy Microsoft Sentinel solution for SAP applications content:
 > [!div class="nextstepaction"]
 > [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Enable and configure SAP auditing for Microsoft Sentinel | Microsoft Docs
-description: This article shows you how to enable and configure auditing for the Microsoft Sentinel solution for SAP® applications, so that you can have complete visibility into your SAP solution.
+description: This article shows you how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications, so that you can have complete visibility into your SAP solution.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.date: 04/27/2022
 
 # Enable and configure SAP auditing for Microsoft Sentinel
 
-This article shows you how to enable and configure auditing for the Microsoft Sentinel solution for SAP® applications, so that you can have complete visibility into your SAP solution.
+This article shows you how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications, so that you can have complete visibility into your SAP solution.
 
 > [!IMPORTANT]
 > We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
 >
 > The steps in this article may vary, depending on your SAP system's version, and should be considered as a sample only.
 
-Some installations of SAP systems may not have audit log enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP® applications, enable auditing of your SAP system and configure the audit parameters.
+Some installations of SAP systems may not have audit log enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters.
 
 ## Deployment milestones
 
@@ -36,7 +36,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy SAP security content](deploy-sap-security-content.md)
 
-1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
+1. [Configure Microsoft Sentinel solution for SAP applications](deployment-solution-configuration.md)
 
 1. Optional deployment steps   
    - [Configure data connector to use SNC](configure-snc.md)

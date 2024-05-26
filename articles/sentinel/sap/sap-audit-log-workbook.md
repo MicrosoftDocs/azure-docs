@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications - SAP -Security Audit log and Initial Access workbook overview
+title: Microsoft Sentinel solution for SAP applications - SAP -Security Audit log and Initial Access workbook overview
 description: Learn about the SAP -Security Audit log and Initial Access workbook, used to monitor and track data across your SAP systems.
 author: batamig
 ms.author: bagol
@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 01/23/2023
 ---
 
-# Microsoft Sentinel solution for SAP® applications - SAP -Security Audit log and Initial Access workbook
+# Microsoft Sentinel solution for SAP applications - SAP -Security Audit log and Initial Access workbook
 
 This article describes the SAP -Security Audit log and Initial Access workbook, used for monitoring and tracking user audit activity across your SAP systems. You can use the workbook to get a bird's eye view of user audit activity, to better secure your SAP systems and gain quick visibility into suspicious actions. You can drill down into suspicious events as needed.
 
@@ -25,7 +25,7 @@ You can use the workbook either for ongoing monitoring of your SAP systems, or t
 
      > [!IMPORTANT]
      >
-     > The SAP -Security Audit log and Initial Access workbook is hosted by the workspace where the Microsoft Sentinel solution for SAP® applications were installed. By default, both the SAP and the SOC data is assumed to be on the workspace that hosts the workbook. 
+     > The SAP -Security Audit log and Initial Access workbook is hosted by the workspace where the Microsoft Sentinel solution for SAP applications were installed. By default, both the SAP and the SOC data is assumed to be on the workspace that hosts the workbook. 
      >
      > If the SOC data is on a different workspace than the workspace hosting the workbook, make sure to include the subscription for that workspace, and select the SOC workspace from **Azure audit and activity workspace**. 
 
@@ -43,7 +43,7 @@ You can use the workbook either for ongoing monitoring of your SAP systems, or t
 The workbook is separated into two tabs:
 
 - [**Logon analysis report**](#logon-analysis-report-tab). Shows different types of data regarding sign-in failures. Data includes anomalous data, Microsoft Entra data, and more. The data is based on the ["SAP systems" watchlist](sap-solution-security-content.md#available-watchlists).
-- [**Audit log alerts report**](#audit-log-alerts-report-tab). Shows different types of data regarding the SAP Audit log events that the Microsoft Sentinel solution for SAP® applications watches. The data is based on the ["SAP_Dynamic_Audit_Log_Monitor_Configuration" watchlist](sap-solution-security-content.md#available-watchlists).
+- [**Audit log alerts report**](#audit-log-alerts-report-tab). Shows different types of data regarding the SAP Audit log events that the Microsoft Sentinel solution for SAP applications watches. The data is based on the ["SAP_Dynamic_Audit_Log_Monitor_Configuration" watchlist](sap-solution-security-content.md#available-watchlists).
 
 ## Logon analysis report tab
 
@@ -129,10 +129,10 @@ In this screenshot, you can see areas with events and event trends grouped by di
 
 For more information, see:
 
-- [Deploying Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
-- [Microsoft Sentinel solution for SAP® applications logs reference](sap-solution-log-reference.md)
+- [Deploying Microsoft Sentinel solution for SAP applications](deployment-overview.md)
+- [Microsoft Sentinel solution for SAP applications logs reference](sap-solution-log-reference.md)
 - [Monitor the health of your SAP system](../monitor-sap-system-health.md)
-- [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel solution for SAP applications data connector with SNC](configure-snc.md)
 - [Configuration file reference](configuration-file-reference.md)
-- [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
+- [Prerequisites for deploying the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)

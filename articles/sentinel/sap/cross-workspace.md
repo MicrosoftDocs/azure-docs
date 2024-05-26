@@ -1,21 +1,21 @@
 ---
-title: Microsoft Sentinel solution for SAP apps across multiple workspaces
+title: Use Microsoft Sentinel with SAP and multiple workspaces
 description: Learn how to work with the Microsoft Sentinel solution for SAP applications in multiple workspaces for different deployment scenarios.
 author: batamig
 ms.author: bagol
-ms.topic: conceptual
-ms.date: 03/22/2023
-
+ms.topic: concept-article
+ms.date: 05/23/2024
 # customer intent: As a security admin or SAP admin, I want to know how to use the Microsoft Sentinel solution for SAP applications in multiple workspaces so that I can plan a deployment.
+
 ---
 
 # Work with the Microsoft Sentinel solution for SAP applications in multiple workspaces
 
 When you set up your Microsoft Sentinel workspace, you have [multiple architecture options](../design-your-workspace-architecture.md#decision-tree) and factors to consider. Taking into account geography, regulation, access control, and other factors, you might choose to have multiple Microsoft Sentinel workspaces in your organization.
 
-This article discusses how to work with the Microsoft Sentinel solution for SAP applications in multiple workspaces for different deployment scenarios.
 
-The Microsoft Sentinel solution for SAP applications natively supports a cross-workspace architecture to support improved flexibility for:
+
+This article discusses how to work with the Microsoft Sentinel solution for SAP applications in multiple workspaces for different deployment scenarios, with improved flexibility for:
 
 - Managed security service providers (MSSPs) or a global or federated security operations center (SOC).
 - Data residency requirements.

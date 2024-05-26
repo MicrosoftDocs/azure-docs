@@ -143,15 +143,13 @@
         items:
         - name: Overview
           href: sap/solution-overview.md
-        - name: Content overview
-          href: sap/sap-solution-security-content.md
-        - name: Working with the SAP solution across multiple workspaces
+        - name: Get started with SAP integrations
+          href: TBD.md
+        - name: Integrate SAP across multiple workspaces
           href: sap/cross-workspace.md
         - name: Respond to SAP incidents with playbooks
           href: sap/sap-incident-response-playbooks.md
-        - name: Automatic attack disruption for SAP
-          href: sap/deployment-attack-disrupt.md
-        - name: Deployment guide
+        - name: Deploy the SAP integration
           items: 
           - name: Overview
             href: sap/deployment-overview.md
@@ -172,8 +170,24 @@
           - name: Disable the connector
             displayName: disable, stop ingestion, stop
             href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector
-        - name: Reference
-          items:    
+        - name: Deploy automatic attack disruption for SAP
+          href: sap/deployment-attack-disrupt.md
+        - name: Optional deployment steps
+          items: 
+          - name: Configure SAP data connector to use SNC
+            href: sap/configure-snc.md      
+          - name: Collect SAP HANA audit logs
+            href: sap/collect-sap-hana-audit-logs.md
+          - name: Deploy SAP connector manually
+            href: sap/sap-solution-deploy-alternate.md
+          - name: Configure SAP audit log monitoring rules
+            href: sap/configure-audit-log-rules.md
+          - name: Select SAP ingestion profile
+            href: sap/select-ingestion-profiles.md 
+        - name: SAP security content reference
+          href: sap/sap-solution-security-content.md
+        - name: SAP deployment reference
+          items:
           - name: SAP solution data reference
             href: sap/sap-solution-log-reference.md
           - name: Monitored SAP security parameters
@@ -190,18 +204,6 @@
             href: sap/reference-systemconfig-json.md
           - name: Systemconfig.ini file reference
             href: sap/reference-systemconfig.md
-      - name: Optional deployment steps
-        items: 
-        - name: Configure SAP data connector to use SNC
-          href: sap/configure-snc.md      
-        - name: Collect SAP HANA audit logs
-          href: sap/collect-sap-hana-audit-logs.md
-        - name: Deploy SAP connector manually
-          href: sap/sap-solution-deploy-alternate.md
-        - name: Configure SAP audit log monitoring rules
-          href: sap/configure-audit-log-rules.md
-        - name: Select SAP ingestion profile
-          href: sap/select-ingestion-profiles.md 
       - name: SAP BTP solution
         items:
         - name: Overview

@@ -1,18 +1,18 @@
 ---
-title: Microsoft Sentinel Solution for SAP® BTP - security content reference
-description: Learn about the built-in security content provided by the  Microsoft Sentinel Solution for SAP® BTP.
+title: Microsoft Sentinel Solution for SAP BTP - security content reference
+description: Learn about the built-in security content provided by the  Microsoft Sentinel Solution for SAP BTP.
 author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.date: 03/30/2023
 ---
 
-#  Microsoft Sentinel Solution for SAP® BTP: security content reference
+#  Microsoft Sentinel Solution for SAP BTP: security content reference
 
-This article details the security content available for the Microsoft Sentinel Solution for SAP® BTP.
+This article details the security content available for the Microsoft Sentinel Solution for SAP BTP.
 
 > [!IMPORTANT]
-> The Microsoft Sentinel Solution for SAP® BTP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel Solution for SAP BTP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Available security content currently includes a built-in workbook and analytics rules. You can also add SAP-related [watchlists](../watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
 
@@ -34,7 +34,7 @@ The **Identity Management** tab shows a grid of identity management events, such
 
 :::image type="content" source="./media/sap-btp-security-content/sap-btp-workbook-identity-management.png" alt-text="Screenshot of the Identity Management tab of the SAP BTP workbook." lightbox="./media/sap-btp-security-content/sap-btp-workbook-identity-management.png":::
 
-For more information, see [Tutorial: Visualize and monitor your data](../monitor-your-data.md) and [Deploy Microsoft Sentinel Solution for SAP® BTP](deploy-sap-btp-solution.md).
+For more information, see [Tutorial: Visualize and monitor your data](../monitor-your-data.md) and [Deploy Microsoft Sentinel Solution for SAP BTP](deploy-sap-btp-solution.md).
 
 ## Built-in analytics rules
 
@@ -48,7 +48,7 @@ For more information, see [Tutorial: Visualize and monitor your data](../monitor
 
 ## Next steps
 
-In this article, you learned about the security content provided with the Microsoft Sentinel Solution for SAP® BTP.
+In this article, you learned about the security content provided with the Microsoft Sentinel Solution for SAP BTP.
 
-- [Deploy Microsoft Sentinel solution for SAP® BTP](deploy-sap-btp-solution.md)
-- [Microsoft Sentinel Solution for SAP® BTP overview](sap-btp-solution-overview.md)
+- [Deploy Microsoft Sentinel solution for SAP BTP](deploy-sap-btp-solution.md)
+- [Microsoft Sentinel Solution for SAP BTP overview](sap-btp-solution-overview.md)

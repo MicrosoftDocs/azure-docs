@@ -1,13 +1,13 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications deployment troubleshooting
-description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel solution for SAP® applications deployment.
+title: Microsoft Sentinel solution for SAP applications deployment troubleshooting
+description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel solution for SAP applications deployment.
 author: batamig
 ms.author: bagol
 ms.topic: troubleshooting
 ms.date: 01/09/2023
 ---
 
-# Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment
+# Troubleshooting your Microsoft Sentinel solution for SAP applications deployment
 
 ## Useful Docker commands
 
@@ -71,7 +71,7 @@ The change takes effect two minutes after you save the file. You don't need to r
 
 ## View all container execution logs
 
-Connector execution logs for your Microsoft Sentinel solution for SAP® applications data connector deployment are stored on your VM in **/opt/sapcon/[SID]/log/**. Log filename is **OmniLog.log**. A history of logfiles is kept, suffixed with *.[number]* such as **OmniLog.log.1**, **OmniLog.log.2** etc
+Connector execution logs for your Microsoft Sentinel solution for SAP applications data connector deployment are stored on your VM in **/opt/sapcon/[SID]/log/**. Log filename is **OmniLog.log**. A history of logfiles is kept, suffixed with *.[number]* such as **OmniLog.log.1**, **OmniLog.log.2** etc
 
 ## Review and update the Microsoft Sentinel for SAP data connector configuration
 
@@ -225,7 +225,7 @@ For more information, see [ValidateSAP environment validation steps](prerequisit
 ### No records / late records
 
 The agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check if SAP report TZCUSTHELP presents any errors. Follow [SAP note 481835](<https://me.sap.com/notes/481835/E>) for more details.
-Additionally, there can be issues with the clock on the VM where the Microsoft Sentinel solution for SAP® applications agent is hosted. Any deviation of the VM's clock from UTC will impact data collection. More importantly, the SAP VM's clock and the Sentinel agent's VM's clock should match.
+Additionally, there can be issues with the clock on the VM where the Microsoft Sentinel solution for SAP applications agent is hosted. Any deviation of the VM's clock from UTC will impact data collection. More importantly, the SAP VM's clock and the Sentinel agent's VM's clock should match.
 
 
 ### Network connectivity issues
@@ -331,10 +331,10 @@ This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above 
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel solution for SAP® applications:
+Learn more about the Microsoft Sentinel solution for SAP applications:
 
-- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
@@ -344,8 +344,8 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 
 Reference files:
 
-- [Microsoft Sentinel solution for SAP® applications solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP® applications solution: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP applications solution data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP applications solution: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)

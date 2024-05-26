@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications systemconfig.ini container configuration file reference
+title: Microsoft Sentinel solution for SAP applications systemconfig.ini container configuration file reference
 description: Description of settings available in systemconfig.ini file
 author: batamig
 ms.author: bagol
@@ -13,7 +13,7 @@ ms.custom: devx-track-extended-java
 The *systemconfig.ini* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
 
 > [!IMPORTANT]
-> Microsoft Sentinel solution for SAP® applications uses the new *[systemconfig.json file](reference-systemconfig-json.md)* for agent versions released on or after June 22, 2023. For previous agent versions, you must still use the *systemconfig.ini* file. 
+> Microsoft Sentinel solution for SAP applications uses the new *[systemconfig.json file](reference-systemconfig-json.md)* for agent versions released on or after June 22, 2023. For previous agent versions, you must still use the *systemconfig.ini* file. 
 >
 > If you update the agent version, the configuration file is automatically migrated. 
 
@@ -226,10 +226,10 @@ USRACL_FULL = <True/False> (Preview)
 ```
 ## Next steps
 
-Learn more about the Microsoft Sentinel solution for SAP® applications:
+Learn more about the Microsoft Sentinel solution for SAP applications:
 
-- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
@@ -240,12 +240,12 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel solution for SAP® applications solution deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP applications solution deployment](sap-deploy-troubleshoot.md)
 
 Reference files:
 
-- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 

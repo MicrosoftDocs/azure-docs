@@ -1,6 +1,6 @@
 ---
-title: Prerequisites for deploying Microsoft Sentinel solution for SAP® applications
-description: This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP® applications.
+title: Prerequisites for deploying Microsoft Sentinel solution for SAP applications
+description: This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP applications.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
@@ -8,9 +8,9 @@ ms.date: 03/21/2024
 
 ---
 
-# Prerequisites for deploying Microsoft Sentinel solution for SAP® applications
+# Prerequisites for deploying Microsoft Sentinel solution for SAP applications
 
-This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP® applications.
+This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP applications.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
@@ -32,7 +32,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy the data connector agent](deploy-data-connector-agent-container.md)
 
-1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
+1. [Configure Microsoft Sentinel solution for SAP applications](deployment-solution-configuration.md)
 
 1. Optional deployment steps
    - [Configure data connector to use Secure Network Communication (SNC)](configure-snc.md)
@@ -43,7 +43,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 ## Table of prerequisites
 
-To successfully deploy the Microsoft Sentinel solution for SAP® applications, you must meet the following prerequisites:
+To successfully deploy the Microsoft Sentinel solution for SAP applications, you must meet the following prerequisites:
 
 ### Azure prerequisites
 
