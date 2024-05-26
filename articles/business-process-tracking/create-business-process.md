@@ -23,9 +23,9 @@ For example, suppose you're a business analyst at a power company. Your company'
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
-After you create a **Business Process** resource in Azure, you can use the process designer to create a flow chart that visually describes this business process, for example:
+After you create a **Business Process** resource in Azure, you can use the process editor to create a flow chart that visually describes this business process, for example:
 
-:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
+:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process editor for business process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
 Although this example shows a sequential business process, your process can also have parallel branches to represent decision paths.
 
@@ -71,8 +71,8 @@ Although this example shows a sequential business process, your process can also
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. <br><br>This example uses the **TicketNumber** property value as the identifier. |
-   | **Data type** | Yes | <*ID-data-type*> | The data type for your transaction ID: **String** or **Integer**. <br><br>This example uses the **String** data type. |
+   | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. <br><br>This example uses the identifier named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing. |
+   | **Data type** | Yes | <*transacton-ID-data-type*> | The data type for your transaction ID: **String** or **Integer**. <br><br>This example uses the **String** data type. |
 
    > [!NOTE]
    >
@@ -128,7 +128,9 @@ After you create your business process, add the stages for that process. For exa
    | **Stage name** | Yes | <*stage-name*> | The name for this process stage. Use only alphanumeric characters, hyphens, underscores, parentheses, or periods. |
    | **Description** | No | <*stage-description*> | The purpose for this stage. |
 
-   :::image type="content" source="media/create-business-process/add-stage-quick.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and properties to track." lightbox="media/create-business-process/add-stage-quick.png":::
+   This example creates a stage named **Create_ticket**:
+
+   :::image type="content" source="media/create-business-process/add-stage-quick.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and properties to track." lightbox="media/create-business-process/add-stage.png":::
 
    By default, in the **Properties to track** section, the transaction ID that you defined when you created the business process automatically appears in this section. 
 
@@ -147,12 +149,46 @@ After you create your business process, add the stages for that process. For exa
 
    :::image type="content" source="media/create-business-process/add-properties.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and more properties to track." lightbox="media/create-business-process/add-properties.png":::
 
+
+<a name="define-business-property"></a>
+
+## Define a key business property to capture
+
+1. In the [Azure portal](https://portal.azure.com), find and open your integration environment.
+
+1. On your integration environment menu, under **Environment**, select **Applications**.
+
+1. On the **Applications** page, select the application group that has the business process that you want.
+
+1. On the application group menu, under **Business process tracking**, select **Business processes**.
+
+1. From the **Business processes** list, select the business process that you want.
+
+1. On the process designer, select the stage where you want to define the business properties to capture.
+
+1. On the **Edit stage** pane, under **Properties**, on each row, provide the following information about each business property value to capture:
+
+   | Property | Type |
+   |----------|------|
+   | Name for the business property | **String** or **Integer** |
+
+   If you need to add another property, select **Add property**.
+
+   This example specifies to track the business properties named **CustomerName**, **CustomerPhone**, and **CustomerEmail**:
+
+   :::image type="content" source="media/map-business-process-workflow/define-business-properties-tracking.png" alt-text="Screenshot shows process designer, selected process stage, opened pane for Edit stage, and defined business properties to track." lightbox="media/map-business-process-workflow/define-business-properties-tracking.png":::
+
+1. When you're done, continue on to map the current stage to an actual Standard logic app workflow operation and the data that you want.
+
+
+
+
 1. In the editor's upper-right corner, you can optionally enable **Show data source settings**, which shows or hides the available data sources that you can map to each stage.
 
    > [!NOTE]
    >
-   > In this release, business process tracking is available only for 
-   > Standard logic app resources and their workflows in Azure Logic Apps.
+   > In this release, business process tracking supports only Standard 
+   > logic app resources and their workflows in Azure Logic Apps.
 
    To choose a data source, provide the following information:
 
@@ -178,13 +214,13 @@ After you create your business process, add the stages for that process. For exa
 
    The following example shows a completed business process:
 
-   :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer with completed business process stages." lightbox="media/create-business-process/business-process-stages-complete.png":::
+   :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process editor with completed business process stages." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
-1. When you're done, on the process designer toolbar, select **Save**.
+1. When you're done, on the process editor toolbar, select **Save**.
 
-1. Now, [define key business data properties to capture for each stage and map each stage to an operation in a Standard logic app workflow](map-business-process-workflow.md#define-business-property) so that you can get insights about your deployed resource.
+1. Now, [map the key data properties for each stage to an operation in a Standard logic app workflow](map-business-process-workflow.md#define-business-property) so that you can get insights about your deployed resource.
 
-## Related content
+## Next step
 
-- [Map a business process to a Standard logic app workflow](map-business-process-workflow.md)
-- [Manage a business process](manage-business-process.md)
+> [!div class="nextstepaction"]
+> [Map a business process to a Standard logic app workflow](map-business-process-workflow.md)
