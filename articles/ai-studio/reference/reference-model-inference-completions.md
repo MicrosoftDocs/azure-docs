@@ -50,11 +50,11 @@ POST /completions?api-version=2024-04-01-preview
 | Name | Type | Description |
 | --- | --- | --- |
 | 200 OK | [CreateCompletionResponse](#createcompletionresponse) | OK  |
-| 401 Unauthorized |     | Access token is missing or invalid |
-| 404 Not Found |     | Modality not supported by the model. Check the documentation of the model to see which routes are available. |
-| 422 Unprocessable Entity | [UnprocessableContentError](#unprocessablecontenterror) | The request contains unprocessable content<br><br>Headers<br><br>x-ms-error-code: string |
-| 429 Too Many Requests |     | You have hit your assigned rate limit and your request need to be paced. |
-| Other Status Codes | [ContentFilterError](#contentfiltererror) | Bad request<br><br>Headers<br><br>x-ms-error-code: string |
+| 401 Unauthorized         | [UnauthorizedError](#unauthorizederror)                 | Access token is missing or invalid<br><br>Headers<br><br>x-ms-error-code: string                                                                           |
+| 404 Not Found            | [NotFoundError](#notfounderror)                         | Modality not supported by the model. Check the documentation of the model to see which routes are available.<br><br>Headers<br><br>x-ms-error-code: string |
+| 422 Unprocessable Entity | [UnprocessableContentError](#unprocessablecontenterror) | The request contains unprocessable content<br><br>Headers<br><br>x-ms-error-code: string                                                                   |
+| 429 Too Many Requests    | [TooManyRequestsError](#toomanyrequestserror)           | You have hit your assigned rate limit and your request need to be paced.<br><br>Headers<br><br>x-ms-error-code: string                                     |
+| Other Status Codes       | [ContentFilterError](#contentfiltererror)               | Bad request<br><br>Headers<br><br>x-ms-error-code: string                                                                                                  |
 
 
 ## Security

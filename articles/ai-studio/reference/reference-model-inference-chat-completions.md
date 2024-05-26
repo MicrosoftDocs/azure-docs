@@ -43,7 +43,7 @@ POST /chat/completions?api-version=2024-04-01-preview
 | stop |     |     | Sequences where the API will stop generating further tokens. |
 | stream |     | boolean | If set, partial message deltas will be sent. Tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a `data: [DONE]` message. |
 | temperature |     | number | Non-negative number. Return 422 if value is unsupported by model. |
-| tool\_choice |     | ChatCompletionToolChoiceOption | Controls which (if any) function is called by the model. `none` means the model will not call a function and instead generates a message. `auto` means the model can pick between generating a message or calling a function. Specifying a particular function via `{"type": "function", "function": {"name": "my_function"}}` forces the model to call that function.<br><br>`none` is the default when no functions are present. `auto` is the default if functions are present. Returns a 422 error if the tool is not supported by the model. |
+| tool\_choice |     | ChatCompletionToolChoiceOption(#chatcompletiontoolchoiceoption) | Controls which (if any) function is called by the model. `none` means the model will not call a function and instead generates a message. `auto` means the model can pick between generating a message or calling a function. Specifying a particular function via `{"type": "function", "function": {"name": "my_function"}}` forces the model to call that function.<br><br>`none` is the default when no functions are present. `auto` is the default if functions are present. Returns a 422 error if the tool is not supported by the model. |
 | tools |     | [ChatCompletionTool](#chatcompletiontool)\[\] | A list of tools the model may call. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for. Returns a 422 error if the tool is not supported by the model. |
 | top\_p |     | number | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top\_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br><br>We generally recommend altering this or `temperature` but not both. |
 
@@ -293,7 +293,7 @@ The API call fails when the prompt triggers a content filter as configured. Modi
 | stop |     |     | Sequences where the API will stop generating further tokens. |
 | stream | boolean | False | If set, partial message deltas will be sent. Tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a `data: [DONE]` message. |
 | temperature | number | 1   | Non-negative number. Return 422 if value is unsupported by model. |
-| tool\_choice | ChatCompletionToolChoiceOption |     | Controls which (if any) function is called by the model. `none` means the model will not call a function and instead generates a message. `auto` means the model can pick between generating a message or calling a function. Specifying a particular function via `{"type": "function", "function": {"name": "my_function"}}` forces the model to call that function.<br><br>`none` is the default when no functions are present. `auto` is the default if functions are present. Returns a 422 error if the tool is not supported by the model. |
+| tool\_choice | ChatCompletionToolChoiceOption(#chatcompletiontoolchoiceoption) |     | Controls which (if any) function is called by the model. `none` means the model will not call a function and instead generates a message. `auto` means the model can pick between generating a message or calling a function. Specifying a particular function via `{"type": "function", "function": {"name": "my_function"}}` forces the model to call that function.<br><br>`none` is the default when no functions are present. `auto` is the default if functions are present. Returns a 422 error if the tool is not supported by the model. |
 | tools | [ChatCompletionTool](#chatcompletiontool)\[\] |     | A list of tools the model may call. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for. Returns a 422 error if the tool is not supported by the model. |
 | top\_p | number | 1   | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top\_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.<br><br>We generally recommend altering this or `temperature` but not both. |
 
@@ -320,6 +320,17 @@ The API call fails when the prompt triggers a content filter as configured. Modi
 | text | string |  |
 | image | string |  |
 | image_url | string |  |
+
+### ChatCompletionToolChoiceOption
+
+Controls which (if any) tool is called by the model.
+
+| Name | Type | Description |
+| --- | --- | --- |
+| none | string | The model will not call any tool and instead generates a message. |
+| auto | string | The model can pick between generating a message or calling one or more tools. |
+| required | string | The model must call one or more tools. |
+| | string | Specifying a particular tool via `{"type": "function", "function": {"name": "my_function"}}` forces the model to call that tool. |
 
 ### ImageDetail
 
