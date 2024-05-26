@@ -19,9 +19,9 @@ Learn what's new in the service. These items might be release notes, videos, blo
 ## May 2024
 
 
-### Incident response API
+### Custom categories (rapid) API
 
-The incident response API lets you quickly define emerging harmful content patterns and scan text and images for matches. See [Incident response](./concepts/incident-response.md) to learn more.
+The custom categories (rapid) API lets you quickly define emerging harmful content patterns and scan text and images for matches. See [Custom categories (rapid)](./concepts/custom-categories-rapid.md) to learn more.
 
 ## March 2024
 

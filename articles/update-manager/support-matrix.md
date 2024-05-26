@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/15/2024
+ms.date: 05/24/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -233,7 +233,7 @@ Following is the list of supported images and no other marketplace images releas
 | | oracle-database | oracle_db_21 |
 | | oracle-database-19-3 | oracle-database-19-0904 |
 |microsoftcblmariner| cbl-mariner | cbl-mariner-1,1-gen2, cbl-mariner-2, cbl-mariner-2-gen2 |
-| openlogic | centos | 7.2, 7.3, 7.4, 7.5, 7.6, 7_8, 7_9, 7_9-gen2, 8.0, 8_1, 8_2,8_3, 8_4, 8_5 |
+| openlogic | centos | 7.2, 7.3, 7.4, 7.5, 7.6, 7_8, 7_9, 7_9-gen2 |
 | |centos-hpc | 7.1, 7.3, 7.4 |
 | |centos-lvm | 7-lvm, 8-lvm |
 | |centos-ci | 7-ci |

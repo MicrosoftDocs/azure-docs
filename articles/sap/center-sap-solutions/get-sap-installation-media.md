@@ -347,7 +347,7 @@ Next, upload the SAP software files to the storage account:
         1. [S42020SPS03_v0003ms-scs-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-scs-inifile-param.j2)
     	
         1. [S42020SPS03_v0003ms-scsha-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42020SPS03_v0003ms/templates/S42020SPS03_v0003ms-scsha-inifile-param.j2)
-    	      
+    	     
 1. Upload all the files that you downloaded to the `templates` folder.
 
 1. Go back to the `sapfiles` folder, then go to the `archives` subfolder.

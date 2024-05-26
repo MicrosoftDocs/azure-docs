@@ -1,7 +1,7 @@
 ---
 title: How to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 05/21/2024
+ms.date: 05/22/2024
 ms.topic: conceptual
 ---
 
@@ -63,7 +63,10 @@ Ensure that both the licensing package and servicing stack update (SSU) are down
 
 ### Error: Trying to check IMDS again (HRESULT 12002 or 12029)
 
-If installing the Extended Security Update enabled by Azure Arc fails with errors such as "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12029)" or "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12002)", you may need to update the intermediate certificate authorities trusted by your computer using one of the following two methods:
+If installing the Extended Security Update enabled by Azure Arc fails with errors such as "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12029)" or "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12002)", you may need to update the intermediate certificate authorities trusted by your computer using one of the following methods.
+
+> [!IMPORTANT]
+> If you're running the [latest version of the Azure Connected machine agent](agent-release-notes.md), it's not necessary to install the intermediate CA certificates or allow access to the PKI URL.
 
 #### Option 1: Allow access to the PKI URL
 
