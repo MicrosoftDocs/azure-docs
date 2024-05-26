@@ -1,6 +1,6 @@
 ---
 title: Azure AI Model Inference Embeddings API
-titleSuffix: Reference
+titleSuffix: Azure Machine Learning
 description: Reference for Azure AI Model Inference Embeddings API
 manager: scottpolly
 ms.service: machine-learning
@@ -15,7 +15,7 @@ ms.custom:
  - build-2024
 ---
 
-# Reference: Embeddings
+# Reference: Embeddings | Azure Machine Learning
 
 Creates an embedding vector representing the input text.
 

@@ -34,6 +34,9 @@ The Dedicated cluster offers self-serve scaling capabilities that allow you to a
 ### High-end features and generous quotas
 Dedicated clusters include all features of the Premium tier and more. The service also manages load balancing, operating system updates, security patches, and partitioning. So, you can spend less time on infrastructure maintenance and more time on building your event streaming applications.  
 
+### Supports streaming large messages
+In most streaming scenarios, data is lightweight, typically less than 1 MB, and requires high throughput. However, there are instances where messages cannot be divided into smaller segments. Self-serve Dedicated clusters can effortlessly accommodate events up to 20 MB of size at no additional cost. This capability allows Event Hubs to handle a wide range of message sizes, thereby ensuring uninterrupted business operations. For more information, refer stream [large messages](event-hubs-quickstart-stream-large-messages.md).
+
 ## Capacity Units(CU)
 Dedicated clusters are provisioned and billed by capacity units (CUs), a pre-allocated amount of CPU and memory resources. 
 

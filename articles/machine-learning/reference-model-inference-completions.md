@@ -15,7 +15,7 @@ ms.custom:
  - build-2024
 ---
 
-# Reference: Completions
+# Reference: Completions | Azure Machine Learning
 
 Creates a completion for the provided prompt and parameters.
 
