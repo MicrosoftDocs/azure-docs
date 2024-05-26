@@ -1,7 +1,7 @@
 ---
-title: Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN) - Microsoft Defender for IoT
-description: This article describes traffic mirroring with ERSPAN for monitoring with Microsoft Defender for IoT.
-ms.date: 09/20/2022
+title: Configure ERSPAN traffic mirroring with a Cisco switch - Microsoft Defender for IoT
+description: This article describes how to configure the Cisco switch for encapsulated remote switched port analyzer (ERSPAN) traffic mirroring for Microsoft Defender for IoT.
+ms.date: 05/26/2024
 ms.topic: install-set-up-deploy
 ---
 
