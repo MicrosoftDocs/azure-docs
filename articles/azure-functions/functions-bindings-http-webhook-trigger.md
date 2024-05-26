@@ -662,7 +662,8 @@ The trigger input type is declared as one of the following types:
 
 | Type              | Description | 
 |-|-|
-| [HttpRequest]     | _Use of this type requires that the app is configured with [ASP.NET Core integration in .NET Isolated]._<br/>This gives you full access to the request object and overall HttpContext. |
+| [HttpContext]     | _Use of this type requires that the app is configured with [ASP.NET Core integration in .NET Isolated]._<br/>This gives you full access to the HTTP context object. |
+| [HttpRequest]     | _Use of this type requires that the app is configured with [ASP.NET Core integration in .NET Isolated]._<br/>This gives you full access to the HTTP request object. |
 | [HttpRequestData] | A projection of the request object. |
 | A custom type     | When the body of the request is JSON, the runtime will try to parse it to set the object properties. |
 
@@ -692,7 +693,7 @@ namespace AspNetIntegration
 
 # [In-process model](#tab/in-process)   
 
-The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
+The trigger input type is declared as either `HttpContext`,  `HttpRequest` or a custom type. If you choose `HttpContext` or `HttpRequest`, you get full access to the respectively the HTTP context or request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
 
 ---
 
@@ -1216,6 +1217,7 @@ If a function that uses the HTTP trigger doesn't complete within 230 seconds, th
 [ASP.NET Core integration in .NET Isolated]: ./dotnet-isolated-process-guide.md#aspnet-core-integration
 [HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata
 [HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata
+[HttpContext]: /dotnet/api/microsoft.aspnetcore.http.httpcontext
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
 [HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
