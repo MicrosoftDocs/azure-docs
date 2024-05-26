@@ -15,19 +15,17 @@ ms.date: 06/07/2024
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-After you create a business process, whether standalone or for an application group in an integration environment, and defined the key business properties to capture, you can map each stage and key business property values to an actual operation and the corresponding data in a Standard logic app workflow that you created with Azure Logic Apps.
-
-read-only workflow designer now opens for you to select the operation that you want to map.
-After you define the business properties to capture, map the stage to an operation and the data that you want to capture in a Standard logic app workflow.
-
+After you create a business process and define the key business properties to capture and track, you can map each stage and business property to an actual operation and output in a Standard logic app workflow that you created with Azure Logic Apps.
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A [business process with the stages](create-business-process.md) where you already defined the key business property values to capture so you can map those stages to actual operations and property values in a Standard logic app workflow
+- A [business process with the stages](create-business-process.md) with the defined key business property values to capture and track. so you can map these stages to actual operations and output values in a Standard logic app workflow.
 
 - An existing Standard logic app resource and workflow where you want to map your business process stages
+
+- The Azure Data Explorer database that's associated with your business process must be online to store your mapping information.
 
 - If you're working with an application group, that group must contain at least one Standard logic app resource, workflow, and operation before you can start mapping.
 
