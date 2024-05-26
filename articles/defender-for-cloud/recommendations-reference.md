@@ -116,7 +116,7 @@ Using the latest Python version for API apps is recommended to benefit from secu
 ### [Managed identity should be used in API apps](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/cc6d1865-7617-3cb2-cf7d-4cfc01ece1df)
 
 **Description**: For enhanced authentication security, use a managed identity.
-On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
+On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Microsoft Entra ID and using it to obtain Microsoft Entra ID tokens.
 (Related policy: [Managed identity should be used in your API App](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc4d441f8-f9d9-4a9e-9cef-e82117cb3eef)).
 
 **Severity**: Medium
@@ -124,7 +124,7 @@ On Azure, managed identities eliminate the need for developers to have to manage
 ### [Managed identity should be used in function apps](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/23aa9cbe-c2fb-6a2f-6c97-885a6d48c4d1)
 
 **Description**: For enhanced authentication security, use a managed identity.
-On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
+On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Microsoft Entra ID and using it to obtain Microsoft Entra ID tokens.
 (Related policy: [Managed identity should be used in your Function App](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0da106f2-4ca3-48e8-bc85-c638fe6aea8f)).
 
 **Severity**: Medium
@@ -132,7 +132,7 @@ On Azure, managed identities eliminate the need for developers to have to manage
 ### [Managed identity should be used in web apps](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4a3d7cd3-f17c-637a-1ffc-614a01dd03cf)
 
 **Description**: For enhanced authentication security, use a managed identity.
-On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
+On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Microsoft Entra ID and using it to obtain Microsoft Entra ID tokens.
 (Related policy: [Managed identity should be used in your Web App](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2b9ad585-36bc-4615-b300-fd4435808332)).
 
 **Severity**: Medium
@@ -533,10 +533,10 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Severity**: High
 
-### [Service Fabric clusters should only use Azure Active Directory for client authentication](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/03afeb6f-7634-adb3-0a01-803b0b9cb611)
+### [Service Fabric clusters should only use Microsoft Entra ID for client authentication](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/03afeb6f-7634-adb3-0a01-803b0b9cb611)
 
-**Description**: Perform Client authentication only via Azure Active Directory in Service Fabric
-(Related policy: [Service Fabric clusters should only use Azure Active Directory for client authentication](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb54ed75b-3e1a-44ac-a333-05ba39b99ff0)).
+**Description**: Perform Client authentication only via Microsoft Entra ID in Service Fabric
+(Related policy: [Service Fabric clusters should only use Microsoft Entra ID for client authentication](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb54ed75b-3e1a-44ac-a333-05ba39b99ff0)).
 
 **Severity**: High
 
@@ -1139,17 +1139,17 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 **Severity**: Medium
 
-### [Azure Database for MySQL should have an Azure Active Directory administrator provisioned](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/8af8a87b-7aa6-4c83-b22b-36801896177b/)
+### [Azure Database for MySQL should have an Microsoft Entra ID administrator provisioned](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/8af8a87b-7aa6-4c83-b22b-36801896177b/)
 
-**Description**: Provision an Azure AD administrator for your Azure Database for MySQL to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services
-(Related policy: [An Azure Active Directory administrator should be provisioned for MySQL servers](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f146412e9-005c-472b-9e48-c87b72ac229e)).
+**Description**: Provision an Microsoft Entra ID administrator for your Azure Database for MySQL to enable Microsoft Entra ID authentication. Microsoft Entra ID authentication enables simplified permission management and centralized identity management of database users and other Microsoft services
+(Related policy: [An Microsoft Entra ID administrator should be provisioned for MySQL servers](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f146412e9-005c-472b-9e48-c87b72ac229e)).
 
 **Severity**: Medium
 
-### [Azure Database for PostgreSQL should have an Azure Active Directory administrator provisioned](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b20d1b00-11a8-4ce7-b477-4ea6e147c345)
+### [Azure Database for PostgreSQL should have an Microsoft Entra ID administrator provisioned](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b20d1b00-11a8-4ce7-b477-4ea6e147c345)
 
-**Description**: Provision an Azure AD administrator for your Azure Database for PostgreSQL to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services  
-(Related policy: [An Azure Active Directory administrator should be provisioned for PostgreSQL servers](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb4dec045-250a-48c2-b5cc-e0c4eec8b5b4)).
+**Description**: Provision an Microsoft Entra ID administrator for your Azure Database for PostgreSQL to enable Microsoft Entra ID authentication. Microsoft Entra ID authentication enables simplified permission management and centralized identity management of database users and other Microsoft services  
+(Related policy: [An Microsoft Entra ID administrator should be provisioned for PostgreSQL servers](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb4dec045-250a-48c2-b5cc-e0c4eec8b5b4)).
 
 **Severity**: Medium
 
@@ -1195,18 +1195,18 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 **Severity**: Medium
 
-### [SQL servers should have an Azure Active Directory administrator provisioned](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f0553104-cfdb-65e6-759c-002812e38500)
+### [SQL servers should have an Microsoft Entra ID administrator provisioned](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f0553104-cfdb-65e6-759c-002812e38500)
 
-**Description**: Provision an Azure AD administrator for your SQL server to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services.
-(Related policy: [An Azure Active Directory administrator should be provisioned for SQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1f314764-cb73-4fc9-b863-8eca98ac36e9)).
+**Description**: Provision an Microsoft Entra ID administrator for your SQL server to enable Microsoft Entra ID authentication. Microsoft Entra ID authentication enables simplified permission management and centralized identity management of database users and other Microsoft services.
+(Related policy: [An Microsoft Entra ID administrator should be provisioned for SQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1f314764-cb73-4fc9-b863-8eca98ac36e9)).
 
 **Severity**: High
 
-### [Azure Synapse Workspace authentication mode should be Azure Active Directory Only](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3320d1ac-0ebe-41ab-b96c-96fb91214c5c)
+### [Azure Synapse Workspace authentication mode should be Microsoft Entra ID Only](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3320d1ac-0ebe-41ab-b96c-96fb91214c5c)
 
-**Description**: Azure Synapse Workspace authentication mode should be Azure Active Directory Only
- Azure Active Directory only authentication methods improves security by ensuring that Synapse Workspaces exclusively require Azure AD identities for authentication. [Learn more](https://aka.ms/Synapse).
-(Related policy: [Synapse Workspaces should use only Azure Active Directory identities for authentication](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2158ddbe-fefa-408e-b43f-d4faef8ff3b8)).
+**Description**: Azure Synapse Workspace authentication mode should be Microsoft Entra ID Only
+ Microsoft Entra ID only authentication methods improves security by ensuring that Synapse Workspaces exclusively require Microsoft Entra ID identities for authentication. [Learn more](https://aka.ms/Synapse).
+(Related policy: [Synapse Workspaces should use only Microsoft Entra ID identities for authentication](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2158ddbe-fefa-408e-b43f-d4faef8ff3b8)).
 
 **Severity**: Medium
 
@@ -1504,10 +1504,10 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 **Severity**: High
 
-### [SQL servers should have an Azure Active Directory administrator provisioned](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f0553104-cfdb-65e6-759c-002812e38500)
+### [SQL servers should have an Microsoft Entra ID administrator provisioned](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f0553104-cfdb-65e6-759c-002812e38500)
 
-**Description**: Provision an Azure AD administrator for your SQL server to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services.
-(Related policy: [An Azure Active Directory administrator should be provisioned for SQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1f314764-cb73-4fc9-b863-8eca98ac36e9)).
+**Description**: Provision an Microsoft Entra ID administrator for your SQL server to enable Microsoft Entra ID authentication. Microsoft Entra ID authentication enables simplified permission management and centralized identity management of database users and other Microsoft services.
+(Related policy: [An Microsoft Entra ID administrator should be provisioned for SQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1f314764-cb73-4fc9-b863-8eca98ac36e9)).
 
 **Severity**: High
 
@@ -1527,7 +1527,7 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 ### [Storage accounts should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/47bb383c-8e25-95f0-c2aa-437add1d87d3)
 
-**Description**: To benefit from new capabilities in Azure Resource Manager, you can migrate existing deployments from the Classic deployment model. Resource Manager enables security enhancements such as: stronger access control (RBAC), better auditing, ARM-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication, and support for tags and resource groups for easier security management. [Learn more](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+**Description**: To benefit from new capabilities in Azure Resource Manager, you can migrate existing deployments from the Classic deployment model. Resource Manager enables security enhancements such as: stronger access control (RBAC), better auditing, ARM-based deployment and governance, access to managed identities, access to key vault for secrets, Microsoft Entra ID-based authentication, and support for tags and resource groups for easier security management. [Learn more](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 (Related policy: [Storage accounts should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f37e0d2fe-28a5-43d6-a273-67d37d1f5606)).
 
 **Severity**: Low
@@ -1611,7 +1611,7 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 ### [Storage accounts should prevent shared key access](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/3b363842-30f5-4056-980d-3a40fa5de8b3)
 
-**Description**: Audit requirement of Azure Active Directory (Azure AD) to authorize requests for your storage account. By default, requests can be authorized with either Azure Active Directory credentials, or by using the account access key for Shared Key authorization. Of these two types of authorization, Azure AD provides superior security and ease of use over shared Key, and is recommended by Microsoft.
+**Description**: Audit requirement of Microsoft Entra ID to authorize requests for your storage account. By default, requests can be authorized with either Microsoft Entra ID credentials, or by using the account access key for Shared Key authorization. Of these two types of authorization, Microsoft Entra ID provides superior security and ease of use over shared Key, and is recommended by Microsoft.
 (Related policy: [policy](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%8c6a50c6-9ffd-4ae7-986f-5fa6111f9a54))
 
 **Severity**: Medium
@@ -1649,7 +1649,7 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 **Severity**: High
 
-### [Azure Cosmos DB accounts should use Azure Active Directory as the only authentication method](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/14acab4e-ad95-11ec-b909-0242ac120002)
+### [Azure Cosmos DB accounts should use Microsoft Entra ID as the only authentication method](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/14acab4e-ad95-11ec-b909-0242ac120002)
 
 **Description**: The best way to authenticate to Azure services is by using Role-Based Access Control (RBAC). RBAC allows you to maintain the minimum privilege principle and supports the ability to revoke permissions as an effective method of response when compromised. You can configure your Azure Cosmos DB account to enforce RBAC as the only authentication method. When the enforcement is configured, all other methods of access will be denied (primary/secondary keys and access tokens).
 (No related policy)
@@ -1723,21 +1723,21 @@ These accounts can be targets for attackers looking to find ways to access your 
 
 ### [Guest accounts with owner permissions on Azure resources should be removed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/20606e75-05c4-48c0-9d97-add6daa2109a)
 
-**Description**: Accounts with owner permissions that have been provisioned outside of the Azure Active Directory tenant (different domain names), should be removed from your Azure resources. Guest accounts aren't managed to the same standards as enterprise tenant identities. These accounts can be targets for attackers looking to find ways to access your data without being noticed.
+**Description**: Accounts with owner permissions that have been provisioned outside of the Microsoft Entra ID tenant (different domain names), should be removed from your Azure resources. Guest accounts aren't managed to the same standards as enterprise tenant identities. These accounts can be targets for attackers looking to find ways to access your data without being noticed.
 (No related policy)
 
 **Severity**: High
 
 ### [Guest accounts with read permissions on Azure resources should be removed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/fde1c0c9-0fd2-4ecc-87b5-98956cbc1095)
 
-**Description**: Accounts with read permissions that have been provisioned outside of the Azure Active Directory tenant (different domain names), should be removed from your Azure resources. Guest accounts aren't managed to the same standards as enterprise tenant identities. These accounts can be targets for attackers looking to find ways to access your data without being noticed.
+**Description**: Accounts with read permissions that have been provisioned outside of the Microsoft Entra ID tenant (different domain names), should be removed from your Azure resources. Guest accounts aren't managed to the same standards as enterprise tenant identities. These accounts can be targets for attackers looking to find ways to access your data without being noticed.
 (No related policy)
 
 **Severity**: High
 
 ### [Guest accounts with write permissions on Azure resources should be removed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0354476c-a12a-4fcc-a79d-f0ab7ffffdbb)
 
-**Description**: Accounts with write permissions that have been provisioned outside of the Azure Active Directory tenant (different domain names), should be removed from your Azure resources. Guest accounts aren't managed to the same standards as enterprise tenant identities. These accounts can be targets for attackers looking to find ways to access your data without being noticed.
+**Description**: Accounts with write permissions that have been provisioned outside of the Microsoft Entra ID tenant (different domain names), should be removed from your Azure resources. Guest accounts aren't managed to the same standards as enterprise tenant identities. These accounts can be targets for attackers looking to find ways to access your data without being noticed.
 (No related policy)
 
 **Severity**: High
@@ -2073,7 +2073,7 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 
 ### Azure Machine Learning Computes should have local authentication methods disabled (Preview)
 
-**Description & related policy**: Disabling local authentication methods improves security by ensuring that Machine Learning Computes require Azure Active Directory identities exclusively for authentication. For more information, see [Azure Policy Regulatory Compliance controls for Azure Machine Learning](../machine-learning/security-controls-policy.md).
+**Description & related policy**: Disabling local authentication methods improves security by ensuring that Machine Learning Computes require Microsoft Entra ID identities exclusively for authentication. For more information, see [Azure Policy Regulatory Compliance controls for Azure Machine Learning](../machine-learning/security-controls-policy.md).
 
 **Severity**: Medium
 
