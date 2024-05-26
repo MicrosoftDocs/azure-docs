@@ -641,6 +641,9 @@
         href: enable-adaptive-application-controls.md
     - name: Review server protection
       items:
+        - name: Remediate security baselines recommendation powered by MDVM
+          displayName: security, baseline, remediate, mdvm, vulnerability, assessment, va
+          href: remediate-security-baseline.md
         - name: Review hardening recommendations
           displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
           href: apply-security-baseline.md
