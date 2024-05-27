@@ -21,7 +21,7 @@ ms.custom:
 Creates an embedding vector representing the input image and text pair.
 
 ```http
-POST /images/embeddings?api-version=2024-05-01-preview
+POST /images/embeddings?api-version=2024-04-01-preview
 ```
 
 ## URI Parameters
@@ -38,7 +38,6 @@ POST /images/embeddings?api-version=2024-05-01-preview
 | input | True | [EmbeddingInput](#embeddinginput)\[\] | Input image to embed. To embed multiple inputs in a single request, pass an array. The input must not exceed the max input tokens for the model. |
 | dimensions |     | integer | The number of dimensions the resulting output embeddings should have. Passing null causes the model to use its default value. Returns a 422 error if the model doesn't support the value or parameter. |
 | encoding\_format |     | [EmbeddingEncodingFormat](#embeddingencodingformat) | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if the model doesn't support the value or parameter. |
-| model |     | string | Kept for compatibility reasons. This parameter is ignored. |
 
 
 ## Responses
@@ -82,13 +81,13 @@ Azure Active Directory OAuth2 authentication
 #### Sample Request
 
 ```http
-POST /images/embeddings?api-version=2024-05-01-preview
+POST /images/embeddings?api-version=2024-04-01-preview
 
 {
   "input": [
     {
       "text": "A nice picture of a cat",
-      "image": "qwertyuiopasdfghjklqwrtyuio"
+      "image": "data:image/jpeg;base64,iVBORw0KG..."
     }
   ],
   "encoding_format": "float",
@@ -186,7 +185,6 @@ The API call fails when the prompt triggers a content filter as configured. Modi
 | dimensions | integer |     | The number of dimensions the resulting output embeddings should have. Passing null causes the model to use its default value. Returns a 422 error if the model doesn't support the value or parameter. |
 | encoding\_format | [EmbeddingEncodingFormat](#embeddingencodingformat) | float | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if the model doesn't support the value or parameter. |
 | input | [EmbeddingInput](#embeddinginput)\[\] |     | Input image to embed. To embed multiple inputs in a single request, pass an array. The input must not exceed the max input tokens for the model. |
-| model | string |     | Kept for compatibility reasons. This parameter is ignored. |
 
 
 ### Detail
@@ -243,7 +241,7 @@ Represents an image with optional text.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| image | string | The input image, in PNG format. |
+| image | string | The input image encoded in `base64` string as a data URL. Example: `data:image/{format};base64,{data}`. |
 | text | string | Optional. The text input to feed into the model (like DINO, CLIP). Returns a 422 error if the model doesn't support the value or parameter. |
 
 
