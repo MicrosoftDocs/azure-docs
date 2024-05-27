@@ -34,14 +34,14 @@ Azure Managed Grafana has the following known limitations:
 
 ## Feature availability in sovereign clouds
 
-Some Azure Managed Grafana features aren't available in Azure Government and Microsoft Azure operated by 21Vianet due to limitations in these specific environments. This following table lists the feature differences.
+Some Azure Managed Grafana features aren't available in Azure Government and Microsoft Azure operated by 21Vianet due to limitations in these specific environments. The following table lists these differences.
 
-| Feature                           | Azure Government | Microsoft Azure operated by 21Vianet |
-|-----------------------------------|:----------------:|:------------------------------------:|
-| Private link                      |   Not supported  |             Not supported            |
-| Managed private endpoint          |   Not supported  |             Not supported            |
-| Team sync with Microsoft Entra ID |   Not supported  |             GA                       |
-| Enterprise plugins                |   Not supported  |             Not supported            |
+| Feature                           | Azure Government | Microsoft Azure operated by 21Vianet (Preview) |
+|-----------------------------------|:----------------:|:----------------------------------------------:|
+| Private link                      |   Not supported  |                  Not supported                 |
+| Managed private endpoint          |   Not supported  |                  Not supported                 |
+| Team sync with Microsoft Entra ID |      Preview     |                     Preview                    |
+| Enterprise plugins                |   Not supported  |                  Not supported                 |
 
 ## Throttling limits and quotas
 
