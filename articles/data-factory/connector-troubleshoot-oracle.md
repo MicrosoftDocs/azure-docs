@@ -53,11 +53,11 @@ This article provides suggestions to troubleshoot common problems with the Oracl
     
 ## Error code: UserErrorFailedToConnectOdbcSource
 
-**Message**: `"Cannot load trust store", or "SSL Handshake Failure reason [error:OA000086:SSL routines::certificate verify failed]"` 
+- **Message**: `"Cannot load trust store", or "SSL Handshake Failure reason [error:OA000086:SSL routines::certificate verify failed]"` 
 
-**Cause**: The `truststore` is not appropriate for OpenSSL 3.0, as the `truststore` file is generated using weak ciphers like RC4, MD5 and SHA1.
+- **Cause**: The `truststore` is not appropriate for OpenSSL 3.0, as the `truststore` file is generated using weak ciphers like RC4, MD5 and SHA1.
 
-**Recommendation**: You need to re-create the `truststore` using the strong ciphers like AES256. Refer to this [section](connector-oracle.md#linked-service-properties) for details about setting up TLS connection using `truststore`.
+- **Recommendation**: You need to re-create the `truststore` using the strong ciphers like AES256. Refer to this [section](connector-oracle.md#linked-service-properties) for details about setting up the TLS connection using `truststore`.
 
 ## Related content
 

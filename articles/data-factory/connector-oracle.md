@@ -128,24 +128,21 @@ To enable encryption on Oracle connection, you have two options:
         2.	In the service, configure the Oracle connection string with `EncryptionMethod=1` and the corresponding `TrustStore` value. For example, `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore= data:// -----BEGIN CERTIFICATE-----<certificate content>-----END CERTIFICATE-----`
 
             >[!Note]
-            >- The value of trust store field should be prefixed with `data://`.
+            >- The value of the `TrustStore` field should be prefixed with `data://`.
             >- When specifying content for multiple certificates, specify the content of each certificate between `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`. The number of dashes (`-----`) should be the same before and after both `BEGIN CERTIFICATE` and `END CERTIFICATE`. For example:<br>
-            >```
-            >-----BEGIN CERTIFICATE-----<certificate content 1>-----END CERTIFICATE-----`
-            >-----BEGIN CERTIFICATE-----<certificate content 2>-----END CERTIFICATE-----`
-            >-----BEGIN CERTIFICATE-----<certificate content 3>-----END CERTIFICATE-----`
-            >```
+            >`-----BEGIN CERTIFICATE-----<certificate content 1>-----END CERTIFICATE-----`<br>
+            >`-----BEGIN CERTIFICATE-----<certificate content 2>-----END CERTIFICATE-----`<br>
+            >`-----BEGIN CERTIFICATE-----<certificate content 3>-----END CERTIFICATE-----`
             > - The `TrustStore` field supports content up to 8192 characters in length.
 
-   - **Method 3**:
-    
+    - **Method 3**:
         1. Create the `truststore` file with strong ciphers like AES256.
-    
+        
             ```
             openssl pkcs12 -in [Full Path to the DER/PEM Certificate including the name of the DER/PEM Certificate] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -keypbe AES-256-CBC -certpbe AES-256-CBC -nokeys -export
             ```
         2.	Place the `truststore` file on the self-hosted integration runtime machine. For example, place the file at `C:\MyTrustStoreFile`. 
-    
+        
         3.	In the service, configure the Oracle connection string with `EncryptionMethod=1` and the corresponding `TrustStore`/`TrustStorePassword` value. For example, `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
     
     
