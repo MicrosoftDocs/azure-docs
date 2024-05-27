@@ -49,9 +49,10 @@ Here are some of the benefits of using .NET feature management library:
 
   The .NET feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
 
+## Index
+
 :::zone target="docs" pivot="stable-version"
 
-## Index
 * [Feature Flags](#feature-flags)
     * [Feature Filters](#feature-filters)
     * [Feature Flag Declaration](#feature-flag-declaration)
