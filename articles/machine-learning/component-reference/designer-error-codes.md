@@ -1621,7 +1621,7 @@ Otherwise, you can check `70_driver_log` for each process. `70_driver_log_0` is 
 If you encounter this error, please follow the steps below to resolve the issue:
 
 - Double click data node to go to detail page of datastore.
-    [ ![Datastore of sample data](./media/module/sample-data-datastore.png.png) ](./media/module/sample-data-datastore.png#lightbox)
+    [ ![Datastore of sample data](./media/module/sample-data-datastore.png) ](./media/module/sample-data-datastore.png#lightbox)
 - `Unregister` this `azureml_globaldatasets` data store.
-    [ ![Datastore of sample data](./media/module/unregister-sample-datastore.png) ](./media/module/unregister-sample-datastore.png#lightbox)
+    [ ![Unregister sample datastore](./media/module/unregister-sample-datastore.png) ](./media/module/unregister-sample-datastore.png#lightbox)
 - Drag and drop a new `Sample Data` node to the pipeline to have another try.
