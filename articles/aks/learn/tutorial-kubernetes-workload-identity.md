@@ -79,7 +79,7 @@ To help simplify steps to configure the identities required, the steps below def
 1. Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer.
 
     ```azurecli-interactive
-    az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+    az aks create --resource-group "${RESOURCE_GROUP}" --name myAKSCluster --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -87,7 +87,7 @@ To help simplify steps to configure the identities required, the steps below def
 2. Get the OIDC Issuer URL and save it to an environmental variable using the following command. Replace the default value for the arguments `-n`, which is the name of the cluster.
 
     ```azurecli-interactive
-    export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -otsv)"
+    export AKS_OIDC_ISSUER="$(az aks show --name myAKSCluster --resource-group "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
     ```
 
     The variable should contain the Issuer URL similar to the following example:
@@ -103,7 +103,7 @@ To help simplify steps to configure the identities required, the steps below def
 1. Create an Azure Key Vault in resource group you created in this tutorial using the [az keyvault create][az-keyvault-create] command.
 
     ```azurecli-interactive
-    az keyvault create --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --name "${KEYVAULT_NAME}"
+    az keyvault create --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --name "${KEYVAULT_NAME}" --enable-rbac-authorization false
     ```
 
     The output of this command shows properties of the newly created key vault. Take note of the two properties listed below:
@@ -122,7 +122,7 @@ To help simplify steps to configure the identities required, the steps below def
 3. Add the Key Vault URL to the environment variable `KEYVAULT_URL` using the [az keyvault show][az-keyvault-show] command.
 
     ```bash
-    export KEYVAULT_URL="$(az keyvault show -g "${RESOURCE_GROUP}" -n ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
+    export KEYVAULT_URL="$(az keyvault show --resource-group "${RESOURCE_GROUP}" --name ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
     ```
 
 ## Create a managed identity and grant permissions to access the secret
@@ -154,7 +154,7 @@ To help simplify steps to configure the identities required, the steps below def
 1. Create a Kubernetes service account and annotate it with the client ID of the managed identity created in the previous step using the [az aks get-credentials][az-aks-get-credentials] command. Replace the default value for the cluster name and the resource group name.
 
     ```azurecli-interactive
-    az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
+    az aks get-credentials --name myAKSCluster --resource-group "${RESOURCE_GROUP}"
     ```
 
 2. Copy the following multi-line input into your terminal and run the command to create the service account.

@@ -4,12 +4,12 @@ description: Copy, export or read data from Azure Blob Storage with the Azure St
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 04/02/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: reference
 ms.custom:
   - ignite-2023
-ms.topic: reference
 ---
 
 # pg_azure_storage extension on Azure Database for PostgreSQL - Flexible Server reference

@@ -237,6 +237,14 @@
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
         href: dplsv5-dpldsv5-series.md
+      - name: Dpsv6 series
+        href: ./sizes/general-purpose/dpsv6-series.md
+      - name: Dpdsv6-series
+        href: ./sizes/general-purpose/dpdsv6-series.md
+      - name: Dplsv6 series
+        href: ./sizes/general-purpose/dplsv6-series.md
+      - name: Dpldsv6 series
+        href: ./sizes/general-purpose/dpldsv6-series.md
       - name: Dlsv5 and Dldsv5-series
         href: dlsv5-dldsv5-series.md
     - name: Compute optimized
@@ -285,6 +293,10 @@
         href: easv5-eadsv5-series.md
       - name: Epsv5 and Epdsv5-series
         href: epsv5-epdsv5-series.md
+      - name: Epsv6 series
+        href: ./sizes/memory-optimized/epsv6-series.md
+      - name: Epdsv6 series
+        href: ./sizes/memory-optimized/epdsv6-series.md
       - name: M-series
         href: m-series.md
       - name: Msv2 and Mdsv2 Medium Memory series
@@ -343,6 +355,8 @@
         href: ndv2-series.md
       - name: ND-H100-v5-series
         href: nd-h100-v5-series.md
+      - name: ND-MI300X-v5-series
+        href: ./sizes/gpu-accelerated/nd-mi300x-v5-series.md
       - name: NGads V620-series
         href: ngads-v-620-series.md
       - name: NV-series
@@ -401,6 +415,9 @@
       - name: Configure and optimize VMs
         displayName: Configure and optimize Infiniband enabled VMs
         href: configure.md
+      - name: Azure HPC VM images
+        displayName: Azure HPC VM images
+        href: azure-hpc-vm-images.md
       - name: HB-series
         href: hb-series.md
         items:
@@ -463,6 +480,10 @@
         href: enable-nvme-interface.md
       - name: Enable NVMe FAQ
         href: enable-nvme-faqs.yml
+      - name: Temp NVMe Disks FAQ
+        href: enable-nvme-temp-faqs.yml
+      - name: Remote NVMe Disks FAQ
+        href: enable-nvme-remote-faqs.yml
     - name: Previous generation and retired sizes
       items:
       - name: Overview
@@ -687,7 +708,7 @@
           href: ./windows/image-builder-virtual-desktop.md
       - name: Security
         items:
-        - name: Security mechanisms
+        - name: Isolated image builds
           displayName: Image builder, images, building
           href: ./security-isolated-image-builds-image-builder.md
         - name: Security controls by Azure Policy
@@ -1256,6 +1277,8 @@
     displayName: Performance, cost, perf, disks, disk
   - name: Deploy a ZRS disk
     href: disks-deploy-zrs.md
+  - name: Best practices for achieving high availability
+    href: disks-high-availability.md
   - name: Share a disk between VMs
     items:
     - name: About shared disks
@@ -1742,6 +1765,8 @@
       href: boot-integrity-monitoring-overview.md
     - name: Trusted Launch FAQs
       href: trusted-launch-faq.md
+    - name: Secure Boot UEFI Keys 
+      href: trusted-launch-secure-boot-custom-uefi.md
 
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md

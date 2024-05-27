@@ -15,6 +15,12 @@ zone_pivot_groups: openai-quickstart-gpt-v
 
 # Quickstart: Use images in your AI chats
 
+Get started using GPT-4 Turbo with images with the Azure OpenAI Service.
+
+## GPT-4 Turbo model upgrade
+
+[!INCLUDE [GPT-4 Turbo](./includes/gpt-4-turbo.md)]
+
 ::: zone pivot="programming-language-studio"
 
 [!INCLUDE [Studio quickstart](includes/gpt-v-studio.md)]

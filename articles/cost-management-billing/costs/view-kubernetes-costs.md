@@ -1,5 +1,5 @@
 ---
-title: View Kubernetes costs (Preview)
+title: View Kubernetes costs
 description: This article helps you view Azure Kubernetes Service (AKS) cost in Microsoft Cost management.
 author: bandersmsft
 ms.author: banders
@@ -58,7 +58,7 @@ To view AKS costs from the Cost Management page:
 2. Verify that you are at the correct scope. If necessary, select **change** to select the correct subscription scope that hosts your Kubernetes clusters.  
     :::image type="content" source="./media/view-kubernetes-costs/scope-change.png" alt-text="Screenshot showing the scope change item." lightbox="./media/view-kubernetes-costs/scope-change.png" :::
 1. Select the **All views** tab, then under Customizable views, select a view under **Kubernetes views**.  
-    :::image type="content" source="./media/view-kubernetes-costs/kubernetes-views.png" alt-text="Screenshot showing the Kubernetes views (preview) items." lightbox="./media/view-kubernetes-costs/kubernetes-views.png" :::
+    :::image type="content" source="./media/view-kubernetes-costs/kubernetes-views.png" alt-text="Screenshot showing the Kubernetes views items." lightbox="./media/view-kubernetes-costs/kubernetes-views.png" :::
 
 ## Kubernetes clusters view
 

@@ -58,6 +58,8 @@ items:
   items:
   - name: Create reusable customizations
     href: how-to-customize-dev-box-setup-tasks.md
+  - name: Use Dev Home to manage dev boxes
+    href: how-to-use-dev-home-customize-dev-box.md
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal
@@ -77,6 +79,12 @@ items:
     href: how-to-dev-box-user.md 
   - name: Configure conditional access policies
     href: how-to-configure-intune-conditional-access-policies.md
+  - name: Configure elevated privilege for dev boxes
+    href: how-to-elevate-privilege-dev-box.md
+    displayName: run as, administrator, Intune, EPM, policy
+  - name: Enable single sign-on for dev boxes
+    href: how-to-enable-single-sign-on.md
+    displayName: SSO
 - name: Manage costs
   items:
   - name: Request a quota limit increase

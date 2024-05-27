@@ -299,9 +299,10 @@ Get the connection string for the Cosmos DB service account to use in our Azure 
 3. Get the connection string using the command below for later use in the tutorial.
 
     ```azurecli-interactive
-    az cosmosdb list-connection-strings 
-        --name msdocscosmosdb 
-        --resource-group msdocs-storage-function
+    az cosmosdb keys list \
+        --name msdocscosmosdb \
+        --resource-group msdocs-storage-function \
+        --type connection-strings
     ```
 
     This returns a JSON array of two read-write connection strings, and two read-only connection strings.
