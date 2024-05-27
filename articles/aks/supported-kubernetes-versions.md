@@ -318,7 +318,7 @@ No. Once a version is deprecated/removed, you can't create a cluster with that v
 
 ### I'm on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?
 
-No. You aren't allowed to add node pools of the deprecated version to your cluster. Creation or upgrade of node pools upto the _unsupported version_ control plane version is allowed , irrespective of version difference between node pool and the control plane. Only alias minor upgrades are allowed.
+No. You aren't allowed to add node pools of the deprecated version to your cluster. Creation or upgrade of node pools upto the _unsupported version_ control plane version is allowed, irrespective of version difference between node pool and the control plane. Only alias minor upgrades are allowed.
 
 ### How often do you update patches?
 
