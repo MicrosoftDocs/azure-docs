@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop with thin clients - Azure Virtual Deskto
 description: Learn how to connect to Azure Virtual Desktop using thin clients.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 04/07/2023
+ms.date: 05/22/2024
 ms.author: daknappe
 ---
 
@@ -25,6 +25,7 @@ The following partners have thin client devices that have been approved to use w
 | IGEL | [IGEL client documentation](https://www.igel.com/igel-solution-family/) | [IGEL support](https://www.igel.com/support/) |
 | NComputing | [NComputing client documentation](https://www.ncomputing.com/microsoft) | [NComputing support](https://www.ncomputing.com/support/support-options) |
 | Stratodesk | [Stratodesk client documentation](https://kb.stratodesk.com/microsoft-windows-virtual-desktop-wvd) | [Stratodesk support](https://www.stratodesk.com/support/) |
+| Unicon | [Unicon documentation](https://www.unicon.com/avd-windows365) | [Unicon support](https://www.unicon.com/support) |
 
 >[!IMPORTANT]
 >If you encounter an issue when trying to connect to Azure Virtual Desktop, you must verify whether it's unique to your approved partner thin client. You can verify whether this is a unique issue by trying to reproduce it on [any first-party Remote Desktop client](remote-desktop-clients-overview.md). If you can't reproduce the issue on a first-party client, then you must contact your client's provider for support.

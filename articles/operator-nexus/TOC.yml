@@ -169,6 +169,8 @@
               href: howto-monitor-interface-packet-rate.md
             - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
               href: howto-delete-layer-3-isolation-domains.md
+            - name: How to put a device into maintenance mode
+              href: howto-put-device-in-maintenance-mode.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:

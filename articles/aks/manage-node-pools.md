@@ -58,7 +58,7 @@ In this example, we upgrade the *mynodepool* node pool. Since there are two node
 3. List the status of your node pools using the [`az aks nodepool list`][az-aks-nodepool-list] command.
 
     ```azurecli-interactive
-    az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+    az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
     ```
 
      The following example output shows *mynodepool* is in the *Upgrading* state:
@@ -144,7 +144,7 @@ As your application workload demands change, you may need to scale the number of
 2. List the status of your node pools using the [`az aks node pool list`][az-aks-nodepool-list] command.
 
     ```azurecli-interactive
-    az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+    az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
     ```
 
      The following example output shows *mynodepool* is in the *Scaling* state with a new count of five nodes:
@@ -189,8 +189,6 @@ For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use
 ## Remove specific VMs in the existing node pool (Preview)
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-### [Azure CLI](#tab/azure-cli)
 
 1. Register or update the `aks-preview` extension using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
 
@@ -328,7 +326,7 @@ In the following example, we create a GPU-based node pool that uses the *Standar
 2. Check the status of the node pool using the [`az aks nodepool list`][az-aks-nodepool-list] command.
 
     ```azurecli-interactive
-    az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+    az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
     ```
 
     The following example output shows the *gpunodepool* node pool is *Creating* nodes with the specified *VmSize*:
