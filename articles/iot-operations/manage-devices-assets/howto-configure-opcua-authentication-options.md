@@ -1,45 +1,42 @@
 ---
 title: Configure OPC UA user authentication options
-description: How to configure OPC UA user authentication options to use with Azure IoT OPC UA Broker.
+description: How to configure OPC UA Broker user authentication options for it to use when it connects to an OPC UA server.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: opcua-broker
 ms.topic: how-to
 ms.custom: ignite-2023
-ms.date: 03/01/2024
+ms.date: 05/16/2024
 
-# CustomerIntent: As a user in IT, operations, or development, I want to configure my OPC UA industrial edge environment
-# with custom OPC UA user authentication options to keep it secure and work with my solution.
+# CustomerIntent: As a user in IT, operations, or development, I want to configure my OPC UA industrial edge environment with custom OPC UA user authentication options to keep it secure and work with my solution.
 ---
 
-# Configure OPC UA user authentication options to use with Azure IoT OPC UA Broker Preview
+# Configure OPC UA user authentication options for Azure IoT OPC UA Broker Preview to use
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to configure OPC UA user authentication options. These options provide more control over your OPC UA authentication, and let you configure authentication in a way that makes sense for your solution.
+In this article, you learn how to configure OPC UA user authentication options. These options provide more control over how OPC UA Broker Preview authenticates with OPC UA servers in your environment.
+
+To learn more, see [OPC UA applications - user authentication](https://reference.opcfoundation.org/Core/Part2/v105/docs/5.2.3).
 
 ## Prerequisites
 
-Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). 
+A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 
 ## Features supported
 
-| Features  | Meaning | Symbol |
-|---------|---------|---------:|
-| Configuration of OPC UA user authentication with username and password        | Supported   |   ✅     |
-| Configuration of OPC UA user authentication with an X.509 user certificate	  | Unsupported |   ❌     |
+| Feature  | Supported |
+| -------- |:---------:|
+| OPC UA user authentication with username and password.     |   ✅     |
+| OPC UA user authentication with an X.509 user certificate. |   ❌     |
 
-## Configure OPC UA user authentication with username and password
-If an OPC UA Server requires user authentication with username and password, you can select that option in the Azure IoT Operations (preview) portal, and configure the secrets references for the username and password.
+## Configure username and password authentication
 
-Before you can configure secrets for the username and password, you need to complete two more configuration steps:
-If an OPC UA Server requires user authentication with username and password, you can select that option in the Azure IoT Operations (preview) portal, and configure the secret references for the username and password.
+First, configure the secrets for the username and password in Azure Key Vault and project them into the connected cluster by using a `SecretProviderClass` object.
 
-1. Configure the username and password in Azure Key Vault. In the following example, use the `username` and `password` as secret references for the configuration in the Azure IoT Operations (preview) portal.
+1. Configure the username and password in Azure Key Vault. In the following example, use the `username` and `password` as secret references for the asset endpoint configuration in the Azure IoT Operations (preview) portal.
 
-    > [!NOTE]
-    > Replace the values in the example for user (*user1*) and password (*password*) with the actual credentials used in the OPC UA server to connect.
-
+    Replace the placeholders for username and password with the credentials used to connect to the OPC UA server.
 
     To configure the username and password, run the following code:
 
@@ -47,22 +44,22 @@ If an OPC UA Server requires user authentication with username and password, you
     # Create username Secret in Azure Key Vault
       az keyvault secret set \
         --name "username" \
-        --vault-name <azure-key-vault-name> \
-        --value "user1" \
+        --vault-name "<your-azure-key-vault-name>" \
+        --value "<your-opc-ua-server-username>" \
         --content-type "text/plain"
 
     # Create password Secret in Azure Key Vault
       az keyvault secret set \
         --name "password" \
-        --vault-name <azure-key-vault-name> \
-        --value "password" \
+        --vault-name "<your-azure-key-vault-name>" \
+        --value "<your-opc-ua-server-username>" \
         --content-type "text/plain"
     ```
 
-1. Configure the secret provider class `aio-opc-ua-broker-user-authentication` custom resource (CR) in the connected cluster. Use a K8s client such as kubectl to configure the secrets (`username` and `password`, in the following example) in the SPC object array in the connected cluster.
+1. Configure the `aio-opc-ua-broker-user-authentication` custom resource in the cluster. Use a Kubernetes client such as `kubectl` to configure the `username` and `password` secrets in the `SecretProviderClass` object array in the cluster.
 
-    The following example shows a complete SPC CR after you add the secret configurations:
-    
+    The following example shows a complete `SecretProviderClass` custom resource after you add the secrets:
+
     ```yml
     apiVersion: secrets-store.csi.x-k8s.io/v1
     kind: SecretProviderClass
@@ -86,9 +83,8 @@ If an OPC UA Server requires user authentication with username and password, you
               objectType: secret
               objectVersion: ""
     ```
-    
-    The projection of the Azure Key Vault secrets and certificates into the cluster takes some time depending on the configured polling interval.
 
-## Related content
+    > [!NOTE]
+    > The time it takes to project Azure Key Vault certificates into the cluster depends on the configured polling interval.
 
-- [Configure an OPC PLC simulator](howto-configure-opc-plc-simulator.md)
+In the Azure IoT Operations (preview) portal, select the **Username & password** option when you configure the Asset endpoint. Enter the names of the references that store the username and password values. In this example, the names of the references are `username` and `password`.
