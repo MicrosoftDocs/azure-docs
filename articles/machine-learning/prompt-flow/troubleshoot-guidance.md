@@ -279,7 +279,7 @@ You need to change auth type of datastore to None, which stands for meid_token b
 
 :::image type="content" source="./media/faq/datastore_auth_type.png" alt-text="Screenshot of auth type for datastore. " lightbox = "./media/faq/datastore_auth_type.png":::
 
-For fileshare based datastore, you can only change auth type for REST API: [datastores-create-or-update](https://learn.microsoft.com/rest/api/azureml/datastores/create-or-update?tabs=HTTP#code-try-0). You can first use [datastores-get](https://learn.microsoft.com/rest/api/azureml/datastores/get?tabs=HTTP#code-try-0) to get the body properties of datastore, then change `"credentialsType": "None"`.
+For fileshare based datastore, you can only change auth type for REST API: [datastores-create-or-update](/rest/api/azureml/datastores/create-or-update?tabs=HTTP#code-try-0). You can first use [datastores-get](/rest/api/azureml/datastores/get?tabs=HTTP#code-try-0) to get the body properties of datastore, then change `"credentialsType": "None"`.
 
 :::image type="content" source="./media/faq/datastore-update-rest.png" alt-text="Screenshot of rest for datastore update. " lightbox = "./media/faq/datastore-update-rest.png":::
 
