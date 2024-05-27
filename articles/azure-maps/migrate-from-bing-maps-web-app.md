@@ -1724,17 +1724,17 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Localization support in Azure Maps]: supported-languages.md
 [Localizing the map]: #localizing-the-map
 [Microsoft Entra ID]: /entra/fundamentals/whatis
-[Microsoft.Maps.Clustering]: https://learn.microsoft.com/bingmaps/v8-web-control/modules/clustering-module/
-[Microsoft.Maps.HeatMap]: https://learn.microsoft.com/bingmaps/v8-web-control/modules/heat-map-module/
-[Microsoft.Maps.GeoXml]: https://learn.microsoft.com/bingmaps/v8-web-control/modules/geoxml-module/
-[Microsoft.Maps.Contour]: https://learn.microsoft.com/bingmaps/v8-web-control/modules/contour-module/
-[Microsoft.Maps.DataBinning]: https://learn.microsoft.com/bingmaps/v8-web-control/modules/data-binning-module/
-[Microsoft.Maps.DrawingTools]: https://learn.microsoft.com/bingmaps/v8-web-control/modules/drawing-tools-module/
-[Microsoft.Maps.Search]: https://learn.microsoft.com/bingmaps/v8-web-control/modules/search-module/
-[Microsoft.Maps.Directions]: https://learn.microsoft.com/bingmaps/v8-web-control/modules/directions-module/
-[Microsoft.Maps.SpatialDataService]: https://learn.microsoft.com/bingmaps/v8-web-control/modules/spatial-data-service-module/
-[Microsoft.Maps.GeoJson]: https://learn.microsoft.com/bingmaps/v8-web-control/modules/geojson-module/
-[Microsoft.Maps.WellKnownText]: https://learn.microsoft.com/bingmaps/v8-web-control/modules/well-known-text-module
+[Microsoft.Maps.Clustering]: /bingmaps/v8-web-control/modules/clustering-module/
+[Microsoft.Maps.HeatMap]: /bingmaps/v8-web-control/modules/heat-map-module/
+[Microsoft.Maps.GeoXml]: /bingmaps/v8-web-control/modules/geoxml-module/
+[Microsoft.Maps.Contour]: /bingmaps/v8-web-control/modules/contour-module/
+[Microsoft.Maps.DataBinning]: /bingmaps/v8-web-control/modules/data-binning-module/
+[Microsoft.Maps.DrawingTools]: /bingmaps/v8-web-control/modules/drawing-tools-module/
+[Microsoft.Maps.Search]: /bingmaps/v8-web-control/modules/search-module/
+[Microsoft.Maps.Directions]: /bingmaps/v8-web-control/modules/directions-module/
+[Microsoft.Maps.SpatialDataService]: /bingmaps/v8-web-control/modules/spatial-data-service-module/
+[Microsoft.Maps.GeoJson]: /bingmaps/v8-web-control/modules/geojson-module/
+[Microsoft.Maps.WellKnownText]: /bingmaps/v8-web-control/modules/well-known-text-module
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
 [OpenLayers plugin]: /samples/azure-samples/azure-maps-OpenLayers/azure-maps-OpenLayers-plugin
 [OpenLayers]: https://openlayers.org/
@@ -1751,12 +1751,12 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Render]: /rest/api/maps/render
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
 [REST SDK]: rest-sdk-developer-guide.md
-[Route API]: https://learn.microsoft.com/rest/api/maps/route
-[Route Matrix API]: https://learn.microsoft.com/rest/api/maps/route/post-route-matrix
+[Route API]: /rest/api/maps/route
+[Route Matrix API]: /rest/api/maps/route/post-route-matrix
 [road tiles]: /rest/api/maps/render/get-map-tile
 [satellite tiles]: /rest/api/maps/render/get-map-static-image
 [Setting the map view]: #setting-the-map-view
-[Search API]: https://learn.microsoft.com/rest/api/maps/search
+[Search API]: /rest/api/maps/search
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
 [Show traffic data]: #show-traffic-data
 [Show traffic on the map]: map-show-traffic.md
