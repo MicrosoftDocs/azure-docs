@@ -1,11 +1,11 @@
 ---
 title: Create a cross-subscription internal load balancer
 titleSuffix: Azure Load Balancer
-description: 
+description: Learn how to create a cross-subscription internal load balancer by connecting a virtual network in a subscription to a load balancer in a different subscription.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: 
+ms.topic: how-to
 ms.date: 05/24/2024
 ms.author: mbender
 ms.custom:
@@ -175,7 +175,7 @@ $LB = Get-AzLoadBalancer @LBinfo
 
 # [Azure CLI](#tab/azurecli/)
 
-With Azure CLI, you create a load balancer with [`az network lb create`](/cli/azure/network/lb?view=azure-cli-latest#az_network_lb_create) and update the backend pool. This example configures the following:
+With Azure CLI, you create a load balancer with [`az network lb create`](/cli/azure/network/lb#az_network_lb_create) and update the backend pool. This example configures the following:
 
 - A frontend IP address that receives the incoming network traffic on the load balancer.
   - The private IP address will be pulled from the cross-subscription VNet.
@@ -195,7 +195,7 @@ In order to utilize the cross-subscription feature of Azure load balancer, backe
 ```azurecli
 az network lb address-pool update --lb-name myLoadBalancer --resource-group myResourceGroupLB -n myResourceGroupLB --vnet ‘/subscriptions/subscription A ID/resourceGroups/{resource group name} /providers/Microsoft.Network/virtualNetwork/{VNet name}’ --sync-mode Automatic
 ```
-
+---
 ## Create a health probe and load balancer rule
 
 Create a health probe that determines the health of the backend VM instances and a load balancer rule that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
@@ -231,7 +231,7 @@ $LB | Set-AzLoadBalancer
 ```
 # [Azure CLI](#tab/azurecli/)
 
-With Azure CLI, create a health probe with [`az network lb probe create`](/cli/azure/network/lb/probe?view=azure-cli-latest#az_network_lb_probe_create) that determines the health of the backend VM instances. Then create a load balancer rule with [`az network lb rule create`](/cli/azure/network/lb/rule?view=azure-cli-latest#az_network_lb_rule_create) that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
+With Azure CLI, create a health probe with [`az network lb probe create`](/cli/azure/network/lb/probe#az_network_lb_probe_create) that determines the health of the backend VM instances. Then create a load balancer rule with [`az network lb rule create`](/cli/azure/network/lb/rule#az_network_lb_rule_create) that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
 
 ```azurecli
 # Create a health probe
