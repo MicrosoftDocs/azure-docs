@@ -122,7 +122,7 @@ Use the following steps to connect your service instances:
 
 1. Select **Service Connector** from the navigation pane and then select **Create** to create a new service connection.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector.png" alt-text="Screenshot of the Azure portal that shows the Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector.png" alt-text="Screenshot of the Azure portal that shows the Service Connector page with the Created button highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector.png":::
 
 1. Fill out the **Basics** tab with the following information:
 
@@ -133,7 +133,7 @@ Use the following steps to connect your service instances:
    - **PostgreSQL database**: Select the database you created.
    - **Client type**: **SpringBoot**
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-basics.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Created connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-basics.png":::
 
 1. Configure the **Next: Authentication** tab with the following information:
 
@@ -142,7 +142,7 @@ Use the following steps to connect your service instances:
    - **Username**: *myadmin*
    - **Password**: Enter your password.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Created connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
 
 1. Select **Next: Networking**. Use the default option **Configure firewall rules to enable access to target service.**.
 
