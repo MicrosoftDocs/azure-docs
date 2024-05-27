@@ -156,7 +156,8 @@ With Spring Cloud Config Server, configurations or properties that are required 
 
 # [Azure CLI](#tab/azure-cli)
 
-1. Bind the job to Spring Cloud Config Server using the command:
+1. Bind the job to Spring Cloud Config Server during job creation using the command:
+
 
 ```
 az spring job create --bind-config-server true --name <job-name>
