@@ -70,7 +70,7 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 | Indoor maps              | [Microsoft.Maps.VenueMaps]          | ✓ [Creator]                                                           |
 | Traffic flow             | [Microsoft.Maps.Traffic]            | ✓ [Traffic control]                                                   |
 | Spatial math             | [Microsoft.Maps.SpatialMath]        | ✓ [atlas.math samples] or [turf js]                                   |
-| Custom map styles        |                                     | Partial, [Choose a map style]                                           |
+| Custom map styles        |                                     | Partial, [Choose a map style]                                          |
 
 Azure Maps more [open-source modules for the web SDK] that extend its capabilities.
 
