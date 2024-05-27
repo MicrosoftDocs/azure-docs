@@ -118,9 +118,7 @@ In addition to those general limits, the following limits apply to DNS operation
 
 ### Compute throttling
 
-For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
-
-For checking virtual machine instances within a Virtual Machine Scale Set, use the [Virtual Machine Scale Sets operations](/rest/api/compute/virtualmachinescalesetvms). For example, use the [Virtual Machine Scale Set VMs - List](/rest/api/compute/virtualmachinescalesetvms/list) with parameters to check the power state of virtual machine instances. This API reduces the number of requests.
+Microsoft Compute implements throttling to provide an optimal experience for Virtual Machine and Virtual Machine Scale Set users. [Compute Throttling Limits](/articles/virtual-machines/compute-throttling-limits.md) provides comprehensive information on throttling policies and limits for VM, VMSS and VMSS VMs.    
 
 ### Azure Resource Graph throttling
 
