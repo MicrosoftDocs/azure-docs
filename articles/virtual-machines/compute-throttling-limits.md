@@ -494,7 +494,7 @@ API.
 
 ## Throttling policies and limits for Virtual Machine Scale Set Virtual Machines 
 
-API requests for VMSS(Uniform) Virtual Machines are categorized into 3 distinct
+API requests for VMSS Virtual Machines are categorized into 3 distinct
 policies. Each policy has its own limits, depending upon the how
 resource intensive the API requests under that policy are. Below is a
 comprehensive list of these policies, the corresponding REST APIs, and
