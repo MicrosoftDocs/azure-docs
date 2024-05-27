@@ -114,7 +114,7 @@ When you run a load test as part of your CI/CD pipeline, Azure Load Testing gene
         path: ${{ github.workspace }}/loadTest
     ```
 
-1. After your GitHub Actions workflow completes, you can select the **loadTestResults* folder from the **Artifacts** section on the **Summary** page of the workflow run.
+1. After your GitHub Actions workflow completes, you can select the **loadTestResults** folder from the **Artifacts** section on the **Summary** page of the workflow run.
 
     :::image type="content" source="./media/how-to-export-test-results/github-actions-run-summary.png" alt-text="Screenshot that shows the GitHub Actions workflow summary page, highlighting the test results in the Artifacts section." lightbox="./media/how-to-export-test-results/github-actions-run-summary.png":::
 
@@ -128,20 +128,7 @@ When you run a load test as part of your CI/CD pipeline, Azure Load Testing gene
 
 1. Edit the workflow file and add the `publish` task after the `AzureLoadTest` task in the workflow file.
 
-    Azure Load Testing places the test results in the `loadTest` folder of the Azure Pipelines default working directory.
-
-    ```yml
-    - task: AzureLoadTest@1
-      inputs:
-        azureSubscription: $(serviceConnection)
-        loadTestConfigFile: 'SampleApp.yaml'
-        resourceGroup: $(loadTestResourceGroup)
-        loadTestResource: $(loadTestResource)
-          
-    - publish: $(System.DefaultWorkingDirectory)/loadTest
-      artifact: results
-    ```
-    Azure Load Testing places the HTML report in the `xx` folder of the Azure Pipelines default working directory.
+    Azure Load Testing places the test results and the HTML report in the `loadTest` folder of the Azure Pipelines default working directory.
 
     ```yml
     - task: AzureLoadTest@1
