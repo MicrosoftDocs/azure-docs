@@ -162,7 +162,8 @@ With Spring Cloud Config Server, configurations or properties that are required 
 az spring job create --bind-config-server true --name <job-name>
 ```
 
-1. For existing jobs binding with Spring Cloud Config Server, you can use the command:
+1. For existing jobs, you can bind them with Spring Cloud Config Server using this command:
+
 ```
 az spring config-server bind --job <job-name>
 ```
