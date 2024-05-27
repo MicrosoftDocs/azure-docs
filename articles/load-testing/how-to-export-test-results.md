@@ -70,13 +70,9 @@ To download the test results and report for a test run in the Azure portal:
      > [!NOTE]
      > A load test run needs to have a *Done*, *Stopped*, or *Failed* status for the results file to be available for download.
 
-   * To download the results, select **Download** on the **Test run details** pane, and then select **Results**.
+   * Select **Download** on the **Test run details** pane. To download the results, select **Results**. To download the HTML report, select **Report**.
 
      :::image type="content" source="media/how-to-export-test-results/dashboard-download.png" alt-text="Screenshot that shows how to download the test results from the 'Test run details' pane.":::
-     
-   * To download the HTML report, select **Download** on the **Test run details** pane, and then select **Report**.
-
-     :::image type="content" source="media/how-to-export-test-results/dashboard-report.png" alt-text="Screenshot that shows how to download the test report from the 'Test run details' pane.":::
 
 1. You can use any zip tool to extract the folder and access the downloaded files.
 
