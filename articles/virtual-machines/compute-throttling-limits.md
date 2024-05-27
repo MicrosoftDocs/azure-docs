@@ -1,4 +1,18 @@
-# Compute throttling policies and limits
+---
+title: Compute Throttling Limits
+description: Compute Throttling Limits
+author: viveksingla
+ms.service: virtual-machines
+ms.topic: conceptual
+ms.date: 05/27/2024
+ms.author: viveksingla
+ms.reviewer: 
+
+---
+
+# Compute Throttling Limits
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Microsoft Compute implements throttling mechanism to help with the
 overall performance of the service and to give a consistent experience
@@ -325,7 +339,7 @@ API.
 
 ## Throttling policies and limits for Virtual Machine Scale Sets
 
-API requests for Virtual Machine Scale Set are categorized into 5
+API requests for Virtual Machine Scale Set(Uniform & Flex) are categorized into 5
 distinct policies. Each policy has its own limits, depending upon the
 how resource intensive the API requests under that policy are. These
 policies are applicable to both Flex and Uniform orchestration modes.
@@ -480,7 +494,7 @@ API.
 
 ## Throttling policies and limits for Virtual Machine Scale Set Virtual Machines 
 
-API requests for VMSS Virtual Machines are categorized into 3 distinct
+API requests for VMSS(Uniform) Virtual Machines are categorized into 3 distinct
 policies. Each policy has its own limits, depending upon the how
 resource intensive the API requests under that policy are. Below is a
 comprehensive list of these policies, the corresponding REST APIs, and
