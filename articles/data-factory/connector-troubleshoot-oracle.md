@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 04/30/2024
+ms.date: 05/27/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -51,6 +51,14 @@ This article provides suggestions to troubleshoot common problems with the Oracl
         - SHA384 
         - SHA512
     
+## Error code: UserErrorFailedToConnectOdbcSource
+
+**Message**: `"Cannot load trust store", or "SSL Handshake Failure reason [error:OA000086:SSL routines::certificate verify failed]"` 
+
+**Cause**: The `truststore` is not appropriate for OpenSSL 3.0, as the `truststore` file is generated using weak ciphers like RC4, MD5 and SHA1.
+
+**Recommendation**: You need to re-create the `truststore` using the strong ciphers like AES256. Refer to this [section](connector-oracle.md#linked-service-properties) for details about setting up TLS connection using `truststore`.
+
 ## Related content
 
 For more troubleshooting help, try these resources:
