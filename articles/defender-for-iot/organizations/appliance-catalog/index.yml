@@ -65,19 +65,19 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
+          - text: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF) (L500)
             url: hpe-proliant-dl20-plus-smb.md
-          - text: HPE ProLiant DL20 Gen10 Plus (4SFF)
+          - text: HPE ProLiant DL20 Gen10 Plus (4SFF) (E1800)
             url: hpe-proliant-dl20-plus-enterprise.md
-          - text: HPE ProLiant DL20 Gen10 
+          - text: HPE ProLiant DL20 Gen10 (E1800)
             url: hpe-proliant-dl20-legacy.md              
-          - text: Dell PowerEdge R340 XL 
+          - text: Dell PowerEdge R340 XL (E1800)
             url: dell-poweredge-r340-xl-legacy.md            
-          - text: HPE ProLiant DL20 Gen10 (NHP 2LFF) 
+          - text: HPE ProLiant DL20 Gen10 (NHP 2LFF) (L500 Rugged)
             url: hpe-proliant-dl20-smb-legacy.md                  
-          - text: HPE Edgeline EL300 
+          - text: HPE Edgeline EL300 (L500 Rugged)
             url: hpe-edgeline-el300.md
-          - text: Neousys Nuvo-500LP
+          - text: Neousys Nuvo-500LP (L100 Rugged)
             url: neousys-nuvo-5006lp.md
     
       # - linkListType: reference
