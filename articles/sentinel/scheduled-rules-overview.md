@@ -4,8 +4,11 @@ description: Understand how scheduled analytics rules work in Microsoft Sentinel
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.custom: devx-track-arm-template
 ms.date: 05/27/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Scheduled analytics rules in Microsoft Sentinel

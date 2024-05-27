@@ -4,8 +4,11 @@ description: Understand how threat detection works in Microsoft Sentinel. Learn 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.custom: devx-track-arm-template
 ms.date: 05/23/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Threat detection in Microsoft Sentinel
@@ -37,11 +40,13 @@ Besides the preceding rule types, there are some other specialized template type
 - [Advanced multistage attack detection ("Fusion")](#advanced-multistage-attack-detection)
 - [Machine learning (ML) behavior analytics](#machine-learning-ml-behavior-analytics)
 
-### <a name="scheduled"></a> Scheduled rules 
+<a name="scheduled"></a>
+
+### Scheduled rules 
 
 By far the most common type of analytics rule, **Scheduled** rules are based on [Kusto queries](kusto-overview.md) that are configured to run at regular intervals and examine raw data from a defined "lookback" period. If the number of results captured by the query passes the threshold configured in the rule, the rule produces an alert.
 
-The queries in scheduled rule templates were written by security and data science experts, either from Microsoft or from the vendor of the solution providing the template. Queries can perform complex statistical operations on their target data, revealing baselines and outliers in groups of events.
+The queries in scheduled rule templates were written by security and data science experts, either from Microsoft or from the vendor of the solution providing the template. Queries can perform complex statistical operations on their target data, revealing baselines and outliers in groups of events. [test](#)
 
 The query logic is displayed in the rule configuration. You can use the query logic and the scheduling and lookback settings as defined in the template, or customize them to create new rules.
 
@@ -55,7 +60,9 @@ Some scheduled analytics rule templates produce alerts that are correlated by th
 
 Learn more about [Scheduled analytics rules in Microsoft Sentinel](scheduled-rules-overview.md).
 
-### <a name="nrt"></a> Near-real-time (NRT) rules
+<a name="nrt"></a> 
+
+### Near-real-time (NRT) rules
 
 NRT rules are a limited subset of [scheduled rules](#scheduled-rules). They are designed to run once every minute, in order to supply you with information as up-to-the-minute as possible.
 
@@ -63,28 +70,42 @@ They function mostly like scheduled rules and are configured similarly, with som
 
 Learn more about [Quick threat detection with near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md).
 
-### <a name="anomaly"></a> Anomaly rules
+<a name="anomaly"></a> 
 
-Anomaly rule templates use machine learning to detect specific types of anomalous behavior. Each rule has its own unique parameters and thresholds, appropriate to the behavior being analyzed. <br><br>While the configurations of out-of-the-box rules can't be changed or fine-tuned, you can duplicate a rule, and then change and fine-tune the duplicate. In such cases, run the duplicate in **Flighting** mode and the original concurrently in **Production** mode. Then compare results, and switch the duplicate to **Production** if and when its fine-tuning is to your liking. <br><br>For more information, see [Use customizable anomalies to detect threats in Microsoft Sentinel](soc-ml-anomalies.md) and [Work with anomaly detection analytics rules in Microsoft Sentinel](work-with-anomaly-rules.md).
+### Anomaly rules
+
+Anomaly rule templates use machine learning to detect specific types of anomalous behavior. Each rule has its own unique parameters and thresholds, appropriate to the behavior being analyzed. 
+
+While the configurations of out-of-the-box rules can't be changed or fine-tuned, you can duplicate a rule, and then change and fine-tune the duplicate. In such cases, run the duplicate in **Flighting** mode and the original concurrently in **Production** mode. Then compare results, and switch the duplicate to **Production** if and when its fine-tuning is to your liking. 
+
+For more information, see [Use customizable anomalies to detect threats in Microsoft Sentinel](soc-ml-anomalies.md) and [Work with anomaly detection analytics rules in Microsoft Sentinel](work-with-anomaly-rules.md).
 
 ### Microsoft security rules
 
-Microsoft security templates automatically create Microsoft Sentinel incidents from the alerts generated in other Microsoft security solutions, in real time. You can use Microsoft security rules as a template to create new rules with similar logic. <br><br>For more information about security rules, see [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md).
+Microsoft security templates automatically create Microsoft Sentinel incidents from the alerts generated in other Microsoft security solutions, in real time. You can use Microsoft security rules as a template to create new rules with similar logic.
+
+For more information about security rules, see [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md).
 
 ### Threat intelligence
 
-Take advantage of threat intelligence produced by Microsoft to generate high fidelity alerts and incidents with the **Microsoft Threat Intelligence Analytics** rule. This unique rule isn't customizable, but when enabled, automatically matches Common Event Format (CEF) logs, Syslog data or Windows DNS events with domain, IP and URL threat indicators from Microsoft Threat Intelligence. Certain indicators contain more context information through MDTI (**Microsoft Defender Threat Intelligence**).<br><br>For more information on how to enable this rule, see [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md).<br>For more information on MDTI, see [What is Microsoft Defender Threat Intelligence](/../defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti)
+Take advantage of threat intelligence produced by Microsoft to generate high fidelity alerts and incidents with the **Microsoft Threat Intelligence Analytics** rule. This unique rule isn't customizable, but when enabled, automatically matches Common Event Format (CEF) logs, Syslog data or Windows DNS events with domain, IP and URL threat indicators from Microsoft Threat Intelligence. Certain indicators contain more context information through MDTI (**Microsoft Defender Threat Intelligence**).
+
+For more information on how to enable this rule, see [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md).<br>For more information on MDTI, see [What is Microsoft Defender Threat Intelligence](/../defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti)
 
 ### Advanced multistage attack detection
 
-Microsoft Sentinel uses the Fusion correlation engine, with its scalable machine learning algorithms, to detect advanced multistage attacks by correlating many low-fidelity alerts and events across multiple products into high-fidelity and actionable incidents. Fusion is enabled by default. Because the logic is hidden and therefore not customizable, you can only create one rule with this template. <br><br>The Fusion engine can also correlate alerts produced by [scheduled analytics rules](#scheduled) with alerts from other systems, producing high-fidelity incidents as a result.
+Microsoft Sentinel uses the Fusion correlation engine, with its scalable machine learning algorithms, to detect advanced multistage attacks by correlating many low-fidelity alerts and events across multiple products into high-fidelity and actionable incidents. Fusion is enabled by default. Because the logic is hidden and therefore not customizable, you can only create one rule with this template. 
+
+The Fusion engine can also correlate alerts produced by [scheduled analytics rules](#scheduled-rules) with alerts from other systems, producing high-fidelity incidents as a result.
 
 > [!IMPORTANT]
 > Some of the **Fusion** detection templates are currently in **PREVIEW** (see [Advanced multistage attack detection in Microsoft Sentinel](fusion.md) to see which ones). See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Machine learning (ML) behavior analytics
 
-ML behavioral analytics templates are based on proprietary Microsoft machine learning algorithms, so you can't see the internal logic of how they work and when they run. <br><br>Because the logic is hidden and therefore not customizable, you can only create one rule with each template of this type.
+ML behavioral analytics templates are based on proprietary Microsoft machine learning algorithms, so you can't see the internal logic of how they work and when they run. 
+
+Because the logic is hidden and therefore not customizable, you can only create one rule with each template of this type.
 
 
 ## Access permissions for analytics rules
