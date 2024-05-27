@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Move Azure single instance Virtual Machines from regional to zonal availability zones (preview)
+title: Tutorial - Move Azure single instance Virtual Machines from regional to zonal availability zones 
 description: Learn how to move single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region.
 author: ankitaduttaMSFT
 ms.service: virtual-machines
@@ -8,7 +8,7 @@ ms.date: 09/25/2023
 ms.author: ankitadutta
 ---
 
-# Move Azure single instance VMs from regional to zonal target availability zones (preview)
+# Move Azure single instance VMs from regional to zonal target availability zones 
 
 This article provides information on how to move Azure single instance Virtual Machines (VMs) from a regional to a zonal configuration within the same Azure region.
 
