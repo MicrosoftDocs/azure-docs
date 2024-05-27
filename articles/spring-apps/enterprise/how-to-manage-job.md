@@ -170,7 +170,8 @@ az spring config-server bind --job <job-name>
 
 # [Azure portal](#tab/azure-portal)
 
-To create the job with Spring Cloud Config Server binded:
+Bind the job to Spring Cloud Config Server during job creation:
+
 
 1. Go to your Azure Spring Apps instance. From the navigation pane, select *Job*
 1. Click *Create Job* button and choose *Spring Cloud Config Server* in the *bind* part
