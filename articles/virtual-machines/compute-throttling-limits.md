@@ -189,7 +189,7 @@ href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/create
 <td>4</td>
 <td>12</td>
 <td>500</td>
-<td>1500</td>
+<td>1,500</td>
 </tr>
 <tr class="odd">
 <td>Update VM<br>
@@ -245,7 +245,7 @@ Commands - Create Or Update</a><br></td>
 <td>4</td>
 <td>12</td>
 <td>500</td>
-<td>1500</td>
+<td>1,500</td>
 </tr>
 <tr class="even">
 <td>Delete VM<br>
@@ -260,7 +260,7 @@ href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/deallo
 <td>4</td>
 <td>12</td>
 <td>500</td>
-<td>1500</td>
+<td>1,500</td>
 </tr>
 <tr class="odd">
 <td>Low Cost Get VM<br>
@@ -287,8 +287,8 @@ href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-run-com
 Commands - List By Virtual Machine</a><br></td>
 <td>12</td>
 <td>36</td>
-<td>8000</td>
-<td>24000</td>
+<td>8,000</td>
+<td>24,000</td>
 </tr>
 <tr class="even">
 <td>High Cost Get VM<sup>1</sup><br>
@@ -314,8 +314,8 @@ href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/
 of asynchronous operations</a></td>
 <td>15</td>
 <td>45</td>
-<td>5000</td>
-<td>15000</td>
+<td>5,000</td>
+<td>15,000</td>
 </tr>
 <tr class="even">
 <td>VM Guest Patch Operations<br>
@@ -431,7 +431,7 @@ Orchestration Service State</a><br></td>
 <td>4</td>
 <td>12</td>
 <td>500</td>
-<td>1500</td>
+<td>1,500</td>
 </tr>
 <tr class="even">
 <td>Delete VMSS<br>
@@ -465,7 +465,7 @@ OS Upgrade History</a><br></td>
 <td>12</td>
 <td>36</td>
 <td>800</td>
-<td>2400</td>
+<td>2,400</td>
 </tr>
 <tr class="even">
 <td>High Cost Get VMSS<br>
@@ -484,7 +484,7 @@ By Location</a><sup>2</sup><br></td>
 <td>10</td>
 <td>30</td>
 <td>360</td>
-<td>1080</td>
+<td>1,080</td>
 </tr>
 </tbody>
 </table>
@@ -559,7 +559,7 @@ Commands - Update</a><br></td>
 <td>4</td>
 <td>12</td>
 <td>500</td>
-<td>1500</td>
+<td>1,500</td>
 </tr>
 <tr class="odd">
 <td>Delete VMSS VMs<br>
@@ -580,7 +580,7 @@ Commands - Delete</a><br></td>
 <td>4</td>
 <td>12</td>
 <td>500</td>
-<td>1500</td>
+<td>1,500</td>
 </tr>
 <tr class="even">
 <td>Get VMSS VMs<br>
@@ -601,8 +601,8 @@ href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-s
 Boot Diagnostics Data</a><br></td>
 <td>12</td>
 <td>36</td>
-<td>2000</td>
-<td>6000</td>
+<td>2,000</td>
+<td>6,000</td>
 </tr>
 </tbody>
 </table>
