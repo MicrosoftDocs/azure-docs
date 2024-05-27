@@ -6,7 +6,7 @@ ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
 ---

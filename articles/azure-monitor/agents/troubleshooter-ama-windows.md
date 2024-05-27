@@ -141,10 +141,10 @@ It runs a series of activities that could take up to 15 minutes to complete. Be 
 Log file is created in the directory where the AgentTroubleshooter.exe is located.
 
 Example for extension-based install:
-:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-verify-log-exists.png" alt-text="Screenshot of the Windows explorer window, which shows the output of the AgentTroubleshooter." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-win-verify-log-exists.png":::
+:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-verify-log-exists.png" alt-text="Screenshot of the Windows explorer window, which shows the output of the AgentTroubleshooter for extension-based install." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-win-verify-log-exists.png":::
 
 Example for standalone install:
-:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-standalone-verify-log-exists.png" alt-text="Screenshot of the Windows explorer window, which shows the output of the AgentTroubleshooter." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-win-standalone-verify-log-exists.png":::
+:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-win-standalone-verify-log-exists.png" alt-text="Screenshot of the Windows explorer window, which shows the output of the AgentTroubleshooter for standalone install." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-win-standalone-verify-log-exists.png":::
 
 ## Frequently Asked Questions
 

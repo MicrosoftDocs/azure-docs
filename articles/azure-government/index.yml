@@ -97,6 +97,9 @@ landingContent:
             url: documentation-government-aad-auth-qs.md
           - text: Develop with SQL Server Management Studio
             url: documentation-government-connect-ssms.md
+          - text: Configure Microsoft cloud services for the DoD Zero Trust Strategy
+            url: https://learn.microsoft.com/security/zero-trust/dod-zero-trust-strategy-intro
+
 
   # Card
   - title: Concepts

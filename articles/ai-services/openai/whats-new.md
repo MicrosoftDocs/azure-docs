@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 05/13/2024
+ms.date: 05/20/2024
 recommendations: false
 ---
 
@@ -20,14 +20,65 @@ This article provides a summary of the latest releases and major documentation u
 
 ## May 2024
 
-### GPT-4o preview model available for early access
+### Assistants v2 (preview)
 
-GPT-4o ("o is for "omni") is the latest preview model from OpenAI launched on May 13, 2024.
+A refresh of the Assistants API is now publicly available. It contains the following updates:
+
+* [File search tool and vector storage](https://go.microsoft.com/fwlink/?linkid=2272425)
+* [Max completion and max prompt token support](./concepts/assistants.md) for managing token usage.
+* `tool_choice` [parameter](./assistants-reference-runs.md#run-object) for forcing the Assistant to use a specified tool. 
+You can now create messages with the [assistant](.//assistants-reference-messages.md#create-message) role to create custom conversation histories in Threads.
+* Support for `temperature`, `top_p`, `response_format` [parameters](./assistants-reference.md#create-an-assistant).
+* Streaming and polling support. You can use the helper functions in our Python SDK to create runs and stream responses. We have also added polling SDK helpers to share object status updates without the need for polling. 
+* Experiment with [Logic Apps and Function Calling using Azure OpenAI Studio](./how-to/assistants-logic-apps.md). Import your REST APIs implemented in Logic Apps as functions and the studio invokes the function (as a Logic Apps workflow) automatically based on the user prompt.
+* AutoGen by Microsoft Research provides a multi-agent conversation framework to enable convenient building of Large Language Model (LLM) workflows across a wide range of applications. Azure OpenAI assistants are now integrated into AutoGen via `GPTAssistantAgent`, a new experimental agent that lets you seamlessly add Assistants into AutoGen-based multi-agent workflows. This enables multiple Azure OpenAI assistants that could be task or domain specialized to collaborate and tackle complex tasks.
+* Support for fine-tuned `gpt-3.5-turbo-0125` [models](./concepts/models.md#assistants-preview) in the following regions:
+    * East US 2
+    * Sweden Central
+* Expanded [regional support](./concepts/models.md#assistants-preview) for:
+    * Japan East
+    * UK South
+    * West US
+    * West US 3
+    * Norway east
+
+For more information, see the [blog post](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/announcing-azure-openai-service-assistants-preview-refresh/ba-p/4143217) about assistants.
+
+### GPT-4o model general availability (GA)
+
+GPT-4o ("o is for "omni") is the latest model from OpenAI launched on May 13, 2024.
 
 - GPT-4o integrates text, and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions.
 - GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and in vision tasks, setting new benchmarks for AI capabilities.
 
-To start testing out the model today, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).
+For information on model regional availability, see the [models page](./concepts/models.md).
+
+### Global standard deployment type (preview)
+
+Global deployments are available in the same Azure OpenAI resources as non-global offers but allow you to leverage Azure's global infrastructure to dynamically route traffic to the data center with best availability for each request. Global standard will provide the highest default quota for new models and eliminates the need to load balance across multiple resources.
+
+For more information, see the [deployment types guide](https://aka.ms/aoai/docs/deployment-types).
+
+### Fine-tuning updates
+
+- GPT-4 fine-tuning is [now available in public preview](./concepts/models.md#fine-tuning-models).
+- Added support for [seed](/azure/ai-services/openai/tutorials/fine-tune?tabs=python-new%2Ccommand-line#begin-fine-tuning), [events](/azure/ai-services/openai/tutorials/fine-tune?tabs=python-new%2Ccommand-line#list-fine-tuning-events), [full validation statistics](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-python#analyze-your-customized-model), and [checkpoints](/azure/ai-services/openai/tutorials/fine-tune?tabs=python-new%2Ccommand-line#list-checkpoints) as part of the `2024-05-01-preview` API release.
+
+### DALL-E and GPT-4 Turbo Vision GA configurable content filters
+
+Create custom content filters for your DALL-E 2 and 3 and GPT-4 Turbo with Vision GA (gpt-4-turbo-2024-04-09) deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)
+
+### Asynchronous Filter available for all Azure OpenAI customers
+
+Running filters asynchronously for improved latency in streaming scenarios is now available for all Azure OpenAI customers. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#content-streaming)
+
+### Prompt Shields
+
+Prompt Shields protect applications powered by Azure OpenAI models from two types of attacks: direct (jailbreak) and indirect attacks. Indirect Attacks (also known as Indirect Prompt Attacks or Cross-Domain Prompt Injection Attacks) are a type of attack on systems powered by Generative AI models that may occur when an application processes information that wasn’t directly authored by either the developer of the application or the user. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#prompt-shields)
+
+### 2024-05-01-preview API release
+
+- For more information, see the [API version lifecycle](./api-version-deprecation.md).
 
 ### GPT-4 Turbo model general availability (GA)
 
@@ -364,7 +415,7 @@ If you are currently using the `2023-03-15-preview` API, we recommend migrating 
 
 - **DALL-E 2 public preview**. Azure OpenAI Service now supports image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./dall-e-quickstart.md). To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/access).
 
-- **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](./how-to/fine-tuning.md?pivots=programming-language-studio#deploy-a-customized-model).
+- **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio#deploy-a-custom-model).
 
 
 ## March 2023

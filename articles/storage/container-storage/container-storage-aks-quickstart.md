@@ -19,7 +19,7 @@ ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-con
 
 ## Getting started
 
-- Take note of your Azure subscription ID. If you want to use Azure Elastic SAN as data storage, you'll need an [Azure role-based access control (Azure RBAC) Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription. Owner-level access grants the Azure Container Storage extension the proper permissions to interact with Elastic SAN's API. If you're planning on using Azure Disks or Ephemeral Disk as data storage, you don't need special permissions on your subscription.
+- Take note of your Azure subscription ID. If you want to use Azure Elastic SAN as data storage, you'll need either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription. Owner-level access allows you to install the Azure Container Storage extension, grants access to its storage resources, and gives you permission to configure your Azure Elastic SAN resource. Contributor-level access allows you to install the extension and grants access to its storage resources. If you're planning on using Azure Disks or Ephemeral Disk as data storage, you don't need special permissions on your subscription.
 
 - [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -82,7 +82,7 @@ Before deploying Azure Container Storage, you'll need to decide which back-end s
 - **Ephemeral Disk**: This option uses local NVMe drives or temp SSD on the AKS cluster nodes. It's extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment.
 
 > [!NOTE]
-> For Azure Elastic SAN and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation. You don't need to create your own Elastic SAN or Azure Disk. In order to use Elastic SAN, you'll need an [Azure role-based access control (Azure RBAC) Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
+> For Azure Elastic SAN and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation. You don't need to create your own Elastic SAN or Azure Disk. In order to use Elastic SAN, you'll need either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role on the Azure subscription.
 
 ### Resource consumption
 
@@ -111,7 +111,7 @@ You'll specify the VM type when you create the cluster in the next section. Foll
 
 If you already have an AKS cluster deployed, skip this section and go to [Install Azure Container Storage on an existing AKS cluster](#install-azure-container-storage-on-an-existing-aks-cluster).
 
-Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values, and specify which VM type you want to use. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
+Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values, and specify which VM type you want to use. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you must also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
 
 Running this command will enable Azure Container Storage on the system node pool\* with three Linux VMs. By default, the system node pool is named `nodepool1`. If you want to enable Azure Container Storage on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters with this command, see [this table](container-storage-faq.md#storage-pool-parameters).
 
@@ -124,7 +124,7 @@ az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_D4s_
 The deployment will take 10-15 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed, the components for your chosen storage pool type enabled, and a default storage pool. If you want to enable additional storage pool types to create additional storage pools, see [Enable additional storage pool types](#enable-additional-storage-pool-types).
 
 > [!IMPORTANT]
-> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have owner-level access to the Azure subscription, only Azure Container Storage will be installed and a storage pool won't be created. In this case, you'll have to [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
+> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have either [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription, only Azure Container Storage will be installed and a storage pool won't be created. In this case, you'll have to [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
 
 ## Display available storage pools
 
@@ -169,7 +169,7 @@ If you want to install Azure Container Storage on specific node pools, follow th
    az aks nodepool list --resource-group <resource-group> --cluster-name <cluster-name>
    ```
    
-2. Run the following command to install Azure Container Storage on specific node pools. Replace `<cluster-name>` and `<resource-group>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify --storage-pool-option, and the values can be `NVMe` or `Temp`.
+2. Run the following command to install Azure Container Storage on specific node pools. Replace `<cluster-name>` and `<resource-group>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`. If you select `ephemeralDisk`, you must also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
    
    ```azurecli-interactive
    az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type> --azure-container-storage-nodepools <comma separated values of nodepool names>
