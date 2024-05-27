@@ -20,7 +20,7 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 ## Release Information
 
-### Release date: May 27, 2024
+### Release date: May 16, 2024
 
 This release note applies to 
 
@@ -47,8 +47,8 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 * Added API in gateway to get token for Keyvault, as part of the SFI initiative.
 * In the new Log monitor `HDInsightSparkLogs` table, for log type `SparkDriverLog`, some of the fields were missing. For example, `LogLevel & Message`. This release adds the missing fields to schemas and fixed formatting for `SparkDriverLog`.
-* Livy logs not available in Log Analytics monitoring `SparkDriverLog` table, which was due to an issue with livy log source path and log parsing regex in `SparkLivyLog` configs.
-* Any HDInsight cluster, using ADLS Gen2 as a primary storage account can leverrage MSI based access to any of the Azure resources (for example, SQl, Keywault) which is used within the application code. 
+* Livy logs not available in Log Analytics monitoring `SparkDriverLog` table, which was due to an issue with Livy log source path and log parsing regex in `SparkLivyLog` configs.
+* Any HDInsight cluster, using ADLS Gen2 as a primary storage account can leverage MSI based access to any of the Azure resources (for example, SQL, Keyvaults) which is used within the application code. 
 
   
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
