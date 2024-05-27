@@ -48,19 +48,19 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 |--------------------------|-------------------------------------|:----------------------------------------------------------------------:|
 | Pushpins                 |                                     | ✓                                                                     |
 | Pushpin clustering       | [Microsoft.Maps.Clustering]         | ✓ [Pushpin clustering]                                                |
-| Polylines & Polygons     |                                     | ✓                                                                     |
-| Ground Overlays          |                                     | ✓                                                                     |
+| Polylines & polygons     |                                     | ✓                                                                     |
+| Ground overlays          |                                     | ✓                                                                     |
 | Heat maps                | [Microsoft.Maps.HeatMap]            | ✓ [Add a heat map]                                                    |
-| Tile Layers              |                                     | ✓                                                                     |
-| KML Layer                | [Microsoft.Maps.GeoXml]             | ✓ [Spatial IO module]                                                 |
+| Tile layers              |                                     | ✓                                                                     |
+| KML layer                | [Microsoft.Maps.GeoXml]             | ✓ [Spatial IO module]                                                 |
 | Contour layer            | [Microsoft.Maps.Contour]            | ✓ [Contour layer code samples]                                        |
 | Data binning layer       | [Microsoft.Maps.DataBinning]        | ✓ Included in the open-source Azure Maps [Gridded Data Source module] |
 | Animated tile layer      |                                     | ✓ Included in the open-source Azure Maps [Animation module]           |
 | Drawing tools            | [Microsoft.Maps.DrawingTools]       | ✓ [Add drawing tools]                                                 |
 | Geocoder service         | [Microsoft.Maps.Search]             | ✓ [Search API] or [REST SDK]                                          |
 | Directions service       | [Microsoft.Maps.Directions]         | ✓ [Route API]                                                         |
-| Distance Matrix service  |                                     | ✓ [Route Matrix API]                                                  |
-| Spatial Data service     | [Microsoft.Maps.SpatialDataService] | N/A                                                                   |
+| Distance matrix service  |                                     | ✓ [Route Matrix API]                                                  |
+| Spatial data service     | [Microsoft.Maps.SpatialDataService] | N/A                                                                   |
 | Satellite/Aerial imagery |                                     | ✓ [Choose a map style]                                                |
 | Birds eye imagery        |                                     | N/A                                                                   |
 | Streetside imagery       |                                     | N/A                                                                   |
@@ -70,7 +70,7 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 | Indoor maps              | [Microsoft.Maps.VenueMaps]          | ✓ [Creator]                                                           |
 | Traffic flow             | [Microsoft.Maps.Traffic]            | ✓ [Traffic control]                                                   |
 | Spatial math             | [Microsoft.Maps.SpatialMath]        | ✓ [atlas.math samples] or [turf js]                                   |
-| Custom map styles        |                                     | Partial                                                               |
+| Custom map styles        |                                     | Partial, [Choose a map style]                                           |
 
 Azure Maps more [open-source modules for the web SDK] that extend its capabilities.
 
