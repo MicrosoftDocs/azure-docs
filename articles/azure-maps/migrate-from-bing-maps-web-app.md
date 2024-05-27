@@ -44,30 +44,33 @@ If you don't have an Azure subscription, create a [free account] before you begi
 
 The following table lists key API features in the Bing Maps V8 JavaScript SDK and the support of a similar API in the Azure Maps Web SDK.
 
-| Bing Maps feature        | Bing Maps module                    | Azure Maps Web SDK support                                            |
-|--------------------------|-------------------------------------|:---------------------------------------------------------------------:|
-| Pushpins                 |                                     | ✓                                                                    |
-| Pushpin clustering       | [Microsoft.Maps.Clustering]         | ✓                                                                    |
-| Polylines & Polygons     |                                     | ✓                                                                    |
-| Ground Overlays          |                                     | ✓                                                                    |
-| Heat maps                | [Microsoft.Maps.HeatMap]            | ✓                                                                    |
-| Tile Layers              |                                     | ✓                                                                    |
-| KML Layer                | [Microsoft.Maps.GeoXml]             | ✓                                                                    |
-| Contour layer            | [Microsoft.Maps.Contour]            | [Contour layer code samples]                                         |
-| Data binning layer       | [Microsoft.Maps.DataBinning]        | N/A                                                                  |
-| Animated tile layer      |                                     | Included in the open-source Azure Maps [Animation module]            |
-| Drawing tools            | [Microsoft.Maps.DrawingTools]       | ✓                                                                    |
-| Geocoder service         | [Microsoft.Maps.Search]             | ✓ [Search API] or [REST SDK]                                         |
-| Directions service       | [Microsoft.Maps.Directions]         | ✓ [Route API]                                                        |
-| Distance Matrix service  |                                     | ✓ [Route Matrix API]                                                 |
-| Spatial Data service     | [Microsoft.Maps.SpatialDataService] | N/A                                                                  |
-| Satellite/Aerial imagery |                                     | ✓                                                                    |
-| Birds eye imagery        |                                     | N/A                                                                  |
-| Streetside imagery       |                                     | N/A                                                                  |
-| GeoJSON support          | [Microsoft.Maps.GeoJson]            | ✓                                                                    |
-| GeoXML support           | [Microsoft.Maps.GeoXml]             | ✓ [Spatial IO module]                                                |
-| Well-Known Text support  | [Microsoft.Maps.WellKnownText]      | ✓                                                                    |
-| Custom map styles        |                                     | Partial                                                              |
+| Bing Maps feature        | Bing Maps module                    | Azure Maps Web SDK support                                             |
+|--------------------------|-------------------------------------|:----------------------------------------------------------------------:|
+| Pushpins                 |                                     | ✓                                                                     |
+| Pushpin clustering       | [Microsoft.Maps.Clustering]         | ✓ [Pushpin clustering]                                                |
+| Polylines & Polygons     |                                     | ✓                                                                     |
+| Ground Overlays          |                                     | ✓                                                                     |
+| Heat maps                | [Microsoft.Maps.HeatMap]            | ✓ [Add a heat map]                                                    |
+| Tile Layers              |                                     | ✓                                                                     |
+| KML Layer                | [Microsoft.Maps.GeoXml]             | ✓ [Spatial IO module]                                                 |
+| Contour layer            | [Microsoft.Maps.Contour]            | ✓ [Contour layer code samples]                                        |
+| Data binning layer       | [Microsoft.Maps.DataBinning]        | ✓ Included in the open-source Azure Maps [Gridded Data Source module] |
+| Animated tile layer      |                                     | ✓ Included in the open-source Azure Maps [Animation module]           |
+| Drawing tools            | [Microsoft.Maps.DrawingTools]       | ✓ [Add drawing tools]                                                 |
+| Geocoder service         | [Microsoft.Maps.Search]             | ✓ [Search API] or [REST SDK]                                          |
+| Directions service       | [Microsoft.Maps.Directions]         | ✓ [Route API]                                                         |
+| Distance Matrix service  |                                     | ✓ [Route Matrix API]                                                  |
+| Spatial Data service     | [Microsoft.Maps.SpatialDataService] | N/A                                                                   |
+| Satellite/Aerial imagery |                                     | ✓ [Choose a map style]                                                |
+| Birds eye imagery        |                                     | N/A                                                                   |
+| Streetside imagery       |                                     | N/A                                                                   |
+| GeoJSON support          | [Microsoft.Maps.GeoJson]            | ✓                                                                     |
+| GeoXML support           | [Microsoft.Maps.GeoXml]             | ✓ [Spatial IO module]                                                 |
+| Well-Known Text support  | [Microsoft.Maps.WellKnownText]      | ✓ [Spatial IO module]                                                 |
+| Indoor maps              | [Microsoft.Maps.VenueMaps]          | ✓ [Creator]                                                           |
+| Traffic flow             | [Microsoft.Maps.Traffic]            | ✓ [Traffic control]                                                   |
+| Spatial math             | [Microsoft.Maps.SpatialMath]        | ✓ [atlas.math samples] or [turf js]                                   |
+| Custom map styles        |                                     | Partial                                                               |
 
 Azure Maps more [open-source modules for the web SDK] that extend its capabilities.
 
@@ -1695,6 +1698,7 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [atlas.data.Position.fromLatLng]: /javascript/api/azure-maps-control/atlas.data.position
 [atlas.io.read function]: /javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-
 [atlas.layer.ImageLayer.getCoordinatesFromEdges]: /javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-
+[atlas.math samples]: https://samples.azuremaps.com/?search=math
 [atlas.Shape]: /javascript/api/azure-maps-control/atlas.shape
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Glossary]: glossary.md
@@ -1707,6 +1711,7 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
 [Contour layer code samples]: https://samples.azuremaps.com/?search=contour
 [Create a data source]: create-data-source-web-sdk.md
+[Creator]: tutorial-creator-indoor-maps.md
 [Display an infobox]: #display-an-infobox
 [Drawing tools module code samples]: https://samples.azuremaps.com#drawing-tools-module
 [free account]: https://azure.microsoft.com/free/
@@ -1735,6 +1740,9 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Microsoft.Maps.SpatialDataService]: /bingmaps/v8-web-control/modules/spatial-data-service-module/
 [Microsoft.Maps.GeoJson]: /bingmaps/v8-web-control/modules/geojson-module/
 [Microsoft.Maps.WellKnownText]: /bingmaps/v8-web-control/modules/well-known-text-module
+[Microsoft.Maps.VenueMaps]: /bingmaps/v8-web-control/modules/venue-map-module/
+[Microsoft.Maps.Traffic]: /bingmaps/v8-web-control/modules/traffic-module/
+[Microsoft.Maps.SpatialMath]: /bingmaps/v8-web-control/modules/spatial-math-module/
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
 [OpenLayers plugin]: /samples/azure-samples/azure-maps-OpenLayers/azure-maps-OpenLayers-plugin
 [OpenLayers]: https://openlayers.org/
