@@ -74,7 +74,7 @@ There are possible reasons for this issue:
 
     :::image type="content" source="./media/faq/storage-account-networking-firewall.png" alt-text="Screenshot that shows firewall setting on storage account." lightbox = "./media/faq/storage-account-networking-firewall.png":::
 
-- There are some cases, the account key in data store is out of sync with the storage account, you can try to update the account key in data store detail page to fix this.
+- There are some cases, the account key in datastore is out of sync with the storage account, you can try to update the account key in datastore detail page to fix this.
 
     :::image type="content" source="./media/faq/datastore-with-wrong-account-key.png" alt-text="Screenshot that shows datastore with wrong account key." lightbox = "./media/faq/datastore-with-wrong-account-key.png":::
  
@@ -83,7 +83,7 @@ There are possible reasons for this issue:
     - Allowed origins: `https://mlworkspace.azure.ai,https://ml.azure.com,https://*.ml.azure.com,https://ai.azure.com,https://*.ai.azure.com,https://mlworkspacecanary.azure.ai,https://mlworkspace.azureml-test.net`
     - Allowed methods: `DELETE, GET, HEAD, POST, OPTIONS, PUT`
 
-    :::image type="content" source="./media/faq/resource-sharing-setting-storage-account.png" alt-text="Screenshot that shows data store with wrong account key." lightbox = "./media/faq/resource-sharing-setting-storage-account.png":::
+    :::image type="content" source="./media/faq/resource-sharing-setting-storage-account.png" alt-text="Screenshot that shows datastore with wrong account key." lightbox = "./media/faq/resource-sharing-setting-storage-account.png":::
 
 ## Compute session related issues
 
@@ -269,23 +269,23 @@ If you encounter an error like "Access denied to list workspace secret", check w
 
 ## Authentication and identity related issues
 
-### How do I use credential-less data store in prompt flow?
+### How do I use credential-less datastore in prompt flow?
 
-#### Change auth type of data store to None
+#### Change auth type of datastore to None
 
-You can follow [Identity-based data authentication](../how-to-administrate-data-authentication.md#identity-based-data-authentication) this part to make your data store credential-less. 
+You can follow [Identity-based data authentication](../how-to-administrate-data-authentication.md#identity-based-data-authentication) this part to make your datastore credential-less. 
 
-You need to change auth type of data store to None, which stands for meid_token based auth. For blob/adls gen1/adls gen2 based data, you can make change from data store detail page, or CLI/SDK: https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore
+You need to change auth type of datastore to None, which stands for meid_token based auth. For blob/adls gen1/adls gen2 based datastore, you can make change from datastore detail page, or CLI/SDK: https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore
 
 :::image type="content" source="./media/faq/datastore_auth_type.png" alt-text="Screenshot of auth type for datastore. " lightbox = "./media/faq/datastore_auth_type.png":::
 
-For fileshare based data store, you can only change auth type for REST API: [datastores-create-or-update](https://learn.microsoft.com/en-us/rest/api/azureml/datastores/create-or-update?view=rest-azureml-2023-10-01&tabs=HTTP#code-try-0). You can first use [datastores-get](https://learn.microsoft.com/en-us/rest/api/azureml/datastores/get?view=rest-azureml-2023-10-01&tabs=HTTP#code-try-0) to get the body properties of datastore, then change `"credentialsType": "None"`
+For fileshare based datastore, you can only change auth type for REST API: [datastores-create-or-update](https://learn.microsoft.com/rest/api/azureml/datastores/create-or-update?tabs=HTTP#code-try-0). You can first use [datastores-get](https://learn.microsoft.com/rest/api/azureml/datastores/get?tabs=HTTP#code-try-0) to get the body properties of datastore, then change `"credentialsType": "None"`.
 
 :::image type="content" source="./media/faq/datastore-update-rest.png" alt-text="Screenshot of rest for datastore update. " lightbox = "./media/faq/datastore-update-rest.png":::
 
 #### Grant permission to user identity or managed identity
 
-To use credential-less data store in prompt flow, you need to grant enough permissions to user identity or managed identity to access the data store.
+To use credential-less datastore in prompt flow, you need to grant enough permissions to user identity or managed identity to access the datastore.
 - If you're using user identity this default option in prompt flow, you need to make sure the user identity has following role on the storage account:
     - `Storage Blob Data Contributor` on the storage account, at least need read/write (better have delete) permission.
     - `Storage File Data Privileged Contributor` on the storage account, at least need read/write (better have delete) permission
