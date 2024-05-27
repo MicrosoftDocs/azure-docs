@@ -18,7 +18,7 @@ Microsoft Compute implements throttling mechanism to help with the
 overall performance of the service and to give a consistent experience
 to the customers. API requests that exceed the maximum allowed limits
 are throttled and users get an [HTTP 429
-error](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/troubleshooting-throttling-errors#throttling-error-details).
+error](/troubleshoot/azure/virtual-machines/windows/troubleshooting-throttling-errors#throttling-error-details).
 All Compute throttling policies are implemented on a per-region basis.
 
 ## How do the throttling policies work?
@@ -138,11 +138,11 @@ Similar process is followed for determining the throttling limits at
 subscription level. The following sections detail the Bucket refill rate
 and Maximum bucket capacity used to determine throttling limits for
 [Virtual
-Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview),
+Machines](/azure/virtual-machines/overview),
 [Virtual Machine Scale
-Sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview)
+Sets](/azure/virtual-machine-scale-sets/overview)
 and [Virtual Machines Scale Set
-VMs](https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/deallocate?tabs=HTTP).
+VMs](/rest/api/compute/virtual-machine-scale-set-vms/deallocate?tabs=HTTP).
 
 ## Throttling policies and limits for Virtual machines 
 
@@ -185,7 +185,7 @@ their respective throttling limits:
 <td>Put VM<br>
 (Create new VMs)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/create-or-update?tabs=HTTP">Create</a></td>
+href="/rest/api/compute/virtual-machines/create-or-update?tabs=HTTP">Create</a></td>
 <td>4</td>
 <td>12</td>
 <td>500</td>
@@ -195,52 +195,52 @@ href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/create
 <td>Update VM<br>
 (Update existing VMs)<br></td>
 <td><a
-href="https://microsoftapc-my.sharepoint.com/personal/viveksingla_microsoft_com/Documents/Virtual%20Machines%20-%20Create%20Or%20Update%20-%20REST%20API%20(Azure%20Compute)%20|%20Microsoft%20Learn">Update</a><br>
+href="/rest/api/compute/virtual-machines/update">Update</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/reapply?tabs=HTTP">Reapply</a>
+href="/rest/api/compute/virtual-machines/reapply?tabs=HTTP">Reapply</a>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/restart?tabs=HTTP">Restart</a><br>
+href="/rest/api/compute/virtual-machines/restart?tabs=HTTP">Restart</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/power-off?tabs=HTTP">Power
+href="/rest/api/compute/virtual-machines/power-off?tabs=HTTP">Power
 Off</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/start?view=rest-compute-2024-03-01&amp;tabs=HTTP">Start</a><br>
+href="/rest/api/compute/virtual-machines/start?view=rest-compute-2024-03-01&amp;tabs=HTTP">Start</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/generalize?tabs=HTTP">Generalize</a><br>
+href="/rest/api/compute/virtual-machines/generalize?tabs=HTTP">Generalize</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/convert-to-managed-disks?tabs=HTTP">Convert
+href="/rest/api/compute/virtual-machines/convert-to-managed-disks?tabs=HTTP">Convert
 To Managed Disks</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/redeploy?tabs=HTTP">Redeploy</a><br>
+href="/rest/api/compute/virtual-machines/redeploy?tabs=HTTP">Redeploy</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/perform-maintenance?tabs=HTTP">Perform
+href="/rest/api/compute/virtual-machines/perform-maintenance?tabs=HTTP">Perform
 Maintenance</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/capture?tabs=HTTP">Capture</a><br>
+href="/rest/api/compute/virtual-machines/capture?tabs=HTTP">Capture</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/run-command?tabs=HTTP">Run
+href="/rest/api/compute/virtual-machines/run-command?tabs=HTTP">Run
 Command</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-extensions/create-or-update?tabs=HTTP">Create
+href="/rest/api/compute/virtual-machine-extensions/create-or-update?tabs=HTTP">Create
 Or Update</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-extensions/update?tabs=HTTP">Extensions
+href="/rest/api/compute/virtual-machine-extensions/update?tabs=HTTP">Extensions
 - Update</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-extensions/delete?tabs=HTTP">Extensions
+href="/rest/api/compute/virtual-machine-extensions/delete?tabs=HTTP">Extensions
 - Delete</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/reimage?tabs=HTTP">Reimage</a><br>
+href="/rest/api/compute/virtual-machines/reimage?tabs=HTTP">Reimage</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/update?tabs=HTTP">Update</a><br>
+href="/rest/api/compute/virtual-machines/update?tabs=HTTP">Update</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-run-commands/update?view=rest-compute-2024-03-01&amp;tabs=HTTP">Run
+href="/rest/api/compute/virtual-machine-run-commands/update?view=rest-compute-2024-03-01&amp;tabs=HTTP">Run
 Commands - Update</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-run-commands/delete?view=rest-compute-2024-03-01&amp;tabs=HTTP">Run
+href="/rest/api/compute/virtual-machine-run-commands/delete?view=rest-compute-2024-03-01&amp;tabs=HTTP">Run
 Commands - Delete</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-run-commands/create-or-update?view=rest-compute-2024-03-01&amp;tabs=HTTP">Run
+href="/rest/api/compute/virtual-machine-run-commands/create-or-update?view=rest-compute-2024-03-01&amp;tabs=HTTP">Run
 Commands - Create Or Update</a><br></td>
 <td>4</td>
 <td>12</td>
@@ -251,12 +251,12 @@ Commands - Create Or Update</a><br></td>
 <td>Delete VM<br>
 (Delete VMs)<br></td>
 <td><a
-href="https://microsoftapc.sharepoint.com/teams/AzureCoreIDC/Azure%20Core%20Infrastructure/PM/Throttling/RBT/Virtual%20Machines%20-%20Delete%20-%20REST%20API%20(Azure%20Compute)%20|%20Microsoft%20Learn">Delete</a><br>
+href="/rest/api/compute/virtual-machines/delete">Delete</a><br>
 <a
-href="https://microsoftapc.sharepoint.com/teams/AzureCoreIDC/Azure%20Core%20Infrastructure/PM/Throttling/RBT/Virtual%20Machines%20-%20Simulate%20Eviction%20-%20REST%20API%20(Azure%20Compute)%20|%20Microsoft%20Learn">Simulate
+href="/rest/api/compute/virtual-machines/simulate-eviction">Simulate
 Eviction</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/deallocate?tabs=HTTP">Deallocate</a><br></td>
+href="/rest/api/compute/virtual-machines/deallocate?tabs=HTTP">Deallocate</a><br></td>
 <td>4</td>
 <td>12</td>
 <td>500</td>
@@ -266,24 +266,24 @@ href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/deallo
 <td>Low Cost Get VM<br>
 (Get information on single VM)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/get?tabs=HTTP">Get</a><br>
+href="/rest/api/compute/virtual-machines/get?tabs=HTTP">Get</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/instance-view?tabs=HTTP">Instance
+href="/rest/api/compute/virtual-machines/instance-view?tabs=HTTP">Instance
 View</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-extensions/get?tabs=HTTP">Extensions
+href="/rest/api/compute/virtual-machine-extensions/get?tabs=HTTP">Extensions
 - Get</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/list-available-sizes?tabs=HTTP">List
+href="/rest/api/compute/virtual-machines/list-available-sizes?tabs=HTTP">List
 Available Sizes</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/retrieve-boot-diagnostics-data?tabs=HTTP">Retrieve
+href="/rest/api/compute/virtual-machines/retrieve-boot-diagnostics-data?tabs=HTTP">Retrieve
 Boot Diagnostics Data</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-run-commands/get-by-virtual-machine?view=rest-compute-2024-03-01&amp;tabs=HTTP">Run
+href="/rest/api/compute/virtual-machine-run-commands/get-by-virtual-machine?view=rest-compute-2024-03-01&amp;tabs=HTTP">Run
 Commands - Get By Virtual Machine</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-run-commands/list-by-virtual-machine?view=rest-compute-2024-03-01&amp;tabs=HTTP">Run
+href="/rest/api/compute/virtual-machine-run-commands/list-by-virtual-machine?view=rest-compute-2024-03-01&amp;tabs=HTTP">Run
 Commands - List By Virtual Machine</a><br></td>
 <td>12</td>
 <td>36</td>
@@ -294,12 +294,12 @@ Commands - List By Virtual Machine</a><br></td>
 <td>High Cost Get VM<sup>1</sup><br>
 (Get information on multiple VMs)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/list?tabs=HTTP">List</a><br>
+href="/rest/api/compute/virtual-machines/list?tabs=HTTP">List</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/list-all?tabs=HTTP">List
+href="/rest/api/compute/virtual-machines/list-all?tabs=HTTP">List
 All</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/list-by-location?tabs=HTTP">List
+href="/rest/api/compute/virtual-machines/list-by-location?tabs=HTTP">List
 By Location</a><br></td>
 <td>NA</td>
 <td>NA</td>
@@ -310,7 +310,7 @@ By Location</a><br></td>
 <td>Get Operation<br>
 (Get information on async VM operations)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/async-operations#start-virtual-machine-202-with-azure-asyncoperation">Status
+href="/azure/azure-resource-manager/management/async-operations#start-virtual-machine-202-with-azure-asyncoperation">Status
 of asynchronous operations</a></td>
 <td>15</td>
 <td>45</td>
@@ -321,10 +321,10 @@ of asynchronous operations</a></td>
 <td>VM Guest Patch Operations<br>
 (Assess &amp; install guest patches)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/assess-patches?view=rest-compute-2024-03-01&amp;tabs=HTTP">Assess
+href="/rest/api/compute/virtual-machines/assess-patches?view=rest-compute-2024-03-01&amp;tabs=HTTP">Assess
 Patches</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/install-patches?view=rest-compute-2024-03-01&amp;tabs=HTTP">Install
+href="/rest/api/compute/virtual-machines/install-patches?view=rest-compute-2024-03-01&amp;tabs=HTTP">Install
 Patches</a><br></td>
 <td>2</td>
 <td>6</td>
@@ -379,7 +379,7 @@ APIs, and their respective throttling limits:
 <td>Put VMSS<br>
 (Create new VMSS)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP">Create</a></td>
+href="/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP">Create</a></td>
 <td>4</td>
 <td>12</td>
 <td>125</td>
@@ -389,44 +389,44 @@ href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-s
 <td>Update VMSS<br>
 (Update existing VMSS)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/update?tabs=HTTP">Update</a><br>
+href="/rest/api/compute/virtual-machine-scale-sets/update?tabs=HTTP">Update</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/start?tabs=HTTP">Start</a><sup>2</sup><br>
+href="/rest/api/compute/virtual-machine-scale-sets/start?tabs=HTTP">Start</a><sup>2</sup><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/restart?tabs=HTTP">Restart</a><sup>2</sup><br>
+href="/rest/api/compute/virtual-machine-scale-sets/restart?tabs=HTTP">Restart</a><sup>2</sup><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/redeploy?tabs=HTTP">Redeploy</a><sup>2</sup><br>
+href="/rest/api/compute/virtual-machine-scale-sets/redeploy?tabs=HTTP">Redeploy</a><sup>2</sup><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/perform-maintenance?tabs=HTTP">Perform
+href="/rest/api/compute/virtual-machine-scale-sets/perform-maintenance?tabs=HTTP">Perform
 Maintenance</a><sup>2</sup><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/reimage?tabs=HTTP">Reimage</a><sup>2</sup><br>
+href="/rest/api/compute/virtual-machine-scale-sets/reimage?tabs=HTTP">Reimage</a><sup>2</sup><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/reimage-all?tabs=HTTP">Reimage
+href="/rest/api/compute/virtual-machine-scale-sets/reimage-all?tabs=HTTP">Reimage
 All</a><sup>2</sup><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP">Create
+href="/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP">Create
 Or Update</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-rolling-upgrades/cancel?tabs=HTTP">Rolling
+href="/rest/api/compute/virtual-machine-scale-set-rolling-upgrades/cancel?tabs=HTTP">Rolling
 Upgrades - Cancel</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-extensions/create-or-update?tabs=HTTP">Extensions
+href="/rest/api/compute/virtual-machine-scale-set-extensions/create-or-update?tabs=HTTP">Extensions
 - Create</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-extensions/update?tabs=HTTP">Extensions
+href="/rest/api/compute/virtual-machine-scale-set-extensions/update?tabs=HTTP">Extensions
 - Update</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-extensions/delete?tabs=HTTP">Extensions
+href="/rest/api/compute/virtual-machine-scale-set-extensions/delete?tabs=HTTP">Extensions
 - Delete</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/force-recovery-service-fabric-platform-update-domain-walk?tabs=HTTP">Force
+href="/rest/api/compute/virtual-machine-scale-sets/force-recovery-service-fabric-platform-update-domain-walk?tabs=HTTP">Force
 Recovery Service Fabric Platform Update Domain Walk</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/convert-to-single-placement-group?tabs=HTTP">Convert
+href="/rest/api/compute/virtual-machine-scale-sets/convert-to-single-placement-group?tabs=HTTP">Convert
 To Single Placement Group</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/set-orchestration-service-state?tabs=HTTP">Set
+href="/rest/api/compute/virtual-machine-scale-sets/set-orchestration-service-state?tabs=HTTP">Set
 Orchestration Service State</a><br></td>
 <td>4</td>
 <td>12</td>
@@ -437,12 +437,12 @@ Orchestration Service State</a><br></td>
 <td>Delete VMSS<br>
 (Delete VMSS)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/delete?tabs=HTTP">Delete</a><br>
+href="/rest/api/compute/virtual-machine-scale-sets/delete?tabs=HTTP">Delete</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/power-off?tabs=HTTP">Power
+href="/rest/api/compute/virtual-machine-scale-sets/power-off?tabs=HTTP">Power
 Off</a><sup>2</sup><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/deallocate?tabs=HTTP">Deallocate</a><br></td>
+href="/rest/api/compute/virtual-machine-scale-sets/deallocate?tabs=HTTP">Deallocate</a><br></td>
 <td>4</td>
 <td>12</td>
 <td>175</td>
@@ -452,15 +452,15 @@ href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-s
 <td>Low Cost Get VMSS<br>
 (Get information on single VMSS)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/get?tabs=HTTP">Get</a><br>
+href="/rest/api/compute/virtual-machine-scale-sets/get?tabs=HTTP">Get</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/list-skus?tabs=HTTP">List
+href="/rest/api/compute/virtual-machine-scale-sets/list-skus?tabs=HTTP">List
 Skus</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-rolling-upgrades/get-latest?tabs=HTTP">Rolling
+href="/rest/api/compute/virtual-machine-scale-set-rolling-upgrades/get-latest?tabs=HTTP">Rolling
 Upgrades - Get Latest</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/get-os-upgrade-history?tabs=HTTP">Get
+href="/rest/api/compute/virtual-machine-scale-sets/get-os-upgrade-history?tabs=HTTP">Get
 OS Upgrade History</a><br></td>
 <td>12</td>
 <td>36</td>
@@ -471,15 +471,15 @@ OS Upgrade History</a><br></td>
 <td>High Cost Get VMSS<br>
 (Get resource intensive information)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/get-instance-view?tabs=HTTP">Get
+href="/rest/api/compute/virtual-machine-scale-sets/get-instance-view?tabs=HTTP">Get
 Instance View</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/list?tabs=HTTP"><u>List</u></a><sup>2</sup><br>
+href="/rest/api/compute/virtual-machine-scale-sets/list?tabs=HTTP"><u>List</u></a><sup>2</sup><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/list-all?tabs=HTTP">List
+href="/rest/api/compute/virtual-machine-scale-sets/list-all?tabs=HTTP">List
 All</a><sup>2</sup><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-sets/list-by-location?tabs=HTTP">List
+href="/rest/api/compute/virtual-machine-scale-sets/list-by-location?tabs=HTTP">List
 By Location</a><sup>2</sup><br></td>
 <td>10</td>
 <td>30</td>
@@ -534,27 +534,27 @@ their respective throttling limits:
 <td>Update VMSS VMs<br>
 (Update existing VMs in a VMSS)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/start?tabs=HTTP">Start</a><br>
+href="/rest/api/compute/virtual-machine-scale-set-vms/start?tabs=HTTP">Start</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/restart?tabs=HTTP">Restart</a><br>
+href="/rest/api/compute/virtual-machine-scale-set-vms/restart?tabs=HTTP">Restart</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/reimage?tabs=HTTP">Reimage</a><br>
+href="/rest/api/compute/virtual-machine-scale-set-vms/reimage?tabs=HTTP">Reimage</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/reimage-all?tabs=HTTP">Reimage
+href="/rest/api/compute/virtual-machine-scale-set-vms/reimage-all?tabs=HTTP">Reimage
 All</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/update?tabs=HTTP">Update</a><br>
+href="/rest/api/compute/virtual-machine-scale-set-vms/update?tabs=HTTP">Update</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/simulate-eviction?tabs=HTTP">Simulate
+href="/rest/api/compute/virtual-machine-scale-set-vms/simulate-eviction?tabs=HTTP">Simulate
 Eviction</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vm-extensions/create-or-update?tabs=HTTP">Extensions
+href="/rest/api/compute/virtual-machine-scale-set-vm-extensions/create-or-update?tabs=HTTP">Extensions
 - Create Or Update</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vm-run-commands/create-or-update?tabs=HTTP">Run
+href="/rest/api/compute/virtual-machine-scale-set-vm-run-commands/create-or-update?tabs=HTTP">Run
 Commands - Create Or Update</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vm-run-commands/update?tabs=HTTP">Run
+href="/rest/api/compute/virtual-machine-scale-set-vm-run-commands/update?tabs=HTTP">Run
 Commands - Update</a><br></td>
 <td>4</td>
 <td>12</td>
@@ -565,17 +565,17 @@ Commands - Update</a><br></td>
 <td>Delete VMSS VMs<br>
 (Delete VMSS)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/delete?tabs=HTTP">Delete</a><br>
+href="/rest/api/compute/virtual-machine-scale-set-vms/delete?tabs=HTTP">Delete</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/power-off?tabs=HTTP">Power
+href="/rest/api/compute/virtual-machine-scale-set-vms/power-off?tabs=HTTP">Power
 Off</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/deallocate?tabs=HTTP">Deallocate</a><br>
+href="/rest/api/compute/virtual-machine-scale-set-vms/deallocate?tabs=HTTP">Deallocate</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vm-extensions/delete?tabs=HTTP">Extensions
+href="/rest/api/compute/virtual-machine-scale-set-vm-extensions/delete?tabs=HTTP">Extensions
 - Delete</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vm-run-commands/delete?tabs=HTTP">Run
+href="/rest/api/compute/virtual-machine-scale-set-vm-run-commands/delete?tabs=HTTP">Run
 Commands - Delete</a><br></td>
 <td>4</td>
 <td>12</td>
@@ -586,18 +586,18 @@ Commands - Delete</a><br></td>
 <td>Get VMSS VMs<br>
 (Get information on single VMSS)<br></td>
 <td><a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/get?tabs=HTTP">Get</a><br>
+href="/rest/api/compute/virtual-machine-scale-set-vms/get?tabs=HTTP">Get</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/get-instance-view?tabs=HTTP">Get
+href="/rest/api/compute/virtual-machine-scale-set-vms/get-instance-view?tabs=HTTP">Get
 Instance View</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vm-extensions/get?tabs=HTTP">Extensions
+href="/rest/api/compute/virtual-machine-scale-set-vm-extensions/get?tabs=HTTP">Extensions
 - Get</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vm-run-commands/get?tabs=HTTP">Run
+href="/rest/api/compute/virtual-machine-scale-set-vm-run-commands/get?tabs=HTTP">Run
 Commands - Get</a><br>
 <a
-href="https://learn.microsoft.com/en-us/rest/api/compute/virtual-machine-scale-set-vms/retrieve-boot-diagnostics-data?tabs=HTTP">Retrieve
+href="/rest/api/compute/virtual-machine-scale-set-vms/retrieve-boot-diagnostics-data?tabs=HTTP">Retrieve
 Boot Diagnostics Data</a><br></td>
 <td>12</td>
 <td>36</td>
@@ -611,7 +611,7 @@ Boot Diagnostics Data</a><br></td>
 
 In case users are still facing challenges due to Compute throttling,
 please refer to [Troubleshooting throttling errors in Azure - Virtual
-Machines](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#best-practices).
+Machines](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#best-practices).
 It has details on how to troubleshoot throttling issues, and best
 practices to avoid being throttled.
 
@@ -639,7 +639,7 @@ As part of every response, CRP returns
 **x-ms-ratelimit-remaining-resource** which can be used to determine the
 throttling limits against the policies. A list of applicable throttling
 policies is returned as a response to [Call rate informational
-headers](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
+headers](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
 
 ### Which compute resources will be impacted by this feature?
 This is being released for only Virtual Machine, Virtual Machine Scale
