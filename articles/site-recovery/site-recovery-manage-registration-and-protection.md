@@ -1,8 +1,7 @@
 ---
-title: Remove servers and disable protection | Microsoft Docs
+title: Remove servers and disable protection
 description: This article describes how to unregister servers from a Site Recovery vault, and to disable protection for virtual machines and physical servers.
 author: ankitaduttaMSFT
-manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
@@ -237,3 +236,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
     ```powershell
     Remove-VMReplication –VMName "SQLVM1"
     ```
+
+## Next steps
+
+- Learn more about [how to manage network interfaces for on-premises disaster recovery to Azure with Azure Site Recovery](site-recovery-manage-network-interfaces.md).
