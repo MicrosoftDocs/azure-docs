@@ -20,9 +20,65 @@ Currently, you can move virtual machine(s) across all public regions that are su
 
 ### Where is the metadata stored?
 
-The metadata associated with the move is stored in an Azure Cosmos DB database located in either the East US2 or North Europe regions and in Azure Blob storage in a Microsoft subscription.
+The service doesn't retain any customer data, and all data remains within the source virtual machine region. The following table shows the mapping between the virtual machine region and metadata region:
 
-Although the coverage will eventually extend to other regions, this doesn't restrict you from moving virtual machines to other regions. The service doesn't retain any customer data, and no customer data goes outside of the source virtual machine region.
+| Region group | Region | Metadata region |
+| --- | --- | ----|
+| **Americas** | centralus | eastus2 |
+| | centraluseuap | centraluseuap |
+| | eastus | eastus2 |
+| | eastus2 | eastus2 |
+| | eastus2euap | eastus2euap |
+| | westus | eastus2 |
+| | westus2 | eastus2 |
+| | northcentralus | eastus2 |
+| | southcentralus | eastus2 |
+| | westcentralus | eastus2 |
+| | brazilsouth | brazilsouth |
+| | brazilus | brazilsouth |
+| | canadacentral | canadacentral |
+| | canadaeast | canadacentral |
+| | brazilsoutheast | brazilsouth |
+| | westus3 | eastus2 |
+| **Europe**| northeurope | northeurope |
+| | westeurope | northeurope |
+| | uknorth | uksouth |
+| | uksouth2 | uksouth |
+| | uksouth | uksouth |
+| | ukwest | uksouth |
+| | francecentral | francecentral |
+| | francesouth | francecentral |
+| | switzerlandnorth | switzerlandnorth |
+| | switzerlandwest | switzerlandnorth |
+| | germanynorth | germanywestcentral |
+| | germanywestcentral | germanywestcentral |
+| | norwayeast | norwayeast |
+| | norwaywest | norwayeast |
+| | swedencentral | swedencentral |
+| | polandcentral | polandcentral |
+| | spaincentral | northeurope |
+| | italynorth | northeurope |
+| | swedensouth | swedencentral |
+| **Middle East** | uaecentral | uaenorth |
+| | uaenorth | uaenorth |
+| | qatarcentral | qatarcentral |
+| **Asia Pacific** | japaneast | |
+| | japanwest | japaneast |
+| | eastasia | southeastasia |
+| | southeastasia | southeastasia |
+| | australiasoutheast | australiaeast |
+| | australiaeast | australiaeast |
+| | westindia | centralindia |
+| | southindia | centralindia |
+| | centralindia | centralindia |
+| | koreacentral | koreacentral |
+| | koreasouth | koreacentral |
+| | jioindiawest | centralindia |
+| | jioindiacentral | centralindia |
+| | malaysiasouth | southeastasia |
+| **Africa** | southafricanorth | southeastasia |
+| | southafricawest | southeastasia |
+
 
 ### Is the collected metadata encrypted?
 
