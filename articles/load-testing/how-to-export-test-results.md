@@ -50,7 +50,7 @@ After a load test run finishes, you can access and download the load test result
 
 # [Azure portal](#tab/portal)
 
-To download the test results and report for a test run in the Azure portal:
+To download the test results and the HTML report for a test run in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
 
