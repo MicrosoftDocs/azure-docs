@@ -114,7 +114,7 @@ When you run a load test as part of your CI/CD pipeline, Azure Load Testing gene
         path: ${{ github.workspace }}/loadTest
     ```
 
-1. After your GitHub Actions workflow completes, you can select the test results and report from the **Artifacts** section on the **Summary** page of the workflow run.
+1. After your GitHub Actions workflow completes, you can select the **loadTestResults* folder from the **Artifacts** section on the **Summary** page of the workflow run.
 
     :::image type="content" source="./media/how-to-export-test-results/github-actions-run-summary.png" alt-text="Screenshot that shows the GitHub Actions workflow summary page, highlighting the test results in the Artifacts section." lightbox="./media/how-to-export-test-results/github-actions-run-summary.png":::
 
