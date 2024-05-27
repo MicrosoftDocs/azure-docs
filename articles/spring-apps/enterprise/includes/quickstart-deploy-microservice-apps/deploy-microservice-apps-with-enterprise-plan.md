@@ -18,7 +18,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
+The **Deploy to Azure** button in the next section launches an Azure portal experience that deploys source code from the [Spring PetClinic](https://github.com/Azure-Samples/spring-petclinic-microservices) repository. No local preparation steps are needed.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
