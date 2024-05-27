@@ -1,7 +1,7 @@
 ---
 title: Enabling Network Security Group flow logs for Azure Red Hat OpenShift
 description: In this article, learn how to enable flow logs to analyze traffic for Network Security Groups.
-author: johnmarc
+author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: how-to
 ms.author: johnmarc
@@ -23,6 +23,9 @@ Flow logs allow you to analyze traffic for Network Security Groups in specific r
 ## Prerequisites
 
 You must have an existing Azure Red Hat OpenShift cluster. Follow [this guide](tutorial-create-cluster.md) to create a private Azure Red Hat OpenShift cluster.
+
+> [!NOTE]
+> This feature doesn't work with the [ARO "bring your own" network security group feature](/azure/openshift/howto-bring-nsg). If you're using that feature and want to use flow logs with it, refer to [Flow logging for network security groups](/azure/network-watcher/nsg-flow-logs-overview) in the Azure Network Watcher documentation.
 
 ## Configure Azure Network Watcher
 

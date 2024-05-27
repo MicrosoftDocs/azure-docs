@@ -3,7 +3,7 @@ title: Quickstart for adding feature flags to .NET/.NET Framework apps
 titleSuffix: Azure App Configuration
 description: A quickstart for adding feature flags to .NET/.NET Framework apps and managing them in Azure App Configuration.
 services: azure-app-configuration
-author: zhiyuanliang
+author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
@@ -152,7 +152,7 @@ You can use Visual Studio to create a new console app project.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created previously. 
 
-1. Select **Feature manager** and locate the **Beta** feature flag. Enable the flag by selecting the checkbox under **Enabled**.
+1. Select **Feature manager** and locate the *Beta* feature flag. Enable the flag by selecting the checkbox under **Enabled**.
 
 1. Run the application again. You should see the Beta message in the console.
 

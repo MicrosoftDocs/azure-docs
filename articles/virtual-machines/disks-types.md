@@ -1,6 +1,6 @@
 ---
 title: Select a disk type for Azure IaaS VMs - managed disks
-description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
+description: Learn about the available Azure disk types for virtual machines, including Ultra Disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
 ms.date: 04/23/2024
@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 Azure managed disks currently offers five disk types, each intended to address a specific customer scenario:
 
-- [Ultra disks](#ultra-disks)
+- [Ultra Disks](#ultra-disks)
 - [Premium SSD v2](#premium-ssd-v2)
 - [Premium SSDs (solid-state drives)](#premium-ssds)
 - [Standard SSDs](#standard-ssds)
@@ -25,7 +25,7 @@ Azure managed disks currently offers five disk types, each intended to address a
 
 The following table provides a comparison of the five disk types to help you decide which to use.
 
-|         | Ultra disk | Premium SSD v2 | Premium SSD | Standard SSD | <nobr>Standard HDD</nobr> |
+|         | Ultra Disk | Premium SSD v2 | Premium SSD | Standard SSD | <nobr>Standard HDD</nobr> |
 | ------- | ---------- | ----------- | ------------ | ------------ | ------------ |
 | **Disk type** | SSD | SSD |SSD | SSD | HDD |
 | **Scenario**  | IO-intensive workloads such as [SAP HANA](workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads. | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | Web servers, lightly used enterprise applications and dev/test | Backup, non-critical, infrequent access |
@@ -44,13 +44,13 @@ For a video that covers some high level differences for the different disk types
 
 ## Ultra disks
 
-Azure ultra disks are the highest-performing storage option for Azure virtual machines (VMs). You can change the performance parameters of an ultra disk without having to restart your VMs. Ultra disks are suited for data-intensive workloads such as SAP HANA, top-tier databases, and transaction-heavy workloads.
+Azure Ultra Disks are the highest-performing storage option for Azure virtual machines (VMs). You can change the performance parameters of an Ultra Disk without having to restart your VMs. Ultra Disks are suited for data-intensive workloads such as SAP HANA, top-tier databases, and transaction-heavy workloads.
 
 Ultra disks must be used as data disks and can only be created as empty disks. You should use Premium solid-state drives (SSDs) as operating system (OS) disks.
 
 ### Ultra disk size
 
-Azure ultra disks offer up to 100 TiB per region per subscription by default, but ultra disks support higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+Ultra Disks offer up to 100 TiB per region per subscription by default, but Ultra Disks support higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
 The following table provides a comparison of disk sizes and performance caps to help you decide which to use.
 
@@ -67,31 +67,31 @@ The following table provides a comparison of disk sizes and performance caps to 
 |1,024    |307,200        |10,000        |
 |2,048-65,536 (sizes in this range increasing in increments of 1 TiB)     |400,000         |10,000         |
 
-### Ultra disk performance
+### Ultra Disk performance
 
-Ultra disks are designed to provide low sub millisecond latencies and provisioned IOPS and throughput 99.99% of the time. Ultra disks also feature a flexible performance configuration model that allows you to independently configure IOPS and throughput, before and after you provision the disk. You can adjust the performance of an Ultra Disk four times within a 24 hour period. Ultra disks come in several fixed sizes, ranging from 4 GiB up to 64 TiB.
+Ultra Disks are designed to provide low sub millisecond latencies and provisioned IOPS and throughput 99.99% of the time. Ultra Disks also feature a flexible performance configuration model that allows you to independently configure IOPS and throughput, before and after you provision the disk. You can adjust the performance of an Ultra Disk four times within a 24 hour period. Ultra Disks come in several fixed sizes, ranging from 4 GiB up to 64 TiB.
 
-### Ultra disk IOPS
+### Ultra Disk IOPS
 
-Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 400,000 IOPS per disk. To achieve the target IOPS for the disk, ensure that the selected disk IOPS are less than the VM IOPS limit. Ultra disks with greater IOPS can be used as shared disks to support multiple VMs.
+Ultra Disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 400,000 IOPS per disk. To achieve the target IOPS for the disk, ensure that the selected disk IOPS are less than the VM IOPS limit. Ultra Disks with greater IOPS can be used as shared disks to support multiple VMs.
 
-The minimum guaranteed IOPS per disk are 1 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you provisioned a 4-GiB ultra disk, the minimum IOPS for that disk is 100, instead of four.
+The minimum guaranteed IOPS per disk are 1 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you provisioned a 4-GiB Ultra Disk, the minimum IOPS for that disk is 100, instead of four.
 
 For more information about IOPS, see [Virtual machine and disk performance](disks-performance.md).
 
-### Ultra disk throughput
+### Ultra Disk throughput
 
-The throughput limit of a single ultra disk is 256-kB/s for each provisioned IOPS, up to a maximum of 10,000 MB/s per disk (where MB/s = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4kB/s for each provisioned IOPS, with an overall baseline minimum of 1 MB/s.
+The throughput limit of a single Ultra Disk is 256-kB/s for each provisioned IOPS, up to a maximum of 10,000 MB/s per disk (where MB/s = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4kB/s for each provisioned IOPS, with an overall baseline minimum of 1 MB/s.
 
-You can adjust ultra disk IOPS and throughput performance at runtime without detaching the disk from the virtual machine. After a performance resize operation has been issued on a disk, it can take up to an hour for the change to take effect. Up to four performance resize operations are permitted during a 24-hour window.
+You can adjust Ultra Disk IOPS and throughput performance at runtime without detaching the disk from the virtual machine. After a performance resize operation has been issued on a disk, it can take up to an hour for the change to take effect. Up to four performance resize operations are permitted during a 24-hour window.
 
 It's possible for a performance resize operation to fail because of a lack of performance bandwidth capacity.
 
-### Ultra disk limitations
+### Ultra Disk limitations
 
 [!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
-If you would like to start using ultra disks, see the article on [using Azure Ultra Disks](disks-enable-ultra-ssd.md).
+If you would like to start using Ultra Disks, see the article on [using Azure Ultra Disks](disks-enable-ultra-ssd.md).
 
 ## Premium SSD v2
 

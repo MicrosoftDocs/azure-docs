@@ -6,7 +6,7 @@ description: Learn about User Prompt injection attacks and the Prompt Shields fe
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
-ms.custom: build-2023
+ms.custom: build-2023, references_regions
 ms.topic: conceptual
 ms.date: 03/15/2024
 ms.author: pafarley
@@ -72,6 +72,12 @@ Currently, the Prompt Shields API supports the English language. While our API d
 ### Text length limitations
 
 The maximum character limit for Prompt Shields allows for a user prompt of up to 10,000 characters, while the document array is restricted to a maximum of 5 documents with a combined total not exceeding 10,000 characters.
+
+### Regions
+To use this API, you must create your Azure AI Content Safety resource in the supported regions. Currently, it's available in the following Azure regions:
+
+- East US
+- West Europe
 
 ### TPS limitations
 

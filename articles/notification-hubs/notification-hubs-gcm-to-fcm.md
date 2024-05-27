@@ -5,7 +5,7 @@ author: sethmanheim
 manager: femila
 ms.service: notification-hubs
 ms.topic: article
-ms.date: 05/03/2024
+ms.date: 05/08/2024
 ms.author: sethm
 ms.reviewer: heathertian
 ms.lastreviewed: 03/01/2024
@@ -14,6 +14,9 @@ ms.lastreviewed: 03/01/2024
 # Azure Notification Hubs and Google Firebase Cloud Messaging migration
 
 The core capabilities for the integration of Azure Notification Hubs with Firebase Cloud Messaging (FCM) v1 are available. As a reminder, Google will stop supporting FCM legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format before then.
+
+> [!IMPORTANT]
+> As of June 2024, FCM legacy APIs will no longer be supported and will be retired. To avoid any disruption in your push notification service, you must [migrate to the FCM v1 protocol](#migration-steps) as soon as possible.
 
 ## Concepts for FCM v1
 
@@ -58,7 +61,7 @@ Azure Notification Hubs is working on a solution that reduces the number of time
 
 ### How can Xamarin customers migrate to FCM v1?
 
-Xamarin is now deprecated. Xamarin customers should migrate to MAUI, but MAUI is not currently supported by Azure Notification Hubs. It's recommended that Xamarin customers move away from Notification Hubs if they need FCM v1 sends.
+Xamarin is now deprecated. Xamarin customers should migrate to MAUI, but MAUI is not currently supported by Azure Notification Hubs. You can, however, use the available SDKs and REST APIs with your MAUI applications. It's recommended that Xamarin customers move away from Notification Hubs if they need FCM v1 sends.
 
 ## Next steps
 
