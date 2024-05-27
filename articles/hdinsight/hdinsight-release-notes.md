@@ -16,7 +16,6 @@ This article provides information about the **most recent** Azure HDInsight rele
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-repo.md) for up-to-date information on HDInsight and all HDInsight versions.
 
-
 To subscribe, click the **watch** button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
 ## Release Information
@@ -44,11 +43,12 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 * ESRP -Id1.1 - Remove secret and move to MSI.
 * Removed seaborn-base from py38 conda environment.
-* SSL verify during conda.
+* SSL verifies during conda.
 * Added API in gateway to get token for keyvault.
 * Added missing fields to schemas and fix formatting for SparkDriverLog.
 * `SparkDriverLogs` not available in new `LogAnalytics HDInsightSparkLogs` tables.
 * Update Livy logs source path for Log Analytics monitoring.
+  
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
 * [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
