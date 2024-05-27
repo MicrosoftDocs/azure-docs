@@ -47,7 +47,3 @@ Here's an example of a command to run the script (replace the parameters in quot
 If the script runs successfully, deployment gets successful and displays **Deployment finished Successfully** message.
 
 If there's an error in the script, you see **An error occurred during deployment. Please check the above logs for debugging** message.
-
-## Next steps
-
-[Create a SCOM Managed Instance](create-operations-manager-managed-instance.md).
