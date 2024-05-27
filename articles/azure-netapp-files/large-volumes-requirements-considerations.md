@@ -74,7 +74,7 @@ Once your [regional capacity quota](regional-capacity-quota.md) has increased, y
 
 ### Register the feature 
 
-If this is your first time using large volumes, register the feature with the[large volumes sign-up form](https://aka.ms/anflargevolumespreviewsignup).
+To enroll in the preview for large volumes, use the [large volumes sign-up form](https://aka.ms/anflargevolumessignup).
 
 ## Next steps
 
