@@ -279,18 +279,20 @@ You need to change auth type of datastore to None, which stands for meid_token b
 
 :::image type="content" source="./media/faq/datastore_auth_type.png" alt-text="Screenshot of auth type for datastore. " lightbox = "./media/faq/datastore_auth_type.png":::
 
-For fileshare based datastore (at least for `workspaceworkingdirectory`), you can only change auth type for REST API: [datastores-create-or-update](/rest/api/azureml/datastores/create-or-update?tabs=HTTP#code-try-0). You can first use [datastores-get](/rest/api/azureml/datastores/get?tabs=HTTP#code-try-0) to get the body properties of datastore, then change `"credentialsType": "None"` and `"serviceDataAccessAuthIdentity": "WorkspaceSystemAssignedIdentity"`.
+For fileshare based datastore (at least for `workspaceworkingdirectory`), you can only change auth type for REST API: [datastores-create-or-update](/rest/api/azureml/datastores/create-or-update?tabs=HTTP#code-try-0). You can first use [datastores-get](/rest/api/azureml/datastores/get?tabs=HTTP#code-try-0) to get the body properties of datastore, then change `"credentialsType": "None"`, `subscriptionId`, `accountName` and `"serviceDataAccessAuthIdentity": "WorkspaceSystemAssignedIdentity"`, also need to specify 
 
 :::image type="content" source="./media/faq/datastore-update-rest.png" alt-text="Screenshot of rest for datastore update. " lightbox = "./media/faq/datastore-update-rest.png":::
 
 #### Grant permission to user identity or managed identity
 
 To use credential-less datastore in prompt flow, you need to grant enough permissions to user identity or managed identity to access the datastore.
+
+- Make sure workspace system assigned managed identity have  `Storage Blob Data Contributor` and `Storage File Data Privileged Contributor` on the storage account, at least need read/write (better also include delete) permission.
 - If you're using user identity this default option in prompt flow, you need to make sure the user identity has following role on the storage account:
     - `Storage Blob Data Contributor` on the storage account, at least need read/write (better also include delete) permission.
     - `Storage File Data Privileged Contributor` on the storage account, at least need read/write (better also include delete) permission
 - If you're using user assigned managed identity, you need to make sure the managed identity has following role on the storage account:
     - `Storage Blob Data Contributor` on the storage account, at least need read/write (better also include delete) permission.
     - `Storage File Data Privileged Contributor` on the storage account, at least need read/write (better also include delete) permission
-    - Meanwhile, you need to assign user identity `Storage Blob Data Read` role to storage account, if your want use prompt flow to authoring and test flow.
+    - Meanwhile, you need to assign user identity `Storage Blob Data Read` role to storage account at least, if your want use prompt flow to authoring and test flow.
 - If you still can't view the flow detail page and the first time you using prompt flow is earlier than 2024-01-01, you need grant workspace MSI as `Storage File Data Privileged Contributor` to storage account linked with workspace.
