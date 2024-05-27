@@ -45,13 +45,11 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 ## Fixed issues
 
-* ESRP -Id1.1 - Remove secret and move to MSI.
-* Removed seaborn-base from py38 conda environment.
-* SSL verifies during conda.
-* Added API in gateway to get token for keyvault.
-* Added missing fields to schemas and fix formatting for SparkDriverLog.
-* `SparkDriverLogs` not available in new `LogAnalytics HDInsightSparkLogs` tables.
-* Update Livy logs source path for Log Analytics monitoring.
+* Added API in gateway to get token for Keyvault, as part of the SFI initiative.
+* In the new Log monitor `HDInsightSparkLogs` table, for log type `SparkDriverLog`, some of the fields were missing. For example, `LogLevel & Message`. This release adds the missing fields to schemas and fixed formatting for `SparkDriverLog`.
+* Livy logs not available in Log Analytics monitoring `SparkDriverLog` table, which was due to an issue with livy log source path and log parsing regex in `SparkLivyLog` configs.
+* Any HDInsight cluster, using ADLS Gen2 as a primary storage account can leverrage MSI based access to any of the Azure resources (for example, SQl, Keywault) which is used within the application code. 
+
   
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
