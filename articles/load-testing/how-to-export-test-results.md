@@ -72,7 +72,7 @@ To download the test results and report for a test run in the Azure portal:
 
    * Select **Download** on the **Test run details** pane. To download the results, select **Results**. To download the HTML report, select **Report**.
 
-     :::image type="content" source="media/how-to-export-test-results/dashboard-download.png" alt-text="Screenshot that shows how to download the test results from the 'Test run details' pane.":::
+     :::image type="content" source="media/how-to-export-test-results/download-dashboard.png" alt-text="Screenshot that shows how to download the test results from the 'Test run details' pane.":::
 
 1. You can use any zip tool to extract the folder and access the downloaded files.
 
