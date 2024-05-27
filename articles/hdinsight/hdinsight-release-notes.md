@@ -24,9 +24,9 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 This release note applies to 
 
-:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 4.0 version.
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.0 version.
 
-:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.0 version. 
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 4.0 version. 
 
 
 HDInsight release will be available to all regions over several days. This release note is applicable for image number **2405081840**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
@@ -35,6 +35,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 **OS versions**
 
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 * HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
 > [!NOTE]
