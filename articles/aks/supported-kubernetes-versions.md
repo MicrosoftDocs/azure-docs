@@ -310,7 +310,7 @@ To upgrade from *1.27.x* -> *1.29.x*:
 
 Skipping multiple versions can only be done when upgrading from an unsupported version back into the minimum supported version. For example, you can upgrade from an unsupported *1.25.x* to a supported *1.27.x* if *1.27* is the minimum supported minor version.
 
-When performing an upgrade from an _unsupported version_ that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty.Clusters running _unsupported version_ has the flexibility of decoupling control plane upgrades with node pool upgrades. However if your version is significantly out of date, we recommend that you re-create the cluster.
+When performing an upgrade from an _unsupported version_ that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty. Clusters running _unsupported version_ has the flexibility of decoupling control plane upgrades with node pool upgrades. However if your version is significantly out of date, we recommend that you re-create the cluster.
 
 ### Can I create a new 1.xx.x cluster during its 30 day support window?
 
