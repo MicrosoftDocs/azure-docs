@@ -102,7 +102,7 @@ You can view the serverless instance used by compute session in the compute sess
 
 Compute session support to use `requirements.txt` or custom base image in `flow.dag.yaml` to customize the image. We would recommend you to use `requirements.txt` for common case, which will use `pip install -r requirements.txt` to install the packages. If you have dependency more than python packages, you need to follow the [Customize base image](./how-to-customize-session-base-image.md) to create build a new image base on top of prompt flow base image. Then use it in `flow.dag.yaml`. Learn more [how to specify base image in compute session.](./how-to-manage-compute-session.md#change-the-base-image-for-compute-session)
 
-- You cannot use arbitrary base image to create Compute session, you need to use the base image provide by prompt flow.
+- You can't use arbitrary base image to create Compute session, you need to use the base image provide by prompt flow.
 - Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the base image. Using old version of `promptflow` and `promptflow-tools` may cause unexpected behavior.
 
 ## Flow run related issues
@@ -275,11 +275,11 @@ If you encounter an error like "Access denied to list workspace secret", check w
 
 You can follow [Identity-based data authentication](../how-to-administrate-data-authentication.md#identity-based-data-authentication) this part to make your data store credential-less. 
 
-You need change auth type of data store to None which stands for meid_token based auth. For blob/adls gen1/adls gen2 based data, you can make change from data store detail page, or CLI/SDK: https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore
+You need to change auth type of data store to None, which stands for meid_token based auth. For blob/adls gen1/adls gen2 based data, you can make change from data store detail page, or CLI/SDK: https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore
 
 :::image type="content" source="./media/faq/datastore_auth_type.png" alt-text="Screenshot of auth type for datastore. " lightbox = "./media/faq/datastore_auth_type.png":::
 
-For fileshare based data store, you can only change auth type for rest api: [datastores-create-or-update](https://learn.microsoft.com/en-us/rest/api/azureml/datastores/create-or-update?view=rest-azureml-2023-10-01&tabs=HTTP#code-try-0). You can first use [datastores-get](https://learn.microsoft.com/en-us/rest/api/azureml/datastores/get?view=rest-azureml-2023-10-01&tabs=HTTP#code-try-0) to get the body properties of datastore, then change `"credentialsType": "None"`
+For fileshare based data store, you can only change auth type for REST API: [datastores-create-or-update](https://learn.microsoft.com/en-us/rest/api/azureml/datastores/create-or-update?view=rest-azureml-2023-10-01&tabs=HTTP#code-try-0). You can first use [datastores-get](https://learn.microsoft.com/en-us/rest/api/azureml/datastores/get?view=rest-azureml-2023-10-01&tabs=HTTP#code-try-0) to get the body properties of datastore, then change `"credentialsType": "None"`
 
 :::image type="content" source="./media/faq/datastore-update-rest.png" alt-text="Screenshot of rest for datastore update. " lightbox = "./media/faq/datastore-update-rest.png":::
 
