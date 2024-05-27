@@ -98,7 +98,7 @@ When you run a load test as part of your CI/CD pipeline, Azure Load Testing gene
 
 1. Edit the workflow file and add the `actions/upload-artifact` action after the `azure/load-testing` action in the workflow file.
 
-    Azure Load Testing places the test results in the `loadTest` folder of the GitHub Actions workspace.
+    Azure Load Testing places the test results and the HTML report in the `loadTest` folder of the GitHub Actions workspace.
 
     ```yml
     - name: 'Azure Load Testing'
@@ -112,11 +112,6 @@ When you run a load test as part of your CI/CD pipeline, Azure Load Testing gene
       with:
         name: loadTestResults
         path: ${{ github.workspace }}/loadTest
-    ```
-      Azure Load Testing places the HTML Report in the `xx` folder of the GitHub Actions workspace.
-   
-      ```yml
-        TBD
     ```
 
 1. After your GitHub Actions workflow completes, you can select the test results and report from the **Artifacts** section on the **Summary** page of the workflow run.
