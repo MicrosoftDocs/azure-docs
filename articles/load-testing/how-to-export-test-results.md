@@ -42,7 +42,7 @@ timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success
 
 ## Access and download load test results and report
 
-After a load test run finishes, you can access and download the load test results and report through the Azure portal, or as an artifact in your CI/CD workflow.
+After a load test run finishes, you can access and download the load test results and the HTML report through the Azure portal, or as an artifact in your CI/CD workflow.
 
 >[!IMPORTANT]
 >For load tests with more than 45 engine instances or a greater than 3-hour test run duration, the results file is not available for download. You can [configure a JMeter Backend Listener to export the results](#export-test-results-using-jmeter-backend-listeners) to a data store of your choice or [copy the results from a storage account container](#copy-test-artifacts-from-a-storage-account-container).
