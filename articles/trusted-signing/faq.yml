@@ -38,7 +38,8 @@ sections:
 
       - question: What if I fail identity validation?
         answer: | 
-          - Ensure you did not miss an email verification link sent to the primary email address shared during Identity Validation request creation. The link expires in 7 days, so you need to create a new Identity Validation request.   
+          - Organizations with a year founded date, less than 3 years cannot be onboarded at the moment and will fail Identity Validation. 
+          - For Organizations, with year founded date more than 3 years: Ensure you did not miss an email verification link sent to the primary email address shared during Identity Validation request creation. The link expires in 7 days, so you need to create a new Identity Validation request.   
           - If the failure is not to due to missed email verification; then the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided (even after you provided more documentation when we request it), we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
       - question: What if I need assistance with Identity Validation?
         answer: | 

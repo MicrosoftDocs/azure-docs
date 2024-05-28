@@ -227,8 +227,8 @@ To create an identity validation request:
     | :------------------- | :------------------- |
     | **Organization Name**          | For public identity validation, provide the legal business entity to which the certificate will be issued. For private identity validation, the value defaults to your Microsoft Entra tenant name. |
     | **(Private Identity Type only) Organizational Unit**          | Enter the relevant information. |
-    | **Website url**          | Enter the primary website that belongs to the legal business entity. |
-    | **Primary Email**           | Enter the organization’s primary email address. A verification link is sent to this email address to verify the email address. Ensure that the email address can receive emails from external email addresses that have links. The verification link expires in seven days.  |
+    | **Website url**          | Enter the website that belongs to the legal business entity. |
+    | **Primary Email**           | Enter the email address associated with the legal business entity undergoing validation. Part of the Identity Validation process, a verification link is sent to this email address and the link expires in seven days. Ensure that the email address can receive emails from external email addresses that have links.  |
     | **Secondary Email**          | This email address must be different from the primary email address. For organizations, the domain must match the email address that's provided in the primary email address. Ensure that the email address can receive emails from external email addresses that have links.|
     | **Business Identifier**           | Enter a business identifier for the legal business entity. |
     | **Seller ID**          | Applies only to Microsoft Store customers. Find your Seller ID in the Partner Center portal. |
