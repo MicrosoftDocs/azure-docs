@@ -41,8 +41,11 @@ The configurable options of Azure AI Search when using Azure OpenAI On Your Data
 | `allow_partial_result` | integer | False | If specified as true, the system will allow partial search results to be used and the request fails if all the queries fail. If not specified, or specified as false, the request will fail if any search query fails. |
 | `include_contexts` | array | False | The included properties of the output context. If not specified, the default value is `citations` and `intent`. Values can be `citations`,`intent`, `all_retrieved_documents`.|
 
+## Authentication 
 
-## API key authentication options
+You need to select how you want to authenticate the connection from Azure OpenAI, Azure AI Search, and Azure blob storage. You can choose an *assigned managed identity*, *API key* or an *access token**. By selecting *API key* or *access token* as the authentication type, the system will automatically populate the API key or token for you to connect with your Azure AI Search resource. By selecting an *assigned managed identity*, the authentication will be based on the [role assignment](../how-to/use-your-data-securely.md#role-assignments) you have. *System assigned managed identity* is selected by default for security.
+
+### API key authentication options
 
 The authentication options for Azure OpenAI On Your Data when using an API key.
 
@@ -51,7 +54,7 @@ The authentication options for Azure OpenAI On Your Data when using an API key.
 | `key`|string|True|The API key to use for authentication.|
 | `type`|string|True| Must be `api_key`.|
 
-## System assigned managed identity authentication options
+### System assigned managed identity authentication options
 
 The authentication options for Azure OpenAI On Your Data when using a system-assigned managed identity.
 
@@ -59,7 +62,7 @@ The authentication options for Azure OpenAI On Your Data when using a system-ass
 |--- | --- | --- | --- |
 | `type`|string|True| Must be `system_assigned_managed_identity`.|
 
-## User assigned managed identity authentication options
+### User assigned managed identity authentication options
 
 The authentication options for Azure OpenAI On Your Data when using a user-assigned managed identity.
 
@@ -68,7 +71,7 @@ The authentication options for Azure OpenAI On Your Data when using a user-assig
 | `managed_identity_resource_id`|string|True|The resource ID of the user-assigned managed identity to use for authentication.|
 | `type`|string|True| Must be `user_assigned_managed_identity`.|
 
-## Access token authentication options
+### Access token authentication options
 
 The authentication options for Azure OpenAI On Your Data when using access token.
 
