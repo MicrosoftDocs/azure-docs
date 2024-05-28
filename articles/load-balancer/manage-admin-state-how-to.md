@@ -78,11 +78,12 @@ In this section, you learn how to set an admin state to UP or DOWN as part of a 
   | **Name**                   | Enter `myBackendpool`.     |
   | **Backend Pool Configuration** | Select **NIC**.         |
   | **IP configuration**       | Select **+ Add** under **IP configurations**.</br>Select the virtual machine you want to add to the backend pool. Select **Add**.|
+
 7. Select **Save**.
 8. In your backend pool’s page, select the corresponding Admin State value of your recently added backend pool instance.
 9. In your admin state’s pane, select **Down** from the dropdown menu.
     
-    :::image type="content" source="media/manage-admin-state-how-to/set-admin-state-new-backend-pool-down.png" alt-text="Screenshot of Admin state details window with admin state configured to up.":::
+    :::image type="content" source="media/manage-admin-state-how-to/set-admin-state-new-backend-pool-down.png" alt-text="Screenshot of Admin state details window with admin state configured to up for new backend pool.":::
 
 10. Select **Save**.
 
@@ -161,7 +162,8 @@ az network lb address-pool create \
 In this section, you learn how to set an admin state to UP or DOWN as part of a new backend pool instance add.
 
 # [Azure portal](#tab/azureportal)
-1.	Sign in to the [Azure portal](http://portal.azure.com).
+
+1.	Sign in to the [Azure portal](https://portal.azure.com).
 2.	In the search box at the top of the portal, enter **Load balancer** and select **Load balancers** in the search results.
 3.	On the load balancer's **Overview** page, select your load balancer from the list.
 4.	In your load balancer's page, select **Backend pools** under **Settings**.
@@ -251,7 +253,7 @@ az network lb address-pool update \
 ```
 
 > [!NOTE]
-> You can also use [`az network lb address-pool address add`](/cli/azure/network/lb/address-pool/address?view=azure-cli-latest) to set admin state on as part of a new backend pool instance add.
+> You can also use [`az network lb address-pool address add`](/cli/azure/network/lb/address-pool/address##az-network-lb-address-pool-add) to set admin state on as part of a new backend pool instance add.
 
 
 ---
@@ -260,7 +262,7 @@ az network lb address-pool update \
 In this section, you learn how to update an existing admin state from existing backend pool instance by setting the value to UP or DOWN. 
 
 # [Azure portal](#tab/azureportal)
-1.	Sign in to the [Azure portal](http://portal.azure.com).
+1.	Sign in to the [Azure portal](https://portal.azure.com).
 2.	In the search box at the top of the portal, enter **Load balancer** and select **Load balancers** in the search results.
 3.	Select your load balancer from the list.
 4.	In your load balancer's page, select **Backend pools** under **Settings**.
@@ -354,7 +356,7 @@ az network lb address-pool update \
 In this section, you learn how to remove an existing admin state from an existing backend pool instance. This is done by setting the admin state value to NONE.
 
 # [Azure portal](#tab/azureportal)
-1.	Sign in to the [Azure portal](http://portal.azure.com).
+1.	Sign in to the [Azure portal](https://portal.azure.com).
 2.	In the search box at the top of the portal, enter **Load balancer** and select **Load balancers** in the search results.
 3.	Select your load balancer from the list.
 4.	In your load balancer's page, select **Backend pools** under **Settings**.
