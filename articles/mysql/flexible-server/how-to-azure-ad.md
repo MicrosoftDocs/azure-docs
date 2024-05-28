@@ -167,7 +167,7 @@ Invoke the Azure CLI tool to acquire an access token for the Microsoft Entra aut
 - Example (for Public Cloud):
 
     ```azurecli-interactive
-    az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+    az account get-access-token --resource https://server-name.database.windows.net
     ```
 
 - The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using the following:
@@ -185,7 +185,7 @@ Invoke the Azure CLI tool to acquire an access token for the Microsoft Entra aut
 - Using PowerShell, you can use the following command to acquire access token:
 
     ```powershell
-    $accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net
+    $accessToken = Get-AzAccessToken -ResourceUrl https://server-name.database.windows.net
     $accessToken.Token | out-file C:\temp\MySQLAccessToken.txt
     ```
 
@@ -240,7 +240,7 @@ mysql -h mydb.mysql.database.azure.com \
 mysql -h mydb.mysql.database.azure.com \
   --user user@tenant.onmicrosoft.com \
   --enable-cleartext-plugin \
-  --password=$((Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net).Token)
+  --password=$((Get-AzAccessToken -ResourceUrl https://server-name.database.windows.net).Token)
 ```
 
 ## Connect to Azure Database for MySQL flexible server using MySQL Workbench

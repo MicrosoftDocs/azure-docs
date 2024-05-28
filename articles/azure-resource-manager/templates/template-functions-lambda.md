@@ -107,7 +107,7 @@ The outputs from the preceding example:
 | oldDogs | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
 | dogNameIndex | Array | [{"name":"Casper","age":3,"interests":["Other dogs"]}] |
 
-**oldDogs** lists the dogs that are five or older; **dogNameIndex** identifies the dog(s) whose index number is less than two and whose name starts with the letter "C". 
+**oldDogs** lists the dogs that are five or older; **dogNameIndex** identifies the dogs whose index number is less than two and whose name starts with the letter "C". 
 
 ```json
 {

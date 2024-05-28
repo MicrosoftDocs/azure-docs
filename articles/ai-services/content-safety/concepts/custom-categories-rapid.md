@@ -1,5 +1,5 @@
 ---
-title: "Incident response in Azure AI Content Safety"
+title: "Custom categories (rapid) in Azure AI Content Safety"
 titleSuffix: Azure AI services
 description: Learn about content incidents and how you can use Azure AI Content Safety to handle them on your platform.
 #services: cognitive-services
@@ -12,15 +12,15 @@ ms.date: 04/11/2024
 ms.author: pafarley
 ---
 
-# Incident response
+# Custom categories (rapid)
 
-In content moderation scenarios, incident response is the process of identifying, analyzing, containing, eradicating, and recovering from cyber incidents that involve inappropriate or harmful content on online platforms. 
+In content moderation scenarios, custom categories (rapid) is the process of identifying, analyzing, containing, eradicating, and recovering from cyber incidents that involve inappropriate or harmful content on online platforms. 
 
 An incident may involve a set of emerging content patterns (text, image, or other modalities) that violate Microsoft community guidelines or the customers' own policies and expectations. These incidents need to be mitigated quickly and accurately to avoid potential live site issues or harm to users and communities. 
 
-## Incident response API features
+## Custom categories (rapid) API features
 
-One way to deal with emerging content incidents is to use [Blocklists](/azure/ai-services/content-safety/how-to/use-blocklist), but that only allows exact text matching and no image matching. The Azure AI Content Safety incident response API offers the following advanced capabilities:
+One way to deal with emerging content incidents is to use [Blocklists](/azure/ai-services/content-safety/how-to/use-blocklist), but that only allows exact text matching and no image matching. The Azure AI Content Safety custom categories (rapid) API offers the following advanced capabilities:
 - semantic text matching using embedding search with a lightweight classifier
 - image matching with a lightweight object-tracking model and embedding search.
 
@@ -34,11 +34,11 @@ Then, you can include your defined incident in a regular text analysis or image 
 
 ### Language availability
 
-The text incident response API supports all languages that are supported by Content Safety text moderation. See [Language support](/azure/ai-services/content-safety/language-support).
+The text custom categories (rapid) API supports all languages that are supported by Content Safety text moderation. See [Language support](/azure/ai-services/content-safety/language-support).
 
 ### Input limitations
 
-See the following table for the input limitations of the incident response API:
+See the following table for the input limitations of the custom categories (rapid) API:
 
 | Object     | Limitation      |
 | :------------ | :----------- |
@@ -56,6 +56,6 @@ To use this API, you must create your Azure AI Content Safety resource in one of
 
 ## Next steps
 
-Follow the how-to guide to use the Azure AI Content Safety incident response API.
+Follow the how-to guide to use the Azure AI Content Safety custom categories (rapid) API.
 
-* [Use the incident response API](../how-to/incident-response.md)
+* [Use the custom categories (rapid) API](../how-to/custom-categories-rapid.md)

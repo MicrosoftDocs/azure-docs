@@ -83,7 +83,7 @@ The outputs from the preceding example:
 | oldDogs | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
 | dogNameIndex | Array | [{"name":"Casper","age":3,"interests":["Other dogs"]}] |
 
-**oldDogs** lists the dogs that are five or older; **dogNameIndex** identifies the dog(s) whose index number is less than two and whose name starts with the letter "C". 
+**oldDogs** lists the dogs that are five or older; **dogNameIndex** identifies the dogs whose index number is less than two and whose name starts with the letter "C". 
 
 ```bicep
 var itemForLoop = [for item in range(0, 10): item]
@@ -122,7 +122,7 @@ An object.
 
 ### Examples
 
-The following example show how to use the `groupBy` function.
+The following example shows how to use the `groupBy` function.
 
 ```bicep
 var inputArray = ['foo', 'bar', 'baz']
