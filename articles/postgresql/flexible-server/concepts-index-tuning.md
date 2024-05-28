@@ -184,6 +184,10 @@ When an Azure Database for PostgreSQL - Flexible Server instance is in read-only
 
 Also, index tuning isn't supported currently on read replicas. Any recommendations seen on a read replica, is one that has been produced on the primary replica after having analyzed the workload recorded in it.
 
+### Network connectivity method
+
+Index tuning is currently supported on instances whose connectivity method is configured as [Public access (allowed IP addresses)](concepts-networking-public.md). For instances configured with [Private access (VNET Integration)](concepts-networking-private.md) the feature can be enabled, but it won't generate recommendations.
+
 ### Important considerations
 
 If you have [high availability](../../reliability/reliability-postgresql-flexible-server.md) or [read replicas](concepts-read-replicas.md) configured on your server, be aware of the implications associated with producing write-intensive workloads on the primary server when recommended indexes are created by the index tuning feature. Be especially careful when creating indexes whose size is estimated to be large.
