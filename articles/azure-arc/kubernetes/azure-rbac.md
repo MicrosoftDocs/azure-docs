@@ -343,7 +343,7 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
      sudo chmod +x /usr/local/bin/kubelogin 
      ```
 
-1. [Convert](https://azure.github.io/kubelogin/concepts/azure-arc.html) the kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with a Microsoft Entra user, the commands would be as follows:
+1. Kubelogin can be used to authenticate with Azure Arc-enabled clusters by requesting a proof-of-possession (PoP) token. [Convert](https://azure.github.io/kubelogin/concepts/azure-arc.html) the kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with a Microsoft Entra user, the commands would be as follows:
 
    ```bash
    export KUBECONFIG=/path/to/kubeconfig
