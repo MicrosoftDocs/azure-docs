@@ -69,7 +69,11 @@ Each VM requires a minimum number of licenses to be applied:
 - **SQL Server**: A minimum of 4 core licenses (Enterprise or Standard) per VM.
 
 ### Register licenses in Azure VMware Solution
+Register your licenses in Azure VMware Solution.
+
 #### SQL Server
+You can register and manage your licenses with SQL Server.
+
 ##### License the host by using unlimited virtualization
 You can enable Azure Hybrid Benefit for SQL Server and achieve unlimited virtualization through an Azure VMware Solution placement policy. For information on how to create the VM-Host placement policy, see [Enable unlimited virtualization with Azure Hybrid Benefit for SQL Server in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/enable-sql-azure-hybrid-benefit).
 
@@ -85,7 +89,7 @@ You can register SQL Server licenses and apply them to VMs running SQL Server in
 
 You can also configure these settings within the Azure Arc portal experience and by using PowerShell or the Azure CLI. To access the Azure Arc portal experience and code to update the configuration values, see [Configure SQL Server enabled by Azure Arc](https://learn.microsoft.com/sql/sql-server/azure-arc/manage-configuration?view=sql-server-ver16&tabs=azure).
 
-For available license types see: [License types](https://learn.microsoft.com/sql/sql-server/azure-arc/manage-license-billing?view=sql-server-ver16#license-types)
+For available license types, see [License types](https://learn.microsoft.com/sql/sql-server/azure-arc/manage-license-billing?view=sql-server-ver16#license-types).
 
 > [!NOTE]
 > At this time, Azure VMware Solution doesn't have support for the new `SQLServerLicense` resource type.
