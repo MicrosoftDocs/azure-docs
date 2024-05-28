@@ -44,7 +44,7 @@ requests are throttled. Here's how these limits work:
     API requests is capped at 1500 per min. Any Update VM API requests
     for the subscription exceeding 1500 are throttled.
 
-### How Microsoft Compute determines the limits?
+## How does Microsoft Compute determine throttling limits?
 
 To determine the limits for each resource and subscription, Microsoft
 Compute uses **Token Bucket Algorithm.** This algorithm creates buckets
@@ -141,7 +141,7 @@ Sets](/azure/virtual-machine-scale-sets/overview)
 and [Virtual Machines Scale Set
 VMs](/rest/api/compute/virtual-machine-scale-set-vms/deallocate?tabs=HTTP).
 
-## Throttling policies and limits for Virtual machines 
+## Throttling limits for Virtual machines 
 
 API requests for Virtual Machines are categorized into seven distinct
 policies. Each policy has its own limits, depending upon the how
@@ -334,7 +334,7 @@ Patches</a><br></td>
 <sup>1</sup>Only subscription level policies are applicable to the Rest
 API.
 
-## Throttling policies and limits for Virtual Machine Scale Sets
+## Throttling limits for Virtual Machine Scale Sets
 
 API requests for Virtual Machine Scale Set(Uniform & Flex) are categorized into 5
 distinct policies. Each policy has its own limits, depending upon how resource intensive the API requests under that policy are. These
@@ -488,7 +488,7 @@ By Location</a><sup>2</sup><br></td>
 <sup>2</sup>Only subscription level policies are applicable to the Rest
 API.
 
-## Throttling policies and limits for Virtual Machine Scale Set Virtual Machines 
+## Throttling limits for Virtual Machine Scale Set Virtual Machines 
 
 API requests for VMSS Virtual Machines are categorized into 3 distinct
 policies. Each policy has its own limits, depending upon the how
