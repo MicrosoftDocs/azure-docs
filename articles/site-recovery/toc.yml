@@ -4,12 +4,17 @@
   items:
   - name: About Site Recovery
     href: site-recovery-overview.md
-  - name: What's new in Site Recovery
-    href: site-recovery-whats-new.md
-  - name: Archive for What's new
-    href: site-recovery-whats-new-archive.md
   - name: Site Recovery - FAQ
     href: site-recovery-faq.yml
+- name: What's New
+  items:
+  - name: Release notes
+    href: site-recovery-whats-new.md
+  - name: Feature releases
+    href: site-recovery-whats-new.md
+    href: feature-updates-whats-new.md
+  - name: Archive
+    href: site-recovery-whats-new-archive.md
 - name: Quickstarts
   expanded: true
   items:

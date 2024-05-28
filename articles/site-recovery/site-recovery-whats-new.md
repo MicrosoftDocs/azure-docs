@@ -1,6 +1,6 @@
 ---
 title: What's new in Azure Site Recovery
-description: Provides a summary of new features and the latest updates in the Azure Site Recovery service.
+description: Provides a summary of the latest updates in the Azure Site Recovery service.
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.service: site-recovery
@@ -108,13 +108,6 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros. <br><br/> Added support for Windows 11 servers.
 **VMware VM/physical disaster recovery to Azure** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros.
-
-
-## Updates (November 2023)
-
-### Use Azure Business Continuity center (preview)
-
-You can now also manage Azure Site Recovery protections using Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. [Lear more about the supported scenarios](../business-continuity-center/business-continuity-center-support-matrix.md).
 
 
 ## Updates (August 2023)
