@@ -1055,6 +1055,9 @@ If you want to enable access from specific IP addresses, use the following actio
 1. Enable public network access to the workspace. For more information, see [public network access enabled](how-to-configure-private-link.md#enable-public-access).
 1. Add your IP addresses to the firewall for Azure Machine Learning. For more information, see [enable access only from IP ranges](how-to-configure-private-link.md#enable-public-access-only-from-internet-ip-ranges-preview).
 
+    > [!NOTE]
+    > Only IPv4 addresses are supported.
+
 ## Private endpoints
 
 Private endpoints are currently supported for the following Azure services:
