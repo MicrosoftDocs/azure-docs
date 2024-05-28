@@ -19,9 +19,9 @@ Microsoft Sentinel contains [analytics rule templates](threat-detection.md) that
 
 However, rules created from templates ***do*** remember which templates they came from, which allows you two advantages:
 
-- If you made changes to a rule when creating it from a template, or at any time afterward, you can always revert the rule back to its original version as a copy of the template.
+- If you made changes to a rule when creating it from a template, or at any time afterward, you can always revert the rule back to its original version.
 
-- You get notified when a template is updated, and you can either update your rules to the new version of their templates, or leave them as they are.
+- You get notified when a template is updated. You can either update your rules to the new version of their templates, or leave them as they are.
 
 This article shows you how to manage these tasks, and what to keep in mind. The procedures discussed in the article apply to any **[Scheduled](scheduled-rules-overview.md)** analytics rules created from templates.
 
@@ -29,15 +29,15 @@ This article shows you how to manage these tasks, and what to keep in mind. The 
 
 With the implementation of template version control, you can see and track the versions of your rule templates and the rules created from them. Rules with updated templates display an "*Update available*" badge next to the rule name.
 
-1. On the **Analytics** blade, select the **Active rules** tab.
+1. On the **Analytics** page, select the **Active rules** tab.
 
 1. Select any rule of type **Scheduled**.  
 
-    - If the rule displays the "*Update available*" badge, its details pane will have a **Review and update** button next to the **Edit** button (see image 1 in the next step below).
+    - If the rule displays the "*Update available*" badge, its details pane will have a **Review and update** button next to the **Edit** button (see image 1 in the next step).
 
-    - If the rule was created from a template but does not have the "*Update available*" badge, its details pane will have a **Compare with template** button next to the **Edit** button (see images 2 and 3 in the next step below).
+    - If the rule was created from a template but doesn't have the "*Update available*" badge, its details pane will have a **Compare with template** button next to the **Edit** button (see images 2 and 3 in the next step).
 
-    - If there is only an **Edit** button, the rule was created from scratch, not from a template.
+    - If there's only an **Edit** button, the rule was created from scratch, not from a template.
 
         :::image type="content" source="media/manage-analytics-rule-templates/see-rules-with-updated-template.png" alt-text="Screenshot of active rules list, with badge indicating a template update is available." lightbox="media/manage-analytics-rule-templates/see-rules-with-updated-template.png":::
 
@@ -62,43 +62,43 @@ Choose one of the following tabs according to the action you wish to take, to se
 
 # [Update template](#tab/update)
 
-Having selected a rule and determined that you want to consider updating it, select **Review and update** on the details pane (see earlier). You'll see that the **Analytics rule wizard** now has a **Compare to latest version** tab.
+Having selected a rule and determined that you want to consider updating it, select **Review and update** on the details pane (see earlier). You see that the **Analytics rule wizard** now has a **Compare to latest version** tab.
 
-On this tab you see a side-by-side comparison between the YAML representations of the existing rule and the latest version of the template. 
+On this tab, you see a side-by-side comparison between the YAML representations of the existing rule and the latest version of the template. 
 
 :::image type="content" source="media/manage-analytics-rule-templates/compare-template-versions.png" alt-text="Screenshot of 'Compare to latest version' tab in Analytics rule wizard.":::
 
 > [!NOTE]
 > Updating this rule will overwrite your existing rule with the latest version of the template.
 
-Any automation step or logic that refers to the existing rule should be verified, in case the referenced names changed. Also, any customizations you made in creating the original rule&mdash;changes to the query, scheduling, grouping, or other settings&mdash;may be overwritten.
+Any automation step or logic that refers to the existing rule should be verified, in case the referenced names changed. Also, any customizations you made in creating the original rule&mdash;changes to the query, scheduling, grouping, or other settings&mdash;might be overwritten.
 
 ### Update your rule with the new template version
 
 - If the changes made to the new version of the template are acceptable to you, and nothing else in your original rule is affected, select **Review and update** to validate and apply the changes. 
 
-- If you want to further customize the rule or re-apply any changes that might otherwise be overwritten, select **Next : Custom changes**. Cycle through the remaining tabs of the [Analytics rule wizard](create-analytics-rules.md) to make those changes, then validate and apply the changes on the **Review and update** tab.
+- If you want to further customize the rule or reapply any changes that might otherwise be overwritten, select **Next : Custom changes**. Cycle through the remaining tabs of the [Analytics rule wizard](create-analytics-rules.md) to make those changes, then validate and apply the changes on the **Review and update** tab.
 
 - If you don't want to make any changes to your existing rule, but rather to keep the existing template version, simply exit the wizard by selecting the X in the upper right corner.
 
 # [Revert to template](#tab/revert)
 
-Having selected a rule and determined that you want to revert to its original version, select **Compare with template** on the details pane (see earlier). You'll see that the **Analytics rule wizard** now has a **Compare to latest version** tab.
+Having selected a rule and determined that you want to revert to its original version, select **Compare with template** on the details pane (see earlier). You see that the **Analytics rule wizard** now has a **Compare to latest version** tab.
 
-On this tab you see a side-by-side comparison between the YAML representations of the existing rule and the latest version of the template. These two version numbers may be the same, but the left side shows the active rule, including any changes made to it from the original template, while the right side shows the unchanged template.
+On this tab, you see a side-by-side comparison between the YAML representations of the existing rule and the latest version of the template. These two version numbers might be the same, but the right side shows the original, unchanged template, and the left side shows the active rule, including any changes from the original template.
 
 :::image type="content" source="media/manage-analytics-rule-templates/compare-template-versions-2.png" alt-text="Screenshot of 'Compare to latest version' tab in Analytics rule wizard.":::
 
 > [!NOTE]
 > Updating this rule will overwrite your existing rule with the latest version of the template.
 
-Any automation step or logic that refers to the existing rule should be verified, in case the referenced names changed. Also, any customizations you made in creating the original rule&mdash;changes to the query, scheduling, grouping, or other settings&mdash;may be overwritten.
+Any automation step or logic that refers to the existing rule should be verified, in case the referenced names changed. Also, any customizations you made in creating the original rule&mdash;changes to the query, scheduling, grouping, or other settings&mdash;might be overwritten.
 
 ### Revert your rule to its original template version
 
 - If you want to revert completely to the original version of this rule&mdash;a clean copy of the template&mdash;select **Review and update** to validate and apply the changes. 
 
-- If you want to customize the rule differently or re-apply any changes that might otherwise be overwritten, select **Next : Custom changes**. Cycle through the remaining tabs of the [Analytics rule wizard](create-analytics-rules.md) to make those changes, then validate and apply the changes on the **Review and update** tab.
+- If you want to customize the rule differently or reapply any changes that might otherwise be overwritten, select **Next : Custom changes**. Cycle through the remaining tabs of the [Analytics rule wizard](create-analytics-rules.md) to make those changes, then validate and apply the changes on the **Review and update** tab.
 
 - If you don't want to make any changes to your existing rule, simply exit the wizard by selecting the X in the upper right corner.
 
