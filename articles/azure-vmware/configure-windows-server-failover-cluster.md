@@ -145,7 +145,7 @@ The following activities aren't supported and might cause WSFC node failover:
 ## Related information
 
 - [Failover Clustering in Windows Server](/windows-server/failover-clustering/failover-clustering-overview)
-- [Guidelines for Microsoft Clustering on vSphere (1037959) (vmware.com)](https://kb.vmware.com/s/article/1037959)
+- [Guidelines for Microsoft Clustering on vSphere (1037959) (vmware.com)](https://knowledge.broadcom.com/external/article?legacyId=1037959)
 - [About Setup for Failover Clustering and Microsoft Cluster Service (vmware.com)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.mscs.doc/GUID-1A2476C0-CA66-4B80-B6F9-8421B6983808.html)
 - [vSAN 6.7 U3 - WSFC with Shared Disks &amp; SCSI-3 Persistent Reservations (vmware.com)](https://blogs.vmware.com/virtualblocks/2019/08/23/vsan67-u3-wsfc-shared-disksupport/)
 - [Azure VMware Solution limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-vmware-solution-limits)
