@@ -41,8 +41,8 @@ The following policies could potentially influence the local administrator group
    - Assess whether any policies are obstructing remote logins to the local administrator group.
 
 > [!IMPORTANT]
-> To minimize the need for extensive communication with both your Active Directory admin and network admin, see [Self-verification](self-verification-of-steps.md). The article outlines the procedures that the Active Directory admin and network admin use to validate their configuration changes and ensure their successful implementation. This process reduces unnecessary back-and-forth interactions from the Operations Manager admin to the Active Directory admin and the network admin. This configuration saves time for the admins.
+> To minimize the need for extensive communication with both your Active Directory admin and network admin, see [Self-verification](self-verification-steps.md). The article outlines the procedures that the Active Directory admin and network admin use to validate their configuration changes and ensure their successful implementation. This process reduces unnecessary back-and-forth interactions from the Operations Manager admin to the Active Directory admin and the network admin. This configuration saves time for the admins.
 
 ## Next step
 
-- [SCOM Managed Instance self-verification of steps](self-verification-of-steps.md)
+- [SCOM Managed Instance self-verification of steps](self-verification-steps.md)

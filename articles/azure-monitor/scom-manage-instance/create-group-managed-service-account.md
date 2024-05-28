@@ -73,8 +73,8 @@ Add-KdsRootKey -EffectiveTime ((get-date).addhours(-10))
 Ensure that the created gMSA account is a local admin account. If there are any Group Policy Object policies on the local admins at the Active Directory level, ensure that they have the gMSA account as the local admin.
 
 > [!IMPORTANT]
-> To minimize the need for extensive communication with both your Active Directory admin and the network admin, see [Self-verification](self-verification-of-steps.md). The article outlines the procedures that the Active Directory admin and network admin use to validate their configuration changes and ensure their successful implementation. This process reduces unnecessary back-and-forth interactions from the Operations Manager admin to the Active Directory admin and the network admin. This configuration saves time for the admins.
+> To minimize the need for extensive communication with both your Active Directory admin and the network admin, see [Self-verification](self-verification-steps.md). The article outlines the procedures that the Active Directory admin and network admin use to validate their configuration changes and ensure their successful implementation. This process reduces unnecessary back-and-forth interactions from the Operations Manager admin to the Active Directory admin and the network admin. This configuration saves time for the admins.
 
 ## Next steps
 
-[Store domain credentials in Azure Key Vault](store-domain-credentials-in-key-vault.md)
+[Store domain credentials in Azure Key Vault](store-domain-credentials-key-vault.md)
