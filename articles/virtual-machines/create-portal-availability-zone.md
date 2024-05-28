@@ -37,7 +37,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
         
 4. Choose a size for the VM. Select a recommended size, or filter based on features. Confirm the size is available in the zone you want to use.
 
-6. Finish filling in the information for your VM. When you are done, select **Review + create**.
+6. Finish filling in the information for your VM. When you're done, select **Review + create**.
 
 7. Once the information is verified, select **Create**.
 
@@ -69,7 +69,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
    3. Select the **Type** of load balancer, either *Public* or *Internal*.
    4. Select the **Protocol**, either **TCP** or **UDP**.
    5. You can leave the default **Port** and **Backend port**, or change them if needed. The backend port you select will be opened up on the Network Security Group (NSG) of the VM.
-   6. When you are done, select **Create**.
+   6. When you're done, select **Create**.
    
    For an **Application Gateway**:
 
@@ -88,7 +88,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
 
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
-1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you're ready, select **Create**.
 
 1. If you are creating a Linux VM and the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**.
 
@@ -99,7 +99,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
    > [!IMPORTANT]
    > These features are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-If you would like the resiliency benefits of a Zonal Virtual Machine and want help selecting a zone, you can have Azure select the best-fit zone for your deployment. 
+If you would like the resiliency benefits of a Zonal Virtual Machine and want help with selecting a zone, you can have Azure select the best-fit zone for your deployment. 
 
 > [!NOTE]
    > Please review the Restrictions section before deploying your VM using an Azure-Selected Zone.
@@ -109,7 +109,7 @@ If you would like the resiliency benefits of a Zonal Virtual Machine and want he
 3.	Under Instance details, type a name for the Virtual machine name.
 4.	For Availability options, Ensure Availability zone is selected.
 5.	For Zone options (Preview), select Azure-selected zone. The Availability zone selection should now be greyed out. 
-6.	Create the rest of your Virtual Machine as normal.
+6.	Configure the rest of your Virtual Machine as normal for deployment
 
 ![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/38542241/163d602b-3976-4559-af09-c5ea67c44056)
 
@@ -117,7 +117,7 @@ If you would like the resiliency benefits of a Zonal Virtual Machine and want he
 
 **Regions**
 
-Currently, this is available in all Zonal Regions except the regions listed below:
+Deploying a VM into an Azure-selected zone is available in all Zonal Regions except the following regions.
 
  - BrazilSouth 
  - CentralIndia 
@@ -127,7 +127,7 @@ Currently, this is available in all Zonal Regions except the regions listed belo
 
 **Disks**
 
-Existing OS and Data Disks are currently not supported. New Data Disk Source Type must be ‘none’
+Existing OS and Data Disks are currently not supported. New Data Disk Source Type must be "none".
 
    **Supported Disk Types**
    - Standard HDDs (hard disk drives)
@@ -142,10 +142,11 @@ Existing OS and Data Disks are currently not supported. New Data Disk Source Typ
 ![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/38542241/9c297236-c2c6-491e-a0ff-befcbe00b525)
 
 **Other Resources**
+ - Existing Public IPs are not supported for an Azure-selected zone. They can be added after deployment.
  - New Public IPs must be Zone Redundant or use an Azure-Selected Zone.
  - Load Balancers and Application Gateways must be Zonally Resilient to attach during the VM deployment.
- - Proximity Placement Groups, Capacity Reservation Groups, and Azure Dedicated Host are not supported. 
- - Site Recovery configuration is not available during VM creation but can be configured after deployment. 
+ - Proximity Placement Groups, Capacity Reservation Groups, and Azure Dedicated Host aren't supported. 
+ - Site Recovery configuration isn't available during VM creation but can be configured after deployment. 
 
 **Next steps**
 
