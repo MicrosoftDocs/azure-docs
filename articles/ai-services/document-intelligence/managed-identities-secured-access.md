@@ -269,11 +269,15 @@ That's it! You can now configure secure access for your Document Intelligence re
  
     1. Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same `VNET`, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage account.
 
+    :::image type="content" source="media/managed-identities/config-ip.png" alt-text="Screenshot of IP allow list configuration":::
+
 * **AuthorizationFailure**:
 
   :::image type="content" source="media/managed-identities/auth-failure.png" alt-text="Screenshot of authorization failure error.":::
 
   **Resolution**: Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same `VNET`, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage account.
+
+  :::image type="content" source="media/managed-identities/config-ip.png" alt-text="Screenshot of IP allow list configuration":::
 
 * **ContentSourceNotAccessible**:
 
@@ -285,7 +289,9 @@ That's it! You can now configure secure access for your Document Intelligence re
 
   :::image type="content" source="media/managed-identities/access-denied.png" alt-text="Screenshot of an access denied error.":::
 
-  **Resolution**: Check to make sure there's connectivity between the computer accessing the Document Intelligence Studio and the Document Intelligence service. For example, you might need to allow the client IP address in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage account.
+  **Resolution**: Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same `VNET`, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage account.
+
+  :::image type="content" source="media/managed-identities/config-ip.png" alt-text="Screenshot of IP allow list configuration":::
 
 ## Next steps
 
