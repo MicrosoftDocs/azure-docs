@@ -110,4 +110,4 @@ When relevant, the following IP addresses are those to include in your allowlist
 In this document, you learned how to connect Microsoft Sentinel to threat intelligence feeds using the TAXII protocol. To learn more about Microsoft Sentinel, see the following articles.
 
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](./threat-detection.md).

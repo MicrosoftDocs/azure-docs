@@ -264,4 +264,4 @@ In this document, you learned how to deploy the Log Analytics agent to connect C
 
 - Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](./threat-detection.md).

@@ -199,5 +199,5 @@ It may take up to 20 minutes until your logs start to appear in Log Analytics.
 In this document, you learned how to connect Microsoft Sentinel to your data source using Azure Functions-based connectors. To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn how to [get visibility into your data and potential threats](./get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](./threat-detection.md).
 - [Use workbooks](./monitor-your-data.md) to monitor your data.

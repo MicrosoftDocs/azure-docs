@@ -154,4 +154,4 @@ Within a few minutes, threat indicators should begin flowing into this Microsoft
 In this document, you learned how to connect your threat intelligence platform to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles.
 
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](./threat-detection.md).

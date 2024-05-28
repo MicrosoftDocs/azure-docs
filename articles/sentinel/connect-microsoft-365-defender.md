@@ -185,4 +185,4 @@ In the **Next steps** tab, you’ll find some useful workbooks, sample queries, 
 In this document, you learned how to integrate Microsoft Defender XDR incidents, and advanced hunting event data from Microsoft Defender component services, into Microsoft Sentinel, using the Microsoft Defender XDR connector. To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](./threat-detection.md).

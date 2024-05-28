@@ -139,5 +139,5 @@ Microsoft Sentinel doesn't support replacing a customer-managed key. You should 
 ## Next steps
 In this document, you learned how to set up a customer-managed key in Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](./threat-detection.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.

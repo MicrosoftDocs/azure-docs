@@ -15,7 +15,7 @@ ms.author: yelevin
 
 ## Introduction
 
-Microsoft Sentinel comes with [analytics rule templates](detect-threats-built-in.md) that you turn into active rules by effectively creating a copy of them – that’s what happens when you create a rule from a template. At that point, however, the active rule is no longer connected to the template. If changes are made to a rule template, by Microsoft engineers or anyone else, any rules created from that template beforehand are ***not*** dynamically updated to match the new template.
+Microsoft Sentinel contains [analytics rule templates](threat-detection.md) that you turn into active rules by effectively creating a copy of them – that’s what happens when you create a rule from a template. At that point, however, the active rule is no longer connected to the template. If changes are made to a rule template, by Microsoft engineers or anyone else, any rules created from that template beforehand are ***not*** dynamically updated to match the new template.
 
 However, rules created from templates ***do*** remember which templates they came from, which allows you two advantages:
 
@@ -77,7 +77,7 @@ Any automation step or logic that makes reference to the existing rule should be
 
 - If the changes made to the new version of the template are acceptable to you, and nothing else in your original rule has been affected, select **Review and update** to validate and apply the changes. 
 
-- If you want to further customize the rule or re-apply any changes that might otherwise be overwritten, select **Next : Custom changes**. If you choose this, you will cycle through the remaining tabs of the [Analytics rule wizard](detect-threats-custom.md) to make those changes, after which you will validate and apply the changes on the **Review and update** tab.
+- If you want to further customize the rule or re-apply any changes that might otherwise be overwritten, select **Next : Custom changes**. If you choose this, you will cycle through the remaining tabs of the [Analytics rule wizard](create-analytics-rules.md) to make those changes, after which you will validate and apply the changes on the **Review and update** tab.
 
 - If you don't want to make any changes to your existing rule, but rather to keep the existing template version, simply exit the wizard by selecting the X in the upper right corner.
 
@@ -97,7 +97,7 @@ Any automation step or logic that makes reference to the existing rule should be
 
 - If you want to revert completely to the original version of this rule - a clean copy of the template - select **Review and update** to validate and apply the changes. 
 
-- If you want to customize the rule differently or re-apply any changes that might otherwise be overwritten, select **Next : Custom changes**. If you choose this, you will cycle through the remaining tabs of the [Analytics rule wizard](detect-threats-custom.md) to make those changes, after which you will validate and apply the changes on the **Review and update** tab.
+- If you want to customize the rule differently or re-apply any changes that might otherwise be overwritten, select **Next : Custom changes**. If you choose this, you will cycle through the remaining tabs of the [Analytics rule wizard](create-analytics-rules.md) to make those changes, after which you will validate and apply the changes on the **Review and update** tab.
 
 - If you don't want to make any changes to your existing rule, simply exit the wizard by selecting the X in the upper right corner.
 
@@ -106,5 +106,5 @@ Any automation step or logic that makes reference to the existing rule should be
 ## Next steps
 In this document, you learned how to track the versions of your Microsoft Sentinel analytics rule templates, and either to revert active rules to existing template versions, or update them to new ones. To learn more about Microsoft Sentinel, see the following articles:
 
-- Learn more about [analytics rules](detect-threats-built-in.md).
-- See more details about the [analytics rule wizard](detect-threats-custom.md).
+- Learn more about [analytics rules](threat-detection.md).
+- See more details about the [analytics rule wizard](create-analytics-rules.md).
