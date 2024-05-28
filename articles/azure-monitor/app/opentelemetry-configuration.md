@@ -394,38 +394,20 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 > [!IMPORTANT]
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-<!--
+This feature is enabled by default.
 
-TODO:
+Users can disable Live Metrics when configuring the Distro.
 
-This feature is/isn't enabled by default.
-
-Functionality and customization are covered in the following configuration sample.
-
+```csharp
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
+	// Disable the Live Metrics feature.
+    options.EnableLiveMetrics = false;
+});
 ```
-Configuration sample
-```
-
--->
 
 #### [.NET](#tab/net)
 
-> [!IMPORTANT]
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-<!--
-
-TODO:
-
-This feature is/isn't enabled by default.
-
-Functionality and customization are covered in the following configuration sample.
-
-```
-Configuration sample
-```
-
--->
+This feature is not available in the Azure Monitor .NET Exporter.
 
 #### [Java](#tab/java)
 
