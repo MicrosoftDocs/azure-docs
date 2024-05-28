@@ -53,7 +53,7 @@ This article provides suggestions to troubleshoot common problems with the Oracl
     
 ## Error code: UserErrorFailedToConnectOdbcSource
 
-There are three error messages associated with this error code. Please check the cause and recommendation for each error message correspondingly.
+There are three error messages associated with this error code. Check the cause and recommendation for each error message correspondingly.
 
 - **Message**: `"Cannot load trust store", or "SSL Handshake Failure reason [error:OA000086:SSL routines::certificate verify failed]"` 
 
@@ -67,7 +67,7 @@ There are three error messages associated with this error code. Please check the
     `SSL Handshake Failure reason[Unknown SSL Error]`  
     `SSL Handshake Failure reason [error:OA000410:SSL routines::sslv3 alert handshake failure]`
 
-- **Cause**: The server is not configured with strong ciphers for SSL communication. OpenSSL 3.0 should use either TLS 1.0 and higher as it deprecated SSL protocol versions. For example, the server might be accepting connections with TLS protocol versions until TLS1.0.
+- **Cause**: The server is not configured with strong ciphers for SSL communication. OpenSSL 3.0 should use either TLS 1.0 and higher as it deprecated SSL protocol versions. For example, the server might accept connections with TLS protocol versions until TLS 1.0.
 
 - **Recommendation**: Revise the server configuration to use stronger TLS versions.
 
@@ -77,7 +77,7 @@ There are three error messages associated with this error code. Please check the
 
 - **Cause**: CryptoProtocolVersion is set to use deprecated TLS protocol versions with OpenSSL 3.0.
 
-- **Recommendation**: Specify the connection string property CryptoProtocolVersion=TLSv1.2.
+- **Recommendation**: Specify the connection string property `CryptoProtocolVersion=TLSv1.2`.
 
 
 ## Related content
