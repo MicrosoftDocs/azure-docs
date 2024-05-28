@@ -101,6 +101,21 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [Python](#tab/python)
     ```python
+    endpoint = os.environ["VISION_ENDPOINT"]
+    key = os.environ["VISION_KEY"]
+
+    face_session_client = FaceSessionClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+
+    created_session = await face_session_client.create_liveness_session(
+        CreateLivenessSessionContent(
+            liveness_operation_mode=LivenessOperationMode.PASSIVE,
+            device_correlation_id="723d6d03-ef33-40a8-9682-23a1feb7bccd",
+            send_results_to_client=False,
+        )
+    )
+    print("Session created.")
+    print(f"Session id: {created_session.session_id}")
+    print(f"Auth token: {created_session.auth_token}")
     ```
 
     #### [JavaScript](#tab/javascript)
@@ -184,6 +199,18 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [Python](#tab/python)
     ```python
+    liveness_result = await face_session_client.get_liveness_session_result(
+        created_session.session_id
+    )
+    print(f"Session id: {liveness_result.id}")
+    print(f"Session status: {liveness_result.status}")
+    print(f"Liveness detection request id: {liveness_result.result.request_id}")
+    print(f"Liveness detection received datetime: {liveness_result.result.received_date_time}")
+    print(f"Liveness detection result: {liveness_result.result.response.body.liveness_decision}")
+    print(f"Session created datetime: {liveness_result.created_date_time}")
+    print(f"Auth token TTL (seconds): {liveness_result.auth_token_time_to_live_in_seconds}")
+    print(f"Session expired: {liveness_result.session_expired}")
+    print(f"Device correlation id: {liveness_result.device_correlation_id}")
     ```
 
     #### [JavaScript](#tab/javascript)
@@ -261,6 +288,11 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [Python](#tab/python)
     ```python
+    await face_session_client.delete_liveness_session(
+        created_session.session_id
+    )
+    print(f"The session {created_session.session_id} is deleted.")
+    await face_session_client.close()
     ```
 
     #### [JavaScript](#tab/javascript)
@@ -326,6 +358,28 @@ The high-level steps involved in liveness with verification orchestration are il
 
         #### [Python](#tab/python)
         ```python
+        endpoint = os.environ["VISION_ENDPOINT"]
+        key = os.environ["VISION_KEY"]
+
+        face_session_client = FaceSessionClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+
+        reference_image_path = "test.png"
+        with open(reference_image_path, "rb") as fd:
+            reference_image_content = fd.read()
+
+        created_session = await face_session_client.create_liveness_with_verify_session(
+            CreateLivenessSessionContent(
+                liveness_operation_mode=LivenessOperationMode.PASSIVE,
+                device_correlation_id="723d6d03-ef33-40a8-9682-23a1feb7bccd",
+            ),
+            verify_image=reference_image_content,
+        )
+        print("Session created.")
+        print(f"Session id: {created_session.session_id}")
+        print(f"Auth token: {created_session.auth_token}")
+        print("The reference image:")
+        print(f"  Face rectangle: {created_session.verify_image.face_rectangle}")
+        print(f"  The quality for recognition: {created_session.verify_image.quality_for_recognition}")
         ```
 
         #### [JavaScript](#tab/javascript)
@@ -406,6 +460,20 @@ The high-level steps involved in liveness with verification orchestration are il
 
     #### [Python](#tab/python)
     ```python
+    liveness_result = await face_session_client.get_liveness_with_verify_session_result(
+        created_session.session_id
+    )
+    print(f"Session id: {liveness_result.id}")
+    print(f"Session status: {liveness_result.status}")
+    print(f"Liveness detection request id: {liveness_result.result.request_id}")
+    print(f"Liveness detection received datetime: {liveness_result.result.received_date_time}")
+    print(f"Liveness detection decision: {liveness_result.result.response.body.liveness_decision}")
+    print(f"Verification result: {liveness_result.result.response.body.verify_result.is_identical}")
+    print(f"Verification confidence: {liveness_result.result.response.body.verify_result.match_confidence}")
+    print(f"Session created datetime: {liveness_result.created_date_time}")
+    print(f"Auth token TTL (seconds): {liveness_result.auth_token_time_to_live_in_seconds}")
+    print(f"Session expired: {liveness_result.session_expired}")
+    print(f"Device correlation id: {liveness_result.device_correlation_id}")
     ```
 
     #### [JavaScript](#tab/javascript)
@@ -487,6 +555,11 @@ The high-level steps involved in liveness with verification orchestration are il
 
     #### [Python](#tab/python)
     ```python
+    await face_session_client.delete_liveness_with_verify_session(
+        created_session.session_id
+    )
+    print(f"The session {created_session.session_id} is deleted.")
+    await face_session_client.close()
     ```
 
     #### [JavaScript](#tab/javascript)
