@@ -86,16 +86,14 @@ items:
       - name: Enable dependency mapping
       - name: Visualize dependencies
       - name: Identify and tag applications
-- name: Decide
+- name: Create Business case
   items:
-    - name: Business case
-      items:
-        - name: Pre-requisites
-        - name: Overview
-        - name: Build a business case
-        - name: Customize on-premises benchmarks 
-        - name: Review business case
-        - name: Best Practices and limitations
+  - name: Pre-requisites
+  - name: Overview
+  - name: Build a business case
+  - name: Customize on-premises benchmarks 
+  - name: Review business case
+  - name: Best Practices and limitations
 - name: Plan migrations
   items:
   - name: Assessments
