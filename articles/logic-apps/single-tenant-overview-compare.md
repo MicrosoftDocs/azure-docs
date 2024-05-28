@@ -259,7 +259,6 @@ In single-tenant Azure Logic Apps, [built-in connectors with specific attributes
   > For example, a common mistake is setting a trigger without giving your logic app permission or access to the destination, 
   > such as a Service Bus queue, Azure Storage blob container, and so on. Also, make sure 
   > that you monitor such triggers at all times so you can promptly detect and fix any issues.
-  > promptly.
 
 <a name="limited-unavailable-unsupported"></a>
 
