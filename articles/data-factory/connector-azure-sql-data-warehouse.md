@@ -76,7 +76,7 @@ The following sections provide details about properties that define Data Factory
 
 ## Linked service properties
 
-The Azure Synapse Analytics connector **Recommended** version supports TLS 1.3. Refer to this [section](#upgrade-the-azure-sql-database-version) to upgrade your Azure Synapse Analytics connector version from **Legacy** one. For the property details, see the corresponding sections.
+The Azure Synapse Analytics connector **Recommended** version supports TLS 1.3. Refer to this [section](#upgrade-the-azure-synapse-analytics-version) to upgrade your Azure Synapse Analytics connector version from **Legacy** one. For the property details, see the corresponding sections.
 
 - [Recommended version](#recommended-version)
 - [Legacy version](#legacy-version)
@@ -340,7 +340,6 @@ These generic properties are supported for an Azure Synapse Analytics linked ser
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | The type property must be set to **AzureSqlDW**.             | Yes                                                          |
 | connectionString    | Specify the information needed to connect to the Azure Synapse Analytics instance for the **connectionString** property. <br/>Mark this field as a SecureString to store it securely. You can also put password/service principal key in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes                                                          |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are `AzurePublic`, `AzureChina`, `AzureUsGovernment`, and `AzureGermany`. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 | connectVia          | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No                                                           |
 
 For different authentication types, refer to the following sections on specific properties and prerequisites respectively:

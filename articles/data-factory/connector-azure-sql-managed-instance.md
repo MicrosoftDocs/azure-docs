@@ -76,7 +76,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Azure SQL Managed Instance connector **Recommended** version supports TLS 1.3. Refer to this [section](#upgrade-the-azure-sql-database-version) to upgrade your Azure SQL Managed Instance connector version from **Legacy** one. For the property details, see the corresponding sections.
+The Azure SQL Managed Instance connector **Recommended** version supports TLS 1.3. Refer to this [section](#upgrade-the-azure-sql-managed-instance-version) to upgrade your Azure SQL Managed Instance connector version from **Legacy** one. For the property details, see the corresponding sections.
 
 - [Recommended version](#recommended-version)
 - [Legacy version](#legacy-version)

@@ -82,7 +82,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The SQL Server **Recommended** version supports TLS 1.3. Refer to this [section](#upgrade) to upgrade your SQL Server linked service if you use **Legacy** version. For the property details, see the corresponding sections.
+The SQL Server **Recommended** version supports TLS 1.3. Refer to this [section](#upgrade-the-sql-server-version) to upgrade your SQL Server linked service if you use **Legacy** version. For the property details, see the corresponding sections.
 
 - [Recommended version](#recommended-version)
 - [Legacy version](#legacy-version)
@@ -989,6 +989,10 @@ derivedColumn1 sink(allowSchemaDrift: true,
 4. Switch to the **IP Addresses** tab. Scroll down to see the **IPAll** section. Write down the **TCP Port**. The default is **1433**.
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port. 
 6. **Verify connection**: To connect to SQL Server by using a fully qualified name, use SQL Server Management Studio from a different machine. An example is `"<machine>.<domain>.corp.<company>.com,1433"`.
+
+## Upgrade the SQL Server version
+
+To upgrade the SQL Server version, in **Edit linked service** page, select **Recommended** under **Version** and configure the linked service by referring to [Linked service properties for the recommended version](#recommended-version).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
