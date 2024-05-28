@@ -316,7 +316,7 @@ Use the following instructions to create a new Azure Alert, which will send an [
    - Alert logic: Set **Number of results** **Greater than** **0**.
    - Evaluation based on: Select **120** for Period (in minutes) and **5** for Frequency (in minutes)
 
-   ![Create a alert rule condition](./media/azure-monitor/alert-create-rule-condition.png)
+   ![Create an alert rule condition](./media/azure-monitor/alert-create-rule-condition.png)
 
 After the alert is created, go to **Log Analytics workspace** and select **Alerts**. This page displays all the alerts that have been triggered in the duration set by **Time range** option.
 

@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/23/2024
+ms.date: 05/24/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -515,7 +515,7 @@ You can delete an enrollment account only when there are no active subscriptions
 
 ## Manage notification contacts
 
-Notifications allow enterprise administrators to enroll their team members to receive usage notifications and user management notifications without giving them billing account access in the Azure portal.
+EA administrators receive various types of notifications from different services. Notifications allow enterprise administrators to enroll their team members to receive usage notifications and user management notifications without giving them billing account access in the Azure portal.
 
 Notification contacts are shown in the Azure portal in on the Notifications page under Settings. Managing your notification contacts makes sure that the right people in your organization get Azure EA notifications.
 

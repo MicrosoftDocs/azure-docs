@@ -1,10 +1,10 @@
 ---
-title: Tutorial - Install Azure Container Storage Preview for use with Azure Kubernetes Service (AKS)
+title: Install Azure Container Storage Preview with Azure Kubernetes Service (AKS)
 description: Learn how to install Azure Container Storage for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install the Azure Container Storage extension.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: tutorial
-ms.date: 03/12/2024
+ms.date: 05/24/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Getting started
 
-* Take note of your Azure subscription ID. We recommend using a subscription on which you have a [Kubernetes contributor](../../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) role if you want to use Azure Disks or Ephemeral Disk as data storage. If you want to use Azure Elastic SAN as data storage, you'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
+* Take note of your Azure subscription ID. If you want to use Azure Elastic SAN as data storage, you'll need either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription. Owner-level access allows you to install the Azure Container Storage extension, grants access to its storage resources, and gives you permission to configure your Azure Elastic SAN resource. Contributor-level access allows you to install the extension and grants access to its storage resources. If you're planning on using Azure Disks or Ephemeral Disk as data storage, you don't need special permissions on your subscription.
 
 * [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -57,6 +57,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 ```
 
 To check if these providers are registered successfully, run the following command:
+
 ```azurecli-interactive
 az provider list --query "[?namespace=='Microsoft.ContainerService'].registrationState"
 az provider list --query "[?namespace=='Microsoft.KubernetesConfiguration'].registrationState"
@@ -222,7 +223,7 @@ az k8s-extension list --cluster-name <cluster-name> --resource-group <resource-g
 
 Congratulations, you've successfully installed Azure Container Storage. You now have new storage classes that you can use for your Kubernetes workloads.
 
-## Next steps
+## Next step
 
 Now you can create a storage pool and persistent volume claim, and then deploy a pod and attach a persistent volume. Follow the steps in the appropriate how-to article.
 

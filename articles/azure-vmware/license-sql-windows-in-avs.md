@@ -75,7 +75,7 @@ You can enable Azure Hybrid Benefit for SQL Server and achieve unlimited virtual
 
 ##### License a virtual machine
 You can register SQL Server licenses and apply them to VMs running SQL Server in Azure VMware Solution by registering through Azure Arc:
-1.	Azure VMware Solution must be Azure Arc-enabled. For more information, see [Deploy Azure Arc-enabled VMware vSphere for Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows). You can Azure Arc-enable the VMs and get the Azure Extension for SQL Server applied to that VM by following the steps provided in the section titled "Enable guest management and extension installation."
+1.	Azure VMware Solution must be Azure Arc-enabled. For more information, see [Deploy Azure Arc-enabled VMware vSphere for Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows). You can Azure Arc-enable the VMs and install extensions to that VM by following the steps provided in the section titled "Enable guest management and extension installation."
 1.	When **Guest Management** is configured, the Azure Extension for SQL Server should be installed on that VM. The extension installation enables you to configure the license type for the SQL Server instance running in the VM.
 1. Now you can configure the license type and other SQL Server configuration settings by using the Azure portal, PowerShell, or the Azure CLI for a specific Azure Arc-enabled server. To configure from the Azure portal with VMware vSphere in the Azure VMware Solution experience, follow these steps:
  
