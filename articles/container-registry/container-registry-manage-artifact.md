@@ -329,7 +329,9 @@ oras attach $IMAGE \
 #### Sign the SBOM
 
 >[!IMPORTANT]
-Microsoft recommends using a secure crypto signing tool, like [Notation][Notaion] to sign the image and generate a signature for signing SBOMs. This example uses a simple JSON signature for demonstration purposes.
+> Microsoft recommends using a secure crypto signing tool, like [Notation][Notation] to sign the image and generate a signature for signing SBOMs. 
+
+This example uses a simple JSON signature for demonstration purposes.
 
 Artifacts that are pushed as references, typically don't have tags as they're considered part of the `subject` artifact. To push a signature to an artifact that is a child of another artifact, use the `oras discover` with `--artifact-type` filtering to find the digest.
 
@@ -526,6 +528,6 @@ In this article, you learned how to use Azure Container Registry to store, manag
 [azure-cli-install]:        /cli/azure/install-azure-cli
 [iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
 [acr-landing]:              https://aka.ms/acr
-[Notaion]:                  /azure/container-registry/container-registry-tutorial-sign-build-push
+[Notation]:                  /azure/container-registry/container-registry-tutorial-sign-build-push
 
 
