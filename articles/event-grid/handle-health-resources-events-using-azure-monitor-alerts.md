@@ -79,7 +79,11 @@ The event filter enables users to receive alerts for a specific resource group, 
 
 ### Sample ResourceAnnotated event
 
+<<<<<<< HEAD
 Here's a sample `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated` event: 
+=======
+Here's a sample `ResourceAnnotated` event. Notice that the `type` is set to `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated`.
+>>>>>>> 3c6ef7ea55d8faa5800374b18c6919bddaa9c845
 
 ```json
 {
@@ -116,7 +120,11 @@ Here's a sample `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotat
 
 ### Sample AvailabilityStatusChanged event
 
+<<<<<<< HEAD
 Here's a sample `Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged` event: 
+=======
+Here's a sample `AvailabilityStatusChanged` event. Notice that the `type` is set to `Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged`.
+>>>>>>> 3c6ef7ea55d8faa5800374b18c6919bddaa9c845
 
 ```json
 {
