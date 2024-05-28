@@ -136,8 +136,6 @@ You can easily [export your rule to an Azure Resource Manager (ARM) template](im
 
 ## Next steps
 
-- To create custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any changes needed. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
+- Learn more about [Scheduled analytics rules in Microsoft Sentinel](scheduled-rules-overview.md) and [Quick threat detection with near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md).
 
-- To learn how to automate your responses to threats, [Set up automated threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
-
-- To learn how to find more rule templates, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+- To find more rule templates, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
