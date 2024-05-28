@@ -39,6 +39,8 @@
       href: concepts-access-control-lists.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
+    - name: Nexus Workload Network
+      href: concepts-nexus-network.md
     - name: Observability
       expanded: false
       items:
