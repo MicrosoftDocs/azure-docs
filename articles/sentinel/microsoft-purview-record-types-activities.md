@@ -54,5 +54,5 @@ gathered through the [Office Management API](/office/office-365-management-api/o
 In this article, you learned about the audit log record types and activities supported when you use the Microsoft Purview Information Protection connector. To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](threat-detection.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.

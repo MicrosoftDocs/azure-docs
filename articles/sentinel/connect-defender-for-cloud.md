@@ -95,5 +95,5 @@ Enabling **bi-directional sync** will automatically sync the status of original 
 In this document, you learned how to connect Microsoft Defender for Cloud to Microsoft Sentinel and synchronize alerts between them. To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](threat-detection.md).
 - Write your own rules to [detect threats](detect-threats-custom.md).

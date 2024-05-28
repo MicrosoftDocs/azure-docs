@@ -48,5 +48,5 @@ This table describes and translates Windows DNS server fields into the normalize
 
 In this article, you learned about the fields used to filter DNS log data using the Windows DNS events via AMA connector. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](threat-detection.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.

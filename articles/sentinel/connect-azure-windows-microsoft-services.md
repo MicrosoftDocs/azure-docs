@@ -46,4 +46,4 @@ The following integrations are both more unique and popular, and are treated ind
 - Learn about [Microsoft Sentinel data connectors](connect-data-sources.md) in general.
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md).
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](threat-detection.md).

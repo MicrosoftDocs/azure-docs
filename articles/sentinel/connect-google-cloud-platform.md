@@ -363,6 +363,6 @@ Follow the instructions in the Google Cloud documentation to [**configure Pub/Su
    In this article, you learned how to ingest GCP data into Microsoft Sentinel using the GCP Pub/Sub connectors. To learn more about Microsoft Sentinel, see the following articles:
 
    - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-   - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+   - Get started [detecting threats with Microsoft Sentinel](threat-detection.md).
    - [Use workbooks](monitor-your-data.md) to monitor your data.
    

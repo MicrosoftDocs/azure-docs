@@ -96,5 +96,5 @@ In this article, you learned which Microsoft Defender XDR connector data types a
 - Read more about [GCC environments in Microsoft Sentinel](data-type-cloud-support.md).
 - Learn about [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](threat-detection.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.

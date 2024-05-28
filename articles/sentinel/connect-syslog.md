@@ -158,5 +158,5 @@ This detection requires a specific configuration of the Syslog data connector:
 ## Next steps
 In this document, you learned how to connect Syslog on-premises appliances to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](threat-detection.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.

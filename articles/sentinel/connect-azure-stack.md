@@ -63,5 +63,5 @@ To remove the extension:
 To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](threat-detection.md).
 - Stream data from [Common Event Format appliances](connect-common-event-format.md) into Microsoft Sentinel.
