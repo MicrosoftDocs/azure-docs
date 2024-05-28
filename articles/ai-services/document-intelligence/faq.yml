@@ -209,7 +209,7 @@ sections:
 
             - **Contributor**: You need this role to create a resource group and resources.
 
-          Having Contributor or Storage Account Contributor role doesn't give you access to use your Document Intelligence resource or storage account if local (key-based) authentication is disabled. You still need the basic roles (Cognitive Services User and Storage Data Blob Contributor) to use the functions on Document Intelligence Studio.
+          Note that having **Contributor** or **Storage Account Contributor** role doesn't give you access to use your Document Intelligence resource or storage account if local (key-based) authentication is disabled. You still need the basic roles (**Cognitive Services User** and **Storage Data Blob Contributor**) to use the functions on Document Intelligence Studio.
 
           For more information, see [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md) and the sections about Azure role assignments in the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md).
 
@@ -255,6 +255,43 @@ sections:
           - Re-create the Document Intelligence resource under the same subscription and resource group with the same name.
 
           - Re-create a custom project with the migrated Document Intelligence resource and specify the same storage account.
+
+      - question: |
+          Why an I receiving the error "PermissionDenied" when using prebuilt apps or opening my custom project?
+        answer: |
+          If you received error "PermissionDenied: Principal does not have access to API/Operation" when analyzing against prebuilt models or opening a custom project, it is likely the local (key-based) authentication is disabled for your Document Intelligence resource and your do not have enough permission to access the resource.  Please reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) to configure your access roles.
+
+      - question: |
+          Why an I receiving the error "AuthorizationPermissionMismatch" when opening my custom project?
+        answer: |
+          If you received error "AuthorizationPermissionMismatch: This request is not authorized to perform this operation using this permission" when opening a custom project, it is likely the local (key-based) authentication is disabled for your storage account and your do not have enough permission to access the blob data.  Please reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments-1) to configure your access roles.
+
+      - question: |
+          Why am I not able to sign in to Document Intelligence Studio and keeps seeing InteractionRequiredAuthError error (AADSTS50058)?
+        answer: |
+          If you received error "InteractionRequiredAuthError: login_required: AADSTS50058: A silent sign-request was sent but no user is signed in.", this is due to 3rd-party cookies are blocked by your browser so we cannot successfully sign in your account.
+        
+          For **Edge** users, please:
+          - Go to **Settings** for Edge
+          - Search for "**third-party**"
+          - Go to **Manage and delete cookies and site data**
+          - Turn off the setting of **Block third-party cookies**
+
+          For **Chrome** users, please:
+          - Go to **Settings** for Chrome
+          - Search for "**Third-party**"
+          - Under **Default behavior**, select **Allow third-party cookies**
+
+          For **Firefox** users, please:
+          - Go to **Settings** for Firefox
+          - Search for "**cookies**"
+          - Under **Enhanced Tracking Protection**, select **Manage Exceptions**
+          - Add exception for **https://documentintelligence.ai.azure.com** or the Document Intelligence Studio URL of your environment
+
+          For **Safari** users, please:
+          - Choose **Safari** > **Preferences**
+          - Click **Privacy**
+          - Deselect **Block all cookies**
 
       - question: |
          Are there separate URL endpoints for Document Intelligence sovereign cloud regions?
