@@ -91,16 +91,23 @@ The following examples show how to use the `filter` function.
     "oldDogs": {
       "type": "array",
       "value": "[filter(variables('dogs'), lambda('dog', greaterOrEquals(lambdaVariables('dog').age, 5)))]"
+    },
+    "dogNameIndex": {
+      "type": "array",
+      "value": "[filter(variables('dogs'), lambda('val', 'i', and(less(lambdaVariables('i'), 2), equals(substring(lambdaVariables('val').name, 0, 1), 'C'))))]"
     }
   }
 }
 ```
 
-The output from the preceding example shows the dogs that are five or older:
+The outputs from the preceding example:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | oldDogs | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
+| dogNameIndex | Array | [{"name":"Casper","age":3,"interests":["Other dogs"]}] |
+
+**oldDogs** lists the dogs that are five or older; **dogNameIndex** identifies the dog(s) whose index number is less than two and whose name starts with the letter "C". 
 
 ```json
 {

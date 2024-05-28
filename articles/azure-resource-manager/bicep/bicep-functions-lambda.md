@@ -66,20 +66,24 @@ var dogs = [
     interests: ['Butter']
   }
   {
-    name: 'Kira'
+    name: 'Cira'
     age: 8
     interests: ['Rubs']
   }
 ]
 
 output oldDogs array = filter(dogs, dog => dog.age >=5)
+output dogNameIndex array = filter(dogs, (val, i) => i < 2 && substring(val.name, 0, 1) == 'C')
 ```
 
-The output from the preceding example shows the dogs that are five or older:
+The outputs from the preceding example:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | oldDogs | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
+| dogNameIndex | Array | [{"name":"Casper","age":3,"interests":["Other dogs"]}] |
+
+**oldDogs** lists the dogs that are five or older; **dogNameIndex** identifies the dog(s) whose index number is less than two and whose name starts with the letter "C". 
 
 ```bicep
 var itemForLoop = [for item in range(0, 10): item]
@@ -88,7 +92,7 @@ output filteredLoop array = filter(itemForLoop, i => i > 5)
 output isEven array = filter(range(0, 10), i => 0 == i % 2)
 ```
 
-The output from the preceding example:
+The outputs from the preceding example:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -118,7 +122,7 @@ An object.
 
 ### Examples
 
-The following examples show how to use the `groupBy` function.
+The following example show how to use the `groupBy` function.
 
 ```bicep
 var inputArray = ['foo', 'bar', 'baz']
@@ -126,7 +130,7 @@ var inputArray = ['foo', 'bar', 'baz']
 output outObject object = groupBy(inputArray, x => substring(x, 0, 1)) 
 ```
 
-The output from the preceding example shows the dogs that are five or older:
+The output from the preceding example:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -191,7 +195,7 @@ output mapArray array = map(range(0, length(dogs)), i => {
 output mapArrayIndex array = map(dogs, (x, i) => { index: i, val: x.name})
 ```
 
-The output from the preceding example is:
+The outputs from the preceding example are:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -292,7 +296,7 @@ output totalAgeAdd1 int = reduce(ages, 1, (cur, next) => cur + next)
 output oddAge int = reduce(ages, 0, (cur, next, i) => (i % 2 == 0) ? cur + next : cur)
 ```
 
-The output from the preceding example is:
+The outputs from the preceding example are:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
