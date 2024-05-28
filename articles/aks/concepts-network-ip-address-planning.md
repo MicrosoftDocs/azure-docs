@@ -86,8 +86,12 @@ A minimum value for maximum pods per node is enforced to guarantee space for sys
 > [!NOTE]
 > The minimum value in the previous table is strictly enforced by the AKS service. You can not set a value for _maxPods_ that is lower than the minimum shown, as doing so can prevent the cluster from starting.
 
-- **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command. The maximum value is 250.
-- **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template. The maximum value is 250.
+### New clusters
+
+You can define maximum pods per node when you create a new cluster using one of the following methods:
+
+* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [`az aks create`][az-aks-create] command.
+- **Azure Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with an Azure Resource Manager template.
 - **Azure portal**: Change the `Max pods per node` field in the node pool settings when creating a cluster or adding a new node pool.
 
 ### Existing clusters
