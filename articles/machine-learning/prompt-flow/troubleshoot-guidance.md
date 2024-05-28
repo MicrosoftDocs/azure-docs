@@ -287,7 +287,7 @@ For fileshare based datastore (at least for `workspaceworkingdirectory`), you ca
 
 :::image type="content" source="./media/faq/fileshare-datastore-update-auth-type.png" alt-text="Screenshot of update auth type for fileshare based datastore. " lightbox = "./media/faq/fileshare-datastore-update-auth-type.png":::
 
-For `workspaceartifactstore` data store you need also specify `subscriptionId`, `accountName` and `"serviceDataAccessAuthIdentity": "WorkspaceSystemAssignedIdentity"`
+For `workspaceartifactstore` data store you need also specify `subscriptionId`, `accountName` and `"serviceDataAccessAuthIdentity": "WorkspaceSystemAssignedIdentity"`, as you can not do this in UI side.
 
 :::image type="content" source="./media/faq/datastore-update-rest.png" alt-text="Screenshot of rest for datastore update. " lightbox = "./media/faq/datastore-update-rest.png":::
 
