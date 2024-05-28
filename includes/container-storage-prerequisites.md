@@ -14,4 +14,4 @@ ms.author: kendownie
 
 - If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](/azure/storage/container-storage/container-storage-aks-quickstart.md).
 
-- Check if your target region is supported in [Azure Container Storage regions](/azure/storage/container-storage/container-storage-introduction.md#regional-availability).
+- Check if your target region is supported in [Azure Container Storage regions](../articles/storage/container-storage/container-storage-introduction.md#regional-availability).
