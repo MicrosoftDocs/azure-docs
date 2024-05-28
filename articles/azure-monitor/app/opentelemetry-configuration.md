@@ -391,6 +391,9 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
+> [!IMPORTANT]
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 <!--
 
 TODO:
@@ -406,6 +409,9 @@ Configuration sample
 -->
 
 #### [.NET](#tab/net)
+
+> [!IMPORTANT]
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 <!--
 
@@ -439,6 +445,9 @@ Configuration sample
 
 #### [Node.js](#tab/nodejs)
 
+> [!IMPORTANT]
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 <!--
 
 TODO:
@@ -455,7 +464,8 @@ Configuration sample
 
 #### [Python](#tab/python)
 
-Live metrics is enabled by default.
+> [!IMPORTANT]
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 <!--
 
