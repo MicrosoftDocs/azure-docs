@@ -42,9 +42,9 @@ To complete the steps in this tutorial, you must have the following resources an
    - [Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md) or [add an on-premises Linux server to Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - A Linux-based device that generates event log data like a firewall network device.
 
-## Create a data collection rule
+## Configure Azure Monitor Agent to collect Syslog data
 
-See the step-by-step instructions in [Create a data collection rule](../azure-monitor/agents/data-collection-syslog.md#create-a-data-collection-rule).
+See the step-by-step instructions in [Collect Syslog events with Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md).
 
 ## Verify that Azure Monitor Agent is running
 

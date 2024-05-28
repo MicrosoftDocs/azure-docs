@@ -1,6 +1,6 @@
 ---
 title: Collect events and performance counters from virtual machines with Azure Monitor Agent
-description: Describes how to collect events and performance data from virtual machines by using Azure Monitor Agent.
+description: Describes how to collect events and performance counters from virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent.
 ms.topic: conceptual
 ms.date: 7/19/2023
 author: guywild
@@ -11,57 +11,26 @@ ms.reviewer: jeffwo
 
 # Collect events and performance counters from virtual machines with Azure Monitor Agent
 
-This article describes how to collect events and performance counters from virtual machines by using [Azure Monitor Agent](azure-monitor-agent-overview.md).
+To collect data from Azure virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using [Azure Monitor Agent](azure-monitor-agent-overview.md), [create a data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md) and associate it with your machines. The data collection rule defines which data Azure Monitor Agent collects from which machines, and where you want to store the collected data. When you create a data collection rule in the Azure portal, the portal automatically installs Azure Monitor Agent on the selected machines.         
+
+This article explains how to configure data collection of events and performance counters from virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent.
+
+> [!NOTE]
+> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
 ## Prerequisites
 To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
-- Associate the data collection rule to specific virtual machines.
 
-## Create a data collection rule
+## Configure collection of performance counters and events 
 
-You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace. You can send Windows event and Syslog data to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. 
+You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. 
 
-> [!NOTE] 
-> At this time, Microsoft.HybridCompute ([Azure Arc-enabled servers](../../azure-arc/servers/overview.md)) resources can't be viewed in [Metrics Explorer](../essentials/metrics-getting-started.md) (the Azure portal UX), but they can be acquired via the Metrics REST API (Metric Namespaces - List, Metric Definitions - List, and Metrics - List).
-
-
-> [!NOTE]
-> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
-
-### [Portal](#tab/portal)
-
-1. On the **Monitor** menu, select **Data Collection Rules**.
-1. Select **Create** to create a new data collection rule and associations.
-    <!-- convertborder later -->
-    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png" alt-text="Screenshot that shows the Create button on the Data Collection Rules screen." border="false":::
-
-1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**:
-
-    - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
-    - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
-
-    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics tab of the Data Collection Rule screen.":::
-
-1. On the **Resources** tab: 
-1. 
-    1. Select **+ Add resources** and associate resources to the data collection rule. Resources can be virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
-
-        > [!IMPORTANT]
-        > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
-    
-        If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
-
-    1. Select **Enable Data Collection Endpoints**.
-    1. Select a data collection endpoint for each of the resources associate to the data collection rule.
-
-    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot that shows the Resources tab of the Data Collection Rule screen.":::
-
-1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
-1. Select a **Data source type**.
-1. Select which data you want to collect. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs and severity levels.
+1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md).
+1. In the **Collect and deliver** step, select **Performance Counters** or **Windows Event Logs** from the **Data source type** dropdown. 
+1. For performance counters, select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs and severity levels.
     <!-- convertborder later -->
     :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule." border="false":::
 
@@ -74,269 +43,8 @@ You can define a data collection rule to send data from multiple machines to mul
     <!-- convertborder later -->
     :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png" alt-text="Screenshot that shows the Azure portal form to select custom performance counters in a data collection rule." border="false":::
 
-1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
-
-    You can send Windows event and Syslog data sources to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. At this time, hybrid compute (Arc for Server) resources **do not** support the Azure Monitor Metrics (Preview) destination.
-    <!-- convertborder later -->
-    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the Azure portal form to add a data source in a data collection rule." border="false":::
-
-1. Select **Add data source** and then select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
-1. Select **Create** to create the data collection rule.
-
-### [API](#tab/api)
-
-1. Create a DCR file by using the JSON format shown in [Sample DCR](../essentials/data-collection-rule-samples.md#azure-monitor-agent---events-and-performance-data).
-
-1. Create the rule by using the [REST API](/rest/api/monitor/datacollectionrules/create#examples).
-
-1. Create an association for each virtual machine to the data collection rule by using the [REST API](/rest/api/monitor/datacollectionruleassociations/create#examples).
-
-### [PowerShell](#tab/powershell)
-
-**Data collection rules**
-
-| Action | Command |
-|:---|:---|
-| Get rules | [Get-AzDataCollectionRule](/powershell/module/az.monitor/get-azdatacollectionrule) |
-| Create a rule | [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule) |
-| Update a rule | [Set-AzDataCollectionRule](/powershell/module/az.monitor/set-azdatacollectionrule) |
-| Delete a rule | [Remove-AzDataCollectionRule](/powershell/module/az.monitor/remove-azdatacollectionrule) |
-| Update "Tags" for a rule | [Update-AzDataCollectionRule](/powershell/module/az.monitor/update-azdatacollectionrule) |
-
-**Data collection rule associations**
-
-| Action | Command |
-|:---|:---|
-| Get associations | [Get-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/get-azdatacollectionruleassociation) |
-| Create an association | [New-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/new-azdatacollectionruleassociation) |
-| Delete an association | [Remove-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/remove-azdatacollectionruleassociation) |
-
-### [Azure CLI](#tab/cli)
-
-This capability is enabled as part of the Azure CLI monitor-control-service extension. [View all commands](/cli/azure/monitor/data-collection/rule).
-
-### [ARM](#tab/arm)
-
-#### Create association with Azure VM
-
-The following sample creates an association between an Azure virtual machine and a data collection rule.
-
-
-##### Template file
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vmName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the virtual machine."
-      }
-    },
-    "associationName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the association."
-      }
-    },
-    "dataCollectionRuleId": {
-      "type": "string",
-      "metadata": {
-        "description": "The resource ID of the data collection rule."
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
-      "apiVersion": "2021-09-01-preview",
-      "scope": "[format('Microsoft.Compute/virtualMachines/{0}', parameters('vmName'))]",
-      "name": "[parameters('associationName')]",
-      "properties": {
-        "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
-        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
-      }
-    }
-  ]
-}
-```
-
-##### Parameter file
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vmName": {
-      "value": "my-azure-vm"
-    },
-    "associationName": {
-      "value": "my-windows-vm-my-dcr"
-    },
-    "dataCollectionRuleId": {
-      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
-    }
-   }
-}
-```
-
-## Create association with Azure Arc
-
-The following sample creates an association between an Azure Arc-enabled server and a data collection rule.
-
-##### Template file
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vmName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the virtual machine."
-      }
-    },
-    "associationName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the association."
-      }
-    },
-    "dataCollectionRuleId": {
-      "type": "string",
-      "metadata": {
-        "description": "The resource ID of the data collection rule."
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
-      "apiVersion": "2021-09-01-preview",
-      "scope": "[format('Microsoft.Compute/virtualMachines/{0}', parameters('vmName'))]",
-      "name": "[parameters('associationName')]",
-      "properties": {
-        "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
-        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
-      }
-    }
-  ]
-}
-```
-
-### [Bicep](#tab/bicep)
-
-#### Create association with Azure VM
-
-The following sample creates an association between an Azure virtual machine and a data collection rule.
-
-
-##### Template file
-
-```bicep
-@description('The name of the virtual machine.')
-param vmName string
-
-@description('The name of the association.')
-param associationName string
-
-@description('The resource ID of the data collection rule.')
-param dataCollectionRuleId string
-
-resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' existing = {
-  name: vmName
-}
-
-resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
-  name: associationName
-  scope: vm
-  properties: {
-    description: 'Association of data collection rule. Deleting this association will break the data collection for this virtual machine.'
-    dataCollectionRuleId: dataCollectionRuleId
-  }
-}
-```
-
-##### Parameter file
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vmName": {
-      "value": "my-azure-vm"
-    },
-    "associationName": {
-      "value": "my-windows-vm-my-dcr"
-    },
-    "dataCollectionRuleId": {
-      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
-    }
-   }
-}
-```
-
-## Create association with Azure Arc
-
-The following sample creates an association between an Azure Arc-enabled server and a data collection rule.
-
-##### Template file
-
-```bicep
-@description('The name of the virtual machine.')
-param vmName string
-
-@description('The name of the association.')
-param associationName string
-
-@description('The resource ID of the data collection rule.')
-param dataCollectionRuleId string
-
-resource vm 'Microsoft.HybridCompute/machines@2021-11-01' existing = {
-  name: vmName
-}
-
-resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
-  name: associationName
-  scope: vm
-  properties: {
-    description: 'Association of data collection rule. Deleting this association will break the data collection for this Arc server.'
-    dataCollectionRuleId: dataCollectionRuleId
-  }
-}
-```
-
----
-
-##### Parameter file
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vmName": {
-      "value": "my-azure-vm"
-    },
-    "associationName": {
-      "value": "my-windows-vm-my-dcr"
-    },
-    "dataCollectionRuleId": {
-      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
-    }
-   }
-}
-```
-
----
-
-> [!NOTE]
-> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
+> [!NOTE] 
+> At this time, Microsoft.HybridCompute ([Azure Arc-enabled servers](../../azure-arc/servers/overview.md)) resources can't be viewed in [Metrics Explorer](../essentials/metrics-getting-started.md) (the Azure portal UX), but they can be acquired via the Metrics REST API (Metric Namespaces - List, Metric Definitions - List, and Metrics - List).
 
 ## Filter events using XPath queries
 
@@ -381,11 +89,12 @@ Examples of using a custom XPath to filter events:
 > For a list of limitations in the XPath supported by Windows event log, see [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitations).  
 > For instance, you can use the "position", "Band", and "timediff" functions within the query but other functions like "starts-with" and "contains" are not currently supported.
 
+
 ## Frequently asked questions
 
 This section provides answers to common questions.
 
-### How can I collect Windows security events by using Azure Monitor Agent?
+#### How can I collect Windows security events by using Azure Monitor Agent?
 
 There are two ways you can collect Security events using the new agent, when sending to a Log Analytics workspace:
 - You can use Azure Monitor Agent to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace. 
