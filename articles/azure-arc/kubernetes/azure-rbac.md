@@ -43,7 +43,7 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
    az connectedk8s show -g <resource-group> -n <connected-cluster-name>
    ```
 
-1. Get the ED (`identity.principalId`) from the output and run the following command to assign the **Connected Cluster Managed Identity CheckAccess Reader** role to the cluster MSI:
+1. Get the ID (`identity.principalId`) from the output and run the following command to assign the **Connected Cluster Managed Identity CheckAccess Reader** role to the cluster MSI:
 
    ```azurecli
    az role assignment create --role "Connected Cluster Managed Identity CheckAccess Reader" --assignee "<Cluster MSI ID>" --scope <cluster ARM ID>
@@ -343,12 +343,12 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
      sudo chmod +x /usr/local/bin/kubelogin 
      ```
 
-1. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with a Microsoft Entra user, the commands would be as follows:
+1. [Convert](https://azure.github.io/kubelogin/concepts/azure-arc.html) the kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with a Microsoft Entra user, the commands would be as follows:
 
    ```bash
    export KUBECONFIG=/path/to/kubeconfig
 
-   kubelogin convert-kubeconfig
+   kubelogin convert-kubeconfig --pop-enabled --pop-claims 'u=<ARM ID of cluster>"
    ```
 
 ### [Kubernetes < v1.26](#tab/Kubernetes-earlier)
