@@ -13,13 +13,13 @@ ms.author: cherylmc
 
 # Change Audience for P2S VPN Gateway connections - Microsoft Entra ID authentication
 
-This article helps you update Audience values for point-to-site (P2S) VPN Gateway connections. When you update Audience values, you must make the change on both the P2S VPN gateway, and on any already configured VPN clients. For more information about Audience values, see [About point-to-site VPN ](point-to-site-about.md#entra-id).
+This article helps you change (update) Audience values for point-to-site (P2S) VPN Gateway connections. When you update Audience values, you must make the change on both the P2S VPN gateway, and on any already configured VPN clients. For more information about Audience values, see [About point-to-site VPN ](point-to-site-about.md#entra-id).
 
 The following table shows the available supported Audience values. P2S VPN gateways also support custom Audience.
 
 [!INCLUDE [Audience values](../../includes/vpn-gateway-entra-audience-values.md)]
 
-In most cases, you'll be updating an older Azure Public audience value to the newer Azure Public audience value to take advantage of the newer Azure VPN Clients and more secure Application registration process for your Azure tenant. The examples in this article show the new Audience value for Azure Public. However, the process is the same for other Audience values.
+In most cases, you'll be changing an older *Azure Public* audience value to the new Azure Public audience value to take advantage of the Microsoft-registered Azure VPN Client new features and supported operating systems. The examples in this article show the new Audience value for Azure Public. However, the process is the same if you want to change to a different supported Audience value, such as a custom value.
 
 ## Workflow
 
@@ -41,7 +41,7 @@ When you update audience values on an existing gateway, you incur fewer than 5 m
 1. Change the **Audience** value. For this example, we changed the Audience value to the Azure Public value for the Microsoft-registered Azure VPN Client; **c632b3df-fb67-4d84-bdcf-b95ad541b5c8**. You can also use a different Audience value, such as a custom value, for this setting.
 1. Leave the other settings the same, unless you have changed tenants and need to change the tenant IDs.
 1. Once you finish configuring settings, click **Save** at the top of the page.
-1. The new settings save to the gateway. This takes about 5 minutes to complete.
+1. The new settings save to the P2S gateway and the gateway updates. This takes about 5 minutes to complete.
 
 ## <a name="client"></a>Update VPN client settings
 
