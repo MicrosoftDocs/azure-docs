@@ -450,6 +450,8 @@ items:
     - name: Best practices
       displayName: containers, kubernetes
       href: best-practices-containers.md
+    - name: Analyze and reduce costs
+      href: containers/container-insights-cost.md
     - name: Enable Container Insights and Managed Prometheus
       items:
       - name: Onboard cluster
@@ -474,13 +476,6 @@ items:
       - name: Collect and filter logs
         href: containers/container-insights-data-collection-configure.md
       - name: Configure data collection
-        items:
-        - name: Configure with ConfigMap
-          displayName: Container insights
-          href: containers/container-insights-data-collection-configmap.md
-        - name: Configure with  Data collection rule
-          displayName: Container insights
-          href: containers/container-insights-data-collection-dcr.md
       - name: Container log schema
         href: containers/container-insights-logs-schema.md
       - name: Data transformations
@@ -552,8 +547,6 @@ items:
       - name: Troubleshoot remote-write
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-troubleshooting.md
-    - name: Analyze and reduce costs
-      href: containers/container-insights-cost.md
     - name: Private Link
       items:
       - name: Private link for Container Insights          

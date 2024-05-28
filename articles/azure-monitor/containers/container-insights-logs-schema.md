@@ -70,11 +70,6 @@ resources
 
 
 
-- **Grafana dashboard for visualization:** The Grafana dashboard not only displays color-coded visualizations of log levels ranging from CRITICAL to UNKNOWN, but also dives into Log Volume, Log Rate, Log Records, Logs. Users can get Time-Sensitive Analysis, dynamic insights into log level trends over time, and crucial real-time monitoring. We also provide a Detailed breakdown by Computer, Pod, and Container, which empowers in-depth analysis and pinpointed troubleshooting.​ And finally in the new Logs table experience, users can view in depth details with expand view, and view the data in each column and zoom into the information they want to see.
-
-Here's a video showcasing the Grafana Dashboard:
-
-> [!VIDEO https://learn-video.azurefd.net/vod/player?id=15c1c297-9e96-47bf-a31e-76056d026bd1]
 
 ### How to enable Kubernetes metadata and logs filtering
 
@@ -101,33 +96,6 @@ The [ContainerLogV2 Grafana Dashboard](https://grafana.com/grafana/dashboards/20
 
 <!-- convertborder later -->
 :::image type="content" source="./media/container-insights-logging-v2/container-log-v2.png" lightbox="./media/container-insights-logging-v2/container-log-v2.png" alt-text="Screenshot that shows containerlogv2." border="false":::
-
-#### Onboard to the Grafana dashboard experience
-
-1. Under the Insights tab, select monitor settings and onboard to Grafana Dashboard with version 10.3.4+
-
-<!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/configure-ci.png" lightbox="./media/container-insights-logging-v2/configure-ci.png" alt-text="Screenshot that shows grafana onboarding." border="false":::
-
-2. Ensure that you have one of the Grafana Admin/Editor/Reader roles by checking Access control (IAM). If not, add them.
-
-<!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/grafana-1.png" lightbox="./media/container-insights-logging-v2/grafana-1.png" alt-text="Screenshot that shows grafana roles." border="false":::
-
-3. Ensure your Grafana instance has access to the Azure Logs Analytics(LA) workspace. If it doesn’t have access, you need to grant Grafana Instance Monitoring Reader role access to your LA workspace.
-
-<!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/grafana-2.png" lightbox="./media/container-insights-logging-v2/grafana-2.png" alt-text="Screenshot that shows grafana." border="false":::
-
-4. Navigate to your Grafana workspace and import the [ContainerLogV2 Dashboard](https://grafana.com/grafana/dashboards/20995-azure-monitor-container-insights-containerlogv2/) from Grafana gallery.
-
-5. Select your information for DataSource, Subscription, ResourceGroup, Cluster, Namespace, and Labels. The dashboard then populates as depicted in the below screenshot.
-
-<!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/grafana-3.png" lightbox="./media/container-insights-logging-v2/grafana-3.png" alt-text="Screenshot that shows grafana dashboard." border="false":::
-
->[!NOTE]
-> When you initially load the Grafana Dashboard, it could throw some errors due to variables not yet being selected. To prevent this from recurring, save the dashboard after selecting a set of variables so that it becomes default on the first open.
 
 
 

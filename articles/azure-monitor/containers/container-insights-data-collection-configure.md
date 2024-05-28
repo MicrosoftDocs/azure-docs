@@ -6,12 +6,12 @@ ms.date: 05/14/2024
 ms.reviewer: aul
 ---
 
-# Configuring and filtering log collection in Container insights
+# Configure and filter log collection in Container insights
 
-This article provides details on how to configure data collection in Azure Monitor Container insights for your Kubernetes cluster, including how to filter data that you don't require. Kubernetes clusters generate a large amount of log data. You can collect all of this data in Container insights, but since you're charged for the ingestion and retention of this data, that may result in charges for data that you don't use. You can significantly reduce your monitoring costs by filtering out data that you don't need and also by optimizing the configuration of the Log Analytics workspace where you're storing your data.
+This article provides details on how to configure data collection in Azure Monitor Container insights for your Kubernetes cluster, including how to filter data that you don't require. Kubernetes clusters generate a large amount of log data. You can collect all of this data in Container insights, but since you're charged for the ingestion and retention of this data, that may result in charges for data that you don't use. 
 
 ## Configuration methods
-There are two methods use to configure data being collected in Container insights, including filters applied to that data. Depending on the filtering that you want to implement, you may be able to choose between the two methods or you may be required to use one or the other.
+There are two methods use to configure and filter data being collected in Container insights. Depending on the filtering that you want to implement, you may be able to choose between the two methods or you may be required to use one or the other.
 
 The two methods are described in the table below with detailed information on each in the following sections.
 
@@ -21,14 +21,15 @@ The two methods are described in the table below with detailed information on ea
 | [ConfigMap](#configure-using-configmap) | [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allow you to store non-confidential data such as a configuration file or environment variables. Container insights looks for a ConfigMap on each cluster with particular settings that define data that it should collect.<br><br>Using ConfigMap, you can enable enable collection of container logs and filter them by namespace the same as you can with the DCR. You can also perform additional configuration such as configure environment variable collection, enable metadata collection, and configure annotation based filtering. |
 
 ## Configure data collection with DCR
+The DCR created by Container insights is named *MSCI-\<cluster-region\>-\<cluster-name\>*. Rather than directly modifying the DCR, you should use one of the methods described below to configure data collection.
+
+## Prerequisites
+
+- AKS clusters must use either System or User Assigned Managed Identity. If cluster is using a Service Principal, you must [upgrade to Managed Identity](../../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
 
 
-## [DCR (Azure portal)](#tab/portal)
-The DCR is named *MSCI-\<cluster-region\>-\<cluster-name\>*. Rather than directly modifying the DCR, you should use one of the methods described below to configure data collection.
-
-
-## Configure DCR with Azure portal
-You can use the Azure portal to enable cost optimization on your existing cluster after Container insights has been enabled, or you can enable Container insights on the cluster along with cost optimization.
+### [Azure portal](#tab/portal)
+Using the Azure portal, you can select from multiple preset configurations for data collection in Container insights. These configurations include different sets of tables and collection frequencies depending on your particular priorities. You can also customize the settings to collect only the data you require. You can use the Azure portal to customize configuration on your existing cluster after Container insights has been enabled, or you can perform this configuration when you enable Container insights on your cluster.
 
 1. Select the cluster in the Azure portal.
 2. Select the **Insights** option in the **Monitoring** section of the menu.
@@ -76,9 +77,7 @@ You can use the Azure portal to enable cost optimization on your existing cluste
     
 1. Click **Configure** to save the settings.
 
-## [DCR (CLI)](#tab/cli)
-
-## Configure DCR with Azure CLI
+### [CLI](#tab/cli)
 
 When you use CLI to configure monitoring for your AKS cluster, you provide the configuration as a JSON file using the following format. See the section below for how to use CLI to apply these settings to different cluster configurations.
 
@@ -163,9 +162,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 >[!NOTE]
 > When deploying on a Windows machine, the dataCollectionSettings field must be escaped. For example, dataCollectionSettings={\"interval\":\"1m\",\"namespaceFilteringMode\": \"Include\", \"namespaces\": [ \"kube-system\"]} instead of dataCollectionSettings='{"interval":"1m","namespaceFilteringMode": "Include", "namespaces": [ "kube-system"]}'
 
-## [ARM](#tab/arm)
-
-## Configure DCR with ARM template
+### [ARM](#tab/arm)
 
 The following template and parameter files are available for different cluster configurations.
 
@@ -319,7 +316,7 @@ kubectl describe pod ama-logs-fdf58 -n=kube-system.
 ```
 
 
-### Enable and filter container logs
+## Enable and filter container logs
 Container logs are stderr and stdout logs generated by containers in your Kubernetes cluster. These logs are stored in the [ContainerLogV2 table](./container-insights-logs-schema.md) in your Log Analytics workspace. By default all container logs are collected, but you can filter out logs from specific namespaces or disable collection of container logs entirely.
 
 You can use either [ConfigMap](#configuration-methods) or [Data collection rule (DCR)](#configuration-methods) to enable or disable stdout and stderr logs and filter specific namespaces from each. Enable the `log_collection_settings.enrich_container_logs` setti9ng to add the container Name and Image to each log record. This applies to both stderr and stdout logs if they're enabled.
@@ -340,11 +337,7 @@ The following example shows the ConfigMap settings to collect stdout and stderr 
         enabled = true
 ```
 
-If you use the Azure portal to configure the DCR, you can indirectly configure collection of container logs as part of a cost preset or set of collected data.
-
-
-
-### Platform log filtering (System Kubernetes Namespaces)
+## Platform log filtering (System Kubernetes Namespaces)
 By default, container logs from the system namespace are excluded from collection to minimize the Log Analytics cost. Container logs of system containers can be critical though in specific troubleshooting scenarios. This feature is restricted to the following system namespaces:  `kube-system`, `gatekeeper-system`, `calico-system`, `azure-arc`, `kube-public`, and `kube-node-lease`.
 
 Enable platform logs using [ConfigMap](#configuration-methods) with the `collect_system_pod_logs` setting. You must also ensure that the system namespace is not in the `exclude_namespaces` setting. 
@@ -364,7 +357,7 @@ The following example shows the ConfigMap settings to collect stdout and stderr 
         collect_system_pod_logs = ["kube-system:coredns"]
 ```
 
-### Enable Kubernetes metadata
+## Enable Kubernetes metadata
 When Kubernetes Logs Metadata is enabled, it adds a column to `ContainerLogV2` called `KubernetesMetadata` that enhances troubleshooting with simple log queries and removes the need for joining with other tables. The fields in this column include: `PodLabels`, `PodAnnotations`, `PodUid`, `Image`, `ImageID`, `ImageRepo`, `ImageTag`.
 
 Enable Kubernetes metadata using [ConfigMap](#configuration-methods) with the following settings. All metadata fields are collected by default when the `metadata_collection` is enabled. Uncomment `include_fields` to specify individual fields to be collected.
@@ -375,7 +368,7 @@ Enable Kubernetes metadata using [ConfigMap](#configuration-methods) with the fo
     include_fields = ["podLabels","podAnnotations","podUid","image","imageID","imageRepo","imageTag"]
 ```
 
-### Annotation based filtering for workloads
+## Annotation based filtering for workloads
 Annotation-based filtering enables you to exclude log collection for certain pods and containers by annotating the pod. This can reduce your logs ingestion cost significantly and allow you to focus on relevant information without sifting through noise. 
 
 Enable annotation based filtering using [ConfigMap](#configuration-methods) with the following settings. 
@@ -415,7 +408,7 @@ spec:
   image: edsiper/apache_logs 
 ```
 
-### Enable and filter environment variables
+## Enable and filter environment variables
 Enable collection of environment variables across all pods and nodes in the cluster using [ConfigMap](#configuration-methods) with the following settings. 
 
 ```yaml
@@ -428,7 +421,7 @@ If collection of environment variables is globally enabled, you can disable it f
 
 
 
-### Data collection settings
+## Data collection settings
 
 The following table describes the settings you can configure to control data collection with ConfigMap.
 
@@ -453,6 +446,62 @@ The following table describes the settings you can configure to control data col
 | `[collect_kube_system_pv_metrics]`<br>`enabled` | Boolean | true<br>false | Allows persistent volume (PV) usage metrics to be collected in the kube-system namespace. By default, usage metrics for persistent volumes with persistent volume claims in the kube-system namespace aren't collected. When this setting is set to `true`, PV usage metrics for all namespaces are collected. If not specified in the ConfigMap, the default value is `false`. |
 | **[agent_settings]** | | | |
 | `[proxy_config]`<br>`ignore_proxy_settings` | Boolean | true<br>false | When `true`, proxy settings are ignored. For both AKS and Arc-enabled Kubernetes environments, if your cluster is configured with forward proxy, then proxy settings are automatically applied and used for the agent. For certain configurations, such as with AMPLS + Proxy, you might want the proxy configuration to be ignored. If not specified in the ConfigMap, the default value is `false`. |
+
+## Impact on visualizations and alerts
+
+If you have any custom alerts or workbooks using Container insights data, then modifying your data collection settings might degrade those experiences. If you're excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
+
+To scan for alerts that reference these tables, run the following Azure Resource Graph query:
+
+```Kusto
+resources
+| where type in~ ('microsoft.insights/scheduledqueryrules') and ['kind'] !in~ ('LogToMetric')
+| extend severity = strcat("Sev", properties["severity"])
+| extend enabled = tobool(properties["enabled"])
+| where enabled in~ ('true')
+| where tolower(properties["targetResourceTypes"]) matches regex 'microsoft.operationalinsights/workspaces($|/.*)?' or tolower(properties["targetResourceType"]) matches regex 'microsoft.operationalinsights/workspaces($|/.*)?' or tolower(properties["scopes"]) matches regex 'providers/microsoft.operationalinsights/workspaces($|/.*)?'
+| where properties contains "Perf" or properties  contains "InsightsMetrics" or properties  contains "ContainerInventory" or properties  contains "ContainerNodeInventory" or properties  contains "KubeNodeInventory" or properties  contains"KubePodInventory" or properties  contains "KubePVInventory" or properties  contains "KubeServices" or properties  contains "KubeEvents" 
+| project id,name,type,properties,enabled,severity,subscriptionId
+| order by tolower(name) asc
+```
+
+## Install Grafana dashboard
+There are a variety of community dashboards available for Grafana that can be used to visualize the data collected by Container insights. 
+
+
+
+
+- **Grafana dashboard for visualization:** The Grafana dashboard not only displays color-coded visualizations of log levels ranging from CRITICAL to UNKNOWN, but also dives into Log Volume, Log Rate, Log Records, Logs. Users can get Time-Sensitive Analysis, dynamic insights into log level trends over time, and crucial real-time monitoring. We also provide a Detailed breakdown by Computer, Pod, and Container, which empowers in-depth analysis and pinpointed troubleshooting.​ And finally in the new Logs table experience, users can view in depth details with expand view, and view the data in each column and zoom into the information they want to see.
+
+Here's a video showcasing the Grafana Dashboard:
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=15c1c297-9e96-47bf-a31e-76056d026bd1]
+
+1. Under the Insights tab, select monitor settings and onboard to Grafana Dashboard with version 10.3.4+
+
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-logging-v2/configure-ci.png" lightbox="./media/container-insights-logging-v2/configure-ci.png" alt-text="Screenshot that shows grafana onboarding." border="false":::
+
+2. Ensure that you have one of the Grafana Admin/Editor/Reader roles by checking Access control (IAM). If not, add them.
+
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-logging-v2/grafana-1.png" lightbox="./media/container-insights-logging-v2/grafana-1.png" alt-text="Screenshot that shows grafana roles." border="false":::
+
+3. Ensure your Grafana instance has access to the Azure Logs Analytics(LA) workspace. If it doesn’t have access, you need to grant Grafana Instance Monitoring Reader role access to your LA workspace.
+
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-logging-v2/grafana-2.png" lightbox="./media/container-insights-logging-v2/grafana-2.png" alt-text="Screenshot that shows grafana." border="false":::
+
+4. Navigate to your Grafana workspace and import the [ContainerLogV2 Dashboard](https://grafana.com/grafana/dashboards/20995-azure-monitor-container-insights-containerlogv2/) from Grafana gallery.
+
+5. Select your information for DataSource, Subscription, ResourceGroup, Cluster, Namespace, and Labels. The dashboard then populates as depicted in the below screenshot.
+
+<!-- convertborder later -->
+:::image type="content" source="./media/container-insights-logging-v2/grafana-3.png" lightbox="./media/container-insights-logging-v2/grafana-3.png" alt-text="Screenshot that shows grafana dashboard." border="false":::
+
+>[!NOTE]
+> When you initially load the Grafana Dashboard, it could throw some errors due to variables not yet being selected. To prevent this from recurring, save the dashboard after selecting a set of variables so that it becomes default on the first open.
+
 
 
 

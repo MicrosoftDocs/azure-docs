@@ -25,9 +25,6 @@ Specific configuration you can perform with the DCR includes:
 > 
 > See [Configure data collection in Container insights using ConfigMap](./container-insights-data-collection-configmap.md) for a list of settings and the process to configure data collection using ConfigMap.
 
-## Prerequisites
-
-- AKS clusters must use either System or User Assigned Managed Identity. If cluster is using a Service Principal, you must [upgrade to Managed Identity](../../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
 
 
 
@@ -44,23 +41,7 @@ Specific configuration you can perform with the DCR includes:
 
 
 
-## Impact on visualizations and alerts
 
-If you're currently using the above tables for other custom alerts or charts, then modifying your data collection settings might degrade those experiences. If you're excluding namespaces or reducing data collection frequency, review your existing alerts, dashboards, and workbooks using this data.
-
-To scan for alerts that reference these tables, run the following Azure Resource Graph query:
-
-```Kusto
-resources
-| where type in~ ('microsoft.insights/scheduledqueryrules') and ['kind'] !in~ ('LogToMetric')
-| extend severity = strcat("Sev", properties["severity"])
-| extend enabled = tobool(properties["enabled"])
-| where enabled in~ ('true')
-| where tolower(properties["targetResourceTypes"]) matches regex 'microsoft.operationalinsights/workspaces($|/.*)?' or tolower(properties["targetResourceType"]) matches regex 'microsoft.operationalinsights/workspaces($|/.*)?' or tolower(properties["scopes"]) matches regex 'providers/microsoft.operationalinsights/workspaces($|/.*)?'
-| where properties contains "Perf" or properties  contains "InsightsMetrics" or properties  contains "ContainerInventory" or properties  contains "ContainerNodeInventory" or properties  contains "KubeNodeInventory" or properties  contains"KubePodInventory" or properties  contains "KubePVInventory" or properties  contains "KubeServices" or properties  contains "KubeEvents" 
-| project id,name,type,properties,enabled,severity,subscriptionId
-| order by tolower(name) asc
-```
 
 
 
