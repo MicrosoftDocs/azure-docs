@@ -1,19 +1,20 @@
 ---
-title: Import threat intelligence with the upload indicators API
+title: Reference the legacy upload indicators API
 titleSuffix: Microsoft Sentinel
-description: This article is a reference for the upload indicators API with an example request and response.
+description: This article is a reference for the legacy upload indicators API with an example request and response.
 author: austinmccollum
 ms.topic: reference
 ms.date: 05/23/2023
 ms.author: austinmc
 ---
 
-# Reference the upload indicators API (Preview) to import threat intelligence to Microsoft Sentinel
+# Reference the legacy upload indicators API
 
-The Microsoft Sentinel upload indicators API allows for threat intelligence platforms or custom applications to import indicators of compromise in the STIX format into a Microsoft Sentinel workspace. Whether you use the API with the [Microsoft Sentinel upload indicators API data connector](connect-threat-intelligence-upload-api.md) or as part of a custom solution, this document serves as a reference.
+The Microsoft Sentinel upload indicators API allowed threat intelligence platforms or custom applications to import indicators of compromise in the STIX format into a Microsoft Sentinel workspace. This document serves as a reference to the legacy API.
 
 > [!IMPORTANT]
-> This API is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> This API is in PREVIEW but no longer recommended. Use the new STIX objects API in preview to upload threat intelligence. For more information, see [STIX objects API](stix-objects-api.md).
+> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 An upload indicators API call has five components:
@@ -62,10 +63,21 @@ The resource/scope value is the audience of the token. This API only accepts the
 
 
 ### Assemble the request message
+There were two versions of the legacy API. Depending on the endpoint, a different array name was required in the request body. This was also represented by two versions of the logic app connector action.
+
+:::image type="content" source="media/stix-objects-api/logic-app-sentinel-connector-action-names.png" alt-text="Screenshot of logic app connector action names for Microsoft Sentinel upload indicators API.":::
+
+1. Connector action name: **Threat Intelligence - Upload Indicators of Compromise (Deprecated)**
+   - Endppoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligence:upload-indicators`
+   - array of indicators name: `value`
+
+1. Connector action name: **Threat Intelligence - Upload Indicators of Compromise (V2) (Preview)**
+   - Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligenceindicators:upload`
+   - array of indicators name: `indicators`
 
 #### Request URI 
-API versioning: `api-version=2022-07-01`<br>
-Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligence:upload-indicators?api-version=2022-07-01`<br>
+API versioning: `api-version=2022-12-01`<br>
+Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligenceindicators:upload?api-version=2022-12-01`<br>
 Method: `POST`<br>
 
 #### Request header
@@ -78,7 +90,7 @@ The JSON object for the body contains the following fields:
 |Field name	|Data Type	|Description|
 |---|---|---|
 |SourceSystem (required)| string | Identify your source system name. The value `Microsoft Sentinel` is restricted.|
-|Value (required) | array | An array of indicators in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
+|indicators (required) | array | An array of indicators in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
 
 Create the array of indicators using the STIX 2.1 indicator format specification, which has been condensed here for your convenience with links to important sections. Also note some properties, while valid for STIX 2.1, don't have corresponding indicator properties in Microsoft Sentinel.
 
@@ -119,7 +131,7 @@ The response header contains an HTTP status code. Reference this table for more 
 |**401**     |   Unauthorized. |
 |**404**     |   File not found. Usually this error occurs when the workspace ID isn't found.   |
 |**429**     |   The number of requests in a minute has exceeded.   |
-|**500**     |   Server error. Usually an error in the API or Microsoft Sentinel services.
+|**500**     |   Server error. Usually an error in the API or Microsoft Sentinel services. |
 
 The response body is an array of error messages in JSON format:
 
@@ -155,7 +167,7 @@ Approximately 10,000 indicators per minute is the maximum throughput before a th
 ```json
 {
     "sourcesystem": "test", 
-    "value":[
+    "indicators":[
         {
             "type": "indicator",
             "spec_version": "2.1",
@@ -242,12 +254,6 @@ If validation fails for one or more indicators, the response body is returned wi
 ```
 The indicators are sent as an array, so the `recordIndex` begins at `0`.
 
+## Next step
 
-## Next steps
-
-To learn more about how to work with threat intelligence in Microsoft Sentinel, see the following articles:
-
-- [Understand threat intelligence](understand-threat-intelligence.md)
-- [Work with threat indicators](work-with-threat-indicators.md)
-- [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md)
-- Utilize the intelligence feed from Microsoft and [enable MDTI data connector](connect-mdti-data-connector.md)
+This API is legacy. Please migrate to use the STIX objects API to upload threat intelligence. For more information, see [STIX objects API](stix-objects-api.md).

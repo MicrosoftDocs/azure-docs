@@ -25,6 +25,9 @@ Structured Threat Information Expression (STIX) is a language for expressing cyb
 
 For more information, see [Introduction to STIX](https://oasis-open.github.io/cti-documentation/stix/intro.html). 
 
+> [!NOTE]
+> The previous upload indicators API is now deprecated. If you need to reference that API while transitioning to the new STIX objects API, see [Legacy upload indicators API](upload-indicators-api.md).
+
 ## Call the API
 
 A call to the STIX objects API has five components:
@@ -270,9 +273,9 @@ The indicators are sent as an array, so the `recordIndex` begins at `0`.
 
 ### Other samples
 
-#### Stix Indicator
+#### Sample indicator
 
-In this example, the indicator is marked with green TLP and uses extension attributes of `toxicity` and `rank`. Although these properties are not in the Microsoft Sentinel schema for indicators, ingesting an indicator with these properties doesn't trigger an error. The properties just aren't referenced.
+In this example, the indicator is marked with the green TLP. Additional extension attributes of `toxicity` and `rank` are also included. Although these properties are not in the Microsoft Sentinel schema for indicators, ingesting an indicator with these properties doesn't trigger an error. The properties just aren't referenced or indexed in the workspace.
 
 ```json
 {
@@ -340,7 +343,17 @@ In this example, the indicator is marked with green TLP and uses extension attri
               "phase_name": "reconnaissance"
             }
           ]
-        },
+        }
+    ]
+}
+```
+
+#### Sample attack pattern
+
+```json
+{
+    "sourcesystem": "TestStixObjects",
+    "stixobjects": [
         {
           "type": "attack-pattern",
           "spec_version": "2.1",
@@ -394,8 +407,18 @@ In this example, the indicator is marked with green TLP and uses extension attri
             "alias_1",
             "alias_2"
           ]
-        },
-        {
+        }
+    ]
+}
+```
+
+#### Sample relationship with threat actor and identity
+
+```json
+{
+    "sourcesystem": "TestStixObjects",
+    "stixobjects": [
+    {
           "type": "identity",
           "spec_version": "2.1",
           "id": "identity--733c5838-34d9-4fbf-949c-62aba761184c",
@@ -552,8 +575,18 @@ In this example, the indicator is marked with green TLP and uses extension attri
               "lang": "en"
             }
           ]
-        },
-        {
+        }
+    ]
+}
+```
+
+#### Sample using STIX 2.0
+
+```json
+{
+    "sourcesystem": "TestStixObjects",
+    "stixobjects": [
+    {
           "type": "indicator",
           "spec_version": "2.0",
           "id": "indicator--10000001-71a2-445c-ab86-927291df48f8",
