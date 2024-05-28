@@ -17,7 +17,7 @@ When you connect Cloud services together with Service Connector, the conceptual 
 
 If your compute service instance is located in one of the regions that Service Connector supports below, you can use Service Connector to create and manage service connections.
 
-| Region               | App Service, Container Apps, Azure Functions, Azure Spring Apps | AKS |
+| Region               | App Service, Container Apps, <br>Azure Functions, Azure Spring Apps | AKS |
 |----------------------|:-----------------------------------------------------------------:|:-----:|
 | Australia Central    | Yes                                                             | No  |
 | Australia Central 2  | Yes                                                             | No  |
