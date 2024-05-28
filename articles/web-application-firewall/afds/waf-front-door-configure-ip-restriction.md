@@ -20,11 +20,11 @@ There are two types of match variables in an IP address match: `RemoteAddr` and 
 
 By default, your web application is accessible from the internet. If you want to limit access to clients from a list of known IP addresses or IP address ranges, you can create an IP matching rule that contains the list of IP addresses as matching values and sets the operator to `Not` (negate is true) and the action to `Block`. After an IP restriction rule is applied, requests that originate from addresses outside this allowed list receive a 403 Forbidden response.
 
-## Configure a WAF policy with the Azure portal
+## Configure a WAF policy
 
 #### [Portal](#tab/browser)
 
-Follow these steps to configure a WAF policy by using the Azure portal.
+Follow these steps to configure a WAF policy using the Azure portal.
 
 ### Prerequisites
 
@@ -90,9 +90,7 @@ Create an Azure Front Door profile by following the instructions described in [Q
 
 #### [CLI](#tab/azure-devops-cli)
 
-## Configure a WAF policy with the Azure CLI
-
-Follow these steps to configure a WAF policy by using the Azure CLI.
+Follow these steps to configure a WAF policy using the Azure CLI.
 
 ### Prerequisites
 Before you begin to configure an IP restriction policy, set up your CLI environment and create an Azure Front Door profile.
@@ -179,9 +177,8 @@ In this example, the WAF policy is applied to `FrontendEndpoints[0]`. You can li
 
 #### [Azure PowerShell](#tab/powershell)
 
-## Configure a WAF policy with Azure PowerShell
 
-Follow these steps to configure a WAF policy by using Azure PowerShell.
+Follow these steps to configure a WAF policy using Azure PowerShell.
 
 ### Prerequisites
 Before you begin to configure an IP restriction policy, set up your PowerShell environment and create an Azure Front Door profile.
@@ -265,8 +262,7 @@ Link a WAF policy object to an existing front-end host and update Azure Front Do
 
 #### [Template](#tab/yaml)
 
-## Configure a WAF policy with a Resource Manager template
-To view the template that creates an Azure Front Door policy and a WAF policy with custom IP restriction rules, go to [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-waf-clientip).
+To view the Resource Manager template that creates an Azure Front Door policy and a WAF policy with custom IP restriction rules, go to [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-waf-clientip).
 
 ---
 
