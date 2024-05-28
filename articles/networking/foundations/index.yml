@@ -47,8 +47,6 @@ productDirectory:
           url: /azure/virtual-network/quick-create-portal
         - text: Azure Virtual Network concepts and best practices 
           url: /azure/virtual-network/concepts-and-best-practices
-        - text: Plan virtual networks
-          url: /azure/virtual-network/virtual-network-vnet-plan-design-arm
         - text: Virtual networks and virtual machines in Azure
           url: /azure/virtual-network/network-overview
 
@@ -63,8 +61,6 @@ productDirectory:
           url: /azure/private-link/private-endpoint-overview
         - text: What is Azure Private Link service?
           url: /azure/private-link/private-link-service-overview
-        - text: Azure Private Endpoint DNS integration
-          url: /azure/private-link/private-endpoint-dns-integration
 
     - title: Azure DNS
       imageSrc: media/dns.svg
@@ -90,56 +86,47 @@ conceptualContent:
       summary: Review common scenarios.
       items:
         # Card 1
-        - title: Create an isolated network
+        - title: Design and create an isolated network
           links:
-            - url: ../../vpn-gateway/vpn-gateway-about-vpngateways.md
-              itemType: overview
-              text: What is Azure VPN Gateway?
-            - url: ../../expressroute/expressroute-introduction.md
-              itemType: overview
-              text: What is Azure ExpressRoute?
-            - url: ../../virtual-wan/virtual-wan-about.md
-              itemType: overview
-              text: What is Azure Virtual WAN?
-        # Card 2
-        - title: Design and configure the network
-          links:
-            - url: https://azure.microsoft.com/en-us/updates/?category=networking&query=VPN%20Gateway
-              itemType: whats-new
-              text: Azure VPN Gateway
+            - url: /azure/virtual-network/virtual-network-vnet-plan-design-arm
+              itemType: training
+              text: Plan virtual networks
+            - url: /azure/virtual-network/tutorial-connect-virtual-networks-portal
+              itemType: training
+              text: Connect virtual networks
             - url: https://azure.microsoft.com/en-us/updates/?category=networking&query=ExpressRoute
-              itemType: whats-new
-              text: Azure ExpressRoute
-            - url: https://azure.microsoft.com/en-us/updates/?category=networking&query=Virtual%20WAN
-              itemType: whats-new
-              text: Azure Virtual WAN
-        # Card 3
+              itemType: training
+              text: Deploy a private endpoint with a private resolver
+            - url: /azure/dns/private-dns-scenarios
+              itemType: training
+              text: Azure Private DNS zones scenarios
+        # Card 2
         - title: Secure the network
           links:
-            - url: /training/modules/intro-to-azure-expressroute/
+            - url: /azure/virtual-network/vnet-integration-for-azure-services
               itemType: training
-              text: Introduction to Azure ExpressRoute
-            - url: /training/modules/intro-to-azure-vpn-gateway/
+              text: Integrate Azure services with virtual networks for network isolation
+            - url: /azure/virtual-network/virtual-network-encryption-overview
               itemType: training
-              text: Introduction to Azure VPN Gateway
-            - url: /training/modules/introduction-azure-virtual-wan/
+              text: Virtual network encryption
+            - url: /azure/private-link/how-to-approve-private-link-cross-subscription
               itemType: training
-              text: Introduction to Azure Virtual WAN
-            - url: /training/modules/design-implement-azure-expressroute/
+              text: Approve Private Link connections across subscriptions
+            - url: /azure/private-link/tutorial-dns-on-premises-private-resolver
               itemType: training
-              text: Design and implement Azure ExpressRoute
-        # Card 4
+              text: Azure Private Endpoint DNS integration
+        # Card 3
         - title: Configure access to the network
           links:
-            - url: /training/modules/cloud-hybrid-connectivity/
+            - url: /azure/virtual-network/tutorial-filter-network-traffic
               itemType: training
-              text: Troubleshoot cloud and hybrid - Training walkthrough
-            - url: /training/modules/troubleshoot-vpn-gateways/
+              text: Filter network traffic
+            - url: /azure/virtual-network/tutorial-restrict-network-access-to-resources
               itemType: training
-              text: Troubleshoot VPN Gateway - Training walkthrough
-            - url: ../../vpn-gateway/vpn-gateway-troubleshoot.md
+              text: Restrict network access to resources
+            - url: /azure/private-link/how-to-approve-private-link-cross-subscription
               itemType: concept
-              text: Troubleshoot VPN Gateway
+              text: Approve Private Link connections across subscriptions
 
     # Section 2
     - title: Learn more
