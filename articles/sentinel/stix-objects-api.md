@@ -10,23 +10,23 @@ ms.author: austinmc
 
 # Import threat intelligence to Microsoft Sentinel with the STIX objects API (Preview)
 
-Import indicators of compromise and other domain objects in the STIX format into a Microsoft Sentinel workspace with the Microsoft Sentinel STIX objects API. Whether you're using a threat intelligence platform or a custom application, use this document as a supplemental reference to the instructions in the [Microsoft Sentinel upload indicators API data connector](connect-threat-intelligence-upload-api.md). Installing the data connector isn't required to connect to the API.
+Import indicators of compromise and other STIX domain objects to use in Microsoft Sentinel workspace with the STIX objects API. Whether you're using a threat intelligence platform or a custom application, use this document as a supplemental reference to the instructions in the [Microsoft Sentinel STIX objects API data connector](connect-threat-intelligence-upload-api.md). Installing the data connector isn't required to connect to the API.
 
 > [!IMPORTANT]
 > This API is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-Structured Threat Information Expression (STIX) is a language for expressing cyber threat and observable information. STIX objects API includes the following enhanced support for domain objects:
-- indicators
+Structured Threat Information Expression (STIX) is a language for expressing cyber threat and observable information. Enhanced support for the following domain objects is included with the STIX objects API:
+- indicator
 - attack pattern
-- threat actors
+- threat actor
 - identity
-- relationships
+- relationship
 
 For more information, see [Introduction to STIX](https://oasis-open.github.io/cti-documentation/stix/intro.html). 
 
 > [!NOTE]
-> The previous upload indicators API is now deprecated. If you need to reference that API while transitioning to the new STIX objects API, see [Legacy upload indicators API](upload-indicators-api.md).
+> The previous upload indicators API is now legacy. If you need to reference that API while transitioning to the new STIX objects API, see [Legacy upload indicators API](upload-indicators-api.md).
 
 ## Call the API
 
@@ -40,7 +40,7 @@ A call to the STIX objects API has five components:
 
 ## Register your client application with Microsoft Entra ID
 
-In order to authenticate to Microsoft Sentinel, the request to the STIX objects API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app) or see the basic steps as part of the [upload indicators API data connector](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
+In order to authenticate to Microsoft Sentinel, the request to the STIX objects API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app) or see the basic steps as part of the [STIX objects API data connector](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
 
 This API requires the calling Microsoft Entra application to be granted the Microsoft Sentinel contributor role at the workspace level.
 
@@ -92,7 +92,7 @@ The JSON object for the body contains the following fields:
 
 Create the array of STIX objects using the STIX format specification. Some of the STIX property specifications are expanded here for your convenience with links to the relevant STIX document sections. Also note some properties, while valid for STIX, don't have corresponding object schema properties in Microsoft Sentinel.
 
-#### Indicators
+#### Indicator
 
 |Property Name	|Type |	Description |
 |----|----|----|
@@ -141,7 +141,7 @@ The response header contains an HTTP status code. Reference this table for more 
 
 |Status code  |Description  |
 |---------|---------|
-|**200**     |   Success. The API returns 200 when one or more indicators are successfully validated and published. |
+|**200**     |   Success. The API returns 200 when one or more STIX objects are successfully validated and published. |
 |**400**     |   Bad format. Something in the request isn't correctly formatted.    |
 |**401**     |   Unauthorized. |
 |**404**     |   File not found. Usually this error occurs when the workspace ID isn't found.   |
@@ -158,14 +158,14 @@ The response body is an array of error messages in JSON format:
 
 |Field name | Data Type | Description |
 |----|----|----|
-|recordIndex | int | Index of the indicators in the request |
+|recordIndex | int | Index of the STIX objects in the request |
 |errorMessages | Array of strings | Error messages |
 
 
 ## Throttling limits for the API
 
 All limits are applied per user:
-- 100 indicators per request. 
+- 100 objects per request. 
 - 100 requests per minute.
 
 If there are more requests than the limit, a `429` http status code in the response header is returned with the following response body:
@@ -175,11 +175,11 @@ If there are more requests than the limit, a `429` http status code in the respo
     "message": "Rate limit is exceeded. Try again in <number of seconds> seconds."
 }
 ```
-Approximately 10,000 indicators per minute is the maximum throughput before a throttling error is received. 
+Approximately 10,000 objects per minute is the maximum throughput before a throttling error is received. 
 
 ### Sample indicator request body
 
-The following example shows how to represent two indicators in the STIX specification. `Test Indicator 2` showcases setting the TLP to white with the mapped object marking, and clarifying its description and labels are in English.
+The following example shows how to represent two indicators in the STIX specification. `Test Indicator 2` highlights the Traffic Light Protocol (TLP) set to white with the mapped object marking, and clarifying its description and labels are in English.
 
 ```json
 {
@@ -253,9 +253,9 @@ The following example shows how to represent two indicators in the STIX specific
 ```
 
 ### Sample response body with validation error
-If all indicators are validated successfully, an HTTP 200 status is returned with an empty response body. 
+If all STIX objects are validated successfully, an HTTP 200 status is returned with an empty response body. 
 
-If validation fails for one or more indicators, the response body is returned with more information. For example, if you send an array with four indicators, and the first three are good but the fourth doesn't have an `id` (a required field), then an HTTP status code 200 response is generated along with the following body:
+If validation fails for one or more objects, the response body is returned with more information. For example, if you send an array with four indicators, and the first three are good but the fourth doesn't have an `id` (a required field), then an HTTP status code 200 response is generated along with the following body:
 
 ```json
 {
@@ -269,13 +269,13 @@ If validation fails for one or more indicators, the response body is returned wi
     ]
 }
 ```
-The indicators are sent as an array, so the `recordIndex` begins at `0`.
+The objects are sent as an array, so the `recordIndex` begins at `0`.
 
 ### Other samples
 
 #### Sample indicator
 
-In this example, the indicator is marked with the green TLP. More extension attributes of `toxicity` and `rank` are also included. Although these properties aren't in the Microsoft Sentinel schema for indicators, ingesting an indicator with these properties doesn't trigger an error. The properties just aren't referenced or indexed in the workspace.
+In this example, the indicator is marked with the green TLP. More extension attributes of `toxicity` and `rank` are also included. Although these properties aren't in the Microsoft Sentinel schema for indicators, ingesting an object with these properties doesn't trigger an error. The properties simply aren't referenced or indexed in the workspace.
 
 ```json
 {
@@ -578,246 +578,6 @@ In this example, the indicator is marked with the green TLP. More extension attr
         }
     ]
 }
-```
-
-#### Sample using STIX 2.0
-
-```json
-{
-    "sourcesystem": "TestStixObjects",
-    "stixobjects": [
-    {
-          "type": "indicator",
-          "spec_version": "2.0",
-          "id": "indicator--10000001-71a2-445c-ab86-927291df48f8",
-          "created": "2010-02-26T18:29:07.778Z",
-          "modified": "2011-02-26T18:29:07.778Z",
-          "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
-          "revoked": true,
-          "labels": [
-            "ThreatIntelligence",
-            "TestData"
-          ],
-          "external_references": [
-            {
-              "source_name": "veris",
-              "description": "Threat report",
-              "external_id": "0001AA7F-C601-424A-B2B8-BE6C9F5164E7",
-              "url": "https://abc.com//example.json",
-              "hashes": {
-                "SHA-256": "6db12788c37247f2316052e142f42f4b259d6561751e5f401a1ae2a6df9c674b"
-              }
-            }
-          ],
-          "object_marking_refs": [
-            "marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"
-          ],
-          "granular_markings": [
-            {
-              "marking_ref": "marking-definition--089a6ecb-cc15-43cc-9494-767639779123",
-              "selectors": [
-                "description",
-                "labels"
-              ],
-              "lang": "en"
-            }
-          ],
-          "name": "Indicator 2.0  Test",
-          "description": "TS ID: 35766958; iType: bot_ip; State: active; Org: 52.3667; Source: Emerging Threats - Compromised",
-          "pattern": "[ipv4-addr:value = '94.102.52.185']",
-          "valid_from": "2015-02-26T18:29:07.778Z",
-          "valid_until": "2016-02-26T18:29:07.778Z",
-          "kill_chain_phases": [
-            {
-              "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-              "phase_name": "reconnaissance"
-            }
-          ]
-        },
-        {
-          "type": "attack-pattern",
-          "spec_version": "2.0",
-          "id": "attack-pattern--fb6aa549-c94a-4e45-b4fd-7e32602dad85",
-          "created": "2015-05-15T09:12:16.432Z",
-          "modified": "2015-05-20T09:12:16.432Z",
-          "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
-          "revoked": false,
-          "labels": [
-            "heartbleed",
-            "has-logo"
-          ],
-          "object_marking_refs": [
-            "marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"
-          ],
-          "granular_markings": [
-            {
-              "marking_ref": "marking-definition--089a6ecb-cc15-43cc-9494-767639779123",
-              "selectors": [
-                "description",
-                "labels"
-              ],
-              "lang": "en"
-            }
-          ],
-          "external_references": [
-            {
-              "source_name": "capec",
-              "description": "spear phishing",
-              "external_id": "CAPEC-163"
-            }
-          ],
-          "name": "Attach Pattern 2.0",
-          "description": "menuPass appears to favor spear phishing to deliver payloads to the intended targets. While the attackers behind menuPass have used other RATs in their campaign, it appears that they use PIVY as their primary persistence mechanism.",
-          "kill_chain_phases": [
-            {
-              "kill_chain_name": "mandiant-attack-lifecycle-model",
-              "phase_name": "initial-compromise"
-            }
-          ]
-        },
-        {
-          "type": "identity",
-          "spec_version": "2.0",
-          "id": "identity--733c5838-34d9-4fbf-949c-62aba761184c",
-          "created": "2016-08-23T18:05:49.307Z",
-          "modified": "2016-08-23T18:05:49.307Z",
-          "name": "Identity 2.0",
-          "description": "Disco Team is the name of an organized threat actor crime-syndicate.",
-          "identity_class": "organization",
-          "contact_information": "disco-team@stealthemail.com",
-          "sectors": [
-            "education"
-          ],
-          "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
-          "revoked": true,
-          "labels": [
-            "heartbleed",
-            "has-logo"
-          ],
-          "external_references": [
-            {
-              "source_name": "veris",
-              "description": "Threat report",
-              "external_id": "0001AA7F-C601-424A-B2B8-BE6C9F5164E7",
-              "url": "https://abc.com//example.json",
-              "hashes": {
-                "SHA-256": "6db12788c37247f2316052e142f42f4b259d6561751e5f401a1ae2a6df9c674b"
-              }
-            }
-          ],
-          "object_marking_refs": [
-            "marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"
-          ],
-          "granular_markings": [
-            {
-              "marking_ref": "marking-definition--089a6ecb-cc15-43cc-9494-767639779123",
-              "selectors": [
-                "description",
-                "labels"
-              ],
-              "lang": "en"
-            }
-          ]
-        },
-        {
-          "type": "threat-actor",
-          "id": "threat-actor--dfaa8d77-07e2-4e28-b2c8-92e9f7b04428",
-          "created": "2014-11-19T23:39:03.893Z",
-          "modified": "2014-11-19T23:39:03.893Z",
-          "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
-          "revoked": true,
-          "labels": [
-            "heartbleed",
-            "has-logo"
-          ],
-          "external_references": [
-            {
-              "source_name": "veris",
-              "description": "Threat report",
-              "external_id": "0001AA7F-C601-424A-B2B8-BE6C9F5164E7",
-              "url": "https://abc.com//example.json",
-              "hashes": {
-                "SHA-256": "6db12788c37247f2316052e142f42f4b259d6561751e5f401a1ae2a6df9c674b"
-              }
-            }
-          ],
-          "object_marking_refs": [
-            "marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"
-          ],
-          "granular_markings": [
-            {
-              "marking_ref": "marking-definition--089a6ecb-cc15-43cc-9494-767639779123",
-              "selectors": [
-                "description",
-                "labels"
-              ],
-              "lang": "en"
-            }
-          ],
-          "name": "Threat Actor 2.0",
-          "description": "This organized threat actor group operates to create profit from all types of crime.",
-          "aliases": [
-            "Equipo del Discoteca"
-          ],
-          "roles": [
-            "agent"
-          ],
-          "goals": [
-            "Steal Credit Card Information"
-          ],
-          "sophistication": "expert",
-          "resource_level": "organization",
-          "primary_motivation": "personal-gain",
-          "secondary_motivations": [
-            "dominance"
-          ],
-          "personal_motivations": [
-            "revenge"
-          ]
-        },
-        {
-          "type": "relationship",
-          "spec_version": "2.0",
-          "id": "relationship--a2e3efb5-351d-4d46-97a0-6897ee7c77a0",
-          "created": "2020-02-29T18:01:28.577Z",
-          "modified": "2020-02-29T18:01:28.577Z",
-          "relationship_type": "attributed-to",
-          "description": "Description Relationship 2.0",
-          "source_ref": "threat-actor--dfaa8d77-07e2-4e28-b2c8-92e9f7b04428",
-          "target_ref": "identity--733c5838-34d9-4fbf-949c-62aba761184c",
-          "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
-          "revoked": true,
-          "labels": [
-            "heartbleed",
-            "has-logo"
-          ],
-          "external_references": [
-            {
-              "source_name": "veris",
-              "description": "Threat report",
-              "external_id": "0001AA7F-C601-424A-B2B8-BE6C9F5164E7",
-              "url": "https://abc.com//example.json",
-              "hashes": {
-                "SHA-256": "6db12788c37247f2316052e142f42f4b259d6561751e5f401a1ae2a6df9c674b"
-              }
-            }
-          ],
-          "object_marking_refs": [
-            "marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"
-          ],
-          "granular_markings": [
-            {
-              "marking_ref": "marking-definition--089a6ecb-cc15-43cc-9494-767639779123",
-              "selectors": [
-                "description",
-                "labels"
-              ],
-              "lang": "en"
-            }
-          ]
-        }
-      ]
-    }
 ```
 
 ## Next steps
