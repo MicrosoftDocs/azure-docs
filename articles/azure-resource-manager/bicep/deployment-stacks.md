@@ -1,14 +1,14 @@
 ---
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 04/11/2024
+ms.date: 05/28/2024
 ---
 
-# Deployment stacks (Preview)
+# Deployment stacks
 
-An Azure deployment stack is a type of Azure resource that enables the management of a group of Azure resources as an atomic unit. When a Bicep file or an ARM JSON template is submitted to a deployment stack, it defines the resources that are managed by the stack. If a resource that was previously included in the template is removed, it will either be detached or deleted based on the specified _actionOnUnmanage_ behavior of the deployment stack. Similar to other Azure resources, access to the deployment stack can be restricted using Azure role-based access control (Azure RBAC).
+An Azure deployment stack is a type of Azure resource that enables the management of a group of Azure resources as an atomic unit. When a Bicep file or an ARM JSON template is submitted to a deployment stack, it defines the resources that are managed by the stack. If a resource that was previously included in the template is removed, it will either be detached or deleted based on the specified _actionOnUnmanage_ behavior of the deployment stack. Similar to other Azure resources, access to the deployment stack can be restricted using Azure role-based access control (Azure RBAC). 
 
 To create and update a deployment stack, you can utilize Azure CLI, Azure PowerShell, or the Azure portal along with Bicep files. These Bicep files are transpiled into ARM JSON templates, which are then deployed as a deployment object by the stack. The deployment stack offers additional capabilities beyond the [familiar deployment resources](./deploy-cli.md), serving as a superset of those capabilities.
 
@@ -16,7 +16,7 @@ To create and update a deployment stack, you can utilize Azure CLI, Azure PowerS
 
 When planning your deployment and determining which resource groups should be part of the same stack, it's important to consider the management lifecycle of those resources, which includes creation, updating, and deletion. For instance, suppose you need to provision some test VMs for various application teams across different resource group scopes. In this case, a deployment stack can be utilized to  create these test environments and update the test VM configurations through subsequent updates to the deployment stack. After completing the project, it may be necessary to remove or delete any resources that were created, such as the test VMs. By utilizing a deployment stack, the managed resources can be easily removed by specifying the appropriate delete flag. This streamlined approach saves time during environment cleanup, as it involves a single update to the stack resource rather than individually modifying or removing each test VM across various resource group scopes.
 
-Deployment stacks requires Azure PowerShell [version 10.1.0 or later](/powershell/azure/install-az-ps) or Azure CLI [version 2.50.0 or later](/cli/azure/install-azure-cli).
+Deployment stacks requires Azure PowerShell [version 12.0.0 or later](/powershell/azure/install-az-ps) or Azure CLI [version 2.61.0 or later](/cli/azure/install-azure-cli).
 
 To create your first deployment stack, work through [Quickstart: create deployment stack](./quickstart-create-deployment-stacks.md).
 
@@ -33,14 +33,25 @@ Deployment stacks provide the following benefits:
 
 - Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
 - Deny assignments don't support tags.
-- Deny assignments is not supported within the management group scope.
+- Deny assignments are not supported at the management group scope. However, they are supported in a management group stack if the deployment is pointed at the subscription scope.
 - Deployment stacks cannot delete Key vault secrets. If you're removing key vault secrets from a template, make sure to also execute the deployment stack update/delete command with detach mode.
 
 ### Known issues
 
 - Deleting resource groups currently bypasses deny assignments. When creating a deployment stack in the resource group scope, the Bicep file doesn't contain the definition for the resource group. Despite the deny assignment setting, it's possible to delete the resource group and its contained stack. However, if a [lock](../management/lock-resources.md) is active on any resource within the group, the delete operation will fail.
-- [What-if](./deploy-what-if.md) isn't available in the preview.
+- The [What-if](./deploy-what-if.md) support is not yet available.
 - A management group-scoped stack is restricted from deploying to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
+- The PowerShell command help lists a `DeleteResourcesAndResourcesGroups` value for the `ActionOnUnmanage` switch. When this value is used, the command detaches the managed resources and the resource groups. This value will be removed in the next update. Do not use this value.
+
+## Built-in roles
+
+> [!WARNING]
+> Enforcement of the RBAC permission [Microsoft.Resources/deploymentStacks/manageDenySetting/action](/azure/role-based-access-control/permissions/management-and-governance) is rolling out across regions, including Government Clouds. 
+
+There are two built-in roles for deployment stack:
+
+- **Azure Deployment Stack Contributor**: Allows users to manage deployment stacks, but cannot create or delete deny assignments within the deployment stacks.
+- **Azure Deployment Stack Owner**: Allows users to manage deployment stacks, including those with deny assignments.
 
 ## Create deployment stacks
 
@@ -63,6 +74,7 @@ New-AzResourceGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -ResourceGroupName "<resource-group-name>" `
   -TemplateFile "<bicep-file-name>" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -73,6 +85,7 @@ az stack group create \
   --name '<deployment-stack-name>' \
   --resource-group '<resource-group-name>' \
   --template-file '<bicep-file-name>' \
+  --action-on-unmanage 'detachAll'
   --deny-settings-mode 'none'
 ```
 
@@ -92,6 +105,7 @@ New-AzSubscriptionDeploymentStack `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
   -DeploymentResourceGroupName "<resource-group-name>" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -105,6 +119,7 @@ az stack sub create \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
   --deployment-resource-group' <resource-group-name>' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -126,6 +141,7 @@ New-AzManagmentGroupDeploymentStack `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
   -DeploymentSubscriptionId "<subscription-id>" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -139,6 +155,7 @@ az stack mg create \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
   --deployment-subscription '<subscription-id>' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -239,6 +256,7 @@ Set-AzResourceGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -ResourceGroupName "<resource-group-name>" `
   -TemplateFile "<bicep-file-name>" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -249,6 +267,7 @@ az stack group create \
   --name '<deployment-stack-name>' \
   --resource-group '<resource-group-name>' \
   --template-file '<bicep-file-name>' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -267,10 +286,11 @@ To update a deployment stack at the subscription scope:
 
 ```azurepowershell
 Set-AzSubscriptionDeploymentStack `
-   -Name "<deployment-stack-name>" `
-   -Location "<location>" `
-   -TemplateFile "<bicep-file-name>" `
-   -DeploymentResourceGroupName "<resource-group-name>" `
+  -Name "<deployment-stack-name>" `
+  -Location "<location>" `
+  -TemplateFile "<bicep-file-name>" `
+  -DeploymentResourceGroupName "<resource-group-name>" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -284,6 +304,7 @@ az stack sub create \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
   --deployment-resource-group '<resource-group-name>' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -303,6 +324,7 @@ Set-AzManagmentGroupDeploymentStack `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
   -DeploymentSubscriptionId "<subscription-id>" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -314,6 +336,7 @@ az stack mg create \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
   --deployment-subscription '<subscription-id>' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -337,13 +360,15 @@ For more information, see [Create deployment stacks](#create-deployment-stacks).
 
 A detached resource (or unmanaged resource) refers to a resource that isn't tracked or managed by the deployment stack but still exists within Azure.
 
-To instruct Azure to delete unmanaged resources, update the stack with the create stack command with one of the following delete flags. For more information, see [Create deployment stack](#create-deployment-stacks).
+To instruct Azure to delete unmanaged resources, update the stack with the create stack command with the following switch. For more information, see [Create deployment stack](#create-deployment-stacks).
 
 # [PowerShell](#tab/azure-powershell)
 
-- `DeleteAll`: use delete rather than detach for managed resources and resource groups.
-- `DeleteResources`: use delete rather than detach for managed resources only.
-- `DeleteResourceGroups`: use delete rather than detach for managed resource groups only. It's invalid to use `DeleteResourceGroups` by itself. `DeleteResourceGroups` must be used together with `DeleteResources`.
+Use the `ActionOnUnmanage` switch to define what happens to resources that are no longer managed after a stack is updated or deleted. Allowed values are:
+
+- `deleteAll`: use delete rather than detach for managed resources and resource groups.
+- `deleteResources`: use delete rather than detach for managed resources only.
+- `detachAll`: detach the managed resources and resource groups.
 
 For example:
 
@@ -352,15 +377,16 @@ New-AzSubscriptionDeploymentStack `
   -Name "<deployment-stack-name" `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "none" `
-  -DeleteResourceGroups `
-  -DeleteResources
+  -ActionOnUnmanage "deleteAll" 
 ```
 
 # [CLI](#tab/azure-cli)
 
-- `delete-all`: use delete rather than detach for managed resources and resource groups.
-- `delete-resources`: use delete rather than detach for managed resources only.
-- `delete-resource-groups`: use delete rather than detach for managed resource groups only. It"s invalid to use `delete-resource-groups` by itself. `delete-resource-groups` must be used together with `delete-resources`.
+Use the `action-on-unmanage` switch to define what happens to resources that are no longer managed after a stack is updated or deleted. Allowed values are: 
+
+- `deleteAll`: use delete rather than detach for managed resources and resource groups.
+- `deleteResources`: use delete rather than detach for managed resources only.
+- `detachAll`: detach the managed resources and resource groups.
 
 For example:
 
@@ -369,9 +395,8 @@ az stack sub create `
   --name '<deployment-stack-name>' `
   --location '<location>' `
   --template-file '<bicep-file-name>' `
-  --deny-settings-mode 'none' `
-  --delete-resource-groups `
-  --delete-resources
+  --action-on-unmanage 'deleteAll' `
+  --deny-settings-mode 'none' 
 ```
 
 # [Portal](#tab/azure-portal)
@@ -381,25 +406,25 @@ Currently not implemented.
 ---
 
 > [!WARNING]
-> When deleting resource groups with either the `DeleteAll` or `DeleteResourceGroups` properties, the managed resource groups and all the resources contained within them will also be deleted.
+> When deleting resource groups with the action-on-unmanage switch set to `DeleteAll`, the managed resource groups and all the resources contained within them will also be deleted.
 
 ## Delete deployment stacks
 
 # [PowerShell](#tab/azure-powershell)
 
-If you run the delete commands without the delete flags, the unmanaged resources will be detached but not deleted. To delete the unmanaged resources, use the following switches:
+The `ActionOnUnmanage` switch defines the action to the resources that are no longer managed. The switch has the following values: 
 
 - `DeleteAll`: Delete both the resources and the resource groups.
 - `DeleteResources`: Delete the resources only.
-- `DeleteResourceGroups`: Delete the resource groups only.
+- `DetachAll`: Detach the resources.
 
 # [CLI](#tab/azure-cli)
 
-If you run the delete commands without the delete flags, the unmanaged resources will be detached but not deleted. To delete the unmanaged resources, use the following switches:
+The `action-on-unmanage` switch defines the action to the resources that are no longer managed. The switch has the following values: 
 
 - `delete-all`: Delete both the resources and the resource groups.
 - `delete-resources`: Delete the resources only.
-- `delete-resource-groups`: Delete the resource groups only.
+- `detach-all`: Detach the resources.
 
 # [Portal](#tab/azure-portal)
 
@@ -419,7 +444,7 @@ To delete deployment stack resources at the resource group scope:
 Remove-AzResourceGroupDeploymentStack `
   -name "<deployment-stack-name>" `
   -ResourceGroupName "<resource-group-name>" `
-  [-DeleteAll/-DeleteResourceGroups/-DeleteResources]
+  -ActionOnUnmanage "<deleteAll/deleteResources/detachAll>"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -428,7 +453,7 @@ Remove-AzResourceGroupDeploymentStack `
 az stack group delete \
   --name '<deployment-stack-name>' \
   --resource-group '<resource-group-name>' \
-  [--delete-all/--delete-resource-groups/--delete-resources]
+  --action-on-unmanage '<deleteAll/deleteResources/detachAll>'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -451,7 +476,7 @@ To delete deployment stack resources at the subscription scope:
 ```azurepowershell
 Remove-AzSubscriptionDeploymentStack `
   -Name "<deployment-stack-name>" `
-  [-DeleteAll/-DeleteResourceGroups/-DeleteResources]
+  -ActionOnUnmanage "<deleteAll/deleteResources/detachAll>"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -459,7 +484,7 @@ Remove-AzSubscriptionDeploymentStack `
 ```azurecli
 az stack sub delete \
   --name '<deployment-stack-name>' \
-  [--delete-all/--delete-resource-groups/--delete-resources]
+  --action-on-unmanage '<deleteAll/deleteResources/detachAll>'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -482,7 +507,7 @@ To delete deployment stack resources at the management group scope:
 Remove-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -ManagementGroupId "<management-group-id>" `
-  [-DeleteAll/-DeleteResourceGroups/-DeleteResources]
+  -ActionOnUnmanage "<deleteAll/deleteResources/detachAll>"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -491,7 +516,7 @@ Remove-AzManagementGroupDeploymentStack `
 az stack mg delete \
   --name '<deployment-stack-name>' \
   --management-group-id '<management-group-id>' \
-  [--delete-all/--delete-resource-groups/--delete-resources]
+  --action-on-unmanage '<deleteAll/deleteResources/detachAll>'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -502,7 +527,7 @@ Currently not implemented.
 
 ## View managed resources in deployment stack
 
-During public preview, the deployment stack service doesn't yet have an Azure portal graphical user interface (GUI). To view the managed resources inside a deployment stack, use the following Azure Powershell/Azure CLI commands:
+The deployment stack service doesn't yet have an Azure portal graphical user interface (GUI). To view the managed resources inside a deployment stack, use the following Azure Powershell/Azure CLI commands:
 
 To view managed resources at the resource group scope:
 
@@ -594,6 +619,14 @@ To delete a managed resource, remove the resource definition from the underlying
 
 When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are referred to as deny settings. You want to store the stack at a parent scope.
 
+> [!NOTE]
+> The latest release requires specific permissions at the stack scope in order to:
+>
+> - Create or update a deployment stack and set the deny setting to a value other than "None".
+> - Update or delete a deployment stack with an existing deny setting of something other than "None"
+>
+> Use the [built-in roles](#built-in-roles) to grant the permissions.
+
 # [PowerShell](#tab/azure-powershell)
 
 The Azure PowerShell includes these parameters to customize the deny assignment:
@@ -627,7 +660,8 @@ New-AzResourceGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -ResourceGroupName "<resource-group-name>" `
   -TemplateFile "<bicep-file-name>" `
-  -DenySettingsMode "DenyDelete" `
+  -ActionOnUnmanage "detachAll" `
+  -DenySettingsMode "denyDelete" `
   -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
   -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
@@ -639,6 +673,7 @@ az stack group create \
   --name '<deployment-stack-name>' \
   --resource-group '<resource-group-name>' \
   --template-file '<bicep-file-name>' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'denyDelete' \
   --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
   --deny-settings-excluded-principals '<object-id> <object-id>'
@@ -659,7 +694,8 @@ New-AzSubscriptionDeploymentStack `
   -Name "<deployment-stack-name>" `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
-  -DenySettingsMode "DenyDelete" `
+  -ActionOnUnmanage "detachAll" `
+  -DenySettingsMode "denyDelete" `
   -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
   -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
@@ -673,6 +709,7 @@ az stack sub create \
   --name '<deployment-stack-name>' \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'denyDelete' \
   --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
   --deny-settings-excluded-principals '<object-id> <object-id>'
@@ -695,7 +732,8 @@ New-AzManagmentGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
-  -DenySettingsMode "DenyDelete" `
+  -ActionOnUnmanage "detachAll" `
+  -DenySettingsMode "denyDelete" `
   -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
   -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
@@ -709,6 +747,7 @@ az stack mg create \
   --name '<deployment-stack-name>' \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'denyDelete' \
   --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
   --deny-settings-excluded-principals '<object-id> <object-id>'
@@ -736,8 +775,8 @@ To export a deployment stack at the resource group scope:
 
 ```azurepowershell
 Save-AzResourceGroupDeploymentStack `
-   -Name '<deployment-stack-name>' `
-   -ResourceGroupName '<resource-group-name>' `
+   -Name "<deployment-stack-name>" `
+   -ResourceGroupName "<resource-group-name>" `
 ```
 
 # [CLI](#tab/azure-cli)
@@ -760,7 +799,7 @@ To export a deployment stack at the subscription scope:
 
 ```azurepowershell
 Save-AzSubscriptionDeploymentStack `
-  -name '<deployment-stack-name>'
+  -name "<deployment-stack-name>"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -782,8 +821,8 @@ To export a deployment stack at the management group scope:
 
 ```azurepowershell
 Save-AzManagmentGroupDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -ManagementGroupId '<management-group-id>'
+  -Name "<deployment-stack-name>" `
+  -ManagementGroupId "<management-group-id>"
 ```
 
 # [CLI](#tab/azure-cli)

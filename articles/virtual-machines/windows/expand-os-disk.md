@@ -181,4 +181,4 @@ foreach($vmSize in $vmSizes){
 
 ## Next steps
 
-You can also attach disks using the [Azure portal](attach-managed-disk-portal.md).
+You can also attach disks using the [Azure portal](attach-managed-disk-portal.yml).

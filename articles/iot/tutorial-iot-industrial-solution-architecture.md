@@ -11,7 +11,7 @@ ms.date: 4/17/2024
 
 ---
 
-# Tutorial: Implement the Azure Industrial IoT reference architecture for condition monitoring
+# Tutorial: Implement the Azure Industrial IoT reference solution architecture
 
 Manufacturers want to deploy an overall Industrial IoT solution on a global scale and connecting all of their production sites to this solution to increase efficiencies for each individual production site.
 
@@ -45,7 +45,7 @@ Here are the components involved in this solution:
 
 | Component | Description |
 | --- | --- |
-| Industrial Assets | A set of simulated OPC-UA enabled production lines hosted in Docker containers |
+| Industrial Assets | A set of simulated OPC UA enabled production lines hosted in Docker containers |
 | [Azure IoT Operations](/azure/iot-operations/get-started/overview-iot-operations) | Azure IoT Operations is a unified data plane for the edge. It includes a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters. |
 | [Data Gateway](/azure/logic-apps/logic-apps-gateway-install#how-the-gateway-works) | This gateway connects your on-premises data sources (like SAP) to Azure Logic Apps in the cloud. |
 | [Azure Kubernetes Services Edge Essentials](/azure/aks/hybrid/aks-edge-overview) | This Kubernetes implementation runs at the Edge. It provides single- and multi-node Kubernetes clusters for a fault-tolerant Edge configuration. Both K3S and K8S are supported. It runs on embedded or PC-class hardware, like an industrial gateway. |
@@ -54,7 +54,6 @@ Here are the components involved in this solution:
 | [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) | Azure Logic Apps is a cloud platform you can use to create and run automated workflows with little to no code. |
 | [Azure Arc](/azure/azure-arc/kubernetes/overview) | This cloud service is used to manage the on-premises Kubernetes cluster at the edge. New workloads can be deployed via Flux. |
 | [Azure Storage](/azure/storage/common/storage-introduction) | This cloud service is used to manage the OPC UA certificate store and settings of the Edge Kubernetes workloads. |
-| [Microsoft Sustainability Manager](/industry/sustainability/sustainability-manager-overview) | Microsoft Sustainability Manager is an extensible solution that unifies data intelligence and provides comprehensive, integrated, and automated sustainability management for organizations at any stage of their sustainability journey. It automates manual processes, enabling organizations to more efficiently record, report, and reduce their emissions. |
 | [Azure Managed Grafana](/azure/managed-grafana/overview) | Azure Managed Grafana is a data visualization platform built on top of the Grafana software by Grafana Labs. Grafana is built as a fully managed service that is hosted and supported by Microsoft. |
 | [Microsoft Power BI](/power-bi/fundamentals/power-bi-overview) | Microsoft Power BI is a collection of SaaS software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. |
 | [Microsoft Dynamics 365 Field Service](/dynamics365/field-service/overview) | Microsoft Dynamics 365 Field Service is a turnkey SaaS solution for managing field service requests. |
@@ -225,7 +224,7 @@ Parameters:
 The following example shows the command with all parameters:
 
 ```console
-    StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh= DefaultEndpointsProtocol=https;AccountName=ontologiesstorage;AccountKey=abcdefgh==;EndpointSuffix=core.windows.net 9dd2eft0-3dad-4aeb-85d8-c3adssd8127a 6e660ce4-d51a-4585-80c6-58035e212354
+    StartSimulation Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh= DefaultEndpointsProtocol=https;AccountName=ontologiesstorage;AccountKey=abcdefgh==;EndpointSuffix=core.windows.net <your-subscription-id> <your-tenant-id>
 ```
 
 > [!NOTE]

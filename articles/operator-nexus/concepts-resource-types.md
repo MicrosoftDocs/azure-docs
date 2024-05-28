@@ -117,7 +117,7 @@ Workload components are resources that you use in hosting your workloads.
 ### Network resources
 
 The Network resources represent the virtual networking in support of your workloads hosted on VMs or Kubernetes clusters. 
-There are five Network resource types that represent a network attachment to an underlying isolation-domain. 
+There are four Network resource types that represent a network attachment to an underlying isolation-domain. 
 
 - **Cloud Services Network Resource**: provides VMs/Kubernetes clusters access to cloud services such as DNS, NTP, and user-specified Azure PaaS services. You must create at least one Cloud Services Network (CSN) in each of your Operator Nexus instances. Each CSN can be reused by many VMs and/or tenant clusters.
 

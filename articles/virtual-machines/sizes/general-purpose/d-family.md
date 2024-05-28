@@ -9,26 +9,15 @@ ms.date: 04/16/2024
 ms.author: mattmcinnes
 ---
 
-# D family general purpose VM size series
+# 'D' family general purpose VM size series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The 'D' family of VM sizes are one of Azure's general purpose VM sizes. They're designed for a variety of demanding workloads, such as enterprise applications, web and application servers, development and test environments, and batch processing tasks. Equipped with faster processors and more memory per core than the A-series, D-series VMs offer a strong performance balance, making them suitable for applications that require both high computational power and substantial memory resources. They are particularly favored for running enterprise-grade applications, supporting moderate to high-traffic web servers, and performing data-intensive batch processing.
+[!INCLUDE [d-family-summary](./includes/d-family-summary.md)]
 
 ## Workloads and use cases
 
-**Balanced Performance:** D-series VMs provide a solid balance between CPU capabilities and memory size, which makes them suitable for most production workloads. They are equipped with faster processors compared to the A-series and provide more memory per core.
-
-**Enterprise Applications:** They are well-suited for running enterprise applications like SAP, Microsoft Dynamics, or large relational databases that require both high computational power and substantial memory.
-
-**Development and Test Environments:** With their balanced resources, D-series VMs are ideal for development and testing environments where developers need to simulate production conditions closely.
-
-**Web and Application Servers:** They provide the necessary resources to host web servers and application servers that experience moderate to heavy traffic, ensuring smooth and responsive user experiences.
-
-**Batch Processing:** D-series VMs are efficient for handling batch processing tasks that require processing large amounts of data quickly, thanks to their fast processors and ample memory.
-
-**Gaming Servers:** The high-performance capabilities of D-series VMs make them suitable for gaming servers where latency and speed are critical for a good user experience.
-
+[!INCLUDE [d-family-workloads](./includes/d-family-workloads.md)]
 
 ## Series in family
 

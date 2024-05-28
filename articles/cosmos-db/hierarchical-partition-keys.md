@@ -204,8 +204,8 @@ For example, assume that you have a hierarchical partition key that's composed o
 ```bicep
 partitionKey: {
   paths: [
-    '/TenantId',
-    '/UserId',
+    '/TenantId'
+    '/UserId'
     '/SessionId'
   ]
   kind: 'MultiHash'

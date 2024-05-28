@@ -231,6 +231,8 @@ To help you understand the concept of *cloud role names*, look at an application
 
 In the application map shown, each of the names in green boxes is a cloud role name value for different aspects of this particular distributed application. For this app, its roles consist of `Authentication`, `acmefrontend`, `Inventory Management`, and `Payment Processing Worker Role`.
 
+The dotted blue circle around `acmefrontend` shows it's the last selected component. A solid blue circle shows a component is currently selected, dimming unrelated components to highlight its performance.
+
 In this app, each of the cloud role names also represents a different unique Application Insights resource with its own instrumentation keys. Because the owner of this application has access to each of those four disparate Application Insights resources, Application Map can stitch together a map of the underlying relationships.
 
 For the [official definitions](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):

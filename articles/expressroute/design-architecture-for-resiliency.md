@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/15/2024
+ms.date: 04/18/2024
 ms.author: duau
 ms.custom: ai-usage
 ---
@@ -42,7 +42,7 @@ High resiliency, also referred to as multi-site or site resiliency, enables the 
 
 ### Standard resiliency
 
-Standard resiliency in ExpressRoute is a single circuit with two connections configured at a single site. Built-in redundancy (Active-Active) is configured to facilitate failover across the two connections of the circuit. Microsoft guarantees an availability [service level agreements (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for Microsoft Enterprise Edge (MSEE) to the gateway for this configuration. Today, ExpressRoute offers two connections at a single peering location. If a failure happens at this site, users might experience loss of connectivity to their Azure workloads. This configuration is also known as *single-homed* as it represents users with an ExpressRoute circuit configured with only one peering location. This configuration is considered the *least* resilient and **not recommended** for business or mission-critical workloads because it doesn't provide site resiliency.
+Standard resiliency in ExpressRoute is a single circuit with two connections configured at a single site. Built-in redundancy (Active-Active) is configured to facilitate failover across the two connections of the circuit. Today, ExpressRoute offers two connections at a single peering location. If a failure happens at this site, users might experience loss of connectivity to their Azure workloads. This configuration is also known as *single-homed* as it represents users with an ExpressRoute circuit configured with only one peering location. This configuration is considered the *least* resilient and **not recommended** for business or mission-critical workloads because it doesn't provide site resiliency.
 
 :::image type="content" source="./media/design-architecture-for-resiliency/standard-resiliency.png" alt-text="Diagram illustrating a single ExpressRoute circuit, with each link configured at a single peering location.":::
 
@@ -101,14 +101,6 @@ The [guided gateway migration](gateway-migration.md) experience facilitates your
 
 ### Disaster recovery and high availability recommendations
 
-#### Use VPN Gateway as a backup for ExpressRoute
-
-Microsoft recommends the use of site-to-site VPN as a failover when an ExpressRoute circuit becomes unavailable. ExpressRoute is designed for high availability and there's no single point of failure within the Microsoft network. However, there can be instances where an ExpressRoute circuit becomes unavailable due to various reasons such as regional service degradation or natural disasters. A site-to-site VPN can be configured as a secure failover path for ExpressRoute. If the ExpressRoute circuit becomes unavailable, the traffic is automatically route through the site-to-site VPN, ensuring that your connection to the Azure network remains. For more information, see [using site-to-site VPN as a backup for Azure ExpressRoute](use-s2s-vpn-as-backup-for-expressroute-privatepeering.md).
-
-> [!NOTE] 
-> Using site-to-site VPN as a backup solution for ExpressRoute connectivity is not recommended when dealing with latency-sensitive, mission-critical, or bandwidth-intensive workloads. In such cases, it's advisable to design for disaster recovery with ExpressRoute multi-site resiliency to ensure maximum availability.
->
-
 #### Enable high availability and disaster recovery
 
 To maximize availability, both the customer and service provider segments on your ExpressRoute circuit should be architected for availability & resiliency. For Disaster Recovery, plan for scenarios such as regional service outages due to natural calamities. Implement a robust disaster recovery design for multiple circuits configured through different peering locations in different regions. To learn more, see: [Designing for disaster recovery](designing-for-disaster-recovery-with-expressroute-privatepeering.md).
@@ -117,9 +109,15 @@ To maximize availability, both the customer and service provider segments on you
 
 For disaster recovery planning, we recommend setting up ExpressRoute circuits in multiple peering locations and regions. ExpressRoute circuits can be created in the same metropolitan area or different metropolitan areas, and different service providers can be used for diverse paths through each circuit. Geo-redundant ExpressRoute circuits are utilized to create a robust backend network connectivity for disaster recovery. To learn more, see [Designing for high availability](designing-for-high-availability-with-expressroute.md).
 
+> [!NOTE] 
+> Using site-to-site VPN as a backup solution for ExpressRoute connectivity is not recommended when dealing with latency-sensitive, mission-critical, or bandwidth-intensive workloads. In such cases, it's advisable to design for disaster recovery with ExpressRoute multi-site resiliency to ensure maximum availability.
+>
+
+
 #### Virtual network peering for connectivity between virtual networks
 
 Virtual Network (VNet) Peering provides a more efficient and direct method, enabling Azure services to communicate across virtual networks without the need of a virtual network gateway, extra hops, or transit over the public internet. To establish connectivity between virtual networks, VNet peering should be implemented for the best performance possible. For more information, see [About Virtual Network Peering](../virtual-network/virtual-network-peering-overview.md) and [Manage VNet peering](../virtual-network/virtual-network-manage-peering.md).
+
 
 ### Monitoring and alerting recommendations 
 

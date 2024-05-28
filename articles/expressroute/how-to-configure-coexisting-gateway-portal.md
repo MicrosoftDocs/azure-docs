@@ -87,7 +87,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
 
     :::image type="content" source="media/how-to-configure-coexisting-gateway-portal/vnet-basics.png" alt-text="Screenshot of basics tab for creating a virtual network.":::
 
-1. On **IP Addresses** tab, configure the virtual network address space. Then define the subnets you want to create, including the gateway subnet. Select **Review + create**, then *Create** to deploy the virtual network. For more information about creating a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). For more information about creating subnets, see [Create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
+1. On **IP Addresses** tab, configure the virtual network address space. Then define the subnets you want to create, including the gateway subnet. Select **Review + create**, then *Create** to deploy the virtual network. For more information about creating a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.yml#create-a-virtual-network). For more information about creating subnets, see [Create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
 
     > [!IMPORTANT]
     > The Gateway Subnet must be /27 or a shorter prefix (such as /26 or /25).

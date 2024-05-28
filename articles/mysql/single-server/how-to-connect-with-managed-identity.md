@@ -31,7 +31,7 @@ You learn how to:
 ## Prerequisites
 
 - If you're not familiar with the managed identities for Azure resources feature, see this [overview](../../../articles/active-directory/managed-identities-azure-resources/overview.md). If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../../articles/role-based-access-control/role-assignments-portal.md).
+- To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../../articles/role-based-access-control/role-assignments-portal.yml).
 - You need an Azure VM (for example running Ubuntu Linux) that you'd like to use for access your database using Managed Identity
 - You need an Azure Database for MySQL database server that has [Microsoft Entra authentication](how-to-configure-sign-in-azure-ad-authentication.md) configured
 - To follow the C# example, first complete the guide how to [Connect using C#](connect-csharp.md)
@@ -87,7 +87,7 @@ Your application can now retrieve an access token from the Azure Instance Metada
 This token retrieval is done by making an HTTP request to `http://169.254.169.254/metadata/identity/oauth2/token` and passing the following parameters:
 
 - `api-version` = `2018-02-01`
-- `resource` = `https://ossrdbms-aad.database.windows.net`
+- `resource` = `https://server-name.database.windows.net`
 - `client_id` = `CLIENT_ID` (that you retrieved earlier)
 
 You'll get back a JSON result that contains an `access_token` field - this long text value is the Managed Identity access token, that you should use as the password when connecting to the database.
@@ -98,7 +98,7 @@ For testing purposes, you can run the following commands in your shell. Note you
 # Retrieve the access token
 
 
-ACCESS_TOKEN=$(curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token)
+ACCESS_TOKEN=$(curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fserver-name.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token)
 
 # Connect to the database
 
@@ -143,8 +143,8 @@ namespace Driver
             //
             Console.Out.WriteLine("Getting access token from Azure Instance Metadata service...");
 
-            // Azure AD resource ID for Azure Database for MySQL is https://ossrdbms-aad.database.windows.net/
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=" + ClientId);
+            // Azure AD resource ID for Azure Database for MySQL is https://server-name.database.windows.net/
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fserver-name.database.windows.net&client_id=" + ClientId);
             request.Headers["Metadata"] = "true";
             request.Method = "GET";
             string accessToken = null;

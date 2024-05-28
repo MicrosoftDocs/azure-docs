@@ -16,7 +16,7 @@ sections:
       questions:
         - question: What is Azure Data Manager for Energy?
           answer: >
-            Azure Data Manager for Energy is a fully managed, cloud-based data platform solution for the energy industry. It's an enterprise-grade service that's based on the OSDU&trade; Data Platform. It brings together the security and trust of the Microsoft Azure cloud platform and the domain expertise of SLB.
+            Azure Data Manager for Energy is a fully managed, cloud-based data platform solution for the energy industry. It's an enterprise-grade service that's based on the OSDU&reg; Data Platform. It brings together the security and trust of the Microsoft Azure cloud platform and the domain expertise of SLB.
 
     - name: Access
       questions:
@@ -89,7 +89,7 @@ sections:
       questions:
         - question: How do I get the latest updates on Azure Data Manager for Energy?
           answer: > 
-            Azure Data Manager for Energy is a fully managed service that's based on the OSDU&trade; Data Platform. Microsoft fully manages the underlying infrastructure, security updates, new features, and upgrades to new OSDU™ versions.
+            Azure Data Manager for Energy is a fully managed service that's based on the OSDU&reg; Data Platform. Microsoft fully manages the underlying infrastructure, security updates, new features, and upgrades to new OSDU™ versions.
             
         - question: Can I move an Azure Data Manager for Energy resource from one subscription or resource group to another? 
           answer: > 

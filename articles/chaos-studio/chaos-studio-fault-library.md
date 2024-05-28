@@ -23,6 +23,7 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 |---------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------|
 | Windows, Linux      | [CPU Pressure](#cpu-pressure)                                               | Compute capacity loss, resource pressure                    |
 | Windows, Linux      | [Kill Process](#kill-process)                                               | Dependency disruption                                       |
+| Windows             | [Pause Process](#pause-process)                                             | Dependency disruption, service disruption                   |
 | Windows, Linux      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
 | Windows, Linux      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
 | Windows, Linux      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
@@ -765,6 +766,50 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 }
 ```
 
+### Pause Process
+
+| Property | Value |
+|-|-|
+| Capability name | PauseProcess-1.0 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows. |
+| Description | Pauses (suspends) the specified processes for the specified duration. If there are multiple processes with the same name, this fault suspends all of those processes. Within the fault's duration, the processes are paused repetitively at the specified interval. At the end of the duration or if the experiment is canceled, the processes will resume. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:agent:pauseProcess/1.0 |
+| Parameters (key, value) |  |
+| processNames | Delimited JSON array of process names defining which processes are to be paused. Maximum of 4. The process name can optionally include the ".exe" extension. |
+| pauseIntervalInMilliseconds | Amount of time the fault waits between successive pausing attempts, in milliseconds. |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:pauseProcess/1.0",
+      "parameters": [
+        {
+          "key": "processNames",
+          "value": "[ \"test-0\", \"test-1.exe\" ]"
+        },
+        {
+          "key": "pauseIntervalInMilliseconds",
+          "value": "1000"
+        }
+      ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+#### Limitations
+
+Currently, a maximum of 4 process names can be listed in the processNames parameter.
 
 ### Time Change
 
@@ -817,7 +862,7 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 | Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. Installation happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, including Azure Linux, you must install **stress-ng** manually. For more information, see the [upstream project repository](https://github.com/ColinIanKing/stress-ng). |
 | Urn | urn:csci:microsoft:agent:stressNg/1.0 |
 | Parameters (key, value) |  |
-| stressNgArguments | One or more arguments to pass to the stress-ng process. For information on possible stress-ng arguments, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
+| stressNgArguments | One or more arguments to pass to the stress-ng process. For information on possible stress-ng arguments, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. **NOTE: Do NOT include the "-t " argument because it will cause an error. Experiment length is defined directly in the Azure chaos experiment UI, NOT in the stressNgArguments.** |
 
 #### Sample JSON
 
@@ -1608,6 +1653,7 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 * Rules are applied at the start of the action. Any external changes to the rule during the duration of the action cause the experiment to fail.
 * Creating or modifying Application Security Group rules isn't supported.
 * Priority values must be unique on each NSG targeted. Attempting to create a new rule that has the same priority value as another causes the experiment to fail.
+* The NSG Security Rule **version 1.1** fault supports an additional `flushConnection` parameter. This functionality has an **active known issue**: if `flushConnection` is enabled, the fault may result in a "FlushingNetworkSecurityGroupConnectionIsNotEnabled" error. To avoid this error temporarily, disable the `flushConnection` parameter or use the NSG Security Rule version **1.0** fault.
 
 
 ### Service Bus: Change Queue State

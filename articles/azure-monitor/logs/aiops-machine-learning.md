@@ -23,7 +23,6 @@ This article describes Azure Monitor's built-in AIOps capabilities and explains 
 
 |Monitoring scenario|Capability|Description| 
 |-|-|-|
-|Root cause analysis of incidents|[Azure Monitor Investigator (preview)](../ai-ops/investigator-overview.md)|Automates analysis to simplify the identification of anomalies across Azure resources and provide next steps to mitigate issues.|
 |Log monitoring|[Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md) | Provides a unified view of your Log Analytics workspaces and uses machine learning to detect ingestion anomalies. |
 ||[Kusto Query Language (KQL) time series analysis and machine learning functions](../logs/kql-machine-learning-azure-monitor.md)| Easy-to-use tools for generating time series data, detecting anomalies, forecasting, and performing root cause analysis directly in Azure Monitor Logs without requiring in-depth knowledge of data science and programming languages. |
 ||[Microsoft Copilot for Azure](/azure/copilot/get-monitoring-information)| Helps you use Log Analytics to analyze data and troubleshoot issues. Generates example KQL queries based on prompts, such as "Are there any errors in container logs?". |

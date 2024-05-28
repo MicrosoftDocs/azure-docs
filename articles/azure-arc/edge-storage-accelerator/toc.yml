@@ -3,6 +3,8 @@ items:
   href: index.yml
 - name: Overview
   href: overview.md
+- name: Edge Storage Accelerator Jumpstart
+  href: jumpstart.md
 - name: Install Edge Storage Accelerator on a single-node cluster
   href: how-to-single-node-k3s.md
 - name: How-to
