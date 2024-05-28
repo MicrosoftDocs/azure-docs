@@ -360,7 +360,7 @@ You can validate that the application is running by visiting the public IP addre
 Get the application URL using the following commands:
 
 ```azurecli-interactive
-runtime="5 minute"
+runtime="5 minutes"
 endtime=$(date -ud "$runtime" +%s)
 while [[ $(date -u +%s) -le $endtime ]]
 do
