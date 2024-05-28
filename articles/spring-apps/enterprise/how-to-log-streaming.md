@@ -21,8 +21,8 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 This article describes how to enable log streaming in the Azure CLI to get real-time application console logs for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
 > [!NOTE]
-> - For streaming logs of jobs in Azure Spring Apps, see [Stream Azure Spring Apps job logs in real time](./how-to-asa-job-log-streaming.md).
-> - For streaming logs of managed components in Azure Spring Apps, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md).
+> - For more information on streaming logs of jobs in Azure Spring Apps, see [Stream Azure Spring Apps job logs in real time (Preview)](./how-to-asa-job-log-streaming.md).
+> - For more information on streaming logs of managed components in Azure Spring Apps, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md).
 
 ## Prerequisites
 
@@ -198,5 +198,5 @@ The following table shows an example of a basic rule that we recommend. You can 
 
 - [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](../basic-standard/quickstart-logs-metrics-tracing.md)
 - [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
-- [Stream Azure Spring Apps job logs in real time](./how-to-asa-job-log-streaming.md)
+- [Stream Azure Spring Apps job logs in real time (Preview)](./how-to-asa-job-log-streaming.md)
 - [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md)

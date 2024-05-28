@@ -19,8 +19,8 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 This article describes how to use the Azure CLI to get real-time logs of jobs for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
 > [!NOTE]
-> - For streaming logs of applications in Azure Spring Apps, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md).
-> - For streaming logs of managed components in Azure Spring Apps, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md).
+> - For more information on streaming logs of applications in Azure Spring Apps, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md).
+> - For more information on streaming logs of managed components in Azure Spring Apps, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ This article describes how to use the Azure CLI to get real-time logs of jobs fo
 
 ## Assign an Azure role
 
-To stream logs of jobs, you must have the relevant Azure roles assigned to you. The following table lists the required roles and the operations for which these roles are granted permissions:
+To stream logs of jobs, you must have the relevant Azure roles assigned to you. The following table lists the required role and the operation for which this role is granted permission:
 
 | Required role                         | Operations                                                                                                                                |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,11 +44,11 @@ Use the following steps to assign an Azure role using the Azure portal:
 
 1. In the navigation pane, select **Access Control (IAM)**.
 
-1. On the **Access Control (IAM)** page, select **Add** and then select **Add role assignment**.
+1. On the **Access Control (IAM)** page, select **Add**, and then select **Add role assignment**.
 
    :::image type="content" source="media/how-to-managed-component-log-streaming/add-role-assignment.png" alt-text="Screenshot of the Azure portal that shows the Access Control (IAM) page with the Add role assignment option highlighted." lightbox="media/how-to-managed-component-log-streaming/add-role-assignment.png":::
 
-1. On the **Add role assignment** page, in the **Name** list, search for and select the target role and then select **Next**.
+1. On the **Add role assignment** page, in the **Name** list, search for and select the target role, and then select **Next**.
 
    :::image type="content" source="media/how-to-asa-job-log-streaming/asa-job-log-reader-role.png" alt-text="Screenshot of the Azure portal that shows the Add role assignment page with the Azure Spring Apps Job Log Reader Role name highlighted." lightbox="media/how-to-asa-job-log-streaming/asa-job-log-reader-role.png":::
 
@@ -71,7 +71,7 @@ Use the following command to assign an Azure role:
 
 ## List all instances in a job execution
 
-For a job, every time it's triggered, a new job execution will be created. And up to your parallelism setting of your job, several instances will execute in parallel. Use the following command to list all instances in a job execution:
+Use the following command to list all instances in a job execution:
 
 ```azurecli
 az spring job execution instance list \
@@ -87,7 +87,7 @@ This section provides examples of using the Azure CLI to produce tail logs.
 
 ### View tail logs for a specific instance
 
-To view the tail logs for a specific instance, use the `az spring job logs` command with the `-i/--instance` argument.
+To view the tail logs for a specific instance, use the `az spring job logs` command with the `-i/--instance` argument, as shown in the following example:
 
 ```azurecli
 az spring job logs \
@@ -100,7 +100,7 @@ az spring job logs \
 
 ### View tail logs for all instances in one command
 
-To view the tail logs for all instances, use the `--all-instances` argument, as shown in the following command. The instance name is the prefix of each log line. When there are multiple instances, logs are printed in batch for each instance, so logs of one instance aren't interleaved with the logs of another instance.
+To view the tail logs for all instances, use the `--all-instances` argument, as shown in the following command. The instance name is the prefix of each log line. When there are multiple instances, logs are printed in batch for each instance. This way, logs of one instance aren't interleaved with the logs of another instance.
 
 ```azurecli
 az spring job logs \
@@ -145,7 +145,7 @@ az spring job logs \
     --follow
 ```
 
-When you stream logs for multiple instances in a job execution, the logs of one instance interleave with logs of others.
+When you stream logs for multiple instances in a job execution, the logs of one instance interleave with the logs of others.
 
 ## Stream logs in a virtual network injection instance
 
@@ -170,7 +170,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 ### [Azure CLI](#tab/azure-CLI)
 
-Use the following command to enable the log stream public endpoint.
+Use the following command to enable the log stream public endpoint:
 
 ```azurecli
 az spring update \
