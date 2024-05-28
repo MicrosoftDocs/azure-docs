@@ -5,7 +5,7 @@ author: iyervarsha
 ms.author: varshaiyer
 ms.service: devbox
 ms.topic: article
-ms.date: 05/24/2024
+ms.date: 05/28/2024
 ---
 
 # Add a display name to projects and pools
@@ -24,7 +24,7 @@ The display name for your projects and pools automatically defaults to its resou
 
 To edit the project display name, go to the properties panel of the project. Modify the display name under the **Display Name** text box, then select **Apply**.
 
-:::image type="content" source="media/how-to-add-project-pool-display-name/properties-panel.png" alt-text="Screenshot showing the properties panel." lightbox="media/how-to-add-project-pool-display-name/properties-panel.png":::  
+:::image type="content" source="media/how-to-add-project-pool-display-name/properties-panel-small.png" alt-text="Screenshot showing the properties panel." lightbox="media/how-to-add-project-pool-display-name/properties-panel-large.png":::  
 
 To edit the display name for a pool, select the ellipses associated with the pool, and then select **Edit**.  
 
@@ -49,7 +49,7 @@ Pools with duplicate names don't show the resource name in the developer portal;
 
 Developers see the display names for projects on the dev box tiles in the Developer Portal. 
 
-:::image type="content" source="media/how-to-add-project-pool-display-name/dev-portal-display-names.png" alt-text="Screenshot showing the dev box tile in the developer portal." lightbox="media/how-to-add-project-pool-display-name/dev-portal-display-names.png":::
+:::image type="content" source="media/how-to-add-project-pool-display-name/dev-portal-display-names-small.png" alt-text="Screenshot showing the dev box tile in the developer portal." lightbox="media/how-to-add-project-pool-display-name/dev-portal-display-names-large.png":::
 
 Developers also see the display names for projects and pools during dev box creation. 
 
