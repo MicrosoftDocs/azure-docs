@@ -94,7 +94,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](/azure/key-vault/general/overview).
 
-Run the application with the `python` command:
+1. Run the application with the `python` command:
 
     ```console
     python quickstart.py
@@ -165,7 +165,7 @@ The Groundedness detection API provides the option to include _reasoning_ in the
 ### Bring your own GPT deployment
 
 > [!TIP]
-> At the moment, we only support **Azure OpenAI GPT-4 Turbo (1106-preview)** resources and do not support other GPT types. You have the flexibility to deploy your GPT-4 Turbo (1106-preview) resources in any region. However, to minimize potential latency and avoid any geographical boundary data privacy and risk concerns, we recommend situating them in the same region as your content safety resources. For comprehensive details on data privacy, please refer to the [Data, privacy and security guidelines for Azure OpenAI Service](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy) and [Data, privacy, and security for Azure AI Content Safety](https://learn.microsoft.com/en-us/legal/cognitive-services/content-safety/data-privacy?context=%2Fazure%2Fai-services%2Fcontent-safety%2Fcontext%2Fcontext).
+> At the moment, we only support **Azure OpenAI GPT-4 Turbo (1106-preview)** resources and do not support other GPT types. You have the flexibility to deploy your GPT-4 Turbo (1106-preview) resources in any region. However, to minimize potential latency and avoid any geographical boundary data privacy and risk concerns, we recommend situating them in the same region as your content safety resources. For comprehensive details on data privacy, please refer to the [Data, privacy and security guidelines for Azure OpenAI Service](https://learn.microsoft.com/legal/cognitive-services/openai/data-privacy) and [Data, privacy, and security for Azure AI Content Safety](https://learn.microsoft.com/legal/cognitive-services/content-safety/data-privacy?context=%2Fazure%2Fai-services%2Fcontent-safety%2Fcontext%2Fcontext).
 
 In order to use your Azure OpenAI GPT4-Turbo (1106-preview) resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
 
