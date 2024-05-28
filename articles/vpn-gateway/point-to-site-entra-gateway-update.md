@@ -38,7 +38,7 @@ When you update audience values on an existing gateway, you incur fewer than 5 m
 
    :::image type="content" source="./media/update-entra-audience/audience.png" alt-text="Screenshot showing settings for Tunnel type, Authentication type, and Microsoft Entra settings." lightbox="././media/update-entra-audience/audience.png":::
 
-1. Change the **Audience** value. For this example, we changed the Audience value to the Azure Public value for the Microsoft-registered Azure VPN Client; **c632b3df-fb67-4d84-bdcf-b95ad541b5c8**.
+1. Change the **Audience** value. For this example, we changed the Audience value to the Azure Public value for the Microsoft-registered Azure VPN Client; **c632b3df-fb67-4d84-bdcf-b95ad541b5c8**. You can also use a different Audience value, such as a custom value, for this setting.
 1. Leave the other settings the same, unless you have changed tenants and need to change the tenant IDs.
 1. Once you finish configuring settings, click **Save** at the top of the page.
 1. The new settings save to the gateway. This takes about 5 minutes to complete.
