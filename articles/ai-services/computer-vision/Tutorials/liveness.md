@@ -21,6 +21,22 @@ The liveness detection solution successfully defends against various spoof types
 [!INCLUDE [liveness-sdk-gate](../includes/liveness-sdk-gate.md)]
 
 
+## Key concepts
+
+The liveness solution integration involves two distinct components: a frontend mobile/web application and an app server/orchestrator.
+
+- **Frontend application**: The frontend application receives authorization from the app server to initiate liveness detection. Its primary objective is to activate the camera and guide end-users accurately through the liveness detection process.
+- **App server**: The app server serves as a backend server to create liveness detection sessions and obtain an authorization token from the Face service for a particular session. This token authorizes the frontend application to perform liveness detection. The app server's objectives are to manage the sessions, to grant authorization for frontend application, and to view the results of the liveness detection process.
+
+Additionally, we combine face verification with liveness detection to verify whether the person is the specific person you designated. The following table help describe details of the liveness detection features:
+
+| Feature | Description |
+| -- | -- |
+| Liveness detection | Determine an input is real or fake, and only the app server has the authority to start the liveness check and query the result. |
+| Liveness detection with face verification | Determine an input is real or fake and verify the identity of the person based on a reference image you provided. Either the app server or the frontend application can provide a reference image. Only the app server has the authority to initial the liveness check and query the result. |
+
+This tutorial demonstrates how to operate a frontend application and an app server to perform liveness detection across various language SDKs.
+
 ## Prerequisites
 
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
@@ -30,9 +46,19 @@ The liveness detection solution successfully defends against various spoof types
     - You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - Access to the Azure AI Vision Face Client SDK for mobile (IOS and Android) and web. To get started, you need to apply for the [Face Recognition Limited Access features](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to get access to the SDK. For more information, see the [Face Limited Access](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext) page.
 
-## Setup frontend applications and app-server to perform liveness detection
+## Setup frontend applications and app servers to perform liveness detection
 
-The liveness solution integration involves two different components: a frontend mobile/web application and an app server/orchestrator.
+We provide SDKs in different languages for frontend applications and app servers. They're available in these languages:
+
+| Language | App server | Frontend application |
+| -------- | -- | -- |
+| C# |✔|-|
+| Java |✔|-|
+| Python |✔|-|
+| JavaScript |✔|✔(Not support providing a reference image.)|
+| Restful API |✔|-|
+| Kotlin |-|✔|
+| Swift |-|✔|
 
 ### Integrate liveness into mobile application 
 
