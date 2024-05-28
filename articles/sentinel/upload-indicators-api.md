@@ -68,7 +68,7 @@ There were two versions of the legacy API. Depending on the endpoint, a differen
 :::image type="content" source="media/stix-objects-api/logic-app-sentinel-connector-action-names.png" alt-text="Screenshot of logic app connector action names for Microsoft Sentinel upload indicators API.":::
 
 1. Connector action name: **Threat Intelligence - Upload Indicators of Compromise (Deprecated)**
-   - Endppoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligence:upload-indicators`
+   - Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligence:upload-indicators`
    - array of indicators name: `value`
 
 1. Connector action name: **Threat Intelligence - Upload Indicators of Compromise (V2) (Preview)**
@@ -77,7 +77,8 @@ There were two versions of the legacy API. Depending on the endpoint, a differen
 
 #### Request URI 
 API versioning: `api-version=2022-12-01`<br>
-Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligenceindicators:upload?api-version=2022-12-01`<br>
+Endpoint: 
+<br> `https://sentinelus.azure-api.net/{workspaceId}/threatintelligenceindicators:upload?api-version=2022-12-01`<br>
 Method: `POST`<br>
 
 #### Request header
