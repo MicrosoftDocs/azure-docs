@@ -252,6 +252,13 @@ For example, a Standard workflow has both managed connectors and built-in connec
 
 In single-tenant Azure Logic Apps, [built-in connectors with specific attributes are informally known as *service providers*](../connectors/built-in.md#service-provider-interface-implementation). Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Microsoft Entra ID, or a managed identity. All built-in connectors run in the same process as the redesigned Azure Logic Apps runtime. For more information, review the [built-in connector list for Standard logic app workflows](../connectors/built-in.md#built-in-connectors).
 
+  > [!IMPORTANT]
+  > Make sure to configure any service provider trigger correctly and test it thoroughly to confirm it is working. A failed  
+  > service provider trigger may cause additional unnecessary scaling which may dramatically increase your billing cost. A common 
+  > mistake is setting a trigger without providing the logic app permission to the destination such as service bus queue or Azure 
+  > storage blob container etc.  This also means such trigger needs to be monitored all the times to detect and fix any issue 
+  > promptly.
+
 <a name="limited-unavailable-unsupported"></a>
 
 ## Changed, limited, unavailable, or unsupported capabilities
