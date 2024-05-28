@@ -18,7 +18,7 @@ Azure File share backup is a native, cloud based backup solution that protects y
 [Learn about](azure-file-share-backup-overview.md) the Azure File share snapshot-based backup solution.
 
 >[!Note]
->Vaulted backup for Azure File share is currently in preview.
+>Vaulted backup for Azure File share is currently in preview and available in limited regions mentioned [here](azure-file-share-support-matrix.md?tabs=vault-tier#supported-regions).
 
 ## Prerequisites
 
