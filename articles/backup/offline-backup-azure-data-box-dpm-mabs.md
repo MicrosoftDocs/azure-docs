@@ -54,7 +54,7 @@ Ensure the following:
 
 - A valid Azure subscription.
 - The user intended to perform the offline backup policy must be an owner of the Azure subscription.
-- Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administratorl) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
+- Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administrator) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
 - The Data Box job and the Recovery Services vault to which the data needs to be seeded must be available in the same subscriptions.
 
   >[!NOTE]
