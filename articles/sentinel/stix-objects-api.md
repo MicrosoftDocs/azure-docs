@@ -10,7 +10,7 @@ ms.author: austinmc
 
 # Import threat intelligence to Microsoft Sentinel with the STIX objects API (Preview)
 
-Import indicators of compromise and other domain objects in the STIX format into a Microsoft Sentinel workspace with the Microsoft Sentinel STIX objects API. Whether you are using a threat intelligence platform or a custom application, use this document as a supplemental reference to the instructions in the [Microsoft Sentinel upload indicators API data connector](connect-threat-intelligence-upload-api.md). Installing the data connector is not required to connect to the API.
+Import indicators of compromise and other domain objects in the STIX format into a Microsoft Sentinel workspace with the Microsoft Sentinel STIX objects API. Whether you're using a threat intelligence platform or a custom application, use this document as a supplemental reference to the instructions in the [Microsoft Sentinel upload indicators API data connector](connect-threat-intelligence-upload-api.md). Installing the data connector isn't required to connect to the API.
 
 > [!IMPORTANT]
 > This API is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -52,9 +52,9 @@ This section covers the first three of the five components discussed earlier. Yo
 
 Acquire a Microsoft Entra access token with [OAuth 2.0 authentication](../active-directory/fundamentals/auth-oauth2.md). [V1.0 and V2.0](/entra/identity-platform/access-tokens#token-formats) are valid tokens accepted by the API.
 
-The version of the token (v1.0 or v2.0) that your application receives is determined by the `accessTokenAcceptedVersion` property in the [app manifest](/entra/identity-platform/reference-app-manifest#manifest-reference) of the API that your application is calling. If `accessTokenAcceptedVersion` is set to 1, then your application will receive a v1.0 token.
+The version of the token (v1.0 or v2.0) received is determined by the `accessTokenAcceptedVersion` property in the [app manifest](/entra/identity-platform/reference-app-manifest#manifest-reference) of the API that your application is calling. If `accessTokenAcceptedVersion` is set to 1, then your application receives a v1.0 token.
 
-Use Microsoft Authentication Library [MSAL](/entra/identity-platform/msal-overview) to acquire either a v1.0 or v2.0 access token.  Or, send requests to the REST API in the following format:
+Use Microsoft Authentication Library [(MSAL)](/entra/identity-platform/msal-overview) to acquire either a v1.0 or v2.0 access token. Or, send requests to the REST API in the following format:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token`
 - Headers for using Microsoft Entra App:
 - grant_type: "client_credentials"
@@ -62,7 +62,7 @@ Use Microsoft Authentication Library [MSAL](/entra/identity-platform/msal-overvi
 - client_secret: {secret of Microsoft Entra App}
 - scope: `"https://management.azure.com/.default"`
 
-If `accessTokenAcceptedVersion` in the app manifest is set to 1, your application will receive a v1.0 access token even though it's calling the v2 token endpoint.
+If `accessTokenAcceptedVersion` in the app manifest is set to 1, your application receives a v1.0 access token even though it's calling the v2 token endpoint.
 
 The resource/scope value is the audience of the token. This API only accepts the following audiences:
 - `https://management.core.windows.net/`
@@ -87,17 +87,17 @@ The JSON object for the body contains the following fields:
 
 |Field name	|Data Type	|Description|
 |---|---|---|
-| sourcesystem (required)| string | Identify your source system name. The value `Microsoft Sentinel` is restricted.|
-| stixobjects (required) | array | An array of STIX objects in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
+| `sourcesystem` (required) | string | Identify your source system name. The value `Microsoft Sentinel` is restricted.|
+| `stixobjects` (required) | array | An array of STIX objects in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
 
-Create the array of STIX objects using the STIX format specification. Some of the STIX property specifications have been expanded here for your convenience with links to the relevant STIX document sections. Also note some properties, while valid for STIX, don't have corresponding object schema properties in Microsoft Sentinel.
+Create the array of STIX objects using the STIX format specification. Some of the STIX property specifications are expanded here for your convenience with links to the relevant STIX document sections. Also note some properties, while valid for STIX, don't have corresponding object schema properties in Microsoft Sentinel.
 
 #### Indicators
 
 |Property Name	|Type |	Description |
 |----|----|----|
 |`id` (required)| string | An ID used to identify the indicator. See section [2.9](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_64yvzeku5a5c) for specifications on how to create an `id`. The format looks something like `indicator--<UUID>`|
-|`spec_version` (optional) | string | STIX indicator version. This value is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, when this field isn't set, the API will default to `2.1`|
+|`spec_version` (optional) | string | STIX indicator version. This value is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, when this field isn't set, the API defaults to `2.1`|
 |`type` (required)|	string | The value of this property *must* be `indicator`.|
 |`created` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
 |`modified` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
@@ -108,16 +108,16 @@ Create the array of STIX objects using the STIX format specification. Some of th
 |`pattern_type` (required) | string | The pattern language used in this indicator.<br><br>The value for this property *should* come from [pattern types](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_9lfdvxnyofxw).<br><br>The value of this property *must* match the type of pattern data included in the pattern property.|
 |`pattern_version` (optional) | string | The version of the pattern language used for the data in the pattern property, which *must* match the type of pattern data included in the pattern property.<br><br>For patterns that don't have a formal specification, the build or code version that the pattern is known to work with *should* be used.<br><br>For the STIX pattern language, the specification version of the object determines the default value.<br><br>For other languages, the default value *should* be the latest version of the patterning language at the time of this object's creation.|
 |`valid_from` (required) | timestamp | The time from which this indicator is considered a valid indicator of the behaviors it's related to or represents.|
-|`valid_until` (optional) | timestamp | The time at which this indicator should no longer be considered a valid indicator of the behaviors it's related to or represents.<br><br>If the valid_until property is omitted, then there is no constraint on the latest time for which the indicator is valid.<br><br>This timestamp *must* be greater than the valid_from timestamp.|
-|`kill_chain_phases` (optional) | list of string | The kill chain phase(s) to which this indicator corresponds.<br><br>The value for this property *should* come from the [Kill Chain Phase](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_i4tjv75ce50h).|
+|`valid_until` (optional) | timestamp | The time at which this indicator should no longer be considered a valid indicator of the behaviors it's related to or represents.<br><br>If the valid_until property is omitted, then there's no constraint on the latest time for which the indicator is valid.<br><br>This timestamp *must* be greater than the valid_from timestamp.|
+|`kill_chain_phases` (optional) | list of string | The kill chain phases to which this indicator corresponds.<br><br>The value for this property *should* come from the [Kill Chain Phase](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_i4tjv75ce50h).|
 |`created_by_ref` (optional) | string | The created_by_ref property specifies the ID property of the entity that created this object.<br><br>If this attribute is omitted, the source of this information is undefined. For object creators who wish to remain anonymous, keep this value undefined.|
 |`revoked` (optional) | boolean | Revoked objects are no longer considered valid by the object creator. Revoking an object is permanent; future versions of the object with this `id` *must not* be created.<br><br>The default value of this property is false.|
-|`labels` (optional) | list of strings | The `labels` property specifies a set of terms used to describe this object. The terms are user-defined or trust-group defined. These labels will display as **Tags** in Microsoft Sentinel.|
-|`confidence` (optional) | integer | The `confidence` property identifies the confidence that the creator has in the correctness of their data. The confidence value *must* be a number in the range of 0-100.<br><br>[Appendix A](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_1v6elyto0uqg) contains a table of normative mappings to other confidence scales that *must* be used when presenting the confidence value in one of those scales.<br><br>If the confidence property is not present, then the confidence of the content is unspecified.|
+|`labels` (optional) | list of strings | The `labels` property specifies a set of terms used to describe this object. The terms are user-defined or trust-group defined. These labels display as **Tags** in Microsoft Sentinel.|
+|`confidence` (optional) | integer | The `confidence` property identifies the confidence that the creator has in the correctness of their data. The confidence value *must* be a number in the range of 0-100.<br><br>[Appendix A](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_1v6elyto0uqg) contains a table of normative mappings to other confidence scales that *must* be used when presenting the confidence value in one of those scales.<br><br>If the confidence property isn't present, then the confidence of the content is unspecified.|
 |`lang` (optional) | string | The `lang` property identifies the language of the text content in this object. When present, it *must* be a language code conformant to [RFC5646](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#kix.yoz409d7eis1). If the property isn't present, then the language of the content is `en` (English).<br><br>This property *should* be present if the object type contains translatable text properties (for example, name, description).<br><br>The language of individual fields in this object *might* override the `lang` property in granular markings (see section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr)).|
 |`object_marking_refs` (optional, including TLP) | list of strings | The `object_marking_refs` property specifies a list of ID properties of marking-definition objects that apply to this object. For example, use the Traffic Light Protocol (TLP) marking definition ID to designate the sensitivity of the indicator source. For details of what marking-definition IDs to use for TLP content, see section [7.2.1.4](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_yd3ar14ekwrs)<br><br>In some cases, though uncommon, marking definitions themselves might be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (that is, it can't contain any circular references).<br><br>See section [7.2.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_bnienmcktc0n) for further definition of data markings.|
 |`external_references` (optional) | list of object | The `external_references` property specifies a list of external references which refers to non-STIX information. This property is used to provide one or more URLs, descriptions, or IDs to records in other systems.|
-|`granular_markings` (optional) | list of [granular-marking](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) | The `granular_markings` property helps define parts of the indicator differently. For example, the indicator language is English, `en` but the description is German, `de`.<br><br>In some cases, though uncommon, marking definitions themselves might be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (i.e., it can't contain any circular references).<br><br>See section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) for further definition of data markings.|
+|`granular_markings` (optional) | list of [granular-marking](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) | The `granular_markings` property helps define parts of the indicator differently. For example, the indicator language is English, `en` but the description is German, `de`.<br><br>In some cases, though uncommon, marking definitions themselves might be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (that is, it can't contain any circular references).<br><br>See section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) for further definition of data markings.|
 
 #### Attack pattern
 
@@ -145,7 +145,7 @@ The response header contains an HTTP status code. Reference this table for more 
 |**400**     |   Bad format. Something in the request isn't correctly formatted.    |
 |**401**     |   Unauthorized. |
 |**404**     |   File not found. Usually this error occurs when the workspace ID isn't found.   |
-|**429**     |   The number of requests in a minute has exceeded.   |
+|**429**     |   The max number of requests in a minute has been exceeded.   |
 |**500**     |   Server error. Usually an error in the API or Microsoft Sentinel services.
 
 The response body is an array of error messages in JSON format:
@@ -179,7 +179,7 @@ Approximately 10,000 indicators per minute is the maximum throughput before a th
 
 ### Sample indicator request body
 
-The following example shows how to represent 2 indicators in the STIX specification. `Test Indicator 2` showcases setting the TLP to white with the mapped object marking, and clarifying its description and labels are in English.
+The following example shows how to represent two indicators in the STIX specification. `Test Indicator 2` showcases setting the TLP to white with the mapped object marking, and clarifying its description and labels are in English.
 
 ```json
 {
@@ -275,7 +275,7 @@ The indicators are sent as an array, so the `recordIndex` begins at `0`.
 
 #### Sample indicator
 
-In this example, the indicator is marked with the green TLP. Additional extension attributes of `toxicity` and `rank` are also included. Although these properties are not in the Microsoft Sentinel schema for indicators, ingesting an indicator with these properties doesn't trigger an error. The properties just aren't referenced or indexed in the workspace.
+In this example, the indicator is marked with the green TLP. More extension attributes of `toxicity` and `rank` are also included. Although these properties aren't in the Microsoft Sentinel schema for indicators, ingesting an indicator with these properties doesn't trigger an error. The properties just aren't referenced or indexed in the workspace.
 
 ```json
 {
