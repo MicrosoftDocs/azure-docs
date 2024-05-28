@@ -13,75 +13,49 @@ ms.custom: template-concept, references_regions
 
 # Administrative State (Admin State) in Azure Load Balancer
 
-Administrative State (Admin State) is a feature of Azure Load Balancer that allows you to override the Load Balancer’s health probe behavior on a per backend pool instance basis.  
+Administrative state (Admin state) is a feature of Azure Load Balancer that allows you to override the Load Balancer’s health probe behavior on a per backend pool instance basis. This feature is useful in scenarios where you would like to take down your backend instance for maintenance, patching, or testing.
 
 [!INCLUDE [load-balancer-admin-state-preview](../../includes/load-balancer-admin-state-preview.md)]
 
 
 ## Why use admin state? 
 
-Admin State is useful in scenarios where you want to have more control over the behavior of your Load Balancer. For example, you can set the Admin State to upUP to always consider the backend instance eligible for new connections, even if the health probe indicates otherwise. Conversely, you can set the Admin State to DOWNdown to prevent new connections, even if the health probe indicates that the backend instance is healthy. This can be useful for maintenance or other scenarios where you want to temporarily take a backend instance out of rotation. 
+Admin state is useful in scenarios where you want to have more control over the behavior of your Load Balancer. For example, you can set the admin state to up to always consider the backend instance eligible for new connections, even if the health probe indicates otherwise. Conversely, you can set the admin state to down to prevent new connections, even if the health probe indicates that the backend instance is healthy. This can be useful for maintenance or other scenarios where you want to temporarily take a backend instance out of rotation.
 
 ## Types of admin state values 
 
-There are three types of admin state values: UP, DOWN, NONE. The table below describes the effects of each state on new connections and existing connections.  
+There are three types of admin state values: **UP**, **DOWN**, **NONE**. The following table below the effects of each state on new connections and existing connections:
 
-Admin State   
+| **Admin State** | **New Connections** | **Existing Connections** |
+|-------------|-----------------|----------------------|
+| **UP**         | Load balancer ignores the health probe and always considers the backend instance as eligible for new connections. | |
+| **DOWN**       | Load balancer ignores the health probe and doesn't allow new connections to the backend instance. | Load balancer ignores the health probe and existing connections are determined according to the following protocols: </br>TCP: Established TCP connections to the backend instance persists.</br>UDP: Existing UDP flows move to another healthy instance in the backend pool.</br> **Note**: This is similar to a [Probe Down behavior](load-balancer-custom-probe-overview.md#probe-down-behavior).   |
+| **NONE**       | Load balancer respects the health probe behavior. | Load balancer respects the health probe behavior. |
 
-New Connections    
+> [!NOTE]
+> Load Balancer Health Probe Status metrics reflects your configured admin state value changes.
 
-Existing Connections   
+## Design considerations
 
-UP   
+When deploying a load balancer with admin state, consider the following design considerations:
 
-Load Balancer will ignore the health probe and will always consider the backend instance as eligible for new connections.  
+| **Design Consideration** | **Description** |
+|----------------------|-------------|
+| **Admin state on a per backend pool instance basis** | Admin state applies on a per backend pool instance basis. In a scenario where a virtual machine instance is in more than one backend pool, the admin state setting on one backend pool doesn't affect the other backend pool. |
+| **Health probe configuration** | Admin state only takes effect when there's a health probe configured on the Load Balancer rules. |
+| **Inbound NAT rule** | Admin state isn't supported with inbound NAT rule. |
 
- 
+## Limitations
 
-Load Balancer will ignore the health probe and will always allow existing connections to persist to the backend instance.   
+When deploying a load balancer with admin state, consider the following limitations:
 
- 
+| **Limitation** | **Description** |
+|------------|-------------|
+| **Admin state on a per backend pool instance basis** | Admin state applies on a per backend pool instance basis. In a scenario where a virtual machine instance is in more than one backend pool, the admin state setting on one backend pool doesn't affect the other backend pool. |
+| **Health probe configuration** | Admin state only takes effect when there's a health probe configured on the Load Balancer rules. |
+| **Inbound NAT rule** | Admin state isn't supported with inbound NAT rule. |
 
-DOWN  
-
-Load Balancer will ignore the health probe and will not allow new connections to the backend instance.  
-
-Load Balancer will ignore the health probe and existing connections will be determined according to the protocol below: 
-
- 
-
-TCP: Established TCP connections to the backend instance persists.  
-
- 
-
-UDP: Existing UDP flows move to another healthy instance in the backend pool. 
-
- 
-
-Note: This is similar to a Probe Down behavior.    
-
-NONE (Blank)   
-
-Load Balancer will respect the health probe behavior.  
-
-Load Balancer will respect the health probe behavior. 
-
- 
-
- 
-
-Note: Load Balancer Health Probe Status metrics will reflect your configured admin state value changes.  
-
-Limitations 
-
-Admin state will take effect on a per backendpool instance basis. In a scenario where a virtual machine instance is in more than one backendpool, the admin state set on one backendpool will not affect the other backendpool.  
-
-Admin state will only take effect when there is a health probe configured on the Load Balancer rules.  
-
-Admin state is not supported with inbound NAT rule.  
-
-Admin state cannot be set as part of the NIC-based Load Balancer backendpool Create experiences.  
-
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Load Balancer health probes](load-balancer-custom-probe-overview.md)
+> [Manage Administrative State in Azure Load Balancer](manage-admin-state-how-to.md)
