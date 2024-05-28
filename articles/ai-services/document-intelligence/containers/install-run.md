@@ -26,7 +26,7 @@ Support for containers is currently available with Document Intelligence version
 * [Client libraries targeting `REST API 2022-08-31 (GA)`](../sdk-overview-v3-0.md)
 * [Client libraries targeting `REST API 2023-07-31 (GA)`](../sdk-overview-v3-1.md)
 
-✔️ See [**Install and run Document Intelligence containers**](?view=doc-intel-3.0.0&preserve-view=true) for supported container documentation.
+✔️ See [**Install and run Document Intelligence containers**](?view=doc-intel-3.1.0&preserve-view=true) for supported container documentation.
 
 :::moniker-end
 
