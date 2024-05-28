@@ -301,9 +301,9 @@ You can now view the resource and from the **Overview** page. Note the name of y
 
 ### View the network interface
 
-Select the **Networking** subsection of the menu.
-Select **Private endpoint**, and view the details of the private endpoint. 
-In the **Overview** section, select the **Network interface**. 
+1. Select the **Networking** subsection of the menu.
+1. Select **Private endpoint**, and view the details of the private endpoint. 
+1. In the **Overview** section, select the **Network interface**. 
 
 > [!NOTE]
 > The Private IP address attached to the NIC - this will be from your AKS subnet range. 
