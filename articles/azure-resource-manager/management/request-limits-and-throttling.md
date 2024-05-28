@@ -118,7 +118,7 @@ In addition to those general limits, the following limits apply to DNS operation
 
 ### Compute throttling
 
-Microsoft Compute implements throttling to provide an optimal experience for Virtual Machine and Virtual Machine Scale Set users. [Compute Throttling Limits](/articles/virtual-machines/compute-throttling-limits.md) provides comprehensive information on throttling policies and limits for VM, VMSS and VMSS VMs.    
+Microsoft Compute implements throttling to provide an optimal experience for Virtual Machine and Virtual Machine Scale Set users. [Compute Throttling Limits](/azure/virtual-machines/compute-throttling-limits.md) provides comprehensive information on throttling policies and limits for VM, VMSS and VMSS VMs.    
 
 
 ### Azure Resource Graph throttling
