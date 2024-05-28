@@ -39,7 +39,7 @@ This ZIP package deployment uses the same Kudu service that powers continuous in
 
 #### With zip deploy UI in Kudu
 
-In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI` (see [note at top](./includes/regionalization-note.md#dnl-note)).
+In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI` (see [note at top](#dnl-note)).
 
 Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package) by dragging it to the file explorer area on the web page.
 
@@ -90,7 +90,7 @@ curl -X POST \
 ```
 
 > [!NOTE]
-> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
+> For the actual fully qualified domain name to use in the URL, see [note at top](#dnl-note)
 
 # [ARM template](#tab/arm)
 
@@ -153,7 +153,7 @@ curl -X POST \
 ```
 
 > [!NOTE]
-> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
+> For the actual fully qualified domain name to use in the URL, see [note at top](#dnl-note)
 
 For more information, see [Kudu publish API reference](#kudu-publish-api-reference)
 
@@ -218,7 +218,7 @@ curl -X POST \
 ```
 
 > [!NOTE]
-> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
+> For the actual fully qualified domain name to use in the URL, see [note at top](#dnl-note)
 
 ### Deploy a library file
 
@@ -241,7 +241,7 @@ curl -X POST \
 ```
 
 > [!NOTE]
-> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
+> For the actual fully qualified domain name to use in the URL, see [note at top](#dnl-note)
 
 ### Deploy a static file
 
@@ -264,7 +264,7 @@ curl -X POST \
 ```
 
 > [!NOTE]
-> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
+> For the actual fully qualified domain name to use in the URL, see [note at top](#dnl-note)
 
 # [ARM template](#tab/arm)
 
@@ -313,7 +313,7 @@ curl -X POST \
 ```
 
 > [!NOTE]
-> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
+> For the actual fully qualified domain name to use in the URL, see [note at top](#dnl-note)
 
 # [ARM template](#tab/arm)
 

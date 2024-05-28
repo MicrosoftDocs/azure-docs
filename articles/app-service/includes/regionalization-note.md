@@ -10,7 +10,7 @@ ms.date: 04/22/2024
 > [!NOTE]
 > Beginning April 22, 2024, all newly created App Service apps will have the option to create a unique default hostname with a naming convention of `<app-name>`-`<random-hash>`.`<region>`.`azurewebsites.net`. The names of existing apps will not change.
 >
->Example: myapp-ds27dh7271aah175.westus-01.azurewebsites.net 
+> Example: myapp-ds27dh7271aah175.westus-01.azurewebsites.net 
 >    
->For more information, refer to [Unique Default Hostname for App Service Resource](https://go.microsoft.com/fwlink/?linkid=2265728).
+> For more information, refer to [Unique Default Hostname for App Service Resource](https://go.microsoft.com/fwlink/?linkid=2265728).
 >
