@@ -175,6 +175,22 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
         "typeProperties": {
             "source": {
                 "type": "ServiceNowV2Source",
+                "expression": {
+                    "type": "Nary",
+                    "operators": [
+                        "<"
+                    ],
+                    "operands": [
+                        {
+                            "type": "Field",
+                            "value": "u_founded"
+                        },
+                        {
+                            "type": "Constant",
+                            "value": "2000"
+                        }
+                    ]
+                }
             },
             "sink": {
                 "type": "<sink type>"
@@ -183,18 +199,6 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
     }
 ]
 ```
-
-## Performance tips
-
-### Schema to use
-
-ServiceNow has 2 different schemas, one is **"Actual"** which returns actual data, the other is **"Display"** which returns the display values of data. 
-
-If you have a filter in your query, use "Actual" schema which has better copy performance. When querying against "Actual" schema, ServiceNow natively support filter when fetching the data to only return the filtered resultset, whereas when querying "Display" schema, ADF retrieve all the data and apply filter internally.
-
-### Index
-
-ServiceNow table index can help improve query performance, refer to [Create a table index](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/table-administration/task/t_CreateCustomIndex.html).
 
 ## Lookup activity properties
 
