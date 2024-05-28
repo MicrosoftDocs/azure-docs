@@ -257,7 +257,8 @@ In single-tenant Azure Logic Apps, [built-in connectors with specific attributes
   > Make sure to correctly set up and test any service provider-based trigger to confirm successful operation. 
   > A failed service provider-based trigger might create unnecessary scaling, which can dramatically increase your billing costs. 
   > For example, a common mistake is setting a trigger without giving your logic app permission or access to the destination, 
-  > storage blob container etc.  This also means such trigger needs to be monitored all the times to detect and fix any issue 
+  > such as a Service Bus queue, Azure Storage blob container, and so on. Also, make sure 
+  > that you monitor such triggers at all times so you can promptly detect and fix any issues.
   > promptly.
 
 <a name="limited-unavailable-unsupported"></a>
