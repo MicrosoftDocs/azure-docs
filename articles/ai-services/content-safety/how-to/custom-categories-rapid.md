@@ -20,7 +20,7 @@ The custom categories (rapid) API lets you quickly respond to emerging harmful c
 Follow these steps to define an incident with a few examples of text content and then analyze new text content to see if it matches the incident.
 
 > [!IMPORTANT]
-> This new feature is only available in the select Azure regions. See [Region availability](/azure/ai-services/content-safety/overview#region-availability).
+> This new feature is only available in select Azure regions. See [Region availability](/azure/ai-services/content-safety/overview#region-availability).
 
 > [!CAUTION]
 > The sample data in this guide might contain offensive content. User discretion is advised.
