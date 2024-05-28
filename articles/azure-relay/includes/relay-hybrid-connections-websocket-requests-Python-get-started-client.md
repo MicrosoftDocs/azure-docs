@@ -21,7 +21,7 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 
 	`asyncio`, `json`, `logging`, `websockets`
 
-	These can be installed using the following command:
+	These libraries can be installed using the following command:
 
 	```bash
 	pip install <package name>
@@ -45,7 +45,7 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 
 3. Generate a helper function file for helper functions
 
-	The following file will be used as `relaylib.py` and have helper functions for Websocket URL generation and SAS tokens
+	The following file is used as `relaylib.py` and have helper functions for Websocket URL generation and SAS tokens
 
     [!INCLUDE [relay-python-helper-functions](relay-python-helper-functions.md)]
 
