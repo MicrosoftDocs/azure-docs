@@ -21,7 +21,7 @@ lambda(<lambda variable>, [<lambda variable>, ...], <expression>)
 
 ARM template lambda function has these limitations:
 
-- Lambda function can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`map()`](#map), [`reduce()`](#reduce), [`sort()`](#sort), and [`toObject()`](#toobject).
+- Lambda expression can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`groupBy()`](#groupby), [`map()`](#map), [`mapValues()`](#mapvalues), [`reduce()`](#reduce), [`sort()`](#sort), and [`toObject()`](#toobject).
 - Using lambda variables (the temporary variables used in the lambda functions) inside resource or module array access isn't currently supported.
 - Using lambda variables inside the [`listKeys`](./template-functions-resource.md#list) function isn't currently supported.
 - Using lambda variables inside the [reference](./template-functions-resource.md#reference) function isn't currently supported.
