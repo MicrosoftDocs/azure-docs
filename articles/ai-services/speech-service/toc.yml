@@ -573,9 +573,9 @@ items:
           href: rest-text-to-speech.md
           displayName: reference, tts output, output format
         - name: Custom voice REST API
-          href: /rest/api/speechapi/operation-groups?view=rest-speechapi-2023-12-01-preview
+          href: /rest/api/speechapi/operation-groups&preserve-view=true=rest-speechapi-2023-12-01-preview
         - name: Batch synthesis REST API
-          href: /rest/api/batchtexttospeech/operation-groups?view=rest-batchtexttospeech-2024-04-01
+          href: /rest/api/batchtexttospeech/operation-groups&preserve-view=true=rest-batchtexttospeech-2024-04-01
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
           displayName: reference 
