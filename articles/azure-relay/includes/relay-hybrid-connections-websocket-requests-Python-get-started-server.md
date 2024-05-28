@@ -21,7 +21,7 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 
 	`asyncio`, `json`, `logging`, `websockets`
 
-	These can be installed using the following command:
+	These libraries can be installed using the following command:
 
 	```bash
 	pip install <package name>
