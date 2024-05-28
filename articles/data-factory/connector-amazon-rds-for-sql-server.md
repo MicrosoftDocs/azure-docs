@@ -248,6 +248,7 @@ These generic properties are supported for an Amazon RDS for SQL Server linked s
 |:--- |:--- |:--- |
 | type | The type property must be set to **AmazonRdsForSqlServer**. | Yes |
 | connectionString |Specify **connectionString** information that's needed to connect to the Amazon RDS for SQL Server database by using either SQL authentication or Windows authentication. Refer to the following samples.<br/>You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| password |Specify a password for the user account you specified for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in Amazon RDS for SQL Server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
 
@@ -258,7 +259,11 @@ This Amazon RDS for SQL Server connector supports the following authentication t
 
 #### SQL authentication for the legacy version
 
-To use SQL authentication, specify the generic properties that are described in the preceding section.
+To use SQL authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| userName | The user name used to connect to the server. |Yes |
 
 #### Windows authentication for the legacy version
 
