@@ -202,7 +202,7 @@ steps:
   - build: -t $Registry/hello-world -f hello-world.dockerfile ./subDirectory
 ```
 
-### Dynamic Variable Passing in ACR Tasks
+### Dynamic variable passing in ACR Tasks
 
 When working with Azure container registry (ACR) tasks, you may find yourself needing to pass different values to your build process without changing the task definition by using the `--set` flag with the `az acr task run` command. 
 
