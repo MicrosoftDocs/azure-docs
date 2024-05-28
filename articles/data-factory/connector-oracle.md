@@ -119,7 +119,7 @@ To enable encryption on Oracle connection, you have two options:
 
     - **Method 2**:
 
-        1. Get the TLS/SSL certificate information. Get the Distinguished Encoding Rules (DER)-encoded or Privacy Enhanced Mail (PEM)-encoded certificate information of your TLS/SSL cert, and save the output (----- Begin Certificate … End Certificate -----) as a text file.
+        1. Get the TLS/SSL certificate information. Get the Distinguished Encoding Rules (DER)-encoded or Privacy Enhanced Mail (PEM)-encoded certificate information of your TLS/SSL cert.
 
             ```
             openssl x509 -inform (DER|PEM) -in [Full Path to the DER/PEM Certificate including the name of the DER/PEM Certificate] -text
