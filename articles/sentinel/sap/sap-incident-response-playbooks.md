@@ -3,22 +3,24 @@ title: Microsoft Sentinel incident response playbooks for SAP
 description: This article introduces Microsoft Sentinel playbooks built to respond to incidents in your SAP environment.
 author: yelevin
 ms.author: yelevin
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/28/2023
+#customerIntent: As a SOC analyst working with a SAP system, I want to understand which playbooks are recommended for use in my organization.
+
 ---
 
 # Microsoft Sentinel incident response playbooks for SAP
 
-This article describes how to take advantage of Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities in conjunction with SAP. The article introduces purpose-built playbooks included in the [Microsoft Sentinel solution for SAP applications](solution-overview.md). You can use these playbooks to respond automatically to suspicious user activity in SAP systems, automating remedial actions in SAP RISE, SAP ERP, SAP Business Technology Platform (BTP) as well as in Microsoft Entra ID.
+<!--skipping this article. maybe we should replace this article with a getting started article. Then we can have the reference of all content, and this can just be a section in a suggested POC. we only have abt 50 page views a month anyway.-->
 
-The Microsoft Sentinel SAP solution empowers your organization to secure its SAP environment. For a complete, detailed overview of the Sentinel SAP solution, see the following articles:
-- [Microsoft Sentinel solution for SAP applications overview](solution-overview.md)
-- [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
-- [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md)
+This article describes how to use Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities with your SAP system, with playbooks included in the [Microsoft Sentinel solution for SAP applications](solution-overview.md).
 
-With the addition of these playbooks to the solution, you can not only monitor and analyze security events in real-time, you can also automate SAP incident response workflows to improve the efficiency and effectiveness of security operations.
+Playbooks provided by Microsoft Sentinel solution for SAP applications help you automate SAP incident response worklows, improving the efficiency and effectiveness of security operations.
+
+For example, use the out-of-the-box playbooks to to respond automatically to suspicious user activity in SAP systems, automating remedial actions in SAP RISE, SAP ERP, SAP Business Technology Platform (BTP) as well as in Microsoft Entra ID. 
 
 The Microsoft Sentinel solution for SAP applications includes the following playbooks:
+
 - SAP Incident Response - Lock user from Teams - Basic
 - SAP Incident Response - Lock user from Teams - Advanced
 - SAP Incident Response - Reenable audit logging once deactivated

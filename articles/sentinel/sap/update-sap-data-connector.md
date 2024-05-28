@@ -184,7 +184,7 @@ To apply and assign the **/MSFTSEN/SENTINEL_RESPONDER** SAP role:
   
 1. Upload role definitions from the [/MSFTSEN/SENTINEL_RESPONDER](https://aka.ms/SAP_Sentinel_Responder_Role) file in GitHub.
 
-1. Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the SAP user account used by Microsoft Sentinel's SAP data connector agent. For more information, see [Deploy SAP Change Requests and configure authorization](preparing-sap.md).
+1. Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the SAP user account used by Microsoft Sentinel's SAP data connector agent. For more information, see [Deploy SAP change requests and configure authorization](preparing-sap.md).
 
   Alternately, manually assign the following authorizations to the current role already assigned to the SAP user account used by Microsoft Sentinel's SAP data connector. These authorizations are included in the **/MSFTSEN/SENTINEL_RESPONDER** SAP role specifically for attack disruption response actions.
 
@@ -206,12 +206,11 @@ Learn more about the Microsoft Sentinel solution for SAP applications:
 
 - [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy SAP change requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
-- [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:

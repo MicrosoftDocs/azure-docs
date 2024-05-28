@@ -1,49 +1,27 @@
 ---
-title: Enable and configure SAP auditing for Microsoft Sentinel | Microsoft Docs
+title: Enable and configure SAP auditing for Microsoft Sentinel
 description: This article shows you how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications, so that you can have complete visibility into your SAP solution.
-author: yelevin
-ms.author: yelevin
+author: batamig
+ms.author: bagol
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 05/28/2024
+#customerIntent: As an SAP admin, I want to know how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications so that I can have complete visibility into my SAP solution.
 ---
 
 # Enable and configure SAP auditing for Microsoft Sentinel
 
-This article shows you how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications, so that you can have complete visibility into your SAP solution.
+<!--this is pure SAP instructions and really shouldn't be in Microsoft docs. I feel for security admins trying to do this but we really can't document SAP procedures .... I'd like to remove this altogether and just add it into the prereqs page instead. it's unfortunate b/c we're getting about 250 pv a month on it...-->
+
+Some installations of SAP systems may not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters.
+
+This article provides guidance on how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications, and is the third step in the deployment process.
+
+:::image type="content" source="media/deployment-steps/configure-auditing.png" alt-text="Diagram of the SAP deployment flow, showing auditing as the current step.":::
 
 > [!IMPORTANT]
 > We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
 >
 > The steps in this article may vary, depending on your SAP system's version, and should be considered as a sample only.
-
-Some installations of SAP systems may not have audit log enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters.
-
-## Deployment milestones
-
-Track your SAP solution deployment journey through this series of articles:
-
-1. [Deployment overview](deployment-overview.md)
-
-1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-
-1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
-
-1. [Prepare SAP environment](preparing-sap.md)
-
-1. **Configure auditing (*You are here*)**
-
-1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
-
-1. [Deploy SAP security content](deploy-sap-security-content.md)
-
-1. [Configure Microsoft Sentinel solution for SAP applications](deployment-solution-configuration.md)
-
-1. Optional deployment steps   
-   - [Configure data connector to use SNC](configure-snc.md)
-   - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
-   - [Configure audit log monitoring rules](configure-audit-log-rules.md)
-   - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
-   - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
 ## Check if auditing is enabled
 
@@ -51,9 +29,11 @@ Track your SAP solution deployment journey through this series of articles:
 
    ![Screenshot showing how to run the R S A U CONFIG transaction.](./media/configure-audit/rsau-config.png)
 
-1. In the **Security Audit Log - Display of Current Configuration** window, find the **Parameter** section within the **Configuration** section. Under **General Parameters**, see that the **Static security audit active** checkbox is marked.
+1. In the **Security Audit Log - Display of Current Configuration** window, find the **Parameter** section within the **Configuration** section. Under **General Parameters**, check to see whether the **Static security audit active** checkbox is marked.
 
 ## Enable auditing
+
+This procedure describes how to enable auditing in your SAP system if it's not already enabled.
 
 > [!IMPORTANT]
 > Your audit policy should be determined in close collaboration with SAP administrators and your security department.

@@ -147,8 +147,6 @@
           href: TBD.md
         - name: Integrate SAP across multiple workspaces
           href: sap/cross-workspace.md
-        - name: Respond to SAP incidents with playbooks
-          href: sap/sap-incident-response-playbooks.md
         - name: Deploy the SAP integration
           items: 
           - name: Overview
@@ -157,8 +155,6 @@
             href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
           - name: Prepare SAP environment
             href: sap/preparing-sap.md
-          - name: Configure auditing
-            href: sap/configure-audit.md
           - name: Deploy the data connector agent
             href: sap/deploy-data-connector-agent-container.md        
           - name: Deploy SAP security content

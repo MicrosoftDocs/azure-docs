@@ -81,7 +81,7 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 | **SAP - Brute force attacks** | Identifies brute force attacks on the SAP system using RFC logons | Attempt to log in from the same IP to several systems/clients within the scheduled time interval using RFC<br><br>**Data sources**: SAPcon - Audit Log | Credential Access |
 | **SAP - Multiple Logons from the same IP** | Identifies the sign-in of several users from same IP address within a scheduled time interval.   <br><br>**Sub-use case**: [Persistency](#persistency) | Sign in using several users through the same IP address. <br><br>**Data sources**: SAPcon - Audit Log | Initial Access |
 | **SAP - Multiple Logons by User** | Identifies sign-ins of the same user from several terminals within scheduled time interval.  <br><br>Available only via the Audit SAL method, for SAP versions 7.5 and higher. | Sign in using the same user, using different IP addresses.   <br><br>**Data sources**: SAPcon - Audit Log | PreAttack, Credential Access, Initial Access, Collection <br><br>**Sub-use case**: [Persistency](#persistency) |
-| **SAP - Informational - Lifecycle - SAP Notes were implemented in system** | Identifies SAP Note implementation in the system. | Implement an SAP Note using SNOTE/TCI. <br><br>**Data sources**: SAPcon -  Change Requests | - |
+| **SAP - Informational - Lifecycle - SAP Notes were implemented in system** | Identifies SAP Note implementation in the system. | Implement an SAP Note using SNOTE/TCI. <br><br>**Data sources**: SAPcon -  change requests | - |
 
 
 ### Data exfiltration

@@ -33,8 +33,6 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Prepare your SAP environment](preparing-sap.md)
 
-1. [Configure auditing](configure-audit.md)
-
 1. [Deploy the data connector agent](deploy-data-connector-agent-container.md)
 
 1. **Deploy the Microsoft Sentinel solution for SAP applications from the content hub** (*You are here*)
@@ -125,4 +123,4 @@ For reference, see these articles:
 
 - [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy SAP Change Requests and configure authorization](preparing-sap.md)
+- [Deploy SAP change requests and configure authorization](preparing-sap.md)

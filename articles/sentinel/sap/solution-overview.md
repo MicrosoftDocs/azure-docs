@@ -30,6 +30,7 @@ For example, the following image shows a multi-SID SAP landscape with a split be
 
 :::image type="content" source="media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Diagram of a multi-SID SAP landscape with Microsoft Sentinel." lightbox="media/deployment-overview/sap-sentinel-multi-sid-overview.png" border="false":::
 
+
 <!--i don't think we need this section here, it should be covered in the log reference.
 ## Supported log sources
 
@@ -71,11 +72,22 @@ Microsoft Sentinel solution for SAP applications is certified for SAP S/4HANA Cl
 
 For more information, see the certification on the [SAP Certified Solutions Directory](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8).
 
+## Solution pricing
+
+While the Microsoft Sentinel for SAP solution is free to install, there is an additional hourly charge for activating and using the solution on production systems.
+
+- The additional hourly charge applies to connected production systems only.
+- Microsoft Sentinel identifies a production system by looking at the configuration on the SAP system. To do this, Microsoft Sentinel searches for a production entry in the T000 table.
+
+For more information, see [View the roles of your connected production systems](../monitor-sap-system-health.md) and [Microsoft Sentinel solution for SAP® applications](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/).
+
 <!--do we need this?
 ## Trademark attribution
 
 SAP S/4HANA and SAP are trademarks or registered trademarks of SAP SE or its affiliates in Germany and in other countries/regions. 
 -->
+
+
 ## Related content
 
 For more information, see:

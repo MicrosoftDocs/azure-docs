@@ -3,49 +3,22 @@ title: Prerequisites for deploying Microsoft Sentinel solution for SAP applicati
 description: This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP applications.
 author: batamig
 ms.author: bagol
-ms.topic: how-to
-ms.date: 03/21/2024
-
+ms.topic: reference
+ms.date: 05/26/2024
+#customerIntent: As an organization planning to deploy the Microsoft Sentinel solution for SAP applications, I want to understand the different types of prerequisites required from each of the teams involved in the process.
 ---
 
 # Prerequisites for deploying Microsoft Sentinel solution for SAP applications
 
-This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP applications.
+This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP applications. Reviewing and ensuring that you have or understand all the prerequisites is the first step in deploying the Microsoft Sentinel solution for SAP applications.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
+:::image type="content" source="media/deployment-steps/prerequisites.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted.":::
 
-## Deployment milestones
+Content in this article is relevant for your security, infrastructure, and  SAP teams.
 
-Track your SAP solution deployment journey through this series of articles:
+## Azure prerequisites
 
-1. [Deployment overview](deployment-overview.md)
-
-1. **Deployment prerequisites (*You are here*)**
-
-1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
-
-1. [Prepare SAP environment](preparing-sap.md)
-
-1. [Configure auditing](configure-audit.md)
-
-1. [Deploy the solution content from the content hub](deploy-sap-security-content.md)
-
-1. [Deploy the data connector agent](deploy-data-connector-agent-container.md)
-
-1. [Configure Microsoft Sentinel solution for SAP applications](deployment-solution-configuration.md)
-
-1. Optional deployment steps
-   - [Configure data connector to use Secure Network Communication (SNC)](configure-snc.md)
-   - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
-   - [Configure audit log monitoring rules](configure-audit-log-rules.md)
-   - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
-   - [Select SAP ingestion profiles](select-ingestion-profiles.md)
-
-## Table of prerequisites
-
-To successfully deploy the Microsoft Sentinel solution for SAP applications, you must meet the following prerequisites:
-
-### Azure prerequisites
+Typically, Azure prerequisites are managed by your security teams.
 
 | Prerequisite | Description |Required/optional |
 | ---- | ----------- |----------- |
@@ -54,7 +27,9 @@ To successfully deploy the Microsoft Sentinel solution for SAP applications, you
 | **Permissions to create an Azure key vault or access an existing one** | Use Azure Key Vault to store secrets required to connect to your SAP system (recommended when this is a required prerequisite). For more information, see [Assign key vault access permissions](deploy-data-connector-agent-container.md#assign-key-vault-access-permissions). |Required if you plan to store the SAP system credentials in Azure Key Vault. <br><br>Optional if you plan to store them in a configuration file. For more information, see [Create a virtual machine and configure access to your credentials](deploy-data-connector-agent-container.md#create-a-virtual-machine-and-configure-access-to-your-credentials).|
 | **Permissions to assign a privileged role to the SAP data connector agent** | Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role. To grant this role, you need **Owner** permissions on the resource group where your Microsoft Sentinel workspace resides. <br><br>For more information, see [Deploy the data connector agent](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent). | Required. <br> If you don't have **Owner** permissions on the resource group, the relevant step can also be performed by another user who does have the relevant permissions, separately after the agent is fully deployed.|
 
-### System prerequisites
+## System prerequisites
+
+Typically, system prerequisites are managed by your infrastructure teams.
 
 | Prerequisite | Description |
 | ---- | ----------- |
@@ -66,28 +41,26 @@ To successfully deploy the Microsoft Sentinel solution for SAP applications, you
 | **Software utilities** | The [SAP data connector deployment script](reference-kickstart.md) installs the following required software on the container host VM (depending on the Linux distribution used, the list might vary slightly): <br>- [Unzip](http://infozip.sourceforge.net/UnZip.html)<br>- [NetCat](https://sectools.org/tool/netcat/)<br>- [Docker](https://www.docker.com/)<br>- [jq](https://stedolan.github.io/jq/)<br>- [curl](https://curl.se/) |
 | **Managed identity or service principal** | The latest version of the SAP data connector agent requires a managed identity or service principal to authenticate to Microsoft Sentinel. <br><br>Legacy agents are supported for updates to the latest version, and then must use a managed identity or service principal to continue updating to subsequent versions. |
 
+## SAP prerequisites
 
-### SAP prerequisites
+We recommend that your SAP team verify and ensure SAP system prerequisites. We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
 
 | Prerequisite | Description |
 | ---- | ----------- |
 | **Supported SAP versions** | The SAP data connector agent support SAP NetWeaver systems and was tested on [SAP_BASIS versions 731](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) and above. <br><br>Certain steps in this tutorial provide alternative instructions if you're working on the older [SAP_BASIS version 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows). |
 | **Required software** | SAP NetWeaver RFC SDK 7.50 ([Download here](https://aka.ms/sentinel4sapsdk))<br>Make sure that you also have an SAP user account in order to access the SAP software download page. |
-| **SAP system details** | Make a note of the following SAP system details for use in this tutorial:<br>- SAP system IP address and FQDN hostname<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as `001` |
-| **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate (This option requires extra configuration steps) |
+| **SAP system details** | Make a note of the following SAP system details: <br>- SAP system IP address and FQDN hostname<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as `001` |
+| **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate. This option requires extra configuration steps. |
+| **SAP auditing** | Some installations of SAP systems may not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters. If you want to ingest SAP HANA DB logs, make sure to also enable auditing for SAP HANA DB. |
 
-## SAP environment validation steps
+<!--this is where we'd redirect to from sap auditing-->
 
-> [!NOTE]
->
-> Step-by-step instructions for deploying a CR and assigning the required role are available in the [**Deploying SAP CRs and configuring authorization**](preparing-sap.md) guide. Determine which CRs need to be deployed, retrieve the relevant CRs from the links in the tables below, and proceed to the step-by-step guide.
+<!--
+### SAP role requirements
 
-- [Create and configure a role (required)](#create-and-configure-a-role-required)
-- [Retrieve additional information from SAP (optional)](#retrieve-additional-information-from-sap-optional)
+<!--do we need this section here if we have it in the next article?
 
-### Create and configure a role (required)
-
-To allow the SAP data connector to connect to your SAP system, you must create a role. Create the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
+To allow the SAP data connector to connect to your SAP system, you must create a SAP system role. We recommend creating the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file, as described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
 
 The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender). To enable only log retrieval, without attack disruption response actions, either deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. The **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the basic permissions for the data connector to operate.
 
@@ -97,9 +70,12 @@ The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack
 
 Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, make sure to follow the recommended authorizations for each log. For more information, see [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations).
 
-### Retrieve additional information from SAP (optional)
+### Requirements for retrieving additional information from SAP (optional)
 
-You can deploy extra CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR) to enable the SAP data connector to retrieve certain information from your SAP system.
+<!--do we need this section here if we have it in the next article?
+
+Deploy extra CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR) to enable the SAP data connector to retrieve the following content information from your SAP system:
+
 - **SAP BASIS 7.5 SP12 and above**: Client IP Address information from security audit log
 - **ANY SAP BASIS version**: DB Table logs, Spool Output log
 
@@ -108,17 +84,16 @@ You can deploy extra CRs from the [Microsoft Sentinel GitHub repository](https:/
 | - 750 and later | *NPLK900202*: [K900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL), [R900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL) | Deploy the relevant [SAP note](#deploy-sap-note-optional). |
 | - 740  | *NPLK900201*: [K900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL), [R900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL) | |
 
-#### Deploy SAP note (optional)
-
 If you choose to retrieve additional information with the [NPLK900202 optional CR](#retrieve-additional-information-from-sap-optional), ensure that the following SAP note is deployed in your SAP system, according to its version:
 
 | SAP BASIS versions | Notes |
 | --- | --- |
 | - 750 SP04 to SP12<br>- 751 SP00 to SP06<br>- 752 SP00 to SP02 | [2641084 - Standardized read access to data of Security Audit Log](https://launchpad.support.sap.com/#/notes/2641084)* |
 
+This process is described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
+ 
+--> 
 ## Next steps
 
-After verifying that all the prerequisites are met, proceed to the next step to deploy the required CRs to your SAP system and configure authorization.
-
 > [!div class="nextstepaction"]
-> [Deploying SAP CRs and configuring authorization](preparing-sap.md)
+> [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md)

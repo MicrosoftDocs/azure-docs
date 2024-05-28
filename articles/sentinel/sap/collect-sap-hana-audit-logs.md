@@ -53,12 +53,11 @@ Learn more about the Microsoft Sentinel solution for SAP applications:
 
 - [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
 - [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy SAP change requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy the SAP data connector with SNC](configure-snc.md)
 - [Monitor the health of your SAP system](../monitor-sap-system-health.md)
-- [Enable and configure SAP auditing](configure-audit.md)
 
 Troubleshooting:
 
