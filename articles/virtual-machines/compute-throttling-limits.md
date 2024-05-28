@@ -373,7 +373,7 @@ APIs, and their respective throttling limits:
 </tr>
 <tr class="even">
 <td>Put VMSS<br>
-(Create new VMSS)<br></td>
+(Create new scale set)<br></td>
 <td><a
 href="/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP">Create</a></td>
 <td>4</td>
@@ -383,7 +383,7 @@ href="/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP">C
 </tr>
 <tr class="odd">
 <td>Update VMSS<br>
-(Update existing VMSS)<br></td>
+(Update existing scaleset)<br></td>
 <td><a
 href="/rest/api/compute/virtual-machine-scale-sets/update?tabs=HTTP">Update</a><br>
 <a
@@ -431,7 +431,7 @@ Orchestration Service State</a><br></td>
 </tr>
 <tr class="even">
 <td>Delete VMSS<br>
-(Delete VMSS)<br></td>
+(Delete scale set)<br></td>
 <td><a
 href="/rest/api/compute/virtual-machine-scale-sets/delete?tabs=HTTP">Delete</a><br>
 <a
@@ -446,7 +446,7 @@ href="/rest/api/compute/virtual-machine-scale-sets/deallocate?tabs=HTTP">Dealloc
 </tr>
 <tr class="odd">
 <td>Low Cost Get VMSS<br>
-(Get information on single VMSS)<br></td>
+(Get information on single scale set)<br></td>
 <td><a
 href="/rest/api/compute/virtual-machine-scale-sets/get?tabs=HTTP">Get</a><br>
 <a
@@ -490,7 +490,7 @@ API.
 
 ## Throttling limits for Virtual Machine Scale Set Virtual Machines 
 
-API requests for VMSS Virtual Machines are categorized into 3 distinct
+API requests for Virtual Machine Scale Set Virtual Machines are categorized into 3 distinct
 policies. Each policy has its own limits, depending upon the how
 resource intensive the API requests under that policy are. Following table contains a
 comprehensive list of these policies, the corresponding REST APIs, and
@@ -528,7 +528,7 @@ their respective throttling limits:
 </tr>
 <tr class="even">
 <td>Update VMSS VMs<br>
-(Update existing VMs in a VMSS)<br></td>
+(Update existing VMs in a scale set)<br></td>
 <td><a
 href="/rest/api/compute/virtual-machine-scale-set-vms/start?tabs=HTTP">Start</a><br>
 <a
@@ -559,7 +559,7 @@ Commands - Update</a><br></td>
 </tr>
 <tr class="odd">
 <td>Delete VMSS VMs<br>
-(Delete VMSS)<br></td>
+(Delete scale set VMs)<br></td>
 <td><a
 href="/rest/api/compute/virtual-machine-scale-set-vms/delete?tabs=HTTP">Delete</a><br>
 <a
@@ -580,7 +580,7 @@ Commands - Delete</a><br></td>
 </tr>
 <tr class="even">
 <td>Get VMSS VMs<br>
-(Get information on single VMSS)<br></td>
+(Get information on scale set VMs)<br></td>
 <td><a
 href="/rest/api/compute/virtual-machine-scale-set-vms/get?tabs=HTTP">Get</a><br>
 <a
