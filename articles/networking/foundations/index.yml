@@ -80,94 +80,151 @@ productDirectory:
         - text: What is Traffic Manager?
           url: /azure/traffic-manager/traffic-manager-overview
           
-# conceptualContent section (optional)
+# conceptualContent section (Optional; Remove if not applicable.)
 conceptualContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
-  title: Learn more # < 60 chars (optional)
-#  summary: Learn more about Azure network foundation services # < 160 chars (optional)
-  items:
-    # Card
-    - title: Learning paths and modules
-      links:
-        - url: https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/
-          itemType: learn
-          text: Introduction to Azure Virtual Networks
-        - url: https://learn.microsoft.com/training/modules/configure-virtual-networks/
-          itemType: learn
-          text: Configure virtual networks
-        - url: https://learn.microsoft.com/training/modules/introduction-azure-private-link/
-          itemType: learn
-          text: Introduction to Azure Private Link
-        - url: https://learn.microsoft.com/training/modules/design-implement-private-access-to-azure-services/
-          itemType: learn
-          text: Design and implement private access to Azure Services
-        - url: https://learn.microsoft.com/training/modules/intro-to-azure-dns/
-          itemType: learn
-          text: Introduction to Azure DNS
-        - url: https://learn.microsoft.com/training/modules/intro-to-azure-dns-private-resolver/
-          itemType: learn
-          text: Intro to Azure DNS Private Resolver
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # Supports up to 3 subsections
+  sections:
+    # Section 1
+    - title: Network foundation scenarios
+      summary: Review common scenarios.
+      items:
+        # Card 1
+        - title: Create an isolated network
+          links:
+            - url: ../../vpn-gateway/vpn-gateway-about-vpngateways.md
+              itemType: overview
+              text: What is Azure VPN Gateway?
+            - url: ../../expressroute/expressroute-introduction.md
+              itemType: overview
+              text: What is Azure ExpressRoute?
+            - url: ../../virtual-wan/virtual-wan-about.md
+              itemType: overview
+              text: What is Azure Virtual WAN?
+        # Card 2
+        - title: Design and configure the network
+          links:
+            - url: https://azure.microsoft.com/en-us/updates/?category=networking&query=VPN%20Gateway
+              itemType: whats-new
+              text: Azure VPN Gateway
+            - url: https://azure.microsoft.com/en-us/updates/?category=networking&query=ExpressRoute
+              itemType: whats-new
+              text: Azure ExpressRoute
+            - url: https://azure.microsoft.com/en-us/updates/?category=networking&query=Virtual%20WAN
+              itemType: whats-new
+              text: Azure Virtual WAN
+        # Card 3
+        - title: Secure the network
+          links:
+            - url: /training/modules/intro-to-azure-expressroute/
+              itemType: training
+              text: Introduction to Azure ExpressRoute
+            - url: /training/modules/intro-to-azure-vpn-gateway/
+              itemType: training
+              text: Introduction to Azure VPN Gateway
+            - url: /training/modules/introduction-azure-virtual-wan/
+              itemType: training
+              text: Introduction to Azure Virtual WAN
+            - url: /training/modules/design-implement-azure-expressroute/
+              itemType: training
+              text: Design and implement Azure ExpressRoute
+        # Card 4
+        - title: Configure access to the network
+          links:
+            - url: /training/modules/cloud-hybrid-connectivity/
+              itemType: training
+              text: Troubleshoot cloud and hybrid - Training walkthrough
+            - url: /training/modules/troubleshoot-vpn-gateways/
+              itemType: training
+              text: Troubleshoot VPN Gateway - Training walkthrough
+            - url: ../../vpn-gateway/vpn-gateway-troubleshoot.md
+              itemType: concept
+              text: Troubleshoot VPN Gateway
 
-      # footerLink (optional)
-      footerLink:
-        url: https://learn.microsoft.com/training/browse/
-        text: Browse all courses, learning paths, and modules.
-    # Card
-    - title: Patterns and practices
-      links:
-        - url: /azure/well-architected/
-          itemType: architecture
-          text: Azure Well-Architected Framework
-        - url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
-          itemType: architecture
-          text: Cloud Adoption Framework
-        - url: /azure/architecture/networking/guide/private-link-hub-spoke-network
-          itemType: architecture
-          text: Azure Private Link in a hub-and-spoke network
-        - url: /azure/architecture/networking/architecture/azure-dns-private-resolver
-          itemType: architecture
-          text: Azure DNS Private Resolver
-        - url: /azure/architecture/hybrid/hybrid-dns-infra
-          itemType: architecture
-          text: Design a hybrid Domain Name System solution with Azure
-        - url: /azure/architecture/networking/guide/private-link-virtual-wan-dns-guide
-          itemType: architecture
-          text: Private Link and DNS in Azure Virtual WAN
-          
-      # footerLink (optional)
-      footerLink:
-        url: https://learn.microsoft.com/en-us/azure/architecture/
-        text: Browse the Azure Architecture Center.
-    # Card
-    - title: Troubleshooting and FAQs
-      links:
-        - url: /azure/virtual-network/virtual-networks-faq
-          text: Azure Virtual Network FAQ
-          itemType: reference
-        - url: /azure/private-link/private-link-faq
-          text: Azure Private Link FAQ
-          itemType: reference
-        - url: /azure/dns/dns-faq
-          text: Azure DNS FAQ
-          itemType: reference
-        - url: /azure/virtual-network/what-is-ip-address-168-63-129-16
-          text: What is IP address 168.63.129.16?
-          itemType: reference
-        - url: /azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms
-          text: Troubleshooting connectivity problems between Azure VMs
-          itemType: reference
-        - url: /azure/private-link/troubleshoot-private-endpoint-connectivity
-          text: Troubleshoot Azure Private Endpoint connectivity problems
-          itemType: reference
-        - url: /azure/dns/dns-troubleshoot
-          text: Azure DNS troubleshooting guide
-          itemType: reference
+    # Section 2
+    - title: Learn more
+      summary: Learn more about network foundation services.
+      items:
+        # Card 1
+        - title: Learning paths and modules
+          links:
+            - url: https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/
+              itemType: learn
+              text: Introduction to Azure Virtual Networks
+            - url: https://learn.microsoft.com/training/modules/configure-virtual-networks/
+              itemType: learn
+              text: Configure virtual networks
+            - url: https://learn.microsoft.com/training/modules/introduction-azure-private-link/
+              itemType: learn
+              text: Introduction to Azure Private Link
+            - url: https://learn.microsoft.com/training/modules/design-implement-private-access-to-azure-services/
+              itemType: learn
+              text: Design and implement private access to Azure Services
+            - url: https://learn.microsoft.com/training/modules/intro-to-azure-dns/
+              itemType: learn
+              text: Introduction to Azure DNS
+            - url: https://learn.microsoft.com/training/modules/intro-to-azure-dns-private-resolver/
+              itemType: learn
+              text: Intro to Azure DNS Private Resolver
+          # footerLink (optional)
+          footerLink:
+            url: https://learn.microsoft.com/training/browse/
+            text: Browse all courses, learning paths, and modules.
+        # Card 2
+        - title: Patterns and practices
+          links:
+            - url: /azure/well-architected/
+              itemType: architecture
+              text: Azure Well-Architected Framework
+            - url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
+              itemType: architecture
+              text: Cloud Adoption Framework
+            - url: /azure/architecture/networking/guide/private-link-hub-spoke-network
+              itemType: architecture
+              text: Azure Private Link in a hub-and-spoke network
+            - url: /azure/architecture/networking/architecture/azure-dns-private-resolver
+              itemType: architecture
+              text: Azure DNS Private Resolver
+            - url: /azure/architecture/hybrid/hybrid-dns-infra
+              itemType: architecture
+              text: Design a hybrid Domain Name System solution with Azure
+            - url: /azure/architecture/networking/guide/private-link-virtual-wan-dns-guide
+              itemType: architecture
+              text: Private Link and DNS in Azure Virtual WAN
+          # footerLink (optional)
+          footerLink:
+            url: https://learn.microsoft.com/en-us/azure/architecture/
+            text: Browse the Azure Architecture Center.
+        # Card 3
+        - title: Troubleshooting and FAQs
+          links:
+            - url: /azure/virtual-network/virtual-networks-faq
+              text: Azure Virtual Network FAQ
+              itemType: reference
+            - url: /azure/private-link/private-link-faq
+              text: Azure Private Link FAQ
+              itemType: reference
+            - url: /azure/dns/dns-faq
+              text: Azure DNS FAQ
+              itemType: reference
+            - url: /azure/virtual-network/what-is-ip-address-168-63-129-16
+              text: What is IP address 168.63.129.16?
+              itemType: reference
+            - url: /azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms
+              text: Troubleshooting connectivity problems between Azure VMs
+              itemType: reference
+            - url: /azure/private-link/troubleshoot-private-endpoint-connectivity
+              text: Troubleshoot Azure Private Endpoint connectivity problems
+              itemType: reference
+            - url: /azure/dns/dns-troubleshoot
+              text: Azure DNS troubleshooting guide
+              itemType: reference
 
 # additionalContent section (optional)
 # Card with summary style
 additionalContent:
   sections:
-    - title: Azure networking pillars
+    - title: Networking pillars
       items:
         - title: Load balancing and Content Delivery
           url: https://review.learn.microsoft.com/en-us/azure/networking/load-balancer-content-delivery/index-d?branch=pr-en-us-270877
