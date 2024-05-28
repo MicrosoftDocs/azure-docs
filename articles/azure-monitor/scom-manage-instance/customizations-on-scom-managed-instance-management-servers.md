@@ -47,3 +47,7 @@ Here's an example of a command to run the script (replace the parameters in quot
 If the script runs successfully, deployment gets successful and displays **Deployment finished Successfully** message.
 
 If there's an error in the script, you see **An error occurred during deployment. Please check the above logs for debugging** message.
+
+## Next step
+
+[Register the Azure Monitor SCOM Managed Instance resource provider](register-scom-managed-instance-resource-provider.md)
