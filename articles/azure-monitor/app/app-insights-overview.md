@@ -171,6 +171,9 @@ From other sources, if you configure them:
 * [Log Analytics](../logs/data-collector-api.md)
 * [Logstash](../logs/data-collector-api.md)
 
+### What's the difference between Application Insights Agent and SDKs?
+
+Application Insights Agent is the easiest to enable; you only need to install the agent, there is no need for code changes or advanced configurations. Alternatively, you can manually instrument your code using Application Insights SDK. This means that you have to manage the updates to the latest version of the packages by yourself. Use SDK if you need to make custom dependency calls or API calls that are not captured by default with the agent.
 
 ### How many Application Insights resources should I deploy?
 To understand the number of Application Insights resources required to cover your application or components across environments, see the [Application Insights deployment planning guide](create-workspace-resource.md#how-many-application-insights-resources-should-i-deploy).
