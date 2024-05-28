@@ -135,7 +135,7 @@ To deploy your project to Azure, follow these steps:
 
 To manage your function apps with **Azure Explorer** in your IDEA, follow these steps:
 
-1. Select **Function App** too see all your function apps listed.
+1. Select **Function App** to see all your function apps listed.
 
    :::image type="content" source="media/functions-create-first-java-intellij/explorer-view-functions.png" alt-text="View function apps in explorer." lightbox="media/functions-create-first-java-intellij/explorer-view-functions.png":::
 
