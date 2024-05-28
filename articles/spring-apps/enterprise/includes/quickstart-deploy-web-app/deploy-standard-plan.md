@@ -122,7 +122,7 @@ Use the following steps to connect your service instances:
 
 1. Select **Service Connector** from the navigation pane and then select **Create** to create a new service connection.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector.png" alt-text="Screenshot of the Azure portal that shows the Service Connector page with the Created button highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector.png" alt-text="Screenshot of the Azure portal that shows the Service Connector page with the Create button highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector.png":::
 
 1. Fill out the **Basics** tab with the following information:
 
