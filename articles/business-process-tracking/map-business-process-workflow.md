@@ -15,7 +15,7 @@ ms.date: 06/07/2024
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-After you create a business process and define the key business properties to capture and track, you can map each stage and business property to an actual operation and output in a Standard logic app workflow that you created with Azure Logic Apps.
+After you finish creating your business process, you can map each stage, transaction ID, and business properties to actual operations and outputs in a Standard logic app workflow that you created using Azure Logic Apps.
 
 ## Prerequisites
 
@@ -23,11 +23,11 @@ After you create a business process and define the key business properties to ca
 
 - A [business process with the stages](create-business-process.md) with the defined key business property values to capture and track. so you can map these stages to actual operations and output values in a Standard logic app workflow.
 
-- An existing Standard logic app resource and workflow where you want to map your business process stages
+- An existing Standard logic app resource and workflow where you want to map your business process stages. For more information, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
 - The Azure Data Explorer database that's associated with your business process must be online to store your mapping information.
 
-- If you're working with an application group, that group must contain at least one Standard logic app resource, workflow, and operation before you can start mapping.
+- If you're working with an [application group in an Azure integration environment](../integration-environments/overview.md), that group must contain at least one Standard logic app resource, workflow, and operation before you can start mapping.
 
 <a name="map-stage"></a>
 
@@ -128,7 +128,7 @@ In the **Properties** section, follow these steps to map each property's value t
 
 1. When you finish, save your business process one more time.
 
-Now, deploy your business process and tracking profile.
+Now, continue on to [deploy your business process and tracking profile](deploy-business-process.md).
 
 ## Next step
 

@@ -23,7 +23,7 @@ After you map your business process stages to the operations and outputs in Stan
 
 - Access to the Standard logic app resources and workflows that are mapped to your business process. This access is required because deployment creates and adds a tracking profile to each logic app resource that participates in the business process.
 
-- A [business process](create-business-process.md) with [stages mapped to actual operations and property values in a Standard logic app workflow](map-business-process-workflow.md)
+- A [business process](create-business-process.md) with [stages mapped to actual operations and outputs in a Standard logic app workflow](map-business-process-workflow.md)
 
 - The Azure Data Explorer database that's associated with your business process must be online.
 
@@ -51,33 +51,27 @@ After you map your business process stages to the operations and outputs in Stan
 
 ## View recorded transactions
 
-After the associated Standard logic app workflows run and emit the data that you specified to capture, you can view the recorded transactions.
+After the mapped Standard logic app workflows run and emit the data that you specified to capture, you can view the recorded transactions.
 
 1. In the [Azure portal](https://portal.azure.com), open your business process.
 
 1. On the business process menu, under **Business process tracking**, select **Transactions**.
 
-   :::image type="content" source="media/deploy-business-process/view-transactions.png" alt-text="Screenshot shows business processes page, business process, and selected option for View transactions." lightbox="media/deploy-business-process/view-transactions.png":::
+   The **Transactions** page shows any records that your solution recorded.
 
-1. Next to the business process with the transactions that you want, select **View transactions** (table with magnifying glass).
+   :::image type="content" source="media/deploy-business-process/view-transactions.png" alt-text="Screenshot shows Transaction page for a selected business process." lightbox="media/deploy-business-process/view-transactions.png":::
 
-   The **Transactions** page shows any records that your solution tracked. 
+1. To review the details for a specific transaction, select the transaction ID.
 
-   :::image type="content" source="media/deploy-business-process/transactions-page.png" alt-text="Screenshot shows transactions page for business processes." lightbox="media/deploy-business-process/transactions-page.png":::
+   The **Transaction details** pane shows the status information for the entire business process, for example:
 
-1. Sort the records based on **Business identifier**, **Time executed**, or **Business process**. 
+   :::image type="content" source="media/deploy-business-process/process-status.png" alt-text="Screenshot shows Transactions page and status for entire business process." lightbox="media/deploy-business-process/process-status.png":::
 
-1. To review the status for your business process, on a specific transaction row, select the business identifier value.
+1. To review the status for a specific stage, on the **Transaction details** pane, select that stage, for example, **Complete_work_order**.
 
-   For a specific transaction, the **Transaction details** pane shows the status information for the entire business process, for example:
+   The **Transaction details** pane now shows the values for the transaction ID and any tracked properties for the selected stage, for example:
 
-   :::image type="content" source="media/deploy-business-process/process-status.png" alt-text="Screenshot shows transactions page and process status for specific transaction." lightbox="media/deploy-business-process/process-status.png":::
-
-1. To review the status for a specific stage, on the **Transaction details** pane, select that stage.
-
-   The **Transaction details** pane now shows the tracked properties for the selected stage, for example:
-
-   :::image type="content" source="media/deploy-business-process/transaction-details.png" alt-text="Screenshot shows transactions page and details for a specific stage." lightbox="media/deploy-business-process/transaction-details.png":::
+   :::image type="content" source="media/deploy-business-process/transaction-details.png" alt-text="Screenshot shows transactions page and transaction details for a specific stage." lightbox="media/deploy-business-process/transaction-details.png":::
 
 1. To create custom experiences for the data provided here, check out [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md) or [Azure Data Explorer with Power BI](/azure/data-explorer/power-bi-data-connector?tabs=web-ui).
 

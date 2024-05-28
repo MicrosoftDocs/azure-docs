@@ -17,7 +17,7 @@ ms.date: 06/07/2024
 
 To add business information and context about the Azure resources in your integration solution, you can visualize the business process flow for the tasks that these resources implement. A business process is a sequence of stages that represent the task flow through a real-world business scenario. This business process also specifies a single business identifer or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that's available across all the stages in the business process and to correlate those stages together.
 
-When you add a stage to your business process, you can also define other business properties to capture and track as that data moves through each stage. You can then later map all these properties to specific operations and data outputs in Standard logic app workflows. For more information, see [What is Business Process Tracking](overview.md)?
+When you add a stage to your business process, you can also define other business properties to capture and track as that data moves through each stage. You can then later map the transaction ID and other properties to specific operations and data outputs in Standard logic app workflows. For more information, see [What is Business Process Tracking](overview.md)?
 
 For example, suppose you're a business analyst at a power company. Your company's customer service team has the following business process to resolve a customer ticket for a power outage:
 
@@ -79,13 +79,8 @@ After you define a business process, you can then map each stage to actual Azure
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar identifier. <br><br>This example uses the identifier named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing. |
+   | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar business identifier that's available across all stages in your business process. <br><br>This example uses the transaction ID named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing. <br><br>**Note**: Business Process Tracking automatically includes and captures the transaction timestamp, so you don't have to separately add this value to capture and track. Although you can define only a single transaction ID when you create a business process, you can later define other business properties in each stage to capture and track. |
    | **Data type** | Yes | <*transacton-ID-data-type*> | The data type for your transaction ID: **String** or **Integer**. <br><br>This example uses the **String** data type. |
-
-   > [!NOTE]
-   >
-   > Although you can define only a single transaction ID when you create a business process, 
-   > you can later define more transaction IDs to track when you add a stage to your business process.
 
    The following example shows the sample transaction ID:
 
@@ -140,18 +135,13 @@ After you create your business process, add the stages for that process. For exa
 
    :::image type="content" source="media/create-business-process/add-stage-quick.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and properties to track." lightbox="media/create-business-process/add-stage.png":::
 
-   By default, in the **Properties to track** section, the transaction ID that you defined when you created the business process automatically appears in this section. 
+   By default, in the **Properties to track** section, the transaction ID that you defined when you created the business process automatically appears in this section.
 
-   To define more business property values that you want to capture and track for this stage, follow these steps:
+   To define other business property values that you want to capture and track for this stage, follow these steps:
 
    1. Under the properties list, select **Add property**.
 
    1. Enter the property name and type, which is either a **String** or **Integer**.
-
-   > [!NOTE]
-   >
-   > Business Process Tracking automatically includes and captures the transaction 
-   > timestamp, so you don't have to add this value to capture and track.
 
    For example, this stage specifies a few more properties, such as **CustomerName**, **CustomerEmail**, and **CustomerPhone**:
 
