@@ -108,6 +108,8 @@
     href: load-balancer-custom-probe-overview.md
   - name: Cross-region load balancer
     href: cross-region-overview.md
+  - name: Administrative state
+    href: admin-state-overview.md
   - name: Reliability
     items:
     - name: Availability zones and cross-region load balancer
@@ -168,6 +170,8 @@
       href: manage-probes-how-to.md
     - name: Create a custom HTTP/HTTPS health probe
       href: create-custom-http-health-probe-howto.md
+    - name: Manage administrative state
+      href: manage-admin-state-how-to.md
   - name: Load Balancer metrics
     items:
     - name: Get Load Balancer metrics with Azure Monitor CLI
