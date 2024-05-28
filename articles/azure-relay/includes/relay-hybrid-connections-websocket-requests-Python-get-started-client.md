@@ -53,49 +53,8 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 
 1. Ensure your dependency `config.json` and `relaylib.py` are available in your path 
 
-2. Import the dependencies into your `sender.py` script.
 
-    ```python
-    import asyncio
-	import json
-	import logging
-	import relaylib
-	import websockets
-    ```
-3. Add the following code to the `sender.py` file. The main script should look like the following code:
-
-    ```python
-	async def run_application(message, config):
-		service_namespace = config["namespace"]
-		entity_path = config["path"]
-		sas_key_name = config["keyrule"]
-		sas_key = config["key"]
-		service_namespace += ".servicebus.windows.net"
-
-		# Configure logging
-		logging.basicConfig(level=logging.DEBUG)  # Enable debug logging
-
-		token = relaylib.createSasToken(service_namespace, entity_path, sas_key_name, sas_key)
-		logging.debug("Token: %s", token)
-		wss_uri = relaylib.createListenUrl(service_namespace, entity_path, token)
-		logging.debug("WssURI: %s", wss_uri)
-
-		try:
-			async with websockets.connect(wss_uri) as websocket:
-				logging.info("Sending message to Azure Relay WebSocket...")
-				await websocket.send(json.dumps({"message": message}))
-				logging.info("Message sent: %s", message)
-		except Exception as e:
-			logging.error("An error occurred: %s", str(e))
-
-	if __name__ == "__main__":
-		# Load configuration from JSON file
-		with open("config.json") as config_file:
-			config = json.load(config_file)
-
-		asyncio.run(run_application("This is a message to Azure Relay Hybrid Connections!", config))
-    ```
-    Here's what your `sender.py` file should look like:
+2. Here's what your `sender.py` file should look like:
 
     ```python
 	import asyncio
