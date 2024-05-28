@@ -49,12 +49,12 @@ Next, select the storage account in Azure API for FHIR as a default storage acco
 
 The final step is to assign the Azure storage account to export the data to. Go to **Export** in Azure API for FHIR and then select the storage account.
 
-![fhir-export-storage](media/configure-export-data/fhir-export-storage.png)
+:::image type="content" source="media/export-data/fhir-export-storage.png" alt-text="Screenshot showing selection of the storage account for export." lightbox="media/export-data/fhir-export-storage.png":::
 
 After you complete this final step, you’re ready to export the data by using the $export command.
 
 > [!Note]
-> Only storage accounts in the same subscription as that for Azure API for FHIR can be registered as the destination for $export operations.
+> Only storage accounts in the same subscription as Azure API for FHIR can be registered as the destination for $export operations.
 
 ## Next steps
 
