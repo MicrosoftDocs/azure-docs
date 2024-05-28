@@ -283,7 +283,11 @@ For blob/adls gen1/adls gen2 based datastore (at least for `workspaceblobstore` 
 
 :::image type="content" source="./media/faq/datastore-update-auth-type.png" alt-text="Screenshot of update auth type for datastore. " lightbox = "./media/faq/datastore-update-auth-type.png":::
 
-For fileshare based datastore (at least for `workspaceworkingdirectory`), you can only change auth type for REST API: [datastores-create-or-update](/rest/api/azureml/datastores/create-or-update?tabs=HTTP#code-try-0). You can first use [datastores-get](/rest/api/azureml/datastores/get?tabs=HTTP#code-try-0) to get the body properties of datastore, then change `"credentialsType": "None"`, also need to specify `subscriptionId`, `accountName` and `"serviceDataAccessAuthIdentity": "WorkspaceSystemAssignedIdentity"`.
+For fileshare based datastore (at least for `workspaceworkingdirectory`), you can only change auth type for REST API: [datastores-create-or-update](/rest/api/azureml/datastores/create-or-update?tabs=HTTP#code-try-0). You can first use [datastores-get](/rest/api/azureml/datastores/get?tabs=HTTP#code-try-0) to get the body properties of datastore, then change `"credentialsType": "None"`.
+
+:::image type="content" source="./media/faq/fileshare-datastore-update-auth-type.png" alt-text="Screenshot of update auth type for fileshare based datastore. " lightbox = "./media/faq/fileshare-datastore-update-auth-type.png":::
+
+For `workspaceartifactstore` data store you need also specify `subscriptionId`, `accountName` and `"serviceDataAccessAuthIdentity": "WorkspaceSystemAssignedIdentity"`
 
 :::image type="content" source="./media/faq/datastore-update-rest.png" alt-text="Screenshot of rest for datastore update. " lightbox = "./media/faq/datastore-update-rest.png":::
 
