@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 05/05/2024
+ms.date: 05/28/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,12 +24,37 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
+| May 28 | [Remediate security baseline recommendation](#remediate-security-baseline-recommendation) |
+| May 22 | [Configure email notifications for attack paths](#configure-email-notifications-for-attack-paths) |
+| May 21 | [Advanced hunting in Microsoft Defender XDR now includes Defender for Cloud alerts and incidents](#advanced-hunting-in-microsoft-defender-xdr-now-includes-defender-for-cloud-alerts-and-incidents) |
 | May 9 | [Checkov integration for IaC scanning in Defender for Cloud (Preview)](#checkov-integration-for-iac-scanning-in-defender-for-cloud-preview) |
-| May 7 | [General availability of permissions management in Defender for Cloud](#general-availability-of-permissions-management-in-defender-for-cloud) |
 | May 6 | [AI multicloud security posture management is publicly available for Azure and AWS](#ai-multicloud-security-posture-management-is-publicly-available-for-azure-and-aws) |
-| May 6 | [Limited public preview of threat protection for AI workloads in Azure](#limited-public-preview-of-threat-protection-for-ai-workloads-in-azure) |
 | May 2 | [Updated security policy management is now generally available](#updated-security-policy-management-is-now-generally-available) |
 | May 1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
+
+### Remediate security baseline recommendation
+
+May 28, 2024
+
+Microsoft Defender for Cloud enhances the Center for Internet Security (CIS) benchmarks by providing security baselines that are powered by Microsoft Defender Vulnerability Management (MDVM). The new recommendation **Machine should be configured securely (powered by MDVM)** helps you secure your servers by providing recommendations that improve your security posture.
+
+Learn how to [remediate security baseline recommendations powered by MDVM](remediate-security-baseline.md).
+
+### Configure email notifications for attack paths
+
+May 22, 2024
+
+You can now configure email notifications for attack paths in Defender for Cloud. This feature allows you to receive email notifications when an attack path is detected with a specified risk level or higher. 
+
+Learn how to [configure email notifications](configure-email-notifications.md).
+
+### Advanced hunting in Microsoft Defender XDR now includes Defender for Cloud alerts and incidents
+
+May 21, 2024
+
+Defender for Cloud's alerts and incidents are now integrated with Microsoft Defender XDR. This integration allows security teams to access Defender for Cloud alerts and incidents within the Microsoft Defender Portal. This integration provides richer context to investigations that span cloud resources, devices, and identities.
+
+Learn more about the [advanced hunting in XDR integration](concept-integration-365.md#advanced-hunting-in-xdr).
 
 ### Checkov integration for IaC scanning in Defender for Cloud (Preview)
 
@@ -51,7 +76,7 @@ We're announcing the general availability (GA) of [permissions management](permi
 
 May 6, 2024
 
-We are announcing the inclusion of AI security posture management in Defender for Cloud. This feature provides AI security posture management capabilities for Azure and AWS that enhance the security of your AI pipelines and services.
+We're announcing the inclusion of AI security posture management in Defender for Cloud. This feature provides AI security posture management capabilities for Azure and AWS that enhance the security of your AI pipelines and services.
 
 Learn more about [AI security posture management](ai-security-posture.md).
 
@@ -59,8 +84,8 @@ Learn more about [AI security posture management](ai-security-posture.md).
 
 May 6, 2024
 
-Threat protection for AI workloads in Defender for Cloud provides contextual insights into AI workload threat protection, integrating with [Responsible AI](../ai-services/responsible-use-of-ai-overview.md) and Microsoft Threat Intelligence. Threat protection for AI workloads security alerts are integrated into Defender XDR in the Defender portal.
-This plan helps you monitor your Azure OpenAI powered applications in runtime for malicious activity, identify and remediate security risks.
+Threat protection for AI workloads in Defender for Cloud provides contextual insights into AI workload threat protection, integrating with [Responsible AI](../ai-services/responsible-use-of-ai-overview.md) and Microsoft Threat Intelligence. Threat protections for AI workloads security alerts are integrated into Defender XDR in the Defender portal.
+This plan helps you monitor your Azure OpenAI powered applications in runtime for malicious activity, identify, and remediate security risks.
 
 Learn more about [threat protection for AI workloads](ai-threat-protection.md).
 
@@ -80,7 +105,7 @@ For more information, see [Security policies in Microsoft Defender for Cloud](se
 
 May 1, 2024
 
-We are announcing the public preview of Defender for open-source databases on AWS that adds support for various types of Amazon Relational Database Service (RDS) instance types.
+We're announcing the public preview of Defender for open-source databases on AWS that adds support for various types of Amazon Relational Database Service (RDS) instance types.
 
 Learn more about [Defender for open-source databases](defender-for-databases-introduction.md) and how to [enable Defender for open-source databases on AWS](enable-defender-for-databases-aws.md).
 
@@ -102,7 +127,7 @@ April 15, 2024
 
 Runtime threat detection and agentless discovery for AWS and GCP in Defender for Containers are now Generally Available (GA). For more information, see [Containers support matrix in Defender for Cloud](support-matrix-defender-for-containers.md).
 
-In addition, there is a new authentication capability in AWS which simplifies provisioning. For more information, see [Configure Microsoft Defender for Containers components](/azure/defender-for-cloud/defender-for-containers-enable?branch=pr-en-us-269845&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks#deploying-the-defender-sensor).
+In addition, there's a new authentication capability in AWS which simplifies provisioning. For more information, see [Configure Microsoft Defender for Containers components](/azure/defender-for-cloud/defender-for-containers-enable?branch=pr-en-us-269845&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks#deploying-the-defender-sensor).
 
 ### Risk prioritization is now the default experience in Defender for Cloud
 
@@ -248,13 +273,13 @@ Learn more about [continuous export](benefits-of-continuous-export.md).
 
 March 21, 2024
 
-Until now agentless scanning covered CMK encrypted VMs in AWS and GCP. With this release we're completing support for Azure as well. The capability employs a unique scanning approach for CMK in Azure:
+Until now agentless scanning covered CMK encrypted VMs in AWS and GCP. With this release, we're completing support for Azure as well. The capability employs a unique scanning approach for CMK in Azure:
 
 - Defender for Cloud doesn't handle the key or decryption process. Key handling and decryption are seamlessly handled by Azure Compute and is transparent to Defender for Cloud's agentless scanning service.
 - The unencrypted VM disk data is never copied or re-encrypted with another key.
 - The original key isn't replicated during the process. Purging it eradicates the data on both your production VM and Defender for Cloud’s temporary snapshot.
 
-During public preview this capability isn't automatically enabled. If you're using Defender for Servers P2 or Defender CSPM and your environment has VMs with CMK encrypted disks, you can now have them scanned for vulnerabilities, secrets and malware following these [enablement steps](enable-agentless-scanning-vms.md#agentless-vulnerability-assessment-on-azure).
+During public preview this capability isn't automatically enabled. If you're using Defender for Servers P2 or Defender CSPM and your environment has VMs with CMK encrypted disks, you can now have them scanned for vulnerabilities, secrets, and malware following these [enablement steps](enable-agentless-scanning-vms.md#agentless-vulnerability-assessment-on-azure).
 
 - [Learn more on agentless scanning for VMs](concept-agentless-data-collection.md)
 - [Learn more on agentless scanning permissions](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-)

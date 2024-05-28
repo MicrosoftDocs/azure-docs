@@ -37,7 +37,7 @@ Creation of the scope connection begins on the central management tenant with a 
 In this task, you set up a scope connection to add a subscription from a target tenant:
 
 1. Log in to the Azure portal on the central management tenant.
-1. Search for **Virtual network managers" and select your network manager from the list.
+1. Search for **Virtual network managers** and select your network manager from the list.
 1. Under **Settings**, select **Cross-tenant connections**, and then select **Create cross-tenant connection**.
 
    :::image type="content" source="media/how-to-configure-cross-tenant-portal/create-cross-tenant-connection.png" alt-text="Screenshot of cross-tenant connections in a network manager.":::
