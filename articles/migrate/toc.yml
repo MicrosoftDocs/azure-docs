@@ -136,7 +136,7 @@ items:
       - name: Webapp assessment
         items:
         - name: Pre-requisites
-        - name: Create an Webapp assessment
+        - name: Create a Webapp assessment
         - name: Customize assessment settings
         - name: Azure Webapp Readiness criteria
         - name: Review assessment report
