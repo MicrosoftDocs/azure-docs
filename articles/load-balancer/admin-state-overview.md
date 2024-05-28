@@ -49,11 +49,10 @@ When deploying a load balancer with admin state, consider the following design c
 
 When deploying a load balancer with admin state, consider the following limitations:
 
-| **Limitation** | **Description** |
-|------------|-------------|
-| **Admin state on a per backend pool instance basis** | Admin state applies on a per backend pool instance basis. In a scenario where a virtual machine instance is in more than one backend pool, the admin state setting on one backend pool doesn't affect the other backend pool. |
-| **Health probe configuration** | Admin state only takes effect when there's a health probe configured on the Load Balancer rules. |
-| **Inbound NAT rule** | Admin state isn't supported with inbound NAT rule. |
+- Admin state is not supported with inbound NAT rule. 
+- Admin state is not supported for non-probed load balancing rules.
+- Admin state cannot be set as part of the NIC-based Load Balancer backend pool Create experiences. 
+
 
 ## Next steps
 
