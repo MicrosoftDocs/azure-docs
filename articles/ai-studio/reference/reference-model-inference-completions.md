@@ -21,7 +21,7 @@ ms.custom:
 Creates a completion for the provided prompt and parameters.
 
 ```http
-POST /completions?api-version=2024-05-01-preview
+POST /completions?api-version=2024-04-01-preview
 ```
 
 | Name | In  | Required | Type | Description |
@@ -37,7 +37,6 @@ POST /completions?api-version=2024-05-01-preview
 | prompt | True |     | The prompts to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that `<\|endoftext\|>` is the document separator that the model sees during training, so if a prompt is not specified the model generates as if from the beginning of a new document. |
 | frequency\_penalty |     | number | Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. |
 | max\_tokens |     | integer | The maximum number of tokens that can be generated in the completion. The token count of your prompt plus `max_tokens` cannot exceed the model's context length. |
-| model |     | string | Kept for compatibility reasons. This parameter is ignored. |
 | presence\_penalty |     | number | Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
 | seed |     | integer | If specified, the model makes a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.<br><br>Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend. |
 | stop |     |     | Sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence. |
@@ -51,11 +50,11 @@ POST /completions?api-version=2024-05-01-preview
 | Name | Type | Description |
 | --- | --- | --- |
 | 200 OK | [CreateCompletionResponse](#createcompletionresponse) | OK  |
-| 401 Unauthorized |     | Access token is missing or invalid |
-| 404 Not Found |     | Modality not supported by the model. Check the documentation of the model to see which routes are available. |
-| 422 Unprocessable Entity | [UnprocessableContentError](#unprocessablecontenterror) | The request contains unprocessable content<br><br>Headers<br><br>x-ms-error-code: string |
-| 429 Too Many Requests |     | You have hit your assigned rate limit and your request need to be paced. |
-| Other Status Codes | [ContentFilterError](#contentfiltererror) | Bad request<br><br>Headers<br><br>x-ms-error-code: string |
+| 401 Unauthorized         | [UnauthorizedError](#unauthorizederror)                 | Access token is missing or invalid<br><br>Headers<br><br>x-ms-error-code: string                                                                           |
+| 404 Not Found            | [NotFoundError](#notfounderror)                         | Modality not supported by the model. Check the documentation of the model to see which routes are available.<br><br>Headers<br><br>x-ms-error-code: string |
+| 422 Unprocessable Entity | [UnprocessableContentError](#unprocessablecontenterror) | The request contains unprocessable content<br><br>Headers<br><br>x-ms-error-code: string                                                                   |
+| 429 Too Many Requests    | [TooManyRequestsError](#toomanyrequestserror)           | You have hit your assigned rate limit and your request need to be paced.<br><br>Headers<br><br>x-ms-error-code: string                                     |
+| Other Status Codes       | [ContentFilterError](#contentfiltererror)               | Bad request<br><br>Headers<br><br>x-ms-error-code: string                                                                                                  |
 
 
 ## Security
@@ -86,7 +85,7 @@ Azure Active Directory OAuth2 authentication
 #### Sample Request
 
 ```http
-POST /completions?api-version=2024-05-01-preview
+POST /completions?api-version=2024-04-01-preview
 
 {
   "prompt": "This is a very good text",
@@ -199,7 +198,6 @@ The API call fails when the prompt triggers a content filter as configured. Modi
 | --- | --- | --- | --- |
 | frequency\_penalty | number | 0   | Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. |
 | max\_tokens | integer | 256 | The maximum number of tokens that can be generated in the completion. The token count of your prompt plus `max_tokens` cannot exceed the model's context length. |
-| model | string |     | Kept for compatibility reasons. This parameter is ignored. |
 | presence\_penalty | number | 0   | Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
 | prompt |     | `<\|endoftext\|>` | The prompts to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that `<\|endoftext\|>` is the document separator that the model sees during training, so if a prompt is not specified the model generates as if from the beginning of a new document. |
 | seed | integer |     | If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.<br><br>Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend. |
