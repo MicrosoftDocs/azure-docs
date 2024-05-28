@@ -14,7 +14,7 @@ You need to select how you want to authenticate the connection from Azure OpenAI
 
 :::image type="content" source="../media/use-your-data/data-connection-authentication.png" alt-text="A screenshot showing the managed identity option in Azure OpenAI Studio." lightbox="../media/use-your-data/data-connection-authentication.png":::
 
-Once you select the **next** button, it will automatically validate your setup to use the selected authentication method. If you encounter an error, see the [role assignments article](../how-to/use-your-data-securely.md#role-assignments) to update your setup. set the CORS **Allow Origin Type** option `All` and **Allowed origins** `*`.
+Once you select the **next** button, it will automatically validate your setup to use the selected authentication method. If you encounter an error, see the [role assignments article](../how-to/use-your-data-securely.md#role-assignments) to update your setup.
 
 Once you have fixed the setup, select **next** again to validate and proceed. API users can also [configure authentication](../references/azure-search.md#api-key-authentication-options) with assigned managed identity and API keys.
 

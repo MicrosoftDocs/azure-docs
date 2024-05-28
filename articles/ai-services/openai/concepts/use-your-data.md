@@ -78,7 +78,14 @@ You might want to consider using an Azure AI Search index when you either want t
 * Reuse an index created before by ingesting data from other data sources.
 
 > [!NOTE]
-> To use an existing index, it must have at least one searchable field.
+> * To use an existing index, it must have at least one searchable field.
+> * Set the CORS **Allow Origin Type** to `all` and the **Allowed origins** to `*`. 
+option
+All
+and
+Allowed origins
+*
+.
 
 ### Search types
 
