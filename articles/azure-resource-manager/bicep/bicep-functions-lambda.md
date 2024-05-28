@@ -485,4 +485,4 @@ The preceding example generates an object based on an array.
 
 ## Next steps
 
-- See [Bicep functions - arrays](./bicep-functions-array.md) for additional array related Bicep functions.
+- See [Bicep functions - arrays](./bicep-functions-array.md) for more array-related Bicep functions.
