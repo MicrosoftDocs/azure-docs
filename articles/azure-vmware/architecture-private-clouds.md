@@ -3,7 +3,7 @@ title: Architecture - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 5/5/2024
+ms.date: 5/25/2024
 ms.custom: engagement-fy23
 ---
 
@@ -59,30 +59,32 @@ The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tag
 
 | Azure region | Availability Zone | SKU   | Multi-AZ SDDC |
 | :---         | :---:             | :---: | :---:         |
-| Australia East | AZ01 | AV36P | Yes |
+| Australia East | AZ01 | AV36P, AV64 | Yes |
 | Australia East | AZ02 | AV36 | No |
-| Australia East | AZ03 | AV36P | Yes |
+| Australia East | AZ03 | AV36P, AV64 | Yes |
 | Australia South East | AZ01 | AV36 | No |
-| Brazil South | AZ02 | AV36 | No |
+| Brazil South | AZ02 | **AV36** | No |
 | Canada Central | AZ02 | AV36, **AV36P** | No |
 | Canada East | N/A | AV36 | No |
+| Central India | AZ03 | AV36P | No |
 | Central US | AZ01 | AV36P | No |
 | Central US | AZ02 | **AV36** | No |
 | Central US | AZ03 | AV36P | No |
 | East Asia | AZ01 | AV36 | No |
-| East US | AZ01 | AV36P | Yes |
-| East US | AZ02 | **AV36P** | Yes |
-| East US | AZ03 | AV36, AV36P, AV64 | Yes |
+| East US | AZ01 | **AV36P** | Yes |
+| East US | AZ02 | **AV36P**, AV64 | Yes |
+| East US | AZ03 | **AV36**, **AV36P**, AV64 | Yes |
 | East US 2 | AZ01 | **AV36**, AV64 | No |
 | East US 2 | AZ02 | AV36P, **AV52**, AV64 | No |
-| France Central | AZ01 | AV36 | No |
+| France Central | AZ01 | **AV36** | No |
 | Germany West Central | AZ01 | AV36P | Yes |
-| Germany West Central | AZ02 | AV36 | Yes |
-| Germany West Central | AZ03 | AV36, AV36P | Yes |
+| Germany West Central | AZ02 | **AV36** | Yes |
+| Germany West Central | AZ03 | AV36, **AV36P** | Yes |
+| Italy North | AZ03 | AV36P | No |
 | Japan East | AZ02 | **AV36** | No |
 | Japan West | AZ01 | **AV36** | No |
-| North Central US | AZ01 | **AV36** | No |
-| North Central US | AZ02 | AV36P | No |
+| North Central US | AZ01 | **AV36**, AV64 | No |
+| North Central US | AZ02 | AV36P, AV64 | No |
 | North Europe | AZ02 | AV36, AV64 | No |
 | Qatar Central | AZ03 | AV36P | No |
 | South Africa North | AZ03 | AV36 | No |
@@ -91,17 +93,19 @@ The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tag
 | South East Asia | AZ02 | **AV36** | No |
 | Sweden Central | AZ01 | AV36 | No |
 | Switzerland North | AZ01 | **AV36**, AV64 | No |
+| Switzerland North | AZ03 | AV36P | No |
 | Switzerland West | AZ01 | **AV36**, AV64 | No |
+| UAE North | AZ03 | AV36P | No |
 | UK South | AZ01 | AV36, AV36P, AV52, AV64 | Yes |
 | UK South | AZ02 | **AV36**, AV64 | Yes |
 | UK South | AZ03 | AV36P, AV64 | Yes |
 | UK West | AZ01 | AV36 | No |
-| West Europe | AZ01 | **AV36**, AV36P, AV52 | Yes |
-| West Europe | AZ02 | **AV36** | Yes |
+| West Europe | AZ01 | **AV36**, AV36P, AV52, AV64 | Yes |
+| West Europe | AZ02 | **AV36**, AV64 | Yes |
 | West Europe | AZ03 | AV36P, AV64 | Yes |
 | West US | AZ01 | AV36, AV36P | No |
 | West US 2 | AZ01 | AV36 | No |
-| West US 2 | AZ02 | **AV36P** | No |
+| West US 2 | AZ02 | AV36P | No |
 | West US 3 | AZ01 | **AV36P** | No |
 | US Gov Arizona | AZ02 | AV36P | No |
 | US Gov Virginia | AZ03 | AV36 | No |
@@ -126,7 +130,7 @@ Microsoft is a member of the VMware Metal-as-a-Service (MaaS) program and uses t
 
 Azure VMware Solution continuously monitors the health of both the VMware components and underlay. When Azure VMware Solution detects a failure, it takes action to repair the failed components. When Azure VMware Solution detects a degradation or failure on an Azure VMware Solution node, it triggers the host remediation process.
 
-Host remediation involves replacing the faulty node with a new healthy node in the cluster. Then, when possible, the faulty host is placed in VMware vSphere maintenance mode. VMware vMotion moves the VMs off the faulty host to other available servers in the cluster, potentially allowing zero downtime for live migration of workloads. If the faulty host can't be placed in maintenance mode, the host is removed from the cluster. Before the faulty host is removed, the customer workloads are migrated to a newly added host.
+Host remediation involves replacing the faulty node with a new healthy node in the cluster. Then, when possible, the faulty host is placed in VMware vSphere maintenance mode. VMware vSphere vMotion moves the VMs off the faulty host to other available servers in the cluster, potentially allowing zero downtime for live migration of workloads. If the faulty host can't be placed in maintenance mode, the host is removed from the cluster. Before the faulty host is removed, the customer workloads are migrated to a newly added host.
 
 > [!TIP]
 > **Customer communication:** An email is sent to the customer's email address before the replacement is initiated and again after the replacement is successful. 
@@ -153,7 +157,7 @@ Azure VMware Solution monitors the following conditions on the host:
 
 ## Backup and restore
 
-Azure VMware Solution private cloud vCenter Server, NSX, and HCX Manager (if enabled) configurations are on a daily backup schedule. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
+Azure VMware Solution private cloud vCenter Server and HCX Manager (if enabled) configurations are on a daily backup schedule and NSX configuration has an hourly backup schedule. The backups are retained for a minimum of three days. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
 
 > [!NOTE]
 > Restorations are intended for catastrophic situations only.
