@@ -158,7 +158,6 @@ With Spring Cloud Config Server, configurations or properties that are required 
 
 1. Bind the job to Spring Cloud Config Server during job creation using the command:
 
-
 ```
 az spring job create --bind-config-server true --name <job-name>
 ```
@@ -173,7 +172,6 @@ az spring config-server bind --job <job-name>
 
 Bind the job to Spring Cloud Config Server during job creation:
 
-
 1. Go to your Azure Spring Apps instance. From the navigation pane, select *Job*
 1. Click *Create Job* button and choose *Spring Cloud Config Server* in the *bind* part
 1. Click *Create* button to start creation process
@@ -186,6 +184,24 @@ For existing jobs, you can bind them with Spring Cloud Config Server with follow
 1. In *Job binding* tab, select *Bind job* and choose the job to apply.
 1. After binding successfully, the job name shows in the list.
 1. Run the job
+
+---
+
+If you no longer need Spring Cloud Config Server for your jobs, you can unbind them from it. This change will take effect on new job executions.
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the following Azure CLI command to unbind the job:
+
+```
+az spring config-server unbind --job <job-name>
+```
+
+# [Azure portal](#tab/azure-portal)
+
+1. Go to your Azure Spring Apps instance. From the navigation pane, select *Spring Cloud Config Server* in *Managed components*.
+1. In *Job binding* tab, select the job that needs to be unbind
+1. Click *Unbind job* button.
 
 ---
 
@@ -212,3 +228,21 @@ az spring job create --bind-service-registry true
 ---
 
 When running the job execution, it can access the endpoint of registered apps through Service Registry then.
+
+If you no longer need Service Registry for your jobs, you can unbind them from it. This change will take effect on new job executions.
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the following Azure CLI command to unbind the job:
+
+```
+az spring service-registry unbind --job <job-name>
+```
+
+# [Azure portal](#tab/azure-portal)
+
+1. Go to your Azure Spring Apps instance. From the navigation pane, select *Service Registry* in *Managed components*.
+1. In *Job binding* tab, select the job that needs to be unbind
+1. Click *Unbind job* button.
+
+---
