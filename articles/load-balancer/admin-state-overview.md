@@ -24,29 +24,28 @@ Admin state is useful in scenarios where you want to have more control over the 
 
 ## Types of admin state values 
 
-There are three types of admin state values: **UP**, **DOWN**, **NONE**. The following table below the effects of each state on new connections and existing connections:
+There are three types of admin state values: **UP**, **DOWN**, **NONE**. The following table describes the effects of each state on new connections and existing connections:
 
 | **Admin State** | **New Connections** | **Existing Connections** |
 |-------------|-----------------|----------------------|
-| **UP**         | Load balancer ignores the health probe and always considers the backend instance as eligible for new connections. | |
+| **UP**         | Load balancer ignores the health probe and always considers the backend instance as eligible for new connections. | Load Balancer will disregard the configured health probe’s response and will always allow existing connections to persist to the backend instance.|
 | **DOWN**       | Load balancer ignores the health probe and doesn't allow new connections to the backend instance. | Load balancer ignores the health probe and existing connections are determined according to the following protocols: </br>TCP: Established TCP connections to the backend instance persists.</br>UDP: Existing UDP flows move to another healthy instance in the backend pool.</br> **Note**: This is similar to a [Probe Down behavior](load-balancer-custom-probe-overview.md#probe-down-behavior).   |
 | **NONE**       | Load balancer respects the health probe behavior. | Load balancer respects the health probe behavior. |
 
 > [!NOTE]
-> Load Balancer Health Probe Status metrics reflects your configured admin state value changes.
+> Load Balancer Health Probe Status metrics and Load Balancer’s Insights topology will reflect your configured admin state value changes.
 
 ## Design considerations
 
 When deploying a load balancer with admin state, consider the following design considerations:
 
-| **Design Consideration** | **Description** |
-|----------------------|-------------|
-| **Admin state on a per backend pool instance basis** | Admin state applies on a per backend pool instance basis. In a scenario where a virtual machine instance is in more than one backend pool, the admin state setting on one backend pool doesn't affect the other backend pool. |
-| **Health probe configuration** | Admin state only takes effect when there's a health probe configured on the Load Balancer rules. |
-| **Inbound NAT rule** | Admin state isn't supported with inbound NAT rule. |
+- Admin state will take effect on a per backend pool instance basis
+  - In a scenario where a virtual machine instance is in more than one backend pool, the admin state set on one backend pool  will not affect the other backend pool.
+  - In a scenario where a backend pool is part of multiple load balancing rules, the admin state set on the backend pool will affect all associated load balancing rules. 
+- Admin state will only take effect when there is a health probe configured on the load balancing rules.      
 
 ## Limitations
-
+s
 When deploying a load balancer with admin state, consider the following limitations:
 
 - Admin state is not supported with inbound NAT rule. 
