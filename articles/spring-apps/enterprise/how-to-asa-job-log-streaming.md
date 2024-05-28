@@ -28,7 +28,7 @@ This article describes how to use the Azure CLI to get real-time logs of jobs fo
 
 ## Assign an Azure role
 
-To stream logs of jobs, you must have the relevant Azure roles assigned to you. The following table lists the required role and the operation for which this role is granted permission:
+To stream logs of jobs, you must have the relevant Azure roles assigned to you. The following table lists the required role and the operations for which this role is granted permission:
 
 | Required role                         | Operations                                                                                                                                |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
