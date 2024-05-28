@@ -2,12 +2,11 @@
 title: Overview - Oracle Database@Azure 
 description: Learn about Oracle Database@Azure.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: article
 ms.date: 12/12/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, references_regions
 ms.author: jacobjaygbay
 ---
 
@@ -38,11 +37,29 @@ Billing and payment for the service is done through Azure. Payment for Oracle Da
 
 Oracle Database@Azure is available in the following locations. Oracle Database@Azure infrastructure resources must be provisioned in the Azure regions listed.
 
-### North America (NA)
+### United States
 
 |Azure region|
 |------------|
 |East US (Virginia)|
+
+### Germany
+
+|Azure region|
+|------------|
+|Germany West Central (Frankfurt)|
+
+### France
+
+|Azure region|
+|------------|
+|France Central (Paris)|
+
+### United Kingdom
+
+|Azure region|
+|------------|
+|UK South (London)
 
 ## Azure Support scope and contact information
 

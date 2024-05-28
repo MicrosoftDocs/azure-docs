@@ -6,12 +6,14 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: overview
-ms.date: 12/13/2023
+ms.date: 05/21/2024
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # What is Azure API Management?
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article provides an overview of common scenarios and key components of Azure API Management. Azure API Management is a hybrid, multicloud management platform for APIs across all environments. As a platform-as-a-service, API Management supports the complete API lifecycle.
 
@@ -45,7 +47,7 @@ Common scenarios include:
 
 ## API Management components
 
-Azure API Management is made up of an API *gateway*, a *management plane*, and a *developer portal*. These components are Azure-hosted and fully managed by default. API Management is available in various [tiers](api-management-features.md) differing in capacity and features.
+Azure API Management is made up of an API *gateway*, a *management plane*, and a *developer portal*. These components are Azure-hosted and fully managed by default. API Management is available in various [tiers](#api-management-tiers) differing in capacity and features.
 
 :::image type="content" source="media/api-management-key-concepts-experiment/api-management-components.png" alt-text="Diagram showing key components of Azure API Management.":::
 
@@ -98,23 +100,38 @@ Using the developer portal, developers can:
   * Download API definitions
   * Manage API keys
 
+## API Management tiers
+
+API Management is offered in a variety of pricing tiers to meet the needs of different customers. Each tier offers a distinct combination of features, performance, capacity limits, scalability, SLA, and pricing for different scenarios. The tiers are grouped as follows:
+
+* **Classic** - The original API Management offering, including the Developer, Basic, Standard, and Premium tiers. The Premium tier is designed for enterprises requiring access to private backends, enhanced security features, multi-region deployments, availability zones, and high scalability. The Developer tier is an economical option for non-production use, while the Basic, Standard, and Premium tiers are production-ready tiers. 
+* **V2** - A new set of tiers that offer fast provisioning and scaling, including Basic v2 for development and testing, and Standard v2 for production workloads. Standard v2 supports simplified connection to network-isolated backends.   
+* **Consumption** - The Consumption tier is a serverless gateway for managing APIs that scales based on demand and billed per execution. It is designed for applications with serverless compute, microservices-based architectures, and those with variable traffic patterns.
+
+**More information**:
+* [Feature-based comparison of the Azure API Management tiers](api-management-features.md)
+* [V2 service tiers](v2-service-tiers-overview.md)
+* [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/)
+
 ## Integration with Azure services
 
 API Management integrates with many complementary Azure services to create enterprise solutions, including:
 
-* [Azure Key Vault](../key-vault/general/overview.md) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
-* [Azure Monitor](api-management-howto-use-azure-monitor.md) for logging, reporting, and alerting on management operations, systems events, and API requests​
-* [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
-* [Virtual networks](virtual-network-concepts.md), [private endpoints](private-endpoint.md), and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
-* [Azure Defender for APIs](protect-with-defender-for-apis.md) and [Azure DDoS Protection](protect-with-ddos-protection.md) for runtime protection against malicious attacks​
-* Microsoft Entra ID for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
-* [Event Hubs](api-management-howto-log-event-hubs.md) for streaming events​
-* Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.md), and others including Azure OpenAI service.​
+* **[Azure API Center](../api-center/overview.md)** to build a complete inventory of APIs​ in the organization - regardless of their type, lifecycle stage, or deployment location​ - for API discovery, reuse, and governance
+* **[Copilot for Azure](../copilot/overview.md)** to help author API Management policies or explain already configured policies​
+* **[Azure Key Vault](../key-vault/general/overview.md)** for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
+* **[Azure Monitor](api-management-howto-use-azure-monitor.md)** for logging, reporting, and alerting on management operations, systems events, and API requests​
+* **[Application Insights](api-management-howto-app-insights.md)** for live metrics, end-to-end tracing, and troubleshooting
+* **[Virtual networks](virtual-network-concepts.md)**, **[private endpoints](private-endpoint.md)**, **[Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md)**, and **[Azure Front Door](front-door-api-management.md)** for network-level protection​
+* **[Azure Defender for APIs](protect-with-defender-for-apis.md)** and **[Azure DDoS Protection](protect-with-ddos-protection.md)** for runtime protection against malicious attacks​
+* **Microsoft Entra ID** for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
+* **[Event Hubs](api-management-howto-log-event-hubs.md)** for streaming events​
+* Several Azure compute offerings commonly used to build and host APIs on Azure, including **[Functions](import-function-app-as-api.md)**, **[Logic Apps](import-logic-app-as-api.md)**, **[Web Apps](import-app-service-as-api.md)**, **[Service Fabric](how-to-configure-service-fabric-backend.yml)**, and others including **[Azure OpenAI](azure-openai-api-from-specification.md)** service.​
 
 **More information**:
 * [Basic enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 * [Landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
-
+* [Import APIs to API Center from API Management](../api-center/import-api-management-apis.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 ## Key concepts
 

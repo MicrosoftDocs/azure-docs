@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 07/18/2022
+ms.date: 03/28/2024
 ms.author: abell
 ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-arm-template
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using an ARM template.
@@ -107,7 +107,7 @@ To connect to the SQL Database server from the VM by using the private endpoint,
       Server:  UnKnown
       Address:  168.63.129.16
       Non-authoritative answer:
-      Name:    sqlserver.privatelink.database.windows.net
+      Name:    sqlserver.server-name.database.windows.net
       Address:  10.0.0.5
       Aliases:  sqlserver.database.windows.net
     ```

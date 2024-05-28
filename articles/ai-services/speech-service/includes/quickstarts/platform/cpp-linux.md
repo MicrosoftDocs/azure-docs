@@ -5,6 +5,7 @@ description: Use this guide to set up your platform for C++ on Linux by using th
 author: markamos
 manager: nitinme
 ms.service: azure-ai-speech
+ms.custom: linux-related-content
 ms.topic: include
 ms.date: 02/02/2024
 ms.author: eur

@@ -73,7 +73,7 @@ You can add a new user to the tenant subscription through the CSP portal as foll
 
 1. After you've created a new user, go back to the Azure portal. 
 
-The following steps describe how to assign a role to a user. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The following steps describe how to assign a role to a user. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 1. In the **Subscription** page, select the relevant subscription.
 

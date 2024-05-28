@@ -3,13 +3,13 @@ title: Azure Monitor action groups
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure functions.
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 05/02/2023
+ms.date: 04/01/2024
 ms.reviewer: jagummersall
 ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ---
 # Action groups
 
-When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
+When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences and actions which are performed when alert is triggered. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
 This article shows you how to create and manage action groups. 
 
 Each action is made up of:
@@ -23,6 +23,7 @@ Global requests from clients can be processed by action group services in any re
 - You can add up to five action groups to an alert rule.
 - Action groups are executed concurrently, in no specific order.
 - Multiple alert rules can use the same action group.
+- Action Groups are defined by the unique set of actions and the users to be notified. For example, if you want to notify User1, User2 and User3 by email for two different alert rules, you only need to create one action group which you can apply to both alert rules.
 
 ## Create an action group in the Azure portal
 1. Go to the [Azure portal](https://portal.azure.com/).
@@ -47,7 +48,7 @@ Global requests from clients can be processed by action group services in any re
    | Option | Behavior |
    | ------ | -------- |
    | Global | The action groups service decides where to store the action group. The action group is persisted in at least two regions to ensure regional resiliency. Processing of actions may be done in any [geographic region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview).<br></br>Voice, SMS, and email actions performed as the result of [service health alerts](../../service-health/alerts-activity-log-service-notifications-portal.md) are resilient to Azure live-site incidents. |
-   | Regional | The action group is stored within the selected region. The action group is [zone-redundant](../../availability-zones/az-region.md#highly-available-services). Use this option if you want to ensure that the processing of your action group is performed within a specific [geographic boundary](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). You can select one of these regions for regional processing of action groups: <br> - South Central US <br> - North Central US<br> - Sweden Central<br> - Germany West Central<br> We're continually adding more regions for regional data processing of action groups.|
+   | Regional | The action group is stored within the selected region. The action group is [zone-redundant](../../availability-zones/az-region.md#highly-available-services). Use this option if you want to ensure that the processing of your action group is performed within a specific [geographic boundary](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). You can select one of these regions for regional processing of action groups: <br> - East US <br> - West US <br> - East US2 <br> - West US2 <br> - South Central US <br> - North Central US<br> - Sweden Central<br> - Germany West Central <br> - India Central <br> - India South <br> We're continually adding more regions for regional data processing of action groups.|
 
    The action group is saved in the subscription, region, and resource group that you select.
 
@@ -109,7 +110,7 @@ When you create or update an action group in the Azure portal, you can test the 
 1. [Create an action group in the Azure portal](#create-an-action-group-in-the-azure-portal). 
 
    > [!NOTE]
-   > If you're editing an existing action group, save the changes to the action group before testing.
+   > The action group must be created and saved before testing. If you're editing an existing action group, save the changes to the action group before testing.
 
 1. On the action group page, select **Test action group**.
 
@@ -371,7 +372,7 @@ You may have a limited number of email actions per action group. To check which 
 
 When you set up the Resource Manager role:
 
-1. Assign an entity of type **User** to the role.
+1. Assign an entity of type **User** or **Group** to the role.
 1. Make the assignment at the **subscription** level.
 1. Make sure an email address is configured for the user in their **Microsoft Entra profile**.
 > - If a user is not a member of the above Role Memberships with the correct permissions to generate this notification, the minimum permission required to test an action group is "**Microsoft.Insights/createNotifications/***"
@@ -459,7 +460,7 @@ You might have a limited number of voice actions per action group.
 
 > [!NOTE]
 >
-> If you can't select your country/region code in the Azure portal, voice calls aren't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party voice call provider that offers support in your country/region.
+> If you can't select your country/region code in the Azure portal, voice calls aren't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party voice call provider that offers support in your country/region. If a country is marked with an '*' calls will come from a USA based phone number.
 ### Countries/Regions with Voice notification support
 | Country code | Country |
 |:---|:---|
@@ -469,11 +470,19 @@ You might have a limited number of voice actions per action group.
 | 55 | Brazil |
 | 1    |Canada |
 | 56 | Chile |
+| 86 | China* |
 | 420 | Czech Republic |
 | 45 | Denmark |
+| 372 | Estonia |
 | 358 | Finland |
+| 33 | France |
+| 49 | Germany |
+| 852 | Hong Kong* |
+| 91 | India* |
 | 353 | Ireland |
 | 972 | Israel |
+| 39 | Italy* |
+| 81 | Japan* |
 | 352 | Luxembourg |
 | 60 | Malaysia |
 | 52 | Mexico |
@@ -481,9 +490,16 @@ You might have a limited number of voice actions per action group.
 | 64 | New Zealand |
 | 47 | Norway |
 | 351 | Portugal |
+| 40 | Romania* |
+| 7 | Russia* |
 | 65 | Singapore |
 | 27 | South Africa |
+| 82 | South Korea |
+| 34 | Spain |
 | 46 | Sweeden |
+| 41 | Switzerland |
+| 886 | Taiwan* |
+| 971 | United Arab Emirates* |
 | 44 | United Kingdom |
 | 1 | United States |
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 04/14/2023
+ms.date: 04/08/2024
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 monikerRange: 'azureml-api-2 || azureml-api-1'

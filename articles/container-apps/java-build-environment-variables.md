@@ -4,6 +4,7 @@ description: Learn about Java image build from source code via environment varia
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 02/27/2024
 ms.author: cshoe

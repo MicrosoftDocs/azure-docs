@@ -1,10 +1,10 @@
 ---
-title: Tutorial - Install Azure Container Storage Preview for use with Azure Kubernetes Service (AKS)
+title: Install Azure Container Storage Preview with Azure Kubernetes Service (AKS)
 description: Learn how to install Azure Container Storage for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install the Azure Container Storage extension.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: tutorial
-ms.date: 03/12/2024
+ms.date: 05/24/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Getting started
 
-* Take note of your Azure subscription ID. We recommend using a subscription on which you have a [Kubernetes contributor](../../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) role if you want to use Azure Disks or Ephemeral Disk as data storage. If you want to use Azure Elastic SAN as data storage, you'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
+* Take note of your Azure subscription ID. If you want to use Azure Elastic SAN as data storage, you'll need either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription. Owner-level access allows you to install the Azure Container Storage extension, grants access to its storage resources, and gives you permission to configure your Azure Elastic SAN resource. Contributor-level access allows you to install the extension and grants access to its storage resources. If you're planning on using Azure Disks or Ephemeral Disk as data storage, you don't need special permissions on your subscription.
 
 * [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -54,6 +54,13 @@ The `Microsoft.ContainerService` and `Microsoft.KubernetesConfiguration` resourc
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService --wait 
 az provider register --namespace Microsoft.KubernetesConfiguration --wait 
+```
+
+To check if these providers are registered successfully, run the following command:
+
+```azurecli-interactive
+az provider list --query "[?namespace=='Microsoft.ContainerService'].registrationState"
+az provider list --query "[?namespace=='Microsoft.KubernetesConfiguration'].registrationState"
 ```
 
 ## Create a resource group
@@ -162,7 +169,7 @@ Next, you must update your node pool label to associate the node pool with the c
 Run the following command to update the node pool label. Remember to replace `<resource-group>` and `<cluster-name>` with your own values, and replace `<nodepool-name>` with the name of your node pool.
 
 ```azurecli-interactive
-az aks nodepool update --resource-group <resource group> --cluster-name <cluster name> --name <nodepool name> --labels acstor.azure.com/io-engine=acstor
+az aks nodepool update --resource-group <resource-group> --cluster-name <cluster-name> --name <nodepool-name> --labels acstor.azure.com/io-engine=acstor
 ```
 
 You can verify that the node pool is correctly labeled by signing into the [Azure portal](https://portal.azure.com?azure-portal=true) and navigating to your AKS cluster. Go to **Settings > Node pools**, select your node pool, and under **Taints and labels** you should see `Labels: acstor.azure.com/io-engine:acstor`.
@@ -200,12 +207,12 @@ az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Contributor" --sc
 
 ## Install Azure Container Storage
 
-The initial install uses Azure Arc CLI commands to download a new extension. Replace `<cluster-name>` and `<resource-group>` with your own values. The `<name>` value can be whatever you want; it's just a label for the extension you're installing.
+The initial install uses Azure Arc CLI commands to download a new extension. Replace `<cluster-name>` and `<resource-group>` with your own values. The `<extension-name>` value can be whatever you want; it's just a label for the extension you're installing.
 
 During installation, you might be asked to install the `k8s-extension`. Select **Y**.
 
 ```azurecli-interactive
-az k8s-extension create --cluster-type managedClusters --cluster-name <cluster name> --resource-group <resource group name> --name <name of extension> --extension-type microsoft.azurecontainerstorage --scope cluster --release-train stable --release-namespace acstor
+az k8s-extension create --cluster-type managedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name <extension-name> --extension-type microsoft.azurecontainerstorage --scope cluster --release-train stable --release-namespace acstor
 ```
 
 Installation takes 10-15 minutes to complete. You can check if the installation completed correctly by running the following command and ensuring that `provisioningState` says **Succeeded**:
@@ -216,7 +223,7 @@ az k8s-extension list --cluster-name <cluster-name> --resource-group <resource-g
 
 Congratulations, you've successfully installed Azure Container Storage. You now have new storage classes that you can use for your Kubernetes workloads.
 
-## Next steps
+## Next step
 
 Now you can create a storage pool and persistent volume claim, and then deploy a pod and attach a persistent volume. Follow the steps in the appropriate how-to article.
 

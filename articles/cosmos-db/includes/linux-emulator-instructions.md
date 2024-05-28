@@ -1,3 +1,6 @@
+---
+ms.custom: linux-related-content
+---
 1. Retrieve the IP address of your local machine. This step is required when Direct mode setting is configured using Azure Cosmos DB SDKs (.NET, Java).
 
     ```bash

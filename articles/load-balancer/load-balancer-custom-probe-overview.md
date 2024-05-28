@@ -100,6 +100,10 @@ For HTTP/S probes, if the configured interval is longer than the above timeout p
  
 * To test a health probe failure or mark down an individual instance, use a [network security group](../virtual-network/network-security-groups-overview.md) to explicitly block the health probe. Create an NSG rule to block the destination port or [source IP](#probe-source-ip-address) to simulate the failure of a probe.
 
+* Unlike load balancing rules, inbound NAT rules do not need a health probe attached to it.
+
+* It is not recommended to block the Azure Load Balancer health probe IP or port with NSG rules. This is an unsupported scenario and can cause the NSG rules to take delayed effect, resulting in the health probes to inaccurately represent the availability of your backend instances.
+
 ## Monitoring
 
 [Standard Load Balancer](./load-balancer-overview.md) exposes per endpoint and backend endpoint health probe status through [Azure Monitor](./monitor-load-balancer.md). Other Azure services or partner applications can consume these metrics. Azure Monitor logs aren't supported for Basic Load Balancer.

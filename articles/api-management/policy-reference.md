@@ -10,6 +10,8 @@ ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in policy definitions for Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure API Management. For additional Azure Policy built-ins for other services, see
 [Azure Policy built-in definitions](../governance/policy/samples/built-in-policies.md). If you're looking for policies you can use to modify API behavior in API Management, see [API Management policy reference](api-management-policies.md).

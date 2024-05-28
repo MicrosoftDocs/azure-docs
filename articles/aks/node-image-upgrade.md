@@ -5,6 +5,9 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 ms.subservice: aks-upgrade
 ms.date: 03/28/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Upgrade Azure Kubernetes Service (AKS) node images
@@ -176,3 +179,4 @@ az aks nodepool show \
 [az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
+

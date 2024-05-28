@@ -3,6 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
+ms.custom: linux-related-content
 ms.date: 12/13/2023
 ms.topic: conceptual
 ---

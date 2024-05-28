@@ -157,7 +157,7 @@ Creating and loading the index are separate steps. In Azure AI Search, the index
 
 The URI is extended to include the `docs` collections and `index` operation.
 
-- Paste in the following example to upload JSON documents to the search index. Then select **Send request**.
+1. Paste in the following example to upload JSON documents to the search index.
 
     ```http
     ### Upload documents
@@ -247,7 +247,9 @@ The URI is extended to include the `docs` collections and `index` operation.
         }
     ```
 
-In a few seconds, you should see an HTTP 201 response in the adjacent pane. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request. Verify that you changed the endpoint to include `/docs/index`.
+1. Select **Send request**. In a few seconds, you should see an HTTP 201 response in the adjacent pane. 
+
+   If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request. Verify that you changed the endpoint to include `/docs/index`.
 
 ## Run queries
 

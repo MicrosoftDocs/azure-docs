@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is
-ms.date: 03/07/2024
+ms.date: 03/28/2024
 ---
 
 # Quickstart: Get Access to Azure Operator 5G Core Preview
@@ -14,10 +14,10 @@ Access is currently limited. For now, we're working with customers that have an 
 
 ## Apply for access to Azure Operator 5G Core Preview
 
-[Apply here](https://aka.ms/AO5GC-Activation-Request) for initial access.
+[Apply here](https://aka.ms/AO5GC-Activation-Request) for initial access. Contact your account lead for updates on access status.
 
 ## Related content
 
 [What is Azure Operator 5G Core?](overview-product.md)
-[Deployment order for clusters, network functions, and observability](concept-deployment-order.md)
 [Deploy Azure Operator 5G Core](quickstart-deploy-5g-core.md)
+[Deployment order for clusters, network functions, and observability.](concept-deployment-order.md)

@@ -29,7 +29,7 @@ You can further simplify how you create the embedded code for your devices by fo
 > [!IMPORTANT]
 > Because IoT Central uses IoT Hub internally, any device that can connect to an IoT Central application can also connect to an IoT hub.
 
-To learn more, see [Azure IoT device and application development](../iot-develop/about-iot-develop.md).
+To learn more, see [Azure IoT device and application development](./concepts-iot-device-development.md).
 
 ## Azure IoT Central
 

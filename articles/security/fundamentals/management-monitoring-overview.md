@@ -22,7 +22,7 @@ Azure role-based access control (Azure RBAC) provides detailed access management
 
 Learn more:
 
-* [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml)
 
 ## Antimalware
 

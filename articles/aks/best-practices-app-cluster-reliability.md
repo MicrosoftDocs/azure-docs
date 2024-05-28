@@ -3,7 +3,9 @@ title: Deployment and cluster reliability best practices for Azure Kubernetes Se
 titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for deployment and cluster reliability for Azure Kubernetes Service (AKS) workloads.
 ms.topic: conceptual
-ms.date: 03/11/2024
+ms.date: 04/22/2024
+author: schaffererin
+ms.author: schaffererin
 ---
 
 # Deployment and cluster reliability best practices for Azure Kubernetes Service (AKS)
@@ -14,7 +16,7 @@ The best practices in this article are organized into the following categories:
 
 | Category | Best practices |
 | -------- | -------------- |
-| [Deployment level best practices](#deployment-level-best-practices) | • [Pod Disruption Budgets (PDBs)](#pod-disruption-budgets-pdbs) <br/> • [Pod CPU and memory limits](#pod-cpu-and-memory-limits) <br/> • [Pre-stop hooks](#pre-stop-hooks) <br/> • [maxUnavailable](#maxunavailable) <br/> • [Pod anti-affinity](#pod-anti-affinity) <br/> • [Readiness, liveness, and startup probes](#readiness-liveness-and-startup-probes) <br/> • [Multi-replica applications](#multi-replica-applications) |
+| [Deployment level best practices](#deployment-level-best-practices) | • [Pod Disruption Budgets (PDBs)](#pod-disruption-budgets-pdbs) <br/> • [Pod CPU and memory limits](#pod-cpu-and-memory-limits) <br/> • [Pre-stop hooks](#pre-stop-hooks) <br/> • [maxUnavailable](#maxunavailable) <br/> • [Pod topology spread constraints](#pod-topology-spread-constraints) <br/> • [Readiness, liveness, and startup probes](#readiness-liveness-and-startup-probes) <br/> • [Multi-replica applications](#multi-replica-applications) |
 | [Cluster and node pool level best practices](#cluster-and-node-pool-level-best-practices) | • [Availability zones](#availability-zones) <br/> • [Cluster autoscaling](#cluster-autoscaling) <br/> • [Standard Load Balancer](#standard-load-balancer) <br/> • [System node pools](#system-node-pools) <br/> • [Accelerated Networking](#accelerated-networking) <br/> • [Image versions](#image-versions) <br/> • [Azure CNI for dynamic IP allocation](#azure-cni-for-dynamic-ip-allocation) <br/> • [v5 SKU VMs](#v5-sku-vms) <br/> • [Do *not* use B series VMs](#do-not-use-b-series-vms) <br/> • [Premium Disks](#premium-disks) <br/> • [Container Insights](#container-insights) <br/> • [Azure Policy](#azure-policy) |
 
 ## Deployment level best practices
@@ -175,60 +177,35 @@ spec:
 
 For more information, see [Max Unavailable](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#max-unavailable).
 
-### Pod anti-affinity
+### Pod topology spread constraints
 
 > **Best practice guidance**
 >
-> Use pod anti-affinity to ensure that pods are spread across nodes for node-down scenarios.
+> Use pod topology spread constraints to ensure that pods are spread across different nodes or zones to improve availability and reliability.
 
-You can use the `nodeSelector` field in your pod specification to specify the node labels you want the target node to have. Kubernetes only schedules the pod onto nodes that have the specified labels. Anti-affinity expands the types of constraints you can define and gives you more control over the selection logic. Anti-affinity allows you to constrain pods against labels on other pods.
+You can use pod topology spread constraints to control how pods are spread across your cluster based on the topology of the nodes and spread pods across different nodes or zones to improve availability and reliability.
 
-The following example pod definition file shows how to use pod anti-affinity to ensure that pods are spread across nodes:
+The following example pod definition file shows how to use the `topologySpreadConstraints` field to spread pods across different nodes:
 
 ```yaml
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: multi-zone-deployment
-  labels:
-    app: myapp
+  name: example-pod
 spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: myapp
-  template:
-    metadata:
-      labels:
-        app: myapp
-    spec:
-      containers:
-      - name: myapp-container
-        image: nginx
-        ports:
-        - containerPort: 80
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - myapp
-            topologyKey: topology.kubernetes.io/zone
+  # Configure a topology spread constraint
+  topologySpreadConstraints:
+    - maxSkew: <integer>
+      minDomains: <integer> # optional
+      topologyKey: <string>
+      whenUnsatisfiable: <string>
+      labelSelector: <object>
+      matchLabelKeys: <list> # optional
+      nodeAffinityPolicy: [Honor|Ignore] # optional
+      nodeTaintsPolicy: [Honor|Ignore] # optional
 ```
 
-For more information, see [Affinity and anti-affinity in Kubernetes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity).
-
-> [!TIP]
-> Use pod anti-affinity across availability zones to ensure that pods are spread across availability zones for zone-down scenarios.
->
-> You can think of availability zones as backups for your application. If one zone goes down, your application can continue to run in another zone. You use affinity and anti-affinity rules to schedule specific pods on specific nodes. For example, let's say you have a memory/CPU-intensive pod, you might want to schedule it on a larger VM SKU to give the pod the capacity it needs to run.
->
-> When you deploy your application across multiple availability zones, you can use pod anti-affinity to ensure that pods are spread across availability zones. This practice helps ensure that your application remains available in the event of a zone-down scenario.
->
-> For more information, see [Best practices for multiple zones](https://kubernetes.io/docs/setup/best-practices/multiple-zones/) and [Overview of availability zones for AKS clusters](./availability-zones.md#overview-of-availability-zones-for-aks-clusters).
+For more information, see [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/).
 
 ### Readiness, liveness, and startup probes
 
@@ -568,3 +545,4 @@ This article focused on best practices for deployment and cluster reliability fo
 * [High availability and disaster recovery overview for AKS](./ha-dr-overview.md)
 * [Run AKS clusters at scale](./best-practices-performance-scale-large.md)
 * [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+

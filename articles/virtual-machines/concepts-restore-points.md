@@ -94,7 +94,7 @@ For Azure VM Linux VMs, restore points support the list of Linux [distributions 
 ## Other limitations
 
 - Restore points are supported only for managed disks. 
-- Ultra-disks, Ephemeral OS disks, and Shared disks aren't supported. 
+- Ephemeral OS disks, and Shared disks aren't supported via both consistency modes. 
 - Restore points APIs require an API of version 2021-03-01 or later for application consistency. 
 - Restore points APIs require an API of version 2021-03-01 or later for crash consistency. (in preview)
 - A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 

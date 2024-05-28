@@ -2,6 +2,7 @@
 title: Assessment checks for endpoint detection and response
 description: How the endpoint protection solutions are discovered, identified, and maintained for optimal security.
 ms.topic: concept-article
+ms.custom: linux-related-content
 ms.author: dacurwin
 author: dcurwin
 ms.date: 03/13/2024

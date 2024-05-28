@@ -4,7 +4,7 @@ description: Learn how to use VMware Tanzu App Accelerator with the Azure Spring
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 01/23/2024
 ms.author: caiqing
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
@@ -371,8 +371,6 @@ Use the following steps to bootstrap a new project using accelerators:
    :::image type="content" source="media/how-to-use-accelerator/configure-accelerator.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Generate Accelerators page that shows the Configure accelerator section." lightbox="media/how-to-use-accelerator/configure-accelerator.png":::
 
 1. Select **EXPLORE FILE** to view the project structure and source code.
-
-   :::image type="content" source="media/how-to-use-accelerator/explore-accelerator-project.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Explore project pane." lightbox="media/how-to-use-accelerator/explore-accelerator-project.png":::
 
 1. Select **Review and generate** to review the specified parameters, and then select **Generate accelerator**.
 

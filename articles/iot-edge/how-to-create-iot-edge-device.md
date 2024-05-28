@@ -11,7 +11,7 @@ ms.author: patricka
 
 # Create an IoT Edge device
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides an overview of the options available to you for installing and provisioning IoT Edge on your devices.
 
@@ -29,8 +29,6 @@ If you know what type of platform, provisioning, and authentication options you 
 
 If you want more information about how to choose the right option for you, continue through this article to learn more.
 
->[!NOTE]
->The following table reflects the supported scenarios for IoT Edge version 1.4.
 
 |    | Linux containers on Linux hosts | Linux containers on Windows hosts |
 |--| ----- | ---------------- |
@@ -75,7 +73,7 @@ IoT Edge for Linux on Windows is the recommended way to run IoT Edge on Windows 
 
 ### Windows containers on Windows
 
-IoT Edge version 1.4 doesn't support Windows containers. Windows containers are not supported beyond version 1.1.
+IoT Edge version 1.2 or later doesn't support Windows containers. Windows containers are not supported beyond version 1.1.
 
 ## Choose how to provision your devices
 

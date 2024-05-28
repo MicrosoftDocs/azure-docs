@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/route-server/vmware-solution-default-route.md",
-            "redirect_URL": "/azure/azure-vmware/concepts-network-design-considerations",
+            "redirect_url": "/azure/azure-vmware/concepts-network-design-considerations",
             "redirect_document_id": false
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "source_path_from_root": "/articles/route-server/tutorial-protect-route-server.md",
-            "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
+            "redirect_url": "/azure/route-server/tutorial-protect-route-server-ddos",
             "redirect_document_id": false
         },
         {
@@ -22,12 +22,12 @@
         },
         {
             "source_path": "articles/route-server/vmware-solution-default-route.md",
-            "redirect_URL": "/azure/azure-vmware/concepts-network-design-considerations",
+            "redirect_url": "/azure/azure-vmware/concepts-network-design-considerations",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/route-server/tutorial-protect-route-server.md",
-            "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
+            "redirect_url": "/azure/route-server/tutorial-protect-route-server-ddos",
             "redirect_document_id": false
         },
         {

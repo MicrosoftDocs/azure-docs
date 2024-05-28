@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create, provision, verify, upd
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 01/24/2024
+ms.date: 05/14/2024
 ms.topic: quickstart
 ms.service: expressroute
 ms.custom: mode-ui
@@ -73,7 +73,7 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
     | Provider (Provider port type)| Select the internet service provider who you are requesting your service from. |
     | ExpressRoute Direct resource (Direct port type) | Select the ExpressRoute Direct resource that you want to use. |
     | Bandwidth | Select the bandwidth for the ExpressRoute circuit. |
-    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard and Premium. |
+    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard, and Premium. |
     | Billing model | Select the billing type for egress data charge. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**. |
 
     > [!IMPORTANT]
@@ -81,9 +81,13 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
     > * You can't change the SKU from **Standard/Premium** to **Local** in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
     > * You can't change the type from **Unlimited** to **Metered**.
 
-    Complete the same information for the second ExpressRoute circuit. When selecting an ExpressRoute location for the second circuit, you are provided with distances information from the first ExpressRoute location. This information can help you select the second ExpressRoute location.
+    Complete the same information for the second ExpressRoute circuit. When selecting an ExpressRoute location for the second circuit, you're provided with distances information from the first ExpressRoute location. This information can help you select the second ExpressRoute location.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/peering-location-distance.png" alt-text="Screenshot of distance information from first ExpressRoute circuit.":::
+
+    **High Resiliency**
+
+    For high resiliency, select one of the supported ExpressRoute Metro service providers and the corresponding **Peering location**. For example, **Megaport** as the *Provider* and **Amsterdam Metro** as the *Peering location*. For more information, see [ExpressRoute Metro](metro.md).
 
     **Standard Resiliency**
 
@@ -128,7 +132,7 @@ From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign
     | Create new or import from classic | Select if you're creating a new circuit or if you're migrating a classic circuit to Azure Resource Manager. |
     | Provider | Select the internet service provider who you are requesting your service from. |
     | Peering Location | Select the physical location where you're peering with Microsoft. |
-    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard and Premium. |
+    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard, and Premium. |
     | Billing model | Select the billing type for egress data charge. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**. |
     | Allow classic operations | Enable this option to allow classic virtual networks to link to the circuit. |
 
@@ -235,20 +239,31 @@ To modify an ExpressRoute circuit, select **Configuration**.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Screenshot of modifying circuit.":::
 
-## <a name="delete"></a>Deprovisioning an ExpressRoute circuit
+## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit 
 
-If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
+1. On the Azure portal menu, navigate to the ExpressRoute circuit you wish to deprovision.
+
+1. In the **Overview** page, select **Delete**. If there are any associated resources attached to the circuit, you're asked to view the resources. Select **Yes** to see the associations that need to be removed before starting the deprovisioning process. If there are no associated resources, you can proceed with step 4.
+
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-deprovision.png" alt-text="Screenshot of deprovisioning circuit for ExpressRoute.":::
+
+1. In the **View Associated Resources of Circuit** pane, you can see the resources associated with the circuit. Ensure you delete the resources before proceeding with the deprovisioning of the circuit. 
+
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovision-associated-resources.png" alt-text="Screenshot of deleting associated resources to ExpressRoute circuit.":::
+
+1. After deleting all associated resources, work with your circuit service provider to deprovision the circuit on their end. The circuit is required to be deprovisioned before it can be deleted. 
+
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovision-after-deletion.png" alt-text="Screenshot of deprovisioning the ExpressRoute circuit.":::
+
+1. After your circuit service provider has confirmed that they've deprovisioned the circuit, confirm that the *Provider status* changes to **Not provisioned** in the Azure portal. Once the *Provider status* is **Not provisioned**, you'll be able to delete the circuit.
+
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovisioned.png" alt-text="Screenshot of deprovisioned circuit.":::
+
 
 > [!NOTE]
->* You must unlink *all virtual networks* from the ExpressRoute circuit before deprovisioning. If this operation fails, check whether any virtual networks are linked to the circuit.
->* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**), you can delete the circuit. This stops billing for the circuit.
+>* You must delete all associated [Virtual Network connections](expressroute-howto-linkvnet-portal-resource-manager.md#clean-up-resources), [Authorizations](expressroute-howto-linkvnet-portal-resource-manager.md#circuit-owner-operations), and [Global Reach](expressroute-howto-set-global-reach-portal.md#disable-connectivity) from the ExpressRoute circuit before deprovisioning. If deprovisioning fails, check whether any associated resources are still linked to the circuit.
+>* If the circuit service provider has deprovisioned the circuit (The *Provider status* has updated to **Not provisioned**), you can delete the circuit. This stops billing for the circuit.
 
-
-## Clean up resources
-
-You can delete your ExpressRoute circuit by selecting the **Delete** icon. Ensure the provider status is *Not provisioned* before proceeding.
-
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Screenshot of deleting circuit.":::
 
 ## Next steps
 

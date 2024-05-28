@@ -210,7 +210,7 @@ upgraded with cluster pool), and the notification updates reflect the success of
  
 1. The upgrade pane on the right side shows the details of the upgrade on AKS patch versions (current and upgrade path).
 
-   :::image type="content" source="./media/in-place-upgrade/type-of-upgrade.png" alt-text="Screenshot showing the type of the upgrade." border="true" lightbox="./media/in-place-upgrade/type-of-upgrade.png"
+   :::image type="content" source="./media/in-place-upgrade/upgrade-cluster.png" alt-text="Screenshot showing the type of the upgrade as cluster upgrade." border="true" lightbox="./media/in-place-upgrade/upgrade-cluster.png"
  
 1. Once the upgrade commences, the notification icon shows the cluster upgrade is in progress
 

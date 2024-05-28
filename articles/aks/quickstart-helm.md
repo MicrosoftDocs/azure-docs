@@ -4,6 +4,9 @@ description: Use Helm with AKS and Azure Container Registry to package and run a
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/25/2024
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Quickstart: Develop on Azure Kubernetes Service (AKS) with Helm
@@ -327,3 +330,4 @@ For more information about using Helm, see the [Helm documentation][helm-documen
 [helm-install]: https://helm.sh/docs/intro/install/
 [sp-delete]: kubernetes-service-principal.md#other-considerations
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
+

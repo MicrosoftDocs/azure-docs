@@ -24,6 +24,9 @@ All these capabilities combined with HDInsight on AKS’s strong developer focus
 
 You can refer to [What's new](../whats-new.md) page for all the details of the features currently in public preview for this release.
 
+> [!IMPORTANT]
+> HDInsight on AKS uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
+
 ## Release Information
 
 ### Release date: March 20, 2024
@@ -59,13 +62,14 @@ For more information, see [Control network traffic from HDInsight on AKS Cluster
 Upgrade your clusters and cluster pools with the latest software updates. This means that you can enjoy the latest cluster package hotfixes, security updates, and AKS patches, without recreating clusters. For more information, see [Upgrade your HDInsight on AKS clusters and cluster pools](../in-place-upgrade.md).
 
 > [!IMPORTANT]
-> To take benefit of all these **latest features**, you are required to create a new cluster pool with 1.1 and clsuter version 1.1.1.
+> To take benefit of all these **latest features**, you are required to create a new cluster pool with 1.1 and cluster version 1.1.1.
 
 ### Known issues
 
 - **Workload identity limitation:**
   - There's a known [limitation](/azure/aks/workload-identity-overview#limitations) when transitioning to workload identity. This limitation is due to the permission-sensitive nature of FIC operations. Users can't perform deletion of a cluster by deleting the resource group. Cluster deletion requests must be triggered by the application/user/principal with FIC/delete permissions. In case, the FIC deletion fails, the high-level cluster deletion also fails.
   - **User Assigned Managed Identities (UAMI)** support – There's a limit of 20 FICs per UAMI. You can only create 20 Federated Credentials on an identity. In HDInsight on AKS cluster, FIC (Federated Identity Credential) and SA have one-to-one mapping and only 20 SAs can be created against an MSI. If you want to create more clusters, then you are required to provide different MSIs to overcome the limitation.
+  - Creation of federated identity credentials is currently not supported on user-assigned managed identities created in [these regions](/entra/workload-id/workload-identity-federation-considerations#unsupported-regions-user-assigned-managed-identities) 
 
  
 ### Operating System version

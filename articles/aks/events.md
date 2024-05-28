@@ -95,3 +95,4 @@ Now that you understand Kubernetes events, you can continue your monitoring and 
 [aks-azure-monitor]: ./monitor-aks.md
 [container-insights]: ../azure-monitor/containers/container-insights-enable-aks.md
 [k8s-events]: https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/event-v1/
+

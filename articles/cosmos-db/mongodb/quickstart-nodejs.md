@@ -9,6 +9,7 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 07/06/2022
 ms.custom: devx-track-js, devguide-js, cosmos-db-dev-journey, devx-track-azurecli
+zone_pivot_groups: azure-cosmos-db-quickstart-env
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB driver for Node.js
@@ -27,66 +28,34 @@ ms.custom: devx-track-js, devguide-js, cosmos-db-dev-journey, devx-track-azurecl
 Get started with the MongoDB npm package to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
 
 > [!NOTE]
-> The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples) are available on GitHub as a JavaScript project.
+> The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-nodejs-quickstart) are available on GitHub as a JavaScript project.
 
-[API for MongoDB reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (NuGet)](https://www.npmjs.com/package/mongodb)
+[API for MongoDB reference documentation](https://www.mongodb.com/docs/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
+packages/Microsoft.Azure.Cosmos) | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- [Node.js LTS](https://nodejs.org/en/download/)
-- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
-
-### Prerequisite check
-
-- In a terminal or command window, run ``node --version`` to check that Node.js is one of the LTS versions.
-- Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
+[!INCLUDE [Developer Quickstart prerequisites](../nosql/includes/quickstart/dev-prereqs.md)]
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos DB account and setting up a project that uses the MongoDB npm package.
+Deploy this project's development container to your environment. Then, use the Azure Developer CLI (`azd`) to create an Azure Cosmos DB for MongoDB account and deploy a containerized sample application. The sample application uses the client library to manage, create, read, and query sample data.
 
-### Create an Azure Cosmos DB account
+::: zone pivot="devcontainer-codespace"
 
-This quickstart will create a single Azure Cosmos DB account using the API for MongoDB.
+[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/Azure-Samples/cosmos-db-mongodb-nodejs-quickstart?template=false&quickstart=1&azure-portal=true)
 
-#### [Azure CLI](#tab/azure-cli)
+::: zone-end
 
-[!INCLUDE [Azure CLI - create resources](./includes/azure-cli-create-resource-group-and-resource.md)]
+::: zone pivot="devcontainer-vscode"
 
-#### [PowerShell](#tab/azure-powershell)
+[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Azure-Samples/cosmos-db-mongodb-nodejs-quickstart)
 
-[!INCLUDE [Powershell - create resource group and resources](./includes/powershell-create-resource-group-and-resource.md)]
+::: zone-end
 
-#### [Portal](#tab/azure-portal)
-
-[!INCLUDE [Portal - create resource](./includes/portal-create-resource.md)]
+[!INCLUDE [dev-setup](../nosql/includes/quickstart/dev-setup.md)]
 
 ---
-
-### Get MongoDB connection string
-
-#### [Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [Azure CLI - get connection string](./includes/azure-cli-get-connection-string.md)]
-
-#### [PowerShell](#tab/azure-powershell)
-
-[!INCLUDE [Powershell - get connection string](./includes/powershell-get-connection-string.md)]
-
-#### [Portal](#tab/azure-portal)
-
-[!INCLUDE [Portal - get connection string](./includes/portal-get-connection-string-from-resource.md)]
-
----
-
-### Create a new JavaScript app
-
-Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command to begin the prompts to create the `package.json` file. Accept the defaults for the prompts.
-
-```console
-npm init
-```
 
 ### Install the package
 
@@ -95,10 +64,6 @@ Add the [MongoDB](https://www.npmjs.com/package/mongodb) npm package to the Java
 ```console
 npm install mongodb dotenv
 ```
-
-### Configure environment variables
-
-[!INCLUDE [Multi-tab](./includes/environment-variables-connection-string.md)]
 
 ## Object model
 

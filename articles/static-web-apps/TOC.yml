@@ -61,7 +61,7 @@
   - name: Build configuration
     href: build-configuration.md
   - name: App settings
-    href: application-settings.md
+    href: application-settings.yml
     displayName: environment variables
   - name: Inject custom code at runtime
     href: snippets.md  
@@ -128,7 +128,7 @@
 - name: Security
   items:
   - name: Authentication and authorization
-    href: authentication-authorization.md
+    href: authentication-authorization.yml
   - name: Access user information
     href: user-information.md
   - name: Custom authentication

@@ -17,13 +17,15 @@ ms.custom: references_regions
 
 The Multimodal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without the need to use image tags or other metadata. Semantic closeness often produces better results in search.
 
+The `2024-02-01` API includes a multi-lingual model that supports text search in 102 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors won’t be compatible with multi-lingual text and image vectors.
+
 > [!IMPORTANT]
-> These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+> These APIs are only available in the following geographic regions: SwedenCentral, EastUS, NorthEurope, WestEurope,WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast.
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. 
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: SwedenCentral, EastUS, NorthEurope, WestEurope,WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast.
    * After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 
 ## Try out Multimodal embeddings
@@ -46,7 +48,7 @@ The `retrieval:vectorizeImage` API lets you convert an image's data to a vector.
 1. Optionally, change the `model-version` parameter to an older version. `2022-04-11` is the legacy model that supports only English text. Images and text that are vectorized with a certain model aren't compatible with other models, so be sure to use the same model for both. 
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?api-version=2023-02-01-preview&model-version=2023-04-15" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X POST "<endpoint>/computervision/retrieval:vectorizeImage?api-version=2024-02-01&model-version=2023-04-15" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
 'url':'https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png'
 }"
@@ -73,7 +75,7 @@ The `retrieval:vectorizeText` API lets you convert a text string to a vector. To
 1. Optionally, change the `model-version` parameter to an older version. `2022-04-11` is the legacy model that supports only English text. Images and text that are vectorized with a certain model aren't compatible with other models, so be sure to use the same model for both. 
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeText?api-version=2023-02-01-preview&model-version=2023-04-15" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X POST "<endpoint>/computervision/retrieval:vectorizeText?api-version=2024-02-01&model-version=2023-04-15" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
 'text':'cat jumping'
 }"

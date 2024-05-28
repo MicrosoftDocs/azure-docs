@@ -9,42 +9,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ---
 
-<!-- 
-IMPORTANT 
-To make this template easier to use, first:
-1. Search and replace AI Search with the official name of your service.
-2. Search and replace azure-cognitive-search with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 3.0 2024_01_01
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- Most services can use the following sections unchanged. All headings are required unless otherwise noted.
-The sections use #included text you don't have to maintain, which changes when Azure Monitor functionality changes. Add info into the designated service-specific places if necessary. Remove #includes or template content that aren't relevant to your service.
-
-At a minimum your service should have the following two articles:
-
-1. The primary monitoring article (based on the template monitor-service-template.md)
-   - Title: "Monitor AI Search"
-   - TOC title: "Monitor"
-   - Filename: "monitor-azure-cognitive-search.md"
-
-2. A reference article that lists all the metrics and logs for your service (based on this template).
-   - Title: "AI Search monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "monitor-azure-cognitive-search-data-reference.md".
--->
-
 # Azure AI Search monitoring data reference
 
-<!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure AI Search](monitor-azure-cognitive-search.md) for details on the data you can collect for Azure AI Search and how to use it.
 
-<!-- ## Metrics. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-<!-- Repeat the following section for each resource type/namespace in your service. -->
 ### Supported metrics for Microsoft.Search/searchServices
 The following table lists the metrics available for the Microsoft.Search/searchServices resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
@@ -54,7 +26,6 @@ SearchQueriesPerSecond shows the average of the search queries per second (QPS) 
 
 For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-<!-- ## Metric dimensions. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
 Azure AI Search has the following dimensions associated with the metrics that capture a count of documents or skills that were executed, "Document processed count" and "Skill execution invocation count".
@@ -69,16 +40,13 @@ Azure AI Search has the following dimensions associated with the metrics that ca
 | **SkillName** | Name of a skill within a skillset. |
 | **SkillType** | The @odata.type of the skill. |
 
-<!-- ## Resource logs. Required section. -->
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-<!-- Add at least one resource provider/resource type here. Example: ### Supported resource logs for Microsoft.Storage/storageAccounts/blobServices
-Repeat this section for each resource type/namespace in your service. -->
 ### Supported resource logs for Microsoft.Search/searchServices
 [!INCLUDE [Microsoft.Search/searchServices](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-search-searchservices-logs-include.md)]
 
-<!-- ## Azure Monitor Logs tables. Required section. -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+
 ### Search Services
 Microsoft.Search/searchServices
 
@@ -104,7 +72,6 @@ The following table lists the properties of resource logs in Azure AI Search. Th
 | resultSignature | Status | The HTTP response status of the operation. |
 | properties | Properties | Any extended properties related to this category of events.  |
 
-<!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
 The following table lists common operations related to Azure AI Search that may be recorded in the activity log. For a complete listing of all Microsoft.Search operations, see [Microsoft.Search resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftsearch).
@@ -119,13 +86,9 @@ Common entries include references to API keys - generic informational notificati
 
 Alternatively, you might gain some insight through change history. In the Azure portal, select the activity to open the detail page and then select "Change history" for information about the underlying operation.
 
-<!-- Refer to https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations and link to the possible operations for your service, using the format - [<Namespace> resource provider operations](/azure/role-based-access-control/resource-provider-operations#<namespace>).
-If there are other operations not in the link, list them here in table form. -->
-
-<!-- ## Other schemas. Optional section. Please keep heading in this order. If your service uses other schemas, add the following include and information. -->
 <a name="schemas"></a>
 [!INCLUDE [horz-monitor-ref-other-schemas](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
-<!-- List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
+
 If you're building queries or custom reports, the data structures that contain Azure AI Search resource logs conform to the following schemas.
 
 For resource logs sent to blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
