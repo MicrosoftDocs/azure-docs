@@ -7,7 +7,7 @@ ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.custom: devx-track-azurecli
 ms.topic: quickstart #required; leave this attribute/value as-is.
-ms.date: 05/20/2024
+ms.date: 05/28/2024
 ---
 
 # Quickstart: Complete the prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service
@@ -21,11 +21,11 @@ To deploy on the Azure Kubernetes Service, you'll need the following configurati
 - [Resource Group/Subscription](../cost-management-billing/manage/create-enterprise-subscription.md)
 - The [Azure Operator 5G Core release version and corresponding Kubernetes version](overview-product.md#compatibility)
 - [Azure Kubernetes Service (AKS) system and user node pool vm series and sizing](../virtual-machines/dv5-dsv5-series.md) 
-    - Recommended node series : system node - D8s_v5,  user node - D16s_v5
+    - Recommended node series: system node - D8s_v5,  user node - D16s_v5
     - Recommended node count: system node-3, user node-8   
 - Appropriate [roles and permissions](../role-based-access-control/role-assignments-portal.yml) in your tenant to create the cluster and modify the Azure Virtual Machine Scale Sets.
 - Detailed Networks and subnet planning – [user defined routes](../virtual-network/virtual-networks-udr-overview.md) can be added to virtual networks and network interfaces as required.
-- [Azure Active Directory/Entra Application ID ](/entra/fundamentals/whatis)with subscription level contributor access. Throughout this article, leave unspecified settings as default.
+- [Azure Active Directory/Entra Application ID](/entra/fundamentals/whatis)with subscription level contributor access. Throughout this article, leave unspecified settings as default.
 - Express route connectivity - required to connect your Azure infrastructure to your on-premises infrastructure and exchange IP routes. The express route and required vpn gateway setup is outside the scope of this document. 
 
 ## Assign subnets for specific network functions
@@ -92,7 +92,7 @@ Once you complete these steps, you can create the AKS cluster:
     > [!NOTE]
     > update the worker node pool details as shown.
   
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/add-a-node-tab.png" alt-text="Add a node tab displaying the fields the user must update.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/add-a-node-tab.png" alt-text="Screen shot of the Add a node tab displaying the fields the user must update.":::
 
     :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/update-node-pool.png" alt-text="Screenshot of the Create a storage account page showing the Update node pool tab, highlighting the fields that user must update for successful AKS cluster creation.":::
 
@@ -114,7 +114,7 @@ Once you complete these steps, you can create the AKS cluster:
    - Leave the **Enable Grafana** box unmarked, and therefore disabled.
    -  Don't **Enable recommended alert rules**. 
 
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/monitoring-tab.png" alt-text="Monitoring tab highlighting fields the user must configure for a successful AKS cluster creation.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/monitoring-tab.png" alt-text="Screenshot of the Monitoring tab highlighting fields the user must configure for a successful AKS cluster creation.":::
 
 9. Navigate to the **Advanced** tab and mark the box to **Enable secret store CSI driver**. Don't edit any other field.
 10. Note the name of the **managed Infrastructure Resource group** displayed. This name is required to modify the cluster nodes and add extra data plane ports.
@@ -131,7 +131,7 @@ Once you complete these steps, you can create the AKS cluster:
 1. Navigate to the **Networking > Network Settings tab** to add more data plane ports to the worker nodes to support the defined network subnets earlier. 
 1. Select **Add network interface**. A **Create network interface** tab appears:
     
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-network-interface-tab.png" alt-text="Image showing the Create network interface tab that appears when you select Add network interface.":::    
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-network-interface-tab.png" alt-text="Screenshot showing the Create network interface tab that appears when you select Add network interface.":::    
 
 6. On the **Create network interface** tab:
     - Enter a **Name** for the network interface. The virtual network is inactive out based on the attached virtual network you define.
@@ -147,34 +147,34 @@ Once you complete these steps, you can create the AKS cluster:
 1. Select **Subscriptions**/**resourceGroups/&lt;your-infrastructure-resource-group-name&gt;/ &lt;providers&gt; Microsoft.Compute &gt; virtualMachineScaleSets &gt;  &lt; your Azure Virtual Machine Scale Sets name>**. 
 1.  Select the virtual machine scale set associated with the user node pool, then select and change the option from **Read Only** to **Read/Write**.
 
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/read-write-option.png" alt-text="Screenshot of buttons on the Azure Resource Explorer page that show the the Read/Write option active.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/read-write-option.png" alt-text="Screenshot of buttons on the Azure Resource Explorer page that shows the Read/Write option active.":::
 
 10. Choose **Edit** from the **Data** section of the screen.
 11. For each of your data planes ports, ensure that the **enableAcceleratedNetworking** and the **enableIPForwarding** fields are set to **True**.  
 
-The following shows an example for the AMF_N2_subnet:
+    The following shows an example for the AMF_N2_subnet:
 
-```properties
-"name": "AMF_N2_SUBNET",
-            "properties": {
-              "primary": false,
-              "enableAcceleratedNetworking": true,
-              "disableTcpStateTracking": false,
-              "networkSecurityGroup": {
-                "id": "/subscriptions/<your subscription-id>/resourceGroups/<MC-resource group name>/providers/Microsoft.Network/networkSecurityGroups/xxxxxxxx"
-              },
-              "dnsSettings": {
-                "dnsServers": []
-              },
-              "enableIPForwarding": true,
-              "ipConfigurations": [
-                {
-                  "name": "AMF_N2_SUBNET-defaultIpConfiguration",
-                  "properties": {
-                    "primary": true,
-                    "subnet": {
-                      "id": "/subscriptions/<your subscription-id>/resourceGroups/<MC-resource group name>/providers/Microsoft.Network/virtualNetworks/<your vnet name>/subnets/AMF_N2"
-```
+    ```properties
+    "name": "AMF_N2_SUBNET",
+                "properties": {
+                  "primary": false,
+                  "enableAcceleratedNetworking": true,
+                  "disableTcpStateTracking": false,
+                  "networkSecurityGroup": {
+                    "id": "/subscriptions/<your subscription-id>/resourceGroups/<MC-resource group name>/providers/Microsoft.Network/networkSecurityGroups/xxxxxxxx"
+                  },
+                  "dnsSettings": {
+                    "dnsServers": []
+                  },
+                  "enableIPForwarding": true,
+                  "ipConfigurations": [
+                    {
+                      "name": "AMF_N2_SUBNET-defaultIpConfiguration",
+                      "properties": {
+                        "primary": true,
+                        "subnet": {
+                          "id": "/subscriptions/<your subscription-id>/resourceGroups/<MC-resource group name>/providers/Microsoft.Network/virtualNetworks/<your vnet name>/subnets/AMF_N2"
+    ```
 12. Remove the image reference from the json shown in Azure Resource Explorer. 
  
 ```properties
