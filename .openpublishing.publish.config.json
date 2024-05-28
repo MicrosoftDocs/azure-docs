@@ -135,9 +135,9 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
+      "path_to_root": "ms-identity-dotnetcore-b2c-account-management-archive",
       "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
-      "branch": "master",
+      "branch": "archive",
       "branch_mapping": {}
     },
     {
@@ -237,6 +237,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-python-extensions",
+      "url": "https://github.com/Azure/azure-functions-python-extensions",
+      "branch": "dev",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-python-tensorflow-tutorial",
       "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
       "branch": "master",
@@ -247,7 +253,7 @@
       "url": "https://github.com/Azure-Samples/function-app-arm-templates",
       "branch": "main",
       "branch_mapping": {}
-    },    
+    },
     {
       "path_to_root": "functions-azure-product",
       "url": "https://github.com/Azure/Azure-Functions",
@@ -1005,6 +1011,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-openai-extension",
+      "url": "https://github.com/Azure/azure-functions-openai-extension",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cosmos-db-nosql-dotnet-samples",
       "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples",
       "branch": "main",
@@ -1225,6 +1237,7 @@
   "redirection_files": [
   ".openpublishing.redirection.active-directory.json",
   ".openpublishing.redirection.ansible.json",
+  ".openpublishing.redirection.api-center.json",
   ".openpublishing.redirection.api-management.json",
   ".openpublishing.redirection.app-service.json",
   ".openpublishing.redirection.asc-for-iot.json",
@@ -1342,6 +1355,7 @@
   "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
   "articles/operator-insights/.openpublishing.redirection.operator-insights.json",
   "articles/operator-nexus/.openpublishing.redirection.operator-nexus.json",
+  "articles/operator-service-manager/.openpublishing.redirection.operator-service-manager.json",
   "articles/peering-service/.openpublishing.redirection.peering-service.json",
   "articles/postgresql/.openpublishing.redirection.postgresql.json",
   "articles/route-server/.openpublishing.redirection.route-server.json",

@@ -1,14 +1,15 @@
 ---
-author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/06/2024
+ms.date: 05/24/2024
 ms.author: davidsmatlak
+author: davidsmatlak
 ms.custom: generated
 ---
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[\[Preview\]: Audit SSH Posture Control on Linux machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f3e6a6-dcd2-434c-b0f7-6f309ce913b4) |Requires that prerequisites are deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). Machines are non-compliant if SSH Server is not securely configured on the Linux machines. |AuditIfNotExists, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxSshServerSecurityBaseline_AINE.json) |
 |[\[Preview\]: Configure Windows Server to disable local users.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F357cbd2d-b5c0-4c73-b40c-6bd84f06ce09) |Creates a Guest Configuration assignment to configure disabling local users on Windows Server. This ensures that Windows Servers can only be accessed by AAD (Azure Active Directory) account or a list of explicitly allowed users by this policy, improving overall security posture. |DeployIfNotExists, Disabled |[1.2.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/AADDisableLocalAuth_DINE.json) |
 |[\[Preview\]: Extended Security Updates should be installed on Windows Server 2012 Arc machines.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F14b4e776-9fab-44b0-b53f-38d2458ea8be) |Windows Server 2012 Arc machines should have installed all the Extended Security Updates released by Microsoft. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol) |AuditIfNotExists, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/PendingESUUpdates_AINE.json) |
 |[\[Preview\]: Linux machines should meet requirements for the Azure security baseline for Docker hosts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70aa7a1c-b0c7-4b2f-922b-8489d97cbb9f) |Requires that prerequisites are deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). The machine is not configured correctly for one of the recommendations in the Azure security baseline for Docker hosts. |AuditIfNotExists, Disabled |[1.2.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/AzureDockerBaseline_AINE.json) |
