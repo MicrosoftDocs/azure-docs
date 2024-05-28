@@ -16,7 +16,7 @@ This article shows you how to prepare the prerequisite infrastructure required t
 
 ## Prerequisites
 
-To deploy on the Azure Kubernetes Service, you'll need the following configurations:
+To deploy on the Azure Kubernetes Service, you need the following configurations:
 
 - [Resource Group/Subscription](../cost-management-billing/manage/create-enterprise-subscription.md)
 - The [Azure Operator 5G Core release version and corresponding Kubernetes version](overview-product.md#compatibility)
@@ -76,7 +76,7 @@ Once you complete these steps, you can create the AKS cluster:
     - Disable **Automatic upgrade**.
     - Select **Local accounts with Kubernetes RBAC** for the **Authentication and Authorization** method.
  
-     :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/basic-tab-fields.png" alt-text="Basic tab of AKS containers showing fields that must be completed to create an AKS cluster.":::  
+     :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/basic-tab-fields.png" alt-text="Screenshot of the Basic tab of AKS containers showing fields that must be completed to create an AKS cluster.":::  
 
 1. Navigate to the **Add a node pool** tab, then modify the node details where required to meet infrastructure standards. In this setup, there are two node pools.  
     - Rename the sample **Node pool names** from **agentpool** and  **userpool** to **system** and **worker**. 
@@ -90,9 +90,9 @@ Once you complete these steps, you can create the AKS cluster:
     - Select **update** and move to the **Networking** tab.
       
     > [!NOTE]
-    > update the worker node pool details as shown.
+    > Update the worker node pool details as shown.
   
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/add-a-node-tab.png" alt-text="Screen shot of the Add a node tab displaying the fields the user must update.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/add-a-node-tab.png" alt-text="Screenshot of the Add a node tab displaying the fields the user must update.":::
 
     :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/update-node-pool.png" alt-text="Screenshot of the Create a storage account page showing the Update node pool tab, highlighting the fields that user must update for successful AKS cluster creation.":::
 
@@ -105,7 +105,7 @@ Once you complete these steps, you can create the AKS cluster:
    - Select **Calico** as the **Network policy**
    - Leave all other values as default.
 
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/networking-tab.png" alt-text="Networking tab highlighting the fields the user must configure for a successful AKS cluster creation.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/networking-tab.png" alt-text="Screenshot of the Networking tab highlighting the fields the user must configure for a successful AKS cluster creation.":::
 
 7. Unless you have a specific requirement to do otherwise, don't change any values on the **Integrations** tab.
 8. Navigate to the **Monitoring tab** and turn Azure monitor to **Off** by ensuring the following settings:
@@ -120,7 +120,7 @@ Once you complete these steps, you can create the AKS cluster:
 10. Note the name of the **managed Infrastructure Resource group** displayed. This name is required to modify the cluster nodes and add extra data plane ports.
 11. Select **Review + create** once validation completes.
 
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/advanced-tab.png" alt-text="Advanced tab showing the checkbox and button user must select to successfully create an AKS cluster.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/advanced-tab.png" alt-text="Screenshot of the Advanced tab showing the checkbox and button user must select to successfully create an AKS cluster.":::
 
 ## Modify the cluster to add  more interfaces with Accelerated Networking on the worker node pool
 
@@ -140,7 +140,7 @@ Once you complete these steps, you can create the AKS cluster:
     - Select **Create**. 
     - Repeat this step for each data plane port required in the Virtual Machine Scale Set template.
    
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-network-interface-tab-detailed.png" alt-text="Create Network interface tab highlighting the subnet and network security group selections the user should enter."::: 
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-network-interface-tab-detailed.png" alt-text="Screenshot of the Create Network interface tab highlighting the subnet and network security group selections the user should enter."::: 
 
 1. Open a separate window and navigate to the [Azure Resource Explorer](https://resources.azure.com/). 
 1. On the left side of the screen, locate the subscription for this cluster.
@@ -177,12 +177,12 @@ Once you complete these steps, you can create the AKS cluster:
     ```
 12. Remove the image reference from the json shown in Azure Resource Explorer. 
  
-```properties
-,
-"imageReference": {
-          "id": "/subscriptions/<your subscription-id>/resourceGroups/AKS-CBLMariner/providers/Microsoft.Compute/galleries/AKSCBLMariner/images/V2gen2/versions/202403.04.0"
-        }
-```
+    ```properties
+    ,
+        "imageReference": {
+              "id": "/subscriptions/<your subscription-id>/resourceGroups/AKS-CBLMariner/providers/Microsoft.Compute/galleries/AKSCBLMariner/images/V2gen2/versions/202403.04.0"
+            }
+    ```
 
 13. At the top of the screen next to the **Edit** button, select the green **PUT** button to apply the configuration. 
     
@@ -233,7 +233,7 @@ Create a load balancer with the following settings, attaching the load balancer 
 1. Provide a name for the **Health probe** with the following settings: 
     - **Protocol**: HTTP
     - **Port**: 30100
-    - **interval**: 5 
+    - **Interval**: 5 
 
 1. Select **Save**.
 
@@ -266,19 +266,19 @@ Azure Operator 5G Core requires Network File Storage (NFS) storage. Use the **Cr
 1. Leave the **Default to Microsoft Entra authorization in the Azure portal** disabled.
 1. Select **Next**. 
 
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-storage-account-advanced.png" alt-text="Screenshot of the the Create a storage account page showing the Advanced tab. Two selections under the Security section are highlighted for the user to mark the boxes.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-storage-account-advanced.png" alt-text="Screenshot of the Create a storage account page showing the Advanced tab. Two selections under the Security section are highlighted for the user to mark the boxes.":::
 
 ### Networking tab
 
 1. Select **Disable public access and use private access** for the **Network access** type. 
 1. Select **Add a Private endpoint**. The **Create private endpoint** dialog appears. 
-    - Select your **Subscription**, **Resource group** and **Location**.
+    - Select your **Subscription**, **Resource group**, and **Location**.
     - Provide a **Name** for the private endpoint resource.
     - Select **file** as the **Storage sub-resource**.
-    - Select the **Virtual network** you created earlier and choose the **Subnet**; in this configuration choose the infra subnet defined. This enables file transfer from the AKS cluster and ensures private dns integration is enabled with your subscription and resource group.  
+    - Select the **Virtual network** you created earlier and choose the **Subnet**; in this configuration choose the defined infra subnet. This selection enables file transfer from the AKS cluster and ensures private dns integration is enabled with your subscription and resource group.  
     - Verify the **Private DNS zone** as privatelink.file.core.windows.net and select save. 
 
-     :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-private-endpoint.png" alt-text="Screenhot of the Networking tab showing the available fields in the Create private endpoint section of the page. ":::
+     :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-private-endpoint.png" alt-text="Screenshot of the Networking tab showing the available fields in the Create private endpoint section of the page. ":::
 
 1. In the **Network routing** section of the **Networking** tab, select **Microsoft network routing** 
 1. Select **Review + create**. 
