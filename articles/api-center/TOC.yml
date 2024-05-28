@@ -74,3 +74,9 @@
         href: /azure/templates/microsoft.apicenter/allversions
       - name: Azure built-in roles
         href: ../role-based-access-control/built-in-roles.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#integration
+- name: Resources
+  items:
+      - name: Samples
+        href: /samples/browse/?terms=%22azure%20api%20center%22
+      - name: Azure updates
+        href: https://azure.microsoft.com/updates/?query=%22API%20Center%22

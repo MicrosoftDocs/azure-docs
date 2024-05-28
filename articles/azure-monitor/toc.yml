@@ -1433,14 +1433,6 @@ items:
         href: autoscale/autoscale-diagnostics.md
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
-  - name: AI Ops
-    items:
-    - name: Azure Monitor Investigator Overview
-      href: ai-ops/investigator-overview.md
-    - name: Responsible AI FAQ
-      href: ai-ops/responsible-ai-faq.md
-    - name: Investigate an alert using Investigator
-      href: ai-ops/investigate-alert-instance.md
 - name: Samples
   items:
   - name: Resource Manager templates
