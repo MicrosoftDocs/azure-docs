@@ -23,28 +23,26 @@ All Compute throttling policies are implemented on a per-region basis.
 
 ## How do the throttling policies work?
 
-Microsoft Compute has implemented throttling policies that limit the
+Microsoft Compute implements throttling policies that limit the
 number of API requests made per resource and per subscription per region
 per minute. If the number of API requests exceeds these limits, the
-requests will be throttled. Here's how these limits work:
+requests are throttled. Here's how these limits work:
 
 1.  **Per Resource Limit** – Each resource, such as a virtual machine
     (VM), has a specific limit for API requests. For instance, let us
-    assume that a user has created 10 VMs in a subscription. The user
-    can make up to 12 update requests for each VM in one minute. If the
-    user exceeds the limit for the VM, API requests will be throttled.
+    assume that a user creates 10 VMs in a subscription. The user
+    can invoke up to 12 update requests for each VM in one minute. If the
+    user exceeds the limit for the VM, API requests are throttled.
     This limit ensures that a few resources don’t consume the
     subscription level limits and throttle other resources.
 
-2.  **Subscription Limit** – In addition to per resource limits, there's
+2.  **Subscription Limit** – In addition to resource limits, there's
     an overarching limit on the number of API requests across all
     resources within a subscription. Any API requests beyond this limit
-    will be throttled, even if the individual resource has not reached
-    its limit. For instance, let us assume that a user has 200 VMs in a
-    subscription. Even though user is entitled to initiate up to 12
+    are throttled, regardless of whether the limit for an individual resource has been reached. For instance, let us assume that a user has 200 VMs in a subscription. Even though user is entitled to initiate up to 12
     Update VM requests for each VM, the aggregate limit for Update VM
     API requests is capped at 1500 per min. Any Update VM API requests
-    for the subscription exceeding 1500 will be throttled.
+    for the subscription exceeding 1500 are throttled.
 
 ### How Microsoft Compute determines the limits?
 
@@ -57,20 +55,19 @@ minute.
 At the start of throttling window, when the resource is created, the
 bucket is filled to its *Maximum Capacity*. Each API request initiated
 by the user consumes one token. When the token count depletes to zero,
-subsequent API requests will be throttled. Bucket is replenished with
+subsequent API requests are throttled. Bucket is replenished with
 new tokens every minute at a consistent rate called *Bucket Refill Rate*
 for a resource and a subscription.
 
-For Instance: Let us consider the 'throttling policy for VM Update API'
+For Instance: Let us consider the 'throttling policy for VM Update API',
 which stipulates a Bucket Refill Rate of 4 tokens per minute, and a
-Maximum Bucket Capacity of 12 tokens. Imagine a user follows the Update
-API request pattern below for a virtual machine (VM). Initially, the
+Maximum Bucket Capacity of 12 tokens. The user invokes the Update VM
+API request for a virtual machine (VM) as per the following table. Initially, the
 bucket is filled with 12 tokens at the start of the throttling window.
-By the 4th minute, the user has utilized all 12 tokens, leaving the
+By the 4th minute, the user utilizes all 12 tokens, leaving the
 bucket empty. In the 5th minute, the bucket is replenished with 4 new
-tokens in accordance with the Bucket Refill Rate. Consequently, 4 API
-requests can be made in the 5th minute, while 1 API request will be
-throttled due to insufficient tokens.
+tokens in accordance with the Bucket Refill Rate. So, 4 API
+requests can be made in the 5th minute, while Microsoft Compute will throttle 1 API request due to insufficient tokens.
 
 <table>
 <colgroup>
@@ -136,7 +133,7 @@ throttled due to insufficient tokens.
 
 Similar process is followed for determining the throttling limits at
 subscription level. The following sections detail the Bucket refill rate
-and Maximum bucket capacity used to determine throttling limits for
+and Maximum bucket capacity that is used to determine throttling limits for
 [Virtual
 Machines](/azure/virtual-machines/overview),
 [Virtual Machine Scale
@@ -146,9 +143,9 @@ VMs](/rest/api/compute/virtual-machine-scale-set-vms/deallocate?tabs=HTTP).
 
 ## Throttling policies and limits for Virtual machines 
 
-API requests for Virtual Machines are categorized into 7 distinct
+API requests for Virtual Machines are categorized into seven distinct
 policies. Each policy has its own limits, depending upon the how
-resource intensive the API requests under that policy are. Below is a
+resource intensive the API requests under that policy are. Following table contains a
 comprehensive list of these policies, the corresponding REST APIs, and
 their respective throttling limits:
 
@@ -340,10 +337,9 @@ API.
 ## Throttling policies and limits for Virtual Machine Scale Sets
 
 API requests for Virtual Machine Scale Set(Uniform & Flex) are categorized into 5
-distinct policies. Each policy has its own limits, depending upon the
-how resource intensive the API requests under that policy are. These
+distinct policies. Each policy has its own limits, depending upon how resource intensive the API requests under that policy are. These
 policies are applicable to both Flex and Uniform orchestration modes.
-Below is a comprehensive list of these policies, the corresponding REST
+Following table contains a comprehensive list of these policies, the corresponding REST
 APIs, and their respective throttling limits:
 
 <table>
@@ -496,7 +492,7 @@ API.
 
 API requests for VMSS Virtual Machines are categorized into 3 distinct
 policies. Each policy has its own limits, depending upon the how
-resource intensive the API requests under that policy are. Below is a
+resource intensive the API requests under that policy are. Following table contains a
 comprehensive list of these policies, the corresponding REST APIs, and
 their respective throttling limits:
 
@@ -610,7 +606,7 @@ Boot Diagnostics Data</a><br></td>
 ## Troubleshooting guidelines 
 
 In case users are still facing challenges due to Compute throttling,
-please refer to [Troubleshooting throttling errors in Azure - Virtual
+refer to [Troubleshooting throttling errors in Azure - Virtual
 Machines](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#best-practices).
 It has details on how to troubleshoot throttling issues, and best
 practices to avoid being throttled.
@@ -618,30 +614,23 @@ practices to avoid being throttled.
 ## FAQs
 
 ### Is there any action required from users?
-Users don’t need to change anything in their configuration or workloads. All existing APIs will continue to work as is.
+Users don’t need to change anything in their configuration or workloads. All existing APIs continue to work as is.
 
-### What benefits do the new throttling policies provide?
-The new throttling policies offer several benefits:
+### What benefits do the throttling policies provide?
+The throttling policies offer several benefits:
 
-1.  All Compute resources will have a uniform window of 1 min. Users
-    will be able to successfully make API calls, 1 min after getting
+1.  All Compute resources have a uniform window of 1 min. Users
+    can successfully invoke API calls, 1 min after getting
     throttled.
 
 2.  No single resource can use up all the limits under a subscription as
-    limits are defined at resource level in the new policies.
+    limits are defined at resource level.
 
-3.  Token Bucket Algorithm is getting introduced with new throttling
-    policies. This will provide additional buffer to the customers,
-    while making high number of API requests.
+3.  Microsoft Compute is introducing a new algorithm, Token Bucket Algorithm, for determining the limits. The algorithm provides extra buffer to the customers, while making high number of API requests.
 
-### Does the customer get an alert when they are about to reach their throttling limits?
-As part of every response, CRP returns
+### Does the customer get an alert when they're about to reach their throttling limits?
+As part of every response, Microsoft Compute returns
 **x-ms-ratelimit-remaining-resource** which can be used to determine the
 throttling limits against the policies. A list of applicable throttling
 policies is returned as a response to [Call rate informational
 headers](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
-
-### Which compute resources will be impacted by this feature?
-This is being released for only Virtual Machine, Virtual Machine Scale
-Sets and Virtual Machine Scale Set VMs for now. In future, this will be
-applicable to other compute resources as well.
