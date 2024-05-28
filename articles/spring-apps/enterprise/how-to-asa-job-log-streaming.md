@@ -100,7 +100,7 @@ az spring job logs \
 
 ### View tail logs for all instances in one command
 
-To view the tail logs for all instances, use the `--all-instances` argument, as shown in the following command. The instance name is the prefix of each log line. When there are multiple instances, logs are printed in batch for each instance. This way, logs of one instance aren't interleaved with the logs of another instance.
+To view the tail logs for all instances, use the `--all-instances` argument, as shown in the following command. The instance name is the prefix of each log line. When there are multiple instances, logs are printed in batch for each instance. This way logs of one instance aren't interleaved with the logs of another instance.
 
 ```azurecli
 az spring job logs \
