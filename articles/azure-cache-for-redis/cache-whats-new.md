@@ -28,13 +28,35 @@ Support Microsoft Entra ID for authentication and role-based access control acro
 For more information, see [Use Microsoft Entra ID for cache authentication](cache-azure-active-directory-for-authentication.md).
 
 ### .NET Output Cache and Hybrid Cache
-Redis Output Cache has been introduced in .NET 8 since November 2023. The Web Output Caching saves rendered web pages to improve performance, resilience, and reduce cost from server resource utilization. Redis has been implemeted as built-in output cache store in .NET 8. For more information, see [Output caching middleware in ASP.NET Core](/aspnet/core/performance/caching/output#redis-cache)
 
-ASP.NET Core's support for distributed caching is getting an upgrade with the new HybridCache API. HybridCache augments the existing IDistributedCache support in ASP.NET Core with new capabilities, including multi-tier storage, with a limited in-process (L1) cache supplemented by a separate (usually larger) out-of-process (L2) cache. This "hybrid" approach to cache storage gives the best of both worlds, where most fetches are served efficiently from L1, but cold-start and less-frequently-accessed data still doesn't hammer the underlying backend, thanks to L2. HybridCache also includes "stampede" protection (to prevent parallel fetches of the same work) and configurable serialization, while simplifying the API usage for common scenarios. For more information, see [New HybridCache library](/aspnet/core/release-notes/aspnetcore-9.0#new-hybridcache-library)
+<!-- If this came out in November 2023, shouldn't it be in that section? -->
+
+Using Redis as output cache was introduced in .NET 8 in November 2023. The Web Output Caching saves rendered web pages to improve performance, resilience, and reduce cost from server resource utilization. Redis has been implemented as built-in output cache store in .NET 8.
+
+<!--  What is "Web Output Caching" referring to? -->
+
+For more information on using Redis as an output cache, see [Output caching middleware in ASP.NET Core](/aspnet/core/performance/caching/output#redis-cache)
+
+ASP.NET Core's support for distributed caching is getting an upgrade with the new HybridCache API. HybridCache augments the existing `IDistributedCache` support in ASP.NET Core with new capabilities, including multi-tier storage, with a limited in-process (L1) cache supplemented by a separate (usually larger) out-of-process (L2) cache. The _hybrid_ approach to cache storage gives the best of both worlds, where most fetches are served efficiently from L1, but cold-start and less-frequently-accessed data still doesn't hammer the underlying backend, thanks to L2.
+
+<!-- the phrase  "less-frequently-accessed data still doesn't hammer the underlying backend" is too colloquial and doesn't translate well as an idiom -->
+
+<!-- is getting an upgrade? Is it happening now? Why are we talking about this feature if it isn't available? -->
+
+HybridCache also includes:
+
+- _stampede_ protection to prevent parallel fetches of the same work
+- configurable serialization
+- simplifying the API usage for common scenarios
+
+For more information, see [New HybridCache library](/aspnet/core/release-notes/aspnetcore-9.0#new-hybridcache-library). 
 
 ### Connection Auditing
 
-Connection auditing is already GA for all SKUs. You can configure an Azure Policy to audit or enforce specific policies about private endpoints and public network access. There is not currently a built-in policy for doing this, but you can author a custom policy to enforce that private endpoints are enabled. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md)
+Connection auditing is already GA for all SKUs.
+<!-- When did it GA? we can put it in the month where it GA'd. This isn't a Redis feature, right  or do you mean are we announcing that user can configure this for Redis, what is the Redis connection-->
+
+You can configure an Azure Policy to audit or enforce specific policies about private endpoints and public network access. There isn't currently a built-in policy for doing this, but you can author a custom policy to enforce that private endpoints are enabled. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md).
 
 ## April 2024
 
@@ -44,7 +66,7 @@ For more information, see [flush data operation](cache-administration.md#flush-d
 
 ## February 2024
 
-Support for using customer managed keys for disk (CMK) encryption has now reached General Availability (GA).
+Support for using customer managed keys for disk (CMK) encryption reached General Availability (GA).
 
 For more information, see [How to configure CMK encryption on Enterprise caches](cache-how-to-encryption.md#how-to-configure-cmk-encryption-on-enterprise-caches).
 
@@ -141,7 +163,7 @@ For more information, see [Enabling connection audit logs](cache-monitor-diagnos
 
 ### Support for RedisJSON
 
-Support for using the RedisJSON module has now reached General Availability (GA).
+Support for using the RedisJSON module reached General Availability (GA).
 
 For more information, see [Use Redis modules with Azure Cache for Redis](cache-redis-modules.md).
 
@@ -183,7 +205,7 @@ For more information, see [Retirements](cache-retired-features.md).
 
 ### Support for managed identity in Azure Cache for Redis
 
-Authenticating storage account connections using managed identity has now reached General Availability (GA).
+Authenticating storage account connections using managed identity reached General Availability (GA).
 
 For more information, see [Managed identity for storage](cache-managed-identity.md).
 
@@ -241,7 +263,7 @@ On May 15, 2022, all new Azure Cache for Redis instances will use Redis 6 by def
 
 This change doesn't affect any existing instances. The change is only applicable to new instances created after May 15, 2022.
 
-The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
+The default version of Redis used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
 
 ## February 2022
 
