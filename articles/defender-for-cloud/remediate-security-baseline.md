@@ -1,5 +1,5 @@
 ---
-title: Remediate security baseline recommendation powered by MDVM
+title: Remediate security baseline recommendations powered by MDVM
 description: Learn how to secure your servers with security baselines in Microsoft Defender for Cloud powered by Microsoft Defender Vulnerability Management.
 ms.topic: how-to
 ms.author: dacurwin
@@ -8,11 +8,11 @@ ms.date: 05/26/2024
 # customer intent: As a user, I want to learn how to secure my servers with security baselines in Microsoft Defender for Cloud powered by Microsoft Defender Vulnerability Management.
 ---
 
-# Remediate security baseline recommendation powered by MDVM
+# Remediate security baseline recommendations powered by MDVM
 
 Microsoft Defender for Cloud enhances the Center for Internet Security (CIS) benchmarks by providing security baselines that are powered by Microsoft Defender Vulnerability Management (MDVM). These security baselines help you secure your servers by providing recommendations that improve your security posture.
 
-MDVM's security baselines features extensive coverage of benchmarks, which are continuously updated, along with comprehensive rule coverage. Each rule is accompanied with information that details the impact of the issue, a description of the problem, and detailed recommendation steps. These checks are integrated into the MDE agent, which allows Defender for Cloud to provide additional security checks within the same agent.
+MDVM's security baselines features extensive coverage of benchmarks, which are continuously updated, along with comprehensive rule coverage. Each rule is accompanied with information that details the effect of the issue, a description of the problem, and detailed recommendation steps. These checks are integrated into the Microsoft Defender for Endpoint (MDE) agent, which allows Defender for Cloud to provide extra security checks within the same agent.
 
 ## Prerequisites
 
@@ -20,7 +20,11 @@ MDVM's security baselines features extensive coverage of benchmarks, which are c
 
 - [Enable the Microsoft Defender for Endpoint agent on your servers](enable-defender-for-endpoint.md).
 
-**Supported benchmark operating systems**: windows_server_2008_r2 , windows_server_2016, windows_server_2019, windows_server_2022.
+**Supported benchmark operating systems**: 
+- windows_server_2008_r2
+- windows_server_2016
+- windows_server_2019
+- windows_server_2022
 
 ## Remediate security baseline recommendation
 
@@ -31,8 +35,6 @@ To ensure your servers are protected and secure, you should remediate all securi
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
 1. Search for and select **Machine should be configured securely (powered by MDVM)**.
-
-1. Select the relevant recommendation.
 
 1. Select **View recommendation for all resources**.
 
