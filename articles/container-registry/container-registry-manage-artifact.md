@@ -88,7 +88,7 @@ To demonstrate this capability, this section shows how to use the [OCI Registry 
 
 ### Push an artifact
 
-A single file artifact that has no `subject` parent can be anything from a container image, a helm chart, a readme file for the repository. Reference artifacts can be anything from a signature, software bill of materials, scan reports, or other evolving types. Reference artifacts, described in [Attach, push, and pull supply chain artifacts](container-registry-oras-artifacts.md) are artifacts that refer to another artifact.
+A single file artifact that has no `subject` parent can be anything from a container image, a helm chart, a readme file for the repository. Reference artifacts can be anything from a signature, software bill of materials, scan reports, or other evolving types. Reference artifacts, described in [Attach, push, and pull supply chain artifacts](container-registry-manage-artifact.md#attach-push-and-pull-supply-chain-artifacts-with-oras) are artifacts that refer to another artifact.
 
 #### Push a Single-File Artifact
 
