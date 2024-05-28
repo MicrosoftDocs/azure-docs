@@ -96,7 +96,7 @@ items:
         - name: Customize on-premises benchmarks 
         - name: Review business case
         - name: Best Practices and limitations
-- name: Plan
+- name: Plan migrations
   items:
   - name: Assessments
     items:
@@ -161,7 +161,7 @@ items:
     - name: Pre-requisites
     - name: Review recommendations
     - name: Limitations
-  - name: Migration planning 
+  - name: Migration wave planning 
     items:
       - name: Pre-requisites
       - name: Create a migration plan
@@ -179,7 +179,7 @@ items:
       - name: Review progress
       - name: Best practices
       - name: Limitations
-- name: Execute
+- name: Migrate workloads
   items:
   - name: Migrate
     items: 
@@ -188,12 +188,12 @@ items:
     - name: Agent-based migration
     - name: Webapp migration
     - name: Limitations
-  - name: Modernize
-    items:
-    - name: Application containerization 
-    - name: Modernization to App service code
-    - name: Replatform Webapps
-    - name: Best practices
+- name: Modernize applications
+  items:
+  - name: Application containerization 
+  - name: Modernization to App service code
+  - name: Replatform Webapps
+  - name: Best practices
 - name: Tutorials 
   items:
   - name: Migration Scenarios
