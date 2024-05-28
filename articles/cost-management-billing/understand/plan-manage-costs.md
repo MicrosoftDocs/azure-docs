@@ -184,6 +184,7 @@ For some services, there are prerequisites for the SLA to apply. For example, vi
 
 For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) and the [SLA summary for Azure services](https://azure.microsoft.com/support/legal/sla/summary/) documentation.
 
-## Next steps
+## Related content
+
 - Learn about using [spending limits](../manage/spending-limit.md) to prevent overspending.
 - Start [analyzing your Azure costs](../costs/quick-acm-cost-analysis.md).

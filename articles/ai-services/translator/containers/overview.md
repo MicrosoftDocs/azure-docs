@@ -6,28 +6,23 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 04/08/2024
+ms.date: 05/02/2024
 ms.author: lajanuar
 ---
 
 # What is Azure AI Translator container?
 
-> [!IMPORTANT]
->
-> * To use the Translator container, you must submit an online request and have it approved. For more information, *see* [Request container access](#request-container-access).
-> * Azure AI Translator container supports limited features compared to the cloud offerings.  For more information, *see* [**Container translate methods**](translator-container-supported-parameters.md).
-
 Azure AI Translator container enables you to build translator application architecture that is optimized for both robust cloud capabilities and edge locality. A container is a running instance of an executable software image. The Translator container image includes all libraries, tools, and dependencies needed to run an application consistently in any private, public, or personal computing environment. Containers are isolated, lightweight, portable, and are great for implementing specific security or data governance requirements. Translator container is available in [connected](#connected-containers) and [disconnected (offline)](#disconnected-containers) modalities.
 
 ## Connected containers
 
-* **Translator connected container** is deployed on premises and processes content in your environment. It requires internet connectivity to transmit usage metadata for billing; however, your customer content isn't transmitted outside of your premises.
+**Translator connected container** is deployed on premises and processes content in your environment. It requires internet connectivity to transmit usage metadata for billing; however, your content isn't transmitted outside of your premises. The `EULA`, `Billing`, and `APIKey` options must be specified to run a container.
 
-You're billed for connected containers monthly, based on the usage and consumption. The container needs to be configured to send metering data to Azure, and transactions are billed accordingly. Queries to the container are billed at the pricing tier of the Azure resource used for the API Key. You're billed for each container instance used to process your documents and images.
+You're billed for connected containers monthly, based on the usage and consumption. Queries to the container are billed at the pricing tier for the Azure resource used for the `APIKey` parameter. For more information, *see* [Billing configuration](configuration.md#billing-configuration-setting).
 
-  ***Sample billing metadata transmitted by Translator connected container***
+  ***Sample billing metadata for Translator connected container***
 
-  The `quantity` is the amount you're charged for connected container usage.
+  Usage charges are calculated based upon the `quantity` value.
 
    ```json
    {
@@ -41,13 +36,13 @@ You're billed for connected containers monthly, based on the usage and consumpti
 
 ## Disconnected containers
 
-* **Translator disconnected container** is deployed on premises and processes content in your environment. It doesn't require internet connectivity at runtime. Customer must license the container for projected usage over a year and is charged affront.
+**Translator disconnected container** is deployed on premises and processes content in your environment. It doesn't require internet connectivity at runtime. Customer must license the container for projected usage over a year and is charged affront.
 
 Disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Translator Service features for a fixed fee, at a predictable total cost, based on the needs of your workload. Commitment plans for disconnected containers have a calendar year commitment period.
 
 When you purchase a plan, you're charged the full price immediately. During the commitment period, you can't change your commitment plan; however you can purchase more units at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
-  ***Sample billing metadata transmitted by Translator disconnected container***
+  ***Sample billing metadata for Translator disconnected container***
 
    ```json
       {
@@ -75,10 +70,9 @@ The aggregated value of `billedUnit` for the following meters is counted  toward
 
 * `CognitiveServices.TextTranslation.Container.TranslatedCharacters`
 
-
 ## Request container access
 
-Translator containers are a gated offering. To use the Translator container, you must submit an online request and for approval.
+**Translator containers are a gated offering. To use the Translator container, you must submit an online request for approval.**
 
 * To request access to a connected container, complete and submit the [**connected container access request form**](https://aka.ms/csgate-translator).
 

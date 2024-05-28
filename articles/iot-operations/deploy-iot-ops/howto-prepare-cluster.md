@@ -6,7 +6,7 @@ ms.author: dobett
 ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 12/07/2023
+ms.date: 05/02/2024
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
@@ -26,22 +26,91 @@ An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure Io
 
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [Azure CLI version 2.46.0 or newer installed](/cli/azure/install-azure-cli) on your development machine.
 - Hardware that meets the [system requirements](../../azure-arc/kubernetes/system-requirements.md).
 
-### Create a cluster
+### [AKS Edge Essentials](#tab/aks-edge-essentials)
+
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Azure CLI version 2.46.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+
+  ```bash
+  az extension add --upgrade --name azure-iot-ops
+  ```
+
+* Hardware that meets the system requirements:
+
+  * Ensure that your machine has a minimum of 10-GB RAM, 4 vCPUs, and 40-GB free disk space.
+  * Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements).
+  * Review the [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).
+
+
+### [Ubuntu](#tab/ubuntu)
+
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Azure CLI version 2.46.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+
+  ```bash
+  az extension add --upgrade --name azure-iot-ops
+  ```
+
+* Review the [K3s requirements](https://docs.k3s.io/installation/requirements).
+
+Azure IoT Operations also works on Ubuntu in Windows Subsystem for Linux (WSL) on your Windows machine. Use WSL for testing and development purposes only.
+
+To set up your WSL Ubuntu environment:
+
+1. [Install Linux on Windows with WSL](/windows/wsl/install).
+
+1. Enable `systemd`:
+
+    ```bash
+    sudo -e /etc/wsl.conf
+    ```
+
+    Add the following to _wsl.conf_ and then save the file:
+
+    ```text
+    [boot]
+    systemd=true
+    ```
+
+1. After you enable `systemd`, [re-enable running windows executables from WSL](https://github.com/microsoft/WSL/issues/8843):
+
+    ```bash
+    sudo sh -c 'echo :WSLInterop:M::MZ::/init:PF > /usr/lib/binfmt.d/WSLInterop.conf'
+    sudo systemctl unmask systemd-binfmt.service
+    sudo systemctl restart systemd-binfmt
+    sudo systemctl mask systemd-binfmt.service
+    ```
+
+### [Codespaces](#tab/codespaces)
+
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* A [GitHub](https://github.com) account.
+
+* Visual Studio Code installed on your development machine. For more information, see [Download Visual Studio Code](https://code.visualstudio.com/download).
+
+---
+
+## Create a cluster
 
 This section provides steps to prepare and Arc-enable clusters in validated environments on Linux and Windows as well as GitHub Codespaces in the cloud.
 
-# [AKS Edge Essentials](#tab/aks-edge-essentials)
+### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
 [Azure Kubernetes Service Edge Essentials](/azure/aks/hybrid/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience, making it easy for you to deploy Kubernetes on PC-class or "light" edge hardware.
 
 >[!TIP]
 >You can use the [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script to automate the steps in this section and connect your cluster.
 >
->In an elevated PowerShell window, run the following commands:
+>Open an elevated PowerShell window, change the directory to a working folder, then run the following commands:
 >
 >```powershell
 >$url = "https://raw.githubusercontent.com/Azure/AKS-Edge/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1"
@@ -75,68 +144,160 @@ Set up an AKS Edge Essentials cluster on your machine.
     kubectl apply -f https://raw.githubusercontent.com/Azure/AKS-Edge/main/samples/storage/local-path-provisioner/local-path-storage.yaml
     ```
 
-## Arc-enable your cluster
+Run the following commands to check that the deployment was successful:
 
-To connect your cluster to Azure Arc, complete the steps in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
+```powershell
+Import-Module AksEdge
+Get-AksEdgeDeploymentInfo
+```
 
-# [Ubuntu](#tab/ubuntu)
+In the output of the `Get-AksEdgeDeploymentInfo` command, you should see that the cluster's Arc status is `Connected`.
 
-[!INCLUDE [prepare-ubuntu](../includes/prepare-ubuntu.md)]
+### [Ubuntu](#tab/ubuntu)
 
-## Arc-enable your cluster
+Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. For Ubuntu Linux, Microsoft currently supports K3s clusters.
 
-[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
+> [!IMPORTANT]
+> If you're using Ubuntu in Windows Subsystem for Linux (WSL), run all of these steps in your WSL environment, including the Azure CLI steps for configuring your cluster.
 
-# [Codespaces](#tab/codespaces)
+To prepare a K3s Kubernetes cluster on Ubuntu:
+
+1. Run the K3s installation script:
+
+   ```bash
+   curl -sfL https://get.k3s.io | sh -
+   ```
+
+   For full installation information, see the [K3s quick-start guide](https://docs.k3s.io/quick-start).
+
+1. Create a K3s configuration yaml file in `.kube/config`:
+
+    ```bash
+    mkdir ~/.kube
+    sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
+    mv ~/.kube/merged ~/.kube/config
+    chmod  0600 ~/.kube/config
+    export KUBECONFIG=~/.kube/config
+    #switch to k3s context
+    kubectl config use-context default
+    ```
+
+1. Run the following command to increase the [user watch/instance limits](https://www.suse.com/support/kb/doc/?id=000020048).
+
+   ```bash
+   echo fs.inotify.max_user_instances=8192 | sudo tee -a /etc/sysctl.conf
+   echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+
+   sudo sysctl -p
+   ```
+
+1. For better performance, increase the file descriptor limit:
+
+   ```bash
+   echo fs.file-max = 100000 | sudo tee -a /etc/sysctl.conf
+
+   sudo sysctl -p
+   ```
+
+### [Codespaces](#tab/codespaces)
 
 [!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
 
-## Arc-enable your cluster
-
-[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
-
-# [WSL Ubuntu](#tab/wsl-ubuntu)
-
-You can run Ubuntu in Windows Subsystem for Linux (WSL) on your Windows machine. Use WSL for testing and development purposes only.
-
-> [!IMPORTANT]
-> Run all of these steps in your WSL environment, including the Azure CLI steps for configuring your cluster.
-
-To set up your WSL Ubuntu environment:
-
-1. [Install Linux on Windows with WSL](/windows/wsl/install).
-
-1. Enable `systemd`:
-
-    ```bash
-    sudo -e /etc/wsl.conf
-    ```
-
-    Add the following to _wsl.conf_ and then save the file:
-
-    ```text
-    [boot]
-    systemd=true
-    ```
-
-1. After you enable `systemd`, [re-enable running windows executables from WSL](https://github.com/microsoft/WSL/issues/8843):
-
-    ```bash
-    sudo sh -c 'echo :WSLInterop:M::MZ::/init:PF > /usr/lib/binfmt.d/WSLInterop.conf'
-    sudo systemctl unmask systemd-binfmt.service
-    sudo systemctl restart systemd-binfmt
-    sudo systemctl mask systemd-binfmt.service
-    ```
-
-[!INCLUDE [prepare-ubuntu](../includes/prepare-ubuntu.md)]
+---
 
 ## Arc-enable your cluster
 
-[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
+Connect your cluster to Azure Arc so that it can be managed remotely.
+
+### [AKS Edge Essentials](#tab/aks-edge-essentials)
+
+To connect your cluster to Azure Arc, complete the steps in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
+
+### [Ubuntu](#tab/ubuntu)
+
+To connect your cluster to Azure Arc:
+
+1. On the machine where you deployed the Kubernetes cluster, or in your WSL environment, sign in with Azure CLI:
+
+   ```azurecli
+   az login
+   ```
+
+1. Set environment variables for your Azure subscription, location, a new resource group, and the cluster name as it will show up in your resource group.
+
+   ```bash
+   # Id of the subscription where your resource group and Arc-enabled cluster will be created
+   export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
+
+   # Azure region where the created resource group will be located
+   # Currently supported regions: "eastus", "eastus2", "westus", "westus2", "westus3", "westeurope", or "northeurope"
+   export LOCATION=<REGION>
+
+   # Name of a new resource group to create which will hold the Arc-enabled cluster and Azure IoT Operations resources
+   export RESOURCE_GROUP=<NEW_RESOURCE_GROUP_NAME>
+
+   # Name of the Arc-enabled cluster to create in your resource group
+   export CLUSTER_NAME=<NEW_CLUSTER_NAME>
+   ```
+
+1. Set the Azure subscription context for all commands:
+
+   ```azurecli
+   az account set -s $SUBSCRIPTION_ID
+   ```
+
+1. Register the required resource providers in your subscription:
+
+   >[!NOTE]
+   >This step only needs to be run once per subscription.
+
+   ```azurecli
+   az provider register -n "Microsoft.ExtendedLocation"
+   az provider register -n "Microsoft.Kubernetes"
+   az provider register -n "Microsoft.KubernetesConfiguration"
+   az provider register -n "Microsoft.IoTOperationsOrchestrator"
+   az provider register -n "Microsoft.IoTOperationsMQ"
+   az provider register -n "Microsoft.IoTOperationsDataProcessor"
+   az provider register -n "Microsoft.DeviceRegistry"
+   ```
+
+1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
+
+   ```azurecli
+   az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
+   ```
+
+1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
+
+   ```azurecli
+   az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
+   ```
+
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses and save it as an environment variable.
+
+   ```azurecli
+   export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)
+   ```
+
+1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. This command uses the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command on the machine where you deployed the Kubernetes cluster:
+
+    ```azurecli
+    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
+    ```
+
+### [Codespaces](#tab/codespaces)
+
+[!INCLUDE [connect-cluster-codespaces](../includes/connect-cluster-codespaces.md)]
 
 ---
 
 ## Verify your cluster
+
+To verify that your cluster is ready for Azure IoT Operations deployment, you can use the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) helper command in the Azure IoT Operations extension for Azure CLI. When run on the cluster host, this helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints.
+
+```azurecli
+az iot ops verify-host
+```
 
 To verify that your Kubernetes cluster is now Azure Arc-enabled, run the following command:
 
@@ -172,12 +333,6 @@ pod/config-agent-7579f558d9-5jnwq                 2/2     Running   0           
 pod/kube-aad-proxy-56d9f754d8-9gthm               2/2     Running   0               10m
 pod/resource-sync-agent-769bb66b79-z9n46          2/2     Running   0               10m
 pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0               10m
-```
-
-To verify that your cluster is ready for Azure IoT Operations deployment, you can use the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) helper command in the Azure IoT Operations extension for Azure CLI. When run on the cluster host, this helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints.
-
-```azurecli
-az iot ops verify-host
 ```
 
 ## Create sites

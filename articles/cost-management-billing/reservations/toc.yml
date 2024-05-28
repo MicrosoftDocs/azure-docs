@@ -43,6 +43,8 @@
       href: understand-azure-data-explorer-reservation-charges.md
     - name: Dedicated Hosts
       href: billing-understand-dedicated-hosts-reservation-charges.md
+    - name: Defender for Cloud - Prepurchase
+      href: ../../defender-for-cloud/prepurchase-plan.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Disk Storage
       href: understand-disk-reservations.md
     - name: Red Hat Linux Enterprise

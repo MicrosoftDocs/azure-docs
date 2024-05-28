@@ -405,7 +405,7 @@ The following videos provide more information about how to manage your MCA:
 - [How to manage your subscriptions and organize your account in the Microsoft 365 admin center](https://www.youtube.com/watch?v=NO25_5QXoy8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=9)
 - [How to find a copy of your Microsoft Customer Agreement in the Microsoft 365 admin center (MAC)](https://www.youtube.com/watch?v=pIe5yHljdcM&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=10)
 
-## Next steps
+## Related content
 
 - [View and download your Azure invoice](../understand/download-azure-invoice.md)
 - [Why you might not see an invoice](../understand/download-azure-invoice.md#why-you-might-not-see-an-invoice)

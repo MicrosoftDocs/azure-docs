@@ -63,6 +63,8 @@
     href: expressroute-about-virtual-network-gateways.md
   - name: About zone-redundant gateways for Availability Zones
     href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/expressroute/toc.json
+  - name: About Migrating to an AZ gateway
+    href: gateway-migration.md
   - name: About ExpressRoute FastPath
     href: about-fastpath.md
   - name: About ExpressRoute Direct
@@ -207,8 +209,6 @@
         href: how-to-configure-custom-bgp-communities-portal.md
       - name: Azure PowerShell
         href: how-to-configure-custom-bgp-communities.md
-    - name: Move from public peering to Microsoft peering
-      href: how-to-move-peering.md
   - name: Encrypt traffic over circuits
     items:
     - name: Configure a site-to-site VPN over Microsoft peering
@@ -234,7 +234,11 @@
   - name: Migrate to a new circuit
     href: circuit-migration.md
   - name: Migrate to an AZ gateway
-    href: gateway-migration.md
+    items:
+    - name: Azure portal
+      href: expressroute-howto-gateway-migration-portal.md
+    - name: Azure PowerShell
+      href: expressroute-howto-gateway-migration-powershell.md
   - name: Moving from classic to Resource Manager
     items:
     - name: Move a circuit from classic to Resource Manager
@@ -327,8 +331,6 @@
       href: /events/ignite-2015/brk1454
     - name: Set up Microsoft peering for your circuit
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
-    - name: Set up public peering for your circuit
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
   - name: Classic and legacy articles
     items:
     - name: Modify a circuit
@@ -341,7 +343,10 @@
       href: expressroute-howto-coexist-classic.md
     - name: Add a gateway to a VNet
       href: expressroute-howto-add-gateway-classic.md
-    - name: Create and modify public peering
+    - name: Create and modify public peering (deprecated)
       href: about-public-peering.md
     - name: Configure Network Performance Monitor for ExpressRoute (deprecated)
       href: how-to-npm.md
+    - name: Move from public peering to Microsoft peering (deprecated)
+      href: how-to-move-peering.md
+    

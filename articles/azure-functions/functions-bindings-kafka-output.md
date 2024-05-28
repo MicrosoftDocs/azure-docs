@@ -309,7 +309,7 @@ The `KafkaOutput` annotation allows you to create a function that writes to a sp
 | **brokerList** | (Required) The list of Kafka brokers to which the output is sent. See [Connections](#connections) for more information. |
 | **topic** | (Required) The topic to which the output is sent. |
 | **dataType** | Defines how Functions handles the parameter value. By default, the value is obtained as a string and Functions tries to  deserialize the string to actual plain-old Java object (POJO). When `string`, the input is treated as just a string. When `binary`, the message is received as binary data, and Functions tries to deserialize it to an actual parameter type byte[]. | 
-| **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. |
+| **avroSchema** | (Optional) Schema of a generic record when using the Avro protocol. ([Currently not supported for Java](https://github.com/Azure/azure-functions-java-library/issues/198).) |
 | **maxMessageBytes** | (Optional) The maximum size of the output message being sent (in MB), with a default value of `1`. |
 | **batchSize** | (Optional) Maximum number of messages batched in a single message set, with a default value of `10000`.  |
 | **enableIdempotence** | (Optional) When set to `true`, guarantees that messages are successfully produced exactly once and in the original produce order, with a default value of `false`|

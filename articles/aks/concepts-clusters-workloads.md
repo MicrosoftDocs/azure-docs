@@ -40,7 +40,7 @@ The control plane includes the following core Kubernetes components:
 | Component | Description |  
 | ----------------- | ------------- |  
 | *kube-apiserver* | The API server exposes the underlying Kubernetes APIs and provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard. |  
-| *etcd* | etcd is a highly available key vault store within Kubernetes that helps maintain the state of your Kubernetes cluster and configuration. |  
+| *etcd* | etcd is a highly available key-value store within Kubernetes that helps maintain the state of your Kubernetes cluster and configuration. |  
 | *kube-scheduler* | When you create or scale applications, the scheduler determines what nodes can run the workload and starts the identified nodes. |  
 | *kube-controller-manager* | The controller manager oversees a number of smaller controllers that perform actions such as replicating pods and handling node operations. |  
 
@@ -87,7 +87,7 @@ A container runtime is software that executes containers and manages container i
 `Containerd` works on every GA version of Kubernetes in AKS, in every Kubernetes version starting from v1.19, and supports all Kubernetes and AKS features.
 
 > [!IMPORTANT]
-> Clusters with Linux node pools created on Kubernetes v1.19 or higher default to the `containerd` container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`.
+> Clusters with Linux node pools created on Kubernetes v1.19 or higher default to the `containerd` container runtime. Clusters with node pools on an earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`.
 >
 > `containerd` is generally available for clusters with Windows Server 2019 and 2022 node pools and is the only container runtime option for Kubernetes v1.23 and higher. You can continue using Docker node pools and clusters on versions earlier than 1.23, but Docker is no longer supported as of May 2023. For more information, see [Add a Windows Server node pool with `containerd`](./create-node-pools.md#windows-server-node-pools-with-containerd).
 >

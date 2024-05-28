@@ -1,21 +1,22 @@
 ---
 title: Migrate files between SMB Azure file shares
-description: Learn how to migrate files from one SMB Azure file share to another using common migration tools.
+description: Learn how to migrate files from one SMB Azure file share to another using Robocopy, a common migration tool.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 05/08/2024
 ms.author: kendownie
 author: khdownie
 ---
 
-# Migrate files between SMB Azure file shares
+# Migrate files from one SMB Azure file share to another
 
-This article describes how to migrate files from one SMB Azure file share to another. One common reason to do this is if you need to migrate from a standard file share to a premium file share to get increased performance for your application workload.
+This article describes how to migrate files between SMB Azure file shares. One common reason to do this is if you need to migrate from a standard file share to a premium file share to get increased performance for your application workload.
 
 > [!WARNING]
 > If you're using Azure File Sync, the migration process is different than described in this article. Instead, see [Migrate files from one Azure file share to another when using Azure File Sync](../file-sync/file-sync-share-to-share-migration.md).
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |

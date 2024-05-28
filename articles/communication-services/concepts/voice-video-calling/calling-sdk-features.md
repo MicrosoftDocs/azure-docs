@@ -32,7 +32,7 @@ Once you start development, check out the [known issues page](../known-issues.md
 | Calling | [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient) |  [GitHub](https://github.com/Azure/Communication/releases) | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)| |
 | UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - |  [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
 
-**Key features** 
+**Key features**
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
 - **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically. You can also bring your own numbers using session border controllers. 
 - **Teams Meetings & Calling** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane.
@@ -96,10 +96,11 @@ The following list presents the set of features that are currently available in 
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Video Effects     | [Background Blur](../../quickstarts/voice-video-calling/get-started-video-effects.md)          | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Custom background image                                                                                             | ✔️   | ❌       | ❌              | ❌                 |
-| Audio Effects     | [Music Mode](./music-mode.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
-|      | [Audio filters](../../how-tos/calling-sdk/manage-audio-filters.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
-|      | [Noise Supression](../../tutorials/audio-quality-enhancements/add-noise-supression.md)          | ✔️   | ❌       | ❌              | ❌                 |
+|                   | Custom background image                                                                                             | ✔️   | ✔️       | ✔️              | ✔️                 |
+| [Audio Effects](../../tutorials/audio-quality-enhancements/add-noise-supression.md)       | [Music Mode](./music-mode.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
+|      | Echo cancellation        | ❌   | ✔️       | ✔️              | ✔️                 |
+|      | Noise supression          | ✔️   | ✔️       | ✔️              | ✔️                 |
+|      | Automatic gain control (AGC)        | ❌   | ✔️       | ✔️              | ✔️                 |
 | Notifications <sup>4</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️  | ✔️       | ✔️              | ✔️                 |
 
 <sup>1</sup> The capability to Mute Others is currently in public preview.

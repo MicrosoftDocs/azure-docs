@@ -29,6 +29,8 @@ items:
     href: quickstart-deploy-web-app.md?pivots=sc-enterprise
   - name: Launch your first RESTful API app
     href: quickstart-deploy-restful-api-app.md?pivots=sc-enterprise
+  - name: Launch your first Spring Batch app
+    href: quickstart-deploy-spring-batch-app.md
   - name: Launch your first event-driven app
     href: quickstart-deploy-event-driven-app.md?pivots=sc-enterprise
   - name: Launch your first microservice apps
@@ -176,6 +178,8 @@ items:
       href: how-to-enterprise-large-cpu-memory-applications.md
     - name: Deploy applications at scale for Enterprise plan
       href: how-to-enterprise-deploy-app-at-scale.md
+    - name: Configure private network access for backend storage
+      href: how-to-private-network-access-backend-storage.md
   - name: Manage
     items:
     - name: Start or stop a service
