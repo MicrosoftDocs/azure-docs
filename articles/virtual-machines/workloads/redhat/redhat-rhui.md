@@ -91,12 +91,13 @@ Extended Update Support (EUS) repositories are available to customers who might 
 > [!NOTE]
 > EUS is not supported on RHEL Extras. This means that if you install a package that is usually available from the RHEL Extras channel, you can't install while on EUS. For more information, see [Red Hat Enterprise Linux Extras Product Life Cycle](https://access.redhat.com/support/policy/updates/extras/).
 
-Support for EUS RHEL7 ended in August 30, 2021. For more information, see [Red Hat Enterprise Linux Extended Maintenance](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
+Support for EUS RHEL7 ended in June 30, 2028. For more information, see [Red Hat Enterprise Linux Extended Maintenance](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
 
 - RHEL 7.4 EUS support ended August 31, 2019
 - RHEL 7.5 EUS support ended April 30, 2020
 - RHEL 7.6 EUS support ended May 31, 2021
 - RHEL 7.7 EUS support ended August 30, 2021
+- RHEL 7.9 EUS support ended June 30, 2028
 - RHEL 8.4 EUS support ended May 31, 2023
 - RHEL 8.6 EUS support ends May 31, 2024
 - RHEL 9.0 EUS support ends May 31, 2024
@@ -107,7 +108,7 @@ Support for EUS RHEL7 ended in August 30, 2021. For more information, see [Red H
 #### [Switching to EUS repositories on RHEL7](#tab/rhel7)
 
 >[!NOTE]
->Support for RHEL7 EUS ended in August 30, 2021. It is not recommended to switch to EUS repositories in RHEL7 anymore.
+>Support for RHEL7 EUS ended in June 30, 2028. It is not recommended to switch to EUS repositories in RHEL7 anymore.
 
 
 #### [Switching to EUS repositories on RHEL8](#tab/rhel8)
