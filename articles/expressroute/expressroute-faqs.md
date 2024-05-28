@@ -513,6 +513,14 @@ ExpressRoute Traffic Collector deployment by default has availability zones enab
 
 You can associate a single ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure region within a given geo-political region. It's recommended that you associate your ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan.
 
+### Will my ExpressRoute Circuit experience any downtime while configuring ExpressRoute Traffic Collector?
+
+No. ExpressRoute Traffic Collector setup does not cause any ExpressRoute Circuit downtime.
+
+### Does ExpressRoute Traffic Collector need to be deployed to the same subscription as my ExpressRoute Circuit?
+
+No. ExpressRoute Traffic Collector can be deployed to a different subscription from your ExpressRoute Circuit. However, ExpressRoute Traffic Collector must be deployed to the same geopolitical region as the ExpressRoute Circuit peering location.
+
 ## <a name="customer-controlled"></a>Customer-controlled gateway maintenance
 
 [!INCLUDE [customer-controlled network gateway maintenance](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-faq.md)]
