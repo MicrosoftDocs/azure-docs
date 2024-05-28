@@ -23,7 +23,7 @@ However, rules created from templates ***do*** remember which templates they cam
 
 - You can get notified when a template is updated, and you'll have the choice to update your rules to the new version of their templates or leave them as they are.
 
-This article will show you how to manage these tasks, and what to keep in mind. The procedures discussed below apply to any **[Scheduled](detect-threats-built-in.md#scheduled)** analytics rules created from templates.
+This article will show you how to manage these tasks, and what to keep in mind. The procedures discussed below apply to any **[Scheduled](scheduled-rules-overview.md)** analytics rules created from templates.
 
 ## Discover your rule's template version number
 

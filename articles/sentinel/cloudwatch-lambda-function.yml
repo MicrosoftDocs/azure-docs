@@ -65,7 +65,7 @@ relatedContent:
   - text: Get visibility into your data, and potential threats
     url: get-visibility.md
   - text: Detect threats with Microsoft Sentinel
-    url: detect-threats-built-in.md
+    url: threat-detection.md
   - text: Use workbooks
     url: monitor-your-data.md
 
@@ -73,5 +73,5 @@ relatedContent:
 
 # In this document, you learned how to create a Lambda function to send CloudWatch events to an S3 bucket. To learn more about Microsoft Sentinel, see the following articles:
 #- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-#- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+#- Get started [detecting threats with Microsoft Sentinel](threat-detection.md).
 #- [Use workbooks](monitor-your-data.md) to monitor your data.
