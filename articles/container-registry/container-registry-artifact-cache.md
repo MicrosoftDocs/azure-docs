@@ -28,24 +28,24 @@ Artifact cache addresses the challenge of anonymous pull limits imposed by publi
 - Cache Rule - A Cache Rule is a rule you can create to pull artifacts from a supported repository into your cache.
     -   A cache rule contains four parts:
         
-        1. Rule Name - The name of your cache rule. For example, `Hello-World-Cache`.
+        - Rule Name - The name of your cache rule. For example, `Hello-World-Cache`.
 
-        2. Source - The name of the Source Registry. 
+        - Source - The name of the Source Registry. 
 
-        3. Repository Path - The source path of the repository to find and retrieve artifacts you want to cache. For example, `docker.io/library/hello-world`.
+        - Repository Path - The source path of the repository to find and retrieve artifacts you want to cache. For example, `docker.io/library/hello-world`.
 
-        4. New ACR Repository Namespace - The name of the new repository path to store artifacts. For example, `hello-world`. The Repository can't already exist inside the ACR instance. 
+        - New ACR Repository Namespace - The name of the new repository path to store artifacts. For example, `hello-world`. The Repository can't already exist inside the ACR instance. 
 
 - Credentials
     - Credentials are a set of username and password for the source registry. You require Credentials to authenticate with a public or private repository. Credentials contain four parts
 
-        1. Credentials  - The name of your credentials.
+        - Credentials  - The name of your credentials.
 
-        2. Source registry Login Server - The login server of your source registry. 
+        - Source registry Login Server - The login server of your source registry. 
 
-        3. Source Authentication - The key vault locations to store credentials. 
+        - Source Authentication - The key vault locations to store credentials. 
         
-        4. Username and Password secrets- The secrets containing the username and password. 
+        - Username and Password secrets- The secrets containing the username and password. 
 
 ## Limitations
 
@@ -157,7 +157,7 @@ You can enable Artifact cache in your Azure Container Registry with or without a
      az acr Cache show -r MyRegistry -n MyRule
     ```
 
-### Create the Credentials
+### Create the credentials
 
 Before configuring the Credentials, you have to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] And to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
 
@@ -190,7 +190,7 @@ Before configuring the Credentials, you have to create and store secrets in the 
     az acr credential-set show -r MyRegistry -n MyCredSet
     ```
 
-### Configure and create a Cache rule with the Credentials 
+### Configure and create a cache rule with the credentials 
 
 1. Run [az acr cache create][az-acr-cache-create] command to create a cache rule.
 
@@ -244,7 +244,7 @@ Before configuring the Credentials, you have to create and store secrets in the 
     --secret-permissions get
     ```
 
-### Pull your Image
+### Pull your image
 
 1. Pull the image from your cache using the Docker command by the registry login server name, repository name, and its desired tag.
 
@@ -404,7 +404,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
      docker pull myregistry.azurecr.io/hello-world:latest
     ```
 
-### Create new Credentials
+### Create new credentials
 
 Before configuring the Credentials, you require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] And to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
 
