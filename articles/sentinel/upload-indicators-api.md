@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article is a reference for the legacy upload indicators API with an example request and response.
 author: austinmccollum
 ms.topic: reference
-ms.date: 05/23/2023
+ms.date: 05/30/2024
 ms.author: austinmc
 ---
 

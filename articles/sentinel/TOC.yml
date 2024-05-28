@@ -1281,7 +1281,9 @@
         href: hunting-with-rest-api.md
       - name: Enrich entities with geolocation data with REST-API
         href: geolocation-data-api.md
-      - name: Upload indicator API reference
+      - name: STIX objects API reference
+        href: stix-objects-api.md
+      - name: Legacy upload indicator API reference
         href: upload-indicators-api.md
       - name: Data connector definitions API reference
         href: data-connector-ui-definitions-reference.md
