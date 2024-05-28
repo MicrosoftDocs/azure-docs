@@ -1,22 +1,17 @@
 ---
-title: Create a cross-subscription internal load balancer
+title: 
 titleSuffix: Azure Load Balancer
-description: Learn how to create a cross-subscription internal load balancer by connecting a virtual network in a subscription to a load balancer in a different subscription.
+description: 
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: how-to
+ms.topic: 
 ms.date: 05/24/2024
 ms.author: mbender
-ms.custom:
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? > .
+ms.custom: 
 ---
 
-# Create a cross-subscription internal load balancer
-
-A [cross-subscription internal load balancer (ILB)](cross-subscription-load-balancer-overview.md) can reference a virtual network that resides in a different subscription other than the load balancers. This feature allows you to deploy a load balancer in one subscription and reference a virtual network in another subscription. 
-
-In this how-to guide, you learn how to create a cross-subscription internal load balancer by connecting a virtual network in a subscription to a load balancer in a different subscription.
+# Global Load Balancer
 
 ## Prerequisites
 
@@ -55,7 +50,7 @@ If you choose to install and use the CLI locally, this quickstart requires Azure
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-With Azure PowerShell, you'll sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount), and change your subscription context with [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) to **Azure Subscription A**. then get the virtual network information with [`Get-AzVirtualNetwork`](/powershell/module/az.network/get-azvirtualnetwork). You'll need the Azure subscription ID, resource group name, and virtual network name from your environment.
+With Azure PowerShell, you'll sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount), and change your subscription context with [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) to **Azure Subscription A**. then get the public IP address information with [`Get-AzPublicIpAddress`](/powershell/module/az.network/get-azpublicipaddress). You'll need the Azure subscription ID, resource group name, and virtual network name from your environment.
  
 
 ```azurepowershell
@@ -66,12 +61,8 @@ Connect-AzAccount
 # Set the subscription context to Azure Subscription A
 Set-AzContext -Subscription '<Azure Subscription A>'     
 
-# Get the Virtual Network information with Get-AzVirtualNetwork
-$net = @{
-    Name = 'vnet name'
-    ResourceGroupName = '<Resource Group Subscription A>'
-}
-$vnet = Get-AzVirtualNetwork @net
+# Get the Public IP address information with Get-AzPublicIpAddress
+$publicIp = Get-AzPublicIpAddress @pip
 ```
 
 # [Azure CLI](#tab/azurecli/)
@@ -108,6 +99,7 @@ $rg = @{
     Location = 'westus'
 }
 New-AzResourceGroup @rg
+
 ```
 > [!NOTE]
 > When create the resource group for you load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
@@ -137,8 +129,8 @@ Create a load balancer with [`New-AzLoadBalancer`](/powershell/module/az.network
 ```azurepowershell
 # Create a load balancer
 $loadbalancer = @{
-    ResourceGroupName = 'resource group B'
-    Name = 'LB Name'
+    ResourceGroupName = 'rg-lb-sub-b'
+    Name = 'my-lb'
     Location = 'westus'
     Sku = 'Standard'
 }
@@ -146,56 +138,61 @@ $loadbalancer = @{
 $LB = New-AzLoadBalancer @loadbalancer
  
 $LBinfo = @{
-    ResourceGroupName = 'resource group B'
+    ResourceGroupName = 'rg-lb-sub-b'
     Name = 'my-lb’
 }
 
-## Add load balancer frontend configuration and apply to load balancer.
-$fip = @{
- Name = 'myFrontEnd'
-SubnetId = $vnet.subnets[0].Id 
-}
 
+$fip = @{
+    Name = 'Frontend Name'
+    PublicIpAddress = $publicip
+}
 $LB = $LB | Add-AzLoadBalancerFrontendIpConfig @fip
 $LB = $LB | Set-AzLoadBalancer
 
 ## Create backend address pool configuration and place in variable. 
- 
+$net = @{
+    Name = 'vnet name'
+    ResourceGroupName = 'rg-lb-sub-b'
+}
+$vnet = Get-AzVirtualNetwork @net
+
 $be = @{
-    ResourceGroupName= "resource group B"
+    ResourceGroupName= "rg-lb-sub-b"
     Name= "myBackEndPool"
-    LoadBalancerName= "LB Name"
+    LoadBalancerName= "my-lb"
     VirtualNetwork=$vnet.id
     SyncMode= "Automatic"
 }
  
-# Create  the backend pool
+#create the backend pool
 $backend = New-AzLoadBalancerBackendAddressPool @be
 $LB = Get-AzLoadBalancer @LBinfo
 
 ```
-
 # [Azure CLI](#tab/azurecli/)
 
 With Azure CLI, you create a load balancer with [`az network lb create`](/cli/azure/network/lb#az_network_lb_create) and update the backend pool. This example configures the following:
 
 - A frontend IP address that receives the incoming network traffic on the load balancer.
-  - The private IP address will be pulled from the cross-subscription VNet.
+  - The public IP address will be pulled from subscription A, and the LB will be deployed in subscription B
   - The `IsRemoteFrontend:True` tag is added since the IP address is cross-subscription.
 - A backend address pool where the frontend IP sends the load balanced network traffic.
 
 ```azurecli
 
-# Create a load balancer with a frontend IP address and backend address pool
-az network lb create --resource-group myResourceGroupLB --name myLoadBalancer --sku Standard --subnet '/subscriptions/subscription A ID/resourceGroups/{resource group name} /providers/Microsoft.Network/virtualNetwork/{VNet name}/subnets/{subnet name}’  --frontend-ip-name myFrontEnd --backend-pool-name MyBackendPool --tags 'IsRemoteFrontend=true'
+# Create a load balancer
+
+az network lb create --resource-group myResourceGroupLB --name myLoadBalancer --sku Standard --public-ip-address '/subscriptions/<subscription A ID>/resourceGroups/{resource group name} /providers/Microsoft.Network/publicIPAddresses/{public IP address name}’  --frontend-ip-name myFrontEnd --backend-pool-name MyBackendPool --tags 'IsRemoteFrontend=true'
 
 ```
 In order to utilize the cross-subscription feature of Azure load balancer, backend pools need to have the syncMode property enabled and a virtual network reference. This section will update the backend pool created prior by attaching the cross-subscription VNet and enabling the syncMode property. 
 
 ```azurecli
 ## Configure the backend address pool and syncMode property
-az network lb address-pool update --lb-name myLoadBalancer --resource-group myResourceGroupLB -n myResourceGroupLB --vnet ‘/subscriptions/subscription A ID/resourceGroups/{resource group name} /providers/Microsoft.Network/virtualNetwork/{VNet name}’ --sync-mode Automatic
+az network lb address-pool update --lb-name myLoadBalancer --resource-group myResourceGroupLB -n myResourceGroupLB --vnet ‘/subscriptions/<subscription A ID>/resourceGroups/{resource group name} /providers/Microsoft.Network/virtualNetwork/{VNet name}’ --sync-mode Automatic
 ```
+
 ---
 
 ## Create a health probe and load balancer rule
@@ -244,44 +241,21 @@ az network lb rule create --resource-group myResourceGroupLB --lb-name myLoadBal
 
 ```
 
----
+## Clean up resources
 
-## Attach network interface cards to the load balancer
+When no longer needed, you can use the Remove-AzResourceGroup command to remove the resource group, load balancer, and the remaining resources.
 
-# [Azure PowerShell](#tab/azurepowershell)
-In this section, you attach network interface cards to the load balancer. You create a network interface with [`New-AzNetworkInterface`](/powershell/module/az.network/new-aznetworkinterface) and then create an IP configuration for the network interface card with [`New-AzNetworkInterfaceIpConfig`](/powershell/module/az.network/new-aznetworkinterfaceipconfig).
+## [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
+Remove-AzResourceGroup -Name 'resource group B'
+```dotnetcli
 
-# Set the subscription context to **Azure Subscription A**
-Set-AzContext -Subscription 'Sub A' 
+## [Azure CLI](#tab/azurecli)
 
-# Create a network interface card
-$IP1 = @{
-    Name = 'ipconfig-a'
-    subnetID= $vnet.subnets[0].Id
-    PrivateIpAddressVersion = 'IPv4'
--LoadBalancerBackendAddressPool $lb-be-info
-}
-$IP1Config = New-AzNetworkInterfaceIpConfig @IP1 -Primary
-$nic = @{
-    Name = 'nic-a'
-    ResourceGroupName = '<Resoure Group Subscription A>'
-    Location = 'eastus’
-    IpConfiguration = $IP1Config
-}
-New-AzNetworkInterface @nic
+```azurecli
+az group delete --name myResourceGroupLB
 ```
-
-# [Azure CLI](#tab/azurecli)
-
-This step is only performed with Azure PowerShell. It's unnecessary with Azure CLI.
-
----
-
-## Delete resources
-
-When you're done with the resources you created, you can delete them to avoid incurring charges.
 
 ## Next steps
 
