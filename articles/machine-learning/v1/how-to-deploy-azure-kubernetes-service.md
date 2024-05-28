@@ -90,6 +90,9 @@ The front-end component (azureml-fe) that routes incoming inference requests to 
 > [!IMPORTANT]
 > When using a cluster configured as `dev-test`, the self-scaler is *disabled*. Even for FastProd/DenseProd clusters, Self-Scaler is only enabled when telemetry shows that it's needed.
 
+> [!IMPORTANT]
+> Azure Machine Learning does not upload and or save container logs, even for system containers. For full debuggability, you should [enable Container Insights for your AKS cluster](../../azure-monitor/containers/kubernetes-monitoring-enable.md#enable-container-insights) on your own to save and manage container logs, and share the related logs with AML team. Otherwise, AML does not commit SLA on azureml-fe related issues.
+
 > [!NOTE]
 > The maximum request payload is 100MB.
 
