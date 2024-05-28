@@ -1,16 +1,16 @@
 ---
-title: Enable soft delete - Azure file shares
-description: Learn how to enable soft delete on Azure file shares for data recovery and preventing accidental deletion.
+title: Enable soft delete for Azure Files
+description: Learn how to enable soft delete on Azure file shares for data recovery and preventing accidental deletion of file shares.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/21/2023
+ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 services: storage
 ---
 
-# Enable soft delete on Azure file shares
+# How to enable soft delete on Azure file shares
 
 Azure Files offers soft delete for SMB file shares so that you can easily recover your data when it's mistakenly deleted by an application or other storage account user. To learn more about soft delete, see [How to prevent accidental deletion of Azure file shares](storage-files-prevent-file-share-deletion.md).
 
@@ -134,7 +134,7 @@ az storage share-rm list \
     --include-deleted
 ```
 
-Once you've identified the share you'd like to restore, you can use it with the following command to restore it:
+Once you've identified the share you'd like to restore, you can restore it with the following command:
 
 ```azurecli
 az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -g yourResourceGroup --storage-account yourStorageaccount
@@ -144,7 +144,7 @@ az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -
 
 ## Disable soft delete
 
-If you wish to stop using soft delete, follow these instructions. To permanently delete a file share that has been soft deleted, you must undelete it, disable soft delete, and then delete it again. 
+If you want to stop using soft delete, follow these instructions. To permanently delete a file share that's been soft deleted, you must undelete the share, disable soft delete, and then delete the share again. 
 
 # [Portal](#tab/azure-portal)
 
@@ -178,4 +178,5 @@ az storage account file-service-properties update \
 ---
 
 ## Next steps
+
 To learn about another form of data protection and recovery, see [Overview of share snapshots for Azure Files](storage-snapshots-files.md).

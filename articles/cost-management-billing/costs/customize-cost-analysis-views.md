@@ -121,6 +121,6 @@ You can view the full dataset for any view. Whichever selections or filters that
 
 :::image type="content" source="./media/customize-cost-analysis-views/accumulated-costs-resource-chart.png" alt-text="Screenshot showing the table view." lightbox="./media/customize-cost-analysis-views/accumulated-costs-resource-chart.png" :::
 
-## Next steps
+## Related content
 
 - Learn about [Saving and sharing customized views](save-share-views.md).

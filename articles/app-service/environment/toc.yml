@@ -31,12 +31,6 @@
     href: overview-certificates.md
   - name: Diagnostics
     href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-  - name: Migration
-    items:
-    - name: In-place migration feature
-      href: migrate.md
-    - name: Side-by-side migration feature
-      href: side-by-side-migrate.md
 - name: How-To guides
   items:
   - name: Using App Service Environment
@@ -53,10 +47,10 @@
     href: how-to-upgrade-preference.md
   - name: Migrate to App Service Environment v3
     items:
-    - name: Use the in-place migration feature
-      href: how-to-migrate.md
-    - name: Use the side-by-side migration feature
-      href: how-to-side-by-side-migrate.md
+    - name: In-place migration feature
+      href: migrate.md
+    - name: Side-by-side migration feature
+      href: side-by-side-migrate.md
     - name: Manually migrate to App Service Environment v3
       href: migration-alternatives.md
 - name: Reference

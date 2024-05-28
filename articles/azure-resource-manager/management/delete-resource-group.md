@@ -168,7 +168,7 @@ If you have the required access, but the delete request fails, it may be because
 
 ## Can I recover a deleted resource group?
 
-No, you can't recover a deleted resource group. However, you might be able to resore some recently deleted resources.
+No, you can't recover a deleted resource group. However, you might be able to restore some recently deleted resources.
 
 Some resource types support *soft delete*. You might have to configure soft delete before you can use it. For information about enabling soft delete, see:
 
