@@ -59,15 +59,15 @@ subsequent API requests are throttled. Bucket is replenished with
 new tokens every minute at a consistent rate called *Bucket Refill Rate*
 for a resource and a subscription.
 
-For Instance: Let us consider the 'throttling policy for VM Update API',
-which stipulates a Bucket Refill Rate of 4 tokens per minute, and a
+For Instance: Let us consider the 'throttling policy for VM Update API'
+that stipulates a Bucket Refill Rate of four tokens per minute, and a
 Maximum Bucket Capacity of 12 tokens. The user invokes the Update VM
 API request for a virtual machine (VM) as per the following table. Initially, the
 bucket is filled with 12 tokens at the start of the throttling window.
-By the 4th minute, the user utilizes all 12 tokens, leaving the
-bucket empty. In the 5th minute, the bucket is replenished with 4 new
-tokens in accordance with the Bucket Refill Rate. So, 4 API
-requests can be made in the 5th minute, while Microsoft Compute will throttle 1 API request due to insufficient tokens.
+By the fourth minute, the user utilizes all 12 tokens, leaving the
+bucket empty. In the fifth minute, the bucket is replenished with four new
+tokens in accordance with the Bucket Refill Rate. So, four API
+requests can be made in the fifth minute, while Microsoft Compute will throttle one API request due to insufficient tokens.
 
 <table>
 <colgroup>
