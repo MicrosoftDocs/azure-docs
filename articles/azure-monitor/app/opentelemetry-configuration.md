@@ -385,6 +385,94 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 
 <a name='enable-entra-id-formerly-azure-ad-authentication'></a>
 
+## Live metrics
+
+[Live metrics](live-stream.md) provides a real-time analytics dashboard for insight into application activity and performance.
+
+#### [ASP.NET Core](#tab/aspnetcore)
+
+<!--
+
+TODO:
+
+This feature is/isn't enabled by default.
+
+Functionality and customization are covered in the following configuration sample.
+
+```
+Configuration sample
+```
+
+-->
+
+#### [.NET](#tab/net)
+
+<!--
+
+TODO:
+
+This feature is/isn't enabled by default.
+
+Functionality and customization are covered in the following configuration sample.
+
+```
+Configuration sample
+```
+
+-->
+
+#### [Java](#tab/java)
+
+<!--
+
+TODO:
+
+This feature is/isn't enabled by default.
+
+Functionality and customization are covered in the following configuration sample.
+
+```
+Configuration sample
+```
+
+-->
+
+#### [Node.js](#tab/nodejs)
+
+<!--
+
+TODO:
+
+This feature is/isn't enabled by default.
+
+Functionality and customization are covered in the following configuration sample.
+
+```
+Configuration sample
+```
+
+-->
+
+#### [Python](#tab/python)
+
+Live metrics is enabled by default.
+
+<!--
+
+TODO:
+
+This feature is/isn't enabled by default.
+
+Functionality and customization are covered in the following configuration sample.
+
+```
+Configuration sample
+```
+
+-->
+
+---
+
 ## Enable Microsoft Entra ID (formerly Azure AD) authentication
 
 You might want to enable Microsoft Entra authentication for a more secure connection to Azure, which prevents unauthorized telemetry from being ingested into your subscription.
