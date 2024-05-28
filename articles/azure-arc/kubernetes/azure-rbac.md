@@ -1,6 +1,6 @@
 ---
 title: "Azure RBAC on Azure Arc-enabled Kubernetes clusters"
-ms.date: 05/22/2024
+ms.date: 05/28/2024
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
@@ -49,11 +49,10 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
    az role assignment create --role "Connected Cluster Managed Identity CheckAccess Reader" --assignee "<Cluster MSI ID>" --scope <cluster ARM ID>
    ```
 
-
 1. Enable Azure role-based access control (RBAC) on your Azure Arc-enabled Kubernetes cluster by running the following command:
 
    ```azurecli
-   az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
+   az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac
    ```
 
    > [!NOTE]
