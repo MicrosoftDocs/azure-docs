@@ -39,9 +39,6 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 Here, we walk through the process of creating diagnostic settings for your account.
 
 > [!NOTE]
-> We recommend creating the diagnostic setting in resource-specific mode (for all APIs except API for Table) [following our instructions for creating diagnostics setting via REST API](monitor-resource-logs.md). This option provides additional cost-optimizations with an improved view for handling data.
-
-> [!NOTE]
 > The metric to logs export as a category is not currently supported.
 
 ### [Azure portal](#tab/azure-portal)
