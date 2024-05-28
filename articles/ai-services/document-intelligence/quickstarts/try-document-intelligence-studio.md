@@ -104,6 +104,9 @@ For custom projects, the following role assignments are required for different s
   * **Storage Account Contributor**: You need this role for the Storage Account to set up CORS settings (this action is a one-time effort if the same storage account is reused).
   * **Contributor**: You need this role to create a resource group and resources.
 
+> [!NOTE]
+> If local (key-based) authentication is disabled for your Document Intelligence service resource and storage account, be sure to obtain **Cognitive Services User** and **Storage Blob Data Contributor** roles respectively, so you have enough permissions to use Document Intelligence Studio.  The **Storage Account Contributor** and **Contributor** roles only allow you to list keys but does not give you permission to use the resources when key-access is disabled.
+
 ### Configure CORS
 
 [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Document Intelligence Studio. To configure CORS in the Azure portal, you need access to the CORS tab of your storage account.
