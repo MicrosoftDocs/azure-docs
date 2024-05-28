@@ -120,7 +120,7 @@ requests can be made in the fifth minute, while Microsoft Compute will throttle 
 </tr>
 <tr class="even">
 <td><p>Remaining tokens at the end of period</p>
-<p>D = Max(A-B,0)</p></td>
+<p>D = Max(A-B, 0)</p></td>
 <td>12</td>
 <td>4</td>
 <td>8</td>
