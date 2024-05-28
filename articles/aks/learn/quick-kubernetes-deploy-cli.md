@@ -383,7 +383,7 @@ curl $IP_ADDRESS
 
 Results:
 <!-- expected_similarity=0.3 -->
-```JSON
+```HTML
 <!doctype html>
 <html lang="">
    <head>
@@ -402,7 +402,7 @@ Results:
 </html>
 ```
 
-```JSON
+```OUTPUT
 echo "You can now visit your web server at $IP_ADDRESS"
 ```
 
