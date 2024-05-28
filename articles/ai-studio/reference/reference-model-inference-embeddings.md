@@ -21,7 +21,7 @@ ms.custom:
 Creates an embedding vector representing the input text.
 
 ```http
-POST /embeddings?api-version=2024-05-01-preview
+POST /embeddings?api-version=2024-04-01-preview
 ```
 
 ## URI Parameters
@@ -38,7 +38,6 @@ POST /embeddings?api-version=2024-05-01-preview
 | dimensions      |          | integer                                             | The number of dimensions the resulting output embeddings should have. Returns a 422 error if the model doesn't support the value or parameter.                          |
 | encoding_format |          | [EmbeddingEncodingFormat](#embeddingencodingformat) | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if the model doesn't support the value or parameter. |
 | input_type      |          | [EmbeddingInputType](#embeddinginputtype)           | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if the model doesn't support the value or parameter.                                  |
-| model           |          | string                                              | Kept for compatibility reasons. This parameter is ignored.                                                                                                              |
 
 ## Responses
 
@@ -75,7 +74,7 @@ Azure Active Directory OAuth2 authentication
 #### Sample Request
 
 ```http
-POST /embeddings?api-version=2024-05-01-preview
+POST /embeddings?api-version=2024-04-01-preview
 
 {
   "input": [
@@ -153,13 +152,12 @@ Status code: 200
 
 ### CreateEmbeddingRequest
 
-| Name             | Type                                                | Default Value | Description                                                                                                                                                             |
-| ---------------- | --------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| dimensions       | integer                                             |               | The number of dimensions the resulting output embeddings should have. Returns a 422 error if the model doesn't support the value or parameter.                          |
-| encoding\_format | [EmbeddingEncodingFormat](#embeddingencodingformat) | float         | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if the model doesn't support the value or parameter. |
-| input            |                                                     |               | Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or array of token arrays.           |
-| input\_type      | [EmbeddingInputType](#embeddinginputtype)           | text          | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if the model doesn't support the value or parameter.                                  |
-| model            | string                                              |               | Kept for compatibility reasons. This parameter is ignored.                                                                                                              |
+| Name            | Required | Type                                                | Description                                                                                                                                                             |
+| --------------- | -------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| input           | True     | string[]                                            | Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or array of token arrays.           |
+| dimensions      |          | integer                                             | The number of dimensions the resulting output embeddings should have. Returns a 422 error if the model doesn't support the value or parameter.                          |
+| encoding_format |          | [EmbeddingEncodingFormat](#embeddingencodingformat) | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if the model doesn't support the value or parameter. |
+| input_type      |          | [EmbeddingInputType](#embeddinginputtype)           | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if the model doesn't support the value or parameter.                                  |
 
 ### CreateEmbeddingResponse
 
@@ -180,11 +178,11 @@ Status code: 200
 
 ### Embedding
 
-Represents an image generated.
+Represents the embedding generated.
 
 | Name      | Type                                | Description                                                                                      |
 | --------- | ----------------------------------- | ------------------------------------------------------------------------------------------------ |
-| embedding | number\[\]                          | The embedding vector, which is a list of floats. The length of vector depends on the model used. |
+| embedding | \[\]                          | The embedding vector. The length of vector depends on the model used and the type depends on the `encoding_format` used. |
 | index     | integer                             | The index of the embedding in the list of embeddings.                                            |
 | object    | [EmbeddingObject](#embeddingobject) | The object type, which is always "embedding".                                                    |
 
@@ -207,9 +205,9 @@ The type of the input. Either `text`, `query`, or `document`. Returns a 422 erro
 
 | Name     | Type   | Description |
 | -------- | ------ | ----------- |
-| document | string |             |
-| query    | string |             |
-| text     | string |             |
+| document | string | Indicates the input represents a document that is stored in a vector database.            |
+| query    | string | Indicates the input represents a search queries to find the most relevant documents in your vector database. |
+| text     | string | Indicates the input is a general text input. |
 
 
 ### EmbeddingObject
