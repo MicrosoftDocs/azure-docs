@@ -1,5 +1,5 @@
 ---
-title: Concepts - CNI Networking in AKS
+title: Concepts - CNI networking in AKS
 description: Learn about CNI networking options in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
 ms.date: 05/21/2024
@@ -9,7 +9,7 @@ ms.author: schaffererin
 ms.custom: fasttrack-edit
 ---
 
-# AKS CNI Networking Overview
+# Azure Kubernetes Service (AKS) CNI networking overview
 
 Kubernetes uses Container Networking Interface (CNI) plugins to manage networking in Kubernetes clusters. CNIs are responsible for assigning IP addresses to pods, network routing between pods, Kubernetes Service routing, and more.
 
@@ -19,13 +19,15 @@ AKS provides multiple CNI plugins you can use in your clusters depending on your
 
 Choosing a CNI plugin for your AKS cluster largely depends on which networking model fits your needs best. Each model has its own advantages and disadvantages you should consider when planning your AKS cluster.
 
-There are two main networking models used in AKS; both have multiple supported CNI plugin options. The main difference between these models is how pod IP addresses are assigned and how traffic leaves the cluster.
+AKS uses two main networking models: **overlay network** and **flat network**.
+
+Both networking models have multiple supported CNI plugin options. The main differences between the models are how pod IP addresses are assigned and how traffic leaves the cluster.
 
 ### Overlay networks
 
 Overlay networking is the most common networking model used in Kubernetes. In overlay networks, pods are given an IP address from a private, logically separate CIDR from the Azure VNet subnet where AKS nodes are deployed. This allows for simpler and often better scalability than the flat network model.
 
-In overlay networks, pods can communicate with each other directly and traffic leaving the cluster is Source Network Address Translated (SNAT'd) to the node's IP address and inbound Pod IP traffic has to be routed through something like a load balancer service. This means that the pod IP address is "hidden" behind the node's IP address, but this approach reduces the number of VNet IP addresses required for your clusters.
+In overlay networks, pods can communicate with each other directly. Traffic leaving the cluster is Source Network Address Translated (SNAT'd) to the node's IP address, and inbound Pod IP traffic is routed through some service, such as a load balancer. This means that the pod IP address is "hidden" behind the node's IP address. This approach reduces the number of VNet IP addresses required for your clusters.
 
 :::image type="content" source="media/azure-cni-Overlay/azure-cni-overlay.png" alt-text="A diagram showing two nodes with three pods each running in an Overlay network. Pod traffic to endpoints outside the cluster is routed via NAT.":::
 
@@ -40,9 +42,10 @@ Unlike an overlay network, a flat network model in AKS assigns IP addresses to p
 
 :::image type="content" source="media/networking-overview/advanced-networking-diagram-01.png" alt-text="{A diagram showing two nodes with three pods each running in a flat network model}":::
 
-Azure Kubernetes Service provides two CNI plugins for flat networking. This article does not go into depth for each plug in option. For more information, see the linked documentation:
-- [Azure CNI Podsubnet][azure-cni-podsubnet], the recommended CNI plugin for flat networking scenarios.
-- [Azure CNI Nodesubnet][azure-cni-nodesubnet], a legacy flat network model CNI generally only recommended if you _**need**_ a managed VNet for your cluster. 
+Azure Kubernetes Service provides two CNI plugins for flat networking. This article doesn't go into depth for each plugin option. For more information, see the linked documentation:
+
+- [Azure CNI Pod Subnet][azure-cni-podsubnet], the recommended CNI plugin for flat networking scenarios.
+- [Azure CNI Node Subnet][azure-cni-nodesubnet], a legacy flat network model CNI generally only recommends you use if you _**need**_ a managed VNet for your cluster. 
 
 ## Choosing a CNI
 
@@ -50,47 +53,44 @@ When choosing a CNI, there are several factors to consider. Each networking mode
 
 ### Choosing a networking model
 
-Choosing a networking model is the first step in selecting a CNI plugin. The two main networking models in AKS are overlay and flat networks.
+The two main networking models in AKS are overlay and flat networks.
 
-- **Overlay Networking Model**
-
-  - Conserves VNet IP address space by using logically separate CIDR ranges for pods.
-  - Maximum cluster scale support.
-  - Simpler IP address management.
+* **Overlay networks**:
+  * Conserve VNet IP address space by using logically separate CIDR ranges for pods.
+  * Maximum cluster scale support.
+  * Simple IP address management.
   
-- **Flat Networking Model**
+* **Flat networks**:
+  * Pods get full VNet connectivity and can be directly reached via their private IP address from connected networks.
+  * Require large, non-fragmented VNet IP address space.
 
-  - Pods get full VNet connectivity and can be directly reached via their private IP address from connected networks.
-  - Requires large, non-fragmented VNet IP address space.
+### Use case comparison
 
+When choosing a networking model, consider the use cases for each CNI plugin and the type of network model it uses:
 
-When choosing a networking model, consider the following:
+| CNI plugin | Networking model | Use case highlights |
+|-------------|----------------------|-----------------------|
+| **Azure CNI Overlay** | Overlay | - Best for VNET IP conservation<br/>- Max node count supported by API Server + 250 pods per node<br/>- Simpler configuration<br/> -No direct external pod IP access |
+| **Azure CNI Pod Subnet (Preview)** | Flat | - Direct external pod access<br/>- Modes for efficient VNet IP usage _or_ large cluster scale support |
+| **Kubenet (Legacy)** | Overlay | - Prioritizes IP conservation<br/>- Limited scale<br/>- Manual route management |
+| **Azure CNI Node Subnet (Legacy)** | Flat | - Direct external pod access<br/>- Simpler configuration <br/>- Limited scale <br/>- Inefficient use of VNet IPs |
 
-Your might have specific use cases that make one CNI plugin more suitable for your cluster than another. The following table provides a high-level comparison of the use case highlights for each CNI plugin and the type of network model it uses:
+### Feature comparison
 
-| CNI Plugin (Network Model)               | Use Case Highlights                                                                                                                                                 |
-|------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Azure CNI Overlay** (Overlay)          | - Best for VNET IP conservation<br/>- Max node count supported by API Server + 250 pods per node<br/>- Simpler configuration<br/> -No direct external pod IP access |
-| **Azure CNI Podsubnet (Preview)** (Flat) | - Direct external pod access<br/>- Modes for efficient VNet IP usage _or_ large cluster scale support                                                               |
-| **Kubenet (Legacy)** (Overlay)           | - Prioritizes IP conservation<br/>- Limited scale<br/>- Manual route management                                                                                     |
-| **Azure CNI Nodesubnet (Legacy)** (Flat) | - Direct external pod access<br/>- Simpler configuration <br/>- Limited scale <br/>- Inefficient use of VNet IPs                                                    |
+You might also want to compare the features of each CNI plugin. The following table provides a high-level comparison of the features supported by each CNI plugin:
 
-### Feature Comparison
-
-Besides having to consider specific use cases, you might also want to compare the features of each CNI plugin. The following table provides a high-level comparison of the features supported by each CNI plugin:
-
-| Capability                                     | Azure CNI Overlay | Azure CNI Podsubnet | Azure CNI Nodesubnet (Legacy) | Kubenet                 |
-|------------------------------------------------|-------------------|---------------------|-------------------------------|-------------------------|
-| Deploy cluster in existing or new VNet         | Supported         | Supported           | Supported                     | Supported - manual UDRs |
-| Pod-VM connectivity; VM in same or peered VNet | Pod initiated     | Both ways           | Both ways                     | Pod initiated           |
-| On-premises access via VPN/Express Route       | Pod initiated     | Both ways           | Both ways                     | Pod initiated           |
-| Access to service endpoints                    | Supported         | Supported           | Supported                     | Supported               |
-| Expose services using load balancer            | Supported         | Supported           | Supported                     | Supported               |
-| Expose services using App Gateway              | Planned           | Supported           | Supported                     | Supported               |
-| Expose services using ingress controller       | Supported         | Supported           | Supported                     | Supported               |
-| Support for Windows node pools                 | Supported         | Supported           | Supported                     | Not Supported           |
-| Default Azure DNS and Private Zones            | Supported         | Supported           | Supported                     | Supported               |
-| VNet Subnet sharing across multiple clusters   | Supported         | Supported           | Supported                     | Not Supported           |
+| Feature | Azure CNI Overlay | Azure CNI Pod Subnet | Azure CNI Node Subnet (Legacy) | Kubenet |
+|---------|----------------------|--------------------------|--------------------------------------|----------|
+| Deploy cluster in existing or new VNet | Supported | Supported | Supported | Supported - manual UDRs |
+| Pod-VM connectivity with VM in same or peered VNet | Pod initiated | Both ways | Both ways | Pod initiated |
+| On-premises access via VPN/Express Route | Pod initiated | Both ways | Both ways | Pod initiated |
+| Access to service endpoints | Supported | Supported | Supported | Supported |
+| Expose services using load balancer | Supported | Supported | Supported | Supported |
+| Expose services using App Gateway | Currently not supported | Supported | Supported | Supported |
+| Expose services using ingress controller | Supported | Supported | Supported | Supported |
+| Windows node pools | Supported | Supported | Supported | Not supported |
+| Default Azure DNS and Private Zones | Supported | Supported | Supported | Supported |
+| VNet Subnet sharing across multiple clusters | Supported | Supported | Supported | Not supported |
 
 ### Support scope between network models
 

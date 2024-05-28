@@ -132,7 +132,7 @@
               href: cis-windows.md
     - name: Networking
       items:
-        - name: Networking Concepts
+        - name: Networking concepts
           href: concepts-network.md
         - name: CNI Networking
           items:

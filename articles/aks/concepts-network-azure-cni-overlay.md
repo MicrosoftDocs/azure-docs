@@ -1,5 +1,5 @@
 ---
-title: Concepts - Azure CNI Overlay Networking
+title: Concepts - Azure CNI Overlay networking in AKS
 description: Learn about Azure CNI Overlay in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
 ms.date: 05/14/2024
@@ -9,9 +9,8 @@ ms.author: schaffererin
 ms.custom: fasttrack-edit
 ---
 
-# Azure Container Networking Interface (CNI) Overlay Networking
+# Azure Container Networking Interface (CNI) Overlay networking
 
-When using [Azure CNI PodSubnet][azure-cni-podsubnet], VNet IP addresses are assigned to nodes _and_ pods. This approach requires IP address planning and could lead to address exhaustion, which introduces difficulties scaling your clusters as your application demands grow.
 
 With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Network (VNet) subnet. Pods are assigned IP addresses from a private CIDR logically different from the VNet hosting the nodes. Pod and node traffic within the cluster use an Overlay network. Network Address Translation (NAT) uses the node's IP address to reach resources outside the cluster. This solution saves a significant amount of VNet IP addresses and enables you to scale your cluster to large sizes. An extra advantage is that you can reuse the private CIDR in different AKS clusters, which extends the IP space available for containerized applications in Azure Kubernetes Service (AKS).
 
@@ -31,7 +30,7 @@ You can configure ingress connectivity to the cluster using an ingress controlle
 
 ## Differences between Kubenet and Azure CNI Overlay
 
-Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address space logically different from the VNet, but it has scaling and other limitations. The below table provides a detailed comparison between Kubenet and Azure CNI Overlay. If you don't want to assign VNet IP addresses to pods due to IP shortage, we recommend using Azure CNI Overlay.
+The following table provides a detailed comparison between Kubenet and Azure CNI Overlay:
 
 | Area                         | Azure CNI Overlay                                            | Kubenet                                                                       |
 |------------------------------|--------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -43,14 +42,30 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 
 ## IP address planning
 
-- **Cluster Nodes**: When setting up your AKS cluster, make sure your VNet subnets have enough room to grow for future scaling. You can assign each node pool to a dedicated subnet. A `/24`subnet can fit up to 251 nodes since the first three IP addresses are reserved for management tasks.
-- **Pods**: The Overlay solution assigns a `/24` address space for pods on every node from the private CIDR that you specify during cluster creation. The `/24` size is fixed and can't be increased or decreased. You can run up to 250 pods on a node. When planning the pod address space, ensure the private CIDR is large enough to provide `/24` address spaces for new nodes to support future cluster expansion.
-  - When planning IP address space for pods, consider the following factors:
-    - The same pod CIDR space can be used on multiple independent AKS clusters in the same VNet.
-    - Pod CIDR space must not overlap with the cluster subnet range.
-    - Pod CIDR space must not overlap with directly connected networks (like VNet peering, ExpressRoute, or VPN). If external traffic has source IPs in the podCIDR range, it needs translation to a non-overlapping IP via SNAT to communicate with the cluster.
-- **Kubernetes service address range**: The size of the service address CIDR depends on the number of cluster services you plan to create. It must be smaller than `/12`. This range shouldn't overlap with the pod CIDR range, cluster subnet range, and IP range used in peered VNets and on-premises networks.
-- **Kubernetes DNS service IP address**: This IP address is within the Kubernetes service address range that's used by cluster service discovery. Don't use the first IP address in your address range, as this address is used for the `kubernetes.default.svc.cluster.local` address.
+### Cluster nodes
+
+When setting up your AKS cluster, make sure your VNet subnets have enough room to grow for future scaling. You can assign each node pool to a dedicated subnet.
+
+A `/24` subnet can fit up to 251 nodes since the first three IP addresses are reserved for management tasks.
+
+### Pods
+
+The Overlay solution assigns a `/24` address space for pods on every node from the private CIDR that you specify during cluster creation. The `/24` size is fixed and can't be increased or decreased. You can run up to 250 pods on a node. 
+
+When planning IP address space for pods, consider the following factors:
+
+* Ensure the private CIDR is large enough to provide `/24` address spaces for new nodes to support future cluster expansion.
+* The same pod CIDR space can be used on multiple independent AKS clusters in the same VNet.
+* Pod CIDR space must not overlap with the cluster subnet range.
+* Pod CIDR space must not overlap with directly connected networks (like VNet peering, ExpressRoute, or VPN). If external traffic has source IPs in the podCIDR range, it needs translation to a non-overlapping IP via SNAT to communicate with the cluster.
+
+### Kubernetes service address range
+
+The size of the service address CIDR depends on the number of cluster services you plan to create. It must be smaller than `/12`. This range shouldn't overlap with the pod CIDR range, cluster subnet range, and IP range used in peered VNets and on-premises networks.
+
+### Kubernetes DNS service IP address
+
+This IP address is within the Kubernetes service address range used by cluster service discovery. Don't use the first IP address in your address range, as this address is used for the `kubernetes.default.svc.cluster.local` address.
 
 ## Network security groups
 
@@ -66,7 +81,7 @@ If you wish to restrict traffic between workloads in the cluster, we recommend u
 
 ## Maximum pods per node
 
-You can configure the maximum number of pods per node at the time of cluster creation or when you add a new node pool. The default for Azure CNI Overlay is 250. The maximum value you can specify in Azure CNI Overlay is 250, and the minimum value is 10. The maximum pods per node value configured during creation of a node pool applies to the nodes in that node pool only.
+You can configure the maximum number of pods per node at the time of cluster creation or when you add a new node pool. The default and maximum value for Azure CNI Overlay is 250., and the minimum value is 10. The maximum pods per node value configured during creation of a node pool applies to the nodes in that node pool only.
 
 ## Choosing a network model to use
 
@@ -89,10 +104,10 @@ Azure CNI offers two IP addressing options for pods: The traditional configurati
 
 Azure CNI Overlay has the following limitations:
 
-- You can't use Application Gateway as an Ingress Controller (AGIC) for an Overlay cluster.
-- Virtual Machine Availability Sets (VMAS) aren't supported for Overlay.
+- You can't use Application Gateway as an Ingress Controller (AGIC).
+- Virtual Machine Availability Sets (VMAS) aren't supported.
 - You can't use [DCsv2-series](/azure/virtual-machines/dcv2-series) virtual machines in node pools. To meet Confidential Computing requirements, consider using [DCasv5 or DCadsv5-series confidential VMs](/azure/virtual-machines/dcasv5-dcadsv5-series) instead.
-- In case you are using your own subnet to deploy the cluster, the names of the subnet, VNET and resource group which contains the VNET, must be 63 characters or less. This comes from the fact that these names will be used as labels in AKS worker nodes, and are therefore subjected to [Kubernetes label syntax rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).  
+- If you're using your own subnet to deploy the cluster, the names of the subnet, VNet, and resource group containing the VNet, must be 63 characters or less. These names will be used as labels in AKS worker nodes and are subject to [Kubernetes label syntax rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).  
 
 <!-- LINKS - Internal -->
 [azure-cni-podsubnet]: concepts-network-azure-cni-podsubnet.md

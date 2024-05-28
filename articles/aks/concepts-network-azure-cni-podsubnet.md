@@ -1,5 +1,5 @@
 ---
-title: Concepts - Azure CNI Pod Subnet
+title: Concepts - Azure CNI Pod Subnet networking in AKS
 description: Learn about Azure CNI Pod Subnet, dynamic IP allocation mode, and static block allocation mode in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 05/21/2024
@@ -21,9 +21,9 @@ Azure CNI Pod Subnet assigns IP addresses to pods from a separate subnet from yo
 - Review the [prerequisites][azure-cni-prereq] for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
 - Review the [deployment parameters][azure-cni-deployment-parameters] for configuring basic Azure CNI networking in AKS, as the same parameters apply.
 - AKS Engine and DIY clusters aren't supported.
-- Azure CLI version `2.37.0` or later with extension aks-preview of version '2.0.0b2' or later
-- If you have an existing cluster, you need to enable Container Insights for monitoring IP subnet usage. You can enable Container Insights using the [`az aks enable-addons`][az-aks-enable-addons] command, as shown in the following example:
-- Register the subscription-level feature flag for your subscription: 'Microsoft.ContainerService/AzureVnetScalePreview'
+- Azure CLI version `2.37.0` or later and the `aks-preview` extension version `2.0.0b2` or later.
+- Register the subscription-level feature flag for your subscription: 'Microsoft.ContainerService/AzureVnetScalePreview'.
+- If you have an existing cluster, you need to enable the Container Insights for monitoring IP subnet usage add-on. You can enable Container Insights using the [`az aks enable-addons`][az-aks-enable-addons] command, as shown in the following example:
 
     ```azurecli-interactive
     az aks enable-addons --addons monitoring --name <cluster-name> --resource-group <resource-group-name>
@@ -88,23 +88,26 @@ This feature is **_not_** available in the following regions:
 - West US
 - West US 2
 
-### Plan IP addressing for Static Block Allocation mode
+### Plan IP addressing
 
-Planning your IP addressing is more flexible and granular. Since the nodes and pods scale independently, their address spaces can also be planned separately. Since pod subnets can be configured to the granularity of a node pool, you can always add a new subnet when you add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
+With static block allocation, nodes and pods scale independently, so you can plan their address spaces separately. Since pod subnets can be configured to the granularity of a node pool, you can always add a new subnet when you add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
 
-In this scenario, CIDR blocks of /28 (16 IPs) are allocated to nodes based on your '--max-pod' configuration for your node pool which defines the maximum number of pods per node. 1 IP is reserved on each node from all the available IPs on that node for internal purposes. 
+CIDR blocks of /28 (16 IPs) are allocated to nodes based on your `--max-pods` configuration for your node pool, which defines the maximum number of pods per node. 1 IP is reserved on each node from all the available IPs on that node for internal purposes. 
 
-Thus while determining and planning your IPs it is essential to define your '--max-pods' configuration and it can be calculated best as below:
-`max_pods_per_node = (16 * N) - 1`
-where N is any positive integer greater than 0
+While planning your IPs, it's important to define your `--max-pods` configuration using the following calculation: `max_pods_per_node = (16 * N) - 1`, where `N` is any positive integer greater than `0`.
 
 Ideal values with no IP wastage would require the max pods value to conform to the above expression.
 
-**Example 1:** max_pods = 30, CIDR Blocks allocated per node = 2, Total IPs available for pods = (16 * 2) - 1 = 32 - 1 = 31, IP wastage per node = 31 - 30 = 1 **[Low wastage - Acceptable Case]**
-**Example 2:** max_pods = 31, CIDR Blocks allocated per node = 2, Total IPs available for pods = (16 * 2) - 1 = 32 - 1 = 31, IP wastage per node = 31 - 31 = 0 **[Ideal Case]**
-**Example 3:** max_pods = 32, CIDR Blocks allocated per node = 3, Total IPs available for pods = (16 * 3) - 1 = 48 - 1 = 47, IP wastage per node = 47 - 32 = 15 **[High Wastage - Not Recommended Case]**
 
-The planning of IPs for Kubernetes services remain unchanged.
+See the following example cases: 
+
+| Example case | `max_pods` | CIDR Blocks allocated per node | Total IP available for pods | IP wastage for node |
+| --- | --- | --- | --- | --- |
+| Low wastage (acceptable) | 30 | 2 | (16 * 2) - 1 = 32 - 1 = 31 | 31 - 30 = 1 |
+| Ideal case | 31 | 2 | (16 * 2) - 1 = 32 - 1 = 31 | 31 - 31 = 0 |
+| High wastage (not recommended) | 32 | 3 | (16 * 3) - 1 = 48 - 1 = 47 | 47 - 32 = 15 |
+
+IP address planning for Kubernetes services remains unchanged.
 
 > [!NOTE]
 > Ensure your VNet has a sufficiently large and contiguous address space to support your cluster's scale.
