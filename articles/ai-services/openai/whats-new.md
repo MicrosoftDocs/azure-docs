@@ -84,19 +84,6 @@ Prompt Shields protect applications powered by Azure OpenAI models from two type
 
 [!INCLUDE [GPT-4 Turbo](./includes/gpt-4-turbo.md)]
 
-### GPT-4o preview model available for early access
-
-GPT-4o ("o is for "omni") is the latest preview model from OpenAI launched on May 13, 2024.
-
-- GPT-4o integrates text, and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions.
-- GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and in vision tasks, setting new benchmarks for AI capabilities.
-
-<!--To start testing out the model today, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).-->
-
-### GPT-4 Turbo model general availability (GA)
-
-[!INCLUDE [GPT-4 Turbo](./includes/gpt-4-turbo.md)]
-
 ## April 2024
 
 ### Fine-tuning is now supported in two new regions East US 2 and Switzerland West
@@ -428,7 +415,7 @@ If you are currently using the `2023-03-15-preview` API, we recommend migrating 
 
 - **DALL-E 2 public preview**. Azure OpenAI Service now supports image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./dall-e-quickstart.md). To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/access).
 
-- **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](./how-to/fine-tuning.md?pivots=programming-language-studio#deploy-a-customized-model).
+- **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio#deploy-a-custom-model).
 
 
 ## March 2023
