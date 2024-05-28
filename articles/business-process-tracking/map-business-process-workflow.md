@@ -1,6 +1,6 @@
 ---
 title: Map business processes to Standard workflows
-description: Map your business process stages to operations in Standard logic app workflows from Azure Logic Apps.
+description: Map your business process stages to operations and outputs in Standard logic app workflows from Azure Logic Apps.
 ms.service: logic-apps
 ms.topic: how-to
 ms.reviewer: estfan, azla
@@ -59,13 +59,15 @@ After you finish creating your business process, you can map each stage, transac
 
    :::image type="content" source="media/map-business-process-workflow/open-read-only-workflow-designer.png" alt-text="Screenshot shows read-only Standard workflow designer and opened pane with selected workflow operation, business properties, and business ID." lightbox="media/map-business-process-workflow/open-read-only-workflow-designer.png":::
 
-1. To continue on so you can map your business properties to operation outputs, select **Next**.
+1. To continue by mapping your transaction ID and business properties to operation outputs, select **Next**.
 
-## Map business properties to operation outputs
+<a name="map-outputs"></a>
+
+## Map transaction ID and business properties to operation outputs
 
 In the **Properties** section, follow these steps to map each property's value to the output from an operation in the workflow.
 
-1. For each property to map, select inside the property value box, and then select the dynamic content option (lightning icon):
+1. For the transaction ID and each business property, select inside the property value box, and then select the dynamic content option (lightning icon):
 
    :::image type="content" source="media/map-business-process-workflow/map-first-property.png" alt-text="Screenshot shows read-only Standard workflow designer, Properties section, and first property edit box with dynamic content option selected." lightbox="media/map-business-process-workflow/map-first-property.png":::
 
@@ -119,6 +121,14 @@ In the **Properties** section, follow these steps to map each property's value t
 1. On the **Edit stage** pane, select **Save stage**.
 
    The platform sends the information to your database in Azure Data Explorer.
+
+## Validate mappings
+
+As you map each stage, you can check your mappings as build your business process, rather than wait until deployment, to reveal any errors or problems with your mappings.
+
+- On the editor toolbar, select **Validate**.
+
+  The Azure portal shows notifications for any errors or problems that exist.
 
 ## Finish mapping your business process
 

@@ -15,7 +15,7 @@ ms.date: 06/07/2024
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To add business information and context about the Azure resources in your integration solution, you can visualize the business process flow for the tasks that these resources implement. A business process is a sequence of stages that represent the task flow through a real-world business scenario. This business process also specifies a single business identifer or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that's available across all the stages in the business process and to correlate those stages together.
+To add business context around the Azure resources in an integration solution, you can visualize business processes flows for the tasks implemented by these resources. A business process is a series of stages that represent the tasks that flow through a real-world business scenario. This business process also specifies a single business identifer or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that exists across all the stages in the business process and to correlate those stages together.
 
 When you add a stage to your business process, you can also define other business properties to capture and track as that data moves through each stage. You can then later map the transaction ID and other properties to specific operations and data outputs in Standard logic app workflows. For more information, see [What is Business Process Tracking](overview.md)?
 
@@ -35,15 +35,22 @@ After you define a business process, you can then map each stage to actual Azure
 
 > [!NOTE]
 >
-> In this release, business process tracking supports only Standard logic app resources and their workflows in Azure Logic Apps.
+> In this release, you can only map business process stages to Standard logic app resources and their workflows in Azure Logic Apps.
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+  > [!NOTE]
+  >
+  > If you're using an [Azure integration environment and application groups](../integration-environments/overview.md) 
+  > to organize your Azure resources, and you want to map your business process to Azure resources in your integration 
+  > environment, all your Azure resources must use the same subscription. However, this requirement doesn't apply if you're 
+  > not using an Azure integration environment, so you can map your business process to Azure resources where you have access.
+
 - An existing or new [Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database)
 
-  This Azure resource is required to store the business property values, or transactions, that you want capture and track throughout your business process and across your workflows. When you create a business process, you specify the cluster, database, and table to use for storing the desired data.
+  This Azure resource stores the transactions and business property values that you want to capture as the real-time data moves through your workflows at run time. When you create a business process, you specify the cluster, database, and table to use for storing the data that you want to capture.
 
   > [!NOTE]
   >
@@ -135,19 +142,23 @@ After you create your business process, add the stages for that process. For exa
 
    :::image type="content" source="media/create-business-process/add-stage-quick.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and properties to track." lightbox="media/create-business-process/add-stage.png":::
 
-   By default, in the **Properties to track** section, the transaction ID that you defined when you created the business process automatically appears in this section.
+   In the **Properties to track** table, on the **Success** tab, the transaction ID that you previously defined when you created the business process automatically appears. This value is required and must exist for a successfully completed stage. The **Success** tab can specifiy other business property values to capture from a successfully completed stage. On the **Failure** tab, you can specify any business property values to capture from a failed stage.
 
    To define other business property values that you want to capture and track for this stage, follow these steps:
 
-   1. Under the properties list, select **Add property**.
+   1. Under **Properties to track**, select **Success** or **Failure** as appropriate.
+
+   1. Under the **Properties to track** table, select **Add property**.
 
    1. Enter the property name and type, which is either a **String** or **Integer**.
 
-   For example, this stage specifies a few more properties, such as **CustomerName**, **CustomerEmail**, and **CustomerPhone**:
+   For example, this stage specifies a few more properties, such as **CustomerName**, **CustomerEmail**, and **CustomerPhone**, to capture from a successfully completed stage:
 
    :::image type="content" source="media/create-business-process/add-properties.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and more properties to track." lightbox="media/create-business-process/add-properties.png":::
 
 1. When you're done, select **Add stage**.
+
+   Now, you can continue adding more stages or [map each business property in your stage to the respective operation and outputs in a Standard logic app workflow](map-business-process-workflow.md).
 
 1. To add another stage, choose one of the following options on the process editor:
 
@@ -159,7 +170,7 @@ After you create your business process, add the stages for that process. For exa
    >
    > To delete a stage, open the stage's shortcut menu, and select **Delete**.
 
-1. Repeat the steps to add a stage as necessary.
+1. Repeat the preceding steps to add another stage as needed.
 
    The following example shows a completed business process:
 
@@ -167,7 +178,7 @@ After you create your business process, add the stages for that process. For exa
 
 1. When you're done, on the process editor toolbar, select **Save**.
 
-1. Now, continue on to [map the each business property to the respective operation and outputs in a Standard logic app workflow](map-business-process-workflow.md#define-business-property) so that you can get insights about your deployed resource.
+1. Now, continue on to [map each business property to the respective operation and outputs in a Standard logic app workflow](map-business-process-workflow.md#define-business-property) so that you can get insights about your deployed resource.
 
 ## Next step
 
