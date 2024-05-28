@@ -13,7 +13,7 @@ ms.author: kesheth
 
 [!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-Azure API for FHIR supports the $export command, which allows you to export the data out of an Azure API for FHIR account to a storage account.
+Azure API for FHIR supports the $export command, which allows you to export the data out of an Azure API for FHIR instance to a storage account.
 
 The steps are:
 
