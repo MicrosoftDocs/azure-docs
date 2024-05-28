@@ -54,7 +54,7 @@ You can see the standard Bicep container image in the ADE sample repository unde
 
 For more information about how to create environment definitions that use the ADE container images to deploy your Azure resources, see [Add and configure an environment definition](configure-environment-definition.md).
 
-## Create a custom bicep container image
+## Create a custom Bicep container image
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard container images.
 
