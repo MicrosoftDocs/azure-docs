@@ -1,6 +1,6 @@
 ---
 title: Configure export settings in Azure API for FHIR
-description: This article describes how to configure export settings in Azure API for FHIR
+description: Learn how to configure export settings in Azure API for FHIR.
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,25 +9,25 @@ ms.date: 09/27/2023
 ms.author: kesheth
 ---
 
-# Configure export settings in Azure API for FHIR and set up a storage account
+# Configure export settings in Azure API for FHIR
 
 [!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-Azure API for FHIR supports $export command that allows you to export the data out of Azure API for FHIR account to a storage account.
+Azure API for FHIR supports the $export command, which allows you to export the data out of an Azure API for FHIR account to a storage account.
 
-There are three steps involved in configuring export in Azure API for FHIR:
+The steps are:
 
 1. Enable Managed Identity on Azure API for FHIR.
-2. Create an Azure storage account (if not done before) and assign permissions to Azure API for FHIR to the storage account.
-3. Select the storage account in Azure API for FHIR as export storage account.
+2. If necessary, create an Azure storage account and assign permissions to Azure API for FHIR to the storage account.
+3. Select the storage account in Azure API for FHIR as the export storage account.
 
 ## Enabling Managed Identity on Azure API for FHIR
 
-The first step in configuring Azure API for FHIR for export is to enable system wide managed identity on the service. For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+First, enable system-wide managed identity on the service. For more information, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Browse to the Azure API for FHIR and select **Identity**. Changing the status to **On** will enable managed identity in Azure API for FHIR.
+In the Azure portal, go to the Azure API for FHIR service. Select **Identity**. Changing the status to **On** enables managed identity in Azure API for FHIR.
 
-[ ![Screenshot of the enable managed identity page.](media/export-data/fhir-mi-enabled.png) ](media/export-data/fhir-mi-enabled.png#lightbox)
+![fhir-mi-enabled-new](media/configure-export-data/fhir-mi-enabled-new.png)
 
 In the next step, create a storage account and assign permission to our service.
 
@@ -47,9 +47,9 @@ Now you’re ready to select the storage account in Azure API for FHIR as a defa
 
 ## Selecting the storage account for $export
 
-The final step is to assign the Azure storage account that Azure API for FHIR will use to export the data to. To do this, go to **Integration** in Azure API for FHIR and select the storage account.
+The final step is to assign the Azure storage account that Azure API for FHIR will use to export the data to. To do this, go to **Export** in Azure API for FHIR and select the storage account.
 
-[ ![Screenshot of FHIR Export Storage.](media/export-data/fhir-export-storage.png) ](media/export-data/fhir-export-storage.png#lightbox)
+![fhir-export-storage-new](media/configure-export-data/fhir-export-storage-new.png)
 
 After you've completed this final step, you’re now ready to export the data using $export command.
 
