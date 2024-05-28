@@ -13,8 +13,8 @@ ms.author: srijangupta
 # cloud-init support for virtual machines in Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly.
+> 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article explains the support that exists for [cloud-init](https://cloudinit.readthedocs.io) to configure a virtual machine (VM) or Virtual Machine Scale Sets at provisioning time in Azure. These cloud-init configurations are run on first boot once the resources have been provisioned by Azure.  
@@ -61,11 +61,6 @@ There are two stages to making cloud-init available to the supported Linux distr
 
 * All other CentOS SKUs starting from CentOS 7 (version 7.7) and CentOS 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init. CentOS 6.10, 7.4, 7.5, and 7.6 images don't support cloud-init. 
 
-> [!NOTE]
-> OpenLogic is now Rogue Wave Software 
-
-
-
 ### Oracle
 
  Publisher / Version| Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
@@ -84,23 +79,13 @@ There are two stages to making cloud-init available to the supported Linux distr
 |SUSE 12 |SLES (SUSE Linux Enterprise Server) |sp5 |latest |yes | yes |
 
 * All other SUSE SKUs starting from SLES 15 (sp1) and SLES 12 (sp5) including both Gen1 and Gen2 images are provisioned using cloud-init.
-* Additionally these images are also provisioned with cloud-init -
-
-
- Publisher / Version| Offer | SKU / Version
-|:--- |:--- |:---
-|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sles-{byos/sap/sap-byos}:12-sp4:2020.06.10
-|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sles-{byos/sap/sap-byos}:12-sp3:2020.06.10
-|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sles-{byos/sap/sap-byos}:12-sp2:2020.06.10
-|SUSE 15 |SLES (SUSE Linux Enterprise Server) |manager-proxy-4-byosgen1:2020.06.10
-|SUSE 15 |SLES (SUSE Linux Enterprise Server) |manager-server-4-byos:gen1:2020.06.10
-
 
 ### Debian
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
+| debian-10 |Debian |10-cloudinit-gen2 |Debian:debian-10:10-cloudinit-gen2:0.0.1015 |yes |yes
+| debian-10 |Debian |10-cloudinit-gen2 |Debian:debian-10:10-cloudinit-gen2:0.0.991 |yes |yes
+| debian-10 |Debian |10-cloudinit-gen2 |Debian:debian-10:10-cloudinit-gen2:0.0.999 |yes |yes
 
 
 Currently Azure Stack will support the provisioning of cloud-init enabled images.
@@ -122,7 +107,7 @@ Beginning with cloud-init 21.2, you can use cloud-init to provision a VM in Azur
 ## Deploying a cloud-init enabled Virtual Machine
 Deploying a cloud-init enabled virtual machine is as simple as referencing a cloud-init enabled distribution during deployment.  Linux distribution maintainers have to choose to enable and integrate cloud-init into their base Azure published images. Once you've confirmed the image you want to deploy is cloud-init enabled, you can use the Azure CLI to deploy the image. 
 
-The first step in deploying this image is to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+The first step in deploying this image is to create a resource group with the [az group create](https://learn.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -130,7 +115,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
-The next step is to create a file in your current shell, named *cloud-init.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor of your choice. Enter `sensible-editor cloud-init.txt` to create the file and see a list of available editors. In this example, we're using the **nano** editor. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line:
+The next step is to create a file in your current shell, named *cloud-init.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor of your choice. Enter sensible-editor cloud-init.txt to create the file and see a list of available editors. Use the editor of your choice. Some typical choices are [nano](https://linux.die.net/man/1/nano), [vim](https://linux.die.net/man/1/vi), or [ed](https://linux.die.net/man/1/ed). Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
  SLES| Ubuntu | RHEL
 |:--- |:--- |:---
@@ -140,7 +125,7 @@ The next step is to create a file in your current shell, named *cloud-init.txt* 
 > [!NOTE]
 > cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates that the content should be processed as a cloud-init config.
 
-Press <kbd>Ctrl + X</kbd> to exit the file, type <kbd>y</kbd> to save the file, and press <kbd>Enter</kbd> to confirm the file name on exit.
+Exit the file and save the file according to the editor. Verify file name on exit.
 
 The final step is to create a VM with the [az vm create](/cli/azure/vm) command. 
 
@@ -170,7 +155,7 @@ For more details of cloud-init logging, see the [cloud-init documentation](https
 ## Telemetry
 cloud-init collects usage data and sends it to Microsoft to help improve our products and services. Telemetry is only collected during the provisioning process (first boot of the VM). The data collected helps us investigate provisioning failures and monitor performance and reliability. Data collected doesn't include any identifiers (personal identifiers). Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839) to learn more. Some examples of telemetry being collected are (this isn't an exhaustive list): OS-related information (cloud-init version, distro version, kernel version), performance metrics of essential VM provisioning actions (time to obtain DHCP lease, time to retrieve metadata necessary to configure the VM, etc.), cloud-init log, and dmesg log.
 
-Telemetry collection is currently enabled for most of our marketplace images that uses cloud-init. It is enabled by specifying KVP telemetry reporter for cloud-init. In most Azure Marketplace images, this configuration can be found in the file /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg. Removing this file during image preparation will disable telemetry collection for any VM created from this image. 
+Telemetry collection is currently enabled for most of our marketplace images that use cloud-init. It is enabled by specifying KVP telemetry reporter for cloud-init. In most Azure Marketplace images, this configuration can be found in the file /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg. Removing this file during image preparation will disable telemetry collection for any VM created from this image. 
 
 Sample content of 10-azure-kvp.cfg
 ```
