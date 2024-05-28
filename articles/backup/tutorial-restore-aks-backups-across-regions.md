@@ -14,7 +14,7 @@ ms.author: v-abhmallick
 
 This tutorial describes how to create backups for an AKS cluster stored in the Secondary Region (Azure Paired region). Then perform a Cross Region Restore to recover the AKS Cluster during regional disaster.
 
-Azure Backup allows you to store AKS cluster backups in both **Operational Tier as snapshot** and **Vault Tier as blobs** (preview). This feature enables you to move snapshot-based AKS backups stored in Operational Tier to a Vault-standard Tier. You can use the backup policy, to define whether to store backups just in Operational Tier as snapshots or also protect them in Vault Tier along with Operational. Vaulted backups are stored offsite, which protects them from tenant compromise, malicious attacks, and ransomware threats. You can also retain the backup data for long term. On top of it, you can perform Cross Region Restore by configuring the Backup vault with storage redundancy set as global and Cross Region Restore property enabled. [Learn more](azure-kubernetes-service-backup-overview.md). 
+Azure Backup allows you to store AKS cluster backups in both **Operational Tier as snapshot** and **Vault Tier as blobs** (preview). This feature enables you to move snapshot-based AKS backups stored in Operational Tier to a Vault-standard Tier. You can use the backup policy, to define whether to store backups just in Operational Tier as snapshots or also protect them in Vault Tier along with Operational. Vaulted backups are stored offsite, which protects them from tenant compromise, malicious attacks, and ransomware threats. You can also retain the backup data for long term. Additionally, you can perform Cross Region Restore by configuring the Backup vault with storage redundancy set as global and Cross Region Restore property enabled. [Learn more](azure-kubernetes-service-backup-overview.md). 
 
 ## Consideration
 
@@ -42,7 +42,7 @@ To set the retention policy in a backup policy, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-period.png" alt-text="Screenshot that shows selection of retention period.":::
 
-   You can also create extra retention rules to store backups for a longer duration that are taken daily or weekly.
+   You can also create additional retention rules to store backups for a longer duration that are taken daily or weekly.
 
 
    - **Default**: This  rule defines the default retention duration for all the operational tier backups taken. You can only edit this rule and  can’t delete it.
@@ -57,8 +57,7 @@ With the new backup policy, you can [configure protection for the AKS cluster](a
 
 ## Restore in secondary region (preview)
 
-In case the primary region suffers an outage, you can use the recovery points stored in Vault Tier in secondary region to bring back the AKS cluster. 
-
+If there is an outage in the primary region, you can use the recovery points stored in Vault Tier in the secondary region to restore the AKS cluster.
 Follow these steps:
 
 1. Go to **Backup center** and select **Restore**.
@@ -67,7 +66,7 @@ Follow these steps:
 
 2. On the next page, select **Select backup instance**, and then select the *instance* that you want to restore.
 
-   In case a disaster strikes and Primary Region is suffering an outage, select **Secondary Region**. It will allow you to choose recovery points available in the [Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions). 
+   If a disaster occurs and there is an outage in the Primary Region, select Secondary Region. Then, it allows you to choose recovery points available in the [Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions). 
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-backup-instance-for-restore.png" alt-text="Screenshot shows selection of backup instance for restore.":::
 
@@ -100,7 +99,7 @@ Follow these steps:
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/restore-parameter-storage.png" alt-text="Screenshot shows the storage parameter to add for restore from Vault-standard storage.":::
 
 >[!Note]
->Currently Resources created in the Staging Location cannot be within a Private Endpoint. Please enable public access on the storage account provided as a Staging Location.
+>Currently, resources created in the staging location can't belong within a Private Endpoint. Ensure that you enable _public access_ on the storage account provided as a staging location.
 
 7. Select **Validate** to run validation on the cluster selections for restore.
 
