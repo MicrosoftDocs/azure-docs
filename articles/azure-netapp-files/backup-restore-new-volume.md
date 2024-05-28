@@ -24,7 +24,7 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 * You should trigger the restore operation when there are no baseline backups. Otherwise, the restore might increase the load on the Azure Blob account where your data is backed up. 
 
-* For large volumes (greater than 10 TB), it can take multiple hours to transfer all the data from the backup media.
+* For volumes greater than 10 TiB, it can take multiple hours to transfer all the data from the backup media.
 
 * Restoring a backup to a new volume is not dependent on the networking type used by the source volume. You can restore the backup of a volume configured with Basic networking to a volume configured with Standard networking and vice versa.
 
