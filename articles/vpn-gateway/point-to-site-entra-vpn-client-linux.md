@@ -5,11 +5,11 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: howto
-ms.date: 05/15/2024
+ms.date: 05/28/2024
 ms.author: cherylmc
 ---
 
-# Configure the Azure VPN Client - Microsoft Entra ID authentication - Linux (Preview)
+# Configure Azure VPN Client – Microsoft Entra ID authentication – Linux (Preview)
 
 This article helps you configure the Azure VPN Client on a Linux computer (Ubuntu) to connect to a virtual network using a VPN Gateway point-to-site (P2S) VPN and Microsoft Entra ID authentication. For more information about point-to-site connections, see [About Point-to-Site connections](point-to-site-about.md).
 
