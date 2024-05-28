@@ -112,7 +112,7 @@ Follow these guidelines when choosing a VM type for the cluster nodes. You must 
 
 ## Install Azure Container Storage on your AKS cluster
 
-If your AKS cluster meets the [VM requirements](#ensure-vm-type-for-your-cluster-meets-the-following-criteria), run the following command to install Azure Container Storage on the cluster and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`
+If your AKS cluster meets the [VM requirements](#ensure-vm-type-for-your-cluster-meets-the-following-criteria), run the following command to install Azure Container Storage on the cluster and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
 
 Running this command will enable Azure Container Storage on the system node pool, which by default is named `nodepool1`\*. If you want to enable it on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters, see [this table](container-storage-faq.md#storage-pool-parameters).
 
