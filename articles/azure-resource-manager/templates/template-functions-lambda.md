@@ -260,9 +260,13 @@ The following example shows how to use the `map` function.
       "type": "array",
       "value": "[map(variables('dogs'), lambda('dog', format('Hello {0}!', lambdaVariables('dog').name)))]"
     },
-    "mapObject": {
+    "mapArray": {
       "type": "array",
       "value": "[map(range(0, length(variables('dogs'))), lambda('i', createObject('i', lambdaVariables('i'), 'dog', variables('dogs')[lambdaVariables('i')].name, 'greeting', format('Ahoy, {0}!', variables('dogs')[lambdaVariables('i')].name))))]"
+    },
+    "mapArrayIndex": {
+      "type": "array",
+      "value": "[map(variables('dogs'), lambda('x', 'i', createObject('index', lambdaVariables('i'), 'val', lambdaVariables('x').name)))]"
     }
   }
 }
@@ -274,9 +278,10 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | dogNames | Array | ["Evie","Casper","Indy","Kira"]  |
 | sayHi | Array | ["Hello Evie!","Hello Casper!","Hello Indy!","Hello Kira!"] |
-| mapObject | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
+| mapArray | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
+| mapArrayIndex | Array | [{"index":0,"val":"Evie"},{"index":1,"val":"Casper"},{"index":2,"val":"Indy"},{"index":3,"val":"Kira"}] |
 
-**dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
+**dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; **mapArray** and **mapArrayIndex** create another two arrays of objects.
 
 ## mapValues
 
@@ -400,6 +405,10 @@ The following examples show how to use the `reduce` function.
     "totalAgeAdd1": {
       "type": "int",
       "value": "[reduce(variables('ages'), 1, lambda('cur', 'next', add(lambdaVariables('cur'), lambdaVariables('next'))))]"
+    },
+    "oddAge": {
+      "type": "int",
+      "value": "[reduce(variables('ages'), 0, lambda('cur', 'next', 'i', if(equals(mod(lambdaVariables('i'), 2), 0), add(lambdaVariables('cur'), lambdaVariables('next')), lambdaVariables('cur'))))]"
     }
   }
 }
@@ -411,8 +420,9 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | totalAge | int | 18 |
 | totalAgeAdd1 | int | 19 |
+| oddAge | int | 7 |
 
-**totalAge** sums the ages of the dogs; **totalAgeAdd1** has an initial value of 1, and adds all the dog ages to the initial values.
+**totalAge** sums the ages of the dogs; **totalAgeAdd1** has an initial value of 1, and adds all the dog ages to the initial values. **oddAge** sums the ages of dogs that are located at even indices, specifically **5** (Evie) and **2** (Indy).
 
 ```json
 {

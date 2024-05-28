@@ -183,11 +183,12 @@ var dogs = [
 
 output dogNames array = map(dogs, dog => dog.name)
 output sayHi array = map(dogs, dog => 'Hello ${dog.name}!')
-output mapObject array = map(range(0, length(dogs)), i => {
+output mapArray array = map(range(0, length(dogs)), i => {
   i: i
   dog: dogs[i].name
   greeting: 'Ahoy, ${dogs[i].name}!'
 })
+output mapArrayIndex array = map(dogs, (x, i) => { index: i, val: x.name})
 ```
 
 The output from the preceding example is:
@@ -196,9 +197,10 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | dogNames | Array | ["Evie","Casper","Indy","Kira"]  |
 | sayHi | Array | ["Hello Evie!","Hello Casper!","Hello Indy!","Hello Kira!"] |
-| mapObject | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
+| mapArray | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
+| mapArrayIndex | Array | [{"index":0,"val":"Evie"},{"index":1,"val":"Casper"},{"index":2,"val":"Indy"},{"index":3,"val":"Kira"}] |
 
-**dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
+**dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; **mapArray** and **mapArrayIndex** create another two arrays of objects.
 
 ## mapValues
 
@@ -287,6 +289,7 @@ var dogs = [
 var ages = map(dogs, dog => dog.age)
 output totalAge int = reduce(ages, 0, (cur, next) => cur + next)
 output totalAgeAdd1 int = reduce(ages, 1, (cur, next) => cur + next)
+output oddAge int = reduce(ages, 0, (cur, next, i) => (i % 2 == 0) ? cur + next : cur)
 ```
 
 The output from the preceding example is:
@@ -295,8 +298,9 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | totalAge | int | 18 |
 | totalAgeAdd1 | int | 19 |
+| oddAge | int | 7 |
 
-**totalAge** sums the ages of the dogs; **totalAgeAdd1** has an initial value of 1, and adds all the dog ages to the initial values.
+**totalAge** sums the ages of the dogs; **totalAgeAdd1** has an initial value of 1, and adds all the dog ages to the initial values. **oddAge** sums the ages of dogs that are located at even indices, specifically **5** (Evie) and **2** (Indy).
 
 ```bicep
 output reduceObjectUnion object = reduce([
