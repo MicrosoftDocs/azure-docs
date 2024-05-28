@@ -43,7 +43,7 @@ The configurable options of Azure AI Search when using Azure OpenAI On Your Data
 
 ## Authentication 
 
-You need to select how you want to authenticate the connection from Azure OpenAI, Azure AI Search, and Azure blob storage. You can choose an *assigned managed identity*, *API key* or an *access token**. By selecting *API key* or *access token* as the authentication type, the system will automatically populate the API key or token for you to connect with your Azure AI Search resource. By selecting an *assigned managed identity*, the authentication will be based on the [role assignment](../how-to/use-your-data-securely.md#role-assignments) you have. *System assigned managed identity* is selected by default for security.
+You need to select how you want to authenticate the connection from Azure OpenAI, Azure AI Search, and Azure blob storage. You can choose an *assigned managed identity*, *API key* or an *access token*. By selecting *API key* or *access token* as the authentication type, the system will automatically populate the API key or token for you to connect with your Azure AI Search resource. By selecting an *assigned managed identity*, the authentication will be based on the [role assignment](../how-to/use-your-data-securely.md#role-assignments) you have. *System assigned managed identity* is selected by default for security.
 
 ### API key authentication options
 
