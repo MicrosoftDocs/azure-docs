@@ -31,7 +31,7 @@ Before you deploy the data connector agent:
 
 - If you plan to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), take the relevant preparatory steps. For more information, see [Deploy the Microsoft Sentinel for SAP data connector by using SNC](configure-snc.md).
 
-The procedures in this step require coordination between your security, infrastrucutre, and SAP teams.
+The procedures in this step require coordination between your security, infrastructure, and SAP teams.
 
 ## Watch a demo video
 
@@ -222,14 +222,15 @@ Now that you've created a VM and a Key Vault, your next step is to create a new 
 
 1. **Download or transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download)** to the machine.
 
-Continue with one of the following tabs, depending on whether you're using the portal or the command line, to deploy the agent.
+Continue with one of the following tabs, depending on whether you're using the portal or the command line, to deploy the agent. We recommend that you use deploy the data connector agent from the portal, including the Azure portal, or the Defender portal if you've onboarded your workspace to the unified security operations platform. However:
 
-Deploying the data connector agent from the portal is available only for use with an Azure key vault. Portal options are available from the Azure portal, or from the Defender portal if you've onboarded your workspace to the unified security operations platform.
-
-If you've previoiusly installed SAP connector agents with the kickstart scripts or manaully, configuring or managing those agents in the portal isn't supported. In such cases, reinstall your existing agents using the portal. For more information, see [Advanced deployment options](#advanced-deployment-options).
+- Deploying the data connector agent from the portal is available only for use with an Azure key vault.
+- If you've previoiusly installed SAP connector agents with the kickstart scripts or manaully, configuring or managing those agents in the portal isn't supported.
 
 > [!IMPORTANT]
 > Deploying the container and creating connections to SAP systems from the portal is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Advanced users might always want to deploy the data connector agent manually, such as in a Kubernetes cluster. For more information, see [Deploy the SAP data connector manually](sap-solution-deploy-alternate.md).
 
 # [Portal](#tab/portal)
 
@@ -423,16 +424,6 @@ If you're using a configuration file to store your credentials, see [Deploy and 
     ```
 
 ---
-
-### Advanced deployment options
-
-Advanced SAP users can also use the following options to deploy the data connector agent container:
-
-- **Using a *kickstart* script from the command line**. For more information, see [Kickstart script reference](reference-kickstart.md).
-
-- **Manually, such as in a Kubernetes cluster**. For more information, see [Deploy the SAP data connector manually](sap-solution-deploy-alternate.md).
-
-If you've previously installed SAP connector agents with the kickstart scripts or manually, configuring or managing those agents in the portal isn't supported. In such cases, either reinstall your existing agents using the portal, or use the command line to continue configuring or managing them. For more information, see [Deploy the data connector agent from the command line](#deploy-the-data-connector-agent-from-the-command-line). <!--is this correct, or do you *always* need to reinstall via the portal?-->
 
 ## Next steps
 
