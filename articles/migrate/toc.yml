@@ -86,17 +86,15 @@ items:
       - name: Enable dependency mapping
       - name: Visualize dependencies
       - name: Identify and tag applications
-- name: Decide
+- name: Create Business case
   items:
-    - name: Business case
-      items:
-        - name: Pre-requisites
-        - name: Overview
-        - name: Build a business case
-        - name: Customize on-premises benchmarks 
-        - name: Review business case
-        - name: Best Practices and limitations
-- name: Plan
+  - name: Pre-requisites
+  - name: Overview
+  - name: Build a business case
+  - name: Customize on-premises benchmarks 
+  - name: Review business case
+  - name: Best Practices and limitations
+- name: Plan migrations
   items:
   - name: Assessments
     items:
@@ -138,7 +136,7 @@ items:
       - name: Webapp assessment
         items:
         - name: Pre-requisites
-        - name: Create an Webapp assessment
+        - name: Create a Webapp assessment
         - name: Customize assessment settings
         - name: Azure Webapp Readiness criteria
         - name: Review assessment report
@@ -161,7 +159,7 @@ items:
     - name: Pre-requisites
     - name: Review recommendations
     - name: Limitations
-  - name: Migration planning 
+  - name: Migration wave planning 
     items:
       - name: Pre-requisites
       - name: Create a migration plan
@@ -179,7 +177,7 @@ items:
       - name: Review progress
       - name: Best practices
       - name: Limitations
-- name: Execute
+- name: Migrate workloads
   items:
   - name: Migrate
     items: 
@@ -188,12 +186,12 @@ items:
     - name: Agent-based migration
     - name: Webapp migration
     - name: Limitations
-  - name: Modernize
-    items:
-    - name: Application containerization 
-    - name: Modernization to App service code
-    - name: Replatform Webapps
-    - name: Best practices
+- name: Modernize applications
+  items:
+  - name: Application containerization 
+  - name: Modernization to App service code
+  - name: Replatform Webapps
+  - name: Best practices
 - name: Tutorials 
   items:
   - name: Migration Scenarios
