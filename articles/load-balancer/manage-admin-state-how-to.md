@@ -11,40 +11,47 @@ ms.custom:
 
 # Manage Administrative (Admin) State in Azure Load Balancer
 
-In this article, you will learn how to set admin state on a new backend pool instance, update admin state on existing backend pool instance, and remove admin state from existing backend pool instance. You can choose from the Azure portal, PowerShell, or CLI examples.
-
 Administrative State (Admin State) is a feature of Azure Load Balancer that allows you to override the Load Balancer’s health probe behavior on a per backend pool instance basis. There are three types of admin state values: UP, DOWN, NONE. 
+
+In this article, you learn how to manage the admin state for a backend pool instance. You learn how to:
+-  Set admin state on a new backend pool instance
+-  Update admin state on existing backend pool instance
+-  Remove admin state from existing backend pool instance
+
+You can use the Azure portal, Azure PowerShell, or Azure CLI to manage the admin state for a backend pool instance. Each section provides instructions for each method with examples.
 
 [!INCLUDE [load-balancer-admin-state-preview](../../includes/load-balancer-admin-state-preview.md)]
 
-## Pre-requisites
+## Prerequisites
 
 # [Azure portal](#tab/azureportal)
 
 - Access to the Azure portal.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/)
+- Self-registration of the feature name **SLBAllowAdminStateChangeForConnectionDraining**. For information on registering the feature in your subscription, see [Register preview feature doc](../azure-resource-manager/management/preview-features.md).
 - An existing resource group for all resources.
 - Two or more existing [Virtual Machines](../virtual-machines/windows/quick-create-portal.md).
-- An existing [standard SKU load balancer](quickstart-load-balancer-standard-internal-portal.md) in the same subscription and virtual network as the virtual machines.
+- An existing [standard load balancer](quickstart-load-balancer-standard-internal-portal.md) in the same subscription and virtual network as the virtual machines.
   - The load balancer should have a backend pool with health probes and load balancing rules attached.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
 - Access to the Azure portal.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/)
+- Self-registration of the feature name **SLBAllowAdminStateChangeForConnectionDraining**. For information on registering the feature in your subscription, see [Register preview feature doc](../azure-resource-manager/management/preview-features.md).
 - An existing resource group for all resources.
 - Existing [Virtual Machines](../virtual-machines/windows/quick-create-powershell.md).
-- An existing [standard SKU load balancer](quickstart-load-balancer-standard-internal-powershell.md) in the same subscription and virtual network as the virtual machine.
+- An existing [standard load balancer](quickstart-load-balancer-standard-internal-powershell.md) in the same subscription and virtual network as the virtual machine.
   - The load balancer should have a backend pool with health probes and load balancing rules attached.
 
 # [Azure CLI](#tab/azurecli/)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 - Access to the Azure portal.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/)
+- Self-registration of the feature name **SLBAllowAdminStateChangeForConnectionDraining**. For information on registering the feature in your subscription, see [Register preview feature doc](../azure-resource-manager/management/preview-features.md).
 - An existing resource group for all resources.
 - Existing [Virtual Machines](../virtual-machines/windows/quick-create-cli.md).
-- An existing [standard SKU load balancer](quickstart-load-balancer-standard-internal-cli.md) in the same subscription and virtual network as the virtual machine.
+- An existing [standard load balancer](quickstart-load-balancer-standard-internal-cli.md) in the same subscription and virtual network as the virtual machine.
   - The load balancer should have a backend pool with health probes and load balancing rules attached.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
@@ -52,7 +59,7 @@ Administrative State (Admin State) is a feature of Azure Load Balancer that allo
 ---
 
 ## Set admin state as part of new backend pool create
-In this section, you will learn how to set an admin state to UP or DOWN as part of a new backend pool create. 
+In this section, you learn how to set an admin state to UP or DOWN as part of a new backend pool create. 
 
 # [Azure portal](#tab/azureportal)
 
@@ -61,16 +68,22 @@ In this section, you will learn how to set an admin state to UP or DOWN as part 
 3. Select your load balancer from the list.
 4. In your load balancer's page, select **Backend pools** under **Settings**.
 5. Select **+ Add** in **Backend pools** to add a new backend pool.
+   
+   :::image type="content" source="media/manage-admin-state-how-to/set-admin-state-new-backend-pool.png" alt-text="Screenshot of adding a backend pool under Backend pools in Azure portal.":::
+
 6. In the **Add backend pool** pane, enter or select the following information:
   
   | **Setting** | **Value** |
   |------------------------|----------------------------|
   | **Name**                   | Enter `myBackendpool`.     |
   | **Backend Pool Configuration** | Select **NIC**.         |
-  | **IP configuration**       | Select **+ Add** under **IP configurations**.</br>Select the VM that you want to add to the backend pool.</br>Select **Add**.|
+  | **IP configuration**       | Select **+ Add** under **IP configurations**.</br>Select the virtual machine you want to add to the backend pool. Select **Add**.|
 7. Select **Save**.
 8. In your backend pool’s page, select the corresponding Admin State value of your recently added backend pool instance.
 9. In your admin state’s pane, select **Down** from the dropdown menu.
+    
+    :::image type="content" source="media/manage-admin-state-how-to/set-admin-state-new-backend-pool-down.png" alt-text="Screenshot of Admin state details window with admin state configured to up.":::
+
 10. Select **Save**.
 
 # [Azure PowerShell](#tab/azurepowershell)
@@ -116,30 +129,36 @@ $lb | New-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
 
 1.	Connect to your Azure subscription with Azure CLI.
 2.	Create a new backend pool with a backend pool instance while setting admin state value to UP or DOWN with az network lb address-pool create. Replace the values in brackets with the names of the resources in your configuration.
+
+```azurecli
 az network lb address-pool create \
     -g <resource-group> \
     --lb-name <lb-name> \
     -n <lb-backend-pool-name> \
     --vnet <virtual-network-name> \
-    --backend-address “{name: <new-lb-backend-pool-address-name>,ip-address:<new-lb-backend-pool-address>}” |
+    --backend-address “{name: <new-lb-backend-pool-address-name>,ip-address:<new-lb-backend-pool-address>}” \
     --admin-state <admin-state-value>
+```
+
 This example updates a backend pool instance admin state to DOWN with the following defined values:
 
 [!INCLUDE [load-balancer-admin-state-example-values](../../includes/load-balancer-admin-state-example-values.md)]
 
+```azurecli
 az network lb address-pool create \
     -g MyResourceGroup \
     --lb-name MyLb \
     -n MyAddressPool \
     --vnet MyVnet \
-    --backend-address “{name: MyBackend,ip-address:10.0.2.4}” |
+    --backend-address “{name: MyBackend,ip-address:10.0.2.4}” \
     --admin-state DOWN
+```
 
 ---
 
 ## Set admin state as part of new backend pool instance add
 
-In this section, you will learn how to set an admin state to UP or DOWN as part of a new backend pool instance add.
+In this section, you learn how to set an admin state to UP or DOWN as part of a new backend pool instance add.
 
 # [Azure portal](#tab/azureportal)
 1.	Sign in to the [Azure portal](http://portal.azure.com).
@@ -156,12 +175,15 @@ In this section, you will learn how to set an admin state to UP or DOWN as part 
 8.	Select **Add** and **Save**.
 9.	In your backend pool’s page, select the corresponding Admin State value of your recently added backend pool instance.
 10.	In your admin state’s pane, select **Up** from the dropdown menu.
+
+    :::image type="content" source="media/manage-admin-state-how-to/set-admin-state-backend-pool-up.png" alt-text="Screenshot of Admin state details window with admin state configured to up.":::
+
 11.	Select **Save**.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
 1.	Connect to your Azure subscription with Azure PowerShell.
-2.	Add a new backend pool instance with the admin state value set to UP or DOWN with [New-AzLoadBalancerBackendAddressConfig](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig). Replace the values in brackets with the names of the resources in your configuration.
+2.	Add a new backend pool instance with the admin state value configured to UP or DOWN with [New-AzLoadBalancerBackendAddressConfig](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig). Replace the values in brackets with the names of the resources in your configuration.
 
 ```azurepowershell
 $rsg = <resource-group>
@@ -200,7 +222,7 @@ $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
 
 # [Azure CLI](#tab/azurecli/)
 1.	Connect to your Azure subscription with Azure CLI.
-2.	Add a new backend pool instance with the admin state value set to UP or DOWN with az network lb address-pool update , and replace the values in brackets with the names of the resources in your configuration.
+2.	Add a new backend pool instance with the admin state value is configured. The value can be set to UP or DOWN with [New-AzLoadBalancerBackendAddressConfig](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig). Replace the values in brackets with the names of the resources in your configuration.
 
 ```azurecli
 az network lb address-pool update \
@@ -235,7 +257,7 @@ az network lb address-pool update \
 ---
 ## Update admin state on existing backend pool instance
 
-In this section, you will learn how to update an existing admin state from existing backend pool instance by setting the value to UP or DOWN. 
+In this section, you learn how to update an existing admin state from existing backend pool instance by setting the value to UP or DOWN. 
 
 # [Azure portal](#tab/azureportal)
 1.	Sign in to the [Azure portal](http://portal.azure.com).
@@ -244,12 +266,15 @@ In this section, you will learn how to update an existing admin state from exist
 4.	In your load balancer's page, select **Backend pools** under **Settings**.
 5.	Select the corresponding **Admin State** value of your backend pool instance that you would like to update.
 6.	In your admin state’s pane, select **Down** from the dropdown menu.
+
+    :::image type="content" source="media/manage-admin-state-how-to/set-admin-state-backend-pool-down.png" alt-text="Screenshot of Admin state details window with admin state configured to down.":::
+
 7.	Select **Save**.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
 1.	Connect to your Azure subscription with Azure PowerShell.
-2.	Update an existing backend pool instance with the admin state value set to UP or DOWN with [Set-AzLoadBalancerBackendAddressPool](/powershell/module/az.network/set-azloadbalancerbackendaddresspool). Replace the values in brackets with the names of the resources in your configuration.
+2.	Update an existing backend pool instance with the admin state value configured to UP or DOWN with [Set-AzLoadBalancerBackendAddressPool](/powershell/module/az.network/set-azloadbalancerbackendaddresspool). Replace the values in brackets with the names of the resources in your configuration.
 
 ```azurepowershell
 
@@ -291,7 +316,7 @@ $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
 # [Azure CLI](#tab/azurecli/)
 
 1.	Connect to your Azure subscription with Azure CLI.
-2.	Update an existing backend pool instance with the admin state value set to UP or DOWN with [az network lb address-pool update](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-update) , and replace the values in brackets with the names of the resources in your configuration.
+2.	Update an existing backend pool instance, and configure the admin state value to UP or DOWN with [az network lb address-pool update](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-update). Replace the values in brackets with the names of the resources in your configuration.
 
 ```azurecli
     
@@ -326,6 +351,8 @@ az network lb address-pool update \
 ---
 ## Removing admin state from existing backend pool instance
 
+In this section, you learn how to remove an existing admin state from an existing backend pool instance. This is done by setting the admin state value to NONE.
+
 # [Azure portal](#tab/azureportal)
 1.	Sign in to the [Azure portal](http://portal.azure.com).
 2.	In the search box at the top of the portal, enter **Load balancer** and select **Load balancers** in the search results.
@@ -333,12 +360,15 @@ az network lb address-pool update \
 4.	In your load balancer's page, select **Backend pools** under **Settings**.
 5.	Select the corresponding **Admin State** value of your backend pool instance that you would like to remove.
 6.	In your admin state’s pane, select **None** from the dropdown menu.
+
+    :::image type="content" source="media/manage-admin-state-how-to/set-admin-state-backend-pool-none.png" alt-text="Screenshot of Admin state details window with admin state configured to none.":::
+
 7.	Select **Save**.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
 1.	Connect to your Azure subscription with Azure PowerShell.
-2.	Remove an existing backend pool instance with the admin state value set to NONE with [Remove-AzLoadBalancerBackendAddressPool](/powershell/module/az.network/remove-azloadbalancerbackendaddresspool). Replace the values in brackets with the names of the resources in your configuration.
+2.	Remove an existing backend pool instance. This is done by setting the admin state value to **NONE** with [New-AzLoadBlancerBackendAddressConfig](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig). Replace the values in brackets with the names of the resources in your configuration.
 
 ```azurepowershell
 
@@ -381,7 +411,7 @@ $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
 # [Azure CLI](#tab/azurecli/)
 
 1.	Connect to your Azure subscription with Azure CLI.
-2.	Remove an existing backend pool instance with the admin state value set to NONE with [az network lb address-pool update](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-update) , and replace the values in brackets with the names of the resources in your configuration.
+2.	Remove an existing backend pool instance by setting the admin state value to **None** with [az network lb address-pool update](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-update). Replace the values in brackets with the names of the resources in your configuration.
 
 ```azurecli
     
@@ -413,8 +443,6 @@ az network lb address-pool update \
 > You can also use [`az network lb address-pool address update`](/cli/azure/network/lb/address-pool/address#az-network-lb-address-pool-update) to remove admin state from an existing backend pool instance.
 
 ## Next Steps
-
-In this article, you learned how to set admin state on a new backend pool instance, update admin state on existing backend pool instance, and remove admin state from existing backend pool instance.
 
 > [!div class="nextstepaction"]
 > 
