@@ -6,21 +6,17 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 05/29/2024
 ms.author: mbender
 ms.custom: template-concept, references_regions
 ---
 
 # Administrative State (Admin State) in Azure Load Balancer
 
-
-
-
-
+Administrative State (Admin State) is a feature of Azure Load Balancer that allows you to override the Load Balancer’s health probe behavior on a per backend pool instance basis.  
 
 [!INCLUDE [load-balancer-admin-state-preview](../../includes/load-balancer-admin-state-preview.md)]
 
-Administrative State (Admin State) is a feature of Azure Load Balancer that allows you to override the Load Balancer’s health probe behavior on a per backend pool instance basis.  
 
 ## Why use admin state? 
 
