@@ -129,6 +129,9 @@ In this section, you add authentication code to your working directory and perfo
         return (conn_string)
     ```
 
+    >[!IMPORTANT]
+    > The code as-shown is for demonstration purposes only. It's not suitable for use in production. For example, tokens issued by Microsoft Entra ID have a limited lifetime (24 hours by default). In production code, you need to implement a token refresh policy.
+
 1. Get database connection information
 
     1. In the [Azure portal](https://portal.azure.com/), search for and select your Azure Database for PostgreSQL flexible server name.
@@ -246,16 +249,10 @@ The following code example connects to your Azure Database for PostgreSQL flexib
 
 ```Python
 import psycopg2
+from get_conn_str import get_connection_string
 
-# Update connection string information
-host = "<server-name>"
-dbname = "<database-name>"
-user = "<admin-username>"
-password = "<admin-password>"
-sslmode = "require"
+conn_string = get_connection_string()
 
-# Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print("Connection established")
 cursor = conn.cursor()
@@ -280,16 +277,10 @@ The following code example connects to your Azure Database for PostgreSQL flexib
 
 ```Python
 import psycopg2
+from get_conn_str import get_connection_string
 
-# Update connection string information
-host = "<server-name>"
-dbname = "<database-name>"
-user = "<admin-username>"
-password = "<admin-password>"
-sslmode = "require"
+conn_string = get_connection_string()
 
-# Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print("Connection established")
 cursor = conn.cursor()
@@ -310,16 +301,10 @@ The following code example connects to your Azure Database for PostgreSQL flexib
 
 ```Python
 import psycopg2
+from get_conn_str import get_connection_string
 
-# Update connection string information
-host = "<server-name>"
-dbname = "<database-name>"
-user = "<admin-username>"
-password = "<admin-password>"
-sslmode = "require"
+conn_string = get_connection_string()
 
-# Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print("Connection established")
 cursor = conn.cursor()
