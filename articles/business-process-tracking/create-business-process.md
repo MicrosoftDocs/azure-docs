@@ -15,9 +15,9 @@ ms.date: 06/07/2024
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can add business information about Azure resources in your integration solution by creating flow charts for the business processes that these resources implement. A business process is a sequence of stages that show the flow through a real-world business scenario. This business process also specifies a single business identifer or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that's available across all the stages in the business process and to correlate those stages together.
+To add business information and context about the Azure resources in your integration solution, you can visualize the business process flow for the tasks that these resources implement. A business process is a sequence of stages that represent the task flow through a real-world business scenario. This business process also specifies a single business identifer or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that's available across all the stages in the business process and to correlate those stages together.
 
-If your organization wants to capture and track key business data that moves through a business process stage, you can define the specific business properties to capture so that you can later map these properties to operations and data in Standard logic app workflows. For more information, see [What is Azure Integration Environments](overview.md)?
+When you add a stage to your business process, you can also define other business properties to capture and track as that data moves through each stage. You can then later map all these properties to specific operations and data outputs in Standard logic app workflows. For more information, see [What is Business Process Tracking](overview.md)?
 
 For example, suppose you're a business analyst at a power company. Your company's customer service team has the following business process to resolve a customer ticket for a power outage:
 
@@ -27,7 +27,15 @@ After you create a **Business Process** resource in Azure, you can use the proce
 
 :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process editor for business process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
-Although this example shows a sequential business process, your process can also have parallel branches to represent decision paths.
+> [!NOTE]
+>
+> Although this example shows a sequential business process, your process can have parallel branches to represent decision paths.
+
+After you define a business process, you can then map each stage to actual Azure resources.
+
+> [!NOTE]
+>
+> In this release, business process tracking supports only Standard logic app resources and their workflows in Azure Logic Apps.
 
 ## Prerequisites
 
@@ -134,11 +142,11 @@ After you create your business process, add the stages for that process. For exa
 
    By default, in the **Properties to track** section, the transaction ID that you defined when you created the business process automatically appears in this section. 
 
-   To add more properties that you want to capture and track, follow these steps:
+   To define more business property values that you want to capture and track for this stage, follow these steps:
 
    1. Under the properties list, select **Add property**.
 
-   1. Enter the property name and type to capture and track. The type is either a **String** or **Integer**.
+   1. Enter the property name and type, which is either a **String** or **Integer**.
 
    > [!NOTE]
    >
@@ -149,58 +157,9 @@ After you create your business process, add the stages for that process. For exa
 
    :::image type="content" source="media/create-business-process/add-properties.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and more properties to track." lightbox="media/create-business-process/add-properties.png":::
 
-
-<a name="define-business-property"></a>
-
-## Define a key business property to capture
-
-1. In the [Azure portal](https://portal.azure.com), find and open your integration environment.
-
-1. On your integration environment menu, under **Environment**, select **Applications**.
-
-1. On the **Applications** page, select the application group that has the business process that you want.
-
-1. On the application group menu, under **Business process tracking**, select **Business processes**.
-
-1. From the **Business processes** list, select the business process that you want.
-
-1. On the process designer, select the stage where you want to define the business properties to capture.
-
-1. On the **Edit stage** pane, under **Properties**, on each row, provide the following information about each business property value to capture:
-
-   | Property | Type |
-   |----------|------|
-   | Name for the business property | **String** or **Integer** |
-
-   If you need to add another property, select **Add property**.
-
-   This example specifies to track the business properties named **CustomerName**, **CustomerPhone**, and **CustomerEmail**:
-
-   :::image type="content" source="media/map-business-process-workflow/define-business-properties-tracking.png" alt-text="Screenshot shows process designer, selected process stage, opened pane for Edit stage, and defined business properties to track." lightbox="media/map-business-process-workflow/define-business-properties-tracking.png":::
-
-1. When you're done, continue on to map the current stage to an actual Standard logic app workflow operation and the data that you want.
-
-
-
-
-1. In the editor's upper-right corner, you can optionally enable **Show data source settings**, which shows or hides the available data sources that you can map to each stage.
-
-   > [!NOTE]
-   >
-   > In this release, business process tracking supports only Standard 
-   > logic app resources and their workflows in Azure Logic Apps.
-
-   To choose a data source, provide the following information:
-
-   | Property | Value | Description |
-   |----------|-------|-------------|
-   | **Subscription** | <*Azure-subscription*> | The Azure subscription for an existing Standard logic app resource. |
-   | **Logic app** | <*logic-app-name*> | The name for the Standard logic app resource. <br><br>**Note**: If no options appear, the editor didn't find any eligible Standard logic apps. |
-   | **Workflow** | <*workflow-name*> | The name for the workflow in the selected Standard logic app resource. |
-
 1. When you're done, select **Add stage**.
 
-1. To add another stage, choose one of the following options:
+1. To add another stage, choose one of the following options on the process editor:
 
    - Under the last stage, select the plus sign (**+**) for **Add a stage**.
  
@@ -218,7 +177,7 @@ After you create your business process, add the stages for that process. For exa
 
 1. When you're done, on the process editor toolbar, select **Save**.
 
-1. Now, [map the key data properties for each stage to an operation in a Standard logic app workflow](map-business-process-workflow.md#define-business-property) so that you can get insights about your deployed resource.
+1. Now, continue on to [map the each business property to the respective operation and outputs in a Standard logic app workflow](map-business-process-workflow.md#define-business-property) so that you can get insights about your deployed resource.
 
 ## Next step
 
