@@ -245,6 +245,8 @@
         href: cache-tutorial-semantic-cache.md
   - name: ASP.NET
     items:
+    - name: Use ASP.NET core output cache
+      href: cache-aspnetcore-output-cache-provider.md
     - name: Use session state provider
       href: cache-aspnet-session-state-provider.md
     - name: Use output cache provider
