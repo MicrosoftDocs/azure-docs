@@ -454,4 +454,4 @@ az network lb address-pool update \
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> 
+> [Administrative State (Admin State) in Azure Load Balancer](admin-state-overview.md)

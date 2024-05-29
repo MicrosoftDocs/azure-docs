@@ -45,7 +45,7 @@ When deploying a load balancer with admin state, consider the following design c
 - Admin state will only take effect when there's a health probe configured on the load balancing rules.      
 
 ## Limitations
-s
+
 When deploying a load balancer with admin state, consider the following limitations:
 
 - Admin state isn't supported with inbound NAT rule. 
