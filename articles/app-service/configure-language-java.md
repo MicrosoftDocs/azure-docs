@@ -704,6 +704,7 @@ Here's a PowerShell script that completes these steps:
 
     # Copy Tomcat to local
     # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
+    New-Item "$Env:LOCAL_EXPANDED\tomcat" -ItemType Directory
     Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" -Destination "$Env:LOCAL_EXPANDED\tomcat" -Recurse
 
     # Perform the required customization of Tomcat
