@@ -739,20 +739,6 @@
       href: functions-app-settings.md
     - name: Triggers and bindings
       items:
-        - name: Blob storage
-          items:
-            - name: Overview
-              displayName: Blob storage
-              href: functions-bindings-storage-blob.md
-            - name: Trigger
-              displayName: Blob storage
-              href: functions-bindings-storage-blob-trigger.md
-            - name: Input
-              displayName: Blob storage
-              href: functions-bindings-storage-blob-input.md
-            - name: Output
-              displayName: Blob storage
-              href: functions-bindings-storage-blob-output.md
         - name: Azure Cache for Redis
           items: 
             - name: Overview
@@ -856,6 +842,20 @@
             - name: Output
               href: functions-bindings-azure-sql-output.md
               displayName: Azure SQL
+        - name: Blob storage
+          items:
+            - name: Overview
+              displayName: Blob storage
+              href: functions-bindings-storage-blob.md
+            - name: Trigger
+              displayName: Blob storage
+              href: functions-bindings-storage-blob-trigger.md
+            - name: Input
+              displayName: Blob storage
+              href: functions-bindings-storage-blob-input.md
+            - name: Output
+              displayName: Blob storage
+              href: functions-bindings-storage-blob-output.md              
         - name: Dapr
           items: 
             - name: Overview
@@ -916,6 +916,17 @@
             - name: Output
               href: functions-bindings-event-hubs-output.md
               displayName: Azure Event Hubs
+        - name: HTTP and webhooks
+          items:
+            - name: Overview
+              href: functions-bindings-http-webhook.md
+              displayName: HTTP
+            - name: Trigger
+              href: functions-bindings-http-webhook-trigger.md
+              displayName: HTTP, keys, authorization keys, function keys, access keys
+            - name: Output
+              href: functions-bindings-http-webhook-output.md
+              displayName: HTTP              
         - name: IoT Hub
           items:
             - name: Overview
@@ -935,17 +946,6 @@
             - name: Output
               href: functions-bindings-kafka-output.md
               displayName: Kafka
-        - name: HTTP and webhooks
-          items:
-            - name: Overview
-              href: functions-bindings-http-webhook.md
-              displayName: HTTP
-            - name: Trigger
-              href: functions-bindings-http-webhook-trigger.md
-              displayName: HTTP, keys, authorization keys, function keys, access keys
-            - name: Output
-              href: functions-bindings-http-webhook-output.md
-              displayName: HTTP
         - name: Mobile Apps
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs
