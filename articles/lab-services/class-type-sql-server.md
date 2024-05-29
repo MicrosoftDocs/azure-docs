@@ -131,7 +131,7 @@ Now that you have installed Azure Data Studio, you can set up the connection to 
 
 1. In the **Connection Details** box, fill in necessary information.
 
-    - Set **Server** to *classlabdbserver.database.windows.net*
+    - Set **Server** to *server-name.database.windows.net*
     - Set **User** name to *azureuser*
     - Set **Password** to password used to create the database.
     - Check **Remember Password**.
@@ -157,7 +157,7 @@ Now that you have installed Azure Data Studio, you can set up the connection to 
 Now that you installed SSMS, you can [connect and query a SQL Server](/sql/ssms/tutorials/connect-query-sql-server). When setting up the connection, use the following values:
 
 - **Server type**: *Database Engine*
-- **Server name**: *classlabdbserver.database.windows.net*
+- **Server name**: *server-name.database.windows.net*
 - **Authentication**: *SQL Server Authentication*
 - **Login**: *azureuser*
 - **Password**: enter the password you used to create the database.

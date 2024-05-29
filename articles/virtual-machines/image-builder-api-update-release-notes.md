@@ -101,6 +101,8 @@ az resource create \
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName <resourceGroupName> -TemplateFile <templateFilePath> -TemplateParameterObject @{"api-version" = "2022-07-01"; "imageTemplateName" = <imageTemplateName>; "svclocation" = <location>}
 ```
+---
+
 > **Test Your Code**
 >
 > After pinning to the older API version, test your code to verify that it behaves as expected. Ensure that your existing templates continue to function correctly.
