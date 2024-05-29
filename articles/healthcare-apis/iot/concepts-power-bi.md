@@ -1,12 +1,12 @@
 ---
 title: MedTech service Microsoft Power BI - Azure Health Data Services
 description: Learn how to use the MedTech service and Power BI
-author: msjasteppe
+author: chachachachame
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/21/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # MedTech service and Microsoft Power BI

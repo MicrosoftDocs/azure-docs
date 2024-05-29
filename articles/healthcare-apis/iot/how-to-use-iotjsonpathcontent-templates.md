@@ -1,12 +1,12 @@
 ---
 title: How to use IotJsonPathContent templates with the MedTech service device mapping - Azure Health Data Services
 description: Learn how to use IotJsonPathContent templates with the MedTech service device mapping. 
-author: msjasteppe
+author: chachachachame
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
 ms.date: 08/01/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # How to use IotJsonPathContent templates with the MedTech service device mapping

@@ -2,12 +2,12 @@
 title: How to use the MedTech service monitoring and health check tabs - Azure Health Data Services
 description: Learn how to use the MedTech service monitoring and health check tabs.
 services: healthcare-apis
-author: msjasteppe
+author: chachachachame
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
 ms.date: 06/19/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # How to use the MedTech service monitoring and health checks tabs

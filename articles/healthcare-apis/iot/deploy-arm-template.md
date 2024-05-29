@@ -1,13 +1,13 @@
 ---
 title: Deploy the MedTech service using an Azure Resource Manager template - Azure Health Data Services
 description: Learn how to deploy the MedTech service using an Azure Resource Manager template.
-author: msjasteppe
+author: chachachachame
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.custom: devx-track-arm-template
 ms.topic: quickstart
 ms.date: 07/05/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Quickstart: Deploy the MedTech service using an Azure Resource Manager template
