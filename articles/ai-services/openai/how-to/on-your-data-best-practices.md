@@ -121,7 +121,7 @@ See the debugging process starting at [Step 1](#step-1-check-for-retrieval-issue
 
 - If intents are irrelevant, the issue might be that the intent generation step lacks context. It only considers the user question and conversation history. It does not look at the role information or the document chunks. You might want to consider adding a prefix to each user question with a short context string to help the intent generation step.
 
-**Issue 6**: _I have set inScope=true or checked “Restrict responses to my data” but it still responds to Out-Of-Domain questions._
+**Issue 6**: _I have set inScope=true or checked "Restrict responses to my data" but it still responds to Out-Of-Domain questions._
 
 - Consider increasing `strictness`.
 - Add the following instruction in your role information / system message: 
