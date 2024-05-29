@@ -92,7 +92,7 @@ landingContent:
           - text: Geo-replication
             url: container-registry-tutorial-prepare-registry.md
           - text: Artifact Cache
-            url: tutorial-artifact-cache.md
+            url: container-registry-artifact-cache.md
   # Card
   - title: ACR Tasks
     linkLists:

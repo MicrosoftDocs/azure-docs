@@ -75,6 +75,18 @@ M = million | K = thousand
 
 M = million | K = thousand
 
+#### Usage tiers
+
+Global Standard deployments use Azure's global infrastructure, dynamically routing customer traffic to the data center with best availability for the customer’s inference requests. This enables more consistent latency for customers with low to medium levels of traffic. Customers with high sustained levels of usage may see more variability in response latency.
+
+The Usage Limit determines the level of usage above which customers might see larger variability in response latency. A customer’s usage is defined per model and is the total tokens consumed across all deployments in all subscriptions in all regions for a given tenant.
+
+#### GPT-4o global standard & standard
+
+|Model| Usage Tiers per month |
+|----|----|
+|`GPT-4o` |1.5 Billion tokens |
+
 ### General best practices to remain within rate limits
 
 To minimize issues related to rate limits, it's a good idea to use the following techniques:
