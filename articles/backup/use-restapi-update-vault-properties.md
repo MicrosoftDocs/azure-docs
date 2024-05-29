@@ -1,11 +1,12 @@
 ---
 title: Update Recovery Services vault configuration with REST API
 description: In this article, learn how to update vault's configuration using REST API.
-ms.topic: conceptual
-ms.date: 12/06/2019
+ms.topic: how-to
+ms.date: 11/02/2023
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 # Update Azure Recovery Services vault configurations using REST API
 
