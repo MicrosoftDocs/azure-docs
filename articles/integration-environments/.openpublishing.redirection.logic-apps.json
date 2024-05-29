@@ -16,9 +16,9 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/integration-environments/map-business-process.md",
-            "redirect_url": "/azure/business-process-tracking/connectors/map-business-process",
+            "source_path_from_root": "/articles/integration-environments/map-business-process-workflow.md",
+            "redirect_url": "/azure/business-process-tracking/map-business-process-workflow",
             "redirect_document_id": true
-        },
+        }
     ]
 }

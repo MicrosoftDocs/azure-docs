@@ -178,7 +178,7 @@ After you create your business process, add the stages for that process. For exa
 
 1. When you're done, on the process editor toolbar, select **Save**.
 
-1. Now, continue on to [map each business property to the respective operation and outputs in a Standard logic app workflow](map-business-process-workflow.md#define-business-property) so that you can get insights about your deployed resource.
+1. Now, continue on to [map each business property to the respective operation and outputs in a Standard logic app workflow](map-business-process-workflow.md) so that you can get insights about your deployed resource.
 
 ## Next step
 

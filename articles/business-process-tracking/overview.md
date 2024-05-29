@@ -23,7 +23,7 @@ For example, suppose you're a developer or business analyst at a power company, 
 
 Architecturally, the following diagram shows how you can represent a business scenario as a business process with multiple stages, which you can map to actual Azure resources in your integration solution:
 
-:::image type="content" source="media/overview/business-process.png" alt-text="Conceptual diagram shows relationship between business scenario, business process, and Azure resources." lightbox="media/overview/business-process-stages.png":::
+:::image type="content" source="media/overview/business-process.png" alt-text="Conceptual diagram shows relationship between business scenario, business process, and Azure resources." lightbox="media/overview/business-process.png":::
 
 This capability lets you decouple the business process design from your implementation. You also don't have to embed any tracking information inside your code, resources, or solution.
 
