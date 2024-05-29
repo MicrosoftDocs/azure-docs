@@ -9,7 +9,7 @@ ms.date: 05/09/2024
 ms.author: cshoe
 ---
 
-# Import certificates from Azure Key Vault to Azure Container Apps (preview)
+# Import certificates from Azure Key Vault to Azure Container Apps 
 
 You can set up Azure Key Vault to manage your container app's certificates to handle updates, renewals, and monitoring. Without Key Vault, you're left managing your certificate manually, which means you can't manage certificates in a central location and can't take advantage of lifecycle automation or notifications.
 
@@ -102,7 +102,7 @@ For more information regarding the command parameters, see the following table.
 | Parameter | Description |
 |---|---|
 | `--resource-group` | Your resource group name. |
-| `--name` | Your container app name. |
+| `--name` | Your container app environment name. |
 | `--akv-url` | The URL for your secret identifier. This URL is the value you set aside in a previous step. |
 | `--certificate-identity` | The ID for your managed identity. This value can either be `system`, or the ID for your user-assigned managed identity. |
 
