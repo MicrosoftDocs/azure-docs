@@ -10,7 +10,7 @@ ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 
 ---
-# Configure server settings for P2S VPN certificate authentication - PowerShell
+# Configure server settings for P2S VPN Gateway certificate authentication - PowerShell
 
 This article helps you configure a point-to-site (P2S) VPN to securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet) using Azure PowerShell. This article contains basic PowerShell configuration steps. For more comprehensive information about creating this type of P2S VPN, see the Azure portal article [Configure a point-to-site VPN using the Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 

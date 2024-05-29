@@ -10,7 +10,7 @@ ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 
 ---
-# Configure a point-to-site connection to a VNet using RADIUS authentication: PowerShell
+# Configure P2S VPN Gateway - RADIUS authentication
 
 This article shows you how to create a VNet with a point-to-site (P2S) connection that uses RADIUS authentication. This configuration is only available for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). You can create this configuration using PowerShell or the Azure portal.
 
