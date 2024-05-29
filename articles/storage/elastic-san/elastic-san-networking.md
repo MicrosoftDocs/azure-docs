@@ -4,7 +4,7 @@ description: Learn how to configure access to an Azure Elastic SAN.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 05/29/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -181,7 +181,7 @@ When creating or modifying a volume group, select **Networking**, then select **
 
 Fill out the values in the menu that pops up, select the virtual network and the subnet that your applications will use to connect. When you're done, select **Add**, and **Save**. 
 
-:::image type="content" source="media/elastic-san-create/elastic-san-private-endpoint.png" alt-text="Screenshot" lightbox="media/elastic-san-create/elastic-san-private-endpoint.png":::
+:::image type="content" source="media/elastic-san-create/elastic-san-private-endpoint.png" alt-text="Screenshot of the volume group private endpoint creation experience." lightbox="media/elastic-san-create/elastic-san-private-endpoint.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
