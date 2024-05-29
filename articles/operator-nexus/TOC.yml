@@ -285,8 +285,13 @@
       href: reference-near-edge-compute.md
     - name: BareMetal Machine roles
       href: reference-near-edge-baremetal-machine-roles.md
-    - name: Near-edge storage
-      href: reference-near-edge-storage.md
+    - name: Nexus Storage Solution
+      expanded: false
+      items:
+        - name: Near-edge storage
+          href: reference-near-edge-storage.md
+        - name: Supported Storage Appliance Versions
+          href: reference-near-edge-storage-supported-versions.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
     - name: Neighbor Group Configuration Overview
