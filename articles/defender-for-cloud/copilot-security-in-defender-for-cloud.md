@@ -40,5 +40,5 @@ By selecting summarize with Copilot, you are presented a quick summary of the re
 
 - [Analyze recommendations with Copilot for Security](analyze-with-copilot.md)
 - [Summarize recommendations with Copilot for Security](summarize-with-copilot.md)
-- Remediate recommendations with Copilot for Security
-- Delegate recommendations with Copilot for Security
+- [Remediate recommendations with Copilot for Security](remediate-with-copilot.md)
+- [Delegate recommendations with Copilot for Security](delegate-with-copilot.md)

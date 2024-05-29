@@ -2,7 +2,7 @@
 title: Analyze recommendations with Copilot for Security
 author: Elazark
 ms.author: elkrieger
-description: Learn how to analyze recommendations with Copilot in Microsoft Defender for Cloud.
+description: Learn how to analyze recommendations with Copilot in Microsoft Defender for Cloud and improve your security posture.
 ms.topic: how-to
 ms.date: 05/23/2024
 #customer intent: As a security professional, I want to understand how to use Copilot to analyze recommendations in Defender for Cloud so that I can improve my security posture.

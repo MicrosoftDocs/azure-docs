@@ -4,7 +4,7 @@ author: Elazark
 ms.author: elkrieger
 description: Learn how to summarize recommendations with Copilot for Security in Microsoft Defender for Cloud and improve your security posture.
 ms.topic: how-to
-ms.date: 05/23/2024
+ms.date: 05/29/2024
 #customer intent: As a security professional, I want to understand how to use Copilot to summarize recommendations in Defender for Cloud so that I can improve my security posture.
 ---
 
@@ -41,4 +41,4 @@ Once you have gained a better understanding of the recommendation you can decide
 ## Next step
 
 > [!div class="nextstepaction"]
-> Remediate recommendations with Copilot for Security
+> [Remediate recommendations with Copilot for Security](remediate-with-copilot.md)
