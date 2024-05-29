@@ -77,6 +77,23 @@ After you create an integration environment, create one or more application grou
 
    :::image type="content" source="media/create-application-group/application-group-created.png" alt-text="Screenshot shows Azure portal, application groups list, and new application group." lightbox="media/create-application-group/application-group-created.png":::
 
+## View Azure resources in your application group
+
+After you add resources to your application group, you can view those resources through either of the following views:
+
+| View | Description |
+|------|-------------|
+| **Applications** | Organized by application group. |
+| **Resources** | Organized by all the Azure resources across application groups in your integration environment. |
+
+For a business process, you can view and open the process editor directly from an integration environment by following these steps:
+
+In the Azure portal, on the integration environment menu, under **Environment**, select either option: 
+
+- **Applications** > <*application-group-name*> > <*business-process-name*> > **Business process tracking** > **Editor**. 
+
+- **Resources** > <*business-process-name*> > **Business process tracking** > **Editor**.
+
 ## Related content
 
 [What is Azure Integration Environments](overview.md)?
