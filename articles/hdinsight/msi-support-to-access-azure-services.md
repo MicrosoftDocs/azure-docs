@@ -31,7 +31,7 @@ Implemented a convenient utility class to fetch MSI access token by providing ta
 ### Prerequisites
 
 1. Make sure the Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/5.1.5.3/hadoop/client/*` in the classpath.
-1. Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see [How to build application code with this utility](./#how-to-build-application-code-with-this-utility).
+1. Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see [How to build application code with this utility](#how-to-build-application-code-with-this-utility).
 
 ### How to use the API
 
@@ -83,7 +83,7 @@ Make sure, Hadoop's `core-site.xml` and all the client jars from this cluster lo
 ### Prerequisites
 
 * Make sure Hadoop's core-site.xml, all the client jars from this cluster location `/usr/hdp/5.1.5.3/hadoop/client/*` and azure-core-1.45.0.jar in the classpath.
-* Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see [How to build application code with this utility](./#how-to-build-application-code-with-this-utility).
+* Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see [How to build application code with this utility](#how-to-build-application-code-with-this-utility).
 
 ### If the client is a Key Vault
 
