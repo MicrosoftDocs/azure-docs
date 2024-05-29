@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: tutorial
-ms.date: 11/30/2023
+ms.date: 05/29/2024
 ms.author: greglin
 ms.custom: template-tutorial
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS, so I can host DNS zones.
@@ -26,6 +26,19 @@ In this tutorial, you learn how to:
 > * Verify the delegation is working.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Overview
+
+To host your domain in Azure:
+
+1. Create the DNS zone.
+2. Create resource records in the DNS zone.
+3. Retrieve the nameservers for your DNS zone.
+4. Delegate the domain to Azure's nameservers at your registrar.
+
+See the following example:
+
+![A simple diagram of a DNS zone hosted in Azure that is delegated at the registrar.](./media/dns-delegate-domain-azure-dns/public-dns.png)
 
 ## Prerequisites
 
