@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 05/20/2024
+ms.date: 05/24/2024
 ms.custom: references_regions, build-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
@@ -135,6 +135,7 @@ Keep these other considerations in mind when using Flex Consumption plan during 
   + Continuous deployment using Azure DevOps Tasks (`AzureFunctionApp@2`)
   + Continuous deployment using GitHub Actions (`functions-action@v1`) 
 + **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
++ **Authorization**: EasyAuth isn't currently supported. Unauthenticated callers currently aren't blocked when EasyAuth is enabled in a Flex Consumption plan app.  
  
 ## Related articles 
 
