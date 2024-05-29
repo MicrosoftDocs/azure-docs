@@ -83,7 +83,6 @@ conceptualContent:
   sections:
     # Section 1
     - title: Network foundation scenarios
-      summary: Review common scenarios.
       items:
         # Card 1
         - title: Design and create an isolated network
