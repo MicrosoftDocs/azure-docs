@@ -8,7 +8,7 @@ ms.date: 06/07/2024
 # CustomerIntent: As a developer or business analyst with a solution that has multiple or different Azure resources that integrate various services and systems, I want a way to visualize my organization's business processes and map them to the actual Azure resources that implement those use cases. For our business, I also want to capture key business data that moves through these resources to gain better insight about how our solutions perform.
 ---
 
-# What is Business Process Tracking? (preview)
+# What is Business Process Tracking? (Preview)
 
 > [!IMPORTANT]
 >
@@ -39,7 +39,7 @@ After you create your resource, you can use the process editor to design the sta
 
 :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process editor with business process stages." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
-To record business data from each stage as that data flows through deployed Azure resources at run time, you can specify additional key business properties and values to capture. When you create a stage, you specify these business properties. For example, the **Create_ticket** stage defines the following business property values to capture in your deployed resources:
+To record business data from each stage as that data flows through deployed Azure resources at run time, you can specify more key business properties and values to capture. When you create a stage, you specify these business properties. For example, the **Create_ticket** stage defines the following business property values to capture in your deployed resources:
 
 :::image type="content" source="media/overview/define-business-properties.png" alt-text="Screenshot shows Edit stage pane with specified business properties to capture and track." lightbox="media/overview/define-business-properties.png":::
 
@@ -54,7 +54,7 @@ For example, the following screenshot shows the following items:
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions.png" alt-text="Screenshot shows read-only property mapper with selected workflow operation and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions.png":::
 
-After you finish your mappings and save your business process, you can deploy that business process as a separate Azure resource along with an individual tracking profile that Azure adds to the deployed resources. When your workflows run in the deployed logic apps, the workflows populate the business properties that you specified.
+After you finish your mappings and save your business process, you can deploy the business process as a separate Azure resource along with an individual tracking profile that is added to the deployed resources. When your workflows run in the deployed logic apps, the workflows populate the business properties that you specified.
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows process designer, Create ticket stage, and business properties mapped to Standard logic app workflow action and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions-complete.png":::
 
@@ -66,7 +66,7 @@ To help you organize and manage the deployed Azure resources that you use in you
 
 - This preview release currently doesn't include application monitoring.
 
-- Business process mapping and tracking currently supports only Standard logic app resources and stateful workflows in Azure Logic Apps. Stateless workflows currently aren't supported.
+- Business process mapping and tracking currently support only Standard logic app resources and stateful workflows in Azure Logic Apps. Stateless workflows currently aren't supported.
 
   If you have business scenarios or use cases that require stateless workflows, use the product feedback link to share these scenarios and use cases. 
 

@@ -8,7 +8,7 @@ ms.date: 06/07/2024
 # CustomerIntent: As an integration developer, I want a way to map previously business process stages to actual resources that implement these business use cases and scenarios.
 ---
 
-# Map a business process to a Standard logic app workflow (preview)
+# Map a business process to a Standard logic app workflow (Preview)
 
 > [!IMPORTANT]
 >
@@ -25,7 +25,7 @@ After you finish creating your business process, you can map each stage, transac
 
 - An existing Standard logic app resource and workflow where you want to map your business process stages. For more information, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
-- The Azure Data Explorer database that's associated with your business process must be online to store your mapping information.
+- The Azure Data Explorer database associated with your business process must be online to store your mapping information.
 
 - If you're working with an [application group in an Azure integration environment](../integration-environments/overview.md), that group must contain at least one Standard logic app resource, workflow, and operation before you can start mapping.
 
@@ -82,7 +82,7 @@ In the **Properties** section, follow these steps to map each property's value t
      > Make sure to select a value that exists in each business process stage, 
      > which means in each workflow that you map to each business stage.
 
-     For **TicketNumber**, this example selections the **Body int23_ticketnumber** output from the **Parse JSON - Canonical Message** operation:
+     For **TicketNumber**, this example selects the **Body int23_ticketnumber** output from the **Parse JSON - Canonical Message** operation:
 
      :::image type="content" source="media/map-business-process-workflow/first-property-value-select-output.png" alt-text="Screenshot shows dynamic content list for first property with output selected." lightbox="media/map-business-process-workflow/first-property-value-select-output.png":::
 

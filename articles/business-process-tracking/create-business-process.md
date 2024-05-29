@@ -142,7 +142,7 @@ After you create your business process, add the stages for that process. For exa
 
    :::image type="content" source="media/create-business-process/add-stage-quick.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and properties to track." lightbox="media/create-business-process/add-stage.png":::
 
-   In the **Properties to track** table, on the **Success** tab, the transaction ID that you previously defined when you created the business process automatically appears. This value is required and must exist for a successfully completed stage. The **Success** tab can specifiy other business property values to capture from a successfully completed stage. On the **Failure** tab, you can specify any business property values to capture from a failed stage.
+   In the **Properties to track** table, on the **Success** tab, the transaction ID that you previously defined when you created the business process automatically appears. This value is required and must exist for a successfully completed stage. The **Success** tab can specify other business property values to capture from a successfully completed stage. On the **Failure** tab, you can specify any business property values to capture from a failed stage.
 
    To define other business property values that you want to capture and track for this stage, follow these steps:
 

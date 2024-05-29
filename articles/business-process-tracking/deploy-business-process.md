@@ -8,7 +8,7 @@ ms.date: 06/07/2024
 # CustomerIntent: As an integration developer, I want to deploy previously created business processes and tracking profiles to deployed Standard logic app resources so I can capture and track key business data moving through my deployed resources.
 ---
 
-# Deploy a business process and tracking profile to Azure (preview)
+# Deploy a business process and tracking profile to Azure (Preview)
 
 > [!IMPORTANT]
 >
@@ -25,7 +25,7 @@ After you map your business process stages to the operations and outputs in Stan
 
 - A [business process](create-business-process.md) with [stages mapped to actual operations and outputs in a Standard logic app workflow](map-business-process-workflow.md)
 
-- The Azure Data Explorer database that's associated with your business process must be online.
+- The Azure Data Explorer database associated with your business process must be online.
 
   Deployment uses the database table that you selected during business process creation to add and store the data captured from the workflow run. Deployment also causes all the participating Standard logic app resources to automatically restart.
 

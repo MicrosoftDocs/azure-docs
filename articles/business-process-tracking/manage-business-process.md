@@ -8,7 +8,7 @@ ms.date: 06/07/2024
 # CustomerIntent: As a business analyst or business SME, I want to learn ways to manage an existing business process, for example, edit the details, discard pending changes, copy a business process, or remove the deployment for a business process.
 ---
 
-# Manage a business process in an application group (preview)
+# Manage a business process in an application group (Preview)
 
 > [!IMPORTANT]
 >
@@ -38,7 +38,7 @@ A business process exists in one of the following states:
 | State | Description |
 |------|-------------|
 | Draft | An unsaved or saved business process before deployment. |
-| Deployed | A business process that's capturing and tracking data during workflow run time. |
+| Deployed | A business process that captures data during workflow run time. |
 | Deployed with pending changes | A business process that has both a deployed version and version with pending changes. |
 
 <a name="edit-process-or-stage"></a>
