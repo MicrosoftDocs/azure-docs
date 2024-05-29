@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 05/28/2024
 ---
 
 # Security overview for Azure AI Search
@@ -31,7 +31,7 @@ Azure AI Search has three basic network traffic patterns:
 
 Inbound requests that target a search service endpoint include:
 
-+ Create, read, update, or delete objects on the search service
++ Create, read, update, or delete indexes and other objects on the search service
 + Load an index with search documents
 + Query an index
 + Trigger indexer or skillset execution
@@ -165,13 +165,19 @@ If you require permissioned access over content in search results, there's a tec
 
 ## Data residency
 
-When you set up a search service, you choose a location or region that determines where customer data is stored and processed. Azure AI Search won't store customer data outside of your specified region unless you configure a feature that has a dependency on another Azure resource, and that resource is provisioned in a different region.
+When you set up a search service, you choose a region that determines where customer data is stored and processed. Each region exists within a [geography (Geo)](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview) that often includes multiple regions (for example, Switzerland is a Geo that contains Switzerland North and Switzerland West). Azure AI Search might replicate your data to another region within the same Geo for durability and high availability. The service won't store or process customer data outside of your specified Geo unless you configure a feature that has a dependency on another Azure resource, and that resource is provisioned in a different region.
 
-Currently, the only external resource that a search service writes to is Azure Storage. The storage account is one that you provide, and it could be in any region. A search service will write to Azure Storage if you use any of the following features: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md). 
+Currently, the only external resource that a search service writes to is Azure Storage. The storage account is one that you provide, and it could be in any region. A search service writes to Azure Storage if you use any of the following features:
+
++ [enrichment cache](cognitive-search-incremental-indexing-conceptual.md)
++ [debug session](cognitive-search-debug-session.md)
++ [knowledge store](knowledge-store-concept-intro.md)
+
+For more information about data residency, see [data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview).
 
 ### Exceptions to data residency commitments
 
-Object names will be stored and processed outside of your selected region or location. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. This data appears in the telemetry logs used by Microsoft to provide support for the service. Object names include names of indexes, indexers, data sources, skillsets, resources, containers, and key vault store.
+Object names appear in the telemetry logs used by Microsoft to provide support for the service. Object names are stored and processed outside of your selected region or location. Object names include the names of indexes and index fields, aliases, indexers, data sources, skillsets, synonym maps, resources, containers, and key vault store. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. 
 
 Telemetry logs are retained for one and a half years. During that period, Microsoft might access and reference object names under the following conditions:
 
@@ -189,13 +195,16 @@ Optionally, you can add customer-managed keys (CMK) for supplemental encryption 
 
 ### Data in transit
 
-In Azure AI Search, encryption starts with connections and transmissions. For search services on the public internet, Azure AI Search listens on HTTPS port 443. 
+For search service connections over the public internet, Azure AI Search listens on HTTPS port 443.
 
-+ All client-to-service connections use TLS 1.2 encryption by default. 
+Client-to-service channel encryption is either TLS 1.2 or 1.3:
 
-+ You can [file a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) to use TLS 1.3 instead. 
++ TLS 1.3 is the default on newer client operating systems and versions of .NET.
++ TLS 1.2 is the default on older systems, but you can [explicitly specify 1.3 on a client request](/dotnet/framework/network-programming/tls).
 
-Earlier versions (1.0 or 1.1) aren't supported.
+Earlier versions of TLS (1.0 or 1.1) aren't supported.
+
+For more information, see [TLS support in .NET Framework](/dotnet/framework/network-programming/tls#tls-support-in-net-framework).
 
 ### Data at rest
 
