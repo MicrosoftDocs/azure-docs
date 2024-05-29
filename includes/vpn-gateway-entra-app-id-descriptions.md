@@ -18,7 +18,7 @@ Considerations and limitations:
 
 * At this time, the newer Microsoft-registered App ID doesn't support as many Audience values as the older, manually registered app. If you need an Audience value for anything other than Azure Public or Custom, use the older manually registered method and values.
 
-* The Azure VPN Client for Linux isn't backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. However, the Linux client does support Custom.
+* The Azure VPN Client for Linux isn't backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. However, the Linux client does support Custom Audience.
 
 * The latest version of the Azure VPN Client for both Windows and macOS are backward compatible if you're using a previously configured P2S gateway for Microsoft Entra ID authentication.
 
