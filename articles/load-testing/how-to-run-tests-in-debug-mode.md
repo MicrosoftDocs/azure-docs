@@ -27,7 +27,7 @@ You can use debug mode to troubleshoot issues with your test plan configuration.
 
 A test can be run in a debug mode to validate the test plan configuration and application behavior. The characteristics of a test run in debug mode are:
 
-- The test run is executed with a single engine, irrespective of number of engines specified in the test configuration.
+- The test run is executed with a single engine, irrespective of number of engines specified in the test configuration. For a test with load distributed in multiple regions, the engine will be in the parent region.
 
 - The test run is limited to a maximum duration of 10 minutes, irrespective of the duration mention in the test plan.
 
