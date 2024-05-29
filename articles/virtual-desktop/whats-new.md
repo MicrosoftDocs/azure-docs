@@ -41,7 +41,7 @@ For more information, see [Autoscale scaling plans and example scenarios in Az
  
 ### New article about Monitor Autoscale operations with Insights in Azure Virtual Desktop 
 
-We've published a new article about the Autoscale diagnostic data, integrated with Insights in Azure Virtual Desktop, enables you to monitor scaling operations, identify issues that need to be fixed, and recognize opportunities to optimize your scaling plan configuration to save cost. 
+We've published a new article about the Autoscale diagnostic data. Integrated with Insights in Azure Virtual Desktop, Autoscale diagnostic data enables you to monitor scaling operations, identify issues that need to be fixed, and recognize opportunities to optimize your scaling plan configuration to save costs. 
 
 You can learn more at [Monitor Autoscale operations with Insights in Azure Virtual Desktop](autoscale-monitor-operations-insights.md). 
 
