@@ -172,7 +172,7 @@
       href: create-custom-http-health-probe-howto.md
     - name: Manage administrative state
       href: manage-admin-state-how-to.md
-  - name: Load Balancer metrics
+  - name: Load Balancer metrics and logs
     items:
     - name: Get Load Balancer metrics with Azure Monitor CLI
       href: load-balancer-monitor-metrics-cli.md
