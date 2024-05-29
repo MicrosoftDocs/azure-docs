@@ -47,10 +47,10 @@ As soon as you finish a stage, you can map the transaction ID and business prope
 
 For example, the following screenshot shows the following items:
 
-- The read-only workflow designer for the Standard logic app resource and workflow in Azure Logic Apps
-- The selected workflow operation named **Send message**
-- The **TicketNumber** transaction ID, which is mapped to an operation output named **TicketNumber** in the workflow
-- The business properties for the **Create_ticket** stage with mappings to selected outputs from operations in the Standard logic app workflow
+- The read-only workflow designer for the Standard logic app resource and workflow in Azure Logic Apps.
+- The selected workflow operation named **Send message**.
+- The **TicketNumber** transaction ID, which is mapped to an operation output named **TicketNumber** in the workflow.
+- The business properties for the **Create_ticket** stage with mappings to selected outputs from operations in the Standard logic app workflow.
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions.png" alt-text="Screenshot shows read-only property mapper with selected workflow operation and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions.png":::
 

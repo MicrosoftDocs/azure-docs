@@ -76,7 +76,7 @@ After you define a business process, you can then map each stage to actual Azure
    | **Subscription** | Yes | <*Azure-subscription*> | The Azure subscription to use for your business process. |
    | **Resource group** | Yes | <*Azure-resource-group-name*> | A new or existing Azure resource group. <br><br>This example uses **City-Power-and-Light-RG**. |
    | **Business process name** | Yes | <*process-name*> | A name for your business process. Use only alphanumeric characters, hyphens, underscores, parentheses, or periods. <br><br>This example uses **Resolve-Power-Outage**. |
-   | **Description** | No | <*process-description*> | The purpose for your business process |
+   | **Description** | No | <*process-description*> | The purpose for your business process. |
    | **Region** | Yes | <*Azure-region*> | The Azure region for your business process. |
 
    The following example shows the information for the sample business process:
@@ -98,7 +98,7 @@ After you define a business process, you can then map each stage to actual Azure
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Subscription** | Yes | <*Azure-subscription*> | The Azure subscription for your Data Explorer instance |
+   | **Subscription** | Yes | <*Azure-subscription*> | The Azure subscription for your Data Explorer instance. |
    | **Cluster** | Yes | <*cluster-name*> | The name for the cluster in your Data Explorer instance. |
    | **Database** | Yes | <*database-name*> | The name for the database in your Data Explorer instance. |
    | **Table** | Yes | <*table-name*> | The name for the table to create or use. To update an existing table, select the option to **Use an existing table**. <br><br>**Note**: Although you can use the same name as an existing table, which updates that table, for security purposes, create a unique and separate table for each business process. This practice helps you avoid mixing sensitive data with non-sensitive data and is useful for redeployment scenarios. |
