@@ -497,6 +497,8 @@
               href: functions-debug-powershell-local.md
             - name: Debug Event Grid trigger locally
               href: functions-debug-event-grid-trigger-local.md
+        - name: Load testing
+          href: ../load-testing/how-to-create-load-test-function-app.md?toc=/azure/azure-functions/toc.json
         - name: Dependency injection
           href: functions-dotnet-dependency-injection.md
         - name: Manage connections
