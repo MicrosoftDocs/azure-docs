@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Deploy JBoss EAP Server on Azure VM using the Azure portal"
+title: "Quickstart: Deploy JBoss EAP on Azure virtual machine (VM)"
 description: Shows you how to quickly stand up JBoss EAP Server on an Azure virtual machine.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 01/03/2024
+ms.date: 05/29/2024
 ms.service: virtual-machines
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm
 ---
 
-# Quickstart: Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal
+# Quickstart: Deploy JBoss EAP on an Azure virtual machine (VM)
 
-This article shows you how to quickly deploy JBoss EAP Server on an Azure virtual machine (VM) using the Azure portal.
+This article shows you how to quickly deploy JBoss Enterprise Application Platform (EAP) on an Azure virtual machine (VM) using the Azure portal.
 
 ## Prerequisites
 
