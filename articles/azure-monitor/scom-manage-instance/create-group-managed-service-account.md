@@ -1,7 +1,7 @@
 ---
 ms.assetid: 
-title: Create a computer group and group-managed service account for Azure Monitor SCOM Managed Instance
-description: This article describes how to create a group-managed service account, computer group, and domain user account in on-premises Active Directory.
+title: Create a computer group and gMSA account for Azure Monitor SCOM Managed Instance
+description: This article describes how to create a gMSA account, computer group, and domain user account in on-premises Active Directory.
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
@@ -11,7 +11,7 @@ ms.subservice: operations-manager-managed-instance
 ms.topic: how-to
 ---
 
-# Create a computer group and group-managed service account for Azure Monitor SCOM Managed Instance
+# Create a computer group and gMSA account for Azure Monitor SCOM Managed Instance
 
 This article describes how to create a group-managed service account (gMSA) account, computer group, and domain user account in on-premises Active Directory.
 
@@ -73,8 +73,8 @@ Add-KdsRootKey -EffectiveTime ((get-date).addhours(-10))
 Ensure that the created gMSA account is a local admin account. If there are any Group Policy Object policies on the local admins at the Active Directory level, ensure that they have the gMSA account as the local admin.
 
 > [!IMPORTANT]
-> To minimize the need for extensive communication with both your Active Directory admin and the network admin, see [Self-verification](self-verification-steps.md). The article outlines the procedures that the Active Directory admin and network admin use to validate their configuration changes and ensure their successful implementation. This process reduces unnecessary back-and-forth interactions from the Operations Manager admin to the Active Directory admin and the network admin. This configuration saves time for the admins.
+> To minimize the need for extensive communication with both your Active Directory admin and the network admin, see [Self-verification](self-verification-of-steps.md). The article outlines the procedures that the Active Directory admin and network admin use to validate their configuration changes and ensure their successful implementation. This process reduces unnecessary back-and-forth interactions from the Operations Manager admin to the Active Directory admin and the network admin. This configuration saves time for the admins.
 
 ## Next steps
 
-[Store domain credentials in Azure Key Vault](store-domain-credentials-key-vault.md)
+[Store domain credentials in Azure Key Vault](store-domain-credentials-in-key-vault.md)
