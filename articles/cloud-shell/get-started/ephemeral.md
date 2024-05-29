@@ -44,8 +44,8 @@ To see all resource providers, and the registration status for your subscription
    ![Screenshot showing the prompt to select the shell.][05]
    
 1. In the **Getting started** pane, select **No storage account required** for an ephemeral session.
-Using the dropdown menu, select the subscription you want to use for Cloud Shell, then select
-the **Apply** button.
+   Using the dropdown menu, select the subscription you want to use for Cloud Shell, then select
+   the **Apply** button.
 
    ![Screenshot showing the select subscription and optional storage prompt.][06]
    
