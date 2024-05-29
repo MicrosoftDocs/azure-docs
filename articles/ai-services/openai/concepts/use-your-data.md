@@ -581,24 +581,22 @@ Each user message can translate to multiple search queries, all of which get sen
 
 ## Regional availability and model support
 
-| Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125-preview)` | `gpt-4-32k (0314)`** | `gpt-4 (0613)` | `gpt-4 (0314)`** | `gpt-4o`   | `gpt-turbo (409)` |
-|------|---|---|---|---|---|----|----|----|----|---|
-| Australia East | ✅ | ✅ | ✅ |✅ |   | ✅ | ✅ | ✅ | | |
-| Canada East | ✅ | ✅ | ✅ |✅ |   | ✅ | ✅ | ✅ | | |
-| East US | ✅ |   |   |  |✅  | ✅ |   | ✅ | ✅| |
-| East US 2 | ✅ |   |   |✅ |    | ✅ |   | ✅ |✅ | ✅|
-| France Central | ✅ | ✅ | ✅ |✅ |    | ✅ | ✅ | ✅ | | |
-| Japan East | ✅ |   |   |  |   | ✅ |   | ✅ | | |
-| North Central US | ✅ |   |   | |✅  | ✅ |   | ✅ |✅ | |
-| Norway East | ✅ |   |   |✅ |   | ✅ |  | ✅ | | |
-| South Central US |  |   |   | | ✅ | ✅|   | ✅ | ✅ | |
-| South India |  | ✅ |   |✅ |   | ✅ |   | ✅ | |  |
-| Sweden Central | ✅ | ✅ | ✅ |✅ |   | ✅ | ✅ | ✅ | | ✅ |
-| Switzerland North | ✅ |   | ✅ |  |  | ✅ | ✅ | ✅ | | |
-| UK South | ✅ | ✅ | |✅ |✅  | ✅ |  | ✅ | | |
-| West US  |  |✅ | |✅|   | ✅ |  | ✅ |✅ | |
-
-** Models are being retired no sooner than 31 July 2024
+| Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125-preview)` | `gpt-4 (0613)`  | `gpt-4o`   | `gpt-turbo (409)` |
+|------|---|---|---|---|---|----|----|----|
+| Australia East | ✅ | ✅ | ✅ |✅ |   | ✅ | | | |
+| Canada East | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | |
+| East US | ✅ |   |   |  |✅  |  | ✅ |  |
+| East US 2 | ✅ |  |  |✅ |  |  |✅ | ✅|
+| France Central | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | |
+| Japan East | ✅ |   |   |  |   |   |  | | |
+| North Central US | ✅ |   |   | |✅  |   |✅  | |
+| Norway East | ✅ |   |   |✅ |   |  |  | | |
+| South Central US |  |   |   | | ✅ |   | ✅ |  |
+| South India |  | ✅ |   |✅ |   |    |  | |  |
+| Sweden Central | ✅ | ✅ | ✅ |✅ |    | ✅ | | ✅|
+| Switzerland North | ✅ |   | ✅ |  |  | ✅ |  | | |
+| UK South | ✅ | ✅ | |✅ |✅  |  |  | | |
+| West US  |  |✅ | |✅|   |   | ✅ | |
 
 If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI On Your Data.
 
