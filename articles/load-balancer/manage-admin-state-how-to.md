@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Manage Administrative (Admin) State in Azure Load Balancer
 
-Administrative State (Admin State) is a feature of Azure Load Balancer that allows you to override the Load Balancer’s health probe behavior on a per backend pool instance basis. There are three types of admin state values: UP, DOWN, NONE. 
+Administrative State (Admin State) is a feature of Azure Load Balancer that allows you to override the Load Balancer’s health probe behavior on a per backend pool instance basis. There are three types of admin state values: **Up**, **Down**, **None**.
 
 You can use the Azure portal, Azure PowerShell, or Azure CLI to manage the admin state for a backend pool instance. Each section provides instructions for each method with examples for setting, updating, or removing an admin state configuration.
 
@@ -56,7 +56,7 @@ You can use the Azure portal, Azure PowerShell, or Azure CLI to manage the admin
 ---
 
 ## Set admin state on a new backend pool instance
-In this section, you learn how to set an admin state to UP or DOWN as part of a new backend pool create. 
+In this section, you learn how to set an admin state to **Up** or **Down** as part of a new backend pool create. 
 
 # [Azure portal](#tab/azureportal)
 
@@ -158,7 +158,7 @@ az network lb address-pool create \
 
 ## Set admin state as part of new backend pool instance after creation
 
-In this section, you learn how to set an admin state to UP or DOWN as part of a new backend pool instance add.
+In this section, you learn how to set an admin state to **Up** or **Down** as part of a new backend pool instance add.
 
 # [Azure portal](#tab/azureportal)
 
@@ -260,7 +260,7 @@ az network lb address-pool update \
 
 ## Update admin state on existing backend pool instance
 
-In this section, you learn how to update an existing admin state from existing backend pool instance by setting the value to UP or DOWN. 
+In this section, you learn how to update an existing admin state from existing backend pool instance by setting the value to **Up** or **Down**. 
 
 # [Azure portal](#tab/azureportal)
 
@@ -355,7 +355,7 @@ $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
 
 ## Removing admin state from existing backend pool instance
 
-In this section, you learn how to remove an existing admin state from an existing backend pool instance. This is done by setting the admin state value to NONE.
+In this section, you learn how to remove an existing admin state from an existing backend pool instance. This is done by setting the admin state value to **None**.
 
 # [Azure portal](#tab/azureportal)
 

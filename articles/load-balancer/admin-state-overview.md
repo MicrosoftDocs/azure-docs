@@ -24,13 +24,13 @@ Admin state is useful in scenarios where you want to have more control over the 
 
 ## Types of admin state values 
 
-There are three types of admin state values: **UP**, **DOWN**, **NONE**. The following table describes the effects of each state on new connections and existing connections:
+There are three types of admin state values: **Up**, **Down**, **None**. The following table describes the effects of each state on new connections and existing connections:
 
 | **Admin State** | **New Connections** | **Existing Connections** |
 |-------------|-----------------|----------------------|
-| **UP**         | Load balancer ignores the health probe and always considers the backend instance as eligible for new connections. | Load balancer disregards the configured health probe’s response and always allows existing connections to persist to the backend instance.|
-| **DOWN**       | Load balancer ignores the health probe and doesn't allow new connections to the backend instance. | Load balancer ignores the health probe and existing connections are determined according to the following protocols: </br>TCP: Established TCP connections to the backend instance persists.</br>UDP: Existing UDP flows move to another healthy instance in the backend pool.</br> **Note**: This is similar to a [Probe Down behavior](load-balancer-custom-probe-overview.md#probe-down-behavior).   |
-| **NONE**       | Load balancer respects the health probe behavior. | Load balancer respects the health probe behavior. |
+| **Up**         | Load balancer ignores the health probe and always considers the backend instance as eligible for new connections. | Load balancer disregards the configured health probe’s response and always allows existing connections to persist to the backend instance.|
+| **Down**       | Load balancer ignores the health probe and doesn't allow new connections to the backend instance. | Load balancer ignores the health probe and existing connections are determined according to the following protocols: </br>TCP: Established TCP connections to the backend instance persists.</br>UDP: Existing UDP flows move to another healthy instance in the backend pool.</br> **Note**: This is similar to a [Probe Down behavior](load-balancer-custom-probe-overview.md#probe-down-behavior).   |
+| **None**       | Load balancer respects the health probe behavior. | Load balancer respects the health probe behavior. |
 
 > [!NOTE]
 > Load Balancer Health Probe Status metrics and Load Balancer’s Insights topology will reflect your configured admin state value changes.
