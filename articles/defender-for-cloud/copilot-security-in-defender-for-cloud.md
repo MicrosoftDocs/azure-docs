@@ -38,9 +38,12 @@ By selecting summarize with Copilot, you are presented a quick summary of the re
 
 ## Copilot for Securities capabilities in Defender for Cloud
 
-Copilot for Security in Defender for Cloud is not reliant on any of the available plans in Defender for Cloud and is available for all users when you [enable Defender for Cloud on your environment](connect-azure-subscription.md). 
+Copilot for Security in Defender for Cloud is not reliant on any of the available plans in Defender for Cloud and is available for all users when you: 
+- [enable Defender for Cloud on your environment](connect-azure-subscription.md).
+- [access to Azure Copilot](../copilot/overview.md).
+- have [a Microsoft Copilot for Security subscription](/copilot/security/get-started-security-copilot).
 
-However, in order to enjoy the full range of Copilot for Security's capabilities, we recommend enabling the [Defender for Cloud Security Posture Management (DCSPM) plan](concept-cloud-security-posture-management.md#cspm-features) on your environment. The DCSPM plan includes many additional security features such as [Attack path analysis](how-to-manage-attack-path.md), [Risk prioritization](risk-prioritization.md) and more, all of which can be navigated and managed using Copilot for Security.
+However, in order to enjoy the full range of Copilot for Security's capabilities in Defender for Cloud, we recommend enabling the [Defender for Cloud Security Posture Management (DCSPM) plan](concept-cloud-security-posture-management.md#cspm-features) on your environments. The DCSPM plan includes many additional security features such as [Attack path analysis](how-to-manage-attack-path.md), [Risk prioritization](risk-prioritization.md) and more, all of which can be navigated and managed using Copilot for Security. Without the DCSPM plan, you will still be able to use Copilot for Security in Defender for Cloud, but in a limited capacity.
 
 ## Monitor your usage
 
