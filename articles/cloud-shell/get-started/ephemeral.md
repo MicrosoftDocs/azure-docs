@@ -137,4 +137,4 @@ Get-AzCommand
 [06]: media/ephemeral/getting-started.png
 [07]: media/ephemeral/shell-icon.png
 [08]: ../persisting-shell-storage.md
-[09]: media/classic/resource-provider.png
+[09]: media/ephemeral/resource-provider.png
