@@ -11,7 +11,7 @@ ms.author: cherylmc
 # Customer intent: As an VPN Gateway administrator, I want to update point-to-site Audience values for Microsoft Entra ID authentication.
 ---
 
-# Change Audience for P2S VPN Gateway connections - Microsoft Entra ID authentication
+# Change Audience for P2S VPN Gateway - Microsoft Entra ID authentication
 
 This article helps you change (update) Audience values for point-to-site (P2S) VPN Gateway connections. When you update Audience values, you must make the change on both the P2S VPN gateway, and on any already configured VPN clients. For more information about Audience values, see [About point-to-site VPN ](point-to-site-about.md#entra-id).
 
