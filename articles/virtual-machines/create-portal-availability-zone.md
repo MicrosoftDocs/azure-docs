@@ -115,7 +115,7 @@ If you would like the resiliency benefits of a Zonal Virtual Machine and want he
 
 ## Restrictions
 
-**Regions**
+### Regions
 
 Deploying a VM into an Azure-selected zone is available in all Zonal Regions except the following regions.
 
@@ -125,29 +125,29 @@ Deploying a VM into an Azure-selected zone is available in all Zonal Regions exc
  - JapanEast
  - KoreaCentral
 
-**Disks**
+### Disks
 
 Existing OS and Data Disks are currently not supported. New Data Disk Source Type must be "none".
 
-   **Supported Disk Types**
+   #### Supported Disk Types
    - Standard HDDs (hard disk drives)
    - Premium SSDs
    - Premium SSD V2
    - Ultra Disks
   - Standard SSD ZRS
 
-   **Unsupported Disk Types**
+   #### Unsupported Disk Types
    - Standard SSD LRS
 
 ![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/38542241/9c297236-c2c6-491e-a0ff-befcbe00b525)
 
-**Other Resources**
+### Other Resources
  - Existing Public IPs are not supported for an Azure-selected zone. They can be added after deployment.
  - New Public IPs must be Zone Redundant or use an Azure-Selected Zone.
  - Load Balancers and Application Gateways must be Zonally Resilient to attach during the VM deployment.
  - Proximity Placement Groups, Capacity Reservation Groups, and Azure Dedicated Host aren't supported. 
  - Site Recovery configuration isn't available during VM creation but can be configured after deployment. 
 
-**Next steps**
+## Next steps
 
 In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.
