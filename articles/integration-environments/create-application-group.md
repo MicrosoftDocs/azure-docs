@@ -90,7 +90,7 @@ For a business process, you can view and open the process editor directly from a
 
 In the Azure portal, on the integration environment menu, under **Environment**, select either option: 
 
-- **Applications** > <*application-group-name*> > <*business-process-name*> > **Business process tracking** > **Editor**. 
+- **Applications** > <*application-group-name*> > <*business-process-name*> > **Business process tracking** > **Editor**.
 
 - **Resources** > <*business-process-name*> > **Business process tracking** > **Editor**.
 
