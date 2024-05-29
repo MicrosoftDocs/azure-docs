@@ -70,7 +70,7 @@ Anomaly rules use machine learning to observe specific types of behaviors over a
 
 While the configurations of out-of-the-box rules can't be changed or fine-tuned, you can duplicate a rule, and then change and fine-tune the duplicate. In such cases, run the duplicate in **Flighting** mode and the original concurrently in **Production** mode. Then compare results, and switch the duplicate to **Production** if and when its fine-tuning is to your liking. 
 
-Anomalies don't necessarily indicate malicious or even suspicious behavior by themselves. Therefore, anomaly rules don't generate their own alerts. Rather, they record the results of their analysis&mdash;the detected anomalies&mdash;in the *Anomalies* table. You can query this table in other analytics rules, or while threat hunting, to provide more context to improve detections, investigations, and threat hunting. 
+Anomalies don't necessarily indicate malicious or even suspicious behavior by themselves. Therefore, anomaly rules don't generate their own alerts. Rather, they record the results of their analysis&mdash;the detected anomalies&mdash;in the *Anomalies* table. You can query this table to provide context that improves your detections, investigations, and threat hunting. 
 
 For more information, see [Use customizable anomalies to detect threats in Microsoft Sentinel](soc-ml-anomalies.md) and [Work with anomaly detection analytics rules in Microsoft Sentinel](work-with-anomaly-rules.md).
 
