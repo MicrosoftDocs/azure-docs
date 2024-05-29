@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Deploy JBoss EAP on Azure virtual machine (VM)"
+title: "Quickstart: Deploy JBoss EAP on an Azure virtual machine (VM)"
 description: Shows you how to quickly stand up JBoss EAP Server on an Azure virtual machine.
 author: KarlErickson
 ms.author: jiangma
