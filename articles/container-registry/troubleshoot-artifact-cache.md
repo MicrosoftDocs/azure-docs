@@ -1,50 +1,49 @@
 ---
-title: Troubleshoot Artifact Cache
-description: Learn how to troubleshoot the most common problems for a registry enabled with the Artifact Cache feature.
-ms.topic: tutorial
+title: Troubleshoot Artifact cache
+description: Learn how to troubleshoot the most common problems for a registry enabled with the Artifact cache feature.
+ms.topic: article
 ms.date: 10/31/2023
 ms.author: tejaswikolli
 ms.service: container-registry
+# customer intent: As a user, I want to troubleshoot the most common problems for a registry enabled with the Artifact cache feature so that I can effectively use the feature.
 ---
 
-# Troubleshoot guide for Artifact Cache 
+# Troubleshoot guide for Artifact cache 
 
-This article is part six in a six-part tutorial series. [Part one](tutorial-artifact-cache.md) provides an overview of Artifact Cache, its features, benefits, and limitations. In [part two](tutorial-enable-artifact-cache.md), you learn how to enable Artifact Cache feature by using the Azure portal. In [part three](tutorial-enable-artifact-cache-cli.md), you learn how to enable Artifact Cache feature by using the Azure CLI. In [part four](tutorial-enable-artifact-cache-auth.md), you learn how to enable Artifact Cache feature with authentication by using Azure portal. In [part five](tutorial-enable-artifact-cache-auth-cli.md), you learn how to enable Artifact Cache feature with authentication by using Azure CLI. 
-
-This article helps you troubleshoot problems you might encounter when attempting to use Artifact Cache.
+In this tutorial, you troubleshoot the most common problems for a registry enabled with the Artifact cache feature by identifying the Symptoms, causes, and potential solutions to effectively use the feature.
 
 ## Symptoms and Causes
 
 May include one or more of the following issues: 
 
 - Cached images don't appear in a real repository 
-  - [Cached images don't appear in a live repository](tutorial-troubleshoot-artifact-cache.md#cached-images-dont-appear-in-a-live-repository) 
+  - [Cached images don't appear in a live repository](troubleshoot-artifact-cache.md#cached-images-dont-appear-in-a-live-repository) 
 
-- Credentials has an unhealthy status
-  - [Unhealthy Credentials](tutorial-troubleshoot-artifact-cache.md#unhealthy-credentials)
+- Credentials have an unhealthy status
+  - [Unhealthy Credentials](troubleshoot-artifact-cache.md#unhealthy-credentials)
 
 - Unable to create a cache rule
-  - [Cache rule Limit](tutorial-troubleshoot-artifact-cache.md#cache-rule-limit)
+  - [Cache rule Limit](troubleshoot-artifact-cache.md#cache-rule-limit)
 
 - Unable to create cache rule using a wildcard
-  - [Unable to create cache rule using a wildcard](tutorial-troubleshoot-artifact-cache.md#unable-to-create-cache-rule-using-a-wildcard)
+  - [Unable to create cache rule using a wildcard](troubleshoot-artifact-cache.md#unable-to-create-cache-rule-using-a-wildcard)
 
 ## Potential Solutions
 
-## Cached images don't appear in a live repository 
+### Cached images don't appear in a live repository 
 
-If you're having an issue with cached images not showing up in your repository in ACR, we recommend verifying the repository path. Incorrect repository paths lead the cached images to not show up in your repository in ACR.  
+If you're having an issue with cached images not showing up in your repository in Azure Container Registry(ACR), we recommend verifying the repository path. Incorrect repository paths lead the cached images to not show up in your repository in ACR.  
 
 - The Login server for Docker Hub is `docker.io`.
 - The Login server for Microsoft Artifact Registry is `mcr.microsoft.com`.
 
 The Azure portal autofills these fields for you. However, many Docker repositories begin with `library/` in their path. For example, in-order to cache the `hello-world` repository, the correct Repository Path is `docker.io/library/hello-world`. 
 
-## Unhealthy Credentials 
+### Unhealthy Credentials 
 
 Credentials are a set of Key Vault secrets that operate as a Username and Password for private repositories. Unhealthy Credentials are often a result of these secrets no longer being valid. In the Azure portal, you can select the credentials, to edit and apply changes.
 
-- Verify the secrets in Azure Key Vault haven't expired. 
+- Verify the secrets in Azure Key Vault are expired. 
 - Verify the secrets in Azure Key Vault are valid.
 - Verify the access to the Azure Key Vault is assigned.
 
@@ -57,19 +56,18 @@ az keyvault set-policy --name myKeyVaultName --object-id myObjID --secret-permis
 Learn more about [Key Vaults][create-and-store-keyvault-credentials].
 Learn more about [Assigning the access to Azure Key Vault][az-keyvault-set-policy].
 
-## Unable to create a Cache rule
+### Unable to create a Cache rule
 
-### Cache rule Limit
+#### Cache rule Limit
 
-If you're facing issues while creating a Cache rule, we recommend verifying if you have more than 1000 cache rules created. 
+If you're facing issues while creating a Cache rule, we recommend verifying if you have more than 1,000 cache rules created. 
 
 We recommend deleting any unwanted cache rules to avoid hitting the limit. 
 
-Learn more about the [Cache Terminology](tutorial-artifact-cache.md#terminology)
+Learn more about the [Cache Terminology.](container-registry-artifact-cache.md#terminology)
 
 
-
-## Unable to create cache rule using a wildcard
+### Unable to create cache rule using a wildcard
 
 If you're trying to create a cache rule, but there's a conflict with an existing rule. The error message suggests that there's already a cache rule with a wildcard for the specified target repository.
 
@@ -85,7 +83,7 @@ To resolve this issue, you need to follow these steps:
 
 ## Upstream support 
 
-Artifact Cache currently supports the following upstream registries:
+Artifact cache currently supports the following upstream registries:
 
 | Upstream registries         | Support                                                      | Availability            |
 | --------------------------- | ------------------------------------------------------------ | ----------------------- |
