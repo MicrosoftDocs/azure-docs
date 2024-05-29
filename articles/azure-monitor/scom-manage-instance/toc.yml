@@ -48,3 +48,19 @@
       href: self-verification-steps.md
     - name: Step 12. Create a SCOM Managed Instance
       href: create-operations-manager-managed-instance.md
+  - name: Post Deployment
+    items:
+    - name: Connect to the Ops Console
+      href: connect-managed-instance-ops-console.md
+    - name: Scale SCOM Managed Instance
+      href: scale-scom-managed-instance.md
+    - name: Patch SCOM Managed Instance
+      href: patch-scom-managed-instance.md
+    - name: Report using Power BI
+      href: create-reports-power-bi.md
+    - name: Dashboards on Azure Managed Grafana
+      href: dashboards-on-azure-managed-grafana.md
+    - name: Query SCOM Managed Instance data on Azure Managed Grafana
+      href: query-scom-managed-instance-data-on-grafana.md
+    - name: View System Center Operations Manager's alerts in Azure Monitor
+      href: view-operations-manager-alerts-azure-monitor.md
