@@ -93,6 +93,22 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [C#](#tab/csharp)
     ```csharp
+    var endpoint = new Uri(System.Environment.GetEnvironmentVariable("VISION_ENDPOINT"));
+    var credential = new AzureKeyCredential(System.Environment.GetEnvironmentVariable("VISION_KEY"));
+
+    var sessionClient = new FaceSessionClient(endpoint, credential);
+
+    var createContent = new CreateLivenessSessionContent(LivenessOperationMode.Passive)
+    {
+        DeviceCorrelationId = "723d6d03-ef33-40a8-9682-23a1feb7bccd",
+        SendResultsToClient = false,
+    };
+
+    var createResponse = await sessionClient.CreateLivenessSessionAsync(createContent);
+    var sessionId = createResponse.Value.SessionId;
+    Console.WriteLine($"Session created.");
+    Console.WriteLine($"Session id: {sessionId}");
+    Console.WriteLine($"Auth token: {createResponse.Value.AuthToken}");
     ```
 
     #### [Java](#tab/java)
@@ -207,6 +223,18 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [C#](#tab/csharp)
     ```csharp
+    var getResultResponse = await sessionClient.GetLivenessSessionResultAsync(sessionId);
+
+    var sessionResult = getResultResponse.Value;
+    Console.WriteLine($"Session id: {sessionResult.Id}");
+    Console.WriteLine($"Session status: {sessionResult.Status}");
+    Console.WriteLine($"Liveness detection request id: {sessionResult.Result?.RequestId}");
+    Console.WriteLine($"Liveness detection received datetime: {sessionResult.Result?.ReceivedDateTime}");
+    Console.WriteLine($"Liveness detection decision: {sessionResult.Result?.Response.Body.LivenessDecision}");
+    Console.WriteLine($"Session created datetime: {sessionResult.CreatedDateTime}");
+    Console.WriteLine($"Auth token TTL (seconds): {sessionResult.AuthTokenTimeToLiveInSeconds}");
+    Console.WriteLine($"Session expired: {sessionResult.SessionExpired}");
+    Console.WriteLine($"Device correlation id: {sessionResult.DeviceCorrelationId}");
     ```
 
     #### [Java](#tab/java)
@@ -306,6 +334,8 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [C#](#tab/csharp)
     ```csharp
+    await sessionClient.DeleteLivenessSessionAsync(sessionId);
+    Console.WriteLine($"The session {sessionId} is deleted.");
     ```
 
     #### [Java](#tab/java)
@@ -378,6 +408,26 @@ The high-level steps involved in liveness with verification orchestration are il
 
         #### [C#](#tab/csharp)
         ```csharp
+        var endpoint = new Uri(System.Environment.GetEnvironmentVariable("VISION_ENDPOINT"));
+        var credential = new AzureKeyCredential(System.Environment.GetEnvironmentVariable("VISION_KEY"));
+
+        var sessionClient = new FaceSessionClient(endpoint, credential);
+
+        var createContent = new CreateLivenessSessionContent(LivenessOperationMode.Passive)
+        {
+            DeviceCorrelationId = "723d6d03-ef33-40a8-9682-23a1feb7bccd"
+        };
+        using var fileStream = new FileStream("test.png", FileMode.Open, FileAccess.Read);
+
+        var createResponse = await sessionClient.CreateLivenessWithVerifySessionAsync(createContent, fileStream);
+
+        var sessionId = createResponse.Value.SessionId;
+        Console.WriteLine("Session created.");
+        Console.WriteLine($"Session id: {sessionId}");
+        Console.WriteLine($"Auth token: {createResponse.Value.AuthToken}");
+        Console.WriteLine("The reference image:");
+        Console.WriteLine($"  Face rectangle: {createResponse.Value.VerifyImage.FaceRectangle.Top}, {createResponse.Value.VerifyImage.FaceRectangle.Left}, {createResponse.Value.VerifyImage.FaceRectangle.Width}, {createResponse.Value.VerifyImage.FaceRectangle.Height}");
+        Console.WriteLine($"  The quality for recognition: {createResponse.Value.VerifyImage.QualityForRecognition}");
         ```
 
         #### [Java](#tab/java)
@@ -502,6 +552,19 @@ The high-level steps involved in liveness with verification orchestration are il
 
     #### [C#](#tab/csharp)
     ```csharp
+    var getResultResponse = await sessionClient.GetLivenessWithVerifySessionResultAsync(sessionId);
+    var sessionResult = getResultResponse.Value;
+    Console.WriteLine($"Session id: {sessionResult.Id}");
+    Console.WriteLine($"Session status: {sessionResult.Status}");
+    Console.WriteLine($"Liveness detection request id: {sessionResult.Result?.RequestId}");
+    Console.WriteLine($"Liveness detection received datetime: {sessionResult.Result?.ReceivedDateTime}");
+    Console.WriteLine($"Liveness detection decision: {sessionResult.Result?.Response.Body.LivenessDecision}");
+    Console.WriteLine($"Verification result: {sessionResult.Result?.Response.Body.VerifyResult.IsIdentical}");
+    Console.WriteLine($"Verification confidence: {sessionResult.Result?.Body.VerifyResult.MatchConfidence}");
+    Console.WriteLine($"Session created datetime: {sessionResult.CreatedDateTime}");
+    Console.WriteLine($"Auth token TTL (seconds): {sessionResult.AuthTokenTimeToLiveInSeconds}");
+    Console.WriteLine($"Session expired: {sessionResult.SessionExpired}");
+    Console.WriteLine($"Device correlation id: {sessionResult.DeviceCorrelationId}");
     ```
 
     #### [Java](#tab/java)
@@ -609,6 +672,8 @@ The high-level steps involved in liveness with verification orchestration are il
 
     #### [C#](#tab/csharp)
     ```csharp
+    await sessionClient.DeleteLivenessWithVerifySessionAsync(sessionId);
+    Console.WriteLine($"The session {sessionId} is deleted.");
     ```
 
     #### [Java](#tab/java)
