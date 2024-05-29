@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 05/29/2024
 ms.author: cshoe
 ---
 
@@ -13,16 +13,17 @@ ms.author: cshoe
 
 By default, Azure Static Web Apps provides an auto-generated domain name for your website, but you can point a custom domain to your site. Free SSL/TLS certificates automatically get created for the auto-generated domain name and any custom domains that you might add. This article shows how to configure your domain name with the `www` subdomain, using an external provider.
 
+There are multiple methods of configuring a custom domain for use with Static Web Apps:
+
+- If you are using an apex domain (a domain without a subdomain, also known as a root domain), then please follow the instructions for [configuring a custom apex domain on Static Web Apps](apex-domain-external.md).
+- If you are using Azure DNS, then please see [configuring a custom domain with Azure DNS](custom-domain-azure-dns.md) or [configuring a custom apex domain with Azure DNS](apex-domain-azure-dns.md).
+
 > [!NOTE]
-> Static Web Apps doesn't support set-up of a custom domain with a private DNS server, hosted on-premises. Consider using an [Azure Private DNS zone](../dns/private-dns-privatednszone.md). 
+> Static Web Apps doesn't support set-up of a custom domain with a private DNS server, hosted on-premises. Consider using an [Azure Private DNS zone](../dns/private-dns-privatednszone.md).
+
 ## Prerequisites
 
-- Consider how you want to support your apex domain. Domain names without a subdomain are known as apex root domains. For example, the domain `www.example.com` is the `www` subdomain joined with the `example.com` apex domain.
-
-- You create an apex domain by configuring an `ALIAS` or `ANAME` record or flattening `CNAME`. Some domain registrars, like GoDaddy and Google, don't support these DNS records. If your domain registrar doesn't support all the DNS records you need, consider using [Azure DNS to configure your domain](custom-domain-azure-dns.md).
-
-> [!NOTE]
-> If your domain registrar doesn't support specialized DNS records and you don't want to use Azure DNS, you can forward your apex domain to the `www` subdomain. For more information, see [Set up an apex domain in Azure Static Web Apps](apex-domain-external.md).
+- You must be able to create a **CNAME** record on your DNS domain using the tools that your DNS service or domain registrar provides.
 
 ## Watch the video
 
@@ -66,7 +67,7 @@ Domain registrars are the services you can use to purchase and manage domain nam
     For instance, if your domain name is `example.com`, enter `www.example.com`.
     :::image type="content" source="media/custom-domain/add-domain.png" alt-text="Screenshot showing sequence of steps in add custom domain form.":::
 
-1. In the *Validate + Configure* tab, enter the following values.
+1. In the *Validate + add* tab, enter the following values.
 
     | Setting | Value |
     |---|---|
@@ -75,13 +76,9 @@ Domain registrars are the services you can use to purchase and manage domain nam
 
 1. Select **Add**.
 
-   Azure creates your `CNAME` record and updates the DNS settings. Since DNS settings need to propagate, this process can take up to an hour or longer to complete.
+   Azure validates that the CNAME record has been created.  This is dependent on the time to live (TTL) for your domain and make take several days.  If 
+   the validation fails, return to add the custom domain later.
 
 1. When the update completes, open a new browser tab and go to your domain with the `www` subdomain.
 
-    You should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Set up the apex domain](apex-domain-external.md)
+    You should see your static web app in the browser. Inspect the location to verify that your site is served securely using `https`.
