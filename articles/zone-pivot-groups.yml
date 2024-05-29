@@ -2162,9 +2162,9 @@ groups:
   prompt: Select the component type
   pivots:
   - id: static
-    title: Static app component (frontend)
+    title: Static app component (front end)
   - id: app
-    title: App component (backend)
+    title: App component (back end)
   - id: database
     title: Database
 # Owner: msangapu
@@ -2184,9 +2184,9 @@ groups:
   prompt: Choose an app type
   pivots:
   - id: frontend
-    title: Frontend (Static Web App)
+    title: Front end (Static Web App)
   - id: backend
-    title: Backend (Azure Container App)
+    title: Back end (Azure Container App)
 # Owner: mbullwin
 - id: qnamaker-quickstart
   title: Programming languages

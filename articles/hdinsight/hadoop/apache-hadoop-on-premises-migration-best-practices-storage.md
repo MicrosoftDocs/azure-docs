@@ -4,7 +4,7 @@ description: Learn storage best practices for migrating on-premises Hadoop clust
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/04/2024
+ms.date: 05/22/2024
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight

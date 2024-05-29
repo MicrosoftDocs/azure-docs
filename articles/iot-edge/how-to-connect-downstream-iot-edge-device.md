@@ -4,7 +4,7 @@ description: How to create a trusted connection between an IoT Edge gateway and 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -957,7 +957,7 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
 1. Select the :::image type="icon" source="media/how-to-connect-downstream-iot-edge-device/copy-icon.png" border="false"::: button to copy your Connection string (primary key).
 
-1. Paste the Connection string into a text editing application, and add the GatewayHostName to the string. For example, `HostName=nested11.azure-devices.net;DeviceId=downstream1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
+1. Paste the connection string into a text editing application, and add the *GatewayHostName* to the string. The [GatewayHostName](iot-edge-as-gateway.md#gateway-discovery) is the fully qualified domain name or IP address of the parent device. For example, `HostName=nested11.azure-devices.net;DeviceId=downstream1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
 
 1. Open a terminal on the downstream device.
 

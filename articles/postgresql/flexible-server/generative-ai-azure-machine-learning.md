@@ -36,7 +36,7 @@ select azure_ai.set_setting('azure_ml.scoring_endpoint','<URI>');
 select azure_ai.set_setting('azure_ml.endpoint_key', '<Key>');
 ```
 
-### `azure_ml.inference`
+### `azure_ml.invoke`
 
 Scores the input data invoking an Azure Machine Learning model deployment on an [online endpoint](../../machine-learning/how-to-authenticate-online-endpoint.md).
 
