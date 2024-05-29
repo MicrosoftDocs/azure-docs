@@ -152,6 +152,27 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [JavaScript](#tab/javascript)
     ```javascript
+    const endpoint = process.env['FACE_ENDPOINT'];
+    const apikey = process.env['FACE_APIKEY'];
+
+    const credential = new AzureKeyCredential(apikey);
+    const client = createFaceClient(endpoint, credential);
+
+    const createLivenessSessionResponse = await client.path('/detectLiveness/singleModal/sessions').post({
+        body: {
+            livenessOperationMode: 'Passive',
+            deviceCorrelationId: '723d6d03-ef33-40a8-9682-23a1feb7bccd',
+            sendResultsToClient: false,
+        },
+    });
+
+    if (isUnexpected(createLivenessSessionResponse)) {
+        throw new Error(createLivenessSessionResponse.body.error.message);
+    }
+
+    console.log('Session created.');
+    console.log(`Session ID: ${createLivenessSessionResponse.body.sessionId}`);
+    console.log(`Auth token: ${createLivenessSessionResponse.body.authToken}`);
     ```
 
     #### [REST API (Windows)](#tab/cmd)
@@ -269,6 +290,21 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [JavaScript](#tab/javascript)
     ```javascript
+    const getLivenessSessionResultResponse = await client.path('/detectLiveness/singleModal/sessions/{sessionId}', createLivenessSessionResponse.body.sessionId).get();
+
+    if (isUnexpected(getLivenessSessionResultResponse)) {
+        throw new Error(getLivenessSessionResultResponse.body.error.message);
+    }
+
+    console.log(`Session id: ${getLivenessSessionResultResponse.body.id}`);
+    console.log(`Session status: ${getLivenessSessionResultResponse.body.status}`);
+    console.log(`Liveness detection request id: ${getLivenessSessionResultResponse.body.result?.requestId}`);
+    console.log(`Liveness detection received datetime: ${getLivenessSessionResultResponse.body.result?.receivedDateTime}`);
+    console.log(`Liveness detection decision: ${getLivenessSessionResultResponse.body.result?.response.body.livenessDecision}`);
+    console.log(`Session created datetime: ${getLivenessSessionResultResponse.body.createdDateTime}`);
+    console.log(`Auth token TTL (seconds): ${getLivenessSessionResultResponse.body.authTokenTimeToLiveInSeconds}`);
+    console.log(`Session expired: ${getLivenessSessionResultResponse.body.sessionExpired}`);
+    console.log(`Device correlation id: ${getLivenessSessionResultResponse.body.deviceCorrelationId}`);
     ```
 
     #### [REST API (Windows)](#tab/cmd)
@@ -355,6 +391,11 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [JavaScript](#tab/javascript)
     ```javascript
+    const deleteLivenessSessionResponse = await client.path('/detectLiveness/singleModal/sessions/{sessionId}', createLivenessSessionResponse.body.sessionId).delete();
+    if (isUnexpected(deleteLivenessSessionResponse)) {
+        throw new Error(deleteLivenessSessionResponse.body.error.message);
+    }
+    console.log(`The session ${createLivenessSessionResponse.body.sessionId} is deleted.`);
     ```
 
     #### [REST API (Windows)](#tab/cmd)
@@ -484,6 +525,43 @@ The high-level steps involved in liveness with verification orchestration are il
 
         #### [JavaScript](#tab/javascript)
         ```javascript
+        const endpoint = process.env['FACE_ENDPOINT'];
+        const apikey = process.env['FACE_APIKEY'];
+
+        const credential = new AzureKeyCredential(apikey);
+        const client = createFaceClient(endpoint, credential);
+
+        const createLivenessSessionResponse = await client.path('/detectLivenessWithVerify/singleModal/sessions').post({
+            contentType: 'multipart/form-data',
+            body: [
+                {
+                    name: 'VerifyImage',
+                    // Note that this utilizes Node.js API.
+                    // In browser environment, please use file input or drag and drop to read files.
+                    body: readFileSync('test.png'),
+                },
+                {
+                    name: 'Parameters',
+                    body: {
+                        livenessOperationMode: 'Passive',
+                        sendResultsToClient: false,
+                       authTokenTimeToLiveInSeconds: 60,
+                        deviceCorrelationId: '723d6d03-ef33-40a8-9682-23a1feb7bccd',
+                    },
+                },
+            ],
+        });
+
+        if (isUnexpected(createLivenessSessionResponse)) {
+            throw new Error(createLivenessSessionResponse.body.error.message);
+        }
+
+        console.log('Session created:');
+        console.log(`Session ID: ${createLivenessSessionResponse.body.sessionId}`);
+        console.log(`Auth token: ${createLivenessSessionResponse.body.authToken}`);
+        console.log('The reference image:');
+        console.log(`  Face rectangle: ${createLivenessSessionResponse.body.verifyImage.faceRectangle}`);
+        console.log(`  The quality for recognition: ${createLivenessSessionResponse.body.verifyImage.qualityForRecognition})
         ```
 
         #### [REST API (Windows)](#tab/cmd)
@@ -603,6 +681,22 @@ The high-level steps involved in liveness with verification orchestration are il
 
     #### [JavaScript](#tab/javascript)
     ```javascript
+    const getLivenessSessionResultResponse = await client.path('/detectLivenessWithVerify/singleModal/sessions/{sessionId}', createLivenessSessionResponse.body.sessionId).get();
+    if (isUnexpected(getLivenessSessionResultResponse)) {
+        throw new Error(getLivenessSessionResultResponse.body.error.message);
+    }
+
+    console.log(`Session id: ${getLivenessSessionResultResponse.body.id}`);
+    console.log(`Session status: ${getLivenessSessionResultResponse.body.status}`);
+    console.log(`Liveness detection request id: ${getLivenessSessionResultResponse.body.result?.requestId}`);
+    console.log(`Liveness detection received datetime: ${getLivenessSessionResultResponse.body.result?.receivedDateTime}`);
+    console.log(`Liveness detection decision: ${getLivenessSessionResultResponse.body.result?.response.body.livenessDecision}`);
+    console.log(`Verification result: ${getLivenessSessionResultResponse.body.result?.response.body.verifyResult.isIdentical}`);
+    console.log(`Verification confidence: ${getLivenessSessionResultResponse.body.result?.response.body.verifyResult.matchConfidence}`);
+    console.log(`Session created datetime: ${getLivenessSessionResultResponse.body.createdDateTime}`);
+    console.log(`Auth token TTL (seconds): ${getLivenessSessionResultResponse.body.authTokenTimeToLiveInSeconds}`);
+    console.log(`Session expired: ${getLivenessSessionResultResponse.body.sessionExpired}`);
+    console.log(`Device correlation id: ${getLivenessSessionResultResponse.body.deviceCorrelationId}`);
     ```
 
     #### [REST API (Windows)](#tab/cmd)
@@ -693,6 +787,11 @@ The high-level steps involved in liveness with verification orchestration are il
 
     #### [JavaScript](#tab/javascript)
     ```javascript
+    const deleteLivenessSessionResponse = await client.path('/detectLivenessWithVerify/singleModal/sessions/{sessionId}', createLivenessSessionResponse.body.sessionId).delete();
+    if (isUnexpected(deleteLivenessSessionResponse)) {
+        throw new Error(deleteLivenessSessionResponse.body.error.message);
+    }
+    console.log(`The session ${createLivenessSessionResponse.body.sessionId} is deleted.`);
     ```
 
     #### [REST API (Windows)](#tab/cmd)
