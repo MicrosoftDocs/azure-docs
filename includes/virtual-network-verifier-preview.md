@@ -11,7 +11,7 @@ ms.custom: include-file, references_regions
 ---
 
 > [!IMPORTANT]
-> Virtual Network Verifier in Azure Virtual Network Manager is currently in private preview. :
+> Virtual Network Verifier in Azure Virtual Network Manager is currently in private preview:
 > 
 >  - australiaeast
 >  - centralus
