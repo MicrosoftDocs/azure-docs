@@ -30,7 +30,7 @@ You can use the Azure portal, Azure PowerShell, or Azure CLI to manage the admin
   - The load balancer should have a backend pool with health probes and load balancing rules attached.
 
 > [!IMPORTANT]
-> his feature is supported via Azure Portal Preview. To use this feature in Azure Portal, make sure you are using [Azure Portal Preview link] (https://preview.portal.azure.com)
+> This feature is supported via Azure Portal Preview. To use this feature in Azure Portal, make sure you are using [Azure Portal Preview link] (https://preview.portal.azure.com)
 # [Azure PowerShell](#tab/azurepowershell)
 
 - Access to the Azure portal.
@@ -105,7 +105,7 @@ In this section, you learn how to set an admin state to **Up** or **Down** as pa
     $lb | New-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Name $bep
     ```
 
-. This example sets a new backend pool instance admin state to DOWN with the following defined values:
+This example sets a new backend pool instance admin state to DOWN with the following defined values:
 
 [!INCLUDE [load-balancer-admin-state-example-values](../../includes/load-balancer-admin-state-example-values.md)]
 
