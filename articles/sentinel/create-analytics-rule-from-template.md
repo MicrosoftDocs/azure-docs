@@ -60,11 +60,11 @@ This procedure describes how to create an analytics rule from a template.
 
 # [Azure portal](#tab/azure-portal)
 
-1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
 
 # [Defender portal](#tab/defender-portal)
 
-1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
 
 ---
 
