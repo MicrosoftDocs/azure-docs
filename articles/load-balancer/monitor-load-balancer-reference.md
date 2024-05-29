@@ -8,6 +8,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.date: 05/24/2024
 ms.custom: subject-monitoring
+ms.custom: references_regions
 ---
 
 # Monitoring load balancer data reference
