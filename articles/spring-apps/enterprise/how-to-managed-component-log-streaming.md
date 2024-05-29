@@ -16,11 +16,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article describes how to use the Azure CLI to get real-time logs of managed components for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
-
-> [!NOTE]
-> - For more information on streaming logs of applications in Azure Spring Apps, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md).
-> - For more information on streaming logs of jobs in Azure Spring Apps, see [Stream Azure Spring Apps job logs in real time](./how-to-asa-job-log-streaming.md).
+This article describes how to use the Azure CLI to get real-time logs of managed components for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md). For more information on streaming logs, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md) and [Stream Azure Spring Apps job logs in real time](./how-to-job-log-streaming.md).
 
 ## Prerequisites
 
@@ -327,4 +323,4 @@ The following table shows an example of a basic rule that we recommend. You can 
 - [Troubleshoot VMware Spring Cloud Gateway](./how-to-troubleshoot-enterprise-spring-cloud-gateway.md)
 - [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md)
 - [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md)
-- [Stream Azure Spring Apps job logs in real time](./how-to-asa-job-log-streaming.md)
+- [Stream Azure Spring Apps job logs in real time](./how-to-job-log-streaming.md)
