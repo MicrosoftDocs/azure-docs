@@ -18,11 +18,11 @@ Deleting backups of a protected item is a significant operation that has to be m
 
 But there are scenarios in which this capability isn't required. An Azure Recovery Services vault can't be deleted if there are backup items within it, even soft-deleted ones. This may pose a problem if the vault needs to be immediately deleted. For example: deployment operations often clean up the created resources in the same workflow. A deployment can create a vault, configure backups for an item, do a test restore and then proceed to delete the backup items and the vault. If the vault deletion fails, the entire deployment might fail. Disabling soft-delete is the only way to guarantee immediate deletion.
 
-So you need to carefully choose whether or not to disable soft-delete for a particular vault depending on the scenario. For more information, see the [soft-delete article](backup-azure-security-feature-cloud.md).
+So you need to carefully choose to disable the soft delete feature for a particular vault depending on the scenario. Learn more about [soft delete](backup-azure-security-feature-cloud.md).
 
 ### Fetch soft delete state using REST API
 
-By default, the soft-delete state will be enabled for any newly created Recovery Services vault. To fetch/update the state of soft-delete for a vault, use the backup vault's config related [REST API document](/rest/api/backup/backup-resource-vault-configs)
+By default, the soft delete state will be enabled for any newly created Recovery Services vault. To fetch/update the state of soft-delete for a vault, use the backup vault's config related [REST API document](/rest/api/backup/backup-resource-vault-configs)
 
 To fetch the current state of soft-delete for a vault, use the following *GET* operation
 
@@ -62,7 +62,7 @@ Once the 'GET' request is submitted, a 200 (successful) response is returned.
 
 ### Update soft delete state using REST API
 
-To update the soft-delete state of the Recovery Services vault using REST API, use the following *PUT* operation
+To update the soft delete state of the Recovery Services vault using REST API, use the following *PUT* operation
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
@@ -89,7 +89,7 @@ For more details, refer to [the REST API documentation](/rest/api/backup/backup-
 
 #### Example request body
 
-The following example is used to update the soft-delete state to 'disabled'.
+Use the following example to update the soft delete state to 'disabled'.
 
 ```json
 {
