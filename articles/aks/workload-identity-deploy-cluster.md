@@ -252,7 +252,7 @@ The following example shows how to use the Azure role-based access control (Azur
         --query id \
         --output tsv)
 
-    az role assignment create --assignee "<user-email>" \
+    az role assignment create --assignee "<your-email>" \
         --role "Key Vault Secrets Officer" \
         --scope "${KEYVAULT_RESOURCE_ID}"
 
