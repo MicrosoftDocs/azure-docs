@@ -79,7 +79,7 @@ items:
     - name: Cloud monitoring with RAN insights geo maps
       href: ran-insights-monitor-with-geo-maps-concepts.md
     - name: Cloud monitoring with correlated metrics
-      href: ran-insights-monitor-with-correlated-concepts.md
+      href: ran-insights-monitor-with-correlated-metrics-concepts.md
     - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
     - name: Local monitoring with distributed tracing
