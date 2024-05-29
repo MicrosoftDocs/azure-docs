@@ -54,9 +54,11 @@ For example, the following screenshot shows the following items:
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions.png" alt-text="Screenshot shows read-only property mapper with selected workflow operation and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions.png":::
 
-After you finish your mappings and save your business process, you can deploy the business process as a separate Azure resource along with an individual tracking profile that is added to the deployed resources. When your workflows run in the deployed logic apps, the workflows populate the business properties that you specified.
+The following screenshot shows a completely mapped stage:
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows process designer, Create ticket stage, and business properties mapped to Standard logic app workflow action and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions-complete.png":::
+
+After you finish your mappings and save your business process, you can deploy the business process as a separate Azure resource along with an individual tracking profile that is added to the deployed resources. When your workflows run in the deployed logic apps, the workflows populate the business properties that you specified.
 
 To help you organize and manage the deployed Azure resources that you use in your solution, you can also create an [integration environment and application groups](../integration-environments/overview.md), which you can then link to existing business processes. To get started, see [Create an integration environment](../integration-environments/create-integration-environment.md).
 

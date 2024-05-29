@@ -65,7 +65,7 @@ After you finish creating your business process, you can map each stage, transac
 
 ## Map transaction ID and business properties to operation outputs
 
-In the **Properties** section, follow these steps to map each property's value to the output from an operation in the workflow.
+In the **Properties** section, follow these steps to map each property's value to the output from an operation in the workflow. You must completely map all properties before you can deploy your business process.
 
 1. For the transaction ID and each business property, select inside the property value box, and then select the dynamic content option (lightning icon):
 
