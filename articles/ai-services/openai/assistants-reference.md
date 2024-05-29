@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI's Python & REST API with Assistants.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/07/2024
+ms.date: 05/22/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -34,7 +34,7 @@ Create an assistant with a model and instructions.
 | model| string | Required | Model deployment name of the model to use.|
 | name | string or null | Optional | The name of the assistant. The maximum length is 256 characters.|
 | description| string or null | Optional | The description of the assistant. The maximum length is 512 characters.|
-| instructions | string or null | Optional | The system instructions that the assistant uses. The maximum length is 32768 characters.|
+| instructions | string or null | Optional | The system instructions that the assistant uses. The maximum length is 256,000 characters.|
 | tools | array | Optional | Defaults to []. A list of tools enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can currently be of types `code_interpreter`, or `function`.|
 | file_ids | array | Optional | Defaults to []. A list of file IDs attached to this assistant. There can be a maximum of 20 files attached to the assistant. Files are ordered by their creation date in ascending order.|
 | metadata | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|

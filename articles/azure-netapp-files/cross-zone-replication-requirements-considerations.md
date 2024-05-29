@@ -32,8 +32,30 @@ This article describes requirements and considerations about [using the volume c
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after you've deleted replication relationship. You cannot delete manual snapshots for the destination volume until you break the replication relationship.
 * When reverting a source volume with an active volume replication relationship, only snapshots that are more recent than the SnapMirror snapshot can be used in the revert operation. For more information, see [Revert a volume using snapshot revert with Azure NetApp Files](snapshots-revert-volume.md).
 * Data replication volumes support [customer-managed keys](configure-customer-managed-keys.md).
-* You can't currently use cross-zone replication with [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) (larger than 100 TiB).
+* [Large volumes](large-volumes-requirements-considerations.md) are supported with cross-zone replication only with an hourly or daily replication schedule.
 
+## Large volumes configuration
+
+[Large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) are supported in cross-zone replication. You must [first register for the large volumes feature](large-volumes-requirements-considerations.md#register-the-feature) then register to use large volumes with cross-zone replication:
+
+>[!NOTE]
+>Cross-zone and cross-region replication use the same Azure Feature Exposure Control (AFEC) name of `ANFLargeVolumesCRR`. If you've registered for cross-region replication, the registration also works for cross-zone replication. 
+
+1.  Register the feature by running the following commands:
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumesCRR
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumesCRR
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Next steps
 * [Understand cross-zone replication](cross-zone-replication-introduction.md)
