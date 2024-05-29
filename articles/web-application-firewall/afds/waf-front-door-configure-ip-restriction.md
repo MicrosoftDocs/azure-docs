@@ -43,8 +43,8 @@ Create an Azure Front Door profile by following the instructions described in [Q
    |Subscription     |Select your subscription.|
    |Resource group     |Select the resource group where your Azure Front Door instance is located.|
    |Policy name     |Enter a name for your policy.|
-   |Policy state     |Selected.|
-   |Policy mode|Prevention.|
+   |Policy state     |Selected|
+   |Policy mode|Prevention|
 
 1. Select **Next: Managed rules**.
 
