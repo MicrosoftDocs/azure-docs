@@ -42,7 +42,7 @@ For this tutorial, you'll create a test environment that includes:
 
 You'll then configure diagnostic logs and alerts to monitor for attacks and traffic patterns. Finally, you'll configure a DDoS attack simulation using one of our approved testing partners.
 
-:::image type="content" source="./media/ddos-attack-simulation/ddos-protection-testing-architecture.png" alt-text="Diagram of the DDoS Protection test environment architecture.":::
+:::image type="content" source="./media/ddos-attack-simulation/ddos-protection-testing-architecture.png" alt-text="Diagram of the DDoS Protection test environment architecture." lightbox="./media/ddos-attack-simulation/ddos-protection-testing-architecture.png":::
 
 ## Prerequisites
 
