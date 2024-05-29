@@ -45,7 +45,7 @@ Use your Red Hat account to sign in to the OpenShift cluster manager portal, by 
 
 :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/howto-deploy-java-liberty-app/red-hat-account-complete-profile.png":::
 
-After you sign in, select **OpenShift** then **Downloads**. Select the **All categories** dropdown list and then select **Tokens**. Under **Pull secret**, select **Copy** or **Download** to get the value, as shown in the following screenshot.
+After you sign in, select **OpenShift**, then **Downloads**. Select the **All categories** dropdown list. Select **Tokens**. Under **Pull secret**, select **Copy** or **Download**, as shown in the following screenshot.
 
 :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/howto-deploy-java-liberty-app/red-hat-console-portal-pull-secret.png":::
 
