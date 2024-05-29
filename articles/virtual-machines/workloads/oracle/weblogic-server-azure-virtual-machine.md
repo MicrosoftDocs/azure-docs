@@ -82,8 +82,8 @@ If you navigated away from the **Deployment is in progress** page, the following
    :::image type="content" source="media/weblogic-server-azure-virtual-machine/resource-group-deployments.png" alt-text="Screenshot of the Azure portal that shows the resource group deployments list." lightbox="media/weblogic-server-azure-virtual-machine/resource-group-deployments.png":::
 
 1. In the left panel, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs.
-1. The **sshCommand** value is the fully qualified, SSH command to connect the VM that runs WLS. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
-1. The **adminConsoleURL** value is the fully qualified, public internet visible link to the WLS admin console. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
+1. The **sshCommand** value is the fully qualified, SSH command to connect the VM that runs WLS. Select the copy icon next to the field value and copy the link to your clipboard. Save this value aside for later.
+1. The **adminConsoleURL** value is the fully qualified, public internet visible link to the WLS admin console. Select the copy icon next to the field value and copy the link to your clipboard. Save this value aside for later.
 
 ## Deploy a Java EE application from Administration Console portal
 
@@ -111,7 +111,7 @@ Use the following steps to run a sample application in the WLS:
 
 1. Under **Change Center** on the top left corner, select **Activate Changes**. You can see the message **All changes have been activated. No restarts are necessary**.
 
-1. Under **Summary of Deployments**, select **Control**. Select the checkbox near the application name to select the application. Select **Start** and then select **Servicing all requests**.
+1. Under **Summary of Deployments**, select **Control**. Select the checkbox near the application name and select the application. Select **Start** and then select **Servicing all requests**.
 
 1. Under **Start Application Assistant**, select **Yes**. If no error happens, you can see the message **Start requests have been sent to the selected deployments.**
 
@@ -123,9 +123,9 @@ Use the following steps to run a sample application in the WLS:
 
 ## Connect to the virtual machine
 
-If you want to manage the VM, you can connect to it with SSH command. Before accessing the machine, make sure you enabled port 22 for SSH agent.
+If you want to manage the VM, you can connect to it with SSH command. Before accessing the machine, make sure you enabled port 22 for the SSH agent.
 
-Follow these steps to enable port 22:
+The following steps enable port 22:
 
 1. Navigate back to your working resource group. In the overview page, you can find a network security group named **wls-nsg**. Select **wls-nsg**.
 1. In the left panel, select **Settings**, then **Inbound security rules**. If there's a rule to allow port `22`, then you can jump to step 4.
