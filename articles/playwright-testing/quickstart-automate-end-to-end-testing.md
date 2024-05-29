@@ -261,6 +261,7 @@ Once you have access to the reporting tool, use the following steps to set up yo
      "dependencies": {
                 "@microsoft/mpt-reporter": "0.1.0-22052024-private-preview"
         }
+    ```
 5.  Update the Playwright config file.
 
     Add Playwright Testing reporter to `Playwright.config.ts` in the same way you use other reporters.
