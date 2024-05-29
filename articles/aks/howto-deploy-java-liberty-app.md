@@ -23,9 +23,9 @@ The Open Liberty Operator simplifies the deployment and management of applicatio
 
 This article uses the Azure Marketplace offer for Open Liberty or WebSphere Liberty to accelerate your journey to AKS. The offer automatically provisions some Azure resources, including:
 
-* Azure Container Registry instance.
-* AKS cluster.
-* Application Gateway Ingress Controller (AGIC) instance.
+* An Azure Container Registry instance.
+* An AKS cluster.
+* An Application Gateway Ingress Controller (AGIC) instance.
 * The Open Liberty Operator and WebSphere Liberty Operator.
 * Optionally, a container image that includes Liberty and your application.
 
