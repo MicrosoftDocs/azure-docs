@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path": "articles/sentinel/detect-threats-built-in.md#use-analytics-rule-templates",
+            "redirect_url": "/azure/sentinel/create-analytics-rule-from-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/detect-threats-built-in.md",
+            "redirect_url": "/azure/sentinel/threat-detection",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/detect-threats-custom.md",
+            "redirect_url": "/azure/sentinel/create-analytics-rules",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sentinel/automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts",
             "redirect_url": "/azure/sentinel/playbooks/logic-apps-playbooks",
             "redirect_document_id": true
