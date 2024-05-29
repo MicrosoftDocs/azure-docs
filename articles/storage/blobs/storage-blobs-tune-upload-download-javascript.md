@@ -39,9 +39,9 @@ You can configure properties in [BlockBlobParallelUploadOptions](/javascript/api
 
 The `maxSingleShotSize` value is the maximum blob size in bytes for a single request upload.
 
-If the size of the data is less than or equal to `maxSingleShotSize`, the blob is uploaded with a single [Put Blob](/rest/api/storageservices/put-blob) request. If the blob size is greater than `maxSingleShotSize`, or if the blob size is unknown, the blob is uploaded in chunks using a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list).
+If the size of the data is less than or equal to `maxSingleShotSize`, the blob is uploaded with a single [Put Blob](/rest/api/storageservices/put-blob) request. If the blob size is greater than `maxSingleShotSize`, or if the blob size is unknown, the blob is uploaded in chunks using a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [`Put Block List`](/rest/api/storageservices/put-block-list).
 
-It's important to note that the value you specify for `blockSize` *does not* limit the value that you define for `maxSingleShotSize`. The `maxSingleShotSize` argument defines a separate size limitation for a request to perform the entire operation at once, with no subtransfers. It's often the case that you want `maxSingleShotSize` to be *at least* as large as the value you define for `blockSize`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
+It's important to note that the value you specify for `blockSize` *does not* limit the value that you define for `maxSingleShotSize`. The `maxSingleShotSize` argument defines a separate size limitation for a request to perform the entire operation at once, with no subtransfers. It's often the case that you want `maxSingleShotSize` to be *at least* as large as the value you define for `blockSize`, if not larger. Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
 
 If you're unsure of what value is best for your situation, a safe option is to set `maxSingleShotSize` to the same value used for `blockSize`.
 
@@ -51,7 +51,7 @@ The `blockSize` value is the maximum length of a transfer in bytes when uploadin
 
 As mentioned earlier, this value *does not* limit `maxSingleShotSize`, which can be larger than `blockSize`. 
 
-To keep data moving efficiently, the client libraries may not always reach the `blockSize` value for every transfer. Depending on the operation, the maximum supported value for transfer size can vary. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
+To keep data moving efficiently, the client libraries might not always reach the `blockSize` value for every transfer. Depending on the operation, the maximum supported value for transfer size can vary. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
 #### Code example
 
@@ -83,7 +83,7 @@ During an upload, the Storage client libraries split a given upload stream into 
 
 #### Buffering during uploads
 
-The Storage REST layer doesn’t support picking up a REST upload operation where you left off; individual transfers are either completed or lost. To ensure resiliency for stream uploads, the Storage client libraries buffer data for each individual REST call before starting the upload. In addition to network speed limitations, this buffering behavior is a reason to consider a smaller value for `blockSize`, even when uploading in sequence. Decreasing the value of `blockSize` decreases the maximum amount of data that is buffered on each request and each retry of a failed request. If you're experiencing frequent timeouts during data transfers of a certain size, reducing the value of `blockSize` reduces the buffering time, and may result in better performance.
+The Storage REST layer doesn’t support picking up a REST upload operation where you left off; individual transfers are either completed or lost. To ensure resiliency for stream uploads, the Storage client libraries buffer data for each individual REST call before starting the upload. In addition to network speed limitations, this buffering behavior is a reason to consider a smaller value for `blockSize`, even when uploading in sequence. Decreasing the value of `blockSize` decreases the maximum amount of data that is buffered on each request and each retry of a failed request. If you're experiencing frequent timeouts during data transfers of a certain size, reducing the value of `blockSize` reduces the buffering time, and might result in better performance.
 
 ## Performance tuning for downloads
 
