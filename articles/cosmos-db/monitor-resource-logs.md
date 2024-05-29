@@ -38,11 +38,15 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 Here, we walk through the process of creating diagnostic settings for your account.
 
+> [!NOTE]
+> The metric to logs export as a category is not currently supported.
+
 ### [Azure portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your Azure Cosmos DB account. Open the **Diagnostic settings** pane under the **Monitoring section** and then select the **Add diagnostic setting** option.
+
 
     :::image type="content" source="media/monitor/diagnostics-settings-selection.png" lightbox="media/monitor/diagnostics-settings-selection.png" alt-text="Sreenshot of the diagnostics selection page.":::
 
