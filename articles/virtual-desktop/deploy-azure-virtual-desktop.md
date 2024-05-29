@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/11/2024
+ms.date: 05/16/2024
 ---
 
 # Deploy Azure Virtual Desktop
@@ -135,7 +135,7 @@ Here's how to create a host pool using the Azure portal.
    > [!TIP]
    > Once you've completed this tab, you can continue to optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
-1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on whether you want to create session hosts on Azure or Azure Stack HCI:<br /><br />
+1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, expand one of the following sections and complete the information, depending on whether you want to create session hosts on Azure or Azure Stack HCI. For guidance on sizing session host virtual machines, see [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs).<br /><br />
 
    <details>
        <summary>To add session hosts on <b>Azure</b>, select to expand this section.</summary>

@@ -86,7 +86,7 @@ Invoke the Azure CLI tool to acquire an access token for the Microsoft Entra aut
 Example (for Public Cloud):
 
 ```azurecli-interactive
-az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+az account get-access-token --resource https://server-name.database.windows.net
 ```
 
 The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using:
@@ -193,7 +193,7 @@ Invoke the Azure CLI tool to acquire an access token for the Microsoft Entra aut
 Example (for Public Cloud):
 
 ```azurecli-interactive
-az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+az account get-access-token --resource https://server-name.database.windows.net
 ```
 
 The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using:

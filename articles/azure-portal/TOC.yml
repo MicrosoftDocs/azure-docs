@@ -68,12 +68,17 @@
   - name: Alerts and notifications
     href: mobile-app/alerts-notifications.md
     displayName: mobile, app, push
+  - name: Cloud Shell
+    href: mobile-app/cloud-shell.md
+    displayName: mobile, prompt, command, bash, powershell
   - name: Microsoft Entra ID
     href: mobile-app/microsoft-entra-id.md
     displayName: mobile, app
   - name: Learn about Azure
     href: mobile-app/learn-training.md
     displayName: mobile, app, training
+  - name: Microsoft Copilot in Azure
+    href: mobile-app/microsoft-copilot-for-azure.md
 - name: Reference
   items:
   - name: Keyboard shortcuts

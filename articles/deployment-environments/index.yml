@@ -35,7 +35,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: 'Create & configure a dev center'
+          - text: 'Configure Azure Deployment Environments'
             url: quickstart-create-and-configure-devcenter.md
           - text: 'Create dev center & project (Azure Resource Manager)'
             url: quickstart-create-dev-center-project-azure-resource-manager.md
@@ -69,6 +69,8 @@ landingContent:
             url: how-to-configure-extensibility-bicep-container-image.md
           - text: Configure a Terraform custom container image
             url: how-to-configure-extensibility-terraform-container-image.md
+          - text: Configure a Pulumi custom container image
+            url: how-to-configure-extensibility-pulumi-container-image.md  
 
   # Card
   - title: Configure environment types
