@@ -30,7 +30,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 - A Java Standard Edition (SE) implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 - [Maven](https://maven.apache.org/download.cgi) version 3.5.0 or higher.
 - [Docker](https://docs.docker.com/get-docker/) for your OS.
-- The Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure Role-Based Access Control (Azure RBAC)?](/azure/role-based-access-control/overview)
+- The Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
 > [!NOTE]
 > You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed, with the exception of Docker.
@@ -45,7 +45,7 @@ Use your Red Hat account to sign in to the OpenShift cluster manager portal, by 
 
 :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/howto-deploy-java-liberty-app/red-hat-account-complete-profile.png":::
 
-After you sign in, select **OpenShift**, then **Downloads**. Select the **All categories** dropdown list. Select **Tokens**. Under **Pull secret**, select **Copy** or **Download**, as shown in the following screenshot.
+After you sign in, select **OpenShift**, then **Downloads**. Select the **All categories** dropdown list and then select **Tokens**. Under **Pull secret**, select **Copy** or **Download**, as shown in the following screenshot.
 
 :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/howto-deploy-java-liberty-app/red-hat-console-portal-pull-secret.png":::
 
@@ -299,7 +299,7 @@ You can now run and test the project locally before deploying to Azure by using 
 
 Next, use the following steps to containerize your project using Docker and run it as a container locally before deploying to Azure:
 
-1. The following commands build the image.
+1. Use the following commands to build the image:
 
    ```bash
    cd ${BASE_DIR}/3-integration/connect-db/mssql/target
