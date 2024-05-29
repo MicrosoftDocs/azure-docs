@@ -4,7 +4,7 @@ description: This article describes how to configure the index tuning feature in
 author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
-ms.date: 05/09/2024
+ms.date: 05/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
