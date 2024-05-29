@@ -20,7 +20,7 @@ Microsoft Defender for Cloud's integration with Copilot for Security enables use
 
 Defender for Cloud is integrated Copilot for Security into the Defender for Cloud experience. Copilot for Security allows you  to analyze, summarize, remediate, and delegate your recommendations with natural language prompts.
 
-:::image type="content" source="media/copilot-security-in-defender-for-cloud/analyze-copilot.png" alt-text="Screenshot that shows where the "analyze with copilot button" located on the recommendations page." lightbox="media/copilot-security-in-defender-for-cloud/analyze-copilot.png":::
+:::image type="content" source="media/copilot-security-in-defender-for-cloud/analyze-copilot.png" alt-text="Screenshot that shows where the Analyze with copilot button located on the recommendations page." lightbox="media/copilot-security-in-defender-for-cloud/analyze-copilot.png":::
 
 When you open Copilot, you can use natural language prompts to ask questions about the recommendation. Copilot provides you with a response in natural language that helps you understand the context of the recommendation, the effect of implementing the recommendation, and the steps to take to implement the recommendation.
 
