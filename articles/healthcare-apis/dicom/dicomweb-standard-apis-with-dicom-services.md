@@ -79,13 +79,13 @@ To use the Postman collection, download it locally and then import the collectio
 
 ### Next steps
 
-- [Using DICOMweb™ Standard APIs with C#](dicomweb-standard-apis-c-sharp.md)
+[Use DICOMweb Standard APIs with C#](dicomweb-standard-apis-c-sharp.md)
 
-- [Using DICOMWeb™ Standard APIs with cURL](dicomweb-standard-apis-curl.md)
+[Use DICOMweb Standard APIs with cURL](dicomweb-standard-apis-curl.md)
 
-- [Using DICOMWeb™ Standard APIs with Python](dicomweb-standard-apis-python.md)
+[Use DICOMweb Standard APIs with Python](dicomweb-standard-apis-python.md)
 
-- [Use DICOMWeb™ Standard APIs with the Postman Example Collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json)
+[Use DICOMWeb Standard APIs with the Postman Example Collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json)
 
 -[DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 
