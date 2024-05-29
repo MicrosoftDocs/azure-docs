@@ -1,7 +1,7 @@
 ---
 title: Azure mobile app Home
 description: Azure mobile app Home surfaces the most essential information and the resources you use most often.
-ms.date: 05/21/2024
+ms.date: 05/29/2024
 ms.topic: conceptual
 ---
 
@@ -26,6 +26,8 @@ Current card options include:
 - **Favorites**: A list of the resources you have added to your favorites, and the option to see all.
 
 :::image type="content" source="media/azure-mobile-app-home-layout.png" alt-text="Screenshot of the Azure mobile app Home screen with several display cards.":::
+
+If available in your tenant, you can also access [Microsoft Copilot in Azure (preview)](microsoft-copilot-in-azure.md) by selecting the **Copilot** icon on the top right of your screen in the navigation bar.
 
 ## Customize Azure mobile app Home
 
