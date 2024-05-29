@@ -52,7 +52,7 @@ When you create an AKS cluster, the following parameters are configurable for Az
 - Must not overlap with any on-premises IPs.
 - Must not be within the ranges `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24`.
 
-While it's possible to specify a service address range within the same virtual network as your cluster, we don't recommend it. Overlapping IP ranges can result in unpredictable behavior. For more information, see the [FAQ](#faq). For more information on Kubernetes services, see [Services][services] in the Kubernetes documentation.
+While it's possible to specify a service address range within the same virtual network as your cluster, we don't recommend it. Overlapping IP ranges can result in unpredictable behavior. For more information, see the [FAQ](#azure-CNI-pod-subnet-frequently-asked-questions). For more information on Kubernetes services, see [Services][services] in the Kubernetes documentation.
 
 **Kubernetes DNS service IP address**:  The IP address for the cluster's DNS service. This address must be within the *Kubernetes service address range*. Don't use the first IP address in your address range. The first address in your subnet range is used for the *kubernetes.default.svc.cluster.local* address.
 
@@ -61,7 +61,6 @@ While it's possible to specify a service address range within the same virtual n
 AKS clusters use kubenet and create an Azure virtual network and subnet for you by default. With kubenet, nodes get an IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address. This approach greatly reduces the number of IP addresses you need to reserve in your network space for pods to use.
 
 You can configure the maximum pods deployable to a node at cluster creation time or when creating new node pools. If you don't specify `maxPods` when creating new node pools, you receive a default value of _110_ for kubenet.
-
 
 ## Overview of kubenet networking with your own subnet
 
