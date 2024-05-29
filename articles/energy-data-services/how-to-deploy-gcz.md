@@ -24,7 +24,7 @@ The OSDU Geospatial Consumption Zone (GCZ) is a service that enables enhanced ma
 
 ::: zone pivot="Azure Kubernetes Service (AKS) "
 
-[!INCLUDE [Azure Kubernetes Service (AKS)](includes/how-to/deploy-gzc-aks.md)]
+[!INCLUDE [Azure Kubernetes Service (AKS)](includes/how-to/deploy-gcz-aks.md)]
 
 ::: zone-end
 
