@@ -32,7 +32,7 @@ The steps in this section direct you to deploy WLS on VM in the simplest possibl
 
 The following steps show you how to find the WLS with Admin Server offer and fill out the **Basics** pane:
 
-1. In the search bar at the top of the portal, enter *weblogic*. In the auto-suggested search results, in the **Marketplace** section, select **Oracle WebLogic Server With Admin Server**.
+1. In the search bar at the top of the portal, enter *weblogic*. In the autosuggested search results, in the **Marketplace** section, select **Oracle WebLogic Server With Admin Server**.
 
    :::image type="content" source="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png" alt-text="Screenshot of the Azure portal that shows WebLogic Server in the search results." lightbox="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png":::
 
@@ -70,7 +70,7 @@ Depending on network conditions and other activity in your selected region, the 
 
 ## Examine the deployment output
 
-The steps in this section show you how to verify the deployment has successfully completed.
+The steps in this section show you how to verify the deployment successfully completed.
 
 If you navigated away from the **Deployment is in progress** page, the following steps show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to step 5, after the screenshot.
 
@@ -123,7 +123,7 @@ Use the following steps to run a sample application in the WLS:
 
 ## Connect to the virtual machine
 
-If you want to manage the VM, you can connect to it with SSH command. Before accessing the machine, make sure you have enabled port 22 for SSH agent.
+If you want to manage the VM, you can connect to it with SSH command. Before accessing the machine, make sure you enabled port 22 for SSH agent.
 
 Follow these steps to enable port 22:
 
