@@ -4,11 +4,11 @@ description: Create an integration environment to centrally organize and manage 
 ms.service: integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 11/22/2023
+ms.date: 06/07/2024
 # CustomerIntent: As an integration developer, I want a way to centrally and logically organize Azure resoruces related to my organization's integration solutions.
 ---
 
-# Create an integration environment (preview)
+# Create an integration environment (Preview)
 
 > [!IMPORTANT]
 >

@@ -8,7 +8,7 @@ ms.date: 06/07/2024
 # CustomerIntent: As a developer with a solution that has multiple or different Azure resources that integrate various services and systems, I want an easier way to logically organize, manage, and track Azure resources that implement my organization's integration solutions.
 ---
 
-# What is Azure Integration Environments? (preview)
+# What is Azure Integration Environments? (Preview)
 
 > [!IMPORTANT]
 >
@@ -52,9 +52,13 @@ Each expanded Azure resource includes the following components:
 
 To get started, see [Create an integration environment](create-integration-environment.md).
 
+## Business process tracking
+
+To help provide business scenario traceability for the Azure resources in your integration solution, you can optionally and separately create business processes that you link to your application group. A business process is a series of stages that represent the tasks that flow through a real-world business scenario. That way, you add business context about the resources in an application group that visually describe the relationships between your solution's business logic and implementation. To get started, see [Create a business process](../business-process-tracking/create-business-process.md) and [What is Business Process Tracking](../business-process-tracking/overview.md)?
+
 <a name="supported-resources"></a>
 
-### Supported Azure resources
+## Supported Azure resources
 
 The following table lists the currently supported Azure resources that you can include in an application group during this release:
 
@@ -63,6 +67,7 @@ The following table lists the currently supported Azure resources that you can i
 | Azure Logic Apps | Standard logic apps |
 | Azure Service Bus | Queues and topics |
 | Azure API Management | APIs |
+| Business Process Tracking | Business processes |
 
 For more information about other Azure resource types planned for support, see the [Azure Integration Environments preview announcement](https://aka.ms/azure-integration-environments).
 

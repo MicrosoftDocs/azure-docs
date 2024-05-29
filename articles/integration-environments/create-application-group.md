@@ -4,7 +4,7 @@ description: Create an application group to logically organize and manage Azure 
 ms.service: integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 11/15/2023
+ms.date: 06/07/2024
 # CustomerIntent: As an integration developer, I want a way to logically organize and manage the Azure resoruces related to my organization's integration solutions.
 ---
 
