@@ -247,7 +247,7 @@ These generic properties are supported for an Amazon RDS for SQL Server linked s
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AmazonRdsForSqlServer**. | Yes |
-| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in Amazon RDS for SQL Server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in Amazon RDS for SQL Server by using either managed identity or service principal. For more information, see [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
 
 This Amazon RDS for SQL Server connector supports the following authentication types. See the corresponding sections for details.
@@ -262,7 +262,7 @@ To use SQL authentication, in addition to the generic properties that are descri
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | connectionString | Specify **connectionString** information that's needed to connect to the Amazon RDS for SQL Server database. Specify a login name as your user name, and ensure the database that you want to connect is mapped to this login. | Yes |
-| password | If you want to put a password in Azure Key Vault, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| password | If you want to put a password in Azure Key Vault, pull the `password` configuration out of the connection string. For more information, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 
 
 #### Windows authentication for the legacy version

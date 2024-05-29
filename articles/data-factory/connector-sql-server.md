@@ -115,7 +115,7 @@ To use SQL authentication, in addition to the generic properties that are descri
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | The user name to be used when connecting to server. | Yes |
-| password | If you want to put a password in Azure Key Vault, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| password | The password for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 
 **Example: Use SQL authentication**
 
@@ -302,7 +302,7 @@ To use SQL authentication, in addition to the generic properties that are descri
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. Specify a login name as your user name, and ensure the database that you want to connect is mapped to this login. | Yes |
-| password | If you want to put a password in Azure Key Vault, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| password | If you want to put a password in Azure Key Vault, pull the `password` configuration out of the connection string. For more information, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 
 #### Windows authentication for the legacy version
 
