@@ -13,7 +13,7 @@ metadata:
 sections:
   # Intro
   # Hero with background image - default transform
-  - componentType: hero-product
+  - componentType: hero
     supertitle: Microsoft Learn
     title: Azure Network Foundation Services
   # size: small
