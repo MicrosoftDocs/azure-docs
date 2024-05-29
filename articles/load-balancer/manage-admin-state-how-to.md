@@ -200,7 +200,7 @@ In this section, you learn how to set an admin state to **Up** or **Down** as pa
     $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Name $bep
     ```
 
-This example sets a new backend pool instance admin state to UP with the following defined values:
+1. This example sets a new backend pool instance admin state to UP with the following defined values:
 
 [!INCLUDE [load-balancer-admin-state-example-values](../../includes/load-balancer-admin-state-example-values.md)]
   
@@ -236,7 +236,7 @@ $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
         --admin-state <admin-state-value>
     ```
 
-This example sets a new backend pool instance admin state to UP with the following defined values:
+1. This example sets a new backend pool instance admin state to UP with the following defined values:
 
 [!INCLUDE [load-balancer-admin-state-example-values](../../includes/load-balancer-admin-state-example-values.md)]
 
@@ -297,7 +297,7 @@ In this section, you learn how to update an existing admin state from existing b
     
     ```
 
-This example sets an existing backend pool instance admin state to DOWN with the following defined values:
+1. This example sets an existing backend pool instance admin state to DOWN with the following defined values:
 
 [!INCLUDE [load-balancer-admin-state-example-values](../../includes/load-balancer-admin-state-example-values.md)]
 
@@ -346,7 +346,7 @@ $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
         --backend-address “{name: MyBackend,ip-address:10.0.2.4}” |
         --admin-state DOWN
     
-    ```
+```
 
 > [!NOTE]
 > You can also use [`az network lb address-pool address update`](/cli/azure/network/lb/address-pool/address#az-network-lb-address-pool-update) to update admin state on an existing backend pool instance.
@@ -431,7 +431,7 @@ az network lb address-pool update \
 
 ```
 
-This example removes an existing backend pool instance admin state with the following defined values:
+1. This example removes an existing backend pool instance admin state with the following defined values:
 
 [!INCLUDE [load-balancer-admin-state-example-values](../../includes/load-balancer-admin-state-example-values.md)]
 
