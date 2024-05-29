@@ -31,7 +31,7 @@ If the redirection settings on a client device conflict with the host pool RDP p
 > [!IMPORTANT]
 > Configuring redirection settings on a client device isn't a substitute for correctly configuring your host pools and session hosts based on your requirements. Using Microsoft Intune to configure Windows App and the Remote Desktop app might not be suitable workloads requiring a higher level of security. 
 > 
-> Workloads with higher security requirements should continue to set redirection at the host pool or session host, where all users of the host pool would have the same redirection configuration. A Data Loss Protection (DLP) solution is recommended and redirection should be disabled on session hosts whenever possible to minimizing the opportunities for data loss. 
+> Workloads with higher security requirements should continue to set redirection at the host pool or session host, where all users of the host pool would have the same redirection configuration. A Data Loss Protection (DLP) solution is recommended and redirection should be disabled on session hosts whenever possible to minimize the opportunities for data loss. 
 
 At a high-level, there are three areas to configure:
 
@@ -50,7 +50,6 @@ For Windows App:
 | Device platform | Managed devices | Unmanaged devices |
 |--|:--:|:--:|
 | iOS and iPadOS | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Android | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
 
 For the Remote Desktop app:
 
