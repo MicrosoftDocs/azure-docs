@@ -42,11 +42,11 @@ Use the following steps to assign an Azure role using the Azure portal:
 
 1. On the **Access Control (IAM)** page, select **Add**, and then select **Add role assignment**.
 
-   :::image type="content" source="media/how-to-managed-component-log-streaming/add-role-assignment.png" alt-text="Screenshot of the Azure portal that shows the Access Control (IAM) page with the Add role assignment option highlighted." lightbox="media/how-to-managed-component-log-streaming/add-role-assignment.png":::
+   :::image type="content" source="media/how-to-job-log-streaming/add-role-assignment.png" alt-text="Screenshot of the Azure portal that shows the Access Control (IAM) page with the Add role assignment option highlighted." lightbox="media/how-to-job-log-streaming/add-role-assignment.png":::
 
 1. On the **Add role assignment** page, in the **Name** list, search for and select the target role, and then select **Next**.
 
-   :::image type="content" source="media/how-to-asa-job-log-streaming/asa-job-log-reader-role.png" alt-text="Screenshot of the Azure portal that shows the Add role assignment page with the Azure Spring Apps Job Log Reader Role name highlighted." lightbox="media/how-to-asa-job-log-streaming/asa-job-log-reader-role.png":::
+   :::image type="content" source="media/how-to-job-log-streaming/job-log-reader-role.png" alt-text="Screenshot of the Azure portal that shows the Add role assignment page with the Azure Spring Apps Job Log Reader Role name highlighted." lightbox="media/how-to-job-log-streaming/job-log-reader-role.png":::
 
 1. Select **Members** and then search for and select your username.
 
@@ -162,7 +162,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 1. Switch the status of **Dataplane resources on public network** to **Enable** to enable a log streaming endpoint on the public network. This process takes a few minutes.
 
-   :::image type="content" source="media/how-to-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of the Azure portal that shows the Networking page with the Vnet injection tab selected and the Troubleshooting section highlighted." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
+   :::image type="content" source="media/how-to-job-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of the Azure portal that shows the Networking page with the Vnet injection tab selected and the Troubleshooting section highlighted." lightbox="media/how-to-job-log-streaming/dataplane-public-endpoint.png":::
 
 ### [Azure CLI](#tab/azure-CLI)
 
