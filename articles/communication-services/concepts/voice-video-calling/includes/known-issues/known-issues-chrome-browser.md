@@ -37,6 +37,19 @@ ms.custom: template-how-to
 **Known issue reference:** This is a known issue on [Chromium](https://issues.chromium.org/issues/40282141?pli=1).<br>
 **Recommended workaround:** To avoid this issue, users are advised to either keep the browser active in the foreground during calls or disable Power Saving mode while on WebRTC calls.<br>
 
+### Incoming video sometimes blinks and duplicates with another incoming video or is applied with a green overlay for a short moment on some Android devices
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** When more than three users are in a video call with a user who has an Android device, the Android user can sometimes observe that the incoming video is blinking and sometimes duplicates with another incoming video. Another behavior users sometimes experience in the same use case is that the incoming video may appear with a green tint or green overlay for a short moment, and at other times it lasts longer. This behavior is especially noticeable when another user re-enables their camera or joins the call with their video turned on. This behavior is observed on Samsung Galaxy S10, S20, S21, and Google Pixel 6, 8.<br>
+**Devices affected:** 
+- Samsung Galaxy S10
+- Samsung Galaxy S20
+- Samsung Galaxy S21
+- Google Pixel 6
+- Google Pixel 8<br>
+
+**Known issue reference:** This regression is a known issue on [Chromium](https://issues.chromium.org/issues/343086045).<br>
+
 ### Chrome M115 - No outgoing video in Group and Azure Communication Services-Microsoft Teams calls
 **Browser version:** Google Chrome version 115 (Jul 2023) installed on Android devices.<br>
 **Azure Communication Service calling SDK version:** All.<br>
