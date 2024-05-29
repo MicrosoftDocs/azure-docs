@@ -4,7 +4,7 @@ description: This article describes the index tuning feature in Azure Database f
 author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
-ms.date: 05/21/2024
+ms.date: 05/28/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: concept-article
