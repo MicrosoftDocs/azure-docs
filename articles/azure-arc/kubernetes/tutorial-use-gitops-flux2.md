@@ -396,7 +396,7 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 #### Red Hat OpenShift onboarding guidance
 
-Flux controllers require a **nonroot** [Security Context Constraint](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.2/html/authentication/managing-pod-security-policies) to properly provision pods on the cluster. These constraints must be added to the cluster prior to onboarding of the `microsoft.flux` extension.
+Flux controllers require a **nonroot** [Security Context Constraint](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.2/html/authentication/managing-pod-security-policies) to properly provision pods on the cluster. These constraints must be added to the cluster before deploying the `microsoft.flux` extension.
 
 ```console
 NS="flux-system"
@@ -497,7 +497,7 @@ Flux supports many parameters to enable various scenarios. For a description of 
 
 For information about available parameters and how to use them, see [GitOps (Flux v2) supported parameters](gitops-flux2-parameters.md).
 
-## Work with local secret authentication reference
+### Work with local secret authentication reference
 
 To use a local secret authentication reference, the secret must exist within the same namespace where the `fluxConfiguration` will be deployed. The secret must also contain all of the authentication parameters needed for the source.
 
