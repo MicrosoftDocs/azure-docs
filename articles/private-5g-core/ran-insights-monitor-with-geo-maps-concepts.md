@@ -18,7 +18,7 @@ Once you have [set up](ran-insights-create-resource.md) your radio access networ
 
 ## Set up geo maps
 --------------------------------------------------------------------
-Geo maps provide a visual understanding of the user's network by showcasing all access points and their health status. 
+Geo maps provide a visual understanding of your network by showcasing all access points and their health status. 
 
 To get started, you'll need an existing Azure Maps resource or [create](https://learn.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) a new one. To create a new Azure Map resource: 
 1.	Go to the Azure Marketplace, search for Azure Maps.
