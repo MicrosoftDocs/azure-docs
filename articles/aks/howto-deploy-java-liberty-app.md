@@ -23,9 +23,9 @@ The Open Liberty Operator simplifies the deployment and management of applicatio
 
 This article uses the Azure Marketplace offer for Open Liberty or WebSphere Liberty to accelerate your journey to AKS. The offer automatically provisions some Azure resources, including:
 
-* An Azure Container Registry instance.
-* An AKS cluster.
-* An Application Gateway Ingress Controller (AGIC) instance.
+* Azure Container Registry instance.
+* AKS cluster.
+* Application Gateway Ingress Controller (AGIC) instance.
 * The Open Liberty Operator and WebSphere Liberty Operator.
 * Optionally, a container image that includes Liberty and your application.
 
@@ -41,7 +41,7 @@ This article is intended to help you quickly get to deployment. Before you go to
 * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of Azure CLI.
-* Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+* Install a Java Standard Edition (SE) implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Ensure [Git](https://git-scm.com) is installed.
@@ -145,7 +145,7 @@ If you moved away from the **Deployment is in progress** pane, the following ste
 
     ---
 
-You'll use these values later in this article. Note that the outputs list several other useful commands.
+You use these values later in this article. The outputs list several other useful commands.
 
 ## Create an Azure SQL Database instance
 
@@ -167,7 +167,7 @@ $Env:DB_RESOURCE_GROUP_NAME="<db-resource-group>"
 
 ---
 
-Now that you've created the database and AKS cluster, you can proceed to preparing AKS to host your Open Liberty application.
+Now that you created the database and AKS cluster, you can proceed to preparing AKS to host your Open Liberty application.
 
 ## Configure and deploy the sample application
 
