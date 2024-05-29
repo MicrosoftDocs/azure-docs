@@ -89,7 +89,7 @@ We’re excited to announce that radio access network (RAN) insights is now in p
 
 To learn more and get started, see [RAN Insights Concepts](ran-insights-concepts.md) and [Create a Radio Access Network Insights Resource](ran-insights-create-resource.md).
 
-# NO FIXED ISSUES IN AP5GC2404
+<!--# NO FIXED ISSUES IN AP5GC2404
 
 The following table provides a summary of issues fixed in this release.
 
