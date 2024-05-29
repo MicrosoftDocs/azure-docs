@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 03/19/2024
+ms.date: 05/29/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,32 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.5.5         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.5.5         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.8         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.8         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.5.8
+
+*Published: May 29, 2024*
+
+In this release, we made the following changes:
+
+- Added Microsoft Intune MAM support for configuring redirection settings. It includes MAM SDK version 19.3.1.
+
+## Updates for version 10.5.7
+
+*Published: May 22, 2024*
+
+In this release, we made the following changes:
+
+- Added support for the new iPad models released in May 2024.
+
+## Updates for version 10.5.6
+
+*Published: March 25, 2024*
+
+In this release, we made the following changes:
+
+- Fixed bugs reported by users.
 
 ## Updates for version 10.5.5
 
@@ -348,7 +372,7 @@ In this release, we made the following changes:
 - For external mice, the client now supports left-click, left-drag, right-click, right-drag, middle-click, and vertical scrolling.
 - The client now supports keyboard shortcuts that use Ctrl, Alt, or Shift keys with the mouse or trackpad, including multi-select and range-select.
 - The client now supports the "Tap-to-Click" feature for the trackpad.
-- We updated the Mouse Pointer mode's right-click gesture to press-and-hold (not press-and-hold-and-release). On the iPhone client we thrown in some taptic feedback when we detect the right-click gesture.
+- We updated the Mouse Pointer mode's right-click gesture to press-and-hold (not press-and-hold-and-release). On the iPhone client we added taptic feedback when we detect the right-click gesture.
 - Added an option to disable NLA enforcement under **iOS Settings** > **RD Client**.
 - Mapped Control+Shift+Escape to Ctrl+Shift+Esc, where Escape is generated using a remapped key on iPadOS or Command+.
 - Mapped Command+F to Ctrl+F.
@@ -441,7 +465,7 @@ In this release, we made the following changes:
 
 *Published: 12/20/19*
 
-We been working hard to fix bugs and add useful features. Here's what's new in this release:
+In this release, we made the following changes:
 
 - Support for Japanese and Chinese input on hardware keyboards.
 - The PC list view now shows the friendly name of the associated user account, if one exists.

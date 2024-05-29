@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept
-ms.date: 04/30/2024
+ms.date: 05/21/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -20,7 +20,16 @@ The listed features were released in the last three months. For information abou
 
 ## May 2024
 
+- [Incident and entity triggers in playbooks are now Generally Available (GA)](#incident-and-entity-triggers-in-playbooks-are-now-generally-available-ga)
 - [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations-preview)
+
+### Incident and entity triggers in playbooks are now Generally Available (GA)
+
+The ability to use incident and entity triggers is playbooks is now supported as GA.
+
+:::image type="content" source="media/whats-new/sentinel-triggers-ga.png" alt-text="Screenshot of the Microsoft Sentinel incident and entity options with no preview notice.":::
+
+For more information, see [Create a playbook](tutorial-respond-threats-playbook.md#create-a-playbook).
 
 ### Optimize your security operations with SOC optimizations (preview)
 

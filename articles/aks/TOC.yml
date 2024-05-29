@@ -89,10 +89,6 @@
       href: tutorial-kubernetes-scale.md
     - name: 7 - Upgrade cluster
       href: tutorial-kubernetes-upgrade-cluster.md
-    - name: Security
-      items:
-        - name: Configure application to use workload identity
-          href: learn/tutorial-kubernetes-workload-identity.md
 - name: Concepts
   items:
     - name: Core concepts
@@ -142,6 +138,12 @@
           href: azure-cni-overview.md
         - name: Services
           href: concepts-network-services.md
+    - name: Advanced Container Networking Services 
+      items:
+        - name: Advanced Container Networking Services overview
+          href: advanced-container-networking-services-overview.md
+        - name: Advanced Network Observability overview
+          href: advanced-network-observability-concepts.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
@@ -562,8 +564,6 @@
               href: api-server-vnet-integration.md
             - name: Private Endpoint
               href: private-clusters.md#use-a-private-endpoint-connection
-        - name: Diagnose and solve UDP packet drops
-          href: troubleshoot-udp-packet-drops.md
     - name: Storage
       items:
         - name: CSI storage drivers
@@ -668,10 +668,10 @@
             href: cost-analysis.md
         - name: Network Observability
           items:
-            - name: BYO Prometheus and Grafana
-              href: network-observability-byo-cli.md
-            - name: Azure managed Prometheus and Grafana
-              href: network-observability-managed-cli.md
+            - name: Advanced Network Observability - Azure managed Prometheus and Grafana
+              href: advanced-network-observability-cli.md 
+            - name: Advanced Network Observability - Bring Your Own Prometheus and Grafana
+              href: advanced-network-observability-bring-your-own-cli.md
     - name: Service Mesh
       items:
         - name: Istio service mesh AKS add-on

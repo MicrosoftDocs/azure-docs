@@ -377,5 +377,12 @@ curl -i -X GET https://my-resource.openai.azure.com/openai/extensions/on-your-da
 
 ### Inference API
 
-See the [inference API reference article](../references/on-your-data.md) for details on the request and response objects used by the inference API.   
+See the [inference API reference article](../references/on-your-data.md) for details on the request and response objects used by the inference API.
     
+## Use Microsoft Defender for Cloud
+
+You can now integrate [Microsoft Defender for Cloud](../../../defender-for-cloud/defender-for-cloud-introduction.md) (preview) with your Azure resources to protect your applications. Microsoft Defender for Cloud protects your applications with [threat protection for AI workloads](../../../defender-for-cloud/ai-threat-protection.md) , providing teams with evidence-based security alerts enriched with Microsoft threat intelligence signals and enables teams to strengthen their [security posture](../../../defender-for-cloud/ai-security-posture.md) with integrated security best-practice recommendations.
+
+Use [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR9EXzLewuFRArQPJzR1tntlURThQR0hYU1MyRVRNODNMV1hBOUEzVlk3NC4u) to apply for access.
+
+:::image type="content" source="..\media\use-your-data\defender.png" alt-text="A screenshot showing Microsoft Defender for Cloud." lightbox="..\media\use-your-data\defender.png":::
