@@ -52,7 +52,7 @@ When you create an AKS cluster, the following parameters are configurable for Az
 - Must not overlap with any on-premises IPs.
 - Must not be within the ranges `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24`.
 
-While it's possible to specify a service address range within the same virtual network as your cluster, we don't recommend it. Overlapping IP ranges can result in unpredictable behavior. For more information, see the [FAQ](#azure-CNI-pod-subnet-frequently-asked-questions). For more information on Kubernetes services, see [Services][services] in the Kubernetes documentation.
+While it's possible to specify a service address range within the same virtual network as your cluster, we don't recommend it. Overlapping IP ranges can result in unpredictable behavior. For more information, see the [FAQ](#azure-cni-pod-subnet-frequently-asked-questions). For more information on Kubernetes services, see [Services][services] in the Kubernetes documentation.
 
 **Kubernetes DNS service IP address**:  The IP address for the cluster's DNS service. This address must be within the *Kubernetes service address range*. Don't use the first IP address in your address range. The first address in your subnet range is used for the *kubernetes.default.svc.cluster.local* address.
 
