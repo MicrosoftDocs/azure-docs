@@ -83,7 +83,7 @@ The Azure SQL Managed Instance connector **Recommended** version supports TLS 1.
 
 ### Recommended version
 
-These generic properties are supported for an SQL Managed Instance linked service when you apply **Recommended** version:
+These generic properties are supported for an Azure SQL Managed Instance linked service when you apply **Recommended** version:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -382,7 +382,7 @@ You also need to follow the steps below:
 ```
 ### Legacy version
 
-These generic properties are supported for an SQL Managed Instance linked service when you apply **Legacy** version:
+These generic properties are supported for an Azure SQL Managed Instance linked service when you apply **Legacy** version:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
