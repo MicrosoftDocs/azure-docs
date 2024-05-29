@@ -83,6 +83,7 @@ conceptualContent:
   sections:
     # Section 1
     - title: Network foundation scenarios
+      summary: Design and deploy a secure network in Azure.
       items:
         # Card 1
         - title: Design and create an isolated network
