@@ -78,9 +78,7 @@ You might want to consider using an Azure AI Search index when you either want t
 * Reuse an index created before by ingesting data from other data sources.
 
 > [!NOTE]
-> * To use an existing index, it must have at least one searchable field.
-> * Set the CORS **Allow Origin Type** option to `all` and the **Allowed origins** option to `*`. 
-
+> To use an existing index, it must have at least one searchable field.
 
 ### Search types
 
@@ -137,7 +135,6 @@ If you want to implement additional value-based criteria for query execution, yo
 
 [!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
-[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
 
 # [Vector Database in Azure Cosmos DB for MongoDB](#tab/mongo-db)
 
@@ -205,8 +202,6 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
 
 [!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
-[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
-
 # [Upload files (preview)](#tab/file-upload)
 
 Using Azure OpenAI Studio, you can upload files from your machine to try Azure OpenAI On Your Data. You also have the option to create a new Azure Blob Storage account and Azure AI Search resource. The service then stores the files to an Azure storage container and performs ingestion from the container. You can use the [quickstart](../use-your-data-quickstart.md) article to learn how to use this data source option.
@@ -214,8 +209,6 @@ Using Azure OpenAI Studio, you can upload files from your machine to try Azure O
 :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
 [!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
-
-[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
 
 # [URL/Web address (preview)](#tab/web-pages)
 
@@ -230,10 +223,6 @@ You can paste URLs and the service will store the webpage content, using it when
 <!--:::image type="content" source="../media/use-your-data/url.png" alt-text="A screenshot of the Azure OpenAI use your data url/webpage studio configuration page." lightbox="../media/use-your-data/url.png":::-->
 
 Once you have added the URL/web address for data ingestion, the web pages from your URL are fetched and saved to Azure Blob Storage with a container name: `webpage-<index name>`. Each URL will be saved into a different container within the account. Then the files are indexed into an Azure AI Search index, which is used for retrieval when you’re chatting with the model.
-
-[!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
-
-[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
 
 # [Elasticsearch (preview)](#tab/elasticsearch)
 
