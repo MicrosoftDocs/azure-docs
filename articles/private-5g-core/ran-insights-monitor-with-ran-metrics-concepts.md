@@ -18,7 +18,7 @@ These are a subset of metrics chosen from the RAN vendor’s EMS based on custom
 
 
 ## Visualize RAN metrics using the Azure portal 
-RAN metrics are collected per site resource and aggregated across all access points connected. See [Supported metrics with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/supported-metrics/metrics-index) for the RAN metrics available for retrieval included under *microsoft.mobilenetwork/radioAccessNetworks*.
+RAN metrics are collected per site resource and aggregated across all access points connected. See [Supported metrics with Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index) for the RAN metrics available for retrieval included under *microsoft.mobilenetwork/radioAccessNetworks*.
 
 You can use the Azure portal to monitor your access points performance, reliability, and connection status. The RAN insights resource's **Overview** page under the **Monitoring** tab provides a prebuilt dashboard containing RAN metrics received. 
     :::image type="content" source="media/ran-insights/RAN-Insights-MonitoringTab.png" alt-text="Screenshot of the Azure portal showing RAN insight resource monitoring tab.":::
