@@ -6,7 +6,7 @@ author: tamram
 ms.topic: article
 ms.subservice: aks-security
 ms.custom: build-2023
-ms.date: 05/13/2024
+ms.date: 05/28/2024
 ms.author: tamram
 
 ---
@@ -291,13 +291,13 @@ The following table summarizes our migration or deployment recommendations for w
 
 | Scenario | Description |
 |--|--|
-| New or existing cluster deployment [runs a supported version][azure-identity-libraries] of Azure Identity client library | No migration steps are required.<br> Sample deployment resources:<br> - [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]<br> - [Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
+| New or existing cluster deployment [runs a supported version][azure-identity-libraries] of Azure Identity client library | No migration steps are required.<br> Sample deployment resources: [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-cluster] |
 | New or existing cluster deployment runs an unsupported version of Azure Identity client library | Update container image to use a supported version of the Azure Identity SDK, or use the [migration sidecar][workload-identity-migration-sidecar]. |
 
 ## Next steps
 
 * To learn how to set up your pod to authenticate using a workload identity as a migration option, see [Modernize application authentication with workload identity][workload-identity-migration-sidecar].
-* See the tutorial [Use a workload identity with an application on Azure Kubernetes Service (AKS)][tutorial-use-workload-identity], which helps you deploy an Azure Kubernetes Service cluster and configure a sample application to use a workload identity.
+* See [Deploy and configure an AKS cluster with workload identity][deploy-configure-workload-identity-cluster], which helps you deploy an Azure Kubernetes Service cluster and configure a sample application to use a workload identity.
 
 <!-- EXTERNAL LINKS -->
 [custom-resource-definition]: https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/
@@ -315,8 +315,7 @@ The following table summarizes our migration or deployment recommendations for w
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-identity-libraries]: ../active-directory/develop/reference-v2-libraries.md
 [openid-connect-overview]: ../active-directory/develop/v2-protocols-oidc.md
-[deploy-configure-workload-identity-new-cluster]: workload-identity-deploy-cluster.md
-[tutorial-use-workload-identity]: ./learn/tutorial-kubernetes-workload-identity.md
+[deploy-configure-workload-identity-cluster]: workload-identity-deploy-cluster.md
 [workload-identity-migration-sidecar]: workload-identity-migrate-from-pod-identity.md
 [auto-rotation]: certificate-rotation.md#certificate-auto-rotation
 [aks-virtual-nodes]: virtual-nodes.md

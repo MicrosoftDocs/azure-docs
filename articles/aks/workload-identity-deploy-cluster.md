@@ -6,7 +6,7 @@ author: tamram
 ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 05/23/2024
+ms.date: 05/28/2024
 ms.author: tamram
 ---
 
