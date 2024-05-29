@@ -9,7 +9,7 @@ ms.date: 05/29/2024
 
 # MSI Support to Access Azure Services
 
-A managed identity is an identity registered in Microsoft Entra whose credentials managed by Azure. With managed identities, you don't need to register service principals in Microsoft Entra ID. Or maintain credentials such as certificates.
+Presently in Azure HDInsight non-ESP cluster, User Job accessing Azure resources like SqlDB, CosmosDB, EH, KV, Kusto either using username and password or using MSI certificate key. This is not in line with Microsoft security guidelines.
 
 This article explains the  HDInsight interface and code details to fetch OAuth tokens in a non-ESP cluster.
 
