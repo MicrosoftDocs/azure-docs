@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: Heidilohr
 ms.author: helohr
-ms.date: 04/15/2024
+ms.date: 05/29/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,29 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## April 2024 
+
+Here's what changed in April 2024: 
+
+### Updated Group Policy templates for Watermarking in Azure Virtual Desktop 
+
+Watermarking now includes updated policy settings and options to configure watermarking using Microsoft Intune. 
+
+For more information, along with instructions, see [Enable watermarking](watermarking.md#enable-watermarking). 
+
+### Autoscale and SVMONC support for Azure Stack HCI with Azure Virtual Desktop is currently in preview 
+
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs. Start VM On Connect lets you reduce costs by enabling end users to turn on their session host virtual machines (VMs) only when they need them. You can then turn off VMs when they're not needed. Autoscale and SVMONC support for Azure Stack HCI with Azure Virtual Desktop is currently in public preview. 
+
+For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md). 
+
+ 
+### New article about Monitor Autoscale operations with Insights in Azure Virtual Desktop 
+
+We've published a new article about the Autoscale diagnostic data, integrated with Insights in Azure Virtual Desktop, enables you to monitor scaling operations, identify issues that need to be fixed, and recognize opportunities to optimize your scaling plan configuration to save cost. 
+
+You can learn more at [Monitor Autoscale operations with Insights in Azure Virtual Desktop](autoscale-monitor-operations-insights.md). 
 
 ## March 2024
 
