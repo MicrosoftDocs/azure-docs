@@ -4,7 +4,7 @@ description: Learn about how to connect and authenticate using managed identity 
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/24/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to

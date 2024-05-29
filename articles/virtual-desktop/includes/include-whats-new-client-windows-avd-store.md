@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 05/21/2024
+ms.date: 05/29/2024 
 ---
 
 ## Supported client versions
@@ -12,9 +12,20 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |--|--|--|
 | Public | 1.2.5405  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5450 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Insider | 1.2.5452 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5450 (Insider) 
+
+## Updates for version 1.2.5452 (Insider) 
+*Date published: May 29, 2024* 
+
+In this release, we made the following changes:
+
+- Improve graphics presentation latency  
+
+>[!NOTE]
+>This Insider release was originally version 1.2.5450, but we made a change to improve graphics and re-released as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
+
+## Updates for version 1.2.5450 
 
 *Date published: May 21, 2024* 
 
