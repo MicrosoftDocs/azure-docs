@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 05/28/2024
+ms.date: 05/29/2024
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -186,7 +186,7 @@ Before you begin to configure an IP restriction policy, set up your PowerShell e
 #### Set up your PowerShell environment
 Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing Azure resources.
 
-You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page to sign in to PowerShell by using your Azure credentials and then install the Az module.
+You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page to sign in to PowerShell by using your Azure credentials and then install the Az PowerShell module module.
 
 1. Connect to Azure by using the following command and then use an interactive dialog to sign in.
     ```
