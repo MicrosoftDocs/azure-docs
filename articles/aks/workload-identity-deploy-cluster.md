@@ -18,7 +18,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Create a Microsoft Entra Workload ID and Kubernetes service account.
 * Configure the managed identity for token federation.
 * Deploy the workload and verify authentication with the workload identity.
-* Optionally grant access to an Azure key vault.
+* Optionally grant a pod in the cluster access to secrets in an Azure key vault.
 
 This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you aren't familiar with Microsoft Entra Workload ID, see the following [Overview][workload-identity-overview] article.
 
@@ -55,7 +55,7 @@ To help simplify steps to configure the identities required, the steps below def
     export SUBSCRIPTION="$(az account show --query id --output tsv)"
     export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
     export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity"
-    # Include these variables to access key vault secrets from a pod.
+    # Include these variables to access key vault secrets from a pod in the cluster.
     export KEYVAULT_NAME="keyvault-workload-id"
     export KEYVAULT_SECRET_NAME="my-secret"
     ```
@@ -227,39 +227,70 @@ EOF
 
 ## Grant permissions to access Azure Key Vault
 
-Follow the instructions in this step to access secrets, keys, or certificates that are mounted in an Azure key vault from the pod. Perform the following steps to configure access with the workload identity. These steps assume you have an Azure key vault already created and configured in your subscription. If you don't have one, see [Create an Azure Key Vault using the Azure CLI][create-key-vault-azure-cli].
+The instructions in this step show how to access secrets, keys, or certificates in an Azure key vault from the pod. The examples in this section  configure access to secrets in the key vault for the workload identity, but you can perform similar steps to configure access to keys or certificates.
 
-Before proceeding, you need the following information:
+The following example shows how to use the Azure role-based access control (Azure RBAC) permission model to grant the pod access to the key vault. For more information about the Azure RBAC permission model for Azure Key Vault, see [Grant permission to applications to access an Azure key vault using Azure RBAC](../key-vault/general/rbac-guide.md).
 
-* Name of the key vault
-* Resource group holding the key vault
-
-You can retrieve this information using the Azure CLI command: [az keyvault list][az-keyvault-list].
-
-1. Set an access policy for the managed identity to access secrets in your key vault by running the following commands:
+1. Create a key vault with purge protection and RBAC authorization enabled. You can also use an existing key vault if it is configured for both purge protection and RBAC authorization:
 
     ```azurecli-interactive
     export KEYVAULT_RESOURCE_GROUP="myResourceGroup"
     export KEYVAULT_NAME="myKeyVault"
-    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${USER_ASSIGNED_IDENTITY_NAME}" --query 'clientId' -o tsv)"
 
-    az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
+    az keyvault create \
+        --name "${KEYVAULT_NAME}" \
+        --resource-group "${KEYVAULT_RESOURCE_GROUP}" \
+        --location "${LOCATION}" \
+        --enable-purge-protection \
+        --enable-rbac-authorization
     ```
 
-1. Create a secret in key vault:
+1. Assign yourself the RBAC [Key Vault Secrets Officer](../role-based-access-control/built-in-roles/security.md#key-vault-secrets-officer) role so that you can create a secret in the new key vault:
+
+    export KEYVAULT_RESOURCE_ID=$(az keyvault show --resource-group "${KEYVAULT_RESOURCE_GROUP}" \
+        --name "${KEYVAULT_NAME}" \
+        --query id \
+        --output tsv)
+
+    az role assignment create --assignee "<user-email>" \
+        --role "Key Vault Secrets Officer" \
+        --scope "${KEYVAULT_RESOURCE_ID}"
+
+1. Create a secret in the key vault:
 
     ```azurecli-interactive
     export KEYVAULT_SECRET_NAME="my-secret"
 
-    az keyvault secret set --vault-name "${KEYVAULT_NAME}" \
-       --name "${KEYVAULT_SECRET_NAME}" \
-       --value "Hello\!"
+    az keyvault secret set \
+        --vault-name "${KEYVAULT_NAME}" \
+        --name "${KEYVAULT_SECRET_NAME}" \
+        --value "Hello\!"
     ```
 
-1. Export key vault URL:
+1. Assign the [Key Vault Secrets User](../role-based-access-control/built-in-roles/security.md#key-vault-secrets-user) role to the user-assigned managed identity that you created previously. This step gives the managed identity the ability to read secrets from the key vault.
 
     ```azurecli-interactive
-    export KEYVAULT_URL="$(az keyvault show --resource-group ${KEYVAULT_RESOURCE_GROUP} --name ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
+    export IDENTITY_PRINCIPAL_ID=$(az identity show \
+        --name "${USER_ASSIGNED_IDENTITY_NAME}" \
+        --resource-group "${RESOURCE_GROUP}" \
+        --query principalId \
+        --output tsv)
+    
+    az role assignment create \
+        --assignee-object-id "${IDENTITY_PRINCIPAL_ID}" \
+        --role "Key Vault Secrets User" \
+        --scope "${KEYVAULT_RESOURCE_ID}" \
+        --assignee-principal-type ServicePrincipal
+    ```
+
+1. Export the key vault URL:
+
+    ```azurecli-interactive
+    export KEYVAULT_URL="$(az keyvault show \
+        --resource-group ${KEYVAULT_RESOURCE_GROUP} \
+        --name ${KEYVAULT_NAME} \
+        --query properties.vaultUri \
+        --output tsv)"
     ```
 
 1. Deploy a pod that references the service account and key vault URL above:
@@ -312,12 +343,18 @@ If successful, the output should be similar to the following:
 I0114 10:35:09.795900       1 main.go:63] "successfully got secret" secret="Hello\\!"
 ```
 
+> [!IMPORTANT]
+> Azure RBAC role assignments can take up to ten minutes to propagate. If the pod is unable to access the secret, you may need to wait for the role assignment to propagate. For more information, see [Troubleshoot Azure RBAC](../role-based-access-control/troubleshooting.md#).
+
 ## Disable workload identity
 
 To disable the Microsoft Entra Workload ID on the AKS cluster where it's been enabled and configured, you can run the following command:
 
 ```azurecli-interactive
-az aks update --resource-group "${RESOURCE_GROUP}" --name myAKSCluster --disable-workload-identity
+az aks update \
+    --resource-group "${RESOURCE_GROUP}" \
+    --name "${CLUSTER_NAME}" \
+    --disable-workload-identity
 ```
 
 ## Next steps
@@ -332,8 +369,6 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [workload-identity-overview]: workload-identity-overview.md
 [azure-resource-group]: ../azure-resource-manager/management/overview.md
 [az-group-create]: /cli/azure/group#az-group-create
-[create-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
-[az-keyvault-list]: /cli/azure/keyvault#az-keyvault-list
 [aks-identity-concepts]: concepts-identity.md
 [federated-identity-credential]: /graph/api/resources/federatedidentitycredentials-overview
 [tutorial-python-aks-storage-workload-identity]: ../service-connector/tutorial-python-aks-storage-workload-identity.md
