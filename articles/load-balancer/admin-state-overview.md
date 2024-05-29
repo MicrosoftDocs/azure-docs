@@ -22,6 +22,8 @@ Administrative state (Admin state) is a feature of Azure Load Balancer that allo
 
 Admin state is useful in scenarios where you want to have more control over the behavior of your Load Balancer. For example, you can set the admin state to up to always consider the backend instance eligible for new connections, even if the health probe indicates otherwise. Conversely, you can set the admin state to down to prevent new connections, even if the health probe indicates that the backend instance is healthy. This can be useful for maintenance or other scenarios where you want to temporarily take a backend instance out of rotation.
 
+:::image type="content" source="media/admin-state-overview/admin-state-overview.png" alt-text="Diagram of admin state usage and state values.":::
+
 ## Types of admin state values 
 
 There are three types of admin state values: **Up**, **Down**, **None**. The following table describes the effects of each state on new connections and existing connections:
