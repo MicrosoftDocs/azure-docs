@@ -1,10 +1,10 @@
 ---
 title: Azure App Configuration PowerShell samples
-description: Learn about the Azure PowerShell sample scripts available for App Configuration.
+description: Learn about the Azure PowerShell sample scripts that are available for Azure App Configuration.
 ms.service: azure-app-configuration
 ms.custom: devx-track-azurepowershell
 ms.topic: sample
-ms.date: 05/25/2025
+ms.date: 05/25/2024
 ms.author: malev
 author: maud-lv
 ---
