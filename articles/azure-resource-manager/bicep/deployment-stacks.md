@@ -410,13 +410,13 @@ Currently not implemented.
 
 ### Handle the stack-out-of-sync error
 
-When updating a deployment stack, you might encounter the following stack-out-of-sync error, indicating the stack resource list isn't correctly synchronized. 
+When updating or deleting a deployment stack, you might encounter the following stack-out-of-sync error, indicating the stack resource list isn't correctly synchronized. 
 
 ```error
 The deployment stack '{0}' may not have an accurate list of managed resources. To ensure no resources are accidentally deleted, please check that the managed resource list does not have any additional values. If there is any uncertainty, we recommend redeploying the stack with the same template and parameters as the current iteration. To bypass this warning, please specify the 'BypassStackOutOfSyncError' flag.
 ```
 
-You can obtain an accurate list of the resources from the Azure portal or redeploy the currently deployed Bicep file with the same parameters. The output shows the managed resources
+You can obtain a list of the resources from the Azure portal or redeploy the currently deployed Bicep file with the same parameters. The output shows the managed resources
 
 # [PowerShell](#tab/azure-powershell)
 
