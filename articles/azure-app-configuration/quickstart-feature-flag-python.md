@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/22/2024
+ms.date: 05/29/2024
 ms.author: mametcal
 ms.custom: devx-track-python, mode-other
 #Customer intent: As an Python developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -22,7 +22,7 @@ These libraries do **not** have a dependency on any Azure libraries. They seamle
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/).
-- azure-appconfiguration-provider library 1.2.0 or later.
+- [azure-appconfiguration-provider library](https://pypi.org/project/azure-appconfiguration-provider/) 1.2.0 or later.
 
 ## Add a feature flag
 
@@ -50,7 +50,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     
     connection_string = os.environ["APPCONFIGURATION_CONNECTION_STRING"]
     
-    # Connecting to Azure App Configuration using AAD
+    # Connecting to Azure App Configuration using Microsoft Entra ID
     config = load(connection_string=connection_string, feature_flag_enabled=True, feature_flag_refresh_enabled=True)
     
     feature_manager = FeatureManager(config)
