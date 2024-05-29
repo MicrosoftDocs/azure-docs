@@ -331,9 +331,6 @@ oras attach $IMAGE \
 >[!IMPORTANT]
 > Microsoft recommends using a secure crypto signing tool, like [Notation][Notation] to sign the image and generate a signature for signing SBOMs. This example uses a simple JSON signature for demonstration purposes.
 
-
-This example uses a simple JSON signature for demonstration purposes.
-
 Artifacts that are pushed as references, typically don't have tags as they're considered part of the `subject` artifact. To push a signature to an artifact that is a child of another artifact, use the `oras discover` with `--artifact-type` filtering to find the digest.
 
 ```bash
