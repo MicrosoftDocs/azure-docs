@@ -1,5 +1,5 @@
 ---
-title: Overview about business processes
+title: Overview for Business Process Tracking
 description: Learn why modeling and mapping business processes help add business context to Azure resources in your integration solution.
 ms.service: logic-apps
 ms.topic: overview

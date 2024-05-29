@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Business Process Tracking documentation (preview) # < 60 chars
-summary: Model business processes that map to Azure resources. Collect and track key business data. # < 160 chars
+title: Business Process Tracking documentation (Preview) # < 60 chars
+summary: Model business processes that you can map to Azure resources used for implementation. Record key business data from deployed resources during run time. # < 160 chars
 
 metadata:
   title: Business Process Tracking documentation
-  description: Model business processes that map to Azure resources. Collect and track key business data.
+  description: Model business processes that you can map to Azure resources used to implement business logic. Record key business data from deployed resources during run time.
   ms.service: logic-apps
   ms.topic: landing-page
   author: ecfan
