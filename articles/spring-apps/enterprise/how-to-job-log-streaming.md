@@ -67,7 +67,7 @@ Use the following command to assign an Azure role:
 
 ## List all instances in a job execution
 
-For a job, every time it's triggered, a new job execution is created. Also, depending on the parallelism setting for your job, several replicas or instances execute in parallel.
+Every time a job is triggered, a new job execution is created. Also, depending on the parallelism setting for your job, several replicas or instances execute in parallel.
 
 Use the following command to list all instances in a job execution:
 
