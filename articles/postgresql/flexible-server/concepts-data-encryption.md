@@ -4,7 +4,7 @@ description: Learn how data encryption with a customer-managed key in Azure Data
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/24/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
