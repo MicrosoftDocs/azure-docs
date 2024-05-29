@@ -22,6 +22,9 @@ Computer groups in Azure Monitor allow you to scope [log queries](./log-query-ov
 | Delete a computer group. | `microsoft.operationalinsights/workspaces/savedSearches/delete` permissions to the Log Analytics workspace where the computer group is saved, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 
 ## Creating a computer group
+
+> [!NOTE]
+> While some classic technologies are becoming obsolete with the Log Analytics agent deprecation, there are no plans to deprecate computer groups for the foreseeable future. At the same time, we're encouraging you to leverage the capabilities of the KQL language to scope log queries.
 You can create a computer group in Azure Monitor using the methods in the following table.  Details on each method are provided in the sections below. 
 
 | Method | Description |

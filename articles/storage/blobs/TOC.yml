@@ -176,8 +176,6 @@ items:
         href: secure-file-transfer-protocol-performance.md
       - name: Limitations and known issues
         href: secure-file-transfer-protocol-known-issues.md
-    - name: Data Movement library
-      href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data management
     items:
     - name: Containers and blobs
@@ -559,7 +557,7 @@ items:
         href: storage-blob-dotnet-get-started.md
       - name: Authorize access from your application
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           items:
           - name: Overview
             href: /dotnet/azure/sdk/authentication?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -653,7 +651,7 @@ items:
         href: storage-blob-java-get-started.md
       - name: Authorize access from your application
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           items:
           - name: Overview
             href: /azure/developer/java/sdk/identity?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -733,7 +731,7 @@ items:
         href: storage-blob-javascript-get-started.md
       - name: Authorize access from your application
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           items:
           - name: Overview
             href: /azure/developer/javascript/sdk/authentication/overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -795,6 +793,10 @@ items:
           href: storage-blob-get-url-javascript.md
         - name: Set or change a blob's access tier
           href: storage-blob-use-access-tier-javascript.md
+      - name: Client library configuration options
+        items:
+        - name: Implement a retry policy
+          href: storage-retry-policy-javascript.md
       - name: 'Tutorial: Upload and process image files'
         href: blob-upload-function-trigger-javascript.md
     - name: TypeScript
@@ -803,7 +805,7 @@ items:
         href: storage-blob-typescript-get-started.md
       - name: Authorize access from your application
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           items:
           - name: Overview
             href: /azure/developer/javascript/sdk/authentication/overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -865,13 +867,17 @@ items:
           href: storage-blob-get-url-typescript.md
         - name: Set or change a blob's access tier
           href: storage-blob-use-access-tier-typescript.md
+      - name: Client library configuration options
+        items:
+        - name: Implement a retry policy
+          href: storage-retry-policy-javascript.md
     - name: Python
       items:
       - name: Get started
         href: storage-blob-python-get-started.md
       - name: Authorize access from your application
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           items:
           - name: Overview
             href: /azure/developer/python/sdk/authentication-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -945,6 +951,42 @@ items:
           href: storage-retry-policy-python.md
         - name: Configure logging
           href: /azure/developer/python/sdk/azure-sdk-logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Go
+      items:
+      - name: Get started
+        href: storage-blob-go-get-started.md
+      - name: Authorize access from your application
+        items:
+        - name: Microsoft Entra ID
+          items:
+          - name: Authentication in development environments
+            href: /azure/developer/go/azure-sdk-authentication?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Authentication in Azure-hosted apps
+            href: /azure/developer/go/azure-sdk-authentication-managed-identity?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Authentication with a service principal
+            href: /azure/developer/go/azure-sdk-authentication-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Container actions
+        items:
+        - name: Create a container
+          href: storage-blob-container-create-go.md
+        - name: Delete and restore containers
+          href: storage-blob-container-delete-go.md
+        - name: List containers
+          href: storage-blob-containers-list-go.md
+        - name: Manage properties and metadata
+          href: storage-blob-container-properties-metadata-go.md
+      - name: Blob actions
+        items:
+        - name: Upload blobs
+          href: storage-blob-upload-go.md
+        - name: Download blobs
+          href: storage-blob-download-go.md
+        - name: List blobs
+          href: storage-blobs-list-go.md
+        - name: Delete and restore blobs
+          href: storage-blob-delete-go.md
+        - name: Manage blob properties and metadata
+          href: storage-blob-properties-metadata-go.md
     - name: Test with a storage emulator
       items:
       - name: Use the Azurite open-source emulator
@@ -963,6 +1005,8 @@ items:
         href: storage-blob-event-overview.md
       - name: Route events to a custom endpoint
         href: storage-blob-event-quickstart.md
+    - name: Data Movement library (.NET)
+      href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Troubleshooting
     href: /troubleshoot/azure/azure-storage/welcome-azure-storage?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Samples
