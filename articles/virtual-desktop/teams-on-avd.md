@@ -11,7 +11,9 @@ ms.author: helohr
 Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality by redirecting it to the local device when using a supported Remote Desktop client. You can still use Microsoft Teams on Azure Virtual Desktop with other clients without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms.
 
 > [!TIP]
-> The new Microsoft Teams app is now generally available to use with Azure Virtual Desktop, with feature parity with the classic Teams app and improved performance, reliability, and security. You can still use the [classic Microsoft Teams app with Azure Virtual Desktop](/microsoftteams/teams-for-vdi) until **June 30th, 2024**, after which you'll need to use the new Microsoft Teams app. To learn more about how to use Microsoft Teams in Virtual Desktop Infrastructure (VDI) environments, see [Teams for Virtualized Desktop Infrastructure](/microsoftteams/new-teams-vdi-requirements-deploy/).
+> The new Microsoft Teams app is now generally available to use with Azure Virtual Desktop, with feature parity with the classic Teams app and improved performance, reliability, and security.
+>
+> If you're using the [classic Teams app with Virtual Desktop Infrastructure (VDI) environments](/microsoftteams/teams-for-vdi), such as as Azure Virtual Desktop, end of support is **October 1, 2024** and end of availability is **July 1, 2025**, after which you'll need to use the new Microsoft Teams app. For more information, see [End of availability for classic Teams app](/microsoftteams/teams-classic-client-end-of-availability).
 
 ## Prerequisites
 

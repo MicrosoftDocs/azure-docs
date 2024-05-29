@@ -30,6 +30,9 @@ and PostgreSQL (preview) services are currently available.
 * [SQL Server](/sql/sql-server/azure-arc/overview): Extend Azure services to SQL Server instances hosted outside of Azure.
 * Virtual machines: Provision, resize, delete and manage virtual machines based on [VMware vSphere](./vmware-vsphere/overview.md) or [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview) and enable VM self-service through role-based access.
 
+> [!NOTE]
+> For more information regarding the different services Azure Arc offers, see [Choosing the right Azure Arc service for machines](/azure/azure-arc/choose-service).
+
 ## Key features and benefits
 
 Some of the key scenarios that Azure Arc supports are:

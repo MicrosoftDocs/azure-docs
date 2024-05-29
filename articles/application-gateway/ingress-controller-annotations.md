@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/26/2022
+ms.date: 5/13/2024
 ms.author: greglin
 ---
 
@@ -70,11 +70,7 @@ In the previous example, you've defined an ingress resource named `go-server-ing
 
 ## TLS Redirect
 
-Application Gateway [can be configured](./redirect-overview.md)
-to automatically redirect HTTP URLs to their HTTPS counterparts. When this
-annotation is present and TLS is properly configured, Kubernetes Ingress
-controller creates a [routing rule with a redirection configuration](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration)
-and applies the changes to your Application Gateway. The redirect created will be HTTP `301 Moved Permanently`.
+Application Gateway [can be configured](./redirect-overview.md) to automatically redirect HTTP URLs to their HTTPS counterparts. When this annotation is present and TLS is properly configured, Kubernetes Ingress controller creates a [routing rule with a redirection configuration](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) and applies the changes to your Application Gateway. The redirect created will be HTTP `301 Moved Permanently`.
 
 ### Usage
 
@@ -219,7 +215,6 @@ spec:
 The following annotation allows you to specify whether to expose this endpoint on Private IP of Application Gateway.
 
 > [!NOTE]
-> * Application Gateway doesn't support multiple IPs on the same port (example: 80/443). Ingress with annotation `appgw.ingress.kubernetes.io/use-private-ip: "false"` and another with `appgw.ingress.kubernetes.io/use-private-ip: "true"` on `HTTP` will cause AGIC to fail while updating the Application Gateway.
 > * For Application Gateway that doesn't have a private IP, Ingresses with `appgw.ingress.kubernetes.io/use-private-ip: "true"` is ignored. This is reflected in the controller logs and ingress events for those ingresses with `NoPrivateIP` warning.
 
 ### Usage

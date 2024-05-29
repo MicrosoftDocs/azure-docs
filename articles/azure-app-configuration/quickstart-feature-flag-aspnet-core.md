@@ -112,7 +112,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     <h1>This is the beta website.</h1>
     ```
 
-    Open *Beta.cshtml.cs*, and add `FeatureGate` attribute to the `BetaModel` class. The `FeatureGate` attribute ensures the *Beta* page is accessible only when the *Beta* feature flag is enabled. If the *Beta* feature flag isn't enabled, the page will return 404 Not Found.
+    Open *Beta.cshtml.cs*, and add `FeatureGate` attribute to the `BetaModel` class. The `FeatureGate` attribute ensures the **Beta** page is accessible only when the *Beta* feature flag is enabled. If the *Beta* feature flag isn't enabled, the page will return 404 Not Found.
 
     ```csharp
     using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -130,7 +130,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     }   
     ```
 
-1. Open *Pages/_ViewImports.cshtml*, and register the feature manager Tag Helper using an `@addTagHelper` directive:
+1. Open *Pages/_ViewImports.cshtml*, and register the feature manager Tag Helper using an `@addTagHelper` directive.
 
     ```cshtml
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
@@ -138,11 +138,11 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
     The preceding code allows the `<feature>` Tag Helper to be used in the project's *.cshtml* files.
 
-1. Open *_Layout.cshtml* in the *Pages*\\*Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
+1. Open *_Layout.cshtml* in the *Pages/Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
     :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
-    The `<feature>` tag ensures the *Beta* menu item is shown only when the *Beta* feature flag is enabled.
+    The `<feature>` tag ensures the **Beta** menu item is shown only when the *Beta* feature flag is enabled.
 
 ## Build and run the app locally
 
@@ -164,13 +164,13 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created previously. 
 
-1. Select **Feature manager** and locate the **Beta** feature flag. Enable the flag by selecting the checkbox under **Enabled**.
+1. Select **Feature manager** and locate the *Beta* feature flag. Enable the flag by selecting the checkbox under **Enabled**.
 
 1. Refresh the browser a few times. When the refresh interval time window passes, the page will show with updated content.
 
     ![Feature flag after enabled](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
-1. Select the *Beta* menu. It will bring you to the beta website that you enabled dynamically.
+1. Select the **Beta** menu. It will bring you to the beta website that you enabled dynamically.
 
     ![Feature flag beta page](./media/quickstarts/aspnet-core-feature-flag-local-beta.png)
 
