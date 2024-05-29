@@ -125,7 +125,7 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 - `deprecated` (boolean): True or false flag for if the policy initiative definition has been marked
   as _deprecated_.
 
-## Version
+## Version (preview)
 Built-in policy initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version) 
 
 The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of

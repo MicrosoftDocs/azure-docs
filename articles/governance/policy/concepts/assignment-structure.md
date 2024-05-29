@@ -14,7 +14,7 @@ resources at assignment time, making it possible to reuse policy definitions tha
 You use JavaScript Object Notation (JSON) to create a policy assignment. The policy assignment contains elements for:
 
 - [scope](#scope)
-- [policy definition ID and version](#policy-definition-id-and-version)
+- [policy definition ID and version](#policy-definition-id-and-version-preview)
 - [display name](#display-name-and-description)
 - [description](#display-name-and-description)
 - [metadata](#metadata)
@@ -65,7 +65,7 @@ For example, the following JSON shows a sample policy assignment request in _DoN
 The scope used for assignment resource creation time is the primary driver of resource applicability. For more information on assignment scope, see
 > [Understand scope in Azure Policy](./scope.md#assignment-scopes).
 
-## Policy definition ID and version
+## Policy definition ID and version (preview)
 This field must be the full path name of either a policy definition or an initiative definition.
 `policyDefinitionId` is a string and not an array. The latest content of the assigned policy
 definition or initiative is retrieved each time the policy assignment is evaluated. It's
