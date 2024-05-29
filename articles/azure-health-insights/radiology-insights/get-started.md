@@ -14,7 +14,7 @@ ms.author: janschietse
 
 # Quickstart: Use the Radiology Insights model
 
-This quickstart provides an overview on how to use the Radiology Insights (Preview).
+This quickstart provides an overview on how to use the Radiology Insights.
 
 ## Prerequisites
 To use the Radiology Insights (Preview) model, you must have an Azure AI Health Insights service created. 
