@@ -17,9 +17,9 @@ This article shows you how to quickly deploy JBoss Enterprise Application Platfo
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 - Install [Azure CLI](/cli/azure/install-azure-cli).
-- Install a Java SE implementation version 8 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
+- Install a Java Standard Edition (SE) implementation version 8 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
 - Install [Maven](https://maven.apache.org/download.cgi), version 3.5.0 or higher.
-- Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
+- Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure Role-Based Access Control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
 ## Deploy JBoss EAP Server on Azure VM
 
@@ -63,7 +63,7 @@ Depending on network conditions and other activity in your selected region, the 
 
 ## Optional: Verify the functionality of the deployment
 
-1. Open the resource group you just created in the Azure portal.
+1. Open the resource group you created in the Azure portal.
 1. Select the VM resource named `jbosieapVm`.
 1. In the **Overview** pane, note the **Public IP address** assigned to the network interface.
 1. Copy the public IP address.
