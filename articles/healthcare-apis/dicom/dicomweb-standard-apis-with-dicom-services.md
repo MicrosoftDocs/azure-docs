@@ -87,6 +87,6 @@ To use the Postman collection, download it locally and then import the collectio
 
 [Use DICOMWeb Standard APIs with the Postman Example Collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json)
 
--[DICOM Conformance Statement](dicom-services-conformance-statement-v2.md)
+[DICOM Conformance Statement](dicom-services-conformance-statement-v2.md)
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
