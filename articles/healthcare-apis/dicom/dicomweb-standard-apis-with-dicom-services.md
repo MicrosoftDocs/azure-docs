@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # Access DICOMweb APIs to manage DICOM data
 
-The DICOM&reg; service allows you to store, review, search, and delete DICOM objects by using a subset of DICOMweb APIs, which are web-based services that follow the DICOM standard. By using these APIs, you can access and manage your organization's DICOM data without requiring complex protocols or formats.
+The DICOM&reg; service allows you to store, review, search, and delete DICOM objects by using a subset of DICOMweb APIs. The DICOMweb APIs are web-based services that follow the DICOM standard. By using these APIs, you can access and manage your organization's DICOM data without requiring complex protocols or formats.
 
 The supported services are:
 
@@ -87,6 +87,6 @@ To use the Postman collection, download it locally and then import the collectio
 
 [Use DICOMWeb Standard APIs with the Postman Example Collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json)
 
--[DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
+-[DICOM Conformance Statement](dicom-services-conformance-statement-v2.md)
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
