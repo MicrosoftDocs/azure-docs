@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 
 # How to use managed identities for Azure App Configuration
 
-This topic shows you how to create a managed identity for Azure App Configuration. A managed identity from Microsoft Entra ID allows Azure App Configuration to easily access other Microsoft Entra protected resources. The identity is managed by the Azure platform. It does not require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+This article shows you how to create a managed identity for Azure App Configuration. A managed identity from Microsoft Entra ID allows Azure App Configuration to easily access other Microsoft Entra protected resources. The identity is managed by the Azure platform. It doesn't require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities:
 
@@ -30,7 +30,7 @@ To set up a managed identity using the Azure CLI, use the [az appconfig identity
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
 - [Install the latest version of Azure CLI](/cli/azure/install-azure-cli) (2.1 or later) if you prefer to use a local CLI console.
 
-The following steps will walk you through creating an App Configuration store and assigning it an identity using the CLI:
+The following steps walk you through creating an App Configuration store and assigning it an identity using the CLI:
 
 1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login]. Use an account that is associated with your Azure subscription:
 
@@ -66,7 +66,7 @@ To set up a managed identity using the Azure CLI, use the [az appconfig identity
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
 - [Install the latest version of Azure CLI](/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console.
 
-The following steps will walk you through creating a user-assigned identity and an App Configuration store, then assigning the identity to the store using the CLI:
+The following steps walk you through creating a user-assigned identity and an App Configuration store, then assigning the identity to the store using the CLI:
 
 1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login]. Use an account that is associated with your Azure subscription:
 
