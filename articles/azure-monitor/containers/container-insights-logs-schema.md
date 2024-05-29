@@ -10,12 +10,12 @@ ms.reviewer: aul
 ---
 
 # Container insights log schema
-Container insights stores log data it collects in a table called *ContainerLogV2* in an Azure Monitor workspace. This article describes the schema of this table and configuration options for it. It also compares this table to the legacy *ContainerLog* table and provides detail for migrating from it.
+Container insights stores log data it collects in a table called *ContainerLogV2* in a Log Analytics workspace. This article describes the schema of this table and configuration options for it. It also compares this table to the legacy *ContainerLog* table and provides detail for migrating from it.
 
 
 ## Table comparison
 
-ContainerLogV2 is the default schema for CLI version 2.54.0 and greater. ContainerLogV2 is the default table for customers who will be onboarding Container insights with managed identity authentication. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using data collection settings.
+*ContainerLogV2* is the default schema for CLI version 2.54.0 and greater. This is the default table for customers who onboard Container insights with managed identity authentication. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using data collection settings.
 
 >[!IMPORTANT]
 > Support for the *ContainerLog* table will be retired on 30th September 2026.
@@ -58,49 +58,6 @@ resources
 
 
 
-
-
-
-
-## Kubernetes metadata and logs filtering
-
-- **Enhanced ContainerLogV2 schema with log level:** Users can now assess application health based on color coded severity levels such as CRITICAL, ERROR, WARNING, INFO, DEBUG, TRACE, or UNKNOWN. It’s a crucial tool for incident response and proactive monitoring. By visually distinguishing severity levels, users can quickly pinpoint affected resources. The color-coded system streamlines the investigation process and allows users to drill down even further by selecting the panel for an explore experience for further debugging. However, it’s important to note that this functionality is only applicable when using Grafana. If you’re using Log Analytics Workspace, the LogLevel is simply another column in the ContainerLogV2 table.
-
-
-
-
-
-
-### How to enable Kubernetes metadata and logs filtering
-
-#### Prerequisites
-
-1. Migrate to Managed Identity Authentication. [Learn More](./container-insights-authentication.md#migrate-to-managed-identity-authentication).
-
-2. Ensure that the ContainerLogV2 is enabled. Managed Identity Auth clusters have this schema enabled by default. If not, [enable the ContainerLogV2 schema](./container-insights-logs-schema.md#enable-the-containerlogv2-schema).
-
-#### Limitations
-
-The [ContainerLogV2 Grafana Dashboard](https://grafana.com/grafana/dashboards/20995-azure-monitor-container-insights-containerlogv2/) is not supported with the Basic Logs SKU on the ContainerLogV2 table.
-
-#### Enable Kubernetes metadata
-
-1. Download the [configmap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) and modify the settings from **false** to **true** as seen in the below screenshot. Note that all the supported metadata fields are collected by default. If you wish to collect specific fields, specify the required fields in `include_fields`.
-
-<!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/configmap-enable-metadata.png" lightbox="./media/container-insights-logging-v2/configmap-enable-metadata.png" alt-text="Screenshot that shows enabling metadata fields." border="false":::
-
-2. Apply the ConfigMap. See [configure configmap](./container-insights-data-collection-configmap.md#configure-and-deploy-configmap) to learn more about deploying and configuring the ConfigMap.
-
-3. After a few minutes, data should be flowing into your ContainerLogV2 table with Kubernetes Logs Metadata, as shown in the below screenshot.
-
-<!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/container-log-v2.png" lightbox="./media/container-insights-logging-v2/container-log-v2.png" alt-text="Screenshot that shows containerlogv2." border="false":::
-
-
-
-
-
 ## Multi-line logging
 With multiline logging enabled, previously split container logs are stitched together and sent as single entries to the ContainerLogV2 table. If the stitched log line is larger than 64 KB, it will be truncated due to Log Analytics workspace limits. This feature also has support for .NET, Go, Python and Java stack traces, which appear as single entries in the ContainerLogV2 table. Enable multiline logging with ConfigMap as described in [Configure data collection in Container insights using ConfigMap](container-insights-data-collection-configmap.md).
 
@@ -126,6 +83,12 @@ The following screenshots show multi-line logging for Go exception stack trace:
 **Python stack trace**
 
 :::image type="content" source="./media/container-insights-logging-v2/multi-line-enabled-python.png" lightbox="./media/container-insights-logging-v2/multi-line-enabled-python.png" alt-text="Screenshot that shows Multi-line enabled for Python.":::
+
+
+
+- **Enhanced ContainerLogV2 schema with log level:** Users can now assess application health based on color coded severity levels such as CRITICAL, ERROR, WARNING, INFO, DEBUG, TRACE, or UNKNOWN. It’s a crucial tool for incident response and proactive monitoring. By visually distinguishing severity levels, users can quickly pinpoint affected resources. The color-coded system streamlines the investigation process and allows users to drill down even further by selecting the panel for an explore experience for further debugging. However, it’s important to note that this functionality is only applicable when using Grafana. If you’re using Log Analytics Workspace, the LogLevel is simply another column in the ContainerLogV2 table.
+
+
 
 
 ## Next steps

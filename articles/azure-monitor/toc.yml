@@ -475,7 +475,6 @@ items:
       items:
       - name: Collect and filter logs
         href: containers/container-insights-data-collection-configure.md
-      - name: Configure data collection
       - name: Container log schema
         href: containers/container-insights-logs-schema.md
       - name: Data transformations
