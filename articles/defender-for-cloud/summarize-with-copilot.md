@@ -14,6 +14,14 @@ Microsoft Defender for Cloud's integration with Microsoft Copilot for Security a
 
 By summarizing a recommendation you can get a quick overview of the recommendation in natural language. This helps you understand the information presented in a recommendation and allows you to prioritize your remediation efforts.
 
+## Prerequisites
+
+- [Enable Defender for Cloud on your environment](connect-azure-subscription.md).
+
+- [Access to Azure Copilot](../copilot/overview.md).
+
+- [A Microsoft Copilot for Security subscription](/copilot/security/get-started-security-copilot).
+
 ## Summarize with Copilot
 
 Once you have selected a recommendation you can summarize it with Copilot. By using prompts, you can get a better understanding of the recommendation and decide how best to handle it.

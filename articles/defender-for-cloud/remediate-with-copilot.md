@@ -14,6 +14,14 @@ Microsoft Defender for Cloud's integration with Microsoft Copilot for Security a
 
 Once you have summarized a recommendation with Copilot for Security in Defender for Cloud, you can decide how best to handle it. By using prompts, you can have Copilot for Security assist you in the remediation process.
 
+## Prerequisites
+
+- [Enable Defender for Cloud on your environment](connect-azure-subscription.md).
+
+- [Access to Azure Copilot](../copilot/overview.md).
+
+- [A Microsoft Copilot for Security subscription](/copilot/security/get-started-security-copilot).
+
 ## Remediate a recommendation
 
 Copilot for Security in Defender for Cloud allows you to remediate your recommendations.

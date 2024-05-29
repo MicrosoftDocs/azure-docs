@@ -1,5 +1,5 @@
 ---
-title: Copilot for Security in Defender for Cloud
+title: Copilot for Security in Defender for Cloud (PReview)
 description: Learn about the benefits of copilot in Microsoft Defender for Cloud and how it applies to analyzing your security posture.
 ms.date: 05/26/2024
 author: dcurwin
@@ -8,7 +8,7 @@ ms.topic: concept-article
 # customer intent: As a security professional, I want to understand the benefits of Copilot in Microsoft Defender for Cloud and how it can help me analyze my security posture.
 ---
 
-# Copilot for Security in Defender for Cloud
+# Copilot for Security in Defender for Cloud (Preview)
 
 Microsoft Copilot for Security is a cloud-based AI platform that provides natural language copilot experience. It can help support security professionals to understand the context of a recommendation, the impact of implementing a recommendation, and assist with remediating or delegating a recommendation. For more information about what it can do, go to [What is Microsoft Copilot for Security?](/copilot/security/microsoft-security-copilot)
 
@@ -35,6 +35,12 @@ Copilot is also available within recommendations and give you the ability to sum
 :::image type="content" source="media/copilot-security-in-defender-for-cloud/summarize-copilot.png" alt-text="Screenshot of a recommendation that shows where the Summarize with Copilot button is located." lightbox="media/copilot-security-in-defender-for-cloud/summarize-copilot.png":::
 
 By selecting summarize with Copilot, you are presented a quick summary of the recommendation in natural language. You can then use Copilot to learn more about the recommendation or remediate it using common language.
+
+## Copilot for Securities capabilities in Defender for Cloud
+
+Copilot for Security in Defender for Cloud is not reliant on any of the available plans in Defender for Cloud and is available for all users when you [enable Defender for Cloud on your environment](connect-azure-subscription.md). 
+
+However, in order to enjoy the full range of Copilot for Security's capabilities, we recommend enabling the [Defender for Cloud Security Posture Management (DCSPM) plan](concept-cloud-security-posture-management.md#cspm-features) on your environment. The DCSPM plan includes many additional security features such as [Attack path analysis](how-to-manage-attack-path.md), [Risk prioritization](risk-prioritization.md) and more, all of which can be navigated and managed using Copilot for Security.
 
 ## Monitor your usage
 

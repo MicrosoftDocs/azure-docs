@@ -14,6 +14,14 @@ Microsoft Defender for Cloud's integration with Microsoft Copilot for Security a
 
 Once you have narrowed down the list of recommendations you can investigate specific recommendations and gain a better understanding of the risks and vulnerabilities that are present in your environment.
 
+## Prerequisites
+
+- [Enable Defender for Cloud on your environment](connect-azure-subscription.md).
+
+- [Access to Azure Copilot](../copilot/overview.md).
+
+- [A Microsoft Copilot for Security subscription](/copilot/security/get-started-security-copilot).
+
 ## Analyze a recommendation
 
 Copilot gives you the ability to analyze your recommendations. By using prompts, you can filter and refine the presented recommendations to focus on specific areas of interest.

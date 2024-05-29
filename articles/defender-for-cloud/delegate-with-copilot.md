@@ -14,6 +14,14 @@ Microsoft Defender for Cloud's integration with Microsoft Copilot for Security a
 
 Delegating recommendations can improve your security posture by having the right people address the risks and vulnerabilities presented by the recommendations that are present in your environment.
 
+## Prerequisites
+
+- [Enable Defender for Cloud on your environment](connect-azure-subscription.md).
+
+- [Access to Azure Copilot](../copilot/overview.md).
+
+- [A Microsoft Copilot for Security subscription](/copilot/security/get-started-security-copilot).
+
 ## Delegate a recommendation
 
 Delegate recommendations to ensure the right person or team is handling the risks and vulnerabilities that are present in your environment.
