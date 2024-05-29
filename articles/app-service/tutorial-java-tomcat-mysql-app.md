@@ -207,6 +207,9 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 
 Like the Tomcat convention, if you want to deploy to the root context of Tomcat, name your built artifact *ROOT.war*.
 
+> [!TIP]
+> In **Step 4**, try [letting GitHub Copilot show you the code changes to make](#make-code-changes-using-github-copilot).
+
 :::row:::
     :::column span="2":::
         **Step 1:** Back in the App Service page, in the left menu, select **Deployment Center**. 
@@ -482,6 +485,9 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     
     This code checks to see if the `AZURE_MYSQL_CONNECTIONSTRING` app setting exists, and changes the data source to `java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS`, which is the data source you found earlier in *context.xml* in the SSH shell.
 
+    > [!TIP]
+    > Try [letting GitHub Copilot show you the code changes to make](#make-code-changes-using-github-copilot).
+
 1. Back in the codespace terminal, run `azd deploy`.
  
     ```bash
@@ -606,6 +612,34 @@ git push origin main
 
 See [Set up GitHub Actions deployment from the Deployment Center](deploy-github-actions.md#set-up-github-actions-deployment-from-the-deployment-center).
 
+#### Make code changes using GitHub Copilot
+
+With a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available), you can make the code changes in this tutorial by using Copilot Chat in the codespace. For example:
+
+1. In your [codespace](#1-run-the-sample), open *src/main/resources/META-INF/persistence.xml*.
+1. Start a new Copilot chat session in the **Chat** view. The GitHub Copilot chat extension was installed by the container definition (see *.devcontainer/devcontainer.json*).
+1. If you like, ask, "*What does this file do?*"
+
+    Copilot should give you some explanation about the jdbc/MYSQLDS data source.
+1. Ask, "*I want to override this data source dynamically with a Tomcat shared data source.*"
+
+    Copilot should show you sample code similar to [the one in this tutorial](#5-deploy-sample-code).
+1. If the sample code is using the `javax.*` namespace, you can say "My application uses Jakarta instead."
+
+    Copilot should update the code suggestion to use the `jakarta.persistence.nonJtaDataSource` instead.
+1. Say, "*My Tomcat data source is called jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.*"
+
+    Copilot should update the JNDI name in the code suggestion.
+
+1. Say, "*I want this code to run only if the environment AZURE_MYSQL_CONNECTIONSTRING is set.*"
+ 
+    Copilot should update the code suggestion with a check for the environment variable.
+
+    The suggested code for `contextInitialized` is now very similar to the one shown in this tutorial. It may not be exactly the same. You can copy and paste this code into the `contextInitialized` method of *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* and test it.
+
+    > [!NOTE]
+    > Copilot is not always correct in its code suggestions. It's still up to you to verify that the code works as expected in your application.
+ 
 ## Next steps
 
 - [Azure for Java Developers](/java/azure/)
