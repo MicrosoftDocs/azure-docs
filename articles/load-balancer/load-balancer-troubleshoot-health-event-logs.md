@@ -7,6 +7,7 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/24/2024
 ms.author: mbender
+ms.custom: references_regions
 ---
 
 # Troubleshoot load balancer health event logs

@@ -7,6 +7,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 05/21/2024
 ms.author: mbender
+ms.custom: references_regions
 # customer intent: As a network admin, I want to use LoadBalancerHealthEvent logs for Azure Load Balancer for monitoring and alerting so that I can identify and troubleshoot ongoing issues affecting my load balancer resource’s health.
 ---
 
