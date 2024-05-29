@@ -100,8 +100,8 @@ To function properly, SCOM Managed Instance must have access to the following po
 |*.azuremonitor-scommiconnect.azure.com|443|Outbound| |Bridge Service|
 
 > [!IMPORTANT]
-> To minimize the need for extensive communication with both your Active Directory admin and the network admin, see [Self-verification](self-verification-steps.md). The article outlines the procedures that the Active Directory admin and the network admin use to validate their configuration changes and ensure their successful implementation. This process reduces unnecessary back-and-forth interactions from the Operations Manager admin to the Active Directory admin and the network admin. This configuration saves time for the admins.
+> To minimize the need for extensive communication with both your Active Directory admin and the network admin, see [Self-verification](self-verification-of-steps.md). The article outlines the procedures that the Active Directory admin and the network admin use to validate their configuration changes and ensure their successful implementation. This process reduces unnecessary back-and-forth interactions from the Operations Manager admin to the Active Directory admin and the network admin. This configuration saves time for the admins.
 
 ## Next steps
 
-- [Verify Azure and internal GPO policies](verify-azure-internal-group-policy-object-policies.md)
+- [Verify Azure and internal GPO policies](verify-azure-and-internal-gpo-policies.md)
