@@ -2,10 +2,10 @@
 title:  Stream Azure Spring Apps job logs in real time
 description: Learn how to use log streaming to view job logs in real time.
 author: KarlErickson
-ms.author: karler
+ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
-ms.date:
+ms.date: 05/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -16,11 +16,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article describes how to use the Azure CLI to get real-time logs of jobs for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
-
-> [!NOTE]
-> - For more information on streaming logs of applications in Azure Spring Apps, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md).
-> - For more information on streaming logs of managed components in Azure Spring Apps, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md).
+This article describes how to use the Azure CLI to get real-time logs of jobs for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md). For more information on streaming logs, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md) and [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md).
 
 ## Prerequisites
 
@@ -100,7 +96,7 @@ az spring job logs \
 
 ### View tail logs for all instances in one command
 
-To view the tail logs for all instances, use the `--all-instances` argument, as shown in the following command. The instance name is the prefix of each log line. When there are multiple instances, logs are printed in batch for each instance. This way logs of one instance aren't interleaved with the logs of another instance.
+To view the tail logs for all instances, use the `--all-instances` argument, as shown in the following example. The instance name is the prefix of each log line. When there are multiple instances, logs are printed in batch for each instance. This way logs of one instance aren't interleaved with the logs of another instance.
 
 ```azurecli
 az spring job logs \
