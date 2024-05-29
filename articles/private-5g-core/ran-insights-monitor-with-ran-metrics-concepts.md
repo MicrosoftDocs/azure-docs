@@ -12,7 +12,7 @@ ms.date: 5/28/2024
 
 
 # Monitor with RAN metrics in Azure portal
-Once you have [set up](ran-insights-create-resource.md) your radio access network (RAN) insights resource, you can now view your RAN metrics. RAN metrics are platform metrics that are collected from the RAN Element Management System (EMS) offered by the RAN partner and stored by Azure Monitor Metrics. 
+Once you have [set up](ran-insights-create-resource.md) your radio access network (RAN) insights resource, you can view your RAN metrics. RAN metrics are platform metrics that are collected from the RAN Element Management System (EMS) offered by the RAN partner and stored by Azure Monitor Metrics. 
 
 These are a subset of metrics chosen from the RAN vendor’s EMS based on customer feedback, focusing on key KPIs crucial for monitoring and troubleshooting. The streamed metrics are stored and presented in a secure and compliant manner, in adherence to Microsoft’s security standards and policies. Users can use RAN metrics to save time managing systems and to correlate events more easily on the network.  
 
@@ -38,7 +38,7 @@ You can also set alerts on each of your RAN metrics. By following [Create Azure 
 
 
 ## RAN metrics descriptions
-Below is a list of possible available RAN metrics. Note available RAN metrics and dependent on RAN vendor.
+The following table lists common RAN metrics. The RAN metrics available in your deployment are dependent on the RAN vendor.
 
 We provide both direct metrics, which originate directly from the EMS, and derived metrics, which are calculated in Azure based on direct metrics.
 

@@ -12,7 +12,7 @@ ms.date: 5/28/2024
 
 # Monitor with geo maps in Azure portal
 --------------------------------------------------------------------
-Once you have [set up](ran-insights-create-resource.md) your radio access network (RAN) insights resource, you can now view your RAN insights geo gap. Geo maps use Azure Maps to show a graphical display of all access points that are linked to a RAN insights resource along with key [RAN metrics](ran-insights-monitor-with-ran-metrics-concepts.md). They indicate the health condition of access points and let you see the components that are attached to sites.
+Once you have [set up](ran-insights-create-resource.md) your radio access network (RAN) insights resource you can view your RAN insights geo map. Geo maps use Azure Maps to show a graphical display of all access points that are linked to a RAN insights resource along with key [RAN metrics](ran-insights-monitor-with-ran-metrics-concepts.md). They indicate the health condition of access points and let you see the components that are attached to sites.
 
 
 
@@ -30,11 +30,11 @@ To get started, you'll need an existing Azure Maps resource or [create](https://
 Once you have your Azure Map resource, you must now connect it to your Mobile Network Resource in order to view the geo map in the RAN insights resource. 
 1.	Navigate to your existing Mobile Network Resource
 1.	On the **Overview** blade of the Mobile Network Resource select **Modify mobile network** 
-    1. :::image type="content" source="media/ran-insights/RAN-Insights-Modify-Network.png" alt-text="Screenshot of the Azure portal modify mobile network.":::
-3.	In the **Azure map account** section, choose your desired Azure Map resource. Note that only the Azure map resource associated with that subscription appears in this drop down.  
+     :::image type="content" source="media/ran-insights/RAN-Insights-Modify-Network.png" alt-text="Screenshot of the Azure portal modify mobile network.":::
+3.	In the **Azure map account** section, choose your Azure Map resource. Only the Azure Map resource associated with this subscription appears in the drop down menu.  
 1.	Select **Modify** and wait for the deployment to complete
 1.	Navigate to your RAN insights resource 
-    1. On your RAN insights resource, ensure you have set up all your access points and their latitude, longitude values. You can modify values by selecting the access point resource and pressing the **Modify** button. 
+    1. On your RAN insights resource, ensure you have set up all your access points and their latitude and longitude values. You can modify the values by selecting the access point resource and pressing the **Modify** button. 
 1.	Go to the RAN insights resource **Overview** page and select the **Geo Maps** tab. You should now be able to view the Map with access points. 
 
 
