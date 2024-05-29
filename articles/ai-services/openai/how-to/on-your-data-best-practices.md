@@ -74,11 +74,11 @@ If you aren't seeing the correct document chunks in step 1, then you need to dig
 
 1. It's possible that your index fields are not correctly mapped, meaning retrieval might not work well. This is particularly relevant if you're using a pre-existing data source (you did not create the index using the Studio or offline scripts available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts). For more information on mapping index fields, see the [how-to article](../concepts/use-your-data.md?tabs=ai-search#index-field-mapping). 
 
-1. It's possible that the intent generation step is not working well. In the API response, check the `intents` fields in the `tool` message.
+1. It's possible that the intent generation step isn't working well. In the API response, check the `intents` fields in the `tool` message.
 
-   - Some models are known to not work very well for intent generation. For example, if you're using the GPT-35-turbo-1106 model version, consider using a later model, such as gpt-35-turbo (0125) or GPT-4-1106-preview.
+   - Some models are known to not work well for intent generation. For example, if you're using the GPT-35-turbo-1106 model version, consider using a later model, such as gpt-35-turbo (0125) or GPT-4-1106-preview.
 
-1. Do you have semi-structured data in your documents, such as a lot of tables? There might be an **ingestion issue**. Your data might need special handling during ingestion.
+1. Do you have semi-structured data in your documents, such as numerous tables? There might be an **ingestion issue**. Your data might need special handling during ingestion.
    - If the file format is PDF, we offer optimized ingestion for tables using the offline scripts available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts). to use the scripts, you need to have a [Document Intelligence](../../document-intelligence/overview.md) resource and use the `Layout` [model](../../document-intelligence/concept-layout.md). You can also:
    - Adjust your chunk size to make sure your largest table fits within the specified [chunk size](../concepts/use-your-data.md#chunk-size-preview).
 
@@ -88,15 +88,15 @@ If you aren't seeing the correct document chunks in step 1, then you need to dig
 
 ## Frequently encountered issues
 
-**Issue 1**: _The model responds with "The requested information is not present in the retrieved documents. Please try a different query or topic" even though that's not the case._
+**Issue 1**: _The model responds with "The requested information isn't present in the retrieved documents. Please try a different query or topic" even though that's not the case._
 
 See [Step 3](#step-3-check-the-rest-of-the-funnel) in the above debugging process.
 
-**Issue 2**: _The response is from my data, but it is not relevant/correct in the context of the question._
+**Issue 2**: _The response is from my data, but it isn't relevant/correct in the context of the question._
 
 See the debugging process starting at [Step 1](#step-1-check-for-retrieval-issues).
 
-**Issue 3**: _The role information / system message is not being followed by the model._
+**Issue 3**: _The role information / system message isn't being followed by the model._
  
 - Instructions in the role information might contradict with our [Responsible AI guidelines](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext), in which case it won't likely be followed.
 
@@ -126,7 +126,7 @@ See the debugging process starting at [Step 1](#step-1-check-for-retrieval-issue
 - Consider increasing `strictness`.
 - Add the following instruction in your role information / system message: 
    - _"You are also allowed to respond to questions based on the retrieved documents."_
-- The `inscope` parameter is not a hard switch, but setting it to `true` encourages the model to stay restricted.
+- The `inscope` parameter isn't a hard switch, but setting it to `true` encourages the model to stay restricted.
 
 **Issue 7**: _The response is correct but occasionally missing document references/citations._
 - Consider upgrading to a GPT-4 model if you're already not using it. GPT-4 is generally more consistent with citation generation.
