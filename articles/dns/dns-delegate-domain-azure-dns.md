@@ -26,6 +26,8 @@ To host your domain in Azure:
 * Retrieve the list of Azure nameservers for your DNS zone.
 * Delegate the domain to Azure's nameservers at your registrar.
 
+For example:
+
 ![A simple diagram of a DNS zone hosted in Azure that is delegated at the registrar.](./media/dns-delegate-domain-azure-dns/public-dns.png)
 
 In this tutorial, you learn how to:
