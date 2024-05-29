@@ -25,6 +25,9 @@ There are some limits on the number of metrics and events per application, that 
 | Property value string length | 8,192 | 8,192 | See [type schemas](../articles/azure-monitor/app/data-model.md).|
 | Trace and exception message length | 32,768 | 32,768 | See [type schemas](../articles/azure-monitor/app/data-model.md).|
 | [Availability tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) count per Application Insights resource | 100 | 100 | |
+| Availability tests count per resource group | 800 | 800 | See [Azure Resource Manager](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md) |
+| Aailability tests maximum redirects per test | 10 | 10 | |
+| Aailability tests minimum test frequency | 300 seconds | | Custom test frequencies or frequencies less than 5 minutes require [custom TrackAvailability](../articles/azure-monitor/app/availability-azure-functions.md) implementations. |
 | [Profiler](../articles/azure-monitor/app/profiler.md) and [Snapshot](../articles/azure-monitor/app/snapshot-debugger.md) data retention | Two weeks | [Contact support.](https://azure.microsoft.com/support/options/) Maximum retention limit is six months. | |
 | [Profiler](../articles/azure-monitor/app/profiler.md) data sent per day | No limit | No limit. | |
 | [Snapshot](../articles/azure-monitor/app/snapshot-debugger.md) data sent per day | 30 snapshots per day per monitored app | No limit. | The number of snapshots collected per application can be modified through [configuration](../articles/azure-monitor/app/snapshot-debugger-vm.md). |

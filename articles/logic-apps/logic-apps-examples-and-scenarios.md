@@ -52,8 +52,7 @@ The following how-to guides help you build a Standard logic app workflow that ru
 
 Azure Logic Apps includes rich capabilities for advanced control flow, such as conditions, switches, loops, and scopes. To ensure resilient solutions, you can also implement error and exception handling in your workflows.
 
-* Perform different actions based on [conditional statements](logic-apps-control-flow-conditional-statement.md)
-and [switch statements](logic-apps-control-flow-switch-statement.md)
+* Perform different actions based on [conditional statements](logic-apps-control-flow-conditional-statement.md) and [switch statements](logic-apps-control-flow-switch-statement.md)
 * [Repeat steps or process items in arrays and collections with loops](logic-apps-control-flow-loops.md)
 * [Group actions together with scopes](logic-apps-control-flow-run-steps-group-scopes.md)
 * [Add error and exception handling to a workflow](logic-apps-exception-handling.md)

@@ -191,7 +191,7 @@ To track the subscriptions created via this API, use the [Tenant Activity Log AP
 
 To conveniently call this API from the command line, try [ARMClient](https://github.com/projectkudu/ARMClient).
 
-## Next steps
+## Related content
 
 * Now that the user or service principal has permission to create a subscription, you can use that identity to [programmatically create Azure Enterprise subscriptions](programmatically-create-subscription-enterprise-agreement.md).
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).

@@ -30,7 +30,7 @@ using Npgsql;
 AccessToken accessToken = await sqlServerTokenProvider.GetTokenAsync(
     new TokenRequestContext(scopes: new string[]
     {
-        "https://ossrdbms-aad.database.windows.net/.default"
+        "https://server-name.database.windows.net/.default"
     }));
 
 // Combine the token with the connection string from the environment variables provided by Service Connector.
@@ -102,7 +102,7 @@ For more information, see the following resources:
     # cred = ManagedIdentityCredential(client_id=managed_identity_client_id)   
     
     # Acquire the access token
-    accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
+    accessToken = cred.get_token('https://server-name.database.windows.net/.default')
     
     # Combine the token with the connection string from the environment variables added by Service Connector to establish the connection.
     conn_string = os.getenv('AZURE_POSTGRESQL_CONNECTIONSTRING')
@@ -135,7 +135,7 @@ For more information, see the following resources:
     // });
 
     // Acquire the access token.
-    var accessToken = await credential.getToken('https://ossrdbms-aad.database.windows.net/.default');
+    var accessToken = await credential.getToken('https://server-name.database.windows.net/.default');
     
     // Use the token and the connection information from the environment variables added by Service Connector to establish the connection.
     (async () => {

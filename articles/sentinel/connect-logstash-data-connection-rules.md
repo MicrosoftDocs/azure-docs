@@ -34,7 +34,7 @@ To learn more about working with the Logstash data collection engine, see [Getti
 
 :::image type="content" source="./media/connect-logstash-data-collection-rules/logstash-data-collection-rule-architecture.png" alt-text="Diagram of the Logstash architecture." border="false" lightbox="./media/connect-logstash-data-collection-rules/logstash-data-collection-rule-architecture.png":::
 
-The Logstash engine is comprised of three components:
+The Logstash engine is composed of three components:
 
 - Input plugins: Customized collection of data from various sources.
 - Filter plugins: Manipulation and normalization of data according to specified criteria.
@@ -214,7 +214,6 @@ To ingest the data to a custom table, follow these steps (based on the [Send dat
 
 1. Review the [prerequisites](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#prerequisites).
 1. [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application).
-1. [Create a data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-data-collection-endpoint).
 1. [Add a custom log table](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-new-table-in-log-analytics-workspace). 
 1. [Parse and filter sample data](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#parse-and-filter-sample-data) using [the sample file you created in the previous section](#create-a-sample-file).
 1. [Collect information from the DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-the-dcr).
@@ -234,7 +233,6 @@ To ingest the data to a standard table like Syslog or CommonSecurityLog, you use
     
     Skip the Create new table in Log Analytics workspace step. This step isn't relevant when ingesting data into a standard table, because the table is already defined in Log Analytics.
 
-1. [Create data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-api.md#create-data-collection-endpoint).
 1. [Create the DCR](../azure-monitor/logs/tutorial-logs-ingestion-api.md#create-data-collection-rule). In this step: 
     - Provide [the sample file you created in the previous section](#create-a-sample-file). 
     - Use the sample file you created to define the `streamDeclarations` property. Each of the fields in the sample file should have a corresponding column with the same name and the appropriate type (see the [example](#example-dcr-that-ingests-data-into-the-syslog-table) below). 
@@ -288,12 +286,6 @@ Note that:
 			"metadata": {
 				"description": "Specifies the Azure resource ID of the Log Analytics workspace to use."
 			}
-		},
-		"endpointResourceId": {
-			"type": "String",
-			"metadata": {
-				"description": "Specifies the Azure resource ID of the Data Collection Endpoint to use."
-			}
 		}
 	},
 	"resources": [
@@ -303,7 +295,6 @@ Note that:
 			"name": "[parameters('dataCollectionRuleName')]",
 			"location": "[parameters('location')]",
 			"properties": {
-				"dataCollectionEndpointId": "[parameters('endpointResourceId')]",
 				"streamDeclarations": {
 					"Custom-SyslogStream": {
 						"columns": [
@@ -409,7 +400,7 @@ output {
       client_app_Id => "<enter your client_app_id value here>"
       client_app_secret => "<enter your client_app_secret value here>"
       tenant_id => "<enter your tenant id here> "
-      data_collection_endpoint => "<enter your DCE logsIngestion URI here> "
+      data_collection_endpoint => "<enter your logsIngestion URI here> "
       dcr_immutable_id => "<enter your DCR immutableId here> "
       dcr_stream_name => "<enter your stream name here> "
       create_sample_file=> false

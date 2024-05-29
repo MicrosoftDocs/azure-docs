@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 05/08/2024
+ms.date: 05/09/2024
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
@@ -12,16 +12,16 @@ ms.custom: has-adal-ref, devx-track-azurepowershell
  This article describes runbook issues that might occur and how to resolve them. For general information, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
 
 
-## New functions added to custom module and reimported aren't displaying in textual and graphical PowerShell runbooks
+## It is no longer possible to use cmdlets from imported non-default modules in graphical PowerShell runbooks
 
 ### Issue
-After you add new functions to a custom module and reimport the module, the functions aren't getting displayed in textual and graphical PowerShell runbooks.
+When you import a PowerShell module you will not be able to use its cmdlets in graphical PowerShell runbooks.
 
 ### Cause
-To improve the security posture of PowerShell runbooks, the service no longer installs PowerShell modules due to which functions aren't displayed on runbook edit page in textual and graphical PowerShell runbooks.
+To improve the security posture of PowerShell runbooks, the service no longer processes the module manifest file to export the cmdlets and functions. This means that they cannot be used when authoring graphical PowerShell runbooks.
 
 ### Resolution
-There is no impact on execution of existing runbooks. Use Azure automation extension for VScode for authoring and editing PowerShell runbooks, that leverages GitHub Copilot to simplify runbook authoring experience. We recommend to use textual runbooks instead of graphical PowerShell runbooks to overcome this issue. 
+There is no impact on the execution of existing runbooks. For new runbooks using non-default PowerShell modules we recommend using textual runbooks instead of graphical PowerShell runbooks to overcome this issue. You can use the Azure Automation extension for VScode for authoring and editing PowerShell runbooks, that leverages GitHub Copilot to simplify the runbook authoring experience. 
 
 
 ## Start-AzAutomationRunbook fails with "runbookName does not match expected pattern" error message

@@ -14,6 +14,7 @@ ms.custom:
   - build-2023
   - devx-track-azurecli
   - ignite-2023
+  - build-2024
 ---
 
 # Workspace Managed Virtual Network Isolation
@@ -99,8 +100,6 @@ Before following the steps in this article, make sure you have the following pre
 * The CLI examples in this article assume that you're using the Bash (or compatible) shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
 
 * The Azure CLI examples in this article use `ws` to represent the name of the workspace, and `rg` to represent the name of the resource group. Change these values as needed when using the commands with your Azure subscription.
-
-* With Azure CLI and managed VNet, SSH using public IP works, but SSH using private IP doesn't work. 
 
 # [Python SDK](#tab/python)
 
@@ -979,7 +978,7 @@ __Outbound__ service tag rules:
 * `AzureMachineLearning`
 * `BatchNodeManagement.region`
 * `AzureResourceManager`
-* `AzureFrontDoor`
+* `AzureFrontDoor.FirstParty`
 * `MicrosoftContainerRegistry`
 * `AzureMonitor`
 
@@ -1056,6 +1055,9 @@ If you want to enable access from specific IP addresses, use the following actio
 1. Enable public network access to the workspace. For more information, see [public network access enabled](how-to-configure-private-link.md#enable-public-access).
 1. Add your IP addresses to the firewall for Azure Machine Learning. For more information, see [enable access only from IP ranges](how-to-configure-private-link.md#enable-public-access-only-from-internet-ip-ranges-preview).
 
+    > [!NOTE]
+    > Only IPv4 addresses are supported.
+
 ## Private endpoints
 
 Private endpoints are currently supported for the following Azure services:
@@ -1074,7 +1076,7 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Redis Cache
 * Azure Databricks
 * Azure Database for MariaDB
-* Azure Database for PostgreSQL
+* Azure Database for PostgreSQL Single Server
 * Azure Database for MySQL
 * Azure SQL Managed Instance
 * Azure API Management
@@ -1105,6 +1107,7 @@ The Azure Machine Learning managed VNet feature is free. However, you're charged
 * Creating a compute cluster in a different region than the workspace isn't supported when using a managed VNet.
 * Kubernetes and attached VMs aren't supported in an Azure Machine Learning managed VNet.
 * Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
+* If your compute instance is in a managed network and is configured for no public IP, use the `az ml compute connect-ssh` command to connect to it using SSH.
 
 ### Migration of compute resources
 
