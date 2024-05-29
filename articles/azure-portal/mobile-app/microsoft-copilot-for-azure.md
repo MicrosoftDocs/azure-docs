@@ -9,7 +9,7 @@ ms.custom:
 
 # Use Microsoft Copilot in Azure with the Azure mobile app
 
-[Microsoft Copilot in Azure (/azure/copilot/overview) is an AI-powered tool that lets you do more with Azure. Copilot uses Large Language Models (LLMs) and insights about your Azure environment to help you work more efficiently. You can use the Azure mobile app to access Copilot in Azure (preview) and benefit from its features.
+[Microsoft Copilot in Azure](/azure/copilot/overview) is an AI-powered tool that lets you do more with Azure. Copilot uses Large Language Models (LLMs) and insights about your Azure environment to help you work more efficiently. You can use the Azure mobile app to access Copilot in Azure (preview) and benefit from its features.
 
 With Copilot in Azure, you can explore the range of services and resources that Azure offers and find the best ones for your needs. You can ask questions in natural language and get personalized information based on your own Azure resources and environment. Copilot in Azure can also help you achieve your goals by generating code snippets and suggestions.
 
@@ -25,7 +25,7 @@ In the Azure Mobile app, you can find the **Copilot** icon on the top right of y
 
 To start a conversation with Copilot in Azure, just type or speak your query or command in natural language. You can also use the provided prompts that appear above the keyboard in the mobile app. These prompts are based on common tasks and your Azure environment. Copilot in Azure responds with relevant information, code snippets, or suggestions that you can utilize to monitor and manage your resources. When needed, it prompts you to provide more information or select a specific resource.
 
-For tips on how to create prompts that provide the most helpful responses, see [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts)
+For tips on how to create prompts that provide the most helpful responses, see [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts).
 
 To provide feedback on any response, select the thumbs up/down icon. This feedback helps us improve Copilot and make it more useful for you.  
 
