@@ -74,6 +74,16 @@ Link connectivity monitoring for High Availability now accommodates paired peer 
 
 For more information on configuration of dual-routers, see [Create a site](create-a-site.md) or [Modify a site](modify-packet-core.md).
 
+### RAN insights preview
+
+We’re excited to announce that radio access network (RAN) insights is now in preview for AP5GC. This feature integrates third-party data from RAN vendors, collecting and displaying a subset of metrics from your Element Management Systems (EMS) as standard metrics in Azure. By leveraging Azure's capabilities, this integration offers a unified and simplified experience for monitoring and troubleshooting RAN across multiple vendors and locations. With RAN insights you will now be able to:
+
+- View the metrics of your RAN to monitor their deployment’s performance, reliability, and connection status.
+- Access geo maps for a visual overview of all connected access points along with health status and performance metrics of each radio.
+- Use correlated metrics of your RAN and packet core to help diagnose and troubleshoot issues.
+
+To learn more and get started, see [RAN Insights Concepts](ran-insights-concepts.md) and [Create a Radio Access Network Insights Resource](ran-insights-create-resource.md).
+
 ## April 2024
 ### Packet core 2403
 
