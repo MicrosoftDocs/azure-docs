@@ -58,7 +58,11 @@ The following screenshot shows a completely mapped stage:
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows process designer, Create ticket stage, and business properties mapped to Standard logic app workflow action and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions-complete.png":::
 
-After you finish your mappings and save your business process, you can deploy the business process as a separate Azure resource along with an individual tracking profile that is added to your deployed resources. When the associated workflows run in the deployed logic apps, these workflows populate the business property values that you specified. You can then review these values by finding the recorded transactions and their details:
+After you finish your mappings and save your business process, you can deploy the business process as a separate Azure resource along with an individual tracking profile that is added to your deployed resources. When the associated workflows run in the deployed logic apps, these workflows populate the business property values that you specified. You can then review each recorded transaction plus the business process status for each stage in that transaction:
+
+:::image type="content" source="media/deploy-business-process/process-status.png" alt-text="Screenshot shows Transactions page and status for entire business process." lightbox="media/deploy-business-process/process-status.png":::
+
+You can also review the recorded business property values for each stage in a transaction:
 
 :::image type="content" source="media/deploy-business-process/transaction-details.png" alt-text="Screenshot shows the details for a specific transaction in a business process." lightbox="media/deploy-business-process/transaction-details.png":::
 
