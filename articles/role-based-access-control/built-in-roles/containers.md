@@ -1895,7 +1895,7 @@ Allows read/write access to most objects in a namespace. This role does not allo
 
 ## Azure Kubernetes Service Arc Cluster Admin Role
 
-List cluster admin credential action
+Lists cluster admin credential actions.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1940,7 +1940,7 @@ List cluster admin credential action
 
 ## Azure Kubernetes Service Arc Cluster User Role
 
-List cluster user credential action.
+Lists cluster user credential actions.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1985,7 +1985,7 @@ List cluster user credential action.
 
 ## Azure Kubernetes Service Arc Contributor Role
 
-Grants access to read and write Azure Kubernetes Services Arc clusters
+Grants access to read and write Azure Kubernetes Services Arc clusters.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
