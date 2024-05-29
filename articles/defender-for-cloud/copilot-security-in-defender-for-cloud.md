@@ -36,6 +36,12 @@ Copilot is also available within recommendations and give you the ability to sum
 
 By selecting summarize with Copilot, you are presented a quick summary of the recommendation in natural language. You can then use Copilot to learn more about the recommendation or remediate it using common language.
 
+## Monitor your usage
+
+Copilot for Security comes with a usage limit. When the usage in your organization is nearing its limit, you are notified of it when you submit a prompt. To avoid a disruption of service, you can contact the Azure capacity owner or contributor to increase the security compute units or limit the number of prompts.
+
+Learn more about [usage limits](/copilot/security/manage-usage). 
+
 ## Related content
 
 - [Analyze recommendations with Copilot for Security](analyze-with-copilot.md)
