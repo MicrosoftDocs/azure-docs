@@ -112,4 +112,4 @@ To grant permission on the key vault that you created in [step 4](create-key-vau
 
 ## Next steps
 
-- [Create a gMSA account](create-gmsa-account.md)
+- [Create a gMSA account](create-group-managed-service-account.md)
