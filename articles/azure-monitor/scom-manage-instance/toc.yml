@@ -29,23 +29,23 @@
     - name: Step 2. Create separate subnet in a VNet
       href: create-separate-subnet-in-vnet.md
     - name: Step 3. Create a SQL MI
-      href: create-sql-managed-instance.md
+      herf: create-sql-managed-instance.md
     - name: Step 4. Create a Key vault
       href: create-key-vault.md
     - name: Step 5. Create a user assigned identity
       href: create-user-assigned-identity.md
     - name: Step 6. Create a computer group and gMSA account
-      href: create-group-managed-service-account.md
+      href: create-gmsa-account.md
     - name: Step 7. Store domain credentials in Key vault
-      href: store-domain-credentials-key-vault.md
+      href: store-domain-credentials-in-key-vault.md
     - name: Step 8. Create a static IP
       href: create-static-ip.md
     - name: Step 9. Configure the network firewall
       href: configure-network-firewall.md
     - name: Step 10. Verify Azure and internal GPO policies
-      href: verify-azure-internal-group-policy-object-policies.md
+      href: verify-azure-and-internal-gpo-policies.md
     - name: Step 11. SCOM Managed Instance self-verification of steps
-      href: self-verification-steps.md
+      href: self-verification-of-steps.md
     - name: Step 12. Create a SCOM Managed Instance
       href: create-operations-manager-managed-instance.md
   - name: Post Deployment
@@ -57,7 +57,7 @@
     - name: Patch SCOM Managed Instance
       href: patch-scom-managed-instance.md
     - name: Report using Power BI
-      href: create-reports-power-bi.md
+      href: create-reports-on-power-bi.md
     - name: Dashboards on Azure Managed Grafana
       href: dashboards-on-azure-managed-grafana.md
     - name: Query SCOM Managed Instance data on Azure Managed Grafana

@@ -191,4 +191,4 @@ SELECT PD.TimeSampled
 
 ## Next steps
 
-[Patch Azure Monitor SCOM Managed Instance](patch-scom-managed-instance.md)
+[Troubleshoot issues with Azure Monitor SCOM Managed Instance](troubleshoot-scom-managed-instance.md).

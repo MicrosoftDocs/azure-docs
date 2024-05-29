@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Create a static IP for Azure Monitor SCOM Managed Instance
 
-This article describes how to create a static IP for a load balancer in a dedicated subnet of Azure Monitor SCOM Managed Instance. Additionally, insert an entry into the Domain Name System (DNS) server, and ensure that the DNS name resolves to the DNS name (`DNSHostName`) of the group managed service account (gMSA). Get the DNS host name of the gMSA account from [step 6](create-group-managed-service-account.md).
+This article describes how to create a static IP for a load balancer in a dedicated subnet of Azure Monitor SCOM Managed Instance. Additionally, insert an entry into the Domain Name System (DNS) server, and ensure that the DNS name resolves to the DNS name (`DNSHostName`) of the group managed service account (gMSA). Get the DNS host name of the gMSA account from [step 6](create-gmsa-account.md).
 
 >[!NOTE]
 > To learn about the SCOM Managed Instance architecture, see [Azure Monitor SCOM Managed Instance](overview.md).
@@ -38,7 +38,7 @@ Create the forward lookup entry in DNS by creating an association between the IP
 :::image type="DNS manager" source="media/create-static-ip/dns-manager.png" alt-text="Screenshot that shows host information in DNS Manager.":::
 
 > [!IMPORTANT]
-> To minimize the need for extensive communication with both your Active Directory admin and the network admin, see [Self-verification](self-verification-steps.md). The article outlines the procedures that the Active Directory admin and the network admin use to validate their configuration changes and ensure their successful implementation. This process reduces unnecessary back-and-forth interactions from the Operations Manager admin to the Active Directory admin and the network admin. This configuration saves time for the admins.
+> To minimize the need for extensive communication with both your Active Directory admin and the network admin, see [Self-verification](self-verification-of-steps.md). The article outlines the procedures that the Active Directory admin and the network admin use to validate their configuration changes and ensure their successful implementation. This process reduces unnecessary back-and-forth interactions from the Operations Manager admin to the Active Directory admin and the network admin. This configuration saves time for the admins.
 
 ## Next steps
 

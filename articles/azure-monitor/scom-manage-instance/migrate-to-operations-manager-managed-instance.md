@@ -17,7 +17,7 @@ This quickstart provides the process of migration from Operations Manager on-pre
 
 ## Prerequisites
 
-1. Verify that your current Operations Manager agent version is supported to be multi-homed with SCOM Managed Instance.  
+1. Verify that your current Operations Manager agent version is supported to multi-homed with SCOM Managed Instance.  
 
     >[!Note]
     >Agent versions 2022 and 2019 are supported.
@@ -219,3 +219,7 @@ To migrate from System Center Operations Manager agent to SCOM Managed Instance,
 - Agent mapping and configuration
 - Gateways 
 - Custom and 3P Solutions 
+
+## Next steps
+
+[Create a SCOM Managed Instance on Azure](create-operations-manager-managed-instance.md).

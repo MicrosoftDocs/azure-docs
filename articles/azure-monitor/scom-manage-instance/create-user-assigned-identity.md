@@ -109,3 +109,7 @@ To grant permission on the key vault that you created in [step 4](create-key-vau
     :::image type="Principal tab" source="media/create-user-assigned-identity/principal.png" alt-text="Screenshot that shows the Principal tab.":::
 
 1. Select **Next** > **Create**.
+
+## Next steps
+
+- [Create a gMSA account](create-gmsa-account.md)
