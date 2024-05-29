@@ -9,7 +9,7 @@ ms.author: samurp
 ### Create a Python Script
 
 This script provides helper functions for applications utilizing Azure Relay Hybrid Connections. 
-These functions likely assist with tasks like generating SAS tokens and establishing Websocket 
+These functions likely assist with tasks like generating SAS tokens and establishing WebSocket 
 connections for secure communication.
 
 ### Dependencies

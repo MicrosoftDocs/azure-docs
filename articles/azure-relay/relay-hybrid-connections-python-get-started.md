@@ -38,13 +38,13 @@ In this quickstart, you take the following steps:
 ## Create a server application (listener)
 To listen and receive messages from the Relay, write a Python WebSocket Server script.
 
-[!INCLUDE [relay-hybrid-connections-Python-get-started-server](./includes/relay-hybrid-connections-websocket-requests-Python-get-started-server.md)]
+[!INCLUDE [relay-hybrid-connections-python-get-started-server](./includes/relay-hybrid-connections-websocket-requests-python-get-started-server.md)]
 
 ## Create a client application (sender)
 
 To send messages to the Relay, you can use any HTTP or WebSocket client, the sample included is a python implementation.
 
-[!INCLUDE [relay-hybrid-connections-Python-get-started-client](./includes/relay-hybrid-connections-websocket-requests-Python-get-started-client.md)]
+[!INCLUDE [relay-hybrid-connections-python-get-started-client](./includes/relay-hybrid-connections-websocket-requests-python-get-started-client.md)]
 
 ## Run the applications
 
