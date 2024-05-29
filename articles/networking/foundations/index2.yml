@@ -20,7 +20,7 @@ sections:
     summary: "Azure network foundation services provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS." 
     image:
       componentType: image
-      src: ./media/image.png 
+      src: ./media/picture1.png 
 #    heroImage:
 #     componentType: hero-image
 #     lightImageSrc: ./media/image.png
