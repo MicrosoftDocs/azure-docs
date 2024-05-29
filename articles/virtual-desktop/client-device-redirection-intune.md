@@ -29,17 +29,17 @@ These features enable you to achieve the following scenarios:
 If the redirection settings on a client device conflict with the host pool RDP properties and session host for Azure Virtual Desktop, or Cloud PC for Windows 365, the more restrictive setting between the two takes effect. For example, if the session host disallows drive redirection and the client device allowing drive redirection, drive redirection is disallowed. If the redirection settings on session host and client device are both the same, the redirection behavior is consistent.
 
 > [!IMPORTANT]
-> Configuring redirection settings on a client device isn't a substitute for correctly configuring your host pools and session hosts based on your requirements. Using Microsoft Intune to configure Windows App and the Remote Desktop app might not be suitable workloads requiring a higher level of security. 
+> Configuring redirection settings on a client device isn't a substitute for correctly configuring your host pools and session hosts based on your requirements. Using Microsoft Intune to configure Windows App and the Remote Desktop app might not be suitable for workloads requiring a higher level of security. 
 > 
 > Workloads with higher security requirements should continue to set redirection at the host pool or session host, where all users of the host pool would have the same redirection configuration. A Data Loss Protection (DLP) solution is recommended and redirection should be disabled on session hosts whenever possible to minimize the opportunities for data loss. 
 
 At a high-level, there are three areas to configure:
 
-1. **Intune app configuration policies**: used to manage redirection settings for Windows App and the Remote Desktop app on a client device. There are two types of app configuration policies; a managed apps policy is used to manage settings for an application, whether the client device is enrolled or unenrolled, and a managed devices policy is used in addition to manage settings on an enrolled device. Use filters to target users based on specific criteria.
+- **Intune app configuration policies**: used to manage redirection settings for Windows App and the Remote Desktop app on a client device. There are two types of app configuration policies; a managed apps policy is used to manage settings for an application, whether the client device is enrolled or unenrolled, and a managed devices policy is used in addition to manage settings on an enrolled device. Use filters to target users based on specific criteria.
 
-1. **Intune app protection policies**: used to specify security requirements that must be met by the application and the client device. Use filters to target users based on specific criteria.
+- **Intune app protection policies**: used to specify security requirements that must be met by the application and the client device. Use filters to target users based on specific criteria.
 
-1. **Conditional Access policies**: used to control access to Azure Virtual Desktop and Windows 365 based only if the criteria set in app configuration policies and app protection policies are met.
+- **Conditional Access policies**: used to control access to Azure Virtual Desktop and Windows 365 based only if the criteria set in app configuration policies and app protection policies are met.
 
 ## Supported platforms and enrollment types
 
