@@ -42,23 +42,21 @@ az account set --subscription <subscription-id>
 
 ## Export environment variables
 
-To help simplify steps to configure the identities required, the steps below define environment variables that are referenced in the examples in this article.
+To help simplify steps to configure the identities required, the steps below define environment variables that are referenced in the examples in this article. Remember to replace the values shown with your own values:
 
-* Create these variables using the following commands. Replace the values shown with your own values.
-
-    ```bash
-    export RESOURCE_GROUP="myResourceGroup"
-    export LOCATION="eastus"
-    export CLUSTER_NAME="myAKSCluster"
-    export SERVICE_ACCOUNT_NAMESPACE="default"
-    export SERVICE_ACCOUNT_NAME="workload-identity-sa"
-    export SUBSCRIPTION="$(az account show --query id --output tsv)"
-    export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-    export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity"
-    # Include these variables to access key vault secrets from a pod in the cluster.
-    export KEYVAULT_NAME="keyvault-workload-id"
-    export KEYVAULT_SECRET_NAME="my-secret"
-    ```
+  ```bash
+  export RESOURCE_GROUP="myResourceGroup"
+  export LOCATION="eastus"
+  export CLUSTER_NAME="myAKSCluster"
+  export SERVICE_ACCOUNT_NAMESPACE="default"
+  export SERVICE_ACCOUNT_NAME="workload-identity-sa"
+  export SUBSCRIPTION="$(az account show --query id --output tsv)"
+  export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
+  export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity"
+  # Include these variables to access key vault secrets from a pod in the cluster.
+  export KEYVAULT_NAME="keyvault-workload-id"
+  export KEYVAULT_SECRET_NAME="my-secret"
+  ```
 
 ## Create a resource group
 
@@ -203,7 +201,7 @@ az identity federated-credential create \
 
 ## Deploy your application
 
-When you deploy your application pods, the manifest should reference the service account created in the **Create Kubernetes service account** step. The following manifest shows how to reference the account, specifically _metadata\namespace_ and _spec\serviceAccountName_ properties. Make sure to specify an image for `<image>` and a container name for `<containerName>`:
+When you deploy your application pods, the manifest should reference the service account created in the **Create Kubernetes service account** step. The following manifest shows how to reference the account, specifically the _metadata\namespace_ and _spec\serviceAccountName_ properties. Make sure to specify an image for `<image>` and a container name for `<containerName>`:
 
 ```yml
 cat <<EOF | kubectl apply -f -
@@ -247,6 +245,7 @@ The following example shows how to use the Azure role-based access control (Azur
 
 1. Assign yourself the RBAC [Key Vault Secrets Officer](../role-based-access-control/built-in-roles/security.md#key-vault-secrets-officer) role so that you can create a secret in the new key vault:
 
+    ```azurecli-interactive
     export KEYVAULT_RESOURCE_ID=$(az keyvault show --resource-group "${KEYVAULT_RESOURCE_GROUP}" \
         --name "${KEYVAULT_NAME}" \
         --query id \
@@ -255,6 +254,7 @@ The following example shows how to use the Azure role-based access control (Azur
     az role assignment create --assignee "\<user-email\>" \
         --role "Key Vault Secrets Officer" \
         --scope "${KEYVAULT_RESOURCE_ID}"
+    ```
 
 1. Create a secret in the key vault:
 
@@ -267,7 +267,7 @@ The following example shows how to use the Azure role-based access control (Azur
         --value "Hello\!"
     ```
 
-1. Assign the [Key Vault Secrets User](../role-based-access-control/built-in-roles/security.md#key-vault-secrets-user) role to the user-assigned managed identity that you created previously. This step gives the managed identity the ability to read secrets from the key vault.
+1. Assign the [Key Vault Secrets User](../role-based-access-control/built-in-roles/security.md#key-vault-secrets-user) role to the user-assigned managed identity that you created previously. This step gives the managed identity permission to read secrets from the key vault:
 
     ```azurecli-interactive
     export IDENTITY_PRINCIPAL_ID=$(az identity show \
@@ -283,7 +283,7 @@ The following example shows how to use the Azure role-based access control (Azur
         --assignee-principal-type ServicePrincipal
     ```
 
-1. Export the key vault URL:
+1. Create an environment variable for the key vault URL:
 
     ```azurecli-interactive
     export KEYVAULT_URL="$(az keyvault show \
@@ -293,7 +293,7 @@ The following example shows how to use the Azure role-based access control (Azur
         --output tsv)"
     ```
 
-1. Deploy a pod that references the service account and key vault URL above:
+1. Deploy a pod that references the service account and key vault URL:
 
     ```yml
     cat <<EOF | kubectl apply -f -
