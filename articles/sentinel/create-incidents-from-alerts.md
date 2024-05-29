@@ -4,15 +4,22 @@ description: Learn how to create incidents from alerts in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 11/09/2021
+ms.date: 05/29/2024
 ms.author: yelevin
 ---
 
 # Automatically create incidents from Microsoft security alerts
 
-Alerts triggered in Microsoft security solutions that are connected to Microsoft Sentinel, such as Microsoft Defender for Cloud Apps and Microsoft Defender for Identity, do not automatically create incidents in Microsoft Sentinel. By default, when you connect a Microsoft solution to Microsoft Sentinel, any alert generated in that service will be stored as raw data in Microsoft Sentinel, in the *SecurityAlert* table in your Microsoft Sentinel workspace. You can then use that data like any other raw data you ingest into Microsoft Sentinel.
+Alerts triggered in Microsoft security solutions that are connected to Microsoft Sentinel, such as Microsoft Defender for Cloud Apps and Microsoft Defender for Identity, do not automatically create incidents in Microsoft Sentinel. By default, when you connect a Microsoft solution to Microsoft Sentinel, any alert generated in that service will be ingested and stored in the *SecurityAlert* table in your Microsoft Sentinel workspace. You can then use that data like any other raw data you ingest into Microsoft Sentinel.
 
 You can easily configure Microsoft Sentinel to automatically create incidents every time an alert is triggered in a connected Microsoft security solution, by following the instructions in this article.
+
+> [!IMPORTANT]
+> **This article does not apply** if you have:
+> - Enabled [**Microsoft Defender XDR incident integration**](microsoft-365-defender-sentinel-integration.md), or 
+> - Onboarded Microsoft Sentinel to the [**unified security operations platform**](microsoft-sentinel-defender-portal.md).
+>
+> In these scenarios, Microsoft Defender XDR creates incidents from alerts generated in Microsoft services.
 
 ## Prerequisites
 
