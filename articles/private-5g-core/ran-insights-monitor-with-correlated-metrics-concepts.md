@@ -1,5 +1,5 @@
 ---
-title: Monitor with correlated metrics in Azure Portal
+title: Monitor with correlated metrics in Azure portal
 description: Learn about correlated metrics between 1P and 3P data  
 author: delnas
 ms.author: delnas
@@ -13,14 +13,14 @@ ms.date: 5/28/2024
 --------------------------------------------------------------------
 Correlated metrics display a graphical view of correlated RAN and core metrics to help troubleshoot issues. You can use these metrics to help draw conclusions about the cause of issues and set alerts if the difference between two metrics exceeds a certain threshold for a prolonged period.
 
-These metrics are available at your Site Resource under the **Metrics** page. Once you have [set up](ran-insights-create-resource.md) your radio access network (RAN) insights resource, these metrics will automatically be populated with information, no additional configuration is needed. 
+These metrics are available at your Site Resource under the **Metrics** page. Once you have [set up](ran-insights-create-resource.md) your radio access network (RAN) insights resource, these metrics will automatically be populated with information, no other configuration is needed. 
 
-## Visualize correlated metrics using the Azure Portal 
-Each correlated metric compares the values of two metrics, one from the RAN and one from the packet core. In normal operation the two values should be in the same range. You can use alerts to notify you if the correlation value drops below or above a certain range. For example, you may want an alert if it falls below the lower threshold of 80% and above the higher threshold of 120%. 
+## Visualize correlated metrics using the Azure portal 
+Each correlated metric compares the values of two metrics, one from the RAN and one from the packet core. In normal operation the two values should be in the same range. You can use alerts to notify you if the correlation value drops below or above a certain range. For example, you might want an alert if it falls below the lower threshold of 80% and above the higher threshold of 120%. 
 
   :::image type="content" source="media/ran-insights/RAN-insights-correlated-metrics.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
 
-Correlated metrics are available for monitoring and retrieval for up to 30 days. Please note that the EMS may provide metrics at intervals up to 15 minutes apart. For an optimal experience, please adjust the plotting rate to match the value recommended by the EMS provider. For instance, if your RAN provider emits metrics every 5 minutes, it's advisable to set the **Time granularity** to 5 minutes accordingly.
+Correlated metrics are available for monitoring and retrieval for up to 30 days. Note that the EMS might provide metrics at intervals up to 15 minutes apart. For an optimal experience, please adjust the plotting rate to match the value recommended by the EMS provider. For instance, if your RAN provider emits metrics every 5 minutes, it's advisable to set the **Time granularity** to 5 minutes accordingly.
 
 
 
@@ -30,7 +30,7 @@ Correlated metrics are collected per site resource and aggregated across all acc
 
 | Metric Name | Definition | Interpretation |
 |-------------|----------------|---------| 
-| Correlated Uplink Volume 	| Correlates successful RAN transmitted Volume and packet core received volume on N3 interface	| •	If the correlation value of uplink volume is less than the chosen lower threshold value then there may be an issue coming in the packet core | 
+| Correlated Uplink Volume 	| Correlates successful RAN transmitted Volume and packet core received volume on N3 interface	| •	If the correlation value of uplink volume is less than the chosen lower threshold value, then there may be an issue coming in the packet core | 
 | Correlated Successful Established Radio Connections	| Correlates successful RAN radio connections established and packet core initial UE message | 	•	If the correlation value of successful established radio connections is less than lower threshold value, then there may be an issue coming from the packet core | 
 | Correlated Successful Handovers | 	Correlates successful RAN connection handovers and packet core handovers	| •	If the correlation value of successful handovers is less than the lower threshold value, then there may be coverage gaps coming from the packet core <br>•	If the correlation value of successful handovers is greater than the higher threshold value, then there may be coverage gaps and potential RF optimization required | 
 | Correlated Downlink Volume | 	Correlates successful RAN Received Volume and packet core transmitted volume on N3 interface| 	•	If the correlation value of downlink volume is greater than higher threshold value then, there may be an issue coming from the RAN |
