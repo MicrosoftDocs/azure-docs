@@ -19,7 +19,7 @@ To add business context around the Azure resources in an integration solution, y
 
 When you add a stage to your business process, you can also define other business properties to capture and track as that data moves through each stage. You can then later map the transaction ID and other properties to specific operations and data outputs in Standard logic app workflows. For more information, see [What is Business Process Tracking](overview.md)?
 
-For example, suppose you're a business analyst at a power company. Your company's customer service team has the following business process to resolve a customer ticket for a power outage:
+For example, suppose you're a developer or business analyst at a power company. Your company's customer service team has the following business process to resolve a customer ticket for a power outage:
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
@@ -87,11 +87,11 @@ After you define a business process, you can then map each stage to actual Azure
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar business identifier that's available across all stages in your business process. <br><br>This example uses the transaction ID named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing. <br><br>**Note**: Business Process Tracking automatically includes and captures the transaction timestamp, so you don't have to separately add this value to capture and track. Although you can define only a single transaction ID when you create a business process, you can later define other business properties in each stage to capture and track. |
-   | **Data type** | Yes | <*transacton-ID-data-type*> | The data type for your transaction ID: **String** or **Integer**. <br><br>This example uses the **String** data type. |
+   | **Data type** | Yes | <*transacton-ID-data-type*> | The data type for your transaction ID: **String** or **Integer**. <br><br>This example uses the **Integer** data type. |
 
    The following example shows the sample transaction ID:
 
-   :::image type="content" source="media/create-business-process/define-transaction-id.png" alt-text="Screenshot shows page for Create business process page with Transaction Id tab selected." lightbox="media/create-business-process/define-transaction-id.png":::
+   :::image type="content" source="media/create-business-process/define-transaction-id.png" alt-text="Screenshot shows page for Create business process page with Transaction ID tab selected." lightbox="media/create-business-process/define-transaction-id.png":::
 
 1. When you're done, select **Next: Data storage**. On the **Data storage** tab, provide the following information:
 

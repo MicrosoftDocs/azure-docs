@@ -1,11 +1,11 @@
 ---
-title: Overview
-description: Model and map business processes to Azure resources. Collect business data from deployed solutions.
+title: Overview about business processes
+description: Learn why modeling and mapping business processes help add business context to Azure resources in your integration solution.
 ms.service: logic-apps
 ms.topic: overview
 ms.reviewer: estfan, azla
 ms.date: 06/07/2024
-# CustomerIntent: As a business analyst or business SME with a solution that has multiple or different Azure resources that integrate various services and systems, I want a way to visualize my organization's business processes and map them to the actual resources that implement those use cases. For our business, I also want to capture key business data that moves through these resources to gain better insight about how our solutions perform.
+# CustomerIntent: As a developer or business analyst with a solution that has multiple or different Azure resources that integrate various services and systems, I want a way to visualize my organization's business processes and map them to the actual Azure resources that implement those use cases. For our business, I also want to capture key business data that moves through these resources to gain better insight about how our solutions perform.
 ---
 
 # What is Business Process Tracking? (preview)
@@ -15,71 +15,50 @@ ms.date: 06/07/2024
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-As a business analyst, you can include business information about Azure resources in your integration solution by creating flow charts that show the business processes and stages implemented by the Azure resources. For each business process, you provide a business identifier, such as an order number, case number, or ticket number, for a transaction that's available across all the business stages to correlate these stages together. To get insights about business data flowing through each stage in a business process, you define the key business properties to capture and track in deployed resources. You then map each business stage, the specified business properties, and the business identifier to actual Azure resources and data sources.
+As a developer or business analyst working on solutions that integrate services and systems using various Azure resources, you might have difficulties visualizing the relationship between the technical components in your solution and your business scenario. To include business context about the Azure resources in your solution, you can build business processes that visually represent the business logic implemented by these resources. A business process is a series of stages that represent the tasks that flow through a real-world business scenario.
 
-The following diagram shows how you can represent a real-world business flow as a business process in an application group, and map each stage in the business process to the Azure resources in the same application group:
-
-:::image type="content" source="media/overview/business-process.png" alt-text="Conceptual diagram that shows a real-world business flow visualized as a business process that maps to Azure resources in an application group." lightbox="media/overview/business-process.png":::
-
-<a name="business-process-design-tracking"></a>
-
-## Business process design and tracking
-
-> [!NOTE]
->
-> In this release, business process tracking is available only for 
-> Standard logic app resources and their workflows in Azure Logic Apps.
-
-After you create an integration environment and at least one application group, you or a business analyst can use the process designer to create flow charts that visually describe the business processes implemented by the Azure resources in an application group. A business process is a sequence of stages that show the flow through a real-world business scenario. This business process also specifies a single business identifer, such as an order number, ticket number, or case number, to identify a transaction that's available across all the stages in the business process and to correlate those stages together.
-
-To evaluate how key business data moves through deployed resources and to capture and return that data from these resources, you can define the key business properties to track in each business process stage. You can then map each stage, business properties, and the business identifier to actual Azure resources and data sources in the same application group.
-
-When you're done, you deploy each business process as a separate Azure resource along with an individual tracking profile that Azure adds to the deployed resources. That way, you can decouple the business process design from your implementation and don't have to embed any tracking information inside your code, resources, or solution.
-
-Suppose you're a business analyst at a power company, and you work with a developer team that creates solutions to integrate various services and systems used by your organization. Your team is updating a solution for a work order processor service that's implemented by multiple Standard logic apps and their workflows. To resolve a customer ticket for a power outage, the following diagram shows the business flow that the company's customer service team follows:
+For example, suppose you're a developer or business analyst at a power company, and you work on a team that creates integration solutions. Your team is updating a solution for a work order processor service that's implemented by multiple Standard logic apps and their workflows. Your company's customer service team uses the following business process to resolve a customer ticket for a power outage:
 
 :::image type="content" source="media/create-business-process/business-process-stages-example.png" alt-text="Conceptual diagram shows example power outage business process stages for customer service at a power company." lightbox="media/create-business-process/business-process-stages-example.png":::
 
-To organize and manage the deployed Azure resources that are used by the work order processor service, the lead developer on your team creates an integration environment and an application group that includes the resources for the processor service. Now, you can make the relationship more concrete between the processor service implementation and the real-world power outage business flow. The application group provides a process designer for you to create a business process that visualizes the business flow and to map the stages in the process to the resources that implement the work order processor service.
+Architecturally, the following diagram shows how you can represent a business scenario as a business process with multiple stages, which you can map to actual Azure resources in your integration solution:
 
-> [!NOTE]
->
-> When you create a business process, you must specify a business identifer for a transaction 
-> that's available across all the stages in the business process to correlate these stages together. 
-> For example, a business identifier can be an order number, ticket number, case number, and so on.
->
-> :::image type="content" source="media/overview/create-business-process.png" alt-text="Screenshot shows business processes page with opened pane to create a business process with a business identifier." lightbox="media/overview/create-business-process.png":::
+:::image type="content" source="media/overview/business-process.png" alt-text="Conceptual diagram shows relationship between business scenario, business process, and Azure resources." lightbox="media/overview/business-process-stages.png":::
 
-For example, the following business process visualizes the power outage business flow and its stages:
+This capability lets you decouple the business process design from your implementation. You also don't have to embed any tracking information inside your code, resources, or solution.
 
-:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process designer for business process flow chart in an application group." lightbox="media/create-business-process/business-process-stages-complete.png":::
+<a name="business-process-design"></a>
 
-When you create each stage, you specify the key business data property values to capture and track. For example, the **Create_ticket** stage defines the following business property values for tracking in your deployed resources:
+## Business process design and tracking
 
-:::image type="content" source="media/overview/define-business-properties-tracking.png" alt-text="Screenshot shows Edit stage pane with specified business properties to capture and track." lightbox="media/overview/define-business-properties-tracking.png":::
+When you create a **Business Process** resource in Azure, you define a single business identifier or *transaction ID*, such as an order number, case number, or ticket number, to identify a transaction that exists across all business process stages so you can correlate these stages together.
 
-Next, you map each stage to the corresponding operation in a Standard logic app workflow and map the properties to the workflow operation outputs that provide the necessary data. If you're familiar with [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you use a read-only version of the workflow designer to select the operation and the dynamic content tokens that represent the operation outputs that you want.
+:::image type="content" source="media/overview/define-transaction-id.png" alt-text="Screenshot shows Azure portal, the page named Create a business process page, and transaction ID details." lightbox="media/overview/define-transaction-id.png":::
+
+After you create your resource, you can use the process editor to design the stages in your business process, for example:
+
+:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process editor with business process stages." lightbox="media/create-business-process/business-process-stages-complete.png":::
+
+To record business data from each stage as that data flows through deployed Azure resources at run time, you can specify additional key business properties and values to capture. When you create a stage, you specify these business properties. For example, the **Create_ticket** stage defines the following business property values to capture in your deployed resources:
+
+:::image type="content" source="media/overview/define-business-properties.png" alt-text="Screenshot shows Edit stage pane with specified business properties to capture and track." lightbox="media/overview/define-business-properties.png":::
+
+As soon as you finish a stage, you can map the transaction ID and business properties to the corresponding operation that provides the expected outputs in a Standard logic app workflow. If you're familiar with [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you use a read-only version of the workflow designer to select the operation and the dynamic content tokens that represent the operation outputs that you want. This mapping makes a more concrete relationship between the processor service implementation and the real-world power outage business flow.
 
 For example, the following screenshot shows the following items:
 
 - The read-only workflow designer for the Standard logic app resource and workflow in Azure Logic Apps
 - The selected workflow operation named **Send message**
+- The **TicketNumber** transaction ID, which is mapped to an operation output named **TicketNumber** in the workflow
 - The business properties for the **Create_ticket** stage with mappings to selected outputs from operations in the Standard logic app workflow
-- The **TicketNumber** business identifier, which is mapped to an operation output named **TicketNumber** in the workflow
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions.png" alt-text="Screenshot shows read-only property mapper with selected workflow operation and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions.png":::
 
-When you're done, your business process stage and properties are now mapped to the corresponding Standard logic app workflow, operation, and outputs to use as data sources. Now, when your workflows run in the deployed logic apps, the workflows populate the business properties that you specified:
+After you finish your mappings and save your business process, you can deploy that business process as a separate Azure resource along with an individual tracking profile that Azure adds to the deployed resources. When your workflows run in the deployed logic apps, the workflows populate the business properties that you specified.
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows process designer, Create ticket stage, and business properties mapped to Standard logic app workflow action and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions-complete.png":::
 
-To get started after you set up an integration environment and application groups, see [Create business process](create-business-process.md).
-
-## Pricing information
-
-Azure Integration Environments doesn't incur charges during preview. However, when you create an application group, you're required to provide information for an existing or new [Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database). Your application group uses this database to store specific business property values that you want to capture and track for business process tracking scenarios. After you create a business process in your application group, specify the key business properties to capture and track as data moves through deployed resources, map these properties to actual Azure resources, and deploy your business process, you specify a database table to create or use for storing the desired data.
-
-Azure Data Explorer incurs charges, based on the selected pricing option. For more information, see [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
+To help you organize and manage the deployed Azure resources that you use in your solution, you can also create an [integration environment and application groups](../integration-environments/overview.md), which you can then link to existing business processes. To get started, see [Create an integration environment](../integration-environments/create-integration-environment.md).
 
 ## Limitations and known issues
 
@@ -87,7 +66,7 @@ Azure Data Explorer incurs charges, based on the selected pricing option. For mo
 
 - This preview release currently doesn't include application monitoring.
 
-- Stateless workflows in a Standard logic app resource currently aren't supported for business process tracking.
+- Business process mapping and tracking currently supports only Standard logic app resources and stateful workflows in Azure Logic Apps. Stateless workflows currently aren't supported.
 
   If you have business scenarios or use cases that require stateless workflows, use the product feedback link to share these scenarios and use cases. 
 
@@ -95,6 +74,11 @@ Azure Data Explorer incurs charges, based on the selected pricing option. For mo
 
   If you have feedback about workload performance, use the product feedback link to share your input and results from representative loads to help improve this aspect.
 
-## Next steps
+## Pricing information
 
-[Create an integration environment](create-integration-environment.md)
+Business Process Tracking doesn't incur charges during preview. However, when you create a business process, you're required to provide information for an existing or new [Azure Data Explorer cluster, database, and table](/azure/data-explorer/create-cluster-and-database). Your business process uses this database to store transactions and the business property values that you want to record for later evaluation. Azure Data Explorer incurs charges, based on the selected pricing option. For more information, see [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
+
+## Related content
+
+> [!div class="nextstepaction"]
+> [Create a business process](create-business-process.md)
