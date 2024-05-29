@@ -8,7 +8,7 @@ ms.date: 06/07/2024
 # CustomerIntent: As a business analyst or business SME, I want a way to visualize my organization's business processes so I can map them to the actual resources that implement these business use cases and scenarios.
 ---
 
-# Create a business process to add business context to Azure resources (preview)
+# Create a business process to add business context to Azure resources (Preview)
 
 > [!IMPORTANT]
 >
