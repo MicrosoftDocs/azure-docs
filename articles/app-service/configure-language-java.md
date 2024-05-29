@@ -699,7 +699,7 @@ Here's a PowerShell script that completes these steps:
     # Delete previous Tomcat directory if it exists
     # In case previous config isn't completed or a new config should be forcefully installed
     if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
-        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
+        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" -Recurse
     }
 
     # Copy Tomcat to local
