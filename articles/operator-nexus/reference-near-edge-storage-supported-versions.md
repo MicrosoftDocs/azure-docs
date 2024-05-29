@@ -10,7 +10,7 @@ ms.service: azure-operator-nexus
 
 # Supported Storage Software Versions in Azure Operator Nexus
 
-This document provides an overview of the storage appliance software versions supported by Azure Operator Nexus. The document also covers the version support lifecycle and end of life (EOL) for each version of Storage Appliance Software.
+This document provides an overview of the storage appliance software versions supported by Azure Operator Nexus. The document also covers the version support lifecycle and end of life for each version of Storage Appliance Software.
 
 Minor version releases include new features and improvements. Patch releases are made available frequently and are intended for critical bug fixes within a minor version. Patch releases include fixes for security vulnerabilities or major bugs.
 
