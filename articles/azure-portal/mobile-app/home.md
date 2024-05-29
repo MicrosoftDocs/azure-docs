@@ -27,8 +27,6 @@ Current card options include:
 
 :::image type="content" source="media/azure-mobile-app-home-layout.png" alt-text="Screenshot of the Azure mobile app Home screen with several display cards.":::
 
-If available in your tenant, you can also access [Microsoft Copilot in Azure (preview)](microsoft-copilot-in-azure.md) by selecting the **Copilot** icon on the top right of your screen in the navigation bar.
-
 ## Customize Azure mobile app Home
 
 You can customize the cards displayed on your Azure mobile app **Home** by selecting the :::image type="icon" source="media/edit-icon.png" border="false"::: **Edit** icon in the top right of **Home**. From there, you can select which cards you see by toggling the switch. You can also drag and drop the display cards in the list to reorder how they appear on your **Home**.
