@@ -62,8 +62,6 @@ procedureSection:
         Select **Test** to see how the event appears in the S3 bucket. 
 
 relatedContent:
-  - text: View the lambda function source code
-    url: https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLambdaFunction.py
   - text: Get visibility into your data, and potential threats
     url: get-visibility.md
   - text: Detect threats with Microsoft Sentinel
