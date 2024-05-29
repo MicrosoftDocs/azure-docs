@@ -56,8 +56,6 @@ When you see an unfavorable response to a query, it could be the result of diffe
 
 Check if the correct document chunks are present in the retrieved documents. This is straight forward to check using the REST API. In the API response, check the citations in the `tool` message.
 
-TBD -->   _Q: How do we do this with SDK and/or Webapp?_
-
 ### Step 2: Check for Generation issues
 
 If you're seeing the correct document chunks in the retrieved documents, then you're likely encountering a **generation issue**. Consider using a more powerful model. If you aren't, go to [step 3](#step-3-check-the-rest-of-the-funnel).
@@ -65,8 +63,6 @@ If you're seeing the correct document chunks in the retrieved documents, then yo
 1. **Upgrade the model**: For example, if you're using gpt-35-turbo, consider using gpt-4. 
 1. **Switch the model version**: If you're using gpt-35-turbo-1106, consider using gpt-35-turbo-16k (0613).
     1. You can also tune the finer aspects of the response by changing the role information / system message.
-
-TBD -->    __NB: We need some context here - why are certain models better or worse in certain scenarios? What are the tradeoffs in choosing certain models (for example: some are better for vectorization, some cost less to run). We need a whole section advising on model choice. We also need some exemplars of what are good, better, and poor role information statements._
 
 ### Step 3: Check the rest of the funnel
 
@@ -76,11 +72,7 @@ If you aren't seeing the correct document chunks in step 1, then you need to dig
 
 1. It's possible that the correct document chunk wasn't part of the `topNDocuments`. In this case, increase the `topNDocuments` parameter. 
 
-TBD -->    _Q: What are good initial values for `topNDocuments` and what are the tradeoffs involved in increasing the value (token use, time, etc?)_
-
 1. It's possible that your index fields are not correctly mapped, meaning retrieval might not work well. This is particularly relevant if you're using a pre-existing data source (you did not create the index using the Studio or offline scripts available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts). For more information on mapping index fields, see the [how-to article](../concepts/use-your-data.md?tabs=ai-search#index-field-mapping). 
-
-TBD -->   _NB: This is the first time index fields are mentioned. What are they and how/why would I want to optimize them?_
 
 1. It's possible that the intent generation step is not working well. In the API response, check the `intents` fields in the `tool` message.
 
@@ -90,17 +82,10 @@ TBD -->   _NB: This is the first time index fields are mentioned. What are they 
    - If the file format is PDF, we offer optimized ingestion for tables using the offline scripts available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts). to use the scripts, you need to have a [Document Intelligence](../../document-intelligence/overview.md) resource and use the `Layout` [model](../../document-intelligence/concept-layout.md). You can also:
    - Adjust your chunk size to make sure your largest table fits within the specified [chunk size](../concepts/use-your-data.md#chunk-size-preview).
 
-TBD -->   **(create a section for this?)** _NB: Write a brief discussion of chunking and how to optimize size against content._
-
 1. Are you converting a semi-structured data type such as json/xml to a PDF document? This might cause an **ingestion issue** because structured information needs a chunking strategy that is different from purely text content.
-
-TBD -->   _NB: provide some guidance on what such a chunking strategy would be as this is becoming a more common occurrence._
 
 1. If none of the above apply, you might be encountering a **retrieval issue**. Consider using a more powerful `query_type`. Based on our benchmarking, `semantic` and `vectorSemanticHybrid` are preferred. 
 
-TBD -->   _NB: Explain the various retrieval types, why one would use one over the other (scenarios) and trade-offs for doing this (token cost, time, performance, etc.)_
- 
- 
 ## Frequently encountered issues
 
 **Issue 1**: _The model responds with "The requested information is not present in the retrieved documents. Please try a different query or topic" even though that's not the case._
@@ -124,8 +109,6 @@ See the debugging process starting at [Step 1](#step-1-check-for-retrieval-issue
 
 - Ensure you're using a low `temperature`. We recommend setting it to `0`. 
 
-TBD --> __NB: why are higher temperature values useful then? Provide a deeper explanation of temperature and its use._
-
 - Although the question is the same, the conversation history gets added to the context and affects how the model responds to same question over a long session.
 
 - Using the REST API, check if the search intents generated are the same both times or not. If they are very different, try a more powerful model such as GPT-4 to see if the problem is affected by the chosen model. 
@@ -137,8 +120,6 @@ TBD --> __NB: why are higher temperature values useful then? Provide a deeper ex
 - Refer to [Step 3](#step-3-check-the-rest-of-the-funnel) in the above debugging process. 
 
 - If intents are irrelevant, the issue might be that the intent generation step lacks context. It only considers the user question and conversation history. It does not look at the role information or the document chunks. You might want to consider adding a prefix to each user question with a short context string to help the intent generation step.
-
-TBD -->   _NB: provide a couple of examples of what this would look like._
 
 **Issue 6**: _I have set inScope=true or checked “Restrict responses to my data” but it still responds to Out-Of-Domain questions._
 
