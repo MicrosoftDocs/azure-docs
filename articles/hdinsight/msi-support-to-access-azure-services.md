@@ -1,6 +1,6 @@
 ---
-title: MSI Support to Access Azure Services
-description: Learn how to provide MSI Support to Access Azure Services.
+title: MSI Support to Access Azure services
+description: Learn how to provide MSI Support to Access Azure services.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -24,14 +24,14 @@ There are two methods to implement this task.
 * Option 1 HDInsight utility and  API usage to fetch access token.
 * Option 2 HDInsight utility, TokenCredential Implementation to fetch Access Token.
 
-## Option 1 - HDInsight utility and  API usage to fetch access token.
+## Option 1 - HDInsight utility and  API usage to fetch access token
 
 Implemented a convenient utility class to fetch MSI access token by providing target resource URI, which can be EH, KV, Kusto, SqlDB, Cosmos DB etc.
 
 ### Prerequisites
 
-1. Make sure the Hadoop's core-site.xml and all the client jars from this cluster location /usr/hdp/5.1.5.3/hadoop/client/* in the classpath.
-1. Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see []().
+1. Make sure the Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/5.1.5.3/hadoop/client/*` in the classpath.
+1. Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see [How to build application code with this utility](./#how-to-build-application-code-with-this-utility).
 
 ### How to use the API
 
@@ -49,7 +49,7 @@ HdiIdentityTokenServiceUtils tokenUtils = new HdiIdentityTokenServiceUtils();
 AccessToken token = tokenUtils.getAccessToken(msiResourceUri);
 ```
 
-### Structure of AccessToken
+### Structure of access token
 
 ```
 /** Represents an immutable access token with a token string and an expiration time 
@@ -69,13 +69,13 @@ public class AccessToken {
 }
 ```
 
-### Jar Location of the Utils 
+### Jar location of the Utils 
 https://hdiconfigactions2.blob.core.windows.net/hdi-oauth-token-utils-jar/oauth-token-utils-shaded-1.0.jar
 
 > [!NOTE] 
 > Microsoft Azure Feed available shortly by May 31st, then the jar name, version and location changes.
 
-## Option 2 -DI utility, TokenCredential Implementation to fetch Access Token
+## Option 2 -Utility, TokenCredential implementation to fetch access token
 
 Provided `HdiIdentityTokenCredential` feature class, which is the standard implementation of `com.azure.core.credential.TokenCredential` interface.
 Make sure, Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/5.1.5.3/hadoop/client/*` in classpath.
@@ -83,9 +83,9 @@ Make sure, Hadoop's `core-site.xml` and all the client jars from this cluster lo
 ### Prerequisites
 
 * Make sure Hadoop's core-site.xml, all the client jars from this cluster location `/usr/hdp/5.1.5.3/hadoop/client/*` and azure-core-1.45.0.jar in the classpath.
-* Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see []().
+* Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see [How to build application code with this utility](./#how-to-build-application-code-with-this-utility).
 
-### If the client is a KV
+### If the client is a Key Vault
 
 We take an example of Azure Key Vault, SecretClient instance, which doesn't directly fetch an access token. It uses a TokenCredential to authenticate, and this credential handles fetching the access token.
 
@@ -123,53 +123,10 @@ https://hdiconfigactions2.blob.core.windows.net/hdi-oauth-token-utils-jar/oauth-
 
 1. Download the utility from the jar location and keep it to the local `.m2` repository location.
    
-:::image type="content" source="./media/msi-support-to-access-azure-services/download-jar-file.png" alt-text="Screenshot showing how to download-jar-file." border="true" lightbox="./media/msi-support-to-access-azure-services/download-jar-file.png":::
+   :::image type="content" source="./media/msi-support-to-access-azure-services/download-jar-file.png" alt-text="Screenshot showing how to download-jar-file." border="true" lightbox="./media/msi-support-to-access-azure-services/download-jar-file.png":::
 
 1. Add dependencies in the application build script pom.xml.
 
    :::image type="content" source="./media/msi-support-to-access-azure-services/add-dependencies.png" alt-text="Screenshot showing how to add dependencies." border="true" lightbox="./media/msi-support-to-access-azure-services/add-dependencies.png":::
 
-1. Run maven command `mvn clean install -Dskiptests'
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+1. Run maven command `mvn clean install -Dskiptests`
