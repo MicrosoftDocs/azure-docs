@@ -111,7 +111,7 @@ Operations Manager Management server and monitored agents are connected through 
    - [Step 7. Store domain credentials in Key vault](store-domain-credentials-key-vault.md).
    - [Step 8. Create a static IP](create-static-ip.md).
    - [Step 9. Configure the network firewall](configure-network-firewall.md).
-   - [Step 10. Verify Azure and internal GPO policies](verify-azure-and-internal-gpo-policies.md).
+   - [Step 10. Verify Azure and internal GPO policies](verify-azure-internal-group-policy-object-policies.md).
    - [Step 11. SCOM Managed Instance self-verification of steps](self-verification-steps.md).
    - [Step 12. Create a SCOM Managed Instance](create-operations-manager-managed-instance.md).
 

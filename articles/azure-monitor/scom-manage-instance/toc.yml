@@ -43,7 +43,7 @@
     - name: Step 9. Configure the network firewall
       href: configure-network-firewall.md
     - name: Step 10. Verify Azure and internal GPO policies
-      href: verify-azure-and-internal-gpo-policies.md
+      href: verify-azure-internal-group-policy-object-policies.md
     - name: Step 11. SCOM Managed Instance self-verification of steps
       href: self-verification-steps.md
     - name: Step 12. Create a SCOM Managed Instance
