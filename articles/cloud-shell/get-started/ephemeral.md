@@ -48,7 +48,6 @@ To see all resource providers, and the registration status for your subscription
    the **Apply** button.
 
    ![Screenshot showing the select subscription and optional storage prompt.][06]
-   
 ### Set your subscription
 
 1. List subscriptions you have access to.
