@@ -319,10 +319,11 @@ First, you define the type and metadata of the scale rule.
 
 ### Authentication
 
-A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the `authenticationRef` property. You can map the TriggerAuthentication object to the Container Apps scale rule.
+A KEDA scaler supports authentication through either secrets or managed identity. 
 
-> [!NOTE]
-> Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
+#### Using secrets
+
+KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the `authenticationRef` property. You can map the TriggerAuthentication object to the Container Apps scale rule.
 
 1. Find the `TriggerAuthentication` object referenced by the KEDA `ScaledObject` specification.
 
@@ -343,6 +344,10 @@ A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.s
     Some scalers support metadata with the `FromEnv` suffix to reference a value in an environment variable. Container Apps looks at the first container listed in the ARM template for the environment variable.
 
     Refer to the [considerations section](#considerations) for more security related information.
+
+#### Using managed identity
+
+PLACEHOLDER - managed identity with ARM
 
 ::: zone-end
 
@@ -368,10 +373,11 @@ A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.s
 
 ### Authentication
 
-A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the authenticationRef property. You can map the TriggerAuthentication object to the Container Apps scale rule.
+A KEDA scaler supports authentication through either secrets or managed identity. 
 
-> [!NOTE]
-> Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
+#### Using secrets
+
+KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the `authenticationRef` property. You can map the TriggerAuthentication object to the Container Apps scale rule.
 
 1. Find the `TriggerAuthentication` object referenced by the KEDA `ScaledObject` specification. Identify each `secretTargetRef` of the `TriggerAuthentication` object.
 
@@ -386,6 +392,10 @@ A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.s
     1. Create an authentication entry with the `--scale-rule-auth` parameter. If there are multiple entries, separate them with a space.
 
     :::code language="bash" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-cli.bash" highlight="8,14":::
+
+#### Using managed identity
+
+PLACEHOLDER - managed identity with Azure CLI
 
 ::: zone-end
 
@@ -423,10 +433,11 @@ A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.s
 
 ### Authentication
 
-A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the authenticationRef property. You can map the TriggerAuthentication object to the Container Apps scale rule.
+A KEDA scaler supports authentication through either secrets or managed identity. 
 
-> [!NOTE]
-> Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
+#### Using secrets
+
+KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the `authenticationRef` property. You can map the TriggerAuthentication object to the Container Apps scale rule.
 
 1. In your container app, create the [secrets](./manage-secrets.md) that you want to reference.
 
@@ -435,6 +446,10 @@ A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.s
     :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-auth.yml" highlight="16,17,18":::
 
 1. In the *Authentication* section, select **Add** to create an entry for each KEDA `secretTargetRef` parameter.
+
+#### Using managed identity
+
+PLACEHOLDER - managed identity with Azure Portal
 
 ::: zone-end
 
