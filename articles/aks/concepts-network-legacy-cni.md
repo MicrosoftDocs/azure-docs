@@ -2,7 +2,7 @@
 title: Concepts - AKS Legacy Container Networking Interfaces (CNI)
 description: Learn about legacy CNI networking options in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 05/29/2024
 author: schaffererin
 ms.author: schaffererin
 
@@ -31,7 +31,9 @@ The following prerequisites are required for Azure CNI Node Subnet and kubenet:
 
 ## Azure CNI Node Subnet
 
-With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. These IP addresses must be unique across your network space and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.  
+With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. These IP addresses must be unique across your network space and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
+
+With Azure CNI Node Subnet, each pod receives an IP address in the IP subnet and can communicate directly with other pods and services. Your clusters can be as large as the IP address range you specify. However, you must plan the IP address range in advance, and all the IP addresses are consumed by the AKS nodes based on the maximum number of pods they can support. Advanced network features and scenarios such as [virtual nodes][virtual-nodes] or Network Policies (either Azure or Calico) are supported with Azure CNI.  
 
 ### Deployment parameters
 
@@ -70,8 +72,6 @@ With _kubenet_, only the nodes receive an IP address in the virtual network subn
 ![Kubenet network model with an AKS cluster](media/use-kubenet/kubenet-overview.png)
 
 Azure supports a maximum of _400_ routes in a UDR, so you can't have an AKS cluster larger than 400 nodes. AKS [virtual nodes][virtual-nodes] and Azure Network Policies aren't supported with _kubenet_. [Calico Network Policies][calico-network-policies] are supported.
-
-With _Azure CNI_, each pod receives an IP address in the IP subnet and can communicate directly with other pods and services. Your clusters can be as large as the IP address range you specify. However, you must plan the IP address range in advance, and all the IP addresses are consumed by the AKS nodes based on the maximum number of pods they can support. Advanced network features and scenarios such as [virtual nodes][virtual-nodes] or Network Policies (either Azure or Calico) are supported with _Azure CNI_.
 
 ### Limitations & considerations for kubenet
 
@@ -144,8 +144,6 @@ With [Azure Container Networking Interface (CNI)][cni-networking], every pod get
 
   It's not recommended, but this configuration is possible. The service address range is a set of virtual IPs (VIPs) that Kubernetes assigns to internal services in your cluster. Azure Networking has no visibility into the service IP range of the Kubernetes cluster. The lack of visibility into the cluster's service address range can lead to issues. It's possible to later create a new subnet in the cluster virtual network that overlaps with the service address range. If such an overlap occurs, Kubernetes could assign a service an IP that's already in use by another resource in the subnet, causing unpredictable behavior or failures. By ensuring you use an address range outside the cluster's virtual network, you can avoid this overlap risk.
   Yes, when you deploy a cluster with the Azure CLI or a Resource Manager template. See [Maximum pods per node][max-pods].
-
-
 
 - **Can I use a different subnet within my cluster virtual network for the *Kubernetes service address range*?**
 

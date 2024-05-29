@@ -41,8 +41,6 @@ The dynamic IP allocation mode offers the following benefits:
 - **Separate VNet policies for pods**: Since pods have a separate subnet, you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios, such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using an Azure NAT Gateway, and using network security groups (NSGs) to filter traffic between node pools.  
 - **Kubernetes network policies**: Both the Azure Network Policies and Calico work with this mode.
 
-This article shows you how to use Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in AKS.
-
 ### Plan IP addressing
 
 With dynamic IP allocation, nodes and pods scale independently, so you can plan their address spaces separately. Since pod subnets can be configured to the granularity of a node pool, you can always add a new subnet when you add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
@@ -62,8 +60,6 @@ The static block allocation mode offers the following benefits:
 - **High performance**: Since pods are assigned virtual network IPs, they have direct connectivity to other cluster pods and resources in the VNet.
 - **Separate VNet policies for pods**: Since pods have a separate subnet, you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using an Azure NAT Gateway, and using NSGs to filter traffic between node pools.  
 - **Kubernetes network policies**: Cilium, Azure NPM, and Calico work with this solution.
-
-This article shows you how to use Azure CNI Networking for static allocation of CIDRs and enhanced subnet support in AKS.
 
 ### Limitations
 
