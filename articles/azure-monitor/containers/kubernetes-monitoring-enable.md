@@ -793,7 +793,6 @@ When you create a new Azure Monitor workspace, the following additional resource
 | `<azuremonitor-workspace-name>` | **Data Collection Endpoint** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same as Azure Monitor Workspace | DCE created when you use OSS Prometheus server to Remote Write to Azure Monitor Workspace.|
     
 
-
 ## Differences between Windows and Linux clusters
 
 The main differences in monitoring a Windows Server cluster compared to a Linux cluster include:
