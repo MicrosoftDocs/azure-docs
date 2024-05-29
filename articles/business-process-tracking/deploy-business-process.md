@@ -19,11 +19,15 @@ After you map your business process stages to the operations and outputs in Stan
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Access to the Azure account and subscription associated with the **Business process** resource that you want to deploy.
 
-- Access to the Standard logic app resources and workflows that are mapped to your business process. This access is required because deployment creates and adds a tracking profile to each logic app resource that participates in the business process.
+- The **Business process** resource that you want to deploy.
 
-- A [business process](create-business-process.md) with [stages mapped to actual operations and outputs in a Standard logic app workflow](map-business-process-workflow.md)
+  Deployment requires all [business process stages must have mappings to the operations and outputs in the corresponding Standard logic app workflows](map-business-process-workflow.md).
+
+- Access to the Standard logic apps and workflows that are mapped to stages in your business process.
+
+  This access is required because deployment creates and adds a tracking profile to each logic app resource that participates in the business process.
 
 - The Azure Data Explorer database associated with your business process must be online.
 

@@ -44,9 +44,10 @@ After you define a business process, you can then map each stage to actual Azure
   > [!NOTE]
   >
   > If you're using an [Azure integration environment and application groups](../integration-environments/overview.md) 
-  > to organize your Azure resources, and you want to map your business process to Azure resources in your integration 
-  > environment, all your Azure resources must use the same subscription. However, this requirement doesn't apply if you're 
-  > not using an Azure integration environment, so you can map your business process to Azure resources where you have access.
+  > to organize your Azure resources, and you want to map your business process to Azure resources in your 
+  > integration environment, all your Azure resources must use the same subscription, including your business 
+  > processes and integration environment. If you're not using an Azure integration environment, you can map 
+  > your business process to Azure resources where you have access.
 
 - An existing or new [Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database)
 

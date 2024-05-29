@@ -19,15 +19,21 @@ After you finish creating your business process, you can map each stage, transac
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Access to the Azure account and subscription associated with the **Business process** resource that you want to map.
 
-- A [business process with the stages](create-business-process.md) with the defined key business property values to capture and track. so you can map these stages to actual operations and output values in a Standard logic app workflow.
+  > [!NOTE]
+  >
+  > If you're using an [Azure integration environment and application groups](../integration-environments/overview.md) 
+  > to organize your Azure resources, and you want to map your business process to Azure resources in your 
+  > integration environment, all your Azure resources must use the same subscription, including your business 
+  > processes and integration environment. If you're not using an Azure integration environment, you can map 
+  > your business process to Azure resources where you have access.
 
-- An existing Standard logic app resource and workflow where you want to map your business process stages. For more information, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
+- A [**Business process** resource with the stages and business property values](create-business-process.md) that you want to map to the corresponding operations and output values in Standard logic app workflows.
+
+- All the Standard logic app workflows that you want to map your business process stages. For more information, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
 - The Azure Data Explorer database associated with your business process must be online to store your mapping information.
-
-- If you're working with an [application group in an Azure integration environment](../integration-environments/overview.md), that group must contain at least one Standard logic app resource, workflow, and operation before you can start mapping.
 
 <a name="map-stage"></a>
 

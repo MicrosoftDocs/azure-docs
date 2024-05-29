@@ -25,9 +25,9 @@ This guide shows how to perform the following tasks:
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- The deployed or undeployed **Business process** resource that you want to manage.
 
-- A [business process](create-business-process.md) that's either deployed or not deployed
+- Access to the Azure account and subscription associated with the **Business process** resource.
 
 <a name="process-states"></a>
 
