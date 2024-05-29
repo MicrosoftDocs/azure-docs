@@ -7,7 +7,7 @@ metadata:
   ms.author: dacurwin
   manager: raynew
   ms.topic: faq
-  ms.date: 02/08/2024
+  ms.date: 05/22/2024
 title: Common questions - General questions
 summary: |
 
@@ -351,6 +351,22 @@ sections:
           Can I programmatically update multiple plans on a single subscription simultaneously?
         answer: |
           We don't recommend programmatically updating multiple plans on a single subscription simultaneously (via REST API, ARM templates, scripts, etc.). When using the [Microsoft.Security/pricings API](/rest/api/defenderforcloud/pricings), or any other programmatic solution, you should insert a delay of 10-15 seconds between each request.
+
+      - question: |
+          When I enable default access, in which situations do I need to re-run the Cloud Formation template, Cloud Shell script, or Terraform template?
+        answer: |
+          Modifications to Defender for Cloud plans or their options, including features within those plans, necessitate running the deployment template. This applies regardless of the permission type selected during the creation of the security connector. If regions have been changed, as in this screenshot, you don’t need to re-run the Cloud Formation template or Cloud Shell script.
+
+          :::image type="content" source="media/faq-general/change-region.png" alt-text="Screenshot that shows a change in region.":::
+        
+          When configuring permission types, least privilege access supports features available at the time the template or script was run. New resource types can be supported only by re-running the template or script. 
+          
+          :::image type="content" source="media/faq-general/permission-types.png" alt-text="Screenshot that shows selecting permission types.":::
+
+      - question: |
+          If I change the region or the scan interval for my AWS connector, do I need to re-run the CloudFormation template or Cloud Shell script?
+        answer: |
+          No, if the region or scan interval is changed, there is no need to re-run the CloudFormation template or Cloud Shell script. The changes will be applied automatically.
 
 additionalContent: |
 
