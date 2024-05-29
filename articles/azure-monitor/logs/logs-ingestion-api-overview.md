@@ -113,6 +113,7 @@ Data sent to the ingestion API can be sent to the following tables:
 | Azure tables | The following Azure tables are currently supported. Other tables may be added to this list as support for them is implemented.<br><br>
 - [ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/adassessmentrecommendation)<br>
 - [ADSecurityAssessmentRecommendation](/azure/azure-monitor/reference/tables/adsecurityassessmentrecommendation)<br>
+- [Anomalies](/azure/azure-monitor/reference/tables/anomalies)<br>
 - [ASimAuditEventLogs](/azure/azure-monitor/reference/tables/asimauditeventlogs)<br>
 - [ASimAuthenticationEventLogs](/azure/azure-monitor/reference/tables/asimauthenticationeventlogs)<br>
 - [ASimDhcpEventLogs](/azure/azure-monitor/reference/tables/asimdhcpeventlogs)<br>
