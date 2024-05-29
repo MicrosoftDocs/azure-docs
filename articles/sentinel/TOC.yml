@@ -914,36 +914,60 @@
     href: use-matching-analytics-to-detect-threats.md
 - name: Detect threats and analyze data
   items:
-  - name: Monitor and visualize data
+  - name: Threat detection (analytics) rules
     items:
-    - name: Visualize collected data
-      href: get-visibility.md
-    - name: Use Azure Monitor workbooks
-      href: ./monitor-your-data.md
-    - name: Create a Power BI report
-      href: powerbi.md
+    - name: Overview
+      href: threat-detection.md
+    - name: Scheduled analytics rules
+      items:
+      - name: Create a scheduled rule from a template
+        href: create-analytics-rule-from-template.md
+      - name: Create a scheduled rule from scratch
+        href: create-analytics-rules.md
+      - name: Enhance detections
+        items:
+        - name: Map data fields to entities
+          href: map-data-fields-to-entities.md
+        - name: Surface custom details in alerts
+          href: surface-custom-details-in-alerts.md
+        - name: Customize alert details
+          href: customize-alert-details.md
+    - name: Near-real-time (NRT) analytics rules
+      items:
+      - name: Overview
+        href: near-real-time-rules.md
+      - name: Create NRT analytics rules
+        href: create-nrt-rules.md
+    - name: Anomaly detection rules
+      items:
+      - name: Overview
+        href: soc-ml-anomalies.md
+      - name: Work with out-of-the-box anomaly rules
+        href: work-with-anomaly-rules.md
+    - name: Multistage attacks (Fusion)
+      items:
+      - name: Overview
+        href: fusion.md
+      - name: Configure multistage attack (Fusion) rules
+        href: configure-fusion-rules.md
+    - name: Create incidents from Microsoft Security alerts
+      href: create-incidents-from-alerts.md
+    - name: Export and import analytics rules
+      href: import-export-analytics-rules.md
+    - name: Manage template versions for analytics rules
+      href: manage-analytics-rule-templates.md
+    - name: Handle ingestion delay in analytics rules
+      href: ingestion-delay.md
+    - name: Get fine-tuning recommendations
+      href: detection-tuning.md
+    - name: Troubleshoot analytics rules
+      href: troubleshoot-analytics-rules.md
   - name: Tutorial - Detect threats using analytics rules
     href: tutorial-log4j-detection.md
   - name: MITRE ATT&CK coverage
     href: mitre-coverage.md
-  - name: Built-in threat detection rules
-    href: detect-threats-built-in.md
-  - name: Near-real-time (NRT) analytics rules
-    href: near-real-time-rules.md
   - name: User and entity behavior analytics (UEBA)
     href: identify-threats-with-entity-behavior-analytics.md
-  - name: Anomaly detection rules
-    items:
-    - name: Overview
-      href: soc-ml-anomalies.md
-    - name: Work with out-of-the-box anomaly rules
-      href: work-with-anomaly-rules.md
-  - name: Multistage attacks (Fusion)
-    items:
-    - name: Overview
-      href: fusion.md
-    - name: Configure multistage attack (Fusion) rules
-      href: configure-fusion-rules.md
   - name: Watchlists
     items:
     - name: Overview
@@ -954,34 +978,18 @@
       href: watchlists-queries.md
     - name: Manage watchlists
       href: watchlists-manage.md
-  - name: Create threat detection rules
-    items:
-    - name: Create a scheduled query rule
-      href: detect-threats-custom.md
-    - name: Map data fields to entities
-      href: map-data-fields-to-entities.md
-    - name: Surface custom details in alerts
-      href: surface-custom-details-in-alerts.md
-    - name: Customize alert details
-      href: customize-alert-details.md
-    - name: Export and import analytics rules
-      href: import-export-analytics-rules.md
-    - name: Create near-real-time (NRT) analytics rules
-      href: create-nrt-rules.md
-    - name: Manage template versions for analytics rules
-      href: manage-analytics-rule-templates.md
-    - name: Handle ingestion delay in analytics rules
-      href: ingestion-delay.md
-    - name: Get fine-tuning recommendations
-      href: detection-tuning.md
-    - name: Troubleshoot analytics rules
-      href: troubleshoot-analytics-rules.md
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
   - name: Handle false positives
     href: false-positives.md
-  - name: Create incidents from Microsoft Security alerts
-    href: create-incidents-from-alerts.md
+  - name: Monitor and visualize data
+    items:
+    - name: Visualize collected data
+      href: get-visibility.md
+    - name: Use Azure Monitor workbooks
+      href: ./monitor-your-data.md
+    - name: Create a Power BI report
+      href: powerbi.md
 - name: Hunt for threats
   items:
   - name: Overview
