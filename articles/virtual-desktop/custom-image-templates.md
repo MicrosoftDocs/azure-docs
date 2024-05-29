@@ -44,7 +44,7 @@ Here are some examples of the built-in scripts you can add to a custom image tem
 - Enable [screen capture protection](screen-capture-protection.md).
 - Configure [Teams optimizations](teams-on-avd.md).
 - Configure session timeouts.
-- [Disable automatic updates](app-attach-setup.md#disable-automatic-updates) for MSIX applications.
+- Disable automatic updates for [MSIX applications](app-attach-setup.md#disable-automatic-updates).
 - Add or remove Microsoft Office applications.
 - Apply Windows Updates.
 
