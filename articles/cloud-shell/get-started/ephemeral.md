@@ -39,7 +39,7 @@ To see all resource providers, and the registration status for your subscription
    ![Screenshot showing how to start Azure Cloud Shell in the Azure portal.][07]
    
 1. The first time you start Cloud Shell you're prompted to which shell to use. Select **Bash** or
-**PowerShell**.
+   **PowerShell**.
 
    ![Screenshot showing the prompt to select the shell.][05]
    
