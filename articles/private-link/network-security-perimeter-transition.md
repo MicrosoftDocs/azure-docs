@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: overview
-ms.date: 04/05/2024
+ms.date: 05/29/2024
 #CustomerIntent: As a network administrator, I want to understand the different access modes and how to transition to a network security perimeter in Azure.
 ---
 
@@ -30,6 +30,9 @@ Along with the original two values (*enabled* and *disabled*) on `publicNetworkA
 | ***Disabled*** | Public inbound communication is disallowed regardless of the state of firewall rules defined by the resource.                            |
 | **SecuredByPerimeter** | In Secured mode, the network security perimeter configuration governs the resource's inbound and outbound connectivity. Specifically, PaaS-to-PaaS communication is restricted to members of the same perimeter. Public access is granted in accordance with the access rules defined by the associated perimeter profile. |
 
+> [!NOTE]
+> Most onboarded PaaS teams are in the phase of UX implementation, and this configuration point may or may not be available until then in the resource specific blades.
+
 ### Access mode configuration point on resource associations 
 
 The **access mode** configuration point is part of a resource association on the perimeter and therefore can be set by the perimeter's administrator. 
@@ -42,6 +45,23 @@ The possible values of `accessMode` are currently Enforced and Learnin
 |-------------|-------------|
 | **Learning** | This is the default access mode, and it means the resource's configuration determines if traffic evaluation behaves according to secured mode or not. |
 | **Enforced** | This mode allows network security perimeter admin to override the `publicNetworkAccess` setting on the resource. When explicitly set, the resource obeys network security perimeter rules as if its `publicNetworkAccess` property was effectively set to `SecuredByPerimeter` (with only minor differences observable in logs), irrespective of the actual value of the `publicNetworkAccess` property. |
+
+### Steps to configure publicNetworkAccess and accessMode properties
+
+Both the `publicNetworkAccess` and `accessMode` properties can be set using the Azure portal by following these steps:
+
+1. Navigate to your network security perimeter resource in the Azure portal.
+2. Select **Settings** > **Associations** to view the list of resources associated with the perimeter.
+3. Select *...* (elipsis) next to the resource you want to configure.
+
+    :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-resources-page.png" alt-text="Screenshot of resources page with management options selected for resource.":::
+
+4. Select the desired access mode from the three options available: **Enabled**, **Disabled**, or **SecuredByPerimeter**.
+
+    :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-settings.png" alt-text="Screenshot of association settings with access mode options.":::
+
+
+
 
 ## Prevent connectivity disruptions while adopting network security perimeter 
 
@@ -78,7 +98,7 @@ When associated with a perimeter and configured in *Learning* mode with `p
 
 
 > [!NOTE]
-> The original Enabled and Disabled values did not restrict *public outbound* behavior but `SecuredByPerimeter` does. 
+> The original *Enabled* and *Disabled* values did not restrict *public outbound* behavior but `SecuredByPerimeter` does. 
 
 As a special case, when `publicNetworkAccess` is set to `SecuredByPerimeter` but the resource is still not associated with a perimeter, no network security perimeter access rules can approve any access. Therefore the resource becomes locked down for public access. The following table summarizes the behavior with this configuration:
 
@@ -103,6 +123,6 @@ The behavior of public network access on PaaS resources according to the associa
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md).
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md).
 
  
