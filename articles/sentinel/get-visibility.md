@@ -146,7 +146,7 @@ When you create a new detection, leverage the detections crafted by Microsoft se
 
 To view the installed out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the installed Microsoft Sentinel rule templates. To find more rule templates, go to the **Content hub** in Microsoft Sentinel to install product solutions or standalone content.
 
-   ![Use built-in detections to find threats with Microsoft Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
+   ![Use built-in detections to find threats with Microsoft Sentinel](media/create-analytics-rule-from-template/view-oob-detections.png)
 
 For more information about getting out-of-the-box detections, see [Get built-in-analytics](detect-threats-built-in.md).
 
