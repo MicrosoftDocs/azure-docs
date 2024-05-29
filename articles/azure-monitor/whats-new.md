@@ -163,7 +163,7 @@ Application-Insights|[Application Insights availability tests](app/availability-
 Containers|[Data transformations in Container insights](containers/container-insights-transformations.md)|New article describes how to transform data using a DCR transformation in Container insights|
 Containers|[Enable Container insights](containers/container-insights-onboard.md)|New article: Enable private link with Container insights|
 Essentials|[Azure Monitor managed service for Prometheus rule groups](essentials/prometheus-rule-groups.md)|Create or edit Prometheus rule group in the Azure portal (preview)|
-Logs|[Detect and mitigate potential issues using AIOps and machine learning in Azure Monitor](logs/aiops-machine-learning.md)|Microsoft Copilot for Azure now helps you write KQL queries to analyze data and troubleshoot issues based on prompts, such as "Are there any errors in container logs?". |
+Logs|[Detect and mitigate potential issues using AIOps and machine learning in Azure Monitor](logs/aiops-machine-learning.md)|Microsoft Copilot in Azure now helps you write KQL queries to analyze data and troubleshoot issues based on prompts, such as "Are there any errors in container logs?". |
 Logs|[Best practices for Azure Monitor Logs](./best-practices-logs.md)|More guidance on Azure Monitor Logs features that provide enhanced resilience.|
 Logs|[Data retention and archive in Azure Monitor Logs](logs/data-retention-archive.md)|Azure Monitor Logs extended archiving of data to up to 12 years.|
 Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added Basic logs support for Network managers tables.|
