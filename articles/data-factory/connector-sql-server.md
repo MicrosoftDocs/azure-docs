@@ -310,7 +310,7 @@ To use Windows authentication, in addition to the generic properties that are de
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. | |
+| connectionString | Specify **connectionString** information that's needed to connect to the SQL Server database. | Yes |
 | userName | Specify a user name. An example is **domainname\\username**. |Yes |
 | password | Specify a password for the user account you specified for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 
