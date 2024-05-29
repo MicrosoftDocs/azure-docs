@@ -19,7 +19,7 @@ There are two methods to instrument your application:
 - Automatic instrumentation (autoinstrumentation)
 - Manual instrumentation
 
-**Autoinstrumentation** enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. See [Autoinstrumentation supported environments and languages](codeless-overview.md). When autoinstrumentation is available, it's the easiest way to enable Azure Monitor Application Insights.
+**Autoinstrumentation** enables telemetry collection through configuration without touching the application's code. You only need to install Application Insights Agent. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. See [Autoinstrumentation supported environments and languages](codeless-overview.md). When autoinstrumentation is available, it's the easiest way to enable Azure Monitor Application Insights.
 
 > [!TIP]
 > Currently, [Microsoft Entra authentication](azure-ad-authentication.md) is not available with autoinstrumentation. If you require Microsoft Entra auth, you'll need to use manual instrumentation.
