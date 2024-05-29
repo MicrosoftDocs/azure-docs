@@ -22,7 +22,7 @@ Each RAN insights resource is associated with one physical site resource and is 
     - Check if the network is ready by verifying that a device / user equipment (UE) connected to the network through the RAN can transmit and receive data. if step doesn't work, fix any problems before trying to activate the RAN insights feature.  
 - Deploy a compatible version of the RAN EMS from the RAN partner. You'll need to verify with your RAN partner that your RAN EMS contains a Microsoft-compatible External Metrics Agent (EMA) to send metrics to Azure. If not, your designated partner would need to install a metrics agent on the EMS you're using. Information on how and where to establish the connection between Azure and the EMS is specific to the particular RAN vendor, reach out to them for more details.  
 -  Access to RAN insights for your Azure Subscription. Contact your Microsoft representative and ask them to register your Azure subscription for access to RAN insights. 
-- Ensure you're registered with resource providers listed. Follow [Resource providers and resource types](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) for steps on how to register. 
+- Ensure you're registered with resource providers listed. Follow [Resource providers and resource types](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) for steps on how to register. 
     - Microsoft.insights  
     - Microsoft.NetworkAnalytics 
     - Microsoft.KeyVault  
@@ -37,30 +37,30 @@ Each RAN insights resource is associated with one physical site resource and is 
 1. On the **Physical Infrastructure** page, select **Radio access network insights** and press create 
     :::image type="content" source="media/ran-insights/RAN-Insights-Create-Resource.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
 1. In the **Basics** configuration tab, fill in the needed information and select the checkbox to enable Metric Ingestion Endpoint (MIE) which processes RAN metrics streamed from the partner EMS and stores them in Azure Monitor. Note your MIE instance is deployed in East US or West EU regardless of your subscription’s region. You'll have the option to enable the MIE later if you choose not to complete this step now. Then select **Next : Access Points >**.
-    :::image type="content" source="media/ran-insights/RAN-Insights-Basics-CREATE-Tab.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
+    :::image type="content" source="media/ran-insights/RAN-Insights-Basics-CREATE-Tab.png" alt-text="Screenshot of the Azure portal showing a RAN insight resource basics tab during creation.":::
 1. In the **Access Points** section, you can enter in the latitude and longitude coordinates of your access points. If access points are turned on and connected to your RAN EMS, the access point names will auto populate once the RAN insights resource setup.  
-    :::image type="content" source="media/ran-insights/RAN-Insights-AccessPoint-CREATE-Tab.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
+    :::image type="content" source="media/ran-insights/RAN-Insights-AccessPoint-CREATE-Tab.png" alt-text="Screenshot of the Azure portal showing a RAN insight resource acesss point tab during creation.":::
 1. Select **Review + create**
 1. Azure will now validate the configuration values you've entered. Once your configuration has been validated, you can select **Create** to create the RAN insights resource. The Azure portal will display the following confirmation screen when the RAN insights resource has been created.
-    :::image type="content" source="media/ran-insights/RAN-insights-deloyment.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
+    :::image type="content" source="media/ran-insights/RAN-insights-deloyment.png" alt-text="Screenshot of the Azure portal showing deployment is complete for RAN insight resource.":::
 1. Select **Go to resource** to view your RAN insights resource 
 
 
 ## Enable/Disable metrics ingestion endpoint (MIE) instance
 --------------------------------------------------------------------
 In the case the MIE was not enabled for the RAN insights resource during creation, then the RAN **Overview** page under the **MIE details** tab shows a message stating that MIE was not enabled. 
-    :::image type="content" source="media/ran-insights/RAN-Insights-MIE-notEnabled.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
+    :::image type="content" source="media/ran-insights/RAN-Insights-MIE-notEnabled.png" alt-text="Screenshot of the Azure portal showing a RAN insight resource MIE not enabled.":::
 The MIE resource is automatically deleted from the service if it is "Disabled" from the online service portal or if you choose to delete the RAN insights resource. If you disable the MIE resource you'll still have access to your historical data for up to 30 days, but the RAN insights resource will stop reporting metrics. 
 
 You can enable and disable your MIE under the Configuration blade: 
-    :::image type="content" source="media/ran-insights/RAN-Insights-ConfigTab-MIE.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
+    :::image type="content" source="media/ran-insights/RAN-Insights-ConfigTab-MIE.png" alt-text="Screenshot of the Azure portal showing a RAN insight resource MIE toggle enabled.":::
 
 
 
 ## View MIE details 
 --------------------------------------------------------------------
 Once your RAN insights resource is configured and set up, you can view additional information in the **Overview** page under the **MIE details** tab. 
-    :::image type="content" source="media/ran-insights/RAN-Insights-MIE-Tab.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
+    :::image type="content" source="media/ran-insights/RAN-Insights-MIE-Tab.png" alt-text="Screenshot of the Azure portal showing a RAN insight resource MIE details.":::
 
 This tab holds important details, such as:  
 - MIE name – name of the MIE 
@@ -69,8 +69,8 @@ This tab holds important details, such as:
 - Eventhub name – name of the event hub 
 - Keyvault – URL for key vault containing connection string 
 
-Note if you're unable to access the information in the MIE key vault URL then you may not have the correct credentials. If so, you need to take the necessary steps to grant access for the required role. Refer to [Azure RBAC documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/role-based-access-control/) for steps on how to do this. 
-    :::image type="content" source="media/ran-insights/RAN-Insights-KeyVault-notWorking.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
+Note if you're unable to access the information in the MIE key vault URL then you may not have the correct credentials. If so, you need to take the necessary steps to grant access for the required role. Refer to [Azure RBAC documentation | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/) for steps on how to do this. 
+    :::image type="content" source="media/ran-insights/RAN-Insights-KeyVault-notWorking.png" alt-text="Screenshot of the Azure portal showing operation not allowed for key vault.":::
 
 
 
@@ -80,14 +80,14 @@ You can delete your RAN insights resource, from the RAN insights resource or you
 To delete from your RAN insights resource: 
 1. Navigate to your RAN insights resource
 1. On the **overview** page, select **delete** 
-    :::image type="content" source="media/ran-insights/RAN-Insights-DELETE-fromRANResource.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
+    :::image type="content" source="media/ran-insights/RAN-Insights-DELETE-fromRANResource.png" alt-text="Screenshot of the Azure portal showing deleting a RAN insight resource on the RAN insight resource.":::
 
 
 To delete from your site resource:  
 1. Navigate to your site resource
 1. On the **Physical Infrastructure** page, select **Radio access network insights** 
 1. Select the RAN insights resource you would like to delete, and press **delete**
-    :::image type="content" source="media/ran-insights/RAN-Insights-DELETE-fromSiteResource.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
+    :::image type="content" source="media/ran-insights/RAN-Insights-DELETE-fromSiteResource.png" alt-text="Screenshot of the Azure portal showing deleting a RAN insight resource on the site resource.":::
 
 
 ## Next steps

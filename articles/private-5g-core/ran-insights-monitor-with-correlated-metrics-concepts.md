@@ -18,7 +18,7 @@ These metrics are available at your Site Resource under the **Metrics** page. On
 ## Visualize correlated metrics using the Azure portal 
 Each correlated metric compares the values of two metrics, one from the RAN and one from the packet core. In normal operation the two values should be in the same range. You can use alerts to notify you if the correlation value drops below or above a certain range. For example, you might want an alert if it falls below the lower threshold of 80% and above the higher threshold of 120%. 
 
-  :::image type="content" source="media/ran-insights/RAN-insights-correlated-metrics.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource on the site resource.":::
+  :::image type="content" source="media/ran-insights/RAN-insights-correlated-metrics.png" alt-text="Screenshot of the Azure portal showing site resource correlated metrics.":::
 
 Correlated metrics are available for monitoring and retrieval for up to 30 days. Note that the EMS might provide metrics at intervals up to 15 minutes apart. For an optimal experience, please adjust the plotting rate to match the value recommended by the EMS provider. For instance, if your RAN provider emits metrics every 5 minutes, it's advisable to set the **Time granularity** to 5 minutes accordingly.
 
@@ -26,7 +26,7 @@ Correlated metrics are available for monitoring and retrieval for up to 30 days.
 
 ## Correlated metrics descriptions and interpretations 
 --------------------------------------------------------------------
-Correlated metrics are collected per site resource and aggregated across all access points connected. See [Supported metrics with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/supported-metrics/metrics-index) for the corelated metrics available for retrieval included under *microsoft.mobilenetwork/sites*. 
+Correlated metrics are collected per site resource and aggregated across all access points connected. See [Supported metrics with Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index) for the corelated metrics available for retrieval included under *microsoft.mobilenetwork/sites*. 
 
 | Metric Name | Definition | Interpretation |
 |-------------|----------------|---------| 
