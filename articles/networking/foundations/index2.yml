@@ -20,17 +20,17 @@ sections:
     summary: "Azure network foundation services provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS." 
     heroImage:
      componentType: hero-image
-     lightImageSrc: media/image.png
-     darkImageSrc: media/image.png
+     lightImageSrc: ./media/image.png
+     darkImageSrc: ./media/image.png
 # Start your Journey here
   - componentType: cards
     isShadowless: false
     backgroundColor: alternating-grey
-    title: Start your Copilot learning journey
-    summary: Learn how to use Copilot. Get started by exploring our curated training, documentation, videos, and other resources in these official collections, official Plans, and video playlists.  
+    title: Get started
+    summary: Explore Azure networking documentation, resources, and training to build a secure, isolated network.  
     blocks:
     - componentType: card
-      title: "Step 1. Understand Copilot"
+      title: "Azure Virtual Network"
       summary: Learn how the integration of Copilot experiences within Microsoft platforms and products provide a more interactive and efficient digital workspace.
       imageUrl: /copilot/media/copilot/copilot-learning-hub/step-1.png
       links: 
@@ -38,7 +38,7 @@ sections:
           text: Explore the collection
           url: https://aka.ms/clh-understand
     - componentType: card
-      title: "Step 2. Adopt Copilot"
+      title: "Azure Private Link"
       summary: Integrate OpenAI, communication, and organizational data in your apps to take them to the next level.
       imageUrl: /copilot/media/copilot/copilot-learning-hub/step-2.png
       links: 
@@ -49,7 +49,7 @@ sections:
           text: Watch videos
           url: https://aka.ms/clh-step2-videos
     - componentType: card
-      title: "Step 3. Extend Copilot"
+      title: "Azure DNS"
       summary: Expand, enrich, and customize Copilot with plugins, connectors, or message extensions. 
       imageUrl: /copilot/media/copilot/copilot-learning-hub/step-3.png
       links: 
@@ -59,17 +59,6 @@ sections:
         - componentType: link
           text: Watch videos
           url: https://aka.ms/clh-step3-videos
-    - componentType: card
-      title: "Step 4. Build Copilot"
-      summary: Build a custom AI copilot to create a personalized conversational AI experience using Microsoft Cloud technologies.
-      imageUrl: /copilot/media/copilot/copilot-learning-hub/step-4.png
-      links: 
-        - componentType: link
-          text: Explore the collection
-          url: https://aka.ms/clh-build
-        - componentType: link
-          text: Watch videos
-          url: https://aka.ms/clh-step4-videos
   # Additional resources
   - componentType: cards
     isShadowless: false
