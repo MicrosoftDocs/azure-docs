@@ -12,7 +12,7 @@ ms.date: 05/29/2024
 
 Microsoft Defender for Cloud's integration with Microsoft Copilot for Security allows you to summarize a recommendation to get a better understanding of the risks and vulnerabilities that are present in your environment.
 
-By summarizing a recommendation you can get a quick overview of the recommendation in natural language. This helps you understand the information presented in a recommendation and allows you to prioritize your remediation efforts.
+By summarizing a recommendation, you can get a quick overview of the recommendation in natural language. Summarizing the recommendation helps you understand the information presented in a recommendation and allows you to prioritize your remediation efforts.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ By summarizing a recommendation you can get a quick overview of the recommendati
 
 ## Summarize with Copilot
 
-Once you have selected a recommendation you can summarize it with Copilot. By using prompts, you can get a better understanding of the recommendation and decide how best to handle it.
+Once a recommendation is selected, you can summarize it with Copilot. By using prompts, you can get a better understanding of the recommendation and decide how best to handle it.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -40,11 +40,11 @@ Once you have selected a recommendation you can summarize it with Copilot. By us
 
 1. Review the provided summary.
 
-1. Enter additional prompts as needed.
+1. Enter more prompts as needed.
 
     :::image type="content" source="media/summarize-with-copilot/summarize-with-copilot-results.png" alt-text="Screenshot of the Copilot window that shows the summary of the recommendation." lightbox="media/summarize-with-copilot/summarize-with-copilot-results.png":::
 
-Once you have gained a better understanding of the recommendation you can decide how best to handle it. Copilot will remain open and you can enter additional prompts as needed.
+Once you gain a better understanding of the recommendation, you can decide how best to handle it. Copilot remains open and you can enter more prompts as needed.
 
 ## Next step
 

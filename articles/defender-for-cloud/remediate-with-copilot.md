@@ -10,9 +10,9 @@ ms.date: 05/29/2024
 
 # Remediate recommendations with Copilot for Security
 
-Microsoft Defender for Cloud's integration with Microsoft Copilot for Security allows you to remediate recommendations that are present on the recommendations page with natural language prompts. This allows you to improve your security posture by addressing the risks and vulnerabilities that are present in your environment.
+Microsoft Defender for Cloud's integration with Microsoft Copilot for Security allows you to remediate recommendations that are present on the recommendations page with natural language prompts. Remediating a recommendation with Copilot for Security allows you to improve your security posture by addressing the risks and vulnerabilities that are present in your environment.
 
-Once you have summarized a recommendation with Copilot for Security in Defender for Cloud, you can decide how best to handle it. By using prompts, you can have Copilot for Security assist you in the remediation process.
+Once a recommendation is summarized with Copilot for Security in Defender for Cloud, you can decide how best to handle it. By using prompts, you can have Copilot for Security assist you in the remediation process.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ Copilot for Security in Defender for Cloud allows you to remediate your recommen
 
 1. Allow the Cloud shell to run.
 
-If you are unable or unsure how to remediate a recommendation, you can ask Copilot for additional information to assist you using natural language prompts. You can also delegate the recommendation to an appropriate person if needed.
+If you're unable or unsure how to remediate a recommendation, you can ask Copilot for additional information to assist you using natural language prompts. You can also delegate the recommendation to an appropriate person if needed.
 
 ## Next step
 

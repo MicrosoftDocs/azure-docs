@@ -10,9 +10,9 @@ ms.date: 05/23/2024
 
 # Analyze recommendations with Copilot for Security
 
-Microsoft Defender for Cloud's integration with Microsoft Copilot for Security allows you to analyze all of the recommendations presented on the recommendations page. By narrowing the scope of the recommendations page you can focus on specific recommendations and get a better understanding of your security posture.
+Microsoft Defender for Cloud's integration with Microsoft Copilot for Security allows you to analyze all of the recommendations presented on the recommendations page. By narrowing the scope of the recommendations page, you can focus on specific recommendations and get a better understanding of your security posture.
 
-Once you have narrowed down the list of recommendations you can investigate specific recommendations and gain a better understanding of the risks and vulnerabilities that are present in your environment.
+Once the list of recommendations is filtered, you can investigate specific recommendations and gain a better understanding of the risks and vulnerabilities that are present in your environment.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Copilot gives you the ability to analyze your recommendations. By using prompts,
 
 1. Select **Analyze with Copilot**.
 
-    :::image type="content" source="media/analyze-with-copilot/analyze-with-copilot.png" alt-text="Screenshot of the recommendations page that shows where the analyze with Copilot button is located." lightbox="media/analyze-with-copilot/analyze-with-copilot.png":::
+    :::image type="content" source="media/analyze-with-copilot/analyze-with-copilot.png" alt-text="Screenshot of the recommendations page that shows where the Analyze with Copilot button is located." lightbox="media/analyze-with-copilot/analyze-with-copilot.png":::
 
 1. Select one of the suggested prompts or enter a prompt in natural language.
 
@@ -50,9 +50,9 @@ Copilot gives you the ability to analyze your recommendations. By using prompts,
 
 1. Select **Apply filter** to view the updated recommendations.
 
-    :::image type="content" source="media/analyze-with-copilot/show-results-copilot.png" alt-text="Screenshot that shows where the apply filter button is located in the Copilot window." lightbox="media/analyze-with-copilot/show-results-copilot.png":::
+    :::image type="content" source="media/analyze-with-copilot/show-results-copilot.png" alt-text="Screenshot that shows where the Apply filter button is located in the Copilot window." lightbox="media/analyze-with-copilot/show-results-copilot.png":::
 
-The recommendations page will update with the appropriate filters applied based on the prompt you provided. Copilot will remain open and you can enter additional prompts as needed.
+The recommendations page updates with the appropriate filters applied based on the prompt you provided. Copilot remains open and you can enter extra prompts as needed.
 
 ## Next step
 

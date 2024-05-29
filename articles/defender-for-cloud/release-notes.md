@@ -24,13 +24,13 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
-| June 10 | [Copilot for Security in Defender for Cloud](#copilot-for-security-in-defender-for-cloud) |
+| June 10 | [Copilot for Security in Defender for Cloud (Preview)](#copilot-for-security-in-defender-for-cloud-preview) |
 
-### Copilot for Security in Defender for Cloud
+### Copilot for Security in Defender for Cloud (Preview)
 
 June 10, 2024
 
-Defender for Cloud has integrated the Copilot for Security into the user interface in order to provide users with the ability to ask questions and get answers in natural language. Copilot for Security can help you understand the context of a recommendation, the impact of implementing a recommendation, the steps needed to take to implement a recommendation, and assist with the delegation of recommendations.
+We're announcing the integration of Copilot for Security into Defender for Cloud in public preview. Copilot for Security provides users with the ability to ask questions and get answers in natural language. Copilot for Security can help you understand the context of a recommendation, the effect of implementing a recommendation, the steps needed to take to implement a recommendation, and assist with the delegation of recommendations.
 
 Learn more about [Copilot for Security in Defender for Cloud](copilot-security-in-defender-for-cloud.md).
 

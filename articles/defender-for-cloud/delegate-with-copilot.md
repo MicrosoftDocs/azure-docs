@@ -44,11 +44,11 @@ Delegate recommendations to ensure the right person or team is handling the risk
 
 1. Select **here** to send an email to your colleague.
 
-1. Review the email and add additional recipients.
+1. Review the email and add recipients.
 
 1. Select **Send**.
 
-Once you have delegated the recommendation, you can monitor the progress of the remediation on Defender for Cloud's recommendations page.
+Once the recommendation is delegated, you can monitor the progress of the remediation on Defender for Cloud's recommendations page.
 
 ## Next step
 
