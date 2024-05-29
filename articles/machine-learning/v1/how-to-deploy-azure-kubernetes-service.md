@@ -88,8 +88,6 @@ In Azure Machine Learning, deployment is used in the more general sense of makin
 The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. Scaling of azureml-fe is based on the AKS cluster purpose and size (number of nodes). The cluster purpose and nodes are configured when you [create or attach an AKS cluster](../how-to-create-attach-kubernetes.md). There's one azureml-fe service per cluster, which might be running on multiple pods.
 
 > [!IMPORTANT]
-> **Limitations**
->
 > * When using a cluster configured as `dev-test`, the self-scaler is *disabled*. Even for FastProd/DenseProd clusters, Self-Scaler is only enabled when telemetry shows that it's needed.
 > * Azure Machine Learning doesn't automatically upload or store logs from any containers, including system containers. For comprehensive debugging, it's recommended that you [enable Container Insights for your AKS cluster](../../azure-monitor/containers/kubernetes-monitoring-enable.md#enable-container-insights). This allows you to save, manage, and share container logs with the AML team when needed. Without this, AML can't guarantee support for issues related to azureml-fe.
 > * The maximum request payload is 100MB.
