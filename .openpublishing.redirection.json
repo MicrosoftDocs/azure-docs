@@ -4069,8 +4069,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-portal/mobile-app/copilot-for-azure.md",
-            "redirect_url": "/azure/azure-portal/mobile-app-copilot-in-azure.md",
+            "source_path_from_root": "/articles/azure-portal/mobile-app/microsoft-copilot-for-azure.md",
+            "redirect_url": "/azure/azure-portal/mobile-app/microsoft-copilot-in-azure.md",
             "redirect_document_id": false
         },
         {
