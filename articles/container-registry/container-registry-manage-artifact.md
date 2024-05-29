@@ -329,7 +329,8 @@ oras attach $IMAGE \
 #### Sign the SBOM
 
 >[!IMPORTANT]
-> Microsoft recommends using a secure crypto signing tool, like [Notation][Notation] to sign the image and generate a signature for signing SBOMs. 
+> Microsoft recommends using a secure crypto signing tool, like [Notation][Notation] to sign the image and generate a signature for signing SBOMs. This example uses a simple JSON signature for demonstration purposes.
+
 
 This example uses a simple JSON signature for demonstration purposes.
 
