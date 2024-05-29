@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Improved exports experience - Preview
 description: This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format.
-author: bandersmsft
-ms.author: banders
-ms.date: 03/21/2024
+author: jojohpm
+ms.author: jojoh
+ms.date: 04/29/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: banders
 ---
 
 # Tutorial: Improved exports experience - Preview
@@ -18,13 +18,13 @@ Review [Azure updates](https://azure.microsoft.com/updates/) to see when the fea
 
 ## Improved functionality
 
-The improved Exports feature supports new datasets including price sheets, reservation recommendations, reservation details, and reservation transactions. Also, you can download cost and usage details using the open-source FinOps Open Cost and Usage Specification [FOCUS](https://focus.finops.org/) format. It combines actual and amortized costs and reduces data processing times and storage and compute costs.
+The improved exports feature supports new datasets including price sheets, reservation recommendations, reservation details, and reservation transactions. Also, you can download cost and usage details using the open-source FinOps Open Cost and Usage Specification [FOCUS](https://focus.finops.org/) format. It combines actual and amortized costs and reduces data processing times and storage and compute costs.
 FinOps datasets are often large and challenging to manage. Exports improve file manageability, reduce download latency, and help save on storage and network charges with the following functionality:
 
 - File partitioning, which breaks the file into manageable smaller chunks.
 - File overwrite, which replaces the previous day's file with an updated file each day in daily export.
 
-The Exports feature has an updated user interface, which helps you to easily create multiple exports for various cost management datasets to Azure storage using a single, simplified create experience. Exports let you choose the latest or any of the earlier dataset schema versions when you create a new export. Supporting multiple versions ensures that the data processing layers that you built on for existing datasets are reused while you adopt the latest API functionality. You can selectively export historical data by rerunning an existing Export job for a historical period. So you don't have to create a new one-time export for a specific date range. You can enhance security and compliance by configuring exports to storage accounts behind a firewall. The Azure Storage firewall provides access control for the public endpoint of the storage account.
+The exports feature has an updated user interface, which helps you to easily create multiple exports for various cost management datasets to Azure storage using a single, simplified create experience. Exports let you choose the latest or any of the earlier dataset schema versions when you create a new export. Supporting multiple versions ensures that the data processing layers that you built on for existing datasets are reused while you adopt the latest API functionality. You can selectively export historical data by rerunning an existing export job for a historical period. So, you don't have to create a new one-time export for a specific date range. You can enhance security and compliance by configuring exports to storage accounts behind a firewall. The Azure Storage firewall provides access control for the public endpoint of the storage account.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ For Azure Storage accounts:
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
-Enable the new Exports experience from Cost Management labs by selecting **Exports (preview)**. For more information about how to enable Exports (preview), see [Explore preview features](enable-preview-features-cost-management-labs.md#explore-preview-features). The preview feature is being deployed progressively.
+Enable the new exports experience from Cost Management labs by selecting **Exports (preview)**. For more information about how to enable Exports (preview), see [Explore preview features](enable-preview-features-cost-management-labs.md#explore-preview-features). The preview feature is being deployed progressively.
 
 ## Create exports
 
@@ -164,9 +164,16 @@ Agreement types, scopes, and required roles are explained at [Understand and wor
 
 The improved exports experience currently has the following limitations.
 
-- The new Exports experience doesn't fully support the management group scope and it has feature limitations.
+- The new exports experience doesn't fully support the management group scope and it has feature limitations.
+
 - Azure internal and MOSP billing scopes and subscriptions don’t support FOCUS datasets.
 - Shared access service (SAS) key-based cross tenant export is only supported for Microsoft partners at the billing account scope. It isn't supported for other partner scenarios like any other scope, EA indirect contract or Azure Lighthouse.
+
+## FAQ
+
+1. Why is file partitioning enabled in exports? 
+
+The file partitioning is a feature that is activated by default to facilitate the management of large files. This functionality divides larger files into smaller segments, thereby enhancing the ease of file transfer, download, ingestion, and overall readability. It is particularly advantageous for customers whose cost files increase in size over time. The specifics of the file partitions are described in a manifest.json file provided with each export run, enabling you to rejoin the original file. 
 
 ## Next steps
 

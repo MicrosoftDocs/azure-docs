@@ -1,17 +1,19 @@
 ---
-title: Generate vector embeddings with Azure OpenAI in Azure Database for PostgreSQL.
-description: Use vector indexes and Azure Open AI embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns.
+title: Generate vector embeddings with Azure OpenAI
+description: Use vector indexes and Azure OpenAI embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns.
 author: mulander
 ms.author: adamwolk
-ms.date: 04/05/2024
+ms.reviewer: maghan
+ms.date: 05/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
+  - build-2024
 ---
 
-# Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server (Preview)
+# Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
@@ -20,7 +22,7 @@ Invoke [Azure OpenAI embeddings](../../ai-services/openai/reference.md#embedding
 ## Prerequisites
 
 1. [Enable and configure](generative-ai-azure-overview.md#enable-the-azure_ai-extension) the `azure_ai` extension.
-1. Create an Open AI account and [request access to Azure OpenAI Service](https://aka.ms/oai/access).
+1. Create an OpenAI account and [request access to Azure OpenAI Service](https://aka.ms/oai/access).
 1. Grant Access to Azure OpenAI in the desired subscription.
 1. Grant permissions to [create Azure OpenAI resources and to deploy models](../../ai-services/openai/how-to/role-based-access-control.md).
 1. [Create and deploy an Azure OpenAI service resource and a model](../../ai-services/openai/how-to/create-resource.md), for example deploy the embeddings model [text-embedding-ada-002](../../ai-services/openai/concepts/models.md#embeddings-models). Copy the deployment name as it is needed to create embeddings. 
@@ -51,6 +53,10 @@ azure_openai.create_embeddings(deployment_name text, input text[], batch_size in
 
 `text` or `text[]` single text or array of texts, depending on the overload of the function used, for which embeddings are created.
 
+#### `dimensions`
+
+`integer DEFAULT NULL` The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models. Available in versions 1.1.0 and later of the azure_ai extension
+
 #### `batch_size`
 
 `integer DEFAULT 100` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
@@ -65,11 +71,11 @@ azure_openai.create_embeddings(deployment_name text, input text[], batch_size in
 
 #### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure OpenAI endpoint for embedding creation if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries the Azure OpenAI embedding creation if it fails with any retryable error.
 
 #### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure OpenAI endpoint for embedding creation, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits before calling again the Azure OpenAI endpoint for embedding creation, when it fails with any retryable error.
 
 ### Return type
 

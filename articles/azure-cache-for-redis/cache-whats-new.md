@@ -7,15 +7,29 @@ ms.custom: references_regions
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 04/12/2024
+ms.date: 05/20/2024
 
 ---
 
 # What's New in Azure Cache for Redis
 
+## May 2024
+
+### Azure Functions
+
+Using Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures is now in General Availability (GA).
+
+For more information, see [Overview of Azure functions for Azure Cache for Redis](/azure/azure-functions/functions-bindings-cache).
+
+### Microsoft Entra ID
+
+Support Microsoft Entra ID for authentication and role-based access control across regions that support Azure Cache for Redis is now in General Availability (GA).
+
+For more information, see [Use Microsoft Entra ID for cache authentication](cache-azure-active-directory-for-authentication.md).
+
 ## April 2024
 
-Support for a built-in _flush_ operation that can be started at the control plane level for caches in the Basic, Standard, and Premium tier has now reached General Availability (GA).
+Support for a built-in _flush_ operation that can be started at the control plane level for caches in the Basic, Standard, and Premium tier is now in General Availability (GA).
 
 For more information, see [flush data operation](cache-administration.md#flush-data).
 

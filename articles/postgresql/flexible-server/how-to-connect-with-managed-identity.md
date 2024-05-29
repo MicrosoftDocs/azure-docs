@@ -4,11 +4,12 @@ description: Learn about how to connect and authenticate using managed identity 
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 03/27/2024
+ms.date: 05/24/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
 ---
 
 # Connect with managed identity to Azure Database for PostgreSQL - Flexible Server
@@ -82,7 +83,7 @@ Your application can now retrieve an access token from the Azure Instance Metada
 This token retrieval is done by making an HTTP request to `http://169.254.169.254/metadata/identity/oauth2/token` and passing the following parameters:
 
 * `api-version` = `2018-02-01`
-* `resource` = `https://ossrdbms-aad.database.windows.net`
+* `resource` = `https://server-name.database.windows.net`
 * `client_id` = `CLIENT_ID` (that you retrieved earlier)
 
 You get back a JSON result containing an `access_token` field - this long text value is the Managed Identity access token you should use as the password when connecting to the database.
@@ -95,7 +96,7 @@ For testing purposes, you can run the following commands in your shell.
 ```bash
 # Retrieve the access token
 
-export PGPASSWORD=`curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token`
+export PGPASSWORD=`curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fserver-name.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token`
 
 # Connect to the database
 
@@ -137,7 +138,7 @@ namespace Driver
             //
             Console.Out.WriteLine("Getting access token from Azure AD...");
 
-            // Azure AD resource ID for Azure Database for PostgreSQL Flexible Server is https://ossrdbms-aad.database.windows.net/
+            // Azure AD resource ID for Azure Database for PostgreSQL Flexible Server is https://server-name.database.windows.net/
             string accessToken = null;
 
             try
@@ -145,7 +146,7 @@ namespace Driver
                 // Call managed identities for Azure resources endpoint.
                 var sqlServerTokenProvider = new DefaultAzureCredential();
                 accessToken = (await sqlServerTokenProvider.GetTokenAsync(
-                    new Azure.Core.TokenRequestContext(scopes: new string[] { "https://ossrdbms-aad.database.windows.net/.default" }) { })).Token;
+                    new Azure.Core.TokenRequestContext(scopes: new string[] { "https://server-name.database.windows.net/.default" }) { })).Token;
 
             }
             catch (Exception e)

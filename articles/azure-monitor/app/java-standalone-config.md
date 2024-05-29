@@ -691,6 +691,9 @@ Starting from version 3.0.3, specific autocollected telemetry can be suppressed 
     "kafka": {
       "enabled": false
     },
+    "logging": {
+      "enabled": false
+    },
     "micrometer": {
       "enabled": false
     },
@@ -720,6 +723,7 @@ You can also suppress these instrumentations by setting these environment variab
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_RABBITMQ_ENABLED`
@@ -831,6 +835,8 @@ To work around this issue, you can configure Application Insights Java 3.x to us
 ```
 
 You can also set the http proxy using the environment variable `APPLICATIONINSIGHTS_PROXY`, which takes the format `https://<host>:<port>`. It then takes precedence over the proxy specified in the JSON configuration.
+
+You can provide a user and a password for your proxy with the `APPLICATIONINSIGHTS_PROXY` environment variable: `https://<user>:<password>@<host>:<port>`.
 
 Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties if they're set, and `http.nonProxyHosts`, if needed.
 

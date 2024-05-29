@@ -3,8 +3,7 @@ title: Partner storage offerings for Oracle on Azure VMs
 description: This article describes how Partner storage offerings are available for Oracle on Azure Virtual Machines.
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: oracle
 ms.topic: article
 ms.date: 03/26/2024
@@ -26,11 +25,14 @@ DBaaS is delivered as a managed database service, which means that the provider 
 
 ## Lightbits: performance for Oracle on Azure VMs  
 
-The Lightbits Cloud Data Platform provides scalable and cost-efficient high-performance storage that is easy to consume on Azure. It removes the bottlenecks associated with native storage on the public cloud, such as scalable performance and consistently low latency. Removing these bottlenecks offers rich data services and resiliency that enterprises rely on. It can deliver up to 1 million IOPS/volume and up to 3 million IOPs per VM. Lightbits cluster can scale vertically and horizontally. Lightbits support different sizes of Lsv3 and Lasv3 VMs for their clusters. 
+The [Lightbits](https://www.lightbitslabs.com/azure/) Cloud Data Platform provides scalable and cost-efficient high-performance storage that is easy to consume on Azure. It removes the bottlenecks associated with native storage on the public cloud, such as scalable performance and consistently low latency. Removing these bottlenecks offers rich data services and resiliency that enterprises rely on. It can deliver up to 1 million IOPS/volume and up to 3 million IOPs per VM. Lightbits cluster can scale vertically and horizontally. Lightbits support different sizes of [Lsv3](../../lsv3-series.md) and [Lasv3](../../lasv3-series.md) VMs for their clusters.
 
-For other options, see L32sv3/L32asv3: 7.68 TB, L48sv3/L48asv3: 11.52 TB, L64sv3/L64asv3: 15.36 TB, L80sv3/L80asv3: 19.20 TB. 
+For other options, see L32sv3/L32asv3: 7.68 TB, L48sv3/L48asv3: 11.52 TB, L64sv3/L64asv3: 15.36 TB, L80sv3/L80asv3: 19.20 TB.
+In real-world workload test scenarios, Lightbits delivers more than 10X more IOPS than the best available Azure native storage (Ultra disk).
 
-In real-world workload test scenarios, Lightbits delivers up to 4.6X more IOPS than the best available cloud native storage (EBS io2 Block Express), which reaches its limits at around 250 K IOPS. Lightbits on Azure delivers almost 1M sustained IPS of 8 KB while Ultra Disk is limited to only 80 K IOPS of 8 KB.
+The Lightbits Cloud Data Platform also provides synchronous replication across multiple availability zones, so you can have a dormant Oracle instance without starting it on a different zone, and if the zone fails, activate the database using the same Lightbits volumes that you used in the different zone without waiting for any log transfer.
+
+The Lightbits Cloud Data Platform supports Oracle ASM and also supports shared raw block devices to use with Oracle RAC.
 
 The following table provides other inputs to help you to determine the appropriate disk type.
 
@@ -38,8 +40,8 @@ The following table provides other inputs to help you to determine the appropria
 |-----------------------------|------------------------------|
 | Other            | Flexible model at TiB granularity |
 | Provisioning Model          | Incremental snapshot for fast restore; Snapshot export for hardening. |
-| [BCDR](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-disaster-recovery-oracle-landing-zone)                        | See redundancy capabilities of Azure Elastic SAN in redundancy requirements. |
-| Redundancy & Scale Targets  | Encryption at rest is supported. |
+| [BCDR](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-disaster-recovery-oracle-landing-zone)                        | See redundancy capabilities of Lightbits in redundancy requirements. |
+| Redundancy & Scale Targets  | Built-in multi availability zone support via synchronous replication, and automatic cluster expansion based on storage usage. |
 | Encryption                  | Encryption at rest is supported. |
 ## Tessel: Performance best practices for Oracle on Azure VMs  
 

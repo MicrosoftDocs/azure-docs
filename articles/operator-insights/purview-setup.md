@@ -57,7 +57,7 @@ A Data Product is made up of many Azure Services and Data Assets, which are repr
 
 #### Data Product
 
-An overall representation of the AOI Data Product
+An overall representation of the Azure Operator Insights Data Product
 
 | **Additional fields** | **Description**                               |
 |-----------------------|-----------------------------------------------|

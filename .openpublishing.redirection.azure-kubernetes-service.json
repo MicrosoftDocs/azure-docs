@@ -81,6 +81,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/learn/tutorial-kubernetes-workload-identity.md",
+            "redirect_url": "/azure/aks/workload-identity-deploy-cluster",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/workload-identity-migration-sidecar.md",
             "redirect_url": "/azure/aks/workload-identity-migrate-from-pod-identity",
             "redirect_document_id": false
@@ -449,6 +454,11 @@
         {
             "source_path_from_root": "/articles/aks/use-multiple-node-pools.md",
             "redirect_url": "/azure/aks/create-node-pools",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/copilot/limited-access.md",
+            "redirect_url": "/azure/copilot/manage-access",
             "redirect_document_id": false
         },
         {

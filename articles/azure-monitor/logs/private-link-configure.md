@@ -125,7 +125,7 @@ To create and manage Private Link Scopes, use the [REST API](/rest/api/monitor/p
 The following CLI command creates a new AMPLS resource named `"my-scope"`, with both query and ingestion access modes set to `Open`.
 
 ```
-az resource create -g "my-resource-group" --name "my-scope" --api-version "2021-07-01-preview" --resource-type Microsoft.Insights/privateLinkScopes --properties "{\"accessModeSettings\":{\"queryAccessMode\":\"Open\", \"ingestionAccessMode\":\"Open\"}}"
+az resource create -g "my-resource-group" --name "my-scope" -l global --api-version "2021-07-01-preview" --resource-type Microsoft.Insights/privateLinkScopes --properties "{\"accessModeSettings\":{\"queryAccessMode\":\"Open\", \"ingestionAccessMode\":\"Open\"}}"
 ```
 
 #### Create an AMPLS with mixed access modes: PowerShell example
@@ -259,7 +259,7 @@ The private endpoint you created should now have five DNS zones configured:
 * `privatelink.monitor.azure.com`
 * `privatelink.oms.opinsights.azure.com`
 * `privatelink.ods.opinsights.azure.com`
-* `privatelink.agentsvc.azure.automation.net`
+* `privatelink.agentsvc.azure-automation.net`
 * `privatelink.blob.core.windows.net`
 
 Each of these zones maps specific Azure Monitor endpoints to private IPs from the virtual network's pool of IPs. The IP addresses shown in the following images are only examples. Your configuration should instead show private IPs from your own network.
