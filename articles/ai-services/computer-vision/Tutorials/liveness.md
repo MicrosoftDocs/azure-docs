@@ -97,6 +97,22 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [Java](#tab/java)
     ```java
+    String endpoint = System.getenv("VISION_ENDPOINT");
+    String accountKey = System.getenv("VISION_KEY");
+
+    FaceSessionClient sessionClient = new FaceSessionClientBuilder()
+        .endpoint(endpoint)
+        .credential(new AzureKeyCredential(accountKey))
+        .buildClient();
+
+    CreateLivenessSessionContent parameters = new CreateLivenessSessionContent(LivenessOperationMode.PASSIVE)
+        .setDeviceCorrelationId("723d6d03-ef33-40a8-9682-23a1feb7bccd")
+        .setSendResultsToClient(false);
+
+    CreateLivenessSessionResult creationResult = sessionClient.createLivenessSession(parameters);
+    System.out.println("Session created.");
+    System.out.println("Session id: " + creationResult.getSessionId());
+    System.out.println("Auth token: " + creationResult.getAuthToken());
     ```
 
     #### [Python](#tab/python)
@@ -195,6 +211,16 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [Java](#tab/java)
     ```java
+    LivenessSession sessionResult = sessionClient.getLivenessSessionResult(creationResult.getSessionId());
+    System.out.println("Session id: " + sessionResult.getId());
+    System.out.println("Session status: " + sessionResult.getStatus());
+    System.out.println("Liveness detection request id: " + sessionResult.getResult().getRequestId());
+    System.out.println("Liveness detection received datetime: " + sessionResult.getResult().getReceivedDateTime());
+    System.out.println("Liveness detection decision: " + sessionResult.getResult().getResponse().getBody().getLivenessDecision());
+    System.out.println("Session created datetime: " + sessionResult.getCreatedDateTime());
+    System.out.println("Auth token TTL (seconds): " + sessionResult.getAuthTokenTimeToLiveInSeconds());
+    System.out.println("Session expired: " + sessionResult.isSessionExpired());
+    System.out.println("Device correlation id: " + sessionResult.getDeviceCorrelationId());
     ```
 
     #### [Python](#tab/python)
@@ -284,6 +310,8 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     #### [Java](#tab/java)
     ```java
+    sessionClient.deleteLivenessSession(creationResult.getSessionId());
+    System.out.println("The session " + creationResult.getSessionId() + " is deleted.");
     ```
 
     #### [Python](#tab/python)
@@ -354,6 +382,28 @@ The high-level steps involved in liveness with verification orchestration are il
 
         #### [Java](#tab/java)
         ```java
+        String endpoint = System.getenv("VISION_ENDPOINT");
+        String accountKey = System.getenv("VISION_KEY");
+
+        FaceSessionClient sessionClient = new FaceSessionClientBuilder()
+            .endpoint(endpoint)
+            .credential(new AzureKeyCredential(accountKey))
+            .buildClient();
+
+        CreateLivenessSessionContent parameters = new CreateLivenessSessionContent(LivenessOperationMode.PASSIVE)
+            .setDeviceCorrelationId("723d6d03-ef33-40a8-9682-23a1feb7bccd")
+            .setSendResultsToClient(false);
+
+        Path path = Paths.get("test.png");
+        BinaryData data = BinaryData.fromFile(path);
+        CreateLivenessWithVerifySessionResult creationResult = sessionClient.createLivenessWithVerifySession(parameters, data);
+
+        System.out.println("Session created.");
+        System.out.println("Session id: " + creationResult.getSessionId());
+        System.out.println("Auth token: " + creationResult.getAuthToken());
+        System.out.println("The reference image:");
+        System.out.println("  Face rectangle: " + creationResult.getVerifyImage().getFaceRectangle().getTop() + " " + creationResult.getVerifyImage().getFaceRectangle().getLeft() + " " + creationResult.getVerifyImage().getFaceRectangle().getWidth() + " " + creationResult.getVerifyImage().getFaceRectangle().getHeight());
+        System.out.println("  The quality for recognition: " + creationResult.getVerifyImage().getQualityForRecognition());
         ```
 
         #### [Python](#tab/python)
@@ -456,6 +506,18 @@ The high-level steps involved in liveness with verification orchestration are il
 
     #### [Java](#tab/java)
     ```java
+    LivenessWithVerifySession sessionResult = sessionClient.getLivenessWithVerifySessionResult(creationResult.getSessionId());
+    System.out.println("Session id: " + sessionResult.getId());
+    System.out.println("Session status: " + sessionResult.getStatus());
+    System.out.println("Liveness detection request id: " + sessionResult.getResult().getRequestId());
+    System.out.println("Liveness detection received datetime: " + sessionResult.getResult().getReceivedDateTime());
+    System.out.println("Liveness detection decision: " + sessionResult.getResult().getResponse().getBody().getLivenessDecision());
+    System.out.println("Verification result: " + sessionResult.getResult().getResponse().getBody().getVerifyResult().isIdentical());
+    System.out.println("Verification confidence: " + sessionResult.getResult().getResponse().getBody().getVerifyResult().getMatchConfidence());
+    System.out.println("Session created datetime: " + sessionResult.getCreatedDateTime());
+    System.out.println("Auth token TTL (seconds): " + sessionResult.getAuthTokenTimeToLiveInSeconds());
+    System.out.println("Session expired: " + sessionResult.isSessionExpired());
+    System.out.println("Device correlation id: " + sessionResult.getDeviceCorrelationId());
     ```
 
     #### [Python](#tab/python)
@@ -551,6 +613,8 @@ The high-level steps involved in liveness with verification orchestration are il
 
     #### [Java](#tab/java)
     ```java
+    sessionClient.deleteLivenessWithVerifySession(creationResult.getSessionId());
+    System.out.println("The session " + creationResult.getSessionId() + " is deleted.");
     ```
 
     #### [Python](#tab/python)
