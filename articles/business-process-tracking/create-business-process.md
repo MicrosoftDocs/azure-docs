@@ -51,7 +51,7 @@ After you define a business process, you can then map each stage to actual Azure
 
 - An existing or new [Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database)
 
-  This Azure resource stores the transactions and business property values that you want to capture as the real-time data moves through your workflows at run time. When you create a business process, you specify the cluster, database, and table to use for storing the data that you want to capture.
+  This Azure resource is required to create a business process. Your business process uses this database to store the transactions and business property values that you want to capture as the real-time data moves through your workflows at run time. When you create a business process, you specify the cluster, database, and table to use for storing the data that you want to capture.
 
   > [!NOTE]
   >

@@ -25,6 +25,8 @@ The following diagram shows how you can organize Azure resources from various Az
 
 :::image type="content" source="media/overview/organize-conceptual.png" alt-text="Conceptual diagram that shows organizing separate Azure resources into application groups based on business or customer scenario." lightbox="media/overview/organize-conceptual.png":::
 
+For more information about the currently supported Azure resources that you can organize, see [Supported Azure resources](#supported-resources).
+
 <a name="central-resource"></a>
 
 ## Central organization and management
@@ -79,4 +81,4 @@ Azure Data Explorer incurs charges, based on the selected pricing option. For mo
 
 ## Related content
 
-[Business process tracking](../business-process-tracking/overview.md)
+[Create an integration environment](create-integration-environment.md)
