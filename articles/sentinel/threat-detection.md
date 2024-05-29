@@ -50,7 +50,7 @@ The queries in scheduled rule templates were written by security and data scienc
 
 The query logic is displayed in the rule configuration. You can use the query logic and the scheduling and lookback settings as defined in the template, or customize them to create new rules.
 
-Learn more about [Scheduled analytics rules in Microsoft Sentinel](scheduled-rules-overview.md).
+Learn more about [Scheduled analytics rules in Microsoft Sentinel](create-analytics-rules.md).
 
 <a name="nrt"></a> 
 
@@ -128,6 +128,6 @@ You can easily [export your rule to an Azure Resource Manager (ARM) template](im
 
 ## Next steps
 
-- Learn more about [Scheduled analytics rules in Microsoft Sentinel](scheduled-rules-overview.md) and [Quick threat detection with near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md).
+- Learn more about [Scheduled analytics rules in Microsoft Sentinel](create-analytics-rules.md) and [Quick threat detection with near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md).
 
 - To find more rule templates, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
