@@ -110,6 +110,9 @@ Most VMs contain a temporary disk, which is not a managed disk. The temporary di
 
 On Azure Linux VMs, the temporary disk is typically /dev/sdb and on Windows VMs the temporary disk is D: by default. The temporary disk is not encrypted unless (for server side encryption) you enable encryption at host or (for Azure Disk Encryption) with the [VolumeType parameter set to All on Windows](./windows/disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk) or [EncryptFormatAll on Linux](./linux/disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
+> [!NOTE]  
+> On Windows VMs, drive C: is a persistent storage. This means that even if you redeploy the virtual machine, the data stored on this drive wouldn't be deleted. By default, new folders and user accounts are stored on drive C.
+
 ## Managed disk snapshots
 
 A managed disk snapshot is a read-only crash-consistent full copy of a managed disk that is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new managed disks. 
