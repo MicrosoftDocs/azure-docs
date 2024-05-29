@@ -215,7 +215,7 @@ $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
 # [Azure CLI](#tab/azurecli)
 
 1.	Connect to your Azure subscription with Azure CLI.
-2.	Add a new backend pool instance with the admin state value is configured. The value can be set to UP or DOWN with with [az network lb address-pool update](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-update) . Replace the values in brackets with the names of the resources in your configuration.
+2.	Add a new backend pool instance with the admin state value is configured. The value can be set to UP or DOWN with [az network lb address-pool update](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-update) . Replace the values in brackets with the names of the resources in your configuration.
 
     ```azurecli
     az network lb address-pool update \
