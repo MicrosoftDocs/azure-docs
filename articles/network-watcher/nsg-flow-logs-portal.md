@@ -6,7 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 05/30/2024
+
+#CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher NSG flow logs so that I can analyze it later.
 ---
 
 # Manage NSG flow logs using the Azure portal
@@ -27,7 +29,7 @@ In this article, you learn how to create, change, disable, or delete an NSG flow
 
 ## Register Insights provider
 
-*Microsoft.Insights* provider must be registered to successfully log traffic flowing through a network security group. If you aren't sure if the *Microsoft.Insights* provider is registered, check its status:
+*Microsoft.Insights* provider must be registered to successfully log traffic flowing through a network security group. If you aren't sure if the *Microsoft.Insights* provider is registered, you can check its status by following these steps:
 
 1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** in the search results.
 
@@ -215,7 +217,7 @@ You can permanently delete an NSG flow log. Deleting a flow log deletes all its 
 > [!NOTE]
 > Deleting a flow log does not delete the flow log data from the storage account. Flow logs data stored in the storage account follows the configured retention policy or stays stored in the storage account until manually deleted (in case no retention policy is configured).
 
-## Next steps
+## Related content
 
 - To learn how to use Azure built-in policies to audit or deploy NSG flow logs, see [Manage NSG flow logs using Azure Policy](nsg-flow-logs-policy-portal.md).
 - To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).

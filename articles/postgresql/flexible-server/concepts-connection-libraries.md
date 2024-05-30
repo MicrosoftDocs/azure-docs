@@ -4,7 +4,7 @@ description: This article describes several libraries and drivers that you can u
 author: olmoloce
 ms.author: olmoloce
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/17/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
