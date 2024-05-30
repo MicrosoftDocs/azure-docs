@@ -7,10 +7,9 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/22/2024
+ms.date: 05/30/2024
 ms.custom:
   - mode-ui
-  - ignite-2023
 ---
 
 # Quickstart: Use Search explorer to run queries in the Azure portal

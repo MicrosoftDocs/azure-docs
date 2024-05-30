@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/30/2023
+ms.date: 05/30/2024
 ms.custom:
   - mode-ui
   - ignite-2023

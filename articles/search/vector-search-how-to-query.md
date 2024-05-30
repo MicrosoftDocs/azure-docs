@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 05/21/2024
+ms.date: 05/30/2024
 ---
 
 # Create a vector query in Azure AI Search
@@ -25,7 +25,9 @@ In Azure AI Search, if you have a [vector index](vector-search-how-to-create-ind
 > + [Set MaxTextSizeRecall to control the number of results (preview)](#maxtextsizerecall-for-hybrid-search-preview)
 > + [Set vector weights (preview)](#vector-weighting-preview)
 
-This article uses REST for illustration. For code samples in other languages, see the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) GitHub repository for end-to-end solutions that include vector queries.
+This article uses REST for illustration. For code samples in other languages, see the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) GitHub repository for end-to-end solutions that include vector queries. 
+
+You can also use [Search explorer](search-explorer.md) in the Azure portal if you [configure a vectorizer](vector-search-how-to-configure-vectorizer.md) that converts strings inot embeddings.
 
 ## Prerequisites
 

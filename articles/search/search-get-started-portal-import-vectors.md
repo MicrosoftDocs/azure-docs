@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: quickstart
-ms.date: 05/09/2024
+ms.date: 05/30/2024
 ---
 
 # Quickstart: Integrated vectorization (preview)

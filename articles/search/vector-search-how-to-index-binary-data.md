@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 05/21/2024
+ms.date: 05/30/2024
 ---
 
 # Index binary vectors for vector search
@@ -23,7 +23,7 @@ There are three steps to configuring an index for binary vectors:
 > + Add a vector profile that points to the algorithm
 > + Add the vector profile to your binary field definition
 
-This article assumes you're familiar with [creating an index in Azure AI Search](search-how-to-create-search-index.md). It uses the REST APIs to illustrate each step.
+This article assumes you're familiar with [creating an index in Azure AI Search](search-how-to-create-search-index.md). It uses the REST APIs to illustrate each step. You can also add a binary field type to an index in the Azure portal.
 
 ## Prerequisites
 
