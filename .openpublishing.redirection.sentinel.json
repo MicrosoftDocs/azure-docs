@@ -143,7 +143,7 @@
         {
             "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sentinel/data-connectors/cybersixgill-actionable-alerts-using-azure-function.md",
@@ -1198,7 +1198,7 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/crowdstrike-falcon-endpoint-protection.md",
             "redirect_url": "/azure/sentinel//data-connectors/recommended-crowdstrike-falcon-endpoint-protection-via-ama",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cyberark-enterprise-password-vault-epv-events.md",
