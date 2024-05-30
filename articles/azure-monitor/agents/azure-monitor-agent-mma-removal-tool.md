@@ -34,7 +34,7 @@ Do all the setup steps in [Visual Studio Code](https://code.visualstudio.com/) w
 - A new resource group to contain all the Azure resources that the setup automation creates automatically.
 - Appropriate permission on the configured scopes. To grant the remediation user-assigned managed identity with the previously mentioned roles on the target scopes, you must have **User Access Administrator** or **Owner** permission. For example, if you're configuring the setup for a particular subscription, you must have the **User Access Administrator** role assignment on that subscription so that the script can provide the permissions for the remediation user-assigned managed identity.
 
-## Resources Created
+## Resources created
 The removal tool will create a resouce group and create the following resouces to manage the removal of agents. Some of these may have an Azure cost.
 
 
