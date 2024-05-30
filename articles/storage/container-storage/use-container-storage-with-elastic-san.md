@@ -17,8 +17,6 @@ ms.custom: references_regions
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
-
 - Ensure your subscription has [Azure role-based access control (Azure RBAC) Owner](../../role-based-access-control/built-in-roles/general.md#owner) role. For Azure Container Storage to successfully communicate with Elastic SAN's API, it needs special permissions that the Owner role will grant.
 
 > [!NOTE]
