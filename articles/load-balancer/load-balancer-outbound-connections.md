@@ -62,6 +62,8 @@ Azure NAT Gateway simplifies outbound-only Internet connectivity for virtual net
 
 Using a NAT gateway is the best method for outbound connectivity. A NAT gateway is highly extensible, reliable, and doesn't have the same concerns of SNAT port exhaustion.
 
+NAT gateway takes precedence over other outbound connectivity methods, including a load balancer, instance-level public IP addresses, and Azure Firewall.
+
 For more information about Azure NAT Gateway, see [What is Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md).
 
 ##  3. Assign a public IP to the virtual machine
@@ -74,7 +76,7 @@ For more information about Azure NAT Gateway, see [What is Azure NAT Gateway](..
 
 Traffic returns to the requesting client from the virtual machine's public IP address (Instance Level IP).
  
-Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others. 
+Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others, except for NAT Gateway. 
 
 A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
 

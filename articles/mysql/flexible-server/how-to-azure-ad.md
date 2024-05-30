@@ -116,11 +116,11 @@ Exit
 # Assign the app roles
 
 $AAD_AppRole = $AAD_SP.AppRoles | Where-Object {$_.Value -eq "User.Read.All"}
-New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId  -PrincipalId $MSI.ObjectId  -ResourceId $AAD_SP.ObjectId[0]  -Id $AAD_AppRole.Id 
+New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId -PrincipalId $MSI.ObjectId -ResourceId $AAD_SP.ObjectId -Id $AAD_AppRole.Id 
 $AAD_AppRole = $AAD_SP.AppRoles | Where-Object {$_.Value -eq "GroupMember.Read.All"}
-New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId  -PrincipalId $MSI.ObjectId  -ResourceId $AAD_SP.ObjectId[0]  -Id $AAD_AppRole.Id
+New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId -PrincipalId $MSI.ObjectId -ResourceId $AAD_SP.ObjectId -Id $AAD_AppRole.Id
 $AAD_AppRole = $AAD_SP.AppRoles | Where-Object {$_.Value -eq "Application.Read.All"}
-New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId  -PrincipalId $MSI.ObjectId  -ResourceId $AAD_SP.ObjectId[0]  -Id $AAD_AppRole.Id
+New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId -PrincipalId $MSI.ObjectId -ResourceId $AAD_SP.ObjectId -Id $AAD_AppRole.Id
 ```
 
 In the final steps of the script, if you have more UMIs with similar names, you have to use the proper `$MSI[ ]array` number. An example is `$AAD_SP.ObjectId[0]`.
@@ -167,7 +167,7 @@ Invoke the Azure CLI tool to acquire an access token for the Microsoft Entra aut
 - Example (for Public Cloud):
 
     ```azurecli-interactive
-    az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+    az account get-access-token --resource https://server-name.database.windows.net
     ```
 
 - The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using the following:
@@ -185,7 +185,7 @@ Invoke the Azure CLI tool to acquire an access token for the Microsoft Entra aut
 - Using PowerShell, you can use the following command to acquire access token:
 
     ```powershell
-    $accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net
+    $accessToken = Get-AzAccessToken -ResourceUrl https://server-name.database.windows.net
     $accessToken.Token | out-file C:\temp\MySQLAccessToken.txt
     ```
 
@@ -240,7 +240,7 @@ mysql -h mydb.mysql.database.azure.com \
 mysql -h mydb.mysql.database.azure.com \
   --user user@tenant.onmicrosoft.com \
   --enable-cleartext-plugin \
-  --password=$((Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net).Token)
+  --password=$((Get-AzAccessToken -ResourceUrl https://server-name.database.windows.net).Token)
 ```
 
 ## Connect to Azure Database for MySQL flexible server using MySQL Workbench

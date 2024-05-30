@@ -5,8 +5,9 @@ author: timlt
 ms.author: timlt
 ms.service: iot
 ms.topic: conceptual
-ms.date: 04/04/2024
+ms.date: 04/08/2024
 ms.custom: template-concept, linux-related-content
+
 #Customer intent: As a device developer, I want to understand when to use the Azure IoT C SDK or the Embedded C SDK to optimize device and application performance.
 ---
 
@@ -45,17 +46,17 @@ The Embedded C SDK has the following key characteristics:
     - AMQP-based features like content message batching and device multiplexing
 -	Smaller overall [footprint](https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/docs/iot#size-chart). The Embedded C SDK, as see in a sample that shows how to connect to IoT Hub, can take as little as 74 KB of ROM and 8.26 KB of RAM.
 
-The Embedded C SDK supports micro-controllers with no operating system, micro-controllers with a real-time operating system (like Azure RTOS), Linux, and Windows. Customers can implement custom platform layers to use the SDK on custom devices. The SDK also provides some platform layers such as [Arduino](https://github.com/Azure/azure-sdk-for-c-arduino), and [Swift](https://github.com/Azure-Samples/azure-sdk-for-c-swift).  Microsoft encourages the community to submit other platform layers to increase the out-of-the-box supported platforms. Wind River [VxWorks](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/samples/iot/docs/how_to_iot_hub_samples_vxworks.md) is an example of a platform layer submitted by the community. 
+The Embedded C SDK supports micro-controllers with no operating system, micro-controllers with a real-time operating system (like Eclipse ThreadX), Linux, and Windows. Customers can implement custom platform layers to use the SDK on custom devices. The SDK also provides some platform layers such as [Arduino](https://github.com/Azure/azure-sdk-for-c-arduino), and [Swift](https://github.com/Azure-Samples/azure-sdk-for-c-swift).  Microsoft encourages the community to submit other platform layers to increase the out-of-the-box supported platforms. Wind River [VxWorks](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/samples/iot/docs/how_to_iot_hub_samples_vxworks.md) is an example of a platform layer submitted by the community. 
 
-The Embedded C SDK adds some programming benefits because of its flexibility compared to the Azure IoT C SDK. In particular, applications that use constrained devices will benefit from enormous resource savings and greater programmatic control.  In comparison, if you use Azure RTOS or FreeRTOS, you can have these same benefits along with other features per RTOS implementation.
+The Embedded C SDK adds some programming benefits because of its flexibility compared to the Azure IoT C SDK. In particular, applications that use constrained devices will benefit from enormous resource savings and greater programmatic control.  In comparison, if you use Eclipse ThreadX or FreeRTOS, you can have these same benefits along with other features per RTOS implementation.
 
-## Scenario 3 – Azure RTOS with Azure RTOS middleware (for Azure RTOS-based projects)
+## Scenario 3 – Eclipse ThreadX with Azure IoT middleware (for Eclipse ThreadX-based projects)
 
-Scenario 3 involves using Azure RTOS and the [Azure RTOS middleware](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot).  Azure RTOS is built on top of the Embedded C SDK, and adds MQTT and TLS Support. The middleware for Azure RTOS exposes APIs for the application that are similar to the native Azure RTOS APIs.  This approach makes it simpler for developers to use the APIs and connect their Azure RTOS-based devices to Azure IoT. Azure RTOS is a fully integrated, efficient, real time embedded platform, that provides all the networking and IoT features you need for your solution.
+Scenario 3 involves using Eclipse ThreadX and the [Azure IoT middleware](https://github.com/eclipse-threadx/netxduo/tree/master/addons/azure_iot).  Eclipse ThreadX is built on top of the Embedded C SDK, and adds MQTT and TLS Support. The middleware for Eclipse ThreadX exposes APIs for the application that are similar to the native Eclipse ThreadX APIs.  This approach makes it simpler for developers to use the APIs and connect their Eclipse ThreadX-based devices to Azure IoT. Eclipse ThreadX is a fully integrated, efficient, real time embedded platform, that provides all the networking and IoT features you need for your solution.
 
-Samples for several popular developer kits from ST, NXP, Renesas, and Microchip, are available.  These samples work with Azure IoT Hub or Azure IoT Central, and are available as IAR Workbench or semiconductor IDE projects on [GitHub](https://github.com/azure-rtos/samples).
+Samples for several popular developer kits from ST, NXP, Renesas, and Microchip, are available.  These samples work with Azure IoT Hub or Azure IoT Central, and are available as IAR Workbench or semiconductor IDE projects on [GitHub](https://github.com/eclipse-threadx/samples).
 
-Because it's based on the Embedded C SDK, the Azure IoT middleware for Azure RTOS is non-memory allocating. Customers must allocate SDK data structures in global memory, or a heap, or a stack. After customers allocate a data structure, they must pass the address of the structure into the SDK functions to initialize and perform various operations.
+Because it's based on the Embedded C SDK, the Azure IoT middleware for Eclipse ThreadX is non-memory allocating. Customers must allocate SDK data structures in global memory, or a heap, or a stack. After customers allocate a data structure, they must pass the address of the structure into the SDK functions to initialize and perform various operations.
 
 ## Scenario 4 – FreeRTOS with FreeRTOS middleware (for use with FreeRTOS-based projects)
 
@@ -71,7 +72,7 @@ Because it's based on the Azure Embedded C SDK, the Azure IoT middleware for Fre
 
 The following diagram summarizes technical options for each SDK usage scenario described in this article.
 
-:::image type="content" source="media/concepts-using-c-sdk-and-embedded-c-sdk/sdk-scenarios-summary.png" alt-text="Diagram with developer details for the four C SDK usage scenarios." border="false":::
+:::image type="content" source="media/concepts-using-c-sdk-and-embedded-c-sdk/sdk-scenarios-summary.svg" alt-text="Diagram with developer details for the four C SDK usage scenarios." border="false"  lightbox="media/concepts-using-c-sdk-and-embedded-c-sdk/sdk-scenarios-summary.png":::
 
 ## C-based SDK comparison by memory and protocols
 
@@ -81,14 +82,14 @@ The following table compares the four device SDK development scenarios based on 
 | :-- | :-- | :-- | :-- | :-- |
 | **Azure IoT C SDK**  | Mostly Dynamic | Unrestricted. Can span <br>to 1 MB or more in RAM. | AMQP<br>HTTP<br>MQTT v3.1.1 | Microprocessor-based systems<br>Microsoft Windows<br>Linux<br>Apple OS X |
 | **Azure SDK for Embedded C**  | Static only | Restricted by amount of <br>data application allocates.  | MQTT v3.1.1 | Micro-controllers <br>Bare-metal Implementations <br>RTOS-based implementations |
-| **Azure IoT Middleware for Azure RTOS**  | Static only | Restricted | MQTT v3.1.1 | Micro-controllers <br>RTOS-based implementations |
+| **Azure IoT Middleware for Eclipse ThreadX**  | Static only | Restricted | MQTT v3.1.1 | Micro-controllers <br>RTOS-based implementations |
 | **Azure IoT Middleware for FreeRTOS**  | Static only | Restricted | MQTT v3.1.1 | Micro-controllers <br>RTOS-based implementations |
 
 ## Azure IoT Features Supported by each SDK
 
 The following table compares the four device SDK development scenarios based on support for Azure IoT features. 
 
-| &nbsp; | **Azure IoT C SDK** | **Azure SDK for <br>Embedded C** | **Azure IoT <br>middleware for <br>Azure RTOS** | **Azure IoT <br>middleware for <br>FreeRTOS** |
+| &nbsp; | **Azure IoT C SDK** | **Azure SDK for <br>Embedded C** | **Azure IoT <br>middleware for <br>Eclipse ThreadX** | **Azure IoT <br>middleware for <br>FreeRTOS** |
 | :-- | :-- | :-- | :-- | :-- |
 | SAS Client Authentication | Yes | Yes | Yes | Yes |
 | x509 Client Authentication | Yes | Yes | Yes | Yes |

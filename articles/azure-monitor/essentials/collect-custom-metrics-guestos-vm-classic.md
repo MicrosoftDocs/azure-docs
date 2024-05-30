@@ -4,7 +4,7 @@ description: Send Guest OS metrics to the Azure Monitor data store for a Windows
 services: azure-monitor
 ms.reviewer: shijain
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 05/31/2024
 ---
 
 # Send Guest OS metrics to the Azure Monitor metrics database for a Windows virtual machine (classic)

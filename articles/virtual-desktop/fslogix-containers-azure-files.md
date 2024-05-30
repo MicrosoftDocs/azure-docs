@@ -88,5 +88,5 @@ Azure Files has limits on the number of open handles per root directory, directo
 
 - Learn more about storage options for FSLogix profile containers, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
 - [Set up FSLogix Profile Container with Azure Files and Active Directory](fslogix-profile-container-configure-azure-files-active-directory.md)
-- [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.md)
+- [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml)
 - [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)

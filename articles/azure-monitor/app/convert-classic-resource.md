@@ -21,13 +21,6 @@ Workspace-based resources:
 > - Are available in all commercial regions and [Azure US Government](../../azure-government/index.yml).
 > - Don't require changing instrumentation keys after migration from a classic resource.
 
-> [!IMPORTANT]
-> * On February 29, 2024, Continuous Export was retired as part of the classic Application Insights resource retirement.
-> 
-> * [Workspace-based Application Insights resources](./create-workspace-resource.md) are not compatible with continuous export. We recommend migrating to  [diagnostic settings](../essentials/diagnostic-settings.md) on classic Application Insights resources before transitioning to a workspace-based Application Insights. This ensures continuity and compatibility of your diagnostic settings.
->
-> * Diagnostic settings export might increase costs. For more information, see [Diagnostic settings-based export](export-telemetry.md#diagnostic-settings-based-export).
-
 ## New capabilities
 
 Workspace-based Application Insights resources allow you to take advantage of the latest capabilities of Azure Monitor and Log Analytics:

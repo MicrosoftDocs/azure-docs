@@ -176,7 +176,7 @@ To access Azure Container Registry (ACR) for a Docker image, and a Storage Accou
 
 ### Assign Azure roles to managed identity
 Azure offers a couple of ways to assign roles to a managed identity.
-- [Use Azure portal to assign roles](../role-based-access-control/role-assignments-portal.md)
+- [Use Azure portal to assign roles](../role-based-access-control/role-assignments-portal.yml)
 - [Use Azure CLI to assign roles](../role-based-access-control/role-assignments-cli.md)
 - [Use Azure PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md)
 

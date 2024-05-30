@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 04/02/2024
 ---
@@ -31,7 +32,7 @@ A search service uses Azure Storage as an indexer data source and as a data sink
 
 | Scenario | System managed identity | User-assigned managed identity (preview) |
 |----------|-------------------------|---------------------------------|
-| [Indexer connections to supported Azure data sources](search-indexer-overview.md) <sup>1</sup><sup>3</sup>| Yes | Yes |
+| [Indexer connections to supported Azure data sources](search-indexer-overview.md) <sup>1,</sup> <sup>3</sup>| Yes | Yes |
 | [Azure Key Vault for customer-managed keys](search-security-manage-encryption-keys.md) | Yes | Yes |
 | [Debug sessions (hosted in Azure Storage)](cognitive-search-debug-session.md)	<sup>1</sup> | Yes | No |
 | [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md) <sup>1,</sup> <sup>2</sup> | Yes | Yes |
@@ -300,6 +301,7 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
   "description": "Connects a deployed embedding model.",
   "resourceUri": "https://url.openai.azure.com/",
   "deploymentId": "text-embedding-ada-002",
+  "modelName": "text-embedding-ada-002",
   "inputs": [
     {
       "name": "text",
@@ -321,7 +323,8 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
       "kind": "azureOpenAI",
       "azureOpenAIParameters": {
         "resourceUri": "https://url.openai.azure.com",
-        "deploymentId": "text-embedding-ada-002"
+        "deploymentId": "text-embedding-ada-002",
+        "modelName": "text-embedding-ada-002"
       }
     }
   ]

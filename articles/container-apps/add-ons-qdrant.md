@@ -42,7 +42,7 @@ To complete this project, you need the following items:
 
 | Requirement  | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 
 ## Setup
@@ -121,7 +121,7 @@ Now that you have an existing environment and workload profile, you can create y
 1. Create the Qdrant add-on service.
 
     ```azurecli
-    az containerapp service qdrant create \
+    az containerapp add-on qdrant create \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
       --name $SERVICE_NAME

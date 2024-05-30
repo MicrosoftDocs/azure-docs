@@ -64,6 +64,6 @@ Use the following steps to check the agreement type to determine whether you hav
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - [View and download your organization's pricing](ea-pricing.md)

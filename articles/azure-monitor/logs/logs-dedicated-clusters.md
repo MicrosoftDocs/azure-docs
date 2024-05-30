@@ -3,7 +3,7 @@ title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 01/25/2024
+ms.date: 04/21/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -130,7 +130,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 *Call* 
 
 ```rest
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -184,7 +184,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Clust
 Send a GET request on the cluster resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
   ```rest
-  GET https://management.azure.com/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
+  GET https://management.azure.com/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2022-10-01
   Authorization: Bearer <token>
   ```
 
@@ -239,12 +239,12 @@ You need 'write' permissions to both the workspace and the cluster resource for 
 - In the cluster resource: *Microsoft.OperationalInsights/clusters/write*
 
 Once Log Analytics workspace linked to a dedicated cluster, new data sent to workspace is ingested to your dedicated cluster, while previously ingested data remains in Log Analytics cluster. Linking a workspace has no effect on workspace operation, including ingestion and query experiences. Log Analytics query engine stitches data from old and new clusters automatically, and the results of queries are complete. 
- 
-When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
 
-A cluster can be linked to up to 1,000 workspaces located in the same region with cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
+Clusters are regional and can be linked to up to 1,000 workspaces located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
 
-The workspace and the cluster can be in different subscriptions. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
+Linked workspaces can be in different subscriptions than the subscription the cluster is located in. The workspace and cluster can be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
+
+When a dedicated cluster is configured with a customer-managed key (CMK), the newly ingested data is encrypted with your key, while older data remains encrypted with a Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
 
 Use the following steps to link a workspace to a cluster. You can use automation for linking multiple workspaces:
 
@@ -298,7 +298,7 @@ Use the following REST call to link to a cluster:
 *Send*
 
 ```rest
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2021-06-01 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -346,7 +346,7 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2023-09-01
 Authorization: Bearer <token>
 ```
 
@@ -429,7 +429,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
 
@@ -500,7 +500,7 @@ Get-AzOperationalInsightsCluster
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
     
@@ -542,7 +542,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 *Call*
 
 ```rest
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -588,7 +588,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 *Call*
 
 ```rest
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -688,7 +688,7 @@ Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 Use the following REST call to delete a cluster:
 
 ```rest
-DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
 

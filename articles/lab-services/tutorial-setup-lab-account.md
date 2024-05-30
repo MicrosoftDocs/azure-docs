@@ -73,7 +73,7 @@ You've now successfully created a lab account by using the Azure portal. To let 
 
 To set up a lab in a lab account, you must be a member of the Lab Creator role in the lab account. To grant people the permission to create labs, add them to the Lab Creator role. 
 
-Follow these steps to [assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+Follow these steps to [assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 > [!NOTE]
 > Azure Lab Services automatically assigns the Lab Creator role to the Azure account you use to create the lab account. If you plan to use the same user account to create a lab in this tutorial, skip this step.

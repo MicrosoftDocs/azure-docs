@@ -29,7 +29,7 @@ The Private DNS Zone Contributor role is a built-in role for managing private DN
 
 The resource group *myPrivateDNS* contains five zones for Contoso Corporation. Granting the DNS administrator Private DNS Zone Contributor permissions to that resource group, enables full control over those DNS zones. It avoids granting unnecessary permissions. The DNS administrator can't create or stop virtual machines.
 
-The simplest way to assign Azure RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.md).  
+The simplest way to assign Azure RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.yml).  
 
 Open **Access control (IAM)** for the resource group, select **Add**, then select the **Private DNS Zone Contributor** role. Select the required users or groups to grant permissions.
 
