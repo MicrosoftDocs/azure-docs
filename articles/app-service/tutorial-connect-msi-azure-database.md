@@ -197,7 +197,7 @@ If you encounter any problem when creating a connection, refer to [Troubleshooti
 Connectivity to the Azure Database for MySQL in your code follows the `DefaultAzureCredential` pattern for all language stacks. `DefaultAzureCredential` is flexible enough to adapt to both the development environment and the Azure environment. When running locally, it can retrieve the logged-in Azure user from the environment of your choice (Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell). When running in Azure, it retrieves the managed identity. So it's possible to have connectivity to database both at development time and in production. The pattern is as follows:
 
 1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity.
-2. Get an access token for Azure Database for MySQL: `https://ossrdbms-aad.database.windows.net/.default`.
+2. Get an access token for Azure Database for MySQL: `https://server-name.database.windows.net/.default`.
 3. Add the token to your connection string.
 4. Open the connection.
 
@@ -208,7 +208,7 @@ Connectivity to the Azure Database for MySQL in your code follows the `DefaultAz
 Connectivity to the Azure Database for PostgreSQL in your code follows the `DefaultAzureCredential` pattern for all language stacks. `DefaultAzureCredential` is flexible enough to adapt to both the development environment and the Azure environment. When running locally, it can retrieve the logged-in Azure user from the environment of your choice (Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell). When running in Azure, it retrieves the managed identity. So it's possible to have connectivity to database both at development time and in production. The pattern is as follows:
 
 1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity.
-2. Get an access token for Azure Database for PostgreSQL: `https://ossrdbms-aad.database.windows.net/.default`.
+2. Get an access token for Azure Database for PostgreSQL: `https://server-name.database.windows.net/.default`.
 3. Add the token to your connection string.
 4. Open the connection.
 

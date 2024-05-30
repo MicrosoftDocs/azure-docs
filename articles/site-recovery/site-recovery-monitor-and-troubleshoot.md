@@ -254,7 +254,7 @@ You can manage your alerts settings under **Business Continuity Center** > **Mon
 
 Select **View alert** to get alert details and take action. 
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png" alt-text="Screenshot displays Manage alerts option." lightbox="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png" alt-text="Screenshot displays View alert option." lightbox="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png":::
 
 Like Azure Monitor, Business Continuity Center, and Recovery Services Vault you can view alerts from Backup Center as well. 
 

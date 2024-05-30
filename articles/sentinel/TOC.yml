@@ -1002,6 +1002,8 @@
       href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Other KQL resources
       href: kusto-resources.md 
+  - name: Create custom query
+    href: hunts-custom-queries.md
   - name: Hunt with bookmarks
     href: bookmarks.md
   - name: Hunt with livestream

@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 05/20/2024
+ms.date: 05/24/2024
 ms.custom: references_regions, build-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
@@ -80,9 +80,9 @@ Concurrency refers to the number of parallel executions of a function on an inst
 
 Concurrency has a direct effect on how your app scales because at lower concurrency levels, you need more instances to handle the event-driven demand for a function. While you can control and fine tune the concurrency, we provide defaults that work for most cases. To learn how to set concurrency limits for HTTP trigger functions, see [Set HTTP concurrency limits](flex-consumption-how-to.md#set-http-concurrency-limits).
 
-## Deployment storage account
+## Deployment
 
-Unlike other plans, project code is deployed to apps in a Flex Consumption plan from a container in a Blob storage account. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can define a second storage account in which to maintain the deployment container. For more information, see [Configure the deployment storage account](flex-consumption-how-to.md#configure-the-deployment-storage-account).
+Deployments in the Flex Consumption plan follow a single path. After your project code is built and zipped into an application package, it is deployed to a blob storage container. Upon startup, your app will retrieve the package and run from it. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings). In streamlining the deployment path, there is no longer the need for app settings to influence deployment behaviour.
 
 ## Billing
 
@@ -135,6 +135,7 @@ Keep these other considerations in mind when using Flex Consumption plan during 
   + Continuous deployment using Azure DevOps Tasks (`AzureFunctionApp@2`)
   + Continuous deployment using GitHub Actions (`functions-action@v1`) 
 + **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
++ **Authorization**: EasyAuth isn't currently supported. Unauthenticated callers currently aren't blocked when EasyAuth is enabled in a Flex Consumption plan app.  
  
 ## Related articles 
 
