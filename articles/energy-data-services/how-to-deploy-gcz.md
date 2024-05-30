@@ -10,9 +10,9 @@ author: EirikHaughom
 ms.date: 05/11/2024
 ---
 
-# Deploy Geospatial Consumption Zone on top of Azure Data Manager for Energy
+# Deploy Geospatial Consumption Zone
 
-This guide shows you how to deploy the OSDU Admin UI on top of your Azure Data Manager for Energy (ADME) instance.
+This guide will show you how to deploy the Geospatial Consumption Zone (GCZ) service integrated with Azure Data Manager for Energy (ADME).
 
 ## Description
 
@@ -20,8 +20,16 @@ The OSDU Geospatial Consumption Zone (GCZ) is a service that enables enhanced ma
 
 ## Create an App Registration in Entra ID
 
+To deploy the GCZ, you need to create an App Registration in Entra ID. The App Registration will be used to authenticate the GCZ API's with Azure Data Manager for Energy to be able to generate the cache of the geospatial data.
+
+1. See [Create an App Registration in Entra ID](/azure/active-directory/develop/quickstart-register-app) for instructions on how to create an App Registration.
+1. Grant the App Registration permission to read the relevant data in Azure Data Manager for Energy. See [How to add members to an OSDU group](./how-to-manage-users.md#add-members-to-an-osdu-group-in-a-data-partition) for further instructions.
 
 ## Setup
+
+There are two main deployment options for the GCZ service:
+- **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This is the recommended deployment option for production environments, however it requires more setup, configuration and maintenance. It also has some limitations in the provided container images.
+- **Windows Virtual Machine (VM)**: Deploy the GCZ service on a Windows VM. This is the recommended deployment option for development and testing environments, as it is easier to set up and configure, and requires less maintenance.
 
 ::: zone pivot="Azure Kubernetes Service (AKS)"
 
@@ -51,13 +59,13 @@ Through APIM we can add policies to secure, monitor and manage the API's.
 
 ### Add the GCZ API's to Azure API Management
 
-
 #### Download the GCZ OpenAPI specifications
 
 1. Download the two OpenAPI specification to your local computer.
     - [GCZ Provider](../../media/how-to-deploy-gcz/gcz-openapi-provider.yaml)
     - [GCZ Transformer](../../media/how-to-deploy-gcz/gcz-openapi-transformer.yaml)
-1. Open each OpenAPI specification file in a text editor and replace the `servers` section with the IPs of the AKS GCZ Services' Load Balancer (External IP).
+1. Open each OpenAPI specification file in a text editor and replace the `servers` section with the corresponding IPs of the AKS GCZ Services' Load Balancer (External IP).
+
     ```yaml
     servers:
     - url: "http://<GCZ-Service-External-IP>/ignite-provider"
@@ -75,7 +83,7 @@ Through APIM we can add policies to secure, monitor and manage the API's.
 
 ::: zone-end
 
-## Testing the GCZ
+## Testing the GCZ service
 
 1. Download the API client collection from the [OSDU GitLab](hthttps://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (e.g. Postman).
 1. Add the following environment variables to your API client:

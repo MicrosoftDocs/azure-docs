@@ -17,7 +17,6 @@ In this guide, you will learn how to deploy Geospatial Consumption Zone (GCZ) on
 > [!IMPORTANT]
 > The current deployment of GCZ using AKS is limited to a default configuration of included schemas, please see [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/devops/azure/transformer/application.yml) for information regarding the supported schemas. To add or change schemas (i.e. newer versions) a custom container image will need to be created.
 
-
 ## Prerequisites
 
 - Azure Subscription.
