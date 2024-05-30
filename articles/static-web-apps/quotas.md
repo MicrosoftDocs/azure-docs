@@ -11,21 +11,28 @@ ms.author: cshoe
 
 # Quotas in Azure Static Web Apps
 
-The following quotas exist for Azure Static Web Apps.
+Per-subscription limits:
 
-| Feature                     | Free plan        | Standard plan |
-|-----------------------------|------------------|---------------|
-| Included bandwidth          | 100 GB per month, per subscription | 100 GB per month, per subscription |
-| Overage bandwidth           | Unavailable      | $0.20 per GB |
-| Apps per Azure subscription | 10               | Unlimited |
-| Storage | • 500 MB max for all staging and production environments<br><br>• 250 MB max per app | • 2 GB max for all staging and production environments<br><br>• 500 MB max per app |
-| Pre-production environments | 3                | 10 |
-| Custom domains              | 2 per app        | 5 per app |
-| Allowed IP ranges           | Unavailable      | 25 |
-| Authorization (built-in roles) | Unlimited end-users that may authenticate with built-in `authenticated` role | Unlimited end-users that may authenticate with built-in `authenticated` role |
-| Authorization (custom roles) | Maximum of 25 end-users that may belong to custom roles via [invitations](authentication-custom.md#manage-roles) | Maximum of 25 end-users that may belong to custom roles via [invitations](authentication-custom.md#manage-roles), or unlimited end-users that may be assigned custom roles via [serverless function](authentication-custom.md#manage-roles) |
-| Request Size Limit | 30 MB               | 30 MB |
-| File count         | 15,000              | 15,000|
+| Feature                          | Free plan   | Standard plan | Dedicated plan (Preview) |
+|----------------------------------|-------------|---------------|--------------------------|
+| Included bandwidth (per month)   | 100 GB      | 100 GB        | 100 GB                   |
+| Overage bandwidth                | Unavailable | $0.20 per GB  | $0.20 per GB             |
+| Apps                             | 10          | 100           | 1                        |
+
+If you need more apps on the Standard plan, please contact Azure Support.
+
+Per-app limits:
+
+| Feature                          | Free plan   | Standard plan | Dedicated plan (Preview) |
+|----------------------------------|-------------|---------------|--------------------------|
+| Pre-production environments      | 3           | 10            | 10                       |
+| Total storage (all environments) | 500 MB      | 2 GB          | 2 GB                     |
+| Storage (single environment)     | 250 MB      | 500 MB        | 500 MB                   |
+| File count                       | 15,000      | 15,000        | 15,000                   |
+| Custom domains                   | 2           | 5             | 5                        |
+| Allowed IP ranges                | Unavailable | 25            | 25                       |
+| Authorization (custom roles)     | 25 ([invitations only][1]) | 25 ([via invitations][1]) or unlimited ([via serverless function][2]) | 25 ([via invitations][1]) or unlimited ([via serverless function][2]) |
+| Request Size Limit               | 30 MB        | 30 MB        | 30 MB                    |
 
 ## GitHub storage
 
@@ -40,3 +47,7 @@ See the following resources for more detail:
 ## Next steps
 
 - [Azure Static Web Apps overview](overview.md)
+
+<!-- Links -->
+[1]: authentication-custom.md#manage-roles
+[2]: authentication-custom.md#manage-roles
