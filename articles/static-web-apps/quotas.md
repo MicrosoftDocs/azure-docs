@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Quotas in Azure Static Web Apps
 
-Per-subscription limits:
+Subscription limits:
 
 | Feature                             | Free plan   | Standard plan | Dedicated plan (Preview) |
 |-------------------------------------|-------------|---------------|--------------------------|
@@ -19,9 +19,9 @@ Per-subscription limits:
 | Overage bandwidth                   | Unavailable | $0.20 per GB  | $0.20 per GB             |
 | Apps                                | 10          | 100           | 1                        |
 
-If you need more apps on the Standard plan, please contact Azure Support.
+If you need more apps on the Standard plan, contact Azure Support.
 
-Per-app limits:
+App limits:
 
 | Feature                             | Free plan   | Standard plan | Dedicated plan (Preview) |
 |-------------------------------------|-------------|---------------|--------------------------|
