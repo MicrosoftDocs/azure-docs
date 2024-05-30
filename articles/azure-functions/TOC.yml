@@ -222,10 +222,14 @@
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json
     - name: Create a serverless web app
       href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
-    - name: Machine learning with TensorFlow
-      href: functions-machine-learning-tensorflow.md
-    - name: Image classification with PyTorch
-      href: machine-learning-pytorch.md
+    - name: Data + AI
+      items:
+        - name: Azure OpenAI for text completion
+          href: functions-add-openai-text-completion.md   
+        - name: Machine learning with TensorFlow
+          href: functions-machine-learning-tensorflow.md
+        - name: Image classification with PyTorch
+          href: machine-learning-pytorch.md
     - name: Functions on IoT Edge device
       href: ../iot-edge/tutorial-deploy-function.md?toc=/azure/azure-functions/toc.json
     - name: Java with Azure Cosmos DB and Event Hubs

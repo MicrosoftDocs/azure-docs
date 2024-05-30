@@ -83,6 +83,19 @@ You can add the preview extension by adding or replacing the following code in y
 
 ::: zone-end
 
+## Application settings
+
+To use the Azure OpenAI binding extension, you need to add one or more of these settings, which are used to connect to your OpenAI resource. During local development, you also need to add these settings to your `local.settings.json` file. 
+
+| Setting name | Description |
+| ---- | ----- |
+| **`AZURE_OPENAI_ENDPOINT`** | Required. Sets the endpoint of the OpenAI resource used by your bindings.   |
+| **`AZURE_OPENAI_KEY`** | Sets the key used to access an Azure OpenAI resource. |
+| **`OPENAI_API_KEY`** | Sets the key used to access a non-Azure OpenAI resource. |
+| **`AZURE_CLIENT_ID`** | Sets a user-assigned managed identity used to access the Azure OpenAI resource.  |
+
+For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+ 
 <!---Include this section if there are any host.json settings defined by the extension:
 ## host.json settings
 -->
