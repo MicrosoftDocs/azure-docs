@@ -28,21 +28,18 @@ Select the option to open the query in Log Analytics where you can perform more 
 
 
 ## Filtering options
-Start by ensuring that you're only collecting the data that you need. 
-
-
-### Configure Basic Logs
-[Basic Logs in Azure Monitor](../logs/basic-logs-configure.md) offer a significant cost discount for ingestion of data in your Log Analytics workspace for data that 
-
-You can save on data ingestion costs on ContainerLog in your Log Analytics workspace that you primarily use for debugging, troubleshooting, and auditing as Basic Logs. For more information, including the limitations of Basic Logs, see [Configure Basic Logs in Azure Monitor](../logs/basic-logs-configure.md). ContainerLogV2 is the configured version of Basic Logs that Container Insights uses. ContainerLogV2 includes verbose text-based log records.
-
-You must be on the ContainerLogV2 schema to configure Basic Logs. For more information, see [Enable the ContainerLogV2 schema](container-insights-logs-schema.md).
-
+Once you've analyzed your collected data and determined if there's any data that you're collecting that you don't require, use the guidance in [Configure and filter log collection in Container insights](./container-insights-data-collection-configure.md) to filter any data that you don't want to collect. This includes selecting from a set of predefined cost configurations and filtering out specific namespaces that you don't require.
 
 ## Transformations
-[Ingestion time transformations](../essentials/data-collection-transformations.md) allow you to apply a KQL query to filter and transform data in the [Azure Monitor pipeline](../essentials/pipeline-overview.md) before it's stored in the Log Analytics workspace. Add a transformation to the DCR created by Container insights to perform any additional filtering that you cannot perform with the options described above. This includes filtering data using more detailed logic, removing columns in the data that you don't require, or even sending data to multiple tables. 
+[Ingestion time transformations](../essentials/data-collection-transformations.md) allow you to apply a KQL query to filter and transform data in the [Azure Monitor pipeline](../essentials/pipeline-overview.md) before it's stored in the Log Analytics workspace. Add a transformation to the DCR created by Container insights to perform any additional filtering that you cannot perform with the standard options. This includes filtering data using more detailed logic, removing columns in the data that you don't require, or even sending data to multiple tables. 
+
 
 See [Data transformations in Container insights](./container-insights-transformations.md)
+
+## Configure Basic Logs
+[Basic Logs in Azure Monitor](../logs/basic-logs-configure.md) offer a significant cost discount for ingestion of data in your Log Analytics workspace for data that that you primarily use for debugging, troubleshooting, and auditing. [ContainerLogV2 ](container-insights-logs-schema.md) can be configured for basic logs.
+
+
 
 
 ## Next steps
