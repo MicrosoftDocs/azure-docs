@@ -82,9 +82,10 @@ To create the data collection rule in the Azure portal:
     
     ```kusto
     WindowsFirewall 
-    | where csHost=="www.contoso.com" 
-    | summarize count() by csUriStem
+    | take 10
     ```
+
+    [ ![screenshot that shows the results of a Firewall log query.](media/firewall-logs/law-query-results.png) ](media/firewall-logs/law-query-results.png#lightbox)
 
 ## Troubleshoot
 Use the following steps to troubleshoot the collection of firewall logs. 
