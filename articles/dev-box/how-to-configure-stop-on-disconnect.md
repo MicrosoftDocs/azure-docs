@@ -7,8 +7,8 @@ description: Learn how to automatically stop a dev box when a user disconnects b
 services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-azurecli
-author: dhruvmu
-ms.author: rosemalcolm
+author: dhruvchand
+ms.author: dhruvmu
 ms.date: 01/10/2024
 ms.topic: how-to
 
@@ -37,7 +37,7 @@ To manage a dev box schedule, you need the following permissions:
 You can manage stop on disconnect settings on dev box pools by using the Azure CLI.
 
 
-### Update a pool wiith stop on disconnect
+### Update a pool with stop on disconnect
 
 The following Azure CLI command enables stop on disconnect on a dev box pool:
 
