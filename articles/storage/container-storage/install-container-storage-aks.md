@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage for use with Azure Kub
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: tutorial
-ms.date: 05/24/2024
+ms.date: 05/30/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -174,9 +174,9 @@ az aks nodepool update --resource-group <resource-group> --cluster-name <cluster
 
 You can verify that the node pool is correctly labeled by signing into the [Azure portal](https://portal.azure.com?azure-portal=true) and navigating to your AKS cluster. Go to **Settings > Node pools**, select your node pool, and under **Taints and labels** you should see `Labels: acstor.azure.com/io-engine:acstor`.
 
-## Assign Contributor role to AKS managed identity
+## Assign Azure Container Storage Operator role to AKS managed identity
 
-Azure Container Service is a separate service from AKS, so you'll need to grant permissions to allow Azure Container Storage to provision storage for your cluster. Specifically, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity. You can do this using the Azure portal or Azure CLI. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+You only need to perform this step if you plan to use Azure Elastic SAN as backing storage. In order to use Elastic SAN, you'll need to grant permissions to allow Azure Container Storage to provision storage for your cluster. Specifically, you must assign the [Azure Container Storage Operator](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-operator) role to the AKS managed identity. You can do this using the Azure portal or Azure CLI. You'll need either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
 
 # [Azure portal](#tab/portal)
 
@@ -185,10 +185,7 @@ Azure Container Service is a separate service from AKS, so you'll need to grant 
 1. Under **Infrastructure resource group**, you should see a link to the resource group that AKS created when you created the cluster. Select it.
 1. Select **Access control (IAM)** from the left pane.
 1. Select **Add > Add role assignment**.
-1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**, then select **Next**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
-   
-   :::image type="content" source="media/install-container-storage-aks/add-role-assignment.png" alt-text="Screenshot showing how to use the Azure portal to add Contributor role to the AKS managed identity." lightbox="media/install-container-storage-aks/add-role-assignment.png":::
-   
+1. Under the **Job function roles** tab, select or search for **Azure Container Storage Operator**, then select **Next**. If you don't have an **Azure Container Storage Owner** or **Azure Container Storage Contributor** role on the subscription, you won't be able to add the **Azure Container Storage Operator** role.
 1. Under **Assign access to**, select **Managed identity**.
 1. Under **Members**, click **+ Select members**. The **Select managed identities** menu will appear.
 1. Under **Managed identity**, select **User-assigned managed identity**.
@@ -197,11 +194,11 @@ Azure Container Service is a separate service from AKS, so you'll need to grant 
 
 # [Azure CLI](#tab/cli)
 
-Run the following commands to assign Contributor role to AKS managed identity. Remember to replace `<resource-group>`, `<cluster-name>`, and `<azure-subscription-id>` with your own values. You can also narrow the scope to your resource group, for example `/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group>`.
+Run the following commands to assign **Azure Container Storage Operator** role to AKS managed identity. Remember to replace `<resource-group>`, `<cluster-name>`, and `<azure-subscription-id>` with your own values. You can also narrow the scope to your resource group, for example `/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group>`.
 
 ```azurecli-interactive
 export AKS_MI_OBJECT_ID=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "identityProfile.kubeletidentity.objectId" -o tsv)
-az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Contributor" --scope "/subscriptions/<azure-subscription-id>"
+az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Azure Container Storage Operator" --scope "/subscriptions/<azure-subscription-id>"
 ```
 ---
 
