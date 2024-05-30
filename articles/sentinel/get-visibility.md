@@ -18,6 +18,10 @@ After connecting your data sources to Microsoft Sentinel, use the **Overview** p
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
+## Prerequisites
+
+- Make sure that you have reader access to Micrososft Sentinel resources. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
+
 ## Access the Overview page
 
 If your workspace is onboarded to the unified security operations platform, select **General > Overview**. Otherwise, select **Overview** directly. For example:
@@ -94,19 +98,6 @@ The number of analytics rules in Microsoft Sentinel are shown by status, includi
 
 Select the **MITRE view** link to jump to the **MITRE ATT&CK**, where you can view how your environment is protected against MITRE ATT&CK tactics and techniques. Select the **manage analytics rules** link to jump to the **Analytics** page, where you can view and manage the rules that configure how alerts are triggered.
 
-<!--unclear what this section is doing here. doesn't seem to have any connection to workbooks?
-## Create new detections
-
-Generate detections on the [data sources that you connected to Microsoft Sentinel](connect-data-sources.md) to investigate threats in your organization.
-
-When you create a new detection, leverage the detections crafted by Microsoft security researchers that are tailored to the data sources you connected.
-
-To view the installed out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the installed Microsoft Sentinel rule templates. To find more rule templates, go to the **Content hub** in Microsoft Sentinel to install product solutions or standalone content.
-
-   ![Use built-in detections to find threats with Microsoft Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
-
-For more information about getting out-of-the-box detections, see [Get built-in-analytics](detect-threats-built-in.md).
--->
 ## Next steps
 
 - Use workbook templates to dive deeper into events generated across your environment. For more information, see [Visualize log and query data with Microsoft Sentinel workbooks](workbooks.md).

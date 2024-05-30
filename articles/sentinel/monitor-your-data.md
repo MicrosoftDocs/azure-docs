@@ -120,12 +120,12 @@ To print a workbook, or save it as a PDF, use the options menu to the right of t
 2. In the print screen, adjust your print settings as needed or select **Save as PDF** to save it locally.
 
    For example:
+
    :::image type="content" source="media/monitor-your-data/print-workbook.png" alt-text="Screenshot that shows how to print your workbook or save as PDF." :::
 
 ## How to delete workbooks
 
 To delete a saved workbook, either a saved template or a customized workbook, select the saved workbook that you want to delete and select **Delete**. This action removes the saved workbook. It also removes the workbook resource and any changes you made to the template. The original template remains available.
-
 
 ## Workbook recommendations
 
@@ -144,7 +144,7 @@ We recommend that you install the appropriate solution from the **Content hub** 
 
 For example, install the Palo Alto firewall solution for Microsoft Sentinel to add the Palo Alto workbooks. The workbooks analyze your firewall traffic, providing you with correlations between your firewall data and threat events, and highlight suspicious events across entities.
 
-![Screenshot of the Palo Alto workbook](./media/qs-get-visibility/palo-alto-week-query.png)
+:::image type="content" source="media/qs-get-visibility/palo-alto-week-query.png" alt-text="Screenshot of the Palo Alto workbook":::
 
 ### Create different workbooks for different uses
 
