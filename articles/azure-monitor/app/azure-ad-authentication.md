@@ -25,7 +25,7 @@ The following preliminary steps are required to enable Microsoft Entra authentic
   - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
   - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
   - [Assigning Azure roles](../../role-based-access-control/role-assignments-portal.yml).
-- Have an Owner role to the resource group to grant access by using [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+- Granting access using [Azure built-in roles](../../role-based-access-control/built-in-roles.md) requires having an Owner role to the resource group.
 - Understand the [unsupported scenarios](#unsupported-scenarios).
 
 ## Unsupported scenarios
@@ -53,9 +53,9 @@ The following Software Development Kits (SDKs) and features are unsupported for 
 
         For more information on how to create a Microsoft Entra application and service principal that can access resources, see [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-1. Assign a role to the Azure service.
+1. Assign the required RBAC role to the Azure identity, service principal, or Azure user account.
 
-    Follow the steps in [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml) to add the Monitoring Metrics Publisher role from the target Application Insights resource to the Azure resource from which the telemetry is sent.
+    Follow the steps in [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml) to add the Monitoring Metrics Publisher role to the expected identity, service principal, or Azure user account by setting the target Application Insights resource as the role scope.
 
     > [!NOTE]
     > Although the Monitoring Metrics Publisher role says "metrics," it will publish all telemetry to the Application Insights resource.
@@ -70,6 +70,7 @@ The following Software Development Kits (SDKs) and features are unsupported for 
 Application Insights .NET SDK supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity#credential-classes).
 
 - We recommend `DefaultAzureCredential` for local development.
+- Ensure you're authenticated on Visual Studio with the expected Azure user account. For more information, see [Authenticate via Visual Studio](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#authenticate-via-visual-studio).
 - We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
   - For system-assigned, use the default constructor without parameters.
   - For user-assigned, provide the client ID to the constructor.

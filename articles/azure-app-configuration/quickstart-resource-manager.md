@@ -4,10 +4,11 @@ titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store by using Azure Resource Manager template (ARM template).
 author: maud-lv
 ms.author: malev
-ms.date: 06/09/2021
+ms.date: 05/29/2024
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+#customer intent: As a developer, I want learn how to create an Azure App Configuration store using an ARM template so that I can get started using Azure App Configuration quickly.
 ---
 
 # Quickstart: Create an Azure App Configuration store by using an ARM template

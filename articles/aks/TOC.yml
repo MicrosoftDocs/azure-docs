@@ -89,10 +89,6 @@
       href: tutorial-kubernetes-scale.md
     - name: 7 - Upgrade cluster
       href: tutorial-kubernetes-upgrade-cluster.md
-    - name: Security
-      items:
-        - name: Configure application to use workload identity
-          href: learn/tutorial-kubernetes-workload-identity.md
 - name: Concepts
   items:
     - name: Core concepts

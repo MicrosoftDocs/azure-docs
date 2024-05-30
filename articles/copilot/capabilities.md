@@ -20,7 +20,7 @@ Microsoft Copilot in Azure (preview) amplifies your impact with AI-enhanced oper
 
 ## Perform tasks
 
-Use Microsoft Copilot in Azure to perform many basic tasks in the Azure portal or Azure mobile app. There are many things you can do! Take a look at these articles to learn about some of the scenarios in which Microsoft Copilot in Azure can be especially helpful.
+Use Microsoft Copilot in Azure to perform many basic tasks in the Azure portal or [in the Azure mobile app](../azure-portal/mobile-app/microsoft-copilot-in-azure.md). There are many things you can do! Take a look at these articles to learn about some of the scenarios in which Microsoft Copilot in Azure can be especially helpful.
 
 - Understand your Azure environment:
   - [Get resource information through Azure Resource Graph queries](get-information-resource-graph.md)
