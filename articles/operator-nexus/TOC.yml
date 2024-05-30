@@ -48,6 +48,8 @@
         href: concepts-nexus-kubernetes-cluster.md
       - name: Resource Placement
         href: concepts-nexus-kubernetes-placement.md
+      - name: Nexus Workload Network
+        href: concepts-nexus-network.md
     - name: Observability
       expanded: false
       items:
