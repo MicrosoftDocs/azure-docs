@@ -6728,6 +6728,16 @@
             "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-get-started.md",
             "redirect_url": "/azure/azure-monitor/essentials/prometheus-metrics-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-data-collection-configmap.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-data-collection-configure#configure-data-collection-using-configmap",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-data-collection-dcr.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-data-collection-configure#configure-data-collection-using-dcr",
+            "redirect_document_id": false
         }
         
 
