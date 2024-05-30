@@ -152,6 +152,7 @@ Functions can also connect to other services to help process data and perform ot
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-java)
+::: zone-end
 ::: zone pivot="programming-language-javascript"  
 + Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-javascript)
 + Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
