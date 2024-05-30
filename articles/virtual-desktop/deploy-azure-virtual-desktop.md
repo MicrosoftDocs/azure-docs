@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/11/2024
+ms.date: 05/16/2024
 ---
 
 # Deploy Azure Virtual Desktop
@@ -135,7 +135,7 @@ Here's how to create a host pool using the Azure portal.
    > [!TIP]
    > Once you've completed this tab, you can continue to optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
-1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on whether you want to create session hosts on Azure or Azure Stack HCI:<br /><br />
+1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, expand one of the following sections and complete the information, depending on whether you want to create session hosts on Azure or Azure Stack HCI. For guidance on sizing session host virtual machines, see [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs).<br /><br />
 
    <details>
        <summary>To add session hosts on <b>Azure</b>, select to expand this section.</summary>
@@ -151,7 +151,7 @@ Here's how to create a host pool using the Azure portal.
       | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
       | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.yml). |
       | Virtual machine size | Select a SKU. If you want to use different SKU, select **Change size**, then select from the list. |
-      | Hibernate (preview) | Check the box to enable hibernate. Hibernate is only available for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Teams media optimizations you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).|   
+      | Hibernate | Check the box to enable hibernate. Hibernate is only available for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Teams media optimizations you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001). FSLogix and app attach currently don't support hibernate. Don't enable hibernate if you're using FSLogix or app attach for your personal host pools. |   
       | Number of VMs | Enter the number of virtual machines you want to deploy. You can deploy up to 400 session hosts at this point if you wish (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
       | OS disk type | Select the disk type to use for your session hosts. We recommend only **Premium SSD** is used for production workloads. |
       | OS disk size | Select a size for the OS disk.<br /><br />If you enable hibernate, ensure the OS disk is large enough to store the contents of the memory in addition to the OS and other applications. |

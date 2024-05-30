@@ -4,8 +4,10 @@ titleSuffix: Azure AI Studio
 description: This article introduces fine-tuning of models in Azure AI Studio.
 manager: nitinme
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: conceptual
-ms.date: 5/13/2024
+ms.date: 5/29/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -13,7 +15,7 @@ author: eric-urban
 
 # Fine-tune models in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 When we talk about fine-tuning, we really mean *supervised fine-tuning* not continuous pretraining or Reinforcement Learning through Human Feedback (RLHF). Supervised fine-tuning refers to the process of retraining pretrained models on specific datasets, typically to improve model performance on specific tasks or introduce information that wasn't well represented when the base model was originally trained.
 
@@ -110,10 +112,9 @@ The following Azure OpenAI models are supported in Azure AI Studio for fine-tuni
 | `gpt-35-turbo` (0613) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 4,096 | Sep 2021 |
 | `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 | `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 16,385 | Sep 2021 |
+| `gpt-4` (0613) <sup>1<sup> | North Central US <br> Sweden Central | 8192 | Sep 2021 |
 
-`babbage-002` and `davinci-002` are not trained to follow instructions. Querying these base models should only be done as a point of reference to a fine-tuned version to evaluate the progress of your training.
-
-`gpt-35-turbo` - fine-tuning of this model is limited to a subset of regions, and is not available in every region the base model is available.  
+<sup>1<sup> GPT-4 fine-tuning is currently in public preview. See our [GPT-4 fine-tuning safety evaluation guidance](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-python#safety-evaluation-gpt-4-fine-tuning---public-preview) for more information.
 
 Please note for fine-tuning Azure OpenAI models, you must add a connection to an Azure OpenAI resource with a supported region to your project.
 

@@ -77,13 +77,13 @@ items:
   - name: Reference
     items:
     - name: OCR REST API v4.0 (preview)
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2022-10-12-preview/operations/61d65934cd35050c20f73ab6
-    - name: OCR REST API v3.2
-      href: /rest/api/computervision/operation-groups?view=rest-computervision-v3.2-preview
+      href: https://aka.ms/vision-4-0-ref
+    - name: OCR REST API v3.2 
+      href: /rest/api/computervision/recognize-printed-text?view=rest-computervision-v3.2
     - name: OCR REST API v3.1
-      href: /rest/api/computervision/operation-groups?view=rest-computervision-v3.1
+      href: /rest/api/computervision/read?view=rest-computervision-v3.1
     - name: OCR REST API v2.1
-      href: /rest/api/computervision/operation-groups?view=rest-computervision-v2.1
+      href: /rest/api/computervision/recognize-printed-text?view=rest-computervision-v2.1
     - name: .NET
       href: /dotnet/api/overview/azure/computer-vision
     - name: Node.js
@@ -257,7 +257,7 @@ items:
     - name: Version 3.2
       items:
       - name: Image Analysis REST API v3.2
-        href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+        href: /rest/api/computervision/operation-groups?view=rest-computervision-v3.2
       - name: .NET
         href: /dotnet/api/overview/azure/computer-vision
       - name: Node.js
@@ -364,6 +364,8 @@ items:
       items:
       - name: Face REST API
         href: identity-api-reference.md
+      - name: Face API error codes
+        href: reference-face-error-codes.md
       - name: .NET
         href: /dotnet/api/overview/azure/cognitiveservices/face
       - name: Java
@@ -378,6 +380,8 @@ items:
         href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-android-api-reference
       - name: Swift (iOS)
         href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-api-reference
+      - name: JavaScript (Web)
+        href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-web-api-reference
 - name: Video Analysis
   items:
   - name: Video Analysis overview

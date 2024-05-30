@@ -3,8 +3,9 @@ title: Test the Defender for Storage data security features
 description: Learn how to test the Malware Scanning, sensitive data threat detection, and activity monitoring provided by Defender for Storage.
 author: dcurwin
 ms.author: dacurwin
-ms.date: 03/23/2023
+ms.date: 05/16/2024
 ms.topic: how-to
+#customer intent: As a user, I want to learn how to test the Defender for Storage data security features so that I can validate its capabilities and ensure the security of my storage accounts.
 ---
 
 # Testing the Defender for Storage data security features
@@ -197,6 +198,5 @@ In this article, you learned how to test data protection and threat detection in
 Learn more about:
 
 - [Threat response](defender-for-storage-threats-alerts.md)
-- [Customizing data sensitivity settings](defender-for-storage-data-sensitivity.md)
-
+- [Customizing data sensitivity settings](defender-for-storage-data-sensitivity.md)8
 - [Threat detection and alerts](defender-for-storage-threats-alerts.md)

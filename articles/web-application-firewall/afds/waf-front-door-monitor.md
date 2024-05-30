@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 02/07/2023
+ms.date: 05/23/2024
 ms.author: victorh
 zone_pivot_groups: front-door-tiers
 ---
 
 # Azure Web Application Firewall monitoring and logging
 
-Azure Web Application Firewall in Azure Front Door provides extensive logging and telemetry to help you understand how your web application firewall (WAF) is performing and the actions it takes.
+Azure Web Application Firewall on Azure Front Door provides extensive logging and telemetry to help you understand how your web application firewall (WAF) is performing and the actions it takes.
 
 The Azure Front Door WAF log is integrated with [Azure Monitor](../../azure-monitor/overview.md). Azure Monitor enables you to track diagnostic information, including WAF alerts and logs. You can configure WAF monitoring within the Azure Front Door resource in the Azure portal under the **Diagnostics** tab, through infrastructure as code approaches, or by using Azure Monitor directly.
 
@@ -40,111 +40,15 @@ Logs aren't enabled by default. You must explicitly enable logs. You can configu
 
 If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine-tune rules and exclude any data that you want to be excluded from the logs. For more information, see [Web application firewall exclusion lists in Azure Front Door](../afds/waf-front-door-exclusion.md).
 
-Azure Front Door provides two types of logs: access logs and WAF logs.
+You can enable three types of Azure Front Door logs: 
 
-### Access logs
 
-::: zone pivot="front-door-standard-premium"
+- WAF logs
+- Access logs
+- Health probe logs
+ 
+Activity logs are enabled by default and provide visibility into the operations performed on your Azure resources, such as configuration changes to your Azure Front Door profile.
 
-The log `FrontDoorAccessLog` includes all requests that go through Azure Front Door. For more information on the Azure Front Door access log, including the log schema, see [Monitor metrics and logs in Azure Front Door](../../frontdoor/front-door-diagnostics.md?pivot=front-door-standard-premium#access-log).
-
-::: zone-end
-
-::: zone pivot="front-door-classic"
-
-The log `FrontdoorAccessLog` includes all requests that go through Azure Front Door. For more information on the Azure Front Door access log, including the log schema, see [Monitor metrics and logs in Azure Front Door (classic)](../../frontdoor/front-door-diagnostics.md?pivot=front-door-classic#diagnostic-logging).
-
-::: zone-end
-
-The following example query returns the access log entries:
-
-::: zone pivot="front-door-standard-premium"
-
-```kusto
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorAccessLog"
-```
-
-::: zone-end
-
-::: zone pivot="front-door-classic"
-
-```kusto
-AzureDiagnostics
-| where ResourceType == "FRONTDOORS" and Category == "FrontdoorAccessLog"
-```
-
-::: zone-end
-
-The following snippet shows an example log entry:
-
-::: zone pivot="front-door-standard-premium"
-
-```json
-{
-  "time": "2020-06-09T22:32:17.8383427Z",
-  "category": "FrontDoorAccessLog",
-  "operationName": "Microsoft.Cdn/Profiles/AccessLog/Write",
-  "properties": {
-    "trackingReference": "08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
-    "httpMethod": "GET",
-    "httpVersion": "2.0",
-    "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/?q=%27%20or%201=1",
-    "requestBytes": "715",
-    "responseBytes": "380",
-    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4157.0 Safari/537.36 Edg/85.0.531.1",
-    "clientIp": "xxx.xxx.xxx.xxx",
-    "socketIp": "xxx.xxx.xxx.xxx",
-    "clientPort": "52097",
-    "timeTaken": "0.003",
-    "securityProtocol": "TLS 1.2",
-    "routingRuleName": "WAFdemoWebAppRouting",
-    "rulesEngineMatchNames": [],
-    "backendHostname": "wafdemowebappuscentral.azurewebsites.net:443",
-    "sentToOriginShield": false,
-    "httpStatusCode": "403",
-    "httpStatusDetails": "403",
-    "pop": "SJC",
-    "cacheStatus": "CONFIG_NOCACHE"
-  }
-}
-```
-
-::: zone-end
-
-::: zone pivot="front-door-classic"
-
-```json
-{
-  "time": "2020-06-09T22:32:17.8383427Z",
-  "category": "FrontdoorAccessLog",
-  "operationName": "Microsoft.Network/FrontDoor/AccessLog/Write",
-  "properties": {
-    "trackingReference": "08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
-    "httpMethod": "GET",
-    "httpVersion": "2.0",
-    "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/?q=%27%20or%201=1",
-    "requestBytes": "715",
-    "responseBytes": "380",
-    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4157.0 Safari/537.36 Edg/85.0.531.1",
-    "clientIp": "xxx.xxx.xxx.xxx",
-    "socketIp": "xxx.xxx.xxx.xxx",
-    "clientPort": "52097",
-    "timeTaken": "0.003",
-    "securityProtocol": "TLS 1.2",
-    "routingRuleName": "WAFdemoWebAppRouting",
-    "rulesEngineMatchNames": [],
-    "backendHostname": "wafdemowebappuscentral.azurewebsites.net:443",
-    "sentToOriginShield": false,
-    "httpStatusCode": "403",
-    "httpStatusDetails": "403",
-    "pop": "SJC",
-    "cacheStatus": "CONFIG_NOCACHE"
-  }
-}
-```
-
-::: zone-end
 
 ### WAF logs
 
@@ -263,6 +167,8 @@ The following snippet shows an example log entry, including the reason that the 
 ```
 
 ::: zone-end
+
+For more information about the other Azure Front Door logs, see [Monitor metrics and logs in Azure Front Door](../../frontdoor/front-door-diagnostics.md#logs).
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Learn how to monitor an integration runtime within an Azure Data Fa
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 05/15/2024
 author: lrtoyou1223
 ms.author: lle
 ms.custom:

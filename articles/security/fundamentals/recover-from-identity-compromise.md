@@ -14,9 +14,9 @@ ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 
 # Recovering from systemic identity compromise
 
-This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization.
+This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization which can occur during a ransomware attack.
 
-The content in this article is based on guidance provided by Microsoft's Detection and Response Team (DART), which works to respond to compromises and help customers become cyber-resilient. For more guidance from the DART team, see their [Microsoft security blog series](https://www.microsoft.com/security/blog/microsoft-detection-and-response-team-dart-blog-series/).
+The content in this article is based on guidance provided by Microsoft Incident Response team (formerly DART/CRSP), which works to respond to compromises and help customers become cyber-resilient. For more guidance from the Microsoft Incident Response team, see their [Microsoft security blog series](https://www.microsoft.com/security/blog/microsoft-detection-and-response-team-dart-blog-series/).
 
 Many organizations have transitioned to a cloud-based approach for stronger security on their identity and access management. However, your organization may also have on-premises systems in place and use varying methods of hybrid architecture. This article acknowledges that systemic identity attacks affect cloud, on-premises, and hybrid systems, and provides recommendations and references for all of these environments.
 
