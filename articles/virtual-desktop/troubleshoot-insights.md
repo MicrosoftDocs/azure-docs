@@ -22,7 +22,7 @@ If the configuration workbook isn't working properly to automate setup, you can 
 - To manually enable diagnostics or access the Log Analytics workspace, see [Send Azure Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
 - To install the Azure Monitor Agent extension on a session host manually, see [Azure Monitor Agent virtual machine extension for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md#install).
 - To set up a new Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
-- To validate the Data Collection Rules in use, see [View data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md#view-data-collection-rules).
+- To validate the Data Collection Rules in use, see [View data collection rules](../azure-monitor/essentials/data-collection-rule-view.md).
 
 ## My data isn't displaying properly
 
