@@ -28,6 +28,8 @@ The instructions in this guide are specifically for Azure Virtual Desktop users.
 
 * FSLogix profile containers on Azure NetApp Files can be accessed by users authenticating from Active Directory Domain Services (AD DS) and from [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), allowing Microsoft Entra users to access profile containers without requiring line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined virtual machines (VMs). For more information, see [Access SMB volumes from Microsoft Entra joined Windows VMs](../azure-netapp-files/access-smb-volume-from-windows-client.md).
 
+* To protect your FSLogix profile containers, consider using [Azure NetApp Files snapshots](../azure-netapp-files/snapshots-introduction.md) and [Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md).
+
 ## Prerequisites
 
 Before you can create an FSLogix profile container for a host pool, you must:

@@ -24,7 +24,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
 
 ## Steps to create a Metrics Advisor with BYOS
 
-### Step 1. Create an Azure Database for PostgreSQL and set admin
+### Step 1: Create an Azure Database for PostgreSQL and set admin
 
 - Create an Azure Database for PostgreSQL
 
@@ -43,7 +43,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
     After successfully creating your Azure Database for PostgreSQL. Go to the resource page of the newly created Azure PG resource. Select 'Active Directory admin' tab and set yourself as the Admin.
 
 
-### Step 2. Create a Metrics Advisor resource and enable Managed Identity
+### Step 2: Create a Metrics Advisor resource and enable Managed Identity
 
 - Create a Metrics Advisor resource in the Azure portal
 
@@ -60,7 +60,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
 
     Go to Microsoft Entra ID, and select 'Enterprise applications'. Change 'Application type' to **'Managed Identity'**, copy resource name of Metrics Advisor, and search. Then you're able to view the 'Application ID' from the query result, copy it.
 
-### Step 3. Grant Metrics Advisor access permission to your Azure Database for PostgreSQL
+### Step 3: Grant Metrics Advisor access permission to your Azure Database for PostgreSQL
 
 - Grant **'Owner'** role for the Managed Identity on your Azure Database for PostgreSQL
 
@@ -69,11 +69,11 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
     1. Set 'Allow access to Azure services' as 'Yes'. 
     2. Add your clientIP address to sign in to Azure Database for PostgreSQL.
 
-- Get the access-token for your account with resource type 'https://ossrdbms-aad.database.windows.net'. The access token is the password you need to sign in to the Azure Database for PostgreSQL by your account. An example using `az` client:
+- Get the access-token for your account with resource type 'https://server-name.database.windows.net'. The access token is the password you need to sign in to the Azure Database for PostgreSQL by your account. An example using `az` client:
 
    ```
    az login
-   az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+   az account get-access-token --resource https://server-name.database.windows.net
    ```
 
 - After getting the token, use it to sign in to your Azure Database for PostgreSQL. Replace the 'servername' as the one that you can find in the 'overview' of your Azure Database for PostgreSQL.

@@ -46,7 +46,7 @@ There are two primary tools to view, analyze, and optimize your Azure Monitor co
 
 
 ## Azure Cost Management + Billing
-To get started analyzing your Azure Monitor charges, open [Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) in the Azure portal. This tool includes several built-in dashboards for deep cost analysis like cost by resource and invoice details. Select **Cost Management** and then **Cost analysis**. Select your subscription or another [scope](../cost-management-billing/costs/understand-work-scopes.md).
+To get started analyzing your Azure Monitor charges, open [Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) in the Azure portal. This tool includes several built-in dashboards for deep cost analysis like cost by resource and invoice details. Access policies are described [here](/azure/cost-management-billing/manage/manage-billing-access#give-others-access-to-view-billing-information). Select **Cost Management** and then **Cost analysis**. Select your subscription or another [scope](../cost-management-billing/costs/understand-work-scopes.md).
 
 Next, create a **Daily Costs** view, and change the **Group by** to show costs by **Meter** so that you can see each the costs from each feature. The meter names for each Azure Monitor feature are listed [here](cost-meters.md).
 

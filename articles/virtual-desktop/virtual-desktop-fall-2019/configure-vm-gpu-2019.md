@@ -35,7 +35,7 @@ You must also configure an application group, or use the default desktop applica
 
 To take advantage of the GPU capabilities of Azure N-series VMs in Azure Virtual Desktop, you must install the appropriate graphics drivers. Follow the instructions at [Supported operating systems and drivers](../../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) to install drivers from the appropriate graphics vendor, either manually or using an Azure VM extension.
 
-Only drivers distributed by Azure are supported for Azure Virtual Desktop. Additionaly, for Azure VMs with NVIDIA GPUs, only [NVIDIA GRID drivers](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers) are supported for Azure Virtual Desktop.
+Only drivers distributed by Azure are supported for Azure Virtual Desktop. Additionaly, for Azure VMs with NVIDIA GPUs, only [NVIDIA GRID drivers](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-gridvgpu-drivers) are supported for Azure Virtual Desktop.
 
 After driver installation, a VM restart is required. Use the verification steps in the above instructions to confirm that graphics drivers were successfully installed.
 

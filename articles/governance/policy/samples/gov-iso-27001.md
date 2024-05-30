@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for ISO 27001:2013 (Azure Government)
 description: Details of the ISO 27001:2013 (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 05/01/2024
+ms.date: 05/24/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -11,7 +11,7 @@ The following article details how the Azure Policy Regulatory Compliance built-i
 definition maps to **compliance domains** and **controls** in ISO 27001:2013 (Azure Government).
 For more information about this compliance standard, see
 [ISO 27001:2013](https://www.iso.org/standard/iso-iec-27000-family). To understand
-_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#policy-type) and
+_Ownership_, review the [policy type](../concepts/definition-structure-basics.md#policy-type) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
 The following mappings are to the **ISO 27001:2013** controls. Many of the controls
