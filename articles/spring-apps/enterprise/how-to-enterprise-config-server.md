@@ -141,7 +141,7 @@ The following table shows some examples of patterns for configuring your service
 
 :::image type="content" source="media/how-to-config-server/additional-repositories.png" lightbox="media/how-to-config-server/additional-repositories.png" alt-text="Screenshot of Azure portal showing the Config Server page with the Patterns column of the Additional repositories table highlighted.":::
 
-## Attach your Config Server repository to Azure Spring Apps
+## Configure Git repository against Config Server
 
 Now that your configuration files are saved in a repository, use the following steps to connect Azure Spring Apps to the repository.
 
@@ -192,7 +192,7 @@ Use the steps in this section to enter repository information for a public or pr
 
 If you want to configure your service with an optional extra repository, specify the **Uri** and **Authentication** settings as you did for the default repository. Be sure to include a **Name** setting for your pattern, and then select **Apply** to attach it to your instance.
 
-### Enter repository information into a YAML file
+### Configure Git repository by Importing a YAML file
 
 If you've written a YAML file with your repository settings, you can import the file directly from your local machine to Azure Spring Apps. The following example shows a simple YAML file for a private repository with basic authentication.
 
@@ -213,7 +213,7 @@ Select the **Import settings** button, and then select the YAML file from your p
 
 Your **Notifications** displays an `async` operation. Config Server should report success after 1-2 minutes. The information from your YAML file displays in the Azure portal. Select **Apply** to finish the import.
 
-## Use Azure Repos for Azure Spring Apps configuration
+## Configure Azure Repos against Config Server
 
 Azure Spring Apps can access Git repositories that are public, secured by SSH, or secured using HTTP basic authentication. HTTP basic authentication is the easiest of the options for creating and managing repositories with Azure Repos.
 
@@ -239,7 +239,7 @@ Use the following steps to get your repo URL and credentials.
 
 1. Select **Generate Git Credentials** to display a username and password, which should be saved for use in the following section.
 
-### Configure Azure Spring Apps to access the Git repository
+### Configure the Git repository against Config Server
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -258,9 +258,9 @@ Use the following steps to get your repo URL and credentials.
 
    :::image type="content" source="media/how-to-config-server/config-server-azure-repos.png" lightbox="media/how-to-config-server/config-server-azure-repos.png" alt-text="Screenshot of repository configuration settings.":::
 
-### Bind a service to the Spring Cloud Config Server
+### **Bind** **an app** to Spring Cloud Config Server
 
-Use the following command to bind the service to Spring Cloud Config Server, enabling it to connect to the server.
+Use the following command to bind an app to Spring Cloud Config Server, enabling the app to pull configurations from Config Server.
 
 ```azurecli
 az spring config-server bind \
@@ -269,7 +269,7 @@ az spring config-server bind \
     --app <app-name>
 ```
 
-You can also set up the application bindings from the Azure portal, as shown in the following screenshot:
+You can also set up the app binding from the Azure portal, as shown in the following screenshot:
 
 :::image type="content" source="./media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Config Server page with the App binding dropdown highlighted.":::
 
