@@ -46,7 +46,7 @@ We provide both direct metrics, which originate directly from the EMS, and deriv
 |--------------------|----------------|
 | Online Status |	Used to define the online status of any access point (0 for offline and 1 for online). Note not all EMS systems provide this metric. If metric is not provided or if the access point is removed from the network, then will show as 0. |
 | Active Users | Active user equipment on a given Access Point. This is the mean number of devices/ UEs in RRC connected mode during the sampling interval. |
-| Connections Successfully Established | Number of established radio connections on an access point in the last sampling period. For example, in 5G, this reports the number of RRC Connection Setup Complete received by the gNodeB from the UEs. |
+| Connections Successfully Established | Number of established radio connections on an access point in the last sampling period. For example, in 5G, this reports the number of RRC Connection Setups Complete received by the gNodeB from the UEs. |
 | Connection Attempts | Number of connection attempts on an access point in the last sampling period. |
 | Abnormal Connection Terminations | Number of connections that have been abnormally terminated on a given access point during the last sampling interval. An abnormal termination occurs, for example, when the radio connection with the UE has been lost. |
 | Initially Established Connections	| Number of connections that were initially established with this access point during the last sampling period. In 5G, it counts the number of “Initial UE Context Setup Response” sent from the gNodeB-CU-CP to the AMF.|
