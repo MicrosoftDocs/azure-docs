@@ -2,13 +2,13 @@
 title: Manage traffic analytics using Azure Policy 
 titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Policy built-in policies to audit Azure Network Watcher NSG flow logs and manage the deployment of traffic analytics.
-services: network-watcher
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/30/2023
-ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
+ms.date: 05/30/2024
+
+#CustomerIntent: As an Azure administrator, I want to use Azure Policy to audit and deploy traffic analytics.
 ---
 
 # Manage traffic analytics using Azure Policy 
@@ -27,7 +27,7 @@ To audit your flow logs by using the built-in policy:
 
 1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results. 
 
-    :::image type="content" source="./media/traffic-analytics-policy-portal/azure-portal.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/azure-portal.png":::
+    :::image type="content" source="./media/traffic-analytics-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/policy-portal-search.png":::
 
 1. Select **Assignments**, then select on **Assign Policy**.
 
@@ -77,7 +77,7 @@ To assign any of the *deployIfNotExists* two policies, follow these steps:
 
 1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results. 
 
-    :::image type="content" source="./media/traffic-analytics-policy-portal/azure-portal.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/azure-portal.png":::
+    :::image type="content" source="./media/traffic-analytics-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/policy-portal-search.png":::
 
 1. Select **Assignments**, and then select on **Assign policy**.
 
@@ -147,7 +147,7 @@ Remediation task fails with `PolicyAuthorizationFailed` error code: sample error
 
 In such scenario, the managed identity must be manually granted access. Go to the appropriate subscription/resource group (containing the resources provided in the policy parameters) and grant contributor access to the managed identity created by the policy.
 
-## Next steps 
+## Related content
 
 - Learn about [NSG flow logs built-in policies](./nsg-flow-logs-policy-portal.md).
 - Learn more about [traffic analytics](./traffic-analytics.md).
