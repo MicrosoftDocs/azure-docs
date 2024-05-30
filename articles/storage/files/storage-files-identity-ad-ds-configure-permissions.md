@@ -108,8 +108,6 @@ You can configure the Windows ACLs using either [icacls](#configure-windows-acls
 
 If you have directories or files in on-premises file servers with Windows ACLs configured against the AD DS identities, you can copy them over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or [Azure AzCopy v 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). If your directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
 
-Remember to sync your identities in order for the set permissions to take effect. You can set ACLs for not-synced identities, but these ACLs won't be enforced because the not-synced identities won't be present in the Kerberos ticket used for authentication/authorization.
-
 ### Configure Windows ACLs with icacls
 
 To grant full permissions to all directories and files under the file share, including the root directory, run the following Windows command from a machine that has line-of-sight to the AD domain controller. Remember to replace the placeholder values in the example with your own values.
