@@ -61,9 +61,7 @@ Use the following steps to configure Remote Desktop to use multiple monitors.
 
    :::image type="content" source="media/tutorial-configure-multiple-monitors/remote-desktop-connection-open.png" alt-text="Screenshot of the Start menu showing the Remote Desktop Connection." lightbox="media/tutorial-configure-multiple-monitors/remote-desktop-connection-open.png":::
 
-1. In **Computer**, enter the name of your dev box.
-
-1. Select **Show Options**.
+1. In **Computer**, enter the name of your dev box, then select **Show Options**.
 
    :::image type="content" source="media/tutorial-configure-multiple-monitors/remote-desktop-connection-show-options.png" alt-text="Screenshot of the Remote Desktop Connection dialog box with Show options highlighted." lightbox="media/tutorial-configure-multiple-monitors/remote-desktop-connection-show-options.png":::
 
