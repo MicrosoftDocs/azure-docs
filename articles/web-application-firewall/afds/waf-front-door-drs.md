@@ -5,7 +5,7 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 05/30/2024
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -74,7 +74,7 @@ DRS 2.1 includes 17 rule groups, as shown in the following table. Each group con
 > [!NOTE]
 > DRS 2.1 is only available on Azure Front Door Premium.
 
-|Rule group|Managed rule group ID|Description|
+|Rule group|ruleGroupName|Description|
 |---|---|---|
 |[General](#general-21)|General|General group|
 |[METHOD-ENFORCEMENT](#drs911-21)|METHOD-ENFORCEMENT|Lock-down methods (PUT, PATCH)|
@@ -120,7 +120,7 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 > [!NOTE]
 > DRS 2.0 is only available on Azure Front Door Premium.
 
-|Rule group|Managed rule group ID|Description|
+|Rule group|ruleGroupName|Description|
 |---|---|---|
 |[General](#general-20)|General|General group|
 |[METHOD-ENFORCEMENT](#drs911-20)|METHOD-ENFORCEMENT|Lock-down methods (PUT, PATCH)|
@@ -141,7 +141,7 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |[MS-ThreatIntel-CVEs](#drs99001-20)|MS-ThreatIntel-CVEs|Protect against CVE attacks|
 
 ### DRS 1.1
-|Rule group|Managed rule group ID|Description|
+|Rule group|ruleGroupName|Description|
 |---|---|---|
 |[PROTOCOL-ATTACK](#drs921-11)|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
 |[APPLICATION-ATTACK-LFI](#drs930-11)|LFI|Protect against file and path attacks|
@@ -159,7 +159,7 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 
 ### DRS 1.0
 
-|Rule group|Managed rule group ID|Description|
+|Rule group|ruleGroupName|Description|
 |---|---|---|
 |[PROTOCOL-ATTACK](#drs921-10)|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
 |[APPLICATION-ATTACK-LFI](#drs930-10)|LFI|Protect against file and path attacks|
