@@ -88,23 +88,27 @@ So we advice to capture the logs into custom table **vcenter_CL** using below in
 		sudo /opt/microsoft/omsagent/bin/service_control restart
 6. Modify /etc/rsyslog.conf file - add below template preferably at the beginning / before directives section 
 
-		$template vcenter,"%timestamp% %hostname% %msg%\ n" 
+	`$template vcenter,"%timestamp% %hostname% %msg%\ n"`
 
  **Note - There is no space between slash(\\) and character 'n' in above command.**
 
  7. Create a custom conf file in /etc/rsyslog.d/ for example 10-vcenter.conf and add following filter conditions.
 
-Download config file [10-vCenter.conf](https://aka.ms/sentinel-vcenter-conf)
+    Download config file [10-vCenter.conf](https://aka.ms/sentinel-vcenter-conf)
 
-	 With an added statement you will need to create a filter which will specify the logs coming from the vcenter server to be forwarded to the custom table.
+    With an added statement you will need to create a filter which will specify the logs coming from the vcenter server to be forwarded to the custom table.
 
-	 reference: [Filter Conditions — rsyslog 8.18.0.master documentation](https://rsyslog.readthedocs.io/en/latest/configuration/filters.html)
+    reference: [Filter Conditions — rsyslog 8.18.0.master documentation](https://rsyslog.readthedocs.io/en/latest/configuration/filters.html)
 
-	 Here is an example of filtering that can be defined, this is not complete and will require additional testing for each installation.
-		 if $rawmsg contains "vcenter-server" then @@127.0.0.1:22033;vcenter
-		 & stop 
-		 if $rawmsg contains "vpxd" then @@127.0.0.1:22033;vcenter
-		 & stop
+    Here is an example of filtering that can be defined, this is not complete and will require additional testing for each installation.
+
+    ```json
+    if $rawmsg contains "vcenter-server" then @@127.0.0.1:22033;vcenter
+    & stop 
+    if $rawmsg contains "vpxd" then @@127.0.0.1:22033;vcenter
+    & stop
+    ```
+
 		 
 8. Restart rsyslog
 		 systemctl restart rsyslog
