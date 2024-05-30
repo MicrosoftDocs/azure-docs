@@ -914,6 +914,14 @@
     href: use-matching-analytics-to-detect-threats.md
 - name: Detect threats and analyze data
   items:
+  - name: Monitor and visualize data
+    items:
+    - name: View collected data on the Overview dashboard
+      href: get-visibility.md
+    - name: View customized views with workbooks
+      href: monitor-your-data.md
+    - name: Create a Power BI report
+      href: powerbi.md
   - name: Threat detection (analytics) rules
     items:
     - name: Overview
@@ -982,14 +990,6 @@
     href: monitor-key-vault-honeytokens.md
   - name: Handle false positives
     href: false-positives.md
-  - name: Monitor and visualize data
-    items:
-    - name: Visualize collected data
-      href: get-visibility.md
-    - name: Use Azure Monitor workbooks
-      href: ./monitor-your-data.md
-    - name: Create a Power BI report
-      href: powerbi.md
 - name: Hunt for threats
   items:
   - name: Overview
@@ -1010,6 +1010,8 @@
       href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Other KQL resources
       href: kusto-resources.md 
+  - name: Create custom query
+    href: hunts-custom-queries.md
   - name: Hunt with bookmarks
     href: bookmarks.md
   - name: Hunt with livestream

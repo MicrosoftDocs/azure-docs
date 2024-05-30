@@ -1,6 +1,6 @@
 ---
 title: "Known issues: Azure IoT Operations Preview"
-description: A list of known issues for Azure IoT Operations.
+description: Known issues for Azure IoT MQ, Layered Network Management, OPC UA Broker, OPC PLC simulator, Data Processor, and Operations portal.
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
@@ -13,11 +13,18 @@ ms.date: 05/03/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article contains known issues for Azure IoT Operations Preview.
+This article lists the known issues for Azure IoT Operations Preview.
 
-## Azure IoT Operations Preview
+## Deploy and uninstall issues
 
-- You must use the Azure CLI interactive login `az login`. If you don't, you might see an error such as _ERROR: AADSTS530003: Your device is required to be managed to access this resource_.
+- You must use the Azure CLI interactive login `az login` when you deploy Azure IoT Operations. If you don't, you might see an error such as _ERROR: AADSTS530003: Your device is required to be managed to access this resource_.
+
+- If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, it means that you don't have **Microsoft.Authorization/roleAssignments/write** permissions on the resource group that contains your cluster.
+
+  To resolve this issue, either request the required permissions or make the following adjustments to your deployment steps:
+
+  - If deploying with an Azure Resource Manager template, set the `deployResourceSyncRules` parameter to `false`.
+  - If deploying with the Azure CLI, include the `--disable-rsync-rules` flag with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
 - Uninstalling K3s: When you uninstall k3s on Ubuntu by using the `/usr/local/bin/k3s-uninstall.sh` script, you might encounter an issue where the script gets stuck on unmounting the NFS pod. A workaround for this issue is to run the following command before you run the uninstall script: `sudo systemctl stop k3s`.
 
@@ -39,7 +46,7 @@ This article contains known issues for Azure IoT Operations Preview.
 
 ## Azure IoT Layered Network Management Preview
 
-- If the Layered Network Management service isn't getting an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
+- If the Layered Network Management service doesn't get an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
 
     ```bash
     curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
@@ -47,15 +54,15 @@ This article contains known issues for Azure IoT Operations Preview.
 
     For more information, see [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller).
 
-- If DNS queries aren't getting resolved to expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S.
+- If DNS queries don't resolve to the expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S.
 
 ## Azure IoT OPC UA Broker Preview
 
-- All AssetEndpointProfiles in the cluster have to be configured with the same transport authentication certificate, otherwise the OPC UA Broker might exhibit random behavior. To avoid this issue when using transport authentication, configure all asset endpoints with the same thumbprint for the transport authentication certificate in the Azure IoT Operations (preview) portal.
+- All `AssetEndpointProfiles` in the cluster must be configured with the same transport authentication certificate, otherwise the OPC UA Broker might exhibit random behavior. To avoid this issue when using transport authentication, configure all asset endpoints with the same thumbprint for the transport authentication certificate in the Azure IoT Operations (preview) portal.
 
-- If you deploy an AssetEndpointProfile into the cluster and the OPC UA Broker can't connect to the configured endpoint on the first attempt, then the OPC UA Broker never retries to connect.
+- If you deploy an `AssetEndpointProfile` into the cluster and the OPC UA Broker can't connect to the configured endpoint on the first attempt, then the OPC UA Broker never retries to connect.
 
-    As a workaround, first fix the connection problem. Then either restart all the pods in the cluster with pod names that start with "aio-opc-opc.tcp", or delete the AssetEndpointProfile and deploy it again.
+    As a workaround, first fix the connection problem. Then either restart all the pods in the cluster with pod names that start with "aio-opc-opc.tcp", or delete the `AssetEndpointProfile` and deploy it again.
 
 ## OPC PLC simulator
 
@@ -84,30 +91,61 @@ kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
 done
 ```
 
-Update the OPC UA Broker cluster extension to accept untrusted server certificates with the following command:
-
-```azurecli
-az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
-```
-
-> [!CAUTION]
-> Don't use this configuration in production or pre-production environments. The configuration lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
-
 If the OPC PLC simulator isn't sending data to the IoT MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
 
 ```bash
 kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 ```
 
+## Azure IoT Data Processor Preview
+
+- If you see deployment errors with Data Processor pods, make sure that when you created your Azure Key Vault you chose **Vault access policy** as the **Permission model**.
+
+- If the data processor extension fails to uninstall, run the following commands and try the uninstall operation again:
+
+    ```bash
+    kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
+    kubectl delete pod  aio-dp-runner-worker-0 --grace-period=0 --force -n azure-iot-operations
+    ```
+
+- If edits you make to a pipeline aren't applied to messages, run the following commands to propagate the changes:
+
+    ```bash
+    kubectl rollout restart deployment aio-dp-operator -n azure-iot-operations 
+    
+    kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations 
+    
+    kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
+    ```
+
+- It's possible a momentary loss of communication with IoT MQ broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
+
+    ```bash
+    kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
+    kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
+    ```
+
+- If data is corrupted in the Microsoft Fabric lakehouse table that your Data Processor pipeline is writing to, make sure that no other processes are writing to the table. If you write to the Microsoft Fabric lakehouse table from multiple sources, you might see corrupted data in the table.
+
 ## Azure IoT Akri Preview
 
-A sporadic issue might cause the handler to restart with the following error in the logs: `opcua@311 exception="System.IO.IOException: Failed to bind to address http://unix:/var/lib/akri/opcua-asset.sock: address already in use.`.
+A sporadic issue might cause the `aio-opc-asset-discovery` pod to restart with the following error in the logs: `opcua@311 exception="System.IO.IOException: Failed to bind to address http://unix:/var/lib/akri/opcua-asset.sock: address already in use.`.
 
 To work around this issue, use the following steps to update the **DaemonSet** specification:
 
-1. Locate the **Target** custom resource provided by **orchestration.iotoperations.azure.com** that contains the deployment specifications for **aio-opc-asset-discovery**.
-1. In the **aio-opc-asset-discovery** component of the target file, find the `spect.components.aio-opc-asset-discovery.properties.resource.spec.template.spec.containers.env` parameter.
-1. Add the following environment variables:
+1. Locate the **target** custom resource provided by `orchestration.iotoperations.azure.com` with a name that ends with `-ops-init-target`:
+
+    ```console
+    kubectl get targets -n azure-iot-operations
+    ```
+
+1. Edit the target configuration and find the `spec.components.aio-opc-asset-discovery.properties.resource.spec.template.spec.containers.env` parameter. For example:
+
+    ```console
+    kubectl edit target solid-zebra-97r6jr7rw43vqv-ops-init-target -n azure-iot-operations
+    ```
+
+1. Add the following environment variables to the configuration:
 
 ```yml
 - name: ASPNETCORE_URLS 
@@ -118,7 +156,7 @@ To work around this issue, use the following steps to update the **DaemonSet** s
       fieldPath: "status.podIP" 
 ```
 
-The final specification should look like the following example:
+1. Save your changes. The final specification looks like the following example:
 
 ```yml
 apiVersion: orchestrator.iotoperations.azure.com/v1 
