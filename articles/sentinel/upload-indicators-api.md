@@ -66,11 +66,11 @@ There are two versions of the upload indicators API. Depending on the endpoint, 
 
 :::image type="content" source="media/logic-app-sentinel-connector-action-names.png" alt-text="Screenshot of logic app connector action names for Microsoft Sentinel upload indicators API.":::
 
-1. Connector action name: **Threat Intelligence - Upload Indicators of Compromise (Deprecated)**
+- Connector action name: **Threat Intelligence - Upload Indicators of Compromise (Deprecated)**
    - Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligence:upload-indicators`
    - array of indicators name: `value`
 
-1. Connector action name: **Threat Intelligence - Upload Indicators of Compromise (V2) (Preview)**
+- Connector action name: **Threat Intelligence - Upload Indicators of Compromise (V2) (Preview)**
    - Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligenceindicators:upload`
    - array of indicators name: `indicators`
 
