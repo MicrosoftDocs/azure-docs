@@ -1,6 +1,6 @@
 ---
 title: Use Microsoft Playwright Testing Reporting with Playwright sharding (preview)
-description: Learn how to split your test suite to run across multiple machines simultaneously and get a consolidated report of a test run with sharding.
+description: Learn how to use the Microsoft Playwright Testing service's reporting feature with test runs that use Playwright's sharding features.
 author: vvs11
 ms.service: playwright-testing
 ms.custom:
