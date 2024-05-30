@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Tutorial: Connect to OpenAI from Azure Functions using Visual Studio Code
 
-This article shows you how to use Visual Studio Code to connect Azure OpenAi to the function you created in the previous quickstart article. The output binding that you add to this HTTP trigger function {{does somethign cool}}.
+This article shows you how to use Visual Studio Code to connect Azure OpenAI to the function you created in the previous quickstart article. The output binding that you add to this HTTP trigger function {{does somethign cool}}.
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
@@ -65,7 +65,7 @@ The following steps show how to create an Azure OpenAI data model in the Azure p
 
    :::image type="content" source="../ai-services/openai/media/create-resource/create-resource-basic-settings.png" alt-text="Screenshot that shows how to configure an Azure OpenAI resource in the Azure portal.":::
 
-1. Select **Next** twice to accept the default values for both the **Network** and **Tags** tabs. The service you create does't have any network restrictions, including from the internet.
+1. Select **Next** twice to accept the default values for both the **Network** and **Tags** tabs. The service you create doesn't have any network restrictions, including from the internet.
 
 1. Select **Next** a final time to move to the final stage in the process: **Review + submit**.
 
@@ -81,7 +81,7 @@ To deploy a model, follow these steps:
 
 1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
 
-1. Choose the subscription and the Azure OpenAI resource you just created, and select **Use resource**.
+1. Choose the subscription and the Azure OpenAI resource you created, and select **Use resource**.
 
 1. Under **Management** select **Deployments**.
 
@@ -99,7 +99,7 @@ To deploy a model, follow these steps:
 
     The deployments table shows a new entry that corresponds to your newly created model.
 
-1. AFter the deployment completes, navigate to the Azure OpenAI resource blade in the Azure portal, and, under **Essentials**, select **Click here to view endpoints**. Copy the **endpoint** URL and the **keys**. Save these values, you'll need them later.
+1. After the deployment completes, navigate to the Azure OpenAI resource page in the Azure portal, and select **Click here to view endpoints** under **Essentials**. Copy the **endpoint** URL and the **keys**. Save these values, you need them later.
 
 ## 3. Update application settings
 
@@ -119,7 +119,7 @@ Now that you have the credentials to connect to your model in Azure OpenAI, you 
 
 Because you're using an Azure OpenAI output binding, you must have the corresponding bindings extension installed before you run the project. 
 
-With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run this [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Azure OpenAI extension package to your project:
+Except for HTTP and timer triggers, bindings are implemented as extension packages. To add the Azure OpenAI extension package to your project, run this [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the **Terminal** window:
 
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.OpenAI --prerelease
@@ -241,7 +241,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 
     :::code language="json" source="~/functions-openai-extension/samples/textcompletion/powershell/WhoIs/function.json" ::: 
   
-1. Replace the content of the `whois/run.ps1` code file a with this code, which returns the input binding response:
+1. Replace the content of the `whois/run.ps1` code file with this code, which returns the input binding response:
 
     :::code language="powershell" source="~/functions-openai-extension/samples/textcompletion/powershell/WhoIs/run.ps1" ::: 
   
@@ -276,12 +276,16 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 
 In Azure, *resources* refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group.
 
-You created resources to complete these quickstarts. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
+You created resources to complete these quickstarts. You could be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
 
 [!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
 
-## Next steps
+## Related content
 
-You've created your text completion with Azure Functions and Azure OpenAI. Now you can learn more about developing Functions using the OpenAI Binding in the reference section.
++ [Azure OpenAI extension for Azure Functions](functions-bindings-openai.md)
++ [Azure OpenAI extension samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples)
++ [Machine learning and AI](functions-scenarios.md#machine-learning-and-ai)
+
+
 
 
