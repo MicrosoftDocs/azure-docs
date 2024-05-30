@@ -455,6 +455,8 @@ az spring config-server delete \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
+---
+
 ::: zone-end
 
 ## Next steps
