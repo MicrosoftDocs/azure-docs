@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 05/30/2024
 ms.author: cshoe
 ---
 
