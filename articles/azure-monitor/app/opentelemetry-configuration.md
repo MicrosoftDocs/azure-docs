@@ -302,7 +302,7 @@ export OTEL_SERVICE_NAME="my-helloworld-service"
 
 ## Enable Sampling
 
-You might want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a sampling ratio, which Application Insights converts to `ItemCount`. The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. For more information, see [Learn More about sampling](sampling.md#brief-summary).
+You might want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a sampling ratio, which Application Insights converts to `ItemCount`. The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights Software Development Kits (SDKs). For more information, see [Learn More about sampling](sampling.md#brief-summary).
 
 > [!NOTE]
 > Metrics and Logs are unaffected by sampling.
@@ -407,23 +407,13 @@ builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
 
 #### [.NET](#tab/net)
 
-This feature is not available in the Azure Monitor .NET Exporter.
+This feature isn't available in the Azure Monitor .NET Exporter.
 
 #### [Java](#tab/java)
 
-<!--
+The Live Metrics experience is enabled by default.
 
-TODO:
-
-This feature is/isn't enabled by default.
-
-Functionality and customization are covered in the following configuration sample.
-
-```
-Configuration sample
-```
-
--->
+For more information on Java configuration, see [Configuration options: Azure Monitor Application Insights for Java](java-standalone-config.md#configuration-options-azure-monitor-application-insights-for-java).
 
 #### [Node.js](#tab/nodejs)
 
@@ -458,6 +448,8 @@ configure_azure_monitor(
 )
 ...
 ```
+
+---
 
 ## Enable Microsoft Entra ID (formerly Azure AD) authentication
 
