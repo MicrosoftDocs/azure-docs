@@ -72,7 +72,7 @@
   - name: Use Azure DNS
     items:
     - name: Delegate your domain to Azure DNS
-      href: azure-dns-zone.md
+      href: /azure/dns/dns-delegate-domain-azure-dns
     - name: Set up a custom domain
       href: custom-domain-azure-dns.md
     - name: Set up the apex domain
