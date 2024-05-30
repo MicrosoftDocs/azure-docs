@@ -92,7 +92,7 @@ Find the role in the policy definition by searching for *roleDefinitionIds*
 
     For example,
     ```azurecli
-    az policy remediation create -g rg-001 -n remediation-001 --policy-assignment  policy-assignment-1
+    az policy remediation create -g rg-001 -n remediation-001 --policy-assignment policy-assignment-1
     ```
 
 For more information on policy assignment using CLI, see [Azure CLI reference - az policy assignment](/cli/azure/policy/assignment#az-policy-assignment-create)
@@ -133,7 +133,7 @@ To apply a policy using the PowerShell, use the following commands:
         }
     ```
 
-1. Scan for compliance, then  create a remediation task to force compliance for existing resources.
+1. Scan for compliance, then create a remediation task to force compliance for existing resources.
     ```azurepowershell
         Start-AzPolicyComplianceScan -ResourceGroupName $rg.ResourceGroupName
         Start-AzPolicyRemediation -Name $policyAssignment.Name -PolicyAssignmentId $policyAssignment.PolicyAssignmentId  -ResourceGroupName $rg.ResourceGroupName
@@ -141,7 +141,7 @@ To apply a policy using the PowerShell, use the following commands:
 
 1. Check compliance 
     ```azurepowershell
-    Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupName $policyAssignment.ResourceGroupName|select-object IsCompliant , ResourceID
+    Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupName $policyAssignment.ResourceGroupName|select-object IsCompliant, ResourceID
     ```
 ---
 
@@ -159,12 +159,12 @@ To create a remediation task for policies during the policy assignment, select t
 
 To create a remediation task after the policy has been assigned, select your assigned policy from the list on the Policy Assignments page.
  
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/remediation-after-assignment.png" alt-text="A screenshot showing the policy remediation page.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/remediation-after-assignment.png"  lightbox="./media/diagnostics-settings-policies-deployifnotexists/remediation-after-assignment.png" alt-text="A screenshot showing the policy remediation page.":::
 
 Select **Remediate**.
 Track the status of your remediation task in the **Remediation tasks** tab of the Policy Remediation page.
 
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/new-remediation-task-after-assignment.png" alt-text="A screenshot showing the new remediation task page.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/new-remediation-task-after-assignment.png" lightbox="./media/diagnostics-settings-policies-deployifnotexists/new-remediation-task-after-assignment.png" alt-text="A screenshot showing the new remediation task page.":::
 
 
 
@@ -175,12 +175,12 @@ For more information on remediation tasks, see [Remediate noncompliant resources
 
 Initiatives are collections of policies. There are two sets of intitives for Azure Monitor Diagnostics settings:
 
-1. Enable audit category group resource logging
+1. Enable the *audit* category group resource logging
     + [Enable audit category group resource logging for supported resources to Event Hubs](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F1020d527-2764-4230-92cc-7035e4fcf8a7/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
     + [Enable audit category group resource logging for supported resources to Log Analytics](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Ff5b29bc4-feca-4cc6-a58a-772dd5e290a5/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
     + [Enable audit category group resource logging for supported resources to storage](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F8d723fb6-6680-45be-9d37-b1a4adb52207/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
 
-1. Enable allLogs category group resource logging
+1. Enable the *allLogs* category group resource logging
     + [Enable allLogs category group resource logging for supported resources to storage](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fb6b86da9-e527-49de-ac59-6af0a9db10b8/version~/null/scopes~/)
     + [Enable allLogs category group resource logging for supported resources to Event Hub](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F85175a36-2f12-419a-96b4-18d5b0096531/version~/null/scopes/)
     + [Enable allLogs category group resource logging for supported resources to Log Analytics](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F0884adba-2312-4468-abeb-5422caed1038/version~/null/scopes/%5B%22%2Fsubscriptions%2F""%22%22%5D)
@@ -197,37 +197,37 @@ In this example, we assign an initiative for sending audit logs to a Log Analyti
 1. Enter *audit* in the **Search** field.
 1. Select thee *Enable audit category group resource logging for supported resources to Log Analytics* initiative.
 1. On the following page, select **Assign**
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/initiatives-definitions.png" alt-text="A screenshot showing the initiatives definitions page.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/initiatives-definitions.png" lightbox="./media/diagnostics-settings-policies-deployifnotexists/initiatives-definitions.png" alt-text="A screenshot showing the initiatives definitions page.":::
 
 1. On the **Basics** tab of the **Assign initiative** page, select a **Scope** that you want the initiative to apply to.
 1. Enter a name in the **Assignment name** field.
 1. Select the **Parameters** tab.
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-basics.png" alt-text="A screenshot showing the assign initiatives basics tab.":::  
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-basics.png"  lightbox="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-basics.png" alt-text="A screenshot showing the assign initiatives basics tab.":::  
 
     The **Parameters** contains the parameters defined in the policy. In this case, we need to select the Log Analytics workspace that we want to send the logs to. For more information in the individual parameters for each policy, see [Policy-specific parameters](#policy-specific-parameters).
 
 1. Select the **Log Analytics workspace** to send your audit logs to.
 
 1. Select **Review + create** then **Create**
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-parameters.png" alt-text="A screenshot showing the assign initiatives parameters tab.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-parameters.png" lightbox="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-parameters.png" alt-text="A screenshot showing the assign initiatives parameters tab.":::
 
 To verify that your policy or initiative assignment is working, create a resource in the subscription or resource group scope that you defined in your policy assignment.
 
 After 10 minutes, select the **Diagnostics settings** page for your resource.
 Your diagnostic setting appears in the list with the default name *setByPolicy-LogAnalytics* and the workspace name that you configured in the policy.
 
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/diagnostics-settings.png" alt-text="A screenshot showing the Diagnostics setting page for a resource.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/diagnostics-settings.png"  lightbox="./media/diagnostics-settings-policies-deployifnotexists/diagnostics-settings.png" alt-text="A screenshot showing the Diagnostics setting page for a resource.":::
 
 Change the default name in the **Parameters** tab of the **Assign initiative** or policy page by unselecting the **Only show parameters that need input or review** checkbox.
 
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/edit-initiative-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/edit-initiative-assignment.png" lightbox="./media/diagnostics-settings-policies-deployifnotexists/edit-initiative-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
 
 ### [PowerShell](#tab/Powershell)
 
 
 1. Set up your environment variables
     ```azurepowershell
-    # Set up  your environment variables.
+    # Set up your environment variables.
     $subscriptionId = <your subscription ID>;
     $rg = Get-AzResourceGroup -Name <your resource group name>;
     Select-AzSubscription $subscriptionId;
@@ -277,7 +277,7 @@ Log Analytics*,  ResourceID "/providers/Microsoft.Authorization/policySetDefinit
 
 1. Check the compliance state when the remediation tasks have completed. 
     ```azurepowershell
-    Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName|select-object IsCompliant , ResourceID
+    Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName|select-object IsCompliant, ResourceID
     ```
 
 You can get your policy assignment details using the following command:
@@ -388,7 +388,7 @@ This policy deploys a diagnostic setting using a category group to route logs to
 |resourceLocation|Resource Location must be in the same location as the Storage Account|Supported locations|
 |storageAccount|Storage Account resourceId|||
 
-## Supported Resources
+## Supported resources
 
 Built-in All logs and Audit logs policies for Log Analytics workspaces, Event Hubs, and Storage Accounts exist for the following resources:
 
