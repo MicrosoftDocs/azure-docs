@@ -17,11 +17,11 @@ This article provides details of what's new in each version of Azure Monitor SCO
 
 ## Version 1.0.100
 
-- Bug fix in prepatch/prescale validations.
+- Bug fix in pre-patch/pre-scale validations.
 
 ## Version 1.0.99
 
-- Enhanced checks for domain connectivity to handle multiple domain controllers during onboarding, prepatching, and prescaling validations.
+- Enhanced checks for domain connectivity to handle multiple domain controllers during onboarding, pre-patching, and pre-scaling validations.
 
 ## Version 1.0.98
 
@@ -39,11 +39,11 @@ This article provides details of what's new in each version of Azure Monitor SCO
 
 ## Version 1.0.96
 
-- Prepatch validation bug fix for machines that have unresolved accounts in the admin group.
+- Pre-patch validation bug fix for machines that have unresolved accounts in the admin group.
 
 ## Version 1.0.95
 
-- Enhance onboarding/prepatching/prescaling validations to check the connectivity to required endpoints.
+- Enhance onboarding/pre-patching/pre-scaling validations to check the connectivity to required endpoints as described in [firewall requirements](configure-network-firewall.md#firewall-requirements).
 
 ## Version 1.0.94
 
@@ -57,7 +57,7 @@ This article provides details of what's new in each version of Azure Monitor SCO
 
 ## Version 1.0.91
 
-- **Implemented prepatching validations**: Conducted essential checks before initiating the patching operation, ensuring optimal conditions for existing management servers, verifying SQL connectivity, confirming active directory accessibility, and validating the accuracy of domain account credentials.
+- **Implemented pre-patching validations**: Conducted essential checks before initiating the patching operation, ensuring optimal conditions for existing management servers, verifying SQL connectivity, confirming active directory accessibility, and validating the accuracy of domain account credentials.
 
 - Bug fix to handle the concurrency in extension installation.
 
@@ -89,4 +89,4 @@ This article provides details of what's new in each version of Azure Monitor SCO
 
 ## Next steps
 
-[Migrate from Operations Manager on-premises to Azure Monitor SCOM Managed Instance](migrate-to-operations-manager-managed-instance.md).
+[Migrate from Operations Manager on-premises to Azure Monitor SCOM Managed Instance](migrate-to-operations-manager-managed-instance.md)

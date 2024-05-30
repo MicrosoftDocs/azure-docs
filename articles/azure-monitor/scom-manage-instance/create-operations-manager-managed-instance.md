@@ -96,8 +96,6 @@ To create a SCOM Managed Instance, follow these steps:
 
            The subnet can have existing resources in it. However, don't choose the subnet that houses the SQL managed instance because it won't contain enough IP addresses to house the SCOM Managed Instance components.
 
-           >[!NOTE]
-           >Make sure to associate a NAT gateway with a chosen subnet. The presence of a NAT gateway is necessary for SCOM Managed Instance to retrieve the components required for both installation and auto upgrade scenarios.
     - **SCOM managed instance interface**:
         - **Static IP**: Enter the static IP for the load balancer. This IP should be in the selected subnet range for SCOM Managed Instance. Ensure that the IP is in the IPv4 format, and create it in your routing table.
         - **DNS name**: Enter the DNS name that you attached to the static IP from the preceding step. The DNS name is mapped to the static IP that's previously defined.
@@ -127,12 +125,14 @@ To create a SCOM Managed Instance, follow these steps:
 1. Under **Review + create**, review all the inputs given so far, and then select **Create**. Your deployment is created on Azure. Creation of a SCOM Managed Instance takes up to an hour.
 
     >[!NOTE]
-    >If the deployment fails, delete the instance and all the associated resources, and then create the instance again.
+    >If the deployment fails, delete the instance and all the associated resources, and then create the instance again. For more information, see [Delete an instance](./common-questions.md#other-queries).
 
 1. After the deployment is finished, select **Go to resource**.
 
    On the instance page, you can view some of the essential details and instructions for post-deployment steps and reporting bugs.
 
-## Next step
+## Next steps
 
-[Create a user-assigned identity](create-user-assigned-identity.md).
+- [Troubleshoot commonly encountered errors while validating input parameters](troubleshooting-input-parameters-scom-managed-instance.md)
+- [Troubleshoot issues with Azure Monitor SCOM Managed Instance](troubleshoot-scom-managed-instance.md)
+- [Azure Monitor SCOM Managed Instance frequently asked questions](common-questions.md)

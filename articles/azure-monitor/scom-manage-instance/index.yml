@@ -33,4 +33,24 @@ landingContent:
         links:
           - text: Migrate from Operations Manager on-premises to SCOM Managed Instance
             url: migrate-to-operations-manager-managed-instance.md
-     
+      - linkListType: how-to-guide
+        links:
+          - text: Create SCOM Managed Instance
+            url: create-operations-manager-managed-instance.md
+
+  - title: Visualize monitoring data
+    linkLists:
+      - linkListType: how-to-guide
+        links:  
+          - text: Create reports on Power BI
+            url: create-reports-power-bi.md
+          - text: Dashboards on Azure Managed Grafana
+            url: dashboards-on-azure-managed-grafana.md
+  - title: Troubleshooting
+    linkLists:
+      - linkListType: how-to-guide
+        links:  
+          - text: Troubleshoot issues with Azure Monitor SCOM Managed Instance
+            url: troubleshoot-scom-managed-instance.md
+          - text: Troubleshoot commonly encountered errors while validating input parameters
+            url: troubleshooting-input-parameters-scom-managed-instance.md

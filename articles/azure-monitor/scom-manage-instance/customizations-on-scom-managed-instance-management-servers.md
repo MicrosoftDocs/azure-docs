@@ -48,6 +48,6 @@ If the script runs successfully, deployment gets successful and displays **Deplo
 
 If there's an error in the script, you see **An error occurred during deployment. Please check the above logs for debugging** message.
 
-## Next step
+## Next steps
 
-[Register the Azure Monitor SCOM Managed Instance resource provider](register-scom-managed-instance-resource-provider.md)
+[Create a SCOM Managed Instance](create-operations-manager-managed-instance.md).
