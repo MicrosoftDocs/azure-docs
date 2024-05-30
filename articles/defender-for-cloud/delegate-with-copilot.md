@@ -20,7 +20,7 @@ Delegating recommendations can improve your security posture by having the right
 
 - [Access to Azure Copilot](../copilot/overview.md).
 
-- [A Microsoft Copilot for Security subscription](/copilot/security/get-started-security-copilot).
+- Have [Security Compute Units assigned for Copilot for Security](/copilot/security/get-started-security-copilot).
 
 ## Delegate a recommendation
 
