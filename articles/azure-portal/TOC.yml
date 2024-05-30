@@ -96,16 +96,14 @@
     href: ./policy-reference.md
 - name: Resources
   items:
+  - name: Microsoft Learn training
+    href: /training/browse/?products=azure-portal
   - name: Azure updates
     href: https://azure.microsoft.com/updates/
-  - name: Build your skills with Microsoft Learn training
-    href: /training/browse/?products=azure-portal
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-management-portal
   - name: Azure videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
   - name: Product feedback
