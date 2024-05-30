@@ -13,7 +13,7 @@ you can send requests to the Hybrid Connections URL with any browser. For access
 protected endpoints, you need to create and pass a SAS Token, which is shown here.
 
 Here's a simple Python script that demonstrates sending requests to 
-a Hybrid Connections URL with SAS Tokens utilizing Websockets. 
+a Hybrid Connections URL with SAS Tokens utilizing WebSockets. 
 
 ### Dependencies
 
@@ -45,7 +45,7 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 
 3. Generate a helper function file for helper functions
 
-	The following file is used as `relaylib.py` and have helper functions for Websocket URL generation and SAS tokens
+	The following file is used as `relaylib.py` and have helper functions for WebSocket URL generation and SAS tokens
 
     [!INCLUDE [relay-python-helper-functions](relay-python-helper-functions.md)]
 
