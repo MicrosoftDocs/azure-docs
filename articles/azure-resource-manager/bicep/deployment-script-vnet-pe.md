@@ -1,3 +1,11 @@
+---
+title: Run Bicep deployment script privately over a private endpoint
+description: Learn how to run and test Bicep deployment scripts privately over a private endpoint.
+ms.custom: devx-track-bicep
+ms.topic: how-to
+ms.date: 05/30/2024
+---
+
 # Run Bicep deployment script privately over a private endpoint
 
 With the `2023-08-01` API version of the `Microsoft.Resources/deploymentScripts` resource it is possible to run deployment scripts privately in an Azure Container Instance.
@@ -16,7 +24,7 @@ To run deployment scripts privately you need the following infrastructure as see
 - Create a storage account with public network access `disabled`
 - Create a private endpoint configured with the `file` sub-resource on the storage account
 - Create a private DNS zone `privatelink.file.core.windows.net` and register the private endpoint IP address as an A record. Link the private DNS zone to the created virtual network.
-- Create a user-assigned managed identity with `Storage File Data Privileged Contributor` permissions on the storage account and specify it in the `identity` property in the deployment script resource. To assign the identity, see [Identity](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-script-develop#identity).
+- Create a user-assigned managed identity with `Storage File Data Privileged Contributor` permissions on the storage account and specify it in the `identity` property in the deployment script resource. To assign the identity, see [Identity](./deployment-script-develop.md#identity).
 
 The Azure Container Instance is deployed implicitly by the deployment script resource.
 
@@ -187,7 +195,7 @@ resource privateDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-
 
 ## Firewall
 
-The Azure Container Instance downloads container images from the Microsoft Container Registry. If you make use of a firewall whitelist the URL [mcr.microsoft.com](http://mcr.microsoft.com) to download the image successfully. If the container image cannot be downloaded it will go into a `waiting` state and will eventually throw a timeout error.
+The Azure Container Instance downloads container images from the Microsoft Container Registry. If you make use of a firewall, allow the URL [mcr.microsoft.com](https://mcr.microsoft.com) to download the image successfully. If the container image cannot be downloaded it will go into a `waiting` state and will eventually throw a timeout error.
 
 ## Next steps
 
