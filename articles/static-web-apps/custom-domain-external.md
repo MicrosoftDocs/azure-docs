@@ -76,7 +76,7 @@ Domain registrars are services you can use to purchase and manage domain names. 
 
 1. Select **Add**.
 
-   Azure validates that the CNAME record was created correctly and is available in the global DNS system.  Propagation depends on the time to live (TTL) for your domain and make take several days. If the validation fails, return to add the custom domain later.
+   Azure validates that the CNAME record was created correctly and is available in the global DNS system.  Propagation depends on the time to live (TTL) for your domain and may take several days. If the validation fails, return to add the custom domain later.
 
 1. When the update completes, open a new browser tab and go to your domain with the `www` subdomain.
 

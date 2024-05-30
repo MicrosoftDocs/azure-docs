@@ -47,7 +47,7 @@ Now that your domain is hosted on Azure DNS, you can create a CNAME record for `
 
 Static Web Apps makes the necessary adjustments to the DNS zone (including adding a CNAME), then validates the changes are available in the global DNS system.
 
-> [!WARN]
+> [!WARNING]
 > If you receive the message *CNAME Record is invalid*, then check that your DNS zone lists the Microsoft DNS services with your DNS registrar.  If you have recently moved the domain to Azure DNS, you may need to wait for DNS propagation before adding the custom domain.
 
 ## Validate the custom domain
