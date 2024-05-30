@@ -22,6 +22,10 @@ When you create an App Service plan in a certain region (for example, West Europ
 - Size of VM instances (Small, Medium, Large)
 - Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2)
 
+> [!NOTE]  
+> Some runtime languages are supported by both Windows and Linux plans such as ASP.NET Core, .NET, PHP, Node.js and Java. Some others are supported by a specific operating system. For example, only Windows plans support ASP.NET and only Linux plans support Ruby and Python. If you have multiple runtime languages which are supported by a specific operating system, you can combine them in one plan to save costs. For example, you can have a Windows plan that supports your ASP.NET, Node.js and Java application.
+> 
+
 The _pricing tier_ of an App Service plan determines what App Service features you get and how much you pay for the plan. The pricing tiers available to your App Service plan depend on the operating system selected at creation time. There are the following categories of pricing tiers:
 
 - **Shared compute**: **Free** and **Shared**, the two base tiers, runs an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources, and the resources cannot scale out. These tiers are intended to be used only for development and testing purposes.
