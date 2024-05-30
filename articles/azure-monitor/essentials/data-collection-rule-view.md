@@ -64,7 +64,7 @@ The preview experience ties together DCRs and the resources they're associated w
 
 
 ### Data collection rule view
-In the **Data collection rule** view, the **Resource count** represents the number of resources that have a [data collection rule association](./data-collection-rule-overview.md#data-collection-rule-associations) with the DCR. Click this value to open the **Resources** view for that DCR.
+In the **Data collection rule** view, the **Resource count** represents the number of resources that have a [data collection rule association](./data-collection-rule-overview.md#data-collection-rule-associations-dcra) with the DCR. Click this value to open the **Resources** view for that DCR.
 
 :::image type="content" source="media/data-collection-rule-view/data-collection-rules-view.png" alt-text="Screenshot of data collection rules view in  the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/data-collection-rules-view.png":::
 
