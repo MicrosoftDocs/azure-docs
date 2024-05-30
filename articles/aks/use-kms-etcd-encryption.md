@@ -321,7 +321,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 > [!NOTE]
 > To change a different key vault with a different mode (whether public or private), you can run `az aks update` directly. To change the mode of an attached key vault, you must first turn off KMS, and then turn it on again by using the new key vault IDs.
 
-The following sections describe how to migrate an attached public key vault to private mode.  These steps also work for migrating from private to public.
+The following sections describe how to migrate an attached public key vault to private mode.  These steps can also be used for migrating from private to public.
 
 ### Turn off KMS on the cluster
 
