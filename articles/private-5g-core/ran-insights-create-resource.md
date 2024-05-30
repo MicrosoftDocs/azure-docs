@@ -1,8 +1,6 @@
 ---
 title: Create a radio access network insights resource
 description: Learn how to set up your radio access network insights resource
-title: Create a radio access network insights resource
-description: Learn how to set up your radio access network insights resource
 author: delnas
 ms.author: delnas
 ms.service: private-5g-core
@@ -71,8 +69,6 @@ If you're unable to access the information in the MIE key vault URL then you may
 
 
 
-## Delete a RAN insights resource
-You can delete your RAN insights resource from the RAN insights resource or your site resource. 
 ## Delete a RAN insights resource
 You can delete your RAN insights resource from the RAN insights resource or your site resource. 
 To delete from your RAN insights resource: 
