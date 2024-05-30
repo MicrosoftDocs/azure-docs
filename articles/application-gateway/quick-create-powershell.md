@@ -23,7 +23,7 @@ The application gateway directs application web traffic to specific resources in
 You can also complete this quickstart using [Azure CLI](quick-create-cli.md) or the [Azure portal](quick-create-portal.md).
 
 > [!NOTE]
-> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now creatre up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 ## Prerequisites
 

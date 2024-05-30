@@ -20,7 +20,7 @@ In this quickstart, you use Bicep to create an Azure Application Gateway. Then y
 ![Conceptual diagram of the quickstart setup.](./media/quick-create-portal/application-gateway-qs-resources.png)
 
 > [!NOTE]
-> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now creatre up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 ## Prerequisites
 
