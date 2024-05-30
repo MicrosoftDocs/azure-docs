@@ -5,7 +5,7 @@ author: tomvcassidy
 ms.author: tomcassidy
 ms.custom: subject-cost-optimization
 ms.service: virtual-machines
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 02/21/2024
 ---
 
