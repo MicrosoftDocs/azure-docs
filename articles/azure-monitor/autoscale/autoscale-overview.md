@@ -32,6 +32,10 @@ For example, scale out your application by adding VMs when the average CPU usage
 
 When the conditions in the rules are met, one or more autoscale actions are triggered, adding or removing VMs. You can also perform other actions like sending email, notifications, or webhooks to trigger processes in other systems.
 
+> [!NOTE]  
+> If there are more than one conditions, autoscale actions are triggered even if one of the conditions is met.
+>
+
 ## Horizontal vs. vertical scaling
 
 Autoscale scales in and out, or horizontally. Scaling horizontally is an increase or decrease of the number of resource instances. For example, for a virtual machine scale set, scaling out means adding more virtual machines. Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation because you can use it to run a large number of VMs to handle load.
