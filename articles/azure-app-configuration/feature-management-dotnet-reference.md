@@ -13,21 +13,17 @@ zone_pivot_groups: feature-management
 
 :::zone target="docs" pivot="stable-version"
 
-[![Microsoft.FeatureManagement](https://img.shields.io/nuget/v/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement)
-
-[![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore)
+[![Microsoft.FeatureManagement](https://img.shields.io/nuget/v/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement)<br>
+[![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore)<br>
 
 :::zone-end
 
 :::zone target="docs" pivot="preview-version"
 
-[![Microsoft.FeatureManagement](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement/4.0.0-preview3)
-
-[![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/4.0.0-preview3)
-
-[![Microsoft.FeatureManagement.Telemetry.ApplicationInsights](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/4.0.0-preview3)
-
-[![Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore/4.0.0-preview3)
+[![Microsoft.FeatureManagement](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement/4.0.0-preview3)<br>
+[![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/4.0.0-preview3)<br>
+[![Microsoft.FeatureManagement.Telemetry.ApplicationInsights](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/4.0.0-preview3)<br>
+[![Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore/4.0.0-preview3)<br>
 
 :::zone-end
 

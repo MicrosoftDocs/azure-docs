@@ -2895,7 +2895,7 @@ groups:
 # Owner: zhiyuanliang
 - id: feature-management
   title: Library version pivots
-  prompt: Choose a library version
+  prompt: Choose a release
   pivots:
   - id: stable-version
     title: Stable release
