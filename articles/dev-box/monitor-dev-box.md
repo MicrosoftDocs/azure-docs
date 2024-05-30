@@ -66,7 +66,7 @@ To use a storage account to store the logs, follow these steps:
 
  >[!NOTE] 
  >A storage account in the same region as your dev center is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** for more information.
-	
+    
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
  
 2. Select **Archive to a storage account**, then select **Dataplane audit logs**. 
@@ -83,7 +83,7 @@ To use Log Analytics for the logs, follow these steps:
 
 >[!NOTE] 
 >A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md)** for more information.
-	
+    
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
 2. Select **Send to Log Analytics**, then select **Dataplane audit logs**. 
