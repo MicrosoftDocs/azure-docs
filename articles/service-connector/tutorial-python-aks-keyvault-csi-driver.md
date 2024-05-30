@@ -97,7 +97,7 @@ Create a service connection between an AKS cluster and an Azure Key Vault using 
 
 1. Once the connection has been created, the Service Connector page displays information about the new connection.
 
-    :::image type="content" source="./media/aks-tutorial/kubernetes-resources.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
+    :::image type="content" source="./media/aks-tutorial/aks-keyvault.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
 
 ### [Azure CLI](#tab/azure-cli)
 

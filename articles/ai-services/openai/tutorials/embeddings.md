@@ -51,6 +51,7 @@ Learn more about Azure OpenAI's models:
 > [Azure OpenAI Service models](../concepts/models.md)
 * Store your embeddings and perform vector (similarity) search using your choice of Azure service:
   * [Azure AI Search](../../../search/vector-search-overview.md)
+  * [Azure SQL Database](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql&preserve-view=true#vector-search)
   * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
   * [Azure SQL Database](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql&preserve-view=true#vector-search)
   * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)

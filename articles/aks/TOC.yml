@@ -4,6 +4,8 @@
   items:
     - name: What is AKS?
       href: what-is-aks.md
+    - name: What is AKS Automatic?
+      href: intro-aks-automatic.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
     - name: Track releases and region availability
@@ -31,6 +33,8 @@
     - name: Create a Linux-based AKS Cluster
       expanded: true
       items:
+        - name: Use AKS Automatic
+          href: learn/quick-kubernetes-automatic-deploy.md
         - name: Use the Azure CLI
           href: learn/quick-kubernetes-deploy-cli.md
         - name: Use the Azure Developer CLI
@@ -85,10 +89,6 @@
       href: tutorial-kubernetes-scale.md
     - name: 7 - Upgrade cluster
       href: tutorial-kubernetes-upgrade-cluster.md
-    - name: Security
-      items:
-        - name: Configure application to use workload identity
-          href: learn/tutorial-kubernetes-workload-identity.md
 - name: Concepts
   items:
     - name: Core concepts
@@ -138,6 +138,12 @@
           href: azure-cni-overview.md
         - name: Services
           href: concepts-network-services.md
+    - name: Advanced Container Networking Services 
+      items:
+        - name: Advanced Container Networking Services overview
+          href: advanced-container-networking-services-overview.md
+        - name: Advanced Network Observability overview
+          href: advanced-network-observability-concepts.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
@@ -454,7 +460,7 @@
               items:
                 - name: Workload identity overview
                   href: workload-identity-overview.md
-                - name: Deploy and configure cluster
+                - name: Deploy and configure workload identity for a cluster
                   href: workload-identity-deploy-cluster.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
@@ -558,8 +564,6 @@
               href: api-server-vnet-integration.md
             - name: Private Endpoint
               href: private-clusters.md#use-a-private-endpoint-connection
-        - name: Diagnose and solve UDP packet drops
-          href: troubleshoot-udp-packet-drops.md
     - name: Storage
       items:
         - name: CSI storage drivers
@@ -664,10 +668,10 @@
             href: cost-analysis.md
         - name: Network Observability
           items:
-            - name: BYO Prometheus and Grafana
-              href: network-observability-byo-cli.md
-            - name: Azure managed Prometheus and Grafana
-              href: network-observability-managed-cli.md
+            - name: Advanced Network Observability - Azure managed Prometheus and Grafana
+              href: advanced-network-observability-cli.md 
+            - name: Advanced Network Observability - Bring Your Own Prometheus and Grafana
+              href: advanced-network-observability-bring-your-own-cli.md
     - name: Service Mesh
       items:
         - name: Istio service mesh AKS add-on
@@ -676,6 +680,8 @@
               href: istio-about.md
             - name: Deploy Istio service mesh add-on
               href: istio-deploy-addon.md
+            - name: Enable native sidecar mode (Preview)
+              href: istio-native-sidecar.md
             - name: Configure Istio service mesh add-on
               href: istio-meshconfig.md
             - name: Deploy external or internal Istio Ingress
@@ -838,6 +844,18 @@
               href: /troubleshoot/azure/azure-kubernetes/troubleshoot-dapr-extension-installation-errors?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Build applications with Azure App Configuration
+          items:
+            - name: Install the Azure App Configuration extension
+              href: azure-app-configuration.md
+            - name: Configure the Azure App Configuration extension
+              href: azure-app-configuration-settings.md
+            - name: Azure App Configuration extension quickstart
+              href: /azure/azure-app-configuration/quickstart-azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+            - name: Azure App Configuration extension reference
+              href: /azure/azure-app-configuration/reference-kubernetes-provider?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+            - name: Troubleshoot the Azure App Configuration extension
+              href: /troubleshoot/azure/azure-kubernetes/troubleshoot-app-configuration-extension-installation-errors?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Deploy Intelligent Apps on AKS
       items:
         - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 

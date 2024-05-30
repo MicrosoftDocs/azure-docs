@@ -6650,6 +6650,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/app-insights-azure-ad-api.md",
+            "redirect_url": "/azure/azure-monitor/app/azure-ad-authentication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/resources-roles-access-control.md",
+            "redirect_url": "/azure/azure-monitor/roles-permissions-security",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
             "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
             "redirect_document_id": false
@@ -6670,6 +6680,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/azure-monitor-monitoring-reference.md",
+            "redirect_url": "/azure/azure-monitor/monitor-azure-monitor-reference",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/ai-ops/responsible-ai-faq.md",
             "redirect_url": "/azure/copilot/overview",
             "redirect_document_id": false
@@ -6682,11 +6697,6 @@
         {
             "source_path_from_root": "/articles/azure-monitor/ai-ops/investigate-alert-instance.md",
             "redirect_url": "/azure/copilot/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-monitor/azure-monitor-monitoring-reference.md",
-            "redirect_url": "/azure/azure-monitor/monitor-azure-monitor-reference",
             "redirect_document_id": false
         },
         {

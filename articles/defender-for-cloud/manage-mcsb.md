@@ -1,8 +1,8 @@
 ---
 title: Manage MCSB in Microsoft Defender for Cloud
 description: Learn how to manage the  MCSB standard in Microsoft Defender for Cloud
-ms.topic: conceptual
-ms.date: 01/25/2022
+ms.topic: how-to
+ms.date: 05/30/2024
 ---
 
 # Manage MCSB recommendations in Defender for Cloud

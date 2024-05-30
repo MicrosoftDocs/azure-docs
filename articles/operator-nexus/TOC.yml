@@ -48,6 +48,8 @@
         href: concepts-nexus-kubernetes-cluster.md
       - name: Resource Placement
         href: concepts-nexus-kubernetes-placement.md
+      - name: Nexus Workload Network
+        href: concepts-nexus-network.md
     - name: Observability
       expanded: false
       items:
@@ -177,6 +179,8 @@
               href: howto-monitor-interface-packet-rate.md
             - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
               href: howto-delete-layer-3-isolation-domains.md
+            - name: How to put a device into maintenance mode
+              href: howto-put-device-in-maintenance-mode.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
@@ -291,8 +295,13 @@
       href: reference-near-edge-compute.md
     - name: BareMetal Machine roles
       href: reference-near-edge-baremetal-machine-roles.md
-    - name: Near-edge storage
-      href: reference-near-edge-storage.md
+    - name: Nexus Storage Solution
+      expanded: false
+      items:
+        - name: Near-edge storage
+          href: reference-near-edge-storage.md
+        - name: Supported Storage Appliance Versions
+          href: reference-near-edge-storage-supported-versions.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
     - name: Neighbor Group Configuration Overview
