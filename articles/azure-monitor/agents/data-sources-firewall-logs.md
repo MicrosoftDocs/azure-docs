@@ -107,6 +107,12 @@ Look at the timestamps of the log files and open the latest to see that latest t
 
 [ ![Screenshot that shows firewall logs on a local disk.](media/firewall-logs/firewall-files-on-disk.png) ](media/firewall-logs/firewall-files-on-disk.png#lightbox)
 
+To turn on logging follow these steps.
+1. gpedit {follow the picture}​
+2. netsh advfirewall>set allprofiles logging allowedconnections enable​
+3. netsh advfirewall>set allprofiles logging droppedconnections enable​
+
+[ ![Screenshot that show all the steps to turn on loging.](media/firewall-logs/turn-on-firewall-logging.png) ](media/firewall-logs/turn-on-firewall-logging.png#lightbox)
 
 ## Next steps
 Learn more about: 
