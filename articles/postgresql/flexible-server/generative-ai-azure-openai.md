@@ -4,7 +4,7 @@ description: Use vector indexes and Azure OpenAI embeddings in PostgreSQL for re
 author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
-ms.date: 05/27/2024
+ms.date: 05/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
