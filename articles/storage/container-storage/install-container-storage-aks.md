@@ -11,9 +11,7 @@ ms.custom: devx-track-azurecli
 
 # Tutorial: Install Azure Container Storage Preview for use with Azure Kubernetes Service
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster and install Azure Container Storage on the cluster. Alternatively, you can install Azure Container Storage [using a QuickStart](container-storage-aks-quickstart.md) instead of following the manual steps in this tutorial.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster and install Azure Container Storage on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage [using this QuickStart](container-storage-aks-quickstart.md) instead of following the manual steps in this tutorial.
 
 > [!div class="checklist"]
 > * Create a resource group
@@ -21,15 +19,18 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > * Create an AKS cluster
 > * Connect to the cluster
 > * Label the node pool
-> * Assign Contributor role to AKS managed identity
-> * Install Azure Container Storage extension
+> * Assign Azure Container Storage Operator role to AKS managed identity
+> * Install Azure Container Storage
 
 ## Prerequisites
 
-[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-> [!NOTE]
-> If you already have an AKS cluster deployed, proceed to [Connect to the cluster](#connect-to-the-cluster).
+* This article requires the latest version (2.35.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Get started with Azure Cloud Shell](/azure/cloud-shell/get-started).
+
+* You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
+
+* Check if your target region is supported in [Azure Container Storage regions](../articles/storage/container-storage/container-storage-introduction.md#regional-availability).
 
 ## Getting started
 
