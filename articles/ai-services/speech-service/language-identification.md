@@ -1099,7 +1099,7 @@ For more information about containers, see the [language identification speech c
 
 ## Implement speech to text batch transcription
 
-To identify languages with [Batch transcription REST API](batch-transcription.md), use `languageIdentification` property in the body of your [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) request.
+To identify languages with [Batch transcription REST API](batch-transcription.md), use `languageIdentification` property in the body of your [Transcriptions_Create](/rest/api/speechtotext/transcriptions/create) request.
 
 > [!WARNING]
 > Batch transcription only supports language identification for default base models. If both language identification and a custom model are specified in the transcription request, the service falls back to use the base models for the specified candidate languages. This might result in unexpected recognition results.

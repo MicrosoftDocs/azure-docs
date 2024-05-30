@@ -1,7 +1,7 @@
 ---
 title: Linter rule - secure secrets in parameters
 description: Linter rule - secure secrets in parameters
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 03/20/2024
 ---

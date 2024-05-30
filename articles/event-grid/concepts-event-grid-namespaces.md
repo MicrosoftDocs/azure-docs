@@ -1,12 +1,13 @@
 ---
 ms.date: 11/15/2023
-author: jfggdl
-ms.author: jafernan
+author: robece
+ms.author: robece
 title: Concepts for Event Grid namespace topics
 description: General concepts of Event Grid namespace topics and their main functionality such as pull and push delivery.
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ---
 
 # Azure Event Grid namespace concepts
@@ -40,10 +41,10 @@ Here's a sample event:
 
 
 ### Another kind of event
-The user community also refers as "events" to messages that carry a data point, such as a single device reading or a click on a web application page. That kind of event is usually analyzed over a time window to derive insights and take an action. In Event Grid’s documentation, we refer to that kind of event as a **data point**, **streaming data**, or simply as **telemetry**. Among other type of messages, this kind of events is used with Event Grid’s Message Queuing Telemetry Transport (MQTT) broker feature.
+The user community also refers as "events" to messages that carry a data point, such as a single device reading or a click on a web application page. That kind of event is usually analyzed over a time window to derive insights and take an action. In Event Grid’s documentation, we refer to that kind of event as a **data point**, **streaming data**, or simply as **telemetry**. Among other types of messages, this kind of events is used with Event Grid’s Message Queuing Telemetry Transport (MQTT) broker feature.
 
 ## CloudEvents
-Event Grid namespace topics accepts events that comply with the Cloud Native Computing Foundation (CNCF)’s open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification using the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). A CloudEvent is a kind of message that contains what is being communicated, referred as event data, and metadata about it. The event data in event-driven architectures typically carries the information announcing a system state change. The CloudEvents metadata is composed of a set of attributes that provide contextual information about the message like where it originated (the source system), its type, etc. All valid messages adhering to the CloudEvents specifications must include the following required [context attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#required-attributes): 
+Event Grid namespace topics accepts events that comply with the Cloud Native Computing Foundation (CNCF)’s open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification using the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). A CloudEvent is a kind of message that contains what is being communicated, referred to as event data, and metadata about it. The event data in event-driven architectures typically carries the information announcing a system state change. The CloudEvents metadata is composed of a set of attributes that provide contextual information about the message like where it originated (the source system), its type, etc. All valid messages adhering to the CloudEvents specifications must include the following required [context attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#required-attributes): 
 
 * [`id`](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id)
 * [`source`](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1)
@@ -59,7 +60,7 @@ When using Event Grid, CloudEvents is the preferred event format because of its 
 The CloudEvents specification defines three [content modes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#13-content-modes): [binary](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#31-binary-content-mode), [structured](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#32-structured-content-mode), and [batched](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#33-batched-content-mode).
 
 >[!IMPORTANT]
-> With any content mode you can exchange text (JSON, text/*, etc.) or binary encoded event data. The binary content mode is not exclusively used for sending binary data.
+> With any content mode you can exchange text (JSON, text/*, etc.) or binary-encoded event data. The binary content mode is not exclusively used for sending binary data.
 
 The content modes aren't about the encoding you use, binary, or text, but about how the event data and its metadata are described and exchanged. The structured content mode uses a single structure, for example, a JSON object, where both the context attributes and event data are together in the HTTP payload. The binary content mode separates context attributes, which are mapped to HTTP headers, and event data, which is the HTTP payload encoded according to the media type set in ```Content-Type```.
 
@@ -117,7 +118,7 @@ For example, this CloudEvent carries event data encoded in ```application/protob
     "source" : "/orders/account/123",
     "id" : "A234-1234-1234",
     "time" : "2018-04-05T17:31:00Z",
-    "datacontenttype" : "application/protbuf",
+    "datacontenttype" : "application/protobuf",
     "data_base64" : "VGhpcyBpcyBub3QgZW5jb2RlZCBpbiBwcm90b2J1ZmYgYnV0IGZvciBpbGx1c3RyYXRpb24gcHVycG9zZXMsIGltYWdpbmUgdGhhdCBpdCBpcyA6KQ=="
 }
 ```
@@ -168,7 +169,7 @@ A CloudEvent in binary content mode has its context attributes described as HTTP
 > When using the binary content mode the ```ce-datacontenttype``` HTTP header MUST NOT also be present.
 
 >[!IMPORTANT]
-> If you are planing to include your own attributes (i.e. extension attributes) when using the binary content mode, make sure that their names consist of lower-case letters ('a' to 'z') or digits ('0' to '9') from the ASCII character and that they do not exceed 20 character in lenght. That is, the naming convention for [naming CloudEvents context attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#attribute-naming-convention) is more restrictive than that of valid HTTP header names. Not every valid HTTP header name is a valid extension attribute name.
+> If you are planning to include your own attributes (i.e. extension attributes) when using the binary content mode, make sure that their names consist of lower-case letters ('a' to 'z') or digits ('0' to '9') from the ASCII character and that they do not exceed 20 characters in length. That is, the naming convention for [naming CloudEvents context attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#attribute-naming-convention) is more restrictive than that of valid HTTP header names. Not every valid HTTP header name is a valid extension attribute name.
 
 The HTTP payload is the event data encoded according to the media type in ```Content-Type```.
 
@@ -191,9 +192,9 @@ Binary data according to protobuf encoding format. No context attributes are inc
 
 ### When to use CloudEvents' binary or structured content mode
 
-You could use structured content mode if you want a simple approach for forwarding CloudEvents across hops and protocols. As structured content mode CloudEvents contain the message along its metadata together, it's easy for clients to consume it as a whole and forward it to other systems.
+You could use structured content mode if you want a simple approach for forwarding CloudEvents across hops and protocols. Since a CloudEvent in structured content mode contains the message together with its metadata, it's easy for clients to consume it as a whole and forward it to other systems.
 
-You could use binary content mode if you know downstream applications require only the message without any extra information (that is, the context attributes). While with structured content mode you can still get the event data (message) out of the CloudEvent, it's easier if a consumer application just has it in the HTTP payload. For example, other applications can use other protocols and could be interested only in your core message, not its metadata. In fact, the metadata could be relevant just for the immediate first hop. In this case, having the data that you want to exchange apart from its metadata lends itself for easier handling and forwarding.
+You could use binary content mode if you know downstream applications require only the message without any extra information (that is, the context attributes). While with structured content mode you can still get the event data (message) out of the CloudEvent, it's easier if a consumer application just has it in the HTTP payload. For example, other applications can use other protocols and may be interested only in your core message, not its metadata. In fact, the metadata could be relevant just for the immediate first hop. In this case, having the data that you want to exchange apart from its metadata lends itself to easier handling and forwarding.
 
 ## Publishers
 
@@ -225,12 +226,12 @@ A Namespace exposes two endpoints:
   
 A namespace also provides DNS-integrated network endpoints. It also provides a range of access control and network integration management features such as public IP ingress filtering and private links. It's also the container of managed identities used for contained resources in the namespace.
 
-Here are few more points about namespaces:
+Here are a few more points about namespaces:
 
 - Namespace is a tracked resource with `tags` and `location` properties, and once created, it can be found on `resources.azure.com`.  
 - The name of the namespace can be 3-50 characters long. It can include alphanumeric, and hyphen(-), and no spaces.  
 - The name needs to be unique per region.
-- **Current supported regions:** Central US, East Asia, East US, East US 2, North Europe, South Central US, Southeast Asia, UAE North, West Europe, West US 2, West US 3.
+
 
 ## Throughput units
 
@@ -247,14 +248,14 @@ Namespace topics support [pull delivery](pull-delivery-overview.md#pull-delivery
 
 ## Event subscriptions
 
-An event subscription is a configuration resource associated with a single topic. Among other things, you use an event subscription to set the event selection criteria to define the event collection available to a subscriber out of the total set of events available in a topic. You can filter events according to subscriber's requirements. For example, you can filter events by its event type. You can also define filter criteria on event data properties, if using a JSON object as the value for the *data* property. For more information on resource properties, look for control plane operations in the Event Grid [REST API](/rest/api/eventgrid).
+An event subscription is a configuration resource associated with a single topic. Among other things, you use an event subscription to set the event selection criteria to define the event collection available to a subscriber out of the total set of events available in a topic. You can filter events according to the subscriber's requirements. For example, you can filter events by their event type. You can also define filter criteria on event data properties if using a JSON object as the value for the *data* property. For more information on resource properties, look for control plane operations in the Event Grid [REST API](/rest/api/eventgrid).
 
 :::image type="content" source="media/pull-and-push-delivery-overview/topic-event-subscriptions-namespace.png" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/pull-and-push-delivery-overview/topic-event-subscriptions-namespace.png" border="false":::
 
 For an example of creating subscriptions for namespace topics, see [Publish and consume messages using namespace topics using CLI](publish-events-using-namespace-topics.md).
 
 > [!NOTE]
-> The event subscriptions under a namespace topic feature a simplified resource model when compared to that used for custom, domain, partner, and system topics (Event Grid Basic). For more information, see Create, view, and managed [event subscriptions](create-view-manage-event-subscriptions.md#simplified-resource-model).
+> The event subscriptions under a namespace topic feature a simplified resource model when compared to that used for custom, domain, partner, and system topics (Event Grid Basic). For more information, see Create, view, and manage [event subscriptions](create-view-manage-event-subscriptions.md#simplified-resource-model).
 
 
 ## Pull delivery
@@ -270,11 +271,11 @@ Pull delivery supports the following operations for reading messages and control
 With push delivery, Event Grid sends events to a destination configured in a *push* (delivery mode in) event subscription. It provides a robust retry logic in case the destination isn't able to receive events.
 
 >[!IMPORTANT]
->Event Grid namespaces' push delivery currently supports **Azure Event Hubs** as a destination. In the future, Event Grid namespaces will support more destinations, including all destinations supported by Event Grid basic.
+>Event Grid namespaces' push delivery currently supports **Azure Event Hubs** as a destination. In the future, Event Grid namespaces will support more destinations, including all destinations supported by Event Grid Basic.
 
 ### Event Hubs event delivery
 
-Event Grid uses Event Hubs'SDK to send events to Event Hubs using [AMQP](https://www.amqp.org/about/what). Events are sent as a byte array with every element in the array containing a CloudEvent.
+Event Grid uses Event Hubs SDK to send events to Event Hubs using [AMQP](https://www.amqp.org/about/what). Events are sent as a byte array with every element in the array containing a CloudEvent.
 
 [!INCLUDE [differences-between-consumption-modes](./includes/differences-between-consumption-modes.md)]
 

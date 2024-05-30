@@ -5,13 +5,13 @@ description: Deploy a Java application with Open Liberty or WebSphere Liberty on
 author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 05/29/2024
 ms.subservice: aks-developer
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java, devx-track-azurecli
 ---
 
-# Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster
+# Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 
 This article demonstrates how to:
 
@@ -37,22 +37,30 @@ This article is intended to help you quickly get to deployment. Before you go to
 
 ## Prerequisites
 
-* Install the [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running the Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
-* Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Authentication methods](/cli/azure/authenticate-azure-cli).
-* When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-* Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of the Azure CLI.
-* Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
-* Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or later.
-* Install [Docker](https://docs.docker.com/get-docker/) for your operating system.
-* Ensure that [Git](https://git-scm.com) is installed.
-* Make sure you're assigned either the Owner role or the Contributor and User Access Administrator roles in the subscription. You can verify roles by following the steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
+* Install the [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
+* Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+* When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+* Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of Azure CLI.
+* Install a Java Standard Edition (SE) implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+* Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+* Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* Ensure [Git](https://git-scm.com) is installed.
+* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.yml).
+
 
 > [!NOTE]
 > You can also run the commands in this article from [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools preinstalled, with the exception of Docker.
 >
 > :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to open Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
-## Create a deployment of Liberty on AKS by using the portal
+* If running the commands in this guide locally (instead of Azure Cloud Shell):
+  * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
+  * Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+  * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+  * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-for-a-user-or-group).
+
+## Create a Liberty on AKS deployment using the portal
 
 The following steps guide you to create a Liberty runtime on AKS. After you complete these steps, you'll have a Container Registry instance and an AKS cluster for deploying your containerized application.
 
@@ -137,7 +145,7 @@ If you moved away from the **Deployment is in progress** pane, the following ste
 
     ---
 
-You'll use these values later in this article. Note that the outputs list several other useful commands.
+You use these values later in this article. The outputs list several other useful commands.
 
 ## Create an Azure SQL Database instance
 
@@ -159,7 +167,7 @@ $Env:DB_RESOURCE_GROUP_NAME="<db-resource-group>"
 
 ---
 
-Now that you've created the database and AKS cluster, you can proceed to preparing AKS to host your Open Liberty application.
+Now that you created the database and AKS cluster, you can proceed to preparing AKS to host your Open Liberty application.
 
 ## Configure and deploy the sample application
 
@@ -222,7 +230,7 @@ In the *aks* directory, there are five deployment files:
 * *db-secret.xml*: Use this file to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with database connection credentials.
 * *openlibertyapplication-agic.yaml*: Use this file to deploy the Open Liberty application with AGIC. This article assumes that you use this file.
 * *openlibertyapplication.yaml*: Use this file if you want to deploy the Open Liberty application without AGIC.
-* *webspherelibertyapplication-agic.yaml*: Use this file to deploy the WebSphere Liberty application with AGIC if you deployed WebSphere Liberty Operator [earlier in this article](#create-a-deployment-of-liberty-on-aks-by-using-the-portal).
+* *webspherelibertyapplication-agic.yaml*: Use this file to deploy the WebSphere Liberty application with AGIC if you deployed WebSphere Liberty Operator [earlier in this article](#create-a-liberty-on-aks-deployment-using-the-portal).
 * *webspherelibertyapplication.yaml*: Use this file to deploy the WebSphere Liberty application without AGIC if you deployed WebSphere Liberty Operator earlier in this article.
 
 In the *docker* directory, there are two files to create the application image:

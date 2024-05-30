@@ -8,7 +8,7 @@ ms.custom: devx-track-python, devx-track-dotnet
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/13/2024
+ms.date: 05/20/2024
 zone_pivot_groups: openai-quickstart-assistants
 recommendations: false
 ---
@@ -39,6 +39,12 @@ Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](includes/assistants-csharp.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [JavaScript quickstart](includes/assistants-javascript.md)]
 
 ::: zone-end
 

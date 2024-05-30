@@ -36,7 +36,7 @@ Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/
 
 ## Use Azure IoT explorer
 
-For a device, you can either connect your own device, or use one of the sample simulated devices. For some example simulated devices written in different languages, see the [Connect a sample IoT Plug and Play device application to IoT Hub](../iot-develop/tutorial-connect-device.md) tutorial.
+For a device, you can either connect your own device, or use one of the sample simulated devices. For some example simulated devices written in different languages, see the [Connect a sample IoT Plug and Play device application to IoT Hub](./tutorial-connect-device.md) tutorial.
 
 ### Connect to your hub
 

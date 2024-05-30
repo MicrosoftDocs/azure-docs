@@ -75,16 +75,12 @@ As you progress, you'll complete these high-level tasks:
 
 1. Download and install the following Visual Studio Code dependencies for your specific operating system using either method:
 
-   - [Install all dependencies automatically (preview)](#dependency-installer).
+   - [Install all dependencies automatically](#dependency-installer).
    - [Download and install each dependency separately](#install-dependencies-individually).
 
    <a name="dependency-installer"></a>
 
-   **Install all dependencies automatically (preview)**
-
-   > [!IMPORTANT]
-   > This capability is in preview and is subject to the 
-   > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   **Install all dependencies automatically**
 
    Starting with version **2.81.5**, the Azure Logic Apps (Standard) extension for Visual Studio Code includes a dependency installer that automatically installs all the required dependencies in a new binary folder and leaves any existing dependencies unchanged. For more information, see [Get started more easily with the Azure Logic Apps (Standard) extension for Visual Studio Code](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/making-it-easy-to-get-started-with-the-azure-logic-apps-standard/ba-p/3979643).
 

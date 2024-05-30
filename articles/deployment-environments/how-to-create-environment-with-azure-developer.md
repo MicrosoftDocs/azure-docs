@@ -26,7 +26,7 @@ To learn how to set up AZD to work with Azure Deployment Environments, see [Use 
 You should:
 - Be familiar with Azure Deployment Environments. Review [What is Azure Deployment Environments?](overview-what-is-azure-deployment-environments.md) and [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 - Create and configure a dev center with a project, environment types, and a catalog. Use the following article as guidance:
-   - [Quickstart: Create and configure a dev center for Azure Deployment Environments](/azure/deployment-environments/quickstart-create-and-configure-devcenter).
+   - [Quickstart: Configure Azure Deployment Environments](/azure/deployment-environments/quickstart-create-and-configure-devcenter).
 - A catalog attached to your dev center.
 
 ## Prepare to work with AZD 
@@ -374,7 +374,7 @@ When your environment is provisioned, you can deploy your code to the environmen
 Deploy your application code to the remote Azure Deployment Environments environment you provisioned using the following command:
 
 ```bash
-azd env deploy
+azd deploy
 ```
 Deploying your code to the remote environment can take several minutes. 
 
@@ -399,7 +399,7 @@ For this sample application, you see something like this:
 Deploy your application code to the remote Azure Deployment Environments environment you provisioned using the following command:
 
 ```bash
-azd env deploy
+azd deploy
 ```
 Deploying your code to the remote environment can take several minutes. 
 

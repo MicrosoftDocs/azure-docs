@@ -7,10 +7,7 @@ ms.custom: subject-resourcegraph-sample
 ---
 # Azure Resource Graph sample queries for Azure Arc
 
-This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md) sample
-queries for Azure Arc. For a complete list of Azure Resource Graph samples, see
-[Resource Graph sample queries by category](../governance/resource-graph/samples/samples-by-category.md)
-and [Resource Graph sample queries by table](../governance/resource-graph/samples/samples-by-table.md).
+This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md) sample queries for Azure Arc. For a complete list of Azure Resource Graph samples, see [Resource Graph sample queries by category](../governance/resource-graph/samples/samples-by-category.md) and [Resource Graph sample queries by table](../governance/resource-graph/samples/samples-by-table.md).
 
 ## Sample queries
 

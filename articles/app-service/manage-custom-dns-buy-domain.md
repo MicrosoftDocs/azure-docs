@@ -50,7 +50,11 @@ For pricing information on App Service domains, visit the [App Service Pricing p
     
 1. Select **Next: Contact information** and supply your information as required by [ICANN](https://lookup.icann.org/) for the domain registration. 
 
-    It's important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to buy the domain.
+   It's important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to buy the domain.
+
+    > [!NOTE]
+    > Make sure you have access to the email address on your contact information. GoDaddy will send emails directly to your contact information from a "@secureserver.net" email; these will only be important transactional emails.
+    >
 
 1. Select **Next: Hostname assignment** and verify the default hostnames to map to your app:
 

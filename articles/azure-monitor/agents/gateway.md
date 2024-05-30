@@ -13,6 +13,10 @@ This article describes how to configure communication with Azure Automation and 
 
 The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway sends data to Azure Automation and a Log Analytics workspace in Azure Monitor on behalf of the computers that cannot directly connect to the internet. The gateway is only for log agent related connectivity and does not support Azure Automation features like runbook, DSC, and others.
 
+> [!NOTE]
+> The Log Analytic gateway has be updated to work with the Azure Monitor Agent (AMA) and will be supported beyond the deprication date of legacy agent (MMA/OMS) on August 31, 2024.
+> 
+
 The Log Analytics gateway supports:
 
 * Reporting up to the same Log Analytics workspaces configured on each agent behind it and that are configured with Azure Automation Hybrid Runbook Workers.  
@@ -77,9 +81,10 @@ The Log Analytics gateway is available in these languages:
 
 ### Supported encryption protocols
 
-The Log Analytics gateway supports only Transport Layer Security (TLS) 1.0, 1.1, and 1.2.  It doesn't support Secure Sockets Layer (SSL).  To ensure the security of data in transit to Log Analytics, configure the gateway to use at least TLS 1.2. Older versions of TLS or SSL are vulnerable. Although they currently allow backward compatibility, avoid using them.  
+The Log Analytics gateway supports only Transport Layer Security (TLS) 1.0, 1.1, 1.2 and 1.3.  It doesn't support Secure Sockets Layer (SSL). To ensure the security of data in transit to Log Analytics, configure the gateway to use at least TLS 1.3. Although they currently allow for backward compatibility, avoid using older versions because they are vulnerable.  
 
-For additional information, review [Sending data securely using TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12). 
+For additional information, review [Sending data securely using TLS](../logs/data-security.md#sending-data-securely-using-tls). 
+
 
 >[!NOTE]
 >The gateway is a forwarding proxy that doesn’t store any data. Once the agent establishes connection with Azure Monitor, it follows the same encryption flow with or without the gateway. The data is encrypted between the client and the endpoint. Since the gateway is just a tunnel, it doesn’t have the ability the inspect what is being sent.
@@ -200,7 +205,7 @@ To configure the Azure Monitor agent (installed on the gateway server) to use th
 2. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`  
    `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`  
-   (If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))  
+   (If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-dce))  
 3. Add the **data ingestion endpoint URL** to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host <log-analytics-workspace-id>.ods.opinsights.azure.com`  
 3. Restart the **OMS Gateway** service to apply the changes  

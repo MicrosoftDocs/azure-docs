@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -101,6 +101,12 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/NetworkInterfaces/Delete | Deletes network interfaces resource |
 > | Microsoft.AzureStackHCI/NetworkInterfaces/Write | Creates/Updates network interfaces resource |
 > | Microsoft.AzureStackHCI/NetworkInterfaces/Read | Gets/Lists network interfaces resource |
+> | Microsoft.AzureStackHCI/NetworkSecurityGroups/Delete | Deletes a network security group resource |
+> | Microsoft.AzureStackHCI/NetworkSecurityGroups/Write | Creates/Updates a network security group resource |
+> | Microsoft.AzureStackHCI/NetworkSecurityGroups/Read | Gets/Lists a network security group resource |
+> | Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Delete | Deletes a security rule resource |
+> | Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Write | Creates/Updates security rule resource |
+> | Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Read | Gets/Lists security rule resource |
 > | Microsoft.AzureStackHCI/Operations/Read | Gets operations |
 > | Microsoft.AzureStackHCI/RegisteredSubscriptions/read | Reads registered subscriptions |
 > | Microsoft.AzureStackHCI/StorageContainers/Delete | Deletes storage containers resource |
@@ -113,9 +119,12 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Restart/Action | Restarts virtual machine instance resource |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Start/Action | Starts virtual machine instance resource |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Stop/Action | Stops virtual machine instance resource |
+> | Microsoft.AzureStackHCI/VirtualMachineInstances/Pause/Action | Pauses virtual machine instance resource |
+> | Microsoft.AzureStackHCI/VirtualMachineInstances/Save/Action | Saves virtual machine instance resource |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Delete | Deletes virtual machine instance resource |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Write | Creates/Updates virtual machine instance resource |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Read | Gets/Lists virtual machine instance resource |
+> | Microsoft.AzureStackHCI/VirtualMachineInstances/attestationStatus/read | Gets/Lists virtual machine instance's attestation status |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/HybridIdentityMetadata/Read | Gets/Lists virtual machine instance hybrid identity metadata proxy resource |
 > | Microsoft.AzureStackHCI/VirtualMachines/Restart/Action | Restarts virtual machine resource |
 > | Microsoft.AzureStackHCI/VirtualMachines/Start/Action | Starts virtual machine resource |
