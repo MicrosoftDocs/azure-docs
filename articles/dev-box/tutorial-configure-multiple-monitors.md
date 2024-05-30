@@ -8,11 +8,13 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 05/30/2024
 ms.topic: tutorial
+
+#Customer intent: As a dev box user, I want to use multiple monitors when connecting to my dev box so that I can have more screen real estate to work with.
 ---
 
 # Tutorial: Use multiple monitors on a dev box 
 
-In this tutorial, you configure a remote desktop client to use dual or more monitors when you connect to your dev box.
+In this tutorial, you configure a remote desktop protocol (RDP) client to use dual or more monitors when you connect to your dev box.
 
 Using multiple monitors gives you more screen real estate to work with. You can spread your work across multiple screens, or use one screen for your development environment and another for documentation, email, or messaging. 
 

@@ -108,6 +108,8 @@
     href: load-balancer-custom-probe-overview.md
   - name: Cross-region load balancer
     href: cross-region-overview.md
+  - name: Administrative state
+    href: admin-state-overview.md
   - name: Reliability
     items:
     - name: Availability zones and cross-region load balancer
@@ -164,6 +166,8 @@
     href: backend-pool-management.md
   - name: Retrieve metadata using the Azure IMDS
     href: howto-load-balancer-imds.md
+  - name: Manage admin state
+    href: manage-admin-state-how-to.md
   - name: Health probes
     items:
     - name: Manage health probes
