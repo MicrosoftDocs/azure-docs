@@ -8,18 +8,18 @@ ms.author: sunila
 author: sunilagarwal
 ms.devlang: python
 ms.custom: mvc, mode-api, devx-track-python
-ms.date: 01/02/2024
+ms.date: 05/29/2024
 ---
 
 # Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-In this quickstart, you connect to an Azure Database for PostgreSQL flexible server instance by using Python. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms.
+In this quickstart, you connect to an Azure Database for PostgreSQL flexible server instance by using Python. You then use SQL statements to query, insert, update, and delete data in the database from macOS, Ubuntu Linux, and Windows platforms.
 
 The steps in this article include two authentication methods: Microsoft Entra authentication and PostgreSQL authentication. The **Passwordless** tab shows the Microsoft Entra authentication and the **Password** tab shows the PostgreSQL authentication.
 
-Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management. To learn more, see [Microsoft Entra authentication with Azure Database for PostgreSQL - Flexible Server](./concepts-azure-ad-authentication.md).
 
 PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in PostgreSQL, you need to manage the rotation of the passwords by yourself.
 
@@ -39,7 +39,7 @@ This article assumes that you're familiar with developing using Python, but you'
 
 ## Configure Microsoft Entra integration on the server (passwordless only)
 
-If you're following the steps for passwordless authentication, Microsoft Entra authentication must be configured for your server instance, and you must be assigned as a Microsoft Entra admin. Follow the steps in [Configure Microsoft Entra integration](./how-to-configure-sign-in-azure-ad-authentication.md) to ensure that Microsoft Entra authentication is configured and that you're a Microsoft Entra administrator.
+If you're following the steps for passwordless authentication, Microsoft Entra authentication must be configured for your server instance, and you must be assigned as a Microsoft Entra administrator on the server instance. Follow the steps in [Configure Microsoft Entra integration](./how-to-configure-sign-in-azure-ad-authentication.md) to ensure that Microsoft Entra authentication is configured and that you're assigned as a Microsoft Entra administrator on your server instance.
 
 ## Prepare your development environment
 
@@ -50,7 +50,6 @@ Change to a folder where you want to run the code and create and activate a [vir
     ### [Windows](#tab/cmd)
 
     ```cmd
-    # py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
     py -3 -m venv .venv
     ```
 
@@ -84,7 +83,7 @@ Install the Python libraries needed to run the code examples.
 
 #### [Passwordless (Recommended)](#tab/passwordless)
 
-Install the [psycopg2](https://pypi.python.org/pypi/psycopg2/) module, which enables connecting to and querying a PostgreSQL database, and the [azure-identity](https://pypi.org/project/azure-identity/) library, which provides Microsoft Entra ID token authentication support across the Azure SDK.
+Install the [psycopg2](https://pypi.python.org/pypi/psycopg2/) module, which enables connecting to and querying a PostgreSQL database, and the [azure-identity](https://pypi.org/project/azure-identity/) library, which provides Microsoft Entra token authentication support across the Azure SDK.
 
 ```Console
 pip install psycopg2
@@ -126,13 +125,13 @@ In this section, you add authentication code to your working directory and perfo
 
         credential = DefaultAzureCredential()
         conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, credential.get_token("https://ossrdbms-aad.database.windows.net").token, sslmode)
-        return (conn_string)
+        return conn_string
     ```
 
     >[!IMPORTANT]
     > The code as-shown is for demonstration purposes only. It's not suitable for use in production. For example, tokens issued by Microsoft Entra ID have a limited lifetime (24 hours by default). In production code, you need to implement a token refresh policy.
 
-1. Get database connection information
+1. Get database connection information.
 
     1. In the [Azure portal](https://portal.azure.com/), search for and select your Azure Database for PostgreSQL flexible server name.
     1. On the server's **Overview** page, copy the fully qualified **Server name**. The fully qualified **Server name** is always of the form *\<my-server-name>.postgres.database.azure.com*.
@@ -144,7 +143,7 @@ In this section, you add authentication code to your working directory and perfo
     - `<username>` with your Azure user name; for example. `john@contoso.com`.
     - `<database-name>` with the name of your Azure Database for PostgreSQL flexible server database. A default database named *postgres* was automatically created when you created your server. You can rename that database or create a new database by using SQL commands.
 
-1. Sign in to Azure on your workstation. You can sign in using the Azure CLI, PowerShell, or Azure Developer CLI. For example, to sign in via the Azure CLI, enter this command:
+1. Sign in to Azure on your workstation. You can sign in using the Azure CLI, Azure PowerShell, or Azure Developer CLI. For example, to sign in via the Azure CLI, enter this command:
 
     ```azurecli
     az login
@@ -168,10 +167,10 @@ In this section, you add authentication code to your working directory and perfo
     
         # Construct connection string
         conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
-        return (conn_string)
+        return conn_string
     ```
 
-1. Get database connection information
+1. Get database connection information.
 
     1. In the [Azure portal](https://portal.azure.com/), search for and select your Azure Database for PostgreSQL flexible server name.
     1. On the server's **Overview** page, copy the fully qualified **Server name** and the **Server admin login name**. The fully qualified **Server name** is always of the form *\<my-server-name>.postgres.database.azure.com*.
@@ -245,7 +244,7 @@ Inserted 3 rows of data
 
 ## Read data
 
-The following code example connects to your Azure Database for PostgreSQL flexible server database and uses cursor.execute with the SQL **SELECT** statement to read data. This function accepts a query and returns a result set to iterate over by using cursor.fetchall()
+The following code example connects to your Azure Database for PostgreSQL flexible server database and uses cursor.execute with the SQL **SELECT** statement to read data. This function accepts a query and returns a result set to iterate over by using cursor.fetchall().
 
 ```Python
 import psycopg2
@@ -271,9 +270,18 @@ cursor.close()
 conn.close()
 ```
 
+When the code runs successfully, it produces the following output:
+
+```output
+Connection established
+Data row = (1, banana, 150)
+Data row = (2, orange, 154)
+Data row = (3, apple, 100)
+```
+
 ## Update data
 
-The following code example connects to your Azure Database for PostgreSQL flexible server database and uses cursor.execute with the SQL **UPDATE** statement to update data. 
+The following code example connects to your Azure Database for PostgreSQL flexible server database and uses cursor.execute with the SQL **UPDATE** statement to update data.
 
 ```Python
 import psycopg2
