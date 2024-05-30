@@ -113,7 +113,7 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 ### Common metadata properties
 
 - `version` (string): Tracks details about the version of the contents of a policy initiative
-  definition. For built-ins, this metadata version will follow the version property of the built-in. It's recommend to use the version property over this metadata version. 
+  definition. For built-ins, this metadata version follows the version property of the built-in. It's recommended to use the version property over this metadata version. 
 - `category` (string): Determines under which category in the Azure portal the policy definition is
   displayed.
 
@@ -125,8 +125,8 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 - `deprecated` (boolean): True or false flag for if the policy initiative definition has been marked
   as _deprecated_.
 
-## Version
-Built-in policy initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version) 
+## Version (preview)
+Built-in policy initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version-preview) 
 
 The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
 > change to a built-in policy definition or initiative and state. The format of `version` is:
@@ -134,15 +134,15 @@ The Azure Policy service uses `version`, `preview`, and `deprecated` properties 
 > `version` property or in another property as a **boolean**. 
 
 - Major Version (example: 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default. 
-- Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to role definitionIds, adding or removeing definitions within an initiative. 
-- Patch Version (example: 2.1.4): introduce string or metadata changes as well as breaking glass security scenarios (rare).
+- Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to role definitionIds, adding or removing definitions within an initiative. 
+- Patch Version (example: 2.1.4): introduce string or metadata changes and break glass security scenarios (rare).
 
-For more information about the way
+> For more information about 
 > Azure Policy versions built-ins, see
 > [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 > To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
 
-Built-in initiatives themselves are versioned, but it's possible to reference a sepcific versions of a built-in definition within a builtin and custom initiative. For more information see [reference definition and versions.](#policy-definition-properties)
+Built-in initiatives themselves are versioned, but it's possible to reference a specific version of a built-in definition within a builtin or custom initiative. For more information, see [reference definition and versions.](#policy-definition-properties)
 
 
 ## Parameters
@@ -274,7 +274,7 @@ Each _array_ element that represents a policy definition has the following prope
 - `parameters`: (Optional) The name/value pairs for passing an initiative parameter to the
   included policy definition as a property in that policy definition. For more information, see
   [Parameters](#parameters).
-- `definitionVersion` : (Optional) The version of the built-in definition to refer to. If none is specified, it will refer to the latest major version at assignment time and auto injest any minor updates. For more information, see [definition version](./definition-structure-basics.md#version)
+- `definitionVersion` : (Optional) The version of the built-in definition to refer to. If none is specified, it refers to the latest major version at assignment time and autoingest any minor updates. For more information, see [definition version](./definition-structure-basics.md#version-preview)
 - `groupNames` (array of strings): (Optional) The group the policy definition is a member of. For
   more information, see [Policy groups](#policy-definition-groups).
 

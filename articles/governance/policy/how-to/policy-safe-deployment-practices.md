@@ -13,12 +13,12 @@ the safe deployment practices (SDP) framework. The
 safe deployment of Azure Policy definitions and assignments helps limiting the impact of
 unintended behaviors of policy resources.
 
-The high-level approach of implementing SDP with Azure Policy is to graudally rollout policy assignments
+The high-level approach of implementing SDP with Azure Policy is to gradually rollout policy assignments
 by rings to detect policy changes that affect the environment in early stages before it
 affects the critical cloud infrastructure.
 
 Deployment rings can be organized in diverse ways. In this how-to tutorial, rings are divided by
-different Azure regions with _Ring 0_ representing non-critical, low traffic locations
+different Azure regions with _Ring 0_ representing non-critical, low traffic locations,
 and _Ring 5_ denoting the most critical, highest traffic locations.
 
 ## Steps for safe deployment of Azure Policy assignments with deny or append effects
@@ -188,7 +188,7 @@ expected.
 ## Steps for safely updating built-in definition version within Azure Policy assignment
 
 1. Within the existing assignment, apply _overrides_ to update the version of the definition for the least
-critical ring. We are using a combination of _overrides_ to change the definitionVersion and _selectors_ within the _overrides_ condition to narrow the applicability by `"kind": "resource location"` property. Any resources that are outside of the locations specified will continue to be assesed against the version  from the `definitionVersion` top-level property in the assignment. Example override updating the version of the definition to `2.0.*` and only apply it to resources in `EastUs`. 
+critical ring. We're using a combination of _overrides_ to change the definitionVersion and _selectors_ within the _overrides_ condition to narrow the applicability by `"kind": "resource location"` property. Any resources that are outside of the locations specified will continue to be assessed against the version  from the `definitionVersion` top-level property in the assignment. Example override updating the version of the definition to `2.0.*` and only apply it to resources in `EastUs`. 
 
     ```json
     "overrides":[{ 
@@ -200,24 +200,7 @@ critical ring. We are using a combination of _overrides_ to change the definitio
       }]
     }] 
     ```
-    Example override updating the version of the definition to `2.0.*` for a particular definition within an initiative and only apply it to resources in `EastUs`. 
-
-    ```json
-    "overrides":[{ 
-      "kind": "definitionVersion", 
-      "value": "2.0.*",
-      "selectors": [
-        {
-          "kind": "resourceLocation",
-          "in": [ "eastus"]
-        }, 
-        {
-          "kind": "policyDefinitionReferenceId",
-          "in": [ "corpVMSizePolicy" ]
-        }
-      ]
-    }] 
-    ```
+    
 2. Once the assignment is updated and the initial compliance scan has completed,
 validate that the compliance result is as expected.
 
@@ -249,7 +232,7 @@ locations and validating the expected compliance results and application health.
     }] 
     ```
 
-4. Once you have successfully included all the nesscary locations within the _selectors, you can remove the override and update the definitionVersion property within the assignment: 
+4. Once you have successfully included all the necessary locations within the _selectors, you can remove the override and update the definitionVersion property within the assignment: 
 
 ```json
 "properties": {

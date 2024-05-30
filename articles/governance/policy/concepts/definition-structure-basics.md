@@ -127,8 +127,8 @@ When Azure Policy versioning is released, the following Resource Provider modes 
 - `Microsoft.MachineLearningServices.v2.Data`
 - `Microsoft.ManagedHSM.Data`
 
-## Version
-Built-in policy definitions can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version) 
+## Version (preview)
+Built-in policy definitions can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version-preview) 
 
 The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
 > change to a built-in policy definition or initiative and state. The format of `version` is:
@@ -137,9 +137,9 @@ The Azure Policy service uses `version`, `preview`, and `deprecated` properties 
 
 - Major Version (example: 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default.
 - Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to `roleDefinitionIds`, adding or moving definitions within an initiative.
-- Patch Version (example: 2.1.4): introduce string or metadata changes as well as breaking glass security scenarios (rare).
+- Patch Version (example: 2.1.4): introduce string or metadata changes and break glass security scenarios (rare).
 
-For more information about the way
+> For more information about
 > Azure Policy versions built-ins, see
 > [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 > To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
