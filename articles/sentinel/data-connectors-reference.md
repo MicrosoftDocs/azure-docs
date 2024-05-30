@@ -717,11 +717,8 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 
 ## WithSecure
 
-- [WithSecure Elements via Connector](data-connectors/withsecure-elements-via-connector.md)
-
-## WithSecure Oyj
-
 - [WithSecure Elements API (Azure Function) (using Azure Functions)](data-connectors/withsecure-elements-api-azure.md)
+- [WithSecure Elements via Connector](data-connectors/withsecure-elements-via-connector.md)
 
 ## Wiz, Inc.
 
