@@ -17,25 +17,18 @@ ms.custom: references_regions
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
-
 > [!NOTE]
 > To use Azure Container Storage with Azure managed disks, your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
-
-## Regional availability
-
-[!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
 
 ## Create a storage pool
 
 First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file.
 
-If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes). If you have Azure managed disks that are already provisioned, you can [create a pre-provisioned storage pool](#create-a-pre-provisioned-storage-pool) using those disks.
+If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
 
-> [!IMPORTANT]
-> If you want to use your own keys to encrypt your volumes instead of using Microsoft-managed keys, don't create your storage pool using the steps in this section. Instead, go to [Enable server-side encryption with customer-managed keys](#enable-server-side-encryption-with-customer-managed-keys) and follow the steps there.
-
-Follow these steps to create a storage pool for Azure Disks.
+Follow these steps to create a storage pool for Azure Disks. You can also:
+- [Create a storage pool with a pre-provisioned Azure managed disk](#create-a-pre-provisioned-storage-pool)
+- [Create a storage pool that has server-side encryption with customer managed keys enabled](#enable-server-side-encryption-with-customer-managed-keys)
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
@@ -75,6 +68,115 @@ Follow these steps to create a storage pool for Azure Disks.
    ```
 
 When the storage pool is created, Azure Container Storage will create a storage class on your behalf, using the naming convention `acstor-<storage-pool-name>`. Now you can [display the available storage classes](#display-the-available-storage-classes) and [create a persistent volume claim](#create-a-persistent-volume-claim).
+
+## Display the available storage classes
+
+When the storage pool is ready to use, you must select a storage class to define how storage is dynamically created when creating persistent volume claims and deploying persistent volumes.
+
+Run `kubectl get sc` to display the available storage classes. You should see a storage class called `acstor-<storage-pool-name>`.
+
+> [!IMPORTANT]
+> Don't use the storage class that's marked **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
+
+## Create a persistent volume claim
+
+A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. Follow these steps to create a PVC using the new storage class. 
+
+1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pvc.yaml`.
+
+1. Paste in the following code and save the file. The PVC `name` value can be whatever you want.
+
+   ```yml
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: azurediskpvc
+   spec:
+     accessModes:
+       - ReadWriteOnce
+     storageClassName: acstor-azuredisk # replace with the name of your storage class if different
+     resources:
+       requests:
+         storage: 100Gi
+   ```
+
+1. Apply the YAML manifest file to create the PVC.
+
+   ```azurecli-interactive
+   kubectl apply -f acstor-pvc.yaml
+   ```
+
+   You should see output similar to:
+
+   ```output
+   persistentvolumeclaim/azurediskpvc created
+   ```
+
+   You can verify the status of the PVC by running the following command:
+
+   ```azurecli-interactive
+   kubectl describe pvc azurediskpvc
+   ```
+
+Once the PVC is created, it's ready for use by a pod.
+
+## Deploy a pod and attach a persistent volume
+
+Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume. For **claimName**, use the **name** value that you used when creating the persistent volume claim.
+
+1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
+
+1. Paste in the following code and save the file.
+
+   ```yml
+   kind: Pod
+   apiVersion: v1
+   metadata:
+     name: fiopod
+   spec:
+     nodeSelector:
+       acstor.azure.com/io-engine: acstor
+     volumes:
+       - name: azurediskpv
+         persistentVolumeClaim:
+           claimName: azurediskpvc
+     containers:
+       - name: fio
+         image: nixery.dev/shell/fio
+         args:
+           - sleep
+           - "1000000"
+         volumeMounts:
+           - mountPath: "/volume"
+             name: azurediskpv
+   ```
+
+1. Apply the YAML manifest file to deploy the pod.
+
+   ```azurecli-interactive
+   kubectl apply -f acstor-pod.yaml
+   ```
+
+   You should see output similar to the following:
+
+   ```output
+   pod/fiopod created
+   ```
+
+1. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
+
+   ```azurecli-interactive
+   kubectl describe pod fiopod
+   kubectl describe pvc azurediskpvc
+   ```
+
+1. Check fio testing to see its current status:
+
+   ```azurecli-interactive
+   kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
+   ```
+
+You've now deployed a pod that's using Azure Disks as its storage, and you can use it for your Kubernetes workloads.
 
 ## Create a pre-provisioned storage pool
 
@@ -185,115 +287,6 @@ Follow these steps to create a storage pool using your own encryption key. All p
    ```
 
 When the storage pool is created, Azure Container Storage will create a storage class on your behalf, using the naming convention `acstor-<storage-pool-name>`.
-
-## Display the available storage classes
-
-When the storage pool is ready to use, you must select a storage class to define how storage is dynamically created when creating persistent volume claims and deploying persistent volumes.
-
-Run `kubectl get sc` to display the available storage classes. You should see a storage class called `acstor-<storage-pool-name>`.
-
-> [!IMPORTANT]
-> Don't use the storage class that's marked **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
-
-## Create a persistent volume claim
-
-A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. Follow these steps to create a PVC using the new storage class. 
-
-1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pvc.yaml`.
-
-1. Paste in the following code and save the file. The PVC `name` value can be whatever you want.
-
-   ```yml
-   apiVersion: v1
-   kind: PersistentVolumeClaim
-   metadata:
-     name: azurediskpvc
-   spec:
-     accessModes:
-       - ReadWriteOnce
-     storageClassName: acstor-azuredisk # replace with the name of your storage class if different
-     resources:
-       requests:
-         storage: 100Gi
-   ```
-
-1. Apply the YAML manifest file to create the PVC.
-   
-   ```azurecli-interactive
-   kubectl apply -f acstor-pvc.yaml
-   ```
-   
-   You should see output similar to:
-   
-   ```output
-   persistentvolumeclaim/azurediskpvc created
-   ```
-   
-   You can verify the status of the PVC by running the following command:
-   
-   ```azurecli-interactive
-   kubectl describe pvc azurediskpvc
-   ```
-
-Once the PVC is created, it's ready for use by a pod.
-
-## Deploy a pod and attach a persistent volume
-
-Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume. For **claimName**, use the **name** value that you used when creating the persistent volume claim.
-
-1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
-
-1. Paste in the following code and save the file.
-
-   ```yml
-   kind: Pod
-   apiVersion: v1
-   metadata:
-     name: fiopod
-   spec:
-     nodeSelector:
-       acstor.azure.com/io-engine: acstor
-     volumes:
-       - name: azurediskpv
-         persistentVolumeClaim:
-           claimName: azurediskpvc
-     containers:
-       - name: fio
-         image: nixery.dev/shell/fio
-         args:
-           - sleep
-           - "1000000"
-         volumeMounts:
-           - mountPath: "/volume"
-             name: azurediskpv
-   ```
-
-1. Apply the YAML manifest file to deploy the pod.
-   
-   ```azurecli-interactive
-   kubectl apply -f acstor-pod.yaml
-   ```
-   
-   You should see output similar to the following:
-   
-   ```output
-   pod/fiopod created
-   ```
-
-1. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
-
-   ```azurecli-interactive
-   kubectl describe pod fiopod
-   kubectl describe pvc azurediskpvc
-   ```
-
-1. Check fio testing to see its current status:
-
-   ```azurecli-interactive
-   kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
-   ```
-
-You've now deployed a pod that's using Azure Disks as its storage, and you can use it for your Kubernetes workloads.
 
 ## Detach and reattach a persistent volume
 
