@@ -12,7 +12,7 @@ ms.date: 5/28/2024
 
 
 # Monitor with RAN metrics in Azure portal
-Once you have [set up](ran-insights-create-resource.md) your radio access network (RAN) insights resource, you can now view your RAN metrics. RAN metrics are platform metrics that are collected from the RAN Element Management System (EMS) offered by the RAN partner and stored by Azure Monitor Metrics. 
+Once you have [set up](ran-insights-create-resource.md) your radio access network (RAN) insights resource, you can view your RAN metrics. RAN metrics are platform metrics that are collected from the RAN Element Management System (EMS) offered by the RAN partner and stored by Azure Monitor Metrics. 
 
 These are a subset of metrics chosen from the RAN vendor’s EMS based on customer feedback, focusing on key KPIs crucial for monitoring and troubleshooting. The streamed metrics are stored and presented in a secure and compliant manner, in adherence to Microsoft’s security standards and policies. Users can use RAN metrics to save time managing systems and to correlate events more easily on the network.  
 
@@ -21,10 +21,10 @@ These are a subset of metrics chosen from the RAN vendor’s EMS based on custom
 RAN metrics are collected per site resource and aggregated across all access points connected. See [Supported metrics with Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index) for the RAN metrics available for retrieval included under *microsoft.mobilenetwork/radioAccessNetworks*.
 
 You can use the Azure portal to monitor your access points performance, reliability, and connection status. The RAN insights resource's **Overview** page under the **Monitoring** tab provides a prebuilt dashboard containing RAN metrics received. 
-    :::image type="content" source="media/ran-insights/RAN-Insights-MonitoringTab.png" alt-text="Screenshot of the Azure portal showing RAN insight resource monitoring tab.":::
+    :::image type="content" source="media/ran-insights/ran-insights-monitoring-tab.png" alt-text="Screenshot of the Azure portal showing RAN insight resource monitoring tab.":::
 
 To view more metrics on and create custom charts, select the **Metrics** tab under the RAN insights resource: 
-    :::image type="content" source="media/ran-insights/RAN-Insights-MetricsBlade.png" alt-text="Screenshot of the Azure portal showing RAN insight resource metrics tab.":::
+    :::image type="content" source="media/ran-insights/ran-insights-metrics-blade.png" alt-text="Screenshot of the Azure portal showing RAN insight resource metrics tab.":::
 
 
 Using the buttons just above the charts, you can edit the timespan from which the data shown in the charts and the granularity of how that data is plotted. 
@@ -38,7 +38,7 @@ You can also set alerts on each of your RAN metrics. By following [Create Azure 
 
 
 ## RAN metrics descriptions
-Below is a list of possible available RAN metrics. Note available RAN metrics and dependent on RAN vendor.
+The following table lists common RAN metrics. The RAN metrics available in your deployment are dependent on the RAN vendor.
 
 We provide both direct metrics, which originate directly from the EMS, and derived metrics, which are calculated in Azure based on direct metrics.
 
@@ -46,7 +46,7 @@ We provide both direct metrics, which originate directly from the EMS, and deriv
 |--------------------|----------------|
 | Online Status |	Used to define the online status of any access point (0 for offline and 1 for online). Note not all EMS systems provide this metric. If metric is not provided or if the access point is removed from the network, then will show as 0. |
 | Active Users | Active user equipment on a given Access Point. This is the mean number of devices/ UEs in RRC connected mode during the sampling interval. |
-| Connections Successfully Established | Number of established radio connections on an access point in the last sampling period. For example, in 5G, this reports the number of RRC Connection Setup Complete received by the gNodeB from the UEs. |
+| Connections Successfully Established | Number of established radio connections on an access point in the last sampling period. For example, in 5G, this reports the number of RRC Connection Setups Complete received by the gNodeB from the UEs. |
 | Connection Attempts | Number of connection attempts on an access point in the last sampling period. |
 | Abnormal Connection Terminations | Number of connections that have been abnormally terminated on a given access point during the last sampling interval. An abnormal termination occurs, for example, when the radio connection with the UE has been lost. |
 | Initially Established Connections	| Number of connections that were initially established with this access point during the last sampling period. In 5G, it counts the number of “Initial UE Context Setup Response” sent from the gNodeB-CU-CP to the AMF.|
