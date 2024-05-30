@@ -21,13 +21,7 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
 
 [API reference](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
-## Prerequisites
-
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-
-- Azure storage account - [create a storage account](../common/storage-account-create.md)
-
-- Current [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
+[!INCLUDE [storage-dev-guide-prereqs-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-dotnet.md)]
 
 ## Set up your project
 
@@ -40,7 +34,7 @@ dotnet add package Azure.Storage.Blobs
 dotnet add package Azure.Identity
 ```
 
-Add these `using` statements to the top of your code file.
+Add these `using` directives to the top of your code file:
 
 ```csharp
 using Azure.Identity;
