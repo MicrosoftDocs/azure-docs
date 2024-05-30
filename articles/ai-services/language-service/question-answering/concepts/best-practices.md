@@ -63,9 +63,9 @@ Custom question answering provides the flexibility to use synonyms at the projec
 
 For better relevance, you need to provide a list of acronyms that the end user intends to use interchangeably. The following is a list of acceptable acronyms:
 
-`MSFT` – Microsoft
-`ID` – Identification
-`ETA` – Estimated time of Arrival
+* `MSFT` – Microsoft
+* `ID` – Identification
+* `ETA` – Estimated time of Arrival
 
 Other than acronyms, if you think your words are similar in context of a particular domain and generic language models won’t consider them similar, it’s better to add them as synonyms. For instance, if an auto company producing a car model X receives queries such as “my car’s audio isn’t working” and the project has questions on “fixing audio for car X”, then we need to add ‘X’ and ‘car’ as synonyms.
 

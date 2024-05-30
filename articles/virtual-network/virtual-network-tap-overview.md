@@ -63,7 +63,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 
-- [Netscout vSTREAM]( https://www.netscout.com/marketplace-azure)
+- [Netscout vSTREAM](https://www.netscout.com/technology-partners/microsoft-azure)
 
 - [Noname Security](https://nonamesecurity.com/)
 

@@ -13,7 +13,7 @@ ms.date: 09/12/2023
 
 # What is RU-based and vCore-based Azure Cosmos DB for MongoDB?
 
-Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development.
+Azure Cosmos DB is a fully managed NoSQL, relational, and vector database for modern app development.
 
 Both, the Request Unit (RU) and vCore-based Azure Cosmos DB for MongoDB offering make it easy to use Azure Cosmos DB as if it were a MongoDB database. Both options work without the overhead of complex management and scaling approaches. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB. Additionally, both are cloud-native offerings that can be integrated seamlessly with other Azure services to build enterprise-grade modern applications.
 

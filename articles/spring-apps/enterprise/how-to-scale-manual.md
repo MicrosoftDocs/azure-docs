@@ -54,7 +54,7 @@ As you modify the scaling attributes, keep the following notes in mind:
 
 Be sure to select **Save** to apply your scaling settings.
 
-:::image type="content" source="media/how-to-scale-manual/scale-up-out.png" alt-text="Screenshot of the Azure portal showing the Scale up page for an app in an Azure Spring Apps instance, with Scale up highlighted in the navigation pane." lightbox="media/how-to-scale-manual/scale-up-out.png":::
+:::image type="content" source="media/how-to-scale-manual/scale-up-out.png" alt-text="Screenshot of the Azure portal that shows the Scale up page for an app with Scale up highlighted." lightbox="media/how-to-scale-manual/scale-up-out.png":::
 
 After a few seconds, the scaling changes you make are reflected on the **Overview** page of the app. Select **App instance** in the navigation pane for details about the instance of the app.
 

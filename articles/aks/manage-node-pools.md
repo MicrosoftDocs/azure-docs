@@ -4,6 +4,9 @@ description: Learn how to manage node pools for a cluster in Azure Kubernetes Se
 ms.topic: article
 ms.custom: devx-track-azurecli, build-2023
 ms.date: 07/19/2023
+author: schaffererin
+ms.author: schaffererin
+ms.subservice: aks-nodes
 ---
 
 # Manage node pools for a cluster in Azure Kubernetes Service (AKS)
@@ -55,7 +58,7 @@ In this example, we upgrade the *mynodepool* node pool. Since there are two node
 3. List the status of your node pools using the [`az aks nodepool list`][az-aks-nodepool-list] command.
 
     ```azurecli-interactive
-    az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+    az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
     ```
 
      The following example output shows *mynodepool* is in the *Upgrading* state:
@@ -141,7 +144,7 @@ As your application workload demands change, you may need to scale the number of
 2. List the status of your node pools using the [`az aks node pool list`][az-aks-nodepool-list] command.
 
     ```azurecli-interactive
-    az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+    az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
     ```
 
      The following example output shows *mynodepool* is in the *Scaling* state with a new count of five nodes:
@@ -183,15 +186,62 @@ AKS offers a separate feature to automatically scale node pools with a feature c
 
 For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use-the-cluster-autoscaler-on-multiple-node-pools).
 
-## Associate capacity reservation groups to node pools 
+## Remove specific VMs in the existing node pool (Preview)
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+1. Register or update the `aks-preview` extension using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
+
+    ```azurecli-interactive
+    # Register the aks-preview extension
+    az extension add --name aks-preview
+
+    # Update the aks-preview extension
+    az extension update --name aks-preview
+    ```
+
+2. List the existing nodes using the `kubectl get nodes` command.
+
+    ```bash
+    kubectl get nodes
+    ```
+
+    Your output should look similar to the following example output:
+
+    ```output
+    NAME                                 STATUS   ROLES   AGE   VERSION
+    aks-mynodepool-20823458-vmss000000   Ready    agent   63m   v1.21.9
+    aks-mynodepool-20823458-vmss000001   Ready    agent   63m   v1.21.9
+    aks-mynodepool-20823458-vmss000002   Ready    agent   63m   v1.21.9
+    ```
+
+3. Delete the specified VMs using the [`az aks nodepool delete-machines`][az-aks-nodepool-delete-machines] command. Make sure to replace the placeholders with your own values.
+
+    ```azurecli-interactive
+    az aks nodepool delete-machines \
+        --resource-group <resource-group-name> \
+        --cluster-name <cluster-name> \
+        --name <node-pool-name>
+        --machine-names <vm-name-1> <vm-name-2>
+    ```
+
+4. Verify the VMs were successfully deleted using the `kubectl get nodes` command.
+
+    ```bash
+    kubectl get nodes
+    ```
+
+    Your output should no longer include the VMs that you specified in the `az aks nodepool delete-machines` command.
+
+## Associate capacity reservation groups to node pools
 
 As your workload demands change, you can associate existing capacity reservation groups to node pools to guarantee allocated capacity for your node pools.  
 
 ## Prerequisites to use capacity reservation groups with AKS
 
-- Use CLI version 2.56 or above and API version 2023-10-01 or higher. 
-- The capacity reservation group should already exist and should contain minimum one capacity reservation, otherwise the node pool is added to the cluster with a warning and no capacity reservation group gets associated. For more information, see [capacity reservation groups][capacity-reservation-groups].
-- You need to create a user-assigned managed identity for the resource group that contains the capacity reservation group (CRG). System-assigned managed identities won't work for this feature. In the following example, replace the environment variables with your own values.
+* Use CLI version 2.56 or above and API version 2023-10-01 or higher.
+* The capacity reservation group should already exist and should contain minimum one capacity reservation, otherwise the node pool is added to the cluster with a warning and no capacity reservation group gets associated. For more information, see [capacity reservation groups][capacity-reservation-groups].
+* You need to create a user-assigned managed identity for the resource group that contains the capacity reservation group (CRG). System-assigned managed identities won't work for this feature. In the following example, replace the environment variables with your own values.
 
     ```azurecli-interactive
     IDENTITY_NAME=myID
@@ -203,14 +253,17 @@ As your workload demands change, you can associate existing capacity reservation
     az identity create --name $IDENTITY_NAME --resource-group $RG_NAME  
     IDENTITY_ID=$(az identity show --name $IDENTITY_NAME --resource-group $RG_NAME --query identity.id -o tsv)
     ```
-- You need to assign the `Contributor` role to the user-assigned identity created above. For more details, see [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps#privileged-administrator-roles).
-- Create a new cluster and assign the newly created identity.
+
+* You need to assign the `Contributor` role to the user-assigned identity created above. For more details, see [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps#privileged-administrator-roles).
+* Create a new cluster and assign the newly created identity.
+
   ```azurecli-interactive
     az aks create --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
         --node-vm-size $VM_SKU --node-count $NODE_COUNT \
         --assign-identity $IDENTITY_ID --enable-managed-identity         
   ```
-- You can also assign the user-managed identity on an existing managed cluster with update command.
+
+* You can also assign the user-managed identity on an existing managed cluster with update command.
 
   ```azurecli-interactive
     az aks update --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
@@ -273,7 +326,7 @@ In the following example, we create a GPU-based node pool that uses the *Standar
 2. Check the status of the node pool using the [`az aks nodepool list`][az-aks-nodepool-list] command.
 
     ```azurecli-interactive
-    az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+    az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
     ```
 
     The following example output shows the *gpunodepool* node pool is *Creating* nodes with the specified *VmSize*:
@@ -318,50 +371,7 @@ When creating a node pool, you can add taints, labels, or tags to it. When you a
 
 ### Set node pool taints
 
-1. Create a node pool with a taint using the [`az aks nodepool add`][az-aks-nodepool-add] command. Specify the name *taintnp* and use the `--node-taints` parameter to specify *sku=gpu:NoSchedule* for the taint.
-
-    ```azurecli-interactive
-    az aks nodepool add \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --name taintnp \
-        --node-count 1 \
-        --node-taints sku=gpu:NoSchedule \
-        --no-wait
-    ```
-
-2. Check the status of the node pool using the [`az aks nodepool list`][az-aks-nodepool-list] command.
-
-    ```azurecli-interactive
-    az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
-    ```
-
-    The following example output shows that the *taintnp* node pool is *Creating* nodes with the specified *nodeTaints*:
-
-    ```output
-    [
-      {
-        ...
-        "count": 1,
-        ...
-        "name": "taintnp",
-        "orchestratorVersion": "1.15.7",
-        ...
-        "provisioningState": "Creating",
-        ...
-        "nodeTaints":  [
-          "sku=gpu:NoSchedule"
-        ],
-        ...
-      },
-     ...
-    ]
-    ```
-
-The taint information is visible in Kubernetes for handling scheduling rules for nodes. The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
-
-* A **taint** is applied to a node that indicates only specific pods can be scheduled on them.
-* A **toleration** is then applied to a pod that allows them to *tolerate* a node's taint.
+AKS supports two kinds of node taints: node taints and node initialization taints (preview). For more information, see [Use node taints in an Azure Kubernetes Service (AKS) cluster][use-node-taints].
 
 For more information on how to use advanced Kubernetes scheduled features, see [Best practices for advanced scheduler features in AKS][taints-tolerations]
 
@@ -579,3 +589,5 @@ When you use an Azure Resource Manager template to create and manage resources, 
 [use-tags]: use-tags.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
+[use-node-taints]: ./use-node-taints.md
+[az-aks-nodepool-delete-machines]: /cli/azure/aks/nodepool#az_aks_nodepool_delete_machines

@@ -31,7 +31,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
   * These target clusters have to be [added as member clusters to the Fleet resource](./quickstart-create-fleet-and-members.md#join-member-clusters).
   * These target clusters should be using [Azure CNI (Container Networking Interface) networking](../aks/configure-azure-cni.md).
 
-* You must gain access to the Kubernetes API of the hub cluster by following the steps in [Access the Kubernetes API of the Fleet resource](./access-fleet-kubernetes-api.md).
+* You must gain access to the Kubernetes API of the hub cluster by following the steps in [Access the Kubernetes API of the Fleet resource](./quickstart-access-fleet-kubernetes-api.md).
 
 * Set the following environment variables and obtain the kubeconfigs for the fleet and all member clusters:
 
@@ -45,7 +45,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
     az aks get-credentials --resource-group ${GROUP} --name ${MEMBER_CLUSTER_1} --file aks-member-1
     ```
 
-[!INCLUDE [preview features note](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [preview features note](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Deploy a workload across member clusters of the Fleet resource
 
@@ -113,7 +113,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
     If successful, the output looks similar to the following example:
 
     ```console
-    clusterresourceplacement.fleet.azure.com/kuard-demo created
+    clusterresourceplacement.placement.kubernetes-fleet.io/kuard-demo created
     ```
 
 1. Check the status of the `ClusterResourcePlacement`:

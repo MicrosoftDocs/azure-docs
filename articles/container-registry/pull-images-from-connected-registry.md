@@ -14,7 +14,7 @@ ms.service: container-registry
 
 To pull images from a [connected registry](intro-connected-registry.md), configure a [client token](overview-connected-registry-access.md#client-tokens) and pass the token credentials to access registry content.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 * Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli].
 * Connected registry instance deployed on an IoT Edge device. For deployment steps, see [Quickstart: Deploy a connected registry to an IoT Edge device](quickstart-deploy-connected-registry-iot-edge-cli.md) or [Tutorial: Deploy a connected registry to nested IoT Edge devices](tutorial-deploy-connected-registry-nested-iot-edge-cli.md). In the commands in this article, the connected registry name is stored in the environment variable *$CONNECTED_REGISTRY_RW*.
 

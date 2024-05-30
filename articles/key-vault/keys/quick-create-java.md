@@ -115,11 +115,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 
 #### Grant access to your key vault
 
-Create an access policy for your key vault that grants key permissions to your user account.
-
-```azurecli
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
-```
+[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac.md)]
 
 #### Set environment variables
 

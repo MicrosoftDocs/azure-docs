@@ -5,7 +5,7 @@ description: Learn how to configure OpenSSL for Linux.
 author: jhakulin
 manager: nitinme
 ms.service: azure-ai-speech
-ms.custom: devx-track-extended-java, devx-track-go, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-go, devx-track-python, linux-related-content
 ms.topic: how-to
 ms.date: 1/18/2024
 ms.author: jhakulin

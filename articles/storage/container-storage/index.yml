@@ -5,12 +5,12 @@ summary: Volume management built natively for containers. # < 160 chars
 
 metadata:
   title: Azure Container Storage documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Container Storage is a service built natively for containers that enables customers to create and manage volumes for running production scale stateful container applications (preview).  # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Container Storage is a service built natively for containers that enables customers to create and manage volumes for running production scale stateful container applications.  # Required; article description that is displayed in search results. < 160 chars.
   ms.service: azure-container-storage #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   author: khdownie #Required; your GitHub user alias, with correct capitalization.
   ms.author: kendownie #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/02/2023
+  ms.date: 03/05/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

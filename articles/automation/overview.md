@@ -5,6 +5,7 @@ services: automation
 keywords: azure automation, DSC, powershell, state configuration, update management, change tracking, DSC, inventory, runbooks, python, graphical
 ms.date: 10/25/2021
 ms.topic: overview
+ms.custom: linux-related-content
 ---
 
 # What is Azure Automation?

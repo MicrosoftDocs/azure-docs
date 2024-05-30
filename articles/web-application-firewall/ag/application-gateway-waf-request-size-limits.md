@@ -28,10 +28,9 @@ Only requests with Content-Type of *multipart/form-data* are considered for file
 
 
 >[!NOTE]
->If you're running Core Rule Set 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, cookies, or URI, this will take precedence over any max request size, or max file upload size, limits. This optimization let's the Web Application Firewall run high priority custom rules that don't require reading and/or measuring the full Web Application Firewall request (or file upload) first before performing the full request inspection.
+>If you're running Core Rule Set 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, cookies, or URI, this will take precedence over any max request size, or max file upload size, limits. This optimization let's the Web Application Firewall run high priority custom rules that don't require reading the full request first.
 >
->Example: If you have a custom rule with priority 0 (the highest priority) set to approve a request with the header xyz, even if the request's size is larger than your maximum request size limit, it will get approved. This is because the Web Application Firewall will attempt to run all high priority custom rules that don't require reading the request body before enforcing any rules or size constraints that require reading the full request body.
-
+>**Example:** If you have a custom rule with priority 0 (the highest priority) set to allow a request with the header xyz, even if the request's size is larger than your maximum request size limit, it will get allowed before the max size limit is enforced
 
 ## Request body inspection
 

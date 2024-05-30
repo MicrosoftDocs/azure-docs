@@ -58,7 +58,7 @@ Service Bus is a fully managed enterprise message broker with message queues and
 
 Service Bus is a brokered messaging system. It stores messages in a "broker" (for example, a queue) until the consuming party is ready to receive the messages. It has the following characteristics:
 
-- Reliable asynchronous message delivery (enterprise messaging as a service) that requires polling
+- Reliable asynchronous message delivery (enterprise messaging as a service) that requires polling. If you're using Service Bus and you need to receive messages without having to poll the queue, you can achieve it by using a **long polling** receive operation using the TCP-based protocols that Service Bus supports. 
 - Advanced messaging features like first-in and first-out (FIFO), batching/sessions, transactions, dead-lettering, temporal control, routing and filtering, and duplicate detection
 - At least once delivery of a message
 - Optional ordered delivery of messages

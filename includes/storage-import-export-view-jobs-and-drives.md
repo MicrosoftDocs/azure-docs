@@ -1,17 +1,17 @@
 ---
 title: include file
 description: include file
-author: v-dalc
+author: stevenmatthew
 services: storage
 
 ms.service: azure-storage
 ms.topic: include
 ms.date: 12/22/2021
-ms.author: alkohli
+ms.author: shaas
 ms.custom: include file
 ---
 
-1. Log on to [https://portal.azure.com/](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Search for **azure data box**.
 
@@ -25,9 +25,9 @@ ms.custom: include file
 
     [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-jobs-and-drives/jobs-list.png) ](./media/storage-import-export-view-jobs-and-drives/jobs-list.png#lightbox)
 
-4. Select a job name to view job details.
+4. View job details by selecting a job name.
 
-   You'll see the **Current order status** and also the **Data copy details** for each drive.
+   The selected job's **Current order status** and **Data copy details** are displayed for each drive.
 
    * If you have access to the storage account, you can select a **Copy log path** or **Verbose log path** to view the log.
 

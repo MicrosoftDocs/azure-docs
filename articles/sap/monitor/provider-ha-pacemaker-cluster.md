@@ -45,11 +45,11 @@ For SUSE-based Pacemaker clusters, Please follow below steps to install in each 
     sudo systemctl enable prometheus-ha_cluster_exporter
     ```
 
-1. Data is then collected in the system by ha_cluster_exporter. You can export the data via URL `http://<ip address of the server>:9644/metrics`. 
+1. Data is then collected in the system by ha_cluster_exporter. You can export the data via URL `http://<ip address of the server>:9664/metrics`. 
 To check if the metrics are fetched via URL on the server where the ha_cluster_exporter is installed, Run below command on the server.
 
     ```bash
-     curl http://localhost:9644/metrics
+     curl http://localhost:9664/metrics
     ```
 
 For RHEL-based clusters, install **performance co-pilot (PCP)** and the **pcp-pmda-hacluster** subpackage in each node. For more information, see the [PCP HACLUSTER agent installation guide](https://access.redhat.com/articles/6139852). Supported RHEL versions include 8.2, 8.4, and later versions.

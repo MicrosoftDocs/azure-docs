@@ -40,7 +40,7 @@ Call flows in Azure Communication Services calling SDK and Teams clients are bas
 
 Media traffic is encrypted, and flows between, the caller and callee using Secure RTP (SRTP), a profile of Real-time Transport Protocol (RTP) that provides confidentiality, authentication, and replay attack protection to RTP traffic. In most cases, client to client media traffic is negotiated through client to server connection signaling, and is encrypted using SRTP when going directly from client to client.
 
-Azure Communication Services calling SDK and Teams use DTLS to derive an encryption key based on per-call keys generated on both client endpoints. Since DTLS derives the key based on the client certificates, the key is opaque to Microsoft. Once the handshake is done, the media begins to flow using this DTLS-negotiated encryption key over SRTP.
+Azure Communication Services calling SDK use DTLS to derive an encryption key. Once the DTLS handshake is done, the media begins to flow using this DTLS-negotiated encryption key over SRTP.
 
 Azure Communication Services calling SDK and Teams clients uses a credentials-based token for secure access to media relays over TURN. Media relays exchange the token over a TLS-secured channel.
 

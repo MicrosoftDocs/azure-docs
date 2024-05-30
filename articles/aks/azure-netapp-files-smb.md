@@ -5,6 +5,9 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 ms.subservice: aks-storage
 ms.date: 05/08/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service
@@ -775,3 +778,4 @@ Astra Trident supports many features with Azure NetApp Files. For more informati
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-tags]: use-tags.md
 [azure-ad-app-registration]: ../active-directory/develop/howto-create-service-principal-portal.md
+

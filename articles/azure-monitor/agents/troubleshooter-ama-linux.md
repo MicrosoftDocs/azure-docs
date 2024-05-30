@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.date: 12/14/2023
-ms.custom: references_regions
+ms.custom: references_regions, linux-related-content
 ms.reviewer: jeffwo
 # Customer intent: When AMA is experiencing issues, I want to investigate the issues and determine if I can resolve the issue on my own.
 ---
@@ -36,7 +36,7 @@ sudo python3 -V
 Multiple versions of Python can be installed and aliased – if multiple versions are installed, use:
 
 ```Bash
-ls -ls /usr/bing/python*
+ls -ls /usr/bin/python*
 ```
 
 :::image type="content" source="media/agent-linux/python-multiple-version-check.png" alt-text="Screenshot of command to check multiple versions of Python for Linux." lightbox="media/agent-linux/python-multiple-version-check.png":::

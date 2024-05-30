@@ -1,25 +1,26 @@
 ---
 title: Clone persistent volumes in Azure Container Storage Preview
-description: Clone persistent volumes in Azure Container Storage Preview. You can only clone volumes of the same size that are in the same storage pool.
+description: Clone persistent volumes in Azure Container Storage. You can only clone volumes of the same size that are in the same storage pool.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/18/2023
+ms.date: 03/12/2024
 ms.author: kendownie
 ---
 
 # Clone persistent volumes in Azure Container Storage Preview
+
 You can clone persistent volumes in [Azure Container Storage](container-storage-introduction.md). A cloned volume is a duplicate of an existing persistent volume. You can only clone volumes of the same size that are in the same storage pool.
 
 ## Prerequisites
 
 - This article requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
-- You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three virtual machines (VMs) for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs). 
+- You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three virtual machines (VMs) for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 - This article assumes you've already installed Azure Container Storage on your AKS cluster, and that you've created a storage pool and persistent volume claim (PVC) using either [Azure Disks](use-container-storage-with-managed-disks.md) or [ephemeral disk (local storage)](use-container-storage-with-local-disk.md). Azure Elastic SAN doesn't support resizing volumes.
 
 ## Clone a volume
 
-Follow the instructions below to clone a persistent volume. 
+Follow the instructions below to clone a persistent volume.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-clonevolume.yaml`.
 

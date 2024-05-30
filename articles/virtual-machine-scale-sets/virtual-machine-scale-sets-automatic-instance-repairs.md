@@ -92,7 +92,7 @@ The automatic instance repair operations are performed in batches. At any given 
 
 ### Grace period
 
-When an instance goes through a state change operation because of a PUT, PATCH, or POST action performed on the scale set, then any repair action on that instance is performed only after the grace period ends. Grace period is the amount of time to allow the instance to return to healthy state. The grace period starts after the state change has completed, which helps avoid any premature or accidental repair operations. The grace period is honored for any newly created instance in the scale set, including the one created as a result of repair operation. Grace period is specified in minutes in ISO 8601 format and can be set using the property *automaticRepairsPolicy.gracePeriod*. Grace period can range between 10 minutes and 90 minutes, and has a default value of 30 minutes.
+When an instance goes through a state change operation because of a PUT, PATCH, or POST action performed on the scale set, then any repair action on that instance is performed only after the grace period ends. Grace period is the amount of time to allow the instance to return to healthy state. The grace period starts after the state change has completed, which helps avoid any premature or accidental repair operations. The grace period is honored for any newly created instance in the scale set, including the one created as a result of repair operation. Grace period is specified in minutes in ISO 8601 format and can be set using the property *automaticRepairsPolicy.gracePeriod*. Grace period can range between 10 minutes and 90 minutes, and has a default value of 10 minutes.
 
 ### Suspension of Repairs
 

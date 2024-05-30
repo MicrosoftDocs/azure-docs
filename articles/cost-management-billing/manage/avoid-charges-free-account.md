@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -47,5 +47,6 @@ Once your free services and quantities expire, you're charged pay-as-you-go rate
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
+
 - [Upgrade your Azure free account](upgrade-azure-subscription.md)

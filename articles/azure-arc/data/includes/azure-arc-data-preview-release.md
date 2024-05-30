@@ -5,18 +5,19 @@ ms.service: azure-arc
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 03/12/2024
+ms.date: 04/30/2024
 ---
 
-At this time, a test or preview build is not available for the next release.
-
 <!---
-March, 2024 preview release is now available.
+At this time, a test or preview build is not available for the next release.
+-->
+
+May, 2024 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
 |Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
-|Container images tag |`v1.28.0_2024-03-12`|
+|Container images tag |`v1.30.0_2024-05-14`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
@@ -33,18 +34,14 @@ March, 2024 preview release is now available.
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |Azure Resource Manager (ARM) API version|2023-11-01-preview|
-|`arcdata` Azure CLI extension version|1.5.11 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc-enabled Kubernetes helm chart extension version|1.28.0|
+|`arcdata` Azure CLI extension version|1.5.14 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.30.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
-|SQL Database version | 964 |
+|SQL Database version | 970 |
 
-### Release notes
-
-#### Arc-enabled SQL Server
-Arc SQL Server | Backups | Configure backups at DB level for Arc enabled SQL Server in Portal and CLI | Public Preview
-
-Arc SQL Server | Set feature flags via the Azure CLI | GA
-
-Arc SQL Server | Billing | Support unlimited virtualization benefit for PAYG and Software Assurance customers | GA
-
--->
+Release Notes:
+- Arc SQL Server | Migration | Run migration assessment on demand from the Azure portal | Public Preview
+  - The SQL Server migration assessment runs on a default once-a-week schedule, every Sunday around 11 PM.  With this feature,  "Run assessment" users can initiate the SQL Server migration assessment whenever they want. This immediate assessment provides users with readiness evaluations and Azure SQL configuration assessments right away.
+- Arc SQL Server | High Availability | Inventory and real-time status for Availability Groups | GA
+- Arc SQL Server | High Availability | Availability Group Management - Manual Failover | GA
+- Arc SQL Server | Arc enabled SQL Server FCI - View SQL Server FCI metadata in Azure portal | GA

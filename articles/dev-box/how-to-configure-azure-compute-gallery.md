@@ -14,7 +14,7 @@ ms.topic: how-to
 
 In this article, you learn how to configure and attach an Azure compute gallery to a dev center in Microsoft Dev Box. With Azure Compute Gallery, you can give developers customized images for their dev box.
 
-Azure Compute Gallery is a service for managing and sharing images. A gallery is a repository that's stored in your Azure subscription and helps you build structure and organization around your image resources.
+Azure Compute Gallery is a service for managing and sharing images. A gallery is a repository that's stored in your Azure subscription and helps you build structure and organization around your image resources. Dev Box supports GitHub, Azure Repos, and Bitbucket repositories to provide an image gallery.
 
 After you attach a compute gallery to a dev center in Microsoft Dev Box, you can create dev box definitions based on images stored in the compute gallery.
 
@@ -45,22 +45,22 @@ When you create a virtual machine (VM) image, select an image from the Azure Mar
 - [Visual Studio 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019plustools?tab=Overview)
 - [Visual Studio 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudioplustools?tab=Overview) 
 
+
+### Image version requirements
+
 The image version must meet the following requirements:
 - Generation 2
 - Hyper-V v2
 - Windows OS
-   - Windows 10 Enterprise version 20H2 or later
-   - Windows 11 Enterprise 21H2 or later
+    - Windows 10 Enterprise version 20H2 or later
+    - Windows 11 Enterprise 21H2 or later
 - Generalized VM image
-   - You must create the image by using these three sysprep options: `/generalize /oobe /mode:vm`. For more information, see [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).
-   - To speed up the dev box creation time:
-      - Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. For more information, see [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
-      - Run `defrag` and `chkdsk` during image creation, wait for them to finish. And disable `chkdisk` and `defrag` scheduled task.
-- Single-session VM images (Multiple-session VM images aren't supported.)
+    - For more information about creating a generalized image, see [Reduce provisioning and startup times](#reduce-provisioning-and-startup-times) for more information.
+- Single-session VM image (Multiple-session VM images aren't supported.)
 - No recovery partition
-   For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
+    - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
 - Default 64-GB OS disk size
-   The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
+    - The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
 - The image definition must have [trusted launch enabled as the security type](../virtual-machines/trusted-launch.md). You configure the security type when you create the image definition.
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
@@ -68,6 +68,23 @@ The image version must meet the following requirements:
 > [!NOTE]
 > - Microsoft Dev Box image requirements exceed [Windows 365 image requirements](/windows-365/enterprise/device-images) and include settings to optimize dev box creation time and performance. 
 > - Any image that doesn't meet Windows 365 requirements isn't shown in the list of images that are available for creation.
+
+### Reduce provisioning and startup times
+
+When you create a generalized VM to capture to an image, the following issues can affect provisioning and startup times:
+
+1. Create the image by using these three sysprep options: `/generalize /oobe /mode:vm`. 
+    - These options prevent a lengthy search for and installation of drivers during the first boot. For more information, see [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).1. Enable the Read/Write cache on the OS disk.
+    - To verify the cache is enabled, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
+
+1.  Enable nested virtualization in your base image:
+    - In the UI, open **Turn Windows features on or off** and select **Virtual Machine Platform**.
+    - Or run the following PowerShell command: `Enable-WindowsOptionalFeature -FeatureName VirtualMachinePlatform -Online`
+ 
+1. Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. 
+    - For more information, see [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
+ 
+1. Run `defrag` and `chkdsk` during image creation, then disable the `chkdisk` and `defrag` scheduled tasks. 
 
 ## Provide permissions for services to access a gallery
 
@@ -110,7 +127,7 @@ Use the following steps to manually assign each role.
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
    | Setting | Value |
    | --- | --- |
@@ -126,7 +143,7 @@ Use the following steps to manually assign each role.
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
    | Setting | Value |
    | --- | --- |

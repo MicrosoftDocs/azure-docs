@@ -4,6 +4,7 @@ description: How to configure Secrets Store CSI Driver to enable NGINX Ingress C
 author: nickomang
 ms.author: nickoman
 ms.topic: how-to
+ms.subservice: aks-security
 ms.date: 06/05/2023
 ms.custom: template-how-to
 ---
@@ -49,7 +50,7 @@ You can import the ingress TLS certificate to the cluster using one of the follo
 2. Import the certificate using the [`az keyvault certificate import`][az-key-vault-certificate-import] command.
 
     ```azurecli-interactive
-    az keyvault certificate import --vault-name $AKV_NAME -n $CERT_NAME -f $CERT_NAME.pfx
+    az keyvault certificate import --vault-name $AKV_NAME --name $CERT_NAME --file $CERT_NAME.pfx
     ```
 
 ## Deploy a SecretProviderClass
@@ -508,3 +509,4 @@ We can now deploy a Kubernetes ingress resource referencing the secret.
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-ingress-tls]: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls
+

@@ -4,6 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn the application developer best practices for resource management in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 05/25/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Best practices for application developers to manage resources in Azure Kubernetes Service (AKS)
@@ -121,3 +124,4 @@ To implement some of these best practices, see [Develop with Bridge to Kubernete
 [btk]: /visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
+

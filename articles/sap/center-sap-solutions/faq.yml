@@ -51,11 +51,11 @@ sections:
                 - Registration of an existing Windows and Linux based ABAP/NetWeaver SAP system on Azure
                 - Monitoring the health and status of an SAP system
                 - Creating a new Azure Monitor for SAP solutions provider or integrating an existing one
-                - Start and Stop of an SAP system, individual SAP instances, and HANA database
+                - Start and Stop of an SAP system, individual SAP instances, and HANA database.
                 - Quality checks and recommendations for an SAP system with Azure Advisor
                 - Analyze the cost of running the SAP System in Azure [non-shared resources only]
 
-                Azure Center for SAP solutions also offers the ability to customize the names of the Azure resources deployed through it via API, CLI and PowerShell. Consider referring to sample API payload templates to deploy a system with custom resource naming conventions.  
+                Azure Center for SAP solutions also offers the ability to customize the names of the Azure resources deployed through it via API, CLI, and PowerShell. Consider referring to sample API payload templates to deploy a system with custom resource naming conventions.  
 
       - question:  What is Azure Virtual Instance for SAP solutions?
         answer: | 
@@ -79,7 +79,7 @@ sections:
         answer: | 
                 Azure Virtual Instance for SAP solutions is available in the following regions:  
 
-                - West Europe, North Europe, East US, East US 2, West US, West US 2, West US 3, Central US, South Central US,  North Central US, India Central, East Asia, Southeast Asia, Australia East, Australia Central, Canada Central, Brazil South, UK South, Germany West Central and Sweden Central.  
+                - West Europe, North Europe, East US, East US 2, West US, West US 2, West US 3, Central US, South Central US,  North Central US, India Central, East Asia, Southeast Asia, Korea Central, Japan East, Australia East, Australia Central, Canada Central, Brazil South, UK South, Germany West Central, Sweden Central, France Central, Switzerland North, Norway East, South Africa North and UAE North.  
                 - You can also see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=all#:~:text=Azure%20Center%20for%20SAP%20solutions) page for information about availability of Azure Center for SAP solutions in different Azure regions. 
 
   - name: Registering Existing SAP System Questions 
@@ -90,7 +90,7 @@ sections:
                 for SAP solutions:
 
                 - SAP systems running on SAP NetWeaver or ABAP stack
-                - SAP systems running on Windows, SUSE and RHEL Linux Operating Systems
+                - SAP systems running on Windows, SUSE, and RHEL Linux Operating Systems
                 - SAP systems running on HANA, DB2, SQL Server, Oracle, Max DB, SAP ASE databases
                 
                 Refer to the [product documentation](/azure/sap/center-sap-solutions/register-existing-system#prerequisites) to review the complete list of supported and unsupported scenarios.   
@@ -133,7 +133,7 @@ sections:
                 - A *User-assigned managed identity* which has *Azure Center for SAP solutions service role* access on the Subscription or all resource groups (Compute, Network, Storage). If you wish to install SAP Software through Azure Center for SAP solutions, provide *Reader and Data Access role* to the identity on SAP software storage account where you would store the SAP Media. 
                 - An existing virtual network that allows outbound internet connectivity from the Virtual Machines even when they are behind a standard Azure load balancer, where you will deploy your new SAP system.  
                 - Register Appropriate resource providers that you have registered. (Compute, Network, Storage, Workloads, Capacity). 
-                - Sufficient virtual machine quota in the region(s) used for the deployment. Additionally, minimum 4 cores of Standard_D4ds_v4 or Standard_E4s_v3 SKU are required for the deployment to succeed. 
+                - Sufficient virtual machine quota in the region(s) used for the deployment. Additionally, minimum *four* cores of Standard_D4ds_v4 or Standard_E4s_v3 SKU are required for the deployment to succeed. 
                 
       - question:  What resources are created in customer’s subscription when you deploy an SAP S/4/HANA system through Azure Center for SAP solutions?
         answer: | 

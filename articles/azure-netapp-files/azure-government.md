@@ -24,8 +24,10 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
-| Azure NetApp Files backup | Public preview | No |
-| Azure NetApp Files large volumes | Public preview | Public preview [(select regions)](large-volumes-requirements-considerations.md#supported-regions) |
+| Azure NetApp Files backup | Generally available (GA) | No |
+| Azure NetApp Files customer-managed keys | Generally available (GA) | No | 
+| Azure NetApp Files double encryption at rest | Public preview | Public preview |
+| Azure NetApp Files large volumes | Generally available (GA) | Generally available [(select regions)](large-volumes-requirements-considerations.md#supported-regions) |
 
 ## Portal access
 
@@ -66,6 +68,8 @@ Endpoints for Azure Government are different from commercial Azure endpoints. Fo
 ## PowerShell access
 
 When you connect to Azure Government through PowerShell, you must specify an environmental parameter to ensure that you connect to the correct endpoints. From there, you can proceed to use Azure NetApp Files as you normally would with PowerShell.
+
+[!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
 | Connection type | Command | 
 | --- | --- | 

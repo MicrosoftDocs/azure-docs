@@ -132,7 +132,7 @@ The following metrics are available for data export operation and alerts
 | Metric name	| Description |
 |:---|:---|
 | Bytes Exported | Total number of bytes exported to destination from Log Analytics workspace within the selected time range. The size of data exported is the number of bytes in the exported JSON formatted data. 1 GB = 10^9 bytes. |
-| Export Failures	| Total number of failed export requests to destination from Log Analytics workspace within the selected time range. This number includes export failures due to destination resource throttling, server error or access forbidden error. |
+| Export Failures	| Total number of failed export requests to destination from Log Analytics workspace within the selected time range. This number includes export attempts failures due to destination resource throttling, forbidden access error, or any server error. A retry process handles failed attempts and the number isn’t an indication for missing data. |
 | Records exported | Total number of records exported from Log Analytics workspace within the selected time range. This number counts records for operations that ended with success. |
 
 
@@ -180,7 +180,7 @@ A data export rule defines the destination and tables for which data is exported
 
    :::image type="content" source="media/logs-data-export/export-create-1.png" lightbox="media/logs-data-export/export-create-1.png" alt-text="Screenshot that shows the data export entry point.":::
 
-1. Follow the steps, and then select **Create**.
+1. Follow the steps, and then select **Create**. Only the tables with data in them are displayed under "Source" tab.
    <!-- convertborder later -->
    :::image type="content" source="media/logs-data-export/export-create-2.png" lightbox="media/logs-data-export/export-create-2.png" alt-text="Screenshot of export rule configuration." border="false":::
 
@@ -652,9 +652,10 @@ If the data export rule includes an unsupported table, the configuration will su
 
 > [!NOTE]
 > We are in a process of adding support for more tables. Please check this article regularly. 
+> Data must be in one of these tables for it to appear in a Data Export Rule.
 
 | Table | Limitations |
-|:---|:---|
+|---|---|
 | AACAudit |  |
 | AACHttpRequest |  |
 | AADB2CRequestLogs |  |

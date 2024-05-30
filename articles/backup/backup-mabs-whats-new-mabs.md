@@ -16,8 +16,8 @@ Microsoft Azure Backup Server gives you enhanced backup capabilities to protect 
 
 Microsoft Azure Backup Server version 4 (MABS V4) Update *Rollup 1 Refresh* includes critical bug fixes and feature enhancements. For information about the bugs fixed and the installation instructions of MABS V4 UR1 Refresh, see [KB article 5033756](https://support.microsoft.com/home/contact?SourceApp=smcivr2).
  
->[!Important]
->MABS V4 UR1 Refresh supersedes MABS V4 UR1 that has the same feature enhancements, but fixes the known issues in MABS V4 UR1. [Learn more](backup-mabs-release-notes-v3.md).
+> [!IMPORTANT]
+> MABS V4 UR1 Refresh supersedes MABS V4 UR1 that has the same feature enhancements, but fixes the known issues in MABS V4 UR1. [Learn more](backup-mabs-release-notes-v3.md).
 
 The following table lists the new features added in MABS V4 UR1:
 
@@ -34,17 +34,17 @@ The following table lists the new features added in MABS V4 UR1:
 
 **Microsoft Azure Backup Server version 4 (MABS V4) Update Rollup 1** includes critical bug fixes and feature enhancements. To view the list of bugs fixed and the installation instructions for MABS V4 UR1, see [KB article 5032421](https://support.microsoft.com/help/5032421/).
 
->[!Important]
->We're temporarily pausing the release of Update Rollup 1 for Microsoft Azure Backup Server V4 due to the known issue - **Hyper-V scheduled backups take a long time to complete because each backup job triggers a consistency check.**
+> [!IMPORTANT]
+> We're temporarily pausing the release of Update Rollup 1 for Microsoft Azure Backup Server V4 due to the known issue - **Hyper-V scheduled backups take a long time to complete because each backup job triggers a consistency check.**
 >
->Error message: The replica of Microsoft Hyper-V RCT on `<Machine Name>` is not consistent with the protected data source. DPM has detected changes in file locations or volume configurations of protected objects since the data source was configured for protection. (ID 30135).
+> Error message: The replica of Microsoft Hyper-V RCT on `<Machine Name>` is not consistent with the protected data source. DPM has detected changes in file locations or volume configurations of protected objects since the data source was configured for protection. (ID 30135).
 >
->Resolution: This will be resolved in the new version planned to be released soon.
+> Resolution: This will be resolved in the new version planned to be released soon.
 >
->- If you haven't installed UR1 for MABS V4 already, wait for the new release.
->- If you have already installed UR1 for MABS V4, this new build will install on top of UR1 for MABS V4 to fix the known issues.
+> - If you haven't installed UR1 for MABS V4 already, wait for the new release.
+> - If you have already installed UR1 for MABS V4, this new build will install on top of UR1 for MABS V4 to fix the known issues.
 >
->For additional information, reach out to Microsoft Support.
+> For additional information, reach out to Microsoft Support.
 
 The following table lists the new features added in MABS V4 UR1:
 
@@ -87,8 +87,8 @@ This update contains the following enhancement to improve the backup time. For m
 - - Item-level recovery errors due to inconsistent file catalog metadata are avoided because *iSCSI mounts* are used.
 - - After the recovery point is mounted, file browsing during item-level recovery is faster for recovery points with many files and folders.
 
->[!Note]
->We recommend that you update your MABS V3 installation to Hotfix for Update Rollup 2 to benefit from the enhancement. Ensure that you also update your MARS Agent to the latest version (2.0.9262.0 or higher).
+> [!NOTE]
+> We recommend that you update your MABS V3 installation to Hotfix for Update Rollup 2 to benefit from the enhancement. Ensure that you also update your MARS Agent to the latest version (2.0.9262.0 or higher).
 
 ## What’s new in MABS v3 UR2?
 
@@ -120,8 +120,8 @@ MABS v3 UR2 supports Offline backup using Azure Data Box. With Microsoft Azure D
 
 Microsoft Azure Backup Server (MABS) version 3 UR1 is the latest update, and includes critical bug fixes and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3 UR1, see KB article [4534062](https://support.microsoft.com/help/4534062).
 
->[!NOTE]
->Support for the 32 bit protection agent is deprecated with MABS v3 UR1. See [32 Bit protection agent deprecation](#32-bit-protection-agent-deprecation).
+> [!NOTE]
+> Support for the 32 bit protection agent is deprecated with MABS v3 UR1. See [32 Bit protection agent deprecation](#32-bit-protection-agent-deprecation).
 
 ### Faster backups with tiered storage using SSDs
 
@@ -138,11 +138,11 @@ With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the
 * Exchange: Exchange 2019, 2016.
 * SharePoint: SharePoint 2019, 2016 with latest SP.
 
->[!NOTE]
+> [!NOTE]
 > Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3
 
->[IMPORTANT]
->We've identified a few issues with backup of deduplicated ReFS volumes. We're working on fixing these, and will update this section as soon as we have a fix available. Until then, we're removing the support for backup of deduplicated ReFS volumes from MABSv3 UR1.
+> [!IMPORTANT]
+> We've identified a few issues with backup of deduplicated ReFS volumes. We're working on fixing these, and will update this section as soon as we have a fix available. Until then, we're removing the support for backup of deduplicated ReFS volumes from MABSv3 UR1.
 
 ### Azure VMware Solution protection support
 
@@ -165,8 +165,8 @@ With MABS V3 UR1, an additional a layer of authentication is added for critical 
 
 MABS v3 UR1 improves the experience of offline backup with Azure Import/Export Service. For more information, see the updated steps [here](./backup-azure-backup-server-import-export.md).
 
->[!NOTE]
->From MABS v3 UR2, MABS can perform offline backup using Azure Data Box. [Learn more](./offline-backup-azure-data-box-dpm-mabs.md).
+> [!NOTE]
+> From MABS v3 UR2, MABS can perform offline backup using Azure Data Box. [Learn more](./offline-backup-azure-data-box-dpm-mabs.md).
 
 ### New cmdlet parameter
 
@@ -176,8 +176,8 @@ MABS V3 UR1 includes a new parameter **[-CheckReplicaFragmentation]**. The new p
 
 With MABS v3 UR1, support for 32-bit protection agent is no longer supported. You won't be able to protect 32-bit workloads after upgrading the MABS v3 server to UR1. Any existing 32-bit protection agents will be in a disabled state and scheduled backups will fail with the **agent is disabled** error. If you want to retain the backup data for these agents, you can stop the protection with the retained data option. Otherwise, the protection agent can be removed.
 
->[!NOTE]
->Review the [updated protection matrix](./backup-mabs-protection-matrix.md) to learn the supported workloads for protection with MABS UR 1.
+> [!NOTE]
+> Review the [updated protection matrix](./backup-mabs-protection-matrix.md) to learn the supported workloads for protection with MABS UR 1.
 
 ## What's new in MABS V3 RTM?
 

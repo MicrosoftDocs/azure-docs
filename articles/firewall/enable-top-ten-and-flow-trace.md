@@ -141,7 +141,7 @@ To check the status of the AzResourceProvider registration, you can run the Azur
 
 To disable the log, you can unregister it using the following command or select unregister in the previous portal example.
  
-`Get-AzProviderFeature -FeatureName "AFWEnableTcpConnectionLogging" -ProviderNamespace "Microsoft.Network"`
+`Unregister-AzProviderFeature -FeatureName AFWEnableTcpConnectionLogging -ProviderNamespace Microsoft.Network`
 
 
 ### Create a diagnostic setting and enable Resource Specific Table

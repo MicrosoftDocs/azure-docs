@@ -26,7 +26,7 @@ In this quickstart, you use Azure Cloud Shell that you can launch after sign in 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Launch Azure Cloud Shell by selecting the icon shown in the following image: 
 
-    :::image type="icon" source="~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+    :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 3. In the bottom Cloud Shell window, switch from **Bash** to **PowerShell**. 
 

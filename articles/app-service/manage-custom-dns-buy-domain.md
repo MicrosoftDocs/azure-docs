@@ -136,7 +136,7 @@ If launched from an app's **Custom domains** page, the App Service domain wizard
 
 ## Renew the domain
 
-The App Service domain you bought is valid for one year from the time of purchase. You can configure to renew your domain automatically, which will charge your payment method when your domain renews the following year. You can also manually renew your domain name up to 90 days ahead of domain expiration.
+The App Service domain you bought is valid for one year from the time of purchase. You can configure to renew your domain automatically, or you can also manually renew your domain name up to 90 days ahead of domain expiration. Upon successful auto or manual renewal, you will be billed for the cost of the domain and your domain expiration will be extended for another year.
 
 > [!NOTE]
 > For .nl domains, you can only manually renew the domain starting 90 days ahead of domain expiration and up to the 20th of the month before the expiration date. You will not be able to renew the domain after this period even if the domain has not yet expired.

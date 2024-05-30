@@ -18,7 +18,7 @@ ms.custom: template-how-to, devx-track-arm-template
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-provision-proxy-sims%2Fazuredeploy.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-provision-proxy-sims%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -66,8 +66,8 @@ Use the information you collected in [Collect the required information for your 
 
 If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicy` and/or `staticIpConfiguration` parameters.
 
-> [!IMPORTANT]
-> Bulk SIM provisioning is limited to 1000 SIMs. If you want to provision more that 1000 SIMs, you must create multiple SIM arrays with no more than 1000 SIMs in any one array and repeat the provisioning process for each SIM array.
+> [!NOTE]
+> The maximum size of the API request body is 4MB. We recommend entering a maximum of 1000 SIMs per JSON array to remain below this limit. If you want to provision more than 1000 SIMs, create multiple arrays and repeat the provisioning process for each. Alternatively, you can use the [Azure portal](provision-sims-azure-portal.md) to provision up to 10,000 SIMs per JSON file.
 
 ```json
 [
@@ -131,7 +131,7 @@ The following Azure resources are defined in the template.
 
 1. Select the following link to sign in to Azure and open a template.
 
-    :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-provision-proxy-sims%2Fazuredeploy.json":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-provision-proxy-sims%2Fazuredeploy.json":::
 
 1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 

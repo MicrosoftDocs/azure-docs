@@ -14,6 +14,8 @@ ms.author: duau
 
 # Tutorial: Configure your rules engine
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 This tutorial shows how to create a Rules engine configuration and your first rule in both Azure portal and CLI. 
 
 In this tutorial, you learn how to:

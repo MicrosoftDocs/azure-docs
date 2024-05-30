@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 04/15/2024
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -29,7 +29,7 @@ You can use reservation recommendations to help determine the reservations you s
 
 - Purchase recommendations and recommended quantities are shown when you purchase a Premium v3 reserved instance in the Azure portal.
 - Azure Advisor provides purchase recommendations for individual subscriptions.
-- You can use the APIs to get purchase recommendations for both shared scope and single subscription scope. For more information, see [Reserved instance purchase recommendation APIs for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
+- You can use the APIs to get purchase recommendations for both shared scope and single subscription scope.
 - For Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) customers, purchase recommendations for shared and single subscription scopes are available with the [Azure Consumption Insights Power BI content pack](/power-bi/service-connect-to-azure-consumption-insights).
 
 ### Analyze your usage information
@@ -42,7 +42,7 @@ Your usage file shows your charges by billing period and daily usage. For inform
 
 You can buy a reserved Premium v3 reserved instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](prepare-buy-reservation.md). These requirements apply to buying a Premium v3 reserved instance:
 
-- You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 - For EA subscriptions, the **Reserved Instances** option must be enabled in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the **Policies** menu to change settings.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can buy reservations.
 

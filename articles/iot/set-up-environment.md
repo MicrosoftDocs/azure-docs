@@ -18,7 +18,7 @@ Before you can complete any of the IoT Plug and Play quickstarts and tutorials, 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Create the resources
 

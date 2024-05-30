@@ -128,7 +128,7 @@ To deploy this template, follow these steps:
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server.
 
-   :::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure-spring-apps-enterprise%2Fresources%2Fjson%2Fdeploy%2Fazuredeploy.json":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure-spring-apps-enterprise%2Fresources%2Fjson%2Fdeploy%2Fazuredeploy.json":::
 
 1. Enter values for the following fields:
 

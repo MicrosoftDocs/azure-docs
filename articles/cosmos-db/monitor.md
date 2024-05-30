@@ -11,9 +11,9 @@ ms.service: cosmos-db
 
 # Monitor Azure Cosmos DB
 
-[!INCLUDE [horz-monitor-intro](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
+[!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-[!INCLUDE [horz-monitor-insights](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
+[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
 ### Azure Cosmos DB insights
 
@@ -24,12 +24,12 @@ For more information about Azure Cosmos DB insights, see the following articles:
 - [Explore Azure Cosmos DB insights](insights-overview.md)
 - [Monitor and debug with insights in Azure Cosmos DB](use-metrics.md).
 
-[!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Azure Cosmos DB, see [Azure Cosmos DB monitoring data reference](monitor-reference.md).
 
-[!INCLUDE [horz-monitor-data-storage](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
-[!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+[!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 Azure Monitor collects Azure Cosmos DB metrics by default. You don't need to explicitly configure anything. Most of the metrics are available from the Azure Cosmos DB portal page or from the Azure Monitor page. By default, the metrics are collected with one-minute granularity. The granularity might vary based on the metric you choose. By default, these metrics have a retention period of 30 days.
 
@@ -39,22 +39,22 @@ The dimension values for the metrics, such as container name, are case insensiti
 
 For a list of available metrics for Azure Cosmos DB, see [Azure Cosmos DB monitoring data reference](monitor-reference.md#metrics).
 
-[!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
+[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
 
 - For information about partner solutions and tools that can help monitor Azure Cosmos DB, see [Monitor Azure Cosmos DB using third-party solutions](monitoring-solutions.md).
 - To implement Micrometer metrics in the Java SDK for Azure Cosmos DB by consuming Prometheus metrics, see [Use Micrometer client metrics for Java](nosql/client-metrics-java.md).
 
-[!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+[!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 You can monitor diagnostic logs from your Azure Cosmos DB account and create dashboards from Azure Monitor. Data such as events and traces that occur at a second granularity are stored as logs. For example, if the throughput of a container changes, the properties of an Azure Cosmos DB account change. The logs capture these events. You can analyze these logs by running queries on the gathered data.
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Cosmos DB, see [Azure Cosmos DB monitoring data reference](monitor-reference.md#resource-logs).
 
-[!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-[!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
+[!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
-[!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+[!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
 <a name="analyzing-metrics"></a>
 <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>
@@ -109,7 +109,7 @@ See the following articles for more information about working with Azure Monitor
 - [Audit control plane logs](audit-control-plane-logs.md)
 - [Add a transformation for workspace data](tutorial-log-transformation.md)
 
-[!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
+[!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
 Prior to using Log Analytics to issue Kusto queries, you must [enable diagnostic logs for control plane operations](audit-control-plane-logs.md#enable-diagnostic-logs-for-control-plane-operations). When you enable diagnostic logs, you select between storing your data in [resource-specific tables](/azure/azure-monitor/essentials/resource-logs#resource-specific) or the single [AzureDiagnostics table (legacy)](/azure/azure-monitor/essentials/resource-logs#azure-diagnostics-mode). The exact text of Kusto queries depends on the [collection mode](/azure/azure-monitor/essentials/resource-logs#select-the-collection-mode) you select.
 
@@ -209,7 +209,7 @@ For Kusto queries you can use to troubleshoot issues with Azure Cosmos DB, see t
 
 These examples are just a small sampling of the rich queries you can run in Azure Monitor by using the Kusto Query Language (KQL). For more examples, see [samples for Kusto queries](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor).
 
-[!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
+[!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 ### Azure Cosmos DB alert rules
 
@@ -223,7 +223,7 @@ The following table lists some common and recommended alert rules for Azure Cosm
 
 For more information and instructions on creating alerts for Azure Cosmos DB, see [Create alert on metrics](create-alerts.md). To create an alert to monitor if storage for a logical partition key is approaching 20 GB, see [Create alert on logical partition key size](how-to-alert-on-logical-partition-key-storage-size.md).
 
-[!INCLUDE [horz-monitor-advisor-recommendations](~/articles/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
+[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
 

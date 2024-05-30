@@ -3,7 +3,11 @@ title: Use system node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.date: 12/26/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
+ms.subservice: aks-nodes
 ---
 
 # Manage system node pools in Azure Kubernetes Service (AKS)
@@ -81,7 +85,7 @@ Use the [az aks create][az-aks-create] command to create an AKS cluster. The fol
 
 ```azurecli-interactive
 # Create a new AKS cluster with a single system pool
-az aks create -g myResourceGroup --name myAKSCluster --node-count 2 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 2 --generate-ssh-keys
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -151,7 +155,7 @@ You can check the details of your node pool with the following command.
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n systempool
+az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluster --name systempool
 ```
 
 A mode of type **System** is defined for system node pools, and a mode of type **User** is defined for user node pools. For a system pool, verify the taint is set to `CriticalAddonsOnly=true:NoSchedule`, which will prevent application pods from beings scheduled on this node pool.
@@ -239,13 +243,13 @@ You can change modes for both system and user node pools. You can change a syste
 This command changes a system node pool to a user node pool.
 
 ```azurecli-interactive
-az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode user
+az aks nodepool update --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --mode user
 ```
 
 This command changes a user node pool to a system node pool.
 
 ```azurecli-interactive
-az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
+az aks nodepool update --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --mode system
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -283,7 +287,7 @@ You must have at least two system node pools on your AKS cluster before you can 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
+az aks nodepool delete --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -359,3 +363,4 @@ In this article, you learned how to create and manage system node pools in an AK
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
 [start-stop-nodepools]: ./start-stop-nodepools.md
 [node-affinity]: operator-best-practices-advanced-scheduler.md#node-affinity
+

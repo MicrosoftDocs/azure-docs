@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/20/2023
+ms.date: 04/17/2024
 ms.author: phjensen
 ---
 
@@ -13,14 +13,19 @@ ms.author: phjensen
 
 This article provides tips and tricks that might be helpful when you use AzAcSnap.
 
-## Global settings to control azacsnap behavior
+## Global override settings to control azacsnap behavior
 
 AzAcSnap 8 introduced a new global settings file (`.azacsnaprc`) which must be located in the same (current working) directory as azacsnap is executed in.  The filename is `.azacsnaprc` and by using the dot '.' character as the start of the filename makes it hidden to standard directory listings.  The file allows global settings controlling the behavior of AzAcSnap to be set.  The format is one entry per line with a supported customizing variable and a new overriding value.
 
-Settings, which can be controlled by adding/editing the global settings file are:
+Settings, which can be controlled by adding/editing the global override settings file or by setting them as environment variables are:
 
-- **MAINLOG_LOCATION** which sets the location of the "main-log" output file, which is called `azacsnap.log` and was introduced in AzAcSnap 8.  Values should be absolute paths, for example:
+- **MAINLOG_LOCATION** which customizes the location of the "main-log" output file, which is called `azacsnap.log` and was introduced in AzAcSnap 8.  Values should be absolute paths and the default value = '.' (which is the current working directory).  For example, to ensure the "main-log" output file goes to the `/home/azacsnap/bin/logs` add the following to the `.azacsnaprc` file:
   - `MAINLOG_LOCATION=/home/azacsnap/bin/logs`
+- **AZURE_MANAGEMENT_ENDPOINT** to customize the location of the Azure Management Endpoint which AzAcSnap will make Azure REST API calls to was introduced in AzAcSnap 9a.  Values should be URL paths and the default value = 'https://management.azure.com'.  For example, to configure AzAcSnap to ensure all management calls go to the Azure Management Endpoint for US Govt Cloud (ref: [Azure Government Guidance for developers](/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers)) add the following to the `.azacsnaprc` file:
+  - `AZURE_MANAGEMENT_ENDPOINT=https://management.usgovcloudapi.net`
+
+> [!NOTE]
+> As of AzAcSnap 9a all these values can be set as command-line environment variables as well, or instead of, the `.azacsnaprc` file.  For example, on Linux the `AZURE_MANAGEMENT_ENDPOINT` can be set with `export AZURE_MANAGEMENT_ENDPOINT=https://management.usgovcloudapi.net` before running AzAcSnap.
 
 ## Main-log parsing
 
