@@ -158,9 +158,9 @@ landingContent:
         links:
         - text: .NET feature management
           url: feature-management-dotnet-reference.md
-        - text: .NET feature management library API
+        - text: .NET feature management API reference
           url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
-        - text: Java Spring feature management library API
+        - text: Java Spring feature management API reference
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
 
   - title: Client libraries and tools

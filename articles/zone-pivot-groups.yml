@@ -2886,7 +2886,7 @@ groups:
 # Owner: mametcal
 - id: appconfig-provider
   title: Client library pivots
-  prompt: Choose a c library
+  prompt: Choose a client library
   pivots:
   - id: framework-dotnet
     title: .NET
@@ -2898,9 +2898,9 @@ groups:
   prompt: Choose a library version
   pivots:
   - id: stable-version
-    title: Version 3.3.0
+    title: Stable release
   - id: preview-version
-    title: Version 4.0.0-preview
+    title: Preview release
 # Owner: nicktrog
 - id: load-testing-config
   title: Experience

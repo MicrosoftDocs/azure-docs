@@ -14,6 +14,7 @@ zone_pivot_groups: feature-management
 :::zone target="docs" pivot="stable-version"
 
 [![Microsoft.FeatureManagement](https://img.shields.io/nuget/v/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement)
+
 [![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore)
 
 :::zone-end
@@ -21,13 +22,16 @@ zone_pivot_groups: feature-management
 :::zone target="docs" pivot="preview-version"
 
 [![Microsoft.FeatureManagement](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement/4.0.0-preview3)
+
 [![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/4.0.0-preview3)
+
 [![Microsoft.FeatureManagement.Telemetry.ApplicationInsights](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/4.0.0-preview3)
+
 [![Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore/4.0.0-preview3)
 
 :::zone-end
 
-.NET feature management library provides a way to develop and expose application functionality based on features flags. Once a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships, and also integrates into common .NET code patterns to make exposing these features possible.
+.NET feature management library provides a way to develop and expose application functionality based on feature flags. Once a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships, and also integrates into common .NET code patterns to make exposing these features possible.
 
 Feature flags provide a way for .NET and ASP.NET Core applications to turn features on or off dynamically. Developers can use feature flags in simple use cases like conditional statements to more advanced scenarios like conditionally adding routes or MVC filters. Feature flags are built on top of the .NET Core configuration system. Any .NET Core configuration provider is capable of acting as the backbone for feature flags.
 
@@ -48,48 +52,6 @@ Here are some of the benefits of using .NET feature management library:
   * Action Attributes
 
   The .NET feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
-
-## Index
-
-:::zone target="docs" pivot="stable-version"
-
-* [Feature Flags](#feature-flags)
-    * [Feature Filters](#feature-filters)
-    * [Feature Flag Declaration](#feature-flag-declaration)
-* [Consumption](#consumption)
-* [ASP.NET Core Integration](#aspnet-core-integration)
-* [Implement a Feature Filter](#implementing-a-feature-filter)
-* [Provide a Context For Feature Evaluation](#provide-a-context-for-feature-evaluation)
-* [Built-in Feature Filters](#built-in-feature-filters)
-* [Targeting](#targeting)
-  * [Targeting Exclusion](#targeting-exclusion)
-* [Caching](#caching)
-* [Custom Feature Providers](#custom-feature-providers)
-
-:::zone-end
-
-:::zone target="docs" pivot="preview-version"
-
-* [Feature Flags](#feature-flags)
-    * [Feature Filters](#feature-filters)
-    * [Feature Flag Declaration](#feature-flag-declaration)
-* [Consumption](#consumption)
-* [ASP.NET Core Integration](#aspnet-core-integration)
-* [Implement a Feature Filter](#implementing-a-feature-filter)
-* [Provide a Context For Feature Evaluation](#provide-a-context-for-feature-evaluation)
-* [Built-in Feature Filters](#built-in-feature-filters)
-* [Targeting](#targeting)
-  * [Targeting Exclusion](#targeting-exclusion)
-* [Variants](#variants)
-    * [Variants in Dependency Injection](#variants-in-dependency-injection)
-* [Telemetry](#telemetry)
-    * [Enabling Telemetry](#enabling-telemetry)
-    * [Custom Telemetry Publishers](#custom-telemetry-publishers)
-    * [Application Insights Telemetry Publisher](#application-insights-telemetry-publisher)
-* [Caching](#caching)
-* [Custom Feature Providers](#custom-feature-providers)
-
-:::zone-end
 
 ## Feature Flags
 Feature flags are composed of two parts, a name and a list of feature-filters that are used to turn on the feature.
