@@ -14,9 +14,9 @@ ms.author: tamram
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) clusters require an identity to access Azure resources like load balancers and managed disks. Managed identities for Azure resources are the recommended way to authorize access from an AKS cluster to other Azure services.
+Azure Kubernetes Service (AKS) clusters require an identity to access Azure resources like load balancers and managed disks. Managed identities for Azure resources are the recommended way to authorize access from an AKS cluster to other Azure services. To learn more about managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
-To learn more about managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
+You can use a managed identity to authenticate from an AKS cluster to any service that supports Microsoft Entra authentication, without having credentials in your code.
 
 This article shows how to enable the following types of managed identity on a new or existing AKS cluster:
 
@@ -26,9 +26,9 @@ This article shows how to enable the following types of managed identity on a ne
 
 ## Overview
 
-When you deploy an AKS cluster, a system-assigned managed identity is automatically created, and it's managed by the Azure platform, so it doesn't require you to provision or rotate any secrets. For more information about system-assigned managed identities, see [Managed identities for Azure resources][managed-identity-resources-overview].
+When you deploy an AKS cluster, a system-assigned managed identity is automatically created for you by default. A system-assigned managed identity is managed by the Azure platform, so it doesn't require you to provision or rotate any secrets. For more information about system-assigned managed identities, see [Managed identities for Azure resources][managed-identity-resources-overview].
 
-AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable. These identity types shouldn't be confused with a [Microsoft Entra Workload identity][workload-identity-overview], which is intended for use by an application running on a pod.
+AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable. These identity types differ a [Microsoft Entra Workload identity][workload-identity-overview], which is intended for use by an application running on a pod.
 
 > [!IMPORTANT]
 > The open source [Microsoft Entra pod-managed identity][entra-id-pod-managed-identity] (preview) in Azure Kubernetes Service was deprecated on 10/24/2022, and the project archived in Sept. 2023. For more information, see the [deprecation notice](https://github.com/Azure/aad-pod-identity#-announcement). The AKS Managed add-on begins deprecation in Sept. 2024.
@@ -42,6 +42,12 @@ AKS uses both system-assigned and user-assigned managed identity types, and thes
 * To [use a pre-created kubelet managed identity][use-a-pre-created-kubelet-managed-identity], you need Azure CLI version 2.26.0 or later installed.
 
 * To [update managed identity on an existing cluster][update-managed-identity-on-an-existing-cluster], you need Azure CLI version 2.49.0 or later installed.
+
+Before running the examples in this article, set your subscription as the current active subscription by calling the [az account set][az-account-set] command and passing in your subscription ID.
+
+```azurecli-interactive
+az account set --subscription <subscription-id>
+```
 
 ## Limitations
 
@@ -68,7 +74,6 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | azure-policy (gatekeeper) | No identity required. | N/A | No |
 | Add-on | azure-policy | No identity required. | N/A | No |
 | Add-on | Calico | No identity required. | N/A | No |
-| Add-on | Dashboard | No identity required. | N/A | No |
 | Add-on | application-routing | Manages Azure DNS and Azure Key Vault certificates | Key Vault Secrets User role for Key Vault, DNZ Zone Contributor role for DNS zones, Private DNS Zone Contributor role for private DNS zones | No |
 | Add-on | HTTPApplicationRouting | Manages required network resources. | Reader role for node resource group, contributor role for DNS zone | No |
 | Add-on | Ingress application gateway | Manages required network resources. | Contributor role for node resource group | No |
@@ -76,14 +81,6 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI). | Contributor role for node resource group | No |
 | Add-on | Cost analysis | Used to gather cost allocation data |  |
 | Workload identity | Microsoft Entra workload ID | Enables applications to access cloud resources securely with Microsoft Entra workload ID. | N/A | No |
-
-## Set the active subscription
-
-First, set your subscription as the current active subscription by calling the [az account set][az-account-set] command and passing in your subscription ID.
-
-```azurecli-interactive
-az account set --subscription <subscription-id>
-```
 
 ## Enable a system-assigned managed identity on a new AKS cluster
 

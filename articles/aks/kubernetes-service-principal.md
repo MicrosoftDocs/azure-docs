@@ -1,11 +1,11 @@
 ---
-title: Use a service principal with Azure Kubernetes Services (AKS)
+title: Use a service principal with AKS
 description: Learn how to create and manage a Microsoft Entra service principal with a cluster in Azure Kubernetes Service (AKS).
 author: tamram
 
-ms.topic: conceptual
+ms.topic: article
 ms.subservice: aks-security
-ms.date: 06/27/2023
+ms.date: 05/30/2024
 ms.author: tamram
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
@@ -16,14 +16,13 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 An AKS cluster requires either an [Microsoft Entra service principal][aad-service-principal] or a [managed identity][managed-identity-resources-overview] to dynamically create and manage other Azure resources, such as an Azure Load Balancer or Azure Container Registry (ACR).
 
-> [!NOTE]
-> We recommend using managed identities to authenticate with other resources in Azure, and they're the default authentication method for your AKS cluster. For more information about using a managed identity with your cluster, see [Use a system-assigned managed identity][use-managed-identity].
+For optimal security and ease of use, Microsoft recommends using managed identities rather than service principals to authorize access from an AKS cluster to other resources in Azure. A managed identity is a special type of service principal that can be used to obtain Microsoft Entra credentials without the need to manage and secure credentials. For more information about using a managed identity with your cluster, see [Use a managed identity in AKS][use-managed-identity].
 
-This article shows you how to create and use a service principal for your AKS clusters.
+This article shows you how to create and use a service principal with your AKS clusters.
 
 ## Before you begin
 
-To create a Microsoft Entra service principal, you must have permissions to register an application with your Microsoft Entra tenant and to assign the application to a role in your subscription. If you don't have the necessary permissions, you need to ask your Microsoft Entra ID or subscription administrator to assign the necessary permissions or pre-create a service principal for you to use with your AKS cluster.
+To create a Microsoft Entra service principal, you must have permissions to register an application with your Microsoft Entra tenant and to assign the application to a role in your subscription. If you don't have the necessary permissions, you need to ask your Microsoft Entra ID or subscription administrator to assign the necessary permissions or pre-create a service principal for use with your AKS cluster.
 
 If you're using a service principal from a different Microsoft Entra tenant, there are other considerations around the permissions available when you deploy the cluster. You may not have the appropriate permissions to read and write directory information. For more information, see [What are the default user permissions in Microsoft Entra ID?][azure-ad-permissions]
 
@@ -32,7 +31,9 @@ If you're using a service principal from a different Microsoft Entra tenant, the
 * If using Azure CLI, you need Azure CLI version 2.0.59 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * If using Azure PowerShell, you need Azure PowerShell version 5.0.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install the Azure Az PowerShell module][install-the-azure-az-powershell-module].
 
-## Manually create a service principal
+## Create a service principal
+
+Create a service principal before you create your cluster.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -125,33 +126,45 @@ If you're using a service principal from a different Microsoft Entra tenant, the
 
 ## Delegate access to other Azure resources
 
-You can use the service principal for the AKS cluster to access other resources. For example, if you want to deploy your AKS cluster into an existing Azure virtual network subnet or connect to Azure Container Registry (ACR), you need to delegate access to those resources to the service principal. Permission granted to a cluster using a system-assigned managed identity may take up 60 minutes to populate.
+You can use the service principal for the AKS cluster to access other resources. For example, if you want to deploy your AKS cluster into an existing Azure virtual network subnet, connect to Azure Container Registry (ACR), or access keys or secrets in a key vault from your cluster, then you need to delegate access to those resources to the service principal. To delegate access, assign an Azure role-based access control (Azure RBAC) role to the service principal.
+
+> [!IMPORTANT]
+> Permissions granted to a service principal associated with a cluster may take up 60 minutes to propagate.
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Create a role assignment using the [`az role assignment create`][az-role-assignment-create] command. Assign the `appId` to a particular scope, such as a resource group or virtual network resource. The role defines what permissions the service principal has on the resource.
+* Create a role assignment using the [`az role assignment create`][az-role-assignment-create] command. Provide the value of the service principal's appID for the `appId` parameter. Specify the scope for the role assignment, such as a resource group or virtual network resource. The role assignment determines what permissions the service principal has on the resource and at what scope.
+
+    For example, to assign the service principal permissions to access secrets in a key vault, you might use the following command:
+
+    ```azurecli-interactive
+    az role assignment create \
+        --assignee <appId> \
+        --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>" \
+        --role "Key Vault Secrets User"
+    ```
 
     > [!NOTE]
     > The `--scope` for a resource needs to be a full resource ID, such as */subscriptions/\<guid\>/resourceGroups/myResourceGroup* or */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*.
 
-    ```azurecli-interactive
-    az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
-    ```
-
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* Create a role assignment using the [`New-AzRoleAssignment`][new-azroleassignment] command. Assign the `ApplicationId` to a particular scope, such as a resource group or virtual network resource. The role defines what permissions the service principal has on the resource.
+* Create a role assignment using the [`New-AzRoleAssignment`][new-azroleassignment] command. Provide the value of the service principal's appID for the `ApplicationId` parameter. Specify the scope for the role assignment, such as a resource group or virtual network resource. The role assignment determines what permissions the service principal has on the resource and at what scope.
+
+    For example, to assign the service principal permissions to access secrets in a key vault, you might use the following command:
+
+    ```azurepowershell-interactive
+    New-AzRoleAssignment -ApplicationId <ApplicationId> `
+        -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>" `
+        -RoleDefinitionName "Key Vault Secrets User"
+    ```
 
     > [!NOTE]
     > The `Scope` for a resource needs to be a full resource ID, such as */subscriptions/\<guid\>/resourceGroups/myResourceGroup* or */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
 
-    ```azurepowershell-interactive
-    New-AzRoleAssignment -ApplicationId <ApplicationId> -Scope <resourceScope> -RoleDefinitionName Contributor
-    ```
-
 ---
 
-The following sections detail common delegations that you may need to assign.
+The following sections detail common delegations that you may need to assign to a service principal.
 
 ### Azure Container Registry
 
@@ -195,7 +208,11 @@ When using AKS and a Microsoft Entra service principal, consider the following:
   * To delete the service principal, query for your cluster's *servicePrincipalProfile.clientId* and delete it using the [`az ad sp delete`][az-ad-sp-delete] command. Replace the values for the `-g` parameter for the resource group name and `-n` parameter for the cluster name:
 
       ```azurecli
-      az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
+      az ad sp delete --id $(az aks show \
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --query servicePrincipalProfile.clientId \
+        --output tsv)
       ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -221,7 +238,7 @@ When using AKS and a Microsoft Entra service principal, consider the following:
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI caches the service principal credentials for AKS clusters. If these credentials expire, you encounter errors during AKS cluster deployment. If you run the [`az aks create`][az-aks-create] command and receive an error message similar to the following, it may indicate a problem with the cached service principal credentials:
+Azure CLI caches the service principal credentials for AKS clusters. If these credentials expire, you can encounter errors during AKS cluster deployment. If you run the [`az aks create`][az-aks-create] command and receive an error message similar to the following, it may indicate a problem with the cached service principal credentials:
 
 ```azurecli
 Operation failed with status: 'Bad Request'.
@@ -232,7 +249,10 @@ Details: The credentials in ServicePrincipalProfile were invalid. Please see htt
 You can check the expiration date of your service principal credentials using the [`az ad app credential list`][az-ad-app-credential-list] command with the `"[].endDateTime"` query.
 
 ```azurecli
-az ad app credential list --id <app-id> --query "[].endDateTime" -o tsv
+az ad app credential list \
+    --id <app-id> \
+    --query "[].endDateTime" \
+    --output tsv
 ```
 
 The default expiration time for the service principal credentials is one year. If your credentials are older than one year, you can [reset the existing credentials][reset-credentials] or [create a new service principal][new-service-principal].
