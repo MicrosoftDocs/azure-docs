@@ -50,7 +50,7 @@ The following Software Development Kits (SDKs) and features are unsupported for 
 
         For more information on how to create a Microsoft Entra application and service principal that can access resources, see [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-1. Assign the required RBAC role to the Azure identity, service principal, or Azure user account.
+1. Assign the required Role-based access control (RBAC) role to the Azure identity, service principal, or Azure user account.
 
     Follow the steps in [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml) to add the Monitoring Metrics Publisher role to the expected identity, service principal, or Azure user account by setting the target Application Insights resource as the role scope.
 
@@ -250,7 +250,7 @@ You can disable local authentication by using the Azure portal or Azure Policy o
 
 ### Azure portal
 
-1. From your Application Insights resource, select **Properties** under the **Configure** heading in the menu on the left. Select **Enabled (click to change)** if the local authentication is enabled.
+1. From your Application Insights resource, select **Properties** under **Configure** in the menu on the left. Select **Enabled (click to change)** if the local authentication is enabled.
 
    :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Screenshot that shows Properties under the Configure section and the Enabled (select to change) local authentication button.":::
 
@@ -427,7 +427,7 @@ Now that your app is registered and has permissions to use the API, grant your a
 
 Before you begin, make sure you have all the values required to make the request successfully. All requests require:
 - Your Microsoft Entra tenant ID.
-- Your App Insights App ID - If you are currently using API Keys, this is the same app ID.
+- Your App Insights App ID - If you're currently using API Keys, it's the same app ID.
 - Your Microsoft Entra client ID for the app.
 - A Microsoft Entra client secret for the app.
 
@@ -735,13 +735,13 @@ The main OAuth2 flow supported is through [authorization codes](/azure/active-di
     &resource=https://api.applicationinsights.io
 ```
 
-When a request is made to the authorize URL, the client\_id is the application ID from your Microsoft Entra app, copied from the app's properties menu. The redirect\_uri is the homepage/login URL from the same Microsoft Entra app. When a request is successful, this endpoint redirects you to the sign-in page you provided at sign-up with the authorization code appended to the URL. See the following example:
+When a request is made to the authorized URL, the client\_id is the application ID from your Microsoft Entra app, copied from the app's properties menu. The redirect\_uri is the homepage/login URL from the same Microsoft Entra app. When a request is successful, this endpoint redirects you to the sign-in page you provided at sign-up with the authorization code appended to the URL. See the following example:
 
 ```http
     http://<app-client-id>/?code=AUTHORIZATION_CODE&session_state=STATE_GUID
 ```
 
-At this point, you've obtained an authorization code, which you need now to request an access token.
+At this point, you obtain an authorization code, which you now use to request an access token.
 
 ##### Authorization code token URL (POST request)
 
@@ -776,7 +776,7 @@ Response example:
     }
 ```
 
-The access token portion of this response is what you present to the Application Insights API in the `Authorization: Bearer` header. You can also use the refresh token in the future to acquire a new access\_token and refresh\_token when yours have gone stale. For this request, the format and endpoint are:
+The access token portion of this response is what you present to the Application Insights API in the `Authorization: Bearer` header. You can also use the refresh token in the future to acquire a new access\_token and refresh\_token when yours go stale. For this request, the format and endpoint are:
 
 ```http
     POST /YOUR_AAD_TENANT/oauth2/token HTTP/1.1
@@ -807,7 +807,7 @@ Response example:
 
 The Application Insights API supports the OAuth2 [implicit flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant). For this flow, only a single request is required, but no refresh token can be acquired.
 
-##### Implicit code authorize URL
+##### Implicit code authorization URL
 
 ```http
     GET https://login.microsoftonline.com/YOUR_AAD_TENANT/oauth2/authorize?
@@ -823,7 +823,7 @@ A successful request produces a redirect to your redirect URI with the token in 
     http://YOUR_REDIRECT_URI/#access_token=YOUR_ACCESS_TOKEN&token_type=Bearer&expires_in=3600&session_state=STATE_GUID
 ```
 
-This access\_token can be used as the `Authorization: Bearer` header value when it's passed to the Application Insights API to authorize requests.
+This access\_token serves as the `Authorization: Bearer` header value when it passes to the Application Insights API to authorize requests.
 
 ## Troubleshooting
 
