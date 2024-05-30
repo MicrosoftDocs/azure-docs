@@ -228,6 +228,9 @@ To host your HTML content in Blob storage, use the following steps:
 
 To create a public container in Blob storage, perform the following steps:
 
+1. Under **Settings** in the left-hand menu, select **Configuration**.
+1. Enable **Allow Blob anonymous access**
+1. Select **Save**
 1. Under **Data storage** in the left-hand menu, select **Containers**.
 1. Select **+ Container**.
 1. For **Name**, enter *root*. The name can be a name of your choosing, for example *contoso*, but we use *root* in this example for simplicity.
