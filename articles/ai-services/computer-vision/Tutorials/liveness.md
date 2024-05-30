@@ -53,19 +53,9 @@ This tutorial demonstrates how to operate a frontend application and an app serv
 
 ### Setup frontend applications and app servers to perform liveness detection
 
-We provide SDKs in different languages for frontend applications and app servers. They're available in these languages:
+We provide SDKs in different languages for frontend applications and app servers. See the following instructions to setup your frontend applications and app servers.
 
-| Language | App server | Frontend application |
-| -------- | -- | -- |
-| C# |✔|-|
-| Java |✔|-|
-| Python |✔|-|
-| JavaScript |✔|✔(Not support providing a reference image.)|
-| Restful API |✔|-|
-| Kotlin |-|✔|
-| Swift |-|✔|
-
-#### Integrate liveness into mobile application
+#### Integrate liveness into frontend application
 
 Once you have access to the SDK, follow instruction in the [azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) GitHub repository to integrate the UI and the code into your native mobile application. The liveness SDK supports Java/Kotlin for Android mobile applications, Swift for iOS mobile applications and JavaScript for web applications:
 - For Swift iOS, follow the instructions in the [iOS sample](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme) 
@@ -241,7 +231,7 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
 1. The SDK then starts the camera, guides the user to position correctly and then prepares the payload to call the liveness detection service endpoint. 
  
-1. The SDK calls the Azure AI Vision Face service to perform the liveness detection. Once the service responds, the SDK notifies the mobile application that the liveness check has been completed. 
+1. The SDK calls the Azure AI Vision Face service to perform the liveness detection. Once the service responds, the SDK notifies the frontend application that the liveness check has been completed.
 
 1. The frontend application relays the liveness check completion to the app server. 
 
@@ -605,7 +595,7 @@ The high-level steps involved in liveness with verification orchestration are il
         }
         ```
 
-    - The mobile application provides the reference image when initializing the SDK. This scenario is not supported in the web solution.
+    - The frontend application provides the reference image when initializing the SDK. This scenario is not supported in the web solution.
 
         #### [Android](#tab/mobile-kotlin)
         ```kotlin
