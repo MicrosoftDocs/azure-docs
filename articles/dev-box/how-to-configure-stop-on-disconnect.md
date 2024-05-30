@@ -1,7 +1,9 @@
 ---
-title: Set a dev box auto-stop schedule
+title: Stop dev boxes automatically when a user disconnects.
 titleSuffix: Microsoft Dev Box
-description: Learn how to configure stop on disconnect to automatically stop  dev boxes in a pool when a user .
+description: Learn how to automatically stop a dev box when a user disconnects by configuring the auto stop setting on the Dev Box Pool.
+
+
 services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-azurecli
@@ -9,14 +11,17 @@ author: dhruvmu
 ms.author: rosemalcolm
 ms.date: 01/10/2024
 ms.topic: how-to
+
+#Customer intent: As a Dev Box administrator, I want to configure dev boxes to stop when a user disconnects so that I can control costs.
 ---
 
-# Auto-stop your Dev Boxes on schedule
+# Auto-stop your Dev Boxes when users disconnect
 
-To save on costs, you can configure your Dev Box pools to stop when a user disconnects from their RDP session
+
+To save on costs, you can configure your Dev Box pools to stop when a user disconnects from their RDP session, after a timeout period that you can configure. Microsoft Dev Box attempts to stop all dev boxes after a user disconnects, and they do not re-establish a new RDP session within the configured timeout period.
 
 > [!NOTE]
-> Stop on disconnect will only apply to Dev Boxes that are created with hibernation enabled Dev Box definitions. To learn more about enabling hibernation on your Dev Box definitions, see  [how to configure dev box hibernation](./how-to-configure-dev-box-hibernation.md)
+> Stop on disconnect will only apply to Dev Boxes that are created with hibernation enabled Dev Box definitions. To learn more about enabling hibernation on your Dev Box definitions, see  [how to configure dev box hibernation](./how-to-configure-dev-box-hibernation.md).  
 
 ## Permissions
 
@@ -50,7 +55,7 @@ az devcenter admin pool update --pool-name {poolName} --project {projectName} --
 
 ### Disable stop on disconnect
 
-The following Azure CLI command enabdisablesles stop on disconnect on a dev box pool:
+The following Azure CLI command disables stop on disconnect on a dev box pool:
 
 ```azurecli
 az devcenter admin pool update --pool-name {poolName} --project {projectName} --resource-group {resourceGroupName} --stop-on-disconnect status="Disabled" 
