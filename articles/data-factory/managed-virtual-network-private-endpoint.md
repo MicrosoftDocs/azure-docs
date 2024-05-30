@@ -184,6 +184,8 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 > [!NOTE]
 > You can get the **groupId** of other data sources from a [private link resource](../private-link/private-endpoint-overview.md#private-link-resource).
 
+> [!NOTE]
+> The referenceName should only be set as "default" if you create via PowerShell Command.
 
 ## Outbound connection
 
