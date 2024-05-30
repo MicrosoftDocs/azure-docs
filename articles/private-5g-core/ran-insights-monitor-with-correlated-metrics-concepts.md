@@ -10,7 +10,6 @@ ms.date: 5/28/2024
 
 
 # Monitoring with Azure Monitor correlated metrics 
---------------------------------------------------------------------
 Correlated metrics compares the values of two metrics, one from the RAN and one from the packet core. You can use these metrics to help draw conclusions about the cause of issues and set alerts if the difference between two metrics exceeds a certain threshold for a prolonged period.
 
 These metrics are available at your Site Resource under the **Metrics** page. Once you have [set up](ran-insights-create-resource.md) your radio access network (RAN) insights resource, these metrics will automatically be populated with information. No other configuration is needed. 
@@ -25,7 +24,6 @@ Correlated metrics are available for monitoring and retrieval for up to 30 days.
 
 
 ## Correlated metrics descriptions and interpretations 
---------------------------------------------------------------------
 Correlated metrics are collected per site resource and aggregated across all connected access points. See [Supported metrics with Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index) for the corelated metrics available for retrieval included under *microsoft.mobilenetwork/sites*. 
 
 | Metric Name | Definition | Interpretation |
@@ -35,10 +33,6 @@ Correlated metrics are collected per site resource and aggregated across all con
 | Correlated Successful Handovers | 	Correlates successful RAN connection handovers and packet core handovers	| •	If the correlation value of successful handovers is less than the lower threshold value then there may be coverage gaps coming from the packet core <br>•	If the correlation value of successful handovers is greater than the higher threshold value then there may be coverage gaps and RF optimization may be required | 
 | Correlated Downlink Volume | 	Correlates successful RAN Received Volume and packet core transmitted volume on N3 interface| 	•	If the correlation value of downlink volume is greater than the higher threshold value then there may be an issue coming from the RAN |
 
-
-
-
 ## Related content
---------------------------------------------------------------------
 - [Monitor with RAN metrics](ran-insights-monitor-with-ran-metrics-concepts.md)
 - [Monitor with geo maps](ran-insights-monitor-with-geo-maps-concepts.md)
