@@ -1,6 +1,6 @@
 ---
 title: Configure your managed Spring Cloud Config Server in Azure Spring Apps
-description: Learn how to configure a managed Spring Cloud Config Server in Azure Spring Apps on the Azure portal.
+description: Learn how to configure a managed Spring Cloud Config Server in Azure Spring Apps on the Azure portal
 author: Guitar
 ms.author: guitarsheng
 ms.service: spring-apps
@@ -454,7 +454,6 @@ az spring config-server delete \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
----
 
 ::: zone-end
 
