@@ -4,7 +4,7 @@ description: Use Microsoft Purview's data sensitivity classifications in Microso
 author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
-ms.date: 06/29/2022
+ms.date: 05/30/2024
 ---
 # Leverage Purview Catalog to protect sensitive data (Preview)
 

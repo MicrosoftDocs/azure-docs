@@ -6,15 +6,17 @@ services: dev-box
 ms.service: dev-box
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/30/2023
+ms.date: 05/29/2024
 ms.topic: tutorial
+
+#Customer intent: As a dev box user, I want to use multiple monitors when connecting to my dev box so that I can have more screen real estate to work with.
 ---
 
 # Tutorial: Use multiple monitors on a dev box 
 
-In this tutorial, you configure a remote desktop client to use dual or more monitors when you connect to your dev box.
+In this tutorial, you configure a remote desktop protocol (RDP) client to use dual or more monitors when you connect to your dev box.
 
-Using multiple monitors gives you more screen real estate to work with. You can spread your work across multiple screens, or use one screen for your development environment and another for documentation, email or messaging. 
+Using multiple monitors gives you more screen real estate to work with. You can spread your work across multiple screens, or use one screen for your development environment and another for documentation, email, or messaging. 
 
 In this tutorial, you learn how to:
 
@@ -31,7 +33,7 @@ When you connect to your cloud-hosted developer machine in Microsoft Dev Box by 
 
 Use the following steps to configure Remote Desktop to use multiple monitors.
 
-# [Windows](#tab/windows)
+# [Microsoft Remote Desktop app](#tab/windows-app)
 
 1. Open the Remote Desktop app. 
  
@@ -54,6 +56,22 @@ Use the following steps to configure Remote Desktop to use multiple monitors.
    :::image type="content" source="media/tutorial-configure-multiple-monitors/remote-desktop-select-display.png" alt-text="Screenshot showing the Remote Desktop display settings, highlighting the option to select the number of displays.":::
 
 1. Close the settings pane, and then select your dev box to begin the Remote Desktop session.
+
+# [Microsoft Remote Desktop Connection](#tab/windows-connection)
+
+1. Open a Remote Desktop Connection.
+
+   :::image type="content" source="media/tutorial-configure-multiple-monitors/remote-desktop-connection-open.png" alt-text="Screenshot of the Start menu showing the Remote Desktop Connection." lightbox="media/tutorial-configure-multiple-monitors/remote-desktop-connection-open.png":::
+
+1. In **Computer**, enter the name of your dev box, then select **Show Options**.
+
+   :::image type="content" source="media/tutorial-configure-multiple-monitors/remote-desktop-connection-show-options.png" alt-text="Screenshot of the Remote Desktop Connection dialog box with Show options highlighted." lightbox="media/tutorial-configure-multiple-monitors/remote-desktop-connection-show-options.png":::
+
+1. On the **Display** tab, select **Use all my monitors for the remote session**.
+
+   :::image type="content" source="media/tutorial-configure-multiple-monitors/remote-desktop-connection-all-monitors.png" alt-text="Screenshot of the Remote Desktop Connection Display tab and Use all my monitors for the current session highlighted." lightbox="media/tutorial-configure-multiple-monitors/remote-desktop-connection-all-monitors.png":::
+
+1. Select **Connect** to start the Remote Desktop session.
 
 # [Non-Windows](#tab/non-Windows)
 
@@ -91,3 +109,4 @@ The dev box might take a few moments to stop.
 
 - [Manage a dev box by using the developer portal](how-to-create-dev-boxes-developer-portal.md)
 - Learn how to [connect to a dev box through the browser](./quickstart-create-dev-box.md#connect-to-a-dev-box)
+

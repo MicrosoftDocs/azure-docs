@@ -4,7 +4,7 @@ description: Learn how to enable and use pg_partman on Azure Database for Postgr
 ms.author: gapaderla
 author: GayathriPaderla
 ms.reviewer: sbalijepalli, maghan
-ms.date: 04/27/2024
+ms.date: 05/17/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
