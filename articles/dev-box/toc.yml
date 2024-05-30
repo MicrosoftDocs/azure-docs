@@ -41,6 +41,8 @@ items:
     href: how-to-manage-dev-box-definitions.md
   - name: Manage a dev box pool
     href: how-to-manage-dev-box-pools.md
+  - name: Display names for a project or pool
+    href: how-to-add-project-pool-display-name.md
   - name: Limit number of dev boxes per project
     href: tutorial-dev-box-limits.md      
   - name: Configure Visual Studio caches
@@ -58,6 +60,8 @@ items:
   items:
   - name: Create reusable customizations
     href: how-to-customize-dev-box-setup-tasks.md
+  - name: Use Dev Home to manage dev boxes
+    href: how-to-use-dev-home-customize-dev-box.md
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal

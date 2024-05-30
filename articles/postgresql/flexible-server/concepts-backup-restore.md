@@ -4,7 +4,7 @@ description: Learn about the concepts of backup and restore with Azure Database 
 author: AwdotiaRomanowna
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/06/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

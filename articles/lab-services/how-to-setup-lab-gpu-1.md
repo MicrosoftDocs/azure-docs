@@ -89,7 +89,7 @@ To manually install drivers for the *visualization* GPU sizes, follow these step
 1. In the lab creation wizard, when you're [creating your lab](./how-to-manage-labs.md), disable the **Install GPU drivers** setting.
 1. After your lab is created, connect to the template VM to install the appropriate drivers.
 1. Install the GRID drivers that are provided by Microsoft on the template VM by following the instructions for your operating system:
-   - [Windows NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
+   - [Windows NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-gridvgpu-drivers)
    - [Linux NVIDIA GRID drivers](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
   
 1. Restart the template VM.

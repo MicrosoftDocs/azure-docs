@@ -3,13 +3,15 @@ title: Visualize collected data
 description: Learn how to quickly view and monitor what's happening across your environment by using Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 05/19/2024
 ms.author: yelevin
 ---
 
 # Visualize collected data
 
-In this article, you will learn how to quickly be able to view and monitor what's happening across your environment using Microsoft Sentinel. After you connected your data sources to Microsoft Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Microsoft Sentinel gives you workbooks that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use workbook templates or create a new workbook easily, from scratch or based on an existing workbook. 
+In this article, you will learn how to quickly be able to view and monitor what's happening across your environment using Microsoft Sentinel. 
+
+After you connected your data sources to Microsoft Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Microsoft Sentinel gives you workbooks that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use workbook templates or create a new workbook easily, from scratch or based on an existing workbook.
 
 ## Get visualization
 
@@ -38,9 +40,23 @@ You see different types of automation data under **Automation**.
 
 :::image type="content" source="./media/qs-get-visibility/automation.png" alt-text="Screenshot of the Automation section in the Microsoft Sentinel Overview page." lightbox="./media/qs-get-visibility/automation.png":::
 
-- At the top, you see a summary of the automation rules activity: Incidents closed by automation, the time the automation saved, and related playbooks health. 
+- At the top, you see a summary of the automation rules activity: Incidents closed by automation, the time the automation saved, and related playbooks health.
+
+   Microsoft Sentinel calculates the time saved by automation by finding the average time that a single automation saved, multiplied by the number of incidents that were resolved by automation. The formula is as follows:
+
+   `(avgWithout - avgWith) * resolvedByAutomation`
+
+   Where:
+
+   - **avgWithout** is the average time it takes for an incident to be resolved without automation.
+   - **avgWith** is the average time it takes for an incident to be resolved by automation.
+   - **resolvedByAutomation** is the number of incidents that are resolved by automation.
+
+
 - Below the summary, a graph summarizes the numbers of actions performed by automation, by type of action. 
+
 - At the bottom, you can find a count of the active automation rules with a link to the automation blade. 
+
 
 ### View status of data records, data collectors, and threat intelligence
 
@@ -68,10 +84,10 @@ Workbook templates provide integrated data from your connected data sources to l
 2. Search for a specific workbook to see the whole list and description of what each offers. 
 3. Assuming you use Microsoft Entra ID, to get up and running with Microsoft Sentinel, we recommend that you install the Microsoft Entra solution for Microsoft Sentinel and use the following workbooks:
    - **Microsoft Entra ID**: Use either or both of the following:
-       - **Microsoft Entra sign-ins** analyzes sign-ins over time to see if there are anomalies. This workbooks provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
+       - **Microsoft Entra sign-ins** analyzes sign-ins over time to see if there are anomalies. This workbook provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
        - **Microsoft Entra audit logs** analyzes admin activities, such as changes in users (add, remove, etc.), group creation, and modifications.  
 
-   - Install the appropriate solution to add a workbook for your firewall. For example, install the Palo Alto firewall solution for Microsoft Sentinel to add the Palo Alto workbooks. The workbooks analyze your firewall traffic, providing you with correlations between your firewall data and threat events, and highlights suspicious events across entities. Workbooks provide you with information about trends in your traffic and let you drill down into and filter results. 
+   - Install the appropriate solution to add a workbook for your firewall. For example, install the Palo Alto firewall solution for Microsoft Sentinel to add the Palo Alto workbooks. The workbooks analyze your firewall traffic, providing you with correlations between your firewall data and threat events, and highlight suspicious events across entities. Workbooks provide you with information about trends in your traffic and let you drill down into and filter results. 
 
       ![Palo Alto dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 

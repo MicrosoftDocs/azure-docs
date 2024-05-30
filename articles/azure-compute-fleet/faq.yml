@@ -1,0 +1,78 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ for Azure Compute Fleet
+  description: Get answers to the most frequently asked questions about Azure Compute Fleet.
+  author: rajeeshr
+  ms.author: rajeeshr
+  ms.topic: faq
+  ms.service: virtual-machines
+  ms.date: 05/21/2024
+  ms.reviewer: jushiman
+  ms.custom: references_regions, build-2024
+title: FAQ for Azure Compute Fleet
+summary: Get answers to the most frequently asked questions about Azure Compute Fleet.
+
+
+sections:
+  - name: Top frequently asked questions for Compute Fleet
+    questions:
+      - question: |
+          How many virtual machines (VMs) can I deploy using Azure Compute fleet? 
+        answer: |
+          Compute Fleet allows you to deploy up to 10,000 VMs in a singe request, as long as you have enough quota of Spot VMs and Standard VMs.
+      - question: |
+          Can I specify target capacity at a Compute Fleet level without specifying Spot and Standard capacity? 
+        answer: |
+          No, target capacity is set individually for Spot and Standard, even if you're using a combination of both virtual machine (VM) types. 
+      - question: |
+          Can I deploy both Spot VMs and Standard VMs in a single Compute Fleet request? 
+        answer: |
+          Yes, you can mix both Spot and Standard VM types in a single fleet request. 
+      - question: |
+          If Spot eviction happens, is more capacity deployed for Standard VMs to meet total fleet capacity? 
+        answer: |
+          No, capacity is managed at a VM type level for Spot VMs and Standard VMs. Spot eviction doesn't trigger to deploy extra capacity on Standard VMs, nor are Spot VMs converted to Standard VMs.
+      - question: |
+          Which Azure regions support Compute Fleet? 
+        answer: |
+          East US, East US2, West US, and West US2.
+      - question: |
+          Which SKUs are supported for Compute Fleet? 
+        answer: |
+          Most SKUs are supported. However, B-series and promo versions of any VM size (example: Dv2, NV, NC, H promo sizes) aren't supported for Azure Spot VMs.
+      - question: |
+          Do I have to request more quota for Standard VMs and Spot VMs to deploy Azure Compute Fleet? 
+        answer: |
+          No. Before deploying, check if you have enough quota on Spot and Standard based on the target capacity requested. Compute Fleet rejects requests if a subscription doesn't have enough quota. 
+      - question: |
+          Can I modify my target capacity on my Compute Fleet? 
+        answer: |
+          Yes, you're allowed to modify target capacity for Standard VMs. However, for Spot VMs, your Compute Fleet has to be configured for capacity preference *maintain capacity*. 
+      - question: |
+          How many VM sizes/SKU types can I add while configuring the Compute Fleet? 
+        answer: |
+          You can add a minimum  of 3 and maximum of 15 VM sizes to deploy Compute Fleet for Spot using the capacity preference *Maintain*. However, there's no minimum number for Standard VMs. The maximum you can add is 15. 
+      - question: |
+          How long is my Compute Fleet request active? 
+        answer: |
+          Compute Fleet requests are active for a year (365 days).
+      - question: |
+          Can I delete my Compute Fleet request? 
+        answer: |
+          Yes, you can delete your Compute Fleet request at any time. All VMs running inside the fleet are deleted. 
+      - question: |
+          What happens if I don't delete the Compute Fleet with Spot VMs, after workload completion? 
+        answer: |
+          Your Spot VMs continue to run until evicted and you incur billing charges. Your Standard VMs continue to run and you incur billing charges until you delete. 
+      - question: |
+          Can I specify target capacity using VM based attribute selection like vCPU or memory? 
+        answer: |
+          No, target capacity is set using VM instance attribute only. 
+      - question: |
+          Can I mix multiple CPU architectures while configuring my Compute Fleet? 
+        answer: |
+          No, you can't mix multiple CPU architectures in a single Compute Fleet request. 
+      - question: |
+          Can I configure start and stop time for my Compute Fleet? 
+        answer: |
+          No, there's no start and stop time configuration available on Compute Fleet. 
