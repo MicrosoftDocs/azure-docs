@@ -539,7 +539,7 @@ This feature makes it possible to handle large data stream, OpenAI integrations,
 
 ### Enable HTTP streams
 
-HTTP streams are disabled by default. You need to enable this feature in your application settings and also update your code to use the FastAPI package.
+HTTP streams are disabled by default. You need to enable this feature in your application settings and also update your code to use the FastAPI package. Note that when enabling HTTP streams, the function app will default to using HTTP streaming, and the original HTTP functionality will not work.
 
 1. Add the `azurefunctions-extensions-http-fastapi` extension package to the `requirements.txt` file in the project, which should include at least these packages:
 
@@ -549,10 +549,13 @@ HTTP streams are disabled by default. You need to enable this feature in your ap
 
     :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="8" ::: 
 
-1. When you deploy to Azure, add these [application settings](./functions-how-to-use-azure-function-app-settings.md#settings) in your function app:
+1. When you deploy to Azure, add the following [application setting](./functions-how-to-use-azure-function-app-settings.md#settings) in your function app:
 
-    + `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"` 
-    + `"PYTHON_ENABLE_INIT_INDEXING": "1"`
+    `"PYTHON_ENABLE_INIT_INDEXING": "1"` 
+
+    If you are deploying to Linux Consumption, also add
+
+    `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"`
 
     When running locally, you also need to add these same settings to the `local.settings.json` project file.
 
