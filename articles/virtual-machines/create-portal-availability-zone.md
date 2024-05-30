@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/17/2022
 ms.author: mimckitt
 ms.reviewer: cynthn
+ms.custom: references_regions
 ---
 
 # Create virtual machines in an availability zone using the Azure portal
@@ -108,8 +109,8 @@ If you would like the resiliency benefits of a Zonal Virtual Machine and want he
 2.	In the Basics tab, under Project details, make sure the correct subscription is selected and then choose a resource group or create a new one.
 3.	Under Instance details, type a name for the Virtual machine name.
 4.	For Availability options, Ensure Availability zone is selected.
-5.	For Zone options (Preview), select Azure-selected zone. The Availability zone selection should now be greyed out. 
-6.	Configure the rest of your Virtual Machine as normal for deployment
+5.	For Zone options (Preview), select Azure-selected zone. The Availability zone selection should now be grayed out. 
+6.	Configure the rest of your Virtual Machine as normal for deployment.
 
 ![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/38542241/163d602b-3976-4559-af09-c5ea67c44056)
 
@@ -129,19 +130,19 @@ Deploying a VM into an Azure-selected zone is available in all Zonal Regions exc
 
 Existing OS and Data Disks are currently not supported. New Data Disk Source Type must be "none".
 
-   #### Supported Disk Types
+   #### Supported Disk types
    - Standard HDDs (hard disk drives)
    - Premium SSDs
    - Premium SSD V2
    - Ultra Disks
   - Standard SSD ZRS
 
-   #### Unsupported Disk Types
+   #### Unsupported Disk types
    - Standard SSD LRS
 
 ![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/38542241/9c297236-c2c6-491e-a0ff-befcbe00b525)
 
-### Other Resources
+### Other resources
  - Existing Public IPs are not supported for an Azure-selected zone. They can be added after deployment.
  - New Public IPs must be Zone Redundant or use an Azure-Selected Zone.
  - Load Balancers and Application Gateways must be Zonally Resilient to attach during the VM deployment.
