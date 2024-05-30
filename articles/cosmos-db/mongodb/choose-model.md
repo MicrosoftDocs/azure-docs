@@ -59,7 +59,7 @@ The vCore and RU services have different architectures with important billing di
 
 ### RU-based resources and billing
 
-- You'd like a multi-tenant service that instantly allocates resources to your workload, aligning with storage and throughput requirements.
+- You'd like a multitenant service that instantly allocates resources to your workload, aligning with storage and throughput requirements.
 
 > [!NOTE]
 > Throughput is based on [Request Units (RUs)](../request-units.md).
