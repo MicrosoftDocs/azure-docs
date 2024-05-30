@@ -594,6 +594,12 @@
   - name: Bicep CLI
     href: bicep-cli.md
     displayName: build,decompile,install,list-versions,list versions,upgrade,version,module,registry
+  - name: Bicep warnings and error 
+    items:
+    - name: BCP033 
+      href: bcp033.md
+    - name: BCP035
+      href: bcp035.md
   - name: Azure PowerShell
     href: /powershell/module/az.resources/
   - name: Azure CLI
