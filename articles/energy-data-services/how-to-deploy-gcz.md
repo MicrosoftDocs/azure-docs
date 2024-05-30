@@ -90,7 +90,7 @@ After you have a successful deployment of GCZ, you can:
 
 - Visualize your GCZ data using the GCZ webapps from the [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/tree/master/docs/test-assets/webapps?ref_type=heads).
 
-> [!WARNING]
+> [!IMPORTANT]
 > The GCZ webapps are currently in development and does not support authentication. We recommend deploying the webapps in a private network and exposing them using Azure Application Gateway or Azure Front Door to enable authentication and authorization.
 
 You can also ingest data into your Azure Data Manager for Energy instance:
