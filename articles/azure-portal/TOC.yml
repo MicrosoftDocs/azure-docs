@@ -42,6 +42,8 @@
     href: azure-portal-dashboard-share-access.md
   - name: Use a custom markdown tile
     href: azure-portal-markdown-tile.md
+  - name: Structure of Azure dashboards
+    href: azure-portal-dashboards-structure.md
   - name: Programmatically create an Azure dashboard
     href: azure-portal-dashboards-create-programmatically.md
     displayName: Azure CLI, az portal dashboard, az portal
@@ -85,8 +87,6 @@
     href: azure-portal-keyboard-shortcuts.md
   - name: Azure portal URLs
     href: azure-portal-safelist-urls.md
-  - name: Structure of Azure dashboards
-    href: azure-portal-dashboards-structure.md
   - name: Azure CLI
     href: /cli/azure/portal
   - name: Azure PowerShell
