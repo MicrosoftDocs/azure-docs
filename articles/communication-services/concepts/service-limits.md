@@ -180,7 +180,8 @@ If you have strict compliance needs, we recommend that you delete chat threads u
 |--|--|--|
 |Default number of outbound* concurrent calls |per Number | 2 
 
-*: no limits on inbound concurrent calls
+*: no limits on inbound concurrent calls. You can also [submit a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to increase the outbound concurrent calls limit and it will be reviewed by our vetting team.
+
 ### Call maximum limitations
 
 | **Name**         | Limit  |
