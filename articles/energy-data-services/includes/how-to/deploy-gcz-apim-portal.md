@@ -10,7 +10,7 @@ author: EirikHaughom
 ms.date: 05/11/2024
 ---
 
-### Add the GCZ API's to Azure API Management
+### Add the GCZ APIs to Azure API Management
 
 1. Navigate to your Azure API Management service the [Azure portal](https://portal.azure.com/).
 1. In the left-hand navigation pane, select **APIs**.
@@ -23,7 +23,7 @@ ms.date: 05/11/2024
 
     [![Add GCZ API to APIM](../../media/how-to-deploy-gcz/deploy-gcz-apim.png)](../../media/how-to-deploy-gcz/deploy-gcz-apim.png)
 
-### Configure the API's policies
+### Configure policies
 
 Next we need to configure the policies to validate the JSON Web Tokens (JWT).
 
