@@ -678,7 +678,8 @@ telemetry.flush();
 The function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 > [!NOTE]
-> The Java and JavaScript SDKs automatically flush on application shutdown.
+> - The Java and JavaScript SDKs automatically flush on application shutdown.
+> - **Review Autoflush configuration**: [Enabling autoflush](https://learn.microsoft.com/dotnet/api/system.diagnostics.trace.autoflush) in your `web.config` file can lead to performance degradation in .NET applications instrumented with Application Insights. With autoflush enabled, every invocation of `System.Diagnostics.Trace.Trace*` methods results in individual telemetry items being sent as separate distinct web requests to the ingestion service. This can potentially cause network and storage exhaustion on your web servers. For enhanced performance, it’s recommended to disable autoflush and also, utilize the [ServerTelemetryChannel](https://learn.microsoft.com/azure/azure-monitor/app/telemetry-channels#built-in-telemetry-channels), designed for a more effective telemetry data transmission.
 
 ## Authenticated users
 
