@@ -63,6 +63,8 @@ Create the Azure App Configuration extension, which installs Azure App Configura
 
 For example, install the latest version of Azure App Configuration Kubernetes Provider via the Azure App Configuration extension on your AKS cluster:
 
+### [Azure CLI](#tab/cli)
+
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
     --cluster-name myAKSCluster \
@@ -72,19 +74,71 @@ az k8s-extension create --cluster-type managedClusters \
     --release-train preview
 ```
 
+### [Bicep](#tab/bicep)
+
+Create a Bicep template using the following example. 
+
+```bicep
+@description('The name of the Managed Cluster resource.')
+param clusterName string
+
+resource existingManagedClusters 'Microsoft.ContainerService/managedClusters@2023-05-02-preview' existing = {
+  name: clusterName
+}
+
+resource appConfigExtension 'Microsoft.KubernetesConfiguration/extensions@2022-11-01' = {
+  name: 'appconfigurationkubernetesprovider'
+  scope: existingManagedClusters
+  properties: {
+    autoUpgradeMinorVersion: true
+    configurationProtectedSettings: {}
+    configurationSettings: {
+      'global.clusterType': 'managedclusters'
+    }
+    extensionType: 'microsoft.appconfiguration'
+    releaseTrain: 'preview'
+  }
+}
+```
+
+Deploy the Bicep template using the `az deployment group` command.
+
+```azurecli
+az deployment group create \
+  --resource-group myResourceGroup \
+  --template-file ./my-bicep-file-path.bicep \
+  --parameters clusterName=myAKSCluster
+```
+
+---
+
 ### Configure automatic updates
 
 If you create Azure App Configuration extension without specifying a version, `--auto-upgrade-minor-version` *is automatically enabled*, configuring the Azure App Configuration extension to automatically update its minor version on new releases.
 
 You can disable auto update by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `false`. 
 
+#### [Azure CLI](#tab/cli)
+
 ```azurecli
 --auto-upgrade-minor-version false
 ```
 
+#### [Bicep](#tab/bicep)
+
+```bicep
+properties {
+  autoUpgradeMinorVersion: false
+}
+```
+
+---
+
 ### Targeting a specific version
 
 The same command-line argument is used for installing a specific version of Azure App Configuration Kubernetes Provider or rolling back to a previous version. Set `--auto-upgrade-minor-version` to `false` and `--version` to the version of Azure App Configuration Kubernetes Provider you wish to install. If the `version` parameter is omitted, the extension installs the latest version.
+
+#### [Azure CLI](#tab/cli)
 
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
@@ -96,6 +150,45 @@ az k8s-extension create --cluster-type managedClusters \
     --release-train preview \
     --version 2.0.0-preview
 ```
+
+#### [Bicep](#tab/bicep)
+
+Create a Bicep template using the following example. 
+
+```bicep
+@description('The name of the Managed Cluster resource.')
+param clusterName string
+
+resource existingManagedClusters 'Microsoft.ContainerService/managedClusters@2023-05-02-preview' existing = {
+  name: clusterName
+}
+
+resource appConfigExtension 'Microsoft.KubernetesConfiguration/extensions@2022-11-01' = {
+  name: 'appconfigurationkubernetesprovider'
+  scope: existingManagedClusters
+  properties: {
+    autoUpgradeMinorVersion: false
+    configurationProtectedSettings: {}
+    configurationSettings: {
+      'global.clusterType': 'managedclusters'
+    }
+    extensionType: 'microsoft.appconfiguration'
+    releaseTrain: 'preview'
+    version: '2.0.0-preview'
+  }
+}
+```
+
+Deploy the Bicep template using the `az deployment group` command.
+
+```azurecli
+az deployment group create \
+  --resource-group myResourceGroup \
+  --template-file ./my-bicep-file-path.bicep \
+  --parameters clusterName=myAKSCluster
+```
+
+---
 
 ## Extension versions
 
