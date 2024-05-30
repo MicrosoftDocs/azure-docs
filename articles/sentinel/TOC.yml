@@ -171,7 +171,9 @@
         - name: Optional deployment steps
           items: 
           - name: Configure SAP data connector to use SNC
-            href: sap/configure-snc.md      
+            href: sap/configure-snc.md
+          - name: Deploy the data connector agent using a configuration file
+            href: sap/deploy- 
           - name: Collect SAP HANA audit logs
             href: sap/collect-sap-hana-audit-logs.md
           - name: Deploy SAP connector manually
