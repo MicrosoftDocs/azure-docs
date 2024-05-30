@@ -449,21 +449,15 @@ Configuration sample
 > [!IMPORTANT]
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-<!--
+You can enable live metrics using the Azure monitor OpenTelemetry Distro for Python as follows:
 
-TODO:
-
-This feature is/isn't enabled by default.
-
-Functionality and customization are covered in the following configuration sample.
-
+```python
+...
+configure_azure_monitor(
+	enable_live_metrics=True
+)
+...
 ```
-Configuration sample
-```
-
--->
-
----
 
 ## Enable Microsoft Entra ID (formerly Azure AD) authentication
 
