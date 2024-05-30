@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 05/13/2024
+ms.date: 05/30/2024
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -114,6 +114,10 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 
 - [Bitglass (using Azure Functions)](data-connectors/bitglass.md)
 
+## Bitsight Technologies, Inc.
+
+- [Bitsight data connector (using Azure Functions)](data-connectors/bitsight-data-connector.md)
+
 ## Blackberry
 
 - [Blackberry CylancePROTECT](data-connectors/blackberry-cylanceprotect.md)
@@ -134,11 +138,13 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 ## Cisco
 
 - [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
+- [Cisco ASA via Legacy Agent](data-connectors/cisco-asa-via-legacy-agent.md)
 - [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Functions)](data-connectors/cisco-duo-security.md)
 - [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
 - [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Functions)](data-connectors/cisco-secure-endpoint-amp.md)
+- [Cisco Secure Cloud Analytics](data-connectors/cisco-secure-cloud-analytics.md)
 - [Cisco Stealthwatch](data-connectors/cisco-stealthwatch.md)
 - [Cisco UCS](data-connectors/cisco-ucs.md)
 - [Cisco Umbrella (using Azure Functions)](data-connectors/cisco-umbrella.md)
@@ -157,6 +163,7 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 
 - [[Deprecated] Claroty via Legacy Agent](data-connectors/deprecated-claroty-via-legacy-agent.md)
 - [[Recommended] Claroty via AMA](data-connectors/recommended-claroty-via-ama.md)
+- [Claroty xDome](data-connectors/claroty-xdome.md)
 
 ## Cloudflare
 
@@ -180,8 +187,10 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 
 ## Crowdstrike
 
-- [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md)
-- [Crowdstrike Falcon Data Replicator V2 (using Azure Functions) (Preview)](data-connectors/crowdstrike-falcon-data-replicator-v2-using-azure-functions.md)
+- [[Deprecated] CrowdStrike Falcon Endpoint Protection via Legacy Agent](data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent.md)
+- [[Recommended] CrowdStrike Falcon Endpoint Protection via AMA](data-connectors/recommended-crowdstrike-falcon-endpoint-protection-via-ama.md)
+- [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator.md)
+- [Crowdstrike Falcon Data Replicator V2 (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-v2.md)
 
 ## Cyber Defense Group B.V.
 
@@ -279,7 +288,11 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 
 ## Fortinet
 
+- [[Deprecated] Fortinet via Legacy Agent](data-connectors/deprecated-fortinet-via-legacy-agent.md)
+- [[Recommended] Fortinet via AMA](data-connectors/recommended-fortinet-via-ama.md)
 - [Fortinet FortiNDR Cloud (using Azure Functions)](data-connectors/fortinet-fortindr-cloud.md)
+- [[Deprecated] Fortinet FortiWeb Web Application Firewall via Legacy Agent](data-connectors/deprecated-fortinet-fortiweb-web-application-firewall-via-legacy-agent.md)
+- [[Recommended] Fortinet FortiWeb Web Application Firewall via AMA](data-connectors/recommended-fortinet-fortiweb-web-application-firewall-via-ama.md)
 
 ## Gigamon, Inc
 
@@ -478,6 +491,8 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 ## Netskope
 
 - [Netskope (using Azure Functions)](data-connectors/netskope.md)
+- [Netskope Data Connector (using Azure Functions)](data-connectors/netskope-data-connector.md)
+- [Netskope Web Transactions Data Connector (using Azure Functions)](data-connectors/netskope-web-transactions-data-connector.md)
 
 ## Netwrix
 
@@ -703,6 +718,10 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 ## WithSecure
 
 - [WithSecure Elements via Connector](data-connectors/withsecure-elements-via-connector.md)
+
+## WithSecure Oyj
+
+- [WithSecure Elements API (Azure Function) (using Azure Functions)](data-connectors/withsecure-elements-api-azure.md)
 
 ## Wiz, Inc.
 
