@@ -42,7 +42,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:  
-          - text: Create reports on power BI
+          - text: Create reports on Power BI
             url: create-reports-power-bi.md
           - text: Dashboards on Azure Managed Grafana
             url: dashboards-on-azure-managed-grafana.md

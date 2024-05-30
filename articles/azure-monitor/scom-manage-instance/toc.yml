@@ -29,7 +29,7 @@
     - name: Step 2. Create separate subnet in a VNet
       href: create-separate-subnet-in-vnet.md
     - name: Step 3. Create a SQL MI
-      herf: create-sql-managed-instance.md
+      href: create-sql-managed-instance.md
     - name: Step 4. Create a Key vault
       href: create-key-vault.md
     - name: Step 5. Create a user assigned identity
