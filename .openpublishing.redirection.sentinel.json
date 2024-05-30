@@ -142,7 +142,7 @@
         },
         {
             "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-function.md",
-            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions",
+            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator",
             "redirect_document_id": true
         },
         {
@@ -1161,11 +1161,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/dns.md",
-            "redirect_url": "/azure/sentinel/data-connectors/windows-dns-events-via-ama",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/sentinel/data-connectors/ai-analyst-darktrace.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
@@ -1202,7 +1197,7 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/crowdstrike-falcon-endpoint-protection.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_url": "/azure/sentinel//data-connectors/recommended-crowdstrike-falcon-endpoint-protection-via-ama",
             "redirect_document_id": false
         },
         {
@@ -1589,6 +1584,16 @@
             "source_path": "articles/sentinel/data-connectors/zero-networks-segment-audit-function-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/zero-networks-segment-audit",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md",
+            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-v2-using-azure-functions.md",
+            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator-v2",
+            "redirect_document_id": true
+        },
     ]
 }
