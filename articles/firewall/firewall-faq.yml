@@ -192,9 +192,10 @@ sections:
           If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.
 
       - question: Are there any firewall resource group restrictions?
-        answer: Yes. The firewall, VNet must be in the same resource group.
-        - Public IP can be in any resource group.
-        - The firewall, VNet, and the public IP address all must be in the same subscription.
+        answer: |
+           Yes. The firewall, VNet must be in the same resource group.
+           - Public IP can be in any resource group.
+           - The firewall, VNet, and the public IP address all must be in the same subscription.
 
       - question: How do wildcards work in target URLs and target FQDNs in application rules?
         answer: |
