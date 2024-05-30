@@ -10,14 +10,12 @@ ms.date: 5/28/2024
 ---
 
 # Create a radio access network insights resource 
---------------------------------------------------------------------
 Radio access network (RAN) insights allows you to connect and view your third party RAN metrics to your private mobile networks in Azure. RAN insights extends the RAN Element Management System (EMS) offered by the RAN vendor to include a Microsoft-compliant metrics agent that streams relevant RAN metrics to Azure. The streamed metrics are stored and presented in a secure and compliant manner, in adherence to Microsoft’s security standards and policies.
 
 Each RAN insights resource is associated with one physical site resource and is composed of one or more access points, which represent the radio unit (nodeB) instance connected. In this how-to guide, you'll learn how to create a RAN insights resource in your private mobile network using Azure portal.
 
 
 ## Prerequisites
---------------------------------------------------------------------
 - Active deployment of Azure Private 5G Core(complete-private-mobile-network-prerequisites.md).
     - Check if the network is ready by verifying that a device / user equipment (UE) connected to the network through the RAN can transmit and receive data. If this doesn't work, fix any problems before trying to activate the RAN insights feature.  
 - Deploy a compatible version of the RAN EMS from your RAN partner. You'll need to verify with your RAN partner that your RAN EMS contains a Microsoft-compatible External Metrics Agent (EMA) to send metrics to Azure. If not, your partner will need to install a metrics agent on the EMS you're using. Information on how and where to establish the connection between Azure and the EMS is specific to the RAN vendor, so contact them for details.  
@@ -31,7 +29,6 @@ Each RAN insights resource is associated with one physical site resource and is 
 
 
 ## Create the RAN insights resource
---------------------------------------------------------------------
 1. Sign in to the Azure portal. 
 1. Navigate to your site resource.
 1. On the **Physical Infrastructure** page, select **Radio access network insights** and press create. 
@@ -47,7 +44,6 @@ Each RAN insights resource is associated with one physical site resource and is 
 
 
 ## Enable/Disable metrics ingestion endpoint (MIE) instance
---------------------------------------------------------------------
 If the MIE was not enabled during creation, the RAN **Overview** page under the **MIE details** tab shows a message stating that MIE was not enabled. 
     :::image type="content" source="media/ran-insights/RAN-Insights-MIE-notEnabled.png" alt-text="Screenshot of the Azure portal showing a RAN insight resource MIE not enabled.":::
 The MIE resource is automatically deleted from the service if it is "Disabled" from the online service portal or if you choose to delete the RAN insights resource. If you disable the MIE resource you'll still have access to your historical data for up to 30 days, but the RAN insights resource will stop reporting metrics. 
@@ -58,7 +54,6 @@ You can enable and disable your MIE under the Configuration blade:
 
 
 ## View MIE details 
---------------------------------------------------------------------
 Once your RAN insights resource is configured and set up, you can view additional information in the **Overview** page under the **MIE details** tab. 
     :::image type="content" source="media/ran-insights/RAN-Insights-MIE-Tab.png" alt-text="Screenshot of the Azure portal showing a RAN insight resource MIE details.":::
 
@@ -75,7 +70,6 @@ If you're unable to access the information in the MIE key vault URL then you may
 
 
 ## Delete a RAN insights resource
---------------------------------------------------------------------
 You can delete your RAN insights resource from the RAN insights resource or your site resource. 
 To delete from your RAN insights resource: 
 1. Navigate to your RAN insights resource.
