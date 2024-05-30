@@ -11,13 +11,11 @@ ms.date: 5/28/2024
 
 
 # Monitor with geo maps in Azure portal
---------------------------------------------------------------------
 Once you have [set up](ran-insights-create-resource.md) your radio access network (RAN) insights resource you can view your RAN insights geo map. Geo maps use Azure Maps to show a graphical display of all access points that are linked to a RAN insights resource along with key [RAN metrics](ran-insights-monitor-with-ran-metrics-concepts.md). They indicate the health condition of access points and let you see the components that are attached to sites.
 
 
 
 ## Set up geo maps
---------------------------------------------------------------------
 Geo maps provide a visual understanding of your network by showcasing all access points and their health status. 
 
 To get started, you'll need an existing Azure Maps resource or [create](https://learn.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) a new one. To create a new Azure Map resource: 
@@ -31,7 +29,7 @@ Once you have your Azure Map resource, you must now connect it to your Mobile Ne
 1.	Navigate to your existing Mobile Network Resource
 1.	On the **Overview** blade of the Mobile Network Resource select **Modify mobile network** 
      :::image type="content" source="media/ran-insights/RAN-Insights-Modify-Network.png" alt-text="Screenshot of the Azure portal modify mobile network.":::
-3.	In the **Azure map account** section, choose your Azure Map resource. Only the Azure Map resource associated with this subscription appears in the drop down menu.  
+3.	In the **Azure map account** section, choose your Azure Map resource. Only the Azure Map resource associated with this subscription appears in the drop-down menu.  
 1.	Select **Modify** and wait for the deployment to complete
 1.	Navigate to your RAN insights resource 
     1. On your RAN insights resource, ensure you have set up all your access points and their latitude and longitude values. You can modify the values by selecting the access point resource and pressing the **Modify** button. 
@@ -41,7 +39,6 @@ Once you have your Azure Map resource, you must now connect it to your Mobile Ne
 
 
 ## Visualize access points using geo maps 
---------------------------------------------------------------------
 You can hover on the access point to see additional information, such as its name, latitude and longitude, availability rate, number of active UEs, and uplink/downlink throughput values. 
     :::image type="content" source="media/ran-insights/RAN-Insights-GeoMaps.png" alt-text="Screenshot of the Azure portal showing creating a RAN insight resource green pin geo map.":::
 
@@ -54,7 +51,6 @@ Note that all metrics shown are based on current values. To access historical da
 
 
 ## Related content
---------------------------------------------------------------------
 - [Monitor with RAN metrics](ran-insights-monitor-with-ran-metrics-concepts.md)
 - [Monitor with correlated metrics](ran-insights-monitor-with-correlated-metrics-concepts.md)
 
