@@ -172,7 +172,7 @@ Working with Azure storage APIs is beyond the scope of this article. In addition
 
 ## Device: Notify IoT Hub of a completed file upload
 
-The device calls the [Update File Upload Status](/rest/api/iothub/device/update-file-upload-status) REST API or the equivalent API in one of the device SDKs when it completes the file upload. The device should update the file upload status with IoT Hub regardless of whether the upload succeeds or fails.
+The device calls the [Update File Upload Status](/rest/api/iothub/device/device/update-file-upload-status) REST API or the equivalent API in one of the device SDKs when it completes the file upload. The device should update the file upload status with IoT Hub regardless of whether the upload succeeds or fails.
 
 **Supported protocols**: HTTPS <br/>
 **Endpoint**: {iot hub}.azure-devices.net/devices/{deviceId}/files/notifications <br/>

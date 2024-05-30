@@ -79,7 +79,7 @@ This article demonstrates how you can add a new catalog to your cluster using AR
                         },
                         {
                             "fileName": "trinotestdb1.properties",
-                            "content":"connector.name=sqlserver\nconnection-url=jdbc:sqlserver://mysqlserver1.database.windows.net:1433;database=db1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;\nconnection-user=${SECRET_REF:trinotest-admin-user}\nconnection-password=${SECRET_REF:trinotest-admin-pwd}\n"
+                            "content":"connector.name=sqlserver\nconnection-url=jdbc:sqlserver://server-name.database.windows.net:1433;database=db1;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;\nconnection-user=${SECRET_REF:trinotest-admin-user}\nconnection-password=${SECRET_REF:trinotest-admin-pwd}\n"
                         },
                     ]
                 }
