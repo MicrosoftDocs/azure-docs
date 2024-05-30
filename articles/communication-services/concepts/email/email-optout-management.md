@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include-document.md)]
 
 > [!IMPORTANT]
-> The functionality described in this article is currently only available in SDK version [Azure.ResourceManager.Communication/1.2.0-beta.4](https://www.nuget.org/packages/Azure.ResourceManager.Communication/1.2.0-beta.4).
+> The functionality described in this article is only available in the latest Azure.ResourceManager.Communication SDK [beta versions](https://www.nuget.org/packages/Azure.ResourceManager.Communication/#versions-body-tab).
   
 This article provides best practices for email delivery and describes how to use the Azure Communication Services email suppression list. This feature enables customers to manage opt-out capabilities for email communications.
 
