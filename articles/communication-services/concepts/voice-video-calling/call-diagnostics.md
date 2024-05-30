@@ -17,8 +17,6 @@ ms.subservice: calling
 
 # Call Diagnostics
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 Understanding your call quality and reliability is foundational to
 delivering a great customer calling experience. There are various
 issues that can affect the quality of your calls, such as poor internet
