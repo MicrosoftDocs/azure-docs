@@ -1599,6 +1599,16 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/dns.md",
             "redirect_url": "/azure/sentinel/data-connectors/windows-dns-events-via-ama",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/fortinet-fortiweb-web-application-firewall.md",
+            "redirect_url": "/azure/sentinel/data-connectors/deprecated-fortinet-fortiweb-web-application-firewall-via-legacy-agent",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/fortinet.md",
+            "redirect_url": "/azure/sentinel/data-connectors/deprecated-fortinet-via-legacy-agent",
+            "redirect_document_id": true
         }
     ]
 }
