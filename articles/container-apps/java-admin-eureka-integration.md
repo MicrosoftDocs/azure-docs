@@ -136,7 +136,6 @@ With the Eureka Server set up, you can now bind other applications to it for ser
 
 ## View the application in both Admin for Spring and Eureka Server for Spring dashboards
 
-
 1. Create the custom role definition.
 
     ```azurecli
@@ -191,7 +190,11 @@ With the Eureka Server set up, you can now bind other applications to it for ser
         --query properties.ingress.fqdn -o tsv
     ```
 
-    You should be able to access the Admin for Spring dashboard and the Eureka Server for Spring dashboard using the URLs provided. And the container app as well as the Admin for Spring server should be visible in both dashboards.
+    You should be able to access the Admin for Spring dashboard and the Eureka Server for Spring dashboard using the URLs provided. And the container app as well as the Admin for Spring server should be visible in both dashboards like screenshots below: 
+
+    :::image type="content" source="media/java-components/sba.png" alt-text="Screenshot of the Admin for Spring dashboard."  lightbox="media/java-components/sba.png":::
+
+    :::image type="content" source="media/java-components/eureka.png" alt-text="Screenshot of the Eureka Server for Spring dashboard."  lightbox="media/java-components/eureka.png":::
 
 ## Clean up resources
 
@@ -200,5 +203,10 @@ The resources created in this tutorial have an effect on your Azure bill. If you
 ```azurecli
 az group delete \
   --resource-group $RESOURCE_GROUP
+```
 
+## Next steps
 
+> [!div class="nextstepaction"]
+> [Configure Eureka Server for Spring settings](java-eureka-server-usage.md)
+> [Configure Admin for Spring settings](java-admin-for-spring-usage.md)

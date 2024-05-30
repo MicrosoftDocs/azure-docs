@@ -148,6 +148,55 @@ Now that you have an existing environment, you can create your container app and
 
     You can also [remove a binding](java-eureka-server-usage.md#unbind) from your application.
 
+## View the application in Eureka Server for Spring dashboards
+
+1. Create the custom role definition.
+
+    ```azurecli
+    az role definition create --role-definition '{
+        "Name": "Java Component Dashboard Access",
+        "IsCustom": true,
+        "Description": "Can access managed Java Component dashboards in managed environments",
+        "Actions": [
+            "Microsoft.App/managedEnvironments/write"
+        ],
+        "AssignableScopes": ["/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
+    }'
+    ```
+    
+1. Assign the Custom Role to your accound on managed environment resource.
+
+    Get the resource id of the managed environment:
+
+    ```azurecli
+        export ENVIRONMENT_ID=$(az containerapp env show \
+         --name $ENVIRONMENT --resource-group $RESOURCE_GROUP \ 
+         --query id -o tsv)
+    ```
+
+1. Assign the role to the your account.
+    
+    ```azurecli
+        az role assignment create \
+        --assignee <user-or-service-principal-id> \
+        --role "Java Component Dashboard Access" \
+        --scope $ENVIRONMENT_ID
+    ```
+
+1. Get the URL of the Eureka Server for Spring dashboard.
+
+    ```azurecli
+        az containerapp env java-component eureka-server-for-spring show \
+        --environment $ENVIRONMENT \
+        --resource-group $RESOURCE_GROUP \
+        --name $JAVA_COMPONENT_NAME \
+        --query properties.ingress.fqdn -o tsv
+    ```
+
+    You should be able to access the Eureka Server for Spring dashboard using the URLs provided. And the container app should be visible in the dashboard like the screenshot below:
+
+    :::image type="content" source="media/java-components/eureka-alone.png" alt-text="Screenshot of the Eureka Server for Spring dashboard."  lightbox="media/java-components/eureka-alone.png":::
+
 ## Clean up resources
 
 The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
@@ -161,3 +210,4 @@ az group delete \
 
 > [!div class="nextstepaction"]
 > [Configure Eureka Server for Spring settings](java-eureka-server-usage.md)
+> [Tutorial: Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md)

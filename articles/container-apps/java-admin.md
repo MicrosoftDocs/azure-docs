@@ -100,11 +100,8 @@ Now that you have an existing environment, you can create your container app and
     az containerapp env java-component admin-for-spring create \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
-      --name $JAVA_COMPONENT_NAME \
-      --query properties.ingress.fqdn -o tsv
+      --name $JAVA_COMPONENT_NAME
     ```
-
-    This command returns the dashboard URL of your Admin for Spring. Copy the URL to the browser and you can view the Admin for Spring dashboard after finishing the authentication process.
 
 1. Create the container app and bind to the Admin for Spring.
 
@@ -132,6 +129,56 @@ Now that you have an existing environment, you can create your container app and
     This property indicates that the Admin for Spring client should prefer the IP address of the container app instance when connecting to the Admin for Spring server.
 
     You can also [remove a binding](admin-for-spring-usage.md#unbind) from your application.
+
+## View the application in Admin for Spring dashboards
+
+1. Create the custom role definition.
+
+    ```azurecli
+    az role definition create --role-definition '{
+        "Name": "Java Component Dashboard Access",
+        "IsCustom": true,
+        "Description": "Can access managed Java Component dashboards in managed environments",
+        "Actions": [
+            "Microsoft.App/managedEnvironments/write"
+        ],
+        "AssignableScopes": ["/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
+    }'
+    ```
+    
+
+1. Assign the Custom Role to your accound on managed environment resource.
+
+    Get the resource id of the managed environment:
+
+    ```azurecli
+        export ENVIRONMENT_ID=$(az containerapp env show \
+         --name $ENVIRONMENT --resource-group $RESOURCE_GROUP \ 
+         --query id -o tsv)
+    ```
+
+1. Assign the role to the your account.
+    
+    ```azurecli
+        az role assignment create \
+        --assignee <user-or-service-principal-id> \
+        --role "Java Component Dashboard Access" \
+        --scope $ENVIRONMENT_ID
+    ```
+
+1. Get the URL of the Admin for Spring dashboard.
+
+    ```azurecli
+        az containerapp env java-component admin-for-spring show \
+        --environment $ENVIRONMENT \
+        --resource-group $RESOURCE_GROUP \
+        --name $JAVA_COMPONENT_NAME \
+        --query properties.ingress.fqdn -o tsv
+    ```
+
+    You should be able to access the Admin for Spring dashboard using the URLs provided. And the container app should be visible in the dashboard like the screenshot below:
+
+    :::image type="content" source="media/java-components/sba-alone.png" alt-text="Screenshot of the Admin for Spring dashboard."  lightbox="media/java-components/sba-alone.png":::
 
 ## Clean up resources
 
