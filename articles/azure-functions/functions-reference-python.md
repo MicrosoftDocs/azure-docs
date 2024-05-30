@@ -551,11 +551,11 @@ HTTP streams are disabled by default. You need to enable this feature in your ap
 
 1. When you deploy to Azure, add the following [application setting](./functions-how-to-use-azure-function-app-settings.md#settings) in your function app:
 
-    `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"` 
+    `"PYTHON_ENABLE_INIT_INDEXING": "1"` 
 
     If you are deploying to Linux Consumption, also add
 
-    `"PYTHON_ENABLE_INIT_INDEXING": "1"`
+    `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"`
 
     When running locally, you also need to add these same settings to the `local.settings.json` project file.
 
