@@ -251,7 +251,7 @@ Let's take a look at an example. Imagine you have a policy initiative named _Cos
 }
 ```
 
-Another common use case for overrides is rolling out a new version of a definition. For recommended steps on safely updating an assignment version, see [Policy Safe deployment](../how-to/policy-safe-deployment-practices.md#steps-for-safely-updating-built-in-definition-version-within-azure-policy-assignment)
+Another common use case for overrides is rolling out a new version of a definition. For recommended steps on safely updating an assignment version, see [Policy Safe deployment](../how-to/policy-safe-deployment-practices.md#steps-for-safely-updating-built-in-definition-version-within-azure-policy-assignment).
 
 Overrides have the following properties:
 - `kind`: The property the assignment will override. The supported kinds are `policyEffect` and `policyVersion`.
