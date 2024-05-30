@@ -9,6 +9,7 @@ ms.author: eihaugho
 author: EirikHaughom
 ms.date: 05/11/2024
 ---
+
 # Deploy Geospatial Consumption Zone on top of Azure Data Manager for Energy
 
 This guide shows you how to deploy the OSDU Admin UI on top of your Azure Data Manager for Energy (ADME) instance.
@@ -22,7 +23,7 @@ The OSDU Geospatial Consumption Zone (GCZ) is a service that enables enhanced ma
 
 ## Setup
 
-::: zone pivot="Azure Kubernetes Service (AKS) "
+::: zone pivot="Azure Kubernetes Service (AKS)"
 
 [!INCLUDE [Azure Kubernetes Service (AKS)](includes/how-to/deploy-gcz-on-aks.md)]
 
@@ -36,12 +37,61 @@ The OSDU Geospatial Consumption Zone (GCZ) is a service that enables enhanced ma
 
 ## Publish GCZ API's publicly (optional)
 
+If you want to expose the GCZ API's publicly, you can use Azure API Management (APIM).
+The reason for using Azure API Management is to provide a secure and scalable way to expose the GCZ API's to the public internet, as the GCZ service does not yet have authentication and authorization built in.
+Through APIM we can add policies to secure, monitor and manage the API's.
+
+### Prerequisites
+
+- An Azure API Management instance. If you don't have an Azure API Management instance, see [Create an Azure API Management instance](/azure/api-management/get-started-create-service-instance).
+- The GCZ API's are deployed and running.
+
+> [!IMPORTANT]
+> The Azure API Management instance will need to be injected into a virtual network that is routable to the AKS cluster to be able to communicate with the GCZ API's.
+
+### Add the GCZ API's to Azure API Management
+
+
+#### Download the GCZ OpenAPI specifications
+
+1. Download the two OpenAPI specification to your local computer.
+    - [GCZ Provider](../../media/how-to-deploy-gcz/gcz-openapi-provider.yaml)
+    - [GCZ Transformer](../../media/how-to-deploy-gcz/gcz-openapi-transformer.yaml)
+1. Open each OpenAPI specification file in a text editor and replace the `servers` section with the IPs of the AKS GCZ Services' Load Balancer (External IP).
+    ```yaml
+    servers:
+    - url: "http://<GCZ-Service-External-IP>/ignite-provider"
+    ```
+
+::: zone pivot="Azure Portal"
+
+[!INCLUDE [Azure Portal](includes/how-to/deploy-gcz-apim-portal.md)]
+
+::: zone-end
+
+::: zone pivot="Azure CLI"
+
+[!INCLUDE [Azure CLI](includes/how-to/deploy-gcz-apim-cli.md)]
+
+::: zone-end
+
 ## Testing the GCZ
+
+1. Download the API client collection from the [OSDU GitLab](hthttps://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (e.g. Postman).
+1. Add the following environment variables to your API client:
+    - `PROVIDER_URL` - The URL to the GCZ Provider API.
+    - `AMBASSADOR_URL` - The URL to the GCZ Transformer API.
+    - `access_token` - A valid ADME access token.
+
+1. Run the API calls in the collection to verify that the GCZ is working as expected.
 
 ## Next steps
 After you have a successful deployment of GCZ, you can:
 
-- 
+- Visualize your GCZ data using the GCZ webapps from the [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/tree/master/docs/test-assets/webapps?ref_type=heads).
+
+> [!WARNING]
+> The GCZ webapps are currently in development and does not support authentication. We recommend deploying the webapps in a private network and exposing them using Azure Application Gateway or Azure Front Door to enable authentication and authorization.
 
 You can also ingest data into your Azure Data Manager for Energy instance:
 
@@ -50,5 +100,4 @@ You can also ingest data into your Azure Data Manager for Energy instance:
     
 ## References
 
-For information about Geospatial Consumption Zone, see [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/tree/master).
-For other deployment methods (Azure Kubernetes Service), see [GCZ Kubernetes Deployment Guide](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/deployment/kubernetes/README.md#gcz---kubernetes-deployment-guide).
+- For information about Geospatial Consumption Zone, see [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/).

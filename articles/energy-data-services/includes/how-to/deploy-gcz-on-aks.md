@@ -62,7 +62,7 @@ In this guide, you will learn how to deploy Geospatial Consumption Zone (GCZ) on
     VERSION=0.1.0
     ```
 
-    ### [Windows Powershell](#tab/windows-powershell)
+    ### [Windows PowerShell](#tab/windows-powershell)
 
     ```powershell
     # Define the variables for Azure Data Manager for Energy
@@ -140,7 +140,7 @@ In this guide, you will learn how to deploy Geospatial Consumption Zone (GCZ) on
         gcz_ignite_service: "$GCZ_IGNITE_SERVICE"   
     EOF
     ```
-    ### [Windows Powershell](#tab/windows-powershell)
+    ### [Windows PowerShell](#tab/windows-powershell)
 
     ```powershell
     @"
@@ -243,7 +243,7 @@ In this guide, you will learn how to deploy Geospatial Consumption Zone (GCZ) on
     EOF
     ```
 
-    ### [Windows Powershell](#tab/windows-powershell)
+    ### [Windows PowerShell](#tab/windows-powershell)
 
     ```powershell
     @"
@@ -311,3 +311,11 @@ In this guide, you will learn how to deploy Geospatial Consumption Zone (GCZ) on
     ```
 
     This should show the pods for the `ignite`, `provider` and `transformer` services.
+
+1. Next get note the External IPs for the `provider` and `transformer` services.
+
+    ```bash
+    kubectl get service -n $NAMESPACE
+    ```
+
+    These IPs are used to connect to the GCZ API endpoints.
