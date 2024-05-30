@@ -20,7 +20,7 @@ After connecting your data sources to Microsoft Sentinel, use the **Overview** p
 
 ## Prerequisites
 
-- Make sure that you have reader access to Micrososft Sentinel resources. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
+- Make sure that you have reader access to Microsoft Sentinel resources. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
 
 ## Access the Overview page
 
