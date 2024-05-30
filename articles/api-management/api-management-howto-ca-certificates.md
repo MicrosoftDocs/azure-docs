@@ -13,7 +13,7 @@ ms.custom:
 
 # How to add a custom CA certificate in Azure API Management
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-no-v2.md](../../includes/api-management-availability-premium-dev-standard-basic-no-v2.md)]
 
 Azure API Management allows installing CA certificates on the machine inside the trusted root and intermediate certificate stores. This functionality should be used if your services require a custom CA certificate.
 
