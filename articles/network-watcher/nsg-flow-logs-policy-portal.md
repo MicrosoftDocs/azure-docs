@@ -67,7 +67,7 @@ To assign the *deployIfNotExists* policy:
 
 1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/portal.png" alt-text="Screenshot of searching for Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/portal.png":::
+    :::image type="content" source="./media/nsg-flow-logs-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for Azure Policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/policy-portal-search.png":::
 
 1. Select **Assignments**, and then select **Assign policy**.
 
