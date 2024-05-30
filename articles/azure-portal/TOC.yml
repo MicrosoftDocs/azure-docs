@@ -32,6 +32,8 @@
     href: manage-filter-resource-views.md
   - name: Find subscription and tenant IDs
     href: get-subscription-tenant-id.md
+  - name: Azure portal how-to video series
+    href: azure-portal-video-series.md
 - name: Dashboards
   items:
   - name: Create an Azure dashboard
@@ -45,8 +47,6 @@
     displayName: Azure CLI, az portal dashboard, az portal
   - name: Recover a deleted dashboard
     href: recover-shared-deleted-dashboard.md
-  - name: Azure portal how-to video series
-    href: azure-portal-video-series.md
 - name: Support requests
   items:
   - name: Create an Azure support request
