@@ -54,7 +54,7 @@ To integrate with Crowdstrike Falcon Data Replicator (using Azure Functions) mak
    >  This connector uses Azure Functions to connect to the S3 bucket to pull logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
@@ -67,7 +67,7 @@ To integrate with Crowdstrike Falcon Data Replicator (using Azure Functions) mak
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
 
->**IMPORTANT:** Before deploying the Crowdstrike Falcon Data Replicator connector, have the Workspace ID and Workspace Primary Key (can be copied from the following).
+**IMPORTANT:** Before deploying the Crowdstrike Falcon Data Replicator connector, have the Workspace ID and Workspace Primary Key (can be copied from the following).
 
 
 
@@ -79,7 +79,7 @@ Use this method for automated deployment of the Crowdstrike Falcon Data Replicat
 
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-CrowdstrikeReplicator-azuredeploy)
 2. Select the preferred **AWS_SECRET**, **AWS_REGION_NAME**, **AWS_KEY**, **QUEUE_URL**. 
-> **NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.
+ **NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.
 3. Enter the **AWS_SECRET**, **AWS_REGION_NAME**, **AWS_KEY**, **QUEUE_URL** and deploy. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
@@ -91,7 +91,7 @@ Use the following step-by-step instructions to deploy the Crowdstrike Falcon Dat
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+**NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-CrowdstrikeReplicator-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

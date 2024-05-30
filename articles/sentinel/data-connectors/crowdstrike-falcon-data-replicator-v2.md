@@ -52,7 +52,7 @@ To integrate with Crowdstrike Falcon Data Replicator V2 (using Azure Functions) 
 > [!NOTE]
    >  This connector uses Azure Functions to connect to the AWS SQS / S3 to pull logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
->**(Optional Step)** Securely store API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+**(Optional Step)** Securely store API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 Prerequisites
 
@@ -75,7 +75,7 @@ Use this method for automated deployment of the Crowdstrike Falcon Data Replicat
 
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-CrowdstrikeReplicatorV2-azuredeploy) [![Deploy to Azure Gov](https://aka.ms/deploytoazuregovbutton)](https://aka.ms/sentinel-CrowdstrikeReplicatorV2-azuredeploy-gov) 			
 2. Provide the required details such as Microsoft Sentinel Workspace, CrowdStrike AWS credentials, Azure AD Application details and ingestion configurations 
-> **NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group. It is recommended to create a new Resource Group for deployment of function app and associated resources.
+**NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group. It is recommended to create a new Resource Group for deployment of function app and associated resources.
 3. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 4. Click **Purchase** to deploy.
 
