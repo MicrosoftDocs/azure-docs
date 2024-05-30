@@ -286,7 +286,7 @@ The high-level steps involved in liveness orchestration are illustrated below:
     print(f"Session status: {liveness_result.status}")
     print(f"Liveness detection request id: {liveness_result.result.request_id}")
     print(f"Liveness detection received datetime: {liveness_result.result.received_date_time}")
-    print(f"Liveness detection result: {liveness_result.result.response.body.liveness_decision}")
+    print(f"Liveness detection decision: {liveness_result.result.response.body.liveness_decision}")
     print(f"Session created datetime: {liveness_result.created_date_time}")
     print(f"Auth token TTL (seconds): {liveness_result.auth_token_time_to_live_in_seconds}")
     print(f"Session expired: {liveness_result.session_expired}")
@@ -549,8 +549,6 @@ The high-level steps involved in liveness with verification orchestration are il
                     name: 'Parameters',
                     body: {
                         livenessOperationMode: 'Passive',
-                        sendResultsToClient: false,
-                       authTokenTimeToLiveInSeconds: 60,
                         deviceCorrelationId: '723d6d03-ef33-40a8-9682-23a1feb7bccd',
                     },
                 },
@@ -566,7 +564,7 @@ The high-level steps involved in liveness with verification orchestration are il
         console.log(`Auth token: ${createLivenessSessionResponse.body.authToken}`);
         console.log('The reference image:');
         console.log(`  Face rectangle: ${createLivenessSessionResponse.body.verifyImage.faceRectangle}`);
-        console.log(`  The quality for recognition: ${createLivenessSessionResponse.body.verifyImage.qualityForRecognition})
+        console.log(`  The quality for recognition: ${createLivenessSessionResponse.body.verifyImage.qualityForRecognition}`)
         ```
 
         #### [REST API (Windows)](#tab/cmd)
