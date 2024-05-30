@@ -20,7 +20,7 @@ The script generates a random password for the SQL server and a random SSH key f
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
-:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png" alt-text="Diagram of resources created in private endpoint quickstart." lightbox="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png":::
 
 ## Prerequisites
 
