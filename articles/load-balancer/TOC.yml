@@ -136,6 +136,8 @@
       href: load-balancer-insights.md
     - name: Standard Load Balancer metrics and diagnostics
       href: load-balancer-standard-diagnostics.md
+    - name: Load Balancer Health Event Logs
+      href: load-balancer-health-event-logs.md
   - name: Inbound connectivity
     items:
     - name: Inbound NAT rules
@@ -168,12 +170,14 @@
       href: manage-probes-how-to.md
     - name: Create a custom HTTP/HTTPS health probe
       href: create-custom-http-health-probe-howto.md
-  - name: Load Balancer metrics
+  - name: Load Balancer metrics and logs
     items:
     - name: Get Load Balancer metrics with Azure Monitor CLI
       href: load-balancer-monitor-metrics-cli.md
     - name: Get Load Balancer metrics with REST
       href: load-balancer-query-metrics-rest-api.md
+    - name: Monitor and alert with LoadBalancerHealthEvent logs
+      href: load-balancer-monitor-alert-health-event-logs.md
   - name: Inbound connectivity
     items:
     - name: Floating IP configuration
@@ -264,6 +268,8 @@
       href: troubleshoot-load-balancer-imds.md
     - name: Common deployment errors
       href: load-balancer-common-deployment-errors.md
+    - name: Troubleshoot load balancer health event logs
+      href: load-balancer-troubleshoot-health-event-logs.md
 - name: Reference
   items:
   - name: Code samples
