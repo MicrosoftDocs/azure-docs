@@ -2,7 +2,7 @@
 title: Troubleshoot events - Azure Health Data Services
 description: Learn how to troubleshoot events.
 services: healthcare-apis
-author: chachachachame
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: troubleshooting

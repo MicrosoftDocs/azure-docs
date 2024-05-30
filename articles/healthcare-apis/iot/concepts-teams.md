@@ -1,7 +1,7 @@
 ---
 title: MedTech service and Teams notifications - Azure Health Data Services
 description: Learn how to use the MedTech service and Teams notifications
-author: chachachachame
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual

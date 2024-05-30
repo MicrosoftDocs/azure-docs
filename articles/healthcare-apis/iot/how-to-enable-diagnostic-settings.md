@@ -2,7 +2,7 @@
 title: How to enable the MedTech service diagnostic settings - Azure Health Data Services
 description: Learn how to enable the MedTech service diagnostic settings.
 services: healthcare-apis
-author: chachachachame
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to

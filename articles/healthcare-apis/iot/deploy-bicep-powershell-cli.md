@@ -1,7 +1,7 @@
 ---
 title: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI - Azure Health Data Services
 description: Learn how to deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI.
-author: chachachachame
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.custom: devx-track-bicep, devx-track-azurepowershell, devx-track-azurecli

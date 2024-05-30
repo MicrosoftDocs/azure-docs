@@ -1,7 +1,7 @@
 ---
 title: Get started with the MedTech service - Azure Health Data Services
 description: Learn the basic steps for deploying the MedTech service.
-author: chachachachame
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart

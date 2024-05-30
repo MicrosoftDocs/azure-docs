@@ -2,7 +2,7 @@
 title: MedTech service scenario-based mappings samples - Azure Health Data Services
 description: Learn about the MedTech service scenario-based mappings samples.
 services: healthcare-apis
-author: chachachachame
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: sample

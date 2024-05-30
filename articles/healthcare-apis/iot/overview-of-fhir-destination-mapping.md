@@ -1,7 +1,7 @@
 ---
 title: Overview of the MedTech service FHIR destination mapping - Azure Health Data Services
 description: Learn about the MedTech service FHIR destination mapping.
-author: chachachachame
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview

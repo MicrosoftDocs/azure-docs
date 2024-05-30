@@ -2,7 +2,7 @@
 title: Frequently asked questions about the MedTech service - Azure Health Data Services
 description: Learn about the MedTech service frequently asked questions.
 services: healthcare-apis
-author: chachachachame
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: faq
