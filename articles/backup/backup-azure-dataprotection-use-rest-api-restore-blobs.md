@@ -25,7 +25,7 @@ To illustrate the restoration steps in this article, we'll refer to blobs in a s
 
 ## Prepare for Azure Blobs restore
 
-You can now do the restore operation for *operational backup* and *vaulted backup* for Azure Blobs.
+You can now do the restore operation for *operational backup* and *vaulted backup (preview)* for Azure Blobs.
 
 **Choose a backup tier**:
 
@@ -201,7 +201,7 @@ The key points to remember in this scenario are:
 }
 ```
 
-# [Vaulted backup](#tab/vaulted-backup)
+# [Vaulted backup (preview)](#tab/vaulted-backup)
 
 [!INCLUDE [blob-vaulted-backup-restore-restapi.md](../../includes/blob-vaulted-backup-restore-restapi.md)]
 

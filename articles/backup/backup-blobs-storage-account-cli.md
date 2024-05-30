@@ -60,7 +60,7 @@ After creating a vault, let's create a Backup policy to protect Azure Blobs in a
 
 ## Create a backup policy
 
-You can create a backup policy for *operational backup* and *vaulted backup* for Azure Blobs using Azure CLI.
+You can create a backup policy for *operational backup* and *vaulted backup (preview)* for Azure Blobs using Azure CLI.
 
 **Choose a backup tier**:
 
@@ -170,7 +170,7 @@ az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVau
   }
 ```
 
-# [Vaulted backup](#tab/vaulted-backup)
+# [Vaulted backup (preview)](#tab/vaulted-backup)
 
 [!INCLUDE [blob-backup-create-policy-cli.md](../../includes/blob-backup-create-policy-cli.md)]
 

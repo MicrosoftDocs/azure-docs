@@ -108,7 +108,7 @@ blobBkpPolicy       Microsoft.DataProtection/backupVaults/backupPolicies
 
 $blobBkpPol = Get-AzDataProtectionBackupPolicy -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Name "blobBkpPolicy"
 ```
-# [Vaulted Backup](#tab/vaulted-backup)
+# [Vaulted Backup (preview)](#tab/vaulted-backup)
 
 [!INCLUDE [blob-vaulted-backup-create-policy-ps.md](../../includes/blob-vaulted-backup-create-policy-ps.md)]
 
@@ -138,7 +138,7 @@ blobrg-PSTestSA-3df6ac08-9496-4839-8fb5-8b78e594f166 Microsoft.DataProtection/ba
 > [!IMPORTANT]
 > Once a storage account is configured for blobs backup, a few capabilities are affected, such as change feed and delete lock. [Learn more](blob-backup-configure-manage.md#effects-on-backed-up-storage-accounts).
 
-# [Vaulted Backup](#tab/vaulted-backup)
+# [Vaulted Backup (preview)](#tab/vaulted-backup)
 
 [!INCLUDE [blob-vaulted-backup-prepare-request-ps.md](../../includes/blob-vaulted-backup-prepare-request-ps.md)]
 
