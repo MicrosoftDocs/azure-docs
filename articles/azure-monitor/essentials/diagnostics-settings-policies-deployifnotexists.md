@@ -173,7 +173,7 @@ For more information on remediation tasks, see [Remediate noncompliant resources
 
 ## Assign initiatives
 
-Initiatives are collections of policies. There are two sets of intitives for Azure Monitor Diagnostics settings:
+Initiatives are collections of policies. There are two sets of initiatives for Azure Monitor Diagnostics settings:
 
 1. Enable the *audit* category group resource logging
     + [Enable audit category group resource logging for supported resources to Event Hubs](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F1020d527-2764-4230-92cc-7035e4fcf8a7/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
@@ -182,7 +182,7 @@ Initiatives are collections of policies. There are two sets of intitives for Azu
 
 1. Enable the *allLogs* category group resource logging
     + [Enable allLogs category group resource logging for supported resources to storage](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fb6b86da9-e527-49de-ac59-6af0a9db10b8/version~/null/scopes~/)
-    + [Enable allLogs category group resource logging for supported resources to Event Hub](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F85175a36-2f12-419a-96b4-18d5b0096531/version~/null/scopes/)
+    + [Enable allLogs category group resource logging for supported resources to Event Hubs](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F85175a36-2f12-419a-96b4-18d5b0096531/version~/null/scopes/)
     + [Enable allLogs category group resource logging for supported resources to Log Analytics](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F0884adba-2312-4468-abeb-5422caed1038/version~/null/scopes/%5B%22%2Fsubscriptions%2F""%22%22%5D)
 
 
