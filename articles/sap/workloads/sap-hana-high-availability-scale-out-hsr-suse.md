@@ -206,7 +206,7 @@ The next sections describe the steps to deploy NFS - you'll need to select only 
 
 #### Deploy the Azure NetApp Files infrastructure
 
-Deploy ANF volumes for the `/hana/shared` file system. You'll need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-suse.md#set-up-the-azure-netapp-files-infrastructure).
+Deploy Azure NetApp Files volumes for the `/hana/shared` file system. You'll need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-suse.md#set-up-the-azure-netapp-files-infrastructure).
 
 In this example, the following Azure NetApp Files volumes were used:
 
@@ -1111,12 +1111,12 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
 
    To simulate failure for `/hana/shared`:
 
-   * If using NFS on ANF, first confirm the IP address for the `/hana/shared` ANF volume on the primary site. You can do that by running `df -kh|grep /hana/shared`.
+   * If using NFS on Azure NetApp Files, first confirm the IP address for the `/hana/shared` Azure NetApp Files volume on the primary site. You can do that by running `df -kh|grep /hana/shared`.
    * If using NFS on Azure Files, first determine the IP address of the private end point for your storage account.
 
    Then, set up a temporary firewall rule to block access to the IP address of the `/hana/shared` NFS file system by executing the following command on one of the primary HANA system replication site VMs.
 
-   In this example, the command was executed on hana-s1-db1 for ANF volume `/hana/shared`.
+   In this example, the command was executed on hana-s1-db1 for Azure NetApp Files volume `/hana/shared`.
 
      ```bash
      iptables -A INPUT -s 10.23.1.7 -j DROP; iptables -A OUTPUT -d 10.23.1.7 -j DROP

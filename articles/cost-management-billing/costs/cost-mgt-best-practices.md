@@ -230,5 +230,6 @@ For more information, see [Azure Hybrid Benefit savings calculator](https://azur
 
 Azure also has a service that allows you to build services that take advantage of surplus capacity in Azure for reduced rates. For more information, see [Use low priority VMs with Batch](../../batch/batch-low-pri-vms.md).
 
-## Next steps
+## Related content
+
 - If you're new to Cost Management, read [What is Cost Management?](../cost-management-billing-overview.md) to learn how it helps monitor and control Azure spending and to optimize resource use.

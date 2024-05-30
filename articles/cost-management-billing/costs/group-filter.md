@@ -144,6 +144,6 @@ If you use Cost Management + Billing REST API calls that filter the `PublisherTy
 
 There's no impact to Cost analysis or budgets because the changes are automatically reflected in the filters. Any saved views or budgets created with Publisher Type = “Azure” filter will be automatically updated.
 
-## Next steps
+## Related content
 
 - [Start analyzing costs](./quick-acm-cost-analysis.md).

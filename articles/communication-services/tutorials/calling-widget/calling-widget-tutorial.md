@@ -15,8 +15,6 @@ ms.subservice: calling
 
 # Get started with Azure Communication Services UI library calling to Teams Voice Apps
 
-![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
-
 This project aims to guide developers to initiate a call from the Azure Communication Services Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
 
 As per your requirements, you might need to offer your customers an easy way to reach out to you without any complex setup.
@@ -30,10 +28,13 @@ Following this tutorial will:
 - Allow you to control your customers audio and video experience depending on your customer scenario
 - Teach you how to build a widget for starting calls on your webapp using the UI library.
 
+![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
+
 ## Prerequisites
+These steps are **needed** in order to follow this tutorial. Contact your Teams admin for the last two items to make sure you are set up appropriately.
 
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions [Node 18 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
+- [Node.js](https://nodejs.org/), Active LTS (Long Term Support) and versions [Node 18](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
 - An Azure Communication Services resource. [Create a Communications Resource](../../quickstarts/create-communication-resource.md)
 - Complete the Teams tenant setup in [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md)
 - Working with [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md) and Azure Communication Services.
@@ -44,7 +45,20 @@ Following this tutorial will:
 Only use this step if you're creating a new application.
 
 To set up the react App, we use the `create-react-app` command line tool. This tool
-creates an easy to run TypeScript application powered by React. This command creates a react application using TypeScript.
+creates an easy to run TypeScript application powered by React.
+
+To make sure that you have Node installed on your machine, run this command in PowerShell or the terminal to see your Node version:
+
+```bash
+node -v
+```
+
+If you don't have `create-react-app` installed on your machine, run the following command to install it as a global command:
+
+```bash
+npm install -g create-react-app
+```
+After that command is installed, run this next command to create a new react application to build the sample in:
 
 ```bash
 # Create an Azure Communication Services App powered by React.
@@ -56,7 +70,7 @@ cd ui-library-calling-widget-app
 
 ### Get your dependencies
 
-Then you need to update the dependency array in the `package.json` to include some packages from Azure Communication Services for the widget experience we're going to build to work:
+Then, you need to update the dependency array in the `package.json` to include some packages from Azure Communication Services for the widget experience we're going to build to work:
 
 ```json
 "@azure/communication-calling": "1.22.1",
@@ -68,7 +82,7 @@ Then you need to update the dependency array in the `package.json` to include so
 "@fluentui/react": "~8.98.3",
 ```
 
-Once you add these packages to your `package.json`, you’re all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
+After you add these packages to your `package.json`, you're all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
 
 ## Initial app setup
 
@@ -622,6 +636,33 @@ export const callingWidgetInCallContainerStyles = (
 };
 ```
 
+### Swap placeholders for identifiers
+
+Before we run the app, go to `App.tsx` and replace the placeholder values there with your Azure Communication Services Identities and the identifier for your Teams Voice application. Here are input values for the `token`, `userId` and `teamsAppIdentifier`.
+
+`./src/App.tsx`
+```typescript
+/**
+ * Token for local user.
+ */
+const token = "<Enter your ACS Token here>";
+
+/**
+ * User identifier for local user.
+ */
+const userId: CommunicationIdentifier = {
+  communicationUserId: "Enter your ACS Id here",
+};
+
+/**
+ * Enter your Teams voice app identifier from the Teams admin center here
+ */
+const teamsAppIdentifier: MicrosoftTeamsAppIdentifier = {
+  teamsAppId: "<Enter your Teams Voice app id here>",
+  cloud: "public",
+};
+```
+
 ### Run the app
 
 Finally we can run the application to make our calls! Run the following commands to install our dependencies and run our app.
@@ -642,7 +683,7 @@ Then when you action the widget button, you should see a little menu:
 
 ![Screenshot of calling widget sample app home page widget open.](../media/calling-widget/sample-app-splash-widget-open.png)
 
-After you fill out your name click start call and the call should begin. The widget should look like so after starting a call:
+After you fill out your name, click start call and the call should begin. The widget should look like so after starting a call:
 
 ![Screenshot of click to call sample app home page with calling experience embedded in widget.](../media/calling-widget/calling-widget-embedded-start.png)
 
