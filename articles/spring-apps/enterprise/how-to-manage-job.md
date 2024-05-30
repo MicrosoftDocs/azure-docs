@@ -217,7 +217,23 @@ Using the following Azure CLI command:
 az spring job create --bind-service-registry true
 ```
 
+1. For existing jobs, you can bind them with Service Registry using this command:
+
+```
+az spring service-registry bind --job <job-name>
+```
+
 # [Azure portal](#tab/azure-portal)
+
+Bind the job to Service Registry during job creation:
+
+1. Go to your Azure Spring Apps instance. From the navigation pane, select *Service Registry* in *Managed components*.
+1. If the component is disabled, select *Manage* to enable it.
+1. In *Job binding* tab, select *Bind job* and choose the job to apply.
+1. After binding successfully, the job name shows in the list.
+1. Run the job
+
+For existing jobs, you can bind them with Service Registry with following steps:
 
 1. Go to your Azure Spring Apps instance. From the navigation pane, select *Service Registry* in *Managed components*.
 1. If the component is disabled, select *Manage* to enable it.
