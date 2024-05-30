@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to use the Azure portal to create and connect through an Azure virtual network and virtual machines.
 author: asudbring
 ms.author: allensu
-ms.date: 06/06/2023
+ms.date: 05/29/2024
 ms.topic: quickstart
 ms.service: virtual-network
 ms.custom: ai-video-concept
@@ -15,7 +15,7 @@ ms.custom: ai-video-concept
 
 This quickstart shows you how to create a virtual network by using the Azure portal. You then create two virtual machines (VMs) in the network, deploy Azure Bastion to securely connect to the VMs from the internet, and start private communication between the VMs.
 
-:::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in the virtual network quickstart.":::
+:::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-portal/virtual-network-qs-resources.png":::
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
