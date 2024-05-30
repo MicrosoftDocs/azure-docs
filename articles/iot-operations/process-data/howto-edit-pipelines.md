@@ -55,8 +55,3 @@ To create, delete or copy pipelines, use the **Pipelines** tab in the Azure IoT 
 :::image type="content" source="media/pipelines-manage.png" alt-text="A screenshot that shows the options in the pipelines list.":::
 
 This list also lets you view the provisioning state and status of your pipelines
-
-## Related content
-
-- [Data Processor pipeline deployment status is failed](../troubleshoot/troubleshoot.md#data-processor-pipeline-deployment-status-is-failed)
-- [What are configuration patterns?](concept-configuration-patterns.md)

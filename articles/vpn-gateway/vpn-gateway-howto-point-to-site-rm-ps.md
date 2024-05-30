@@ -16,7 +16,7 @@ This article helps you configure a point-to-site (P2S) VPN to securely connect i
 
 You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. P2S connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Diagram of a point-to-site connection.":::
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Diagram of point-to-site connection showing how to connect from a computer to an Azure VNet." lightbox="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png":::
 
 For more information about P2S VPN, see [About P2S VPN](point-to-site-about.md). To create this configuration using the Azure portal, see [Configure a point-to-site VPN using the Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
@@ -103,7 +103,7 @@ In this step, you configure and create the virtual network gateway for your VNet
 * The -GatewayType must be **Vpn** and the -VpnType must be **RouteBased**.
 * The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The  tunnel options are **OpenVPN, SSTP**, and **IKEv2**. You can choose to enable one of them or any supported combination. If you want to enable multiple types, then specify the names separated by a comma. OpenVPN and SSTP can't be enabled together. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and macOS will use only the IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. You can use the OpenVPN client to connect to OpenVPN tunnel type.
 * The virtual network gateway 'Basic' SKU doesn't support IKEv2, OpenVPN, or RADIUS authentication. If you're planning on having Mac clients connect to your virtual network, don't use the Basic SKU.
-* A VPN gateway can take 45 minutes or more to build, depending on the [gateway sku](vpn-gateway-about-vpn-gateway-settings.md) you select.
+* A VPN gateway can take 45 minutes or more to build, depending on the [Gateway SKU](about-gateway-skus.md) you select.
 
 1. Create the virtual network gateway with the gateway type "Vpn" using [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway).
 
