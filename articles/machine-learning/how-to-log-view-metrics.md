@@ -161,9 +161,9 @@ Metrics, as opposite to parameters, are always numeric, and they can be logged e
 
 ### Log metrics asynchronously
 
-MLflow also allows logging of metrics in an asynchronous way. Asynchronous metric logging is particularly useful in cases with high throughput where large training jobs with hundreds of compute nodes might be running and trying to log metrics concurrently.
+MLflow also allows logging of metrics in an asynchronous way. Asynchronous metric logging is particularly useful in cases where large training jobs with tens of compute nodes might be running and trying to log metrics concurrently. It's also useful when an small number of nodes is trying to log a high number of metrics.
 
-Asynchronous metric logging allows you to log metrics and wait for them to be ingested before trying to read them back. This approach scales to large training routines that log hundreds of thousands of metric values.
+Asynchronous metric logging allows you to log metrics inmediately by avoiding waiting for them to materialize in the backend service. This approach scales to large training routines that log hundreds of thousands of metric values and it's the recommended approach.
 
 MLflow logs metrics synchronously by default, however, you can change this behavior at any time:
 
@@ -190,7 +190,7 @@ with mlflow.start_run():
     # (...)
 ```
 
-When you use `log_metric(synchronous=False)`, control is automatically returned to the caller once the operation is accepted; however, there is no guarantee at that moment that the metric value has been persisted.
+When you use `log_metric(synchronous=False)`, control is automatically returned to the caller once the operation is accepted; however, the value is not available for reading inmediately. Asynchronous logging of metrics does guarantee order and they are persisted with the timestamp of when they were logged.
 
 > [!IMPORTANT]
 > Even with `synchronous=False`, Azure Machine Learning guarantees the ordering of metrics.
