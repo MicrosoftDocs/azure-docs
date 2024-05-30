@@ -30,7 +30,7 @@ ms.custom: devx-track-azurecli
 
 * You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
-* Check if your target region is supported in [Azure Container Storage regions](../articles/storage/container-storage/container-storage-introduction.md#regional-availability).
+* Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
 
 ## Getting started
 
