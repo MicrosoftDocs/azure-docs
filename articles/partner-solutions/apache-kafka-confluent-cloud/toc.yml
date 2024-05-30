@@ -21,7 +21,7 @@ items:
   items:
   - name: Connect to compute services
     href: add-connectors.md
-  - name: Connect to Blob storage
+  - name: Use Confluent connectors
     href: add-confluent-connectors.md
   - name: Manage
     href: manage.md

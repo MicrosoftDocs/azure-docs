@@ -39,7 +39,7 @@ landingContent:
         links:
           - text: Connect to compute services
             url: add-connectors.md
-          - text: Connect to Blob storage
+          - text: Use Confluent connectors
             url: add-confluent-connectors.md
           - text: Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions
             url: troubleshoot.md

@@ -12,7 +12,7 @@ In this guide, learn how to connect an instance of Apache Kafka® & Apache Flink
 
 Service Connector is an Azure service designed to simplify the process of connecting Azure resources together. Service Connector manages your connection's network and authentication settings to simplify the operation.
 
-This guide shows step by step instructions to connect an app deployed to Azure App Service to a Confluent organization. You can apply a similar method to connect your Confluent organization to other [compute services supported by Service Connector](/azure/service-connector/overview.md#what-services-are-supported-by-service-connector).
+This guide shows step by step instructions to connect an app deployed to Azure App Service to a Confluent organization. You can apply a similar method to connect your Confluent organization to other [compute services supported by Service Connector](../../service-connector/overview.md#what-services-are-supported-by-service-connector).
 
 ## Prerequisites
 
