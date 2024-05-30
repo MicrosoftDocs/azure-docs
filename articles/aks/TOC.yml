@@ -158,6 +158,8 @@
       href: servicemesh-about.md
     - name: Sustainable software engineering
       href: concepts-sustainable-software-engineering.md
+    - name: Preview API life cycle
+      href: concepts-preview-api-life-cycle.md
     - name: Dapr
       href: dapr-overview.md
     - name: GitOps
