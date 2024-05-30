@@ -86,6 +86,8 @@
           href: enable-dynamic-configuration-java-spring-app.md
         - name: Python
           href: enable-dynamic-configuration-python.md
+        - name: JavaScript
+          href: enable-dynamic-configuration-javascript.md
         - name: Azure Kubernetes Service
           href: enable-dynamic-configuration-azure-kubernetes-service.md
     - name: Enable dynamic configuration using push model
@@ -144,6 +146,10 @@
               href: howto-targetingfilter.md
             - name: ASP.NET Core
               href: howto-targetingfilter-aspnet-core.md
+        - name: Run experiments with variant feature flags
+          items:
+            - name: ASP.NET Core
+              href: run-experiments-aspnet-core.md
     - name: Enable Azure monitoring
       items:
         - name: Monitor App Configuration
@@ -175,6 +181,8 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
+    - name: Experimentation
+      href: concept-experimentation.md
     - name: Configuration files
       href: concept-config-file.md
     - name: Event handling

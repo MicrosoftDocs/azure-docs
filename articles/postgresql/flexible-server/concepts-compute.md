@@ -4,7 +4,7 @@ description: This article describes the compute options in Azure Database for Po
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 04/30/2024
+ms.date: 05/01/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

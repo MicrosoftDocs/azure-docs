@@ -2,7 +2,7 @@
  title: include file
  author: cherylmc
  ms.service: vpn-gateway
- ms.date: 10/18/2023
+ ms.date: 05/29/2024
  ms.author: cherylmc
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -42,6 +42,10 @@ There's no change in the maximum number of SSTP connections supported on a gatew
 In RADIUS certificate authentication, the authentication request is forwarded to a RADIUS server that handles the actual certificate validation. This option is useful if you want to integrate with a certificate authentication infrastructure that you already have through RADIUS.
 
 When using Azure for certificate authentication, the Azure VPN gateway performs the validation of the certificate. You need to upload your certificate public key to the gateway. You can also specify list of revoked certificates that shouldn’t be allowed to connect.
+
+### Does Radius authentication support Network Policy Server(NPS) integration for Multi Factor Auth(MFA)?
+
+If your MFA is text based (SMS, mobile app verification code etc.) and requires the user to enter a code or text in the VPN client UI, the authentication won't succeed and isn't a supported scenario. See [Integrate Azure VPN gateway RADIUS authentication with NPS server for multifactor authentication](../articles/vpn-gateway/vpn-gateway-radius-mfa-nsp.md)
 
 ### Does RADIUS authentication work with both IKEv2, and SSTP VPN?
 

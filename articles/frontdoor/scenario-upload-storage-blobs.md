@@ -95,7 +95,7 @@ Azure Storage also supports custom domain names, but doesn't support HTTPS when 
 
 ## Deploy this scenario
 
-To deploy this scenario by using Bicep, see deploy [Azure Front Door Premium with blob origin and Private Link](/samples/azure/azure-quickstart-templates/front-door-premium-storage-blobs-private-link/).
+To deploy this scenario by using Bicep, see deploy [Azure Front Door Premium with blob origin and Private Link](/samples/azure/azure-quickstart-templates/front-door-standard-premium-storage-blobs-upload/).
 
 ## Next steps
 

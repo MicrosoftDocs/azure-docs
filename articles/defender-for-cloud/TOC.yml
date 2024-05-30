@@ -115,7 +115,7 @@
     - name: Investigate the health of your resources
       displayName: health, resources, outstanding, security, issues,
       href: investigate-resource-health.md
-    - name: Set up email notifications
+    - name: Configure email notifications for alerts and attack paths
       displayName: email,e-mail, notifications
       href: configure-email-notifications.md
     - name: Create autoresponses to alerts using an ARM template or Bicep
@@ -641,6 +641,9 @@
         href: enable-adaptive-application-controls.md
     - name: Review server protection
       items:
+        - name: Remediate security baselines recommendation powered by MDVM
+          displayName: security, baseline, remediate, mdvm, vulnerability, assessment, va
+          href: remediate-security-baseline.md
         - name: Review hardening recommendations
           displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
           href: apply-security-baseline.md
@@ -714,6 +717,9 @@
       - name: Kubernetes data plane hardening
         displayName: k8s, containers, aks
         href: kubernetes-workload-protections.md
+      - name: Kubeaudit events in advanced hunting
+        displayName: k8s, containers
+        href: kubeaudit-events-advanced-hunting.md
       - name: Vulnerability assessment for Azure powered by Qualys (Deprecated)
         displayName: ACR, registry, images, qualys
         href: defender-for-containers-vulnerability-assessment-azure.md

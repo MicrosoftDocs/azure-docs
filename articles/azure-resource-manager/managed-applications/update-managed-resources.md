@@ -1,7 +1,7 @@
 ---
 title: Update managed resources
 description: Describes how to work on resources in the managed resource group for an Azure managed application.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 10/26/2017
 ---

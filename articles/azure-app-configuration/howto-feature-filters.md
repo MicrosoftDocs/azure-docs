@@ -5,7 +5,7 @@ description: Learn how to use feature filters in Azure App Configuration to enab
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-author: zhiyuanliang
+author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
 ms.date: 03/21/2024

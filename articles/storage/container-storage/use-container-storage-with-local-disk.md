@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Ephemeral Disk using
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 05/24/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -14,20 +14,31 @@ ms.custom: references_regions
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using either local NVMe or temp SSD as its storage.
 
 > [!IMPORTANT]
-> Local disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. You can only create [Kubernetes generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes) from an Ephemeral Disk storage pool. If you want to create a persistent volume, you have to enable [replication for your storage pool](#optional-create-storage-pool-with-volume-replication-nvme-only).
+> Local disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. You can only create [Kubernetes generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes) from an Ephemeral Disk storage pool. If you want to create a persistent volume, you have to enable [replication for your storage pool](#create-storage-pool-with-volume-replication-nvme-only).
 
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
+## Choose a VM type that supports Ephemeral Disk
 
-> [!NOTE]
-> To use Azure Container Storage with Ephemeral Disk, your AKS cluster should have a node pool of at least three [storage optimized VMs](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**. We recommend that each VM have a minimum of four virtual CPUs (vCPUs).
+Ephemeral Disk is only available in certain types of VMs. If you plan to use Ephemeral Disk with local NVMe, a [storage optimized VM](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3** is required. If you plan to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
 
-## Regional availability
+You can run the following command to get the VM type that's used with your node pool.
 
-[!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
+```azurecli-interactive
+az aks nodepool list --resource-group <resource group> --cluster-name <cluster name> --query "[].{PoolName:name, VmSize:vmSize}" -o table
+```
+
+The following is an example of output.
+
+```output
+PoolName    VmSize
+----------  ---------------
+nodepool1   standard_l8s_v3
+```
+
+We recommend that each VM have a minimum of four virtual CPUs (vCPUs), and each node pool have at least three nodes.
 
 ## Create a storage pool
 
@@ -39,7 +50,7 @@ You have three options to create a storage pool that uses Ephemeral Disk:
 
 - [Create storage pool with local NVMe](#create-a-storage-pool-with-nvme)
 - [Create storage pool with temp SSD](#create-a-storage-pool-with-temp-ssd)
-- [Create storage pool with local NVMe and replication](#optional-create-storage-pool-with-volume-replication-nvme-only)
+- [Create storage pool with local NVMe and replication](#create-storage-pool-with-volume-replication-nvme-only)
 
 ### Create a storage pool with NVMe
 
@@ -136,6 +147,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
 
 1. Paste in the following code and save the file.
+
    ```yml
    kind: Pod
    apiVersion: v1
@@ -219,7 +231,7 @@ If you want to delete a storage pool, run the following command. Replace `<stora
 kubectl delete sp -n acstor <storage-pool-name>
 ```
 
-## Optional: Create storage pool with volume replication (NVMe only)
+## Create storage pool with volume replication (NVMe only)
 
 Applications that use local NVMe can leverage storage replication for improved resiliency. Replication isn't currently supported for temp SSD.
 
@@ -231,7 +243,6 @@ Follow these steps to create a storage pool using local NVMe with replication.
 > Because Ephemeral Disk storage pools consume all the available NVMe disks, you must delete any existing Ephemeral Disk local NVMe storage pools before creating a new storage pool with replication.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
-
 
 1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want. Set replicas to 3 or 5.
 
@@ -370,7 +381,7 @@ You've now deployed a pod that's using Ephemeral Disk as its storage, and you ca
 
 ## Detach and reattach a persistent volume
 
-To detach a persistent volume, delete the pod that the persistent volume is attached to. Replace `<pod-name>` with the name of the pod, for example **fiopod**.
+To detach a persistent volume, delete the pod that the persistent volume is attached to.
 
 ```azurecli-interactive
 kubectl delete pods <pod-name>
@@ -378,7 +389,11 @@ kubectl delete pods <pod-name>
 
 To reattach a persistent volume, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#deploy-a-pod-and-attach-a-persistent-volume).
 
-To check which persistent volume a persistent volume claim is bound to, run `kubectl get pvc <persistent-volume-claim-name>`.
+To check which persistent volume a persistent volume claim is bound to, run:
+
+```azurecli-interactive
+kubectl get pvc <persistent-volume-claim-name>
+```
 
 ## See also
 
