@@ -7,7 +7,7 @@ ms.topic: conceptual
 # Azure Policy assignment structure
 
 Policy assignments define which resources are to be evaluated by a 
-policy definition or initaitve.  Further, the policy assignment can determine the values of parameters for that group of
+policy definition or initiaitve.  Further, the policy assignment can determine the values of parameters for that group of
 resources at assignment time, making it possible to reuse policy definitions that address the same resource properties with different needs for compliance. 
 
 
@@ -72,11 +72,11 @@ definition or initiative is retrieved each time the policy assignment is evaluat
 recommended that if multiple policies are often assigned together, to use an
 [initiative](./initiative-definition-structure.md) instead.
 
-For built-in definitions and initiaitive, you can use specific the `definitionVersion` of which to assess on. By default, the version will set to the latest major version and auto-ingeest minor and patch changes. 
+For built-in definitions and initiative, you can use specific the `definitionVersion` of which to assess on. By default, the version will set to the latest major version and autoingest minor and patch changes. 
 
-To auto-ingest any minor changes of the definition, the version number would be `#.*.*`. Wildcard represents auto-ingesting updates. 
+To autoingest any minor changes of the definition, the version number would be `#.*.*`. Wildcard represents autoingesting updates. 
 To pin to a minor version path, the version format would be `#.#.*`.
-All patch changes must be auto-injested for security purposes. Patch changes are limited to text changes and break glass scenarios. 
+All patch changes must be autoinjested for security purposes. Patch changes are limited to text changes and break glass scenarios. 
 
 ## Display name and description
 
@@ -372,7 +372,7 @@ reducing the duplication and complexity of policy definitions while providing fl
 
 ## Identity
 
-For policy assignments with effect set to **deployIfNotExist** or **modify**, it's required to have an identity property to do remediation on non-compliant resources. When using identity, the user must also specify a location for the assignment.
+For policy assignments with effect set to **deployIfNotExist** or **modify**, it's required to have an identity property to do remediation on non-compliant resources. When using an identity, the user must also specify a location for the assignment.
 
 > [!NOTE]
 > A single policy assignment can be associated with only one system- or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.

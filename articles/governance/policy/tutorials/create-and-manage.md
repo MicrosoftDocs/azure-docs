@@ -65,7 +65,7 @@ resources missing the tag.
 
    :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Screenshot of the search filter while selecting a policy definition.":::
 
-1. The **Version** is automatically populated to the latest major version of the definition and set to autoinjest any non-breaking changes. You can may change the version to others, if available or adjust your ingesting settings, but no change is required. **Overrides** are optional, so leave it blank for now. 
+1. The **Version** is automatically populated to the latest major version of the definition and set to autoinjest any non-breaking changes. You may change the version to others, if available or adjust your ingesting settings, but no change is required. **Overrides** are optional, so leave it blank for now. 
 
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can
    change it. For this example, leave _Inherit a tag from the resource group if missing_. You can
@@ -88,7 +88,7 @@ resources missing the tag.
    [remediate resources](../how-to/remediate-resources.md).
 
 1. **Create a Managed Identity** is automatically checked since this policy definition uses the
-   [modify](../concepts/effect-modify.md) effect. **Type of Managed Identity** is set to _Sytem Assigned_. **Permissions** is set to _Contributor_
+   [modify](../concepts/effect-modify.md) effect. **Type of Managed Identity** is set to _System Assigned_. **Permissions** is set to _Contributor_
    automatically based on the policy definition. For more information, see
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and
@@ -552,9 +552,9 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 1. Fill out the **Get Secure: Assign Initiative** page by entering the following example
    information. You can use your own information.
 
-   - Scope: The management group or subscription you saved the initiative to becomes the default.
+   - Scope: The management group or subscription you saved the initiative to become the default.
      You can change scope to assign the initiative to a subscription or resource group within the
-     save location.
+     saved location.
    - Exclusions: Configure any resources within the scope to prevent the initiative assignment from
      being applied to them.
    - Initiative definition and Assignment name: Get Secure (pre-populated as name of initiative

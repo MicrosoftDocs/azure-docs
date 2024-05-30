@@ -18,7 +18,7 @@ in the cloud are:
   end users.
 
 Azure Policy as Code is the combination of these ideas. Essentially, keep your policy definitions in
-source control and whenever a change is made, test and validate that change. However, that
+source control and whenever a change is made, test, and validate that change. However, that
 shouldn't be the extent of policies involvement with Infrastructure as Code or DevOps.
 
 The validation step should also be a component of other continuous integration or continuous
@@ -92,7 +92,7 @@ in source control.
 |
 ```
 
-When a new policy or new version is added or a existing one is updated, the workflow should automatically update the
+When a new policy or new version is added or an existing one is updated, the workflow should automatically update the
 policy definition in Azure. Testing of the new or updated policy definition comes in a later step.
 
 ### Create and update initiative definitions
