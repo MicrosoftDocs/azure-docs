@@ -101,9 +101,9 @@ To assign any of the *deployIfNotExists* two policies, follow these steps:
     | --- | --- |
     | Effect | Select **DeployIfNotExists**. |
     | Network security group region | Select the region of your network security group that you're targeting with the policy. |
-    | Storage resource ID | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is: `/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
+    | Storage resource ID | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
     | Traffic analytics processing interval in minutes | Select the frequency at which processed logs are pushed into the workspace. Currently available values are 10 and 60 minutes. Default value is 60 minutes. |
-    | Workspace resource ID | Enter the full resource ID of the workspace where traffic analytics has to be enabled. The format of workspace resource ID is: `/subscriptions/<SubscriptionID>/resourcegroups/<ResouceGroupName>/providers/microsoft.operationalinsights/workspaces/<WorkspaceName>`. |
+    | Workspace resource ID | Enter the full resource ID of the workspace where traffic analytics has to be enabled. The format of workspace resource ID is: `/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.operationalinsights/workspaces/<WorkspaceName>`. |
     | Workspace region | Select the region of your traffic analytics workspace. |
     | Workspace ID | Enter your traffic analytics workspace ID. |
     | Network Watcher resource group | Select the resource group of your Network Watcher. |
