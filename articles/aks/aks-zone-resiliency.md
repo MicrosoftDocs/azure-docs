@@ -85,15 +85,11 @@ spec:
 
 For more information, see [Kubernetes Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/).
 
-### Load balance traffic across AZs
+### Configure AZ-aware networking
 
 If you have pods that serve network traffic, you should load balance traffic across multiple AZs to ensure that your application is highly available and resilient to failures. You can use [Azure Load Balancer](../load-balancer/load-balancer-overview.md) to distribute incoming traffic across the nodes in your AKS cluster.
 
-Azure Load Balancer supports both internal and external load balancing, and you can configure it to use a *Standard SKU* for zone-redundant load balancing. The Standard SKU is the default SKU in AKS, and it supports regional resiliency with [availability zones](../reliability/reliability-load-balancer.md#availability-zone-support) to ensure your application isn't impacted by a region failure. In the event of a zone failure scenario, a zone-redundant Standard SKU load balancer isn't impacted by the failure and enables your deployments to continue serving traffic from the remaining zones. You can use a global load balancer, such as [Front Door](../frontdoor/front-door-overview.md) or [Traffic Manager](../traffic-manager/traffic-manager-overview.md), or you can use [cross-region load balancers](../reliability/reliability-load-balancer.md#cross-region-disaster-recovery-and-business-continuity) in front of your regional AKS clusters to ensure that your application isn't impacted by regional failures.
-
-To create a Standard SKU load balancer in AKS, see [Use a standard load balancer in Azure Kubernetes Service (AKS)](./load-balancer-standard.md).
-
-### Configure AZ-aware networking
+Azure Load Balancer supports both internal and external load balancing, and you can configure it to use a *Standard SKU* for zone-redundant load balancing. The Standard SKU is the default SKU in AKS, and it supports regional resiliency with [availability zones](../reliability/reliability-load-balancer.md#availability-zone-support) to ensure your application isn't impacted by a region failure. In the event of a zone failure scenario, a zone-redundant Standard SKU load balancer isn't impacted by the failure and enables your deployments to continue serving traffic from the remaining zones. You can use a global load balancer, such as [Front Door](../frontdoor/front-door-overview.md) or [Traffic Manager](../traffic-manager/traffic-manager-overview.md), or you can use [cross-region load balancers](../reliability/reliability-load-balancer.md#cross-region-disaster-recovery-and-business-continuity) in front of your regional AKS clusters to ensure that your application isn't impacted by regional failures. To create a Standard SKU load balancer in AKS, see [Use a standard load balancer in Azure Kubernetes Service (AKS)](./load-balancer-standard.md).
 
 To ensure that your application's network traffic is resilient to failures, you should configure AZ-aware networking for your AKS workloads. Azure offers various networking services that support AZs:
 
