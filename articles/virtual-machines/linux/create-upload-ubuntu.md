@@ -14,11 +14,7 @@ ms.reviewer: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-Ubuntu now publishes official Azure VHDs for download at [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). If you need to build your own specialized Ubuntu image for Azure, rather than use the manual procedure below it's recommended to start with these known working VHDs and customize as needed. The latest image releases can always be found at the following locations:
-
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-azure.vhd.tar.gz)
-* Ubuntu 20.04/Focal:  [focal-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-azure.vhd.tar.gz)
-* Ubuntu 22.04/Jammy:  [jammy-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64-azure.vhd.tar.gz)
+Ubuntu now publishes official Azure VHDs for download at [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). If you need to build your own specialized Ubuntu image for Azure, rather than use the manual procedure below it's recommended to start with these known working VHDs and customize as needed.
 
 ## Prerequisites
 This article assumes that you've already installed an Ubuntu Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
@@ -58,7 +54,7 @@ sudo sed -i 's#http://[a-z][a-z]\.security\.ubuntu\.com/ubuntu#http://azure\.arc
 sudo apt-get update
 ```
 
-4. The Ubuntu Azure images are now using the [Azure-tailored kernel](https://ubuntu.com/blog/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel). Update the operating system to the latest Azure-tailored kernel and install Azure Linux tools (including Hyper-V dependencies) by running the following commands:
+4. The Ubuntu Azure images use the [Azure-tailored kernel](https://ubuntu.com/blog/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel). Update the operating system to the latest Azure-tailored kernel and install Azure Linux tools (including Hyper-V dependencies) by running the following commands:
 
 
 ```bash
@@ -155,8 +151,7 @@ EOF
 sudo cloud-init clean --logs --seed
 sudo rm -rf /var/lib/cloud/
 sudo systemctl stop walinuxagent.service
-sudo rm -rf /var/lib/waagent/
-sudo rm -f /var/log/waagent.log
+
 ```
 
 12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
