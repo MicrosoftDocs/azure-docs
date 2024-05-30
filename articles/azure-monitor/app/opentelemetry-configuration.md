@@ -420,6 +420,20 @@ For more information on Java configuration, see [Configuration options: Azure Mo
 > [!IMPORTANT]
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+Users can enable/disable Live Metrics when configuring the Distro using the `enableLiveMetrics` property.
+
+```typescript
+const options: AzureMonitorOpenTelemetryOptions = {
+    azureMonitorExporterOptions: {
+        connectionString:
+            process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+    },
+    enableLiveMetrics: false
+};
+
+useAzureMonitor(options);
+```
+
 <!--
 
 TODO:
