@@ -39,29 +39,9 @@ sudo apt install mysql-server
 > [!NOTE]
 > Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](/azure/azure-portal/supportability/per-vm-quota-requests). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](/azure/cost-management-billing/manage/upgrade-azure-subscription) before requesting a quota increase.
 
-## Get a Red Hat pull secret
+[!INCLUDE [jboss-eap-aro-get-pullsecret.md](./includes/jboss-eap-aro-get-pullsecret.md)]
 
-The Azure Marketplace offer used in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional) section in [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
-
-Use the following steps to get the pull secret.
-
-1. Open the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned), then use your Red Hat account to sign in to the OpenShift cluster manager portal. You may need to accept more terms and update your account as shown in the following screenshot. Use the same password as when you created the account.
-
-   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/red-hat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/howto-deploy-java-enterprise-application-platform-app/red-hat-account-complete-profile.png":::
-
-1. After you sign in, select **OpenShift** then **Downloads**.
-1. Select the **All categories** dropdown list and then select **Tokens**.
-1. Under **Pull secret**, select **Copy** or **Download** to get the value, as shown in the following screenshot.
-
-   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/red-hat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/howto-deploy-java-enterprise-application-platform-app/red-hat-console-portal-pull-secret.png":::
-
-   The following content is an example that was copied from the Red Hat console portal, with the auth codes replaced with `xxxx...xxx`.
-
-   ```json
-   {"auths":{"cloud.openshift.com":{"auth":"xxxx...xxx","email":"contoso-user@contoso.com"},"quay.io":{"auth":"xxx...xxx","email":"contoso-user@test.com"},"registry.connect.redhat.com":{"auth":"xxxx...xxx","email":"contoso-user@contoso.com"},"registry.redhat.io":{"auth":"xxxx...xxx","email":"contoso-user@contoso.com"}}}
-   ```
-
-1. Save the secret to a file so you can use it later.
+[!INCLUDE [jboss-eap-aro-redhat-registry-account.md](./includes/jboss-eap-aro-redhat-registry-account.md)]
 
 <a name='create-an-azure-active-directory-service-principal-from-the-azure-portal'></a>
 
@@ -95,23 +75,6 @@ Use the following steps to deploy a service principal and get its Application (c
 
 You created your Microsoft Entra application, service principal, and client secret.
 
-## Create a Red Hat Container Registry service account
-
-Later, this article shows you how to manually deploy an application to OpenShift using Source-to-Image (S2I). A Red Hat Container Registry service account is necessary to pull the container image for JBoss EAP on which to run your application. If you have a Red Hat Container Registry service account ready to use, skip this section and move on to the next section, where you deploy the offer.
-
-Use the following steps to create a Red Hat Container Registry service account and get its username and password. For more information, see [Creating Registry Service Accounts](https://access.redhat.com/RegistryAuthentication#creating-registry-service-accounts-6) in the Red Hat documentation.
-
-1. Use your Red Hat account to sign in to the [Registry Service Account Management Application](https://access.redhat.com/terms-based-registry/).
-1. From the **Registry Service Accounts** page, select **New Service Account**.
-1. Provide a name for the Service Account. The name is prepended with a fixed, random string.
-   - Enter a description.
-   - Select **create**.
-1. Navigate back to your Service Accounts.
-1. Select the Service Account you created.
-   - Note down the **username**, including the prepended string (that is, `XXXXXXX|username`). Use this username when you sign in to `registry.redhat.io`.
-   - Note down the **password**. Use this password when you sign in to `registry.redhat.io`.
-
-You created your Red Hat Container Registry service account.
 
 ## Deploy JBoss EAP on Azure Red Hat OpenShift
 
@@ -511,13 +474,7 @@ Next, use the following steps to create a secret:
    
 1. Add and delete some rows to verify the database connectivity is correctly functioning.
 
-## Clean up resources
 
-If you're not going to continue to use the OpenShift cluster, navigate back to your working resource group. At the top of the page, under the text **Resource group**, select the resource group. Then, select **Delete resource group**.
+[!INCLUDE [jboss-eap-aro-cleanup](./includes/jboss-eap-aro-cleanup.md)]
 
-## Next steps
-
-Learn more about deploying JBoss EAP on Azure by following these links:
-
-> [!div class="nextstepaction"]
-> [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure?toc=/azure/openshift/toc.json&bc=/azure/openshift/breadcrumb/toc.json)
+[!INCLUDE [jboss-eap-aro-next-step](./includes/jboss-eap-aro-next-step.md)]
