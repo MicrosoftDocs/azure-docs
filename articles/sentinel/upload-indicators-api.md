@@ -62,7 +62,7 @@ The resource/scope value is the audience of the token. This API only accepts the
 
 
 ### Assemble the request message
-There were two versions of the legacy API. Depending on the endpoint, a different array name was required in the request body. This was also represented by two versions of the logic app connector action.
+There are two versions of the upload indicators API. Depending on the endpoint, a different array name is required in the request body. This is also represented by two versions of the logic app connector action.
 
 :::image type="content" source="media/logic-app-sentinel-connector-action-names.png" alt-text="Screenshot of logic app connector action names for Microsoft Sentinel upload indicators API.":::
 
