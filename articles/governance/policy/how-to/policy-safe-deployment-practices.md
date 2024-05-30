@@ -188,7 +188,7 @@ expected.
 ## Steps for safely updating built-in definition version within Azure Policy assignment
 
 1. Within the existing assignment, apply _overrides_ to update the version of the definition for the least
-critical ring. We're using a combination of _overrides_ to change the definitionVersion and _selectors_ within the _overrides_ condition to narrow the applicability by `"kind": "resource location"` property. Any resources that are outside of the locations specified will continue to be assesseded against the version  from the `definitionVersion` top-level property in the assignment. Example override updating the version of the definition to `2.0.*` and only apply it to resources in `EastUs`. 
+critical ring. We're using a combination of _overrides_ to change the definitionVersion and _selectors_ within the _overrides_ condition to narrow the applicability by `"kind": "resource location"` property. Any resources that are outside of the locations specified will continue to be assessed against the version  from the `definitionVersion` top-level property in the assignment. Example override updating the version of the definition to `2.0.*` and only apply it to resources in `EastUs`. 
 
     ```json
     "overrides":[{ 
