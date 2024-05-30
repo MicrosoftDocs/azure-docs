@@ -193,7 +193,7 @@ Now that you have an existing environment, you can create your container app and
         --query properties.ingress.fqdn -o tsv
     ```
 
-    You should be able to access the Eureka Server for Spring dashboard using the URLs provided. And the container app should be visible in the dashboard like the screenshot below:
+    You should be able to access the Eureka Server for Spring dashboard using the URL provided. And the container app should be visible in the dashboard like the screenshot below:
 
     :::image type="content" source="media/java-components/eureka-alone.png" alt-text="Screenshot of the Eureka Server for Spring dashboard."  lightbox="media/java-components/eureka-alone.png":::
 
@@ -202,8 +202,8 @@ Now that you have an existing environment, you can create your container app and
 The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
 
 ```azurecli
-az group delete \
-  --resource-group $RESOURCE_GROUP
+    az group delete \
+    --resource-group $RESOURCE_GROUP
 ```
 
 ## Next steps

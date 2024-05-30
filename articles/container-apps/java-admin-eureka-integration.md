@@ -151,17 +151,17 @@ With the Eureka Server set up, you can now bind other applications to it for ser
     ```
     
 
-1. Assign the Custom Role to your accound on managed environment resource:
+1. Assign the Custom Role to your accound on managed environment resource.
 
-    Get the resource id of the managed environment:
+    Get the resource id of the managed environment.
 
     ```azurecli
         export ENVIRONMENT_ID=$(az containerapp env show \
-         --name $ENVIRONMENT --resource-group $RESOURCE_GROUP \ 
-         --query id -o tsv)
+        --name $ENVIRONMENT --resource-group $RESOURCE_GROUP \
+        --query id -o tsv)
     ```
 
-1. Assign the role to the your account:
+1. Assign the role to the your account.
     
     ```azurecli
         az role assignment create \
@@ -201,8 +201,8 @@ With the Eureka Server set up, you can now bind other applications to it for ser
 The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
 
 ```azurecli
-az group delete \
-  --resource-group $RESOURCE_GROUP
+    az group delete \
+    --resource-group $RESOURCE_GROUP
 ```
 
 ## Next steps
