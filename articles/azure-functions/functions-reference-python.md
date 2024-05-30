@@ -523,7 +523,9 @@ You can view other SDK type bindings samples for Blob storage in the Python exte
 
 HTTP streams lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. 
 
-This feature makes it possible to handle large data stream, OpenAI integrations, deliver dynamic content, and support other core HTTP scenarios requiring real-time interactions over HTTP. You can also use FastAPI response types with HTTP streams. Without HTTP streams, the size of your HTTP requests and responses are limited by memory restrictions that can be encountered when processing entire message payloads all in memory. 
+This feature makes it possible to handle large data stream, OpenAI integrations, deliver dynamic content, and support other core HTTP scenarios requiring real-time interactions over HTTP. You can also use FastAPI response types with HTTP streams. Without HTTP streams, the size of your HTTP requests and responses are limited by memory restrictions that can be encountered when processing entire message payloads all in memory.
+
+Note that when enabling HTTP streams, the function app will default to using HTTP streaming, and the original HTTP functionality will not work.
 ::: zone pivot="python-mode-configuration" 
 > [!IMPORTANT]  
 > Support for HTTP streams requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#http-streams-preview).
@@ -549,10 +551,13 @@ HTTP streams are disabled by default. You need to enable this feature in your ap
 
     :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="8" ::: 
 
-1. When you deploy to Azure, add these [application settings](./functions-how-to-use-azure-function-app-settings.md#settings) in your function app:
+1. When you deploy to Azure, add the following [application setting](./functions-how-to-use-azure-function-app-settings.md#settings) in your function app:
 
-    + `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"` 
-    + `"PYTHON_ENABLE_INIT_INDEXING": "1"`
+    `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"` 
+
+    If you are deploying to Linux Consumption, also add
+
+    `"PYTHON_ENABLE_INIT_INDEXING": "1"`
 
     When running locally, you also need to add these same settings to the `local.settings.json` project file.
 
