@@ -38,14 +38,14 @@ Azure Kubernetes Service provides the following CNI plugins for overlay networki
 
 ### Flat networks
 
-Unlike an overlay network, a flat network model in AKS assigns IP addresses to pods from a subnet from the same Azure VNet as the AKS nodes. This means that traffic leaving you clusters is not SNAT'd, and the pod IP address is directly exposed to the destination. This can be useful for some scenarios, such as when you need to expose pod IP addresses to external services.
+Unlike an overlay network, a flat network model in AKS assigns IP addresses to pods from a subnet from the same Azure VNet as the AKS nodes. This means that traffic leaving your clusters is not SNAT'd, and the pod IP address is directly exposed to the destination. This can be useful for some scenarios, such as when you need to expose pod IP addresses to external services.
 
-:::image type="content" source="media/networking-overview/advanced-networking-diagram-01.png" alt-text="{A diagram showing two nodes with three pods each running in a flat network model}":::
+:::image type="content" source="media/networking-overview/advanced-networking-diagram-01.png" alt-text="A diagram showing two nodes with three pods each running in a flat network model.":::
 
 Azure Kubernetes Service provides two CNI plugins for flat networking. This article doesn't go into depth for each plugin option. For more information, see the linked documentation:
 
-- [Azure CNI Pod Subnet][azure-cni-podsubnet], the recommended CNI plugin for flat networking scenarios.
-- [Azure CNI Node Subnet][azure-cni-nodesubnet], a legacy flat network model CNI generally only recommends you use if you _**need**_ a managed VNet for your cluster. 
+- [Azure CNI Pod Subnet][azure-cni-pod-subnet], the recommended CNI plugin for flat networking scenarios.
+- [Azure CNI Node Subnet][azure-cni-node-subnet], a legacy flat network model CNI generally only recommends you use if you _**need**_ a managed VNet for your cluster. 
 
 ## Choosing a CNI
 
@@ -96,7 +96,7 @@ You might also want to compare the features of each CNI plugin. The following ta
 
 Depending on the CNI you use, your cluster virtual network resources can be deployed in one of the following ways:
 
-- The Azure platform can automatically create and configure the virtual network resources when you create an AKS cluster. like in Azure CNI Overlay, Azure CNI Nodesubnet, and Kubenet.
+- The Azure platform can automatically create and configure the virtual network resources when you create an AKS cluster. like in Azure CNI Overlay, Azure CNI Node subnet, and Kubenet.
 - You can manually create and configure the virtual network resources and attach to those resources when you create your AKS cluster.
 
 Although capabilities like service endpoints or UDRs are supported, the [support policies for AKS][support-policies] define what changes you can make. For example:
@@ -119,9 +119,8 @@ There are several requirements and considerations to keep in mind when planning 
 
 ## Next Steps
 
-### CNI plugin documentation:
 - [Azure CNI Overlay][azure-cni-overlay]
-- [Azure CNI Pod Subnet][azure-cni-podsubnet]
+- [Azure CNI Pod Subnet][azure-cni-pod-subnet]
 - [Legacy CNI Options][legacy-cni-options]
 - [IP Address Planning for your clusters][ip-address-planning]
 
@@ -131,9 +130,9 @@ There are several requirements and considerations to keep in mind when planning 
 
 <!-- LINKS - Internal -->
 [aks-network-nsg]: ../virtual-network/network-security-groups-overview.md
-[azure-cni-nodesubnet]: concepts-network-legacy-cni.md#azure-cni-node-subnet
+[azure-cni-node-subnet]: concepts-network-legacy-cni.md#azure-cni-node-subnet
 [azure-cni-overlay]: concepts-network-azure-cni-overlay.md
-[azure-cni-podsubnet]: concepts-network-azure-cni-podsubnet.md
+[azure-cni-pod-subnet]: concepts-network-azure-cni-pod-subnet.md
 [delegated-subnet]: ../virtual-network/subnet-delegation-overview.md
 [ip-address-planning]: concepts-network-ip-address-planning.md
 [kubenet]: concepts-network-legacy-cni.md#kubenet

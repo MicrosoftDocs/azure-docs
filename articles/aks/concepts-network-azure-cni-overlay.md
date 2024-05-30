@@ -28,11 +28,11 @@ You can provide outbound (egress) connectivity to the internet for Overlay pods 
 
 You can configure ingress connectivity to the cluster using an ingress controller, such as Nginx or [HTTP application routing](./http-application-routing.md). You cannot configure ingress connectivity using Azure App Gateway. For details see [Limitations with Azure CNI Overlay](#limitations-with-azure-cni-overlay).
 
-## Differences between Kubenet and Azure CNI Overlay
+## Differences between kubenet and Azure CNI Overlay
 
-The following table provides a detailed comparison between Kubenet and Azure CNI Overlay:
+The following table provides a detailed comparison between kubenet and Azure CNI Overlay:
 
-| Area                         | Azure CNI Overlay                                            | Kubenet                                                                       |
+| Area                         | Azure CNI Overlay                                            | kubenet                                                                       |
 |------------------------------|--------------------------------------------------------------|-------------------------------------------------------------------------------|
 | Cluster scale                | 5000 nodes and 250 pods/node                                 | 400 nodes and 250 pods/node                                                   |
 | Network configuration        | Simple - no extra configurations required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
@@ -110,7 +110,6 @@ Azure CNI Overlay has the following limitations:
 - If you're using your own subnet to deploy the cluster, the names of the subnet, VNet, and resource group containing the VNet, must be 63 characters or less. These names will be used as labels in AKS worker nodes and are subject to [Kubernetes label syntax rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).  
 
 <!-- LINKS - Internal -->
-[azure-cni-podsubnet]: concepts-network-azure-cni-podsubnet.md
 [aks-egress]: limit-egress-traffic.md
 [aks-network-policies]: use-network-policies.md
 [nsg]: ../virtual-network/network-security-groups-overview.md

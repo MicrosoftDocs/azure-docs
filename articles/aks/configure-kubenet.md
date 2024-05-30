@@ -71,7 +71,7 @@ As a compromise, you can create an AKS cluster that uses *kubenet* and connect t
 The following basic calculations compare the difference in network models:
 
 * **kubenet**: A simple */24* IP address range can support up to *251* nodes in the cluster. Each Azure virtual network subnet reserves the first three IP addresses for management operations. This node count can support up to *27,610* pods, with a default maximum of 110 pods per node.
-* **Azure CNI**: That same basic */24* subnet range can only support a maximum of *eight* nodes in the cluster. This node count can only support up to *240* pods, with a default maximum of 30 pods per node).
+* **Azure CNI**: That same basic */24* subnet range can only support a maximum of *eight* nodes in the cluster. This node count can only support up to *240* pods, with a default maximum of 30 pods per node.
 
 > [!NOTE]
 > These maximums don't take into account upgrade or scale operations. In practice, you can't run the maximum number of nodes the subnet IP address range supports. You must leave some IP addresses available for scaling or upgrading operations.
@@ -228,7 +228,7 @@ With kubenet, a route table must exist on your cluster subnet(s). AKS supports b
 
 Learn more about setting up a [custom route table][custom-route-table].
 
-kubenet networking requires organized route table rules to successfully route requests. Due to this design, route tables must be carefully maintained for each cluster that relies on it. Multiple clusters can't share a route table because pod CIDRs from different clusters might overlap which causes unexpected and broken routing scenarios. When configuring multiple clusters on the same virtual network or dedicating a virtual network to each cluster, consider the following limitations:
+Kubenet networking requires organized route table rules to successfully route requests. Due to this design, route tables must be carefully maintained for each cluster that relies on it. Multiple clusters can't share a route table because pod CIDRs from different clusters might overlap which causes unexpected and broken routing scenarios. When configuring multiple clusters on the same virtual network or dedicating a virtual network to each cluster, consider the following limitations:
 
 * A custom route table must be associated to the subnet before you create the AKS cluster.
 * The associated route table resource can't be updated after cluster creation. However, custom rules can be modified on the route table.

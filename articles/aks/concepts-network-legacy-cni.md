@@ -11,6 +11,8 @@ ms.custom: fasttrack-edit
 
 # AKS Legacy Container Networking Interfaces (CNI)
 
+In Azure Kubernetes Service (AKS), while [Azure CNI Overlay][azure-cni-overlay] and [Azure CNI Pod Subnet][azure-cni-pod-subnet] are recommended for most scenarios, legacy networking models such as Azure CNI Node Subnet and kubenet are still available and supported. These legacy models offer different approaches to pod IP address management and networking, each with its own set of capabilities and considerations. This article provides an overview of these legacy networking options, detailing their prerequisites, deployment parameters, and key characteristics to help you understand their roles and how they can be used effectively within your AKS clusters.
+
 ## Prerequisites
 
 The following prerequisites are required for Azure CNI Node Subnet and kubenet:
@@ -27,7 +29,7 @@ The following prerequisites are required for Azure CNI Node Subnet and kubenet:
 - AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, make sure the security rules in the NSGs allow traffic within the node CIDR range. For more information, see [Network security groups][aks-network-nsg].
 
 > [!NOTE]
-> kubenet isn't available for Windows Server containers. To use Windows Server node pools, you need to use Azure CNI. 
+> Kubenet isn't available for Windows Server containers. To use Windows Server node pools, you need to use Azure CNI. 
 
 ## Azure CNI Node Subnet
 
@@ -68,7 +70,7 @@ In many environments, you have defined virtual networks and subnets with allocat
 
 With _kubenet_, only the nodes receive an IP address in the virtual network subnet. Pods can't communicate directly with each other. Instead, User Defined Routing (UDR) and IP forwarding handle connectivity between pods across nodes. UDRs and IP forwarding configuration is created and maintained by the AKS service by default, but you can bring your own route table for custom route management if you want. You can also deploy pods behind a service that receives an assigned IP address and load balances traffic for the application. The following diagram shows how the AKS nodes receive an IP address in the virtual network subnet, but not the pods:
 
-![Kubenet network model with an AKS cluster](media/use-kubenet/kubenet-overview.png)
+:::image type="content" source="media/use-kubenet/kubenet-overview.png" alt-text="A diagram showing two nodes with three pods each running in an Overlay network. Pod traffic to endpoints outside the cluster is routed via NAT.":::
 
 Azure supports a maximum of _400_ routes in a UDR, so you can't have an AKS cluster larger than 400 nodes. AKS [virtual nodes][virtual-nodes] and Azure Network Policies aren't supported with _kubenet_. [Calico Network Policies][calico-network-policies] are supported.
 
@@ -117,7 +119,7 @@ For more information, see [Compare network models and their support scopes][netw
 - **What source IP do external systems see for traffic that originates in an Azure CNI-enabled pod?**
 
   Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod.
-  But for [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], no matter the connection is inside the same virtual network or cross virtual networks, the pod IP is always the source address for any traffic from the pod. This is because the [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation] implements [Microsoft Azure Container Networking][github-azure-container-networking] infrastructure, which gives end-to-end experience. Hence, it eliminates the use of [`ip-masq-agent`][ip-masq-agent], which is still used by traditional Azure CNI.  
+  But for [Azure CNI dynamic IP allocation][azure-cni-dynamic-ip-allocation], no matter the connection is inside the same virtual network or cross virtual networks, the pod IP is always the source address for any traffic from the pod. This is because the [Azure CNI for dynamic IP allocation][azure-cni-dynamic-ip-allocation] implements [Microsoft Azure Container Networking][github-azure-container-networking] infrastructure, which gives end-to-end experience. Hence, it eliminates the use of [`ip-masq-agent`][ip-masq-agent], which is still used by traditional Azure CNI.  
 
 - **Can I configure per-pod network policies?**
 
@@ -127,7 +129,7 @@ For more information, see [Compare network models and their support scopes][netw
 
     By default, AKS clusters use [kubenet][kubenet] and create a virtual network and subnet. With _kubenet_, nodes get an IP address from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive an IP address "hidden" behind the node IP. This approach reduces the number of IP addresses that you need to reserve in your network space for pods to use.
 
-With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. These IP addresses must be unique across your network space and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.  
+  With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. These IP addresses must be unique across your network space and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.  
 
 - **Can I deploy VMs in my cluster subnet?**
 
@@ -152,26 +154,20 @@ With [Azure Container Networking Interface (CNI)][cni-networking], every pod get
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy
+[github-azure-container-networking]: https://github.com/Azure/azure-container-networking
+[ip-masq-agent]: https://kubernetes.io/docs/tasks/administer-cluster/ip-masq-agent/
 
 <!-- LINKS - Internal -->
-[install-azure-cli]: /cli/azure/install-azure-cli
-[az-identity-create]: /cli/azure/identity#az_identity_create
-[aks-network-concepts]: concepts-network.md
+
 [aks-network-nsg]: concepts-network.md#network-security-groups
-[az-group-create]: /cli/azure/group#az_group_create
-[az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
-[az-network-vnet-show]: /cli/azure/network/vnet#az_network_vnet_show
-[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_show
-[az-network-vnet-subnet-list]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_list
-[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[byo-subnet-route-table]: #bring-your-own-subnet-and-route-table-with-kubenet
-[develop-helm]: quickstart-helm.md
-[use-helm]: kubernetes-helm.md
+[azure-cni-dynamic-ip-allocation]: concepts-network-azure-cni-pod-subnet.md#dynamic-ip-allocation-mode
+[azure-cni-overlay]: concepts-network-azure-cni-overlay.md
+[azure-cni-pod-subnet]: concepts-network-azure-cni-pod-subnet.md
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network-cni-overview.md
-[custom-route-table]: ../virtual-network/manage-route-table.md
-[Create an AKS cluster with user-assigned managed identity]: configure-kubenet.md#create-an-aks-cluster-with-user-assigned-managed-identity
-[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-managed-identity
+[network-policy]: use-network-policies.md
+[services]: concepts-network-services.md
+[max-pods]: concepts-network-ip-address-planning.md#maximum-pods-per-node
+[configure-azure-cni-dynamic-ip-allocation]: configure-azure-cni-dynamic-ip-allocation.md

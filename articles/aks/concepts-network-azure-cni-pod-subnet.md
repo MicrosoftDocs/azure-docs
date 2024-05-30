@@ -7,11 +7,12 @@ author: schaffererin
 ms.author: schaffererin
 
 ms.custom: fasttrack-edit
+ms.custom: references_regions
 ---
 
 # Azure Container Networking Interface (CNI) Pod Subnet
 
-Azure CNI Pod Subnet assigns IP addresses to pods from a separate subnet from your cluster Nodes. This feature is available in two modes: Dynamic IP Allocation and Static Block Allocation(Preview).
+Azure CNI Pod Subnet assigns IP addresses to pods from a separate subnet from your cluster Nodes. This feature is available in two modes: Dynamic IP Allocation and Static Block Allocation (Preview).
 
 ## Prerequisites
 
@@ -37,7 +38,7 @@ The dynamic IP allocation mode offers the following benefits:
 
 - **Better IP utilization**: IPs are dynamically allocated to cluster Pods from the Pod subnet. This leads to better utilization of IPs in the cluster compared to the traditional CNI solution, which does static allocation of IPs for every node.
 - **Scalable and flexible**: Node and pod subnets can be scaled independently. A single pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate pod subnet for a node pool.  
-- **High performance**: Since pod are assigned VNet IPs, they have direct connectivity to other cluster pod and resources in the VNet. The solution supports very large clusters without any degradation in performance.
+- **High performance**: Since pods are assigned VNet IPs, they have direct connectivity to other cluster pods and resources in the VNet. The solution supports very large clusters without any degradation in performance.
 - **Separate VNet policies for pods**: Since pods have a separate subnet, you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios, such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using an Azure NAT Gateway, and using network security groups (NSGs) to filter traffic between node pools.  
 - **Kubernetes network policies**: Both the Azure Network Policies and Calico work with this mode.
 
@@ -45,7 +46,7 @@ The dynamic IP allocation mode offers the following benefits:
 
 With dynamic IP allocation, nodes and pods scale independently, so you can plan their address spaces separately. Since pod subnets can be configured to the granularity of a node pool, you can always add a new subnet when you add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
 
-IPs are allocated to nodes in batches of 16. Pod subnet IP allocation should be planned with a minimum of 16 IPs per node in the cluster, as the nodes request 16 IPs on startup and request another batch of 16 any time there are <8 IPs unallocated in their allotment.
+IPs are allocated to nodes in batches of 16. Pod subnet IP allocation should be planned with a minimum of 16 IPs per node in the cluster, as the nodes request 16 IPs on startup and request another batch of 16 anytime there are <8 IPs unallocated in their allotment.
 
 IP address planning for Kubernetes services and Docker Bridge remain unchanged.
 
@@ -66,13 +67,13 @@ The static block allocation mode offers the following benefits:
 Below are some of the limitations of using Azure CNI Static Block allocation:
 - Minimum Kubernetes Version required is 1.28
 - Maximum subnet size supported is x.x.x.x/12 ~ 1 million IPs
-- Not supported for Windows node pools (Windows support coming soon)
-- Not supported for Cilium Data Plane (support coming soon)
+- Not supported for Windows node pools
+- Not supported for Cilium Data Plane
 - Only a single mode of operation can be used per subnet. If a subnet uses Static Block allocation mode, it cannot be use Dynamic IP allocation mode in a different cluster or node pool with the same subnet and vice versa.
 - Only supported in new clusters or when adding node pools with a different subnet to existing clusters. Migrating or updating existing clusters or node pools is not supported.
-- Across all the CIDR blocks assigned to a node in the node pool, one IP will be selected as the primary IP of the node. Thus, for network administrators selecting the `--max-pods` value try to use the calculation below to best serve your needs and have optimal usage of IPs in the subnet:  
-`max_pods` = (N * 16) - 1`
-where N is any positive integer and N > 0
+- Across all the CIDR blocks assigned to a node in the node pool, one IP will be selected as the primary IP of the node. Thus, for network administrators selecting the `--max-pods` value try to use the calculation below to best serve your needs and have optimal usage of IPs in the subnet:
+
+`max_pods = (N * 16) - 1` where `N` is any positive integer and `N` > 0
 
 ### Region availability 
 

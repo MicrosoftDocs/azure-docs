@@ -28,7 +28,7 @@ You need to configure the following network and application security rules in yo
 | ** ServiceTag | AzureCloud.`<Region>`   | UDP      | 1194 | Network security rule| Tunneled secure communication between the nodes and the control plane.|
 | ** ServiceTag | AzureCloud.`<Region>`   | TCP      | 9000 | Network security rule|Tunneled secure communication between the nodes and the control plane.|
 | FQDN Tag| AzureKubernetesService | HTTPS      | 443 |Application security rule| Required by AKS Service.|
-| Service Tag  | AzureMonitor | TCP      | 443 |Netowrk security rule| Required for integration with Azure Monitor.|
+| Service Tag  | AzureMonitor | TCP      | 443 |Network security rule| Required for integration with Azure Monitor.|
 | FQDN| hiloprodrpacr00.azurecr.io|HTTPS|443|Application security rule| Downloads metadata info of the docker image for setup of HDInsight on AKS and monitoring.|
 | FQDN| *.blob.core.windows.net|HTTPS|443|Application security rule| Monitoring and setup of HDInsight on AKS.|
 | FQDN|graph.microsoft.com|HTTPS|443|Application security rule|  Authentication.|

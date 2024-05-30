@@ -134,17 +134,17 @@
       items:
         - name: Networking concepts
           href: concepts-network.md
-        - name: CNI Networking
+        - name: CNI networking
           items:
-            - name: CNI Networking Overview
+            - name: CNI networking overview
               href: concepts-network-cni-overview.md
             - name: Azure CNI Overlay
               href: concepts-network-azure-cni-overlay.md
-            - name: Azure CNI Podsubnet
-              href: concepts-network-azure-cni-podsubnet.md
+            - name: Azure CNI Pod subnet
+              href: concepts-network-azure-cni-pod-subnet.md
             - name: Legacy CNI options
               href: concepts-network-legacy-cni.md
-        - name: IP Address Planning
+        - name: IP address planning
           href: concepts-network-ip-address-planning.md
         - name: Services
           href: concepts-network-services.md
