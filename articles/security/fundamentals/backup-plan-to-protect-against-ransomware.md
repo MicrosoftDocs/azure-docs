@@ -16,12 +16,9 @@ Ransomware attacks deliberately encrypt or erase data and systems to force your 
 
 This article addresses what to do before an attack to protect your critical business systems and during an attack to ensure a rapid recovery of business operations.
 
-> [!NOTE]
-> Preparing for ransomware also improves resilience to natural disasters and rapid attacks like [WannaCry](https://en.wikipedia.org/wiki/WannaCry_ransomware_attack) & [(Not)Petya](https://attack.mitre.org/software/S0368/).
-
 ## What is ransomware?
 
-Ransomware is a type of extortion attack that encrypts files and folders, preventing access to important data and systems. Attackers use ransomware to extort money from victims by demanding money, usually in the form of cryptocurrencies, in exchange for a decryption key or in exchange for not releasing sensitive data to the dark web or the public internet.
+Ransomware is a type of extortion attack that encrypts files and folders, preventing access to important data and systems. Attackers use ransomware to extort money from targets by demanding money, usually in the form of cryptocurrencies, in exchange for a decryption key or in exchange for not releasing sensitive data to the dark web or the public internet.
 
 While early ransomware mostly used malware that spread with phishing or between devices, human-operated ransomware has emerged where a gang of active attackers, driven by human attack operators, target all systems in an organization (rather than a single device or set of devices). An attack can:
 
@@ -50,11 +47,11 @@ The impact of a ransomware attack on any organization is difficult to quantify a
 
 ## How can you protect yourself?
 
-The best way to prevent falling victim to ransomware is to implement preventive measures and have tools that protect your organization from every step that attackers take to infiltrate your systems.
+The best way to prevent compromise by ransomware attack is to implement preventive measures and have tools that protect your organization from every step that attackers take to infiltrate your systems.
 
-You can reduce your on-premises exposure by moving your organization to a cloud service. Microsoft has invested in native security capabilities that make Microsoft Azure resilient against ransomware attacks and helps organizations defeat ransomware attack techniques. For a comprehensive view of ransomware and extortion and how to protect your organization, use the information in the [Human-Operated Ransomware Mitigation Project Plan](https://download.microsoft.com/download/7/5/1/751682ca-5aae-405b-afa0-e4832138e436/RansomwareRecommendations.pptx) PowerPoint presentation.
+You can reduce your on-premises exposure to ransomware attacks by moving your organization to a cloud service. Microsoft has invested in native security capabilities that make Microsoft Azure resilient against ransomware attacks and helps organizations defeat ransomware attack techniques. For a comprehensive view of ransomware and extortion and how to protect your organization, use the information in the [Human-Operated Ransomware Mitigation Project Plan](https://download.microsoft.com/download/7/5/1/751682ca-5aae-405b-afa0-e4832138e436/RansomwareRecommendations.pptx) PowerPoint presentation.
 
-You should assume that at some point in time you will fall victim to a ransomware attack. One of the most important steps you can take to protect your data and avoid paying a ransom is to have a reliable backup and restore plan for your business-critical information. Since ransomware attackers have invested heavily into neutralizing backup applications and operating system features like volume shadow copy, it is critical to have backups that are inaccessible to a malicious attacker.
+You should assume that at some point in time you will be compromised by a ransomware attack. One of the most important steps you can take to protect your data and avoid paying a ransom is to have a reliable backup and restore plan for your business-critical information. Since ransomware attackers have invested heavily into neutralizing backup applications and operating system features like volume shadow copy, it is critical to have backups that are inaccessible to a malicious attacker.
 
 ### Azure Backup
 
@@ -89,7 +86,7 @@ Validate that your backup is good as your backup is created and before you resto
 
 ## What to do before an attack
 
-As mentioned earlier, you should assume that at some point in time you will fall victim to a ransomware attack. Identifying your business-critical systems and applying best practices before an attack will get you back up and running as quickly as possible. 
+As mentioned earlier, you should assume that at some point in time you will be compromised by a ransomware attack. Identifying your business-critical systems and applying best practices before an attack will get you back up and running as quickly as possible. 
 
 ### Determine what is most important to you
 
@@ -119,7 +116,7 @@ Apply these best practices before an attack.
 | Consider creating a risk register to identify potential risks and address how you will mediate through preventative controls and actions. Add ransomware to risk register as high likelihood and high impact scenario. | A risk register can help you prioritize risks based on the likelihood of that risk occurring and the severity to your business should that risk occur. <br><br>Track mitigation status via [Enterprise Risk Management (ERM)](/compliance/assurance/assurance-risk-management) assessment cycle. |
 | Back up all critical business systems automatically on a regular schedule (including backup of critical dependencies like Active Directory). <br><br>Validate that your backup is good as your backup is created. | Allows you to recover data up to the last backup. |
 | Protect (or print) supporting documents and systems required for recovery such as restoration procedure documents, CMDB, network diagrams, and SolarWinds instances. | Attackers deliberately target these resources because it impacts your ability to recover. |
-| Ensure you have well-documented procedures for engaging any third-party support, particularly support from threat intelligence providers, antimalware solution providers, and from the malware analysis provider. Protect (or print) these procedures. | Third-party contacts may be useful if the given ransomware variant has known weaknesses or decryption tools are available. |
+| Ensure you have well-documented procedures for engaging any third-party support, particularly support from threat intelligence providers, antimalware solution providers, and from the malware analysis provider. Protect (or print) these procedures. | Third-party contacts might be useful if the given ransomware variant has known weaknesses or decryption tools are available. |
 | Ensure backup and recovery strategy includes: <br><br>Ability to back up data to a specific point in time. <br><br>Multiple copies of backups are stored in isolated, offline (air-gapped) locations. <br><br>Recovery time objectives that establish how quickly backed up information can be retrieved and put into production environment. <br><br>Rapid restore of back up to a production environment/sandbox. | Backups are essential for resilience after an organization has been breached. Apply the 3-2-1 rule for maximum protection and availability: 3 copies (original + 2 backups), 2 storage types, and 1 offsite or cold copy. |
 | Protect backups against deliberate erasure and encryption: <br><br>Store backups in offline or off-site storage and/or immutable storage. <br><br>Require out of band steps (such as [MFA](../../active-directory/authentication/concept-mfa-howitworks.md) or a security PIN) before permitting an online backup to be modified or erased. <br><br>Create private endpoints within your Azure Virtual Network to securely back up and restore data from your Recovery Services vault. | Backups that are accessible by attackers can be rendered unusable for business recovery. <br><br>Offline storage ensures robust transfer of backup data without using any network bandwidth. Azure Backup supports [offline backup](../../backup/offline-backup-overview.md), which transfers initial backup data offline, without the use of network bandwidth. It provides a mechanism to copy backup data onto physical storage devices. The devices are then shipped to a nearby Azure datacenter and uploaded onto a [Recovery Services vault](../../backup/backup-azure-recovery-services-vault-overview.md). <br><br>Online immutable storage (such as [Azure Blob](../../storage/blobs/immutable-storage-overview.md)) enables you to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. <br><br>[Multifactor authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) should be mandatory for all admin accounts and is strongly recommended for all users. The preferred method is to use an authenticator app rather than SMS or voice where possible. When you set up Azure Backup you can configure your recovery services to enable MFA using a security PIN generated in the Azure portal. This ensures that a security pin is generated to perform critical operations such as updating or removing a recovery point. |
 | Designate [protected folders](/windows/security/threat-protection/microsoft-defender-atp/controlled-folders). | Makes it more difficult for unauthorized applications to modify the data in these folders. |
@@ -128,7 +125,7 @@ Apply these best practices before an attack.
 
 ## What to do during an attack
 
-If you are attacked, your prioritized back up list becomes your prioritized restore list. Before you restore, validate again that your backup is good. You may be able to look for malware inside the backup.
+If you are attacked, your prioritized back up list becomes your prioritized restore list. Before you restore, validate again that your backup is good. You might be able to look for malware inside the backup.
 
 ### Steps to take during an attack
 
@@ -136,13 +133,13 @@ Apply these best practices during an attack.
 
 | Task | Detail |
 | --- | --- |
-| Early in the attack, engage third-party support, particularly support from threat intelligence providers, antimalware solution providers and from the malware analysis provider. | These contacts may be useful if the given ransomware variant has a known weakness or decryption tools are available. <br><br>[Microsoft Detection and Response Team (DART)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) can help protect you from attacks. The DART engages with customers around the world, helping to protect and harden against attacks before they occur, as well as investigating and remediating when an attack has occurred. <br><br>Microsoft also provides Rapid Ransomware Recovery services. Services are exclusively delivered by the Microsoft Global [Compromise Recovery Security Practice (CRSP)](https://www.microsoft.com/security/blog/2021/06/09/crsp-the-emergency-team-fighting-cyber-attacks-beside-customers/). The focus of this team during a ransomware attack is to restore authentication service and limit the impact of ransomware. <br><br>DART and CRSP are part of Microsoft’s [Industry Solutions Delivery](https://www.microsoft.com/en-us/msservices/security) security service line. |
+| Early in the attack, engage third-party support, particularly support from threat intelligence providers, antimalware solution providers and from the malware analysis provider. | These contacts might be useful if the given ransomware variant has a known weakness or decryption tools are available. <br><br>[Microsoft Detection and Response Team (DART)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) can help protect you from attacks. The DART engages with customers around the world, helping to protect and harden against attacks before they occur, as well as investigating and remediating when an attack has occurred. <br><br>Microsoft also provides Rapid Ransomware Recovery services. Services are exclusively delivered by the Microsoft Global [Compromise Recovery Security Practice (CRSP)](https://www.microsoft.com/security/blog/2021/06/09/crsp-the-emergency-team-fighting-cyber-attacks-beside-customers/). The focus of this team during a ransomware attack is to restore authentication service and limit the impact of ransomware. <br><br>DART and CRSP are part of Microsoft’s [Industry Solutions Delivery](https://www.microsoft.com/en-us/msservices/security) security service line. |
 | Contact your local or federal law enforcement agencies. | If you are in the United States, contact the FBI to report a ransomware breach using the [IC3 Complaint Referral Form](https://ransomware.ic3.gov/default.aspx). |
-| Take steps to remove malware or ransomware payload from your environment and stop the spread. <br><br>Run a full, current antivirus scan on all suspected computers and devices to detect and remove the payload that's associated with the ransomware. <br><br>Scan devices that are synchronizing data, or the targets of mapped network drives. | You can use [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) or (for older clients) [Microsoft Security Essentials](https://www.microsoft.com/download/details.aspx?id=5201). <br><br>An alternative that will also help you remove ransomware or malware is the [Malicious Software Removal Tool (MSRT)](https://www.microsoft.com/download/details.aspx?id=9905). |
+| Take steps to remove malware or ransomware payload from your environment and stop the spread. <br><br>Run a full, current antivirus scan on all suspected devices to detect and remove the payload that's associated with the ransomware. <br><br>Scan devices that are synchronizing data, or the targets of mapped network drives. | You can use [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) or (for older clients) [Microsoft Security Essentials](https://www.microsoft.com/download/details.aspx?id=5201). <br><br>An alternative that will also help you remove ransomware or malware is the [Malicious Software Removal Tool (MSRT)](https://www.microsoft.com/download/details.aspx?id=9905). |
 | Restore business-critical systems first. Remember to validate again that your backup is good before you restore.| At this point, you don’t need to restore everything. Focus on the top five business-critical systems from your restore list. |
 | If you have offline backups, you can probably restore the encrypted data **after** you've removed the ransomware payload (malware) from your environment. | To prevent future attacks, ensure ransomware or malware is not on your offline backup before restoring. |
 | Identify a safe point-in-time backup image that is known not to be infected. <br><br>If you use Recovery Services vault, carefully review the incident timeline to understand the right point-in-time to restore a backup. | To prevent future attacks, scan backup for ransomware or malware before restoring. |
-| Use a safety scanner and other tools for full operating system restore as well as data restore scenarios. | [Microsoft Safety Scanner](/windows/security/threat-protection/intelligence/safety-scanner-download) is a scan tool designed to find and remove malware from Windows computers. Simply download it and run a scan to find malware and try to reverse changes made by identified threats. |
+| Use a safety scanner and other tools for full operating system restore as well as data restore scenarios. | [Microsoft Safety Scanner](/windows/security/threat-protection/intelligence/safety-scanner-download) is a scan tool designed to find and remove malware from Windows devices. Simply download it and run a scan to find malware and try to reverse changes made by identified threats. |
 | Ensure that your antivirus or endpoint detection and response (EDR) solution is up to date. You also need to have up-to-date patches. | An EDR solution, such as [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint), is preferred. |
 | After business-critical systems are up and running, restore other systems. <br><br>As systems get restored, start collecting telemetry data so you can make formative decisions about what you are restoring. | Telemetry data should help you identify if malware is still on your systems. |
 
@@ -152,7 +149,7 @@ After a ransomware attack or an incident response simulation, take the following
 
 1. Identify lessons learned where the process did not work well (and opportunities to simplify, accelerate, or otherwise improve the process)
 2. Perform root cause analysis on the biggest challenges (at enough detail to ensure solutions address the right problem — considering people, process, and technology)
-3. Investigate and remediate the original breach (engage the [Microsoft Detection and Response Team (DART)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) to help)
+3. Investigate and remediate the original breach (engage the [Microsoft Incident Response team (formerly DART/CRSP)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) to help).
 4. Update your backup and restore strategy based on lessons learned and opportunities — prioritizing based on highest impact and quickest implementation steps first
 
 ## Next steps
@@ -161,7 +158,7 @@ In this article, you learned how to improve your backup and restore plan to prot
 
 Key industry information:
 
-- [2021 Microsoft Digital Defense Report](https://www.microsoft.com/security/business/microsoft-digital-defense-report) (see pages 10-19)
+- [2023 Microsoft Digital Defense Report](https://www.microsoft.com/en-us/security/security-insider/microsoft-digital-defense-report-2023) (see pages 17-26)
 
 Microsoft Azure:
 
