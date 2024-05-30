@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 05/29/2024
+ms.date: 05/30/2024
 ms.topic: tutorial
 
 #Customer intent: As a dev box user, I want to use multiple monitors when connecting to my dev box so that I can have more screen real estate to work with.
@@ -90,6 +90,11 @@ Use the following steps to configure Remote Desktop to use multiple monitors.
 1. Select your dev box to begin the Remote Desktop session.
 
 --- 
+
+> [!TIP]
+> For more information about the Microsoft remote desktop clients currently available, see:
+> - [Remote Desktop clients for Remote Desktop Services and remote PCs](https://aka.ms/rdapps)
+> - [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](/azure/virtual-desktop/users/connect-windows)
 
 ## Clean up resources
 
