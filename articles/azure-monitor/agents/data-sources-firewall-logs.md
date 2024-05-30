@@ -23,6 +23,11 @@ To complete this procedure, you need:
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md) in the workspace.
 - A Virtual Machine, Virtual Machine Scale Set, or Arc-enabled on-premises machine that is running firewall. 
 
+## Add Firewall Table to LAW
+Unlike other tables that are created by default in LAW, the Windows Firewall table must be manually created. Search for the Security and Audit solution and create it. See screen shot below. If the table in not present you will get a DCR deployment error stating that the table is not present in LAW.  The schema for the firewall table that gets created is located here: [Windows Firewall Schema](../../reference/tables/windowsfirewall.md
+
+[ ![Screenshot that shows how to add the security and audit solution](media/firewall-logs/security-and-audit-solution.png) ](media/firewall-logs/security-and-audit-solution.png#lightbox)
+
 ## Create a data collection rule to collect firewall logs
 The [data collection rule](../essentials/data-collection-rule-overview.md) defines: 
 - Which source log files Azure Monitor Agent scans for new events.
@@ -98,6 +103,9 @@ WindowsFirewall
 
 ### Verify that firewall logs are being created
 Look at the timestamps of the log files and open the latest to see that latest timestamps are present in the log files. The default location for firewall log files is C:\windows\system32\logfiles\firewall\pfirewall.log
+
+[ ![Screenshot that shows firewall logs on a local disk.](media/firewall-logs/firewall-files-on-disk.png) ](media/firewall-logs/firewall-files-on-disk.png#lightbox)
+
 
 ## Next steps
 Learn more about: 
