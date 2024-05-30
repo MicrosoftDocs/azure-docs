@@ -13,26 +13,29 @@ ms.author: cshoe
 
 Per-subscription limits:
 
-| Feature                          | Free plan   | Standard plan | Dedicated plan (Preview) |
-|----------------------------------|-------------|---------------|--------------------------|
-| Included bandwidth (per month)   | 100 GB      | 100 GB        | 100 GB                   |
-| Overage bandwidth                | Unavailable | $0.20 per GB  | $0.20 per GB             |
-| Apps                             | 10          | 100           | 1                        |
+| Feature                             | Free plan   | Standard plan | Dedicated plan (Preview) |
+|-------------------------------------|-------------|---------------|--------------------------|
+| Included bandwidth (per month)      | 100 GB      | 100 GB        | 100 GB                   |
+| Overage bandwidth                   | Unavailable | $0.20 per GB  | $0.20 per GB             |
+| Apps                                | 10          | 100           | 1                        |
 
 If you need more apps on the Standard plan, please contact Azure Support.
 
 Per-app limits:
 
-| Feature                          | Free plan   | Standard plan | Dedicated plan (Preview) |
-|----------------------------------|-------------|---------------|--------------------------|
-| Pre-production environments      | 3           | 10            | 10                       |
-| Total storage (all environments) | 500 MB      | 2 GB          | 2 GB                     |
-| Storage (single environment)     | 250 MB      | 500 MB        | 500 MB                   |
-| File count                       | 15,000      | 15,000        | 15,000                   |
-| Custom domains                   | 2           | 5             | 5                        |
-| Allowed IP ranges                | Unavailable | 25            | 25                       |
-| Authorization (custom roles)     | 25 ([invitations only][1]) | 25 ([via invitations][1]) or unlimited ([via serverless function][2]) | 25 ([via invitations][1]) or unlimited ([via serverless function][2]) |
-| Request Size Limit               | 30 MB        | 30 MB        | 30 MB                    |
+| Feature                             | Free plan   | Standard plan | Dedicated plan (Preview) |
+|-------------------------------------|-------------|---------------|--------------------------|
+| [Preview environments][3]           | 3           | 10            | 10                       |
+| Total storage (all environments)    | 500 MB      | 2 GB          | 2 GB                     |
+| Storage (single environment)        | 250 MB      | 500 MB        | 500 MB                   |
+| File count                          | 15,000      | 15,000        | 15,000                   |
+| [Custom domains][1]                 | 2           | 5             | 5                        |
+| [Private endpoint][4]               | Unavailable | 1             | 1                        |
+| Allowed IP range restrictions       | Unavailable | 25            | 25                       |
+| [Authorization (custom roles)][2]   |             |               |                          |
+| &nbsp;&nbsp;via invitations         | 25          | 25            | 25                       |
+| &nbsp;&nbsp;serverless functions    | Unavailable | Unlimited     | Unlimited                |
+| Request Size Limit                  | 30 MB       | 30 MB         | 30 MB                    |
 
 ## GitHub storage
 
@@ -49,5 +52,7 @@ See the following resources for more detail:
 - [Azure Static Web Apps overview](overview.md)
 
 <!-- Links -->
-[1]: authentication-custom.md#manage-roles
+[1]: custom-domain.md
 [2]: authentication-custom.md#manage-roles
+[3]: preview-environments.md
+[4]: private-endpoint.md
