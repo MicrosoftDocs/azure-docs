@@ -149,6 +149,8 @@ With the Eureka Server set up, you can now bind other applications to it for ser
         "AssignableScopes": ["/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
     }'
     ```
+
+    Please replace the `AssignableScopes` value with your subscription id.
     
 
 1. Assign the Custom Role to your accound on managed environment resource.

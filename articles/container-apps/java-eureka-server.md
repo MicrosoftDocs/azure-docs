@@ -163,6 +163,7 @@ Now that you have an existing environment, you can create your container app and
         "AssignableScopes": ["/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
     }'
     ```
+    Please replace the `AssignableScopes` value with your subscription id.
     
 1. Assign the Custom Role to your accound on managed environment resource.
 
