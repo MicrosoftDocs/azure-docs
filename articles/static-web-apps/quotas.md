@@ -33,8 +33,8 @@ App limits:
 | [Private endpoint][4]               | Unavailable | 1             | 1                        |
 | Allowed IP range restrictions       | Unavailable | 25            | 25                       |
 | [Authorization (custom roles)][2]   |             |               |                          |
-| &nbsp;&nbsp;via invitations         | 25          | 25            | 25                       |
-| &nbsp;&nbsp;serverless functions    | Unavailable | Unlimited     | Unlimited                |
+| &nbsp;&nbsp;&nbsp;&nbsp;via invitations | 25 | 25 | 25 |
+| &nbsp;&nbsp;&nbsp;&nbsp;via serverless functions | Unavailable | Unlimited | Unlimited |
 | Request Size Limit                  | 30 MB       | 30 MB         | 30 MB                    |
 
 ## GitHub storage
