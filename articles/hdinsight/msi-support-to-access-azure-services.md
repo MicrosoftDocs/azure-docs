@@ -9,7 +9,7 @@ ms.date: 05/29/2024
 
 # MSI Support to access Azure services
 
-Presently in Azure HDInsight non-ESP cluster, User Job accessing Azure resources like SqlDB, CosmosDB, EH, KV, Kusto either using username and password or using MSI certificate key. This is not in line with Microsoft security guidelines.
+Presently in Azure HDInsight non-ESP cluster, User Job accessing Azure resources like SqlDB, Cosmos DB, EH, KV, Kusto either using username and password or using MSI certificate key. This isnn't in line with Microsoft security guidelines.
 
 This article explains the  HDInsight interface and code details to fetch OAuth tokens in a non-ESP cluster.
 
@@ -66,7 +66,8 @@ public class AccessToken {
 ```
 
 ### Jar location of the Utils 
-https://hdiconfigactions2.blob.core.windows.net/hdi-oauth-token-utils-jar/oauth-token-utils-shaded-1.0.jar
+
+You can find the jar files from [here](https://msdata.visualstudio.com/HDInsight/_artifacts/feed/HDInsight-Client-Feed).
 
 > [!NOTE] 
 > Microsoft Azure Feed available shortly by May 31st, then the jar name, version and location changes.
@@ -118,7 +119,7 @@ https://hdiconfigactions2.blob.core.windows.net/hdi-oauth-token-utils-jar/oauth-
 
 ## How to build application code with this utility
 
-1. Download the utility from the jar location and keep it to the local `.m2` repository location.
+1. Download the utility from the [jar location](https://msdata.visualstudio.com/HDInsight/_artifacts/feed/HDInsight-Client-Feed/maven/com.microsoft.hdinsight%2Fhdi-oauth-token-utils/overview/1.0.0) and keep it to the local `.m2` repository location.
    
    :::image type="content" source="./media/msi-support-to-access-azure-services/download-jar-file.png" alt-text="Screenshot showing how to download-jar-file." border="true" lightbox="./media/msi-support-to-access-azure-services/download-jar-file.png":::
 
