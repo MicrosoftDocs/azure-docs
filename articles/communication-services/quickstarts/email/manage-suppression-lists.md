@@ -1,7 +1,7 @@
 ---
-title: How to manage suppression lists for an Azure Communication Email Domain using the Azure portal
+title: Manage domain suppression lists in Azure Communication Services using the Azure portal
 titleSuffix: An Azure Communication Services quick start guide.
-description: Learn about managing suppression lists for an Azure Communication Email Domain using the Azure portal
+description: Learn about managing domain suppression lists in Azure Communication Services using the Azure portal
 author: matthohn-msft
 manager: koagbakp
 services: azure-communication-services
@@ -9,8 +9,6 @@ ms.author: matthohn
 ms.date: 03/21/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Quickstart: How to manage suppression lists for an Azure Communication Email Domain using the Azure portal
@@ -20,7 +18,7 @@ In this quick start, you learn how to manage suppression lists for an Azure Comm
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- An Azure Email Communication Services Resource ready to = domains. [Get started creating an Email Communication Resource](./create-email-communication-resource.md).
+- An Azure Email Communication Services Resource ready to provision domains. [Get started creating an Email Communication Resource](./create-email-communication-resource.md).
 - An [Azure Managed Domain](./add-azure-managed-domains.md) or [Custom Domain](./add-custom-verified-domains.md) provisioned and ready to send emails.
 
 Once you have a domain provisioned, you're ready to start configuring your resource.

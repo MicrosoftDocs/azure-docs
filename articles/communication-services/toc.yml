@@ -191,6 +191,8 @@ items:
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
     - name: Manage domain suppression lists with Azure Communication Services Management SDKs
       href: quickstarts/email/manage-suppression-list-management-sdks.md
+    - name: Manage domain suppression lists in the Azure portal
+      href: quickstarts/email/manage-suppression-lists.md
     - name: Sending emails using SMTP 
       items:
         - name: Setting up SMTP Authentication
