@@ -631,7 +631,7 @@ The high-level steps involved in liveness with verification orchestration are il
     Console.WriteLine($"Liveness detection received datetime: {sessionResult.Result?.ReceivedDateTime}");
     Console.WriteLine($"Liveness detection decision: {sessionResult.Result?.Response.Body.LivenessDecision}");
     Console.WriteLine($"Verification result: {sessionResult.Result?.Response.Body.VerifyResult.IsIdentical}");
-    Console.WriteLine($"Verification confidence: {sessionResult.Result?.Body.VerifyResult.MatchConfidence}");
+    Console.WriteLine($"Verification confidence: {sessionResult.Result?.Response.Body.VerifyResult.MatchConfidence}");
     Console.WriteLine($"Session created datetime: {sessionResult.CreatedDateTime}");
     Console.WriteLine($"Auth token TTL (seconds): {sessionResult.AuthTokenTimeToLiveInSeconds}");
     Console.WriteLine($"Session expired: {sessionResult.SessionExpired}");
