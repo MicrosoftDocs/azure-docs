@@ -3,7 +3,7 @@ title: What is Virtual Network Verifier?
 description: Learn how Virtual Network Verifier helps you verify your network policies allow or disallow traffic between your Azure network resources.
 author: mbender-ms
 ms.author: mbender
-ms.topic: concept
+ms.topic: concept-article
 ms.service: virtual-network-manager
 ms.date: 05/20/2024
 ---
