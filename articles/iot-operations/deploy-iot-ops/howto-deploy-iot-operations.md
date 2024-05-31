@@ -92,6 +92,9 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
    az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_ID>
    ```
 
+   > [!IMPORTANT]
+   > By default, the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command doesn't deploy the Data Processor component. To deploy Data Processor, add the `--include-dp` argument.
+
    If you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group, add the `--disable-rsync-rules` feature flag. This flag disables the resource sync rules on the deployment.
 
    If you want to use an existing service principal and app registration instead of allowing `init` to create new ones, include the `--sp-app-id,` `--sp-object-id`, and `--sp-secret` parameters. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually).
