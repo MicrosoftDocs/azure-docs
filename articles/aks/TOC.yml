@@ -132,10 +132,20 @@
               href: cis-windows.md
     - name: Networking
       items:
-        - name: Concepts
+        - name: Networking concepts
           href: concepts-network.md
         - name: CNI networking
-          href: azure-cni-overview.md
+          items:
+            - name: CNI networking overview
+              href: concepts-network-cni-overview.md
+            - name: Azure CNI Overlay
+              href: concepts-network-azure-cni-overlay.md
+            - name: Azure CNI Pod subnet
+              href: concepts-network-azure-cni-pod-subnet.md
+            - name: Legacy CNI options
+              href: concepts-network-legacy-cni.md
+        - name: IP address planning
+          href: concepts-network-ip-address-planning.md
         - name: Services
           href: concepts-network-services.md
     - name: Advanced Container Networking Services 
@@ -858,7 +868,7 @@
               href: /azure/azure-app-configuration/reference-kubernetes-provider?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Troubleshoot the Azure App Configuration extension
               href: /troubleshoot/azure/azure-kubernetes/troubleshoot-app-configuration-extension-installation-errors?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-    - name: Deploy Intelligent Apps on AKS
+    - name: AI and machine learning
       items:
         - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
           href: open-ai-quickstart.md
