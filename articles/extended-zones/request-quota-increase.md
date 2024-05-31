@@ -29,6 +29,9 @@ In this section, you request a quota increase in the Azure portal.
 
     :::image type="content" source="./media/request-quota-increase/quotas-overview.png" alt-text="Screenshot that shows the Overview page of Quotas in the Azure portal." lightbox="./media/request-quota-increase/quotas-overview.png":::
 
+    > [!NOTE]
+    > For all providers other than Compute, there is a **Request adjustment** column instead of the **Adjustable** column available for **Compute**. From the **Request adjustment**, you can request an increase for a specific quota, or create a support request for the increase.
+
 1. On the **My quotas** page, select the quota you want to increase from the **Quota name** column. Make sure that the **Adjustable** column shows **Yes** for this quota.
 
     > [!TIP]
@@ -42,7 +45,7 @@ In this section, you request a quota increase in the Azure portal.
 
     :::image type="content" source="./media/request-quota-increase/new-quota-request.png" alt-text="Screenshot that shows the New quota request page in the Azure portal." lightbox="./media/request-quota-increase/new-quota-request.png":::
 
-1. Wait a few minutes while your request is reviewed. Once the request is approved, you'll see the new approved quota.
+1. Wait a few minutes while your request is reviewed. Once the request is approved, the **New quota request** page will show the new quota.
 
     :::image type="content" source="./media/request-quota-increase/approved-request.png" alt-text="Screenshot that shows the New approved quota." lightbox="./media/request-quota-increase/approved-request.png":::
     
