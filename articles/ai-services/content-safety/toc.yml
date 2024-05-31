@@ -46,6 +46,8 @@ items:
   items:
   - name: Use a blocklist
     href: how-to/use-blocklist.md
+  - name: Handle harmful content incidents
+    href: how-to/custom-categories-rapid.md
   - name: Encryption of data at rest
     href: how-to/encrypt-data-at-rest.md
   - name: Migrate from public preview to GA
@@ -62,6 +64,8 @@ items:
     href: concepts/jailbreak-detection.md
   - name: Groundedness detection
     href: concepts/groundedness.md
+  - name: Custom categories (rapid)
+    href: concepts/custom-categories-rapid.md
 - name: Reference
   items:
   - name: Azure AI Content Safety REST API

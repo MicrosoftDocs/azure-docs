@@ -1,7 +1,7 @@
 ---
 title: Connect your GitLab groups
 description: Learn how to connect your GitLab Environment to Defender for Cloud.
-ms.date: 01/24/2023
+ms.date: 05/30/2024
 ms.topic: quickstart
 ms.custom: ignite-2023
 ---

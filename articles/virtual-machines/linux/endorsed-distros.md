@@ -47,20 +47,20 @@ Images published and maintained by either Microsoft or partners. There are a lar
 Platform Images are a type of Marketplace images for which Microsoft has partnered with several mainstream publishers (see table below about Partners) to create a set of “platform images” that undergo additional testing and receive predictable updates (see section below on Image Update Cadence). These platform images can be used for building your own custom images and solution stacks. These images are published by the endorsed Linux distribution partners such as Canonical (Ubuntu), Red Hat (RHEL), and Credativ (Debian). 
 
 
-Microsoft CSS provides commercially reasonable support for these images. Additionally, Red Hat, Canonical, and SUSE offer integrated vendor support capabilities for their platform images.  
+Microsoft provides commercially reasonable customer support for these images. Additionally, Red Hat, Canonical, and SUSE offer integrated vendor support capabilities for their platform images.
 
 
 ### Custom Images 
 These images are created and maintained by the customer, often based on platform images. These images can also be created from scratch and uploaded to Azure - [learn how to create custom images](tutorial-custom-images.md). Customers can host these images in [Azure Compute Gallery](../azure-compute-gallery.md) and they can share these images with others in their organization.  
 
  
-Microsoft CSS provides commercially reasonable support for custom images. 
+Microsoft provides commercially reasonable customer support for custom images. 
 
 ### Community Gallery Images
 These images are created and provided by open source projects, communities and teams. These images are provided using licensing terms set out by the publisher, often under an open source license. They do not appear as traditional marketplace listings, however, they do appear in the portal and via command line tools. More information on community galleries can be found here: [Azure Compute Gallery](../azure-compute-gallery.md#community-gallery).
 
 
-Microsoft CSS provides support for Community Gallery images. 
+Microsoft provides commercially reasonable support for Community Gallery images. 
 
 
 

@@ -52,12 +52,12 @@ Server:         127.0.0.53
 Address:        127.0.0.53#53
 
 Non-authoritative answer:
-wantest.database.windows.net    canonical name = wantest.privatelink.database.windows.net.
-Name:   wantest.privatelink.database.windows.net
+wantest.database.windows.net    canonical name = wantest.server-name.database.windows.net.
+Name:   wantest.server-name.database.windows.net
 Address: 10.1.3.228
 ```
 
-As you can see in the previous output, the FQDN `wantest.database.windows.net` is mapped to `wantest.privatelink.database.windows.net`, that the private DNS zone created along the private endpoint will resolve to the private IP address `10.1.3.228`. Looking into the private DNS zone will confirm that there's an A record for the private endpoint mapped to the private IP address:
+As you can see in the previous output, the FQDN `wantest.database.windows.net` is mapped to `wantest.server-name.database.windows.net`, that the private DNS zone created along the private endpoint will resolve to the private IP address `10.1.3.228`. Looking into the private DNS zone will confirm that there's an A record for the private endpoint mapped to the private IP address:
 
 :::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="DNS zone" lightbox="./media/howto-private-link/dns-zone.png":::
 
@@ -100,8 +100,8 @@ Server:         127.0.0.53
 Address:        127.0.0.53#53
 
 Non-authoritative answer:
-wantest.database.windows.net    canonical name = wantest.privatelink.database.windows.net.
-Name:   wantest.privatelink.database.windows.net
+wantest.database.windows.net    canonical name = wantest.server-name.database.windows.net.
+Name:   wantest.server-name.database.windows.net
 Address: 10.1.3.228
 ```
 

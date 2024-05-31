@@ -122,7 +122,7 @@ But you could also create a new, empty notebook, then copy/paste code from a tut
 
 ## Clean up resources
 
-If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
+If you plan to continue now to other tutorials, skip to [Next step](#next-step).
 
 ### Stop compute instance
 
@@ -137,11 +137,11 @@ If you're not going to use it now, stop the compute instance:
 
 [!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
-## Next steps
+## Next step
 
 You now have an Azure Machine Learning workspace, which contains a compute instance to use for your development environment.
 
-Continue on to learn how to use the compute instance to run notebooks and scripts in the Azure Machine Learning cloud. 
+Continue on to learn how to use the compute instance to run notebooks and scripts in the Azure Machine Learning cloud.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Get to know Azure Machine Learning](tutorial-azure-ml-in-a-day.md) 
@@ -155,3 +155,5 @@ Use your compute instance with the following tutorials to train and deploy a mod
 | [Train a model in Azure Machine Learning](tutorial-train-model.md) |    Dive in to the details of training a model     |
 | [Deploy a model as an online endpoint](tutorial-deploy-model.md)  |   Dive in to the details of deploying a model      |
 | [Create production machine learning pipelines](tutorial-pipeline-python-sdk.md) | Split a complete machine learning task into a multistep workflow. |
+
+Want to jump right in? [Browse code samples](/samples/browse/?expanded=azure&products=azure-machine-learning).

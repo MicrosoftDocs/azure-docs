@@ -50,6 +50,7 @@ There are different types of analysis available from this service. The following
 | Prompt Shields (preview) | Scans text for the risk of a [User input attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
 | Groundedness detection (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. [Quickstart](./quickstart-groundedness.md) |
 | Protected material text detection (preview) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
+| Custom categories (rapid) API (preview) | Lets you define [emerging harmful content patterns](./concepts/custom-categories-rapid.md) and scan text and images for matches. [How-to guide](./how-to/custom-categories-rapid.md) |
 
 ## Content Safety Studio
 
@@ -97,7 +98,7 @@ Learn how Azure AI Content Safety handles the [encryption and decryption of your
 
 ## Pricing
 
-Currently, Azure AI Content Safety has an **F0 and S0** pricing tier.
+Currently, Azure AI Content Safety has an **F0 and S0** pricing tier. See the Azure [pricing page](https://aka.ms/content-safety-pricing) for more information.
 
 ## Service limits
 
@@ -107,36 +108,50 @@ Content Safety models have been specifically trained and tested in the following
 
 For more information, see [Language support](/azure/ai-services/content-safety/language-support).
 
-### Region/location
+### Region availability
 
-To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, it is available in the following Azure regions: 
-- Australia East
-- Canada East
-- Central US
-- East US
-- East US 2
-- France Central
-- Japan East
-- North Central US
-- South Central US
-- Switzerland North
-- UK South
-- West Europe
-- West US 2
-- Sweden Central
+To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, the Content Safety features are available in the following Azure regions: 
 
-Public preview features, such as Prompt Shields and protected material detection, are available in the following Azure regions:
-- East US
-- West Europe
+| Region | Moderation APIs | Prompt Shields |  Protected material<br>detection | Groundedness<br>detection | Incident response | Blocklists |
+|---|---|---|---|---|---|--|
+| East US | ✅ | ✅| ✅ |✅ |✅ |✅ |
+| East US 2 | ✅ | | | ✅ | | |
+| West US | | | | | ✅ | | |
+| West US 2 | ✅ | | | | | |
+| Central US | ✅ | | | | | |
+| North Central US | ✅ | | | | | |
+| South Central US | ✅ | | | | | |
+| Canada East | ✅ | | | | | |
+| Switzerland North | ✅ | | | | | |
+| Sweden Central | ✅ | | |✅ |✅ | |
+| UK South | ✅ | | | | | |
+| France Central | ✅ | | | | | |
+| West Europe | ✅ | ✅ |✅ | | |✅ |
+| Japan East | ✅ | | | | | |
+| Australia East| ✅ | ✅ | | | | |
 
 Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need other regions for your business.
 
 ### Query rates
 
-| Pricing Tier | Requests per 10 seconds (RPS) |
+| Pricing Tier | Requests per 10 seconds  |
 | :----------- | :--------------------- |
 | F0           | 1000                     |
 | S0           | 1000                     |
+
+
+#### Prompt Shields
+| Pricing Tier | Requests per 10 seconds |
+| :----------- | :---------------------------- |
+| F0           | 1000         |
+| S0           | 1000         |
+
+#### Groundedness detection
+| Pricing Tier | Requests per 10 seconds |
+| :----------- | :--------------------------- |
+| F0           | 50                           |
+| S0           | 50                           |
+
 
 If you need a faster rate, please [contact us](mailto:contentsafetysupport@microsoft.com) to request.
 

@@ -660,6 +660,39 @@
       "source_path_from_root": "/articles/ai-services/document-intelligence/concept-retrieval-augumented-generation.md",
       "redirect_url": "/azure/ai-services/document-intelligence/concept-retrieval-augmented-generation",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/document-translation/quickstarts/asynchronous-rest-api.md",
+      "redirect_url": "/azure/ai-services/translator/document-translation/how-to-guides/use-rest-api-programmatically",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/document-translation/quickstarts/synchronous-rest-api.md",
+      "redirect_url": "/azure/ai-services/translator/document-translation/how-to-guides/use-rest-api-programmatically",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/document-translation/quickstarts/asynchronous-sdk.md",
+      "redirect_url": "/azure/ai-services/translator/document-translation/quickstarts/client-library-sdks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/document-translation/reference/synchronous-rest-api-guide.md",
+      "redirect_url": "/azure/ai-services/translator/document-translation/reference/translate-document",
+      "redirect_document_id": true
+      
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/document-translation/reference/start-translation.md",
+      "redirect_url": "/azure/ai-services/translator/document-translation/reference/start-batch-translation",
+      "redirect_document_id": true
+      
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/document-translation/reference/get-supported-storage-sources.md",
+      "redirect_url": "/azure/ai-services/translator/document-translation/reference/rest-api-guide",
+      "redirect_document_id": false
+      
     }
 
   ]

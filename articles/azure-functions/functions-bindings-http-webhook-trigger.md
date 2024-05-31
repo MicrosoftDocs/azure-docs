@@ -2,7 +2,7 @@
 title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
-ms.date: 03/06/2023
+ms.date: 05/16/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
@@ -422,9 +422,15 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-The following example shows a trigger binding and a Python function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
-
 # [v2](#tab/python-v2)
+
+This example uses [HTTP streams](functions-reference-python.md#http-streams-preview) to return chunked response data.
+
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="5-26" ::: 
+
+To learn more, including how to enable HTTP streams in your project, see [HTTP streams](functions-reference-python.md#http-streams-preview).
+
+This example shows a trigger binding and a Python function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```python
 import azure.functions as func
@@ -443,6 +449,8 @@ def test_function(req: func.HttpRequest) -> func.HttpResponse:
 ```
 
 # [v1](#tab/python-v1)
+
+This example shows a trigger binding and a Python function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 Here's the *function.json* file:
 
@@ -502,11 +510,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `HttpTriggerAttribute` to define the trigger binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-trigger).
+Both the [isolated worker model](dotnet-isolated-process-guide.md) and the [in-process model](functions-dotnet-class-library.md) use the `HttpTriggerAttribute` to define the trigger binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-trigger).
 
 # [Isolated worker model](#tab/isolated-process)
 
-In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `HttpTriggerAttribute` supports the following parameters:
+In [isolated worker model](dotnet-isolated-process-guide.md) function apps, the `HttpTriggerAttribute` supports the following parameters:
 
 | Parameters | Description|
 |---------|----------------------|
@@ -689,7 +697,14 @@ The trigger input type is declared as either `HttpRequest` or a custom type. If 
 ---
 
 ::: zone-end 
+::: zone pivot="programming-language-python"  
+### HTTP streams
 
+HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs enable the host to process data in HTTP messages as chunks instead of having to read an entire message into memory. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview)
+
+>[!IMPORTANT]  
+> HTTP streams support for Python is currently in preview and is only supported for the Python v2 programming model.
+::: zone-end  
 ### Customize the HTTP endpoint
 
 By default when you create a function for an HTTP trigger, the function is addressable with a route of the form:
@@ -1007,9 +1022,9 @@ When you use route parameters, an `invoke_URL_template` is automatically created
 You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](/rest/api/appservice/webapps/listfunctions) or [Get Function](/rest/api/appservice/webapps/getfunction).
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-### HTTP streams (preview)
+### HTTP streams
 
-You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](functions-reference-node.md?pivots=nodejs-model-v4#http-streams-preview).   
+You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](functions-reference-node.md?pivots=nodejs-model-v4#http-streams).   
 ::: zone-end  
 
 ### Working with client identities
