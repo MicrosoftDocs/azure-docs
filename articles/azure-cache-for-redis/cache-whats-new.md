@@ -31,13 +31,13 @@ For more information, see [Use Microsoft Entra ID for cache authentication](cach
 
 <!-- If this came out in November 2023, shouldn't it be in that section? -->
 
-Using Redis as output cache was introduced in .NET 8 in November 2023. The Web Output Caching saves rendered web pages to improve performance, resilience, and reduce cost from server resource utilization. Redis has been implemented as built-in output cache store in .NET 8.
+Using Azure Cache for Reds as output cache was introduced in .NET 8 in November 2023. The Web Output Caching saves rendered web pages to improve performance, resilience, and reduce cost from server resource utilization. Redis has been implemented as built-in output cache store in .NET 8.
 
 <!--  What is "Web Output Caching" referring to? -->
 
 For more information on using Redis as an output cache, see [Output caching middleware in ASP.NET Core](/aspnet/core/performance/caching/output#redis-cache)
 
-ASP.NET Core's support for distributed caching is getting an upgrade with the new HybridCache API. HybridCache augments the existing `IDistributedCache` support in ASP.NET Core with new capabilities, including multi-tier storage, with a limited in-process (L1) cache supplemented by a separate (usually larger) out-of-process (L2) cache. The _hybrid_ approach to cache storage gives the best of both worlds, where most fetches are served efficiently from L1, but cold-start and less-frequently-accessed data still doesn't hammer the underlying backend, thanks to L2.
+ASP.NET Core's support for distributed caching is getting an upgrade with the new _HybridCache_ API. _HybridCache_ augments the existing `IDistributedCache` support in ASP.NET Core with new capabilities, including multi-tier storage, with a limited in-process (L1) cache supplemented by a separate (usually larger) out-of-process (L2) cache. The hybrid approach to cache storage provides you with two advantages, where most fetches are served efficiently from L1, but cold-start and data you access less frequently doesn't over utilize the underlying backend because hybrid uses L2 for that.
 
 <!-- the phrase  "less-frequently-accessed data still doesn't hammer the underlying backend" is too colloquial and doesn't translate well as an idiom -->
 
@@ -45,18 +45,20 @@ ASP.NET Core's support for distributed caching is getting an upgrade with the ne
 
 HybridCache also includes:
 
-- _stampede_ protection to prevent parallel fetches of the same work
+- _stampede protection_ to prevent parallel fetches of the same data
 - configurable serialization
 - simplifying the API usage for common scenarios
 
-For more information, see [New HybridCache library](/aspnet/core/release-notes/aspnetcore-9.0#new-hybridcache-library). 
+For more information, see the [HybridCache library](/aspnet/core/release-notes/aspnetcore-9.0#new-hybridcache-library).
 
 ### Connection Auditing
 
-Connection auditing is already GA for all SKUs.
+Connection auditing is GA for all SKUs.
 <!-- When did it GA? we can put it in the month where it GA'd. This isn't a Redis feature, right  or do you mean are we announcing that user can configure this for Redis, what is the Redis connection-->
 
-You can configure an Azure Policy to audit or enforce specific policies about private endpoints and public network access. There isn't currently a built-in policy for doing this, but you can author a custom policy to enforce that private endpoints are enabled. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md).
+You can configure an Azure Policy to audit or enforce specific policies about private endpoints and public network access. There isn't currently a built-in policy for doing this, but you can author a custom policy to enforce that private endpoints are enabled.
+
+For more information, see [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy).
 
 ## April 2024
 
