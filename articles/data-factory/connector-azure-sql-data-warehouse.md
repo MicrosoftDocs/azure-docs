@@ -664,7 +664,7 @@ Using [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) is a simple
 
 ### Direct copy by using COPY statement
 
-Azure Synapse Analytics COPY statement directly supports Azure Blob, Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. If your source data meets the criteria described in this section, use COPY statement to copy directly from the source data store to Azure Synapse Analytics. Otherwise, use [Staged copy by using COPY statement](#staged-copy-by-using-copy-statement). the service checks the settings and fails the copy activity run if the criteria is not met.
+Azure Synapse Analytics COPY statement directly supports Azure Blob, Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. If your source data meets the criteria described in this section, use COPY statement to copy directly from the source data store to Azure Synapse Analytics. Otherwise, use [Staged copy by using COPY statement](#staged-copy-by-using-copy-statement). The service checks the settings and fails the copy activity run if the criteria is not met.
 
 1. The **source linked service and format** are with the following types and authentication methods:
 
