@@ -3,7 +3,7 @@ title: Build and deploy data and machine learning pipelines with Flyte on Azure 
 titleSuffix: Azure Kubernetes Service
 description: Learn about Flyte, an open-source platform for building and deploying data and machine learning pipelines on Azure Kubernetes Service (AKS).
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 05/31/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
