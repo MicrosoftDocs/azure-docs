@@ -31,13 +31,13 @@ There are two main deployment options for the GCZ service:
 - **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This deployment option is recommended for production environments. It requires more setup, configuration, and maintenance. It also has some limitations in the provided container images.
 - **Windows Virtual Machine**: Deploy the GCZ service on a Windows VM. This deployment option recommended for development and testing environments, as it's easier to set up and configure, and requires less maintenance.
 
-::: zone pivot="Azure Kubernetes Service (AKS)"
+::: zone pivot="aks"
 
 [!INCLUDE [Azure Kubernetes Service (AKS)](includes/how-to/deploy-gcz-on-aks.md)]
 
 ::: zone-end
 
-::: zone pivot="Windows Virtual Machine (VM)"
+::: zone pivot="windows"
 
 [!INCLUDE [Windows Virtual Machine](includes/how-to/deploy-gcz-on-windows.md)]
 
@@ -62,8 +62,8 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
 #### Download the GCZ OpenAPI specifications
 
 1. Download the two OpenAPI specification to your local computer.
-    - [GCZ Provider](../../media/how-to-deploy-gcz/gcz-openapi-provider.yaml)
-    - [GCZ Transformer](../../media/how-to-deploy-gcz/gcz-openapi-transformer.yaml)
+    - [GCZ Provider](./media/how-to-deploy-gcz/gcz-openapi-provider.yaml)
+    - [GCZ Transformer](./media/how-to-deploy-gcz/gcz-openapi-transformer.yaml)
 1. Open each OpenAPI specification file in a text editor and replace the `servers` section with the corresponding IPs of the AKS GCZ Services' Load Balancer (External IP).
 
     ```yaml
@@ -85,7 +85,7 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
 
 ## Testing the GCZ service
 
-1. Download the API client collection from the [OSDU GitLab](hthttps://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (for example, Postman).
+1. Download the API client collection from the [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (for example, Postman).
 1. Add the following environment variables to your API client:
     - `PROVIDER_URL` - The URL to the GCZ Provider API.
     - `AMBASSADOR_URL` - The URL to the GCZ Transformer API.
