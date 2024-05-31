@@ -1,6 +1,6 @@
 ---
-title: Use Confluent connectors in Azure
-description: Learn how to use Confluent connectors in Azure to connect an instance of Apache Kafka® & Apache Flink on Confluent Cloud to Azure Blob Storage.
+title: Use Confluent connectors in Azure (preview)
+description: Learn how to use Confluent connectors in Azure (preview) to connect an instance of Apache Kafka® & Apache Flink on Confluent Cloud to Azure Blob Storage.
 # customerIntent: As a developer I want use Confluent connectors in Azure
 ms.topic: how-to
 ms.date: 05/28/2024
@@ -8,7 +8,7 @@ ms.author: malev
 author: maud-lv
 ---
 
-# Use Confluent connectors in Azure
+# Use Confluent connectors in Azure (preview)
 
 Confluent Cloud offers a solution designed to help developers connect their Confluent clusters to popular data sources and sinks. This solution is available in Azure using the Confluent connectors feature.
 
@@ -25,7 +25,7 @@ In this guide, you learn how to connect an instance of Apache Kafka & Apache Fli
 * The Azure subscription Owner or subscription Contributor role is required. If necessary, contact your subscription administrator to assign you one of these roles.  
 * A [Configured environment, cluster, and topic](https://docs.confluent.io/cloud/current/get-started/index.html) inside the confluent organization
 
-## Create a Confluent sink connector for Azure Blob Storage
+## Create a Confluent sink connector for Azure Blob Storage (preview)
 
 Follow these steps to create a sink connector for Azure Blob Storage.
 
@@ -70,7 +70,7 @@ Review the listed settings for your new connector to ensure that the details are
 
 A notification is displayed on the top right, calling out the status of the deployment. Once it shows **Completed**, refresh the **Confluent Connectors** page. You can now see the new connector tile on this page.  
 
-## Create a Confluent source connector for Azure Blob Storage
+## Create a Confluent source connector for Azure Blob Storage (preview)
 
 1. Open your Confluent organization and select **Confluent** > **Confluent Connectors** from the left menu.
 2. Select **Create new connector**. A connector pane opens up on the right hand side. Select or enter the following information under **Create a new connector**.
@@ -88,7 +88,7 @@ Set the basic settings below, then select **Next**.
 | **Cluster**         | *cluster1*              | Select the cluster where you would like to create this connector.                                        |
 | **Subscription**    | *My subscription*       | Select the Azure subscription for the Azure Blob Storage where the data needs to be pulled.              |
 | **Storage Account** | *storageaccount1*       | Select the storage account where the data needs to be pulled. f needed, select **Create new** to create a new [storage account](../../storage/common/storage-account-create.md#basics-tab).     |
-| **Container**       | *container1*            | Select the container within the storage account where the data needs to be pushed. If needed, [create a new container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). |
+| **Container**       | *container1*            | Select the container within the storage account where the data needs to be pushed. If needed, [create a new container](../../storage/blobs/storage-quickstart-blobs-portal.m#create-a-container). |
 
 ### Authentication
 
@@ -105,13 +105,13 @@ Configure the authentication of your Kafka cluster via API keys. **Create New** 
 
 Select **Next** to continue.
 
-### Review + Create*
+### Review + Create
 
 Review the listed settings for your new connector to ensure that the details are good to go. Once done, select **Create** to begin the connector deployment.
 
 A notification is displayed on the top right, calling out the status of the deployment. Once it shows “completed”, refresh the **Confluent Connectors** page. You can now see the new connector tile on this page.  
 
-## Manage Azure Confluent Connectors
+## Manage Azure Confluent Connectors (preview)
 
 1. Open your Confluent organization and select **Confluent** > **Confluent Connectors** from the left menu.
 1. Select your **Environment** and **Cluster** from the dropdown menu. The Azure portal now displays the list of Azure connectors in the respective environment and cluster. The following optional actions are available:
