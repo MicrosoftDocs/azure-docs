@@ -19,6 +19,8 @@ Experimentation is the process of systematically testing hypotheses or changes t
 - **Observation** of the results measured by the metrics defined in the previous step,
 - **Drawing a conclusion** regarding whether the hypothesis was validated or invalidated.
 
+[Check this video](https://www.youtube.com/watch?v=MLhOJps6VFY) for a quick demonstration of Experimentation in App Configuration, highlighting the user experience optimization use case to boost your business metrics.
+
 ## Experimentation in Azure App Configuration (preview)
 
 In Azure App Configuration, the experimentation feature allows developers to easily test different variants of a feature and monitor the impact at the feature-level. Once configured, users are able to analyze new features, compare different variants of a feature, and promptly assess relevant metrics for new product changes. This capability empowers development teams with measurable insights, facilitating quicker and safer product deployments. Microsoft partners with Split Software to deliver the experimentation feature in Azure App Configuration. The Split Experimentation Workspace (preview) is a [Azure Native ISV resource](../partner-solutions/split-experimentation/index.yml) for the integration between Microsoft and Split Software.
