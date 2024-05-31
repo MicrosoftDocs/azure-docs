@@ -29,17 +29,17 @@ To deploy the GCZ, you need to create an App Registration in Microsoft Entra ID.
 
 There are two main deployment options for the GCZ service:
 - **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This deployment option is recommended for production environments. It requires more setup, configuration, and maintenance. It also has some limitations in the provided container images.
-- **Windows Virtual Machine**: Deploy the GCZ service on a Windows VM. This deployment option recommended for development and testing environments, as it's easier to set up and configure, and requires less maintenance.
+- **Windows**: Deploy the GCZ service on a Windows. This deployment option recommended for development and testing environments, as it's easier to set up and configure, and requires less maintenance.
 
-::: zone pivot="aks"
+::: zone pivot="k8s-host"
 
 [!INCLUDE [Azure Kubernetes Service (AKS)](includes/how-to/deploy-gcz-on-aks.md)]
 
 ::: zone-end
 
-::: zone pivot="windows"
+::: zone pivot="client-operating-system-windows"
 
-[!INCLUDE [Windows Virtual Machine](includes/how-to/deploy-gcz-on-windows.md)]
+[!INCLUDE [Windows](includes/how-to/deploy-gcz-on-windows.md)]
 
 ::: zone-end
 
@@ -71,13 +71,13 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
     - url: "http://<GCZ-Service-External-IP>/ignite-provider"
     ```
 
-::: zone pivot="portal"
+::: zone pivot="azure-portal"
 
 [!INCLUDE [Azure Portal](includes/how-to/deploy-gcz-apim-portal.md)]
 
 ::: zone-end
 
-::: zone pivot="cli"
+::: zone pivot="azure-cli"
 
 [!INCLUDE [Azure CLI](includes/how-to/deploy-gcz-apim-cli.md)]
 
