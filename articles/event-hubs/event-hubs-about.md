@@ -1,6 +1,6 @@
 ---
 title: 'Azure Event Hubs: Data streaming platform with Kafka support'
-description: Learn about Azure Event Hubs, a real-time data streaming platform with native Apache Kafka support.
+description: Learn about Azure Event Hubs, which is a real-time data streaming platform with native Apache Kafka support.
 ms.topic: overview
 ms.date: 01/24/2024
 ---
@@ -18,7 +18,7 @@ Event Hubs is the preferred event ingestion layer of any event streaming solutio
 - [Process real-time analytics with Azure Stream Analytics](./process-data-azure-stream-analytics.md) to generate real-time insights from streaming data.
 - [Analyze and explore streaming data with Azure Data Explorer](/azure/data-explorer/ingest-data-event-hub-overview).
 - Create your own cloud native applications, functions, or microservices that run on streaming data from Event Hubs.
-- [Stream events with schema validation by using a built-in schema registry to ensure quality and compatibility of streaming data](schema-registry-overview.md).
+- [Stream events with schema validation by using the built-in Azure Schema Registry to ensure quality and compatibility of streaming data](schema-registry-overview.md).
 
 ## Key capabilities
 
@@ -26,17 +26,17 @@ Learn about the key capabilities of Azure Event Hubs in the following sections.
 
 ### Apache Kafka on Azure Event Hubs
 
-Event Hubs is a multi-protocol event streaming engine that natively supports Advanced Message Queuing Protocol (AMQP), Apache Kafka, and HTTPS protocols. Because it supports Apache Kafka, you bring Kafka workloads to Event Hubs without making any code changes. You don't need to set up, configure, or manage your own Kafka clusters or use a Kafka-as-a-service offering that's not native to Azure.
+Event Hubs is a multi-protocol event streaming engine that natively supports Advanced Message Queuing Protocol (AMQP), Apache Kafka, and HTTPS protocols. Because it supports Apache Kafka, you can bring Kafka workloads to Event Hubs without making any code changes. You don't need to set up, configure, or manage your own Kafka clusters or use a Kafka-as-a-service offering that's not native to Azure.
 
 Event Hubs is built as a cloud native broker engine. For this reason, you can run Kafka workloads with better performance, better cost efficiency, and no operational overhead.
 
 For more information, see [Azure Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md).
 
-### Schema Registry in Azure Event Hubs
+### Schema Registry in Event Hubs
 
-Azure Schema Registry in Event Hubs provides a centralized repository for managing schemas of event streaming applications. Azure Schema Registry comes free with every Event Hubs namespace. It integrates with your Kafka applications or Event Hubs SDK-based applications.
+Azure Schema Registry in Event Hubs provides a centralized repository for managing schemas of event streaming applications. Schema Registry comes free with every Event Hubs namespace. It integrates with your Kafka applications or Event Hubs SDK-based applications.
 
-:::image type="content" source="./media/event-hubs-about/schema-registry.png" alt-text="Diagram that shows Schema Registry and Azure Event Hubs integration.":::
+:::image type="content" source="./media/event-hubs-about/schema-registry.png" alt-text="Diagram that shows Schema Registry and Event Hubs integration.":::
 
 Schema Registry ensures data compatibility and consistency across event producers and consumers. It enables schema evolution, validation, and governance and promotes efficient data exchange and interoperability.
 
@@ -72,7 +72,7 @@ The ecosystem also allows you to integrate with Azure Functions, Azure Spring Ap
 
 ### Flexible and cost-efficient event streaming
 
-You can experience flexible and cost-efficient event streaming through the Standard, Premium, or Dedicated tiers for Event Hubs. These options cater to data streaming needs that range from a few MB/s to several GB/s. You can choose the match that's appropriate for your requirements.
+You can experience flexible and cost-efficient event streaming through the Standard, Premium, or Dedicated tiers for Event Hubs. These options cater to data streaming needs that range from a few MB/sec to several GB/sec. You can choose the match that's appropriate for your requirements.
 
 ### Scalable
 
@@ -90,7 +90,7 @@ Capture your data in near real-time in Azure Blob Storage or Azure Data Lake Sto
 
 ## How it works
 
-Event Hubs provides a unified event streaming platform with a time-retention buffer, decoupling event producers from event consumers. The producers and consumer applications can perform large-scale data ingestion through multiple protocols.
+Event Hubs provides a unified event streaming platform with a time-retention buffer, decoupling event producers from event consumers. The producer and consumer applications can perform large-scale data ingestion through multiple protocols.
 
 The following diagram shows the main components of Event Hubs architecture.
 
@@ -98,18 +98,18 @@ The following diagram shows the main components of Event Hubs architecture.
 
 The key functional components of Event Hubs include:
 
-- **Producer applications**: Can ingest data to an event hub by using Event Hubs SDKs or any Kafka producer client.
-- **Namespace**: The management container for one or more event hubs or Kafka topics. The management tasks such as allocating streaming capacity, configuring network security, and enabling Geo Disaster recovery are handled at the namespace level.
+- **Producer applications**: These applications can ingest data to an event hub by using Event Hubs SDKs or any Kafka producer client.
+- **Namespace**: The management container for one or more event hubs or Kafka topics. The management tasks such as allocating streaming capacity, configuring network security, and enabling geo-disaster recovery are handled at the namespace level.
 - **Event Hubs/Kafka topic**: In Event Hubs, you can organize events into an event hub or a Kafka topic. It's an append-only distributed log, which can comprise one or more partitions.
-- **Partitions**: Used to scale an event hub. They're like lanes in a freeway. If you need more streaming throughput, you can add more partitions.
-- **Consumer applications**: Can consume data by seeking through the event log and maintaining consumer offset. Consumers can be Kafka consumer clients or Event Hubs SDK clients.
-- **Consumer group**: A logical group of consumer instances that reads data from an event hub/Kafka topic. It enables multiple consumers to read the same streaming data in an event hub independently at their own pace and with their own offsets.
+- **Partitions**: They're used to scale an event hub. They're like lanes in a freeway. If you need more streaming throughput, you can add more partitions.
+- **Consumer applications**: These applications can consume data by seeking through the event log and maintaining consumer offset. Consumers can be Kafka consumer clients or Event Hubs SDK clients.
+- **Consumer group**: This logical group of consumer instances reads data from an event hub or Kafka topic. It enables multiple consumers to read the same streaming data in an event hub independently at their own pace and with their own offsets.
 
 ## Related content
 
 To get started using Event Hubs, see the following quickstarts.
 
-### Stream data by using Event Hubs SDK (AMQP)
+### Stream data by using the Event Hubs SDK (AMQP)
 
 You can use any of the following samples to stream data to Event Hubs by using SDKs.
 

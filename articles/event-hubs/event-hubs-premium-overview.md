@@ -9,7 +9,7 @@ ms.date: 02/15/2024
 
 Azure Event Hubs Premium (Premium tier) is designed for high-end streaming scenarios that require elastic, superior performance with predictable latency. The Premium tier provides reserved compute, memory, and storage resources, which minimize cross-tenant interference in a managed multitenant platform-as-a-service (PaaS) environment.
 
-It replicates events to three replicas, which are distributed across Azure availability zones where available. All replicas are synchronously flushed to the underlying fast storage before the send operation is reported as completed. Events that aren't read immediately or that need to be reread later can be retained for up to 90 days. They're transparently held in an availability-zone-redundant storage tier.
+Event Hubs Premium replicates events to three replicas, which are distributed across Azure availability zones where available. All replicas are synchronously flushed to the underlying fast storage before the send operation is reported as completed. Events that aren't read immediately or that need to be reread later can be retained for up to 90 days. They're transparently held in an availability-zone-redundant storage tier.
 
 In addition to these storage-related features and all capabilities and protocol support of the Standard tier, the isolation model of the Premium tier enables features like [dynamic partition scale-up](dynamically-add-partitions.md). You also get far more generous [quota allocations](event-hubs-quotas.md). Event Hubs Capture is included at no extra cost.
 
@@ -43,7 +43,7 @@ It implements a *cluster in cluster* model in its multitenant clusters to provid
 
 ### Cost savings and scalability
 
-The Premium tier is a multitenant offering, so it can dynamically scale more flexibly and quicker. Capacity is allocated in PUs that allocate isolated pods of CPU and memory inside the cluster. The number of those pods can be scaled up or down per namespace. For this reason, the Premium tier is a low-cost option for messaging scenarios with the overall throughput range that's less than 120 MB/s but higher than what you can achieve with the Standard tier.
+The Premium tier is a multitenant offering, so it can dynamically scale more flexibly and quicker. Capacity is allocated in PUs that allocate isolated pods of CPU and memory inside the cluster. The number of those pods can be scaled up or down per namespace. For this reason, the Premium tier is a low-cost option for messaging scenarios with the overall throughput range that's less than 120 MB/sec but higher than what you can achieve with the Standard tier.
 
 ## Encryption of events
 
@@ -69,13 +69,13 @@ Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](../
 In comparison to the Dedicated offering, the Premium tier provides the following benefits:
 
 - Isolation inside a large multitenant environment can shift resources quickly.
-- Scales far more elastically and quickly.
+- Scaling is far more elastic and quick.
 - PUs can be dynamically adjusted.
 
 When compared to the Dedicated tier, the Premium tier is often a more cost-effective option for event streaming workloads up to 160 MB/sec (per namespace), especially with changing loads throughout the day or week.
 
 > [!NOTE]
-> For the extra robustness gained by availability zone support, the minimal deployment scale for the Dedicated tier is 8 capacity units (CUs). You have availability zone support in the Premium tier from the first PU in all availability zone regions.
+> For the extra robustness gained by availability zone support, the minimal deployment scale for the Dedicated tier is eight capacity units (CUs). You have availability zone support in the Premium tier from the first PU in all availability zone regions.
 
 ## Pricing
 
