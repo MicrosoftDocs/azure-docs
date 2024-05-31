@@ -116,7 +116,8 @@ AppPlatformLogsforSpring
 | order by TimeGenerated asc
 ```
 
-See the step to [set up log analytics workspace]((../basic-standard/quickstart-setup-log-analytics.md?tabs=Azure-Portal#prerequisites)).
+See the step to [set up log analytics workspace](../basic-standard/quickstart-setup-log-analytics.md?tabs=Azure-Portal#prerequisites).
+
 
 For real time log, use the following command:
 
