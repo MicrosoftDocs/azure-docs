@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 05/13/2024
+ms.date: 05/30/2024
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -36,7 +36,7 @@ Data connectors are available as part of the following offerings:
 
 ## Syslog and Common Event Format (CEF) connectors
 
-Some Microsoft Sentinel solutions are supported by the data connectors Syslog via AMA or Common Event Format (CEF) via AMA in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing either the **Common Event Format** or **Syslog** solution from the **Content hub** in Microsoft Sentinel. Then, configure the related AMA connector that's installed with the solution. Complete the set up by configuring the appropriate devices or appliances. For more information, refer to the solution provider's installation instructions or contact the solution provider.
+Some Microsoft Sentinel solutions are supported by the data connectors Syslog via AMA or Common Event Format (CEF) via AMA in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing either the **Common Event Format** or **Syslog** solution from the **Content hub** in Microsoft Sentinel. Then, configure the related AMA connector that's installed with the solution. Complete the setup by configuring the appropriate devices or appliances. For more information, see the solution provider's installation instructions or contact the solution provider.
 
 [comment]: <> (DataConnector includes start)
 
@@ -114,6 +114,10 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 
 - [Bitglass (using Azure Functions)](data-connectors/bitglass.md)
 
+## Bitsight Technologies, Inc.
+
+- [Bitsight data connector (using Azure Functions)](data-connectors/bitsight-data-connector.md)
+
 ## Blackberry
 
 - [Blackberry CylancePROTECT](data-connectors/blackberry-cylanceprotect.md)
@@ -139,6 +143,7 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 - [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
 - [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Functions)](data-connectors/cisco-secure-endpoint-amp.md)
+- [Cisco Secure Cloud Analytics](data-connectors/cisco-secure-cloud-analytics.md)
 - [Cisco Stealthwatch](data-connectors/cisco-stealthwatch.md)
 - [Cisco UCS](data-connectors/cisco-ucs.md)
 - [Cisco Umbrella (using Azure Functions)](data-connectors/cisco-umbrella.md)
@@ -157,6 +162,7 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 
 - [[Deprecated] Claroty via Legacy Agent](data-connectors/deprecated-claroty-via-legacy-agent.md)
 - [[Recommended] Claroty via AMA](data-connectors/recommended-claroty-via-ama.md)
+- [Claroty xDome](data-connectors/claroty-xdome.md)
 
 ## Cloudflare
 
@@ -180,8 +186,9 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 
 ## Crowdstrike
 
-- [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md)
-- [Crowdstrike Falcon Data Replicator V2 (using Azure Functions) (Preview)](data-connectors/crowdstrike-falcon-data-replicator-v2-using-azure-functions.md)
+- [[Deprecated] CrowdStrike Falcon Endpoint Protection via Legacy Agent](data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent.md)
+- [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator.md)
+- [Crowdstrike Falcon Data Replicator V2 (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-v2.md)
 
 ## Cyber Defense Group B.V.
 
@@ -279,7 +286,9 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 
 ## Fortinet
 
+- [[Deprecated] Fortinet via Legacy Agent](data-connectors/deprecated-fortinet-via-legacy-agent.md)
 - [Fortinet FortiNDR Cloud (using Azure Functions)](data-connectors/fortinet-fortindr-cloud.md)
+- [[Deprecated] Fortinet FortiWeb Web Application Firewall via Legacy Agent](data-connectors/deprecated-fortinet-fortiweb-web-application-firewall-via-legacy-agent.md)
 
 ## Gigamon, Inc
 
@@ -478,6 +487,8 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 ## Netskope
 
 - [Netskope (using Azure Functions)](data-connectors/netskope.md)
+- [Netskope Data Connector (using Azure Functions)](data-connectors/netskope-data-connector.md)
+- [Netskope Web Transactions Data Connector (using Azure Functions)](data-connectors/netskope-web-transactions-data-connector.md)
 
 ## Netwrix
 
@@ -702,6 +713,7 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 
 ## WithSecure
 
+- [WithSecure Elements API (Azure Function) (using Azure Functions)](data-connectors/withsecure-elements-api-azure.md)
 - [WithSecure Elements via Connector](data-connectors/withsecure-elements-via-connector.md)
 
 ## Wiz, Inc.
