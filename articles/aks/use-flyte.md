@@ -19,7 +19,7 @@ For more information, see [Introduction to Flyte](https://docs.flyte.org/en/late
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
   * If you have multiple subscriptions, make sure you select the correct one using the `az account set --subscription <subscription-id>` command.
-* The Azure CLI installed and configured. Check your version using the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* The Azure CLI installed and configured. Check your version using the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * The Helm CLI installed and updated. Check your version using the `helm version` command. If you need to install or upgrade, see [Install Helm](https://helm.sh/docs/intro/install/).
 * The `kubectl` CLI installed and updated. Install it locally using the `az aks install-cli` command or using [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 * A local Docker development environment. For more information, see [Get Docker](https://docs.docker.com/get-docker/).
@@ -128,7 +128,6 @@ For more information, see [Introduction to Flyte](https://docs.flyte.org/en/late
 
 In this article, you learned how to deploy a Flyte chart on AKS. To learn more about deployments on AKS, see the following articles:
 
-* [Run an LLM inferencing workflow with Flyte on Azure Kubernetes Service (AKS)](./llm-workflow-flyte.md)
 * [Install existing applications with Helm on Azure Kubernetes Service (AKS)](./kubernetes-helm.md)
 * [Deploy a containerized application to Azure Kubernetes Service (AKS)](./tutorial-kubernetes-deploy-application.md)
 
