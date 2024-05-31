@@ -39,7 +39,7 @@ There are two main deployment options for the GCZ service:
 
 ::: zone pivot="Windows Virtual Machine (VM)"
 
-[!INCLUDE [Windows Virtual Machine](includes)]
+[!INCLUDE [Windows Virtual Machine](includes/how-to/deploy-gcz-on-windows.md)]
 
 ::: zone-end
 
