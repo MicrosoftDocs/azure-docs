@@ -32,7 +32,7 @@ using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
 ```
 
-Some code examples in this article might require additional `using` directives. For specific details and example usage, see [Code samples](#code-samples).
+Some code examples in this article might require additional `using` directives.
 
 #### Create a client object
 
