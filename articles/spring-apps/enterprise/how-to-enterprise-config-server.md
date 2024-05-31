@@ -48,6 +48,80 @@ Spring Cloud Config Server provides server and client-side support for an extern
 
 - [Git](https://git-scm.com/downloads).
 
+::: zone pivot="sc-enterprise"
+
+## Enable Spring Cloud Config Server
+
+You can enable Spring Cloud Config Server when you provision an Azure Spring Apps Enterprise plan instance. If you already have an Azure Spring Apps Enterprise plan resource, see the [Manage Spring Cloud Config Server in an existing Enterprise plan instance](#manage-spring-cloud-config-in-an-existing-enterprise-plan-instance) section to enable it.
+
+You can enable Spring Cloud Config Server using the Azure portal or Azure CLI.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable Spring Cloud Config Server using the Azure portal:
+
+1. Open the [Azure portal](https://portal.azure.com).
+
+1. On the **Basics** tab, select **Enterprise tier** in the **Pricing** section and specify the required information. Then select **Next: Managed components**.
+
+1. On the **Managed components** tab, select **Enable Spring Cloud Config Server (preview)**.
+
+   :::image type="content" source="media/how-to-enterprise-config-server/create-instance.png" alt-text="Screenshot of the Azure portal that shows the VMware Tanzu settings tab with the Enable Spring Cloud Config Server checkbox highlighted." lightbox="media/how-to-enterprise-config-server/create-instance.png":::
+
+1. Specify other settings, and then select **Review and Create**.
+
+1. On the **Review an create** tab, make sure that **Enable Spring Cloud Config Server (preview)** is set to **Yes**. Select **Create** to create the Enterprise plan instance.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following steps to provision an Azure Spring Apps service instance with Spring Cloud Config Server enabled using the Azure CLI.
+
+1. Use the following command to sign in to the Azure CLI and choose your active subscription:
+
+   ```azurecli
+   az login
+   az account list --output table
+   az account set --subscription <subscription-ID>
+   ```
+
+1. Use the following command to accept the legal terms and privacy statements for the Azure Spring Apps Enterprise plan. This step is necessary only if your subscription has never been used to create an Enterprise plan instance.
+
+   ```azurecli
+   az provider register --namespace Microsoft.SaaS
+   az term accept \
+       --publisher vmware-inc \
+       --product azure-spring-cloud-vmware-tanzu-2 \
+       --plan asa-ent-hr-mtr
+   ```
+
+1. Select a location. The location must support the Azure Spring Apps Enterprise plan. For more information, see the [Azure Spring Apps FAQ](faq.md).
+
+1. Use the following command to create a resource group:
+
+   ```azurecli
+   az group create \
+       --name <resource-group-name> \
+       --location <location>
+   ```
+
+   For more information about resource groups, see [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md)
+
+1. Prepare a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+
+1. Use the following command to create an Azure Spring Apps service instance with Spring Cloud Config Server enabled:
+
+   ```azurecli
+   az spring create \
+       --resource-group <resource-group-name> \
+       --name <Azure-Spring-Apps-service-instance-name> \
+       --sku enterprise \
+       --enable-config-server
+   ```
+
+---
+
+::: zone-end
+
 ## Restriction
 
 There are some restrictions when you use Config Server with a Git back end. The following properties are automatically injected into your application environment to access Config Server and Service Discovery. If you also configure those properties from your Config Server files, you might experience conflicts and unexpected behavior.
@@ -333,7 +407,7 @@ az spring config-server bind \
 
 You can also set up the app binding from the Azure portal, as shown in the following screenshot:
 
-:::image type="content" source="./media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Config Server page with the App binding dropdown highlighted.":::
+:::image type="content" source="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app.png" lightbox="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Config Server page with the App binding dropdown highlighted.":::
 
 > [!NOTE]
 > These changes will take a few minutes to propagate to all applications when the config server status changes.
@@ -352,7 +426,7 @@ az spring app create \
 
 You can also bind your application to the Spring Cloud Config Server from the Azure portal, as shown in the following screenshot:
 
-:::image type="content" source="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app-when-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App page with the Bind dropdown highlighted.":::
+:::image type="content" source="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app-when-creation.png" lightbox="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app-when-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App page with the Bind dropdown highlighted.":::
 
 ::: zone-end
 
@@ -426,7 +500,7 @@ For more information, see the [config-client-polling](https://github.com/Azure-S
 
 ::: zone pivot="sc-enterprise"
 
-## Enable/disable Spring Cloud Config Server after service creation
+## Manage Spring Cloud Config Server in an existing Enterprise plan instance
 
 You can enable and disable Spring Cloud Config Server after service creation using the Azure portal or Azure CLI. Before disabling Spring Cloud Config Server, you're required to unbind all of your apps from it.
 
@@ -435,8 +509,13 @@ You can enable and disable Spring Cloud Config Server after service creation usi
 Use the following steps to enable or disable Spring Cloud Config Server using the Azure portal:
 
 1. Navigate to your service resource, and then select **Spring Cloud Config Server**.
+
 1. Select **Manage**.
+
 1. Select or unselect the **Enable Spring Cloud Config Server**, and then select **Save**.
+
+   :::image type="content" source="media/how-to-enterprise-config-server/enable-config-server.png" alt-text="Screenshot of the Azure portal that shows the Manage  pane with the Enable Config Server option highlighted." lightbox="media/how-to-enterprise-config-server/enable-config-server.png":::
+
 1. You can now view the state of Spring Cloud Config Server on the **Spring Cloud Config Server** page.
 
 ### [Azure CLI](#tab/Azure-CLI)
