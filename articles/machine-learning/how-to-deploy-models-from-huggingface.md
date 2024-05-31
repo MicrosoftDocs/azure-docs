@@ -5,7 +5,7 @@ description: Deploy and score transformers based large language models from the 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
-ms.custom: devx-track-python
+ms.custom: devx-track-python, update-code
 ms.topic: how-to
 ms.reviewer: ssalgado
 author: ManojBableshwar
