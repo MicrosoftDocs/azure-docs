@@ -9,7 +9,7 @@ ms.custom: include file
 
 | Resource | Limit |
 |--|:-|
-| Maximum clusters per subscription globally | 5,000 <br />Note: Spread clusters across different regions to account for Azure API throttling limits |
+| Maximum clusters per subscription globally | 5,000 |
 | Maximum clusters per subscription per region <sup>1</sup> | 100 |
 | Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 5,000 across all [node pools][node-pool] <br />Note: If you're unable to scale up to 5,000 nodes per cluster, see [Best Practices for Large Clusters](../articles/aks/best-practices-performance-scale-large.md). |
 | Maximum nodes per node pool (Virtual Machine Scale Sets node pools) | 1000 |
@@ -34,8 +34,6 @@ ms.custom: include file
 [Azure CNI]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
 [standard-load-balancer]: ../articles/load-balancer/load-balancer-overview.md
 [node-pool]: ../articles/aks/create-node-pools.md
-[Contact Support]: https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
 
 <!-- LINKS - External -->
 
-[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
