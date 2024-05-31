@@ -30,7 +30,7 @@ You can [learn more about the key concepts for Azure Deployment Environments](./
 
 ## Usage scenarios
 
-Common [scenarios](./concept-environments-scenarios.md) for Azure Deployment Environments include:
+Common scenarios for Azure Deployment Environments include:
 
 ### Environments as part of a CI/CD pipeline
 
@@ -89,7 +89,6 @@ When configuring Deployment Environments, you might see Dev Box resources and co
 
 ## Related content
 
-- [Azure Deployment Environments scenarios](./concept-environments-scenarios.md)
 - [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md)
 - [Quickstart: Create dev center and project (Azure Resource Manager)](./quickstart-create-dev-center-project-azure-resource-manager.md)
 
