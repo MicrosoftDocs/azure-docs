@@ -30,8 +30,6 @@ This article uses the REST APIs to illustrate each step.
   
 ## Prerequisites  
   
-Before you begin, you need to have:  
-  
 + A Fabric workspace. Follow this tutorial to [create a Fabric workspace](/fabric/data-engineering/tutorial-lakehouse-get-started). 
 
 + A lakehouse in a Fabric workspace. Follow this tutorial to [create a lakehouse](/fabric/data-engineering/tutorial-build-lakehouse).
