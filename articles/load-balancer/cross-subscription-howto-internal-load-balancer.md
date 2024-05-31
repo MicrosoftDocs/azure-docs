@@ -56,7 +56,7 @@ If you choose to install and use the CLI locally, this quickstart requires Azure
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-With Azure PowerShell, you'll sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount), and change your subscription context with [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) to **Azure Subscription A**. then get the virtual network information with [`Get-AzVirtualNetwork`](/powershell/module/az.network/get-azvirtualnetwork). You'll need the Azure subscription ID, resource group name, and virtual network name from your environment.
+With Azure PowerShell, you sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount), and change your subscription context with [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) to **Azure Subscription A**. Then get the virtual network information with [`Get-AzVirtualNetwork`](/powershell/module/az.network/get-azvirtualnetwork). You need the Azure subscription ID, resource group name, and virtual network name from your environment.
  
 
 ```azurepowershell
@@ -111,7 +111,7 @@ $rg = @{
 New-AzResourceGroup @rg
 ```
 > [!NOTE]
-> When create the resource group for you load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
+> When create the resource group for your load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
 
 # [Azure CLI](#tab/azurecli/)
 
@@ -123,13 +123,13 @@ az group create --name 'myResourceGroupLB' --location westus
 ```
 
 > [!NOTE]
-> When create the resource group for you load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
+> When create the resource group for your load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
 
 ---
 
 ## Create a load balancer 
 
-In this sections, you create a load balancer in **Azure Subscription B**. You'll create a load balancer with a frontend IP address.
+In this section, you create a load balancer in **Azure Subscription B**. You create a load balancer with a frontend IP address.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
@@ -181,7 +181,7 @@ $LB = Get-AzLoadBalancer @LBinfo
 With Azure CLI, you create a load balancer with [`az network lb create`](/cli/azure/network/lb#az_network_lb_create) and update the backend pool. This example configures the following:
 
 - A frontend IP address that receives the incoming network traffic on the load balancer.
-  - The private IP address will be pulled from the cross-subscription VNet.
+  - The private IP address is pulled from the cross-subscription virtual network.
   - The `IsRemoteFrontend:True` tag is added since the IP address is cross-subscription.
 - A backend address pool where the frontend IP sends the load balanced network traffic.
 
@@ -191,7 +191,7 @@ With Azure CLI, you create a load balancer with [`az network lb create`](/cli/az
 az network lb create --resource-group myResourceGroupLB --name myLoadBalancer --sku Standard --subnet '/subscriptions/subscription A ID/resourceGroups/{resource group name} /providers/Microsoft.Network/virtualNetwork/{VNet name}/subnets/{subnet name}’  --frontend-ip-name myFrontEnd --backend-pool-name MyBackendPool --tags 'IsRemoteFrontend=true'
 
 ```
-In order to utilize the cross-subscription feature of Azure load balancer, backend pools need to have the syncMode property enabled and a virtual network reference. This section will update the backend pool created prior by attaching the cross-subscription VNet and enabling the syncMode property. 
+In order to utilize the cross-subscription feature of Azure load balancer, backend pools need to have the syncMode property enabled and a virtual network reference. This section updates the backend pool created prior by attaching the cross-subscription virtual network and enabling the syncMode property. 
 
 ```azurecli
 ## Configure the backend address pool and syncMode property
@@ -205,7 +205,7 @@ Create a health probe that determines the health of the backend VM instances and
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-With Azure Powershell, create a health probe with [`Add-AzLoadBalancerProbeConfig`](/powershell/module/az.network/add-azloadbalancerprobeconfig) that determines the health of the backend VM instances. Then create a load balancer rule with [`Add-AzLoadBalancerRuleConfig`](/powershell/module/az.network/add-azloadbalancerruleconfig) that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
+With Azure PowerShell, create a health probe with [`Add-AzLoadBalancerProbeConfig`](/powershell/module/az.network/add-azloadbalancerprobeconfig) that determines the health of the backend VM instances. Then create a load balancer rule with [`Add-AzLoadBalancerRuleConfig`](/powershell/module/az.network/add-azloadbalancerruleconfig) that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
 
 ```azurepowershell
 ## Create the health probe and place in variable. ##

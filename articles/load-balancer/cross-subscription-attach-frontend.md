@@ -1,11 +1,11 @@
 ---
 title: Attach a cross-subscription frontend to an Azure Load Balancer
 titleSuffix: Azure Load Balancer
-description: 
+description: Learn how to create a load balancer in one Azure subscription and attach a frontend IP address from another subscription in Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: 
+ms.topic: how-to
 ms.date: 05/24/2024
 ms.author: mbender
 ms.custom: 
@@ -15,7 +15,7 @@ ms.custom:
 
 A cross-subscription load balancer allows the public IP address to reside in a different subscription other than the load balancers.
 
-In this article, you'll learn how to create a load balancer in one Azure subscription and attach a frontend IP address from another subscription. You'll create a resource group for the load balancer and then create a load balancer with a frontend IP address. You'll also create a backend address pool, health probe, and load balancer rule.
+In this article, you learn how to create a load balancer in one Azure subscription and attach a frontend IP address from another subscription. You create a resource group for the load balancer and then create a load balancer with a frontend IP address. You also create a backend address pool, health probe, and load balancer rule.
 
 [!INCLUDE [load-balancer-cross-subscription-preview](../../includes/load-balancer-cross-subscription-preview.md)]
 
@@ -28,7 +28,7 @@ In this article, you'll learn how to create a load balancer in one Azure subscri
 - An existing resource group for all resources.
 - An existing [Virtual Network](../virtual-network/quick-create-powershell.md). deployed in one of the subscriptions. For this example, the virtual network is in **Azure Subscription A**.
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run Get-Module -ListAvailable Az to find the installed version. If you need to upgrade, see Install Azure PowerShell module. If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see Install Azure PowerShell module. If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 > [!IMPORTANT]
 > All of the code samples will use example names and placeholders. Be sure to replace these with the values from your environment.
@@ -56,7 +56,7 @@ If you choose to install and use the CLI locally, this quickstart requires Azure
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-With Azure PowerShell, you'll sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount), and change your subscription context with [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) to **Azure Subscription A**. then get the public IP address information with [`Get-AzPublicIpAddress`](/powershell/module/az.network/get-azpublicipaddress). You'll need the Azure subscription ID, resource group name, and virtual network name from your environment.
+With Azure PowerShell, you sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount), and change your subscription context with [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) to **Azure Subscription A**. Then get the public IP address information with [`Get-AzPublicIpAddress`](/powershell/module/az.network/get-azpublicipaddress). You need the Azure subscription ID, resource group name, and virtual network name from your environment.
  
 
 ```azurepowershell
@@ -108,7 +108,7 @@ New-AzResourceGroup @rg
 
 ```
 > [!NOTE]
-> When create the resource group for you load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
+> When create the resource group for your load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
 
 # [Azure CLI](#tab/azurecli/)
 
@@ -120,13 +120,13 @@ az group create --name 'myResourceGroupLB' --location westus
 ```
 
 > [!NOTE]
-> When create the resource group for you load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
+> When create the resource group for your load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
 
 ---
 
 ## Create a load balancer 
 
-In this sections, you create a load balancer in **Azure Subscription B**. You'll create a load balancer with a frontend IP address.
+In this section, you create a load balancer in **Azure Subscription B**. You create a load balancer with a frontend IP address.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
@@ -178,10 +178,10 @@ $LB = Get-AzLoadBalancer @LBinfo
 ```
 # [Azure CLI](#tab/azurecli/)
 
-With Azure CLI, you create a load balancer with [`az network lb create`](/cli/azure/network/lb#az_network_lb_create) and update the backend pool. This example configures the following:
+With Azure CLI, you create a load balancer with [`az network lb create`](/cli/azure/network/lb#az_network_lb_create) and update the backend pool. This example configures the following resources:
 
 - A frontend IP address that receives the incoming network traffic on the load balancer.
-  - The public IP address will be pulled from subscription A, and the LB will be deployed in subscription B
+  - The public IP address is pulled from subscription A, and the load balancer is deployed in subscription B.
   - The `IsRemoteFrontend:True` tag is added since the IP address is cross-subscription.
 - A backend address pool where the frontend IP sends the load balanced network traffic.
 
@@ -192,7 +192,7 @@ With Azure CLI, you create a load balancer with [`az network lb create`](/cli/az
 az network lb create --resource-group myResourceGroupLB --name myLoadBalancer --sku Standard --public-ip-address '/subscriptions/<subscription A ID>/resourceGroups/{resource group name} /providers/Microsoft.Network/publicIPAddresses/{public IP address name}’  --frontend-ip-name myFrontEnd --backend-pool-name MyBackendPool --tags 'IsRemoteFrontend=true'
 
 ```
-In order to utilize the cross-subscription feature of Azure load balancer, backend pools need to have the syncMode property enabled and a virtual network reference. This section will update the backend pool created prior by attaching the cross-subscription VNet and enabling the syncMode property. 
+In order to utilize the cross-subscription feature of Azure load balancer, backend pools need to have the syncMode property enabled and a virtual network reference. This section updates the backend pool created prior by attaching the cross-subscription virtual network and enabling the syncMode property. 
 
 ```azurecli
 ## Configure the backend address pool and syncMode property
@@ -207,7 +207,7 @@ Create a health probe that determines the health of the backend VM instances and
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-With Azure Powershell, create a health probe with [`Add-AzLoadBalancerProbeConfig`](/powershell/module/az.network/add-azloadbalancerprobeconfig) that determines the health of the backend VM instances. Then create a load balancer rule with [`Add-AzLoadBalancerRuleConfig`](/powershell/module/az.network/add-azloadbalancerruleconfig) that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
+With Azure PowerShell, create a health probe with [`Add-AzLoadBalancerProbeConfig`](/powershell/module/az.network/add-azloadbalancerprobeconfig) that determines the health of the backend VM instances. Then create a load balancer rule with [`Add-AzLoadBalancerRuleConfig`](/powershell/module/az.network/add-azloadbalancerruleconfig) that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
 
 ```azurepowershell
 ## Create the health probe and place in variable. ##
