@@ -63,7 +63,7 @@ When writing changes, we recommend writing files to storage via an Azure Machine
 
 Otherwise, write files to the `./outputs` and/or `./logs` folder.
 
->[!Important]
+> [!IMPORTANT]
 > Two folders, *outputs* and *logs*, receive special treatment by Azure Machine Learning. During training, when you write files to`./outputs` and`./logs` folders, the files will automatically upload to your job history, so that you have access to them once your job is finished.
 
 * **For output such as status messages or scoring results,** write files to the `./outputs` folder, so they are persisted as artifacts in job history. Be mindful of the number and size of files written to this folder, as latency may occur when the contents are uploaded to job history. If latency is a concern, writing files to a datastore is recommended.
