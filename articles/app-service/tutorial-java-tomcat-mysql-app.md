@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/08/2024
+ms.date: 05/31/2024
 ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli
 zone_pivot_groups: app-service-portal-azd
 ---
@@ -22,6 +22,7 @@ This tutorial shows how to build, configure, and deploy a secure Tomcat applicat
 
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java/).
 * Knowledge of Java with Tomcat development.
+* **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 ::: zone-end
 
@@ -30,11 +31,9 @@ This tutorial shows how to build, configure, and deploy a secure Tomcat applicat
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java).
 * [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
 * Knowledge of Java with Tomcat development.
+* **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 ::: zone-end
-
-> [!TIP]
-> To try GitHub Copilot, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 ## Skip to the end
 
@@ -216,9 +215,6 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 
 Like the Tomcat convention, if you want to deploy to the root context of Tomcat, name your built artifact *ROOT.war*.
 
-> [!TIP]
-> In **Step 4**, try [letting GitHub Copilot show you the code changes to make](#make-code-changes-using-github-copilot).
-
 :::row:::
     :::column span="2":::
         **Step 1:** Back in the App Service page, in the left menu, select **Deployment Center**. 
@@ -254,7 +250,20 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4:**  
+        **Step 4 (Option 1: with GitHub Copilot):**  
+        1. Start a new chat session by clicking the **Chat** view, then clicking **+**.
+        1. Ask, "*@workspace How does the app connect to the database?*". Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured. 
+        1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in Tomcat but I want to do it dynamically.*". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the [ContextListener](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app/blob/starter-no-infra/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java) class. 
+        1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
+        GitHub Copilot doesn't give you the same response every time, you might need to add additional questions to fine-tune its reponse. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-java-tomcat-mysql-app/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-java-tomcat-mysql-app/github-copilot-1.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4 (Option 2: without GitHub Copilot):**  
         1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer. When the application starts, this class loads the database settings in *src/main/resources/META-INF/persistence.xml*.
         1. In the `contextIntialized()` method, find the commented code (lines 29-33) and uncomment it. 
         This code checks to see if the `AZURE_MYSQL_CONNECTIONSTRING` app setting exists, and changes the data source to `java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS`, which is the data source you found earlier in *context.xml* in the SSH shell.
@@ -480,6 +489,26 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 5. Modify sample code and redeploy
 
+# [With GitHub Copilot](#tab/copilot)
+
+1. Back in the GitHub codespace of your sample fork, start a new chat session by clicking the **Chat** view, then clicking **+**. 
+
+1. Ask, "*@workspace How does the app connect to the database?*". Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured.
+
+1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in Tomcat but I want to do it dynamically.*". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the [ContextListener](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app/blob/starter-no-infra/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java) class. 
+
+1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
+
+    GitHub Copilot doesn't give you the same response every time, you might need to add additional questions to fine-tune its reponse. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+
+1. Back in the codespace terminal, run `azd deploy`.
+ 
+    ```bash
+    azd deploy
+    ```
+
+# [Without GitHub Copilot](#tab/nocopilot)
+
 1. Back in the GitHub codespace of your sample fork, from the explorer, open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java*. When the application starts, this class loads the database settings in *src/main/resources/META-INF/persistence.xml*.
 
 1. In the `contextIntialized()` method, find the commented code (lines 29-33) and uncomment it. 
@@ -494,19 +523,18 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     
     This code checks to see if the `AZURE_MYSQL_CONNECTIONSTRING` app setting exists, and changes the data source to `java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS`, which is the data source you found earlier in *context.xml* in the SSH shell.
 
-    > [!TIP]
-    > Try [letting GitHub Copilot show you the code changes to make](#make-code-changes-using-github-copilot).
-
 1. Back in the codespace terminal, run `azd deploy`.
  
     ```bash
     azd deploy
     ```
 
-    > [!TIP]
-    > You can also just use `azd up` always, which does all of `azd package`, `azd provision`, and `azd deploy`.
-    >
-    > To find out how the War file is packaged, you can run `azd package --debug` by itself.
+-----
+
+> [!TIP]
+> You can also just use `azd up` always, which does all of `azd package`, `azd provision`, and `azd deploy`.
+>
+> To find out how the War file is packaged, you can run `azd package --debug` by itself.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -621,25 +649,23 @@ git push origin main
 
 See [Set up GitHub Actions deployment from the Deployment Center](deploy-github-actions.md#set-up-github-actions-deployment-from-the-deployment-center).
 
-#### Make code changes using GitHub Copilot
+#### What can I do with GitHub Copilot in my codespace?
 
-With a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available), you can make the code changes in this tutorial by using Copilot Chat in the codespace. Since GitHub Copilot doesn't give you the same answer every time, the following is just an example:
+You might have noticed that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
 
-1. In your [codespace](#1-run-the-sample), start a new Copilot chat session in the **Chat** view. The GitHub Copilot chat extension was installed by the container definition (see *.devcontainer/devcontainer.json*).
+A few tips for you when you talk to GitHub Copilot:
 
-1. Ask, "*@workspace How does the app connect to the database?*"
+- In a single chat session, the questions and answers build on each other and you can get Gi
+- You can ask GitHub Copilot about a file that you already opened in the editor.
+- To let GitHub Copilot access all of the files in the repository when formulating its answers, start your sentence with `@workspace`. For more information, see [Use the @workspace agent](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
+- In the chat session, GitHub Copilot can suggest changes and (if you start your sentence with `@workspace`) even where to make the changes, but it can't make the changes for you. It's up to you to add the suggested code and test it.
 
-    Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured. For the `@workspace` agent, see [Use the @workspace agent](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
-
-1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in Tomcat but I want to do it dynamically.*"
-
-    Copilot might show you sample code similar to [the one in this tutorial](#5-deploy-sample-code) and even tell you to make the change in the [ContextListener](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app/blob/starter-no-infra/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java) class. However, it won't make the actual change for you. It's up to you to add the suggested code and test it.
-
-Here are some other things you can say to fine-tune the answer you get.
+Here are some other things you can say to fine-tune the response you get.
 
 * Please change this code to use the data source jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.
-* Some imports in this are using javax but I have a Jakarta app.
+* Some imports in your code are using javax but I have a Jakarta app.
 * I want this code to run only if the environment variable AZURE_MYSQL_CONNECTIONSTRING is set.
+* I want this code to run only in Azure App Service and not locally.
  
 ## Next steps
 
