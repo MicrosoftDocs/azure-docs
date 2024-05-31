@@ -1,6 +1,7 @@
 ---
 title: Compare custom images and formulas
-description: Learn about the differences between custom images and formulas as virtual machine (VM) bases so you can decide which one best suits your environment.
+titleSuffix: Azure DevTest Labs
+description: Explore the differences between custom images and formulas as virtual machine (VM) bases so you can decide which one best suits your environment.
 ms.topic: concept-article
 ms.author: rosemalcolm
 author: RoseHJM
