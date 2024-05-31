@@ -26,5 +26,5 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 ## Related content
 
 - [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)
-- [Deploy a storage account in an Extended Zone](deploy-storage-account.md)
+- [Deploy a storage account in an Extended Zone](create-storage-account.md)
 - [Frequently asked questions](faq.md)

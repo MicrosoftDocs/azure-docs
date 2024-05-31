@@ -131,5 +131,5 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 ## Related content
 
 - [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)
-- [Deploy a storage account in an Extended Zone](deploy-storage-account.md)
+- [Deploy a storage account in an Extended Zone](create-storage-account.md)
 - [Frequently asked questions](faq.md)
