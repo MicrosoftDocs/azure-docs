@@ -153,7 +153,7 @@ cd fabrikam-functions
 Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a C# code file in your project.
 
 ```console
-func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
+func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end
 <!---add back programming-language-other-->
@@ -161,7 +161,7 @@ func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
 Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a configuration file named *function.json*.
 
 ```console
-func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
+func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end  
 <!---

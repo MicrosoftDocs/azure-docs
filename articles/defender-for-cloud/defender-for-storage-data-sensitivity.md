@@ -1,10 +1,11 @@
 ---
 title: Detect threats to sensitive data
-description: Learn about using security alerts to protect your sensitive data from exposure.
-ms.date: 03/16/2023
+description: Learn how to protect your sensitive data from exposure using security alerts and enhance data security.
+ms.date: 05/16/2024
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
+#customer intent: As a security professional, I want to learn how to protect sensitive data from exposure using security alerts, so that I can enhance data security.
 ---
 
 # Detect threats to sensitive data
@@ -15,6 +16,20 @@ This is a configurable feature in the new Defender for Storage plan. You can cho
 
 Learn more about [scope and limitations of sensitive data scanning](concept-data-security-posture-prepare.md).
 
+## Prerequisites
+
+Sensitive data threat detection is available for Blob storage accounts, including: 
+- Standard general-purpose V1
+- Standard general-purpose V2
+- Azure Data Lake Storage Gen2
+- Premium block blobs 
+
+Learn more about the [availability of Defender for Storage features](defender-for-storage-introduction.md#availability).
+
+To enable sensitive data threat detection at subscription and storage account levels, you need to have the relevant data-related permissions from the **Subscription owner** or **Storage account owner** roles. 
+
+Learn more about the [roles and permissions required for sensitive data threat detection](support-matrix-defender-for-storage.md).
+
 ## How does sensitive data discovery work?
 
 Sensitive data threat detection is powered by the sensitive data discovery engine, an agentless engine that uses a smart sampling method to find resources with sensitive data.
@@ -24,12 +39,6 @@ The service is integrated with Microsoft Purview's sensitive information types (
 :::image type="content" source="media/defender-for-storage-data-sensitivity/data-sensitivity-cspm-storage.png" alt-text="Diagram showing how Defender CSPM and Defender for Storage combine to provide data-aware security.":::
 
 Upon enablement, the engine initiates an automatic scanning process across all supported storage accounts. Results are typically generated within 24 hours. Additionally, newly created storage accounts under protected subscriptions are scanned within six hours of their creation. Recurring scans are scheduled to occur weekly after the enablement date. This is the same engine that Defender CSPM uses to discover sensitive data.
-
-## Prerequisites
-
-Sensitive data threat detection is available for Blob storage accounts, including: Standard general-purpose V1, Standard general-purpose V2, Azure Data Lake Storage Gen2, and Premium block blobs. Learn more about the [availability of Defender for Storage features](defender-for-storage-introduction.md#availability).
-
-To enable sensitive data threat detection at subscription and storage account levels, you need to have the relevant data-related permissions from the **Subscription owner** or **Storage account owner** roles. Learn more about the [roles and permissions required for sensitive data threat detection](support-matrix-defender-for-storage.md).
 
 ## Enabling sensitive data threat detection
 

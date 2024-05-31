@@ -161,7 +161,7 @@ Before following the steps in this article, make sure you have the following pre
 ---
 
 > [!NOTE]
-> If you are using UAI workspace please make sure to add the Network Contributor role to your identity. For more information, see [User-assigned managed identity](how-to-identity-based-service-authentication.md).
+> If you are using UAI workspace please make sure to add the Azure AI Enterprise Network Connection Approver role to your identity. For more information, see [User-assigned managed identity](how-to-identity-based-service-authentication.md).
 
 ## Configure a managed virtual network to allow internet outbound
 
@@ -809,9 +809,11 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
 
 ## Manually provision a managed VNet
 
-The managed VNet is automatically provisioned when you create a compute resource. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. If you have a large set of outbound rules to be provisioned in the managed network, it can take longer for provisioning to complete. The increased provisioning time can cause your first compute creation, or your first managed online endpoint deployment, to time out.
+The managed VNet is automatically provisioned when you create a compute instance. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute instance as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. If you have a large set of outbound rules to be provisioned in the managed network, it can take longer for provisioning to complete. The increased provisioning time can cause your first compute instance creation to time out.
 
-To reduce the wait time and avoid potential timeout errors, we recommend manually provisioning the managed network. Then wait until the provisioning completes before you create a compute resource or managed online endpoint deployment.
+To reduce the wait time and avoid potential timeout errors, we recommend manually provisioning the managed network. Then wait until the provisioning completes before you create a compute instance.
+
+To create an online deployment, you must manually provision the managed network, or create a compute instance first which will automatically provision it. 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -1054,6 +1056,9 @@ If you want to enable access from specific IP addresses, use the following actio
 
 1. Enable public network access to the workspace. For more information, see [public network access enabled](how-to-configure-private-link.md#enable-public-access).
 1. Add your IP addresses to the firewall for Azure Machine Learning. For more information, see [enable access only from IP ranges](how-to-configure-private-link.md#enable-public-access-only-from-internet-ip-ranges-preview).
+
+    > [!NOTE]
+    > Only IPv4 addresses are supported.
 
 ## Private endpoints
 
