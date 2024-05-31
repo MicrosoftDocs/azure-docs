@@ -59,11 +59,11 @@ CommonSecurityLog
 
 ## Vendor installation instructions
 
-1. Linux Syslog agent configuration
+1.0 Linux Syslog agent configuration
 
 Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.
 
-> Notice that the data from all regions will be stored in the selected workspace
+Notice that the data from all regions will be stored in the selected workspace
 
 1.1 Select or create a Linux machine
 
@@ -94,16 +94,20 @@ Copy the CLI commands below and:
 
 For more information, go to the  [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary), choose your version, and use the "Handbook" and "Log Message Reference" PDFs.
 
-[Learn more >](https://aka.ms/CEF-Fortinet)
+[Learn more](https://aka.ms/CEF-Fortinet)
 
    Set up the connection using the CLI to run the following commands:
 
-   config log syslogd setting
+   
+```bash
+config log syslogd setting
     set status enable
 set format cef
 set port 514
 set server <ip_address_of_Receiver>
 end
+```
+
 
 3. Validate connection
 
@@ -128,7 +132,7 @@ If the logs are not received, run the following connectivity validation script:
 Make sure to configure the machine's security according to your organization's security policy
 
 
-[Learn more >](https://aka.ms/SecureCEF)
+[Learn more](https://aka.ms/SecureCEF)
 
 
 

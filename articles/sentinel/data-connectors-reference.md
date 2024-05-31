@@ -36,7 +36,7 @@ Data connectors are available as part of the following offerings:
 
 ## Syslog and Common Event Format (CEF) connectors
 
-Some Microsoft Sentinel solutions are supported by the data connectors Syslog via AMA or Common Event Format (CEF) via AMA in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing either the **Common Event Format** or **Syslog** solution from the **Content hub** in Microsoft Sentinel. Then, configure the related AMA connector that's installed with the solution. Complete the set up by configuring the appropriate devices or appliances. For more information, refer to the solution provider's installation instructions or contact the solution provider.
+Some Microsoft Sentinel solutions are supported by the data connectors Syslog via AMA or Common Event Format (CEF) via AMA in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing either the **Common Event Format** or **Syslog** solution from the **Content hub** in Microsoft Sentinel. Then, configure the related AMA connector that's installed with the solution. Complete the setup by configuring the appropriate devices or appliances. For more information, see the solution provider's installation instructions or contact the solution provider.
 
 [comment]: <> (DataConnector includes start)
 
@@ -187,7 +187,6 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 ## Crowdstrike
 
 - [[Deprecated] CrowdStrike Falcon Endpoint Protection via Legacy Agent](data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent.md)
-- [[Recommended] CrowdStrike Falcon Endpoint Protection via AMA](data-connectors/recommended-crowdstrike-falcon-endpoint-protection-via-ama.md)
 - [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator.md)
 - [Crowdstrike Falcon Data Replicator V2 (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-v2.md)
 

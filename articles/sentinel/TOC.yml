@@ -320,8 +320,6 @@
       href: data-connectors/recommended-cisco-secure-email-gateway-via-ama.md
     - name: '[Recommended] Claroty via AMA'
       href: data-connectors/recommended-claroty-via-ama.md
-    - name: '[Recommended] CrowdStrike Falcon Endpoint Protection via AMA'
-      href: data-connectors/recommended-crowdstrike-falcon-endpoint-protection-via-ama.md
     - name: '[Recommended] FireEye Network Security (NX) via AMA'
       href: data-connectors/recommended-fireeye-network-security-nx-via-ama.md
     - name: '[Recommended] Forcepoint CASB via AMA'

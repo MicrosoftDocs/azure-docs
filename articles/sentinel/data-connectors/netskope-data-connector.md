@@ -218,7 +218,7 @@ To integrate with Netskope Data Connector (using Azure Functions) make sure you 
  5. Select **Add**. 
  6. *Record the secret's value for use in your client application code. This secret value is never displayed again after you leave this page.* The secret value is required as configuration parameter for the execution of TriggersSync playbook. 
 
-> **Reference link:** [/azure/active-directory/develop/quickstart-register-app#add-a-client-secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret)
+**Reference link:** [/azure/active-directory/develop/quickstart-register-app#add-a-client-secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret)
 
 
 **STEP 3 - Assign role of Contributor to application in Microsoft Entra ID**

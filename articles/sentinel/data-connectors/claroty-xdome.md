@@ -39,11 +39,11 @@ CommonSecurityLog
 
 ## Vendor installation instructions
 
-1. Linux Syslog agent configuration
+1.0 Linux Syslog agent configuration
 
 Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.
 
-> Notice that the data from all regions will be stored in the selected workspace
+Notice that the data from all regions will be stored in the selected workspace
 
 1.1 Select or create a Linux machine
 
@@ -53,9 +53,9 @@ Select or create a Linux machine that Microsoft Sentinel will use as the proxy b
 
 Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.
 
-> 1. Make sure that you have Python on your machine using the following command: python --version.
+1. Make sure that you have Python on your machine using the following command: python --version.
 
-> 2. You must have elevated permissions (sudo) on your machine.
+2. You must have elevated permissions (sudo) on your machine.
 
    Run the following command to install and apply the CEF collector:
 
@@ -63,7 +63,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
 2. Forward Common Event Format (CEF) logs to Syslog agent
 
-Configure the Claroty xDome - Microsoft Sentinel integration to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.
+   Configure the Claroty xDome - Microsoft Sentinel integration to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.
 
 3. Validate connection
 
@@ -71,13 +71,13 @@ Follow the instructions to validate your connectivity:
 
 Open Log Analytics to check if the logs are received using the CommonSecurityLog schema.
 
->It may take about 20 minutes until the connection streams data to your workspace.
+It may take about 20 minutes until the connection streams data to your workspace.
 
 If the logs are not received, run the following connectivity validation script:
 
-> 1. Make sure that you have Python on your machine using the following command: python --version
+1. Make sure that you have Python on your machine using the following command: python --version
 
->2. You must have elevated permissions (sudo) on your machine
+2. You must have elevated permissions (sudo) on your machine
 
    Run the following command to validate your connectivity:
 
@@ -88,7 +88,7 @@ If the logs are not received, run the following connectivity validation script:
 Make sure to configure the machine's security according to your organization's security policy
 
 
-[Learn more >](https://aka.ms/SecureCEF)
+[Learn more](https://aka.ms/SecureCEF)
 
 
 
