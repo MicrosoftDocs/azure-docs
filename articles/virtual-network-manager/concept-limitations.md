@@ -25,6 +25,7 @@ This article provides an overview of the current limitations when you're using [
 * You can't add virtual networks to a network group when the Azure Virtual Network Manager custom policy `enforcementMode` element is set to `Disabled`.
 
 * Azure Virtual Network Manager policies don't support the standard evaluation cycle for policy compliance. For more information, see [Evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+* The move of the subscription where the Azure Virtual Network Manager instance exists to another tenant is not supported.
 
 ## Limitations for connected groups
 

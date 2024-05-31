@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: The article describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/30/2024
+ms.date: 05/31/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -149,7 +149,7 @@ Partners can use the markup feature in the Azure portal after a Change of Channe
 
 EA administrators receive various types of notifications from different services. Notifications allow enterprise administrators to enroll their team members to receive usage notifications and user management notifications without giving them billing account access in the Azure portal. For more information, see [Manage notification contacts](direct-ea-administration.md#manage-notification-contacts).
 
-Customers also receive notifications for various events, such as markup changes.
+Customers with indirect enrollment receive usage notifications containing quantity but not cost if markup is not defined for the enrollment by partner.
 
 ## Resource Prepayment and requesting quota increases
 

@@ -38,7 +38,8 @@ sections:
 
       - question: What if I fail identity validation?
         answer: | 
-          - Ensure you did not miss an email verification link sent to the primary email address shared during Identity Validation request creation. The link expires in 7 days, so you need to create a new Identity Validation request.   
+          - Organizations with a year founded date, less than 3 years cannot be onboarded at the moment and will fail Identity Validation. 
+          - For Organizations, with year founded date more than 3 years: Ensure you did not miss an email verification link sent to the primary email address shared during Identity Validation request creation. The link expires in 7 days, so you need to create a new Identity Validation request.   
           - If the failure is not to due to missed email verification; then the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided (even after you provided more documentation when we request it), we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
       - question: What if I need assistance with Identity Validation?
         answer: | 
@@ -70,6 +71,7 @@ sections:
       - question: What do I do if my identity validation expired?
         answer: |
           Failure to renew identity validation before the expiration date stops certificate renewal, effectively halting the signing process associated with those specific certificate profiles. To continue signing by using the Trusted Signing service, you need to create another identity validation and associate it with the certificate profiles. 
+       
   - name: Signing
     questions:
       - question: What types of files can be signed with Trusted Signing?
@@ -156,7 +158,13 @@ sections:
           | Error code (-2147024885/0x8007000b)            |  For MSIX signing, indicates that the publisher in the manifest file doesn't match the certificate subject. Check the publisher that's listed in the manifest file. |
           | No error codes, SignTool silently fails          |  Ensure that the relevant .NET runtime version is installed. |
           | Azure.Identity.CredentialUnavailableException         |  You might see this error in [environments outside Azure](https://github.com/Azure/azure-sdk-for-net/issues/29471). If you are working outside of Azure, we recommend that you add "exclude ManagedIdentity". |
-  
+  - name: Cost Management and Billing
+    questions:  
+       - question: How do I view usage costs and billing information for Trusted Signing resources?
+         answer: | 
+          Review resource usage costs under your selected Subscription > Cost Management and for further details follow [Cost Management](https://learn.microsoft.com/azure/cost-management-billing/costs/).
+          Review billing information under your selected Subscription > Billing and for further details follow [Billing](https://learn.microsoft.com/azure/cost-management-billing/manage/).
+
   - name: Unenroll from the Trusted Signing service
     questions:  
        - question: How do I unenroll from Trusted Signing?

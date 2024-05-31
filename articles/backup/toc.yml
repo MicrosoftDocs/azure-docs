@@ -33,7 +33,11 @@
       - name: With Azure PowerShell
         href: quick-secondary-region-restore-postgresql-powershell.md  
   - name: Configure AKS cluster backup
-    href: quick-backup-aks.md
+    items:
+    - name: From the Azure portal
+      href: quick-backup-aks.md
+    - name: With Terraform
+      href: quick-kubernetes-backup-terraform.md
   - name: Configure vaulted backup for Azure Blob
     items:
     - name: Using ARM template
