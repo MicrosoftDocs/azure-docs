@@ -27,7 +27,7 @@ Before you get started, you need:
 * Docker must be running in Linux containers mode
 
 >[!TIP]
-> To install Docker on your Windows machine, follow the steps in the [Docker documentation](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions). After installing, [verify your installation](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine).
+> To install Docker on your Windows machine, follow the steps in the [Docker documentation](https://docs.docker.com/desktop/install/windows-install/). After installing, [verify your installation](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine).
 >
 
 ## Create a local container and setup Service Fabric
