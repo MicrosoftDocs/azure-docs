@@ -8,6 +8,7 @@ ms.reviewer:
 ms.author: eihaugho
 author: EirikHaughom
 ms.date: 05/11/2024
+zone_pivot_groups: azure-cli-or-portal, client-operating-system
 ---
 
 # Deploy Geospatial Consumption Zone
