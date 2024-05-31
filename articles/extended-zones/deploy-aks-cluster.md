@@ -33,5 +33,5 @@ If you're not going to continue to use this application, delete the resources th
 ## Related content
 
 - [Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md)
-- [Deploy a storage account in an Extended Zone](deploy-storage-account.md)
+- [Deploy a storage account in an Extended Zone](create-storage-account.md)
 - [Frequently asked questions](faq.md)
