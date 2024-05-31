@@ -56,7 +56,7 @@ How much you can ingest and stream per CU depends on factors such as the:
 - Payload size.
 - Egress rate.
 
-To determine the necessary number of CUs, you should carry out your anticipated event streaming workload on an Event Hubs dedicated cluster while you observe the cluster's resource utilization. For more information, see [When to scale my dedicated cluster](#when-to-scale-my-dedicated-cluster).
+To determine the necessary number of CUs, you should carry out your anticipated event streaming workload on an Event Hubs dedicated cluster while you observe the cluster's resource utilization. For more information, see [When should I scale my dedicated cluster](#when-should-i-scale-my-dedicated-cluster).
 
 ## Cluster types
 
@@ -96,7 +96,7 @@ You can determine the cluster type that you're using with the following methods.
 
 | Method | Action | Self-serve scalable clusters | Legacy clusters | Notes |
 | -------------| ------------- | --------- | --------- | --------- | 
-| Use the portal | Check for the presence of the **Scale** tab under the cluster. | The **Scale** page is available in the cluster UI.| No scale page is available in the cluster UI. |  | 
+| Use the portal | Check for the presence of the **Scale** tab under the cluster. | The **Scale** page is available in the cluster UI.| No **Scale** page is available in the cluster UI. |  | 
 | Use Azure Resource Manager| Check for the `supportsScaling` Azure Resource Manager property on the cluster.  | Check for the presence of the **Scale** page under the cluster.   | No **Scale** page is available in the cluster UI. | Check this property in the portal, the Azure CLI, or PowerShell. Needs API version *2022-01-01-preview* or newer. | 
 | Use `nslookup`| Run the `nslookup` command on a namespace in a cluster.   | CNAME maps to `*.cloudapp.azure.com`.   | CNAME maps to `*.cloudapp.net`. | Example: `nslookup ns.servicebus.windows.net`. | 
 

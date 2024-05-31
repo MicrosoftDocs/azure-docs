@@ -30,7 +30,7 @@ In the testing, the following criteria were used:
 
 ### Can I scale up or scale down my cluster?
 
-If you create the cluster with the **Support Scaling** option set, you can use the [self-serve experience](../event-hubs-dedicated-cluster-create-portal.md#scale-a-dedicated-cluster) to scale out and scale in, as needed. You can scale up to 10 CUs with self-serve scalable clusters. Self-serve scalable dedicated clusters are based on new infrastructure, so they perform better than dedicated clusters that don't support self-serve scaling. The performance of dedicated clusters depends on factors such as resource allocation, number of partitions, and storage. We recommend that you determine the required number of CUs after you test with a real workload.
+If you create the cluster with the **Support scaling** option set, you can use the [self-serve experience](../event-hubs-dedicated-cluster-create-portal.md#scale-a-dedicated-cluster) to scale out and scale in, as needed. You can scale up to 10 CUs with self-serve scalable clusters. Self-serve scalable dedicated clusters are based on new infrastructure, so they perform better than dedicated clusters that don't support self-serve scaling. The performance of dedicated clusters depends on factors such as resource allocation, number of partitions, and storage. We recommend that you determine the required number of CUs after you test with a real workload.
 
 [Submit a support request](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to scale out or scale in your dedicated cluster in the following scenarios:
 
