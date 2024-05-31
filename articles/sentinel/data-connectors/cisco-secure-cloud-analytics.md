@@ -42,16 +42,13 @@ StealthwatchEvent
 
 > [!NOTE]
    >  This data connector depends on a parser based on a Kusto Function to work as expected [**StealthwatchEvent**](https://aka.ms/sentinel-stealthwatch-parser) which is deployed with the Microsoft Sentinel Solution.
-
-
-> [!NOTE]
    >  This data connector has been developed using Cisco Secure Cloud Analytics version 7.3.2
 
 1. Install and onboard the agent for Linux or Windows
 
 Install the agent on the Server where the Cisco Secure Cloud Analytics logs are forwarded.
 
-> Logs from Cisco Secure Cloud Analytics Server deployed on Linux or Windows servers are collected by **Linux** or **Windows** agents.
+Logs from Cisco Secure Cloud Analytics Server deployed on Linux or Windows servers are collected by **Linux** or **Windows** agents.
 
 
 

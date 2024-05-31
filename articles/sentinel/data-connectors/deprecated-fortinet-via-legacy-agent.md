@@ -109,7 +109,7 @@ end
 ```
 
 
-3. Validate connection
+1.3 Validate connection
 
 Follow the instructions to validate your connectivity:
 
