@@ -39,6 +39,11 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| 4.6.0 |Mar 15, 2023 |--- |
+| 4.5.1 |Sep 14, 2023 |--- |
+| 4.5.0 |Aug 10, 2023 |--- |
+| 4.4.0 |Jun 10, 2023 |--- |
+| 4.3.1 |Feb 24, 2023 |--- |
 | 4.3.0 |May 23, 2022 |--- |
 | 4.2.0 |Oct 09, 2020 |--- |
 | 4.1.0 |Aug 10, 2020 |--- |

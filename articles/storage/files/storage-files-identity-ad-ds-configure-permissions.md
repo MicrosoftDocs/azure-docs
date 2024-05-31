@@ -1,16 +1,16 @@
 ---
-title: Control what a user can do at the directory and file level - Azure Files
-description: Learn how to configure Windows ACLs for directory and file level permissions for Active Directory authentication to Azure file shares, allowing you to take advantage of granular access control.
+title: Configure directory and file level permissions for Azure Files
+description: Learn how to configure Windows ACLs for directory and file level permissions for Active Directory (AD) authentication to Azure file shares over SMB for granular access control.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/03/2024
+ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
 ---
 
-# Configure directory and file-level permissions over SMB
+# Configure directory and file-level permissions for Azure file shares
 
 Before you begin this article, make sure you've read [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md) to ensure that your share-level permissions are in place with Azure role-based access control (RBAC).
 
@@ -107,8 +107,6 @@ You can configure the Windows ACLs using either [icacls](#configure-windows-acls
 > If your environment has multiple AD DS forests, don't use Windows Explorer to configure ACLs. Use icacls instead.
 
 If you have directories or files in on-premises file servers with Windows ACLs configured against the AD DS identities, you can copy them over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or [Azure AzCopy v 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). If your directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
-
-Remember to sync your identities in order for the set permissions to take effect. You can set ACLs for not-synced identities, but these ACLs won't be enforced because the not-synced identities won't be present in the Kerberos ticket used for authentication/authorization.
 
 ### Configure Windows ACLs with icacls
 

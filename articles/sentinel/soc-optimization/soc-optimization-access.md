@@ -149,6 +149,12 @@ From here, either select the options menu or select **View full details** to tak
 
 - **Provide further feedback** to the Microsoft team. When sharing your feedback, be careful not to share any confidential data. For more information, see  [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
 
+## Use optimizations via API
+
+The `Recommendations` operation group provides access to SOC optimizations via the Azure REST API. For example, use the API to get details about a specific recommendations, or all current recommendations across your workspaces, or to reevaluate a recommendation if you've made changes.
+
+While SOC optimizations are in preview, API documentation is available only in the Swagger specification, and not in the REST API reference. For more information, see [API versions of Microsoft Sentinel REST APIs](/rest/api/securityinsights/api-versions).
+
 ## SOC optimization usage flow
 
 This section provides a sample flow for using SOC optimizations, from either the Defender or Azure portal:

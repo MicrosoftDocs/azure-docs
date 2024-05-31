@@ -195,7 +195,7 @@ azcmagent config set extensions.agent.cpulimit 80
 
 Metadata information about a connected machine is collected after the Connected Machine agent registers with Azure Arc-enabled servers. Specifically:
 
-* Operating system name, type, and version
+* Operating system name, edition, type, and version
 * Computer name
 * Computer manufacturer and model
 * Computer fully qualified domain name (FQDN)
@@ -214,6 +214,15 @@ Metadata information about a connected machine is collected after the Connected 
 * Total physical memory
 * Serial number
 * SMBIOS asset tag
+* Network interface information
+  * IP address
+  * Subnet
+* Windows licensing information
+  * OS license status
+  * OS license channel
+  * Extended Security Updates eligibility
+  * Extended Security Updates license status
+  * Extended Security Updates license channel
 * Cloud provider
 * Amazon Web Services (AWS) metadata, when running in AWS:
   * Account ID

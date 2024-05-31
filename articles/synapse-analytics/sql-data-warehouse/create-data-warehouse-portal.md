@@ -87,7 +87,7 @@ The Azure Synapse service creates a firewall at the server-level. This firewall 
 
 1. After the deployment completes, select **All services** from the menu. Select **Databases**, select the star next to **Azure Synapse Analytics** to add Azure Synapse Analytics to your favorites.
 
-1. Select **Azure Synapse Analytics** from the left-hand menu and then select **mySampleDataWarehouse** on the **Azure Synapse Analytics** page. The overview page for your database opens, showing you the fully qualified server name (such as `sqlpoolservername.database.windows.net`) and provides options for further configuration.
+1. Select **Azure Synapse Analytics** from the left-hand menu and then select **mySampleDataWarehouse** on the **Azure Synapse Analytics** page. The overview page for your database opens, showing you the fully qualified server name (such as `server-name.database.windows.net`) and provides options for further configuration.
 
 1. Copy this fully qualified server name for use to connect to your server and its databases in this and other quick starts. To open server settings, select the server name.
 
@@ -120,7 +120,7 @@ Get the fully qualified server name for your server in the Azure portal. Later y
 
 1. Select **Azure Synapse Analytics** from the left-hand menu, and select your workspace on the **Azure Synapse Analytics** page.
 
-1. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is `sqlpoolservername.database.windows.net`.
+1. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is `server-name.database.windows.net`.
 
     :::image type="content" source="./media/create-data-warehouse-portal/find-server-name.png" alt-text="A screenshot of the Azure portal. Connection information.":::
 
@@ -135,7 +135,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    | Setting | Suggested value | Description  |
    | :--- | :--- | :--- |
    | Server type | Database engine | This value is required |
-   | Server name | The fully qualified server name | Here's an example: `sqlpoolservername.database.windows.net`. |
+   | Server name | The fully qualified server name | Here's an example: `server-name.database.windows.net`. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
    | Login | The server admin account | Account that you specified when you created the server. |
    | Password | The password for your server admin account | Password that you specified when you created the server. |
@@ -193,7 +193,7 @@ Follow these steps to clean up resources you no longer need.
 
 1. To remove the dedicated SQL pool (formerly SQL DW) so you aren't charged for compute or storage, select **Delete**.
 
-1. To remove the server you created, select **sqlpoolservername.database.windows.net** in the previous image, and then select **Delete**. Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
+1. To remove the server you created, select **server-name.database.windows.net** in the previous image, and then select **Delete**. Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
 1. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
 
