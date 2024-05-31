@@ -9,7 +9,7 @@ manager: danielsc
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 05/31/2024
 
 ---
 # Where to save and write files for Azure Machine Learning experiments
