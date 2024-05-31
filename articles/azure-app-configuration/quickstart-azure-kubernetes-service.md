@@ -226,22 +226,57 @@ Add following key-values to the App Configuration store and leave **Label** and 
 |Settings:Message|*Hello from Azure App Configuration*|
 
 ### Set up the App Configuration Kubernetes Provider
+
 1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
    
     ```console
     az aks get-credentials --name <your-aks-instance-name> --resource-group <your-aks-resource-group>
     ```
 
-1. Install Azure App Configuration Kubernetes Provider to your AKS cluster using `helm`:
+2. Install Azure App Configuration Kubernetes Provider to your AKS cluster:
    
+    #### [helm](#tab/helm)
+
+    Run the following command to install the helm chart.
+
     ```console
     helm install azureappconfiguration.kubernetesprovider \
-         oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
-         --namespace azappconfig-system \
-         --create-namespace
+          oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
+          --namespace azappconfig-system \
+          --create-namespace
     ```
 
-1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
+    #### [Azure CLI](#tab/cli)
+
+    Run the following commands to install the Azure App Configuration Kubernetes Provider as the [AKS extension](../aks/azure-app-configuration.md).
+    
+
+    1. Install the `k8s-extension` Azure CLI extension:
+
+    ```azurecli
+    az extension add --name k8s-extension
+    ```
+    
+    2. Register the provider using the [az provider register](/cli/azure/provider#az-provider-register):
+
+    ```azurecli
+    az provider register --namespace Microsoft.KubernetesConfiguration
+    ```
+
+    3. Install the Azure App Configuration AKS extension:
+
+    ```azurecli
+    az k8s-extension create --cluster-type managedClusters \
+        --cluster-name <your-aks-instance-name> \
+        --resource-group <your-aks-resource-group> \
+        --name appconfigurationkubernetesprovider \
+        --extension-type Microsoft.AppConfiguration \
+        --release-train preview
+    ```
+
+    ---
+
+3. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
    
     ```yaml
     apiVersion: azconfig.io/v1
@@ -269,7 +304,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
     > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
 
-2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile* and the *config* directory created before.
+4. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile* and the *config* directory created before.
    
     ```yaml
     apiVersion: apps/v1
@@ -302,13 +337,13 @@ Add following key-values to the App Configuration store and leave **Label** and 
               name: configmap-created-by-appconfig-provider
     ```
 
-3. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
+5. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
    
     ```console
     kubectl apply -f ./Deployment -n appconfig-demo
     ```
 
-4. Refresh the browser. The page shows updated content.
+6. Refresh the browser. The page shows updated content.
 
     ![Screenshot showing Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
@@ -352,10 +387,22 @@ Use the logs for further troubleshooting. For example, if you see requests to yo
 ## Clean up resources
 
 Uninstall the App Configuration Kubernetes Provider from your AKS cluster if you want to keep the AKS cluster.
+### [helm](#tab/helm)
 
 ```console
 helm uninstall azureappconfiguration.kubernetesprovider --namespace azappconfig-system
 ```
+
+### [Azure CLI](#tab/cli)
+
+```azurecli
+az k8s-extension delete --cluster-type managedClusters \
+    --cluster-name <your-aks-instance-name> \
+    --resource-group <your-aks-resource-group> \
+    --name appconfigurationkubernetesprovider
+```
+
+---
 
 [!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
