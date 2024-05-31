@@ -3829,11 +3829,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/windows-firewall-events-via-ama.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-webapp-portal.md",
             "redirect_url": "/azure/private-link/create-private-endpoint-portal",
             "redirect_document_id": false
