@@ -112,7 +112,7 @@ If you would like the resiliency benefits of a Zonal Virtual Machine and want he
 5.	For Zone options (Preview), select Azure-selected zone. The Availability zone selection should now be grayed out. 
 6.	Configure the rest of your Virtual Machine as normal for deployment.
 
-::image type="content" source="media/create-portal-availability-zone/zone-any-portal.png" alt-text="Screenshot showing how to choose an Azure-selected zone."::
+:::image type="content" source="media/create-portal-availability-zone/zone-any-portal.png" alt-text="Screenshot showing how to choose an Azure-selected zone.":::
 
 ## Restrictions
 
@@ -140,7 +140,7 @@ Existing OS and Data Disks are currently not supported. New Data Disk Source Typ
    #### Unsupported Disk types
    - Standard SSD LRS
 
-::image type="content" source="media/create-portal-availability-zone/zone-any-disks.png" alt-text="Screenshot supported disks for an Azure-selected zone."::
+:::image type="content" source="media/create-portal-availability-zone/zone-any-disks.png" alt-text="Screenshot supported disks for an Azure-selected zone.":::
 
 ### Other resources
  - Existing Public IPs aren't supported for an Azure-selected zone. They can be added after deployment.
