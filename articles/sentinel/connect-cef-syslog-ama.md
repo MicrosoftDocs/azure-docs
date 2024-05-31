@@ -349,6 +349,10 @@ If you're using a log forwarder, configure the Syslog daemon to listen for messa
     > To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
     > For more information, see [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
 
+## Configure the security device or appliance
+
+Go to [Configure specific devices for Microsoft Sentinel syslog or CEF AMA data connectors](unified-connectors-configure-devices.md) to get specific instructions to configure your security device or appliance. Contact the solution provider for more information or where information is unavailable.
+
 ## Test the connector
 
 Verify that logs messages from your linux machine or security devices and appliances are ingested into Microsoft Sentinel. 
@@ -403,3 +407,4 @@ Verify that logs messages from your linux machine or security devices and applia
 
 - [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md)
 - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
+- [Configure specific devices for Microsoft Sentinel syslog or CEF AMA data connectors](unified-connectors-configure-devices.md)
