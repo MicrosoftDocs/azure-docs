@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: tutorial
-ms.date: 05/30/2024
+ms.date: 05/31/2024
 
 ---
 
@@ -40,18 +40,36 @@ In this section, you create a storage account in an Extended Zone.
 
     | Setting | Value |
     | --- | --- |
-    | **Project Details** |  |
+    | **Project details** |  |
     | Subscription | Select your Azure subscription. |
     | Resource group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
     | **Instance details** |  |
-    | Storage account name | Enter *myVNet*. |
-    | Region | Select **Deploy to an Azure Extended Zone**. </br> In  **Azure Extended Zones**, select **Los Angeles**. </br> Select the **Select** button. |
+    | Storage account name | Enter a unique name. |
+    | Region | Select **(US) West US** and then select **Deploy to an Azure Extended Zone**. </br> In  **Azure Extended Zones**, select **Los Angeles**. </br> Select the **Select** button. |
+    | Performance | **Premium** is the only available option for an Extended Zone. |
+    | Premium account type | Select **Page blobs**. Other available options are **Block blobs** and **File shares**. |
+    | Redundancy | **Locally-redundant storage (LRS)** is the only available option for an Extended Zone. |
 
+    :::image type="content" source="./media/create-storage-account/create-storage-account-basics.png" alt-text="Screenshot that shows the Basics tab of creating a storage account in an Azure Extended Zone." lightbox="./media/create-storage-account/create-storage-account-basics.png":::
 
+> [!NOTE]
+> Azure Extended Zones only supports premium storage accounts with locally-redundant storage (LRS) redundancy.
+
+1. Select **Review + create**.
+
+1. Review the settings, and then select **Create**.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the resources that you created in this tutorial.
+When no longer needed, delete the storage account and its resource group:
+
+1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
+
+1. Select **Delete resource group**.
+
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
+
+1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
 ## Related content
 
