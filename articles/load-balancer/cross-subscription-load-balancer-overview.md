@@ -13,14 +13,23 @@ ms.custom:
 
 # Cross-subscription Load balancer
 Azure Load Balancer supports cross-subscription load balancing, where the frontend IP and/or the backend pool instances can be in a different subscription than the Azure Load Balancer.
+
+This article provides an overview of cross-subscription load balancing with Azure Load Balancer, and the scenarios it supports.
+
+[!INCLUDE [load-balancer-cross-subscription-preview](../../includes/load-balancer-cross-subscription-preview.md)]
+
+## What is cross-subscription load balancing?
+
+Cross-subscription load balancing allows you to deploy Azure Load Balancer resources across multiple subscriptions. This feature enables you to deploy a load balancer in one subscription and have the frontend IP and backend pool instances in a different subscription. This capability is particularly useful for organizations that have separate subscriptions for networking and application resources.
  
 :::image type="content" source="media/cross-subscription-load-balancer-overview/cross-subscription-load-balancer-concept.png" alt-text="Diagram of cross-subscription load balancer concepts with two subscriptions and resources.":::
 
 The table below illustrates some of the possible scenarios cross-subscription load balancing supports. 
-Subscription 1	Subscription 2
-Load Balancer	Backend pool resources and Frontend IP address
-Load Balancer, Backend pool resources	Frontend IP address
-Load Balancer, Frontend IP address	Backend pool resources
+| **Subscription 1** | **Subscription 2** |
+|----------------|----------------|
+| Load Balancer | Backend pool resources and Frontend IP address |
+| Load Balancer and Backend pool resources | Frontend IP address |
+| Load Balancer and Frontend IP address | Backend pool resources |
 
 ## Cross-subscription frontend IP configurations
 Cross-subscription frontends allows the frontend IP configuration to reside in a different subscription other than the load balancer’s subscription. To enable cross-subscription frontend IP configurations, the following tag needs to be set to true: “IsRemoteFrontend: True”, and the syncMode property needs to be enabled on the backend pool. 
