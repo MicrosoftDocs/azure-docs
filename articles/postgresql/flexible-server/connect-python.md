@@ -146,7 +146,7 @@ In this section, you add authentication code to your working directory and perfo
     ```python
 
     # IMPORTANT! This code is for demonstration purposes only. It's not suitable for use in production. 
-    # For example, in production you should never place a password directly in code. Instead, you should some 
+    # For example, in production you should never place a password directly in code. Instead, you should use some 
     # other mechanism, like environment variables or Azure keyvault to hold passwords.
 
     def get_connection_string():
