@@ -46,7 +46,7 @@ Before you begin, have the following prerequisites in place:
 
 There are two approaches for querying in Search explorer. 
 
-+ Query view provide a default search bar. It accepts an empty query or free text query with booleans. For example, `seattle condo +parking`.
++ Query view provides a default search bar. It accepts an empty query or free text query with booleans. For example, `seattle condo +parking`.
 
 + JSON view supports parameterized queries. Filters, orderby, select, count, searchFields, and all other parameters must be set in JSON view.
 
