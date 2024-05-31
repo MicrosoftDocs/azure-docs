@@ -57,7 +57,7 @@ For more configuration and data source options, try Python or the REST APIs. See
 
 If you're starting with the free service, you're limited to three indexes, three data sources, three skillsets, and three indexers. Make sure you have room for extra items before you begin. This quickstart creates one of each object.
 
-## Check permissions
+## Check for service identity
 
 We recommend role assignments for search service connections to other resources. 
 
@@ -70,8 +70,6 @@ In the following sections, you can assign the search service managed identity to
 ## Check for semantic ranking
 
 This wizard supports semantic ranking, but only on Basic tier and higher, and only if semantic ranking is already [enabled on your search service](semantic-how-to-enable-disable.md). If you're using a billable tier, check to see if semantic ranking is enabled.
-
-:::image type="content" source="media/search-get-started-portal-import-vectors/semantic-ranker-enabled.png" alt-text="Screenshot of the semantic ranker configuration page.":::
 
 ## Prepare sample data
 
@@ -197,9 +195,7 @@ The next step is to connect to a data source to use for the search index.
 
 1. For Azure Storage, select the account and container that provides the data. 
 
-1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md). Here's a screenshot of options for an Azure Storage data source:
-
-      :::image type="content" source="media/search-get-started-portal-import-vectors/data-source-page.png" alt-text="Screenshot of the data source page.":::
+1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md).
 
 1. Select **Next**.
 
@@ -211,11 +207,11 @@ In this step, specify the embedding model used to vectorize chunked data.
 
 1. Specify the Azure subscription.
 
-1. For Azure OpenAI, select the service, model deployment, and authentication type. See [Set up an embedding model (Azure OpenAI)](#azure-openai) for details.
+1. For Azure OpenAI, select the service, model deployment, and authentication type. See [Set up embedding models](#set-up-embedding-models) for details.
 
-1. For AI Studio catalog, select the project, model deployment, and authentication type. See [Set up an embedding model (Azure AI Studio model catalog)](#azure-ai-studio-model-catalog) for details.
+1. For AI Studio catalog, select the project, model deployment, and authentication type. See [Set up embedding models](#set-up-embedding-models) for details.
 
-1. For AI Vision vectorization, select the account. See [Set up an embedding model (Azure AI Vision)](#azure-ai-studio-model-catalog) for details.
+1. For AI Vision vectorization, select the account. See [Set up embedding models](#set-up-embedding-models) for details.
 
 1. Select the checkbox acknowledging the billing impact of using these resources.
 
@@ -234,7 +230,7 @@ Azure AI Search and your Azure AI resource must be in the same region.
 
 1. Specify the subscription.
 
-1. For Azure AI Studio model catalog, specify the project and deployment. See [Setting up an embedding model (Azure AI Studio model catalog)](#azure-ai-studio-model-catalog) for details.
+1. For Azure AI Studio model catalog, specify the project and deployment. See [Setting up an embedding model (Azure AI Studio model catalog)](&tabs=sample-data-storage%2Cmodel-catalog) for details.
 
 1. Optionally, you can crack binary images (for example, scanned document files) and [use OCR](cognitive-search-skill-ocr.md) to recognize text.
 
