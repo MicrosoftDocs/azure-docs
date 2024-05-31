@@ -1,6 +1,6 @@
 ---
 title: Azure Private 5G Core 2404 release notes
-description: Discover what's new in the Azure Private 5G Core 2404 release.
+description: Discover What's New in the Azure Private 5G Core 2404 release.
 author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
