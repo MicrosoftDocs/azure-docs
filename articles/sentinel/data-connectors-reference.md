@@ -138,7 +138,6 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 ## Cisco
 
 - [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
-- [Cisco ASA via Legacy Agent](data-connectors/cisco-asa-via-legacy-agent.md)
 - [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Functions)](data-connectors/cisco-duo-security.md)
 - [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
@@ -289,10 +288,8 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 ## Fortinet
 
 - [[Deprecated] Fortinet via Legacy Agent](data-connectors/deprecated-fortinet-via-legacy-agent.md)
-- [[Recommended] Fortinet via AMA](data-connectors/recommended-fortinet-via-ama.md)
 - [Fortinet FortiNDR Cloud (using Azure Functions)](data-connectors/fortinet-fortindr-cloud.md)
 - [[Deprecated] Fortinet FortiWeb Web Application Firewall via Legacy Agent](data-connectors/deprecated-fortinet-fortiweb-web-application-firewall-via-legacy-agent.md)
-- [[Recommended] Fortinet FortiWeb Web Application Firewall via AMA](data-connectors/recommended-fortinet-fortiweb-web-application-firewall-via-ama.md)
 
 ## Gigamon, Inc
 

@@ -330,10 +330,6 @@
       href: data-connectors/recommended-forcepoint-csg-via-ama.md
     - name: '[Recommended] Forcepoint NGFW via AMA'
       href: data-connectors/recommended-forcepoint-ngfw-via-ama.md
-    - name: '[Recommended] Fortinet FortiWeb Web Application Firewall via AMA'
-      href: data-connectors/recommended-fortinet-fortiweb-web-application-firewall-via-ama.md
-    - name: '[Recommended] Fortinet via AMA'
-      href: data-connectors/recommended-fortinet-via-ama.md
     - name: '[Recommended] Illumio Core via AMA'
       href: data-connectors/recommended-illumio-core-via-ama.md
     - name: '[Recommended] Kaspersky Security Center via AMA'
@@ -432,8 +428,6 @@
       href: data-connectors/box.md
     - name: Cisco Application Centric Infrastructure
       href: data-connectors/cisco-application-centric-infrastructure.md
-    - name: Cisco ASA via Legacy Agent
-      href: data-connectors/cisco-asa-via-legacy-agent.md
     - name: Cisco ASA/FTD via AMA (Preview)
       href: data-connectors/cisco-asa-ftd-via-ama.md
     - name: Cisco Duo Security (using Azure Functions)
