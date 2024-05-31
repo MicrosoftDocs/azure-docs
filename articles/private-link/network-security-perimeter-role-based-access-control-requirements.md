@@ -5,7 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 04/24/2024
+ms.date: 05/29/2024
+# customer intent: As a network administrator, I want to know the Azure role-based access control permissions required to use network security perimeter capabilities, so that I can assign the correct permissions to my team members.
 ---
 
 # Azure role-based access control permissions required to use network security perimeter capabilities
@@ -80,4 +81,4 @@ In this article, you learn about the Azure role-based access control permissions
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md).
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md).

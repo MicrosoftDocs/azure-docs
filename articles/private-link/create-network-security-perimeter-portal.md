@@ -5,17 +5,13 @@ author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 02/22/2024
+ms.date: 05/30/2024
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource in the Azure portal, so that I can control the network traffic to and from the resource.
 ---
 
 # Quickstart: Create a network security perimeter - Azure portal
 
-Get started with network security perimeter by creating a network security perimeter for an Azure key vault using the Azure portal. A [network security perimeter](./network-security-perimeter-concepts.md) allows Azure PaaS resources to communicate within an explicit trusted boundary.
-
-:::image type="content" source="media/create-network-security-perimeter-portal/create-network-security-perimeter-quickstart.png" alt-text="Diagram of network security perimeter and key vault deployment.":::
-
-In this quickstart, you create a network security perimeter for an Azure key vault, one of many [Azure Platform as a Service (PaaS) accounts supported by network security perimeter](./network-security-perimeter-concepts.md#onboarded-private-link-resources), using the Azure portal. Next, You learn to create a network security perimeter with a profile. To finish, you delete all resources created in this quickstart.
+Get started with network security perimeter by creating a network security perimeter for an Azure key vault using the Azure portal. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure PaaS (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources)resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
@@ -41,7 +37,7 @@ Before creating a network security perimeter, you create a resource group to hol
 1. In the search box at the top of the portal, enter **Key vaults**. Select **Key vaults** in the search results.
 1. In the Key vaults accounts window that appears, select **Create +**.
 1. In the **Create a key vault** window, enter the following information:
-   
+
     |**Setting**| **Value** |
     | --- | --- |
     | Subscription | Select the subscription you want to use for this key vault. |
@@ -95,7 +91,6 @@ Once you create a key vault, you can proceed to create a network security perime
 1. Select **Review + create** and then **Create**.
 1. Select **Go to resource** to view the newly created network security perimeter.
 
-
 ## Delete a network security perimeter
 
 When you no longer need a network security perimeter, you remove any resources associated with the network security perimeter and then remove the perimeter following these steps:
@@ -105,8 +100,7 @@ When you no longer need a network security perimeter, you remove any resources a
 3. Navigate back to the **Overview** page of your network security perimeter.
 4. Select **Delete** and confirm the deletion by entering **network-security-perimeter** in the text box for the name of the resource.
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-diagnostic-logs.md)
+> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-collect-resource-logs.md)

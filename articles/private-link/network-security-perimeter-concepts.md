@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: overview
-ms.date: 04/04/2024
+ms.date: 05/29/2024
 ms.custom: references_regions
 #CustomerIntent: As a network security administrator, I want to understand how to use Network Security Perimeter to control network access to Azure PaaS resources.
 ---
@@ -134,7 +134,7 @@ Network security perimeter has other limitations as follows:
 | **Data plane restrictions on resources with deployments inside customers network with VNet Integration** | Enforced by virtual network controls like Network Security Groups, Application Security Groups, User-defined Routes, Azure Firewall, and network virtual appliances. |
 | **Network security perimeter resources generating logs will not produce additional logs** | When a resource generates a log for network security perimeter inbound or outbound access, the corresponding access doesn't generate more logging. This is done to avoid duplicate and potentially circular loops of communication. |
 | **Resource names cannot be longer than 44 characters to support network security perimeter** | The network security perimeter resource association created from the Azure portal has the format `{resourceName}-{perimeter-guid}`. To align with the requirement name field can't have more than 80 characters, resources names would have to be limited to 44 characters. |
-| **Service endpoint traffic is not supported.** | It's recommended to use private endpoints for IaaS to PaaS communication. |
+| **Service endpoint traffic is not supported.** | It's recommended to use private endpoints for IaaS to PaaS communication. Currently even in the presence of inbound rule allowing 0.0.0.0/0, service endpoint traffic is denied for Cosmos DB, Storage, Key Vault, Event Hubs, Cognitive services, SQL. |
 
 > [!NOTE]
 > Refer to individual PaaS documentation for respective limitations.
@@ -146,4 +146,4 @@ Network security perimeter is a free offering available to all customers.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md).
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md).

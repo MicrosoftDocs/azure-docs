@@ -1,16 +1,17 @@
 ---
-title: 'Diagnostic logging for Azure Network Security Perimeter'
-description: Learn the options for storing diagnostic logs for Network Security Perimeter and how to enable logging through the Azure portal.
+title: 'Collecting resource logs for Azure Network Security Perimeter'
+description: Learn the options for collecting resource logs for Network Security Perimeter and how to enable logging through the Azure portal.
 author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: concept
-#CustomerIntent: As a network administrator, I want to enable diagnostic logging for Azure Network Security Perimeter, so that I can monitor and analyze the network traffic to and from my resources.
+ms.date: 05/29/2024
+#CustomerIntent: As a network administrator, I want to collect resource logging for Azure Network Security Perimeter, so that I can monitor and analyze the network traffic to and from my resources.
 ---
 
-# Diagnostic logging for Azure Network Security Perimeter
+# Collecting resource logs for Azure Network Security Perimeter
 
-In this article, you learn about the diagnostic logs for network security perimeter and how to enable logging. You learn access logs categories used. Then, you discover the options for storing diagnostic logs and how to enable logging through the Azure portal.
+In this article, you learn about the resource logs for network security perimeter and how to enable logging. You learn access logs categories used. Then, you discover the options for storing resource logs and how to enable logging through the Azure portal.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
@@ -36,22 +37,22 @@ Network security perimeter access logs categories are based on the results of ac
 
 ## Storage options for access logs
 
-You can store the diagnostic logs in the following locations:
+You can store the resource logs in the following locations:
 
 | **Service** | **Description** |
 | --- | --- |
 | **Log Analytic workspace** | Log Analytic workspaces are recommended since they all you to use the predefined queries, visualizations, and set alerts based on specific log conditions. |
-|** Azure Storage account** | Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed. |
+|**Azure Storage account** | Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed. |
 | **Azure Event Hubs** | Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources. |
 
 ## Enable logging through the Azure portal
 
-You can enable diagnostic logging for network security perimeter by using the Azure portal under **Diagnostic settings**. When adding a diagnostic setting, you can choose the log categories you want to collect and the destination where you want to store the logs.
+You can enable resource logging for network security perimeter by using the Azure portal under **Diagnostic settings**. When adding a diagnostic setting, you can choose the log categories you want to collect and the destination where you want to store the logs.
 
 :::image type="content" source="media/network-security-perimeter-concepts/network-security-perimeter-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings options for network security perimeter.":::
   
 > [!NOTE]
-> The Diagnostics settings page provides the settings for the diagnostic logs. You can use Log Analytics, storage account and/or event hubs to save the diagnostic logs. 
+> The Diagnostics settings page provides the settings for the resource logs. You can use Log Analytics, storage account and/or event hubs to save the resource logs. 
 
 ## Activity log
 
@@ -60,4 +61,4 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md).
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md).
