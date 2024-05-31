@@ -117,7 +117,7 @@ When you use the `-f/--follow` option to tail instant logs, the Azure Spring App
 
 ### Stream logs for a specific instance
 
-Use the following command to get instance names and stream logs for a specific instance:
+Use the following commands to get instance names and stream logs for a specific instance:
 
 ```azurecli
 az spring job execution instance list \

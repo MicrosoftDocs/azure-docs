@@ -1,6 +1,6 @@
 ---
 title:  "Job in Azure Spring Apps"
-description: Explain the Job concept in Azure Spring Apps.
+description: Learn more about the Job concept in Azure Spring Apps.
 author: KarlErickson
 ms.author: ninpan
 ms.service: spring-apps
@@ -20,36 +20,36 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 *Job* is a key concept in the resource model of Azure Spring Apps. Like *App* in Azure Spring Apps, both are considered resources managed within the Service.
 
-Comparing with *App* which runs the workload continuously, *Job* enables customers to run workloads that complete in finite duration. Examples of apps include web apps and background services that process input continuously, while examples of jobs include batch processes and on demand tasks.
+While *App* runs the workload continuously, *Job* enables customers to run workloads that complete within a finite duration. Examples of apps include web apps and background services that process input continuously, and examples of jobs include batch processes and on-demand tasks.
 
-Spring developers who writes jobs propbably choose the Spring Batch framework or Spring Cloud Task. While Spring Batch excels in handling large-scale batch processing tasks, Spring Cloud Task is specialized for managing short-lived tasks with minimal overhead. You can run both types of them in Azure Spring Apps jobs efficiently to meet diverse requirements.
+Spring developers who write jobs probably choose the Spring Batch framework or Spring Cloud Task. While Spring Batch excels in handling large-scale batch processing tasks, Spring Cloud Task is specialized for managing short-lived tasks with minimal overhead. You can run both types in Azure Spring Apps jobs efficiently to meet diverse requirements.
 
-## Job execution
+## Execute a job
 
 A job execution refers to the process of running a particular task or set of tasks defined within a job. It encompasses the entire lifecycle of executing those tasks, including initializing, processing, and completing the job according to its specifications.
 
-A common lifecycle of a job execution in Azure Spring Apps is from `pending`, `running` to termination status `completed` or `failed` depending on whether the execution finishes successfully or not.
+A common lifecycle of a job execution in Azure Spring Apps is from `pending`, `running`, to termination status `completed` or `failed` depending on whether the execution finishes successfully or not.
 
 Each time the job is executed, it adopts its preset configuration from the job, with certain aspects allowing for customization to accommodate different runs.
 
-In nonparallel job execution, only one instance runs at a time, whereas in parallel execution, multiple instances can run simultaneously.
+In nonparallel job execution, only one instance runs at a time. Whereas, in parallel execution, multiple instances can run simultaneously.
 
-## Configuration
+## Configure a job
 
 The job establishes the default configuration utilized for each execution, encompassing elements like the user application source and trigger configuration. Each execution of the job inherits the configuration, allowing certain parameters to be overridden with new values for individual executions.
 
 The following table shows the configuration in job level or job execution level:
 
-| Property name | Scope | Notes |
-|---|---|---|
-| Trigger type | Job | Job is supported to be triggered manually for public preview. More trigger types are supported later. |
-| Parallelism | Job | The count of instances of the job that executes in the same time. The default value is 1. For parallel job, you can get the index of each instance through `JOB_COMPLETION_INDEX` environment variable. |
-| Retry limit | Job |The maximum number of a job attempts to execution after encountering a failure or error. The default value is 0 that means the job does not retry if it fails. |
-| Timeout | Job |The maximum time in seconds when the job failed. You can leave it unset or set the value 0, which means the job has no timeout. |
-| Arguments | Job/Execution | The value of arguments specified for the execution override that of the job. |
-| Environment variables | Job/Execution | In key-value pairs format. The environment variables specified in job level are default values for each execution. The environment variables specified in execution level has higher priority. You can specify part of those environment variables when start an execution to override the value in job level. |
-| Secret environment variables | Job/Execution | Contain credential, the secret values are encrypted. |
-| CPU | Job/Execution | The value of CPU specified for the execution override that of the job. |
-| Memory | Job/Execution | The value of Memory specified for the execution override that of the job. |
+| Property name                | Scope         | Notes                                                                                                                                                                                                                                                                                                            |
+|------------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Trigger type                 | Job           | The manual trigger for public preview. More trigger types are supported later.                                                                                                                                                                                                                                   |
+| Parallelism                  | Job           | The count of instances of the job that executes in the same time. The default value is 1. For parallel job, you can get the index of each instance through `JOB_COMPLETION_INDEX` environment variable.                                                                                                          |
+| Retry limit                  | Job           | The maximum number of a job attempts to execution after encountering a failure or error. The default value is 0, which means the job doesn't retry if it fails.                                                                                                                                                  |
+| Timeout                      | Job           | The maximum time in seconds when the job failed. You can leave it unset or set the value at 0, which means the job has no timeout.                                                                                                                                                                               |
+| Arguments                    | Job/Execution | The value of arguments specified for the execution override of the job.                                                                                                                                                                                                                                          |
+| Environment variables        | Job/Execution | The key-value pairs format. The environment variables specified in job level are default values for each execution. The environment variables specified in execution level have higher priority. You can specify part of those environment variables when start an execution to override the value in job level. |
+| Secret environment variables | Job/Execution | The credentials, where the secret values are encrypted.                                                                                                                                                                                                                                                          |
+| CPU                          | Job/Execution | The value of CPU specified for the execution override of the job.                                                                                                                                                                                                                                                |
+| Memory                       | Job/Execution | The value of Memory specified for the execution override of the job.                                                                                                                                                                                                                                             |
 
-The configuration on job level applies when creating or updating the job resource, that on job execution level applies when starting a job execution.
+The configuration on job level applies when creating or updating the job resource, and configuration on job execution level applies when starting a job execution.
