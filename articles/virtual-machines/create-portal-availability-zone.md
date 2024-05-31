@@ -57,9 +57,9 @@ Some users will now see the option to create VMs in multiple zones. If you see t
 
 1. Under **Instance details**, type a name for the **Virtual machine name**.
 1. For **Availability options**, leave the default of **Availability zone**.
-1. For **Availability zone**, the drop-down defaults to *Zone 1*. If you choose multiple zones, a new VM will be created in each zone. For example, if you select all three zones, then three VMs will be created. The VM names are the original name you entered, with **-1**, **-2**, and **-3** appended to the name based on number of zones selected. If you want, you can edit each of the default VM names.
+1. For **Availability zone**, the drop-down defaults to *Zone 1*. If you choose multiple zones, a new VM is created in each zone. For example, if you select all three zones, then three VMs are created. The VM names are the original name you entered, with **-1**, **-2**, and **-3** appended to the name based on number of zones selected. If you want, you can edit each of the default VM names.
 
-   :::image type="content" source="media/zones/3-vm-names.png" alt-text="Screenshot showing that there are now 3 virtual machines that will be created.":::
+   :::image type="content" source="media/zones/3-vm-names.png" alt-text="Screenshot showing that there are now 3 virtual machines that are created.":::
 
 1. Complete the rest of the page as usual. If you want to create a load balancer, go to the **Networking** tab > **Load Balancing** > **Load balancing options**. You can choose either an Azure load balancer or an Application gateway.
    
@@ -78,7 +78,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
    2. To create a new gateway, type the name for the application gateway. The Application Gateway can load balance multiple applications. Consider naming the Application Gateway according to the workloads you wish to load balance, rather than specific to the virtual machine name.
    3. In **Routing rule**, type a rule name. The rule name should describe the workload you are load balancing.
    4. For HTTP load balancing, you can leave the defaults and then select **Create**. For HTTPS load balancing, you have two options:
-     - Upload a certificate and add the password (application gateway will manage certificate storage). For certificate name, type a friendly name for the certificate.
+     - Upload a certificate and add the password (application gateway manages certificate storage). For certificate name, type a friendly name for the certificate.
      - Use a key vault (application gateway will pull a defined certificate from a defined key vault). Select your **Managed identity**, **Key Vault**, and **Certificate**. 
         
    > [!IMPORTANT]
@@ -91,7 +91,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
 
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you're ready, select **Create**.
 
-1. If you are creating a Linux VM and the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**.
+1. If you are creating a Linux VM and the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will download as **myKey.pem**.
 
 1. When the deployment is finished, select **Go to resource**.
 ---
@@ -143,7 +143,7 @@ Existing OS and Data Disks are currently not supported. New Data Disk Source Typ
 ::image type="content" source="media/create-portal-availability-zone/zone-any-disks.png" alt-text="Screenshot supported disks for an Azure-selected zone."::
 
 ### Other resources
- - Existing Public IPs are not supported for an Azure-selected zone. They can be added after deployment.
+ - Existing Public IPs aren't supported for an Azure-selected zone. They can be added after deployment.
  - New Public IPs must be Zone Redundant or use an Azure-Selected Zone.
  - Load Balancers and Application Gateways must be Zonally Resilient to attach during the VM deployment.
  - Proximity Placement Groups, Capacity Reservation Groups, and Azure Dedicated Host aren't supported. 
