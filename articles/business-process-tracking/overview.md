@@ -5,7 +5,7 @@ ms.service: logic-apps
 ms.topic: overview
 ms.reviewer: estfan, azla
 ms.date: 06/07/2024
-# CustomerIntent: As a developer or business analyst with a solution that has multiple or different Azure resources that integrate various services and systems, I want a way to visualize my organization's business processes and map them to the actual Azure resources that implement those use cases. For our business, I also want to capture key business data that moves through these resources to gain better insight about how our solutions perform.
+# CustomerIntent: As a developer or business analyst with a solution that has multiple or different Azure resources that integrate various services and systems, I want a way to visualize my organization's business processes and map them to the actual Azure resources that implement those use cases. For our business, I also want to record key business data that moves through these resources to gain better insight about how our solutions perform.
 ---
 
 # What is Business Process Tracking? (Preview)
@@ -15,7 +15,7 @@ ms.date: 06/07/2024
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-As a developer or business analyst working on solutions that integrate services and systems using various Azure resources, you might have difficulties visualizing the relationship between the technical components in your solution and your business scenario. To include business context about the Azure resources in your solution, you can build business processes that visually represent the business logic implemented by these resources. A business process is a series of stages that represent the tasks that flow through a real-world business scenario.
+As a developer or business analyst working on solutions that integrate services and systems using various Azure resources, you might have difficulties visualizing the relationship between the technical components in your solution and your business scenario. To include business context about the Azure resources in your solution, you can build business processes that visually represent the business logic implemented by these resources. In Business Process Tracking, a business process is a series of stages that represent the tasks flowing through real-world business scenario.
 
 For example, suppose you're a developer or business analyst at a power company, and you work on a team that creates integration solutions. Your team is updating a solution for a work order processor service that's implemented by multiple Standard logic apps and their workflows. Your company's customer service team uses the following business process to resolve a customer ticket for a power outage:
 
@@ -31,7 +31,7 @@ This capability lets you decouple the business process design from your implemen
 
 ## Business process design and tracking
 
-When you create a **Business Process** resource in Azure, you define a single business identifier or *transaction ID*, such as an order number, case number, or ticket number, to identify a transaction that exists across all business process stages so you can correlate these stages together.
+When you create a **Business Process** resource in Azure, you define a single business identifier or *transaction ID*, such as an order number, case number, or ticket number, to identify a transaction that exists across all business process stages so you can correlate these stages and data together.
 
 :::image type="content" source="media/overview/define-transaction-id.png" alt-text="Screenshot shows Azure portal, the page named Create a business process page, and transaction ID details." lightbox="media/overview/define-transaction-id.png":::
 
@@ -39,7 +39,7 @@ After you create your resource, you can use the process editor to design the sta
 
 :::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process editor with business process stages." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
-To record business data from each stage as that data flows through deployed Azure resources at run time, you can specify more key business properties and values to capture. When you create a stage, you specify these business properties. For example, the **Create_ticket** stage defines the following business property values to capture in your deployed resources:
+To capture business data from each stage as real-time data flows through deployed Azure resources at run time, you can specify other key business property values that you want to record and store. When you create a stage, you define these business properties and their data sources. For example, the **Create_ticket** stage defines the following business property values to record from deployed Azure resources:
 
 :::image type="content" source="media/overview/define-business-properties.png" alt-text="Screenshot shows Edit stage pane with specified business properties to capture and track." lightbox="media/overview/define-business-properties.png":::
 
@@ -72,15 +72,13 @@ To help you organize and manage the deployed Azure resources that you use in you
 
 - Business process design, tracking, and deployment are currently available only in the Azure portal. No capability currently exists to export and import tracking profiles.
 
-- This preview release currently doesn't include application monitoring.
-
 - Business process mapping and tracking currently support only Standard logic app resources and stateful workflows in Azure Logic Apps. Stateless workflows currently aren't supported.
 
   If you have business scenarios or use cases that require stateless workflows, use the product feedback link to share these scenarios and use cases. 
 
 - This preview release is currently optimized for speed.
 
-  If you have feedback about workload performance, use the product feedback link to share your input and results from representative loads to help improve this aspect.
+  If you have feedback about workload reliability or performance, use the product feedback link to share your input and results from representative workloads to help improve this aspect.
 
 ## Pricing information
 

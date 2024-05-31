@@ -17,7 +17,7 @@ ms.date: 06/07/2024
 
 To add business context around the Azure resources in an integration solution, you can visualize business processes flows for the tasks implemented by these resources. A business process is a series of stages that represent the tasks that flow through a real-world business scenario. This business process also specifies a single business identifer or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that exists across all the stages in the business process and to correlate those stages together.
 
-When you add a stage to your business process, you can also define other business properties to capture and track as that data moves through each stage. You can then later map the transaction ID and other properties to specific operations and data outputs in Standard logic app workflows. For more information, see [What is Business Process Tracking](overview.md)?
+When you add a stage to your business process, you can also define other business property values to capture as data moves through each stage. You can then later map the transaction ID and other properties to specific operations and data outputs in Standard logic app workflows. For more information, see [What is Business Process Tracking](overview.md)?
 
 For example, suppose you're a developer or business analyst at a power company. Your company's customer service team has the following business process to resolve a customer ticket for a power outage:
 
@@ -51,7 +51,7 @@ After you define a business process, you can then map each stage to actual Azure
 
 - An existing or new [Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database)
 
-  This Azure resource is required to create a business process. Your business process uses this database to store the transactions and business property values that you want to capture as the real-time data moves through your workflows at run time. When you create a business process, you specify the cluster, database, and table to use for storing the data that you want to capture.
+  This Azure resource is required to create, deploy, and store specified data in a business process. Your business process uses this database to store the transactions and business property values that you want to capture as real-time data moves through your workflows at run time. When you create a business process, you specify the cluster, database, and table to use for storing the data that you want.
 
   > [!NOTE]
   >
@@ -87,7 +87,7 @@ After you define a business process, you can then map each stage to actual Azure
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar business identifier that's available across all stages in your business process. <br><br>This example uses the transaction ID named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing. <br><br>**Note**: Business Process Tracking automatically includes and captures the transaction timestamp, so you don't have to separately add this value to capture and track. Although you can define only a single transaction ID when you create a business process, you can later define other business properties in each stage to capture and track. |
+   | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar business identifier that's available across all stages in your business process. <br><br>This example uses the transaction ID named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing. <br><br>**Note**: Business Process Tracking automatically includes and records the transaction timestamp so that you don't have to separately add this value. Although you can define only a single transaction ID when you create a business process, you can later define other business properties in each stage that you want to record. |
    | **Data type** | Yes | <*transacton-ID-data-type*> | The data type for your transaction ID: **String** or **Integer**. <br><br>This example uses the **Integer** data type. |
 
    The following example shows the sample transaction ID:
@@ -106,9 +106,9 @@ After you define a business process, you can then map each stage to actual Azure
 
 1. When you're done, select **Create**.
 
-   When deployment completes, Azure opens the **Overview** page for your **Business Process** resource.
+   After the Azure portal completes deployment for your new **Business Process** resource, the portal automatically opens the resource's **Overview** page.
 
-1. Now, add the stages for your business process.
+1. Now, continue on to add the stages for your business process.
 
 <a name="add-stage"></a>
 
@@ -143,9 +143,15 @@ After you create your business process, add the stages for that process. For exa
 
    :::image type="content" source="media/create-business-process/add-stage-quick.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and properties to track." lightbox="media/create-business-process/add-stage.png":::
 
-   In the **Properties to track** table, on the **Success** tab, the transaction ID that you previously defined when you created the business process automatically appears. This value is required and must exist for a successfully completed stage. The **Success** tab can specify other business property values to capture from a successfully completed stage. On the **Failure** tab, you can specify any business property values to capture from a failed stage.
+   In the **Properties to track** table, on the **Success** tab, your previously defined transaction ID is automatically included. This value is required for correlation across stages and workflows. 
 
-   To define other business property values that you want to capture and track for this stage, follow these steps:
+   On the **Success** and **Failure** tabs, you can optionally define and map other business property values that you want to record. You can use these property values to correspondingly identify a successful or failed stage, which is left entirely to your interpretation, business scenarios, or needs.
+
+   - **Success** tab: Define and map other business property values to identify and record from a successful stage.
+
+   - **Failure** tab: Define and map other business property values to identify and record from a failed stage.
+
+   To define other business property values to use for this stage, follow these steps:
 
    1. Under **Properties to track**, select **Success** or **Failure** as appropriate.
 
@@ -153,7 +159,7 @@ After you create your business process, add the stages for that process. For exa
 
    1. Enter the property name and type, which is either a **String** or **Integer**.
 
-   For example, this stage specifies a few more properties, such as **CustomerName**, **CustomerEmail**, and **CustomerPhone**, to capture from a successfully completed stage:
+   For example, this stage specifies a few more properties, such as **CustomerName**, **CustomerEmail**, and **CustomerPhone**, to record from a successfully completed stage:
 
    :::image type="content" source="media/create-business-process/add-properties.png" alt-text="Screenshot shows pane named Add stage with stage name, description, and more properties to track." lightbox="media/create-business-process/add-properties.png":::
 
@@ -165,7 +171,7 @@ After you create your business process, add the stages for that process. For exa
 
    - Under the last stage, select the plus sign (**+**) for **Add a stage**.
  
-   - Between stages, select the plus sign (**+**), and then select either **Add a stage** or **Add a parallel stage**, which creates a decision branch in your business process.
+   - Between stages, select the plus sign (**+**), and then select either **Add a stage** or **Add a parallel stage**, which creates a branch in your business process.
 
    > [!TIP]
    >

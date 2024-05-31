@@ -33,8 +33,6 @@ After you finish creating your business process, you can map each stage, transac
 
 - All the Standard logic app workflows that you want to map your business process stages. For more information, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
-- The Azure Data Explorer database associated with your business process must be online to store your mapping information.
-
 <a name="map-stage"></a>
 
 ## Map a business process stage
@@ -126,13 +124,17 @@ In the **Properties** section, follow these steps to map each property's value t
 
 1. On the **Edit stage** pane, select **Save stage**.
 
-   The platform sends the information to your database in Azure Data Explorer.
+1. Validate your mappings, or continue mapping any other stages that you might have.
 
 ## Validate mappings
 
-As you map each stage, you can check your mappings as build your business process, rather than wait until deployment, to reveal any errors or problems with your mappings.
+As you build your business process, you can check your mappings before you deploy. That way, you can find errors or problems earlier when your process is less complex and is easier to troubleshoot.
 
-- On the editor toolbar, select **Validate**.
+If you wait until you finish or deploy, and your process is long or complex, you might find that your process has more errors than expected, which might take longer to resolve or prove difficult to troubleshoot.
+
+1. Before you validate your mappings, make sure to completely map all existing stages. Otherwise, unmapped stages generate errors.
+
+1. When you're ready, on the editor toolbar, select **Validate**.
 
   The Azure portal shows notifications for any errors or problems that exist.
 

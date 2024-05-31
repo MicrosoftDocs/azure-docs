@@ -38,7 +38,7 @@ A business process exists in one of the following states:
 | State | Description |
 |------|-------------|
 | Draft | An unsaved or saved business process before deployment. |
-| Deployed | A business process that captures data during workflow run time. |
+| Deployed | A business process that records specified data during workflow run time. |
 | Deployed with pending changes | A business process that has both a deployed version and version with pending changes. |
 
 <a name="edit-process-or-stage"></a>
@@ -73,7 +73,7 @@ The following steps remove any pending changes for a deployed business process, 
 
 ## Undeploy a business process
 
-The following steps remove only the deployment artifacts and tracking profile for a deployed business process. This action leaves the business process unchanged, but the process no longer captures and tracks data. Any previously captured data remains stored in your Azure Data Explorer database.
+The following steps remove only the deployment artifacts and tracking profile for a deployed business process. This action leaves the business process unchanged, but the process no longer records and tracks the specified data. Any previously recorded data remains stored in your Azure Data Explorer database.
 
 1. In the [Azure portal](https://portal.azure.com), find and open your business process.
 

@@ -31,13 +31,15 @@ After you map your business process stages to the operations and outputs in Stan
 
 - The Azure Data Explorer database associated with your business process must be online.
 
-  Deployment uses the database table that you selected during business process creation to add and store the data captured from the workflow run. Deployment also causes all the participating Standard logic app resources to automatically restart.
+  Deployment uses the database table that you selected during business process creation to store recorded data from the workflow run.
 
 <a name="deploy-business-process-tracking"></a>
 
 ## Deploy business process and tracking profile
 
 1. In the [Azure portal](https://portal.azure.com), open your business process in the editor, if not already open.
+
+1. Before you deploy, make sure that you're ready for all participating Standard logic app workflows to restart when deployment begins.
 
 1. On the process editor toolbar, select **Deploy**.
 
@@ -55,7 +57,7 @@ After you map your business process stages to the operations and outputs in Stan
 
 ## View recorded transactions
 
-After the mapped Standard logic app workflows run and emit the data that you specified to capture, you can view the recorded transactions.
+After the mapped Standard logic app workflows run and emit the data that you specified for collection, you can view the recorded transactions.
 
 1. In the [Azure portal](https://portal.azure.com), open your business process.
 
