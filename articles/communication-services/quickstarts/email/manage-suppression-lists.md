@@ -2,7 +2,7 @@
 title: How to manage suppression lists for a Azure Communication Email Domain using the Azure Portal
 titleSuffix: An Azure Communication Services quick start guide.
 description: Learn about managing suppression lists for a Azure Communication Email Domain using the Azure Portal
-author: matthohn
+author: matthohn-msft
 manager: koagbakp
 services: azure-communication-services
 ms.author: matthohn
@@ -20,8 +20,8 @@ In this quick start, you will learn how to manage suppression lists for a Azure 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- An Azure Email Communication Services Resource ready to provision domains. [Get started creating an Email Communication Resource](../create-email-communication-resource.md).
-- An [Azure Managed Domain](../add-azure-managed-domains.md) or [Custom Domain](../add-custom-verified-domains.md) provisioned and ready to send emails.
+- An Azure Email Communication Services Resource ready to provision domains. [Get started creating an Email Communication Resource](./create-email-communication-resource.md).
+- An [Azure Managed Domain](./add-azure-managed-domains.md) or [Custom Domain](./add-custom-verified-domains.md) provisioned and ready to send emails.
 
 Once you have a domain provisioned, you are ready to start configuring your resource.
 
@@ -48,18 +48,18 @@ Once you have a domain provisioned, you are ready to start configuring your reso
 :::image type="content" source="./media/manage-suppressionlist-import-csv.png" alt-text="Screenshot that highlights the import CSV flayout.":::
 
 9. The CSV will be checked for conflcts
-:::image type="content" source="./media/manage-suppressionlist-import-csv-conflicts.png" alt-text="Screenshot that highlights the import CSV flayout.":::
+:::image type="content" source="./media/manage-suppressionlist-import-csv-conflicts.png" alt-text="Screenshot showing the import conflicts that will need to be resolved.":::
 
 10. Finally, confirm the import and conflicts are resolved.
-:::image type="content" source="./media/manage-suppressionlist-import-csv-confirm.png" alt-text="Screenshot that highlights the import CSV flayout.":::
+:::image type="content" source="./media/manage-suppressionlist-import-csv-confirm.png" alt-text="Screenshot that import summary and confirmation page.":::
 
 11. Recipients can be exported, edited or removed.
-:::image type="content" source="./media/manage-suppressionlist-recipients-view.png" alt-text="Screenshot that highlights the suppression list recipients view.":::
+:::image type="content" source="./media/manage-suppressionlist-recipients.png" alt-text="Screenshot that highlights the suppression list recipients view.":::
 
 12. Recipients can be editied and deleted from the Edit Recipient flyout.
 :::image type="content" source="./media/manage-suppressionlist-edit-recipient.png" alt-text="Screenshot that highlights the edit recipient flayout.":::
 
 ## Next steps
 
-- [Quickstart: Manage Domain Suppression Lists in Azure Communication Services using the Management Client Libraries](./manage-suppression-list-mgmt-sdks.md)
+- [Quickstart: Manage Domain Suppression Lists in Azure Communication Services using the Management Client Libraries](./manage-suppression-list-management-sdks.md)
 - [Send Mail with Azure Communication Services](./send-email.md)
