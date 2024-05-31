@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 05/20/2024
+ms.date: 05/31/2024
 recommendations: false
 ---
 
@@ -19,6 +19,11 @@ recommendations: false
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
 ## May 2024
+
+### GPT-4o provisioned deployments
+
+`gpt-4o` Version: `2024-05-13` is available for both standard and provisioned deployments. Provisioned and standard model deployments accept both text and image/vision inference requests.
+For information on model regional availability consult the model matrix for [provisioned deployments](./concepts/models.md#provisioned-deployment-model-availability).
 
 ### Assistants v2 (preview)
 
