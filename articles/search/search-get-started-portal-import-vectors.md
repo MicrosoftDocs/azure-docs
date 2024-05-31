@@ -230,7 +230,7 @@ Azure AI Search and your Azure AI resource must be in the same region.
 
 1. Specify the subscription.
 
-1. For Azure AI Studio model catalog, specify the project and deployment. See [Setting up an embedding model (Azure AI Studio model catalog)](&tabs=sample-data-storage%2Cmodel-catalog) for details.
+1. For Azure AI Studio model catalog, specify the project and deployment. See [Setting up an embedding model](#set-up-embedding-models) for details.
 
 1. Optionally, you can crack binary images (for example, scanned document files) and [use OCR](cognitive-search-skill-ocr.md) to recognize text.
 
