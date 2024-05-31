@@ -44,7 +44,7 @@ Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You ca
 [Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md) manages the deployment and configuration of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
 
 > [!NOTE]
-> During public preview, there's no support for updating an existing Azure IoT Operations deployment. Instead, start with a clean cluster for a new deployment.
+> During public preview, there's no support for upgrading an existing Azure IoT Operations deployment to a newer version. Instead, remove Azure IoT Operations from your cluster and then deploy the latest version.
 
 ## Manage devices and assets
 
