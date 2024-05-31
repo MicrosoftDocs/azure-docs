@@ -65,7 +65,11 @@ Use the following command to assign an Azure role:
 
 ---
 
-## List all instances in a job execution
+## View tail logs
+
+This section provides examples of using the Azure CLI to produce tail logs.
+
+### View tail logs for a specific instance
 
 Every time a job is triggered, a new job execution is created. Also, depending on the parallelism setting for your job, several replicas or instances execute in parallel.
 
@@ -79,11 +83,7 @@ az spring job execution instance list \
     --execution <job-execution-name>
 ```
 
-## View tail logs
-
-This section provides examples of using the Azure CLI to produce tail logs.
-
-### View tail logs for a specific instance
+You can get all instance names of the job execution from the output.
 
 To view the tail logs for a specific instance, use the `az spring job logs` command with the `-i/--instance` argument, as shown in the following example:
 
@@ -117,9 +117,15 @@ When you use the `-f/--follow` option to tail instant logs, the Azure Spring App
 
 ### Stream logs for a specific instance
 
-Use the following command to stream logs for a specific instance:
+Use the following command to get instance names and stream logs for a specific instance:
 
 ```azurecli
+az spring job execution instance list \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --job <job-name> \
+    --execution <job-execution-name>
+
 az spring job logs \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
