@@ -4,7 +4,7 @@ description: This article describes the Query Store feature in Azure Database fo
 author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/14/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

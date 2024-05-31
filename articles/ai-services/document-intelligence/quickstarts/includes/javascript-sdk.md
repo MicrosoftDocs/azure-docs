@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Document Intelligence (formerly Form Recognizer) JavaScript SDK (beta) | v3.1 | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) JavaScript SDK"
 titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence JavaScript client library.
 author: laujan
@@ -73,8 +73,7 @@ In this quickstart, use the following features to analyze and extract data and v
  4. Install the `ai-document-intelligence` client library and `azure/identity` npm packages:
 
     ```console
-    npm i @azure-rest/ai-document-intelligence@1.0.0-beta.2 @azure/identity
-
+    npm i @azure-rest/ai-document-intelligence@1.0.0-beta.2 @azure/core-auth
     ```
 
     Your app's `package.json` file is updated with the dependencies.
@@ -119,7 +118,7 @@ To interact with the Document Intelligence service, you need to create an instan
 
 :::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 
-To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form 
+To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form
 Recognizer `endpoint`.
 
 :::moniker-end
@@ -146,7 +145,10 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 :::moniker range="doc-intel-4.0.0"
 
 ```javascript
-    const DocumentIntelligenceClient = require("@azure-rest/ai-document-intelligence");
+    const DocumentIntelligence = require("@azure-rest/ai-document-intelligence").default,
+  { getLongRunningPoller, isUnexpected } = require("@azure-rest/ai-document-intelligence");
+
+  const { AzureKeyCredential } = require("@azure/core-auth");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
     const key = "<your-key";
@@ -156,7 +158,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
     const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
    async function main() {
-    const client = DocumentIntelligenceClient(endpoint, {key:key},);
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key:key));
 
 
     const initialResponse = await client
@@ -167,6 +169,10 @@ Extract text, selection marks, text styles, table structures, and bounding regio
           urlSource: formUrl
         },
        });
+
+       if (isUnexpected(initialResponse)) {
+       throw initialResponse.body.error;
+     }
 
     const poller = await getLongRunningPoller(client, initialResponse);
     const analyzeResult = (await poller.pollUntilDone()).body.analyzeResult;
@@ -309,19 +315,21 @@ In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 ```javascript
 
-const DocumentIntelligenceClient = require("@azure-rest/ai-document-intelligence");
+const DocumentIntelligence = require("@azure-rest/ai-document-intelligence").default,
+  { getLongRunningPoller, isUnexpected } = require("@azure-rest/ai-document-intelligence");
+
+const { AzureKeyCredential } = require("@azure/core-auth");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
     const key = "<your-key>";
     const endpoint = "<your-endpoint>";
 
     // sample document
-    invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
+    const invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
 async function main() {
 
-    const client = DocumentIntelligenceClient(endpoint, {key: key},
-     );
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key:key));
 
     const initialResponse = await client
     .path("/documentModels/{modelId}:analyze", "prebuilt-invoice")
@@ -333,6 +341,9 @@ async function main() {
       },
     });
 
+    if (isUnexpected(initialResponse)) {
+       throw initialResponse.body.error;
+     }
 
     const poller = await getLongRunningPoller(client, initialResponse);
 
