@@ -97,7 +97,7 @@ Run the following CLI commands in your Codespaces terminal.
    >[!TIP]
    > You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the Azure portal in the **Access configuration** section of an existing key vault. Or use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to check that `enableRbacAuthorization` is false.
 
-1. Deploy Azure IoT Operations.
+1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
    az iot ops init --simulate-plc --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --kv-id $(az keyvault show --name ${CLUSTER_NAME:0:24} -o tsv --query id)
