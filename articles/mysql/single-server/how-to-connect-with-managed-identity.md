@@ -87,7 +87,7 @@ Your application can now retrieve an access token from the Azure Instance Metada
 This token retrieval is done by making an HTTP request to `http://169.254.169.254/metadata/identity/oauth2/token` and passing the following parameters:
 
 - `api-version` = `2018-02-01`
-- `resource` = `https://ossrdbms-aad.database.windows.net`
+- `resource` = `https://server-name.database.windows.net`
 - `client_id` = `CLIENT_ID` (that you retrieved earlier)
 
 You'll get back a JSON result that contains an `access_token` field - this long text value is the Managed Identity access token, that you should use as the password when connecting to the database.
@@ -98,7 +98,7 @@ For testing purposes, you can run the following commands in your shell. Note you
 # Retrieve the access token
 
 
-ACCESS_TOKEN=$(curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token)
+ACCESS_TOKEN=$(curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fserver-name.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token)
 
 # Connect to the database
 
@@ -143,8 +143,8 @@ namespace Driver
             //
             Console.Out.WriteLine("Getting access token from Azure Instance Metadata service...");
 
-            // Azure AD resource ID for Azure Database for MySQL is https://ossrdbms-aad.database.windows.net/
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=" + ClientId);
+            // Azure AD resource ID for Azure Database for MySQL is https://server-name.database.windows.net/
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fserver-name.database.windows.net&client_id=" + ClientId);
             request.Headers["Metadata"] = "true";
             request.Method = "GET";
             string accessToken = null;

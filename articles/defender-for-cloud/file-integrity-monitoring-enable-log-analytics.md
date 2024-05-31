@@ -1,11 +1,13 @@
 ---
 title: Enable File Integrity Monitoring (Log Analytics agent)
-description: Learn how to enable File Integrity Monitoring when you collect data with the Log Analytics agent
+description: Learn how to enable File Integrity Monitoring with the Log Analytics agent to track and identify changes in your environment.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 05/16/2024
+#customer intent: As a user, I want to learn how to enable File Integrity Monitoring with the Log Analytics agent so that I can track and identify changes in my environment.
 ---
+
 # File Integrity Monitoring using the Log Analytics agent
 
 To provide [File Integrity Monitoring (FIM)](file-integrity-monitoring-overview.md), the Log Analytics agent uploads data to the Log Analytics workspace. By comparing the current state of these items with the state during the previous scan, FIM notifies you if suspicious modifications have been made.

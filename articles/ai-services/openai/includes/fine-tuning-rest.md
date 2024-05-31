@@ -252,7 +252,7 @@ curl -X POST $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/{fine_tuning_job_id}
 
 [!INCLUDE [Safety evaluation](../includes/safety-evaluation.md)]
 
-## Deploy a customized model
+## Deploy a fine-tuned model
 
 [!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 

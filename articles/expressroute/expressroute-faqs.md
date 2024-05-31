@@ -494,7 +494,7 @@ ExpressRoute Traffic Collector can handle up to 300,000 flows a minute. In the e
 
 ### Does ExpressRoute Traffic Collector support Virtual WAN?
 
-Yes, you can use Express Traffic Collector with ExpressRoute Direct circuits used in a Virtual WAN deployment. However, deploying ExpressRoute Traffic Collector within a Virtual WAN hub isn’t supported. You can deploy ExpressRoute Traffic collector in a spoke virtual network and ingest flow logs to a Log Analytics workspace.
+Yes, you can use Express Traffic Collector with ExpressRoute circuits used in a Virtual WAN deployment. 
 
 ### Does ExpressRoute Traffic Collector support ExpressRoute provider ports?
 
@@ -512,6 +512,14 @@ ExpressRoute Traffic Collector deployment by default has availability zones enab
 ### How should I incorporate ExpressRoute Traffic Collector in my disaster recovery plan?
 
 You can associate a single ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure region within a given geo-political region. It's recommended that you associate your ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan.
+
+### Will my ExpressRoute Circuit experience any downtime while configuring ExpressRoute Traffic Collector?
+
+No. ExpressRoute Traffic Collector setup does not cause any ExpressRoute Circuit downtime.
+
+### Does ExpressRoute Traffic Collector need to be deployed to the same subscription as my ExpressRoute Circuit?
+
+No. ExpressRoute Traffic Collector can be deployed to a different subscription from your ExpressRoute Circuit. However, ExpressRoute Traffic Collector must be deployed to the same geopolitical region as the ExpressRoute Circuit peering location.
 
 ## <a name="customer-controlled"></a>Customer-controlled gateway maintenance
 

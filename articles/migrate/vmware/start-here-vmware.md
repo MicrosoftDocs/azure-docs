@@ -5,6 +5,11 @@ author: cynthn
 ms.author: cynthn
 ms.topic: overview
 ms.service: azure-migrate
+products:
+  - azure-migrate
+  - vmware
+  - azure-virtual-machines
+  - azure-vmware-solution
 ms.date: 05/08/2024
 ms.custom: vmware-scenario-422
 

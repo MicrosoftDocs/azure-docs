@@ -157,7 +157,7 @@ In this section, you enable the firewall logs and send them to the log analytics
     | Subnet | Select **subnet-private-endpoint**. |
     | **Private DNS integration** |  |
     | Integrate with private DNS zone | Select **Yes**. |
-    | Private DNS zone | Leave the default of **privatelink.database.windows.net**. |
+    | Private DNS zone | Leave the default of **server-name.database.windows.net**. |
 
 1. Select **OK**.
 
@@ -229,7 +229,7 @@ The private DNS zone created during the private endpoint creation in the previou
 
 1. In the search box at the top of the portal, enter **Private DNS zone**. Select **Private DNS zones** in the search results.
 
-1. Select **privatelink.database.windows.net**.
+1. Select **server-name.database.windows.net**.
 
 1. In **Settings** select **Virtual network links**.
 
@@ -377,8 +377,8 @@ Create an application rule to allow communication from **vnet-1** to the private
     Address:   127.0.0.53#53
 
     Non-authoritative answer:
-    sql-server-8675.database.windows.netcanonical name = sql-server-8675.privatelink.database.windows.net.
-    Name:sql-server-8675.privatelink.database.windows.net
+    sql-server-8675.database.windows.netcanonical name = sql-server-8675.server-name.database.windows.net.
+    Name:sql-server-8675.server-name.database.windows.net
     Address: 10.1.0.4
     ```
 

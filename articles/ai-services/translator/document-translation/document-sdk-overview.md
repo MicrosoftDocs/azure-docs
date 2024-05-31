@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: devx-track-python
 ms.topic: conceptual
-ms.date: 02/12/2024
+ms.date: 05/21/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -17,7 +17,7 @@ recommendations: false
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 
-# Document Translation SDK
+# Document Translation SDKs
 
 Document Translation is a cloud-based REST API feature of the Azure AI Translator service. The Document Translation API enables quick and accurate source-to-target whole document translations, asynchronously, in supported languages and various file formats. The Document Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Translation REST API capabilities into your applications.
 
@@ -27,8 +27,8 @@ Document Translation SDK supports the following programming languages:
 
 | Language → SDK version | Package|Client library| Supported API version|
 |:----------------------:|:----------|:----------|:-------------|
-|[.NET/C# → 1.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Document/1.0.0/index.html)| [NuGet](https://www.nuget.org/packages/Azure.AI.Translation.Document) | [Azure SDK for .NET](/dotnet/api/overview/azure/AI.Translation.Document-readme?view=azure-dotnet&preserve-view=true) | Document Translation v1.1|
-|[Python → 1.0.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/1.0.0/index.html)|[PyPi](https://pypi.org/project/azure-ai-translation-document/1.0.0/)|[Azure SDK for Python](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true)|Document Translation v1.1|
+|🆕 [.NET/C# → 2.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Document/2.0.0-beta.1/index.html)| [NuGet](https://www.nuget.org/packages/Azure.AI.Translation.Document/2.0.0-beta.1) | [Azure SDK for .NET](/dotnet/api/overview/azure/ai.translation.document-readme?branch=main&view=azure-dotnet-preview&preserve-view=true) | Document Translation `api-version=2024-05-01`|
+|🆕 [Python → 1.1.0b1](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/1.1.0b1/index.html)|[PyPi](https://pypi.org/project/azure-ai-translation-document/1.1.0b1/)|[Azure SDK for Python](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true)|Document Translation `api-version=2024-05-01`|
 
 ## Changelog and release history
 
@@ -36,19 +36,19 @@ This section provides a version-based description of Document Translation featur
 
 ### [C#/.NET](#tab/csharp)
 
-**Version 1.0.0 (GA)** </br>
-**2022-06-07**
+**Version 2.0.0-beta.1** </br>
+**2024-05-07**
 
-##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md)
+##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md#200-beta1-2024-05-07)
 
-##### [README](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/README.md)
+##### [README](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/translation/Azure.AI.Translation.Document/README.md)
 
-##### [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/samples)
+##### [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Document/samples)
 
 ### [Python](#tab/python)
 
-**Version 1.0.0 (GA)** </br>
-**2022-06-07**
+**Version 1.1.0b1** </br>
+**2024-05-07**
 
 ##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/CHANGELOG.md)
 
@@ -67,11 +67,11 @@ The Document Translation SDK enables the use and management of the Translation s
 ### [C#/.NET](#tab/csharp)
 
 ```dotnetcli
-dotnet add package Azure.AI.Translation.Document --version 1.0.0
+dotnet add package Azure.AI.Translation.Document --version 2.0.0-beta.1
 ```
 
 ```powershell
-Install-Package Azure.AI.Translation.Document -Version 1.0.0
+Install-Package Azure.AI.Translation.Document -Version 2.0.0-beta.1
 ```
 
 ### [Python](#tab/python)
@@ -180,4 +180,4 @@ The [`Microsoft Q&A`](/answers/tags/132/azure-translator) and [Stack Overflow](h
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Document Translation SDK quickstart**](quickstarts/asynchronous-sdk.md) [**Document Translation v1.1 REST API reference**](reference/rest-api-guide.md)
+> [**Document Translation SDK quickstart**](quickstarts/client-library-sdks.md) [**Document Translation v1.1 REST API reference**](reference/rest-api-guide.md)

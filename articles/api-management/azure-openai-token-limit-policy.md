@@ -72,10 +72,11 @@ For more information, see [Azure OpenAI Service models](../ai-services/openai/co
 
 * This policy can be used multiple times per policy definition.
 * This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
+* [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
 
 ## Example
 
-In the following example, the token limit of 5000 per minute is keyed by the caller IP address. The policy doesn't estimate the number of tokens required for a prompt. After each policy execution, the remaining tokens allowed in the time period are stored in the variable `remainingTokens`.
+In the following example, the token limit of 5000 per minute is keyed by the caller IP address. The policy doesn't estimate the number of tokens required for a prompt. After each policy execution, the remaining tokens allowed for that caller IP address in the time period are stored in the variable `remainingTokens`.
 
 ```xml
 <policies>

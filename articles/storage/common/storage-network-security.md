@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 05/09/2024
 ms.author: normesta
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement
@@ -578,9 +578,9 @@ You can grant access to trusted Azure services by creating a network rule except
 
 <a id="trusted-access-resources-in-subscription"></a>
 
-### Trusted access for resources registered in your subscription
+### Trusted access for resources registered in your Microsoft Entra tenant
 
-Resources of some services that are registered in your subscription can access your storage account *in the same subscription* for selected operations, such as writing logs or running backups.  The following table describes each service and the allowed operations.
+Resources of some services can access your storage account for selected operations, such as writing logs or running backups. Those services must be registered in a subscription that is located in the same Microsoft Entra tenant as your storage account. The following table describes each service and the allowed operations.
 
 | Service                  | Resource provider name     | Allowed operations                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |

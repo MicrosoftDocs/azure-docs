@@ -4,7 +4,7 @@ description: Learn about the server parameters in Azure Database for PostgreSQL 
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
+ms.date: 05/16/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
