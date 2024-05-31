@@ -47,7 +47,9 @@ The Premium tier is a multitenant offering, so it can dynamically scale more fle
 
 ## Encryption of events
 
-Event Hubs provides encryption of data at rest with Azure Storage Service Encryption. The Event Hubs service uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted by using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key [BYOK] or customer-managed key), the data is still encrypted by using the Microsoft-managed key. In addition, the Microsoft-managed key is encrypted by using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the BYOK feature is a one-time setup process on your namespace. For more information, see [Configure customer-managed keys for encrypting Azure Event Hubs data at rest](configure-customer-managed-key.md).
+Event Hubs provides encryption of data at rest with Azure Storage Service Encryption. The Event Hubs service uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted by using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key [BYOK] or customer-managed key), the data is still encrypted by using the Microsoft-managed key.
+
+In addition, the Microsoft-managed key is encrypted by using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the BYOK feature is a one-time setup process on your namespace. For more information, see [Configure customer-managed keys for encrypting Azure Event Hubs data at rest](configure-customer-managed-key.md).
 
 > [!NOTE]
 > All Event Hubs namespaces enabled for the Apache Kafka RPC protocol by default can be used by your existing Kafka-based applications. Having Kafka enabled on your cluster doesn't affect your non-Kafka use cases. There's no option or need to disable Kafka on a cluster.
