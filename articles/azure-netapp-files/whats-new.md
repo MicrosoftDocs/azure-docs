@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Transition existing volumes to customer-managed keys](configure-customer-managed-keys.md#transition) (Preview)
+
+    <!-- PM text -->
+
 ## May 2024
 
 * [Large volumes](large-volumes-requirements-considerations.md) are now generally available (GA) with support for [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md).
