@@ -199,8 +199,8 @@ $lb = New-AzLoadBalancer @lbp
 
 With Azure CLI, you:
 
-- Create a cross-region load balancer with [`az network cross-region-lb create`](/cli/azure/network/az-network-cross-region-lb-rule-create).
-- Create a load balancer rule with [`az network cross-region-lb rule create`](/cli/azure/network/az-network-cross-region-lb-rule-create).
+- Create a cross-region load balancer with [`az network cross-region-lb create`](/cli/azure/network/address#az-network-cross-region-lb-rule-create).
+- Create a load balancer rule with [`az network cross-region-lb rule create`](/cli/azure/network/address#az-network-cross-region-lb-rule-create).
 
 ```azurecli
 
@@ -246,7 +246,7 @@ Set-AzLoadBalancerBackendAddressPool @bepoolcr
 
 # [Azure CLI](#tab/azurecli/)
 
-With Azure CLI, you add the frontends you placed in variables in the backend pool of the cross-region load balancer with use [`az network cross-region-lb address-pool`](/powershell/module/az.network/az-network-cross-region-lb-address-pool).
+With Azure CLI, you add the frontends you placed in variables in the backend pool of the cross-region load balancer with use [`az network cross-region-lb address-pool`](/powershell/module/az.network/address#az-network-cross-region-lb-address-pool).
 
 ```azurecli
 
