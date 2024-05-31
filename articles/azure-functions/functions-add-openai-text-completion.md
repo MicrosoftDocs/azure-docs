@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Connect to OpenAI from Azure Functions in Visual Studio Code'
 description: Learn how to connect Azure Functions to OpenAI by adding an output binding to your Visual Studio Code project.
-ms.date: 5/22/2024
+ms.date: 5/30/2024
 ms.topic: tutorial
 author: dbandaru
 ms.author: dbandaru
@@ -30,7 +30,7 @@ This article shows you how to use Visual Studio Code to connect Azure OpenAI to 
 * Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-java.md).
 :::zone-end  
 :::zone pivot="programming-language-javascript"  
-* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-javascript.md).
+* Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-node.md).
 :::zone-end  
 :::zone pivot="programming-language-typescript"  
 * Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-typescript.md).
@@ -89,7 +89,7 @@ To deploy a model, follow these steps:
 
     | Field | Description |
     |---|---|
-    | **Select a model** | Model availability varies by region. For a list of available models per region, see [Model summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability). |
+    | **Select a model** | Model availability varies by region. For a list of available models per region, see [Model summary table and region availability](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). |
     | **Deployment name** | Choose a name carefully. The deployment name is used in your code to call the model by using the client libraries and the REST APIs. |
 
     > [!IMPORTANT]
