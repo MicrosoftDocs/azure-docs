@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Red Hat JBoss EAP on Azure Red Hat OpenShift"
-description: Shows you how to quickly stand up Red Hat JBoss EAP on Azure Red Hat OpenShift.
-author: KarlErickson
+title: "Quickstart: Auto Redeploy JBoss EAP on Azure Red Hat OpenShift With Source-2-Image (S2I)"
+description: Shows you how to quickly set up JBoss EAP on Azure Red Hat OpenShift (ARO) using the Azure portal and deploy an app with the Source-2-Image (S2I) feature. 
+author: backwind1233
 ms.author: zhihaoguo
 ms.topic: quickstart
 ms.date: 05/28/2024
