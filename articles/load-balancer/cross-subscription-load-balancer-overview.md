@@ -106,4 +106,4 @@ When working cross-tenant, a user must be assigned to the *Network Contributor* 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> <Mahip...What is the most common scenario?>
+> [ Create a cross-subscription internal load balancer](./cross-subscription-howto-internal-load-balancer.md)

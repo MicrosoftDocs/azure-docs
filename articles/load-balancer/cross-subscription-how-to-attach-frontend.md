@@ -25,8 +25,8 @@ In this article, you learn how to create a load balancer in one Azure subscripti
 
 - Two Azure subscriptions. One subscription for the virtual network and another subscription for the load balancer.
 - An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
-- An existing resource group for all resources.
-- An existing [Virtual Network](../virtual-network/quick-create-powershell.md). deployed in one of the subscriptions. For this example, the virtual network is in **Azure Subscription A**.
+- A public IP address deployed in one of the subscriptions. For this example, the public IP address is in **Azure Subscription A**.
+- An existing [Virtual Network](../virtual-network/quick-create-powershell.md). deployed in one of the subscriptions. For this example, the virtual network is in **Azure Subscription B**.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see Install Azure PowerShell module. If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -41,8 +41,8 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 - Two Azure subscriptions. One subscription for the virtual network (**Azure Subscription A**) and another subscription for the load balancer(**Azure Subscription B**).
 - An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
-- An existing resource group for all resources.
-- An existing [Virtual Network](../virtual-network/quick-create-cli.md). deployed in one of the subscriptions. For this example, the virtual network is in **Azure Subscription A**.
+- A public IP address deployed in one of the subscriptions. For this example, the public IP address is in **Azure Subscription A**.
+- An existing [Virtual Network](../virtual-network/quick-create-cli.md). deployed in one of the subscriptions. For this example, the virtual network is in **Azure Subscription B**.
 
 If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.60 or later. To find the version, run az --version. If you need to install or upgrade, see Install the Azure CLI.
 
