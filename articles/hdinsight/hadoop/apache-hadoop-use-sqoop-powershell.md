@@ -42,7 +42,7 @@ $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
 $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
 
 # Connection string
-$connectionString = "jdbc:sqlserver://$sqlServerName.database.windows.net;user=$sqlServerLogin@$sqlServerName;password=$sqlDatabasePassword;database=$sqlDatabaseName"
+$connectionString = "jdbc:sqlserver://$server-name.database.windows.net;user=$sqlServerLogin@$sqlServerName;password=$sqlDatabasePassword;database=$sqlDatabaseName"
 
 # start export
 New-AzHDInsightSqoopJobDefinition `

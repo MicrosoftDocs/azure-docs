@@ -52,7 +52,7 @@ az network vnet create \
 You create a DNS zone using the [az network private-dns zone create][az-network-private-dns-zone-create] command, specifying the name of the zone and the resource group to create it in. The following example creates a DNS zone named *private.contoso.com* in the *myResourceGroup* resource group.
 
 ```azurecli-interactive
-az network private-dns zone create --resource-group myResourceGoup -n private.contoso.com
+az network private-dns zone create --resource-group myResourceGoup --name private.contoso.com
 ```
 
 You create a virtual network link to the DNS zone created earlier using the [az network private-dns link vnet create][az-network-private-dns-link-vnet-create] command. The following example creates a link named *myDNSLink* to the zone *private.contoso.com* for the virtual network *myAzureVNet*. Include the `--registration-enabled` parameter to specify the link is not registration enabled.

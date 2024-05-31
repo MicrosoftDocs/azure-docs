@@ -36,9 +36,7 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with email and password. | GA | GA| |
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with username and password.| GA | GA | |
 | [Profile editing flow](add-profile-editing-policy.md) | GA | GA | |
-| [Self-Service password reset](add-password-reset-policy.md) | GA| GA| |
-| [Force password reset](force-password-reset.md) | GA | NA | |
-| [Self-Service password reset](add-password-reset-policy.md) | GA| GA| Available in China cloud, but only for custom policies.
+| [Self-Service password reset](add-password-reset-policy.md) | GA| GA| Available in China cloud, but only for custom policies. |
 | [Force password reset](force-password-reset.md) | GA | GA | Available in China cloud, but only for custom policies. |
 | [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | Available in China cloud, but only for custom policies. |
 | [Smart lockout](threat-management.md) | GA | GA | |

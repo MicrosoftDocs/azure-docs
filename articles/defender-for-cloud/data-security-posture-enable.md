@@ -24,7 +24,7 @@ This article describes how to enable [data-aware security posture](data-security
 
 Follow these steps to enable data-aware security posture. Don't forget to review [required permissions](concept-data-security-posture-prepare.md#whats-supported) before you start.
 
-1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 1. Select the relevant Azure subscription.
 1. For the Defender CSPM plan, select the **On** status.
 

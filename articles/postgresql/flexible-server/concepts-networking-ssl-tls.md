@@ -4,7 +4,7 @@ description: Learn about secure connectivity with Flexible Server using SSL and 
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/02/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -130,6 +130,11 @@ openssl x509 -in certificate.crt -out certificate.pem -outform PEM
 ```
 
 **Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this [how-to document](../flexible-server/how-to-update-client-certificates-java.md)**. 
+
+
+> [!IMPORTANT]
+> Some of the Postgres client libraries, while using **sslmode=verify-full** setting, may experience connection failures with Root CA certificates that are cross-signed with intermediate certificates, resulting in alternate trust paths. In this case, its recommended explicitly specify **sslrootcert** parameter, explained above, or set the PGSSLROOTCERT environment variable to local path where Microsoft RSA Root Certificate Authority 2017 Root CA certificate is placed, from default value of *%APPDATA%\postgresql\root.crt*. 
+
 
 ### Read Replicas with certificate pinning scenarios
 
