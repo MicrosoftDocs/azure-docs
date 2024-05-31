@@ -17,7 +17,7 @@ Trusted Signing provides a choice between two pricing tiers: Basic and Premium. 
 
 Each pricing tier provides varying options for the number of certificate profile types available and the monthly allocation of signatures. 
 
-|        Subscription level       | Basic  | Premium     |
+|        Account level       | Basic  | Premium     |
 | :------------------- | :------------------- |:---------------|
 | Price(monthly)              | **$9.99 / account**              | **$99.99 / account**  |
 | Quota (signatures / month)             | 5,000              | 100,000  |
