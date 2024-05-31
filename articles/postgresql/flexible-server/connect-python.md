@@ -45,37 +45,23 @@ If you're following the steps for passwordless authentication, Microsoft Entra a
 
 Change to a folder where you want to run the code and create and activate a [virtual environment](https://docs.python.org/3/tutorial/venv.html). A virtual environment is a self-contained directory for a particular version of Python plus the other packages needed for that application.
 
-1. Create the virtual environment:
+Run the following commands to create and activate a virtual environment:
 
-    ### [Windows](#tab/cmd)
+### [Windows](#tab/cmd)
 
-    ```cmd
-    py -3 -m venv .venv
-    ```
+```cmd
+py -3 -m venv .venv
+.venv\Scripts\activate
+```
 
-    ### [macOS/Linux](#tab/bash)
+### [macOS/Linux](#tab/bash)
 
-    ```bash
-    python3 -m venv .venv
-    ```
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
-    ---
-
-1. Activate the virtual environment:
-
-    ### [Windows](#tab/cmd)
-
-    ```cmd
-    .venv\Scripts\activate
-    ```
-
-    ### [macOS/Linux](#tab/bash)
-
-    ```bash
-    source .venv/bin/activate
-    ```
-
-    ---
+---
 
 ## Install the Python libraries
 
@@ -111,25 +97,27 @@ In this section, you add authentication code to your working directory and perfo
     ```python
     from azure.identity import DefaultAzureCredential
     
-    # Update connection string information 
-    host = "<server-name>"
-    dbname = "<database-name>"
-    user = "<username>"
-    sslmode = "require"
-    
+    # IMPORTANT! This code is for demonstration purposes only. It's not suitable for use in production. 
+    # For example, tokens issued by Microsoft Entra ID have a limited lifetime (24 hours by default). 
+    # In production code, you need to implement a token refresh policy.
+
     def get_connection_string():
     
-        # Construct connection string using passwordless authentication via DefaultAzureCredential.
-        # Call get_token() to get a token from Microsft Entra ID and add it as the password in the connection token.
+        # Update connection string information 
+        host = "<server-name>"
+        dbname = "<database-name>"
+        user = "<username>"
+        sslmode = "require"
+        
+        # Use passwordless authentication via DefaultAzureCredential.
+        # Call get_token() to get a token from Microsft Entra ID and add it as the password in the connection string.
         # Note the requested scope parameter in the call to get_token, "https://ossrdbms-aad.database.windows.net".
-
         credential = DefaultAzureCredential()
-        conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, credential.get_token("https://ossrdbms-aad.database.windows.net").token, sslmode)
+        token=credential.get_token("https://ossrdbms-aad.database.windows.net").token
+    
+        conn_string = f"host={host} user={user} dbname={dbname} password={token} sslmode={sslmode}"
         return conn_string
-    ```
-
-    >[!IMPORTANT]
-    > The code as-shown is for demonstration purposes only. It's not suitable for use in production. For example, tokens issued by Microsoft Entra ID have a limited lifetime (24 hours by default). In production code, you need to implement a token refresh policy.
+        ```
 
 1. Get database connection information.
 
@@ -156,17 +144,22 @@ In this section, you add authentication code to your working directory and perfo
 1. Copy the following code into an editor and save it in a file named *get_conn_str.py*.
 
     ```python
-    # Update connection string information 
-    host = "<server-name>"
-    dbname = "<database-name>"
-    user = "<username>"
-    password = "<password>"
-    sslmode = "require"
-    
+
+    # IMPORTANT! This code is for demonstration purposes only. It's not suitable for use in production. 
+    # For example, in production you should never place a password directly in code. Instead, you should some 
+    # other mechanism, like environment variables or Azure keyvault to hold passwords.
+
     def get_connection_string():
     
+        # Update connection string information 
+        host = "<server-name>"
+        dbname = "<database-name>"
+        user = "<username>"
+        password = "<password>"
+        sslmode = "require"
+        
         # Construct connection string
-        conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
+        conn_string = f"host={host} user={user} dbname={dbname} password={password} sslmode={sslmode}"
         return conn_string
     ```
 
