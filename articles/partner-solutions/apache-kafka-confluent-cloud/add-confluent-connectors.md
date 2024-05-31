@@ -1,16 +1,16 @@
 ---
-title: Use Confluent connectors on Azure
-description: Learn how to use Confluent connectors on Azure to connect an instance of Apache Kafka® & Apache Flink on Confluent Cloud to Azure Blob Storage.
-# customerIntent: As a developer I want use Confluent connectors on Azure
+title: Use Confluent connectors in Azure
+description: Learn how to use Confluent connectors in Azure to connect an instance of Apache Kafka® & Apache Flink on Confluent Cloud to Azure Blob Storage.
+# customerIntent: As a developer I want use Confluent connectors in Azure
 ms.topic: how-to
 ms.date: 05/28/2024
 ms.author: malev
 author: maud-lv
 ---
 
-# Use Confluent connectors on Azure
+# Use Confluent connectors in Azure
 
-Confluent Cloud offers a solution designed to help developers connect their Confluent clusters to popular data sources and sinks. This solution is available on Azure using the Confluent connectors feature.
+Confluent Cloud offers a solution designed to help developers connect their Confluent clusters to popular data sources and sinks. This solution is available in Azure using the Confluent connectors feature.
 
 > [!NOTE]
 > Currently, Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service only supports Confluent connectors for Azure Blob Storage, including source and sink connectors.
@@ -23,7 +23,7 @@ In this guide, you learn how to connect an instance of Apache Kafka & Apache Fli
 * An [Azure Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-portal).
 * A [Confluent organization](./create-cli.md) created on Azure Native ISV Services
 * The Azure subscription Owner or subscription Contributor role is required. If necessary, contact your subscription administrator to assign you one of these roles.  
-* A [Configured environment, cluster and topic](https://docs.confluent.io/cloud/current/get-started/index.html) inside the confluent organization
+* A [Configured environment, cluster, and topic](https://docs.confluent.io/cloud/current/get-started/index.html) inside the confluent organization
 
 ## Create a Confluent sink connector for Azure Blob Storage
 
@@ -45,8 +45,8 @@ Set the basic settings below, then select **Next**.
 | **Cluster**         | *cluster1*              | Select the cluster where you would like to create this connector.                                                                  |
 | **Topics**          | *topic_1*               | Select one or more topic from where the data needs to be pulled.                                                                   |
 | **Subscription**    | *My subscription*       | Select the Azure subscription for the Azure Blob Storage where the data needs to be pushed.                                        |
-| **Storage Account** | *storageaccount1*       | Select the storage account where the data needs to be pushed.                                                                      |
-| **Container**       | *container1*            | Select the container within the storage account where the data needs to be pushed.                                                                            |
+| **Storage Account** | *storageaccount1*       | Select the storage account where the data needs to be pushed. If needed, select **Create new** to create a new [storage account](../../storage/common/storage-account-create.md#basics-tab).                                                                     |
+| **Container**       | *container1*            | Select the container within the storage account where the data needs to be pushed. If needed, [create a new container](../../storage/blobs/storage-quickstart-blobs-portal#create-a-container).                                                                           |
 
 ### Authentication
 
@@ -56,8 +56,8 @@ Configure the authentication of your Kafka cluster via API keys. **Create New** 
 
 | Setting                | Example value | Description                                                                                                         |
 |------------------------|---------------|---------------------------------------------------------------------------------------------------------------------|
-| **Input Data Format**  | *JSON*        | Select an input Kafka record data format type among the following options: AVRO, JSON , string, Protobuf.           |
-| **Output Data Format** | *JSON*        | Select an output data format among the following options: AVRO, JSON , string, Protobuf.                            |
+| **Input Data Format**  | *JSON*        | Select an input Kafka record data format type among the following options: AVRO, JSON, string, Protobuf.           |
+| **Output Data Format** | *JSON*        | Select an output data format among the following options: AVRO, JSON, string, Protobuf.                            |
 | **Time interval**      | *Hourly*      | Select the time interval in which you would like the data to be grouped. Choose between hourly and daily.           |
 | **Flush size**         | *1000*        | Optionally enter a flush size. Default flush size is 1000.                                                          |
 | **Number of tasks**    | *1*           | Optionally enter the maximum number of tasks you would like your connector to support simultaneously. Default is 1. |
@@ -68,7 +68,7 @@ Select **Next** to continue.
 
 Review the listed settings for your new connector to ensure that the details are good to go. Once done, select **Create** to begin the connector deployment.
 
-A notification is displayed on the top right, calling out the status of the deployment. Once it shows “completed”, refresh the **Confluent Connectors** page. You can now see the new connector tile on this page.  
+A notification is displayed on the top right, calling out the status of the deployment. Once it shows **Completed**, refresh the **Confluent Connectors** page. You can now see the new connector tile on this page.  
 
 ## Create a Confluent source connector for Azure Blob Storage
 
@@ -87,8 +87,8 @@ Set the basic settings below, then select **Next**.
 | **Environment**     | *env1*                  | Select the environment where you would like to create this connector.                                    |
 | **Cluster**         | *cluster1*              | Select the cluster where you would like to create this connector.                                        |
 | **Subscription**    | *My subscription*       | Select the Azure subscription for the Azure Blob Storage where the data needs to be pulled.              |
-| **Storage Account** | *storageaccount1*       | Select the storage account where the data needs to be pulled.                                            |
-| **Container**       | *container1*            | Select the container within the storage account where the data needs to be pulled.                       |
+| **Storage Account** | *storageaccount1*       | Select the storage account where the data needs to be pulled. f needed, select **Create new** to create a new [storage account](../../storage/common/storage-account-create.md#basics-tab).     |
+| **Container**       | *container1*            | Select the container within the storage account where the data needs to be pushed. If needed, [create a new container](../../storage/blobs/storage-quickstart-blobs-portal#create-a-container). |
 
 ### Authentication
 
@@ -98,9 +98,9 @@ Configure the authentication of your Kafka cluster via API keys. **Create New** 
 
 | Setting                  | Example value         | Description                                                                                                                                                                                    |
 |--------------------------|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Input Data Format**    | *JSON*                | Select an input Kafka record data format type among the following options: AVRO, JSON , string, Protobuf.                                                                                      |
-| **Output Data Format**   | *JSON*                | Select an output data format among the following options: AVRO, JSON , string, Protobuf.                                                                                                       |
-| **Topic name and regex** | *my-topic:.*\.json+** | Configure the topic name and the regex pattern of your messages to ensure they are mapped. For example, *my-topic:.*\.json+** will move all the files ending with .json into the “my-topic”.   |
+| **Input Data Format**    | *JSON*                | Select an input Kafka record data format type among the following options: AVRO, JSON, string, Protobuf.                                                                                      |
+| **Output Data Format**   | *JSON*                | Select an output data format among the following options: AVRO, JSON, string, Protobuf.                                                                                                       |
+| **Topic name and regex** | `my-topic:.*\.json+` | Configure the topic name and the regex pattern of your messages to ensure they are mapped. For example, *my-topic:.*\.json+** moves all the files ending with .json into *my-topic*.   |
 | **Number of tasks**      | *1*                   | Optionally enter the maximum number of tasks you would like your connector to support simultaneously. Default is 1.                                                                            |
 
 Select **Next** to continue.
@@ -111,15 +111,15 @@ Review the listed settings for your new connector to ensure that the details are
 
 A notification is displayed on the top right, calling out the status of the deployment. Once it shows “completed”, refresh the **Confluent Connectors** page. You can now see the new connector tile on this page.  
 
-## View Azure Confluent Connectors
+## Manage Azure Confluent Connectors
 
 1. Open your Confluent organization and select **Confluent** > **Confluent Connectors** from the left menu.
-1. Select your **Environment** and **Cluster** from the dropdown menu. The Azure portal now display the list of Azure connectors in the respective environment and cluster. The following optional actions are available:
+1. Select your **Environment** and **Cluster** from the dropdown menu. The Azure portal now displays the list of Azure connectors in the respective environment and cluster. The following optional actions are available:
 
    * Filter connectors by **Type** (**Source** or **Sink**) and **Status** (**Failed** or **Running**)
    * Search for a connector by entering a name in the search bar on the right hand side.
 
-To learn more about a connector, select the connector tile, which opens the Confluent UI where you can see the connector health, throughput and other stats.
+To learn more about a connector, select the connector tile, which opens the Confluent UI. On this page, you can see the connector health, throughput and other stats, edit, and delete the connector.
 
 ## Next steps
 
