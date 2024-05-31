@@ -8,7 +8,7 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 07/18/2022
+ms.date: 05/31/2024
 ms.topic: how-to
 ms.custom: UpdateFrequency5, has-adal-ref, subject-rbac-steps, sdkv1
 ---
