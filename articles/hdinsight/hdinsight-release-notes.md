@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/16/2024
+ms.date: 05/27/2024
 ---
 
 # Azure HDInsight release notes
@@ -16,22 +16,27 @@ This article provides information about the **most recent** Azure HDInsight rele
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-repo.md) for up-to-date information on HDInsight and all HDInsight versions.
 
-
 To subscribe, click the **watch** button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
 ## Release Information
 
-### Release date: April 15, 2024
+### Release date: May 16, 2024
 
-This release note applies to :::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.1 version. 
+This release note applies to 
 
-HDInsight release will be available to all regions over several days. This release note is applicable for image number **2403290825**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.0 version.
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 4.0 version. 
+
+
+HDInsight release will be available to all regions over several days. This release note is applicable for image number **2405081840**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
-* HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
 > [!NOTE]
 > Ubuntu 18.04 is supported under [Extended Security Maintenance(ESM)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
@@ -40,11 +45,12 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 ## Fixed issues
 
-* Bug fixes for Ambari DB, Hive Warehouse Controller (HWC), Spark, HDFS 
-* Bug fixes for Log analytics module for HDInsightSparkLogs 
-* CVE Fixes for [HDInsight Resource Provider](./hdinsight-overview-versioning.md#hdinsight-resource-provider).
+* Added API in gateway to get token for Keyvault, as part of the SFI initiative.
+* In the new Log monitor `HDInsightSparkLogs` table, for log type `SparkDriverLog`, some of the fields were missing. For example, `LogLevel & Message`. This release adds the missing fields to schemas and fixed formatting for `SparkDriverLog`.
+* Livy logs not available in Log Analytics monitoring `SparkDriverLog` table, which was due to an issue with Livy log source path and log parsing regex in `SparkLivyLog` configs.
+* Any HDInsight cluster, using ADLS Gen2 as a primary storage account can leverage MSI based access to any of the Azure resources (for example, SQL, Keyvaults) which is used within the application code. 
 
-
+  
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
 * [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).

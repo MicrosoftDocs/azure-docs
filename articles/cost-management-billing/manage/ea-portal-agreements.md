@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: The article describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/13/2024
+ms.date: 05/30/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -142,8 +142,14 @@ To check markup status of an enrollment in the Azure portal, follow the below st
 
 Once partner markup is published, the indirect customer has access to the balance and charge CSV monthly files and usage detail files. The usage detail files include the resource rate and extended cost.
 
-### How can I as partner apply markup to existing EA customers that were earlier with another partner?
+### How can I as a partner apply markup to existing EA customers that were earlier with another partner?
 Partners can use the markup feature in the Azure portal after a Change of Channel Partner is processed. There's no need to wait for the next anniversary term.
+
+### Who gets notified for important events?
+
+EA administrators receive various types of notifications from different services. Notifications allow enterprise administrators to enroll their team members to receive usage notifications and user management notifications without giving them billing account access in the Azure portal. For more information, see [Manage notification contacts](direct-ea-administration.md#manage-notification-contacts).
+
+Customers also receive notifications for various events, such as markup changes.
 
 ## Resource Prepayment and requesting quota increases
 

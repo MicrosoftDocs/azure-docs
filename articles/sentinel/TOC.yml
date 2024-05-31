@@ -916,10 +916,10 @@
   items:
   - name: Monitor and visualize data
     items:
-    - name: Visualize collected data
+    - name: View collected data on the Overview dashboard
       href: get-visibility.md
-    - name: Use Azure Monitor workbooks
-      href: ./monitor-your-data.md
+    - name: View customized views with workbooks
+      href: monitor-your-data.md
     - name: Create a Power BI report
       href: powerbi.md
   - name: Tutorial - Detect threats using analytics rules
@@ -1002,6 +1002,8 @@
       href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Other KQL resources
       href: kusto-resources.md 
+  - name: Create custom query
+    href: hunts-custom-queries.md
   - name: Hunt with bookmarks
     href: bookmarks.md
   - name: Hunt with livestream

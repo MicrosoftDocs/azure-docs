@@ -1,16 +1,16 @@
 ---
-title: "Quickstart: Red Hat JBoss EAP on Azure Red Hat OpenShift"
+title: "Quickstart: JBoss EAP on Azure Red Hat OpenShift"
 description: Shows you how to quickly stand up Red Hat JBoss EAP on Azure Red Hat OpenShift.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 05/01/2024
+ms.date: 05/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
 ---
 
-# Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift using the Azure portal
+# Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift
 
-This article shows you how to quickly stand up JBoss EAP on Azure Red Hat OpenShift (ARO) using the Azure portal.
+This article shows you how to quickly stand up JBoss Enterprise Application Platform (EAP) on Azure Red Hat OpenShift (ARO) using the Azure portal.
 
 This article uses the Azure Marketplace offer for JBoss EAP to accelerate your journey to ARO. The offer automatically provisions resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the JBoss EAP Operator, and optionally a container image including JBoss EAP and your application using Source-to-Image (S2I). To see the offer, visit the [Azure portal](https://aka.ms/eap-aro-portal). If you prefer manual step-by-step guidance for running JBoss EAP on ARO that doesn't utilize the automation enabled by the offer, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](/azure/developer/java/ee/jboss-eap-on-aro).
 

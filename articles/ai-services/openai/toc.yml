@@ -156,6 +156,8 @@ items:
         href: ./how-to/use-web-app.md
       - name: Use the Azure Developer CLI
         href: ./how-to/azure-developer-cli.md
+      - name: Troubleshooting and best practices
+        href: ./how-to/on-your-data-best-practices.md
   - name: Migrate to OpenAI Python v1.x
     href: ./how-to/migration.md
   - name: Models

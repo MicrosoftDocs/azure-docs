@@ -46,6 +46,9 @@ The following material properties are exposed in the runtime API, for instance o
   * `AlphaBlended`: This mode is similar to the transparency mode for PBR materials. It should be used for see-through materials like glass.
   * `Additive`: This mode is the simplest and most efficient transparency mode. The contribution of the material is added to the rendered image. This mode can be used to simulate glowing (but still transparent) objects, such as markers used for highlighting important objects.
 
+> [!NOTE]
+> While `AlbedoColor` and `FresnelEffectColor` have the same accepted value range as for [PBR materials](pbr-materials.md), their channels will be effectively clamped to [0;1] for [Color materials](color-materials.md).
+
 ## Color material overrides during conversion
 
 A subset of color material properties can be overridden during model conversion through the [material override file](../../how-tos/conversion/override-materials.md).

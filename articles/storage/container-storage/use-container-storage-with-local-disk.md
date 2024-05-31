@@ -20,9 +20,6 @@ ms.custom: references_regions
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
-- Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
-
 ## Choose a VM type that supports Ephemeral Disk
 
 Ephemeral Disk is only available in certain types of VMs. If you plan to use Ephemeral Disk with local NVMe, a [storage optimized VM](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3** is required. If you plan to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
@@ -31,6 +28,14 @@ You can run the following command to get the VM type that's used with your node 
 
 ```azurecli-interactive
 az aks nodepool list --resource-group <resource group> --cluster-name <cluster name> --query "[].{PoolName:name, VmSize:vmSize}" -o table
+```
+
+The following is an example of output.
+
+```output
+PoolName    VmSize
+----------  ---------------
+nodepool1   standard_l8s_v3
 ```
 
 We recommend that each VM have a minimum of four virtual CPUs (vCPUs), and each node pool have at least three nodes.

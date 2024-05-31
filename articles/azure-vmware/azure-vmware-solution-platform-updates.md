@@ -13,7 +13,7 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## May 2024
 
-Azure VMware Solution Stretched Clusters is now generally available in the Central India, UAE North, and Italy North regions, increasing the total region count to 33. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
+Azure VMware Solution is now generally available in the Central India, UAE North, and Italy North regions, increasing the total region count to 33. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
 
 ## April 2024
 

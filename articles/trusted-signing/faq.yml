@@ -38,11 +38,8 @@ sections:
 
       - question: What if I fail identity validation?
         answer: | 
-          To verify the result of your identity verification request:  
-          - A link to verify whether identity validation was successful is sent to the primary email address that you provide when you request identity validation. We recommend that you use the link to check to see if you failed identity validation and why. You must use the link within seven days of receiving the link.  
-
-          Steps to take if your identity validation request fails:  
-          - If the Microsoft validation team can't make a determination about your request based on the information that you provide (even after you provide more documentation if we request it), we can't set up Trusted Signing for you. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
+          - Ensure you did not miss an email verification link sent to the primary email address shared during Identity Validation request creation. The link expires in 7 days, so you need to create a new Identity Validation request.   
+          - If the failure is not to due to missed email verification; then the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided (even after you provided more documentation when we request it), we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
       - question: What if I need assistance with Identity Validation?
         answer: | 
           For questions with Identity Validation reach out via Microsoft Q&A or Stack Overflow, tag: trusted-signing. Identity Validation issues aren't supported by Azure Support.
