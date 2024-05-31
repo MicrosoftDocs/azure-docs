@@ -548,7 +548,7 @@ The Azure sponsorship offer is a limited sponsored Microsoft Azure account. It's
 
 >[!NOTE]
 > - As explained at [Microsoft Azure EA Sponsorship](https://azure.microsoft.com/pricing/offers/ms-azr-0136p), when your Azure EA Sponsorship (Offer MS-AZR-0136p) terminates, your subscription under the offer is converted automatically to your original Enterprise Agreement (MS-AZR-0017P). 
-> - Only offer MS-AZR-0017P subscriptions appear at https://www.microsoftazuresponsorships.com when the the account is sponsored. 
+> - Only offer MS-AZR-0017P subscriptions appear at https://www.microsoftazuresponsorships.com when the account is sponsored. 
 > - The Enterprise Dev/Test (offer MS-AZR-0148P) isn't suitable for the Azure sponsorship offer. If you have an Enterprise Dev/Test (offer MS-AZR-0148P), you must convert it to MS-AZR-0017P for it to appear at https://www.microsoftazuresponsorships.com.
 
 If you need assistance, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
