@@ -7,7 +7,7 @@ ms.custom: hdinsightactive
 ms.date: 05/29/2024
 ---
 
-# MSI Support to Access Azure Services
+# MSI Support to access Azure services
 
 Presently in Azure HDInsight non-ESP cluster, User Job accessing Azure resources like SqlDB, CosmosDB, EH, KV, Kusto either using username and password or using MSI certificate key. This is not in line with Microsoft security guidelines.
 
@@ -15,7 +15,7 @@ This article explains the  HDInsight interface and code details to fetch OAuth t
 
 ## Prerequisites
 
-* This feature is available only in the latest HDInsight-5.1 version 5.1.3000.0.2403290825 onwards. Make sure you recreated or installed this cluster version.
+* This feature is available in the latest HDInsight-5.1, 5.0, and 4.0 versions. Make sure you recreated or installed this cluster versions.
 * HDInsight Cluster must be with ADL-Gen2 storage as primary storage, which enables MSI based access for this storage. This same MSI used for all job resources access. Ensure the required IAM permissions given to this MSI to access Azure resources.
 
 
@@ -30,7 +30,7 @@ Implemented a convenient utility class to fetch MSI access token by providing ta
 
 ### Prerequisites
 
-1. Make sure the Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/5.1.5.3/hadoop/client/*` in the classpath.
+1. Make sure the Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/<hdi-version>/hadoop/client/*` in the classpath.
 1. Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see [How to build application code with this utility](#how-to-build-application-code-with-this-utility).
 
 ### How to use the API
@@ -39,7 +39,7 @@ To fetch the token, you can invoke the API in their Job application code.
 
 ```
 import com.microsoft.azure.hdinsight.oauthtoken.utils.HdiIdentityTokenServiceUtils;
-import com.microsoft.azure.hdinsight.oauthtoken.utils.AccessToken;
+import com.azure.core.credential.AccessToken;
 
 // uri can be EH, Kusto etc. 
 // By default, the Scope is “.default”. 
@@ -52,20 +52,16 @@ AccessToken token = tokenUtils.getAccessToken(msiResourceUri);
 ### Structure of access token
 
 ```
+package com.azure.core.credential;
+import java.time.OffsetDateTime;
+ 
 /** Represents an immutable access token with a token string and an expiration time 
 * in date format. By default, 24hrs is the expiration time out.
 */
 public class AccessToken {
-  private final String token;
-  private final Date expiresAt;
   
-  public String getToken() {
-    return this.token;
-  }
- 
-  public Date getExpiresAt() {
-    return this.expiresAt;
-  }
+  public String getToken();
+  public OffsetDateTime getExpiresAt();
 }
 ```
 
@@ -78,11 +74,12 @@ https://hdiconfigactions2.blob.core.windows.net/hdi-oauth-token-utils-jar/oauth-
 ## Option 2 -Utility, TokenCredential implementation to fetch access token
 
 Provided `HdiIdentityTokenCredential` feature class, which is the standard implementation of `com.azure.core.credential.TokenCredential` interface.
-Make sure, Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/5.1.5.3/hadoop/client/*` in classpath.
+Make sure, Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/<hdi-version>/hadoop/client/*
+, azure-core-1.49.0.jar and its transitive deps jars` in classpath.
 
 ### Prerequisites
 
-* Make sure Hadoop's core-site.xml, all the client jars from this cluster location `/usr/hdp/5.1.5.3/hadoop/client/*` and azure-core-1.45.0.jar in the classpath.
+* Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/<hdi-version>/hadoop/client/*` in classpath.
 * Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see [How to build application code with this utility](#how-to-build-application-code-with-this-utility).
 
 ### If the client is a Key Vault
