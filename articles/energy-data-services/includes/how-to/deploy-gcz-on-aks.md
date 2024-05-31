@@ -1,6 +1,6 @@
 ---
-title: Deploy Geospatial Consumption Zone on top of Azure Data Manager for Energy using Azure Portal
-description: Learn how to deploy Geospatial Consumption Zone on top of your Azure Data Manager for Energy instance using the Azure Portal.
+title: Deploy Geospatial Consumption Zone on top of Azure Data Manager for Energy using Azure portal
+description: Learn how to deploy Geospatial Consumption Zone on top of your Azure Data Manager for Energy instance using the Azure portal.
 ms.service: energy-data-services
 ms.custom: devx-track-azurecli
 ms.topic: how-to
@@ -9,9 +9,7 @@ author: EirikHaughom
 ms.date: 05/30/2024
 ---
 
-## Deploying GCZ on Azure Kubernetes Service (AKS)
-
-In this guide, you will learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Service (AKS).
+Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Service (AKS).
 
 > [!IMPORTANT]
 > The current deployment of GCZ using AKS is limited to a default configuration of included schemas, please see [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/devops/azure/transformer/application.yml) for information regarding the supported schemas. To add or change schemas (i.e. newer versions) a custom container image will need to be created.
@@ -19,8 +17,8 @@ In this guide, you will learn how to deploy Geospatial Consumption Zone (GCZ) on
 ## Prerequisites
 
 - Azure Subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free).
-- Azure Kubernetes Cluster (AKS) with virtual network integration. See [Create an Azure Kubernetes Service (AKS) cluster](../../../aks/tutorial-kubernetes-deploy-cluster.md) and [Azure CNI networking](../../../aks/azure-cni-overview.md) for further instructions.
-- [Azure Cloud Shell](../../../cloud-shell/overview.md) or [Azure CLI](/cli/azure/install-azure-cli), kubectl and Git CLI.
+- Azure Kubernetes Cluster (AKS) with virtual network integration. See [Create an Azure Kubernetes Service (AKS) cluster](../../../aks/tutorial-kubernetes-deploy-cluster.md) and [Azure Container Networking Interface (CNI) networking](../../../aks/azure-cni-overview.md) for further instructions.
+- [Azure Cloud Shell](../../../cloud-shell/overview.md) or [Azure CLI](/cli/azure/install-azure-cli), kubectl, and Git CLI.
 
 ## Deploy Geospatial Consumption Zone (GCZ) HELM Chart
 
@@ -307,7 +305,7 @@ In this guide, you will learn how to deploy Geospatial Consumption Zone (GCZ) on
     kubectl get pods -n $NAMESPACE
     ```
 
-    This should show the pods for the `ignite`, `provider` and `transformer` services.
+    Now you should see the pods for the `ignite`, `provider`, and `transformer` services.
 
 1. Next get note the External IPs for the `provider` and `transformer` services.
 
