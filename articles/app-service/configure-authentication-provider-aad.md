@@ -11,6 +11,8 @@ ms.author: cephalin
 
 # Configure your App Service or Azure Functions app to use Microsoft Entra sign-in
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 Select another authentication provider to jump to it.
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

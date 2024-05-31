@@ -14,6 +14,8 @@ author: cephalin
 
 **Azure DevOps Services | Azure DevOps Server 2020 | Azure DevOps Server 2019**
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy your web app to [Azure App Service](./overview.md) on every successful build. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). 
 
 YAML pipelines are defined using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (prepackaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
