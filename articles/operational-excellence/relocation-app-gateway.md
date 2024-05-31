@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 04/03/2024
 ms.service: application-gateway
-ms.topic: concept
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 # Customer intent: As an Azure Application Gateway Standard and Web Application Firewall v2 administrator, I want to move my vault to another region.

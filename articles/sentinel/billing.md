@@ -5,7 +5,7 @@ description: Learn how to plan your Microsoft Sentinel costs, and understand pri
 author: austinmccollum
 ms.author: austinmc
 ms.custom: subject-cost-optimization
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 04/25/2024
 ms.collection: usx-security
 appliesto:
