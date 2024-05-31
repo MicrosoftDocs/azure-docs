@@ -71,13 +71,13 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
     - url: "http://<GCZ-Service-External-IP>/ignite-provider"
     ```
 
-::: zone pivot="Azure portal"
+::: zone pivot="portal"
 
 [!INCLUDE [Azure Portal](includes/how-to/deploy-gcz-apim-portal.md)]
 
 ::: zone-end
 
-::: zone pivot="Azure CLI"
+::: zone pivot="cli"
 
 [!INCLUDE [Azure CLI](includes/how-to/deploy-gcz-apim-cli.md)]
 
