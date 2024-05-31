@@ -9,6 +9,10 @@ ms.date: 04/29/2024
 
 This article provides details on how to us the [Kafka Streams](https://kafka.apache.org/documentation/streams/) client library with Azure Event Hubs.
 
+> [!NOTE]
+> Kafka Streams functionality is available in **Public Preview** for Event Hubs Premium and Dedicated tiers only.
+>
+
 ## Overview
 
 Apache Kafka Streams is a Java only client library that provides a framework for processing of streaming data and building real-time applications against the data stored in Kafka topics. All the processing is scoped to the client, while Kafka topics act as the data store for intermediate data, before the output is written to the destination topic.
@@ -17,7 +21,24 @@ Event Hubs provides a Kafka endpoint that can be used by your existing Kafka cli
 
 ## Using Kafka Streams with Azure Event Hubs
 
-Azure Event Hubs natively supports AMQP, which is an industry standard messaging protocol, through the service and client default. Given the recent popularity of the Kafka protocol for streaming workloads, Azure Event Hubs has been extended to support the Kafka protocol as well. However, to ensure compatible Kafka Streams behavior, some of the default configuration parameters have to be updated.
+Azure Event Hubs natively supports both the AMQP and Kafka protocol. However, to ensure compatible Kafka Streams behavior, some of the default configuration parameters have to be updated for Kafka clients.
+
+| Property | Default behavior for Event Hubs | Modified behavior for Kafka streams | Explanation |
+| ----- | ---- | ----| ---- |
+| `messageTimestampType` | set to `AppendTime` | should be set to `CreateTime` | Kafka Streams relies on creation timestamp rather than append timestamp |
+| `message.timestamp.difference.max.ms` | | Property is used to govern past timestamps only. Future time is set to 1 hour and cannot be changed. |
+| `message.timestamp.difference.max.ms` | max allowed value is 90 days | no changes needed | This is in line with the Kafka protocol specification |
+| `min.compaction.lag.ms` | | max allowed value is 2 days ||
+| Infinite retention topics | | size based truncation of 250GB for each topic-partition|
+| Delete record API | | Not implemented | This will be done in GA |
+
+### Other considerations
+
+Here are some of the additional considerations to keep in mind.
+
+  * Kafka streams client applications must be granted management, read and write permissions for the entire namespaces to be able to create temporary topics for stream processing.
+  * Temporary topics and partitions count towards the quota for the given namespace. These should be kept under consideration when provisioning the namespace or cluster.
+
 
 These include, updating the topic configuration in the `messageTimestampType` to use the `CreateTime` (i.e. Event time) instead of the `AppendTime` (i.e. log append time) and to update the `retentionTimeInHours` in `retentionDescription` to `-1` to activate infinite retention.
 
