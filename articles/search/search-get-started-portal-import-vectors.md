@@ -260,7 +260,7 @@ Azure AI Search and your Azure AI resource must be in the same region.
 
    + Indexer with field mappings and output field mappings (if applicable).
 
-If you can't select Azure AI Vision vectorizer, make sure you have an Azure AI Vision resource in a supported region, and that your search service managed identity has a **Cognitive Services OpenAI User** permissions.
+If you can't select Azure AI Vision vectorizer, make sure you have an Azure AI Vision resource in a supported region, and that your search service managed identity has **Cognitive Services OpenAI User** permissions.
 
 If you can't progress through the wizard because other options aren't available (for example, you can't select a data source or an embedding model), revisit the role assignments. Error messages indicate that models or deployments don't exist, when in fact the real issue is that the search service doesn't have permission to access them.
 
