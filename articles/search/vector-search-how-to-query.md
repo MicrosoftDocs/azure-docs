@@ -27,7 +27,7 @@ In Azure AI Search, if you have a [vector index](vector-search-how-to-create-ind
 
 This article uses REST for illustration. For code samples in other languages, see the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) GitHub repository for end-to-end solutions that include vector queries. 
 
-You can also use [Search explorer](search-explorer.md) in the Azure portal if you [configure a vectorizer](vector-search-how-to-configure-vectorizer.md) that converts strings inot embeddings.
+You can also use [Search explorer](search-explorer.md) in the Azure portal if you [configure a vectorizer](vector-search-how-to-configure-vectorizer.md) that converts strings into embeddings.
 
 ## Prerequisites
 
