@@ -16,9 +16,6 @@ Ransomware attacks deliberately encrypt or erase data and systems to force your 
 
 This article addresses what to do before an attack to protect your critical business systems and during an attack to ensure a rapid recovery of business operations.
 
-> [!NOTE]
-> Preparing for ransomware also improves resilience to natural disasters and rapid attacks like [WannaCry](https://en.wikipedia.org/wiki/WannaCry_ransomware_attack) & [(Not)Petya](https://attack.mitre.org/software/S0368/).
-
 ## What is ransomware?
 
 Ransomware is a type of extortion attack that encrypts files and folders, preventing access to important data and systems. Attackers use ransomware to extort money from victims by demanding money, usually in the form of cryptocurrencies, in exchange for a decryption key or in exchange for not releasing sensitive data to the dark web or the public internet.
@@ -136,7 +133,7 @@ Apply these best practices during an attack.
 
 | Task | Detail |
 | --- | --- |
-| Early in the attack, engage third-party support, particularly support from threat intelligence providers, antimalware solution providers and from the malware analysis provider. | These contacts may be useful if the given ransomware variant has a known weakness or decryption tools are available. <br><br>[Microsoft Detection and Response Team (DART)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) can help protect you from attacks. The DART engages with customers around the world, helping to protect and harden against attacks before they occur, as well as investigating and remediating when an attack has occurred. <br><br>Microsoft also provides Rapid Ransomware Recovery services. Services are exclusively delivered by the Microsoft Global [Compromise Recovery Security Practice (CRSP)](https://www.microsoft.com/security/blog/2021/06/09/crsp-the-emergency-team-fighting-cyber-attacks-beside-customers/). The focus of this team during a ransomware attack is to restore authentication service and limit the impact of ransomware. <br><br>DART and CRSP are part of Microsoft’s [Industry Solutions Delivery](https://www.microsoft.com/en-us/msservices/security) security service line. |
+| Early in the attack, engage third-party support, particularly support from threat intelligence providers, antimalware solution providers and from the malware analysis provider. | These contacts may be useful if the given ransomware variant has a known weakness or decryption tools are available. <br><br>[The Microsoft Incident Response team](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) can help protect you from attacks. Microsoft Incident Response engages with customers around the world, helping to protect and harden against attacks before they occur, as well as investigating and remediating when an attack has occurred. <br><br>Microsoft also provides Rapid Ransomware Recovery services. Services are exclusively delivered by the Microsoft Global [Compromise Recovery Security Practice (CRSP)](https://www.microsoft.com/security/blog/2021/06/09/crsp-the-emergency-team-fighting-cyber-attacks-beside-customers/). The focus of this team during a ransomware attack is to restore authentication service and limit the impact of ransomware. <br><br>Microsoft Incident Response is part of Microsoft’s [Industry Solutions Delivery](https://www.microsoft.com/en-us/msservices/security) security service line. |
 | Contact your local or federal law enforcement agencies. | If you are in the United States, contact the FBI to report a ransomware breach using the [IC3 Complaint Referral Form](https://ransomware.ic3.gov/default.aspx). |
 | Take steps to remove malware or ransomware payload from your environment and stop the spread. <br><br>Run a full, current antivirus scan on all suspected computers and devices to detect and remove the payload that's associated with the ransomware. <br><br>Scan devices that are synchronizing data, or the targets of mapped network drives. | You can use [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) or (for older clients) [Microsoft Security Essentials](https://www.microsoft.com/download/details.aspx?id=5201). <br><br>An alternative that will also help you remove ransomware or malware is the [Malicious Software Removal Tool (MSRT)](https://www.microsoft.com/download/details.aspx?id=9905). |
 | Restore business-critical systems first. Remember to validate again that your backup is good before you restore.| At this point, you don’t need to restore everything. Focus on the top five business-critical systems from your restore list. |
@@ -161,11 +158,12 @@ In this article, you learned how to improve your backup and restore plan to prot
 
 Key industry information:
 
-- [2021 Microsoft Digital Defense Report](https://www.microsoft.com/security/business/microsoft-digital-defense-report) (see pages 10-19)
+- [2023 Microsoft Digital Defense Report](https://www.microsoft.com/en-us/security/security-insider/microsoft-digital-defense-report-2023) (see pages 17-26)
 
 Microsoft Azure:
 
-- [Help protect from ransomware with Microsoft Azure Backup](https://www.youtube.com/watch?v=VhLOr2_1MCg) (26 minute video)
+- [Help protect from ransomware with Microsoft Azure Backup](https://www.youtube.com/watch?v=VhLOr2_1MCg) (26-minute video)
+
 - [Recovering from systemic identity compromise](./recover-from-identity-compromise.md)
 - [Advanced multistage attack detection in Microsoft Sentinel](../../sentinel/fusion.md#fusion-for-ransomware)
 
