@@ -5,7 +5,7 @@ services: key-vault
 author: anaharris
 ms.service: key-vault
 ms.subservice: general
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 03/18/2024
 ms.author: mbaldwin
 ms.custom: subject-relocation
