@@ -360,7 +360,7 @@ You can validate that the application is running by visiting the public IP addre
 Get the application URL using the following commands:
 
 ```azurecli-interactive
-runtime="5 minute"
+runtime="5 minutes"
 endtime=$(date -ud "$runtime" +%s)
 while [[ $(date -u +%s) -le $endtime ]]
 do
@@ -383,7 +383,7 @@ curl $IP_ADDRESS
 
 Results:
 <!-- expected_similarity=0.3 -->
-```JSON
+```HTML
 <!doctype html>
 <html lang="">
    <head>
@@ -402,7 +402,7 @@ Results:
 </html>
 ```
 
-```JSON
+```OUTPUT
 echo "You can now visit your web server at $IP_ADDRESS"
 ```
 

@@ -16,7 +16,21 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Connected Machine agent](agent-release-notes-archive.md).
 
+## Version 1.42 - May 2024 (Second Release)
+
+Download for [Windows](https://download.microsoft.com/download/9/6/0/9600825a-e532-4e50-a2d5-7f07e400afc1/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Fixed
+
+- Extensions and machine configuration policies can be used with private endpoints again
+
 ## Version 1.41 - May 2024
+
+Download for [Windows](https://download.microsoft.com/download/2/a/5/2a57aa86-c445-4f08-bd52-10af2b748fec/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Known issues
+
+Customers using private endpoints with Azure Arc may encounter issues with extension management and machine configuration policies with agent version 1.41. Agent version 1.42 resolves this issue.
 
 ### New features
 
@@ -94,27 +108,6 @@ If your machine was affected by this issue, you can repair the agent by download
 - Improved logging in the extension manager and policy engine
 - Improved reliability when fetching the latest operating system metadata
 - Reduced extension manager CPU usage
-
-## Version 1.37 - December 2023
-
-Download for [Windows](https://download.microsoft.com/download/f/6/4/f64c574f-d3d5-4128-8308-ed6a7097a93d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
-
-### New features
-
-- Rocky Linux 9 is now a [supported operating system](prerequisites.md#supported-environments)
-- Added Oracle Cloud Infrastructure display name as a [detected property](agent-overview.md#instance-metadata)
-
-### Fixed
-
-- Restored access to servers with Windows Admin Center in Azure
-- Improved detection logic for Microsoft SQL Server
-- Agents connected to sovereign clouds should now see the correct cloud and portal URL in [azcmagent show](azcmagent-show.md)
-- The installation script for Linux now automatically approves the request to import the packages.microsoft.com signing key to ensure a silent installation experience
-- Agent installation and upgrades apply more restrictive permissions to the agent's data directories on Windows
-- Improved reliability when detecting Azure Stack HCI as a cloud provider
-- Removed the log zipping feature introduced in version 1.37 for extension manager and machine configuration agent logs. Log files are still rotated automatically.
-- Removed the scheduled tasks for automatic agent upgrades (introduced in agent version 1.30). We'll reintroduce this functionality when the automatic upgrade mechanism is available.
-- Resolved [Azure Connected Machine Agent Elevation of Privilege Vulnerability](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35624)
 
 ## Next steps
 

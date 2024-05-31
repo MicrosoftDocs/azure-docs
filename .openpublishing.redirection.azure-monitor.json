@@ -6685,6 +6685,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/ai-ops/responsible-ai-faq.md",
+            "redirect_url": "/azure/copilot/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/ai-ops/investigator-overview.md",
+            "redirect_url": "/azure/copilot/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/ai-ops/investigate-alert-instance.md",
+            "redirect_url": "/azure/copilot/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/insights/resource-group-insights.md",
             "redirect_url": "/azure/azure-resource-manager/management/resource-group-insights",
             "redirect_document_id": false
@@ -6713,7 +6728,13 @@
             "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-get-started.md",
             "redirect_url": "/azure/azure-monitor/essentials/prometheus-metrics-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/pipeline-overview.md",
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-overview",
+            "redirect_document_id": false
         }
+        
         
 
     ]

@@ -4,8 +4,8 @@ description: Learn how to authenticate to Azure Deployment Environments REST API
 ms.service: deployment-environments
 ms.custom: build-2023
 ms.topic: conceptual
-ms.author: chrismiller
-author: chrismiller
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 11/22/2023
 ---
 

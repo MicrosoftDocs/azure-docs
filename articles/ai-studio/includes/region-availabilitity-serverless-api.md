@@ -60,12 +60,11 @@ Availability of serverless API endpoints for select models are listed in the fol
 | South Central US | **&check;**      |
 | West US          | **&check;**      |
 | West US 3        | **&check;**      |
-| France Central   | unavailable      |
 | Sweden Central   | **&check;**      |
 
 #### Phi 3 models
 
-| Region         | Phi 3       |
-|----------------|:-----------:|
-| East US 2      | **&check;** |
-| Sweden Central | **&check;** |
+| Region         | Phi-3-mini       | Phi-3-medium     |
+|----------------|:----------------:|:----------------:|
+| East US 2      | **&check;**      | **&check;**      |
+| Sweden Central | **&check;**      | **&check;**      |

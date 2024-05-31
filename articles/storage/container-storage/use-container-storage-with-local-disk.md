@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Ephemeral Disk using
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 05/24/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -20,16 +20,22 @@ ms.custom: references_regions
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
-- Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability)
+## Choose a VM type that supports Ephemeral Disk
 
-## Ensure VM with Ephemeral Disk support
+Ephemeral Disk is only available in certain types of VMs. If you plan to use Ephemeral Disk with local NVMe, a [storage optimized VM](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3** is required. If you plan to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
 
-Ephemeral Disk is available in certain types of VM. If you plan to use Ephemeral Disk with local NVMe, a [storage optimized VM](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3** is required. If you plan to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
+You can run the following command to get the VM type that's used with your node pool.
 
-You can run the following command to get VM type that is used with your node pool.
 ```azurecli-interactive
 az aks nodepool list --resource-group <resource group> --cluster-name <cluster name> --query "[].{PoolName:name, VmSize:vmSize}" -o table
+```
+
+The following is an example of output.
+
+```output
+PoolName    VmSize
+----------  ---------------
+nodepool1   standard_l8s_v3
 ```
 
 We recommend that each VM have a minimum of four virtual CPUs (vCPUs), and each node pool have at least three nodes.
@@ -131,6 +137,12 @@ When the storage pool is ready to use, you must select a storage class to define
 
 Run `kubectl get sc` to display the available storage classes. You should see a storage class called `acstor-<storage-pool-name>`.
 
+```output
+$ kubectl get sc | grep "^acstor-"
+acstor-azuredisk-internal   disk.csi.azure.com               Retain          WaitForFirstConsumer   true                   65m
+acstor-ephemeraldisk        containerstorage.csi.azure.com   Delete          WaitForFirstConsumer   true                   2m27s
+```
+
 > [!IMPORTANT]
 > Don't use the storage class that's marked **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
 
@@ -141,6 +153,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
 
 1. Paste in the following code and save the file.
+
    ```yml
    kind: Pod
    apiVersion: v1
@@ -387,7 +400,6 @@ To check which persistent volume a persistent volume claim is bound to, run:
 ```azurecli-interactive
 kubectl get pvc <persistent-volume-claim-name>
 ```
-
 
 ## See also
 

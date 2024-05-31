@@ -619,30 +619,27 @@ items:
     href: data-sources.md
   - name: Data collection methods
     items:
-    - name: Azure Monitor pipeline
+    - name: Data collection rules (DCR)
       items:
       - name: Overview
-        displayName: Pipeline
-        href: essentials/pipeline-overview.md
-      - name: Data collection rules
+        displayName: data collection rule, dcr, Azure Monitor pipeline
+        href: essentials/data-collection-rule-overview.md
+      - name: Best practices
+        displayName: data collection, data collection rules
+        href: essentials/data-collection-rule-best-practices.md
+      - name: View DCRs
+        href: essentials/data-collection-rule-view.md
+      - name: Create and edit DCRs
         items:
-        - name: Overview
-          displayName: data collection, data collection rules
-          href: essentials/data-collection-rule-overview.md
-        - name: Best practices
-          displayName: data collection, data collection rules
-          href: essentials/data-collection-rule-best-practices.md
-        - name: Create and edit
-          items:
-          - name: Create
-            displayName: Data collection rules
-            href: essentials/data-collection-rule-create-edit.md
-          - name: Edit tutorial
-            displayName: data collection rules
-            href: essentials/data-collection-rule-edit.md
-          - name: Structure
-            displayName: Data collection rules
-            href: essentials/data-collection-rule-structure.md
+        - name: Create
+          displayName: Data collection rules
+          href: essentials/data-collection-rule-create-edit.md
+        - name: Edit tutorial
+          displayName: data collection rules
+          href: essentials/data-collection-rule-edit.md
+        - name: Structure
+          displayName: Data collection rules
+          href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview
@@ -1433,14 +1430,6 @@ items:
         href: autoscale/autoscale-diagnostics.md
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
-  - name: AI Ops
-    items:
-    - name: Azure Monitor Investigator Overview
-      href: ai-ops/investigator-overview.md
-    - name: Responsible AI FAQ
-      href: ai-ops/responsible-ai-faq.md
-    - name: Investigate an alert using Investigator
-      href: ai-ops/investigate-alert-instance.md
 - name: Samples
   items:
   - name: Resource Manager templates
