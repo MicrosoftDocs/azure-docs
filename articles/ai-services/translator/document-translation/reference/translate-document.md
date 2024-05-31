@@ -17,26 +17,31 @@ recommendations: false
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD049 -->
 
-# Synchronous translation REST API guide
+# Synchronous document translation
 
 Reference</br>
-Service: **Azure AI Document Translation**</br>
-API Version: **v1.1**</br>
+Feature: **Azure AI Translator → Document Translation**</br>
+API Version: **2024-05-01**</br>
+HTTP method: **POST**
 
-Synchronously translate a single document.
+* Use the `translate document` method to synchronously translate a single document.
+* The method doesn't require an Azure Blob storage account.
+* The final response contains the translated document and is returned directly to the calling client.
+
+> [!IMPORTANT]
+>
+> **All API requests to the Document Translation feature require a custom domain endpoint that is located on your resource overview page in the Azure portal**.
 
 ## Request URL
 
-`POST`:
-
 ```bash
-curl -i -X POST "{your-document-translation-endpoint}/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"
+curl -i -X POST "{your-document-translation-endpoint}/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version={date}" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"
 
 ```
 
 ## Request headers
 
-To call the synchronous translation feature via the REST API, you need to include the following headers with each request. 
+To call the synchronous translation feature via the REST API, include the following headers with each request.
 
 |Header|Value| Condition  |
 |---|:--- |:---|
@@ -73,4 +78,4 @@ Query string parameters:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try the synchronous batch translation quickstart](../quickstarts/synchronous-rest-api.md "Learn more about batch translation for multiple files.")
+> [Try the document translation quickstart](../quickstarts/client-library-sdks.md "Learn more about batch translation for multiple files.")
