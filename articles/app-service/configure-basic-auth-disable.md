@@ -80,7 +80,7 @@ The following table shows how various deployment methods behave when basic authe
 
 ## Create a custom role with no permissions for basic authentication
 
-To prevent a lower-priveldged user from enabling basic authentication for any app, you can create a custom role and assign the user to the role.
+To prevent a lower-privileged user from enabling basic authentication for any app, you can create a custom role and assign the user to the role.
 
 ### [Azure portal](#tab/portal)
 
