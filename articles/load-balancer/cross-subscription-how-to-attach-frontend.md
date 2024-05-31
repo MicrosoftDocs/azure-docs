@@ -13,9 +13,9 @@ ms.custom:
 
 # Attach a cross-subscription frontend to an Azure Load Balancer
 
-A cross-subscription load balancer allows the public IP address to reside in a different subscription other than the load balancers.
-
 In this article, you learn how to create a load balancer in one Azure subscription and attach a frontend IP address from another subscription. You create a resource group for the load balancer and then create a load balancer with a frontend IP address. You also create a backend address pool, health probe, and load balancer rule.
+
+A [cross-subscription internal load balancer (ILB)](cross-subscription-load-balancer-overview.md) can reference a virtual network that resides in a different subscription other than the load balancers. This feature allows you to deploy a load balancer in one subscription and reference a virtual network in another subscription. s.
 
 [!INCLUDE [load-balancer-cross-subscription-preview](../../includes/load-balancer-cross-subscription-preview.md)]
 
@@ -201,70 +201,9 @@ az network lb address-pool update --lb-name myLoadBalancer --resource-group myRe
 
 ---
 
-## Create a health probe and load balancer rule
+[!INCLUDE [load-balancer-cross-subscription-health-probe-rules](../../includes/load-balancer-cross-subscription-health-probe-rules.md)]
 
-Create a health probe that determines the health of the backend VM instances and a load balancer rule that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
-
-# [Azure PowerShell](#tab/azurepowershell)
-
-With Azure PowerShell, create a health probe with [`Add-AzLoadBalancerProbeConfig`](/powershell/module/az.network/add-azloadbalancerprobeconfig) that determines the health of the backend VM instances. Then create a load balancer rule with [`Add-AzLoadBalancerRuleConfig`](/powershell/module/az.network/add-azloadbalancerruleconfig) that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
-
-```azurepowershell
-## Create the health probe and place in variable. ##
-$probe = @{
-    Name = 'myHealthProbe2'
-    Protocol = 'tcp'
-    Port = '80'
-    IntervalInSeconds = '360'
-    ProbeCount = '5'
-}
-
-## Create the load balancer rule and place in variable. ##
-$lbrule = @{
-    Name = 'myHTTPRule2'
-    Protocol = 'tcp'
-    FrontendPort = '80'
-    BackendPort = '80'
-    IdleTimeoutInMinutes = '15'
-    FrontendIpConfiguration = $LB.FrontendIpConfigurations[0]
-    BackendAddressPool = $backend
-}
-## Set the load balancer resource. ##
-$LB | Add-AzLoadBalancerProbeConfig @probe
-$LB | Add-AzLoadBalancerRuleConfig  @lbrule
-$LB | Set-AzLoadBalancer
-```
-# [Azure CLI](#tab/azurecli/)
-
-With Azure CLI, create a health probe with [`az network lb probe create`](/cli/azure/network/lb/probe#az_network_lb_probe_create) that determines the health of the backend VM instances. Then create a load balancer rule with [`az network lb rule create`](/cli/azure/network/lb/rule#az_network_lb_rule_create) that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
-
-```azurecli
-# Create a health probe
-az network lb probe create --resource-group myResourceGroupLB --lb-name myLoadBalancer --name myHealthProbe --protocol tcp --port 80
-
-# Create a load balancer rule
-az network lb rule create --resource-group myResourceGroupLB --lb-name myLoadBalancer --name myHTTPRule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool --probe-name myHealthProbe --disable-outbound-snat true --idle-timeout 15 --enable-tcp-reset true
-
-```
-
----
-
-## Clean up resources
-
-When no longer needed, you can use the Remove-AzResourceGroup command to remove the resource group, load balancer, and the remaining resources.
-
-# [Azure PowerShell](#tab/azurepowershell)
-
-```azurepowershell
-Remove-AzResourceGroup -Name myResourceGroupLB
-```
-
-# [Azure CLI](#tab/azurecli)
-
-```azurecli
-az group delete --name myResourceGroupLB
-```
----
+[!INCLUDE [load-balancer-cross-subscription-clean-up](../../includes/load-balancer-cross-subscription-clean-up.md)]
 
 ## Next steps
 

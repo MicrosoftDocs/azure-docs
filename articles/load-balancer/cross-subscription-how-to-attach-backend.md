@@ -11,9 +11,10 @@ ms.author: mbender
 ms.custom: 
 ---
 
-A cross-subscription load balancer allows the public IP address to reside in a different subscription other than the load balancers.
-
+# Attach a cross-subscription backend to an Azure Load Balancer
 In this article, you will learn how to attach a cross-subscription backend to an Azure Load Balancer by creating a cross-subscription backend pool and attaching cross-subscription network interfaces to the backend pool of the load balancer.
+
+A [cross-subscription internal load balancer (ILB)](cross-subscription-load-balancer-overview.md) can reference a virtual network that resides in a different subscription other than the load balancers. This feature allows you to deploy a load balancer in one subscription and reference a virtual network in another subscription.
 
 [!INCLUDE [load-balancer-cross-subscription-preview](../../includes/load-balancer-cross-subscription-preview.md)]
 
@@ -94,44 +95,8 @@ $LB = Get-AzLoadBalancer @LBinfo
 # [Azure CLI](#tab/azurecli)
 
 ---
-## Create a health probe and load balancer rule
 
-Create a health probe that determines the health of the backend VM instances and a load balancer rule that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
-
-# [Azure PowerShell](#tab/azurepowershell)
-
-With Azure PowerShell, create a health probe with [`Add-AzLoadBalancerProbeConfig`](/powershell/module/az.network/add-azloadbalancerprobeconfig) that determines the health of the backend VM instances. Then create a load balancer rule with [`Add-AzLoadBalancerRuleConfig`](/powershell/module/az.network/add-azloadbalancerruleconfig) that defines the frontend IP configuration for the incoming traffic, the backend IP pool to receive the traffic, and the required source and destination port.
-
-```azurepowershell
-## Create the health probe and place in variable
-$probe = @{
-    Name = 'myHealthProbe2'
-    Protocol = 'tcp'
-    Port = '80'
-    IntervalInSeconds = '360'
-    ProbeCount = '5'
-}
-$LB | Add-AzLoadBalancerProbeConfig @probe
-
-## Create the load balancer rule and place in variable
-$lbrule = @{
-    Name = 'myHTTPRule2'
-    Protocol = 'tcp'
-    FrontendPort = '80'
-    BackendPort = '80'
-    IdleTimeoutInMinutes = '15'
-    FrontendIpConfiguration = $LB.FrontendIpConfigurations[0]
-    BackendAddressPool = $backend
-}
-$LB | Add-AzLoadBalancerRuleConfig  @lbrule
-
-## Set the load balancer resource
-$LB | Set-AzLoadBalancer
-```
-
-# [Azure CLI](#tab/azurecli)
-
----
+[!INCLUDE [load-balancer-cross-subscription-health-probe-rules](../../includes/load-balancer-cross-subscription-health-probe-rules.md)]
 
 [!INCLUDE [load-balancer-cross-subscription-add-nic](../../includes/load-balancer-cross-subscription-add-nic.md)]
 
