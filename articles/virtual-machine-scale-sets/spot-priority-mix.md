@@ -34,6 +34,10 @@ You can configure a custom percentage distribution across Spot and standard VMs.
 
 The eviction policy of your Spot VMs follows what is set for the Spot VMs in your scale set. *Deallocate* is the default behavior, wherein evicted Spot VMs move to a stop-deallocated state. Alternatively, the Spot eviction policy can be set to *Delete*, wherein the VM and its underlying disks are deleted.
 
+### Scale-In Policy
+
+When using Spot Priority Mix, your scale-in policy for the scale set will operate to try to maintain the percentage split of the Spot and Standard VMs in your scale set. Spot Priority Mix will determine if Spot or Standard VMs need to be removed during scale-in actions to maintain your percentage split, rather than deleting the oldest or newest VM. 
+
 ### ARM Template
 
 You can set your Spot Priority Mix by using an ARM template to add the following properties to a scale set with Flexible orchestration using a Spot priority VM profile:

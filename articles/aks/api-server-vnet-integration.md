@@ -75,7 +75,7 @@ You can configure your AKS clusters with API Server VNet Integration in managed 
 * Create a resource group using the [`az group create`][az-group-create] command.
 
     ```azurecli-interactive
-    az group create -l westus2 -n <resource-group>
+    az group create --location westus2 --name <resource-group>
     ```
 
 ### Deploy a public cluster
@@ -83,9 +83,9 @@ You can configure your AKS clusters with API Server VNet Integration in managed 
 * Deploy a public AKS cluster with API Server VNet integration for managed VNet using the [`az aks create`][az-aks-create] command with the `--enable-api-server-vnet-integration` flag.
 
     ```azurecli-interactive
-    az aks create -n <cluster-name> \
-        -g <resource-group> \
-        -l <location> \
+    az aks create --name <cluster-name> \
+        --resource-group <resource-group> \
+        --location <location> \
         --network-plugin azure \
         --enable-apiserver-vnet-integration
     ```
@@ -95,9 +95,9 @@ You can configure your AKS clusters with API Server VNet Integration in managed 
 * Deploy a private AKS cluster with API Server VNet integration for managed VNet using the [`az aks create`][az-aks-create] command with the `--enable-api-server-vnet-integration` and `--enable-private-cluster` flags.
 
     ```azurecli-interactive
-    az aks create -n <cluster-name> \
-        -g <resource-group> \
-        -l <location> \
+    az aks create --name <cluster-name> \
+        --resource-group <resource-group> \
+        --location <location> \
         --network-plugin azure \
         --enable-private-cluster \
         --enable-apiserver-vnet-integration
@@ -117,7 +117,7 @@ The cluster identity needs permissions to both the API server subnet and the nod
 * Create a resource group using the [`az group create`][az-group-create] command.
 
 ```azurecli-interactive
-az group create -l <location> -n <resource-group>
+az group create --location <location> --name <resource-group>
 ```
 
 ### Create a virtual network
@@ -125,16 +125,16 @@ az group create -l <location> -n <resource-group>
 1. Create a virtual network using the [`az network vnet create`][az-network-vnet-create] command.
 
     ```azurecli-interactive
-    az network vnet create -n <vnet-name> \
-    -g <resource-group> \
-    -l <location> \
+    az network vnet create --name <vnet-name> \
+    --resource-group <resource-group> \
+    --location <location> \
     --address-prefixes 172.19.0.0/16
     ```
 
 2. Create an API server subnet using the [`az network vnet subnet create`][az-network-vnet-subnet-create] command.
 
     ```azurecli-interactive
-    az network vnet subnet create -g <resource-group> \
+    az network vnet subnet create --resource-group <resource-group> \
     --vnet-name <vnet-name> \
     --name <apiserver-subnet-name> \
     --delegations Microsoft.ContainerService/managedClusters \
@@ -144,7 +144,7 @@ az group create -l <location> -n <resource-group>
 3. Create a cluster subnet using the [`az network vnet subnet create`][az-network-vnet-subnet-create] command.
 
     ```azurecli-interactive
-    az network vnet subnet create -g <resource-group> \
+    az network vnet subnet create --resource-group <resource-group> \
     --vnet-name <vnet-name> \
     --name <cluster-subnet-name> \
     --address-prefixes 172.19.1.0/24
@@ -155,7 +155,7 @@ az group create -l <location> -n <resource-group>
 1. Create a managed identity using the [`az identity create`][az-identity-create] command.
 
     ```azurecli-interactive
-    az identity create -g <resource-group> -n <managed-identity-name> -l <location>
+    az identity create --resource-group <resource-group> --name <managed-identity-name> --location <location>
     ```
 
 2. Assign the Network Contributor role to the API server subnet using the [`az role assignment create`][az-role-assignment-create] command.
@@ -179,9 +179,9 @@ az group create -l <location> -n <resource-group>
 * Deploy a public AKS cluster with API Server VNet integration using the [`az aks create`][az-aks-create] command with the `--enable-api-server-vnet-integration` flag.
 
     ```azurecli-interactive
-    az aks create -n <cluster-name> \
-    -g <resource-group> \
-    -l <location> \
+    az aks create --name <cluster-name> \
+    --resource-group <resource-group> \
+    --location <location> \
     --network-plugin azure \
     --enable-apiserver-vnet-integration \
     --vnet-subnet-id <cluster-subnet-resource-id> \
@@ -194,9 +194,9 @@ az group create -l <location> -n <resource-group>
 * Deploy a private AKS cluster with API Server VNet integration using the [`az aks create`][az-aks-create] command with the `--enable-api-server-vnet-integration` and `--enable-private-cluster` flags.
 
     ```azurecli-interactive
-    az aks create -n <cluster-name> \
-    -g <resource-group> \
-    -l <location> \
+    az aks create --name <cluster-name> \
+    --resource-group <resource-group> \
+    --location <location> \
     --network-plugin azure \
     --enable-private-cluster \
     --enable-apiserver-vnet-integration \
@@ -217,8 +217,8 @@ This upgrade performs a node-image version upgrade on all node pools and restart
 * Update your cluster to API Server VNet Integration using the [`az aks update`][az-aks-update] command with the `--enable-apiserver-vnet-integration` flag.
 
     ```azurecli-interactive
-    az aks update -n <cluster-name> \
-    -g <resource-group> \
+    az aks update --name <cluster-name> \
+    --resource-group <resource-group> \
     --enable-apiserver-vnet-integration \
     --apiserver-subnet-id <apiserver-subnet-resource-id>
     ```
@@ -235,8 +235,8 @@ AKS clusters configured with API Server VNet Integration can have public network
 * Enable private cluster mode using the [`az aks update`][az-aks-update] command with the `--enable-private-cluster` flag.
 
     ```azurecli-interactive
-    az aks update -n <cluster-name> \
-    -g <resource-group> \
+    az aks update --name <cluster-name> \
+    --resource-group <resource-group> \
     --enable-private-cluster
     ```
 
@@ -245,8 +245,8 @@ AKS clusters configured with API Server VNet Integration can have public network
 * Disable private cluster mode using the [`az aks update`][az-aks-update] command with the `--disable-private-cluster` flag.
 
     ```azurecli-interactive
-    az aks update -n <cluster-name> \
-    -g <resource-group> \
+    az aks update --name <cluster-name> \
+    --resource-group <resource-group> \
     --disable-private-cluster
     ```
 
@@ -255,7 +255,7 @@ AKS clusters configured with API Server VNet Integration can have public network
 * Configure `kubectl` to connect to your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials -g <resource-group> -n <cluster-name>
+    az aks get-credentials --resource-group <resource-group> --name <cluster-name>
     ```
 
 ## Next steps

@@ -1,16 +1,16 @@
 ---
-title: Azure Cache for Redis input binding for Azure Functions (preview)
+title: Azure Cache for Redis input binding for Azure Functions
 description: Learn how to use input bindings to connect to Azure Cache for Redis from Azure Functions.
 author: flang-msft
 ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 02/27/2024
+ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure Cache for Redis input binding for Azure Functions (preview)
+# Azure Cache for Redis input binding for Azure Functions
 
 When a function runs, the Azure Cache for Redis input binding retrieves data from a cache and passes it to your function as an input parameter.
 

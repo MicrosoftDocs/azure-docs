@@ -350,7 +350,7 @@ This step uses the [`Hive Schema Tool`](https://cwiki.apache.org/confluence/disp
 1. From the HDInsight 4.0 cluster, execute `schematool` to upgrade the target HDInsight 3.6 metastore. Edit the following shell script to add your SQL server name, database name, username, and password. Open an [SSH Session](../hdinsight-hadoop-linux-use-ssh-unix.md) on the headnode and run it.
 
    ```sh
-   SERVER='servername.database.windows.net'  # replace with your SQL Server
+   SERVER='server-name.database.windows.net'  # replace with your SQL Server
    DATABASE='database'  # replace with your 3.6 metastore SQL Database
    USERNAME='username'  # replace with your 3.6 metastore username
    PASSWORD='password'  # replace with your 3.6 metastore password

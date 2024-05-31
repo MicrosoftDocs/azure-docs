@@ -3,7 +3,7 @@ title: Microsoft Sentinel service limits
 description: This article provides a list of service limits for Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 05/21/2024
 ms.author: yelevin
 ms.service: microsoft-sentinel
 ---
@@ -15,6 +15,10 @@ This article lists the most common service limits you might encounter as you use
 ## Analytics rule limits
 
 [!INCLUDE [sentinel-service-limits](includes/sentinel-limits-analytics-rules.md)]
+
+## Hunts limits
+
+[!INCLUDE [sentinel-service-limits](includes/sentinel-limits-hunts.md)]
 
 ## Incident limits
 

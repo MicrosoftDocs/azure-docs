@@ -50,4 +50,3 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Add user attributes and customize user input in Azure Active Directory B2C](configure-user-input.md) - Updated instructional steps
 - [Set up sign-up and sign-in with a Google account using Azure Active Directory B2C](identity-provider-google.md) - Editorial updates
 - [Localization string IDs](localization-string-ids.md) - Updated the localization string IDs
-

@@ -62,7 +62,7 @@ CREATE TABLE student_information (
     PRIMARY KEY (id) NOT ENFORCED
   ) WITH (
      'connector' = 'jdbc',
-     'url' = 'jdbc:sqlserver://servername.database.windows.net;database=dbname;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30',
+     'url' = 'jdbc:sqlserver://server-name.database.windows.net;database=dbname;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30',
      'table-name' = 'students',
      'username' = 'username',
      'password' = 'password'
