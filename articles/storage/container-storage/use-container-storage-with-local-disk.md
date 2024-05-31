@@ -137,6 +137,12 @@ When the storage pool is ready to use, you must select a storage class to define
 
 Run `kubectl get sc` to display the available storage classes. You should see a storage class called `acstor-<storage-pool-name>`.
 
+```output
+$ kubectl get sc | grep "^acstor-"
+acstor-azuredisk-internal   disk.csi.azure.com               Retain          WaitForFirstConsumer   true                   65m
+acstor-ephemeraldisk        containerstorage.csi.azure.com   Delete          WaitForFirstConsumer   true                   2m27s
+```
+
 > [!IMPORTANT]
 > Don't use the storage class that's marked **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
 

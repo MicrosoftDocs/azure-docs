@@ -43,7 +43,7 @@ In RADIUS certificate authentication, the authentication request is forwarded to
 
 When using Azure for certificate authentication, the Azure VPN gateway performs the validation of the certificate. You need to upload your certificate public key to the gateway. You can also specify list of revoked certificates that shouldn’t be allowed to connect.
 
-### Does Radius authentication support Network Policy Server(NPS) integration for Multi Factor Auth(MFA)?
+### Does Radius authentication support Network Policy Server (NPS) integration for multifactor authorization (MFA)?
 
 If your MFA is text based (SMS, mobile app verification code etc.) and requires the user to enter a code or text in the VPN client UI, the authentication won't succeed and isn't a supported scenario. See [Integrate Azure VPN gateway RADIUS authentication with NPS server for multifactor authentication](../articles/vpn-gateway/vpn-gateway-radius-mfa-nsp.md)
 

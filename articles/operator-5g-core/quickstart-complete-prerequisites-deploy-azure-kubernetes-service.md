@@ -7,7 +7,7 @@ ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.custom: devx-track-azurecli
 ms.topic: quickstart #required; leave this attribute/value as-is.
-ms.date: 05/28/2024
+ms.date: 05/31/2024
 ---
 
 # Quickstart: Complete the prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service

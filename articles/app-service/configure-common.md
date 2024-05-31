@@ -12,6 +12,8 @@ ms.author: cephalin
 ---
 # Configure an App Service app
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This article explains how to configure common settings for web apps, mobile back end, or API app. For Azure Functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md).
 
 ## Configure app settings

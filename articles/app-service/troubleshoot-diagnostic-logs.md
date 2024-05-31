@@ -12,6 +12,8 @@ ai-usage: ai-assisted
 
 # Enable diagnostics logging for apps in Azure App Service
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This video shows you how to enable diagnostics logging for apps.
 > [!VIDEO 62f2edbe-1063-4ec3-a76f-faa0bd783f2f]
 
