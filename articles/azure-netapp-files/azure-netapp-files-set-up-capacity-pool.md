@@ -76,7 +76,7 @@ Creating a capacity pool enables you to create volumes within it.
         >
         > After the capacity pool is created, you can’t modify the setting (switching between `single` or `double`) for the encryption type.  
 
-    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot showing the New Capacity Pool window.":::
+    :::image type="content" source="./media/shared/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot showing the New Capacity Pool window.":::
 
 4. Select **Create**.
 
