@@ -10,7 +10,7 @@ ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 
 ---
-# Configure a P2S connection using RADIUS authentication: PowerShell
+# Configure P2S VPN Gateway server settings - RADIUS authentication
 
 This article helps you create a point-to-site (P2S) connection that uses RADIUS authentication. You can create this configuration using either PowerShell, or the Azure portal. If you want to authenticate using a different method, see the following articles:
 
