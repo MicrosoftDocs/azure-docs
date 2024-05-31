@@ -75,6 +75,7 @@ Use the following steps to deploy a service principal and get its Application (c
 
 You created your Microsoft Entra application, service principal, and client secret.
 
+[!INCLUDE [jboss-eap-aro-validate-service-principal.md](./includes/jboss-eap-aro-validate-service-principal.md)]
 
 ## Deploy JBoss EAP on Azure Red Hat OpenShift
 
