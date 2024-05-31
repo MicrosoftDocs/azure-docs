@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 05/31/2024
 ms.author: mbullwin
 ---
 
@@ -57,11 +57,7 @@ Post deployment you can adjust your TPM allocation by selecting **Edit deploymen
 
 ## Model specific settings
 
-Different model deployments, also called model classes have unique max TPM values that you're now able to control. **This represents the maximum amount of TPM that can be allocated to that type of model deployment in a given region.** While each model type represents its own unique model class, the max TPM value is currently only different for certain model classes:
-
-- GPT-4
-- GPT-4-32K
-- Text-Davinci-003
+Different model deployments, also called model classes have unique max TPM values that you're now able to control. **This represents the maximum amount of TPM that can be allocated to that type of model deployment in a given region.** 
 
 All other model classes have a common max TPM value.
 

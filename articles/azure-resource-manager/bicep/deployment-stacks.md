@@ -3,7 +3,7 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 05/28/2024
+ms.date: 05/31/2024
 ---
 
 # Deployment stacks
@@ -42,6 +42,7 @@ Deployment stacks provide the following benefits:
 - The [What-if](./deploy-what-if.md) support isn't yet available.
 - A management group-scoped stack is restricted from deploying to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
 - The PowerShell command help lists a `DeleteResourcesAndResourcesGroups` value for the `ActionOnUnmanage` switch. When this value is used, the command detaches the managed resources and the resource groups. This value will be removed in the next update. Don't use this value.
+- In some cases, the New and Set cmdlets of Azure PowerShell may return a generic template validation error that is not clearly actionable. This bug will be fixed in the next release, but for now, if the error is unclear, you can run the cmdlet in debug mode to see a more detailed error in the raw response.
 
 ## Built-in roles
 
