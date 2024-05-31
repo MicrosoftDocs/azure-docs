@@ -20,47 +20,47 @@ This quickstart describes how to configure backup for an Azure Kubernetes Servic
 Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric backup service that lets you quickly configure backup for AKS clusters.
 
 >[!NOTE]
->To get started with quickly provisioning and configuring backup for an AKS cluster, this article includes steps to deploy a cluster and protect it with AKS Backup with default settings for evaluation purposes only. Before deploying a production-ready cluster and utilize advance backup settings, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
+>Steps included in this article on how to deploy a cluster and protect it with AKS Backup are for evaluation purposes only.
+>
+>Before deploying a production-ready cluster and utilize advance backup settings, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
 ## Prerequisites
 
-Things to know before you configure AKS backup:
+Things to ensure before you configure AKS backup:
 
 * This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 * You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Follow the instructions based on your command line interface.
-
 * [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
 * [Download kubectl](https://kubernetes.io/releases/download/).
 
-* Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
+* [Create a random value for the Azure resource group name](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet) using random_pet.
 
-* Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
+* [Create an Azure resource group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) using azurerm_resource_group.
 
-* Access the configuration of the AzureRM provider to get the Azure Object ID using [azurerm_client_config](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config).
+* [Access the configuration of the AzureRM provider to get the Azure Object ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) using `azurerm_client_config`.
 
-* Create a Kubernetes cluster using [azurerm_kubernetes_cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster).
+* [Create a Kubernetes clusterluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster) using `azurerm_kubernetes_c`.
 
-* Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
+* [Create an AzAPI resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource) using the `azapi_resource` command.
 
-* Create a Storage Account using [azurerm_storage_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)
+* [Create a Storage Account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account) using `azurerm_storage_account`.
 
-* Create a Blob Container using [azurerm_storage_container](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container)
+* [Create a Blob Container](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) using `azurerm_storage_container`.
 
-* Install Backup Extension in the AKS cluster using [azurerm_kubernetes_cluster_extension](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_extension)
+* [Install Backup Extension in the AKS cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_extension) using `azurerm_kubernetes_c`luster_extension`.
 
-* Create a Backup Vault using [azurerm_data_protection_backup_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/data_protection_backup_vault).
+* [Create a Backup Vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/data_protection_backup_vault) using `azurerm_data_protection_backup_vault`.
 
-* Create a Backup Policy for AKS cluster using [azurerm_data_protection_backup_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_protection_backup_policy_kubernetes_cluster).
+* [Create a Backup Policy for AKS cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_protection_backup_policy_kubernetes_cluster) using `azurerm_data_protection_backup_vault`.
 
-* Enable Trusted Access between AKS cluster and Backup Vault [azurerm_kubernetes_cluster_trusted_access_role_binding](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_trusted_access_role_binding)
+* [Enable Trusted Access between AKS cluster and Backup vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_trusted_access_role_binding) using `azurerm_kubernetes_cluster_trusted_access_role_binding`.
 
-* Enable Role Assignments using [azurerm_role_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment)
+* [Enable Role Assignments](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) using `azurerm_role_assignment`.
 
-* Configure Backup for an AKS Cluster using [azurerm_data_protection_backup_policy_kubernetes_cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_protection_backup_instance_kubernetes_cluster).
+* [Configure Backup for an AKS Cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_protection_backup_instance_kubernetes_cluster) using `azurerm_data_protection_backup_policy_kubernetes_cluster`.
 
 
 ## Log in to Azure account
