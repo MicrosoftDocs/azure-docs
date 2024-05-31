@@ -46,7 +46,7 @@ Set the basic settings below, then select **Next**.
 | **Topics**          | *topic_1*               | Select one or more topic from where the data needs to be pulled.                                                                   |
 | **Subscription**    | *My subscription*       | Select the Azure subscription for the Azure Blob Storage where the data needs to be pushed.                                        |
 | **Storage Account** | *storageaccount1*       | Select the storage account where the data needs to be pushed. If needed, select **Create new** to create a new [storage account](../../storage/common/storage-account-create.md#basics-tab).                                                                     |
-| **Container**       | *container1*            | Select the container within the storage account where the data needs to be pushed. If needed, [create a new container](../../storage/blobs/storage-quickstart-blobs-portal#create-a-container).                                                                           |
+| **Container**       | *container1*            | Select the container within the storage account where the data needs to be pushed. If needed, [create a new container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).                                                                           |
 
 ### Authentication
 
@@ -88,7 +88,7 @@ Set the basic settings below, then select **Next**.
 | **Cluster**         | *cluster1*              | Select the cluster where you would like to create this connector.                                        |
 | **Subscription**    | *My subscription*       | Select the Azure subscription for the Azure Blob Storage where the data needs to be pulled.              |
 | **Storage Account** | *storageaccount1*       | Select the storage account where the data needs to be pulled. f needed, select **Create new** to create a new [storage account](../../storage/common/storage-account-create.md#basics-tab).     |
-| **Container**       | *container1*            | Select the container within the storage account where the data needs to be pushed. If needed, [create a new container](../../storage/blobs/storage-quickstart-blobs-portal#create-a-container). |
+| **Container**       | *container1*            | Select the container within the storage account where the data needs to be pushed. If needed, [create a new container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). |
 
 ### Authentication
 
