@@ -28,7 +28,7 @@ Now that your domain is hosted on Azure DNS, you can create a CNAME record for `
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Enter the name of your Static Web App in the top search bar, or find the Static Web App in your resources.
+1. Enter the name of your static web app in the top search bar, or find the static web app in your resources.
 
 1. Under **Settings**, select **Custom domains**.
 

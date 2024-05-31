@@ -4,7 +4,7 @@ description: Tooling support for using configuration files with Azure App Config
 author: zhenlan
 ms.author: zhenlwa
 ms.service: azure-app-configuration
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 05/30/2024
 ---
 
