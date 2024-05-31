@@ -1202,7 +1202,7 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/crowdstrike-falcon-endpoint-protection.md",
-            "redirect_url": "/azure/sentinel/data-connectors/recommended-crowdstrike-falcon-endpoint-protection-via-ama",
+            "redirect_url": "/azure/sentinel/data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent",
             "redirect_document_id": true
         },
         {
