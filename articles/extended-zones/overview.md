@@ -20,7 +20,6 @@ The key scenarios Azure Extended Zones enable are:
 - **Latency**: users want to run their resources, for example, media editing software, remotely with low latency.
 
 - **Data residency**: users want their applications data to stay within a specific geography and might essentially want to host locally for various privacy, regulatory, and compliance reasons.
-- 
 
 ## Service offerings for Azure Extended Zones
 
