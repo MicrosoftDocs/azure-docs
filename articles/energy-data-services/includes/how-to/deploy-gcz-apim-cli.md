@@ -49,7 +49,7 @@ ms.date: 05/11/2024
     </policies>
     ```
 
-1. Replace `%tenant-id%` with your Entra ID tenant ID, and `%client-id%` with the Azure Data Manager for Energy client ID and save the file.
+1. Replace `%tenant-id%` with your Microsoft Entra ID tenant ID, and `%client-id%` with the Azure Data Manager for Energy client ID and save the file.
 
 1. Run the following command to add the policy to the `Geospatial Consumption Zone - Provider` API:
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy Geospatial Consumption Zone on top of Azure Data Manager for Energy using Azure Portal
-description: Learn how to deploy Geospatial Consumption Zone on top of your Azure Data Manager for Energy instance using the Azure Portal.
+title: Deploy Geospatial Consumption Zone on top of Azure Data Manager for Energy using Azure portal
+description: Learn how to deploy Geospatial Consumption Zone on top of your Azure Data Manager for Energy instance using the Azure portal.
 ms.service: energy-data-services
 ms.custom: devx-track-azurecli
 ms.topic: how-to
@@ -9,12 +9,12 @@ author: EirikHaughom
 ms.date: 05/30/2024
 ---
 
-In this guide, you will learn how to deploy Geospatial Consumption Zone (GCZ) on Windows. This is the recommended deployment option for development and testing environments, as it is easier to set up and configure, and requires less maintenance.
+Learn how to deploy Geospatial Consumption Zone (GCZ) on Windows. This deployment option is recommended for development and testing environments, as it's easier to set up and configure, and requires less maintenance.
 
 ### Prerequisites
 
 - An Azure Data Manager for Energy instance. If you don't have an Azure Data Manager for Energy instance, see [Create an Azure Data Manager for Energy instance](../../quickstart-create-microsoft-energy-data-services-instance.md).
-- A Windows Virtual Machine. If you don't have a Windows Virtual Machine, see [Create a Windows Virtual Machine in Azure](/azure/virtual-machines/windows/quick-create-portal). It is also possible to use your local machine.
+- A Windows Virtual Machine. If you don't have a Windows Virtual Machine, see [Create a Windows Virtual Machine in Azure](/azure/virtual-machines/windows/quick-create-portal). It's also possible to use your local machine.
 - Java JDK 17 installed on the Windows Virtual Machine. If you don't have Java installed, see [Install Java on Windows](https://adoptium.net/temurin/releases/?version=17).
 - Node 18.19.1 (LTS) installed on the Windows Virtual Machine. If you don't have Node installed, see [Install Node.js and npm on Windows](https://nodejs.org/en/blog/release/v18.19.1).
 - Python 3.11.4 or newer installed on the Windows Virtual Machine. If you don't have Python installed, see [Install Python on Windows](https://www.python.org/downloads/).
@@ -23,7 +23,7 @@ In this guide, you will learn how to deploy Geospatial Consumption Zone (GCZ) on
 ### Deploy GCZ on Windows
 
 1. Connect to your Windows Virtual Machine.
-1. Download the following files from the OSDU Gitlab repository:
+1. Download the following files from the OSDU GitLab repository:
     1. [GCZ Provider](https://community.opengroup.org/api/v4/projects/528/jobs/artifacts/master/download?job=build-provider)
     1. [GCZ Transformer](https://community.opengroup.org/api/v4/projects/528/jobs/artifacts/master/download?job=build-transformer)
     1. [Python dependencies](https://community.opengroup.org/api/v4/projects/528/jobs/artifacts/master/download?job=build-python-dependencies)
@@ -79,4 +79,4 @@ In this guide, you will learn how to deploy Geospatial Consumption Zone (GCZ) on
     npm start
     ```
 
-By default the Provider will be listening on `http://localhost:8083` and the Transformer will be listening on `http://localhost:8080`.
+By default the Provider is listening on `http://localhost:8083` and the Transformer is listening on `http://localhost:8080`.

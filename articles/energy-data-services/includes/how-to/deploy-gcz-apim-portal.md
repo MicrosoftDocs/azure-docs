@@ -27,8 +27,8 @@ ms.date: 05/11/2024
 
 Next we need to configure the policies to validate the JSON Web Tokens (JWT).
 
-You will need the following information:
-- Your Entra ID tenant ID.
+You need the following information:
+- Your Microsoft Entra ID tenant ID.
 - The Azure Data Manager for Energy client ID (or token-issuing client ID if separate).
 
 > [!NOTE]
@@ -64,6 +64,6 @@ You will need the following information:
     </policies>
     ```
 
-1. Replace `%tenant-id%` with your Entra ID tenant ID, and `%client-id%` with the Azure Data Manager for Energy client ID.
+1. Replace `%tenant-id%` with your Microsoft Entra ID tenant ID, and `%client-id%` with the Azure Data Manager for Energy client ID.
 1. Select **Save**.
 1. Repeat the steps for the `Geospatial Consumption Zone - Transformer` API.

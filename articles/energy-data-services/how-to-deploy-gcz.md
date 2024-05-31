@@ -12,24 +12,24 @@ ms.date: 05/11/2024
 
 # Deploy Geospatial Consumption Zone
 
-This guide will show you how to deploy the Geospatial Consumption Zone (GCZ) service integrated with Azure Data Manager for Energy (ADME).
+This guide shows you how to deploy the Geospatial Consumption Zone (GCZ) service integrated with Azure Data Manager for Energy (ADME).
 
 ## Description
 
 The OSDU Geospatial Consumption Zone (GCZ) is a service that enables enhanced management and utilization of geospatial data. The GCZ streamlines the handling of location-based information. It abstracts away technical complexities, allowing software applications to access geospatial data without needing to deal with intricate details. By providing ready-to-use map services, the GCZ facilitates seamless integration with OSDU-enabled applications.
 
-## Create an App Registration in Entra ID
+## Create an App Registration in Microsoft Entra ID
 
-To deploy the GCZ, you need to create an App Registration in Entra ID. The App Registration will be used to authenticate the GCZ API's with Azure Data Manager for Energy to be able to generate the cache of the geospatial data.
+To deploy the GCZ, you need to create an App Registration in Microsoft Entra ID. The App Registration is to authenticate the GCZ APIs with Azure Data Manager for Energy to be able to generate the cache of the geospatial data.
 
-1. See [Create an App Registration in Entra ID](/azure/active-directory/develop/quickstart-register-app) for instructions on how to create an App Registration.
+1. See [Create an App Registration in Microsoft Entra ID](/azure/active-directory/develop/quickstart-register-app) for instructions on how to create an App Registration.
 1. Grant the App Registration permission to read the relevant data in Azure Data Manager for Energy. See [How to add members to an OSDU group](./how-to-manage-users.md#add-members-to-an-osdu-group-in-a-data-partition) for further instructions.
 
 ## Setup
 
 There are two main deployment options for the GCZ service:
-- **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This is the recommended deployment option for production environments, however it requires more setup, configuration and maintenance. It also has some limitations in the provided container images.
-- **Windows Virtual Machine**: Deploy the GCZ service on a Windows VM. This is the recommended deployment option for development and testing environments, as it is easier to set up and configure, and requires less maintenance.
+- **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This deployment option is recommended for production environments. It requires more setup, configuration, and maintenance. It also has some limitations in the provided container images.
+- **Windows Virtual Machine**: Deploy the GCZ service on a Windows VM. This deployment option recommended for development and testing environments, as it's easier to set up and configure, and requires less maintenance.
 
 ::: zone pivot="Azure Kubernetes Service (AKS)"
 
@@ -43,21 +43,21 @@ There are two main deployment options for the GCZ service:
 
 ::: zone-end
 
-## Publish GCZ API's publicly (optional)
+## Publish GCZ APIs publicly (optional)
 
-If you want to expose the GCZ API's publicly, you can use Azure API Management (APIM).
-The reason for using Azure API Management is to provide a secure and scalable way to expose the GCZ API's to the public internet, as the GCZ service does not yet have authentication and authorization built in.
-Through APIM we can add policies to secure, monitor and manage the API's.
+If you want to expose the GCZ APIs publicly, you can use Azure API Management (APIM).
+Azure API Management allows us to securely expose the GCZ service to the internet, as the GCZ service doesn't yet have authentication and authorization built in.
+Through APIM we can add policies to secure, monitor, and manage the APIs.
 
 ### Prerequisites
 
 - An Azure API Management instance. If you don't have an Azure API Management instance, see [Create an Azure API Management instance](/azure/api-management/get-started-create-service-instance).
-- The GCZ API's are deployed and running.
+- The GCZ APIs are deployed and running.
 
 > [!IMPORTANT]
 > The Azure API Management instance will need to be injected into a virtual network that is routable to the AKS cluster to be able to communicate with the GCZ API's.
 
-### Add the GCZ API's to Azure API Management
+### Add the GCZ APIs to Azure API Management
 
 #### Download the GCZ OpenAPI specifications
 
@@ -71,7 +71,7 @@ Through APIM we can add policies to secure, monitor and manage the API's.
     - url: "http://<GCZ-Service-External-IP>/ignite-provider"
     ```
 
-::: zone pivot="Azure Portal"
+::: zone pivot="Azure portal"
 
 [!INCLUDE [Azure Portal](includes/how-to/deploy-gcz-apim-portal.md)]
 
@@ -85,13 +85,13 @@ Through APIM we can add policies to secure, monitor and manage the API's.
 
 ## Testing the GCZ service
 
-1. Download the API client collection from the [OSDU GitLab](hthttps://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (e.g. Postman).
+1. Download the API client collection from the [OSDU GitLab](hthttps://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (for example, Postman).
 1. Add the following environment variables to your API client:
     - `PROVIDER_URL` - The URL to the GCZ Provider API.
     - `AMBASSADOR_URL` - The URL to the GCZ Transformer API.
     - `access_token` - A valid ADME access token.
 
-1. Run the API calls in the collection to verify that the GCZ is working as expected.
+1. To verify that the GCZ is working as expected, run the API calls in the collection.
 
 ## Next steps
 After you have a successful deployment of GCZ, you can:
