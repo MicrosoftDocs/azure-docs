@@ -655,12 +655,12 @@ You might have noticed that the GitHub Copilot chat view was already there for y
 
 A few tips for you when you talk to GitHub Copilot:
 
-- In a single chat session, the questions and answers build on each other and you can get Gi
-- You can ask GitHub Copilot about a file that you already opened in the editor.
-- To let GitHub Copilot access all of the files in the repository when formulating its answers, start your sentence with `@workspace`. For more information, see [Use the @workspace agent](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
-- In the chat session, GitHub Copilot can suggest changes and (if you start your sentence with `@workspace`) even where to make the changes, but it can't make the changes for you. It's up to you to add the suggested code and test it.
+- In a single chat session, the questions and answers build on each other and you can adjust your questions to fine-tune the answer you get.
+- By default, GitHub Copilot doesn't have access to any file in your repository. You can ask it questions about a file, open the file in the editor first.
+- To let GitHub Copilot have access to all of the files in the repository when preparing its answers, begin your question with `@workspace`. For more information, see [Use the @workspace agent](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
+- In the chat session, GitHub Copilot can suggest changes and (with `@workspace`) even where to make the changes, but it's not allowed to make the changes for you. It's up to you to add the suggested changes and test it.
 
-Here are some other things you can say to fine-tune the response you get.
+Here are some other things you can say to fine-tune the answer you get.
 
 * Please change this code to use the data source jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.
 * Some imports in your code are using javax but I have a Jakarta app.
