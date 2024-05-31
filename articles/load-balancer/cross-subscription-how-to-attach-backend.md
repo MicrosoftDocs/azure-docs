@@ -12,7 +12,7 @@ ms.custom:
 ---
 
 # Attach a cross-subscription backend to an Azure Load Balancer
-In this article, you will learn how to attach a cross-subscription backend to an Azure Load Balancer by creating a cross-subscription backend pool and attaching cross-subscription network interfaces to the backend pool of the load balancer.
+In this article, you learn how to attach a cross-subscription backend to an Azure Load Balancer by creating a cross-subscription backend pool and attaching cross-subscription network interfaces to the backend pool of the load balancer.
 
 A [cross-subscription internal load balancer (ILB)](cross-subscription-load-balancer-overview.md) can reference a virtual network that resides in a different subscription other than the load balancers. This feature allows you to deploy a load balancer in one subscription and reference a virtual network in another subscription.
 
@@ -124,3 +124,4 @@ az network lb address-pool update --lb-name myLoadBalancer --resource-group myRe
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Create a cross-subscription internal load balancer](./cross-subscription-howto-internal-load-balancer.md)

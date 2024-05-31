@@ -14,9 +14,10 @@ ms.custom: include-file
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-- Two Azure subscriptions. One subscription for the virtual network and another subscription for the load balancer.
+- Two Azure subscriptions. 
 - An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
 - An existing [Virtual Network](../articles/virtual-network/quick-create-powershell.md). deployed in one of the subscriptions. For this example, the virtual network is in **Azure Subscription A**.
+- Azure PowerShell installed locally or Azure Cloud Shell.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see Install Azure PowerShell module. If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
