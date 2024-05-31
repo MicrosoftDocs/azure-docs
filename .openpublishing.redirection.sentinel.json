@@ -142,8 +142,8 @@
         },
         {
             "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-function.md",
-            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions",
-            "redirect_document_id": true
+            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sentinel/data-connectors/cybersixgill-actionable-alerts-using-azure-function.md",
@@ -1202,8 +1202,8 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/crowdstrike-falcon-endpoint-protection.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
+            "redirect_url": "/azure/sentinel/data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cyberark-enterprise-password-vault-epv-events.md",
@@ -1589,6 +1589,26 @@
             "source_path": "articles/sentinel/data-connectors/zero-networks-segment-audit-function-using-azure-function.md",
             "redirect_url": "/azure/sentinel/data-connectors/zero-networks-segment-audit",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md",
+            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/data-connectors/crowdstrike-falcon-data-replicator-v2-using-azure-functions.md",
+            "redirect_url": "/azure/sentinel/data-connectors/crowdstrike-falcon-data-replicator-v2",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/fortinet-fortiweb-web-application-firewall.md",
+            "redirect_url": "/azure/sentinel/data-connectors/deprecated-fortinet-fortiweb-web-application-firewall-via-legacy-agent",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/fortinet.md",
+            "redirect_url": "/azure/sentinel/data-connectors/deprecated-fortinet-via-legacy-agent",
+            "redirect_document_id": true
         }
     ]
 }

@@ -1,27 +1,26 @@
 ---
-title: Get started with synchronous translation
-description: "How to translate documents synchronously using the REST API"
-#services: cognitive-services
+title: "Quickstart: Document Translation REST API"
+titleSuffix: Azure AI services
+description: Use the Document Translator REST APIs for batch and single document translations.
 author: laujan
+ms.author: lajanuar
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
 ms.date: 02/12/2024
-ms.author: lajanuar
-recommendations: false
 ---
 
-<!-- markdownlint-disable MD033 -->
-<!-- markdownlint-disable MD001 -->
-<!-- markdownlint-disable MD024 -->
-<!-- markdownlint-disable MD036 -->
-<!-- markdownlint-disable MD049 -->
+# Get started: Document Translation REST APIs
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD001 -->
 
-# Get started with synchronous translation
+Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#batch-supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
 
-Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../../translator-overview.md) service. You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format.
+The Document translation API supports two translation processes:
 
-Synchronous translation supports immediate-response processing of single-page files. The synchronous translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
+* [Asynchronous batch translation](#asynchronously-translate-documents-post-request) supports the processing of multiple documents and large files. The batch translation process requires an Azure Blob storage account with storage containers for your source and translated documents.
+
+* [Synchronous single file](#synchronously-translate-a-single-document-post-request) supports the processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
 ***Let's get started.***
 
@@ -34,7 +33,7 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
     > [!NOTE]
     >
     > * For this quickstart we recommend that you use a Translator text single-service global resource unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication, choose a **geographic** region like **West US**.
-    > * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
+    > * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for `Ocp-Apim-Subscription-key` is your Azure secret key for your Translator Text subscription.
 
 * After your resource deploys, select **Go to resource** and retrieve your key and endpoint.
 
@@ -55,7 +54,60 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
   * [Windows](https://curl.haxx.se/windows/)
   * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows)
 
-## Headers and parameters
+## Asynchronously translate documents (POST Request)
+
+1. Using your preferred editor or IDE, create a new directory for your app named `document-translation`.
+
+1. Create a new json file called **document-translation.json** in your **document-translation** directory.
+
+1. Copy and paste the document translation **request sample** into your `document-translation.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance.
+
+    ***Request sample:***
+
+    ```json
+    {
+      "inputs":[
+        {
+          "source":{
+            "sourceUrl":"{your-source-container-SAS-URL}"
+          },
+          "targets":[
+            {
+              "targetUrl":"{your-target-container-SAS-URL}",
+              "language":"fr"
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+### Build and run the POST request
+
+Before you run the **POST** request, replace `{your-document-translator-endpoint}` and `{your-key}` with the values from your Azure portal Translator instance.
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../security-features.md).
+
+***PowerShell***
+
+```powershell
+cmd /c curl "{your-document-translator-endpoint}/translator/text/batch/v1.1/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+```
+
+***command prompt / terminal***
+
+```curl
+curl "{your-document-translator-endpoint}/translator/text/batch/v1.1/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+```
+
+Upon successful completion:
+
+* The translated documents can be found in your target container.
+* The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
+* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
+
+### Synchronously translate a single document (POST request)
 
 To call the synchronous translation feature via the [REST API](../reference/synchronous-rest-api-guide.md), you need to include the following headers with each request. Don't worry, we include the headers for you in the sample code.
 
@@ -77,7 +129,7 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 
 ✔️ For more information on **`contentType`**, *see* [**Supported document formats**](../overview.md#synchronous-supported-document-formats).
 
-## Build and run the POST request
+### Build and run the synchronous POST request
 
 1. For this project, you need a **sample document**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart. The source language is English.
 
@@ -100,16 +152,16 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 
     ```
 
-    ✔️ For more information on **`Query parameters`**, *see* [**Headers and parameters**](#headers-and-parameters).
+    ✔️ For more information on **`Query parameters`**, *see* [**synchronous document translation**](../reference/translate-document.md).
 
 ***Upon successful completion***:
 
 * The translated document is returned with the response.
 * The successful POST method returns a `200 OK` response code indicating that the service created the request.
 
-That's it, congratulations! You just learned to synchronously translate a document using the Azure AI Translator service.
+That's it, congratulations! You just learned to translate documents using the Azure AI Translator service.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Asynchronous batch translation](asynchronous-rest-api.md "Learn more about batch translation for multiple files.")
+> [Document Translation REST API guide](../reference/rest-api-guide.md "Learn more about Document Translation REST API operations).
