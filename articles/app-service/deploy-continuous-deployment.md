@@ -10,6 +10,8 @@ ms.author: cephalin
 
 # Continuous deployment to Azure App Service
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 [Azure App Service](overview.md) enables continuous deployment from [GitHub](https://help.github.com/articles/create-a-repo), [Bitbucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html), and [Azure Repos](/azure/devops/repos/git/creatingrepo) repositories by pulling in the latest updates.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
