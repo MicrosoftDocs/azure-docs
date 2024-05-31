@@ -29,7 +29,7 @@ To deploy the GCZ, you need to create an App Registration in Entra ID. The App R
 
 There are two main deployment options for the GCZ service:
 - **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This is the recommended deployment option for production environments, however it requires more setup, configuration and maintenance. It also has some limitations in the provided container images.
-- **Windows Virtual Machine (VM)**: Deploy the GCZ service on a Windows VM. This is the recommended deployment option for development and testing environments, as it is easier to set up and configure, and requires less maintenance.
+- **Windows Virtual Machine**: Deploy the GCZ service on a Windows VM. This is the recommended deployment option for development and testing environments, as it is easier to set up and configure, and requires less maintenance.
 
 ::: zone pivot="Azure Kubernetes Service (AKS)"
 

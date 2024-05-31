@@ -12,7 +12,7 @@ ms.date: 05/11/2024
 
 ### Add the GCZ APIs to Azure API Management
 
-1. Navigate to your Azure API Management service the [Azure portal](https://portal.azure.com/).
+1. Navigate to your Azure API Management service in the [Azure portal](https://portal.azure.com/).
 1. In the left-hand navigation pane, select **APIs**.
 1. Select **+ Add API**.
 1. Select **OpenAPI**.
@@ -37,7 +37,7 @@ You will need the following information:
 
 1. In the newly created `Geospatial Consumption Zone - Provider` API, make sure **All operations** is selected.
 1. Under **Inbound processing**, select **...** and then **Code editor**.
-1. Paste the following policy in the editor:
+1. Paste the following policy definition in the editor:
 
     ```xml
     <policies>
