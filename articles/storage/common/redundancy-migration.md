@@ -115,7 +115,7 @@ az storage account update \
 
 ### Perform a conversion
 
-A redundancy "conversion" is the process of changing the zone-redundancy aspect of a storage account.
+A redundancy "conversion" is the process of changing the zone-redundancy aspect of a storage account. Conversion was formerly known as "live migration".
 
 During a conversion, there's [no data loss or application downtime required](#downtime-requirements).
 
