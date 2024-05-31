@@ -42,9 +42,9 @@ Things to ensure before you configure AKS backup:
 
 * [Access the configuration of the AzureRM provider to get the Azure Object ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) using `azurerm_client_config`.
 
-* [Create a Kubernetes clusterluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster) using `azurerm_kubernetes_c`.
+* [Create a Kubernetes cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster) using `azurerm_kubernetes_cluster`.
 
-* [Create an AzAPI resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource) using the `azapi_resource` command.
+* [Create an AzAPI resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource) using `azapi_resource`.
 
 * [Create a Storage Account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account) using `azurerm_storage_account`.
 
