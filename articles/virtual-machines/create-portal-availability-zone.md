@@ -59,7 +59,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
 1. For **Availability options**, leave the default of **Availability zone**.
 1. For **Availability zone**, the drop-down defaults to *Zone 1*. If you choose multiple zones, a new VM will be created in each zone. For example, if you select all three zones, then three VMs will be created. The VM names are the original name you entered, with **-1**, **-2**, and **-3** appended to the name based on number of zones selected. If you want, you can edit each of the default VM names.
 
-   c
+   :::image type="content" source="media/zones/3-vm-names.png" alt-text="Screenshot showing that there are now 3 virtual machines that will be created.":::
 
 1. Complete the rest of the page as usual. If you want to create a load balancer, go to the **Networking** tab > **Load Balancing** > **Load balancing options**. You can choose either an Azure load balancer or an Application gateway.
    
@@ -112,7 +112,7 @@ If you would like the resiliency benefits of a Zonal Virtual Machine and want he
 5.	For Zone options (Preview), select Azure-selected zone. The Availability zone selection should now be grayed out. 
 6.	Configure the rest of your Virtual Machine as normal for deployment.
 
-::image type="content" source="media/create-portal-availability-zone/zoneany.png" alt-text="Screenshot showing how to choose an Azure-selected zone."::
+::image type="content" source="media/create-portal-availability-zone/zone-any-portal.png" alt-text="Screenshot showing how to choose an Azure-selected zone."::
 
 ## Restrictions
 
@@ -140,7 +140,7 @@ Existing OS and Data Disks are currently not supported. New Data Disk Source Typ
    #### Unsupported Disk types
    - Standard SSD LRS
 
-::image type="content" source="media/create-portal-availability-zone/ZoneAnyDisks.png" alt-text="Screenshot supported disks for an Azure-selected zone."::
+::image type="content" source="media/create-portal-availability-zone/zone-any-disks.png" alt-text="Screenshot supported disks for an Azure-selected zone."::
 
 ### Other resources
  - Existing Public IPs are not supported for an Azure-selected zone. They can be added after deployment.
