@@ -27,8 +27,6 @@
     href: backup-virtual-machine.md
   - name: Request quota increase
     href: request-quota-increase.md
-  - name: Troubleshoot Extended Zones
-    href: troubleshoot.md
 - name: Reference
   items:
   - name: Azure CLI
