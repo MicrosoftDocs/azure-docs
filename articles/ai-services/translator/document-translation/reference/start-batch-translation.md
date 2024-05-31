@@ -11,47 +11,61 @@ ms.topic: reference
 ms.date: 02/12/2024
 ---
 
-# Start translation
+# Start batch translation
 
 <!-- markdownlint-disable MD036 -->
 
 Reference</br>
-Service: **Azure AI Document Translation**</br>
-API Version: **v1.1**</br>
+Feature: **Azure AI Translator → Document Translation**</br>
+API Version: **2024-05-01**</br>
+HTTP method: **POST**
 
-Use this API to start a translation request with the Document Translation service. Each request can contain multiple documents and must contain a source and destination container for each document.
+* Use the `Start Translation` method to execute an asynchronous batch translation request.
+* The method requires an Azure Blob storage account with storage containers for your source and translated documents.
 
-The prefix and suffix filter (if supplied) are used to filter folders. The prefix is applied to the subpath after the container name.
+> [!TIP]
+> This method returns the job `id` parameter for the [get-translation-status](get-translation-status.md), [get-documents-status](get-documents-status.md), [get-document-status](get-document-status.md), and [cancel-translation](cancel-translation.md) request query strings.
 
-Glossaries / Translation memory can be included in the request and applied by the service when the document is translated.
+* You can find the job `id`  in the POST `start-batch-translation` method response Header `Operation-Location`  URL value. The alphanumeric string following the `/document/` parameter is the operation's job **`id`**:
 
-If the glossary is invalid or unreachable during translation, an error is indicated in the document status. If a file with the same name already exists in the destination, the job fails. The targetUrl for each target language must be unique.
+|**Response header**|**Response URL**|
+|-----------------------|----------------|
+|Operation-Location   | {document-translation-endpoint}/translator/document/`9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec`?api-version=2024-05-01|
+
+* You can also use a [get-translations-status](../reference/get-translations-status.md) request to retrieve a list of translation jobs and their `id`s.
 
 ## Request URL
 
-Send a `POST` request to:
-```HTTP
-POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches
-```
-
-Learn how to find your [custom domain name](../quickstarts/asynchronous-rest-api.md).
-
 > [!IMPORTANT]
 >
-> * **All API requests to the Document Translation service require a custom domain endpoint**.
-> * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+> **All API requests to the Document Translation feature require a custom domain endpoint that is located on your resource overview page in the Azure portal**.
+
+```bash
+  curl -i -X POST "{document-translation-endpoint}/translator/document/batches?api-version={date}"
+
+```
 
 ## Request headers
 
 Request headers are:
 
-|Headers|Description|
-|--- |--- |
-|Ocp-Apim-Subscription-Key|Required request header|
+|Headers|Description|Condition|
+|--- |--- |---|
+|**Ocp-Apim-Subscription-Key**|Your Translator service API key from the Azure portal.|Required|
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using a regional (geographic) resource like **West US**.</br>&bullet.|
+|**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|&bullet; **Required**|
 
 ## BatchRequest (body)
 
-Definition for the input batch translation request. Each request can contain multiple documents and must contain a source and target container for each document. Source media types: `application/json`, `text/json`, `application/*+json`.
+* Each request can contain multiple documents and must contain a source and target container for each document. Source media types: `application/json`, `text/json`, `application/*+json`.
+
+* The prefix and suffix filter (if supplied) are used to filter folders. The prefix is applied to the subpath after the container name.
+
+* Glossaries can be included in the request. If the glossary is invalid or unreachable during translation, an error is indicated in the document status.
+
+* If a file with the same name already exists in the target destination, the job fails. 
+
+* The targetUrl for each target language must be unique.
 
 ```json
 
@@ -130,7 +144,7 @@ Definition for target and glossaries data.
 |**inputs.targets.glossaries.format**|`string`|False|&bullet; string|Specified file format for glossary. To check if your file format is supported, _see_ [Get supported glossary formats](get-supported-glossary-formats.md).|
 |**inputs.targets.glossaries.version**|`string`|False|&bullet; string|Version indicator. Example: "_2.0_".|
 |**inputs.targets.glossaries.storageSource**|`string`|False|&bullet; string|Storage source for glossaries. Defaults to `_AzureBlob_`.|
-|**inputs.targets.storageSource**|`string`|False|&bullet; string|Storage source for targets.Defaults to `_AzureBlob_`.|
+|**inputs.targets.storageSource**|`string`|False|&bullet; string|Storage source for targets.defaults to `_AzureBlob_`.|
 
 ### inputs.storageType
 
@@ -163,11 +177,11 @@ The following are examples of batch requests.
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
+                "sourceUrl": "https://my.blob.core.windows.net/source-en?{SAS-token-query-string}"
             },
             "targets": [
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
+                    "targetUrl": "https://my.blob.core.windows.net/target-fr?{SAS-token-query-string}",
                     "language": "fr"
                 }
             ]
@@ -183,15 +197,15 @@ The following are examples of batch requests.
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
+                "sourceUrl": "https://my.blob.core.windows.net/source-en?{SAS-token-query-string}"
             },
             "targets": [
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
+                    "targetUrl": "https://my.blob.core.windows.net/target-fr?{SAS-token-query-string}",
                     "language": "fr",
                     "glossaries": [
                         {
-                            "glossaryUrl": "https://my.blob.core.windows.net/glossaries/en-fr.xlf?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=BsciG3NWoOoRjOYesTaUmxlXzyjsX4AgVkt2AsxJ9to%3D",
+                            "glossaryUrl": "https://my.blob.core.windows.net/glossaries/en-fr.xlf?{SAS-token-query-string}",
                             "format": "xliff",
                             "version": "1.2"
                         }
@@ -213,14 +227,14 @@ Make sure you specify the folder name (case sensitive) as prefix in filter.
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D",
+                "sourceUrl": "https://my.blob.core.windows.net/source-en?{SAS-token-query-string}",
                 "filter": {
                     "prefix": "MyFolder/"
                 }
             },
             "targets": [
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
+                    "targetUrl": "https://my.blob.core.windows.net/target-fr?{SAS-token-query-string}",
                     "language": "fr"
                 }
             ]
@@ -243,15 +257,15 @@ This sample request shows a single document translated into two target languages
         {
             "storageType": "File",
             "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D"
+                "sourceUrl": "https://my.blob.core.windows.net/source-en/source-english.docx?{SAS-token-query-string}"
             },
             "targets": [
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
+                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-Spanish.docx?{SAS-token-query-string}",
                     "language": "es"
                 },
                 {
-                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D",
+                    "targetUrl": "https://my.blob.core.windows.net/target/try/Target-German.docx?{SAS-token-query-string}",
                     "language": "de"
                 }
             ]
@@ -272,30 +286,18 @@ The following are the possible HTTP status codes that a request returns.
 |429|Request rate is too high.|
 |500|Internal Server Error.|
 |503|Service is currently unavailable. Try again later.|
-|Other Status Codes|&bullet; Too many requests<br>&bullet; Server temporary unavailable|
+|Other Status Codes|&bullet; Too many requests. The server is temporary unavailable|
 
 ## Error response
 
 |Key parameter|Type|Description|
 |--- |--- |--- |
-|code|`string`|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
+|code|`string`|Enums containing high-level error codes. Possible values:</br/>&bullet; InternalServerError</br>&bullet; InvalidArgument</br>&bullet; InvalidRequest</br>&bullet; RequestRateTooHigh</br>&bullet; ResourceNotFound</br>&bullet; ServiceUnavailable</br>&bullet; Unauthorized|
 |message|`string`|Gets high-level error message.|
 |innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties: ErrorCode, message, and optional properties target, details(key value pair), and inner error(it can be nested).|
 |inner.Errorcode|`string`|Gets code error string.|
 |innerError.message|`string`|Gets high-level error message.|
 |innerError.target|`string`|Gets the source of the error. For example, it would be `documents` or `document id` if the document is invalid.|
-
-## Examples
-
-### Example successful response
-
-The following information is returned in a successful response.
-
-You can find the job ID in the POST method's response Header Operation-Location URL value. The last parameter of the URL is the operation's job ID (the string following "/operation/").
-
-```HTTP
-Operation-Location: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/operation/0FA2822F-4C2A-4317-9C20-658C801E0E55
-```
 
 ### Example error response
 
@@ -317,4 +319,4 @@ Operation-Location: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)
+> [Get started with Document Translation](../how-to-guides/use-rest-api-programmatically.md)
