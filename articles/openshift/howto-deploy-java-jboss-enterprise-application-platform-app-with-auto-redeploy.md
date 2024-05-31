@@ -8,9 +8,9 @@ ms.date: 05/28/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
 ---
 
-# Quickstart: Auto Deploy JBoss EAP on Azure Red Hat OpenShift With Source-2-Image (S2I)
+# Quickstart: Auto Redeploy JBoss EAP on Azure Red Hat OpenShift With Source-2-Image (S2I)
 
-This article shows you how to quickly set up JBoss EAP on Azure Red Hat OpenShift (ARO) using the Azure portal and deploy an app.
+This article shows you how to quickly set up JBoss EAP on Azure Red Hat OpenShift (ARO) using the Azure portal and deploy an app with the Source-2-Image (S2I) feature. The Source-2-Image feature allows you to build container images from source code without having to write Dockerfiles. This quickstart uses a sample application that you can fork from GitHub and deploy to Azure Red Hat OpenShift. The quickstart also shows you how to set up a webhook in GitHub to trigger a new build in OpenShift every time you push a change to the repository.
 
 This article uses the Azure Marketplace offer for JBoss EAP to accelerate your journey to ARO. The offer automatically provisions resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the JBoss EAP Operator, and optionally a container image including JBoss EAP and your application using Source-to-Image (S2I). To see the offer, visit the [Azure portal](https://aka.ms/eap-aro-portal). If you prefer manual step-by-step guidance for running JBoss EAP on ARO that doesn't utilize the automation enabled by the offer, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](/azure/developer/java/ee/jboss-eap-on-aro).
 
