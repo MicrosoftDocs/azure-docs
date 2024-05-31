@@ -14,7 +14,7 @@ Azure Monitor costs can vary significantly based on the volume of data being col
 ## Causes for higher-than-expected usage
 Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable, depending on the:
 
-  - Set of insights and services enabled and their configuration.
+- Set of insights and services enabled and their configuration.
   - Number and type of monitored resources.
   - Volume of data collected from each monitored resource.
 
@@ -70,7 +70,7 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType 
+| summarize BillableDataGB = sum(Quantity) / 1024. by bin(StartTime, 1d), DataType 
 | render columnchart
 ```
 
