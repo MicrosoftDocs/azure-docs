@@ -247,21 +247,24 @@ az network lb rule create --resource-group myResourceGroupLB --lb-name myLoadBal
 
 ```
 
+---
+
 ## Clean up resources
 
 When no longer needed, you can use the Remove-AzResourceGroup command to remove the resource group, load balancer, and the remaining resources.
 
-## [Azure PowerShell](#tab/azurepowershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name myResourceGroupLB
-```dotnetcli
+```
 
-## [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/azurecli)
 
 ```azurecli
 az group delete --name myResourceGroupLB
 ```
+---
 
 ## Next steps
 
