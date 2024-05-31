@@ -3,6 +3,8 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: include
 ms.date: 05/31/2024
+ms.service: app-service
+ms.subservice: web-apps
 ---
 
 <a name="dnl-note" ></a>
