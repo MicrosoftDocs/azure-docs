@@ -28,6 +28,8 @@ The page displays all of the DCEs that are associated with the Azure Monitor wor
 
 Once this is done, navigate to the DCR resource which was created during managed prometheus enablement from the Azure portal and choose 'Resources' under Configuration menu.
 In the Data collection endpoint dropdown, pick a DCE in the same region as the AKS cluster. If the Azure Monitor Workspace is in the same region as the AKS cluster, you can reuse the DCE created during managed prometheus enablement. If not, create a DCE in the same region as the AKS cluster and pick that in the dropdown. 
+![image](https://github.com/MicrosoftDocs/azure-docs/assets/38931377/817c826e-bf59-4754-a9b7-693c328b5dbf)
+
 
 > [!NOTE]
 > Please refer to [Connect to a data source privately](../../../articles/managed-grafana/how-to-connect-to-data-source-privately.md) for details on how to configure private link for querying data from your Azure Monitor workspace using Grafana.
