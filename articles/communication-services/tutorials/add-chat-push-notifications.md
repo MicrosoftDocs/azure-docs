@@ -201,7 +201,7 @@ This tutorial proposes two solutions that are aligned with Apple's official guid
 
 ### Solution 1: Background tasks
 
-Background tasks offer a way to perform activities even when the app is not in the foreground. By implementing a background task, your app can request additional time to complete a specific task, such as renewing the push notification registration.
+Background tasks offer a way to perform activities even when the app is not in the foreground. By implementing a background task, your app can request more time to complete a specific task, such as renewing the push notification registration.
 
 The following sections describe how you can use background tasks for registration renewal.
 
