@@ -211,7 +211,7 @@ It's pretty common for a job to call an API from a long running app in collabora
 
 # [Azure CLI](#tab/azure-cli)
 
-Using the following Azure CLI command:
+Bind the job to Service Registry during job creation using the following Azure CLI command:
 
 ```
 az spring job create --bind-service-registry true
