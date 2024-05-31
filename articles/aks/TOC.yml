@@ -89,10 +89,6 @@
       href: tutorial-kubernetes-scale.md
     - name: 7 - Upgrade cluster
       href: tutorial-kubernetes-upgrade-cluster.md
-    - name: Security
-      items:
-        - name: Configure application to use workload identity
-          href: learn/tutorial-kubernetes-workload-identity.md
 - name: Concepts
   items:
     - name: Core concepts
@@ -136,10 +132,20 @@
               href: cis-windows.md
     - name: Networking
       items:
-        - name: Concepts
+        - name: Networking concepts
           href: concepts-network.md
         - name: CNI networking
-          href: azure-cni-overview.md
+          items:
+            - name: CNI networking overview
+              href: concepts-network-cni-overview.md
+            - name: Azure CNI Overlay
+              href: concepts-network-azure-cni-overlay.md
+            - name: Azure CNI Pod subnet
+              href: concepts-network-azure-cni-pod-subnet.md
+            - name: Legacy CNI options
+              href: concepts-network-legacy-cni.md
+        - name: IP address planning
+          href: concepts-network-ip-address-planning.md
         - name: Services
           href: concepts-network-services.md
     - name: Advanced Container Networking Services 
@@ -162,6 +168,8 @@
       href: servicemesh-about.md
     - name: Sustainable software engineering
       href: concepts-sustainable-software-engineering.md
+    - name: Preview API life cycle
+      href: concepts-preview-api-life-cycle.md
     - name: Dapr
       href: dapr-overview.md
     - name: GitOps

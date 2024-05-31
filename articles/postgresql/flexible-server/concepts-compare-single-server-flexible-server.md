@@ -4,7 +4,7 @@ description: Detailed comparison of features and capabilities between Azure Data
 author: AwdotiaRomanowna
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 04/29/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

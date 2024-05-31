@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 04/30/2024
+ms.date: 05/27/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -51,6 +51,35 @@ This article provides suggestions to troubleshoot common problems with the Oracl
         - SHA384 
         - SHA512
     
+## Error code: UserErrorFailedToConnectOdbcSource
+
+There are three error messages associated with this error code. Check the cause and recommendation for each error message correspondingly.
+
+- **Message**: `"Cannot load trust store", or "SSL Handshake Failure reason [error:OA000086:SSL routines::certificate verify failed]"` 
+
+- **Cause**: The `truststore` is not appropriate for OpenSSL 3.0, as the `truststore` file is generated using weak ciphers like RC4, MD5 and SHA1.
+
+- **Recommendation**: You need to re-create the `truststore` using the strong ciphers like AES256. Refer to this [section](connector-oracle.md#linked-service-properties) for details about setting up the TLS connection using `truststore`.
+
+<br>
+
+- **Message**: <br>
+    `SSL Handshake Failure reason[Unknown SSL Error]`  
+    `SSL Handshake Failure reason [error:OA000410:SSL routines::sslv3 alert handshake failure]`
+
+- **Cause**: The server is not configured with strong ciphers for SSL communication. OpenSSL 3.0 should use either TLS 1.0 and higher as it deprecated SSL protocol versions. For example, the server might accept connections with TLS protocol versions until TLS 1.0.
+
+- **Recommendation**: Revise the server configuration to use stronger TLS versions.
+
+<br>
+
+- **Message**: `SSL Handshake Failure reason [error:0A00014D:SSL routines::legacy sigalg disallowed or unsupported].` 
+
+- **Cause**: CryptoProtocolVersion is set to use deprecated TLS protocol versions with OpenSSL 3.0.
+
+- **Recommendation**: Specify the connection string property `CryptoProtocolVersion=TLSv1.2`.
+
+
 ## Related content
 
 For more troubleshooting help, try these resources:

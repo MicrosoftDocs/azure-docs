@@ -38,6 +38,12 @@
       href: quick-backup-aks.md
     - name: With Terraform
       href: quick-kubernetes-backup-terraform.md
+  - name: Configure vaulted backup for Azure Blob
+    items:
+    - name: Using ARM template
+      href: backup-blobs-storage-account-arm-template.md
+    - name: Using Bicep
+      href: backup-blobs-storage-account-bicep.md
   - name: Install Backup extension in AKS cluster
     href: quick-install-backup-extension.md    
   - name: Enable Multi-user authorization (MUA)
