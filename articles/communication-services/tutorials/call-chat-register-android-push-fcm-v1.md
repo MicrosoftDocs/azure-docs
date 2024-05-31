@@ -16,7 +16,7 @@ This article applies to call and chat applications using Android SDK with Fireba
 
 On June 20, 2023, Google announced that it [deprecated sending messages using the FCM legacy APIs](https://firebase.google.com/docs/cloud-messaging). Google is removing the legacy FCM from service in June 2024. Google recommends [migrating from legacy FCM APIs to FCM HTTP v1](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
 
-If your existing Android application uses the push notification feature, you need to [migrate to the FCM HTTP v1 endpoint](./call-chat-migrate-android-push-fcmv1.md).
+If your existing Android application uses the push notification feature, you need to [migrate to the FCM HTTP v1 endpoint](./call-chat-migrate-android-push-fcm-v1.md).
 
 If you have a new Android application or never used Google FCM, complete the following steps to register for Android SDK push notification using FCM HTTP v1.
 
@@ -31,8 +31,8 @@ Complete the following steps to migrate your push notification to FCM HTTP v1.
 3. Select any programming language.
 
 4. Click **Generate new private key** to download a JSON file containing your new private key.
-
-    ![Generate new private key for FMC v1 in Firebase console.](./media/call-chat-fcm-firebase-console-gen-key.png)
+    
+    ![Screenshot of how to generate a new private key for FMC v1 in Firebase console.](./media/call-chat-fcm-firebase-console-gen-key.png)
 
 5. Find and open the downloaded JSON file. You need values from this file for the next step.
 
@@ -44,7 +44,8 @@ Complete the following steps to migrate your push notification to FCM HTTP v1.
 2. Open **Settings** > **Google (FCM v1)**.
 
 3. Enter the values from your downloaded JSON file in the text boxes for **Private Key**, **Client Email**, and **Project ID**.
-    ![Provide new private key credentials for FCM v1 in Azure portal settings.](./media/call-chat-fcmv1-credentials-add.png)
+    
+    ![Screenshot of how to provide a new private key credentials for FCM v1 in Azure portal settings.](./media/call-chat-fcmv1-credentials-add.png)
 
 4. Click **Save**.
 

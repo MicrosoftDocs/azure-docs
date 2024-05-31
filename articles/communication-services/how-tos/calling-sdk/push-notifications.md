@@ -67,5 +67,5 @@ In case that you want to revoke an identity you need to follow [this process](..
 
 ## Related topics
 
-- [Migrate Android SDK push notifications to FCM v1](../../tutorials/call-chat-migrate-android-push-fcmv1.md)
-- [Register for Android SDK push notifications using FCM v1](../../tutorials/call-chat-register-android-push-fcmv1.md)
+- [Migrate Android SDK push notifications to FCM v1](../../tutorials/call-chat-migrate-android-push-fcm-v1.md)
+- [Register for Android SDK push notifications using FCM v1](../../tutorials/call-chat-register-android-push-fcm-v1.md)

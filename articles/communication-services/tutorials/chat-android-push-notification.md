@@ -238,5 +238,5 @@ If the app is integrated with Azure Function, initialization of application para
 
 ## Related topics
 
-- [Migrate Android SDK push notifications to FCM v1](./call-chat-migrate-android-push-fcmv1.md)
-- [Register for Android SDK push notifications using FCM v1](./call-chat-register-android-push-fcmv1.md)
+- [Migrate Android SDK push notifications to FCM v1](./call-chat-migrate-android-push-fcm-v1.md)
+- [Register for Android SDK push notifications using FCM v1](./call-chat-register-android-push-fcm-v1.md)
