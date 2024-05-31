@@ -868,7 +868,7 @@
               href: /azure/azure-app-configuration/reference-kubernetes-provider?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Troubleshoot the Azure App Configuration extension
               href: /troubleshoot/azure/azure-kubernetes/troubleshoot-app-configuration-extension-installation-errors?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-    - name: Deploy Intelligent Apps on AKS
+    - name: AI and machine learning
       items:
         - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
           href: open-ai-quickstart.md
