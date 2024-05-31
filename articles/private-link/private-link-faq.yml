@@ -57,9 +57,9 @@ sections:
           Yes. You can have multiple Private Endpoints in same VNet or subnet. They can connect to different services.  
 
       - question: |
-          can we link multiple private DNS zones with the same name? 
+           Can we link multiple private DNS zones with the same name? 
         answer: |
-          No. Creating multiple zones with the same name for a single virtual network is not supported.  
+           No, creating multiple zones with the same name for a single virtual network is not supported.  
 
       - question: |
           Do I require a dedicated subnet for Private Endpoints? 
