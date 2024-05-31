@@ -161,9 +161,9 @@ Metrics, as opposite to parameters, are always numeric, and they can be logged e
 
 ### Log metrics asynchronously
 
-MLflow also allows logging of metrics in an asynchronous way. Asynchronous metric logging is particularly useful in cases where large training jobs with tens of compute nodes might be running and trying to log metrics concurrently. It's also useful when an small number of nodes is trying to log a high number of metrics.
+MLflow also allows logging of metrics in an asynchronous way. Asynchronous metric logging is particularly useful in cases where large training jobs with tens of compute nodes might be running and trying to log metrics concurrently. It's also useful when a small number of nodes is trying to log a high number of metrics.
 
-Asynchronous metric logging allows you to log metrics inmediately by avoiding waiting for them to materialize in the backend service. This approach scales to large training routines that log hundreds of thousands of metric values and it's the recommended approach.
+Asynchronous metric logging allows you to log metrics immediately by avoiding waiting for them to materialize in the backend service. This approach scales to large training routines that log hundreds of thousands of metric values and it's the recommended approach.
 
 MLflow logs metrics synchronously by default, however, you can change this behavior at any time:
 
