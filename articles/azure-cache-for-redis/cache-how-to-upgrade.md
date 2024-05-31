@@ -96,6 +96,5 @@ Set-AzRedisCache -Name "CacheName" -ResourceGroupName "ResourceGroupName" -Redis
 
 ## Next steps
 
-- To learn more about Azure Cache for Redis versions, see [Set Redis version for Azure Cache for Redis](cache-how-to-version.md)
 - To learn more about Redis 6 features, see [Diving Into Redis 6.0 by Redis](https://redis.com/blog/diving-into-redis-6/)
 - To learn more about Azure Cache for Redis features: [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)

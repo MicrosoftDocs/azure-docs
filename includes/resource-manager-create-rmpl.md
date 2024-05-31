@@ -19,7 +19,8 @@ Private link provides the following security benefits:
 
 ## Understand architecture
 
-For this release, you can only apply private link management access at the level of the root [management group](../articles/governance/management-groups/overview.md). This limitation means private link access is applied across your tenant.
+> [!IMPORTANT]
+> For this release, you can only apply private link management access at the level of the root [management group](../articles/governance/management-groups/overview.md). This limitation means private link access is applied across your tenant.
 
 There are two resource types you'll use when implementing management through a private link.
 
@@ -51,8 +52,11 @@ You can monitor access to the private link. For more information, see [Logging a
 
 ## Required permissions
 
+> [!IMPORTANT]
+> For this release, you can only apply private link management access at the level of the root [management group](../articles/governance/management-groups/overview.md). This limitation means private link access is applied across your tenant.
+
 To set up the private link for resource management, you need the following access:
 
 * Owner on the subscription. This access is needed to create resource management private link resource.
 * Owner or Contributor at the root management group. This access is needed to create the private link association resource.
-* The Global Administrator for the Azure Active Directory doesn't automatically have permission to assign roles at the root management group. To enable creating resource management private links, the Global Administrator must have permission to read root management group and [elevate access](../articles/role-based-access-control/elevate-access-global-admin.md) to have User Access Administrator permission on all subscriptions and management groups in the tenant. After you get the User Access Administrator permission, the Global Administrator must grant Owner or Contributor permission at the root management group to the user creating the private link association.
+* The Global Administrator for the Microsoft Entra ID doesn't automatically have permission to assign roles at the root management group. To enable creating resource management private links, the Global Administrator must have permission to read root management group and [elevate access](../articles/role-based-access-control/elevate-access-global-admin.md) to have User Access Administrator permission on all subscriptions and management groups in the tenant. After you get the User Access Administrator permission, the Global Administrator must grant Owner or Contributor permission at the root management group to the user creating the private link association.

@@ -29,14 +29,14 @@ To use the Azure IoT explorer tool, you need:
 
 ## Install Azure IoT explorer
 
-Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application.
+Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application. The installation package configures a way for you to launch the application on your platform. For example, in Windows you can launch the application from the Start menu.
 
 >[!Important]
 > Update to version 0.13.x or greater to resolve models from any repository based on [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models)
 
 ## Use Azure IoT explorer
 
-For a device, you can either connect your own device, or use one of the sample simulated devices. For some example simulated devices written in different languages, see the [Connect a sample IoT Plug and Play device application to IoT Hub](../iot-develop/tutorial-connect-device.md) tutorial.
+For a device, you can either connect your own device, or use one of the sample simulated devices. For some example simulated devices written in different languages, see the [Connect a sample IoT Plug and Play device application to IoT Hub](./tutorial-connect-device.md) tutorial.
 
 ### Connect to your hub
 
@@ -126,4 +126,4 @@ For a list of the IoT features supported by the latest version of the tool, see 
 
 ## Next steps
 
-In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Manage IoT Plug and Play digital twins](../iot-develop/howto-manage-digital-twin.md).
+In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Manage IoT Plug and Play digital twins](./howto-manage-digital-twin.md).

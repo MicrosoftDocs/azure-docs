@@ -19,7 +19,7 @@ Azure Maps provides a collection of npm modules for the [Azure TypeScript REST S
 
 1. Using `@azure-rest/maps-search` as an example, install the package with `npm install @azure-rest/maps-search`.
 
-1. Create and authenticate a [MapsSearch] client. To create a client to access the Azure Maps Search APIs, you need a credential object. The client supports an [Azure Active Directory credential] or an [Azure Key credential] for authentication. You may need to install either [@azure/identity] or [@azure/core-auth] for different authentication methods.
+1. Create and authenticate a [MapsSearch] client. To create a client to access the Azure Maps Search APIs, you need a credential object. The client supports an [Microsoft Entra credential] or an [Azure Key credential] for authentication. You may need to install either [@azure/identity] or [@azure/core-auth] for different authentication methods.
 
     If you use a subscription key for authentication, install the package with `npm install @azure/core-auth`:
 
@@ -37,7 +37,7 @@ Azure Maps provides a collection of npm modules for the [Azure TypeScript REST S
     const client = MapsSearch(credential);
     ```
 
-    If you use Azure AD for authentication, install the package with `npm install @azure/identity`:
+    If you use Microsoft Entra ID for authentication, install the package with `npm install @azure/identity`:
 
     ```javascript
     import MapsSearch from "@azure-rest/maps-search";
@@ -145,7 +145,7 @@ For more code samples that use the TypeScript REST SDK with Web SDK integration,
 [Azure TypeScript REST SDK]: ./rest-sdk-developer-guide.md#javascripttypescript
 [JavaScript/TypeScript REST SDK Developers Guide]: ./how-to-dev-guide-js-sdk.md
 [MapsSearch]: /javascript/api/@azure-rest/maps-search
-[Azure Active Directory credential]: ./how-to-dev-guide-js-sdk.md#using-an-azure-ad-credential
+[Microsoft Entra credential]: ./how-to-dev-guide-js-sdk.md#using-an-azure-ad-credential
 [Azure Key credential]: ./how-to-dev-guide-js-sdk.md#using-a-subscription-key-credential
 [@azure/identity]: https://www.npmjs.com/package/@azure/identity
 [@azure/core-auth]: https://www.npmjs.com/package/@azure/core-auth

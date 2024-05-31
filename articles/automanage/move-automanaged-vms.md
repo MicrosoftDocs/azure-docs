@@ -2,7 +2,6 @@
 title: Move an Azure Automanage virtual machine across regions
 description: Learn how to move an Automanaged virtual machine across regions
 ms.service: automanage
-ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 12/10/2021
 ms.custom: subject-moving-resources

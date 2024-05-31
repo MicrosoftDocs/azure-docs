@@ -4,8 +4,8 @@ description: Explains how to back up the controller database for Azure Arc-enabl
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 04/26/2023
 ms.topic: how-to
@@ -16,7 +16,7 @@ ms.topic: how-to
 When you deploy Azure Arc data services, the Azure Arc Data Controller is one of the most critical components that is deployed. The functions of the  data controller include:
 
 - Provision, de-provision and update resources
-- Orchestrate most of the activities for Azure Arc-enabled SQL Managed Instance such as upgrades, scale out etc. 
+- Orchestrate most of the activities for SQL Managed Instance enabled by Azure Arc such as upgrades, scale out etc. 
 - Capture the billing and usage information of each Arc SQL managed instance. 
 
 In order to perform above functions, the Data controller needs to store an inventory of all the current Arc SQL managed instances, billing, usage and the current state of all these SQL managed instances. All this data is stored  in a database called `controller` within the SQL Server instance that is deployed into the `controldb-0` pod. 
@@ -163,7 +163,7 @@ Follow these steps to restore the controller database from a backup with new sto
 
    ```console
    kubectl scale --replicas=0 rs/control -n arcdataservices
-   ``
+   ```
 3. Scale the `controldb` StatefulSet down to 0 replicas, as follows: 
 
    ```console
@@ -179,15 +179,15 @@ Follow these steps to restore the controller database from a backup with new sto
 4. Create a kubernetes secret named `controller-sa-secret` with the following YAML: 
 
    ```yml
-    apiVersion: v1
-    kind: Secret
-    metadata:
-      name: controller-sa-secret
-      namespace: <namespace>
-    type: Opaque
-    data:
-      password: <base64 encoded password>
-    ```
+   apiVersion: v1
+   kind: Secret
+   metadata:
+     name: controller-sa-secret
+     namespace: <namespace>
+   type: Opaque
+   data:
+     password: <base64 encoded password>
+   ```
 
 5. Edit the `controldb` StatefulSet to include a `controller-sa-secret` volume and corresponding volume mount (`/var/run/secrets/mounts/credentials/mssql-sa-password`) in the `mssql-server` container, by using `kubectl edit sts controldb -n <namespace>` command. 
 
@@ -253,6 +253,6 @@ Follow these steps to restore the controller database from a backup with new sto
 
 16. Scale the controller ReplicaSet back up to 1 replica using the `kubectl scale` command.
 
-## Next steps
+## Related content
 
 [Azure Data Studio dashboards](azure-data-studio-dashboards.md)

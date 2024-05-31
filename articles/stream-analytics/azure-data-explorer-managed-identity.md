@@ -1,8 +1,8 @@
 ---
 title: Use managed identities to access Azure Data Explorer from an Azure Stream Analytics job
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to an Azure Data Explorer output.
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 10/27/2022
@@ -51,7 +51,7 @@ For the Stream Analytics job to access your Azure Data Explorer cluster using ma
 
 2. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |

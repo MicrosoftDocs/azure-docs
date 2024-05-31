@@ -15,7 +15,7 @@ As the Device Update for IoT Hub service releases new versions, you'll want to u
 To migrate successfully, you will have to upgrade the DU agent running on your devices. Note that as there are major changes with the GA release, we recommend that you follow the instructions closely to avoid errors.
 
 > [!NOTE] 
-> All PPR device groups created will be automatically changed to GA groups. The groups and devices will be available after migration. The deployment history will not carry over to the the updated GA groups. 
+> All PPR device groups created will be automatically changed to GA groups. The groups and devices will be available after migration. The deployment history will not carry over to the updated GA groups. 
 
 ## Update the Device Update agent
 

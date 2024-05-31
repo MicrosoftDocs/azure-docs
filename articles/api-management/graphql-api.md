@@ -1,16 +1,17 @@
 ---
 title: Add a GraphQL API to Azure API Management | Microsoft Docs
-titleSuffix: 
 description: Learn how to add an existing GraphQL service as an API in Azure API Management using the Azure portal, Azure CLI, or Azure PowerShell. Manage the API and enable queries to pass through to the GraphQL endpoint.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 04/10/2023
-ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Import a GraphQL API
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 [!INCLUDE [api-management-graphql-intro.md](../../includes/api-management-graphql-intro.md)]
 
@@ -26,7 +27,7 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - A GraphQL API. 
 - Azure CLI
-    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 - Azure PowerShell
@@ -135,7 +136,7 @@ If your GraphQL  API supports a subscription, you can test it in the test consol
 
 ## Secure your GraphQL API
 
-Secure your GraphQL API by applying both existing [access control policies](api-management-policies.md#access-restriction-policies) and a [GraphQL validation policy](validate-graphql-request-policy.md) to protect against GraphQL-specific attacks.
+Secure your GraphQL API by applying both existing [authentication and authorization policies](api-management-policies.md#authentication-and-authorization) and a [GraphQL validation policy](validate-graphql-request-policy.md) to protect against GraphQL-specific attacks.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

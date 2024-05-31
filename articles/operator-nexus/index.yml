@@ -6,9 +6,9 @@ summary: Operator Nexus runs network-intensive workloads under stringent securit
 metadata:
   title: Operator Nexus  
   description: Azure Operator Nexus, the next-generation hybrid cloud platform for operators, 
-   proven to run network-intensive workloads and mission-critical applications under the stringent  security, 
+   is proven to run network-intensive workloads and mission-critical applications under the stringent  security, 
    resiliency, observability, manageability, and performance required by telecommunication' operators. 
-   Learn how to deploy, manage and use Operator Nexus with these concepts and quickstarts.
+   Learn how to deploy, manage, and use Operator Nexus with these concepts and quickstarts.
   ms.service: azure-operator-nexus
   ms.topic: landing-page
   author: jashobhit
@@ -36,6 +36,8 @@ landingContent:
              url: concepts-storage.md
            - text: Nexus Kubernetes overview
              url: concepts-nexus-kubernetes-cluster.md
+           - text: Nexus Kubernetes resource placement
+             url: concepts-nexus-kubernetes-placement.md
            - text: Observability
              url: concepts-observability.md
            - text: Security
@@ -63,7 +65,7 @@ landingContent:
            - text: Deploy Nexus Kubernetes cluster
              url: quickstarts-kubernetes-cluster-deployment-bicep.md
            - text: Deploy Nexus virtual machine
-             url: quickstarts-tenant-workload-deployment.md
+             url: quickstarts-virtual-machine-deployment-cli.md
 #
   # Card
   - title: Observability
@@ -92,8 +94,8 @@ landingContent:
         links:
            - text: Set up Defender for Cloud security
              url: howto-set-up-defender-for-cloud-security.md
-           - text: Use Azure Policy to protect AKS clusters
-             url: howto-use-azure-policy-for-aks-cluster-security.md
+           - text: Use Azure Policy to protect Nexus resources
+             url: howto-use-azure-policy.md
 #
   # Card
   - title: References
@@ -104,6 +106,8 @@ landingContent:
              url: List-of-metrics-collected.md
            - text: Near-edge Compute
              url: reference-near-edge-compute.md
+           - text: Near-edge BMM roles
+             url: reference-near-edge-baremetal-machine-roles.md
            - text: Near-edge storage
              url: reference-near-edge-storage.md
            - text: Limits & quotas
@@ -158,7 +162,7 @@ landingContent:
 #            url: quickstarts-tenant-workload-prerequisites.md
 #       links:
 #          - text: Tenant workload deployment
-#            url: quickstarts-tenant-workload-deployment.md           
+#            url: quickstarts-virtual-machine-deployment-cli.md           
 #     - linkListType: how-to-guide
 #       links:
 #          - text: Bare metal operations

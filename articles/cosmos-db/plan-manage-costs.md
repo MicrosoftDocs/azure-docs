@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure Cosmos DB by using
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.custom: subject-cost-optimization, ignite-fall-2021, ignite-2022
+ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/08/2021

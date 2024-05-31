@@ -2,17 +2,15 @@
 title: Configure monitoring for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website hosted on-premises or in Azure.
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 01/31/2024
 ms.devlang: csharp
-ms.custom: contperf-fy21q1
 ---
 
 # Configure Application Insights for your ASP.NET website
 
 This procedure configures your ASP.NET web app to send telemetry to the [Application Insights](./app-insights-overview.md) feature of the Azure Monitor service. It works for ASP.NET apps that are hosted either in your own IIS servers on-premises or in the cloud. 
 
-> [!NOTE]
-> An [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. [Learn more](opentelemetry-overview.md).
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -108,7 +106,7 @@ This section guides you through manually adding Application Insights to a templa
           </ExcludeComponentCorrelationHttpHeadersOnDomains>
           <IncludeDiagnosticSourceActivities>
             <Add>Microsoft.Azure.EventHubs</Add>
-            <Add>Microsoft.Azure.ServiceBus</Add>
+            <Add>Azure.Messaging.ServiceBus</Add>
           </IncludeDiagnosticSourceActivities>
         </Add>
         <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">

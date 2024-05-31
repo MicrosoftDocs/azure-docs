@@ -2,22 +2,20 @@
 title: "Use an ONNX model with Windows ML - Custom Vision Service"
 titleSuffix: Azure AI services
 description: Learn how to create a Windows UWP app that uses an ONNX model exported from Azure AI services.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-custom-vision
 ms.topic: how-to
-ms.date: 04/29/2020
+ms.date: 01/22/2024
 ms.author: pafarley
 #Customer intent: As a developer, I want to use a custom vision model with Windows ML.
 ---
 
 # Use an ONNX model from Custom Vision with Windows ML (preview)
 
-Learn how to use an ONNX model exported from the Custom Vision service with Windows ML (preview).
-
-In this guide, you'll learn how to use an ONNX file exported from the Custom Vision Service with Windows ML. You'll use the example UWP application with your own trained image classifier.
+Learn how to use an ONNX model exported from the Custom Vision service with Windows ML (preview). You'll use an example UWP application with your own trained image classifier.
 
 ## Prerequisites
 
@@ -28,9 +26,9 @@ In this guide, you'll learn how to use an ONNX file exported from the Custom Vis
 
 ## About the example app
 
-The included application is a generic Windows UWP app. It allows you to select an image from your computer, which is then processed by a locally stored classification model. The tags and scores returned by the model are displayed next to the image.
+The included application is a generic Windows UWP app. It allows you to select an image from your computer and process it using a locally stored classification model. The tags and scores returned by the model are displayed next to the image.
 
-## Get the example code
+## Get the application
 
 The example application is available at the [Azure AI services ONNX Custom Vision Sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample) repo on GitHub. Clone it to your local machine and open *SampleOnnxEvaluationApp.sln* in Visual Studio.
 

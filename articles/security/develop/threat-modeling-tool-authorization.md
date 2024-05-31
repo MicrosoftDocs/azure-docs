@@ -2,20 +2,13 @@
 title: Authorization - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Learn about authorization mitigation in the Threat Modeling Tool. See a list of potential threats and mitigation instructions.
 services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-
-ms.assetid: na
 ms.service: information-protection
 ms.subservice: aiplabels
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-csharp, ignite-2022, devx-track-arm-template
+ms.custom: devx-track-csharp, devx-track-arm-template
 ---
 
 # Security Frame: Authorization | Mitigations 
@@ -232,7 +225,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md)  |
+| **References**              | [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.yml)  |
 | **Steps** | Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can grant only the amount of access that users need to perform their jobs.|
 
 ## <a id="cluster-rbac"></a>Restrict client's access to cluster operations using Service Fabric RBAC
@@ -288,7 +281,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [How to secure your storage account with Azure role-based access control (Azure RBAC)](../../storage/blobs/security-recommendations.md) |
-| **Steps** | <p>When you create a new storage account, you select a deployment model of Classic or Azure Resource Manager. The Classic model of creating resources in Azure only allows all-or-nothing access to the subscription, and in turn, the storage account.</p><p>With the Azure Resource Manager model, you put the storage account in a resource group and control access to the management plane of that specific storage account using Azure Active Directory. For example, you can give specific users the ability to access the storage account keys, while other users can view information about the storage account, but cannot access the storage account keys.</p>|
+| **Steps** | <p>When you create a new storage account, you select a deployment model of Classic or Azure Resource Manager. The Classic model of creating resources in Azure only allows all-or-nothing access to the subscription, and in turn, the storage account.</p><p>With the Azure Resource Manager model, you put the storage account in a resource group and control access to the management plane of that specific storage account using Microsoft Entra ID. For example, you can give specific users the ability to access the storage account keys, while other users can view information about the storage account, but cannot access the storage account keys.</p>|
 
 ## <a id="rooting-detection"></a>Implement implicit jailbreak or rooting detection
 
@@ -393,9 +386,9 @@ return result;
 | **Component**               | Web API | 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, MVC5 |
-| **Attributes**              | N/A, Identity Provider - ADFS, Identity Provider - Azure AD |
+| **Attributes**              | N/A, Identity Provider - ADFS, Identity Provider - Microsoft Entra ID |
 | **References**              | [Authentication and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
-| **Steps** | <p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p><p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p>
+| **Steps** | <p>Role information for the application users can be derived from Microsoft Entra ID or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p><p>Role information for the application users can be derived from Microsoft Entra ID or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p>
 
 ### Example
 ```csharp

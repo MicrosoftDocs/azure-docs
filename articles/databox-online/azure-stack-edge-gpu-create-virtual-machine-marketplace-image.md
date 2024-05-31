@@ -11,9 +11,13 @@ ms.topic: how-to
 ms.date: 05/24/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
+
 ---
 
 # Use Azure Marketplace image to create VM image for your Azure Stack Edge Pro GPU
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -36,14 +40,14 @@ For more information, go to [Deploy a VM on your Azure Stack Edge Pro device usi
 
 Before you can use Azure Marketplace images for Azure Stack Edge, make sure you're connected to Azure in either of the following ways.
 
-[!INCLUDE [azure-cli-prepare-your-environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 ## Search for Azure Marketplace images
 
-You'll now identify a specific Azure Marketplace image that you wish to use. Azure Marketplace hosts thousands of VM images. 
+You'll now identify a specific Azure Marketplace image that you wish to use. Azure Marketplace hosts thousands of VM images.
 
-To find some of the most commonly used Marketplace images that match your search criteria, run the following command.  
+To find some of the most commonly used Marketplace images that match your search criteria, run the following command.
 
 ```azurecli
 az vm image list --all [--publisher <Publisher>] [--offer <Offer>] [--sku <SKU>]
@@ -53,14 +57,14 @@ The last three flags are optional but excluding them returns a long list.
 Some example queries are:
 
 ```azurecli
-#Returns all images of type “Windows Server”
-az vm image list --all --publisher "MicrosoftWindowsserver" --offer "WindowsServer" 
+#Returns all images of type "Windows Server"
+az vm image list --all --publisher "MicrosoftWindowsserver" --offer "WindowsServer"
 
 #Returns all Windows Server 2019 Datacenter images from West US published by Microsoft
 az vm image list --all --location "westus" --publisher "MicrosoftWindowsserver" --offer "WindowsServer" --sku "2019-Datacenter"
 
-#Returns all VM images from a publisher  
-az vm image list --all --publisher "Canonical" 
+#Returns all VM images from a publisher
+az vm image list --all --publisher "Canonical"
 ```
 
 Here is an example output when VM images of a certain publisher, offer, and SKU were queried.
@@ -131,13 +135,13 @@ PS /home/user> az vm image list --all --publisher "Canonical" --offer "UbuntuSer
 PS /home/user>
 ```
 
-In this example, we will select Windows Server 2019 Datacenter Core, version 2019.0.20190410. We will identify this image by its Universal Resource Number (“URN”). 
- 
+In this example, we will select Windows Server 2019 Datacenter Core, version 2019.0.20190410. We will identify this image by its Universal Resource Number (“URN”).
+
 :::image type="content" source="media/azure-stack-edge-create-virtual-machine-marketplace-image/marketplace-image-1.png" alt-text="List of marketplace images":::
 
 ### Commonly used Marketplace images
 
-Below is a list of URNs for some of the most commonly used images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example, “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”. 
+Below is a list of URNs for some of the most commonly used images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example, “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”.
 
 
 | OS              | SKU                                     | Version               | URN                                                                                       |
@@ -156,7 +160,7 @@ Below is a list of URNs for some of the most commonly used images. If you just w
 
 ## Create a new managed disk from the Marketplace image
 
-Create an Azure Managed Disk from your chosen Marketplace image. 
+Create an Azure Managed Disk from your chosen Marketplace image.
 
 1. Set some parameters.
 
@@ -172,7 +176,7 @@ Create an Azure Managed Disk from your chosen Marketplace image.
     ```azurecli
     az disk create -g $diskRG -n $diskName --image-reference $urn
     $sas = az disk grant-access --duration-in-seconds 36000 --access-level Read --name $diskName --resource-group $diskRG
-    $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas 
+    $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas
     ```
 
 Here is an example output:
@@ -245,12 +249,12 @@ PS /home/user>  $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas
 PS /home/user>
 ```
 
-## Export a VHD from the managed disk to Azure Storage 
+## Export a VHD from the managed disk to Azure Storage
 
 This step will export a VHD from the managed disk to your preferred Azure blob storage account. This VHD can then be used to create VM images on Azure Stack Edge.
 
 1. Set the destination storage account where the VHD will be copied.
-    
+
     ```azurecli
     $storageAccountName = <destination storage account name>
     $containerName = <destination container name>
@@ -266,9 +270,9 @@ This step will export a VHD from the managed disk to your preferred Azure blob s
     ```
 
     The VHD copy will take several minutes to complete. Ensure the copy has completed before proceeding by running the following command. The status field will show “Success” when complete.
-    
+
     ```azurecli
-    Get-AzureStorageBlobCopyState –Container $containerName –Context $destContext -Blob $destBlobName 
+    Get-AzureStorageBlobCopyState –Container $containerName –Context $destContext -Blob $destBlobName
     ```
 
 Here is an example output:
@@ -316,8 +320,8 @@ DestinationSnapshotTime :
 To delete the managed disk you created, follow these steps:
 
 ```azurecli
-az disk revoke-access --name $diskName --resource-group $diskRG 
-az disk delete --name $diskName --resource-group $diskRG --yes 
+az disk revoke-access --name $diskName --resource-group $diskRG
+az disk delete --name $diskName --resource-group $diskRG --yes
 ```
 The deletion takes a couple minutes to complete.
 

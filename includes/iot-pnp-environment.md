@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 11/17/2022
 ---
 
-In [Set up your environment](../articles/iot-develop/set-up-environment.md), you created four environment variables to configure the sample to use the Device Provisioning Service (DPS) to connect to your IoT hub:
+In [Set up your environment](../articles/iot/set-up-environment.md), you created four environment variables to configure the sample to use the Device Provisioning Service (DPS) to connect to your IoT hub:
 
 * **IOTHUB_DEVICE_SECURITY_TYPE** with the value `DPS`
 * **IOTHUB_DEVICE_DPS_ID_SCOPE** with the DPS ID scope.

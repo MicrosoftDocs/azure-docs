@@ -5,7 +5,7 @@ description: Learn how to create Azure integration runtime in Azure Data Factory
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 10/24/2022
+ms.date: 10/20/2023
 author: lrtoyou1223
 ms.author: lle 
 ms.custom: synapse
@@ -101,7 +101,7 @@ Once an Azure IR is created, you can reference it in your Linked Service definit
 
 ```
 
-## Next steps
+## Related content
 See the following articles on how to create other types of integration runtimes:
 
 - [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md)

@@ -3,7 +3,7 @@ title: Release and work item insights for Application Insights
 description: Learn how to set up continuous monitoring of your release pipeline, create work items in GitHub or Azure DevOps, and track deployment or other significant events.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 10/06/2023
+ms.date: 11/15/2023
 ms.reviewer: abinetabate
 ---
 
@@ -183,6 +183,35 @@ You can use the `CreateReleaseAnnotation` PowerShell script to create annotation
         [parameter(Mandatory = $true)][string]$releaseName,
         [parameter(Mandatory = $false)]$releaseProperties = @()
     )
+
+    # Function to ensure all Unicode characters in a JSON string are properly escaped
+    function Convert-UnicodeToEscapeHex {
+      param (
+        [parameter(Mandatory = $true)][string]$JsonString
+      )
+      $JsonObject = ConvertFrom-Json -InputObject $JsonString
+      foreach ($property in $JsonObject.PSObject.Properties) {
+        $name = $property.Name
+        $value = $property.Value
+        if ($value -is [string]) {
+          $value = [regex]::Unescape($value)
+          $OutputString = ""
+          foreach ($char in $value.ToCharArray()) {
+            $dec = [int]$char
+            if ($dec -gt 127) {
+              $hex = [convert]::ToString($dec, 16)
+              $hex = $hex.PadLeft(4, '0')
+              $OutputString += "\u$hex"
+            }
+            else {
+              $OutputString += $char
+            }
+          }
+          $JsonObject.$name = $OutputString
+        }
+      }
+      return ConvertTo-Json -InputObject $JsonObject -Compress
+    }
     
     $annotation = @{
         Id = [GUID]::NewGuid();
@@ -192,15 +221,29 @@ You can use the `CreateReleaseAnnotation` PowerShell script to create annotation
         Properties = ConvertTo-Json $releaseProperties -Compress
     }
     
-    $body = (ConvertTo-Json $annotation -Compress) -replace '(\\+)"', '$1$1"' -replace "`"", "`"`""
-    az rest --method put --uri "$($aiResourceId)/Annotations?api-version=2015-05-01" --body "$($body) "
-
-    # Use the following command for Linux Azure DevOps Hosts or other PowerShell scenarios
-    # Invoke-AzRestMethod -Path "$aiResourceId/Annotations?api-version=2015-05-01" -Method PUT -Payload $body
+    $annotation = ConvertTo-Json $annotation -Compress
+    $annotation = Convert-UnicodeToEscapeHex -JsonString $annotation  
+ 
+    $accessToken = (az account get-access-token | ConvertFrom-Json).accessToken
+    $headers = @{
+        "Authorization" = "Bearer $accessToken"
+        "Accept"        = "application/json"
+        "Content-Type"  = "application/json"
+    }
+    $params = @{
+        Headers = $headers
+        Method  = "Put"
+        Uri     = "https://management.azure.com$($aiResourceId)/Annotations?api-version=2015-05-01"
+        Body    = $annotation
+    }
+    Invoke-RestMethod @params
     ```
 
     > [!NOTE]
-    > Your annotations must have **Category** set to **Deployment** to appear in the Azure portal.
+    > - Your annotations must have **Category** set to **Deployment** to appear in the Azure portal.
+    > - If you receive an error, "The request contains an entity body but no Content-Type header", try removing the replace parameters in the following line.
+    > 
+    > `$body = (ConvertTo-Json $annotation -Compress)`
 
 1. Call the PowerShell script with the following code. Replace the angle-bracketed placeholders with your values. The `-releaseProperties` are optional.
 
@@ -340,7 +383,7 @@ The new work item integration offers the following features over [classic](#clas
 
     :::image type="content" source="./media/release-and-work-item-insights/create-template-from-transaction-details.png" alt-text=" Screenshot of  end-to-end transaction details tab with create a work item, start with a workbook template selected." lightbox="./media/release-and-work-item-insights/create-template-from-transaction-details.png":::
 
-2. After you select **create a new template**, you can choose your tracking systems, name your workbook, link to your selected tracking system, and choose a region to storage the template (the default is the region your Application Insights resource is located in). The URL parameters are the default URL for your repository, for example, `https://github.com/myusername/reponame` or `https://mydevops.visualstudio.com/myproject`.
+2. After you select **create a new template**, you can choose your tracking systems, name your workbook, link to your selected tracking system, and choose a region to storage the template (the default is the region your Application Insights resource is located in). The URL parameters are the default URL for your repository, for example, `https://github.com/myusername/reponame` or `https://dev.azure.com/{org}/{project}`.
 
     :::image type="content" source="./media/release-and-work-item-insights/create-workbook.png" alt-text=" Screenshot of create a new work item workbook template.":::
 
@@ -392,6 +435,6 @@ To delete, go to in your Application Insights resource under *Configure* select 
 ## See also
 
 * [Azure Pipelines documentation](/azure/devops/pipelines)
-* [Create work items](./diagnostic-search.md#create-work-item)
+* [Create work items](./transaction-search-and-diagnostics.md?tabs=transaction-search#create-work-item)
 * [Automation with PowerShell](./powershell.md)
 * [Availability test](availability-overview.md)

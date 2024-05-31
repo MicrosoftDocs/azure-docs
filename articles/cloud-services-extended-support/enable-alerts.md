@@ -7,7 +7,6 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: 
 ---
 
 # Enable monitoring for Cloud Services (extended support) using the Azure portal

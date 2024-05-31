@@ -3,15 +3,13 @@ title: SAP HANA Azure virtual machine ANF configuration | Microsoft Docs
 description: Azure NetApp Files Storage recommendations for SAP HANA.
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 keywords: 'SAP, Azure, ANF, HANA, Azure NetApp Files, snapshot'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
-ms.date: 08/02/2023
+ms.date: 04/01/2024
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, linux-related-content
 ---
 
 # NFS v4.1 volumes on Azure NetApp Files for SAP HANA
@@ -113,7 +111,8 @@ To meet the SAP minimum throughput requirements for data and log, and according 
 | /hana/logbackup | 3 x RAM  | 3 x RAM | v3 or v4.1 |
 | /hana/backup | 2 x RAM  | 2 x RAM | v3 or v4.1 |
 
-For all volumes, NFS v4.1 is highly recommended
+For all volumes, NFS v4.1 is highly recommended.  
+Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system), as appropriately sized **/hana/shared** volume contributes to system's stability.   
 
 The sizes for the backup volumes are estimations. Exact requirements need to be defined based on workload and operation processes. For backups, you could consolidate many volumes for different SAP HANA instances to one (or two) larger volumes, which could have a lower service level of ANF.
 
@@ -240,7 +239,7 @@ This is sample code, provided “as-is” without any maintenance or support.
 Available solutions for storage snapshot based application consistent backup:
 
 - Microsoft [What is Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-introduction.md) is a command-line tool that enables data protection for third-party databases. It handles all the orchestration required to put the databases into an application consistent state before taking a storage snapshot. After the storage snapshot has been taken, the tool returns the databases to an operational state. AzAcSnap supports snapshot based backups for HANA Large Instance and Azure NetApp Files. for more details, read the article [What is Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-introduction.md) 
-- For users of Commvault backup products, another option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files snapshot support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) provides more information.
+- For users of Commvault backup products, another option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files snapshot support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/v11/essential/getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) provides more information.
 
 
 

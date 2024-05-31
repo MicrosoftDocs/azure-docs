@@ -27,7 +27,7 @@ You can review and download the sample code for this quick start on [GitHub](htt
 
 ### Create a new Java application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `mvn` command below to create a new console app with the name `rooms-quickstart`. This command creates a simple "Hello World" Java project with a single source file: **App.java**.
+In a console window (such as cmd, PowerShell, or Bash), use the `mvn` command to create a new console app with the name `rooms-quickstart`. This command creates a simple "Hello World" Java project with a single source file: **App.java**.
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
@@ -35,7 +35,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 
 ### Include the package
 
-You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0/jar) or above.
+You need to use the Azure Communication Rooms client library for Java [version 1.1.0](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.1.0/jar) or above.
 
 #### Include the BOM file
 
@@ -123,7 +123,7 @@ RoomsClient roomsClient = new RoomsClientBuilder().connectionString(connectionSt
 ## Create a room
 
 ### Set up room participants
-In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-java) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+In order to set up who can join a room, you need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-java) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
 
 To use `CommunicationIdentityClient`, add the following package:
 
@@ -170,19 +170,43 @@ Create a new `room` using the `roomParticipants` defined in the code snippet abo
 ```java
 OffsetDateTime validFrom = OffsetDateTime.now();
 OffsetDateTime validUntil = validFrom.plusDays(30);
+boolean pstnDialOutEnabled = false;
 
-CreateRoomOptions roomOptions = new CreateRoomOptions()
+CreateRoomOptions createRoomOptions = new CreateRoomOptions()
     .setValidFrom(validFrom)
     .setValidUntil(validUntil)
+    .setPstnDialOutEnabled(pstnDialOutEnabled)
     .setParticipants(roomParticipants);
 
-CommunicationRoom roomCreated = roomsClient.createRoom(roomOptions);
+CommunicationRoom roomCreated = roomsClient.createRoom(createRoomOptions);
 
 System.out.println("\nCreated a room with id: " + roomCreated.getRoomId());
 
 ```
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
+
+### Enable PSTN dial out capability for a room
+Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a `room` at creation, by defining the `pstnDialOutEnabled` parameter as true. This capability may also be modified for a `room` by issuing an update request for the `pstnDialOutEnabled` parameter.
+
+```java
+boolean pstnDialOutEnabled = true;
+// Create a room with PSTN dial out capability
+CreateRoomOptions createRoomOptions = new CreateRoomOptions()
+    .setPstnDialOutEnabled(pstnDialOutEnabled)
+
+CommunicationRoom roomCreated = roomsClient.createRoom(createRoomOptions);
+System.out.println("\nCreated a room with PSTN dial out enabled: " + roomCreated.getPstnDialOutEnabled());
+
+// Update a room to enable or disable PSTN dial out capability
+pstnDialOutEnabled = false;
+UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
+    .setPstnDialOutEnabled(pstnDialOutEnabled);
+
+CommunicationRoom roomUpdated = roomsClient.updateRoom(roomId, updateRoomOptions);
+System.out.println("\nUpdated a room with PSTN dial out enabled: " + roomUpdated.getPstnDialOutEnabled());
+
+```
 
 ## Get properties of an existing room
 
@@ -204,14 +228,16 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 
 OffsetDateTime validFrom = OffsetDateTime.now().plusDays(1);
 OffsetDateTime validUntil = validFrom.plusDays(1);
+boolean pstnDialOutEnabled = true;
 
-UpdateRoomOptions roomUpdateOptions = new UpdateRoomOptions()
+UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
     .setValidFrom(validFrom)
-    .setValidUntil(validUntil);
+    .setValidUntil(validUntil)
+    .setPstnDialOutEnabled(pstnDialOutEnabled);
 
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, roomUpdateOptions);
+CommunicationRoom roomResult = roomsClient.updateRoom(roomId, updateRoomOptions);
 
-System.out.println("Updated room with validFrom: " + roomResult.getValidFrom() + " and validUntil: " + roomResult.getValidUntil());
+System.out.println("Updated room with validFrom: " + roomResult.getValidFrom() + ", validUntil: " + roomResult.getValidUntil() + " and pstnDialOutEnabled: " + roomResult.getPstnDialOutEnabled());
 ```
 
 ## Add or update participants
@@ -277,7 +303,7 @@ System.out.println("Participant(s) removed");
 
 ### List all active rooms
 
-Retrieve all active `rooms` under your ACS resource.
+Retrieve all active `rooms` under your Azure Communication Services resource.
 
 ```java
 try {
@@ -332,7 +358,7 @@ mvn package
 
 ```
 
-Execute the app
+Execute the app.
 
 ```console
 mvn exec:java -D"exec.mainClass"="com.communication.rooms.quickstart" -D"exec.cleanupDaemonThreads"="false"
@@ -348,7 +374,7 @@ Created a room with id:  99445276259151407
 
 Retrieved room with id:  99445276259151407
 
-Updated room with validFrom:  2023-05-11T22:11:46.784Z  and validUntil:  2023-05-11T22:16:46.784Z
+Updated room with validFrom: 2023-05-11T22:11:46.784Z, validUntil: 2023-05-11T22:16:46.784Z and pstnDialOutEnabled: true
 
 Participant(s) added/updated
 

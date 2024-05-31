@@ -11,5 +11,5 @@ items:
     topicHref: /azure/app-service/index
     items:
     - name: Web Apps
-      tocHref: /azure/active-directory/fundamentals/
+      tocHref: /entra/fundamentals/
       topicHref: /azure/app-service/index

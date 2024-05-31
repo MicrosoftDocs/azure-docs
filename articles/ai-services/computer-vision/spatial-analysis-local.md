@@ -2,12 +2,12 @@
 title: Run Spatial Analysis on a local video file
 titleSuffix: Azure AI services
 description: Use this guide to learn how to run Spatial Analysis on a recorded local video.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
@@ -27,7 +27,7 @@ To use Spatial Analysis for recorded video, record a video file and save it as a
     1. Change **Secure transfer required** to **Disabled**
     1. Change **Allow Blob public access** to **Enabled**
 
-1. Navigate to the **Container** section, and either create a new container or use an existing one. Then upload the video file to the container. Expand the file settings for the uploaded file, and select **Generate SAS**. Be sure to set the **Expiry Date** long enough to cover the testing period. Set **Allowed Protocols** to *HTTP* (*HTTPS* is not supported).
+1. Navigate to the **Container** section, and either create a new container or use an existing one. Then upload the video file to the container. Expand the file settings for the uploaded file, and select **Generate SAS**. Be sure to set the **Expiry Date** long enough to cover the testing period. Set **Allowed Protocols** to **HTTP** (**HTTPS** is not supported).
 
 1. Select on **Generate SAS Token and URL** and copy the Blob SAS URL. Replace the starting `https` with `http` and test the URL in a browser that supports video playback.
 

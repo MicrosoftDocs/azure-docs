@@ -2,12 +2,11 @@
 title: About the Speech SDK - Speech service
 titleSuffix: Azure AI services
 description: The Speech software development kit (SDK) exposes many of the Speech service capabilities, making it easier to develop speech-enabled applications.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 10/02/2023
+ms.date: 1/22/2024
 ms.author: eur
 ---
 
@@ -40,7 +39,7 @@ The Speech SDK supports the following languages and platforms:
 
 ## Speech SDK demo
 
-The following video shows how to install the [Speech SDK for C#](quickstarts/setup-platform.md) and write a simple .NET console application for speech to text.
+The following video shows how to install the [Speech SDK for C#](quickstarts/setup-platform.md) and write a .NET console application for speech to text.
 
 > [!VIDEO c20d3b0c-e96a-4154-9299-155e27db7117]
 
@@ -54,7 +53,7 @@ At the top of documentation pages that contain samples, options to select includ
 
 :::image type="content" source="./media/sdk/pivot-programming-languages-speech-sdk.png" alt-text="Screenshot showing how to select a programming language in the documentation.":::
 
-If a sample is not available in your preferred programming language, you can select another programming language to get started and learn about the concepts, or see the reference and samples linked from the beginning of the article.
+If a sample isn't available in your preferred programming language, you can select another programming language to get started and learn about the concepts, or see the reference and samples linked from the beginning of the article.
 
 ### GitHub samples
 
@@ -62,7 +61,7 @@ In depth samples are available in the [Azure-Samples/cognitive-services-speech-s
 
 ## Help options
 
-The [Microsoft Q&A](/answers/topics/azure-speech.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-speech) forums are available for the developer community to ask and answer questions about Azure Cognitive Speech and other services. Microsoft monitors the forums and replies to questions that the community has not yet answered. To make sure that we see your question, tag it with 'azure-speech'.  
+The [Microsoft Q&A](/answers/topics/azure-speech.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-speech) forums are available for the developer community to ask and answer questions about Azure Cognitive Speech and other services. Microsoft monitors the forums and replies to questions that the community hasn't yet answered. To make sure that we see your question, tag it with 'azure-speech'.  
 
 You can suggest an idea or report a bug by creating an issue on GitHub:
 - [Azure-Samples/cognitive-services-speech-sdk](https://aka.ms/GHspeechissues)

@@ -4,6 +4,9 @@ description: Learn how to vertically autoscale your pod on an Azure Kubernetes S
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 09/28/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
@@ -87,7 +90,7 @@ A Vertical Pod Autoscaler resource is inserted for each controller that you want
 
 A common deployment pattern recommended for you if you're unfamiliar with VPA is to perform the following steps during application development in order to identify its unique resource utilization characteristics, test VPA to verify it is functioning properly, and test alongside other Kubernetes components to optimize resource utilization of the cluster.
 
-1. Set `updateMode = off` in your production cluster and run VPA in recommendation mode so you can test and gain familiarity with VPA. `UpdateMode = off` can avoid introducing a misconfiguration that can cause an outage.
+1. Set UpdateMode = "Off" in your production cluster and run VPA in recommendation mode so you can test and gain familiarity with VPA. UpdateMode = "Off" can avoid introducing a misconfiguration that can cause an outage.
 
 2. Establish observability first by collecting actual resource utilization telemetry over a given period of time. This helps you understand the behavior and signs of symptoms or issues from container and pod resources influenced by the workloads running on them.
 
@@ -102,23 +105,23 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 1. To enable VPA on a new cluster, use `--enable-vpa` parameter with the [az aks create][az-aks-create] command.
 
     ```azurecli-interactive
-    az aks create -n myAKSCluster -g myResourceGroup --enable-vpa
+    az aks create ---name myAKSCluster --resource-group myResourceGroup --enable-vpa
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-2. Optionally, to enable VPA on an existing cluster, use the `--enable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
+2. Optionally, to enable VPA on an existing cluster, use the `--enable-vpa` with the [https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-update] command.
 
     ```azurecli-interactive
-    az aks update -n myAKSCluster -g myResourceGroup --enable-vpa
+    az aks update --name myAKSCluster --resource-group myResourceGroup --enable-vpa 
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-3. Optionally, to disable VPA on an existing cluster, use the `--disable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
+3. Optionally, to disable VPA on an existing cluster, use the `--disable-vpa` with the [https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-update] command.
 
     ```azurecli-interactive
-    az aks update -n myAKSCluster -g myResourceGroup --disable-vpa
+    az aks update --name myAKSCluster --resource-group myResourceGroup --disable-vpa
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -126,7 +129,7 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 4. To verify that the Vertical Pod Autoscaler pods have been created successfully, use the [kubectl get][kubectl-get] command.
 
 ```bash
-kubectl get pods -n kube-system
+kubectl get pods --name kube-system
 ```
 
 The output of the command includes the following results specific to the VPA pods. The pods should show a *running* status.
@@ -250,7 +253,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
 1. Enable VPA for your cluster by running the following command. Replace cluster name `myAKSCluster` with the name of your AKS cluster and replace `myResourceGroup` with the name of the resource group the cluster is hosted in.
 
     ```azurecli-interactive
-    az aks update -n myAKSCluster -g myResourceGroup --enable-vpa
+    az aks update --name myAKSCluster --resource-group myResourceGroup --enable-vpa
     ```
 
 2. Create a file named `azure-autodeploy.yaml`, and copy in the following manifest.
@@ -302,7 +305,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
     ```output
     NAME                                   READY   STATUS    RESTARTS   AGE
     vpa-auto-deployment-54465fb978-kchc5   1/1     Running   0          52s
-    vpa-auto-deployment-54465fb978-nhtmj   1/1     Running   0          52s
+    vpa-auto-deployment-54465fb978--namehtmj   1/1     Running   0          52s
     ```
 
 5. Create a file named `azure-vpa-auto.yaml`, and copy in the following manifest that describes a `VerticalPodAutoscaler`:
@@ -443,7 +446,7 @@ The following example is an extra recommender that you apply to your existing AK
             image: registry.k8s.io/autoscaling/vpa-recommender:0.13.0 
             imagePullPolicy: Always 
             args: 
-              - --recommender-name=extra-recommender 
+              - --recommender--nameame=extra-recommender 
             resources: 
               limits: 
                 cpu: 200m 
@@ -587,7 +590,7 @@ To diagnose problems with a VPA installation, perform the following steps.
 1. Check if all system components are running using the following command:
 
    ```bash
-   kubectl --namespace=kube-system get pods|grep vpa
+   kubectl ---namespace=kube-system get pods|grep vpa
    ```
 
 The output should list three pods - recommender, updater and admission-controller all with the state showing a status of `Running`.
@@ -595,7 +598,7 @@ The output should list three pods - recommender, updater and admission-controlle
 2. Confirm if the system components log any errors. For each of the pods returned by the previous command, run the following command:
 
     ```bash
-    kubectl --namespace=kube-system logs [pod name] | grep -e '^E[0-9]\{4\}'
+    kubectl ---namespace=kube-system logs [pod name] | grep -e '^E[0-9]\{4\}'
     ```
 
 3. Confirm that the custom resource definition was created by running the following command:
@@ -632,3 +635,4 @@ This article showed you how to automatically scale resource utilization, such as
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [horizontal-pod-autoscaler-overview]: concepts-scale.md#horizontal-pod-autoscaler
+

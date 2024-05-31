@@ -2,12 +2,11 @@
 title: 'Quickstart: Create an Azure Firewall and a firewall policy - Terraform'
 description: In this quickstart, you deploy an Azure Firewall and a firewall policy using Terraform.
 services: firewall-manager
-author: cshea15
+author: cshea-msft
 ms.author: chashea
 ms.date: 09/05/2023
 ms.topic: quickstart
 ms.service: firewall-manager
-ms.workload: infrastructure-services
 ms.custom: devx-track-terraform
 content_well_notifications:
   - AI-Contribution

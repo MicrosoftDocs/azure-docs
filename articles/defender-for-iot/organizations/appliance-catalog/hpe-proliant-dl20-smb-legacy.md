@@ -1,6 +1,6 @@
 ---
 title: HPE ProLiant DL20 Gen10 (NHP 2LFF) for OT monitoring in SMB deployments- Microsoft Defender for IoT
-description: Learn about the HPE ProLiant DL20 Gen10 appliance when used for in SMB deployments for OT monitoring with Microsoft Defender for IoT.
+description: Learn about the HPE ProLiant DL20 Gen10 appliance when used for OT monitoring with Microsoft Defender for IoT in SMB deployments.
 ms.date: 10/30/2022
 ms.topic: reference
 ---
@@ -169,4 +169,4 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

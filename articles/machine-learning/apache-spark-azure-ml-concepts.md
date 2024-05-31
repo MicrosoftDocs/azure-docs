@@ -66,6 +66,18 @@ After the serverless Spark compute resource tear-down happens, submission of the
 
 :::image type="content" source="./media/apache-spark-azure-ml-concepts/spark-session-timeout-teardown.png" lightbox="./media/apache-spark-azure-ml-concepts/spark-session-timeout-teardown.png" alt-text="Expandable diagram that shows scenarios for Apache Spark session inactivity period and cluster teardown.":::
 
+### Session-level Conda packages
+A Conda dependency YAML file can define many session-level Conda packages in a session configuration. A session will time out if it needs more than 15 minutes to install the Conda packages defined in the YAML file. It becomes important to first check whether a required package is already available in the Azure Synapse base image. To do this, users should follow the link to determine *packages available in the base image for* the Apache Spark version in use:
+- [Azure Synapse Runtime for Apache Spark 3.3](../synapse-analytics/spark/apache-spark-33-runtime.md#python-libraries-normal-vms)
+- [Azure Synapse Runtime for Apache Spark 3.2](../synapse-analytics/spark/apache-spark-32-runtime.md#python-libraries-normal-vms)
+
+> [!IMPORTANT]
+> Azure Synapse Runtime for Apache Spark: Announcements
+> * Azure Synapse Runtime for Apache Spark 3.2:
+>   * EOLA Announcement Date: July 8, 2023
+>   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
+> * For continued support and optimal performance, we advise that you migrate to
+
 > [!NOTE]
 > For a session-level Conda package:
 > - the *Cold start* will need about ten to fifteen minutes.
@@ -73,11 +85,7 @@ After the serverless Spark compute resource tear-down happens, submission of the
 > - the *Warm start*, with a different Conda package, will also need about ten to fifteen minutes.
 > - If the package that you install is large or needs a long installation time, it might impact the Spark instance startup time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
-
-### Session-level Conda Packages
-A Conda dependency YAML file can define many session-level Conda packages in a session configuration. A session will time out if it needs more than 15 minutes to install the Conda packages defined in the YAML file. It becomes important to first check whether a required package is already available in the Azure Synapse base image. To do this, users should follow the link to determine *packages available in the base image for* the Apache Spark version in use:
-- [Azure Synapse Runtime for Apache Spark 3.3](../synapse-analytics/spark/apache-spark-33-runtime.md#python-libraries-normal-vms)
-- [Azure Synapse Runtime for Apache Spark 3.2](../synapse-analytics/spark/apache-spark-32-runtime.md#python-libraries-normal-vms)
+> - Docker images are not supported.
 
 ### Improving session cold start time while using session-level Conda packages
 You can improve the Spark session *cold start* time by setting the `spark.hadoop.aml.enable_cache` configuration variable to `true`. The session *cold start* with session level Conda packages typically takes 10 to 15 minutes when the session starts for the first time. However, subsequent session *cold starts* take three to five minutes. Define the configuration variable in the **Configure session** user interface, under **Configuration settings**.
@@ -114,8 +122,8 @@ To access data and other resources, a Spark job can use either a managed identit
 
 |Spark pool|Supported identities|Default identity|
 | ---------- | -------------------- | ---------------- |
-|Serverless Spark compute|User identity and managed identity|User identity|
-|Attached Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Synapse Spark pool|
+|Serverless Spark compute|User identity, user-assigned managed identity attached to the workspace|User identity|
+|Attached Synapse Spark pool|User identity, user-assigned managed identity attached to the attached Synapse Spark pool, system-assigned managed identity of the attached Synapse Spark pool|System-assigned managed identity of the attached Synapse Spark pool|
 
 [This article](./apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs) describes resource access for Spark jobs. In a notebook session, both the serverless Spark compute and the attached Synapse Spark pool use user identity passthrough for data access during [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md).
 

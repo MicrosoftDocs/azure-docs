@@ -1,16 +1,16 @@
 ---
-title: Diagnostic logs for Application Gateway for Containers (preview)
+title: Diagnostic logs for Application Gateway for Containers
 description: Learn how to enable access logs for Application Gateway for Containers
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 07/25/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# Diagnostic logs for Application Gateway for Containers (preview)
+# Diagnostic logs for Application Gateway for Containers
 
 Learn how to troubleshoot common problems in Application Gateway for Containers.
 
@@ -25,7 +25,7 @@ You can monitor Azure Application Gateway for Containers resources in the follow
 You can use different types of logs in Azure to manage and troubleshoot Application Gateway for Containers. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../../azure-monitor/logs/data-platform-logs.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
 * **Activity log**: You can use [Azure activity logs](../../azure-monitor/essentials/activity-log.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
-* **Access log**: You can use this log to view Application Gateway for Containers access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. The data may be stored in a storage account, log analytics workspace, or event hub that is specified at time of enable logging.
+* **Access log**: You can use this log to view Application Gateway for Containers access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. The data may be stored in a storage account that is specified at time of enable logging.
 
 ### Configure access log
 
@@ -39,7 +39,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
   2. In **Search resources, service, and docs**, type **Application Gateways for Containers** and select your Application Gateway for Containers name.
   3. Under **Monitoring**, select **Diagnostic settings**.
   4. Select **Add diagnostic setting**.
-  5. Enter a **Diagnostic setting name** (ex: agfc-logs), choose the logs and metrics to save and choose a destination, such as **Archive to a storage account**. To save all logs, select **allLogs** and **AllMetrics**. 
+  5. Enter a **Diagnostic setting name** (ex: agfc-logs), choose the logs and metrics to save and choose a destination, such as **Archive to a storage account**. To save all logs, select **allLogs** and **AllMetrics**.
   6. Select **Save** to save your settings. See the following example:
 
       ![Configure diagnostic logs](./media/diagnostics/enable-diagnostic-logs.png)
@@ -49,12 +49,21 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
   The following PowerShell sample enables all logging to a storage account for Application Gateway for Containers. Replace the resource group name, storage account name, and subscription ID with your own values. The storage account and resource group must be in the same region as your Application Gateway for Containers.
 
   ```PowerShell
-  $storageAccount = Get-AzStorageAccount -ResourceGroupName acctest5097 -Name centraluseuaptclogs
-  $metric = @()
-  $log = @()
-  $metric += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
-  $log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
-  New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/acctest5097/providers/Microsoft.ServiceNetworking/trafficControllers/myagfc" -StorageAccountId $storageAccount.Id -Log $log -Metric $metric
+ # Retrieve the Azure Storage Account information
+$storageAccount = Get-AzStorageAccount -ResourceGroupName acctest5097 -Name centraluseuaptclogs
+
+# Initialize arrays to store metric and log settings
+$metric = @()
+$log = @()
+
+# Configure metric settings
+$metric += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
+
+# Configure log settings
+$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
+
+# Create a new diagnostic setting for the specified resource
+New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/acctest5097/providers/Microsoft.ServiceNetworking/trafficControllers/myagfc" -StorageAccountId $storageAccount.Id -Log $log -Metric $metric
   ```
 
 ---
@@ -95,6 +104,7 @@ Each access log entry in Application Gateway for Containers contains the followi
 | userAgent | User-Agent header of the request received from the client by Application Gateway for Containers |
 
 Here an example of the access log emitted in JSON format to a storage account.
+
 ```JSON
 {
     "category": "TrafficControllerAccessLog",

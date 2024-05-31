@@ -1,13 +1,13 @@
 ---
 title: How to get V3 prediction endpoint
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 
 manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: include
-ms.date: 05/05/2020
+ms.date: 01/19/2024
 
 ---
 
@@ -16,9 +16,4 @@ ms.date: 05/05/2020
 
     :::image type="content" source="../media/prediction-resources-example-query.png" alt-text="example query in the prediction resources section" lightbox="../media/prediction-resources-example-query.png":::
     
-    Paste the URL into a new browser tab. If you don't see the URL, you don't have a prediction resource and will need to create one. 
-
-    
-
-    
-
+    Paste the URL into a new browser tab. If you don't see the URL, you don't have a prediction resource and will need to create one.

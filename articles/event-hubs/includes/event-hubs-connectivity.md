@@ -1,7 +1,6 @@
 ---
 title: include file
 description: include file
-services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
@@ -15,7 +14,7 @@ ms.custom: "include file"
 You can use the following protocols with Azure Event Hubs to send and receive events:
 
 - Advanced Message Queuing Protocol 1.0 (AMQP)
-- Hypertext Transfer Protocol 1.1 with TLS (HTTPS)
+- Hypertext Transfer Protocol 1.1 with Transport Layer Security (HTTPS)
 - Apache Kafka
 
 See the following table for the outbound ports you need to open to use these protocols to communicate with Azure Event Hubs. 
@@ -26,7 +25,7 @@ See the following table for the outbound ports you need to open to use these pro
 | HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets. |
 | Kafka | 9093 | See [Use Event Hubs from Kafka applications](../azure-event-hubs-kafka-overview.md)
 
-The HTTPS port is required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
+The HTTPS port is required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Microsoft Entra ID (when used) run over HTTPS. 
 
 The official Azure SDKs generally use the AMQP protocol for sending and receiving events from Event Hubs. The AMQP-over-WebSockets protocol option runs over port TCP 443 just like the HTTP API, but is otherwise functionally identical with plain AMQP. This option has higher initial connection latency because of extra handshake round trips and slightly more overhead as tradeoff for sharing the HTTPS port. If this mode is selected, TCP port 443 is sufficient for communication. The following options allow selecting the plain AMQP or AMQP WebSockets mode:
 
@@ -71,7 +70,7 @@ If you use the **zone redundancy** for your namespace, you need to do a few extr
 ### What client IPs are sending events to or receiving events from my namespace?
 First, enable [IP filtering](../event-hubs-ip-filtering.md) on the namespace. 
 
-Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](../../azure-monitor/essentials/diagnostic-settings.md). You'll see the IP address for which connection is denied.
+Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](../../azure-monitor/essentials/diagnostic-settings.md). You see the IP address for which connection is denied.
 
 ```json
 {
@@ -87,7 +86,7 @@ Then, Enable diagnostic logs for [Event Hubs virtual network connection events](
 ```
 
 > [!IMPORTANT]
-> Virtual network logs are generated only if the namespace allows access from **specific IP addresses** (IP filter rules). If you don't want to restrict access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround: Enable IP filtering, and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs doesn't support IPv6 address ranges. 
+> Virtual network logs are generated only if the namespace allows access from **specific IP addresses** (IP filter rules). If you don't want to restrict access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround: [Enable IP filtering](../event-hubs-ip-filtering.md), and add the total addressable IPv4 range (`0.0.0.0/1` - `128.0.0.0/1`) and IPv6 range (`::/1` - `8000::/1`). 
 
 > [!NOTE]
 > Currently, it's not possible to determine the source IP of an individual message or event. 

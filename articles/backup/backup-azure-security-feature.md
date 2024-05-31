@@ -3,7 +3,7 @@ title: Security features that protect hybrid backups
 description: Learn how to use security features in Azure Backup to make backups more secure
 ms.reviewer: utraghuv
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 11/07/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -79,7 +79,12 @@ Checks have been added to make sure only valid users can perform various operati
 
 ### Authentication to perform critical operations
 
-As part of adding an extra layer of authentication for critical operations, you're prompted to enter a security PIN when you perform **Stop Protection with Delete data** and **Change Passphrase** operations.
+As part of adding an extra layer of authentication for critical operations, you're prompted to enter a security PIN when you perform **Stop Protection with Delete data** and **Change Passphrase** operations for DPM, MABS, and MARS.
+
+Additionally, with MARS version *2.0.9262.0* and later, the operations to remove a volume from MARS file/folder backup, add a new exclusion setting for an existing volume, reduce retention duration, and move to a less-frequent backup schedule are also protected with a security pin for additional security.
+
+
+
 
 > [!NOTE]
 > Currently, for the following DPM and MABS versions, security PIN is supported for **Stop Protection with Delete data** to online storage:
@@ -117,7 +122,7 @@ The security features mentioned in this article provide defense mechanisms again
 | Change Passphrase |Security PIN entered is incorrect. (ID: 100130) Provide the correct Security PIN to complete this operation. |**Cause:**<br/> This error comes when you enter invalid or expired Security PIN while performing critical operation (like change passphrase). <br/>**Recommended Action:**<br/> To complete the operation, you must enter valid Security PIN. To get the PIN, sign in to the Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
 | Change Passphrase |Operation failed. ID: 120002 |**Cause:**<br/>This error appears when security settings are enabled, you try to change the passphrase and you're on an unsupported version (valid versions specified in first note of this article).<br/>**Recommended Action:**<br/> To change the passphrase, you must first update the backup agent to minimum version 2.0.9052, Azure Backup Server to minimum update 1, and/or DPM to minimum DPM 2012 R2 UR12 or DPM 2016 UR2 (download links below), then enter a valid Security PIN. To get the PIN, sign in to the Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
 
-## Immutability support (preview)
+## Immutability support
 
 When [immutability](backup-azure-immutable-vault-concept.md?tabs=recovery-services-vault) for your Recovery Services vault is enabled, operations that reduce the cloud backup retention or remove cloud backup for on-premises data sources are blocked.
 
@@ -127,12 +132,12 @@ This feature is supported with MARS agent version *2.0.9250.0* and higher from D
 
 The following table lists the disallowed operations on DPM connected to an immutable Recovery:
 
-| Operation on Immutable vault | Result with DPM 2022 UR1, MABS v4, and latest MARS agent | Result with older DPM/MABS and or MARS agent |
+| Operation on Immutable vault | Result with DPM 2022 UR1, MABS v4, and latest MARS agent.    <br><br>   With DPM 2022 UR2 or MABS v4 UR1, you can select the option to retain online recovery points by policy when stopping protection or removing a data source from a protection group from the console.   | Result with older DPM/MABS and or MARS agent |
 | --- | --- | --- |
 | **Remove Data Source from protection group configured for online backup** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. | 130001: Microsoft Azure Backup encountered an internal error. |
-| **Stop protection with delete data** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. | 130001: Microsoft Azure Backup encountered an internal error. |
+| **Stop protection with delete data** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault.    <br><br>   With DPM 2022 UR2 or MABS v4 UR1, you can select the option to retain online recovery points by policy when stopping protection or removing a data source from a protection group from the console.    | 130001: Microsoft Azure Backup encountered an internal error. |
 | **Reduce online retention period** | 810002: Reduction in retention during Policy/Protection modification isn't allowed because the selected vault is immutable. | 130001: Microsoft Azure Backup encountered an internal error. |
-| **Remove-DPMChildDatasource command** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. <br><br> Use new option *-EnableOnlineRPsPruning* with *-KeepOnlineData* to retain data only up to policy duration. | 130001: Microsoft Azure Backup encountered an internal error. <br><br> Use the *-KeepOnlineData* flag to retain data. |
+| **Remove-DPMChildDatasource command** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. <br><br> Use new option *-EnableOnlineRPsPruning* with *-KeepOnlineData* to retain data only up to policy duration.     <br><br>   With DPM 2022 UR2 or MABS v4 UR1, you can select the option to retain online recovery points by policy when stopping protection or removing a data source from a protection group from the console.    | 130001: Microsoft Azure Backup encountered an internal error. <br><br> Use the *-KeepOnlineData* flag to retain data. |
 
 ### Immutability support for MARS
 
@@ -141,9 +146,9 @@ The following table lists the disallowed operations for MARS when immutability i
 | Disallowed operation | Result with latest MARS agent | Result with old MARS agent |
 | --- | --- | --- |
 | **Stop protection with delete data for system state** | Error 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. | Error 130001 <br><br> Microsoft Azure Backup encountered an internal error. |
-| **Stop protection with delete data for file/folder** | Error 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. | Error 130001 <br><br> Microsoft Azure Backup encountered an internal error. |
+| **Stop protection with delete data** | Error 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. | Error 130001 <br><br> Microsoft Azure Backup encountered an internal error.    <br><br>    MARS *2.0.9262.0* and later provide the option of stopping protection and retaining recovery points according to the policy in the console. |
 | **Reduce online retention period** | User trying to modify policy or protection with reduction of retention. | 130001 <br><br> Microsoft Azure Backup encountered an internal error. |
-| **Remove-OBPolicy with -DeleteBackup flag** | 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. <br><br> Use *–EnablePruning* flag to retain backups up to their retention period. | 130001 <br><br> Microsoft Azure Backup encountered an internal error. <br><br> Don't use the *-DeleteBackup* flag. |
+| **Remove-OBPolicy with -DeleteBackup flag** | 810001 <br><br> User trying to delete backup item or stop protection with delete data where backup item has valid (unexpired) recovery point. <br><br> Use *–EnablePruning* flag to retain backups up to their retention period. | 130001 <br><br> Microsoft Azure Backup encountered an internal error. <br><br> Don't use the *-DeleteBackup* flag.     <br><br>  MARS *2.0.9262.0*  and later provide the option of stopping protection and retaining recovery points according to the policy in the console. |
 
 
 ## Next steps

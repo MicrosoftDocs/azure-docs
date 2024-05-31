@@ -6,7 +6,6 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/24/2023
 ms.author: allensu
-ms.custom: ignite-fall-2021
 ---
 
 # Interoperability in Azure - Control plane analysis

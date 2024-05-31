@@ -4,16 +4,14 @@ description: Sample Azure Resource Graph queries for Azure Container Registry sh
 ms.topic: sample
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.service: container-registry
 ms.custom: subject-resourcegraph-sample
 ---
 # Azure Resource Graph sample queries for Azure Container Registry
 
-This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md) sample
-queries for Azure Container Registry. For a complete list of Azure Resource Graph samples, see
-[Resource Graph samples by Category](../governance/resource-graph/samples/samples-by-category.md)
-and [Resource Graph samples by Table](../governance/resource-graph/samples/samples-by-table.md).
+This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md) sample queries for Azure Container Registry. For a complete list of Azure Resource Graph samples, see
+[Resource Graph samples by Category](../governance/resource-graph/samples/samples-by-category.md) and [Resource Graph samples by Table](../governance/resource-graph/samples/samples-by-table.md).
 
 ## Sample queries
 

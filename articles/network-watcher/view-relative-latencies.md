@@ -5,7 +5,6 @@ services: network-watcher
 author: halkazwini
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 04/20/2022
 ms.author: halkazwini
 ms.custom: devx-track-azurepowershell, engagement-fy23
@@ -21,9 +20,6 @@ ms.custom: devx-track-azurepowershell, engagement-fy23
 
 In this tutorial, learn how to use the Azure [Network Watcher](network-watcher-monitoring-overview.md) service to help you decide what Azure region to deploy your application or service in, based on your user demographic. Additionally, you can use it to help evaluate service providers' connections to Azure.  
         
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Create a network watcher
 
 If you already have a network watcher in at least one Azure [region](https://azure.microsoft.com/regions), you can skip the tasks in this section. Create a resource group for the network watcher. In this example, the resource group is created in the East US region, but you can create the resource group in any Azure region.

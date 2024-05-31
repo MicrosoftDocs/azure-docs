@@ -1,15 +1,14 @@
 ---
 title: Quickstart - Create a Linux VM in the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create a Linux virtual machine.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.workload: infrastructure
-ms.date: 3/29/2023
-ms.author: cynthn
-ms.reviewer: mattmcinnes
-ms.custom: mvc, mode-ui, devx-track-linux
+ms.date: 01/04/2024
+ms.author: jushiman
+ms.reviewer: jushiman
+ms.custom: mvc, mode-ui, linux-related-content
 ---
 
 # Quickstart: Create a Linux virtual machine in the Azure portal
@@ -30,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. Under **Services**, select **Virtual machines**.
 1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Enter *myResourceGroup* for the name.*. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Enter *myResourceGroup* for the name.*.
 
 	![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/quick-create-portal/project-details.png)
 
@@ -42,7 +41,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
     > Some users will now see the option to create VMs in multiple zones. To learn more about this new capability, see [Create virtual machines in an availability zone](../create-portal-availability-zone.md).
     > :::image type="content" source="../media/create-portal-availability-zone/preview.png" alt-text="Screenshot showing that you have the option to create virtual machines in multiple availability zones.":::
 
-
 1. Under **Administrator account**, select **SSH public key**.
 
 1. In **Username** enter *azureuser*.
@@ -51,7 +49,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     ![Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials](./media/quick-create-portal/administrator-account.png)
 
-1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down. 
+1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
 
 	![Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -73,7 +71,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Create an [SSH connection](/azure/virtual-machines/linux-vm-connect) with the VM.
 
-1. If you are on a Mac or Linux machine, open a Bash prompt and set read-only permission on the .pem file using `chmod 400 ~/Downloads/myKey.pem`. If you are on a Windows machine, open a PowerShell prompt. 
+1. If you are on a Mac or Linux machine, open a Bash prompt and set read-only permission on the .pem file using `chmod 400 ~/Downloads/myKey.pem`. If you are on a Windows machine, open a PowerShell prompt.
 
 1. At your prompt, open an SSH connection to your virtual machine. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
 
@@ -120,7 +118,25 @@ Use a web browser of your choice to view the default NGINX welcome page. Type th
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
+### Delete resources
+When no longer needed, you can delete the resource group, virtual machine, and all related resources.
+
+1. On the Overview page for the VM, select the **Resource group** link.
+1. At the top of the page for the resource group, select **Delete resource group**.
+1. A page will open warning you that you are about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
+
+
+### Auto-shutdown
+If the VM is still needed, Azure provides an Auto-shutdown feature for virtual machines to help manage costs and ensure you are not billed for unused resources.
+
+1. On the **Operations** section for the VM, select the **Auto-shutdown** option.
+1. A page will open where you can configure the auto-shutdown time. Select the **On** option to enable and then set a time that works for you.
+1. Once you have set the time, select **Save**  at the top to enable your Auto-shutdown configuration.
+
+> [!NOTE]
+> Remember to configure the time zone correctly to match your requirements, as (UTC) Coordinated Universal Time is the default setting in the Time zone dropdown.
+
+For more information see [Auto-shutdown](/azure/virtual-machines/auto-shutdown-vm).
 
 ## Next steps
 

@@ -6,13 +6,13 @@ ms.service: vpn-gateway
 ms.topic: how-to
 author: cherylmc
 ms.author: cherylmc 
-ms.date: 05/11/2022
+ms.date: 03/12/2024
 ---
 # Configure a VPN client for point-to-site: RADIUS - other methods and protocols
 
 To connect to a virtual network over point-to-site (P2S), you need to configure the client device that you'll connect from. This article helps you create and install the VPN client configuration for RADIUS authentication that uses methods other than certificate or password authentication.
 
-When you're using RADIUS authentication, there are multiple authentication instructions: [certificate authentication](point-to-site-vpn-client-configuration-radius-certificate.md), [password authentication](point-to-site-vpn-client-configuration-radius-password.md). and [other authentication methods and protocols](point-to-site-vpn-client-configuration-radius-other.md). The VPN client configuration is different for each type of authentication. To configure a VPN client, you use client configuration files that contain the required settings.
+When you're using RADIUS authentication, there are multiple authentication instructions: [certificate authentication](point-to-site-vpn-client-configuration-radius-certificate.md), [password authentication](point-to-site-vpn-client-configuration-radius-password.md), and [other authentication methods and protocols](point-to-site-vpn-client-configuration-radius-other.md). The VPN client configuration is different for each type of authentication. To configure a VPN client, you use client configuration files that contain the required settings.
 
 >[!NOTE]
 > [!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]

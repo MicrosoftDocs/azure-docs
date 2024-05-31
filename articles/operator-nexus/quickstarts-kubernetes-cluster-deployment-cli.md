@@ -31,7 +31,7 @@ Before you run the commands, you need to set several variables to define the con
 | CUSTOM_LOCATION            | This argument specifies a custom location of the Nexus instance.                                                         |
 | CSN_ARM_ID                 | CSN ID is the unique identifier for the cloud services network you want to use.                                          |
 | CNI_ARM_ID                 | CNI ID is the unique identifier for the network interface to be used by the container runtime.                           |
-| AAD_ADMIN_GROUP_OBJECT_ID  | The object ID of the Azure Active Directory group that should have admin privileges on the cluster.                      |
+| AAD_ADMIN_GROUP_OBJECT_ID  | The object ID of the Microsoft Entra group that should have admin privileges on the cluster.                      |
 | CLUSTER_NAME               | The name you want to give to your Nexus Kubernetes cluster.                                                              |
 | K8S_VERSION                | The version of Kubernetes you want to use.                                                                               |
 | ADMIN_USERNAME             | The username for the cluster administrator.                                                                              |
@@ -98,6 +98,11 @@ az networkcloud kubernetescluster create \
     service-cidrs="[${SERVICE_CIDR}]" \
     dns-service-ip="${DNS_SERVICE_IP}"
 ```
+
+If there isn't enough capacity to deploy requested cluster nodes, an error message appears. However, this message doesn't provide any details about the available capacity. It states that the cluster creation can't proceed due to insufficient capacity.
+
+> [!NOTE]
+> The capacity calculation takes into account the entire platform cluster, rather than being limited to individual racks. Therefore, if an agent pool is created in a zone (where a rack equals a zone) with insufficient capacity, but another zone has enough capacity, the cluster creation continues but will eventually time out. This approach to capacity checking only makes sense if a specific zone isn't specified during the creation of the cluster or agent pool.
 
 After a few minutes, the command completes and returns information about the cluster. For more advanced options, see [Quickstart: Deploy an Azure Nexus Kubernetes cluster using Bicep](./quickstarts-kubernetes-cluster-deployment-bicep.md).
 

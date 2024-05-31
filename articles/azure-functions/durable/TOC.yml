@@ -12,6 +12,8 @@
     href: durable-functions-versions.md
   - name: Durable Functions for .NET isolated
     href: durable-functions-dotnet-isolated-overview.md
+  - name: Durable Functions packages
+    href: durable-functions-packages.md
 - name: Quickstarts
   expanded: true
   items:
@@ -42,7 +44,7 @@
     href: quickstart-netherite.md
   - name: Configure storage provider - MSSQL
     href: quickstart-mssql.md
-  - name: Configure Durable Functions with Azure Active Directory
+  - name: Configure Durable Functions with Microsoft Entra ID
     href: durable-functions-configure-durable-functions-with-credentials.md   
 - name: Tutorials
   items:

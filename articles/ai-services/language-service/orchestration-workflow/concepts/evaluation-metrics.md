@@ -2,13 +2,13 @@
 title: Orchestration workflow model evaluation metrics
 titleSuffix: Azure AI services
 description: Learn about evaluation metrics in orchestration workflow
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 05/19/2022
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ms.custom: language-service-orchestration
 ---
 

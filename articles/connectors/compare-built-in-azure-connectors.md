@@ -5,18 +5,15 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/20/2022
-
-# As a developer, I want to understand the differences between built-in and Azure connectors in Azure Logic Apps (Standard).
+ms.date: 01/04/2024
+# Customer intent: As a developer, I want to understand the differences between built-in and Azure connectors in Azure Logic Apps (Standard).
 ---
 
 # Differences between built-in operations and Azure connectors in Azure Logic Apps (Standard)
 
-When you create a **Logic App (Standard)** stateful workflow, the workflow designer shows the available triggers and actions as categories named **Built-in** and **Azure**. 
+For Standard logic app resources, the workflow designer shows the available connectors and operations using the labels named **In-App** and **Shared**. The **In-App** label applies to [*built-in* operations](built-in.md), which natively run in the same cluster and runtime as your Standard logic app in single-tenant Azure Logic Apps. This label also applies to connectors known as *service providers*, which are actually custom extensions that are implemented based on Azure Functions. Anyone can create their own service provider connector.
 
-In **Logic Apps (Standard)**, built-in connectors are known as *service provider connectors*. These connectors are actually custom extensions that are implemented based on Azure Functions. Built-in connectors run in the same cluster as the Azure Logic Apps engine. Anyone can create their own service provider connector.
-
-Azure connectors are the same as the [*managed connectors*](managed.md) in **Logic App (Consumption)** workflows. These connectors are managed by Microsoft and run in shared connector clusters in the Azure cloud. Separately from the managed connector clusters, the Azure Logic Apps engine runs in a different cluster. If your workflow has to invoke a managed connector operation, the Azure Logic Apps engine makes a call to the connector in the connector clusters. In turn, the connector might then call the backend target service, which can be Office 365, Salesforce, and so on.
+The **Shared** label applies to [Azure-hosted connectors *managed* by Microsoft](managed.md), which run in shared connector clusters in the multitenant Azure cloud. These shared managed connector clusters exist separately from single-tenant Azure Logic Apps, which runs in a different cluster. If your workflow has to invoke a managed connector operation, Azure Logic Apps makes a call to the connector in the managed connector clusters. In turn, the connector might then call the backend target service, which can be Office 365, Salesforce, and so on.
 
 <a name="considerations-authentication"></a>
 
@@ -27,10 +24,9 @@ Authentication considerations for built-in and Azure connectors differ based on 
 | Environment | Connector type | Authentication |
 |-------------|----------------|----------------|
 | Azure portal | Built-in | Connection strings, credentials, or connection parameters are stored in your logic app's configuration or app settings. |
-| Azure portal | Azure | Connections are authenticated using either a managed identity or [Azure Active Directory (Azure AD) app registration with access policies enabled on the Azure API connections](../logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows.md#set-up-connection-authentication). |
+| Azure portal | Azure | Connections are authenticated using either a managed identity or [Microsoft Entra app registration with access policies enabled on the Azure API connections](../logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows.md#set-up-connection-authentication). |
 | Visual Studio Code | Built-in | Connection strings or credentials are stored in the logic app project's **local.settings.json** file. |
 | Visual Studio Code | Azure | During workflow design, API connections are created and stored in the Azure cloud backend. To run these connections in your local environment, a bearer token is issued for seven days and is stored in your logic app project's **local.settings.json** file. |
-||||
 
 <a name="considerations-backend-communication"></a>
 

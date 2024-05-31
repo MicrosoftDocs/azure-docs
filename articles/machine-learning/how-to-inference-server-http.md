@@ -2,8 +2,8 @@
 title: Azure Machine Learning inference HTTP server
 titleSuffix: Azure Machine Learning
 description: Learn how to enable local development with Azure machine learning inference http server.
-author: shohei1029
-ms.author: shnagata
+author: ahughes-msft
+ms.author: alehughes
 ms.reviewer: mopeakande
 services: machine-learning
 ms.service: machine-learning
@@ -43,7 +43,7 @@ By running the inference HTTP server locally, you can focus on debugging your sc
 
 ## Prerequisites
 
-- Requires: Python >=3.7
+- Requires: Python >=3.8
 - Anaconda
 
 > [!TIP]
@@ -225,7 +225,7 @@ In this section, we'll run the server locally with [sample files](https://github
     Use the `curl` command to send an example request to the server and receive a scoring result.
 
     ```bash
-    curl --request POST "127.0.0.1:5001/score" --header 'Content-Type:application/json' --data @sample-request.json
+    curl --request POST "127.0.0.1:5001/score" --header "Content-Type:application/json" --data @sample-request.json
     ```
 
     The scoring result will be returned if there's no problem in your scoring script. If you find something wrong, you can try to update the scoring script, and launch the server again to test the updated script.

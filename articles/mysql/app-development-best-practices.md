@@ -4,9 +4,9 @@ description: Learn about best practices for building an app by using Azure Datab
 author: mksuni
 ms.author: sumuth
 ms.reviewer: maghan
-ms.date: 03/29/2023
+ms.date: 12/01/2023
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
@@ -36,7 +36,7 @@ For security, you must always connect to your MySQL server over SSL and configur
 
 ### Use advanced networking with AKS
 
-When accelerated networking is enabled on a VM, there's lower latency, reduced jitter, and decreased CPU utilization on the VM. To learn more, see [Best practices for Azure Kubernetes Service and Azure Database for MySQL](single-server/concepts-aks.md).
+When accelerated networking is enabled on a VM, there's lower latency, reduced jitter, and decreased CPU utilization on the VM. To learn more, see [Best practices for Azure Kubernetes Service and Azure Database for MySQL](flexible-server/concepts-aks.md).
 
 ### Tune your server parameters
 
@@ -100,11 +100,11 @@ Occasionally, you need to deploy changes to your database. In such cases, you ca
 During manual database deployment, follow these steps to minimize downtime or reduce the risk of failed deployment:
 
 1. Create a copy of a production database on a new database by using [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) or [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html).
-1. Update the new database with your new schema changes or updates needed for your database.
-1. Put the production database in a read-only state. It would be best if you didn't have write operations on the production database until deployment is completed.
-1. Test your application with the newly updated database from step 1.
-1. Deploy your application changes and make sure the application is now using the new database with the latest updates.
-1. Keep the old production database to roll back the changes. You can then evaluate to delete the old production database or export it on Azure Storage if needed.
+2. Update the new database with your new schema changes or updates needed for your database.
+3. Put the production database in a read-only state. It would be best if you didn't have write operations on the production database until deployment is completed.
+4. Test your application with the newly updated database from step 1.
+5. Deploy your application changes and make sure the application is now using the new database with the latest updates.
+6. Keep the old production database to roll back the changes. You can then evaluate to delete the old production database or export it on Azure Storage if needed.
 
 > [!NOTE]  
 > If the application is like an e-commerce app and you can't put it in a read-only state, deploy the changes directly on the production database after making a backup. These changes should occur during off-peak hours with low traffic to the app to minimize the impact because some users might experience failed requests.

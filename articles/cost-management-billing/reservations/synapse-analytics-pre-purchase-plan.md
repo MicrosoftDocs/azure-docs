@@ -2,11 +2,11 @@
 title: Optimize Azure Synapse Analytics costs with a Pre-Purchase Plan
 description: Learn how you can save on your Azure Synapse Analytics costs when you prepurchase Azure Synapse commit units (SCU) for one year.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 04/15/2024
 ms.author: banders
 ---
 
@@ -40,8 +40,8 @@ For more information about available SCU tiers and pricing discounts, you use th
 
 You buy Synapse plans in the [Azure portal](https://portal.azure.com). To buy a Pre-Purchase Plan, you must have the owner role for at least one enterprise or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates subscription, or the required role for CSP subscriptions.
 
-- You must be in an Owner role for at least one Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
-- For Enterprise Agreement (EA) subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin of the subscription.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
+- For Enterprise Agreement (EA) subscriptions, the **Reserved Instances** policy option must be enabled in the [Azure portal](../manage/direct-ea-administration.md#view-and-manage-enrollment-policies). Or, if that setting is disabled, you must be an EA Admin of the subscription.
 - For CSP subscriptions, follow the steps in [Acquire, provision, and manage Azure reserved VM instances (RI) + server subscriptions for customers](/partner-center/azure-ri-server-subscriptions).
 
 ### To Purchase:

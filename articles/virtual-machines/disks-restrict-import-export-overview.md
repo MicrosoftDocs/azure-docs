@@ -23,13 +23,15 @@ To limit the number of people who can import or export managed disks or snapshot
 
 Any custom role without those permissions can't upload or download managed disks.
 
-## Azure AD authentication
+<a name='azure-ad-authentication'></a>
 
-If you're using Azure Active Directory (Azure AD) to control resource access, you can also use it to restrict uploading of Azure managed disks. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. To learn more, see either the [PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md#secure-uploads-with-azure-ad) or [CLI](linux/disks-upload-vhd-to-managed-disk-cli.md#secure-uploads-with-azure-ad) articles.
+## Microsoft Entra authentication
+
+If you're using Microsoft Entra ID to control resource access, you can also use it to restrict uploading of Azure managed disks. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Microsoft Entra ID, and confirms that user has the required permissions. To learn more, see either the [PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md#secure-uploads-with-azure-ad) or [CLI](linux/disks-upload-vhd-to-managed-disk-cli.md#secure-uploads-with-azure-ad) articles.
 
 ## Private links
 
-You can use private endpoints to restrict the upload and download of managed disks and more securely access data over a private link from clients on your Azure virtual network. The private endpoint uses an IP address from the virtual network address space for your managed disks. Network traffic between clients on their virtual network and managed disks only traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. To learn more, see either the [portal](disks-enable-private-links-for-import-export-portal.md) or [CLI](linux/disks-export-import-private-links-cli.md) articles.
+You can use private endpoints to restrict the upload and download of managed disks and more securely access data over a private link from clients on your Azure virtual network. The private endpoint uses an IP address from the virtual network address space for your managed disks. Network traffic between clients on their virtual network and managed disks only traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. To learn more, see either the [portal](disks-enable-private-links-for-import-export-portal.yml) or [CLI](linux/disks-export-import-private-links-cli.md) articles.
 
 ## Azure policy
 

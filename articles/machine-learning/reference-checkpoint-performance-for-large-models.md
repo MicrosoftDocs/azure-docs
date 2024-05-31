@@ -72,7 +72,7 @@ With Nebula you can:
 * An Azure subscription and an Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md) for more information about workspace resource creation
 * An Azure Machine Learning compute target. See [Manage training & deploy computes](./how-to-create-attach-compute-studio.md) to learn more about compute target creation
 * A training script that uses **PyTorch**.
-* ACPT-curated (Azure Container for PyTorch) environment. See [Curated environments](resource-curated-environments.md#azure-container-for-pytorch-acpt) to obtain the ACPT image. Learn how to [use the curated environment](./how-to-use-environments.md)
+* ACPT-curated (Azure Container for PyTorch) environment. See [Curated environments](resource-curated-environments.md) to obtain the ACPT image. Learn how to [use the curated environment](./how-to-use-environments.md)
 
 ## How to Use Nebula
 
@@ -84,7 +84,7 @@ The steps to quick start Nebula include:
 
 ### Using ACPT environment
 
-[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, includes Nebula as a preinstalled, dependent Python package. See [Azure Container for PyTorch (ACPT)](resource-curated-environments.md#azure-container-for-pytorch-acpt) to view the curated environment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
+[Azure Container for PyTorch (ACPT)](how-to-manage-environments-v2.md?tabs=cli#curated-environments), a curated environment for PyTorch model training, includes Nebula as a preinstalled, dependent Python package. See [Azure Container for PyTorch (ACPT)](resource-curated-environments.md) to view the curated environment, and [Enabling Deep Learning with Azure Container for PyTorch in Azure Machine Learning](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/enabling-deep-learning-with-azure-container-for-pytorch-in-azure/ba-p/3650489) to learn more about the ACPT image.
             
 ### Initializing Nebula
 
@@ -136,11 +136,11 @@ To enable full Nebula compatibility with PyTorch-based training scripts, modify 
       nm.init(persistent_storage_path, persistent_time_interval=2)
     ```
 
-1. To save checkpoints, replace the original `torch.save()` statement to save your checkpoint with Nebula:
+1. To save checkpoints, replace the original `torch.save()` statement to save your checkpoint with Nebula. Please ensure that your checkpoint instance begins with "global_step", such as "global_step500" or "global_step1000":
 
     ```python
-    checkpoint = nm.Checkpoint()
-    checkpoint.save(<'CKPT_NAME'>, model)
+    checkpoint = nm.Checkpoint('global_step500')  
+    checkpoint.save('<CKPT_NAME>', model)  
     ```
     > [!NOTE]
     > ``<'CKPT_TAG_NAME'>`` is the unique ID for the checkpoint. A tag is usually the number of steps, the epoch number, or any user-defined name. The optional ``<'NUM_OF_FILES'>`` optional parameter specifies the state number which you would save for this tag.
@@ -159,13 +159,13 @@ To enable full Nebula compatibility with PyTorch-based training scripts, modify 
     - list all checkpoints
     - get latest checkpoints
 
-```python
-# Managing checkpoints
-## List all checkpoints
-ckpts = nm.list_checkpoints()
-## Get Latest checkpoint path
-latest_ckpt_path = nm.get_latest_checkpoint_path("checkpoint", persisted_storage_path)
-```
+    ```python
+    # Managing checkpoints
+    ## List all checkpoints
+    ckpts = nm.list_checkpoints()
+    ## Get Latest checkpoint path
+    latest_ckpt_path = nm.get_latest_checkpoint_path("checkpoint", persisted_storage_path)
+    ```
 
 # [Using DeepSpeed](#tab/DEEPSPEED)
 

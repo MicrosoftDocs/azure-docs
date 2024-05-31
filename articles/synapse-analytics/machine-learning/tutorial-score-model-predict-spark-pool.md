@@ -8,7 +8,6 @@ ms.reviewer: sngun, garye
 ms.date: 11/02/2021
 author: nelgson
 ms.author: negust
-ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Score machine learning models with PREDICT in serverless Apache Spark pools

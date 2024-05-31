@@ -1,6 +1,6 @@
 ---
-title: CLI script - Monitor and scale an Azure Database for MySQL - Flexible Server
-description: This Azure CLI sample script shows how to monitor and scale a single Azure Database for MySQL - Flexible server up or down to allow for changing performance needs. 
+title: CLI script - Monitor and scale
+description: This Azure CLI sample script shows how to monitor and scale a single Azure Database for MySQL - Flexible Server instance up or down to allow for changing performance needs.
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
@@ -11,13 +11,15 @@ ms.custom: mvc, devx-track-azurecli
 ms.date: 02/10/2022 
 ---
 
-# Monitor and scale an Azure Database for MySQL - Flexible Server using Azure CLI
+# Monitor and scale an Azure Database for MySQL - Flexible Server instance using Azure CLI
+
+[!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)]
 
 This sample CLI script scales compute, storage and IOPS for a single Azure Database for MySQL - Flexible server after querying the corresponding metrics. Compute and IOPS can be scaled up or down, while storage can only be scaled up.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

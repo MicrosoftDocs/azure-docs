@@ -5,9 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/07/2023
-tags: connectors
-# As a developer, I want to get telemetry from an Application Insights resource to use with my workflow in Azure Logic Apps.
+ms.date: 01/10/2024
+# Customer intent: As a developer, I want to get telemetry from an Application Insights resource to use with my workflow in Azure Logic Apps.
 ---
 
 # Connect to Azure Application Insights from workflows in Azure Logic Apps
@@ -19,7 +18,7 @@ tags: connectors
 > the other connectors and is the preferred method for running a query against a Log Analytics workspace or an Application Insights resource.
 > 
 > For example, when you connect to your Application Insights resource, you don't have to create or provide an application ID and API key. 
-> Authentication is integrated with Azure Active Directory. For the how-to guide to use the Azure Monitor Logs connector, see 
+> Authentication is integrated with Microsoft Entra ID. For the how-to guide to use the Azure Monitor Logs connector, see 
 > [Connect to Log Analytics or Application Insights from workflows in Azure Logic Apps](connectors-azure-monitor-logs.md).
 
 For more information, see the following documentation:

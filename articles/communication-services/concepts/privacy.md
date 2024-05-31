@@ -38,6 +38,15 @@ The list of geographies you can choose from includes:
 - United Kingdom
 - United States
 
+> [!Note]
+> Advanced Messaging for WhatsApp is only available in the following Regions.
+
+- Asia Pacific
+- Australia
+- Europe
+- United Kingdom
+- United States
+
 ## Data collection
 
 Azure Communication Services only collects diagnostic data required to deliver the service. 
@@ -85,6 +94,8 @@ Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, a
 - `Update Message`
 - `Delete Thread`
 - `Delete Message`
+
+For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](interop/guest/privacy.md#chat-storage) for storage of chat messages in Teams meetings.
 
 ### SMS
 

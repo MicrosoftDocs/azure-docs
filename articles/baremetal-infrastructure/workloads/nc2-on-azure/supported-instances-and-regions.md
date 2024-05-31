@@ -6,7 +6,7 @@ description: Learn about instances and regions supported for NC2 on Azure.
 ms.topic: how-to
 ms.subservice: baremetal-nutanix
 ms.custom: "references_regions, engagement-fy23" 
-ms.date: 04/01/2023
+ms.date: 05/21/2024
 ---
 
 # Supported instances and regions
@@ -38,6 +38,7 @@ NC2 on Azure supports the following regions using AN36P:
 * UK South
 * West Europe
 * Germany West Central
+* Japan East
 
 ## Next steps
 

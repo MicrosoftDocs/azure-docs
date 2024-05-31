@@ -24,6 +24,7 @@ The following services are provided by the SAP workload zone:
 - A Storage account for cloud witnesses
 - An Azure NetApp Files account and capacity pools (optional)
 - Azure Files NFS shares (optional)
+- [Azure Monitor for SAP](integration-azure-monitor-sap.md) (optional)
 
 :::image type="content" source="./media/deployment-framework/workload-zone.png" alt-text="Diagram that shows an SAP workload zone.":::
 

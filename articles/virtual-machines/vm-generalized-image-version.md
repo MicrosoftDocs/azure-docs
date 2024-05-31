@@ -5,12 +5,10 @@ author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 08/15/2023
 ms.author: saraic
-ms.reviewer: cynthn, mattmcinnes 
+ms.reviewer: cynthn, mattmcinnes
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-
 ---
 # Create a VM from a generalized image version
 
@@ -476,7 +474,7 @@ You also need the `imageID` of the image you want to use and you need to make su
 
 In this example, we're showing how to create a VM from a generalized image. If you're using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
 
-You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
+You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. In this case, tenant1 is where the image is stored, and tenant2 is where you want to create the VM. This is how Azure authenticates that you have access to the image.
 
 ```azurecli-interactive
 
@@ -487,8 +485,6 @@ az account clear
 az login --tenant $tenant1
 az account get-access-token 
 az login --tenant $tenant2
-az account get-access-token
-az login --tenant $tenant1
 az account get-access-token
 ```
  
@@ -516,7 +512,7 @@ az vm create \
 
 In this example, we're showing how to create a VM from a generalized image. If you're using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
 
-You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
+You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. In this case, tenant1 is where the image is stored, and tenant2 is where you want to create the VM. This is how Azure authenticates that you have access to the image.
 
 ```azurepowershell-interactive
 
@@ -524,7 +520,6 @@ $tenant1 = "<Tenant 1 ID>"
 $tenant2 = "<Tenant 2 ID>"
 Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 Connect-AzAccount -Tenant "<Tenant 2 ID>" -UseDeviceAuthentication
-Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 ```
 
 
@@ -848,7 +843,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 ### [Portal](#tab/portal4)
 
 > [!NOTE]
-> **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you'll get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
+> **Known issue**: In the Azure portal, if you select a region, select an image, then change the region, you'll get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 >
 > You can also use the Azure CLI to check what images are shared with you. For example, you can use `az sig list-shared --location westus` to see what images are shared with you in the West US region.
 

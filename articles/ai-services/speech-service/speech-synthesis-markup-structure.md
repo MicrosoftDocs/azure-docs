@@ -2,12 +2,11 @@
 title: Speech Synthesis Markup Language (SSML) document structure and events - Speech service
 titleSuffix: Azure AI services
 description: Learn about the Speech Synthesis Markup Language (SSML) document structure.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 3/14/2024
 ms.author: eur
 ---
 
@@ -37,6 +36,7 @@ Here's a subset of the basic structure and syntax of an SSML document:
         <lexicon uri="string"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML"></math>
         <mstts:audioduration value="string"/>
+        <mstts:ttsembedding speakerProfileId="string"></mstts:ttsembedding>
         <mstts:express-as style="string" styledegree="value" role="string"></mstts:express-as>
         <mstts:silence type="string" value="string"/>
         <mstts:viseme type="string"/>
@@ -60,6 +60,7 @@ Some examples of contents that are allowed in each element are described in the 
 - `math`: This element can only contain text and MathML elements.
 - `mstts:audioduration`: This element can't contain text or any other elements.
 - `mstts:backgroundaudio`: This element can't contain text or any other elements.
+- `mstts:embedding`: This element can contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, and `sub`.
 - `mstts:express-as`: This element can contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, and `sub`.
 - `mstts:silence`: This element can't contain text or any other elements.
 - `mstts:viseme`: This element can't contain text or any other elements.
@@ -76,13 +77,13 @@ The Speech service automatically handles punctuation as appropriate, such as pau
 
 ## Special characters
 
-To use the characters `&`, `<`, and `>` within the SSML element's value or text, you must use the entity format. Specifically you must use `&amp;` in place of `&`, use `&lt;` in place of `<`, and use `&gt;` in place of `>`. Otherwise the SSML will not be parsed correctly. 
+To use the characters `&`, `<`, and `>` within the SSML element's value or text, you must use the entity format. Specifically you must use `&amp;` in place of `&`, use `&lt;` in place of `<`, and use `&gt;` in place of `>`. Otherwise the SSML isn't parsed correctly. 
 
-For example, specify `green &amp; yellow` instead of `green & yellow`. The following SSML will be parsed as expected:
+For example, specify `green &amp; yellow` instead of `green & yellow`. The following SSML is parsed as expected:
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         My favorite colors are green &amp; yellow.
     </voice>
 </speak>
@@ -90,7 +91,7 @@ For example, specify `green &amp; yellow` instead of `green & yellow`. The follo
 
 Special characters such as quotation marks, apostrophes, and brackets, must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
 
-Attribute values must be enclosed by double or single quotation marks. For example, `<prosody volume="90">` and `<prosody volume='90'>` are well-formed, valid elements, but `<prosody volume=90>` won't be recognized. 
+Double or single quotation marks must enclose the attribute values. For example, `<prosody volume="90">` and `<prosody volume='90'>` are well-formed, valid elements, but `<prosody volume=90>` isn't recognized. 
 
 ## Speak root element
 
@@ -116,11 +117,11 @@ The supported values for attributes of the `speak` element were [described previ
 
 #### Single voice example
 
-This example uses the `en-US-JennyNeural` voice. For more examples, see [voice examples](speech-synthesis-markup-voice.md#voice-examples).
+This example uses the `en-US-AvaNeural` voice. For more examples, see [voice examples](speech-synthesis-markup-voice.md#voice-examples).
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -128,14 +129,14 @@ This example uses the `en-US-JennyNeural` voice. For more examples, see [voice e
 
 ## Add a break
 
-Use the `break` element to override the default behavior of breaks or pauses between words. You can use it to add pauses that are otherwise automatically inserted by the Speech service.
+Use the `break` element to override the default behavior of breaks or pauses between words. Otherwise the Speech service automatically inserts pauses.
 
 Usage of the `break` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
 | `strength` | The relative duration of a pause by using one of the following values:<br/><ul><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul>| Optional |
-| `time`     | The absolute duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service will use `5000ms`. If the `time` attribute is set, the `strength` attribute is ignored.| Optional |
+| `time`     | The absolute duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service uses `5000ms`. If the `time` attribute is set, the `strength` attribute is ignored.| Optional |
 
 Here are more details about the `strength` attribute.
 
@@ -153,7 +154,7 @@ The supported values for attributes of the `break` element were [described previ
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         Welcome <break /> to text to speech.
         Welcome <break strength="medium" /> to text to speech.
         Welcome <break time="750ms" /> to text to speech.
@@ -167,14 +168,14 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 
 One of the differences between `mstts:silence` and `break` is that a `break` element can be inserted anywhere in the text. Silence only works at the beginning or end of input text or at the boundary of two adjacent sentences.
 
-The silence setting is applied to all input text within it's enclosing `voice` element. To reset or change the silence setting again, you must use a new `voice` element with either the same voice or a different voice.
+The silence setting is applied to all input text within its enclosing `voice` element. To reset or change the silence setting again, you must use a new `voice` element with either the same voice or a different voice.
 
 Usage of the `mstts:silence` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
-| `type` | Specifies where and how to add silence. The following silence types are supported:<br/><ul><li>`Leading` – Additional silence at the beginning of the text. The value that you set is added to the natural silence before the start of text.</li><li>`Leading-exact` – Silence at the beginning of the text. The value is an absolute silence length.</li><li>`Tailing` – Additional silence at the end of text. The value that you set is added to the natural silence after the last word.</li><li>`Tailing-exact` – Silence at the end of the text. The value is an absolute silence length.</li><li>`Sentenceboundary` – Additional silence between adjacent sentences. The actual silence length for this type includes the natural silence after the last word in the previous sentence, the value you set for this type, and the natural silence before the starting word in the next sentence.</li><li>`Sentenceboundary-exact` – Silence between adjacent sentences. The value is an absolute silence length.</li><li>`Comma-exact` – Silence at the comma in half-width or full-width format. The value is an absolute silence length.</li><li>`Semicolon-exact` – Silence at the semicolon in half-width or full-width format. The value is an absolute silence length.</li><li>`Enumerationcomma-exact` – Silence at the enumeration comma in full-width format. The value is an absolute silence length.</li></ul><br/>An absolute silence type (with the `-exact` suffix) replaces any otherwise natural leading or trailing silence. Absolute silence types take precedence over the corresponding non-absolute type. For example, if you set both `Leading` and `Leading-exact` types, the `Leading-exact` type will take effect. The [WordBoundary event](how-to-speech-synthesis.md#subscribe-to-synthesizer-events) takes precedence over punctuation-related silence settings including `Comma-exact`, `Semicolon-exact`, or `Enumerationcomma-exact`. When using both the `WordBoundary` event and punctuation-related silence settings, the punctuation-related silence settings won't take effect.| Required |
-| `Value`   | The duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service will use `5000ms`.| Required |
+| `type` | Specifies where and how to add silence. The following silence types are supported:<br/><ul><li>`Leading` – Extra silence at the beginning of the text. The value that you set is added to the natural silence before the start of text.</li><li>`Leading-exact` – Silence at the beginning of the text. The value is an absolute silence length.</li><li>`Tailing` – Extra silence at the end of text. The value that you set is added to the natural silence after the last word.</li><li>`Tailing-exact` – Silence at the end of the text. The value is an absolute silence length.</li><li>`Sentenceboundary` – Extra silence between adjacent sentences. The actual silence length for this type includes the natural silence after the last word in the previous sentence, the value you set for this type, and the natural silence before the starting word in the next sentence.</li><li>`Sentenceboundary-exact` – Silence between adjacent sentences. The value is an absolute silence length.</li><li>`Comma-exact` – Silence at the comma in half-width or full-width format. The value is an absolute silence length.</li><li>`Semicolon-exact` – Silence at the semicolon in half-width or full-width format. The value is an absolute silence length.</li><li>`Enumerationcomma-exact` – Silence at the enumeration comma in full-width format. The value is an absolute silence length.</li></ul><br/>An absolute silence type (with the `-exact` suffix) replaces any otherwise natural leading or trailing silence. Absolute silence types take precedence over the corresponding non-absolute type. For example, if you set both `Leading` and `Leading-exact` types, the `Leading-exact` type takes effect. The [WordBoundary event](how-to-speech-synthesis.md#subscribe-to-synthesizer-events) takes precedence over punctuation-related silence settings including `Comma-exact`, `Semicolon-exact`, or `Enumerationcomma-exact`. When you use both the `WordBoundary` event and punctuation-related silence settings, the punctuation-related silence settings don't take effect.| Required |
+| `Value`   | The duration of a pause in seconds (such as `2s`) or milliseconds (such as `500ms`). Valid values range from 0 to 5000 milliseconds. If you set a value greater than the supported maximum, the service uses `5000ms`.| Required |
 
 ###  mstts silence examples
 
@@ -184,7 +185,7 @@ In this example, `mstts:silence` is used to add 200 ms of silence between two se
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
-<voice name="en-US-JennyNeural">
+<voice name="en-US-AvaNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
 If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
@@ -212,7 +213,7 @@ The following example defines two paragraphs that each contain sentences. In the
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -227,7 +228,7 @@ The following example defines two paragraphs that each contain sentences. In the
 
 ## Bookmark element
 
-You can use the `bookmark` element in SSML to reference a specific location in the text or tag sequence. Then you'll use the Speech SDK and subscribe to the `BookmarkReached` event to get the offset of each marker in the audio stream. The `bookmark` element won't be spoken. For more information, see [Subscribe to synthesizer events](how-to-speech-synthesis.md#subscribe-to-synthesizer-events).
+You can use the `bookmark` element in SSML to reference a specific location in the text or tag sequence. Then you use the Speech SDK and subscribe to the `BookmarkReached` event to get the offset of each marker in the audio stream. The `bookmark` element isn't spoken. For more information, see [Subscribe to synthesizer events](how-to-speech-synthesis.md#subscribe-to-synthesizer-events).
 
 Usage of the `bookmark` element's attributes are described in the following table.
 
@@ -243,7 +244,7 @@ As an example, you might want to know the time offset of each flower word in the
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-AvaNeural">
         We are selling <bookmark mark='flower_1'/>roses and <bookmark mark='flower_2'/>daisies.
     </voice>
 </speak>
@@ -253,7 +254,7 @@ As an example, you might want to know the time offset of each flower word in the
 
 A viseme is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. You can use the `mstts:viseme` element in SSML to request viseme output. For more information, see [Get facial position with viseme](how-to-speech-synthesis-viseme.md).
 
-The viseme setting is applied to all input text within it's enclosing `voice` element. To reset or change the viseme setting again, you must use a new `voice` element with either the same voice or a different voice.
+The viseme setting is applied to all input text within its enclosing `voice` element. To reset or change the viseme setting again, you must use a new `voice` element with either the same voice or a different voice.
 
 Usage of the `viseme` element's attributes are described in the following table.
 
@@ -272,7 +273,7 @@ This SSML snippet illustrates how to request blend shapes with your synthesized 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
-  <voice name="en-US-JennyNeural">
+  <voice name="en-US-AvaNeural">
     <mstts:viseme type="FacialExpression"/>
     Rainbow has seven colors: Red, orange, yellow, green, blue, indigo, and violet.
   </voice>

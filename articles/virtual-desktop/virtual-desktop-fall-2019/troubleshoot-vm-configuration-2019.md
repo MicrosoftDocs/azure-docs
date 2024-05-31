@@ -60,15 +60,15 @@ Follow these instructions if you're having issues joining VMs to the domain.
 
 **Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](../../virtual-network/create-peering-different-subscriptions.md).
 
-**Cause 2:** When using Azure Active Directory Domain Services (Azure AD DS), the virtual network doesn't have its DNS server settings updated to point to the managed domain controllers.
+**Cause 2:** When using Microsoft Entra Domain Services, the virtual network doesn't have its DNS server settings updated to point to the managed domain controllers.
 
-**Fix 2:** To update the DNS settings for the virtual network containing Azure AD DS, see [Update DNS settings for the Azure virtual network](../../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
+**Fix 2:** To update the DNS settings for the virtual network containing Microsoft Entra Domain Services, see [Update DNS settings for the Azure virtual network](../../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
 
 **Cause 3:** The network interface's DNS server settings do not point to the appropriate DNS server on the virtual network.
 
 **Fix 3:** Take one of the following actions to resolve, following the steps in [Change DNS servers].
 - Change the network interface's DNS server settings to **Custom** with the steps from [Change DNS servers](../../virtual-network/virtual-network-network-interface.md#change-dns-servers) and specify the private IP addresses of the DNS servers on the virtual network.
-- Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../../virtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../../virtual-network/manage-virtual-network.md#change-dns-servers).
+- Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../../virtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../../virtual-network/manage-virtual-network.yml#change-dns-servers).
 
 ## Azure Virtual Desktop Agent and Azure Virtual Desktop Boot Loader are not installed
 
@@ -215,7 +215,7 @@ Examine the registry entries listed below and confirm that their values match. I
 
 3. Install the side-by-side stack using [Create a host pool with PowerShell](create-host-pools-powershell-2019.md).
 
-## How to fix a Azure Virtual Desktop side-by-side stack that malfunctions
+## How to fix an Azure Virtual Desktop side-by-side stack that malfunctions
 
 There are known circumstances that can cause the side-by-side stack to malfunction:
 
@@ -346,7 +346,7 @@ To learn more about this policy, see [Allow log on through Remote Desktop Servic
 ## Next steps
 
 - For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
-- To troubleshoot issues while creating a tenant and host pool in a Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
+- To troubleshoot issues while creating a tenant and host pool in an Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-windows.md)

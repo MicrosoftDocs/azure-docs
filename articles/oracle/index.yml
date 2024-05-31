@@ -1,0 +1,51 @@
+### YamlMime:Landing
+
+title: Oracle on Azure Documentation
+summary: Oracle applications and solutions on Azure.
+
+metadata:
+  title: Oracle on Azure
+  description: Learn about solutions for Oracle workloads on Azure VMs
+  ms.service: oracle-on-azure
+  ms.topic: landing-page
+  ms.author: jjaygbay1
+  author: jjaygbay1
+  ms.date: 05/11/2023
+  keywords: oracle workloads on azure virtual machines, database, oracle, data migration to cloud, workloads on azure, azure data migration 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+  #card 1
+  - title: Oracle on Azure Documentation
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Oracle on Azure
+            url: oracle-azure-overview.md         
+
+  #card 2
+  - title: Oracle on Azure Virtual Machines
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Oracle on Azure Virtual Machines
+            url: /azure/virtual-machines/workloads/oracle/  
+   
+  #card 3
+  - title: Oracle Database@Azure
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Oracle Database@Azure
+            url: oracle-db/database-overview.md
+          - text: Onboard with Oracle Database@Azure
+            url: oracle-db/onboard-oracle-database.md
+          - text: Network planning for Oracle Database@Azure
+            url: oracle-db/oracle-database-network-plan.md
+          - text: Groups and roles for Oracle Database@Azure
+            url: oracle-db/oracle-database-groups-roles.md          
+          - text: Provision and manage Oracle Database@Azure
+            url: oracle-db/provision-oracle-database.md
+          - text: Support for Oracle Database@Azure
+            url: oracle-db/oracle-database-support.md

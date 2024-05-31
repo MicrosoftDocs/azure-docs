@@ -4,7 +4,7 @@ description: Learn how to monitor an integration runtime within an Azure Data Fa
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 05/15/2024
 author: lrtoyou1223
 ms.author: lle
 ms.custom:
@@ -97,6 +97,6 @@ By implementing either of these solutions, you can enhance the performance of yo
 
 :::image type="content" source="media\monitor-managed-virtual-network-integration-runtime\monitor-managed-virtual-network-integration-runtime-intermittent-activity.png" alt-text="Screenshot of an intermittent activity scenario for an integration runtime within a managed virtual network." lightbox="media\monitor-managed-virtual-network-integration-runtime\monitor-managed-virtual-network-integration-runtime-intermittent-activity.png":::
 
-## Next steps
+## Related content
 
 Advance to the following article to learn about managed virtual networks and managed private endpoints: [Azure Data Factory managed virtual network](managed-virtual-network-private-endpoint.md).

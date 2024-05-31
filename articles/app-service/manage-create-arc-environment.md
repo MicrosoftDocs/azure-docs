@@ -38,7 +38,7 @@ GEOMASTER_LOCATION="TODO: Why so many different locations for different resource
 
 Launch the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 
-[![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 Because these CLI commands are not yet part of the core CLI set, add them with the following commands.
 
@@ -359,7 +359,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
     ```bash
     CUSTOM_LOCATION_NAME="my-custom-location" # Name of the custom location
     
-    CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $GROUP_NAME --name $CLUSTER_NAME-query id --output tsv)
+    CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $GROUP_NAME --name $CLUSTER_NAME --query id --output tsv)
     ```
 
     # [PowerShell](#tab/powershell)
@@ -400,7 +400,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
     
     <!-- --kubeconfig ~/.kube/config # needed for non-Azure -->
     > [!NOTE]
-    > If you experience issues creating a custom location on your cluster, you may need to [enable the custom location feature on your cluster](../azure-arc/kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster).  This is required if logged into the CLI using a Service Principal or if you are logged in with an Azure Active Directory user with restricted permissions on the cluster resource.
+    > If you experience issues creating a custom location on your cluster, you may need to [enable the custom location feature on your cluster](../azure-arc/kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster).  This is required if logged into the CLI using a Service Principal or if you are logged in with a Microsoft Entra user with restricted permissions on the cluster resource.
     >
 
 3. Validate that the custom location is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.

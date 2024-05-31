@@ -4,7 +4,7 @@ description: Learn how to change performance tiers for new and existing managed 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 03/04/2024
 ms.author: rogarana
 ms.custom: references_regions
 ---

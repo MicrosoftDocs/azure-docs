@@ -1,22 +1,24 @@
 ---
 title: BM25 relevance scoring
-titleSuffix: Azure Cognitive Search
-description: Explains the concepts of BM25 relevance and scoring in Azure Cognitive Search, and what a developer can do to customize the scoring result.
+titleSuffix: Azure AI Search
+description: Explains the concepts of BM25 relevance and scoring in Azure AI Search, and what a developer can do to customize the scoring result.
 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 05/06/2024
 ---
 
-# Relevance scoring for full text search (BM25)
+# Relevance in keyword search (BM25 scoring)
 
 This article explains the BM25 relevance scoring algorithm used to compute search scores for [full text search](search-lucene-query-architecture.md). BM25 relevance is exclusive to full text search. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries aren't scored or ranked for relevance.
 
 ## Scoring algorithms used in full text search
 
-Azure Cognitive Search provides the following scoring algorithms for full text search:
+Azure AI Search provides the following scoring algorithms for full text search:
 
 | Algorithm | Usage | Range |
 |-----------|-------------|-------|
@@ -30,7 +32,7 @@ BM25 offers advanced customization options, such as allowing the user to decide 
 > [!NOTE]
 > If you're using a search service that was created before July 2020, the scoring algorithm is most likely the previous default, `ClassicSimilarity`, which you can upgrade on a per-index basis. See [Enable BM25 scoring on older services](index-ranking-similarity.md#enable-bm25-scoring-on-older-services) for details.
 
-The following video segment fast-forwards to an explanation of the generally available ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
+The following video segment fast-forwards to an explanation of the generally available ranking algorithms used in Azure AI Search. You can watch the full video for more background.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
@@ -38,9 +40,7 @@ The following video segment fast-forwards to an explanation of the generally ava
 
 Relevance scoring refers to the computation of a search score (**@search.score**) that serves as an indicator of an item's relevance in the context of the current query. The range is unbounded. However, the higher the score, the more relevant the item. 
 
-By default, the top 50 highest scoring matches are returned in the response, but you can use the **$top** parameter to return a smaller or larger number of items (up to 1000 in a single response), and **$skip** to get the next set of results.
-
-The search score is computed based on statistical properties of the string input and the query itself. Azure Cognitive Search finds documents that match on search terms (some or all, depending on [searchMode](/rest/api/searchservice/search-documents#query-parameters)), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data index, but common within the document. The basis for this approach to computing relevance is known as *TF-IDF or* term frequency-inverse document frequency.
+The search score is computed based on statistical properties of the string input and the query itself. Azure AI Search finds documents that match on search terms (some or all, depending on [searchMode](/rest/api/searchservice/search-documents#query-parameters)), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data index, but common within the document. The basis for this approach to computing relevance is known as *TF-IDF or* term frequency-inverse document frequency.
 
 Search scores can be repeated throughout a result set. When multiple hits have the same search score, the ordering of the same scored items is undefined and not stable. Run the query again, and you might see items shift position, especially if you're using the free service or a billable service with multiple replicas. Given two items with an identical score, there's no guarantee that one appears first.
 
@@ -67,15 +67,33 @@ Search scores convey general sense of relevance, reflecting the strength of matc
 
 | Cause | Description |
 |-----------|-------------|
-| Data volatility | Index content varies as you add, modify, or delete documents. Term frequencies will change as index updates are processed over time, affecting the search scores of matching documents. |
-| Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Typically, differences in per-replica statistics are more noticeable in smaller indexes. For more information about this condition, see [Concepts: search units, replicas, partitions, shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards) in the capacity planning documentation. |
 | Identical scores | If multiple documents have the same score, any one of them might appear first.  |
+| Data volatility | Index content varies as you add, modify, or delete documents. Term frequencies will change as index updates are processed over time, affecting the search scores of matching documents. |
+| Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Typically, differences in per-replica statistics are more noticeable in smaller indexes. The following section provides more information about this condition. |
+
+## Sharding effects on query results
+
+A *shard* is a chunk of an index. Azure AI Search subdivides an index into *shards* to make the process of adding partitions faster (by moving shards to new search units). On a search service, shard management is an implementation detail and nonconfigurable, but knowing that an index is sharded helps to understand the occasional anomalies in ranking and autocomplete behaviors:
+
++ Ranking anomalies: Search scores are computed at the shard level first, and then aggregated up into a single result set. Depending on the characteristics of shard content, matches from one shard might be ranked higher than matches in another one. If you notice counter intuitive rankings in search results, it's most likely due to the effects of sharding, especially if indexes are small. You can avoid these ranking anomalies by choosing to [compute scores globally across the entire index](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), but doing so will incur a performance penalty.
+
++ Autocomplete anomalies: Autocomplete queries, where matches are made on the first several characters of a partially entered term, accept a fuzzy parameter that forgives small deviations in spelling. For autocomplete, fuzzy matching is constrained to terms within the current shard. For example, if a shard contains "Microsoft" and a partial term of "micro" is entered, the search engine will match on "Microsoft" in that shard, but not in other shards that hold the remaining parts of the index.
+
+The following diagram shows the relationship between replicas, partitions, shards, and search units. It shows an example of how a single index is spanned across four search units in a service with two replicas and two partitions. Each of the four search units stores only half of the shards of the index. The search units in the left column store the first half of the shards, comprising the first partition, while those in the right column store the second half of the shards, comprising the second partition. Since there are two replicas, there are two copies of each index shard. The search units in the top row store one copy, comprising the first replica, while those in the bottom row store another copy, comprising the second replica.
+
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Search indexes are sharded across partitions.":::
+
+The diagram above is only one example. Many combinations of partitions and replicas are possible, up to a maximum of 36 total search units.
+
+> [!NOTE]
+> The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). Azure AI Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create an index, each partition will contain four shards of the index. How Azure AI Search shards an index is an implementation detail, subject to change in future releases. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
+>
 
 <a name="scoring-statistics"></a>
 
 ### Scoring statistics and sticky sessions
 
-For scalability, Azure Cognitive Search distributes each index horizontally through a sharding process, which means that [portions of an index are physically separate](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
+For scalability, Azure AI Search distributes each index horizontally through a sharding process, which means that [portions of an index are physically separate](#sharding-effects-on-query-results).
 
 By default, the score of a document is calculated based on statistical properties of the data *within a shard*. This approach is generally not a problem for a large corpus of data, and it provides better performance than having to calculate the score based on information across all shards. That said, using this performance optimization could cause two very similar documents (or even identical documents) to end up with different relevance scores if they end up in different shards.
 
@@ -106,7 +124,7 @@ As long as the same `sessionId` is used, a best-effort attempt is made to target
 
 ## Relevance tuning
 
-In Azure Cognitive Search, you can configure BM25 algorithm parameters, and tune search relevance and boost search scores through these mechanisms:
+In Azure AI Search, you can configure BM25 algorithm parameters, and tune search relevance and boost search scores through these mechanisms:
 
 | Approach | Implementation | Description |
 |----------|----------------|-------------|
@@ -149,9 +167,15 @@ For a query that targets the "description" and "title" fields, a response that i
 
 You can consume these data points in [custom scoring solutions](https://github.com/Azure-Samples/search-ranking-tutorial) or use the information to debug search relevance problems.
 
+## Number of ranked results in a full text query response
+
+By default, if you aren't using pagination, the search engine returns the top 50 highest ranking matches for full text search. You can use the `top` parameter to return a smaller or larger number of items (up to 1000 in a single response). Full text search is subject to a maximum limit of 1,000 matches (see [API response limits](search-limits-quotas-capacity.md#api-response-limits)). Once 1,000 matches are found, the search engine no longer looks for more.
+
+To return more or less results, use the paging parameters `top`, `skip`, and `next`. Paging is how you determine the number of results on each logical page and navigate through the full payload. For more information, see [How to work with search results](search-pagination-page-layout.md).
+
 ## See also
 
 + [Scoring Profiles](index-add-scoring-profiles.md)
 + [REST API Reference](/rest/api/searchservice/)
 + [Search Documents API](/rest/api/searchservice/search-documents)
-+ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)
++ [Azure AI Search .NET SDK](/dotnet/api/overview/azure/search)

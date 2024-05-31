@@ -8,7 +8,7 @@ ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: gahllevy
-ms.custom: seodec18, devx-track-js, ignite-2022
+ms.custom: devx-track-js
 ms.reviewer: mjbrown
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Add CRUD functions to the app
@@ -156,13 +156,13 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 3. In **hero.service.js**, export the new modules:
 
    ```javascript
-    module.exports = {
-      getHeroes,
-      postHero,
-      putHero,
-      deleteHero
-    };
-    ```
+   module.exports = {
+     getHeroes,
+     postHero,
+     putHero,
+     deleteHero
+   };
+   ```
 
 4. Now that we've updated the code, select the **Restart** button :::image type="icon" source="./media/tutorial-develop-nodejs-part-6/restart-debugger-button.png"::: in Visual Studio Code.
 

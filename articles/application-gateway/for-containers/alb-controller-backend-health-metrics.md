@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 07/24/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
@@ -15,6 +15,7 @@ ms.author: greglin
 Understanding backend health of your Kubernetes services and pods is crucial in identifying issues and assistance in troubleshooting.  To help facilitate visibility into backend health, ALB Controller exposes backend health and metrics endpoints in all ALB Controller deployments.
 
 ALB Controller's backend health exposes three different experiences:
+
 1. Summarized backend health by Application Gateway for Containers resource
 2. Summarized backend health by Kubernetes service
 3. Detailed backend health for a specified Kubernetes service
@@ -22,10 +23,11 @@ ALB Controller's backend health exposes three different experiences:
 ALB Controller's metric endpoint exposes both metrics and summary of backend health.  This endpoint enables exposure to Prometheus.
 
 Access to these endpoints can be reached via the following URLs:
+
 - Backend Health - http://\<alb-controller-pod-ip\>:8000/backendHealth
-   - Output is JSON format
+  - Output is JSON format
 - Metrics - http://\<alb-controller-pod-ip\>:8001/metrics
-   - Output is text format
+  - Output is text format
 
 Any clients or pods that have connectivity to this pod and port may access these endpoints. To restrict access, we recommend using [Kubernetes network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to restrict access to certain clients.
 
@@ -49,12 +51,14 @@ Example output:
 Once you have the IP address of your alb-controller pod, you may validate the backend health service is running by browsing to http://\<pod-ip\>:8000.
 
 For example, the following command may be run:
+
 ```bash
 curl http://10.1.0.247:8000
 ```
 
 Example response:
-```
+
+```text
 Available paths:
 Path: /backendHealth
 Description: Prints the backend health of the ALB.
@@ -74,11 +78,13 @@ This experience summarizes of all Kubernetes services with references to Applica
 This experience may be accessed by specifying the Application Gateway for Containers resource ID in the query of the request to the alb-controller pod.
 
 The following command can be used to probe backend health for the specified Application Gateway for Containers resource.
+
 ```bash
 curl http://\<alb-controller-pod-ip-address\>:8000/backendHealth?alb-id=/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzzzzzz
 ```
 
 Example output:
+
 ```json
 {
   "services": [
@@ -115,11 +121,13 @@ This experience searches for the health summary status of a given service.
 This experience may be accessed by specifying the name of the namespace, service, and port number of the service in the following format of the query string to the alb-controller pod: _\<namespace\>/\<service\>/\<service-port-number\>_
 
 The following command can be used to probe backend health for the specified Kubernetes service.
+
 ```bash
 curl http://\<alb-controller-pod-ip-address\>:8000/backendHealth?service-name=default/service-hello-world/80
 ```
 
 Example output:
+
 ```json
 {
   "services": [
@@ -145,11 +153,13 @@ This experience shows all endpoints that make up the service, including their co
 This experience may be accessed by specifying detailed=true in the query string to the alb-controller pod.
 
 For example, we can verify individual endpoint health by executing the following command:
+
 ```bash
 curl http://\<alb-controller-pod-ip-address\>:8000/backendHealth?service-name=default/service-hello-world/80\&detailed=true
 ```
 
 Example output:
+
 ```json
 {
   "services": [
@@ -182,7 +192,7 @@ ALB Controller currently surfaces metrics following [text based format](https://
 
 The following Application Gateway for Containers specific metrics are currently available today:
 
-| Metric Name | Description                                                                           | 
+| Metric Name | Description                                                                           |
 | ----------- | ------------------------------------------------------------------------------------- |
 | alb_connection_status | Connection status to an Application Gateway for Containers resource |
 | alb_reconnection_count | Number of reconnection attempts to an Application Gateway for Containers resources |

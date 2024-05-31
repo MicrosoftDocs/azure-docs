@@ -3,7 +3,7 @@ title: REST API to query Apache HBase in Azure HDInsight
 description: This article describes troubleshooting steps when interacting with Apache HBase components on Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 12/31/2022
+ms.date: 01/04/2024
 ---
 
 # REST API to query Apache HBase in Azure HDInsight
@@ -16,7 +16,7 @@ Using Apache HBase REST interface to query a table under a namespace other than 
 
 ## Cause
 
-HBase REST API is only supported when using the default namespace. This is a known issue with regards to using HBase namespaces or making calls that refer to specific GETs on columns with column families with REST server on HDInsight. This is because of a security issue with HDInsight Gateway. When using the API to create a table with a namespace, accessing columns via column families, you need specify the `:` character, which is considered a security problem in the IIS Gateway module.
+HBase REST API is only supported when using the default namespace. This is a known issue with regard to use HBase namespaces or making calls that refer to specific GETs on columns with column families with REST server on HDInsight. This is because of a security issue with HDInsight Gateway. When using the API to create a table with a namespace, accessing columns via column families, you need specify the `:` character, which is considered a security problem in the IIS Gateway module.
 
 ## Mitigation
 

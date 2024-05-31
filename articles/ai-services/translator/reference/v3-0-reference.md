@@ -2,12 +2,12 @@
 title: Translator V3.0 Reference
 titleSuffix: Azure AI services
 description: Reference documentation for the Translator V3.0. Version 3.0 of the Translator provides a modern JSON-based Web API.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 09/19/2023
+ms.date: 04/29/2024
 ms.author: lajanuar
 ---
 
@@ -29,14 +29,21 @@ Requests to Translator are, in most cases, handled by the datacenter that is clo
 
 To force the request to be handled within a specific geography, use the desired geographical endpoint. All requests are processed among the datacenters within the geography.
 
-|Geography|Base URL (geographical endpoint)|Datacenters|
-|:--|:--|:--|
-|Global (`non-regional`)|    api.cognitive.microsofttranslator.com|Closest available datacenter|
-|Asia Pacific|    api-apc.cognitive.microsofttranslator.com|Korea South, Japan East, Southeast Asia, and Australia East|
-|Europe|    api-eur.cognitive.microsofttranslator.com|North Europe, West Europe|
-|United States|    api-nam.cognitive.microsofttranslator.com|East US, South Central US, West Central US, and West US 2|
+✔️ Feature: **Translator Text** </br>
 
-<sup>`1`</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the 'Resource region' 'Switzerland North' or `Switzerland West`, then use the resource's custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with 'Resource region' as 'Switzerland North' and your resource name is `my-swiss-n`, then your custom endpoint is `https&#8203;://my-swiss-n.cognitiveservices.azure.com`. And a sample request to translate is:
+| Service endpoint | Request processing data center |
+|------------------|--------------------------|
+|**Global (recommended):**</br>**`api.cognitive.microsofttranslator.com`**|Closest available data center.|
+|**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US 2 &bull; West US 2|
+|**Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Japan East &bull; Southeast Asia|
+|**Europe (except Switzerland):**</br>**`api-eur.cognitive.microsofttranslator.com`**|France Central &bull; West Europe|
+|**Switzerland:**</br> For more information, *see* [Switzerland service endpoints](#switzerland-service-endpoints).|Switzerland North &bull; Switzerland West|
+
+#### Switzerland service endpoints
+
+Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the `Resource region` `Switzerland North` or `Switzerland West`, then use the resource's custom endpoint in your API requests.
+
+For example: If you create a Translator resource in Azure portal with `Resource region` as `Switzerland North` and your resource name is `my-swiss-n`, then your custom endpoint is `https&#8203;://my-swiss-n.cognitiveservices.azure.com`. And a sample request to translate is:
 
 ```curl
 // Pass secret key and region using headers to a custom endpoint
@@ -47,7 +54,7 @@ curl -X POST "https://my-swiss-n.cognitiveservices.azure.com/translator/text/v3.
 -d "[{'Text':'Hello'}]" -v
 ```
 
-<sup>`2`</sup> Custom Translator isn't currently available in Switzerland.
+Custom Translator isn't currently available in Switzerland.
 
 ## Authentication
 
@@ -156,13 +163,15 @@ Authorization: Bearer <Base64-access_token>
 
 An authentication token is valid for 10 minutes. The token should be reused when making multiple calls to the Translator. However, if your program makes requests to the Translator over an extended period of time, then your program must request a new access token at regular intervals (for example, every 8 minutes).
 
-## Authentication with Azure Active Directory (Azure AD)
+<a name='authentication-with-azure-active-directory-azure-ad'></a>
 
- Translator v3.0 supports Azure AD authentication, Microsoft's cloud-based identity and access management solution.  Authorization headers enable the Translator service to validate that the requesting client is authorized to use the resource and to complete the request.
+## Authentication with Microsoft Entra ID
+
+ Translator v3.0 supports Microsoft Entra authentication, Microsoft's cloud-based identity and access management solution.  Authorization headers enable the Translator service to validate that the requesting client is authorized to use the resource and to complete the request.
 
 ### **Prerequisites**
 
-* A brief understanding of how to [**authenticate with Azure Active Directory**](../../authentication.md?tabs=powershell#authenticate-with-azure-active-directory).
+* A brief understanding of how to [**authenticate with Microsoft Entra ID**](../../authentication.md?tabs=powershell#authenticate-with-azure-active-directory).
 
 * A brief understanding of how to [**authorize access to managed identities**](../../authentication.md?tabs=powershell#authorize-access-to-managed-identities).
 

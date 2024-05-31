@@ -48,7 +48,7 @@ The Private link configuration defines the infrastructure used by Application Ga
    - **Frontend IP Configuration**: The frontend IP address that private link should forward traffic to on Application Gateway.
    - **Private IP address settings**: specify at least one IP address
 1. Select **Add**.
-1. Within your **Application Gateways** properties blade, obtain and make a note of the **Resource ID**, this is required if you are setting up a Private Endpoint within a different Azure AD tenant.
+1. Within your **Application Gateways** properties blade, obtain and make a note of the **Resource ID**, this is required if you are setting up a Private Endpoint within a different Microsoft Entra tenant.
 
 **Configure Private Endpoint**
 
@@ -67,6 +67,11 @@ A private endpoint is a network interface that uses a private IP address from th
 
 > [!Note]
 > If you're provisioning a **Private Endpoint** from within another tenant, you will need to utilize the Azure Application Gateway Resource ID and the _Name_ of the Frontend IP configuration as the target sub-resource. For example, if I had a private IP associated to the Application Gateway and the Name listed in Frontend IP configuration of the portal for the private IP is _PrivateFrontendIp_, the target sub-resource value would be: _PrivateFrontendIp_.
+
+> [!Note]
+> If you have to move a **Private Endpoint** to another subscription, you must first delete the existing **Private Endpoint** connection between the **Private Link** and  **Private Endpoint**. Once this is completed, you have to  re-create a new **Private Endpoint** connection in the new subscription to establish connection between **Private Link** and  **Private Endpoint**.
+
+
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -194,4 +199,4 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 ## Next steps
 
-- Learn about Azure Private Link: [What is Azure Private Link?](../private-link/private-link-overview.md)
+- Learn about Azure Private Link: [What is Azure Private Link](../private-link/private-link-overview.md).

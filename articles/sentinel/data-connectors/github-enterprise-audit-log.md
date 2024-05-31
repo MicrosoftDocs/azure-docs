@@ -3,9 +3,10 @@ title: "GitHub Enterprise Audit Log connector for Microsoft Sentinel"
 description: "Learn how to install the connector GitHub Enterprise Audit Log to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # GitHub Enterprise Audit Log connector for Microsoft Sentinel
@@ -25,6 +26,7 @@ The GitHub audit log connector provides the capability to ingest GitHub logs int
 ## Query samples
 
 **All logs**
+
    ```kusto
 {{graphQueriesTableName}}
  
@@ -37,12 +39,13 @@ The GitHub audit log connector provides the capability to ingest GitHub logs int
 
 To integrate with GitHub Enterprise Audit Log make sure you have: 
 
-- **GitHub API personal token Key**: You need access to GitHub personal token, the key should have 'admin:org' scope
+- **GitHub API personal access token**: You need a GitHub personal access token to enable polling for the organization audit log. You may use either a classic token with 'read:org' scope OR a fine-grained token with 'Administration: Read-only' scope.
+- **GitHub Enterprise type**: This connector will only function with GitHub Enterprise Cloud; it will not support GitHub Enterprise Server. 
 
 
 ## Vendor installation instructions
 
-Connect GitHub Enterprise Audit Log to Microsoft Sentinel
+Connect the GitHub Enterprise Organization-level Audit Log to Microsoft Sentinel
 
 Enable GitHub audit Logs. 
  Follow [this](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to create or find your personal key

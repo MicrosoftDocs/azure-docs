@@ -49,7 +49,7 @@ map.layers.add(new atlas.layer.TileLayer({
 
 For a fully functional sample that shows how to create a tile layer that points to a set of tiles using the x, y, zoom tiling system, see the [Tile Layer using X, Y, and Z] sample in the [Azure Maps Samples]. The source of the tile layer in this sample is a nautical chart from the [OpenSeaMap project], an OpenStreetMaps project licensed under ODbL. For the source code for this sample, see [Tile Layer using X, Y, and Z source code].
 
-:::image type="content" source="./media/map-add-tile-layer/tile-layer.png"alt-text="A screenshot of map with a tile layer that points to a set of tiles using the x, y, zoom tiling system. The source of this tile layer is the OpenSeaMap project.":::
+:::image type="content" source="./media/map-add-tile-layer/tile-layer.png" lightbox="./media/map-add-tile-layer/tile-layer.png" alt-text="A screenshot of map with a tile layer that points to a set of tiles using the x, y, zoom tiling system. The source of this tile layer is the OpenSeaMap project.":::
 
 <!--------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -63,7 +63,7 @@ For a fully functional sample that shows how to create a tile layer that points 
 
 The following screenshot shows the [WMS Tile Layer] sample that overlays a web-mapping service of geological data from the [U.S. Geological Survey (USGS)] on top of the map and below the labels.
 
-:::image type="content" source="./media/map-add-tile-layer/wms-tile-layer.png"alt-text="A screenshot of a world map with a tile layer that points to a Web Mapping Service (WMS).":::
+:::image type="content" source="./media/map-add-tile-layer/wms-tile-layer.png" lightbox="./media/map-add-tile-layer/wms-tile-layer.png" alt-text="A screenshot of a world map with a tile layer that points to a Web Mapping Service (WMS).":::
 
 <!--------------------------------------------------
 > [!VIDEO https://codepen.io/azuremaps/embed/BapjZqr?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -81,7 +81,7 @@ For a fully functional sample that shows how to create a tile layer that points 
 
 The following screenshot shows the WMTS Tile Layer sample overlaying a web-mapping tile service of imagery from the U.S. Geological Survey (USGS) National Map on top of a map, below roads and labels.
 
-:::image type="content" source="./media/map-add-tile-layer/wmts-tile-layer.png"alt-text="A screenshot of a map with a tile layer that points to a Web Mapping Tile Service (WMTS) overlay.":::
+:::image type="content" source="./media/map-add-tile-layer/wmts-tile-layer.png" lightbox="./media/map-add-tile-layer/wmts-tile-layer.png" alt-text="A screenshot of a map with a tile layer that points to a Web Mapping Tile Service (WMTS) overlay.":::
 
 <!--------------------------------------------------
 > [!VIDEO https://codepen.io/azuremaps/embed/BapjZVY?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -91,7 +91,7 @@ The following screenshot shows the WMTS Tile Layer sample overlaying a web-mappi
 
 The tile layer class has many styling options. The [Tile Layer Options] sample is a tool to try them out. For the source code for this sample, see [Tile Layer Options source code].
 
-:::image type="content" source="./media/map-add-tile-layer/tile-layer-options.png"alt-text="A screenshot of Tile Layer Options sample.":::
+:::image type="content" source="./media/map-add-tile-layer/tile-layer-options.png" lightbox="./media/map-add-tile-layer/tile-layer-options.png" alt-text="A screenshot of Tile Layer Options sample.":::
 
 <!--------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result]

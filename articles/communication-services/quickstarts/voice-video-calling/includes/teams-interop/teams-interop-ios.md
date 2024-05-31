@@ -14,6 +14,7 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 
 - A working [Communication Services calling iOS app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
+- An [access token](../../../identity/access-tokens.md).
 
 We will use beta.12 of AzureCommunicationCalling SDK for this quickstart so we need to update the podfile and install the Pods again. 
 

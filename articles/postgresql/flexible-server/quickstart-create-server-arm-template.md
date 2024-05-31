@@ -1,20 +1,24 @@
 ---
-title: 'Quickstart: Create an Azure Database for PostgreSQL Flexible Server - ARM template'
-description: In this Quickstart, learn how to create an Azure Database for PostgreSQL Flexible server using ARM template.
+title: "Quickstart: Create with ARM template"
+description: In this Quickstart, learn how to create an Azure Database for PostgreSQL - Flexible Server instance by using an ARM template.
 author: mksuni
+ms.author: sumuth
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.author: sumuth
-ms.date: 05/12/2022
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server
+# Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server instance
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use an Azure Resource Manager template (ARM template) to provision a PostgreSQL Flexible Server to deploy multiple servers or multiple databases on a server.
+Azure Database for PostgreSQL flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use an Azure Resource Manager template (ARM template) to provision an Azure Database for PostgreSQL flexible server instance to deploy multiple servers or multiple databases on a server.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,7 +30,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Review the template
 
-An Azure Database for PostgreSQL Server is the parent resource for one or more databases within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, and configurations.
+An Azure Database for PostgreSQL flexible server instance is the parent resource for one or more databases within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, and configurations.
 
 Create a _postgres-flexible-server-template.json_ file and copy the following JSON script into it.
 
@@ -70,7 +74,7 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
     },
     "version": {
       "type": "string",
-      "defaultValue": "12"
+      "defaultValue": "16"
     },
     "virtualNetworkExternalId": {
       "type": "string",
@@ -88,7 +92,7 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
   "resources": [
     {
       "type": "Microsoft.DBforPostgreSQL/flexibleServers",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2022-12-01",
       "name": "[parameters('serverName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -129,10 +133,10 @@ These resources are defined in the template:
 Select **Try it** from the following PowerShell code block to open Azure Cloud Shell.
 
 ```azurepowershell-interactive
-$serverName = Read-Host -Prompt "Enter a name for the new Azure Database for PostgreSQL server"
+$serverName = Read-Host -Prompt "Enter a name for the new Azure Database for PostgreSQL flexible server instance"
 $resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group where the server will exist"
 $location = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
-$adminUser = Read-Host -Prompt "Enter the Azure Database for PostgreSQL server's administrator account name"
+$adminUser = Read-Host -Prompt "Enter the Azure Database for PostgreSQL flexible server instance's administrator account name"
 $adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureString
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location # Use this command when you need to create a new resource group for your deployment
@@ -160,7 +164,7 @@ Follow these steps to verify if your server was created in Azure.
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-You'll have to enter the name of the new server to view the details of your Azure Database for PostgreSQL Flexible server.
+You have to enter the name of the new server to view the details of your Azure Database for PostgreSQL flexible server instance.
 
 ```azurepowershell-interactive
 $serverName = Read-Host -Prompt "Enter the name of your Azure Database for PostgreSQL server"
@@ -172,12 +176,12 @@ Write-Host "Press [ENTER] to continue..."
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-You'll have to enter the name and the resource group of the new server to view details about your Azure Database for PostgreSQL Flexible Server.
+You have to enter the name and the resource group of the new server to view details about your Azure Database for PostgreSQL flexible server instance.
 
 ```azurecli-interactive
-echo "Enter your Azure Database for PostgreSQL Flexible Server name:" &&
+echo "Enter your Azure Database for PostgreSQL flexible server instance name:" &&
 read serverName &&
-echo "Enter the resource group where the Azure Database for PostgreSQL Flexible Server exists:" &&
+echo "Enter the resource group where the Azure Database for PostgreSQL flexible server instance exists:" &&
 read resourcegroupName &&
 az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DBforPostgreSQL/flexibleServers"
 ```
@@ -197,14 +201,15 @@ To delete the resource group:
 In the [portal](https://portal.azure.com), select the resource group you want to delete.
 
 1. Select **Delete resource group**.
-1. To confirm the deletion, type the name of the resource group
+1. To confirm the deletion, type the name of the resource group.
 
 # [PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name ExampleResourceGroup
+$serverName = Read-Host -Prompt "Enter the resource group where the Azure Database for PostgreSQL Flexible Server exists:"
+Remove-AzResourceGroup -Name $serverName
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -212,7 +217,9 @@ Remove-AzResourceGroup -Name ExampleResourceGroup
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 ```azurecli-interactive
-az group delete --name ExampleResourceGroup
+echo "Enter the resource group where the Azure Database for PostgreSQL Flexible Server exists:" &&
+read resourcegroupName &&
+az group delete --name $resourcegroupName
 ```
 
 ---

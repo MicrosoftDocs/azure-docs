@@ -7,7 +7,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.devlang: ruby
 ms.topic: quickstart
-ms.custom: mvc, mode-other, devx-track-linux
+ms.custom: mvc, mode-other
 ms.date: 05/03/2023
 ---
 
@@ -262,7 +262,7 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate your database using Export and Import](./concepts-migrate-import-export.md)
+> [Migrate your database using Export and Import](../flexible-server/concepts-migrate-import-export.md)
 
 > [!div class="nextstepaction"]
 > [Learn more about MySQL2 client](https://rubygems.org/gems/mysql2-client-general_log)

@@ -15,7 +15,7 @@ ms.custom:
 
 For more information about migration cadence and the support timeline for Run As account creation and certificate renewal, see the [frequently asked questions](automation-managed-identity-faq.md).
 
-Run As accounts in Azure Automation provide authentication for managing resources deployed through Azure Resource Manager or the classic deployment model. Whenever a Run As account is created, an Azure AD application is registered, and a self-signed certificate is generated. The certificate is valid for one month. Renewing the certificate every month before it expires keeps the Automation account working but adds overhead. 
+Run As accounts in Azure Automation provide authentication for managing resources deployed through Azure Resource Manager or the classic deployment model. Whenever a Run As account is created, a Microsoft Entra application is registered, and a self-signed certificate is generated. The certificate is valid for one month. Renewing the certificate every month before it expires keeps the Automation account working but adds overhead. 
 
 You can now configure Automation accounts to use a [managed identity](automation-security-overview.md#managed-identities), which is the default option when you create an Automation account. With this feature, an Automation account can authenticate to Azure resources without the need to exchange any credentials. A managed identity removes the overhead of renewing the certificate or managing the service principal.
 

@@ -38,6 +38,9 @@ Autodelete on idle enables you to specify an idle interval after which a queue o
 ## Duplicate detection
 The duplicate detection feature enables the sender to resend the same message again and for the broker to drop a potential duplicate. For more information, see [Duplicate detection](duplicate-detection.md).
 
+## Batch delete of Messages
+Azure Service Bus supports deletion of messages in batches. This is useful in scenarios when messages within queues or subscriptions have become expired , or no longer relevant, necessitating a cleanup. For more information, see [Batch delete](batch-delete.md).
+
 ## Support ordering
 The **Support ordering** feature allows you to specify whether messages that are sent to a topic are forwarded to the subscription in the same order in which they were sent. This feature doesn't support partitioned topics. For more information, see [TopicProperties.SupportOrdering](/dotnet/api/azure.messaging.servicebus.administration.topicproperties.supportordering) in .NET or [TopicProperties.setOrderingSupported](/java/api/com.azure.messaging.servicebus.administration.models.topicproperties.setorderingsupported) in Java.
 
@@ -45,7 +48,7 @@ The **Support ordering** feature allows you to specify whether messages that are
 When an Azure region experiences downtime, the disaster recovery feature enables message processing to continue operating in a different region or data center. The feature keeps a structural mirror of a namespace available in the secondary region and allows the namespace identity to switch to the secondary namespace. Already posted messages remain in the former primary namespace for recovery once the availability episode subsides. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md).
 
 ## Security
-Service Bus supports standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP or REST](/rest/api/servicebus/) protocols and their respective security facilities, including transport-level security (TLS). Clients can be authorized for access using [Shared Access Signature](service-bus-sas.md) or [Azure Active Directory](service-bus-authentication-and-authorization.md) role-based security. 
+Service Bus supports standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP or REST](/rest/api/servicebus/) protocols and their respective security facilities, including transport-level security (TLS). Clients can be authorized for access using [Shared Access Signature](service-bus-sas.md) or [Microsoft Entra ID](service-bus-authentication-and-authorization.md) role-based security. 
 
 For protection against unwanted traffic, Service Bus provides [security features](network-security.md) such as IP firewall and integration with virtual networks. 
 

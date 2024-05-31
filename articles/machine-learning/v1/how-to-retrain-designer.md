@@ -31,7 +31,8 @@ In this article, you learn how to:
 * An Azure Machine Learning workspace
 * Complete part 1 of this how-to series, [Transform data in the designer](how-to-designer-transform-data.md)
 
-[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
+> [!IMPORTANT]
+> If you do not see graphical elements mentioned in this document, such as buttons in studio or designer, you may not have the right level of permissions to the workspace. Please contact your Azure subscription administrator to verify that you have been granted the correct level of access. For more information, see [Manage users and roles](../how-to-assign-roles.md).
 
 This article also assumes that you have some knowledge of building pipelines in the designer. For a guided introduction, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
@@ -109,7 +110,7 @@ Use the following steps to submit a parameterized pipeline endpoint job from the
 
 You can find the REST endpoint of a published pipeline in the overview panel. By calling the endpoint, you can retrain the published pipeline.
 
-To make a REST call, you need an OAuth 2.0 bearer-type authentication header. For information about setting up authentication to your workspace and making a parameterized REST call, see [Build an Azure Machine Learning pipeline for batch scoring](../tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint).
+To make a REST call, you need an OAuth 2.0 bearer-type authentication header. For information about setting up authentication to your workspace and making a parameterized REST call, see [Use REST to manage resources](../how-to-manage-rest.md).
 
 ## Next steps
 
@@ -117,4 +118,4 @@ In this article, you learned how to create a parameterized training pipeline end
 
 For a complete walkthrough of how you can deploy a model to make predictions, see the [designer tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
 
-For how to publish and submit a job to pipeline endpoint using the SDK v1, see [this article](how-to-deploy-pipelines.md).
+For how to publish and submit a job to pipeline endpoint using the SDK v1, see [Publish pipelines](how-to-deploy-pipelines.md).

@@ -68,7 +68,7 @@ Follow these steps to get redirect URIs:
 
 Follow these steps to add redirect URIs:
 
-1. In the Azure portal, in **Azure Active Directory** > **App registrations**, select the application that you created in your Microsoft Entra ID instance.
+1. In the Azure portal, in **Microsoft Entra ID** > **App registrations**, select the application that you created in your Microsoft Entra instance.
 
 1. Under **Manage**, select **Authentication**.
 

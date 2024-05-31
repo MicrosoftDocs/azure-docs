@@ -2,7 +2,7 @@
 title: Enable Virtual Network service endpoints with Custom Translator service
 titleSuffix: Azure AI services
 description: This article describes how to use Custom Translator service with an Azure Virtual Network service endpoint.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
@@ -24,7 +24,7 @@ For more information, see [Azure Virtual Network overview](../../../../virtual-n
 
  To set up a Translator resource for VNet service endpoint scenarios, you need the resources:
 
-* [A regional Translator resource (global isn't supported)](../../create-translator-resource.md).
+* [A regional Translator resource (global isn't supported)](../../create-translator-resource.yml).
 * [VNet and networking settings for the Translator resource](#configure-virtual-networks-resource-networking-settings).
 
 ## Configure virtual networks resource networking settings

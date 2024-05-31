@@ -40,12 +40,12 @@ The following table lists the currently available version ranges of the default 
 | --- | --- | --- |
 | 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
 | 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
-| 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/4f5934a18989353e36d771d0a964f14e6cd17ac3/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
+| 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v3.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
 | 4.x | `[4.0.0, 5.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v4.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
 
 
 > [!NOTE]
-> Even though host.json supports custom ranges for `version`, you should use a version range value from this table, such as  `[3.3.0, 4.0.0)`.
+> Even though host.json supports custom ranges for `version`, you should use a version range value from this table, such as  `[4.0.0, 5.0.0)`.
 
 ## Explicitly install extensions
 

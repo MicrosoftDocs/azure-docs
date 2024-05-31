@@ -87,7 +87,7 @@ To configure and manage multiple Microsoft Sentinel workspaces, you need to auto
 
 ## Manage workspaces across tenants using Azure Lighthouse
 
-As mentioned above, in many scenarios, the different Microsoft Sentinel workspaces can be located in different Azure AD tenants. You can use [Azure Lighthouse](../lighthouse/overview.md) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on Microsoft Sentinel workspaces across all tenants. 
+As mentioned above, in many scenarios, the different Microsoft Sentinel workspaces can be located in different Microsoft Entra tenants. You can use [Azure Lighthouse](../lighthouse/overview.md) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on Microsoft Sentinel workspaces across all tenants. 
 
 Once Azure Lighthouse is [onboarded](../lighthouse/how-to/onboard-customer.md), use the [directory + subscription selector](./multiple-tenants-service-providers.md#how-to-access-microsoft-sentinel-in-managed-tenants) on the Azure portal to select all the subscriptions containing workspaces you want to manage, in order to ensure that they'll all be available in the different workspace selectors in the portal.
 

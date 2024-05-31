@@ -77,7 +77,7 @@ IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastor
 DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
 GO
 
--- Create credentials for Census Data container which resides in a azure open data storage account
+-- Create credentials for Census Data container which resides in an azure open data storage account
 -- There is no secret. We are using public storage account which doesn't need secret
 CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  

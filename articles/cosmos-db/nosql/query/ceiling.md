@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the smallest integer value greater than or equal to the specified numeri
   
 ## Syntax
   
-```sql
+```nosql
 CEILING(<numeric_expr>)  
 ```
 
@@ -38,7 +39,7 @@ Returns a numeric expression.
 
 The following example shows positive numeric, negative, and zero values evaluated with this function.  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/query.sql" highlight="2-7":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/query.sql" highlight="2-7":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/result.json":::
 

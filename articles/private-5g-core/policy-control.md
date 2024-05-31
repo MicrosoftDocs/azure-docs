@@ -95,6 +95,8 @@ Each SIM policy includes:
 
 You can create multiple SIM policies to offer different QoS policy settings to separate groups of SIMs on the same data network. For example, you may want to create SIM policies with differing sets of services.
 
+A SIM policy takes effect on a UE when it attaches or re-attaches to the network. Therefore, changes to the policy are not dynamically implemented on existing UE sessions. However, if a SIM policy is removed from a UE's SIM, then Azure Private 5G Core will perform a network-initiated detach, disconnecting the UE from the network.
+
 ## Network slicing
 
 Network slicing allows you to host multiple independent logical networks in the same Azure Private 5G Core deployment by segmenting a common shared physical network into multiple virtual *network slices*. Slices play an important role in Azure Private 5G Core's flexible traffic handling by letting you apply different policies, QoS characteristics, priorities, and/or network connections to your UEs.

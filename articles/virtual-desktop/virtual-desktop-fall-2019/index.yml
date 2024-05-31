@@ -7,7 +7,6 @@ metadata:
   title: Azure Virtual Desktop (classic) documentation
   description: Azure Virtual Desktop securely delivers virtual desktops and apps.
   ms.service: virtual-desktop
-  services: virtual-desktop
   ms.topic: landing-page
   manager: femila
   author: dknappettmsft

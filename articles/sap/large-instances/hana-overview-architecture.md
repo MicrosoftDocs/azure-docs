@@ -2,19 +2,15 @@
 title: Overview of SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Overview of how to deploy SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter: 
 author: msjuergent
 manager: bburns
-editor: ''
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 09/28/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 #  What is SAP HANA on Azure (Large Instances)?
 

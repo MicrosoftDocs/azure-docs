@@ -12,9 +12,9 @@ ms.author: danlep
 
 # How to delegate user registration and product subscription
 
-Delegation enables your website to own the user data and perform custom validation. With delegation, you can handle developer sign-in/sign-up (and related account management operations) and product subscription using your existing website, instead of the developer portal's built-in functionality. 
-
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+Delegation enables your website to own the user data and perform custom validation. With delegation, you can handle developer sign-in/sign-up (and related account management operations) and product subscription using your existing website, instead of the developer portal's built-in functionality. 
 
 ## Delegating developer sign-in and sign-up
 
@@ -127,10 +127,10 @@ Recommended steps for creating a new delegation endpoint to implement on your si
 
    | Parameter | Description |
    | --------- | ----------- |
-   | **operation** | Identifies the delegation request type. Valid product subscription requests options are: <ul><li>**Subscribe**: a request to subscribe the user to a given product with provided ID (see below).</li><li>**Unsubscribe**: a request to unsubscribe a user from a product.</li><li>**Renew**: a request to renew a subscription (for example, that may be expiring)</li></ul> |
+   | **operation** | Identifies the delegation request type. Valid product subscription requests options are: <ul><li>**Subscribe**: a request to subscribe the user to a given product with provided ID (see below).</li><li>**Unsubscribe**: a request to unsubscribe a user from a product</li></ul> |
    | **productId** | On *Subscribe*, the product ID that the user requested subscription. |
    | **userId** | On *Subscribe*, the requesting user's ID. |
-   | **subscriptionId** | On *Unsubscribe* and *Renew*, the product subscription ID. |
+   | **subscriptionId** | On *Unsubscribe*, the product subscription ID. |
    | **salt** | A special salt string used for computing a security hash. |
    | **sig** | A computed security hash used for comparison to your own computed hash. |
 
@@ -143,7 +143,7 @@ Recommended steps for creating a new delegation endpoint to implement on your si
      HMAC(salt + '\n' + productId + '\n' + userId)
      ```
 
-     For *Unsubscribe* or *Renew*: 
+     For *Unsubscribe*: 
      ```
      HMAC(salt + '\n' + subscriptionId)
      ```
@@ -196,11 +196,11 @@ var signature = digest.toString('base64');
 ```
 
 > [!IMPORTANT]
-> You need to [republish the developer portal](api-management-howto-developer-portal-customize.md#publish) for the delegation changes to take effect.
+> You need to [republish the developer portal](developer-portal-overview.md#publish-the-portal) for the delegation changes to take effect.
 
 ## Next steps
 - [Learn more about the developer portal.](api-management-howto-developer-portal.md)
-- [Authenticate using Azure AD](api-management-howto-aad.md) or with [Azure AD B2C](api-management-howto-aad-b2c.md).
+- [Authenticate using Microsoft Entra ID](api-management-howto-aad.md) or with [Azure AD B2C](api-management-howto-aad-b2c.md).
 - More developer portal questions? [Find answers in our FAQ](developer-portal-faq.md).
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up

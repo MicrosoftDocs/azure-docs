@@ -51,7 +51,7 @@ This section gives you a few examples of using delivery properties.
 
 ### Setting the Authorization header with a bearer token (non-normative example)
 
-Set a value to an Authorization header to identify the request with your Webhook handler. An Authorization header can be set if you aren't [protecting your Webhook with Azure Active Directory](secure-webhook-delivery.md).
+Set a value to an Authorization header to identify the request with your Webhook handler. An Authorization header can be set if you aren't [protecting your Webhook with Microsoft Entra ID](secure-webhook-delivery.md).
 
 | Header name   | Header type | Header value |
 | :--           | :--         | :--            |

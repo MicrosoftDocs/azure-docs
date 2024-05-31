@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/05/2023
 ms.author: sidandrews
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -22,7 +22,7 @@ Data stored in your Azure Cosmos DB account is automatically and seamlessly encr
 You must store customer-managed keys in [Azure Key Vault](../key-vault/general/overview.md) and provide a key for each Azure Cosmos DB account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
 
 > [!NOTE]
-> Currently, customer-managed keys are available only for new Azure Cosmos DB accounts. You should configure them during account creation. Enabling customer-managed keys on your existing accounts is available for preview. You can refer to the link [here](how-to-setup-customer-managed-keys-existing-accounts.md) for more details
+> If you wish to enable customer-managed keys on your existing Azure Cosmos DB accounts then you can refer to the link [here](how-to-setup-customer-managed-keys-existing-accounts.md) for more details
 
 > [!WARNING]
 > The following field names are reserved on Cassandra API tables in accounts using Customer-managed Keys:
@@ -352,7 +352,7 @@ az cosmosdb show \
 
 ## Using a managed identity in the Azure Key Vault access policy
 
-This access policy ensures that your encryption keys can be accessed by your Azure Cosmos DB account. The access policy is implemented by granting access to a specific Azure Active Directory (AD) identity. Two types of identities are supported:
+This access policy ensures that your encryption keys can be accessed by your Azure Cosmos DB account. The access policy is implemented by granting access to a specific Microsoft Entra identity. Two types of identities are supported:
 
 - Azure Cosmos DB's first-party identity can be used to grant access to the Azure Cosmos DB service.
 - Your Azure Cosmos DB account's [managed identity](how-to-setup-managed-identity.md) can be used to grant access to your account specifically.
@@ -399,7 +399,8 @@ You can also follow similar steps with a user-assigned managed identity.
       },
       // ...
       "properties": {
-        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>""keyVaultKeyUri": "<key-vault-key-uri>"
+        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>",
+        "keyVaultKeyUri": "<key-vault-key-uri>"
         // ...
       }
     }
@@ -751,4 +752,3 @@ Steps to assign a new managed-identity:
 ## Next steps
 
 - Learn more about [data encryption in Azure Cosmos DB](database-encryption-at-rest.md).
-

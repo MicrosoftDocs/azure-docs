@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: nkondamudi
 ms.author: nkondamudi
-ms.date: 06/13/2022
+ms.date: 04/26/2024
 ---
 
 # Control your data in the cloud by using Managed HSM
@@ -30,8 +30,8 @@ Secure key management is essential to protect and control data in the cloud. Azu
 - **Azure platform encryption** is a *platform-managed* encryption solution that encrypts by using host-level encryption. Platform-managed keys are encryption keys that are generated, stored, and managed entirely by Azure.
 - **Customer-managed keys** are keys that are created, read, deleted, updated, and administered entirely by the customer. Customer-managed keys can be stored in a cloud key management service like Azure Key Vault.
 - **Azure Key Vault Standard** encrypts by using a software key and is FIPS 140-2 Level 1 compliant.
-- **Azure Key Vault Premium** encrypts by using FIPS 140-2 Level 2 HSM-protected keys.
-- **Azure Key Vault Managed HSM** encrypts by using single-tenant FIPS 140-2 Level 3 HSM protected keys and is fully managed by Microsoft. It provides customers with sole control of the cryptographic keys.
+- **Azure Key Vault Premium** encrypts by using keys protected by [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance).
+- **Azure Key Vault Managed HSM** encrypts by using single-tenant FIPS 140-2 Level 3 HSM protected keys and is fully managed by Microsoft.
 
 For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM, you can [bring your own key (BYOK)](../keys/hsm-protected-keys-byok.md) and import HSM-protected keys from an on-premises HSM.
 
@@ -40,7 +40,7 @@ For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM,
 |  | Azure Key Vault Standard | Azure Key Vault Premium | Azure Key Vault Managed HSM |
 |:-|-|-|-|
 | **Tenancy** | Multitenant | Multitenant | Single-tenant |
-| **Compliance** | FIPS 140-2 Level 1 | FIPS 140-2 Level 2 | FIPS 140-2 Level 3 |
+| **Compliance** | FIPS 140-2 Level 1 | FIPS 140-2 Level 3 | FIPS 140-2 Level 3 |
 | **High availability** | Automatic | Automatic | Automatic |
 | **Use cases** | Encryption at rest | Encryption at rest | Encryption at rest |
 | **Key controls** | Customer | Customer | Customer |
@@ -112,9 +112,9 @@ Several layers of technical controls in Managed HSM further protect your key mat
 
   The data plane is where you work with the data that's stored in a managed HSM, which is HSM-backed encryption keys. From the data plane interface, you can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the keys, create a full HSM backup, restore a full backup, and manage security domain.
   
-  To access a managed HSM in either plane, all callers must have proper authentication and authorization. *Authentication* establishes the identity of the caller. *Authorization* determines which operations the caller can execute. A caller can be any one of the security principals that are defined in Azure Active Directory: User, group, service principal, or managed identity.
+  To access a managed HSM in either plane, all callers must have proper authentication and authorization. *Authentication* establishes the identity of the caller. *Authorization* determines which operations the caller can execute. A caller can be any one of the security principals that are defined in Microsoft Entra ID: User, group, service principal, or managed identity.
 
-  Both planes use Azure Active Directory for authentication. For authorization, they use different systems:
+  Both planes use Microsoft Entra ID for authentication. For authorization, they use different systems:
 
   - The management plane uses Azure role-based access control (Azure RBAC), an authorization system that's built on Azure Resource Manager.
   - The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system that's implemented and enforced at the managed HSM level. The local RBAC control model allows designated HSM administrators to have complete control over their HSM pool that even the management group, subscription, or resource group administrators can't override.
@@ -131,7 +131,7 @@ These administrative security controls are in place in Azure Key Vault Managed H
 
 - **Data defense**. You have Microsoft’s strong commitment to challenge government requests and to [defend your data](https://blogs.microsoft.com/on-the-issues/2020/11/19/defending-your-data-edpb-gdpr/).
 - **Contractual obligations**. It offers control obligations for security and customer data protection as discussed in [Microsoft Trust Center](https://www.microsoft.com/trust-center?rtc=1).
-- **[Cross-region replication](../../availability-zones/cross-region-replication-azure.md)**. Soon, you can use geo replication in Managed HSM to deploy HSMs in a secondary region.
+- **[Cross-region replication](../../availability-zones/cross-region-replication-azure.md)**. You can use multi region replication in Managed HSM to deploy HSMs in a secondary region.
 - **Disaster recovery**. Azure offers an end-to-end backup and disaster recovery solution that is simple, secure, scalable, and cost-effective:
   - [Business continuity management program](../../availability-zones/business-continuity-management-program.md)
   - [Azure Site Recovery](../../site-recovery/index.yml)

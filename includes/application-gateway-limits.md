@@ -12,7 +12,7 @@ ms.author: greglin
 | Frontend ports |100<sup>1</sup> | |
 | Backend address pools |100 | |
 | Backend targets per pool |1,200 | |
-| HTTP listeners |200<sup>1</sup> |Limited to 100 active listeners that are routing traffic. Active listeners = total number of listeners - listeners not active.<br>If a default configuration inside a routing rule is set to route traffic (for example, it has a listener, a backend pool, and HTTP settings) then that also counts as a listener. For more information, see [Frequently asked questions about Application Gateway](../articles/application-gateway/application-gateway-faq.yml#what-is-considered-an-active-listener-versus-inactive-listener).|
+| HTTP listeners |200<sup>1</sup> |Limited to 100 active listeners that are routing traffic. Active listeners = total number of listeners - listeners not active.<br>If a default configuration inside a routing rule is set to route traffic (for example, it has a listener, a backend pool, and HTTP settings) then that also counts as a listener. For more information, see [Frequently asked questions about Application Gateway](../articles/application-gateway/application-gateway-faq.yml#what-is-considered-an-active-listener-versus-an-inactive-listener).|
 | HTTP load-balancing rules |400<sup>1</sup> | |
 | Backend HTTP settings |100<sup>1</sup> | |
 | Instances per gateway |V1 SKU - 32<br>V2 SKU - 125 | |
@@ -38,12 +38,14 @@ ms.author: greglin
 | Maximum header size|32 KB| |
 | Maximum header field size for HTTP/2|8 KB| |
 | Maximum header size for HTTP/2|16 KB| |
-| Maximum file upload size (Standard SKU) |V2 - 4 GB<br>V1 - 2 GB | |
-| Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4 GB<sup>3</sup>| |
-| WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or newer) - 2 MB<sup>3</sup>| |
+| Maximum file upload size (Standard SKU) |V1 - 2 GB<br>V2 - 4 GB |This maximum size limit is shared with the request body|
+| Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4 GB<sup>3</sup>|1 MB - Minimum Value<br>100 MB - Default value<br>V2 with CRS 3.2 or newer - can be turned On/Off|
+| Maximum request size limit Standard SKU (without files)|V1 - 2 GB<br>V2 - 4 GB | |
+| Maximum request size limit WAF SKU (without files)|V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or newer) - 2 MB<sup>3</sup>|8 KB - Minimum Value<br>128 KB - Default value<br>V2 with CRS 3.2 or newer - can be turned On/Off|
+| Maximum request inspection limit WAF SKU| V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or newer) - 2 MB<sup>3</sup>|8 KB - Minimum Value<br>128 KB - Default value<br>V2 with CRS 3.2 or newer - can be turned On/Off|
 | Maximum Private Link Configurations| 2 | 1 for public IP, 1 for private IP |
 | Maximum Private Link IP Configurations| 8 | |
-| Maximum WAF custom rules|100||
+| Maximum WAF custom rules per WAF policy|100||
 | WAF IP address ranges per match condition|540<br>600 - with CRS 3.2 or newer|
 | Maximum WAF exclusions per Application Gateway|40<br>200 - with CRS 3.2 or newer|
 | WAF string match values per match condition|10||

@@ -2,12 +2,12 @@
 title: Predictive maintenance architecture for using the Anomaly Detector Multivariate API
 titleSuffix: Azure AI services
 description: Reference architecture for using the Anomaly Detector Multivariate APIs to apply anomaly detection to your time series data for predictive maintenance.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 01/18/2024
 ms.author: mbullwin
 ms.custom: cogserv-non-critical-anomaly-detector
 keywords: anomaly detection, machine learning, algorithms

@@ -4,7 +4,7 @@ description: This article provides troubleshooting information for Web Applicati
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/05/2023
+ms.date: 03/05/2024
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -146,7 +146,7 @@ To make an informed decision about handling a false positive, it’s important t
 
 One benefit of using an exclusion list is that only a specific part of a request is being disabled. However, this means that a specific exclusion is applicable to all traffic passing through your WAF because it's a global setting. For example, this could lead to an issue if *1=1* is a valid request in the body for a certain app, but not for others. Another benefit is that you can choose between body, headers, and cookies to be excluded if a certain condition is met, as opposed to excluding the whole request.
 
-Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there's a token that gets passed when authenticating using Azure Active Directory. This token, *__RequestVerificationToken*, usually get passed in as a Request Cookie. However, in some cases where cookies are disabled, this token is also passed as a request attribute or `arg`. If this happens, you need to ensure that *__RequestVerificationToken* is added to the exclusion list as a **Request attribute name** as well.
+Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there's a token that gets passed when authenticating using Microsoft Entra ID. This token, *__RequestVerificationToken*, usually get passed in as a Request Cookie. However, in some cases where cookies are disabled, this token is also passed as a request attribute or `arg`. If this happens, you need to ensure that *__RequestVerificationToken* is added to the exclusion list as a **Request attribute name** as well.
 
 ![Exclusions](../media/web-application-firewall-troubleshoot/exclusion-list.png)
 
@@ -311,13 +311,19 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
 
 - Disable request body inspection
 
-   By setting **Inspect request body** to off, the request bodies of all traffic isn't evaluated by your WAF. This may be useful if you know that the request bodies aren’t malicious to your application.
+   By setting **Inspect request body** to off, the request bodies of your traffic aren't evaluated by your WAF. This may be useful if you know that the request bodies aren’t malicious to your application.
 
-   When you disable this option, only the request body isn't inspected. The headers and cookies remain inspected, unless individual ones are excluded using the exclusion list functionality.
+   When you disable this option, only the request body bypasses inspection. The headers and cookies are still inspected, unless individual ones are excluded using the exclusion list functionality.
 
-- File size limits
+- Disable maximum request body limit
 
-   By limiting the file size for your WAF, you’re limiting the possibility of an attack happening to your web servers. By allowing large files to be uploaded, the risk of your backend being overwhelmed increases. Limiting the file size to a normal use case for your application is just another way to prevent attacks.
+  By disabling max request body limit, large request bodies can be processed by the WAF without being rejected for being too large. This may be useful if you regularly have large requests.
+
+  When you disable this option, the request body will only be inspected up to the max request body inspection limit. If there is malicious content in the request beyond the max request body inspection limit the WAF will not detect it.
+
+- Disable maximum file size limits
+
+   By disabling the file size limits for your WAF, large files can be uploaded without your WAF rejecting these file uploads. By allowing large files to be uploaded, the risk of your backend being overwhelmed increases. If you know the maximum size a file upload can be, you can set a size limit for file uploads slightly above your expected max size. Limiting the file size to a normal use case for your application is another way to prevent attacks. However, if your file uploads are regularly beyond the maximum enforceable file upload size limit you may need to disable file upload size limits entirely to avoid false positives.
 
    > [!NOTE]
    > If you know that your app will never need any file upload above a given size, you can restrict that by setting a limit.

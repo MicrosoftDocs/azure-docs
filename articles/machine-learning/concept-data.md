@@ -10,7 +10,7 @@ ms.reviewer: franksolomon
 author: samuel100
 ms.author: samkemp
 ms.date: 07/13/2023
-ms.custom: data4ml, event-tier1-build-2022
+ms.custom: data4ml
 #Customer intent: As an experienced Python developer, I need secure access to my data in my Azure storage solutions, and I need to use that data to accomplish my machine learning tasks.
 ---
 
@@ -29,7 +29,7 @@ An Azure Machine Learning datastore serves as a *reference* to an *existing* Azu
 When you create a datastore with an existing Azure storage account, you can choose between two different authentication methods:
 
 - **Credential-based** - authenticate data access with a service principal, shared access signature (SAS) token, or account key. Users with *Reader* workspace access can access the credentials.
-- **Identity-based** - use your Azure Active Directory identity or managed identity to authenticate data access.
+- **Identity-based** - use your Microsoft Entra identity or managed identity to authenticate data access.
 
 The following table summarizes the Azure cloud-based storage services that an Azure Machine Learning datastore can create. Additionally, the table summarizes the authentication types that can access those services:
 
@@ -41,6 +41,20 @@ Azure Data Lake Gen1 | ✓ | ✓|
 Azure Data Lake Gen2| ✓ | ✓|
 
 See [Create datastores](how-to-datastore.md) for more information about datastores.
+
+### Default datastores
+
+Each Azure Machine Learning workspace has a default storage account (Azure storage account) that contains the following datastores:
+
+> [!TIP]
+> To find the ID for your workspace, go to the workspace in the [Azure portal](https://portal.azure.com/). Expand **Settings** and then select **Properties**. The **Workspace ID** is displayed.
+
+| Datastore name | Data storage type | Data storage name | Description |
+|---|---|---|---|
+| `workspaceblobstore` | Blob container | `azureml-blobstore-{workspace-id}` | Stores data uploads, job code snapshots, and pipeline data cache. |
+| `workspaceworkingdirectory` | File share | `code-{GUID}` | Stores data for notebooks, compute instances, and prompt flow. |
+| `workspacefilestore` | File share | `azureml-filestore-{workspace-id}` | Alternative container for data upload. |
+| `workspaceartifactstore` | Blob container | `azureml` | Storage for assets such as metrics, models, and components. |
 
 ## Data types
 
@@ -64,7 +78,7 @@ A Uniform Resource Identifier (URI) represents a storage location on your local 
 |Azure Data Lake (gen2) | `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>.csv`  |
 | Azure Data Lake (gen1) | `adl://<accountname>.azuredatalakestore.net/<folder1>/<folder2>` |
 
-An Azure Machine Learning job maps URIs to the compute target filesystem. This mapping means that in a command that consumes or produces a URI, that URI works like a file or a folder. A URI uses **identity-based authentication** to connect to storage services, with either your Azure Active Directory ID (default), or Managed Identity. Azure Machine Learning [Datastore](#datastore) URIs can apply either identity-based authentication, or **credential-based** (for example, Service Principal, SAS token, account key), without exposure of secrets.
+An Azure Machine Learning job maps URIs to the compute target filesystem. This mapping means that in a command that consumes or produces a URI, that URI works like a file or a folder. A URI uses **identity-based authentication** to connect to storage services, with either your Microsoft Entra ID (default), or Managed Identity. Azure Machine Learning [Datastore](#datastore) URIs can apply either identity-based authentication, or **credential-based** (for example, Service Principal, SAS token, account key), without exposure of secrets.
 
 A URI can serve as either *input* or an *output* to an Azure Machine Learning job, and it can map to the compute target filesystem with one of four different *mode* options:
 

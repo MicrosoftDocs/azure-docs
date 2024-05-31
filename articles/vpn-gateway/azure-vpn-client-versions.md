@@ -21,7 +21,7 @@ Each version is listed in the following sections.
 
 New in this Release:
 
-* Microsoft Entra ID (Azure AD) Authentication is now available from the settings page.
+* Microsoft Entra authentication is now available from the settings page.
 * Server High Availability(HA), releasing on a rolling basis until October 20.
 * Accessibility Improvements
 * Connection logs in UTC

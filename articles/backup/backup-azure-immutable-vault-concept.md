@@ -3,8 +3,8 @@ title: Concept of Immutable vault for Azure Backup
 description: This article explains about the concept of Immutable vault for Azure Backup, and how it helps in protecting data from malicious actors.
 ms.topic: conceptual
 ms.service: backup
-ms.custom: references_regions
-ms.date: 05/25/2023
+ms.custom: references_regions, engagement-fy24
+ms.date: 09/21/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -15,7 +15,7 @@ Immutable vault can help you protect your backup data by blocking any operations
 
 ## Before you start
 
-- Immutable vault is available in all Azure public regions.
+- Immutable vault is available in all Azure public and US Government regions.
 - Immutable vault is supported for Recovery Services vaults and Backup vaults.
 - Enabling Immutable vault blocks you from performing specific operations on the vault and its protected items. See the [restricted operations](#restricted-operations).
 - Enabling immutability for the vault is a reversible operation. However, you can choose to make it irreversible to prevent any malicious actors from disabling it (after disabling it, they can perform destructive operations). Learn about [making Immutable vault irreversible](#making-immutability-irreversible).

@@ -3,15 +3,10 @@ title: Monitor APIs with Azure API Management, Event Hubs, and Moesif
 titleSuffix: Azure API Management
 description: Sample application demonstrating the log-to-eventhub policy by connecting Azure API Management, Azure Event Hubs and Moesif for HTTP  logging and monitoring
 services: api-management
-documentationcenter: ''
 author: darrelmiller
 manager: erikre
-editor: ''
-
 ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: article
@@ -19,6 +14,9 @@ ms.date: 01/23/2018
 ms.author: danlep
 ---
 # Monitor your APIs with Azure API Management, Event Hubs, and Moesif
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The [API Management service](api-management-key-concepts.md) provides many capabilities to enhance the processing of HTTP requests sent to your HTTP API. However, the existence of the requests and responses is transient. The request is made and it flows through the API Management service to your backend API. Your API processes the request and a response flows back through to the API consumer. The API Management service keeps some important statistics about the APIs for display in the Azure portal dashboard, but beyond that, the details are gone.
 
 By using the log-to-eventhub policy in the API Management service, you can send any details from the request and response to an [Azure Event Hub](../event-hubs/event-hubs-about.md). There are a variety of reasons why you may want to generate events from HTTP messages being sent to your APIs. Some examples include audit trail of updates, usage analytics, exception alerting, and third-party integrations.

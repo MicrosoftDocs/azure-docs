@@ -17,6 +17,8 @@ Functions execute in an isolated C# worker process. To learn more, see [Guide fo
 
 # [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
+
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md).
 
 In a variation of this model, Functions can be run using [C# scripting], which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].

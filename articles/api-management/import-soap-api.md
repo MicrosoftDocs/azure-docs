@@ -10,6 +10,8 @@ ms.author: danlep
 ---
 # Import SOAP API to API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import a WSDL specification, which is a standard XML representation of a SOAP API. The article also shows how to test the API in API Management.
 
 In this article, you learn how to:
@@ -25,7 +27,7 @@ In this article, you learn how to:
 * An API Management instance. If you don't already have one, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 * Azure CLI
-    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 * Azure PowerShell
@@ -47,7 +49,7 @@ In this article, you learn how to:
     With this selection, the API is exposed as SOAP, and API consumers have to use SOAP rules. If you want to "restify" the API, follow the steps in [Import a SOAP API and convert it to REST](restify-soap-api.md).
 
     ![Create SOAP API from WSDL specification](./media/import-soap-api/pass-through.png)
-1. The following fields are filled automatically with information from the SOAP API: **Display name**, **Name**, **Description**.
+1. The following API settings are filled automatically based on information from the SOAP API: **Display name**, **Name**, **Description**. Operations are filled automatically with **Display name**, **URL**, and **Description**, and receive a system-generated **Name**.
 1. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. 
 
     For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.

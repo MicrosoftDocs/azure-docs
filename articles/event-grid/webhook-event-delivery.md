@@ -26,9 +26,9 @@ If you're using any other type of endpoint, such as an HTTP trigger based Azure 
 
    Event Grid supports a manual validation handshake. If you're creating an event subscription with an SDK or tool that uses API version 2018-05-01-preview or later, Event Grid sends a `validationUrl` property in the data portion of the subscription validation event. To complete the handshake, find that URL in the event data and do a GET request to it. You can use either a REST client or your web browser.
 
-   The provided URL is valid for **5 minutes**. During that time, the provisioning state of the event subscription is `AwaitingManualAction`. If you don't complete the manual validation within 5 minutes, the provisioning state is set to `Failed`. You have to create the event subscription again before starting the manual validation.
+   The provided URL is valid for **10 minutes**. During that time, the provisioning state of the event subscription is `AwaitingManualAction`. If you don't complete the manual validation within 10 minutes, the provisioning state is set to `Failed`. You have to create the event subscription again before starting the manual validation.
 
-   This authentication mechanism also requires the webhook endpoint to return an HTTP status code of 200 so that it knows that the POST for the validation event was accepted before it can be put in the manual validation mode. In other words, if the endpoint returns 200 but doesn't return back a validation response synchronously, the mode is transitioned to the manual validation mode. If there's a GET on the validation URL within 5 minutes, the validation handshake is considered to be successful.
+   This authentication mechanism also requires the webhook endpoint to return an HTTP status code of 200 so that it knows that the POST for the validation event was accepted before it can be put in the manual validation mode. In other words, if the endpoint returns 200 but doesn't return back a validation response synchronously, the mode is transitioned to the manual validation mode. If there's a GET on the validation URL within 10 minutes, the validation handshake is considered to be successful.
 
 > [!NOTE]
 > Using self-signed certificates for validation isn't supported. Use a signed certificate from a commercial certificate authority (CA) instead.
@@ -80,7 +80,7 @@ And, follow one of these steps:
 
     Imagine that you already have the validation implemented in your app because you created your own event subscriptions. Even if a hacker creates an event subscription with your app URL, your correct implementation of the validation request event checks for the `aeg-subscription-name` header in the request to ascertain that it's an event subscription that you recognize. 
     
-    Even after that correct handshake implementation, a hacker can flood your app (it already validated the event subscription) by replicating a request that seems to be coming from Event Grid. To prevent that, you must secure your webhook with AAD authentication. For more information, see [Deliver events to Azure Active Directory protected endpoints](secure-webhook-delivery.md). 
+    Even after that correct handshake implementation, a hacker can flood your app (it already validated the event subscription) by replicating a request that seems to be coming from Event Grid. To prevent that, you must secure your webhook with Microsoft Entra authentication. For more information, see [Deliver events to Microsoft Entra protected endpoints](secure-webhook-delivery.md). 
 - Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated. The validation Url uses **port 553**. If your firewall rules block port 553, you need to update rules for a successful manual handshake.
 
     In your validation of the subscription validation event, if you identify that it isn't an event subscription for which you're expecting events, you wouldn't return a 200 response or no response at all. Hence, the validation fails.    

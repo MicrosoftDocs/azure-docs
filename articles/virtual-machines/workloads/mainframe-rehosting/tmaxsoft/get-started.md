@@ -1,8 +1,8 @@
 ---
 title: Get started with TmaxSoft OpenFrame on Azure Virtual Machines
 description: Rehost your IBM z/OS mainframe workloads using TmaxSoft OpenFrame environment on Azure Virtual Machines (VMs).
-author: njray
-ms.author: larryme
+author: johnjrayborn
+ms.author: johnray
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines

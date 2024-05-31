@@ -534,7 +534,7 @@ module.exports = {
 Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host in a local webserver:
 
 ```console
-`npx webpack serve --config webpack.config.js`
+npx webpack serve --config webpack.config.js
 ```
 
 Open your browser and on two tabs navigate to http://localhost:8080/.You should see the following screen:

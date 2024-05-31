@@ -7,8 +7,8 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse, ignite-2022
-ms.date: 07/24/2023
+ms.custom: synapse
+ms.date: 05/15/2024
 ---
 
 # Copy data from or to MongoDB using Azure Data Factory or Synapse Analytics
@@ -29,7 +29,7 @@ This MongoDB connector is supported for the following capabilities:
 |---------| --------|
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
@@ -266,5 +266,5 @@ Here are steps that help you upgrade your linked service and related queries:
     | `SELECT employees.name, departments.name AS department_name FROM employees LEFT JOIN departments ON employees.department_id = departments.id;`|`db.employees.aggregate([ { $lookup: { from: "departments", localField: "department_id", foreignField: "_id", as: "department" } }, { $unwind: "$department" }, { $project: { _id: 0, name: 1, department_name: "$department.name" } } ])` |
 
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

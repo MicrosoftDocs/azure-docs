@@ -44,6 +44,7 @@ The following is a snippet of Service Fabric Virtual Machine extension:
     "properties": {
       "type": "ServiceFabricLinuxNode",
       "autoUpgradeMinorVersion": true,
+      "enableAutomaticUpgrade": true,
       "protectedSettings": {
         "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
        },
@@ -62,7 +63,7 @@ The following is a snippet of Service Fabric Virtual Machine extension:
            "x509StoreName": "[parameters('certificateStoreValue')]"
          }
        },
-       "typeHandlerVersion": "1.1"
+       "typeHandlerVersion": "2.0"
      }
    },
 ```
@@ -72,8 +73,9 @@ The following are the property descriptions:
 | **Name** | **Allowed Values** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 | name | string | Unique name for extension |
-| type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode" | Identifies OS Service Fabric is bootstrapping to |
-| autoUpgradeMinorVersion | true or false | Enable Auto Upgrade of SF Runtime Minor Versions |
+| type | "ServiceFabricLinuxNode" or "ServiceFabricNode" | Identifies OS Service Fabric is bootstrapping to |
+| autoUpgradeMinorVersion | true or false | Use newest minor version of extension at deployment time |
+| enableAutomaticUpgrade | true or false | Automatically upgrade extension once a non-major version is available. Only available for type ServiceFabricLinuxNode |
 | publisher | Microsoft.Azure.ServiceFabric | Name of the Service Fabric extension publisher |
 | clusterEndpoint | string | URI:PORT to Management endpoint |
 | nodeTypeRef | string | Name of nodeType |

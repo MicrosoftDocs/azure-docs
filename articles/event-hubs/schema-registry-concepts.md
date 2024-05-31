@@ -3,8 +3,8 @@ title: Azure Schema Registry Concepts
 description: This article explains concepts for Azure Schema Registry in Azure Event Hubs. 
 ms.topic: conceptual
 ms.date: 04/26/2023
-author: kasun04
-ms.author: kindrasiri
+author: spelluru
+ms.author: spelluru
 ---
 
 #  Schema Registry in Azure Event Hubs
@@ -32,7 +32,7 @@ Schema formats are used to determine the manner in which a schema is structured 
 
 To learn more about using Avro schema format with Event Hubs Schema Registry, see:  
 - [How to use schema registry with Kafka and Avro](schema-registry-kafka-java-send-receive-quickstart.md)
-- [ How to use Schema registry with Event Hubs .NET SDK (AMQP) and Avro.](schema-registry-dotnet-send-receive-quickstart.md)
+- [How to use Schema registry with Event Hubs .NET SDK (AMQP) and Avro.](schema-registry-dotnet-send-receive-quickstart.md)
 
 #### JSON Schema (Preview)
 [JSON Schema](https://json-schema.org/) is a standardized way of defining the structure and data types of the events. JSON Schema enables the confident and reliable use of the JSON data format in event streaming. 
@@ -81,7 +81,7 @@ For limits (for example: number of schema groups in a namespace) of Event Hubs, 
 ## Azure role-based access control
 To access a schema registry programmatically, follow these steps:
 
-1. [Register your application in Azure Active Directory (Azure AD)](../active-directory/develop/quickstart-register-app.md)
+1. [Register your application in Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md)
 1. Add the security principal of the application to one of the following Azure role-based access control (Azure RBAC) roles at the **namespace** level. 
 
 | Role | Description | 
@@ -91,7 +91,7 @@ To access a schema registry programmatically, follow these steps:
 | [Schema Registry Reader](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read and list Schema Registry groups and schemas. |
 | [Schema Registry Contributor](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read, write, and delete Schema Registry groups and schemas. |
 
-For instructions on creating registering an application using the Azure portal, see [Register an app with Azure AD](../active-directory/develop/quickstart-register-app.md). Note down the client ID (application ID), tenant ID, and the secret to use in the code. 
+For instructions on creating registering an application using the Azure portal, see [Register an app with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). Note down the client ID (application ID), tenant ID, and the secret to use in the code. 
 
 ## Next steps
 

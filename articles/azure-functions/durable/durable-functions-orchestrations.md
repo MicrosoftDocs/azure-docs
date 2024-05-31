@@ -5,7 +5,8 @@ author: cgillum
 ms.topic: overview
 ms.date: 02/14/2023
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, powershell, python, java
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, powershell, python, java
 ms.custom: devx-track-js
 #Customer intent: As a developer, I want to understand durable orchestrations so that I can use them effectively in my applications.
 ---
@@ -309,7 +310,25 @@ public static async Task CheckSiteAvailable(
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
-The feature is not currently supported in dotnet-isolated worker. Instead, write an activity which performs the desired HTTP call.
+To simplify this common pattern, orchestrator functions can use the `CallHttpAsync` method to invoke HTTP APIs directly. For C# (Isolated), this feature was introduced in Microsoft.Azure.Functions.Worker.Extensions.DurableTask v1.1.0.
+
+```csharp
+[Function("CheckSiteAvailable")]
+public static async Task CheckSiteAvailable(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    Uri url = context.GetInput<Uri>();
+
+    // Makes an HTTP GET request to the specified endpoint
+    DurableHttpResponse response =
+        await context.CallHttpAsync(HttpMethod.Get, url);
+
+    if ((int)response.StatusCode == 400)
+    {
+        // handling of error codes goes here
+    }
+}
+```
 
 # [JavaScript (PM3)](#tab/javascript-v3)
 
@@ -431,7 +450,7 @@ public static async Task<object> RunOrchestrator(
 
 [FunctionName("CourseRecommendations")]
 public static async Task<object> Mapper(
-    [ActivityTrigger] (string Major, int UniversityYear) inputs, FunctionContext executionContext)
+    [ActivityTrigger] (string Major, int UniversityYear) studentInfo, FunctionContext executionContext)
 {
     // retrieve and return course recommendations by major and university year
     return new

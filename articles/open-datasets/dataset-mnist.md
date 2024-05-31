@@ -2,7 +2,6 @@
 title: MNIST database of handwritten digits
 description: Learn how to use the MNIST database of handwritten digits dataset in Azure Open Datasets.
 ms.service: open-datasets
-ms.custom: event-tier1-build-2022
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -35,8 +34,6 @@ Four files are available in the container directly:
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=mnist -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=mnist)**.
 
 ### Load MNIST into a data frame using Azure Machine Learning tabular datasets. 
 For more information on Azure Machine Learning datasets, see [Create Azure Machine Learning datasets](../machine-learning/v1/how-to-create-register-datasets.md). 
@@ -155,8 +152,6 @@ if sys.platform == 'linux':
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=mnist -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=mnist)**.
 
 ```python
 %matplotlib inline
@@ -235,8 +230,6 @@ plt.show()
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=mnist -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=mnist)**.
 
 ### Load MNIST into a data frame using Azure Machine Learning tabular datasets. 
 For more information on Azure Machine Learning datasets, see [Create Azure Machine Learning datasets](../machine-learning/v1/how-to-create-register-datasets.md). 

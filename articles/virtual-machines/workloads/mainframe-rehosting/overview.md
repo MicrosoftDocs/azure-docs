@@ -3,11 +3,10 @@ title: Mainframe rehosting on Azure virtual machines
 description: Rehost your mainframe workloads such as IBM Z-based systems using virtual machines (VMs) on Microsoft Azure.
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-documentationcenter:
-author: njray
+author: johnjrayborn
 manager: edprice
 editor: edprice
-ms.author: larryme
+ms.author: johnray
 ms.date: 04/02/2019
 ms.topic: article
 ---
@@ -48,7 +47,6 @@ TmaxSoft OpenFrame is a popular mainframe rehosting solution used in lift-and-sh
 To get started:
 
 - [Get started with TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
-- [Download the ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
 
 ## IBM zD&T 12.0
 
@@ -96,17 +94,13 @@ Learn how to [move mainframe storage to Azure](./concepts/mainframe-storage-azur
 
 ### Backup and recovery
 
-Maintaining your own disaster recovery site can be an expensive proposition. Azure has easy-to-implement and cost-effective options for
-[backup](../../../backup/backup-overview.md), [recovery](../../../site-recovery/site-recovery-overview.md), and [redundancy](../../../storage/common/storage-redundancy.md)
-at local or regional levels, or via geo-redundancy.
+Maintaining your own disaster recovery site can be an expensive proposition. Azure has easy-to-implement and cost-effective options for [backup](../../../backup/backup-overview.md), [recovery](../../../site-recovery/site-recovery-overview.md), and [redundancy](../../../storage/common/storage-redundancy.md) at local or regional levels, or via geo-redundancy.
 
 ## Azure Government for mainframe migrations
 
 Many public sector entities would love to move their mainframe applications to a more modern, flexible platform. Microsoft Azure Government is a physically separated instance of the global Microsoft Azure platform—packaged for federal, state, and local government systems. It provides world-class security, protection, and compliance services specifically for United States government agencies and their partners.
 
 Azure Government earned a Provisional Authority to Operate (P-ATO) for FedRAMP High Impact for systems that need this type of environment.
-
-To get started, download [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
 
 ## Next steps
 
@@ -117,7 +111,6 @@ See also:
 - [White papers about mainframe topics](mainframe-white-papers.md)
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
-- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

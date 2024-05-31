@@ -7,13 +7,11 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 # Copy data from and to ODBC data stores using Azure Data Factory or Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-odbc-connector.md)
-> * [Current version](connector-odbc.md)
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to an ODBC data store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -27,7 +25,7 @@ This ODBC connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
@@ -77,7 +75,7 @@ The following properties are supported for ODBC linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Odbc** | Yes |
-| connectionString | The connection string excluding the credential portion. You can specify the connection string with pattern like `Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;`, or use the system DSN (Data Source Name) you set up on the Integration Runtime machine with `DSN=<name of the DSN on IR machine>;` (you need still specify the credential portion in linked service accordingly).<br>You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details.| Yes |
+| connectionString | The connection string excluding the credential portion. You can specify the connection string with pattern like `Driver={SQL Server};Server=server-name.database.windows.net; Database=TestDatabase;`, or use the system DSN (Data Source Name) you set up on the Integration Runtime machine with `DSN=<name of the DSN on IR machine>;` (you need still specify the credential portion in linked service accordingly).<br>You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details.| Yes |
 | authenticationType | Type of authentication used to connect to the ODBC data store.<br/>Allowed values are: **Basic** and **Anonymous**. | Yes |
 | userName | Specify user name if you are using Basic authentication. | No |
 | password | Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
@@ -270,5 +268,5 @@ To troubleshoot connection issues, use the **Diagnostics** tab of **Integration 
 4. Specify the **connection string** that is used to connect to the data store, choose the **authentication** and enter **user name**, **password**, and/or **credentials**.
 5. Click **Test connection** to test the connection to the data store.
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

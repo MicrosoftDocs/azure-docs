@@ -2,12 +2,12 @@
 title: Entity resolutions provided by Named Entity Recognition
 titleSuffix: Azure AI services
 description: Learn about entity resolutions in the NER feature.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom: language-service-ner
 ---
@@ -16,10 +16,14 @@ ms.custom: language-service-ner
 
 A resolution is a standard format for an entity. Entities can be expressed in various forms and resolutions provide standard predictable formats for common quantifiable types. For example, "eighty" and "80" should both resolve to the integer `80`.
 
-You can use NER resolutions to implement actions or retrieve further information. For example, your service can extract datetime entities to extract dates and times that will be provided to a meeting scheduling system. 
+You can use NER resolutions to implement actions or retrieve further information. For example, your service can extract datetime entities to extract dates and times that will be provided to a meeting scheduling system.
+
+> [!IMPORTANT]
+> Starting from version 2023-04-15-preview, the entity resolution feature is replaced by [entity metadata](entity-metadata.md)
 
 > [!NOTE]
 > Entity resolution responses are only supported starting from **_api-version=2022-10-01-preview_** and **_"modelVersion": "2022-10-01-preview"_**.
+
 
 This article documents the resolution objects returned for each entity category or subcategory.
 

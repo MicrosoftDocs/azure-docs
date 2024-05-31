@@ -6,7 +6,7 @@ author: ddematheu2
 manager: chpalm
 services: azure-communication-services
 
-ms.author: RinaRish
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services

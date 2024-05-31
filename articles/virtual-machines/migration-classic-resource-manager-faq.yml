@@ -1,12 +1,11 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about classic to Azure Resource Manager migration 
+  title: Frequently asked questions about classic to Azure Resource Manager migration
   description: Frequently asked questions about migrating from classic to Azure Resource Manager.
   author: tanmaygore
   manager: vashan
   ms.service: virtual-machines
   ms.subservice: classic-to-arm-migration
-  ms.workload: infrastructure-services
   ms.topic: faq
   ms.date: 03/08/2023
   ms.author: tagore

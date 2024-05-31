@@ -7,9 +7,8 @@ ms.author: banders
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 05/20/2024
 ---
 
 # Software costs not included in saving plans
@@ -20,15 +19,15 @@ Savings plan discounts apply only to the infrastructure costs and not to the sof
 
 | **MeterId** | **MeterName in usage file** | **Used by VM** |
 | --- | --- | --- |
-| e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Reservation-Windows Svr Burst (1 Core) | B Series |
-| cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Reservation-Windows Svr Burst (2 Core) | B Series |
-| 09756b58-3fb5-4390-976d-9ddd14f9ed18 | Reservation-Windows Svr Burst (4 Core) | B Series |
-| e828cb37-5920-4dc7-b30f-664e4dbcb6c7 | Reservation-Windows Svr Burst (8 Core) | B Series |
-| f65a06cf-c9c3-47a2-8104-f17a8542215a | Reservation-Windows Svr (1 Core) | All except B Series |
-| b99d40ae-41fe-4d1d-842b-56d72f3d15ee | Reservation-Windows Svr (2 Core) | All except B Series |
-| 1cb88381-0905-4843-9ba2-7914066aabe5 | Reservation-Windows Svr (4 Core) | All except B Series |
-| 07d9e10d-3e3e-4672-ac30-87f58ec4b00a | Reservation-Windows Svr (6 Core) | All except B Series |
-| 603f58d1-1e96-460b-a933-ce3775ac7e2e | Reservation-Windows Svr (8 Core) | All except B Series |
+| e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Reservation-Windows Svr Burst (one Core) | B Series |
+| cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Reservation-Windows Svr Burst (two Core) | B Series |
+| 09756b58-3fb5-4390-976d-9ddd14f9ed18 | Reservation-Windows Svr Burst (four Core) | B Series |
+| e828cb37-5920-4dc7-b30f-664e4dbcb6c7 | Reservation-Windows Svr Burst (eight Core) | B Series |
+| f65a06cf-c9c3-47a2-8104-f17a8542215a | Reservation-Windows Svr (one Core) | All except B Series |
+| b99d40ae-41fe-4d1d-842b-56d72f3d15ee | Reservation-Windows Svr (two Core) | All except B Series |
+| 1cb88381-0905-4843-9ba2-7914066aabe5 | Reservation-Windows Svr (four Core) | All except B Series |
+| 07d9e10d-3e3e-4672-ac30-87f58ec4b00a | Reservation-Windows Svr (six Core) | All except B Series |
+| 603f58d1-1e96-460b-a933-ce3775ac7e2e | Reservation-Windows Svr (eight Core) | All except B Series |
 | 36aaadda-da86-484a-b465-c8b5ab292d71 | Reservation-Windows Svr (12 Core) | All except B Series |
 | 02968a6b-1654-4495-ada6-13f378ba7172 | Reservation-Windows Svr (16 Core) | All except B Series |
 | 175434d8-75f9-474b-9906-5d151b6bed84 | Reservation-Windows Svr (20 Core) | All except B Series |
@@ -57,13 +56,13 @@ Savings plan discounts apply only to the infrastructure costs and not to the sof
 
 ## Get rates for Azure meters
 
-You can get the pay-as-you-go cost of each of the meters with the Azure Retail Prices API. For information on how to get the rates for an Azure meter, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
+For information on how to get the pay-as-you-go rates for each Azure meter, see [Download Azure price sheet](download-savings-plan-price-sheet.md). EA customers should follow the first 7 steps in their section, while Microsoft Customer Agreement customers should follow the first five steps in their sections.
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
+If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
 
-## Next steps
+## Related content
 
 To learn more about Azure savings plans, see the following articles:
 

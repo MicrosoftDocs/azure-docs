@@ -7,6 +7,7 @@ ms.reviewer: arduppal
 ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 
@@ -18,13 +19,10 @@ Azure Blob Storage on IoT Edge provides a [block blob](/rest/api/storageservices
 
 This module is useful in scenarios:
 
-* where data needs to be stored locally until it can be processed or transferred to the cloud. This data can be videos, images, finance data, hospital data, or any other unstructured data.
-* when devices are located in a place with limited connectivity.
-* when you want to efficiently process the data locally to get low latency access to the data, such that you can respond to emergencies as quickly as possible.
-* when you want to reduce bandwidth costs and avoid transferring terabytes of data to the cloud. You can process the data locally and send only the processed data to the cloud.
-
-Watch the video for quick introduction
-> [!VIDEO https://www.youtube.com/embed/xbwgMNGB_3Y]
+* Where data needs to be stored locally until it can be processed or transferred to the cloud. This data can be videos, images, finance data, hospital data, or any other unstructured data.
+* When devices are located in a place with limited connectivity.
+* When you want to efficiently process the data locally to get low latency access to the data, such that you can respond to emergencies as quickly as possible.
+* When you want to reduce bandwidth costs and avoid transferring terabytes of data to the cloud. You can process the data locally and send only the processed data to the cloud.
 
 This module comes with **deviceToCloudUpload** and **deviceAutoDelete** features.
 
@@ -157,8 +155,15 @@ sudo chmod -R 700 <blob-dir>
 
 ## Configure log files
 
-For information on configuring log files for your module, see these [production best practices](./production-checklist.md#set-up-logs-and-diagnostics).
+The default output log level is 'Info'.  To change the output log level, set the `LogLevel` environment variable for this module in the deployment manifest. `LogLevel` accepts the following values: 
 
+* Critical
+* Error
+* Warning
+* Info
+* Debug
+
+For information on configuring log files for your module, see these [production best practices](./production-checklist.md#set-up-logs-and-diagnostics).
 ## Connect to your blob storage module
 
 You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device.

@@ -3,11 +3,10 @@ title: Create and retrieve attributes of a managed key in Azure Key Vault – Az
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/05/2023
+ms.date: 01/30/2024
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: keys
-tags: azure-resource-manager
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -31,7 +30,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "eastus2"
 
 ## Get your principal ID
 
-To create a Managed HSM, you will need your Azure Active Directory principal ID.  To obtain your ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, passing your email address to the "UserPrincipalName" parameter:
+To create a Managed HSM, you will need your Microsoft Entra principal ID.  To obtain your ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, passing your email address to the "UserPrincipalName" parameter:
 
 ```azurepowershell-interactive
 Get-AzADUser -UserPrincipalName "<your@email.address>"
@@ -56,7 +55,7 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
 
 - Resource group name: **myResourceGroup**.
 - The location: **East US 2**.
-- Your principal ID: Pass the Azure Active Directory principal ID that you obtained in the last section to the "Administrator" parameter. 
+- Your principal ID: Pass the Microsoft Entra principal ID that you obtained in the last section to the "Administrator" parameter. 
 
 ```azurepowershell-interactive
 New-AzKeyVaultManagedHsm -Name "your-unique-managed-hsm-name" -ResourceGroupName "myResourceGroup" -Location "eastus2" -Administrator "your-principal-ID" -SoftDeleteRetentionInDays "# of days to retain the managed hsm after softdelete"

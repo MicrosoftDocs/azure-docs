@@ -31,7 +31,7 @@ Upon startup of the Azure Virtual Desktop session host, the Remote Desktop Agent
 Client connection sequence described below:
 
 1. Using supported Azure Virtual Desktop client user subscribes to the Azure Virtual Desktop Workspace
-2. Azure Active Directory authenticates the user and returns the token used to enumerate resources available to a user
+2. Microsoft Entra authenticates the user and returns the token used to enumerate resources available to a user
 3. Client passes token to the Azure Virtual Desktop feed subscription service
 4. Azure Virtual Desktop feed subscription service validates the token
 5. Azure Virtual Desktop feed subscription service passes the list of available desktops and applications back to the client in the form of digitally signed connection configuration

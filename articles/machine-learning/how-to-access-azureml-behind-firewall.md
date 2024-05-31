@@ -9,8 +9,8 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 04/14/2023
-ms.custom: ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
+ms.date: 04/08/2024
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -72,7 +72,7 @@ __Outbound traffic__
 
 | Service tag(s) | Ports | Purpose |
 | ----- |:-----:| ----- |
-| `AzureActiveDirectory` | 80, 443 | Authentication using Azure AD. |
+| `AzureActiveDirectory` | 80, 443 | Authentication using Microsoft Entra ID. |
 | `AzureMachineLearning` | 443, 8787, 18881<br>UDP: 5831 | Using Azure Machine Learning services. |
 | `BatchNodeManagement.<region>` | 443 | Communication Azure Batch. |
 | `AzureResourceManager` | 443 | Creation of Azure resources with Azure Machine Learning. |
@@ -83,7 +83,7 @@ __Outbound traffic__
 | `AzureMonitor` | 443 | Used to log monitoring and metrics to Azure Monitor. Only needed if you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace. </br>* This outbound is also used to log information for support incidents. |
 
 > [!IMPORTANT]
-> If a compute instance or compute cluster is configured for no public IP, by default it can't access the internet. If it *can* still send outbound traffic to the internet, it is because of Azure [default outbound access](../virtual-network/ip-services/default-outbound-access.md#when-is-default-outbound-access-provided) and you have an NSG that allows outbound to the internet. We **don't recocmmend** using the default outbound access. If you need outbound access to the internet, we recommend using one of the following options instead of the default outbound access:
+> If a compute instance or compute cluster is configured for no public IP, by default it can't access the internet. If it *can* still send outbound traffic to the internet, it is because of Azure [default outbound access](../virtual-network/ip-services/default-outbound-access.md#when-is-default-outbound-access-provided) and you have an NSG that allows outbound to the internet. We **don't recommend** using the default outbound access. If you need outbound access to the internet, we recommend using one of the following options instead of the default outbound access:
 > 
 > * __Azure Virtual Network NAT with a public IP__: For more information on using Virtual Network Nat, see the [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) documentation.
 > * __User-defined route and firewall__: Create a user-defined route in the subnet that contains the compute. The __Next hop__ for the route should reference the private IP address of the firewall, with an address prefix of 0.0.0.0/0.
@@ -120,7 +120,37 @@ To allow the installation of R packages, allow __outbound__ traffic to `cloud.r-
 
 ## Scenario: Using compute cluster or compute instance with a public IP
 
-[!INCLUDE [udr info for computes](includes/machine-learning-compute-user-defined-routes.md)]
+> [!IMPORTANT]
+> A compute instance or compute cluster without a public IP does not need inbound traffic from Azure Batch management and Azure Machine Learning services. However, if you have multiple computes and some of them use a public IP address, you will need to allow this traffic.
+
+When using Azure Machine Learning __compute instance__ or __compute cluster__ (_with a public IP address_), allow inbound traffic from the Azure Machine Learning service. A compute instance or compute cluster _with no public IP_ (preview) __doesn't__ require this inbound communication. A Network Security Group allowing this traffic is dynamically created for you, however you may need to also create user-defined routes (UDR) if you have a firewall. When creating a UDR for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
+
+# [IP Address routes](#tab/ipaddress)
+
+For the Azure Machine Learning service, you must add the IP address of both the __primary__ and __secondary__ regions. To find the secondary region, see the [Cross-region replication in Azure](/azure/availability-zones/cross-region-replication-azure). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
+
+To get a list of IP addresses of the Azure Machine Learning service, download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `AzureMachineLearning.<region>`, where `<region>` is your Azure region.
+
+> [!IMPORTANT]
+> The IP addresses may change over time.
+
+When creating the UDR, set the __Next hop type__ to __Internet__. This means the inbound communication from Azure skips your firewall to access the load balancers with public IPs of Compute Instance and Compute Cluster. UDR is required because Compute Instance and Compute Cluster will get random public IPs at creation, and you cannot know the public IPs before creation to register them on your firewall to allow the inbound from Azure to specific IPs for Compute Instance and Compute Cluster. The following image shows an example IP address based UDR in the Azure portal:
+
+:::image type="content" source="./media/machine-learning-compute-user-defined-routes/user-defined-route.png" alt-text="Image of a user-defined route configuration":::
+
+# [Service tag routes](#tab/servicetag)
+
+Create user-defined routes for the `AzureMachineLearning` service tag.
+
+The following command demonstrates adding a route for this service tag:
+
+```azurecli
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n AzureMLRoute --address-prefix AzureMachineLearning --next-hop-type Internet
+```
+
+---
+
+For information on configuring UDR, see [Route network traffic with a routing table](/azure/virtual-network/tutorial-create-route-table-portal).
 
 ## Scenario: Firewall between Azure Machine Learning and Azure Storage endpoints
 
@@ -167,11 +197,13 @@ To install the Azure Machine Learning extension on Kubernetes compute, all Azure
 
 
 ## Scenario: Visual Studio Code
+Visual Studio Code relies on specific hosts and ports to establish a remote connection.
 
+### Hosts
 The hosts in this section are used to install Visual Studio Code packages to establish a remote connection between Visual Studio Code and compute instances in your Azure Machine Learning workspace.
 
 > [!NOTE]
-> This is not a complete list of the hosts required for all Visual Studio Code resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
+> This is not a complete list of the hosts required for all Visual Studio Code resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario. For a complete list of host names, see [Network Connections in Visual Studio Code](https://code.visualstudio.com/docs/setup/network).
 
 | __Host name__ | __Purpose__ |
 | ---- | ---- |
@@ -180,6 +212,10 @@ The hosts in this section are used to install Visual Studio Code packages to est
 | `update.code.visualstudio.com`<br>`*.vo.msecnd.net` | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script. |
 | `marketplace.visualstudio.com`<br>`vscode.blob.core.windows.net`<br>`*.gallerycdn.vsassets.io` | Required to download and install VS Code extensions. These hosts enable the remote connection to compute instances using the Azure Machine Learning extension for VS Code. For more information, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](./how-to-set-up-vs-code-remote.md) |
 | `raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/*` | Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
+| `vscode.download.prss.microsoft.com` | Used for Visual Studio Code download CDN |
+
+### Ports
+You must allow network traffic to ports 8704 to 8710. The VS Code server dynamically selects the first available port within this range.
 
 ## Scenario: Third party firewall or Azure Firewall without service tags
 
@@ -273,7 +309,7 @@ __General Azure hosts__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ---- | 
-| Azure Active Directory | `login.microsoftonline.com` | TCP | 80, 443 |
+| Microsoft Entra ID | `login.microsoftonline.com` | TCP | 80, 443 |
 | Azure portal | `management.azure.com` | TCP | 443 |
 | Azure Resource Manager | `management.azure.com` | TCP | 443 |
 
@@ -281,7 +317,7 @@ __General Azure hosts__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ---- |
-| Azure Active Directory | `login.microsoftonline.us` | TCP | 80, 443 |
+| Microsoft Entra ID | `login.microsoftonline.us` | TCP | 80, 443 |
 | Azure portal | `management.azure.us` | TCP | 443 |
 | Azure Resource Manager | `management.usgovcloudapi.net` | TCP | 443 |
 
@@ -289,7 +325,7 @@ __General Azure hosts__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |
-| Azure Active Directory | `login.chinacloudapi.cn` | TCP | 80, 443 |
+| Microsoft Entra ID | `login.chinacloudapi.cn` | TCP | 80, 443 |
 | Azure portal | `management.azure.cn` | TCP | 443 |
 | Azure Resource Manager | `management.chinacloudapi.cn` | TCP | 443 |
 
@@ -409,7 +445,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 
 ---
 
-__Docker images maintained by by Azure Machine Learning__
+__Docker images maintained by Azure Machine Learning__
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |
@@ -441,7 +477,7 @@ If you haven't [secured Azure Monitor](./v1/how-to-secure-workspace-vnet.md#secu
 * `dc.services.visualstudio.com`
 * `*.in.applicationinsights.azure.com`
 
-For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
+For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/ip-addresses.md).
 
 ## Next steps
 

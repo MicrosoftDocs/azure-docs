@@ -7,4 +7,4 @@ ms.service: dev-box
 ---
 
 > [!NOTE]
-> Microsoft Dev Box doesn't support the use of guest accounts or Microsoft accounts.
+> Microsoft Dev Box supports work and school accounts. It doesn't support the use of guest accounts or personal accounts.

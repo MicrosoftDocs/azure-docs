@@ -25,13 +25,13 @@ Azure Digital Twins also supports encryption of data at rest.
 
 ## Roles and permissions with Azure RBAC
 
-Azure RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
+Azure RBAC is provided to Azure Digital Twins via integration with [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md).
 
-You can use Azure RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
+You can use Azure RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by Microsoft Entra ID, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
 
 ### Authentication and authorization
 
-With Azure AD, access is a two-step process. When a security principal (a user, group, or application) attempts to access Azure Digital Twins, the request must be *authenticated* and *authorized*. 
+With Microsoft Entra ID, access is a two-step process. When a security principal (a user, group, or application) attempts to access Azure Digital Twins, the request must be *authenticated* and *authorized*. 
 
 1. First, the security principal's identity is authenticated, and an OAuth 2.0 token is returned.
 2. Next, the token is passed as part of a request to the Azure Digital Twins service, to authorize access to the specified resource.
@@ -58,7 +58,7 @@ Azure provides two Azure built-in roles for authorizing access to the Azure Digi
 | Azure Digital Twins Data Reader | Gives read-only access to Azure Digital Twins resources | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 You can assign roles in two ways:
-* Via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md))
+* Via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml))
 * Via CLI commands to add or remove a role
 
 For detailed steps on assigning roles to an Azure Digital Twins instance, see [Set up an instance and authentication](how-to-set-up-instance-portal.md#set-up-user-access-permissions). For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. 
@@ -89,7 +89,7 @@ If a user attempts to perform an action not allowed by their role, they may rece
 
 ## Managed identity for accessing other resources
 
-Setting up an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) *managed identity* for an Azure Digital Twins instance can allow the instance to easily access other Azure AD-protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and doesn't require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
+Setting up an [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) *managed identity* for an Azure Digital Twins instance can allow the instance to easily access other Microsoft Entra protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and doesn't require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
 Azure Digital Twins supports both types of managed identities, *system-assigned* and *user-assigned*. 
 
@@ -101,7 +101,7 @@ For instructions on how to enable a managed identity for an Azure Digital Twins 
 
 Azure Digital Twins can connect to Event Hubs and Service Bus endpoints for sending event data, using those resources' public endpoints. However, if those resources are bound to a VNet, connectivity to the resources are blocked by default. As a result, this configuration prevents Azure Digital Twins from sending event data to your resources. 
 
-To resolve this, enable connectivity from your Azure Digital Twins instance to your Event Hubs or Service Bus resources through the the *trusted Microsoft service* option (see [Trusted Microsoft services for Event Hubs](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services) and [Trusted Microsoft services for Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services)). 
+To resolve this, enable connectivity from your Azure Digital Twins instance to your Event Hubs or Service Bus resources through the *trusted Microsoft service* option (see [Trusted Microsoft services for Event Hubs](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services) and [Trusted Microsoft services for Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services)). 
 
 You'll need to complete the following steps to enable the trusted Microsoft service connection.
 

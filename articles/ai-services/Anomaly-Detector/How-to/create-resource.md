@@ -2,12 +2,12 @@
 title: Create an Anomaly Detector resource
 titleSuffix: Azure AI services
 description: Create an Anomaly Detector resource
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle    
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.topic: conceptual
-ms.date: 11/01/2022
+ms.date: 01/18/2024
 ms.author: mbullwin
 ---
 

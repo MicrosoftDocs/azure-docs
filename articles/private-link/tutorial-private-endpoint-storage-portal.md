@@ -2,19 +2,19 @@
 title: 'Tutorial: Connect to a storage account using an Azure Private Endpoint'
 titleSuffix: Azure Private Link
 description: Get started with this tutorial using Azure Private endpoint to connect to a storage account privately.
-author: asudbring
-ms.author: allensu
+author: abell
+ms.author: abell
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 07/18/2023
-ms.custom: template-tutorial, ignite-2022
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Connect to a storage account using an Azure Private Endpoint
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to privately and securely communicate with Private Link resources such as Azure Storage.
 
-:::image type="content" source="./media/tutorial-private-endpoint-storage/storage-tutorial-resources.png" alt-text="Diagram of resources created in tutorial.":::
+:::image type="content" source="./media/tutorial-private-endpoint-storage/storage-tutorial-resources.png" alt-text="Diagram of resources created in tutorial." lightbox="./media/tutorial-private-endpoint-storage/storage-tutorial-resources.png":::
 
 In this tutorial, you learn how to:
 

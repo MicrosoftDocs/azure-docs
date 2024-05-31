@@ -8,10 +8,13 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 04/04/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ms.devlang: azurecli
 ---
 # Use the Linux diagnostic extension 4.0 to monitor metrics and logs
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes the latest versions of the Linux diagnostic extension (LAD).
 
@@ -122,7 +125,7 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> `
 
 ---
 
-### Enable auto update 
+### Enable auto update
 
 To enable automatic update of the agent, we recommend that you enable the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature:
 
@@ -277,7 +280,7 @@ my_diagnostic_storage_account_sastoken=$(az storage account generate-sas \
 my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
 # Finally, tell Azure to install and enable the extension.
-az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic 
+az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic
   --version 4.0 --resource-group $my_resource_group --vmss-name $my_linux_vmss \
   --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```

@@ -1,12 +1,12 @@
-﻿---
+---
 title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - Azure portal'
 description: Get started with this tutorial to learn how to connect to a storage account privately via Azure Private Endpoint using the Azure portal.
 services: private-link
-author: asudbring
+author: abell
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 08/30/2023
-ms.author: allensu
+ms.author: abell
 ms.custom: template-tutorial, fasttrack-edit, template-tutorial
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ---
@@ -14,6 +14,8 @@ ms.custom: template-tutorial, fasttrack-edit, template-tutorial
 # Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint using the Azure portal
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to privately and securely communicate with Private Link resources such as Azure SQL server.
+
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png" alt-text="Diagram of resources created in private endpoint quickstart." lightbox="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png":::
 
 In this tutorial, you learn how to:
 
@@ -121,7 +123,7 @@ In this section, you use the virtual machine you created in the previous steps t
 1. To verify name resolution of the private endpoint, enter the following command in the terminal window:
 
     ```bash
-    nslookup sql-server-1.database.windows.net
+    nslookup server-name.database.windows.net
     ```
 
     You receive a message similar to the following example. The IP address returned is the private IP address of the private endpoint.
@@ -147,7 +149,7 @@ In this section, you use the virtual machine you created in the previous steps t
     * Replace **sql-server-1** with the name of your SQL server.
 
     ```bash
-    sqlcmd -S sql-server-1.database.windows.net -U '<server-admin>' -P '<admin-password>'
+    sqlcmd -S server-name.database.windows.net -U '<server-admin>' -P '<admin-password>'
     ```
 
 1. A SQL command prompt is displayed on successful sign in. Enter **exit** to exit the **sqlcmd** tool.

@@ -7,7 +7,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.service: app-service
-ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devdivchpfy22, service-connector, devx-track-dotnet, AppServiceConnectivity
+ms.custom: devx-track-csharp, mvc, cli-validate, devdivchpfy22, service-connector, devx-track-dotnet, AppServiceConnectivity
 ---
 
 # Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service
@@ -60,7 +60,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Runtime stack* &rarr; **.NET 7 (STS)**.
         1. *Add Azure Cache for Redis?* &rarr; **Yes**.
         1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. **SQLAzure** is selected by default as the database engine. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that's always running on the latest stable version of the SQL Server.
+        1. Select **SQLAzure** as the database engine. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that's always running on the latest stable version of the SQL Server.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -190,7 +190,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
     :::column span="2":::
         **Step 7:**
         1. Open *.github/workflows/main_msdocs-core-sql-XYZ* in the explorer. This file was created by the App Service create wizard.
-        1. Under the `dotnet publish` step, add a step to install the [Entity Framework Core tool](/ef/core/cli/dotnet) with the command `dotnet tool install -g dotnet-ef`.
+        1. Under the `dotnet publish` step, add a step to install the [Entity Framework Core tool](/ef/core/cli/dotnet) with the command `dotnet tool install -g dotnet-ef --version 7.0.14`.
         1. Under the new step, add another step to generate a database [migration bundle](/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles) in the deployment package: `dotnet ef migrations bundle --runtime linux-x64 -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o ${{env.DOTNET_ROOT}}/myapp/migrate`.
         The migration bundle is a self-contained executable that you can run in the production environment without needing the .NET SDK. The App Service linux container only has the .NET runtime and not the .NET SDK.
     :::column-end:::
@@ -230,7 +230,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 
 ## 4. Generate database schema
 
-With the SQL Database protected by the virtual network, the easiest way to run Run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the App Service container. 
+With the SQL Database protected by the virtual network, the easiest way to run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the App Service container. 
 
 :::row:::
     :::column span="2":::

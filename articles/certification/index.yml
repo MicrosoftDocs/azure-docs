@@ -1,21 +1,27 @@
 ### YamlMime:Landing
 
-title: Azure Certified Device Documentation
-summary: This program is your one stop for easily differentiating, promoting, and finding IoT devices built to run on Azure. 
+title: Edge Secured-core Documentation
+summary: Edge Secured-core is a security certification for devices running a full operating system.
 
 metadata:
-  title: Azure Certified Device program
-  description: This program is your one stop for easily differentiating, promoting, and finding IoT devices built to run on Azure. 
+  title: Edge Secured-core program
+  description: Edge Secured-core is a security certification for devices running a full operating system. 
   ms.service: certification
   ms.topic: landing-page
-  author: cbroad
-  ms.author: cbroad
-  ms.date: 03/18/2021
+  author: dimatokar
+  ms.author: dimatokar
+  ms.date: 01/29/2024
 
 landingContent:
-  - title: About the Azure Certified Device program
+  - title: Edge Secured-core
     linkLists:
     - linkListType: overview
       links:
-        - text: What is the Azure Certified Device program?
-          url: ./overview.md
+      - text: What is Edge Secured-core?
+        url: overview.md
+      - text: Program requirements
+        url: ./program-requirements-edge-secured-core.md
+      - text: Get your device certified
+        url: ./edge-secured-core-get-certified.md       
+      - text: List of certified devices
+        url: ./edge-secured-core-devices.md

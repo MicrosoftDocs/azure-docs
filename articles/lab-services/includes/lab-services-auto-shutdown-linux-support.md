@@ -1,5 +1,6 @@
 ---
 ms.service: lab-services
+ms.custom: linux-related-content
 ms.topic: include
 author: ntrogh
 ms.author: nicktrog

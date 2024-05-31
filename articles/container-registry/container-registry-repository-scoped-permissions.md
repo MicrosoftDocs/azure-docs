@@ -1,29 +1,30 @@
 ---
 title: Permissions to repositories in Azure Container Registry
-description: Create a token with permissions scoped to specific repositories in a registry to pull or push images, or perform other actions
+description: Create a token to grant and manage repository scoped permissions within a container registry. The token helps to perform actions, such as pull images, push images, delete images, read metadata, and write metadata.
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
-ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.date: 10/31/2023
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+ms.service: container-registry
 ---
 
 # Create a token with repository-scoped permissions
 
-This article describes how to create tokens and scope maps to manage access to specific repositories in your container registry. By creating tokens, a registry owner can provide users or services with scoped, time-limited access to repositories to pull or push images or perform other actions. A token provides more fine-grained permissions than other registry [authentication options](container-registry-authentication.md), which scope permissions to an entire registry.
+This article describes how to create tokens and scope maps to manage access to repositories in your container registry. By creating tokens, a registry owner can provide users or services with scoped, time-limited access to repositories to pull or push images or perform other actions. A token provides more fine-grained permissions than other registry [authentication options](container-registry-authentication.md), which scope permissions to an entire registry.
 
-Scenarios for creating a token include:
+Common scenarios for creating a token include:
 
-* Allow IoT devices with individual tokens to pull an image from a repository
-* Provide an external organization with permissions to a specific repository 
+* Allow IoT devices with individual tokens to pull an image from a repository.
+* Provide an external organization with permissions to a repository path.
 * Limit repository access to different user groups in your organization. For example, provide write and read access to developers who build images that target specific repositories, and read access to teams that deploy from those repositories.
 
 This feature is available in all the service tiers. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md)
 
 ## Limitations
 
-* You can't currently assign repository-scoped permissions to an Azure Active Directory identity, such as a service principal or managed identity.
+* You can't currently assign repository-scoped permissions to a Microsoft Entra identity, such as a service principal or managed identity.
 
 ## Concepts
 
@@ -41,12 +42,13 @@ To configure repository-scoped permissions, you create a *token* with an associa
   |`metadata/read`    | Read metadata from the repository   | List tags or manifests |
   |`metadata/write`     |  Write metadata to the repository  | Enable or disable read, write, or delete operations |
 
-* A **scope map** groups the repository permissions you apply to a token, and can reapply to other tokens. Every token is associated with a single scope map.
+> [!NOTE]
+> Repository-scoped permissions do not support the ability to list the catalog of all repositories in the registry.
 
-   With a scope map:
+* A **scope map** groups the repository permissions you apply to a token and can reapply to other tokens. Every token is associated with a single scope map. With a scope map, you can:
 
-  * Configure multiple tokens with identical permissions to a set of repositories
-  * Update token permissions when you add or remove repository actions in the scope map, or apply a different scope map
+  * Configure multiple tokens with identical permissions to a set of repositories.
+  * Update token permissions when you add or remove repository actions in the scope map, or apply a different scope map.
 
   Azure Container Registry also provides several system-defined scope maps you can apply when creating tokens. The permissions of system-defined scope maps apply to all repositories in your registry.The individual *actions* corresponds to the limit of [Repositories per scope map.](container-registry-skus.md)
 
@@ -106,6 +108,7 @@ The output shows details about the token. By default, two passwords are generate
   "scopeMapId": "/subscriptions/xxxxxxxx-adbd-4cb4-c864-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry/scopeMaps/MyToken-scope-map",
   "status": "enabled",
   "type": "Microsoft.ContainerRegistry/registries/tokens"
+}
 ```
 
 > [!NOTE]
@@ -138,6 +141,70 @@ The output shows details about the token. By default, two passwords are generate
 
 > [!NOTE]
 > To regenerate token passwords and expiration periods, see [Regenerate token passwords](#regenerate-token-passwords) later in this article.
+
+### How to use scope maps to define and assign permissions for multiple repositories
+
+A scope map allows for the use of a wildcard character to define and grant similar permissions for multiple repositories that share a common prefix. Repositories with specific permissions, repositories with a wildcard character can also be used in the same scope map. This provides flexibility in managing permissions for a multiple set of repositories in a single scope map.
+
+Repository permissions can be created when a scope map is created and assigned to a token. Alternatively, a token can be created and directly assigned to a repository.
+
+The following example creates a scope map with a wildcard character and then assigns it to a token.
+
+```azurecli
+az acr scope-map create --name MyScopeMapWildcard --registry myregistry \
+  --repository samples/* \
+  content/write content/read \
+  --description "Sample scope map with wildcards"
+az acr token create --name MyTokenWildcard \
+  --registry myregistry \
+  --scope-map MyScopeMapWildcard
+```
+
+The following example creates a token with a wildcard.
+
+```azurecli
+ az acr token create --name MyTokenWildcard --registry myregistry \
+  --repository samples/* \
+  content/write content/read \
+```
+
+The wildcard permissions are additive, which means that when a specific repository is accessed, the resulting permissions will include the permissions for all the scope map rules that match the wildcard prefix.
+
+In this example, the scope map defines permissions for three different types of repositories:
+
+  |Repository  |Permission  |
+  |---------|---------|
+  |`sample/*`    | `content/read`  |
+  |`sample/teamA/*`    | `content/write`  |
+  |`sample/teamA/projectB`    | `content/delete`  |
+
+The token is assigned a scope map to grant `[content/read, content/write, content/delete]` permissions for accessing repository `sample/teamA/projectB`. However, when the same token is used to access the `sample/teamA/projectC` repository, it only has `[content/read, content/write]` permissions.
+
+> [!IMPORTANT]
+> Repositories using wildcards in the scope map should always end with a `/*` suffix to be valid and have a single wildcard character in the repository name.
+> Here are some examples of invalid wildcards:
+>
+> * `sample/*/teamA` with a wildcard in the middle of the repository name.
+> * `sample/teamA*` with a wildcard does not end with `/*``.
+> * `sample/teamA/*/projectB/*` with multiple wildcards in the repository name.
+
+#### Root level wildcards
+
+Wildcards can also be applied at a root level. This means that any permissions assigned to the repository defined as `*`, will be applied registry wide.
+
+The example shows how to create a token with a root level wildcard that would give the token `[content/read, content/write]` permissions to all repositories in the registry. This provides a simple way to grant permissions to all repositories in the registry without having to specify each repository individually.
+
+```azurecli
+ az acr token create --name MyTokenWildcard --registry myregistry \
+  --repository * \
+  content/write content/read \
+```
+
+> [!IMPORTANT]
+> If a wildcard rule encompasses a repository that does not exist yet, the wildcard rule's permissions will still apply to that repository name.
+> For example, a token that is assigned to a scope map that grants `[content/write, metadata/write]` permissions for `sample/*` repositories.
+> Additionally, suppose the repository `sample/teamC/teamCimage` does not exist yet.
+> The token will have permissions for pushing images to repository `sample/teamC/teamCimage`, which will simultaneously create the repository on successful push.
 
 ## Create token - portal
 
@@ -422,7 +489,7 @@ In the portal, select the token in the **Tokens** screen, and select **Discard**
 ## Next steps
 
 * To manage scope maps and tokens, use additional commands in the [az acr scope-map][az-acr-scope-map] and [az acr token][az-acr-token] command groups.
-* See the [authentication overview](container-registry-authentication.md) for other options to authenticate with an Azure container registry, including using an Azure Active Directory identity, a service principal, or an admin account.
+* See the [authentication overview](container-registry-authentication.md) for other options to authenticate with an Azure container registry, including using a Microsoft Entra identity, a service principal, or an admin account.
 * Learn about [connected registries](intro-connected-registry.md) and using tokens for [access](overview-connected-registry-access.md).
 
 <!-- LINKS - External -->

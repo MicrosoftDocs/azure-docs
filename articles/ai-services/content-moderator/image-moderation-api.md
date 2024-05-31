@@ -2,12 +2,12 @@
 title: Image Moderation - Content Moderator
 titleSuffix: Azure AI services
 description: Use Content Moderator's machine-assisted image moderation to moderate images for adult and racy content.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 01/18/2024
 ms.author: pafarley
 
 ---
@@ -108,7 +108,7 @@ Instead of moderating the same image multiple times, you add the offensive image
 > There is a maximum limit of **5 image lists** with each list to **not exceed 10,000 images**.
 >
 
-The Content Moderator provides a complete [Image List Management API](try-image-list-api.md) with operations for managing lists of custom images. Start with the [Image Lists API Console](try-image-list-api.md) and use the REST API code samples. Also check out the [Image List .NET quickstart](image-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
+The Content Moderator provides a complete Image List Management API with operations for managing lists of custom images. Check out the [Image List .NET quickstart](image-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
 
 ## Matching against your custom lists
 
@@ -143,4 +143,4 @@ Example extract:
 
 ## Next steps
 
-Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples.
+Test drive the [Quickstart](client-libraries.md) and use the REST API code samples.

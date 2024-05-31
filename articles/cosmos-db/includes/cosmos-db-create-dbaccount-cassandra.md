@@ -8,7 +8,7 @@
  ms.date: 07/02/2021
  ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
    
 1. From the Azure portal menu or the **Home page**, select **Create a resource**.

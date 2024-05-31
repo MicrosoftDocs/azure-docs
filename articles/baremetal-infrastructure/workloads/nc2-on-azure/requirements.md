@@ -6,7 +6,7 @@ description: Learn what you need to run NC2 on Azure, including Azure, Nutanix, 
 ms.topic: how-to
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 04/01/2023
+ms.date: 05/21/2024
 ---
 
 # Requirements
@@ -17,7 +17,7 @@ The following sections identify the requirements to use Nutanix Clusters on Azur
 ## Azure account requirements
 
 * An Azure account with a new subscription  
-* An Azure Active Directory
+* A Microsoft Entra directory
 
 ## My Nutanix account requirements
 

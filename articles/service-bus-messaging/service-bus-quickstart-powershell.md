@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 # Use Azure PowerShell to create a Service Bus namespace and a queue
 This quickstart shows you how to create a Service Bus namespace and a queue using the Azure PowerShell. It also shows you how to get authorization credentials that a client application can use to send/receive messages to/from the queue. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+[!INCLUDE [service-bus-queues](./includes/service-bus-queues.md)]
 
 
 ## Prerequisites
@@ -26,7 +26,8 @@ In this quickstart, you use Azure Cloud Shell that you can launch after sign in 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Launch Azure Cloud Shell by selecting the icon shown in the following image: 
 
-    :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Launch Cloud Shell":::
+    :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+
 3. In the bottom Cloud Shell window, switch from **Bash** to **PowerShell**. 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/cloud-power-shell.png" alt-text="Switch to PowerShell mode":::    
@@ -61,6 +62,5 @@ In this article, you created a Service Bus namespace and a queue in the namespac
 - [Java](service-bus-java-how-to-use-queues.md)
 - [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
-- [PHP](service-bus-php-how-to-use-queues.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

@@ -2,14 +2,13 @@
 title: Azure Cosmos DB performance tips for .NET SDK v2
 description: Learn client configuration options to improve Azure Cosmos DB .NET v2 SDK performance.
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/18/2022
 ms.devlang: csharp
-ms.custom: devx-track-dotnet, contperf-fy21q2
-
+ms.custom: devx-track-dotnet
 ---
 
 # Performance tips for Azure Cosmos DB and .NET SDK v2
@@ -21,6 +20,7 @@ ms.custom: devx-track-dotnet, contperf-fy21q2
 > * [Java SDK v4](performance-tips-java-sdk-v4.md)
 > * [Async Java SDK v2](performance-tips-async-java.md)
 > * [Sync Java SDK v2](performance-tips-java.md)
+> * [Python SDK](performance-tips-python-sdk.md)
 
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). But because Azure Cosmos DB is accessed via network calls, there are client-side optimizations you can make to achieve peak performance when you use the [SQL .NET SDK](sdk-dotnet-v3.md).
 
@@ -182,7 +182,7 @@ Azure Cosmos DB requests are made over HTTPS/REST when you use gateway mode. The
 During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off on throttle for the server-specified retry interval. Respecting the backoff ensures you spend a minimal amount of time waiting between retries. 
 
 Retry policy support is included in these SDKs:
-- Version 1.8.0 and later of the [.NET SDK for SQL](sdk-dotnet-v2.md) and the [Java SDK for SQL](sdk-java-v2.md)
+* Version 1.8.0 and later of the [.NET SDK for SQL](sdk-dotnet-v2.md) and the [Java SDK for SQL](/java/api/overview/azure/cosmos-readme)
 - Version 1.9.0 and later of the [Node.js SDK for SQL](sdk-nodejs.md) and the [Python SDK for SQL](sdk-python.md)
 - All supported versions of the [.NET Core](sdk-dotnet-core-v2.md) SDKs 
 
@@ -247,7 +247,7 @@ while (queryable.HasMoreResults)
     }
 ```             
 
-The request charge returned in this header is a fraction of your provisioned throughput (that is, 2,000 RUs / second). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before rate limiting later requests. For more information, see [Request Units](../request-units.md) and the [Request Unit calculator](https://www.documentdb.com/capacityplanner).
+The request charge returned in this header is a fraction of your provisioned throughput (that is, 2,000 RUs / second). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before rate limiting later requests. For more information, see [Request Units](../request-units.md) and the [Request Unit calculator](https://cosmos.azure.com/capacitycalculator).
 <a id="429"></a>
 
 **Handle rate limiting/request rate too large**

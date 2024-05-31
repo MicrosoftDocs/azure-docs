@@ -2,18 +2,38 @@
 title: Connect your GCP project
 description: Defend your GCP resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 07/24/2023
+ms.date: 01/16/2024
 ---
 
 # Connect your GCP project to Microsoft Defender for Cloud
 
 Workloads commonly span multiple cloud platforms. Cloud security services must do the same. Microsoft Defender for Cloud helps protect workloads in Google Cloud Platform (GCP), but you need to set up the connection between them and Defender for Cloud.
 
-If you're connecting a GCP project that you previously connected by using the classic connector, you must [remove it](how-to-use-the-classic-connector.md#remove-classic-gcp-connectors) first. Using a GCP project that's connected by both the classic and native connectors can produce duplicate recommendations.
-
 This screenshot shows GCP accounts displayed in the Defender for Cloud [overview dashboard](overview-page.md).
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot that shows GCP projects listed on the overview dashboard in Defender for Cloud." lightbox="media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+
+## GCP authorization design
+
+The authentication process between Microsoft Defender for Cloud and GCP is a federated authentication process.  
+
+When you onboard to Defender for Cloud, the GCloud template is used to create the following resources as part of the authentication process:
+
+- Workload identity pool and providers
+
+- Service accounts and policy bindings
+
+The authentication process works as follows:
+
+:::image type="content" source="media/concept-gcp-connector/authentication-process.png" alt-text="A diagram of the Defender for Cloud GCP connector authentication process." lightbox="media/concept-gcp-connector/authentication-process.png":::
+
+1. Microsoft Defender for Cloud's CSPM service acquires a Microsoft Entra token. The token is signed by Microsoft Entra ID using the RS256 algorithm and is valid for 1 hour.
+
+1. The Microsoft Entra token is exchanged with Google's STS token.
+
+1. Google STS validates the token with the workload identity provider. The Microsoft Entra token is sent to Google's STS that validates the token with the workload identity provider. Audience validation then occurs and the token is signed. A Google STS token is then returned to Defender for Cloud's CSPM service.
+
+1. Defender for Cloud's CSPM service uses the Google STS token to impersonate the service account. Defender for Cloud's CSPM receives service account credentials that are used to scan the project.
 
 ## Prerequisites
 
@@ -37,57 +57,123 @@ When you're connecting GCP projects to specific Azure subscriptions, consider th
 
 ## Connect your GCP project
 
-To connect your GCP project to Defender for Cloud by using a native connector:
+There are four parts to the onboarding process that take place when you create the security connection between your GCP project and Microsoft Defender for Cloud.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+### Project details
 
-1. Go to **Defender for Cloud** > **Environment settings**.
+In the first section, you need to add the basic properties of the connection between your GCP project and Defender for Cloud.
 
-1. Select **Add environment** > **Google Cloud Platform**.
+:::image type="content" source="media/concept-gcp-connector/single-project-details.png" alt-text="Screenshot of the organization details page of the GCP project onboarding process." lightbox="media/concept-gcp-connector/single-project-details.png":::
 
-    :::image type="content" source="media/quickstart-onboard-gcp/google-cloud.png" alt-text="Screenshot that shows selections for adding Google Cloud Platform as a connector."  lightbox="media/quickstart-onboard-gcp/google-cloud.png":::
+Here you name your connector, select a subscription and resource group, which is used to create an ARM template resource that is called security connector. The security connector represents a configuration resource that holds the projects settings.
 
-1. Enter all relevant information.
+### Select plans for your project
 
-    :::image type="content" source="media/quickstart-onboard-gcp/create-connector.png" alt-text="Screenshot of the pane for creating a GCP connector." lightbox="media/quickstart-onboard-gcp/create-connector.png":::
+After entering your organization's details, you'll then be able to select which plans to enable.
 
-   Optionally, if you select **Organization**, a management project and an organization custom role are created on your GCP project for the onboarding process. Autoprovisioning is enabled for the onboarding of new projects.
+:::image type="content" source="media/concept-gcp-connector/select-plans-gcp-project.png" alt-text="Screenshot of the available plans you can enable for your GCP project." lightbox="media/concept-gcp-connector/select-plans-gcp-project.png":::
 
-## Select Defender plans
+From here, you can decide which resources you want to protect based on the security value you want to receive.
 
-In this section of the wizard, you select the Defender for Cloud plans that you want to enable.
+### Configure access for your project
 
-1. Select **Next: Select plans**.
+Once you selected the plans, you want to enable and the resources you want to protect you have to configure access between Defender for Cloud and your GCP project.
 
-1. For the plans that you want to connect, turn the toggle to **On**. By default, all necessary prerequisites and components are provisioned. [Learn how to configure each plan](#optional-configure-selected-plans).
+:::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access.":::
 
-    If you choose to turn on the Microsoft Defender for Containers plan, ensure that you meet the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for it.
+In this step, you can find the GCloud script that needs to be run on the GCP project that is going to onboarded. The GCloud script is generated based on the plans you selected to onboard.
 
-1. Select **Next: Configure access**.
+The GCloud script creates all of the required resources on your GCP environment so that Defender for Cloud can operate and provide the following security values:
 
-    1. Choose the deployment type:
+- Workload identity pool
+- Workload identity provider (per plan)
+- Service accounts
+- Project level policy bindings (service account has access only to the specific project)
 
-        - **Default access**: Allows Defender for Cloud to scan your resources and automatically include future capabilities.
-        - **Least privilege access**: Grants Defender for Cloud access to only the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality for connector health.
+### Review and generate the connector for your project
 
-    1. Choose the deployment method: **GCP Cloud Shell** or **Terraform**.
+The final step for onboarding is to review all of your selections and to create the connector.
 
-1. Select **Copy**.
+:::image type="content" source="media/concept-gcp-connector/review-and-generate.png" alt-text="Screenshot of the review and generate screen with all of your selections listed." lightbox="media/concept-gcp-connector/review-and-generate.png":::
 
-    :::image type="content" source="media/quickstart-onboard-gcp/copy-button.png" alt-text="Screenshot that shows the location of the copy button.":::
+> [!NOTE]
+> The following APIs must be enabled in order to discover your GCP resources and allow the authentication process to occur:
+>
+> - `iam.googleapis.com`
+> - `sts.googleapis.com`
+> - `cloudresourcemanager.googleapis.com`
+> - `iamcredentials.googleapis.com`
+> - `compute.googleapis.com`
+> If you don't enable these APIs at this time, you can enable them during the onboarding process by running the GCloud script.
 
-   > [!NOTE]
-   > For the discovery of GCP resources and for the authentication process, you must enable the following APIs: `iam.googleapis.com`, `sts.googleapis.com`, `cloudresourcemanager.googleapis.com`, `iamcredentials.googleapis.com`, and `compute.googleapis.com`. If you don't enable these APIs, we'll enable them during the onboarding process by running the GCloud script.
+After you create the connector, a scan starts on your GCP environment. New recommendations appear in Defender for Cloud after up to 6 hours. If you enabled autoprovisioning, Azure Arc and any enabled extensions are installed automatically for each newly detected resource.
 
-1. Select **GCP Cloud Shell >**. The GCP Cloud Shell opens.
+## Connect your GCP organization
 
-1. Paste the script into the GCP Cloud Shell terminal and run it.
+Similar to onboarding a single project, When onboarding a GCP organization, Defender for Cloud creates a security connector for each project under the organization (unless specific projects were excluded).
 
-1. Ensure that you created the following resources for Microsoft Defender Cloud Security Posture Management (CSPM) and Defender for Containers:
+### Organization details
 
-    | CSPM | Defender for Containers|
-    |--|--|
-    | CSPM service account reader role <br><br> Microsoft Defender for Cloud identity federation <br><br> CSPM identity pool <br><br>Microsoft Defender for Servers service account (when the servers plan is enabled) <br><br>*Azure Arc for servers onboarding* service account (when Azure Arc for servers autoprovisioning is enabled) | Microsoft Defender for Containers service account role <br><br> Microsoft Defender Data Collector service account role <br><br> Microsoft Defender for Cloud identity pool |
+In the first section, you need to add the basic properties of the connection between your GCP organization and Defender for Cloud.
+
+:::image type="content" source="media/concept-gcp-connector/organization-details.png" alt-text="Screenshot of the organization details page of the GCP organization onboarding process." lightbox="media/concept-gcp-connector/organization-details.png":::
+
+Here you name your connector, select a subscription and resource group that is used to create an ARM template resource that is called security connector. The security connector represents a configuration resource that holds the projects settings.
+
+You also select a location and add the organization ID for your project.
+
+When you onboard an organization, you can also choose to exclude project numbers and folder IDs.
+
+### Select plans for your organization
+
+After entering your organization's details, you'll then be able to select which plans to enable.
+
+:::image type="content" source="media/concept-gcp-connector/select-plans-gcp-project.png" alt-text="Screenshot of the available plans you can enable for your GCP organization." lightbox="media/concept-gcp-connector/select-plans-gcp-project.png":::
+
+From here, you can decide which resources you want to protect based on the security value you want to receive.
+
+### Configure access for your organization
+
+Once you selected the plans, you want to enable and the resources you want to protect you have to configure access between Defender for Cloud and your GCP organization.
+
+:::image type="content" source="media/concept-gcp-connector/configure-access-organization.png" alt-text="Screenshot of the Configure access screen between Defender for Cloud and your GCP organization." lightbox="media/concept-gcp-connector/configure-access-organization.png":::
+
+When you onboard an organization, there's a section that includes management project details. Similar to other GCP projects, the organization is also considered a project and is utilized by Defender for Cloud to create all of the required resources needed to connect the organization to Defender for Cloud.
+
+In the management project details section, you have the choice of:
+
+- Dedicating a management project for Defender for Cloud to include in the GCloud script.
+- Provide the details of an already existing project to be used as the management project with Defender for Cloud.  
+
+You need to decide what is your best option for your organization's architecture. We recommend creating a dedicated project for Defender for Cloud.
+
+The GCloud script is generated based on the plans you selected to onboard. The script creates all of the required resources on your GCP environment so that Defender for Cloud can operate and provide the following security benefits:
+
+- Workload identity pool
+- Workload identity provider for each plan
+- Custom role to grant Defender for Cloud access to discover and get the project under the onboarded organization
+- A service account for each plan
+- A service account for the autoprovisioning service
+- Organization level policy bindings for each service account
+- API enablements at the management project level
+
+Some of the APIs aren't in direct use with the management project. Instead the APIs authenticate through this project and use one of the APIs from another project. The API must be enabled on the management project.
+
+### Review and generate the connector for your organization
+
+The final step for onboarding is to review all of your selections and to create the connector.
+
+:::image type="content" source="media/concept-gcp-connector/review-and-generate-organization.png" alt-text="Screenshot of the review and generate screen with all of your selections listed for your organization." lightbox="media/concept-gcp-connector/review-and-generate-organization.png":::
+
+> [!NOTE]
+> The following APIs must be enabled in order to discover your GCP resources and allow the authentication process to occur:
+>
+> - `iam.googleapis.com`
+> - `sts.googleapis.com`
+> - `cloudresourcemanager.googleapis.com`
+> - `iamcredentials.googleapis.com`
+> - `compute.googleapis.com`
+> If you don't enable these APIs at this time, you can enable them during the onboarding process by running the GCloud script.
 
 After you create the connector, a scan starts on your GCP environment. New recommendations appear in Defender for Cloud after up to 6 hours. If you enabled autoprovisioning, Azure Arc and any enabled extensions are installed automatically for each newly detected resource.
 
@@ -113,19 +199,16 @@ Microsoft Defender for Servers doesn't install the OS Config agent to a VM that 
 
 Alternatively, you can manually connect your VM instances to Azure Arc for servers. Instances in projects with the Defender for Servers plan enabled that aren't connected to Azure Arc are surfaced by the recommendation **GCP VM instances should be connected to Azure Arc**. Select the **Fix** option in the recommendation to install Azure Arc on the selected machines.
 
-The respective Azure Arc servers for EC2 instances or GCP virtual machines that no longer exist (and the respective Azure Arc servers with a status of [Disconnected or Expired](/azure/azure-arc/servers/overview)) are removed after seven days. This process removes irrelevant Azure Arc entities to ensure that only Azure Arc servers related to existing instances are displayed.
+The respective Azure Arc servers for GCP virtual machines that no longer exist (and the respective Azure Arc servers with a status of [Disconnected or Expired](../azure-arc/servers/overview.md)) are removed after seven days. This process removes irrelevant Azure Arc entities to ensure that only Azure Arc servers related to existing instances are displayed.
 
 Ensure that you fulfill the [network requirements for Azure Arc](../azure-arc/servers/network-requirements.md?tabs=azure-cloud).
 
 Enable these other extensions on the Azure Arc-connected machines:
-  
+
 - Microsoft Defender for Endpoint
 - A vulnerability assessment solution (Microsoft Defender Vulnerability Management or Qualys)
-- The Log Analytics agent on Azure Arc-connected machines or the Azure Monitor agent
 
-Make sure the selected Log Analytics workspace has a security solution installed. The Log Analytics agent and the Azure Monitor agent are currently configured at the *subscription* level. All the multicloud accounts and projects (from both AWS and GCP) under the same subscription inherit the subscription settings for the Log Analytics agent and the Azure Monitor agent. [Learn more about monitoring components for Defender for Servers](monitoring-components.md).
-
-Defender for Servers assigns tags to your GCP resources to manage the autoprovisioning process. You must have these tags properly assigned to your resources so that Defender for Servers can manage your resources: `Cloud`, `InstanceName`, `MDFCSecurityConnector`, `MachineId`, `ProjectId`, and `ProjectNumber`.
+Defender for Servers assigns tags to your Azure Arc GCP resources to manage the autoprovisioning process. You must have these tags properly assigned to your resources so that Defender for Servers can manage your resources: `Cloud`, `InstanceName`, `MDFCSecurityConnector`, `MachineId`, `ProjectId`, and `ProjectNumber`.
 
 To configure the Defender for Servers plan:
 
@@ -153,11 +236,9 @@ To configure the Defender for Databases plan:
 
 1. Follow the [steps to connect your GCP project](#connect-your-gcp-project).
 
-1. On the **Select plans** tab, select **Configure**.
+1. On the **Select plans** tab, in **Databases**, select **Settings**.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/view-configuration.png" alt-text="Screenshot that shows the link for configuring the Defender for Databases plan.":::
-
-1. On the **Auto-provisioning configuration** pane, turn the toggles to **On** or **Off**, depending on your need.
+1. On the **Plan configuration** pane, turn the toggles to **On** or **Off**, depending on your need.
 
     :::image type="content" source="media/quickstart-onboard-gcp/auto-provision-databases-screen.png" alt-text="Screenshot that shows the toggles for the Defender for Databases plan.":::
 
@@ -174,25 +255,54 @@ Microsoft Defender for Containers brings threat detection and advanced defenses 
 > [!NOTE]
 >
 > - If you choose to disable the available configuration options, no agents or components will be deployed to your clusters. [Learn more about feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
-> - Defender for Containers when deployed on GCP, may incur external costs such as [logging costs](https://cloud.google.com/stackdriver/pricing), [pub/sub costs](https://cloud.google.com/pubsub/pricing) and [egress costs](https://cloud.google.com/vpc/network-pricing#:~:text=Platform%20SKUs%20apply.-%2cInternet%20egress%20rates%2c-Premium%20Tier%20pricing).
+> - Defender for Containers when deployed on GCP, might incur external costs such as [logging costs](https://cloud.google.com/stackdriver/pricing), [pub/sub costs](https://cloud.google.com/pubsub/pricing) and [egress costs](https://cloud.google.com/vpc/network-pricing#:~:text=Platform%20SKUs%20apply.-%2cInternet%20egress%20rates%2c-Premium%20Tier%20pricing).
 
-- **Kubernetes audit logs to Defender for Cloud**: Enabled by default. This configuration is available at the GCP project level only. It provides agentless collection of the audit log data through [GCP Cloud Logging](https://cloud.google.com/logging/) to the Microsoft Defender for Cloud back end for further analysis.
-- **Azure Arc-enabled Kubernetes, the Defender agent, and Azure Policy for Kubernetes**: Enabled by default. You can install Azure Arc-enabled Kubernetes and its extensions on your GKE clusters in three ways:
+- **Kubernetes audit logs to Defender for Cloud**: Enabled by default. This configuration is available at the GCP project level only. It provides agentless collection of the audit log data through [GCP Cloud Logging](https://cloud.google.com/logging/) to the Microsoft Defender for Cloud back end for further analysis. Defender for Containers requires control plane audit logs to provide [runtime threat protection](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters). To send Kubernetes audit logs to Microsoft Defender, toggle the setting to **On**.
+
+    > [!NOTE]
+    > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
+
+- **Auto provision Defender's sensor for Azure Arc** and **Auto provision Azure Policy extension for Azure Arc**: Enabled by default. You can install Azure Arc-enabled Kubernetes and its extensions on your GKE clusters in three ways:
   - Enable Defender for Containers autoprovisioning at the project level, as explained in the instructions in this section. We recommend this method.
   - Use Defender for Cloud recommendations for per-cluster installation. They appear on the Microsoft Defender for Cloud recommendations page. [Learn how to deploy the solution to specific clusters](defender-for-containers-enable.md?tabs=defender-for-container-gke#deploy-the-solution-to-specific-clusters).
   - Manually install [Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md) and [extensions](../azure-arc/kubernetes/extensions.md).
+
+- [Agentless discovery for Kubernetes](defender-for-containers-architecture.md#how-does-agentless-discovery-for-kubernetes-in-gcp-work) provides API-based discovery of your Kubernetes clusters. To enable the **Agentless discovery for Kubernetes** feature, toggle the setting to **On**.
+- The [Agentless Container Vulnerability Assessment](agentless-vulnerability-assessment-gcp.md) provides vulnerability management for images stored in Google Container Registry (GCR) and Google Artifact Registry (GAR) and running images on your GKE clusters. To enable the **Agentless Container Vulnerability Assessment** feature, toggle the setting to **On**.
 
 To configure the Defender for Containers plan:
 
 1. Follow the steps to [connect your GCP project](#connect-your-gcp-project).
 
+1. On the **Select plans** tab, select **Configure**. Then, on the **Defender for Containers configuration** pane, turn the toggles to **On**.
+
+    :::image type="content" source="media/tutorial-enable-containers-gcp/containers-settings-gcp.png" alt-text="Screenshot of Defender for Cloud's environment settings page showing the settings for the Containers plan." lightbox="media/tutorial-enable-containers-gcp/containers-settings-gcp.png":::
+
+1. Select **Save**.
+
+1. Continue from step 8 of the [Connect your GCP project](#connect-your-gcp-project) instructions.
+
+### Configure the Defender CSPM plan
+
+If you choose the Microsoft Defender CSPM plan, you need:
+
+- A Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+- In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
+
+Learn more about how to [enable Defender CSPM](tutorial-enable-cspm-plan.md).
+
+To configure the Defender CSPM plan:
+
+1. Follow the [steps to connect your GCP project](#connect-your-gcp-project).
+
 1. On the **Select plans** tab, select **Configure**.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/containers-configure.png" alt-text="Screenshot that shows the link for configuring the Defender for Containers plan.":::
+    :::image type="content" source="media/quickstart-onboard-gcp/view-configuration.png" alt-text="Screenshot that shows the link for configuring the Defender CSPM plan.":::
 
-1. On the **Defender for Containers configuration** pane, turn the toggles to **On**.
+1. On the **Plan configuration** pane, turn the toggles to **On** or **Off**. To get the full value of Defender CSPM, we recommend that you turn all toggles to **On**.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/containers-configuration.png" alt-text="Screenshot that shows toggles for the Defender for Containers plan.":::
+    :::image type="content" source="media/quickstart-onboard-gcp/cspm-configuration.png" alt-text="Screenshot that shows toggles for Defender CSPM.":::
 
 1. Select **Save**.
 
@@ -206,11 +316,22 @@ To view all the active recommendations for your resources by resource type, use 
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Screenshot of GCP options in the asset inventory page's resource type filter." lightbox="media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png":::
 
+> [!NOTE]
+> As the Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), all Defender for Servers features and security capabilities that currently depend on it, including those described on this page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
+
+## Integrate with Microsoft Defender XDR
+
+When you enable Defender for Cloud, Defender for Cloud alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
+
+The integration between Microsoft Defender for Cloud and Microsoft Defender XDR brings your cloud environments into Microsoft Defender XDR. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft Defender XDR, SOC teams can now access all security information from a single interface.
+
+Learn more about Defender for Cloud's [alerts in Microsoft Defender XDR](concept-integration-365.md).
+
 ## Next steps
 
 Connecting your GCP project is part of the multicloud experience available in Microsoft Defender for Cloud:
 
 - [Protect all of your resources with Defender for Cloud](enable-all-plans.md).
 - Set up your [on-premises machines](quickstart-onboard-machines.md) and [AWS account](quickstart-onboard-aws.md).
-- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector).
+- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshoot-connectors).
 - Get answers to [common questions](faq-general.yml) about connecting your GCP project.

@@ -1,28 +1,29 @@
 ---
-title: Configure intelligent tuning - Azure Database for PostgreSQL - Flexible Server - portal
-description: This article describes how to configure intelligent tuning in Azure Database for PostgreSQL Flexible Server through the Azure portal.
-ms.author: alkuchar
+title: Configure intelligent tuning - portal
+description: This article describes how to configure intelligent tuning in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
 author: AwdotiaRomanowna
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 06/05/2023
 ---
 
 # Configure intelligent tuning for Azure Database for PostgreSQL - Flexible Server by using the Azure portal
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article provides a step-by-step procedure to configure intelligent tuning in Azure Database for PostgreSQL - Flexible Server by using the Azure portal.
+This article provides a step-by-step procedure to configure intelligent tuning in Azure Database for PostgreSQL flexible server by using the Azure portal.
 
 To learn more about intelligent tuning, see the [overview](concepts-intelligent-tuning.md).
 
 > [!IMPORTANT]
-> Autovacuum tuning is currently supported for the General Purpose and Memory Optimized server compute tiers that have four or more vCores. The Burstable server compute tier is not supported.
+> Autovacuum tuning is currently supported for the General Purpose and Memory Optimized server compute tiers that have four or more vCores. The Burstable server compute tier isn't supported.
 
 ## Steps to enable intelligent tuning on your flexible server
 
-1. Visit the [Azure portal](https://portal.azure.com/) and select the flexible server on which you want to enable intelligent tuning.
+1. Visit the [Azure portal](https://portal.azure.com/) and select the Azure Database for PostgreSQL flexible server instance on which you want to enable intelligent tuning.
 
 2. On the left pane, select **Server parameters** and then search for **intelligent tuning**.
 
@@ -39,11 +40,11 @@ To learn more about intelligent tuning, see the [overview](concepts-intelligent-
 
 When you're choosing values from the `intelligent_tuning.metric_targets` server parameter, take the following considerations into account:
 
-* The `NONE` value takes precedence over all other values. If you choose `NONE` alongside any combination of other values, the parameter will be perceived as set to `NONE`. This is equivalent to `intelligent_tuning = OFF`, so no tuning will occur.
+* The `NONE` value takes precedence over all other values. If you choose `NONE` alongside any combination of other values, the parameter is perceived as set to `NONE`. This is equivalent to `intelligent_tuning = OFF`, so no tuning occurs.
 
-* The `ALL` value takes precedence over all other values, with the exception of `NONE`. If you choose `ALL` with any combination, barring `NONE`, all the listed parameters will undergo tuning.
+* The `ALL` value takes precedence over all other values, with the exception of `NONE`. If you choose `ALL` with any combination, barring `NONE`, all the listed parameters undergo tuning.
 
-* The `ALL` value encompasses all existing metric targets. This value will also automatically apply to any new metric targets that you might add in the future. This allows for comprehensive and future-proof tuning of your PostgreSQL server.
+* The `ALL` value encompasses all existing metric targets. This value also automatically applies to any new metric targets that you might add in the future. This allows for comprehensive and future-proof tuning of your Azure Database for PostgreSQL flexible server instance.
 
 ## Next steps
 

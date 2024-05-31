@@ -71,4 +71,4 @@ az deployment group create --name HDInsightEnterpriseSecDeployment \
 ## Next steps
 
 * [Overview of enterprise security in Azure HDInsight](hdinsight-security-overview.md)
-* [Synchronize Azure Active Directory users to an HDInsight cluster](../disk-encryption.md).
+* [Synchronize Microsoft Entra users to an HDInsight cluster](../disk-encryption.md).

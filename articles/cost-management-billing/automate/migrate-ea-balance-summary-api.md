@@ -4,20 +4,23 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Balance Summary API.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 04/23/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Migrate from EA Balance Summary API
 
-EA customers who were previously using the Enterprise Reporting consumption.azure.com API to get their balance summary need to migrate to a replacement Azure Resource Manager API. Instructions to do this are outlined below along with any contract differences between the old API and the new API.
+EA customers who were previously using the Enterprise Reporting consumption.azure.com API to get their balance summary need to migrate to a replacement Azure Resource Manager API. The following instructions help  you migrate and discuss any contract differences between the old API and the new API.
 
-## Assign permissions to an SPN to call the API
+> [!NOTE]
+> All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
 
-Before calling the API, you need to configure a Service Principal with the correct permission. You use the service principal to call the API. For more information, see [Assign permissions to ACM APIs](cost-management-api-permissions.md).
+## Assign permissions to a service principal to call the API
+
+Before calling the API, you need to configure a Service Principal with the correct permission. You use the service principal to call the API. For more information, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
 
 ### Call the Balance Summary API
 
@@ -29,7 +32,7 @@ Use the following request URIs when calling the new Balance Summary API. Your en
 
 
 ```http
-https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Consumption/balances?api-version=2019-10-01
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Consumption/balances?api-version=2023-05-01
 ```
 
 ### Response body changes
@@ -93,6 +96,7 @@ The same data is now available in the properties field of the new API response. 
     "azureMarketplaceServiceCharges": 609.82,
     "billingFrequency": "Month",
     "priceHidden": false,
+    "overageRefund": 2012.61,
     "newPurchasesDetails": [
       {
         "name": "Promo Purchase",
@@ -113,6 +117,6 @@ The same data is now available in the properties field of the new API response. 
 }
 ```
 
-## Next steps
+## Related content
 
 - Read the [Migrate from EA Reporting to ARM APIs – Overview](migrate-ea-reporting-arm-apis-overview.md) article.

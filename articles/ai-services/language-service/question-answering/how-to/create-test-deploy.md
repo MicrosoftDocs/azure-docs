@@ -1,17 +1,17 @@
 ---
-title: Create, test, and deploy your question answering project
-description: You can create a question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a question answering project from a simple FAQ webpage, to answer questions.
+title: Create, test, and deploy your custom question answering project
+description: You can create a custom question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a custom question answering project from a simple FAQ webpage, to answer questions.
 ms.service: azure-ai-language
 ms.topic: how-to
 author: jboback
 ms.author: jboback
-ms.date: 11/02/2021
-ms.custom: language-service-question-answering, ignite-fall-2021, mode-other
+ms.date: 12/19/2023
+ms.custom: language-service-question-answering, mode-other
 ---
 
 # Create, test, and deploy a custom question answering project
 
-You can create a question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a question answering project from a product manual, to answer questions.
+You can create a custom question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a custom question answering project from a product manual, to answer questions.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ You can create a question answering project from your own content, such as FAQs 
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 > * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled.
 
-## Create your first question answering project
+## Create your first custom question answering project
 
 1. Sign in to the [Language Studio](https://language.azure.com/) with your Azure credentials.
 
@@ -97,5 +97,3 @@ You can create a question answering project from your own content, such as FAQs 
 If you will not continue to test custom question answering, you can delete the associated resource.
 
 ## Next steps
-
-

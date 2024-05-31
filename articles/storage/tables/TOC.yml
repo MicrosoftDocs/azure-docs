@@ -54,7 +54,7 @@
   - name: Authorization
     href: ../common/authorize-data-access.md?toc=/azure/storage/tables/toc.json
     items:
-    - name: Authenticate and authorize with Azure AD
+    - name: Authenticate and authorize with Microsoft Entra ID
       href: authorize-access-azure-active-directory.md
     - name: Authorize with Shared Key
       items:
@@ -178,8 +178,6 @@
       items:
       - name: .NET (v12 SDK)
         href: ../common/geo-redundant-design.md?toc=/azure/storage/tables/toc.json
-      - name: .NET (v11 SDK)
-        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/tables/toc.json
   - name: Manage disaster recovery
     items:
     - name: Check the Last Sync Time property

@@ -91,7 +91,7 @@ The following [Azure Cognitive Vision Services](https://azure.microsoft.com/prod
 
 - [Computer vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/)
 - [Face](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-face-recognition/)
-- [Video indexer](https://azure.microsoft.com/services/media-services/video-indexer/)
+- [Video indexer](https://azure.microsoft.com/products/ai-video-indexer/)
 - [Content moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/)
 - [Custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)
 

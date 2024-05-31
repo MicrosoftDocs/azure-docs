@@ -7,11 +7,14 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 05/26/2020
-ms.custom: ignite-fall-2021, mode-ui
+ms.date: 01/19/2024
+ms.custom: mode-ui
 ---
 
 # Add questions and answer with QnA Maker portal
+
+> [!NOTE]
+> [Azure Open AI On Your Data](../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to QnA Maker. If you wish to migrate your QnA Maker project to Azure Open AI On Your Data, please check out our [guide](../How-To/migrate-to-openai.md).
 
 Once a knowledge base is created, add question and answer (QnA) pairs with metadata to filter the answer. The questions in the following table are about Azure service limits, but each has to do with a different Azure search service.
 

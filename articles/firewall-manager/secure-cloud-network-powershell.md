@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Test connectivity
 
 > [!IMPORTANT]
-> A Virtual WAN is a collection of hubs and services made available inside the hub. You can deploy as many Virtual WANs that you need. In a Virtual WAN hub, there are multiple services such as VPN, ExpressRoute, and so on. Each of these services is automatically deployed across **Availability Zones** *except* Azure Firewall, if the region supports Availability Zones. To upgrade an existing Azure Virtual WAN Hub to a Secure Hub and have the Azure Firewall use Availability Zones, you must use Azure PowerShell, as described later in this article.
+> A Virtual WAN is a collection of hubs and services made available inside the hub. You can deploy as many Virtual WANs that you need. In a Virtual WAN hub, there are multiple services such as VPN, ExpressRoute, and so on. Each of these services is automatically deployed across **availability zones** *except* Azure Firewall, if the region supports availability zones. To upgrade an existing Azure Virtual WAN Hub to a Secure Hub and have the Azure Firewall use availability zones, you must use Azure PowerShell, as described later in this article.
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ $AzFW = New-AzFirewall -Name "azfw1" -ResourceGroupName $RG -Location $Location 
 ```
 
 > [!NOTE]
-> The following Firewall creation command does **not** use Availability Zones. If you want to use this feature, an additional parameter **-Zone** is required. An example is provided in the upgrade section at the end of this article.
+> The following Firewall creation command does **not** use availability zones. If you want to use this feature, an additional parameter **-Zone** is required. An example is provided in the upgrade section at the end of this article.
 
 Enabling logging from the Azure Firewall to Azure Monitor is optional, but in this example you use the Firewall logs to prove that traffic is traversing the firewall:
 
@@ -323,11 +323,14 @@ To delete the test environment, you can remove the resource group with all conta
 Remove-AzResourceGroup -Name $RG
 ```
 
-## Upgrade an existing Hub with Availability Zones
+## Deploy a new Azure Firewall with availability zones to an existing hub
 
 The previous procedure uses Azure PowerShell to create a **new** Azure Virtual WAN Hub, and then immediately converts it to a Secured Hub using Azure Firewall.
-A similar approach can be applied to an **existing** Azure Virtual WAN Hub. Firewall Manager can be also used for the conversion, but it isn't possible to deploy Azure Firewall across Availability Zones without a script-based approach.
-You can use the following code snippet to convert an existing Azure Virtual WAN Hub to a Secured Hub, using an Azure Firewall deployed across all three Availability Zones.
+A similar approach can be applied to an **existing** Azure Virtual WAN Hub. Firewall Manager can be also used for the conversion, but it isn't possible to deploy Azure Firewall across availability zones without a script-based approach.
+You can use the following code snippet to convert an existing Azure Virtual WAN Hub to a Secured Hub, using an Azure Firewall deployed across all three availability zones.
+
+> [!NOTE]
+> This procedure deploys a new Azure Firewall. You can't upgrade an existing Azure Firewall without availability zones to one with availability zones. You must first delete the existing Azure Firewall in the hub and create it again using this procedure.
 
 ```azurepowershell
 # Variable definition
@@ -357,7 +360,7 @@ $AzFW = New-AzFirewall -Name $FirewallName -ResourceGroupName $RG -Location $Loc
             -SkuTier $FirewallTier `
             -Zone 1,2,3
 ```
-After you run this script, Availability Zones should appear in the secured hub properties as shown in the following screenshot:
+After you run this script, availability zones should appear in the secured hub properties as shown in the following screenshot:
 
 :::image type="content" source="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png" alt-text="Screenshot of Secured virtual hub availability zones." lightbox="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png":::
 

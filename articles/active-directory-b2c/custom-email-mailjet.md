@@ -2,17 +2,21 @@
 title: Custom email verification with Mailjet
 titleSuffix: Azure AD B2C
 description: Learn how to integrate with Mailjet to customize the verification email sent to your customers when they sign up to use your Azure AD B2C-enabled applications.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 10/06/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to send customized email to users that sign up for my applications using a third-party email provider like Mailjet, so that I can use my own email template and customize the email address, subject, and support localization and custom one-time password settings.
+
 ---
 
 # Custom email verification with Mailjet
@@ -47,8 +51,7 @@ If you don't already have one, start by setting up a Mailjet account (Azure cust
 Next, store the Mailjet API key in an Azure AD B2C policy key for your policies to reference.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the **Overview** page, select **Identity Experience Framework**.
 1. Select **Policy Keys**, and then select **Add**.
@@ -376,7 +379,7 @@ As with the OTP technical profiles, add the following technical profiles to the 
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="sendOtp">
-      <DisplayName>Use email API to send the code the the user</DisplayName>
+      <DisplayName>Use email API to send the code to the user</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://api.mailjet.com/v3.1/send</Item>

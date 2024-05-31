@@ -3,16 +3,17 @@ title: 'Configure a VPN client for P2S RADIUS: password authentication'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure a VPN client for point-to-site VPN configurations that use RADIUS username/password authentication.
 ms.service: vpn-gateway
+ms.custom: linux-related-content
 ms.topic: how-to
 author: cherylmc
 ms.author: cherylmc 
-ms.date: 05/11/2022
+ms.date: 03/12/2024
 ---
 # Configure a VPN client for point-to-site: RADIUS - password authentication
 
 To connect to a virtual network over point-to-site (P2S), you need to configure the client device that you'll connect from. You can create P2S VPN connections from Windows, macOS, and Linux client devices. This article helps you create and install the VPN client configuration for username/password RADIUS authentication.
 
-When you're using RADIUS authentication, there are multiple authentication instructions: [certificate authentication](point-to-site-vpn-client-configuration-radius-certificate.md), [password authentication](point-to-site-vpn-client-configuration-radius-password.md). and [other authentication methods and protocols](point-to-site-vpn-client-configuration-radius-other.md). The VPN client configuration is different for each type of authentication. To configure a VPN client, you use client configuration files that contain the required settings.
+When you're using RADIUS authentication, there are multiple authentication instructions: [certificate authentication](point-to-site-vpn-client-configuration-radius-certificate.md), [password authentication](point-to-site-vpn-client-configuration-radius-password.md), and [other authentication methods and protocols](point-to-site-vpn-client-configuration-radius-other.md). The VPN client configuration is different for each type of authentication. To configure a VPN client, you use client configuration files that contain the required settings.
 
 >[!NOTE]
 > [!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
@@ -133,7 +134,7 @@ Use the following steps to configure the native Windows VPN client for certifica
 
    :::image type="content" source="./media/point-to-site-vpn-client-config-radius-password/mac/connection-name.png" alt-text="Screenshot shows connection name." lightbox="./media/point-to-site-vpn-client-config-radius-password/mac/connection-name.png":::
 
-1. Select **Authentication Settings**. Select **Username** in the list and enter your credentials. If you entered the credentials earlier, then **Username** is automatically chosen in the list and the username and password are pre-populated. Select **OK** to save the settings.
+1. Select **Authentication Settings**. Select **Username** in the list and enter your credentials. If you entered the credentials earlier, then **Username** is automatically chosen in the list and the username and password are prepopulated. Select **OK** to save the settings.
 
    :::image type="content" source="./media/point-to-site-vpn-client-config-radius-password/mac/authentication.png" alt-text="Screenshot that shows the Authentication settings drop-down with Username selected." lightbox="./media/point-to-site-vpn-client-config-radius-password/mac/authentication.png":::
 
@@ -177,7 +178,7 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 
 ## Additional steps for Azure virtual machine
 
-In case you are executing the procedure on an Azure virtual machine running Linux, there are additional steps to perform.
+In case you're executing the procedure on an Azure virtual machine running Linux, there are additional steps to perform.
 
 1. Edit the **/etc/netplan/50-cloud-init.yaml** file to include the following parameter for the interface
 

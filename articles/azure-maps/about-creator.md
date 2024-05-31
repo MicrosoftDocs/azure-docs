@@ -56,10 +56,10 @@ This section provides a high-level overview of the indoor map creation workflow.
     describing the drawings. You can use the [Azure Maps Creator onboarding tool] to
     create new and edit existing [manifest files].
 
-1. **Upload**. Upload your drawing packages into your Azure Maps
-    account. Upload drawing packages using the [Data Upload API].
+1. **Upload**. Upload your drawing packages into your Azure Storage
+    account. For more information, see [How to create data registry].
 
-1. **Convert**. Once the drawing package is uploaded into your Azure Maps account,
+1. **Convert**. Once the drawing package is uploaded into your Azure Storage account,
     use the [Conversion] service to validate the data in the uploaded drawing
     package and convert it into map data.
 
@@ -110,13 +110,12 @@ This section provides a high-level overview of the indoor map creation workflow.
 
 [Azure Maps Creator onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
 [Azure Maps Creator REST API]: /rest/api/maps-creator
-[Conversion]: /rest/api/maps/v2/conversion
+[Conversion]: /rest/api/maps-creator/conversion
 [Create a feature stateset]: how-to-creator-feature-stateset.md
 [Create custom styles for indoor maps]: how-to-create-custom-styles.md
 [Create dataset using GeoJson package]: how-to-dataset-geojson.md
 [Custom styling for indoor maps]: how-to-create-custom-styles.md
 [custom styling]: creator-indoor-maps.md#custom-styling-preview
-[Data Upload API]: /rest/api/maps/data-v2/upload
 [dataset]: creator-indoor-maps.md#datasets
 [Drawing error visualizer]: drawing-error-visualizer.md
 [Drawing package guide]: drawing-package-guide.md?pivots=drawing-package-v2
@@ -124,8 +123,9 @@ This section provides a high-level overview of the indoor map creation workflow.
 [Dynamic maps StylesObject]: schema-stateset-stylesobject.md
 [Edit indoor maps using the QGIS plugin]: creator-qgis-plugin.md
 [Facility Ontology]: creator-facility-ontology.md
-[Features API]: /rest/api/maps/2023-03-01-preview/features
+[Features API]: /rest/api/maps-creator/features?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [features]: glossary.md#feature
+[How to create data registry]: how-to-create-data-registries.md
 [Implement Dynamic styling for indoor maps]: indoor-map-dynamic-styling.md
 [Indoor map concepts]: creator-indoor-maps.md
 [Indoor maps wayfinding service]: how-to-creator-wayfinding.md
@@ -135,12 +135,12 @@ This section provides a high-level overview of the indoor map creation workflow.
 [manifest]: drawing-requirements.md#manifest-file-requirements
 [onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
 [Query datasets with WFS API]: how-to-creator-wfs.md
-[Routeset]: /rest/api/maps/2023-03-01-preview/routeset/create
+[Routeset]: /rest/api/maps-creator/routeset/create?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [tileset]: creator-indoor-maps.md#tilesets
 [Tilesets]: creator-indoor-maps.md#tilesets
 [Use Azure Maps Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Use the Azure Maps Indoor Maps module]: how-to-use-indoor-module.md
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
-[Wayfinding service]: /rest/api/maps/2023-03-01-preview/wayfinding
+[Wayfinding service]: /rest/api/maps-creator/wayfinding?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [Wayfinding]: creator-indoor-maps.md#wayfinding-preview
 [Work with datasets using the QGIS plugin]: creator-qgis-plugin.md

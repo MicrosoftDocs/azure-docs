@@ -32,7 +32,7 @@ Counts the number of data and management operations requests.
 The following two types of errors are classified as **user errors**:
 
 1. Client-side errors (In HTTP that would be 400 errors).
-2. Errors that occur while processing messages, such as [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
+2. Errors that occur while processing messages, such as [MessageLockLostException](/dotnet/api/azure.messaging.servicebus.servicebusfailurereason).
 
 
 ### Message metrics
@@ -248,8 +248,8 @@ Name | Description | Supported in Azure Diagnostics | Supported in AZMSRuntimeAu
 `time Generated (UTC)` | Aggregated time | No | Yes
 `Status` | Status of the activity (success or failure).| Yes | Yes
 `Protocol` | Type of the protocol associated with the operation. | Yes | Yes
-`AuthType` | Type of authentication (Azure Active Directory or SAS Policy). | Yes | Yes
-`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes
+`AuthType` | Type of authentication (Microsoft Entra ID or SAS Policy). | Yes | Yes
+`AuthKey` | Microsoft Entra application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes
 `NetworkType` | Type of the network access: `Public` or`Private`. | yes | Yes
 `ClientIP` | IP address of the client application. | Yes | Yes
 `Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes
@@ -264,13 +264,13 @@ AzureDiagnostics:
 ```json
 {
     "ActivityId": "<activity id>",
-    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
     "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
     "Time": "1/1/2021 8:40:06 PM +00:00",
     "Status": "Success | Failure",
     "Protocol": "AMQP | HTTP | SBMP", 
     "AuthType": "SAS | AAD", 
-    "AuthId": "<AAD Application Name| SAS policy name>",
+    "AuthKey": "<AAD Application Name| SAS policy name>",
     "NetworkType": "Public | Private", 
     "ClientIp": "x.x.x.x",
     "Count": 1, 
@@ -282,7 +282,7 @@ Resource specific table entry:
 ```json
 {
     "ActivityId": "<activity id>",
-    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
     "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
     "TimeGenerated (UTC)": "1/1/2021 8:40:06 PM +00:00",
     "Status": "Success | Failure",
@@ -297,10 +297,70 @@ Resource specific table entry:
  }
 
 ```
+
+## Diagnostic Error Logs
+Diagnostic error logs capture error messages for any client side, throttling and Quota exceeded errors. They provide detailed diagnostics for error identification.
+
+Diagnostic Error Logs include elements listed in below table:
+
+Name | Description | Supported in Azure Diagnostics | Supported in AZMSDiagnosticErrorLogs (Resource specific table)
+---|---|---|---|
+`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes
+`ActivityName` | Operation name  | Yes | Yes
+`NamespaceName` | Name of Namespace | Yes | yes
+`EntityType` | Type of Entity | Yes | Yes 
+`EntityName` | Name of Entity | Yes | Yes  
+`OperationResult` | Type of error in Operation (Clienterror or Serverbusy or quotaexceeded) | Yes | Yes
+`ErrorCount` | Count of identical errors during the aggregation period of 1 minute. | Yes | Yes 
+`ErrorMessage` | Detailed Error Message | Yes | Yes 
+`Provider` | Name of Service emitting the logs. Possible values: eventhub, relay, and servicebus | Yes | Yes 
+`Time Generated (UTC)` | Operation time | No | Yes
+`EventTimestamp` | Operation Time | Yes | No
+`Category` | Log category | Yes | No
+`Type`  | Type of Logs emitted | No | Yes
+
+Here's an example of Diagnostic error log entry:
+
+```json
+{
+    "ActivityId": "0000000000-0000-0000-0000-00000000000000",
+    "SubscriptionId": "<Azure Subscription Id",
+    "NamespaceName": "Name of Service Bus Namespace",
+    "EntityType": "Queue",
+    "EntityName": "Name of Service Bus Queue",
+    "ActivityName": "SendMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<service bus namespace name>",,
+    "OperationResult": "ClientError",
+    "ErrorCount": 1,
+    "EventTimestamp": "3/27/2024 1:02:29.126 PM +00:00",
+    "ErrorMessage": "the sessionid was not set on a message, and it cannot be sent to the entity. entities that have session support enabled can only receive messages that have the sessionid set to a valid value.",
+    "category": "DiagnosticErrorLogs"
+ }
+
+```
+Resource specific table entry:
+```json
+{
+    "ActivityId": "0000000000-0000-0000-0000-00000000000000",
+    "NamespaceName": "Name of Service Bus Namespace",
+    "EntityType": "Queue",
+    "EntityName": "Name of Service Bus Queue",
+    "ActivityName": "SendMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<service bus namespace name>",,
+    "OperationResult": "ClientError",
+    "ErrorCount": 1,
+    "TimeGenerated [UTC]": "1/27/2024 4:02:29.126 PM +00:00",
+    "ErrorMessage": "the sessionid was not set on a message, and it cannot be sent to the entity. entities that have session support enabled can only receive messages that have the sessionid set to a valid value.",
+    "Type": "AZMSDiagnosticErrorLogs"
+ }
+
+```
+
+[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
+
 ## Azure Monitor Logs tables
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
 
 ## Next steps
 - For details on monitoring Azure Service Bus, see [Monitoring Azure Service Bus](monitor-service-bus.md).
 - For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
-

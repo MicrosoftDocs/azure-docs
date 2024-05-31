@@ -18,7 +18,7 @@ Resource Manager template (ARM template) to create a shared query.
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the
 **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy the ARM template for creating a shared query to Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ before you begin.
 
 In this quickstart, you create a shared query called _Count VMs by OS_. To try this query in SDK or
 in portal with Resource Graph Explorer, see
-[Samples - Count virtual machines by OS type](./samples/starter.md#count-os).
+[Samples - Count virtual machines by OS type](./samples/starter.md#count-virtual-machines-by-os-type).
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
@@ -47,7 +47,7 @@ The resource defined in the template is:
 
 1. Select the following image to sign in to the Azure portal and open the template:
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy the ARM template for creating a shared query to Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 1. Select or enter the following values:
 

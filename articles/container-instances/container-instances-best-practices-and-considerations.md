@@ -14,6 +14,7 @@ ms.date: 07/22/2023
 Azure Container Instances allow you to package, deploy and manage cloud applications without having to manage the underlying infrastructure. Common scenarios that run on ACI include burst workloads, task automation, and build jobs. You can use ACI by defining the resources they need per container group, including vCPU and memory. ACI is a great solution for any scenario that can operate in isolated container and provides fast start up times, hyper-visor level security, custom container sizes, and more. The information below will help you determine if Azure Container Instances is best for your scenario.
 
 ## What to consider
+User’s credentials passed via command line interface (CLI) are stored as plain text in the backend. Storing credentials in plain text is a security risk; Microsoft advises customers to store user credentials in CLI environment variables to ensure they are encrypted/transformed when stored in the backend.     
 
 There are default limits that may require quota increases. For more details: [Resource availability & quota limits for ACI - Azure Container Instances | Microsoft Learn](./container-instances-resource-and-quota-limits.md)
 
@@ -64,3 +65,6 @@ Learn how to deploy a multi-container container group with an Azure Resource Man
 
 > [!div class="nextstepaction"]
 > [Deploy a container group][resource-manager template]
+
+<!-- LINKS - Internal -->
+[resource-manager template]: container-instances-multi-container-group.md

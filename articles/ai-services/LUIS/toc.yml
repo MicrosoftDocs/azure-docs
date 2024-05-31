@@ -78,18 +78,8 @@ items:
       href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/ai-services/luis/toc.json&bc=/azure/ai-services/luis/breadcrumb/toc.json
     - name: With LUIS and question answering using orchestration
       href: how-to/orchestration-projects.md
-  - name: Migrate
-    items:
-    - name: Migrate to conversational language understanding
-      href: ../language-service/conversational-language-understanding/how-to/migrate-from-luis.md?context=/azure/ai-services/LUIS/context/context
-    - name: Migrate to V3 Authoring APIs
-      href: luis-migration-authoring-entities.md
-    - name: Migrate to V3 Prediction APIs
-      href: luis-migration-api-v3.md
-    - name: Migrate from composite entity
-      href: migrate-from-composite-entity.md
-    - name: Migrate to authoring resource
-      href: luis-migration-authoring.md
+  - name: Migrate to conversational language understanding
+    href: ../language-service/conversational-language-understanding/how-to/migrate-from-luis.md?context=/azure/ai-services/LUIS/context/context
   - name: Manage app
     items:
     - name: Azure resources
@@ -102,7 +92,7 @@ items:
       href: luis-how-to-collaborate.md
     - name: With versions
       href: luis-how-to-manage-versions.md
-      diplayName: import, export, container
+      displayName: import, export, container
     - name: With Traffic Manager
       href: luis-traffic-manager.md
   - name: Use containers
@@ -119,8 +109,8 @@ items:
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
     - name: Use containers in disconnected environments
       href: ../containers/disconnected-containers.md?context=/azure/ai-services/luis/context/context
-    - name: All Azure AI containers documentation
-      href: ../containers/index.yml
+    - name: Azure AI containers overview
+      href: ../cognitive-services-container-support.md
       maintainContext: true
   - name: Set up enterprise features
     items:
@@ -175,7 +165,7 @@ items:
     items:
     - name: Role-based access control
       href: role-based-access-control.md
-    - name: Authentication with Azure Active Directory
+    - name: Authentication with Microsoft Entra ID
       href: ../authentication.md#authenticate-with-azure-active-directory
 - name: Tutorials
   items:

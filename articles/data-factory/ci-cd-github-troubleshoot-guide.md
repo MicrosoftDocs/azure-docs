@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -37,7 +37,7 @@ The token was obtained from the original tenant, but the service is in guest ten
 
 #### Recommendation
 
-You should use the token issued from guest tenant. For example, you have to assign the same Azure Active Directory to be your guest tenant and your DevOps, so it can correctly set token behavior and use the correct tenant.
+You should use the token issued from guest tenant. For example, you have to assign the same Microsoft Entra ID to be your guest tenant and your DevOps, so it can correctly set token behavior and use the correct tenant.
 
 ### Template parameters in the parameters file aren't  valid
 
@@ -245,13 +245,13 @@ Following section isn't valid because package.json folder isn't valid.
 It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifacts.
  
  
-### Extra  left "[" displayed in published JSON file
+### Extra  left `[` displayed in published JSON file
 
 #### Issue
-When publishing with DevOps, there's an extra "[" displayed. The service adds one more "[" in an ARM template in DevOps automatically. You'll see an expression like "[[" in JSON file.
+When publishing with DevOps, there's an extra `[` displayed. The service adds one more `[` in an ARM template in DevOps automatically. You'll see an expression like `[[` in JSON file.
 
 #### Cause
-Because [ is a reserved character for ARM templates, an extra [ is added automatically to escape "[".
+Because `[` is a reserved character for ARM templates, an extra `[` is added automatically to escape `[`.
 
 #### Resolution
 This is normal behavior during the publishing process for CI/CD.
@@ -367,7 +367,7 @@ Dynamic content isn't written as per expression language requirements.
 * For debug run, check expressions in pipeline within current git branch.
 * For Triggered run, check expressions in pipeline within *Live* mode.
  
-## Next steps
+## Related content
 
 For more help with troubleshooting, try the following resources:
 

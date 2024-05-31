@@ -9,7 +9,6 @@ ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - azure-synapse
 ---
 
@@ -41,28 +40,28 @@ To use SQL Server Authentication, you need to add the username/password paramete
 For example, your connection string might look like the following:
 
 ```sql
-C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
+C:\>sqlcmd -S server-name.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-To use Azure Active Directory Integrated authentication, you need to add the Azure Active Directory parameters:
+To use Microsoft Entra integrated authentication, you need to add the Microsoft Entra parameters:
 
-* **Azure Active Directory Authentication (-G):** use Azure Active Directory for authentication
+* **Microsoft Entra authentication (-G):** use Microsoft Entra ID for authentication
 
 For example, your connection string might look like the following:
 
 ```sql
-C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+C:\>sqlcmd -S server-name.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
-> You need to [enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
+> You need to [enable Microsoft Entra authentication](sql-data-warehouse-authentication.md) to authenticate using Microsoft Entra ID.
 
 ## 2. Query
 
 After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.
 
 ```sql
-C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
+C:\>sqlcmd -S server-name.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
@@ -71,11 +70,11 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.
 
 ```sql
-sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+sqlcmd -S server-name.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
 ```
 
 ```sql
-"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+"SELECT name FROM sys.tables;" | sqlcmd -S server-name.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
 ## Next steps

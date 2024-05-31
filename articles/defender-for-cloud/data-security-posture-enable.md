@@ -24,7 +24,7 @@ This article describes how to enable [data-aware security posture](data-security
 
 Follow these steps to enable data-aware security posture. Don't forget to review [required permissions](concept-data-security-posture-prepare.md#whats-supported) before you start.
 
-1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 1. Select the relevant Azure subscription.
 1. For the Defender CSPM plan, select the **On** status.
 
@@ -38,7 +38,7 @@ Follow these steps to enable data-aware security posture. Don't forget to review
 
 - Don't forget to: [review the requirements](concept-data-security-posture-prepare.md#discovery) for AWS discovery, and [required permissions](concept-data-security-posture-prepare.md#whats-supported).
 - Check that there's no policy that blocks the connection to your Amazon S3 buckets.
-- For RDS instances: cross-account KMS encryption is supported, but additional policies on KMS access may prevent access.
+- For RDS instances: cross-account KMS encryption is supported, but additional policies on KMS access might prevent access.
 
 ### Enable for AWS resources
 

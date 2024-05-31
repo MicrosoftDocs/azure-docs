@@ -6,7 +6,6 @@ author: greg-lindsay
 manager: kumud
 ms.service: traffic-manager
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.date: 02/18/2023
 ms.author: greglin
 ms.custom: template-quickstart, devx-track-azurecli, mode-api
@@ -23,7 +22,7 @@ In this quickstart, you'll create two instances of a web application. Each of th
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

@@ -2,13 +2,13 @@
 title: Conversational language understanding best practices
 titleSuffix: Azure AI services
 description: Apply best practices when using conversational language understanding
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: best-practice
-ms.date: 09/22/2023
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ms.custom: language-service-clu
 ---
 
@@ -121,6 +121,14 @@ Once the request is sent, you can track the progress of the training job in Lang
 > [!NOTE]
 > You have to retrain your model after updating the `confidenceThreshold` project setting. Afterwards, you'll need to republish the app for the new threshold to take effect.
 
+### Normalization in model version 2023-04-15
+
+Model version 2023-04-15, conversational language understanding provides normalization in the inference layer that doesn't affect training. 
+
+The normalization layer normalizes the classification confidence scores to a confined range. The range selected currently is from `[-a,a]` where "a" is the square root of the number of intents.  As a result, the normalization depends on the number of intents in the app. If there is a very low number of intents, the normalization layer has a very small range to work with. With a fairly large number of intents, the normalization is more effective.
+
+If this normalization doesn’t seem to help intents that are out of scope to the extent that the confidence threshold can be used to filter out of scope utterances, it might be related to the number of intents in the app. Consider adding more intents to the app, or if you are using an orchestrated architecture, consider merging apps that belong to the same domain together. 
+
 ## Debugging composed entities
 
 Entities are functions that emit spans in your input with an associated type. The function is defined by one or more components. You can mark components as needed, and you can decide whether to enable the *combine components* setting. When you combine components, all spans that overlap will be merged into a single span. If the setting isn't used, each individual component span will be emitted.
@@ -208,3 +216,39 @@ curl --request POST \
 "targetResourceRegion": "<target-region>" 
 }'
 ```
+
+
+## Addressing out of domain utterances
+
+Customers can use the new recipe version '2024-06-01-preview' in case the model has poor AIQ on out of domain utterances. An example of this with the default recipe can be like the below where the model has 3 intents Sports, QueryWeather and Alarm. The test utterances are out of domain utterances and the model classifies them as InDomain with a relatively high confidence score.
+
+| Text |	Predicted intent |	Confidence score |
+|----|----|----|
+| "*Who built the Eiffel Tower?*" |	 `Sports` | 0.90 |
+| "*Do I look good to you today?*" | `QueryWeather` |	1.00 |
+| "*I hope you have a good evening.*" | `Alarm` | 0.80 |
+
+To address this, use the `2024-06-01-preview` configuration version that is built specifically to address this issue while also maintaining reasonably good quality on In Domain utterances.
+
+```console
+curl --location 'https://<your-resource>.cognitiveservices.azure.com/language/authoring/analyze-conversations/projects/<your-project>/:train?api-version=2022-10-01-preview' \
+--header 'Ocp-Apim-Subscription-Key: <your subscription key>' \
+--header 'Content-Type: application/json' \
+--data '{
+      "modelLabel": "<modelLabel>",
+      "trainingMode": "advanced",
+      "trainingConfigVersion": "2024-06-01-preview",
+      "evaluationOptions": {
+            "kind": "percentage",
+            "testingSplitPercentage": 0,
+            "trainingSplitPercentage": 100
+      }
+}
+```
+
+Once the request is sent, you can track the progress of the training job in Language Studio as usual.
+
+Caveats:
+- The None Score threshold for the app (confidence threshold below which the topIntent is marked as None) when using this recipe should be set to 0. This is because this new recipe attributes a certain portion of the in domain probabiliities to out of domain so that the model is not incorrectly overconfident about in domain utterances. As a result, users may see slightly reduced confidence scores for in domain utterances as compared to the prod recipe.
+- This recipe is not recommended for apps with just two (2) intents, such as IntentA and None, for example.
+- This recipe is not recommended for apps with low number of utterances per intent. A minimum of 25 utterances per intent is highly recommended.

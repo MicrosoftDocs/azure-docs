@@ -5,14 +5,14 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.date: 06/17/2022
 ---
 
 # How to use managed identities with Azure Container Instances
 
-Use [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to run code in Azure Container Instances that interacts with other Azure services - without maintaining any secrets or credentials in code. The feature provides an Azure Container Instances deployment with an automatically managed identity in Azure Active Directory.
+Use [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to run code in Azure Container Instances that interacts with other Azure services - without maintaining any secrets or credentials in code. The feature provides an Azure Container Instances deployment with an automatically managed identity in Microsoft Entra ID.
 
 In this article, you learn more about managed identities in Azure Container Instances and:
 
@@ -25,11 +25,11 @@ Adapt the examples to enable and use identities in Azure Container Instances to 
 
 ## Why use a managed identity?
 
-Use a managed identity in a running container to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) without managing credentials in your container code. For services that don't support AD authentication, you can store secrets in an Azure key vault and use the managed identity to access the key vault to retrieve credentials. For more information about using a managed identity, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+Use a managed identity in a running container to authenticate to any [service that supports Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) without managing credentials in your container code. For services that don't support AD authentication, you can store secrets in an Azure key vault and use the managed identity to access the key vault to retrieve credentials. For more information about using a managed identity, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 ### Enable a managed identity
 
- When you create a container group, enable one or more managed identities by setting a [ContainerGroupIdentity](/rest/api/container-instances/2022-09-01/container-groups/create-or-update#containergroupidentity) property. You can also enable or update managed identities after a container group is running - either action causes the container group to restart. To set the identities on a new or existing container group, use the Azure CLI, a Resource Manager template, a YAML file, or another Azure tool. 
+ When you create a container group, enable one or more managed identities by setting a [ContainerGroupIdentity](/rest/api/container-instances/2022-09-01/container-groups/create-or-update#containergroupidentity) property. You can also enable or update managed identities after a container group is running - either action causes the container group to restart. To set the identities on a new or existing container group, use the Azure CLI, a Resource Manager template, a YAML file, or another Azure tool.
 
 Azure Container Instances supports both types of managed Azure identities: user-assigned and system-assigned. On a container group, you can enable a system-assigned identity, one or more user-assigned identities, or both types of identities. If you're unfamiliar with managed identities for Azure resources, see the [overview](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -37,13 +37,13 @@ Azure Container Instances supports both types of managed Azure identities: user-
 
 To use a managed identity, the identity must be granted access to one or more Azure service resources (such as a web app, a key vault, or a storage account) in the subscription. Using a managed identity in a running container is similar to using an identity in an Azure VM. See the VM guidance for using a [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell or Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md), or the [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create an Azure key vault
 
-The examples in this article use a managed identity in Azure Container Instances to access an Azure key vault secret. 
+The examples in this article use a managed identity in Azure Container Instances to access an Azure key vault secret.
 
 First, create a resource group named *myResourceGroup* in the *eastus* location with the following [az group create](/cli/azure/group#az-group-create) command:
 
@@ -51,12 +51,12 @@ First, create a resource group named *myResourceGroup* in the *eastus* location 
 az group create --name myResourceGroup --location eastus
 ```
 
-Use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command to create a key vault. Be sure to specify a unique key vault name. 
+Use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command to create a key vault. Be sure to specify a unique key vault name.
 
 ```azurecli-interactive
 az keyvault create \
   --name mykeyvault \
-  --resource-group myResourceGroup \ 
+  --resource-group myResourceGroup \
   --location eastus
 ```
 
@@ -113,7 +113,7 @@ Run the following [az keyvault set-policy](/cli/azure/keyvault) command to set a
 
 ### Enable user-assigned identity on a container group
 
-Run the following [az container create](/cli/azure/container#az-container-create) command to create a container instance based on Microsoft's `azure-cli` image. This example provides a single-container group that you can use interactively to run the Azure CLI to access other Azure services. In this section, only the base operating system is used. For an example to use the Azure CLI in the container, see [Enable system-assigned identity on a container group](#enable-system-assigned-identity-on-a-container-group). 
+Run the following [az container create](/cli/azure/container#az-container-create) command to create a container instance based on Microsoft's `azure-cli` image. This example provides a single-container group that you can use interactively to run the Azure CLI to access other Azure services. In this section, only the base operating system is used. For an example to use the Azure CLI in the container, see [Enable system-assigned identity on a container group](#enable-system-assigned-identity-on-a-container-group).
 
 The `--assign-identity` parameter passes your user-assigned managed identity to the group. The long-running command keeps the container running. This example uses the same resource group used to create the key vault, but you could specify a different one.
 
@@ -134,7 +134,7 @@ az container show \
   --name mycontainer
 ```
 
-The `identity` section in the output looks similar to the following, showing the identity is set in the container group. The `principalID` under `userAssignedIdentities` is the service principal of the identity you created in Azure Active Directory:
+The `identity` section in the output looks similar to the following, showing the identity is set in the container group. The `principalID` under `userAssignedIdentities` is the service principal of the identity you created in Microsoft Entra ID:
 
 ```output
 [...]
@@ -163,7 +163,7 @@ az container exec \
   --exec-command "/bin/bash"
 ```
 
-Run the following commands in the bash shell in the container. To get an access token to use Azure Active Directory to authenticate to key vault, run the following command:
+Run the following commands in the bash shell in the container. To get an access token to use Microsoft Entra ID to authenticate to key vault, run the following command:
 
 ```bash
 client_id="xxxxxxxx-5523-45fc-9f49-xxxxxxxxxxxx"
@@ -199,7 +199,7 @@ The response looks similar to the following, showing the secret. In your code, y
 
 ### Enable system-assigned identity on a container group
 
-Run the following [az container create](/cli/azure/container#az-container-create) command to create a container instance based on Microsoft's `azure-cli` image. This example provides a single-container group that you can use interactively to run the Azure CLI to access other Azure services. 
+Run the following [az container create](/cli/azure/container#az-container-create) command to create a container instance based on Microsoft's `azure-cli` image. This example provides a single-container group that you can use interactively to run the Azure CLI to access other Azure services.
 
 The `--assign-identity` parameter with no additional value enables a system-assigned managed identity on the group. The identity is scoped to the resource group of the container group. The long-running command keeps the container running. This example uses the same resource group used to create the key vault, which is in the scope of the identity.
 
@@ -224,7 +224,7 @@ az container show \
   --name mycontainer
 ```
 
-The `identity` section in the output looks similar to the following, showing that a system-assigned identity is created in Azure Active Directory:
+The `identity` section in the output looks similar to the following, showing that a system-assigned identity is created in Microsoft Entra ID:
 
 ```output
 [...]
@@ -299,7 +299,7 @@ A user-assigned identity is a resource ID of the form:
 
 ```
 "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}"
-``` 
+```
 
 You can enable one or more user-assigned identities.
 
@@ -327,7 +327,7 @@ On a container group, you can enable both a system-assigned identity and one or 
 
 ```json
 "identity": {
-    "type": "System Assigned, UserAssigned",
+    "type": "SystemAssigned, UserAssigned",
     "userAssignedIdentities": {
         "myResourceID1": {
             }
@@ -343,7 +343,7 @@ Specify a minimum `apiVersion` of `2018-10-01`.
 
 ### User-assigned identity
 
-A user-assigned identity is a resource ID of the form 
+A user-assigned identity is a resource ID of the form
 
 ```
 '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'

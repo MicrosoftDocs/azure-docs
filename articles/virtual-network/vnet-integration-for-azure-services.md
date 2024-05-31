@@ -5,7 +5,6 @@ description: This article describes different methods of integrating an Azure se
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 05/08/2023
 ms.author: allensu
 ---

@@ -10,7 +10,7 @@ ms.date: 07/12/2022
 
 This article shows a sample script to use when adding custom columns to your on-premises management console **Device inventory** page.
 
-For more information, see [Add to and enhance device inventory data](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md#add-to-and-enhance-device-inventory-data).
+For more information, see [Add to and enhance device inventory data](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md#add-to-and-enhance-device-inventory-data).
 
 ## Sample script for custom columns
 
@@ -142,4 +142,4 @@ class Impl(CustomColumnCommand):
 
 ## Next steps
 
-For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
+For more information, see [Manage your OT device inventory from an on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).

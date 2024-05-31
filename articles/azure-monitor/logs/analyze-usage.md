@@ -3,7 +3,7 @@ title: Analyze usage in a Log Analytics workspace in Azure Monitor
 description: Methods and queries to analyze the data in your Log Analytics workspace to help you understand usage and potential cause for high usage.
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 08/25/2022
+ms.date: 10/23/2023
 ---
 
 # Analyze usage in a Log Analytics workspace
@@ -24,7 +24,7 @@ An unexpected increase in any of these factors can result in increased charges f
 
 To avoid unexpected bills, you should be proactively notified anytime you experience excessive usage. Notification allows you to address any potential anomalies before the end of your billing period.
 
-The following example is a [log alert rule](../alerts/alerts-unified-log.md) that sends an alert if the billable data volume ingested in the last 24 hours was greater than 50 GB. Modify the **Alert Logic** setting to use a different threshold based on expected usage in your environment. You can also increase the frequency to check usage multiple times every day, but this option will result in a higher charge for the alert rule.
+The following example is a [log search alert rule](../alerts/alerts-types.md#log-alerts) that sends an alert if the billable data volume ingested in the last 24 hours was greater than 50 GB. Modify the **Alert Logic** setting to use a different threshold based on expected usage in your environment. You can also increase the frequency to check usage multiple times every day, but this option will result in a higher charge for the alert rule.
 
 | Setting | Value |
 |:---|:---|
@@ -54,7 +54,7 @@ See the **Usage** tab for a breakdown of ingestion by solution and table. This i
 Select **Additional Queries** for prebuilt queries that help you further understand your data patterns.
 
 ### Usage and estimated costs
-The **Data ingestion per solution** chart on the [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs) page for each workspace shows the total volume of data sent and how much is being sent by each solution over the previous 31 days. This information helps you determine trends such as whether any increase is from overall data usage or usage by a particular solution.
+The **Data ingestion per solution** chart on the [Usage and estimated costs](../cost-usage.md#usage-and-estimated-costs) page for each workspace shows the total volume of data sent and how much is being sent by each solution over the previous 31 days. This information helps you determine trends such as whether any increase is from overall data usage or usage by a particular solution.
 
 ## Querying data volumes from the Usage table
 
@@ -443,7 +443,7 @@ W3CIISLog
 ## Next steps
 
 - See [Azure Monitor Logs pricing details](cost-logs.md) for information on how charges are calculated for data in a Log Analytics workspace and different configuration options to reduce your charges.
-- See [Azure Monitor cost and usage](../usage-estimated-costs.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
+- See [Azure Monitor cost and usage](../cost-usage.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
 - See [Azure Monitor best practices - Cost management](../best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.
 - See [Data collection transformations in Azure Monitor (preview)](../essentials/data-collection-transformations.md) for information on using transformations to reduce the amount of data you collected in a Log Analytics workspace by filtering unwanted records and columns.
 

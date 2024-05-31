@@ -53,7 +53,7 @@ You can choose to create a customizable lab, which enables you to modify the bas
 
 When you [publish the lab](./tutorial-setup-lab.md#publish-lab), Azure Lab Services creates the lab VMs, based on the template VM image. If you modify the template VM at a later stage, when you republish the template VM, all lab VMs are updated to match the new template. When you republish a template VM, Azure Lab Services reimages the lab VMs and removes all changes and data on the VM.
 
-With the [introduction of lab plans](lab-services-whats-new.md), you can also create a templateless lab. In a templateless lab, you select the base image for the lab VMs from the Azure Marketplace or an Azure compute gallery, and you can't further customize the image of a templateless lab. You might use templateless labs because you manage  your *golden* VM images in an Azure compute gallery. The advantage of templateless labs is that all labs use your *golden images* without changes. Another benefit is that lab creation is faster because there's no need to create a template VM.
+With the [introduction of lab plans](concept-lab-accounts-versus-lab-plans.md), you can also create a templateless lab. In a templateless lab, you select the base image for the lab VMs from the Azure Marketplace or an Azure compute gallery, and you can't further customize the image of a templateless lab. You might use templateless labs because you manage  your *golden* VM images in an Azure compute gallery. The advantage of templateless labs is that all labs use your *golden images* without changes. Another benefit is that lab creation is faster because there's no need to create a template VM.
 
 Learn how to [create and manage a template in Azure Lab Services](./how-to-create-manage-template.md).
 

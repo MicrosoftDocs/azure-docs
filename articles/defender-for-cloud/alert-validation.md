@@ -2,6 +2,7 @@
 title: Alert validation
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 06/27/2023
 ms.author: dacurwin
 author: dcurwin
@@ -14,7 +15,7 @@ This document helps you learn how to verify if your system is properly configure
 
 Alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed to quickly investigate the problem. Defender for Cloud also provides recommendations for how you can remediate an attack.
 
-For more information, see [Security alerts in Defender for Cloud](alerts-overview.md) and [Managing and responding to security alerts](managing-and-responding-alerts.md).
+For more information, see [Security alerts in Defender for Cloud](alerts-overview.md) and [Managing and responding to security alerts](managing-and-responding-alerts.yml).
 
 ## Prerequisites
 
@@ -22,7 +23,7 @@ To receive all the alerts, your machines and the connected Log Analytics workspa
 
 ## Generate sample security alerts
 
-If you're using the new preview alerts experience as described in [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md), you can create sample alerts from the security alerts page in the Azure portal.
+If you're using the new preview alerts experience as described in [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml), you can create sample alerts from the security alerts page in the Azure portal.
 
 Use sample alerts to:
 
@@ -69,7 +70,7 @@ After the Microsoft Defender for Endpoint agent is installed on your machine, as
 
     :::image type="content" source="media/alert-validation/powershell-no-exit.png" alt-text="Screenshot showing PowerShell message line." lightbox="media/alert-validation/powershell-no-exit.png":::
 
-Alternately, you can also use the [EICAR](https://www.eicar.org/download/eicar.com.txt) test string to perform this test:  Create a text file, paste the EICAR line, and save the file as an executable file to your machine's local drive.  
+Alternately, you can also use the [EICAR](https://www.eicar.org/download-anti-malware-testfile/) test string to perform this test:  Create a text file, paste the EICAR line, and save the file as an executable file to your machine's local drive.
 
 > [!NOTE]
 > When reviewing test alerts for Windows, make sure that you have Defender for Endpoint running with Real-Time protection enabled. Learn how to [validate this configuration](/microsoft-365/security/defender-endpoint/configure-real-time-protection-microsoft-defender-antivirus).
@@ -79,7 +80,8 @@ Alternately, you can also use the [EICAR](https://www.eicar.org/download/eicar.c
 After the Microsoft Defender for Endpoint agent is installed on your machine, as part of Defender for Servers integration, follow these steps from the machine where you want to be the attacked resource of the alert:
 
 1. Open a Terminal window, copy and run the following command:
-[`curl -o ~/Downloads/eicar.com.txt`](https://www.eicar.org/download/eicar.com.txt).
+`curl -O https://secure.eicar.org/eicar.com.txt`
+
 1. The Command Prompt window closes automatically. If successful, a new alert should appear in Defender for Cloud Alerts blade in 10 minutes.
 
 > [!NOTE]
@@ -98,7 +100,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 **Prerequisites**
 
 - Ensure the Defender for Containers plan is enabled.
-- **Arc only** - Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
+- **Arc only** - Ensure the [Defender sensor](defender-for-cloud-glossary.md#defender-sensor) is installed.
 - **EKS or GKE only** - Ensure the default audit log collection autoprovisioning options are enabled.
 
 **To simulate a Kubernetes control plane security alert**:
@@ -122,9 +124,9 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 **Prerequisites**
 
 - Ensure the Defender for Containers plan is enabled.
-- Ensure the [Defender agent](defender-for-cloud-glossary.md#defender-agent) is installed.
+- Ensure the [Defender sensor](defender-for-cloud-glossary.md#defender-sensor) is installed.
 
-**To simulate a a Kubernetes workload security alert**:
+**To simulate a Kubernetes workload security alert**:
 
 1. Create a pod to run a test command on. This pod can be any of the existing pods in the cluster, or a new pod. You can create using this sample yaml configuration:
 
@@ -167,7 +169,7 @@ You can also learn more about defending your Kubernetes nodes and clusters with 
 
 ## Simulate alerts for App Service
 
-You can simulate alerts for resources running on [App Service](/azure/app-service/overview).
+You can simulate alerts for resources running on [App Service](../app-service/overview.md).
 
 1. Create a new website and wait 24 hours for it to be registered with Defender for Cloud, or use an existing web site.
 
@@ -187,7 +189,7 @@ You can simulate alerts for resources running on [App Service](/azure/app-servic
     :::image type="content" source="media/alert-validation/storage-atp-navigate-container.png" alt-text="Screenshot showing where to navigate to select a container." lightbox="media/alert-validation/storage-atp-navigate-container.png":::
 
 1. Navigate to an existing container or create a new one.
-1. Upload a file to that container. Avoid uploading any file that may contain sensitive data.
+1. Upload a file to that container. Avoid uploading any file that might contain sensitive data.
 
     :::image type="content" source="media/alert-validation/storage-atp-upload-image.png" alt-text="Screenshot showing where to upload a file to the container." lightbox="media/alert-validation/storage-atp-upload-image.png":::
 
@@ -206,7 +208,7 @@ You can simulate alerts for resources running on [App Service](/azure/app-servic
 
 ## Validate Azure Key Vault Threat Detection
 
-1. If you don’t have a Key Vault created yet, make sure to [create one](/azure/key-vault/general/quick-create-portal).
+1. If you don’t have a Key Vault created yet, make sure to [create one](../key-vault/general/quick-create-portal.md).
 1. After finishing creating the Key Vault and the secret, go to a VM that has Internet access and [download the TOR Browser](https://www.torproject.org/download/).
 1. Install the TOR Browser on your VM.
 1. Once you finished the installation, open your regular browser, sign-in to the Azure portal, and access the Key Vault page. Select the highlighted URL and copy the address.
@@ -220,5 +222,5 @@ You can simulate alerts for resources running on [App Service](/azure/app-servic
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, explore the following articles:
 
 - [Validating Azure Key Vault threat detection in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/validating-azure-key-vault-threat-detection-in-microsoft/ba-p/1220336)
-- [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md) - Learn how to manage alerts, and respond to security incidents in Defender for Cloud.
+- [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml) - Learn how to manage alerts, and respond to security incidents in Defender for Cloud.
 - [Understanding security alerts in Microsoft Defender for Cloud](./alerts-overview.md)

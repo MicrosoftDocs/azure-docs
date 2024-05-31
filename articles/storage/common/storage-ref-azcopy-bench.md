@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy bench co
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 03/29/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -86,6 +86,8 @@ Run an upload that doesn't delete the transferred files. (These files can then s
 
 `--number-of-folders`    (uint)    If larger than 0, create folders to divide up the data.
 
+`--put-blob-size-mb`  Use this size (specified in MiB) as a threshold to determine whether to upload a blob as a single PUT request when uploading to Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
+
 `--put-md5`    Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob/file. (By default the hash is NOT created.) Identical to the same-named parameter in the copy command
 
 `--size-per-file`    (string)    Size of each auto-generated data file. Must be a number immediately followed by K, M or G. E.g. 12k or 200G (default "250M")
@@ -96,7 +98,7 @@ Run an upload that doesn't delete the transferred files. (These files can then s
 
 `--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
 
-`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Microsoft Entra login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 

@@ -93,7 +93,7 @@ items:
       - name: NAT gateway
         href: configure-public-ip-nat-gateway.md
       - name: Virtual machine
-        href: configure-public-ip-vm.md
+        href: configure-public-ip-vm.yml
       - name: Firewall
         href: configure-public-ip-firewall.md
       - name: VPN gateway
@@ -164,12 +164,6 @@ items:
           href: virtual-network-multiple-ip-addresses-powershell.md
         - name: Azure CLI
           href: virtual-network-multiple-ip-addresses-cli.md
-      - name: Create VM - static private IP (classic)
-        items:
-        - name: Azure portal
-          href: virtual-networks-static-private-ip-classic-pportal.md
-        - name: Azure PowerShell
-          href: virtual-networks-static-private-ip-classic-ps.md
       - name: Virtual machine scale set with IPv6
         href: ipv6-virtual-machine-scale-set.md
       - name: Configure DHCPv6 for Linux VMs

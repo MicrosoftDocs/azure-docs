@@ -5,8 +5,7 @@ author: mattmcinnes
 ms.author: mattmcinnes
 ms.service: azure-dedicated-host
 ms.topic: how-to
-ms.workload: infrastructure
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 07/12/2023
 ms.reviewer: vamckMS
 ---
@@ -126,7 +125,7 @@ az vm host group create \
    -z 1 \
    --ultra-ssd-enabled true \
    --platform-fault-domain-count 2 \
-   --automatic-placement true 
+   --automatic-placement true
 ```
 
 ### [PowerShell](#tab/powershell)
@@ -221,7 +220,7 @@ If you would like to create a VM with ultra disks support, make sure the host gr
 1. For the size, select **Change size**. In the list of available sizes, choose one from the Esv3 series, like **Standard E2s v3**. You may need to clear the filter in order to see all of the available sizes.
 1. Complete the rest of the fields on the **Basics** tab as needed.
 1. If you want to specify which host to use for your VM, then at the top of the page, select the **Advanced** tab and in the **Host** section, select *myHostGroup* for **Host group** and *myHost* for the **Host**. Otherwise, your VM will automatically be placed on a host with capacity.
-	![Select host group and host](./media/dedicated-hosts-portal/advanced.png)
+    ![Select host group and host](./media/dedicated-hosts-portal/advanced.png)
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 1. When you see the message that validation has passed, select **Create**.
 
@@ -273,6 +272,9 @@ New-AzVM `
 
 You can also create a scale set on your host.
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ### [Portal](#tab/portal)
 
 When you deploy a scale set, you specify the host group.
@@ -292,6 +294,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image myImage \
+  --orchestration-mode uniform \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --host-group myHostGroup \
@@ -316,6 +319,7 @@ New-AzVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
+  -OrchestrationMode 'Uniform' `
   -UpgradePolicyMode "Automatic"`
   -HostGroupId $hostGroup.Id
 ```
@@ -324,13 +328,14 @@ If you want to manually choose which host to deploy the scale set to, add `--hos
 
 ---
 
-## Add an existing VM
+## Reassign an existing VM
 
-You can add an existing VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
+You can reassign an existing multitenant VM or dedicated host VM to a different dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
 
 - The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it couldn't be a Standard_A4_v2.
 - The VM needs to be located in same region as the dedicated host.
-- The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information about this topic, see [Move a VM out of a proximity placement group](./windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
+- The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information about this topic, see [Move a VM out of a proximity placement group](./windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group).
+
 - The VM can't be in an availability set.
 - If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match.
 
@@ -348,7 +353,7 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
 ### [CLI](#tab/cli)
 
-Move the existing VM to a dedicated host using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to a dedicated host. 
+Move the existing VM to a dedicated host using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to a dedicated host.
 
 Replace the values with your own information.
 
@@ -408,27 +413,27 @@ Start-AzVM `
 
 ---
 
-## Move a VM from dedicated host to multi-tenant infrastructure
-You can move a VM that is running on a dedicated host to multi-tenant infrastructure, but the VM must first be Stop\Deallocated.
+## Move a VM from dedicated host to multitenant infrastructure
+You can move a VM that is running on a dedicated host to multitenant infrastructure, but the VM must first be Stop\Deallocated.
 
 - Make sure that your subscription has sufficient vCPU quota for the VM in the region where
-- Your multi-tenant VM will be scheduled in the same region and zone as the dedicated host
+- Your multitenant VM will be scheduled in the same region and zone as the dedicated host
 
 ### [Portal](#tab/portal)
 
-Move a VM from dedicated host to multi-tenant infrastructure using the [portal](https://portal.azure.com).
+Move a VM from dedicated host to multitenant infrastructure using the [portal](https://portal.azure.com).
 
 1. Open the page for the VM.
 1. Select **Stop** to stop\deallocate the VM.
 1. Select **Configuration** from the left menu.
 1. Select **None** under host group drop-down menu.
 1. When you're done, select **Save** at the top of the page.
-1. After the VM has been reconfigured as a multi-tenant VM, select **Overview** from the left menu.
+1. After the VM has been reconfigured as a multitenant VM, select **Overview** from the left menu.
 1. At the top of the page, select **Start** to restart the VM.
 
 ### [CLI](#tab/cli)
 
-Move a VM from dedicated host to multi-tenant infrastructure using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to reconfigure it as a multi-tenant VM. 
+Move a VM from dedicated host to multitenant infrastructure using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to reconfigure it as a multitenant VM.
 
 Replace the values with your own information.
 
@@ -441,7 +446,7 @@ az vm start -n myVM -g myResourceGroup
 
 ### [PowerShell](#tab/powershell)
 
-Move a VM from dedicated host to multi-tenant infrastructure using the PowerShell.
+Move a VM from dedicated host to multitenant infrastructure using the PowerShell.
 
 Replace the values of the variables with your own information.
 
@@ -468,7 +473,7 @@ Stop-AzVM `
 Update-AzVM `
    -ResourceGroupName $vmRGName `
    -VM $myVM `
-   -HostId '' 
+   -HostId ''
 
 Start-AzVM `
    -ResourceGroupName $vmRGName `
@@ -682,7 +687,7 @@ Restarting a host does not completely power off the host. When the host restarts
 ### [Portal](#tab/portal)
 
 1. Search for and select the host.
-1. In the top menu bar, select the **Restart** button. 
+1. In the top menu bar, select the **Restart** button.
 1. In the **Essentials** section of the Host Resource Pane, Host Status will switch to **Host undergoing restart** during the restart.
 1. Once the restart has completed, the Host Status will return to **Host available**.
 
@@ -722,6 +727,39 @@ $hostRestartStatus.InstanceView.Statuses[1].DisplayStatus;
 ## Resize a host
 
 [!INCLUDE [dedicated-hosts-resize](includes/dedicated-hosts-resize.md)]
+
+
+
+## Redeploy a host [Preview]
+
+If a VM or the underlying host remains unresponsive after following all the potential troubleshooting steps users can trigger service healing of the host and not wait for the platform to initiate the repair. Redeploying a host will move the host and all associated VMs to a different node of the same SKU. None of the host parameters would change except for the ‘Host asset ID’, which corresponds to the underlying Node Id.
+
+> [!WARNING]
+> Redeploy operation involves service healing hence would result in loss of any non-persistent data such as data stored on ephemeral disks. Save your work before redeploying.
+
+### [Portal](#tab/portal)
+
+1. Search for and select the host.
+1. In the top menu bar, select the **Redeploy** button.
+1. In the **Essentials** section of the Host Resource Pane, host's provisioning state will switch to **Updating** during the redeploy operation.
+1. Once the redeploy operation is completed, host's provisioning state will revert to **Provisioning succeeded**.
+1.  In the **Essentials** section of the Host Resource Pane, **Host asset ID** would be updated to a new ID
+
+### [CLI](#tab/cli)
+
+Redeploying the host using [az vm host redeploy](/cli/azure/vm#az-vm-host-redeploy).
+
+```azurecli-interactive
+az vm host redeploy \
+ --resource-group myResourceGroup \
+ --host-group myHostGroup \
+ --name myDedicatedHost
+```
+### [PowerShell](#tab/powershell)
+
+PowerShell support coming soon.
+
+---
 
 ## Deleting a host
 

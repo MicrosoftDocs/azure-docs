@@ -1,10 +1,38 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 01/08/2022
 ms.author: eur
 ---
+
+### Speech CLI 1.37.0: April 2024 release
+Updated to use Speech SDK 1.37.0
+#### New features
+* none
+#### Bug fixes
+* none
+
+### Speech CLI 1.36.0: March 2024 release
+Updated to use Speech SDK 1.36.0
+#### New features
+* none
+#### Bug fixes
+* none
+
+### Speech CLI 1.35.0: February 2024 release
+Updated to use Speech SDK 1.35.0
+#### New features
+* none
+#### Bug fixes
+* Update JMESPath dependency to latest
+
+### Speech CLI 1.34.0: November 2023 release
+Updated to use Speech SDK 1.34.0
+
+### Speech CLI 1.33.0: October 2023 release
+Updated to use Speech SDK 1.34.0
+
 ### Speech CLI 1.31.0: August 2023 release
 
 Updated to use Speech SDK 1.31.0
@@ -26,7 +54,7 @@ Updated to use Speech SDK 1.28.0
 #### Updates
 
 * Updated to use Speech SDK 1.27.0 
-* Update default endpoint to use v3.1 REST APIs for Custom Speech Recognition and Batch Speech Recognition.
+* Update default endpoint to use v3.1 REST APIs for custom speech Recognition and Batch Speech Recognition.
 
 #### Bug fixes
 
@@ -183,7 +211,7 @@ Stay healthy!
 
 #### New features
 - Speech CLI is now available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.CLI/) and can be installed via .NET CLI as a .NET global tool you can call from the shell/command-line.
-- The [Custom Speech DevOps Template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) has been updated to use Speech CLI for its Custom Speech workflows.
+- The [custom speech DevOps Template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) has been updated to use Speech CLI for its custom speech workflows.
 
 #### COVID-19 abridged testing
 As the ongoing pandemic continues to require our engineers to work from home, pre-pandemic manual verification scripts have been significantly reduced. We test on fewer devices with fewer configurations, and the likelihood of environment-specific bugs slipping through may be increased. We still rigorously validate with a large set of automation. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
@@ -205,7 +233,7 @@ Download the latest version [here](../../spx-basics.md). <br>
 -   Added in-CLI help search features:
     -   `spx help find --text TEXT`
     -   `spx help find --topic NAME`
--   Updated to work with newly deployed v3.0 Batch and Custom Speech APIs:
+-   Updated to work with newly deployed v3.0 Batch and custom speech APIs:
     -   `spx help batch examples`
     -   `spx help csr examples`
 
@@ -216,4 +244,4 @@ Stay healthy!
 
 ### Speech CLI (Also known as SPX): 2020-May release
 
-**SPX** is a new command-line tool that allows you to perform recognition, synthesis, translation, batch transcription, and Custom Speech management from the command-line. Use it to test the Speech service, or to script the Speech service tasks you need to perform. Download the tool and read the documentation [here](../../spx-overview.md).
+**SPX** is a new command-line tool that allows you to perform recognition, synthesis, translation, batch transcription, and custom speech management from the command-line. Use it to test the Speech service, or to script the Speech service tasks you need to perform. Download the tool and read the documentation [here](../../spx-overview.md).

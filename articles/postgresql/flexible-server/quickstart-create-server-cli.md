@@ -1,21 +1,25 @@
 ---
-title: 'Quickstart: Create a server - Azure CLI - Azure Database for PostgreSQL - Flexible Server'
-description: This quickstart describes how to use the Azure CLI to create an Azure Database for PostgreSQL Flexible Server in an Azure resource group.
-ms.author: sunila
-author: sunilagarwal
+title: "Quickstart: Create with Azure CLI"
+description: This quickstart describes how to use the Azure CLI to create an Azure Database for PostgreSQL - Flexible Server instance in an Azure resource group.
+author: AlicjaKucharczyk
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 11/30/2021
-ms.custom: mvc, devx-track-azurecli, mode-api
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-api
+ms.devlang: azurecli
 ---
 
-# Quickstart: Create an Azure Database for PostgreSQL Flexible Server using Azure CLI
+# Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for PostgreSQL Flexible Server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for PostgreSQL flexible server instance in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 
 
@@ -29,7 +33,7 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 ## Prerequisites
 
-You'll need to log in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property in the output, which refers to the **Subscription ID** for your Azure account.
+You need to log in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property in the output, which refers to the **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
@@ -43,20 +47,20 @@ az account set --subscription <subscription id>
 
 ## Create a flexible server
 
-Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the `az group create` command and then create your PostgreSQL flexible server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the `az group create` command and then create your Azure Database for PostgreSQL flexible server instance inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `eastus` location.
 
 ```azurecli-interactive
-az group create --name myresourcegroup --location westus
+az group create --name myresourcegroup --location eastus
 ```
 
-Create a flexible server with the `az postgres flexible-server create` command. A server can contain multiple databases. The following command creates a server in the resource group you just created:
+Create an Azure Database for PostgreSQL flexible server instance with the `az postgres flexible-server create` command. A server can contain multiple databases. The following command creates a server in the resource group you just created:
 
 ```azurecli
 az postgres flexible-server create --name mydemoserver --resource-group myresourcegroup
 ```
 
-Since the default connectivity method is *Public access (allowed IP addresses)*, the command will prompt you for your own IP address to initialize the list of allowed addresses.
-
+Since the default connectivity method is *Public access (allowed IP addresses)*, the command will prompt you to confirm if you want to add your IP address, and/or all IPs (range covering 0.0.0.0 through 255.255.255.255) to the list of allowed addresses.
+        
 The server created has the following attributes: 
 - The same location as your resource group
 - Auto-generated admin username and admin password (which you should save in a secure place)
@@ -64,12 +68,12 @@ The server created has the following attributes:
 - Service defaults for remaining server configurations: compute tier (General Purpose), compute size/SKU (`Standard_D2s_v3` - 2 vCore, 8 GB RAM), backup retention period (7 days), and PostgreSQL version (13)
 
 > [!NOTE] 
-> The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during creation, then you cannot change it to *Public access (allowed IP addresses)* after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking.md).
+> The connectivity method can't be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during creation, then you can't change it to *Public access (allowed IP addresses)* after creation. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking.md).
 
 If you'd like to change any defaults, please refer to the Azure CLI reference for [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create).
 
 > [!NOTE]
-> Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432.
+> Connections to Azure Database for PostgreSQL flexible server communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432. Notice that if you enable [PgBouncer](./concepts-pgbouncer.md) on your instance of Azure Database for PostgreSQL flexible server and want to connect through it, because it runs on port 6432, it is that port that your IT department must open for outbound traffic.
 
 ## Get the connection information
 
@@ -93,7 +97,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
   "earliestRestoreDate": null,
   "fullyQualifiedDomainName": "mydemoserver.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/mydemoserver",
-  "location": "westus",
+  "location": "eastus",
   "name": "mydemoserver",
   "network": {
     "delegatedSubnetResourceId": null,
@@ -119,7 +123,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 
 First, install the **[psql](https://www.postgresql.org/download/)** command-line tool.
 
-With psql, connect to the "flexibleserverdb" database using the below command. Replace values with the auto-generated domain name and username. 
+With psql, connect to the "flexibleserverdb" database using the following command. Replace values with the auto-generated domain name and username. 
 
 ```bash
 psql -h mydemoserver.postgres.database.azure.com -U myadmin flexibleserverdb
@@ -145,4 +149,4 @@ az postgres flexible-server delete --resource-group myresourcegroup --name mydem
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Deploy a Django app with App Service and PostgreSQL](tutorial-django-app-service-postgres.md)
+>[Deploy a Django app with App Service and PostgreSQL](/azure/app-service/tutorial-python-postgresql-app)

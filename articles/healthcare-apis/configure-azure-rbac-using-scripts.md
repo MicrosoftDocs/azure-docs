@@ -23,7 +23,7 @@ You can view and download the [CLI scripts](https://github.com/microsoft/healthc
 ## Role assignments with CLI
 
 You can list application roles using role names or GUID IDs. Include the role name in double quotes when there are spaces in it. For more information, see
-[List Azure role definitions](./../role-based-access-control/role-definitions-list.md#azure-cli).
+[List Azure role definitions](./../role-based-access-control/role-definitions-list.yml#azure-cli).
 
 ```
 az role definition list --name "FHIR Data Contributor"
@@ -96,7 +96,7 @@ The API requires the following values:
 - Scope for Azure Health Data Services to which you grant access permissions. It includes subscription ID, resource group name, and the FHIR or DICOM service instance name.
 - Role definition ID for roles such as "FHIR Data Contributor" or "DICOM Data Owner". Use `az role definition list --name "<role name>"` to list the role definition IDs.
 - Service principal ID for the user or the client application.
-- Azure AD access token to the `https://management.azure.com/`, not Azure Health Data Services. You can get the access token using an existing tool or using Azure CLI command, `az account get-access-token --resource  "https://management.azure.com/"`
+- Microsoft Entra access token to the `https://management.azure.com/`, not Azure Health Data Services. You can get the access token using an existing tool or using Azure CLI command, `az account get-access-token --resource  "https://management.azure.com/"`
 - For Azure Health Data Services, the scope includes workspace name and FHIR/DICOM service instance name.
 
 ```rest

@@ -5,7 +5,7 @@ ms.service: mysql
 ms.subservice: single-server
 author: SudheeshGH
 ms.author: sunaray
-ms.custom: mvc, seo-python-october2019, devx-track-python, mode-api
+ms.custom: mvc, devx-track-python, mode-api
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/20/2022
@@ -301,4 +301,3 @@ az group delete \
 
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
-

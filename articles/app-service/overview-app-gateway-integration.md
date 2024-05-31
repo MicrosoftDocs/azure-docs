@@ -2,18 +2,13 @@
 title: Application Gateway integration - Azure App Service | Microsoft Learn
 description: Learn how Application Gateway integrates with Azure App Service.
 services: app-service
-documentationcenter: ''
 author: madsd
-editor: ''
-
 ms.assetid: 073eb49c-efa1-4760-9f0c-1fecd5c251cc
 ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/29/2023
 ms.author: madsd
-ms.custom: seodec18, devx-track-azurecli, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -93,7 +88,7 @@ An external App Service Environment has a public-facing load balancer like multi
 
 ## Considerations for a Kudu/SCM site
 
-The SCM site, also known as Kudu, is an admin site that exists for every web app. It isn't possible to reverse proxy the SCM site. You most likely also want to lock it down to individual IP addresses or a specific subnet.
+The SCM site, also known as Kudu, is an admin site that exists for every web app. It isn't possible to use reverse proxy for the SCM site. You most likely also want to lock it down to individual IP addresses or a specific subnet.
 
 If you want to use the same access restrictions as the main site, you can inherit the settings by using the following command:
 

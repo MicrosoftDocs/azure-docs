@@ -3,7 +3,7 @@ title: Support for Azure VMware Solution deployment or provisioning failure
 description: Get information from your Azure VMware Solution private cloud to file a service request for an Azure VMware Solution deployment or provisioning failure.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/24/2022
+ms.date: 12/13/2023
 ms.custom: engagement-fy23
 ---
 
@@ -87,9 +87,9 @@ To copy the ExpressRoute ID:
 
 :::image type="content" source="media/expressroute-global-reach/expressroute-id.png" alt-text="Screenshot that shows the ExpressRoute ID to copy to the clipboard."lightbox="media/expressroute-global-reach/expressroute-id.png":::
 
-## Pre-validation failures
+## Prevalidation failures
 
-If your private cloud pre-validations check failed (before deployment), a correlation ID won't have been generated. In this scenario, you can provide the following information in your support request:
+If your private cloud prevalidations check failed (before deployment), a correlation ID isn't generated. In this scenario, you can provide the following information in your support request:
 
 - Error and failure messages. These messages can be helpful in many failures, for example, for quota-related issues. It's important to copy these messages and include them in the support request, as described in this article.
 - Information you used to create the Azure VMware Solution private cloud, including:

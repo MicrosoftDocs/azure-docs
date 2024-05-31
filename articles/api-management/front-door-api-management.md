@@ -11,6 +11,8 @@ ms.author: danlep
 ---
 # Configure Front Door Standard/Premium in front of Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Azure Front Door is a modern application delivery network platform providing a secure, scalable content delivery network (CDN), dynamic site acceleration, and global HTTP(s) load balancing for your global web applications. When used in front of API Management, Front Door can provide TLS offloading, end-to-end TLS, load balancing, response caching of GET requests, and a web application firewall, among other capabilities. For a full list of supported features, see [What is Azure Front Door?](../frontdoor/front-door-overview.md) 
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
@@ -138,7 +140,7 @@ The following are high level steps to add an endpoint for the developer portal t
 For more information and details about settings, see [How to configure an origin for Azure Front Door](../frontdoor/how-to-configure-origin.md#create-a-new-origin-group).
 
 > [!NOTE]
-> If you've configured an [Azure AD](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md) identity provider for the developer portal, you need to update the corresponding app registration with an additional redirect URL to Front Door. In the app registration, add the URL for the developer portal endpoint configured in your Front Door profile.
+> If you've configured an [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md) identity provider for the developer portal, you need to update the corresponding app registration with an additional redirect URL to Front Door. In the app registration, add the URL for the developer portal endpoint configured in your Front Door profile.
 
 ## Next steps
 

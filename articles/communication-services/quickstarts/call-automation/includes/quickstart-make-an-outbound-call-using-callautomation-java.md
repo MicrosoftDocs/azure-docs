@@ -16,18 +16,22 @@ ms.custom: mode-other
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
-- Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started)
-- [Java Development Kit (JDK) version 11 or above](/azure/developer/java/fundamentals/java-jdk-install)
-- [Apache Maven](https://maven.apache.org/download.cgi)
+- Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started).
+- Create and connect [a Multi-service Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
+- [Java Development Kit (JDK) version 11 or above](/azure/developer/java/fundamentals/java-jdk-install).
+- [Apache Maven](https://maven.apache.org/download.cgi).
+- (Optional) A Microsoft Teams user with a phone license that is `voice` enabled. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options). For more information to enable `voice` on your phone system, see [setting up your phone system](/microsoftteams/setting-up-your-phone-system).
 
 ## Sample code
-Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OutboundCalling). 
+
+Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OutboundCalling).
 
 Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a code editor.
 
 ## Setup and host your Azure DevTunnel
 
-[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Run the DevTunnel commands to connect your local development environment to the public internet. DevTunnels then creates a tunnel with a persistent endpoint URL and which allows anonymous access. ACS uses this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Run the DevTunnel commands to connect your local development environment to the public internet. DevTunnels then creates a tunnel with a persistent endpoint URL and which allows anonymous access. Azure Communication Services uses this endpoint to notify your application of calling events from the Azure Communication Services Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -39,30 +43,46 @@ devtunnel host
 
 Then open the `application.yml` file in the `/resources` folder to configure the following values:
 
-- `connectionstring`: The connection string for your ACS resource. You can find your ACS connection string using the instructions [here](../../create-communication-resource.md). 
+- `connectionstring`: The connection string for your Azure Communication Services resource. You can find your Azure Communication Services connection string using the instructions [here](../../create-communication-resource.md). 
 - `basecallbackuri`: Once you have your DevTunnel host initialized, update this field with that URI.
-- `callerphonenumber`: update this field with the ACS phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+- `callerphonenumber`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `targetphonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
+- `cognitiveServiceEndpoint`: update field with your Azure AI services endpoint.
+- `targetTeamsUserId`: (Optional) update field with the Microsoft Teams user Id you would like to add to the call. See [Use Graph API to get Teams user Id](../../../how-tos/call-automation/teams-interop-call-automation.md#step-2-use-the-graph-api-to-get-microsoft-entra-object-id-for-teams-users-and-optionally-check-their-presence).
 
 ```yaml
 acs:
-  connectionstring: <YOUR ACS CONNECTION STRING>
-  basecallbackuri: <YOUR DEV TUNNEL ENDPOINT>
-  callerphonenumber: <YOUR ACS PHONE NUMBER>
-  targetphonenumber: <YOUR TARGET PHONE NUMBER>
+  connectionstring: <YOUR ACS CONNECTION STRING> 
+  basecallbackuri: <YOUR DEV TUNNEL ENDPOINT> 
+  callerphonenumber: <YOUR ACS PHONE NUMBER ex. "+1425XXXAAAA"> 
+  targetphonenumber: <YOUR TARGET PHONE NUMBER ex. "+1425XXXAAAA"> 
+  cognitiveServiceEndpoint: <YOUR COGNITIVE SERVICE ENDPOINT>
+  targetTeamsUserId: <(OPTIONAL) YOUR TARGET TEAMS USER ID ex. "ab01bc12-d457-4995-a27b-c405ecfe4870">
 ```
 
 
 ## Make an outbound call and play media
 
-To make the outbound call from ACS, this sample uses the `targetphonenumber` you defined in the `application.yml` file to create the call using the `createCallWithResponse` API.
+To make the outbound call from Azure Communication Services, this sample uses the `targetphonenumber` you defined in the `application.yml` file to create the call using the `createCallWithResponse` API.
 
 ```java
 PhoneNumberIdentifier caller = new PhoneNumberIdentifier(appConfig.getCallerphonenumber());
 PhoneNumberIdentifier target = new PhoneNumberIdentifier(appConfig.getTargetphonenumber());
 CallInvite callInvite = new CallInvite(target, caller);
 CreateCallOptions createCallOptions = new CreateCallOptions(callInvite, appConfig.getCallBackUri());
+CallIntelligenceOptions callIntelligenceOptions = new CallIntelligenceOptions().setCognitiveServicesEndpoint(appConfig.getCognitiveServiceEndpoint());
+createCallOptions = createCallOptions.setCallIntelligenceOptions(callIntelligenceOptions);
 Response<CreateCallResult> result = client.createCallWithResponse(createCallOptions, Context.NONE);
+```
+
+## (Optional) Add a Microsoft Teams user to the call
+
+You can add a Microsoft Teams user to the call using the `addParticipant` method with a `MicrosoftTeamsUserIdentifier` and the Teams user's Id.  You first need to complete the prerequisite step [Authorization for your Azure Communication Services Resource to enable calling to Microsoft Teams users](../../../how-tos/call-automation/teams-interop-call-automation.md#step-1-authorization-for-your-azure-communication-services-resource-to-enable-calling-to-microsoft-teams-users).  Optionally, you can also pass in a `SourceDisplayName` to control the text displayed in the toast notification for the Teams user.
+
+```java
+client.getCallConnection(callConnectionId).addParticipant(
+    new CallInvite(new MicrosoftTeamsUserIdentifier(targetTeamsUserId))
+        .setSourceDisplayName("Jack (Contoso Tech Support)"));
 ```
 
 ## Start recording a call
@@ -84,7 +104,6 @@ Response<RecordingStateResult> response = client.getCallRecording()
 recordingId = response.getValue().getRecordingId();
 ```
 
-
 ## Respond to calling events
 
 Earlier in our application, we registered the `basecallbackuri` to the Call Automation Service. The URI indicates endpoint the service will use to notify us of calling events that happen. We can then iterate through the events and detect specific events our application wants to understand. In the code be below we respond to the `CallConnected` event.
@@ -104,56 +123,66 @@ for (CallAutomationEventBase event : events) {
 
 ## Play welcome message and recognize 
 
-Using the `FileSource` API, you can provide the service the audio file you want to use for your welcome message. The ACS Call Automation service plays this message upon the `CallConnected` event. 
+Using the `TextSource`, you can provide the service with the text you want synthesized and used for your welcome message. The Azure Communication Services Call Automation service plays this message upon the `CallConnected` event. 
 
-Next we pass the audio file into the `CallMediaRecognizeDtmfOptions` and then call `startRecognizingWithResponse`. This recognizes and options API enables the telephony client to send DTMF tones that we can recognize.
+Next, we pass the text into the `CallMediaRecognizeChoiceOptions` and then call `StartRecognizingAsync`. This allows your application to recognize the option the caller chooses.
 
 ```java
-PhoneNumberIdentifier target = new PhoneNumberIdentifier(appConfig.getTargetphonenumber());
-CallMediaRecognizeDtmfOptions recognizeDtmfOptions = new CallMediaRecognizeDtmfOptions(target, 1);
+var playSource = new TextSource().setText(content).setVoiceName("en-US-NancyNeural");
 
-PlaySource playSource = new FileSource()
-    .setUrl(appConfig.getBasecallbackuri() + "/" + mediaFile)
-    .setPlaySourceCacheId(mediaFile);
-
-recognizeDtmfOptions.setPlayPrompt(playSource)
-    .setInterruptPrompt(true)
-    .setInitialSilenceTimeout(Duration.ofSeconds(15));
+var recognizeOptions = new CallMediaRecognizeChoiceOptions(new PhoneNumberIdentifier(targetParticipant), getChoices())
+  .setInterruptCallMediaOperation(false)
+  .setInterruptPrompt(false)
+  .setInitialSilenceTimeout(Duration.ofSeconds(10))
+  .setPlayPrompt(playSource)
+  .setOperationContext(context);
 
 client.getCallConnection(callConnectionId)
-    .getCallMedia()
-    .startRecognizingWithResponse(recognizeDtmfOptions, Context.NONE);
+  .getCallMedia()
+  .startRecognizing(recognizeOptions);
+
+private List < RecognitionChoice > getChoices() {
+  var choices = Arrays.asList(
+    new RecognitionChoice().setLabel(confirmLabel).setPhrases(Arrays.asList("Confirm", "First", "One")).setTone(DtmfTone.ONE),
+    new RecognitionChoice().setLabel(cancelLabel).setPhrases(Arrays.asList("Cancel", "Second", "Two")).setTone(DtmfTone.TWO)
+  );
+
+  return choices;
+}
 ```
 
-## Recognize DTMF Events
+## Handle Choice Events
 
-When the telephony endpoint selects a DTMF tone, ACS Call Automation triggers the webhook we have setup and notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to a specific DTMF tone and trigger an action. 
+Azure Communication Services Call Automation triggers the `api/callbacks` to the webhook we have setup and will notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to input received and trigger an action. The application then plays a message to the caller based on the specific input received.
 
 ```java
 else if (event instanceof RecognizeCompleted) {
-    log.info("Recognize Completed event received");
-    RecognizeCompleted recognizeEvent = (RecognizeCompleted) event;
-    DtmfResult dtmfResult = (DtmfResult) recognizeEvent
-            .getRecognizeResult().get();
-    DtmfTone selectedTone = dtmfResult.getTones().get(0);
+  log.info("Recognize Completed event received");
 
-    switch(selectedTone.convertToString()) {
-        case "1":
-            log.info("Received DTMF tone 1.");
-            playToAll(callConnectionId, "Confirmed.wav");
-            break;
+  RecognizeCompleted acsEvent = (RecognizeCompleted) event;
 
-        case "2":
-            log.info("Received DTMF tone 2.");
-            playToAll(callConnectionId, "Goodbye.wav");
-            break;
+  var choiceResult = (ChoiceResult) acsEvent.getRecognizeResult().get();
 
-        default:
-            log.info("Unexpected DTMF received: {}", selectedTone.convertToString());
-            playToAll(callConnectionId, "Invalid.wav");
-            break;
-    }
+  String labelDetected = choiceResult.getLabel();
 
+  String phraseDetected = choiceResult.getRecognizedPhrase();
+
+  log.info("Recognition completed, labelDetected=" + labelDetected + ", phraseDetected=" + phraseDetected + ", context=" + event.getOperationContext());
+
+  String textToPlay = labelDetected.equals(confirmLabel) ? confirmedText : cancelText;
+
+  handlePlay(callConnectionId, textToPlay);
+}
+
+private void handlePlay(final String callConnectionId, String textToPlay) {
+  var textPlay = new TextSource()
+    .setText(textToPlay)
+    .setVoiceName("en-US-NancyNeural");
+
+  client.getCallConnection(callConnectionId)
+    .getCallMedia()
+    .playToAll(textPlay);
+}
 ```
 
 ## Hang up the call

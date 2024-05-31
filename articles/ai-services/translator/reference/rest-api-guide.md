@@ -2,7 +2,7 @@
 title: "Text Translation REST API reference guide"
 titleSuffix: Azure AI services
 description: View a list of with links to the Text Translation REST APIs.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
@@ -26,7 +26,7 @@ Text Translation is a cloud-based feature of the Azure AI Translator service and
 | [**dictionary/examples**](v3-0-dictionary-examples.md) | **POST** | Returns how a term is used in context. |
 
 > [!div class="nextstepaction"]
-> [Create a Translator resource in the Azure portal.](../create-translator-resource.md)
+> [Create a Translator resource in the Azure portal.](../create-translator-resource.yml)
 
 > [!div class="nextstepaction"]
 > [Quickstart: REST API and your programming language](../quickstart-text-rest-api.md)

@@ -1,33 +1,32 @@
 ---
 title: Reservations software costs for Azure
-description: Learn which software meters are not included in Azure Reserved VM Instance costs.
+description: Learn which software meters aren't included in Azure Reserved virtual machine (VM) Instance costs.
 author: bandersmsft
-ms.reviewer: nitinarora
-tags: billing
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 05/14/2024
 ms.author: banders
 ---
 
 # Software costs not included with Azure Reserved VM Instances
 
-Virtual machine reserved instance and SQL reserved capacity discounts apply only to the infrastructure costs and not to the software costs. If you use Windows VM and don't have an Azure Hybrid Benefit on your reserved virtual machine instances, then you are charged for the software meters listed in the following section. For SQL PaaS deployments, the IP cost will continue to be charged using separate meter if Azure Hybrid Benefit is not selected.
+Virtual machine reserved instance and SQL reserved capacity discounts apply only to the infrastructure costs and not to the software costs. If you use Windows VM and don't have an Azure Hybrid Benefit on your reserved virtual machine instances, then you're charged for the software meters listed in the following section. For SQL PaaS deployments, the IP cost continue to get charged using separate meter if Azure Hybrid Benefit isn't selected.
 
 ## Windows software meters not included in reservation cost
 
 | MeterId | MeterName in usage file | Used by VM |
 | ------- | ------------------------| --- |
-| e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Reservation-Windows Svr Burst (1 Core) | B Series |
-| cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Reservation-Windows Svr Burst (2 Core) | B Series |
-| 09756b58-3fb5-4390-976d-9ddd14f9ed18 | Reservation-Windows Svr Burst (4 Core) | B Series |
-| e828cb37-5920-4dc7-b30f-664e4dbcb6c7 | Reservation-Windows Svr Burst (8 Core) | B Series |
-| f65a06cf-c9c3-47a2-8104-f17a8542215a | Reservation-Windows Svr (1 Core) | All except B Series |
-| b99d40ae-41fe-4d1d-842b-56d72f3d15ee | Reservation-Windows Svr (2 Core) | All except B Series |
-| 1cb88381-0905-4843-9ba2-7914066aabe5 | Reservation-Windows Svr (4 Core) | All except B Series |
-| 07d9e10d-3e3e-4672-ac30-87f58ec4b00a | Reservation-Windows Svr (6 Core) | All except B Series |
-| 603f58d1-1e96-460b-a933-ce3775ac7e2e | Reservation-Windows Svr (8 Core) | All except B Series |
+| e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Reservation-Windows Svr Burst (one Core) | B Series |
+| cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Reservation-Windows Svr Burst (two Core) | B Series |
+| 09756b58-3fb5-4390-976d-9ddd14f9ed18 | Reservation-Windows Svr Burst (four Core) | B Series |
+| e828cb37-5920-4dc7-b30f-664e4dbcb6c7 | Reservation-Windows Svr Burst (eight Core) | B Series |
+| f65a06cf-c9c3-47a2-8104-f17a8542215a | Reservation-Windows Svr (one Core) | All except B Series |
+| b99d40ae-41fe-4d1d-842b-56d72f3d15ee | Reservation-Windows Svr (two Core) | All except B Series |
+| 1cb88381-0905-4843-9ba2-7914066aabe5 | Reservation-Windows Svr (four Core) | All except B Series |
+| 07d9e10d-3e3e-4672-ac30-87f58ec4b00a | Reservation-Windows Svr (six Core) | All except B Series |
+| 603f58d1-1e96-460b-a933-ce3775ac7e2e | Reservation-Windows Svr (eight Core) | All except B Series |
 | 36aaadda-da86-484a-b465-c8b5ab292d71 | Reservation-Windows Svr (12 Core) | All except B Series |
 | 02968a6b-1654-4495-ada6-13f378ba7172 | Reservation-Windows Svr (16 Core) | All except B Series |
 | 175434d8-75f9-474b-9906-5d151b6bed84 | Reservation-Windows Svr (20 Core) | All except B Series |
@@ -58,16 +57,17 @@ Virtual machine reserved instance and SQL reserved capacity discounts apply only
 
 You can get the cost of each of the meters with the Azure Retail Prices API. For information on how to get the rates for an Azure meter, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
-## Next steps
+## Need help? Contact us
+
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## Related content
+
 To learn more about reservations for Azure, see the following articles:
 
 - [What are reservations for Azure?](save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Manage reservations for Azure](manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Understand reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
-
-## Need help? Contact us
-
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

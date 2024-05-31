@@ -6,7 +6,7 @@ ms.author: banders
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 08/26/2022
+ms.date: 03/21/2024
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-azurecli, devx-track-bicep
 ---
 

@@ -59,7 +59,7 @@ landingContent:
      - linkListType: sample
        links:
           - text: Jumpstart for Azure Arc-enabled servers
-            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
+            url: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers
      - linkListType: get-started
        links:
           - text: Test Arc-enabled servers using an Azure VM

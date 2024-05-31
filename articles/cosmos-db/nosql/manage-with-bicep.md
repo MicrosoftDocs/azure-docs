@@ -1,10 +1,10 @@
 ---
 title: Create and manage Azure Cosmos DB with Bicep
-description: Use Bicep to create and configure Azure Cosmos DB for API for NoSQL 
+description: Use Bicep to create and configure Azure Cosmos DB for API for NoSQL
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022, devx-track-bicep
+ms.custom: devx-track-bicep
 ms.topic: how-to
 ms.date: 02/18/2022
 ms.author: sidandrews
@@ -56,15 +56,17 @@ Create an Azure Cosmos DB account in two regions with options for consistency an
 
 ## Azure Cosmos DB container with server-side functionality
 
-Create an Azure Cosmos DB account, database and container with with a stored procedure, trigger, and user-defined function.
+Create an Azure Cosmos DB account, database and container with a stored procedure, trigger, and user-defined function.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-sql-container-sprocs/main.bicep":::
 
 <a id="create-rbac"></a>
 
-## Azure Cosmos DB account with Azure AD and RBAC
+<a name='azure-cosmos-db-account-with-azure-ad-and-rbac'></a>
 
-Create an Azure Cosmos DB account, a natively maintained Role Definition, and a natively maintained Role Assignment for an AAD identity.
+## Azure Cosmos DB account with Microsoft Entra ID and RBAC
+
+Create an Azure Cosmos DB account, a natively maintained Role Definition, and a natively maintained Role Assignment for a Microsoft Entra identity.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-sql-rbac/main.bicep":::
 

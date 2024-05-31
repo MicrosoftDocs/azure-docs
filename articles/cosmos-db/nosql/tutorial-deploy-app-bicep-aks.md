@@ -194,7 +194,7 @@ az aks get-credentials \
 
 ## Connect the AKS pods to Azure Key Vault
 
-Azure Active Directory (Azure AD) pod-managed identities use AKS primitives to associate managed identities for Azure resources and identities in Azure AD with pods. You'll use these identities to grant access to the Azure Key Vault Provider for Secrets Store CSI Driver.
+Microsoft Entra pod-managed identities use AKS primitives to associate managed identities for Azure resources and identities in Microsoft Entra ID with pods. You'll use these identities to grant access to the Azure Key Vault Provider for Secrets Store CSI Driver.
 
 Use the following command to find the values of the tenant ID (`homeTenantId`):
 

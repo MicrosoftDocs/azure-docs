@@ -1,13 +1,12 @@
 ---
 title: Ingestion Client - Speech service
 titleSuffix: Azure AI services
-description: In this article we describe a tool released on GitHub that enables customers push audio files to Speech service easily and quickly 
-services: cognitive-services
+description: Learn about a tool released on GitHub that enables customers push audio files to Speech service easily and quickly 
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 08/29/2022
+ms.date: 1/21/2024
 ms.author: eur
 ---
 
@@ -27,7 +26,7 @@ An Azure account and a multi-service Azure AI services resource are needed to ru
 * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="Create an Azure AI services resource"  target="_blank">Create an Azure AI services resource</a> in the Azure portal.
 * Get the resource key and region. After your resource is deployed, select **Go to resource** to view and manage keys. For more information about Azure AI services resources, see [Get the keys for your resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource). 
 
-See the [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/ingestion/ingestion-client/Setup/guide.md) on GitHub to learn how to setup and use the tool.
+See the [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/ingestion/ingestion-client/Setup/guide.md) on GitHub to learn how to set up and use the tool.
 
 ## Ingestion Client Features
 
@@ -51,8 +50,8 @@ Here are some Language service features that are used by the Ingestion Client:
 
 Besides Azure AI services, these Azure products are used to complete the solution:
 
-- [Azure storage](https://azure.microsoft.com/product-categories/storage/): For storing telephony data and the transcripts that are returned by the Batch Transcription API. This storage account should use notifications, specifically for when new files are added. These notifications are used to trigger the transcription process.
-- [Azure Functions](https://azure.microsoft.com/services/functions/): For creating the shared access signature (SAS) URI for each recording, and triggering the HTTP POST request to start a transcription. Additionally, you use Azure Functions to create requests to retrieve and delete transcriptions by using the Batch Transcription API.
+- [Azure storage](https://azure.microsoft.com/product-categories/storage/): Used for storing telephony data and the transcripts that batch transcription API returns. This storage account should use notifications, specifically for when new files are added. These notifications are used to trigger the transcription process.
+- [Azure Functions](https://azure.microsoft.com/services/functions/): Used for creating the shared access signature (SAS) URI for each recording, and triggering the HTTP POST request to start a transcription. Additionally, you use Azure Functions to create requests to retrieve and delete transcriptions by using the Batch Transcription API.
 
 ## Tool customization
 

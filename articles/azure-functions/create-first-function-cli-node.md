@@ -1,7 +1,7 @@
 ---
 title: Create a JavaScript function from the command line - Azure Functions
 description: Learn how to create a JavaScript function from the command line, then publish the local Node.js project to serverless hosting in Azure Functions.
-ms.date: 03/08/2023
+ms.date: 02/26/2024
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-api, devx-track-js
@@ -49,27 +49,21 @@ Before you begin, you must have the following prerequisites:
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
 ::: zone pivot="nodejs-model-v3" 
-1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
-
+1. In a suitable folder, run the [`func init`](functions-core-tools-reference.md#func-init) command, as follows, to create a JavaScript Node.js v3 project in the current folder:
+   
     ```console
-    func init LocalFunctionProj --javascript
+    func init --javascript --model V3
     ```
-
-1. Navigate into the project folder:
-
-    ```console
-    cd LocalFunctionProj
-    ```
-
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    
+    This folder now contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
-
+   
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
-
-    `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+    
+    The [`func new`](functions-core-tools-reference.md#func-new) command creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
 You may find the [Azure Functions Core Tools reference](functions-core-tools-reference.md) helpful.
 
@@ -96,30 +90,20 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4" 
-1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj*:
+1. In a suitable folder, run the [`func init`](functions-core-tools-reference.md#func-init) command, as follows, to create a JavaScript Node.js v4 project in the current folder:
 
     ```console
-    func init LocalFunctionProj --model V4
+    func init --javascript
     ```
-    You're then prompted to choose a worker runtime and a language - choose Node for the first and JavaScript for the second.
 
-2. Navigate into the project folder:
+  This folder now contains various files for the project, including configurations files named *local.settings.json* and *host.json*. Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file. Required npm packages are also installed in *node_modules*. 
+
+1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
     ```console
-    cd LocalFunctionProj
-    ```
+    func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous" 
 
-    This folder contains various files for the project, including configurations files named *local.settings.json* and *host.json*. Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
-
-3. Add a function to your project by using the following command:
-
-    ```console
-    func new
-    ```
-
-    Choose the template for "HTTP trigger". You can keep the default name (*httpTrigger*) or give it a new name (*HttpExample*). Your function name must be unique, or you're asked to confirm if your intention is to replace an existing function. 
-
-    You can find the function you added in the *src/functions* directory. 
+    [`func new`](functions-core-tools-reference.md#func-new) creates a file named *HttpExample.js* in the *src/functions* directory, which contains your function's code. 
 
 4. Add Azure Storage connection information in *local.settings.json*. 
     ```json
@@ -175,6 +159,12 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 [!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
 
 ## Next steps
-
+<!--- Revert this after we get Node.js v4 support added to the follow-on quickstarts -->
+::: zone pivot="nodejs-model-v3"  
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-javascript)
+::: zone-end  
+::: zone pivot="nodejs-model-v4"   
+> [!div class="nextstepaction"]
+> [Learn more about JavaScript functions](./functions-reference-node.md)
+::: zone-end  

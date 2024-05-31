@@ -4,7 +4,7 @@ description: Learn how to troubleshoot common issues for Web PubSub
 author: JialinXin
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 12/05/2023
 ms.author: jixin
 ms.devlang: csharp
 ---
@@ -63,15 +63,16 @@ Besides, you can update to convenience server SDK, which automatically handles `
 - [@web-pubsub-express for JavaScript ](https://www.npmjs.com/package/@azure/web-pubsub-express)
 - [Microsoft.Azure.WebPubSub.AspNetCore for C#](https://www.nuget.org/packages/Microsoft.Azure.WebPubSub.AspNetCore)
 
-## 401 Unauthorized from AbuseProtectionResponseInvalidStatusCode
+## 401 Unauthorized or 403 Forbidden from AbuseProtectionResponseInvalidStatusCode
 
 ### Possible errors
 
 - `Abuse protection for 'https://<upstream-host>/<upstream-path>' failed: 401.`
+- `Abuse protection for 'https://<upstream-host>/<upstream-path>' failed: 403.`
 
 ### Root cause
 
-This error indicates the `Abuse Protection` request get a `401` response from the registered upstream URL. For more information, see [`Abuse Protection`](./howto-develop-eventhandler.md#upstream-and-validation).
+This error indicates the `Abuse Protection` request get a `401`/`403` response from the registered upstream URL. For more information, see [`Abuse Protection`](./howto-develop-eventhandler.md#upstream-and-validation).
 
 ### Troubleshooting guide
 

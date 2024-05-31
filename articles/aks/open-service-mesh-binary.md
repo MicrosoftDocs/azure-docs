@@ -2,7 +2,8 @@
 title: Download the OSM client Library
 description: Download and configure the Open Service Mesh (OSM) client library
 ms.topic: article
-ms.date: 8/26/2021
+ms.custom: linux-related-content
+ms.date: 12/26/2023
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
 ---
@@ -10,6 +11,9 @@ zone_pivot_groups: client-operating-system
 # Download and configure the Open Service Mesh (OSM) client library
 
 This article will discuss how to download the OSM client library to be used to operate and configure the OSM add-on for AKS, and how to configure the binary for your environment.
+
+> [!NOTE]
+> With the retirement of [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) by the Cloud Native Computing Foundation (CNCF), we recommend identifying your OSM configurations and migrating them to an equivalent Istio configuration. For information about migrating from OSM to Istio, see [Migration guidance for Open Service Mesh (OSM) configurations to Istio](open-service-mesh-istio-migration-guidance.md).
 
 > [!IMPORTANT]
 > Based on the version of Kubernetes your cluster is running, the OSM add-on installs a different version of OSM.
@@ -41,7 +45,7 @@ This article will discuss how to download the OSM client library to be used to o
 ::: zone-end
 
 > [!WARNING]
-> Do not attempt to install OSM from the binary using `osm install`. This will result in a installation of OSM that is not integrated as an add-on for AKS.
+> Do not attempt to install OSM from the binary using `osm install`. This will result in an installation of OSM that is not integrated as an add-on for AKS.
 
 ## Configure OSM CLI variables with an OSM_CONFIG file
 

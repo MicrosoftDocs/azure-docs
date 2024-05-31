@@ -2,11 +2,11 @@
 title: Protecting DNS Zones and Records - Azure DNS
 description: In this learning path, get started protecting DNS zones and record sets in Microsoft Azure DNS.
 services: dns
-author: duongau
+author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 09/27/2022
-ms.author: duau 
+ms.date: 11/30/2023
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -29,7 +29,7 @@ The DNS Zone Contributor role is a built-in role for managing private DNS resour
 
 The resource group *myResourceGroup* contains five zones for Contoso Corporation. Granting the DNS administrator DNS Zone Contributor permissions to that resource group, enables full control over those DNS zones. It avoids granting unnecessary permissions. The DNS administrator can't create or stop virtual machines.
 
-The simplest way to assign Azure RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.md).  
+The simplest way to assign Azure RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.yml).  
 
 Open **Access control (IAM)** for the resource group, then select **+ Add**, then select the **DNS Zone Contributor** role. Select the required users or groups to grant permissions.
 

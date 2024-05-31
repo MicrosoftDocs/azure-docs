@@ -5,8 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2023
-tags: connectors
+ms.date: 01/10/2024
 ---
 
 # Connect to Office 365 Outlook from Azure Logic Apps
@@ -40,7 +39,7 @@ For information about this connector's operations and any limits, based on the c
   > [!NOTE]
   >
   > If you're using [Microsoft Azure operated by 21Vianet](https://portal.azure.cn), 
-  > Azure Active Directory (Azure AD) authentication works only with an account for 
+  > Microsoft Entra authentication works only with an account for 
   > Microsoft Office 365 operated by 21Vianet (.cn), not .com accounts.
 
 * The logic app workflow from where you want to access your Outlook account. To add an Office 365 Outlook trigger, you have to start with a blank workflow. To add an Office 365 Outlook action, your workflow can start with any trigger.
@@ -62,7 +61,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
    > [!NOTE]
    >
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Microsoft Entra ID](../active-directory/develop/configurable-token-lifetimes.md).
 
 1. In the trigger information box, provide the required information, for example:
 
@@ -91,7 +90,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
    > [!NOTE]
    >
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Microsoft Entra ID](../active-directory/develop/configurable-token-lifetimes.md).
 
 1. In the trigger information box, provide the required information, for example:
 
@@ -130,7 +129,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
    > [!NOTE]
    >
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Microsoft Entra ID](../active-directory/develop/configurable-token-lifetimes.md).
 
 1. In the trigger information box, provide the required information, for example:
 
@@ -163,7 +162,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
    > [!NOTE]
    >
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
-   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/configurable-token-lifetimes.md).
+   > For more information, see [Configurable token lifetimes in Microsoft Entra ID](../active-directory/develop/configurable-token-lifetimes.md).
 
 1. In the trigger information box, provide the required information, for example:
 
@@ -197,7 +196,7 @@ If you try connecting to Outlook by using a different account than the one curre
 
   1. Assign the **Contributor** role to the other account.
   
-     For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+     For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
   1. After you set up this role, sign in to the Azure portal with the account that now has Contributor permissions. You can now use this account to create the connection to Outlook.
 

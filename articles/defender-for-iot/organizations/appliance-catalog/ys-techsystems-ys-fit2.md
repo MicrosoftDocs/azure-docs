@@ -106,7 +106,7 @@ This procedure describes how to update the YS-FIT2 BIOS configuration for your O
 
 1. Press **Esc**.
 
-1. Go to **Boot** > **Boot mode** select, and select **Legacy**.
+1. Go to **Boot** > **Boot mode** select, and select **UEFI**.
 
 1. Select **Boot Option #1 – [USB CD/DVD]**.
 
@@ -154,4 +154,4 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

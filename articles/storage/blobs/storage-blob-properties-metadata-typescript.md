@@ -1,5 +1,5 @@
 ---
-title: Get blob properties and metadata with TypeScript
+title: Manage properties and metadata for a blob with TypeScript
 titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blobs with TypeScript in your Azure Storage account using the JavaScript client library.
 services: storage

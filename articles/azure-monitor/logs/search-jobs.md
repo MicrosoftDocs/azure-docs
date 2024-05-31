@@ -2,21 +2,23 @@
 title: Run search jobs in Azure Monitor
 description: Search jobs are asynchronous log queries in Azure Monitor that make results available as a table for further analytics.
 ms.topic: conceptual
-ms.date: 10/01/2022
-ms.custom: references_regions 
-#customer-intent: As a data scientist or workspace administrator, I want an efficient way to search through large volumes of data in a table, including archived and basic logs.
+ms.date: 05/30/2024
+ms.custom: references_regions
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: adi.biran
+# Customer intent: As a data scientist or workspace administrator, I want an efficient way to search through large volumes of data in a table, including archived and basic logs.
 ---
 
 # Run search jobs in Azure Monitor
 
 Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across large datasets. This article describes how to create a search job and how to query its resulting data.
 
-> [!NOTE]
-> The search job feature is currently not supported for workspaces with [customer-managed keys](customer-managed-keys.md). 
+## Permissions required
 
-## Permissions
-
-To run a search job, you need `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/searchJobs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles).
+| Action | Permissions required |
+|:-------|:---------------------|
+|Run a search job| `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/searchJobs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles).|
 
 ## When to use search jobs
 
@@ -261,8 +263,8 @@ Search jobs are intended to scan large volumes of data in a specific table. Ther
 - [project-keep](/azure/data-explorer/kusto/query/project-keep-operator)
 - [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
 - [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
-- [parse](/azure/data-explorer/kusto/query/whereoperator)
-- [parse-where](/azure/data-explorer/kusto/query/whereoperator)
+- [parse](/azure/data-explorer/kusto/query/parse-operator)
+- [parse-where](/azure/data-explorer/kusto/query/parse-where-operator)
 
 You can use all functions and binary operators within these operators.
 

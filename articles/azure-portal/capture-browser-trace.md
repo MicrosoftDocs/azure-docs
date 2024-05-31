@@ -9,8 +9,8 @@ ms.topic: how-to
 
 If you're troubleshooting an issue with the Azure portal, and you need to contact Microsoft support, you may want to first capture some additional information. For example, it can be helpful to share a browser trace, a step recording, and console output. This information can provide important details about what exactly is happening in the portal when your issue occurs.
 
-> [!IMPORTANT]
-> Microsoft support uses these traces for troubleshooting purposes only. Please be mindful who you share your traces with, as they may contain sensitive information about your environment.
+> [!WARNING]
+> Browser traces often contain sensitive information and might include authentication tokens linked to your identity. Please remove any sensitive information before sharing traces with others. Microsoft support uses these traces for troubleshooting purposes only.
 
 You can capture this information any [supported browser](azure-portal-supported-browsers-devices.md): Microsoft Edge, Google Chrome, Safari (on Mac), or Firefox. Steps for each browser are shown below.
 
@@ -209,10 +209,10 @@ The following steps show how to use the developer tools in Firefox. For more inf
 
 1. Package the browser trace HAR file, console output, and screen recording files in a compressed format such as .zip.
 
-1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md#upload-files).
+1. Share the compressed file with Microsoft support by [using the **File upload** option in your support request](supportability/how-to-manage-azure-support-request.md).
 
 ## Next steps
 
 - Read more about the [Azure portal](azure-portal-overview.md).
 - Learn how to [open a support request](supportability/how-to-create-azure-support-request.md) in the Azure portal.
-- Learn more about [file upload requirements for support requests](supportability/how-to-manage-azure-support-request.md#file-upload-guidelines).
+- Learn more about [file upload requirements for support requests](supportability/how-to-manage-azure-support-request.md).

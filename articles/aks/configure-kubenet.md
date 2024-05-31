@@ -7,7 +7,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 05/22/2024
 ---
 
 # Use kubenet networking with your own IP address ranges in Azure Kubernetes Service (AKS)
@@ -59,6 +59,9 @@ With *Azure CNI*, each pod receives an IP address in the IP subnet and can commu
   * [Windows node pools](./windows-faq.md)
   * [Virtual nodes add-on](virtual-nodes.md#network-requirements)
 
+> [!NOTE]
+> Some of the system pods such as **konnectivity** within the cluster use the host node IP address rather than an IP from the overlay address space. The system pods will only use the node IP and not an IP address from the virtual network.
+
 ### IP address availability and exhaustion
 
 A common issue with *Azure CNI* is that the assigned IP address range is too small to then add more nodes when you scale or upgrade a cluster. The network team also might not be able to issue a large enough IP address range to support your expected application demands.
@@ -68,7 +71,7 @@ As a compromise, you can create an AKS cluster that uses *kubenet* and connect t
 The following basic calculations compare the difference in network models:
 
 * **kubenet**: A simple */24* IP address range can support up to *251* nodes in the cluster. Each Azure virtual network subnet reserves the first three IP addresses for management operations. This node count can support up to *27,610* pods, with a default maximum of 110 pods per node.
-* **Azure CNI**: That same basic */24* subnet range can only support a maximum of *eight* nodes in the cluster. This node count can only support up to *240* pods, with a default maximum of 30 pods per node).
+* **Azure CNI**: That same basic */24* subnet range can only support a maximum of *eight* nodes in the cluster. This node count can only support up to *240* pods, with a default maximum of 30 pods per node.
 
 > [!NOTE]
 > These maximums don't take into account upgrade or scale operations. In practice, you can't run the maximum number of nodes the subnet IP address range supports. You must leave some IP addresses available for scaling or upgrading operations.
@@ -112,7 +115,8 @@ For more information to help you decide which network model to use, see [Compare
         --name myAKSVnet \
         --address-prefixes 192.168.0.0/16 \
         --subnet-name myAKSSubnet \
-        --subnet-prefix 192.168.1.0/24
+        --subnet-prefix 192.168.1.0/24 \
+        --location eastus
     ```
 
 3. Get the subnet resource ID using the [`az network vnet subnet show`][az-network-vnet-subnet-show] command and store it as a variable named `SUBNET_ID` for later use.
@@ -149,19 +153,6 @@ For more information to help you decide which network model to use, see [Compare
     * This address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed.
     * The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *--pod-cidr* of *10.244.0.0/16* assigns the first node *10.244.0.0/24*, the second node *10.244.1.0/24*, and the third node *10.244.2.0/24*.
     * As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
-
-> [!NOTE]
-> If you want to enable an AKS cluster to include a [Calico network policy][calico-network-policies], you can use the following command:
->
-> ```azurecli-interactive
-> az aks create \
->     --resource-group myResourceGroup \
->     --name myAKSCluster \
->     --node-count 3 \
->     --network-plugin kubenet \
->     --network-policy calico \
->     --vnet-subnet-id $SUBNET_ID 
-> ```
 
 ### Create an AKS cluster with user-assigned managed identity
 
@@ -237,7 +228,7 @@ With kubenet, a route table must exist on your cluster subnet(s). AKS supports b
 
 Learn more about setting up a [custom route table][custom-route-table].
 
-kubenet networking requires organized route table rules to successfully route requests. Due to this design, route tables must be carefully maintained for each cluster that relies on it. Multiple clusters can't share a route table because pod CIDRs from different clusters might overlap which causes unexpected and broken routing scenarios. When configuring multiple clusters on the same virtual network or dedicating a virtual network to each cluster, consider the following limitations:
+Kubenet networking requires organized route table rules to successfully route requests. Due to this design, route tables must be carefully maintained for each cluster that relies on it. Multiple clusters can't share a route table because pod CIDRs from different clusters might overlap which causes unexpected and broken routing scenarios. When configuring multiple clusters on the same virtual network or dedicating a virtual network to each cluster, consider the following limitations:
 
 * A custom route table must be associated to the subnet before you create the AKS cluster.
 * The associated route table resource can't be updated after cluster creation. However, custom rules can be modified on the route table.
@@ -294,7 +285,7 @@ This article showed you how to deploy your AKS cluster into your existing virtua
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
-[network-comparisons]: concepts-network.md#compare-network-models
-[custom-route-table]: ../virtual-network/manage-route-table.md
+[custom-route-table]: ../virtual-network/manage-route-table.yml
+[network-comparisons]: concepts-network-cni-overview.md
 [Create an AKS cluster with user-assigned managed identity]: configure-kubenet.md#create-an-aks-cluster-with-user-assigned-managed-identity
 [bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-managed-identity

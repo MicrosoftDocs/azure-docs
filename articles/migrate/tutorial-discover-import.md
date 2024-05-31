@@ -13,6 +13,9 @@ ms.custom: engagement-fy23
 
 # Tutorial: Build a business case or assess servers using an imported CSV file
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
 This tutorial shows you how to build a business case or assess on-premises machines with the Azure Migrate: Discovery and Assessment tool, using an imported comma-separate values (CSV) file. 
@@ -50,7 +53,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To create an Azure Migrate project, you need an account with:
 
 - Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Azure Active Directory apps.
+- Permissions to register Microsoft Entra apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -64,7 +67,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -76,7 +79,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. In the portal, search for users, and under **Services**, select **Users**.
 
-1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+1. In **User settings**, verify that Microsoft Entra users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-import/register-apps.png)
 

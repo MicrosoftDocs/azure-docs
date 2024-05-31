@@ -1,7 +1,7 @@
 ---
 title: ServicePrincipalSelector UI element
 description: Describes the Microsoft.Common.ServicePrincipalSelector UI element for Azure portal. Provides a control to choose an application and a textbox to input a password or certificate thumbprint.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/17/2020
 ---
 
@@ -27,7 +27,7 @@ After you register a new application, use the **Authentication Type** to enter a
 
 ### Use existing application
 
-To use an existing application, choose **Select Existing** and then select **Make selection**. Use the **Select an application** dialog box to search for the application's name. From the results, select the the application and then the **Select** button. After you select an application, the control displays the **Authentication Type** to enter a password or certificate thumbprint.
+To use an existing application, choose **Select Existing** and then select **Make selection**. Use the **Select an application** dialog box to search for the application's name. From the results, select the application and then the **Select** button. After you select an application, the control displays the **Authentication Type** to enter a password or certificate thumbprint.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-existing.png" alt-text="Screenshot of Microsoft.Common.ServicePrincipalSelector with select existing application option and authentication type displayed.":::
 

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/24/2022
+ms.date: 10/20/2023
 ---
 
 # Nested activities in Azure Data Factory and Azure Synapse Analytics
@@ -50,7 +50,7 @@ Your pipeline canvas will then switch to the context of the inner activity conta
 There are constraints on the activities that support nesting (ForEach, Until, Switch, and If Condition), for nesting another nested activity. Specifically:
 
 - If and Switch can be used inside ForEach or Until activities.
-- If and Switch can not used inside If and Switch activities.
+- If and Switch can't be used inside If and Switch activities.
 - ForEach or Until support only a single level of nesting.
 
 See the best practices section below on how to use other pipeline activities to enable this scenario. In addition, the 
@@ -58,7 +58,7 @@ See the best practices section below on how to use other pipeline activities to 
 
 If and Switch can be used inside ForEach or Until activities.
 ForEach or Until supports only single level nesting
-If and Switch can not used inside If and Switch activities.
+If and Switch can't be used inside If and Switch activities.
 
 ## Best practices for multiple levels of nested activities
 In order to have logic that supports nesting more than one level deep, you can use the [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md) inside of your nested activity to call another pipeline that then can have another level of nested activities. A common use case for this pattern is with the ForEach loop where you need to additionally loop based off logic in the inner activities. 
@@ -78,7 +78,7 @@ The child pipeline would look similar to the below example.
 
  :::image type="content" source="media/concepts-pipelines-activities/nested-activity-execute-child-pipeline.png" alt-text="Screenshot showing an example child pipeline with a ForEach loop.":::
 
-## Next steps
+## Related content
 
 See the following tutorials for step-by-step instructions for creating pipelines and datasets.
 

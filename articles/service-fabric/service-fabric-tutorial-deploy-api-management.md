@@ -292,7 +292,7 @@ az group delete --name $ResourceGroupName
 
 Learn more about using [API Management](../api-management/import-and-publish.md).
 
-You can also use the [Azure portal](../api-management/how-to-configure-service-fabric-backend.md) to create and manage Service Fabric backends for API Management.
+You can also use the [Azure portal](../api-management/how-to-configure-service-fabric-backend.yml) to create and manage Service Fabric backends for API Management.
 
 [azure-powershell]: /powershell/azure/
 

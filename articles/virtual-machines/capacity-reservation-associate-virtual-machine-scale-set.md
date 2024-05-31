@@ -33,6 +33,10 @@ There are some other restrictions while using Capacity Reservation. For the comp
 
 ## Associate a new Virtual Machine Scale Set to a Capacity Reservation group
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 
 ### [API](#tab/api1)  
 
@@ -86,6 +90,7 @@ az vmss create
 --resource-group myResourceGroup 
 --name myVMSS 
 --location eastus 
+--orchestration-mode Uniform
 --vm-sku Standard_Ds1_v2 
 --image Ubuntu2204 
 --capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName} 
@@ -105,6 +110,7 @@ New-AzVmss
 -VMScaleSetName $vmssName
 -ResourceGroupName "myResourceGroup"
 -CapacityReservationGroupId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}"
+-OrchestrationMode "Uniform"
 -PlatformFaultDomainCount 2
 ```
 
@@ -115,8 +121,6 @@ To learn more, go to Azure PowerShell command [New-AzVmss](/powershell/module/az
 An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSrestON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create Capacity Reservation group and Capacity Reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration/continuous delivery (CI/CD) pipelines. 
-
-If your environment meets the prerequisites and you are familiar with using ARM templates, use this [Create Virtual Machine Scale Sets with Capacity Reservation](https://github.com/Azure/on-demand-capacity-reservation/blob/main/VirtualMachineScaleSetWithReservation.json) template. 
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->

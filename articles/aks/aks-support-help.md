@@ -3,6 +3,9 @@ title: Support and troubleshooting for Azure Kubernetes Service (AKS)
 description: This article provides support and troubleshooting options for Azure Kubernetes Service (AKS).
 ms.topic: troubleshooting
 ms.date: 09/27/2023
+author: nickomang
+ms.author: nickoman
+
 ms.custom: support-help-page
 ---
 
@@ -31,7 +34,7 @@ The following table lists the tags for AKS and related services:
 | [Azure storage accounts](../storage/common/storage-account-overview.md) | [azure-storage-accounts](/answers/topics/azure-storage-accounts.html)|
 | [Azure Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) | [azure-managed-identity](/answers/topics/azure-managed-identity.html) |
 | [Azure RBAC](../role-based-access-control/overview.md) | [azure-rbac](/answers/topics/azure-rbac.html)|
-| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | [azure-active-directory](/answers/topics/azure-active-directory.html)|
+| [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) | [Microsoft Entra ID](/answers/topics/azure-active-directory.html)|
 | [Azure Policy](../governance/policy/overview.md) | [azure-policy](/answers/topics/azure-policy.html)|
 | [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) | [virtual-machine-scale-sets](/answers/topics/123/azure-virtual-machines-scale-set.html)|
 | [Azure Virtual Network](../virtual-network/network-overview.md) | [azure-virtual-network](/answers/topics/azure-virtual-network.html)|
@@ -74,3 +77,4 @@ Learn about important product updates, roadmap, and announcements in [Azure Upda
 ## Next steps
 
 Visit the [Azure Kubernetes Service (AKS) documentation](./index.yml).
+

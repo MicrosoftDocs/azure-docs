@@ -2,11 +2,11 @@
 title: Save on SAP HANA Large Instances with an Azure reservation
 description: Understand the things you need to know before you buy a HANA Large Instance reservation and how to make the purchase.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 04/15/2024
 ms.author: banders
 ---
 
@@ -30,6 +30,8 @@ An HLI SKU must be provisioned before going through the reserved capacity purcha
 You can purchase reserved capacity in the Azure portal or by using the [REST API](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ## Buy a HANA Large Instance reservation
+
+To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 
 Use the following information to buy an HLI reservation with the [Reservation Order REST APIs](/rest/api/reserved-vm-instances/reservationorder/purchase).
 

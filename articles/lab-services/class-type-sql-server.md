@@ -111,7 +111,7 @@ Visual Studio supports several workloads including **Web & cloud** and **Desktop
 
 [Azure Data Studio](https://github.com/microsoft/azuredatastudio) is a multi-database, cross-platform desktop environment for data professionals using the family of on-premises and cloud data platforms on Windows, macOS, and Linux.
 
-1. Download the [Azure Data Studio *system* installer for Windows](https://go.microsoft.com/fwlink/?linkid=2127432). To find installers for other supported operating systems, go to the [Azure Data Studio](/sql/azure-data-studio/download) download page.
+1. Download the [Azure Data Studio *system* installer for Windows](https://go.microsoft.com/fwlink/?linkid=2127432). To find installers for other supported operating systems, go to the [Azure Data Studio](/azure-data-studio/download-azure-data-studio) download page.
 
 1. On the **License Agreement** page, select **I accept the agreement**, and then select **Next**.
 
@@ -131,7 +131,7 @@ Now that you have installed Azure Data Studio, you can set up the connection to 
 
 1. In the **Connection Details** box, fill in necessary information.
 
-    - Set **Server** to *classlabdbserver.database.windows.net*
+    - Set **Server** to *server-name.database.windows.net*
     - Set **User** name to *azureuser*
     - Set **Password** to password used to create the database.
     - Check **Remember Password**.
@@ -157,7 +157,7 @@ Now that you have installed Azure Data Studio, you can set up the connection to 
 Now that you installed SSMS, you can [connect and query a SQL Server](/sql/ssms/tutorials/connect-query-sql-server). When setting up the connection, use the following values:
 
 - **Server type**: *Database Engine*
-- **Server name**: *classlabdbserver.database.windows.net*
+- **Server name**: *server-name.database.windows.net*
 - **Authentication**: *SQL Server Authentication*
 - **Login**: *azureuser*
 - **Password**: enter the password you used to create the database.

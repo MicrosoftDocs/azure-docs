@@ -6,7 +6,7 @@ ms.author: rogarana
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 11/17/2023
 ---
 
 # Understand how your reservation discount is applied to Azure disk storage
@@ -43,13 +43,13 @@ Suppose that for an hour within the reservation period, you use 101 premium SSD 
 
 Suppose that in a given hour within your reservation period, you want to use a total of 200 P30 premium SSDs. Also suppose you use only 100 for the first 30 minutes. During this period, your use is fully covered because you made a reservation for 100 P30 disks. If you then discontinue the use of the first 100 (so that you're using zero) and then begin to use the other 100 for the remaining 30 minutes, that usage is also covered under your reservation.
 
-![Example of underusing, overusing, and tiering capacity](media/understand-disk-reservations/reserved-disks-example-scenarios.png)
+:::image type="content" border="false" source="media/understand-disk-reservations/reserved-disks-example-scenarios.png" alt-text="Diagram showing underusing, overusing, and tiering capacity.":::
 
 ## Need help? Contact us
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - [Reduce costs with Azure Disks Reservation](../../virtual-machines/disks-reserved-capacity.md)
 - [What are Azure Reservations?](save-compute-costs-reservations.md)

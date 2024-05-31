@@ -1,11 +1,11 @@
 ---
 title: Create a Windows VM from a template in Azure
 description: Use a Resource Manager template and PowerShell to easily create a new Windows VM.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/24/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -17,7 +17,7 @@ Learn how to create a Windows virtual machine by using an Azure Resource Manager
 
 An alternative is to deploy the template from the Azure portal. To open the template in the portal, select the **Deploy to Azure** button.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-simple-windows%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-simple-windows%2Fazuredeploy.json":::
 
 ## Create a virtual machine
 

@@ -11,7 +11,7 @@ ms.topic: overview
 ---
 # What is Custom Translator?
 
-Custom Translator is a feature of the Microsoft Translator service, which enables enterprises, app developers, and language service providers to build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
+Custom Translator is a feature of the [Azure AI Translator](../translator-overview.md) service, which enables enterprises, app developers, and language service providers to build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
 
 Translation systems built with [Custom Translator](https://portal.customtranslator.azure.ai) are available through Microsoft Translator [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl), the same cloud-based, secure, high performance system powering billions of translations every day.
 
@@ -50,7 +50,7 @@ With [Custom Translator](https://portal.customtranslator.azure.ai), training and
 
 The secure [Custom Translator](https://portal.customtranslator.azure.ai) portal enables users to upload training data, train systems, test systems, and deploy them to a production environment through an intuitive user interface. The system will then be available for use at scale within a few hours (actual time depends on training data size).
 
-[Custom Translator](https://portal.customtranslator.azure.ai) can also be programmatically accessed through a [dedicated API](https://custom-api.cognitive.microsofttranslator.com/swagger/). The API allows users to manage creating or updating training through their own app or webservice.
+[Custom Translator](https://portal.customtranslator.azure.ai) can also be programmatically accessed through a dedicated API. The API allows users to manage creating or updating training through their own app or webservice.
 
 The cost of using a custom model to translate content is based on the user's Translator Text API pricing tier. See the Azure AI services [Translator Text API pricing webpage](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 for pricing tier details.

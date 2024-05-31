@@ -5,8 +5,8 @@ author: reachnijel
 ms.author: nijelsf 
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 11/17/2022
+ms.custom: subject-armqs, mode-arm, devx-track-bicep, linux-related-content
+ms.date: 12/05/2023
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Bicep
 ---
 
@@ -61,7 +61,7 @@ Two Azure resources are defined in the Bicep file:
     * Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards.
     * Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. The username cannot be admin.
 
-    You'll also be prompted to enter the following:
+    You'll also be prompted to enter the following parameter:
 
     * **clusterLoginPassword**, which must be at least 10 characters long and contain one digit, one uppercase letter, one lowercase letter, and one non-alphanumeric character except single-quote, double-quote, backslash, right-bracket, full-stop. It also must not contain three consecutive characters from the cluster username or SSH username.
     * **sshPassword**, which must be 6-72 characters long and must contain at least one digit, one uppercase letter, and one lowercase letter. It must not contain any three consecutive characters from the cluster login name.
