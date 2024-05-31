@@ -66,7 +66,7 @@ Project environment types allow you to automatically apply the right set of poli
 
 ## Catalogs
 
-Catalogs help you provide a set of curated IaC templates for your development teams to create environments. You can attach a catalog to a dev center make environment defintions available to all the projects associated with the dev center. You can also attach a catalog to a project to provide environment definitions to that specific project.
+Catalogs help you provide a set of curated IaC templates for your development teams to create environments. You can attach a catalog to a dev center make environment definitions available to all the projects associated with the dev center. You can also attach a catalog to a project to provide environment definitions to that specific project.
 
 Microsoft provides a [*quick start* catalog](https://github.com/microsoft/devcenter-catalog) that contains a set of sample environment definitions. You can attach the quick start catalog to a dev center or project to make these environment definitions available to developers. You can modify the sample environment definitions to suit your needs. 
 
