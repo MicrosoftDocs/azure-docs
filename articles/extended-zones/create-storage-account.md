@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Deploy a storage account in an Extended Zone"
+title: "Tutorial: Deploy a storage account in an Azure Extended Zone"
 description: Learn how to deploy a storage account in an Azure Extended Zone.
 author: halkazwini
 ms.author: halkazwini
