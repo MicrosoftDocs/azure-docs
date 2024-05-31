@@ -64,10 +64,7 @@ If your application can’t receive push notifications, make sure your new FCM v
 If  your application still can’t receive push notifications, contact Azure Communication Services at [Microsoft Azure Help+ support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
 
-## Next steps
-
-Any?
-
 ## Related articles
 
 [Enable push notifications in your Android chat app](./chat-android-push-notification.md)
+[Enable push notifications for calls](../how-tos/calling-sdk/push-notifications.md)
