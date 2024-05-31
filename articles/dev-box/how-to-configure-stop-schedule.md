@@ -13,7 +13,10 @@ ms.topic: how-to
 
 # Auto-stop your Dev Boxes on schedule
 
-To save on costs, you can enable an auto-stop schedule on a dev box pool. Microsoft Dev Box attempts to shut down all dev boxes in the pool at the time specified in the schedule. You can configure one stop time in one timezone for each pool.
+To save on costs, you can enable an auto-stop schedule on a dev box pool. Microsoft Dev Box attempts to stop all dev boxes in the pool at the time specified in the schedule. You can configure one stop time in one timezone for each pool.
+
+> [!NOTE]
+> Auto-stop schedules hibernate Dev Boxes that were created with a hibernation-enabled Dev Box definition. Dev boxes that were created using Dev Box definitions that do not support hibernation will be shut down. To learn more about enabling hibernation on your Dev Box definitions, see  [how to configure dev box hibernation](./how-to-configure-dev-box-hibernation.md)
 
 ## Permissions
 

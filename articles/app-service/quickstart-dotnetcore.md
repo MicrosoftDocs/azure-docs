@@ -34,6 +34,8 @@ target cross-platform with .NET 7.0.
 
 # Quickstart: Deploy an ASP.NET web app
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 In this quickstart, you learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
 Alternatively, you can deploy an ASP.NET web app as part of a [Windows or Linux container in App Service](quickstart-custom-container.md).
