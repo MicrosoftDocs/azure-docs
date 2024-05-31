@@ -52,8 +52,8 @@ In this section, you create a storage account in an Extended Zone.
 
     :::image type="content" source="./media/create-storage-account/create-storage-account-basics.png" alt-text="Screenshot that shows the Basics tab of creating a storage account in an Azure Extended Zone." lightbox="./media/create-storage-account/create-storage-account-basics.png":::
 
-> [!NOTE]
-> Azure Extended Zones only supports premium storage accounts with locally-redundant storage (LRS) redundancy.
+    > [!NOTE]
+    > Azure Extended Zones only supports premium storage accounts with locally-redundant storage (LRS) redundancy.
 
 1. Select **Review + create**.
 
