@@ -184,5 +184,5 @@ That's it! You just learned how to create SAS tokens to authorize how clients ac
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get Started with Document Translation](../quickstarts/asynchronous-rest-api.md)
+> [Get Started with Document Translation](../how-to-guides/use-rest-api-programmatically.md)
 >

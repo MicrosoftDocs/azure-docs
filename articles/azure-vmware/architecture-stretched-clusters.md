@@ -1,7 +1,7 @@
 ---
 title: Architecture - Design considerations for vSAN stretched clusters
 description: Learn about how to use stretched clusters for Azure VMware Solution.
-ms.topic: concepts
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 4/10/2024
 ms.custom: references_regions, engagement-fy24
