@@ -1,6 +1,6 @@
 ---
 title: Use clustered applications on Azure Elastic SAN
-description: Learn more about using clustered applications on an Elastic SAN volume and sharing volumes between compute clients.
+description: Use clustered applications on an Elastic SAN volume and share Elastic SAN volumes between compute clients.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
