@@ -9,7 +9,8 @@ ms.custom: include file
 
 | Resource | Limit |
 |--|:-|
-| Maximum clusters per subscription per region<sup>1</sup> | 100 <br />Note: Spread clusters across different regions to account for Azure API throttling limits |
+| Maximum clusters per subscription globally | 5,000 <br />Note: Spread clusters across different regions to account for Azure API throttling limits |
+| Maximum clusters per subscription per region <sup>1</sup> | 100 |
 | Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 5,000 across all [node pools][node-pool] <br />Note: If you're unable to scale up to 5,000 nodes per cluster, see [Best Practices for Large Clusters](../articles/aks/best-practices-performance-scale-large.md). |
 | Maximum nodes per node pool (Virtual Machine Scale Sets node pools) | 1000 |
 | Maximum node pools per cluster | 100 |
