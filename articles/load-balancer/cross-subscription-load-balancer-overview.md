@@ -25,6 +25,7 @@ Cross-subscription load balancing allows you to deploy Azure Load Balancer resou
 :::image type="content" source="media/cross-subscription-load-balancer-overview/cross-subscription-load-balancer-concept.png" alt-text="Diagram of cross-subscription load balancer concepts with two subscriptions and resources.":::
 
 The table below illustrates some of the possible scenarios cross-subscription load balancing supports. 
+
 | **Subscription 1** | **Subscription 2** |
 |----------------|----------------|
 | Load Balancer | Backend pool resources and Frontend IP address |
