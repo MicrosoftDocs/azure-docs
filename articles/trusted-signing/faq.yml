@@ -162,8 +162,8 @@ sections:
     questions:  
        - question: How do I view usage costs and billing information for Trusted Signing resources?
          answer: | 
-          Review resource usage costs under your selected Subscription > Cost Management and for further details follow:(https://learn.microsoft.com/azure/cost-management-billing/costs/)
-          Review billing information under your selected Subscription > Billing and for further details follow: (https://learn.microsoft.com/azure/cost-management-billing/manage/)
+          Review resource usage costs under your selected Subscription > Cost Management and for further details follow [Cost Management](https://learn.microsoft.com/azure/cost-management-billing/costs/).
+          Review billing information under your selected Subscription > Billing and for further details follow [Billing](https://learn.microsoft.com/azure/cost-management-billing/manage/).
 
   - name: Unenroll from the Trusted Signing service
     questions:  
