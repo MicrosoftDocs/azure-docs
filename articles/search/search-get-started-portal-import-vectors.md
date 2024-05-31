@@ -41,7 +41,7 @@ For more configuration and data source options, try Python or the REST APIs. See
 
   First, role-based access control isn't available on the free tier. Basic tier and higher  provide role-based access control, which is required for *OneLake indexing* and recommended for connections to embedding models.
 
-  Second, for multimodal embeddings with Azure AI Vision, your search service must be in the *same region* as Azure AI Vision. Currently, those regions are: SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list.
+  Second, for multimodal embeddings with Azure AI Vision or image-related transformations, your search service must be in the *same region* as Azure AI Vision. Currently, those regions are: SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list.
 
 + A supported embedding model: [Azure OpenAI](https://aka.ms/oai/access) endpoint with deployments, [Azure AI Vision](/azure/ai-services/computer-vision/how-to/image-retrieval) in a supported region, or [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) (and hub and project) with model deployments.
 
@@ -69,7 +69,7 @@ In the following sections, you can assign the search service managed identity to
 
 ## Check for semantic ranking
 
-This wizard supports semantic ranking, but only on Basic tier and above, and only if semantic ranking is already [enabled on your search service](semantic-how-to-enable-disable.md). If you're using a billable tier, check to see if semantic ranking is enabled.
+This wizard supports semantic ranking, but only on Basic tier and higher, and only if semantic ranking is already [enabled on your search service](semantic-how-to-enable-disable.md). If you're using a billable tier, check to see if semantic ranking is enabled.
 
 :::image type="content" source="media/search-get-started-portal-import-vectors/semantic-ranker-enabled.png" alt-text="Screenshot of the semantic ranker configuration page.":::
 
@@ -89,9 +89,9 @@ This section points you to data that works for this quickstart.
 
 ### [**OneLake**](#tab/sample-data-onelake)
 
-1. Sign in to the [Power BI](https://powerbi.com/) and [create a workspace](fabric/data-engineering/tutorial-lakehouse-get-started).
+1. Sign in to the [Power BI](https://powerbi.com/) and [create a workspace](/fabric/data-engineering/tutorial-lakehouse-get-started).
 
-1. In Power BI, select **Workspaces** from the left-hand menu and open the workspace you just created.
+1. In Power BI, select **Workspaces** from the left-hand menu and open the workspace you created.
 
 1. Assign permissions at the workspace level:
 
@@ -127,8 +127,6 @@ You can use embedding models deployed in Azure OpenAI, Azure AI Vision for multi
 
 **Import and vectorize data** supports: text-embedding-ada-002, text-embedding-3-large, text-embedding-3-small. Internally, the wizard uses the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) to connect to Azure OpenAI.
 
-The wizard can detect Azure OpenAI accounts and embedding model deployments in the same subscription. However, if you're using a different subscription, you can use the instructions in this section to get connection information.
-
 Use these instructions to assign permissions or get an API key for search service connection to Azure OpenAI. You should set up permissions or have connection information in hand before running the wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure OpenAI resource.
@@ -147,7 +145,7 @@ Use these instructions to assign permissions or get an API key for search servic
 
    1. Select **Review + assign**.
 
-1. On the Overview page, select **Click here to view endpoints** and **Click here to manage keys** if you need to copy an endpoint or API key. You can paste these values into the wizard if you're using an Azure OpenAI resource in a different subscription, or if you aren't using roles on the connection.
+1. On the Overview page, select **Click here to view endpoints** and **Click here to manage keys** if you need to copy an endpoint or API key. You can paste these values into the wizard if you're using an Azure OpenAI resource with key-based authentication.
 
 1. Under **Resource Management** and **Model deployments**, select **Manage Deployments** to open Azure AI Studio. 
 
@@ -157,9 +155,9 @@ Use these instructions to assign permissions or get an API key for search servic
 
 **Import and vectorize data** supports Azure AI Vision image retrieval using multimodal embeddings (version 4.0). Internally, the wizard uses the [multimodal embeddings skill](cognitive-search-skill-vision-vectorize.md) to connect to Azure AI Vision.
 
-1. [Create an Azure AI Vision service in a supported region](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp#prerequisites). We recommend using the same Azure subscription for detection in the wizard.
+1. [Create an Azure AI Vision service in a supported region](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp#prerequisites). 
 
-1. Make sure your Azure AI Search service is also in one of those supported regions.
+1. Make sure your Azure AI Search service is in the same region
 
 1. After the service is deployed, go to the resource and select **Access control** to assign **Cognitive Services OpenAI Contributor** to your search service's managed identity. Optionally, you can use key-based authentication for the connection.
 
@@ -168,8 +166,6 @@ Once these steps are complete, you should be able to select Azure AI Vision vect
 ### [**Azure AI Studio model catalog**](#tab/model-catalog)
 
 **Import and vectorize data** supports Azure, Cohere, and Facebook embedding models in the Azure AI Studio model catalog, but doesn't currently support OpenAI-CLIP. Internally, the wizard uses the [AML skill](cognitive-search-aml-skill.md) to connect to the catalog.
-
-The wizard can detect Azure AI Studio and hubs and projects in the same subscription. However, if you're using a different subscription, use the instructions in this section to get connection information.
 
 Use these instructions to assign permissions or get an API key for search service connection to Azure OpenAI. You should set up permissions or have connection information in hand before running the wizard.
 
@@ -195,50 +191,78 @@ The next step is to connect to a data source to use for the search index.
 
 1. In the **Import and vectorize data** wizard on the **Connect to your data** tab, expand the **Data Source** dropdown list and select **Azure Blob Storage** or **OneLake**.
 
-1. Specify the Azure subscription
+1. Specify the Azure subscription.
 
-1. For Azure Storage, select the account and container that provides the data. For OneLake, specify the lakehouse URL or provide the workspace and lakehouse IDs.
+1. For OneLake, specify the lakehouse URL or provide the workspace and lakehouse IDs.
 
-1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md):
+1. For Azure Storage, select the account and container that provides the data. 
+
+1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md). Here's a screenshot of options for an Azure Storage data source:
 
       :::image type="content" source="media/search-get-started-portal-import-vectors/data-source-page.png" alt-text="Screenshot of the data source page.":::
 
-1. Select **Next: Vectorize your text** to continue.
+1. Select **Next**.
 
 ## Vectorize your text
 
+In this step, specify the embedding model used to vectorize chunked data.
+
+1. Specify whether deployed models are on Azure OpenAI, the Azure AI Studio model catalog, or an existing Azure AI Vision multimodal resource in the same region as Azure AI Search.
+
+1. Specify the Azure subscription.
+
+1. For Azure OpenAI, select the service, model deployment, and authentication type. See [Set up an embedding model (Azure OpenAI)](#azure-openai) for details.
+
+1. For AI Studio catalog, select the project, model deployment, and authentication type. See [Set up an embedding model (Azure AI Studio model catalog)](#azure-ai-studio-model-catalog) for details.
+
+1. For AI Vision vectorization, select the account. See [Set up an embedding model (Azure AI Vision)](#azure-ai-studio-model-catalog) for details.
+
+1. Select the checkbox acknowledging the billing impact of using these resources.
+
+1. Select **Next**.
 
 ## Vectorize and enrich your images
 
-In this step, specify the embedding model used to vectorize chunked data.
+If your content includes images, you can apply AI in two ways:
 
-1. Provide the subscription, endpoint, API key, and model deployment name.
++ Use a supported image embedding model from the catalog, or choose the Azure AI Vision multimodal embeddings API to vectorize images. 
++ Use OCR to recognize text in images. 
+
+Azure AI Search and your Azure AI resource must be in the same region.
+
+1. Specify the kind of connection the wizard should make. For image vectorization, it can connect to embedding models in Azure AI Studio or Azure AI Vision.
+
+1. Specify the subscription.
+
+1. For Azure AI Studio model catalog, specify the project and deployment. See [Setting up an embedding model (Azure AI Studio model catalog)](#azure-ai-studio-model-catalog) for details.
 
 1. Optionally, you can crack binary images (for example, scanned document files) and [use OCR](cognitive-search-skill-ocr.md) to recognize text.
 
-1. Optionally, you can add [semantic ranking](semantic-search-overview.md) to rerank results at the end of query execution, promoting the most semantically relevant matches to the top.
+1. Select the checkbox acknowledging the billing impact of using these resources.
 
-1. Specify a [run time schedule](search-howto-schedule-indexers.md) for the indexer.
-
-   :::image type="content" source="media/search-get-started-portal-import-vectors/enrichment-page.png" alt-text="Screenshot of the enrichment page.":::
-
-1. Select **Next: Create and Review** to continue.
+1. Select **Next**.
 
 ## Advanced settings
 
-TBD
+1. Optionally, you can add [semantic ranking](semantic-search-overview.md) to rerank results at the end of query execution, promoting the most semantically relevant matches to the top.
+
+1. Optionally, specify a [run time schedule](search-howto-schedule-indexers.md) for the indexer.
+
+1. Select **Next**.
 
 ## Run the wizard
 
-This step creates the following objects:
+1. On Review and create, specify a prefix for the objects created when the wizard runs. A common prefix helps you stay organized.
 
-+ Data source connection.
+1. Select **Create** to run the wizard. This step creates the following objects:
 
-+ Index with vector fields, vectorizers, vector profiles, vector algorithms. You aren't prompted to design or modify the default index during the wizard workflow. Indexes conform to the [2024-05-01-preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
+   + Data source connection.
 
-+ Skillset with [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and an embedding skill for vectorization. The embedding skill is either the [AzureOpenAIEmbeddingModel skill](cognitive-search-skill-azure-openai-embedding.md) for Azure OpenAI or [AML skill](cognitive-search-aml-skill.md) for Azure AI Studio model catalog.
+   + Index with vector fields, vectorizers, vector profiles, vector algorithms. You aren't prompted to design or modify the default index during the wizard workflow. Indexes conform to the [2024-05-01-preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
-+ Indexer with field mappings and output field mappings (if applicable).
+   + Skillset with [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and an embedding skill for vectorization. The embedding skill is either the [AzureOpenAIEmbeddingModel skill](cognitive-search-skill-azure-openai-embedding.md) for Azure OpenAI or [AML skill](cognitive-search-aml-skill.md) for Azure AI Studio model catalog.
+
+   + Indexer with field mappings and output field mappings (if applicable).
 
 If you can't select Azure AI Vision vectorizer, make sure you have an Azure AI Vision resource in a supported region, and that your search service managed identity has a **Cognitive Services OpenAI User** permissions.
 
@@ -248,7 +272,7 @@ If you can't progress through the wizard because other options aren't available 
 
 Search explorer accepts text strings as input and then vectorizes the text for vector query execution.
 
-1. Select your index.
+1. In the Azure portal, under **Search Management** and **Indexes**, select the index your created.
 
 1. Optionally, select **Query options** and hide vector values in search results. This step makes your search results easier to read.
 
