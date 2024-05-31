@@ -144,7 +144,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Push and pull supply chain artifacts (Preview)
-            url: container-registry-oras-artifacts.md
+            url: container-registry-manage-artifact.md
           - text: Build, sign, and verify container images using Notary and Azure Key Vault (Preview)
             url: container-registry-tutorial-sign-build-push.md
           - text: Connect to ACR with Azure Private Link

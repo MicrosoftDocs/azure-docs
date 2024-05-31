@@ -3,7 +3,7 @@ title: What's new in Microsoft Sentinel
 description: Learn about the latest new features and announcement in Microsoft Sentinel from the past few months.
 author: yelevin
 ms.author: yelevin
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 05/21/2024
 ---
 
