@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/25/2022
 ms.author: msangapu
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 ---
 
 # Create an ASP.NET Core app in a Docker container in App Service from Azure Container Registry

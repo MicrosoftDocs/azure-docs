@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: update-code1, cliv2
+ms.custom: update-code3, cliv2
 author: cloga
 ms.author: lochen
 ms.date: 03/06/2024

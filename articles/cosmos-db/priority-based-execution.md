@@ -43,6 +43,7 @@ To get started using priority-based execution, navigate to the **Features** page
 - Java v4: [v4.45.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.45.0) or later
 - Spark 3.2: [v4.19.0](https://central.sonatype.com/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-2_2-12/4.19.0) or later
 - JavaScript v4: [v4.0.0](https://www.npmjs.com/package/@azure/cosmos) or later
+- Python: [v4.5.2b2](https://pypi.org/project/azure-cosmos/4.5.2b2/) or later. Available only in preview version.
 
 ## Code samples
 
@@ -102,7 +103,19 @@ container.createItem(family, new PartitionKey(family.getLastName()), requestOpti
     }).subscribe();
     
 ```
+#### [Python SDK](#tab/python) 
+
+Priority-based execution feature is a preview feature available in Python SDK v4.6.0 or later. It should be enabled at the account level before using it in the Python SDK.
+The request priority can be specified as "Low" or "High" as below:
+
+```python
+item1_read = container.read_item("item1", "pk1", priority="High")
+item2_read = container.read_item("item2", "pk2", priority="Low")
+query = list(container.query_items("Select * from c", partition_key="pk1", priority="High"))
+```
+
 ---
+
 
 ## Monitoring Priority-based execution
 

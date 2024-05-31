@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.date: 02/16/2024
+ms.date: 04/21/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -35,7 +35,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - AKS backups don't support in-tree volumes. You can back up only CSI driver-based volumes. You can [migrate from tree volumes to CSI driver-based persistent volumes](../aks/csi-migrate-in-tree-volumes.md).
 
-- Currently, an AKS backup supports only the backup of Azure disk-based persistent volumes (enabled by the CSI driver). Both static and dynamically provisioned volumes are supported. For backup of static disks, the persistent volumes specification should have the *storage class* defined in the **YAML** file, otherwise such persistent volumes will be skipped from the backup operation.
+- Currently, an AKS backup supports only the backup of Azure disk-based persistent volumes (enabled by the CSI driver). The supported Azure Disk SKUs are Standard HDD, Standard SSD, and Premium SSD. The disks belonging to Premium SSD v2 and Ultra Disk SKU are not supported. Both static and dynamically provisioned volumes are supported. For backup of static disks, the persistent volumes specification should have the *storage class* defined in the **YAML** file, otherwise such persistent volumes will be skipped from the backup operation.
 
 - Azure Files shares and Azure Blob Storage persistent volumes are currently not supported by AKS backup due to lack of CSI Driver-based snapshotting capability. If you're using said persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions. For more information, see [Azure file share backup](azure-file-share-backup-overview.md) and [Azure Blob Storage backup](blob-backup-overview.md).
 
@@ -47,7 +47,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - You must install the backup extension in the AKS cluster. If you're using Azure CLI to install the backup extension, ensure that the version is 2.41 or later. Use `az upgrade` command to upgrade the Azure CLI.
 
-- The blob container provided as input during installation of the backup extension should be in the same region and subscription as that of the AKS cluster.
+- The blob container provided as input during installation of the backup extension should be in the same region and subscription as that of the AKS cluster. Only blob containers in a General-purpose V2 Storage Account are supported and Premium Storage Account are not supported.   
 
 - The Backup vault and the AKS cluster should be in the same region and subscription.
 
@@ -67,6 +67,8 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
   | Number of backup instances per Backup vault | 5,000 |
   | Number of on-demand backups allowed in a day per backup instance | 10 |
   | Number of allowed restores per backup instance in a day | 10 |
+
+- Configuration of a storage account with private endpoint is supported.
 
 ### Additional limitations for Vaulted backup and Cross Region Restore (preview)
 

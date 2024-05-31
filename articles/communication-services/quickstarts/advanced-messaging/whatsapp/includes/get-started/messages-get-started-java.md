@@ -235,6 +235,14 @@ First, create a MessageTemplate using the values for a template.
 Here's MessageTemplate creation using a default template, `sample_template`.   
 If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
 
+Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp users. To send template messages below details are required:
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
+- Template details
+    - Name like 'sample_template'
+    - Language like 'en_us'
+    - Parameters if any
+    
 ```java
 // Assemble the template content
 String templateName = "sample_template";
@@ -267,15 +275,20 @@ To do so, from your personal WhatsApp account, send a message to your business n
 
 ### Send a text message to a WhatsApp user
 
+Messages SDK allows Contoso to send text WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
+- Message body/text to be sent
+
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.".
+In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.\n From Notification Messaging SDK".
 
 Assemble then send the text message:
 ```java
 // Assemble text message
-TextNotificationContent textContent = new TextNotificationContent(channelRegistrationId, recipientList, "“Thanks for your feedback.");
+TextNotificationContent textContent = new TextNotificationContent(channelRegistrationId, recipientList, "“Thanks for your feedback.\n From Notification Messaging SDK");
 
 // Send text message
 SendMessageResult textMessageResult = notificationClient.send(textContent);
@@ -288,10 +301,14 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 
 ### Send a media message to a WhatsApp user
 
+Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
+- MediaUri of the Image
+
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-To send a media message, provide a URI to an image.
 As an example, create a URI:
 ```java
 String mediaUrl = "https://aka.ms/acsicon1";
@@ -325,7 +342,7 @@ for (MessageReceipt messageReceipt : mediaMessageResult.getReceipts()) {
    mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
    ```
 
-## Sample code
+## Full sample code
 
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/d668cb44f64d303e71d2ee72a8b0382896aa09d5/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
 

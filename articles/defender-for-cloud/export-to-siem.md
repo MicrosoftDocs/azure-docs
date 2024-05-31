@@ -40,7 +40,7 @@ You can:
 - [Stream alerts to Microsoft Sentinel at the subscription level](../sentinel/connect-azure-security-center.md).
 - [Connect all subscriptions in your tenant to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539).
 
-When you connect Defender for Cloud to Microsoft Sentinel, the status of Defender for Cloud alerts that get ingested into Microsoft Sentinel is synchronized between the two services. For example, when an alert is closed in Defender for Cloud, that alert is also shown as closed in Microsoft Sentinel. When you change the status of an alert in Defender for Cloud, the status of the alert in Microsoft Sentinel is also updated. However,the statuses of any Microsoft Sentinel **incidents** that contain the synchronized Microsoft Sentinel alert aren't updated.
+When you connect Defender for Cloud to Microsoft Sentinel, the status of Defender for Cloud alerts that get ingested into Microsoft Sentinel is synchronized between the two services. For example, when an alert is closed in Defender for Cloud, that alert is also shown as closed in Microsoft Sentinel. When you change the status of an alert in Defender for Cloud, the status of the alert in Microsoft Sentinel is also updated. However, the statuses of any Microsoft Sentinel **incidents** that contain the synchronized Microsoft Sentinel alert aren't updated.
 
 You can enable the **bi-directional alert synchronization** feature to automatically sync the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of the Defender for Cloud alerts. For example, when a Microsoft Sentinel incident that contains a Defender for Cloud alert is closed, Defender for Cloud automatically closes the corresponding original alert.
 
@@ -150,7 +150,7 @@ To stream alerts into **ArcSight**, **SumoLogic**, **Syslog servers**, **LogRhyt
 
 1. Enable continuous export:
     - At the [subscription level](continuous-export.md).
-    - At the [Management Group level using Azure Policy](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies).
+    - At the [Management Group level using Azure Policy](continuous-export-azure-policy.md).
 
 1. Connect the event hub to your preferred solution using the built-in connectors:
 

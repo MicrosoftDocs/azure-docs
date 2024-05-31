@@ -2,6 +2,7 @@
 title: Database consistent snapshots using enhanced pre-post script framework
 description: Learn how Azure Backup allows you to take database consistent snapshots, leveraging Azure VM backup and using packaged pre-post scripts
 ms.topic: conceptual
+ms.custom: linux-related-content
 ms.date: 09/16/2021 
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

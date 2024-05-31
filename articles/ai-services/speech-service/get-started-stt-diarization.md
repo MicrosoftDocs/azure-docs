@@ -14,7 +14,7 @@ keywords: speech to text, speech to text software
 #customer intent: As a developer, I want to create speech to text applications that use diarization to improve readability of multiple person conversations.
 ---
 
-# Quickstart: Create real-time diarization (Preview)
+# Quickstart: Create real-time diarization
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/stt-diarization/csharp.md)]

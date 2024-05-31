@@ -39,7 +39,7 @@ During preview, Azure VMs backed up with multi-disk crash-consistent type is cha
 
 
 >[!Note]
->Multi-disk crash consistency might not succeed for disks configured with read or write host caching because writes that occur while the snapshot is taken might not be acknowledged by Azure Storage. If you need to maintain consistency, we recommend you use the application-consistent backups.
+>For disks configured with *read/write* host caching, multi-disk crash consistency can't be guaranteed because writes that occur while the snapshot is taken might not be acknowledged by Azure Storage. If maintaining consistency is crucial, we recommend that you use the application-consistent backups.
 
 ## Next steps
 

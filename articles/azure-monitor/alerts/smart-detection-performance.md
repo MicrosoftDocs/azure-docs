@@ -4,7 +4,7 @@ description: Smart detection analyzes your app telemetry and warns you of potent
 ms.author: abbyweisberg
 ms.reviewer: yagil
 ms.topic: conceptual
-ms.date: 05/04/2017
+ms.date: 04/01/2024
 ---
 
 # Smart detection - Performance Anomalies

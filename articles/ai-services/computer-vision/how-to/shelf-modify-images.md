@@ -43,7 +43,7 @@ To run the image stitching operation on a set of images, follow these steps:
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imagecomposition:stitch?api-version=2023-04-01-preview" --output <your_filename> -d "{
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/imagecomposition:stitch?api-version=2023-04-01-preview" --output <your_filename> -d "{
         'images': [
             '<your_url_string_>',
             '<your_url_string_2>',
@@ -78,7 +78,7 @@ To correct the perspective distortion in the composite image, follow these steps
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imagecomposition:rectify?api-version=2023-04-01-preview" --output <your_filename> -d "{
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/imagecomposition:rectify?api-version=2023-04-01-preview" --output <your_filename> -d "{
       'url': '<your_url_string>',
       'controlPoints': {
         'topLeft': {

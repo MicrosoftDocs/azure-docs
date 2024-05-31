@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: Heidilohr
 ms.author: helohr
-ms.date: 03/01/2024
+ms.date: 05/29/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,57 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## April 2024 
+
+Here's what changed in April 2024: 
+
+### Updated Group Policy templates for Watermarking in Azure Virtual Desktop 
+
+Watermarking now includes updated policy settings and options to configure watermarking using Microsoft Intune. 
+
+For more information, along with instructions, see [Enable watermarking](watermarking.md#enable-watermarking). 
+
+### Autoscale and SVMONC support for Azure Stack HCI with Azure Virtual Desktop is currently in preview 
+
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs. Start VM On Connect lets you reduce costs by enabling end users to turn on their session host virtual machines (VMs) only when they need them. You can then turn off VMs when they're not needed. Autoscale and SVMONC support for Azure Stack HCI with Azure Virtual Desktop is currently in public preview. 
+
+For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md). 
+
+ 
+### New article about Monitor Autoscale operations with Insights in Azure Virtual Desktop 
+
+We've published a new article about the Autoscale diagnostic data. Integrated with Insights in Azure Virtual Desktop, Autoscale diagnostic data enables you to monitor scaling operations, identify issues that need to be fixed, and recognize opportunities to optimize your scaling plan configuration to save costs. 
+
+You can learn more at [Monitor Autoscale operations with Insights in Azure Virtual Desktop](autoscale-monitor-operations-insights.md). 
+
+## March 2024
+
+Here's what changed in March 2024:
+
+### URI schemes with the Remote Desktop client for Azure Virtual Desktop now available
+
+You can now use Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values designed for using Azure Virtual Desktop. For example, you can use URI to subscribe to a workspace or connect to a particular desktop or RemoteApp. 
+
+For more information and examples, see [Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop](uri-scheme.md). 
+
+### Every time sign-in frequency Conditional Access option for Azure Virtual Desktop is now in public preview 
+
+Using Microsoft Entra sign-in frequency with Azure Virtual Desktop prompts users to reauthenticate when launching a new connection after a period of time. You can now require reauthentication after a shorter period of time. 
+
+For more information, see [Configure sign-in frequency](set-up-mfa.md?tabs=avd#configure-sign-in-frequency). 
+
+### Configuring the clipboard transfer direction in Azure Virtual Desktop is now in public preview 
+
+Clipboard redirection in Azure Virtual Desktop allows users to copy and paste content in either direction between the user's local device and the remote session. However, in some scenarios you might want to limit the direction of the clipboard for users to prevent data exfiltration or copying malicious files to a session host. You can configure users to only be able to use the clipboard to copy data from session host to client or client to session host, as well as what kind of data they can copy.
+
+For more information, see [Configure the clipboard transfer direction in Azure Virtual Desktop](clipboard-transfer-direction-data-types.md?tabs=intune). 
+
+### Azure Proactive Resiliency Library (APRL) for Azure Virtual Desktop workload now available
+
+The ARPL now has recommendations for Azure Virtual Desktop, which can help you can meet resiliency targets for your applications through a holistic self-serve resilience experience. APRL recommendations cover Azure Virtual Desktop requirements & definitions, letting you run automated configuration checks, such as *Zonal,Regional*, against workload requirements. APRL also contains supporting Azure Resource Graph queries that you can use to identify resources that aren't fully compliant with APRL guidance and recommendations. 
+
+For more information about these recommendations, see the [Azure Proactive Resiliency Library (APRL)](https://azure.github.io/Azure-Proactive-Resiliency-Library/).
 
 ## February 2024
 

@@ -22,7 +22,7 @@ Before you start setting up the scaling tool, make sure you have the following t
 
 - An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md).
 - Session host pool VMs configured and registered with the Azure Virtual Desktop service.
-- A user with the [*Contributor*](../role-based-access-control/role-assignments-portal.md) role-based access control (RBAC) role assigned on the Azure subscription to create the resources. You'll also need the *Application administrator* and/or *Owner* RBAC role to create a managed identity.
+- A user with the [*Contributor*](../role-based-access-control/role-assignments-portal.yml) role-based access control (RBAC) role assigned on the Azure subscription to create the resources. You'll also need the *Application administrator* and/or *Owner* RBAC role to create a managed identity.
 - A Log Analytics workspace (optional).
 
 The machine you use to deploy the tool must have:

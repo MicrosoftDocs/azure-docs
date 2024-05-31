@@ -7,6 +7,7 @@ ms.service: azure-kubernetes-service
 ms.custom: devx-track-azurecli
 ms.topic: article
 ms.date: 11/16/2023
+ms.subservice: aks-nodes
 ---
 
 # Reduce image pull time with Artifact Streaming on Azure Kubernetes Service (AKS) (Preview)
@@ -75,7 +76,7 @@ Enablement on ACR is a prerequisite for Artifact Streaming on AKS. For more info
 4. Push or import an image to the registry using the [`az acr import`][az-acr-import] command.
 
     ```azurecli-interactive
-    az acr import --source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
+    az acr import --source docker.io/jupyter/all-spark-notebook:latest --repository jupyter/all-spark-notebook:latest
     ```
 
 5. Create a streaming artifact from the image using the [`az acr artifact-streaming create`][az-acr-artifact-streaming-create] command.
@@ -87,7 +88,7 @@ Enablement on ACR is a prerequisite for Artifact Streaming on AKS. For more info
 6. Verify the generated Artifact Streaming using the [`az acr manifest list-referrers`][az-acr-manifest-list-referrers] command.
 
     ```azurecli-interactive
-    az acr manifest list-referrers -n jupyter/all-spark-notebook:latest
+    az acr manifest list-referrers --name jupyter/all-spark-notebook:latest
     ```
 
 ## Enable Artifact Streaming on AKS
@@ -149,3 +150,4 @@ This article described how to enable Artifact Streaming on your AKS node pools t
 [az-acr-artifact-streaming-create]: /cli/azure/acr/artifact-streaming#az-acr-artifact-streaming-create
 [az-acr-manifest-list-referrers]: /cli/azure/acr/manifest#az-acr-manifest-list-referrers
 [az-aks-nodepool-show]: /cli/azure/aks/nodepool#az-aks-nodepool-show
+

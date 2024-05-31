@@ -3,7 +3,7 @@ title: Back up Azure NetApp Files datastores and VMs using Cloud Backup (preview
 description: Learn how to back up datastores and Virtual Machines to the cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/28/2023
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
@@ -17,7 +17,7 @@ Before you back up your Azure NetApp Files datastores, you must add your Azure a
 
 ### Prerequisites
 
-* Cloud Backup for Virtual Machines uses the Azure REST API to collect information about your Azure NetApp Files datastores and create Azure NetApp Files snapshots. To interact with the [Azure REST API](/rest/api/azure/), the Cloud Backup for Virtual Machines virtual appliance requires outbound internet access from your Azure VMware Solution SDDC via HTTPS. For more information, see [Internet connectivity design considerations](../azure-vmware/concepts-design-public-internet-access.md).
+* Cloud Backup for Virtual Machines uses the Azure REST API to collect information about your Azure NetApp Files datastores and create Azure NetApp Files snapshots. To interact with the [Azure REST API](/rest/api/azure/), the Cloud Backup for Virtual Machines virtual appliance requires outbound internet access from your Azure VMware Solution SDDC via HTTPS. For more information, see [Internet connectivity design considerations](../azure-vmware/architecture-design-public-internet-access.md).
 
 * You must have sufficient permissions to [Create a Microsoft Entra app and service principal](../active-directory/develop/howto-create-service-principal-portal.md) within your Microsoft Entra tenant and assign to the application a role in your Azure subscription. You can use the built-in role of "contributor" or you can create a custom role with only the required permissions:
 

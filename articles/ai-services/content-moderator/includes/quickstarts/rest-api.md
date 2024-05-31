@@ -134,7 +134,7 @@ Copy the command to a text editor and make the following changes:
 1. Optionally change the `"Value"` URL in the request body to whatever remote image you'd like to moderate.
 
 > [!TIP]
-> You can also moderate local images by passing their byte data into the request body. See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) to learn how to do this.
+> You can also moderate local images by passing their byte data into the request body. See the [reference documentation](/rest/api/cognitiveservices/contentmoderator/image-moderation) to learn how to do this.
 
 Once you've made your changes, open a command prompt and enter the new command. 
 

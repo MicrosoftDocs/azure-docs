@@ -2,8 +2,8 @@
 title: Deploy Dapr pluggable components
 titleSuffix: Azure IoT MQ
 description: Deploy Dapr and the IoT MQ pluggable components to a cluster.
-author: timlt
-ms.author: timlt
+author: PatAltimore 
+ms.author: patricka 
 ms.subservice: mq
 ms.topic: how-to
 ms.custom:
@@ -33,11 +33,8 @@ To install the Dapr runtime, use the following Helm command:
 ```bash
 helm repo add dapr https://dapr.github.io/helm-charts/
 helm repo update
-helm upgrade --install dapr dapr/dapr --version=1.11 --namespace dapr-system --create-namespace --wait
+helm upgrade --install dapr dapr/dapr --version=1.13 --namespace dapr-system --create-namespace --wait
 ```
-
-> [!IMPORTANT]
-> **Dapr v1.12** is currently not supported.
 
 ## Register MQ pluggable components
 
@@ -49,7 +46,8 @@ To create the yaml file, use the following component definitions:
 > | Component | Description |
 > |-|-|
 > | `metadata.name` | The component name is important and is how a Dapr application references the component. |
-> | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which must be declared exactly as shown. It tells Dapr what kind of component (`pubsub` or `state`) it is and which Unix socket to use.  |
+> | `metadata.annotations` | Component annotations used by the Dapr sidecar injector
+> | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which must be declared exactly as shown. It tells Dapr what kind of component (`pubsub` or `state`) it is and which Unix socket to use. |
 > | `spec.metadata.url` | The URL tells the component where the local MQ endpoint is. Defaults to `8883` is MQ's default MQTT port with TLS enabled. |
 > | `spec.metadata.satTokenPath` | The Service Account Token is used to authenticate the Dapr components with the MQTT broker |
 > | `spec.metadata.tlsEnabled` |  Define if TLS is used by the MQTT broker. Defaults to `true` |
@@ -65,6 +63,22 @@ To create the yaml file, use the following component definitions:
     metadata:
       name: aio-mq-pubsub
       namespace: azure-iot-operations
+      annotations:
+        dapr.io/component-container: >
+          {
+            "name": "aio-mq-components",
+            "image": "ghcr.io/azure/iot-mq-dapr-components:latest",
+            "volumeMounts": [
+              {
+                "name": "mqtt-client-token",
+                "mountPath": "/var/run/secrets/tokens"
+              },
+              {
+                "name": "aio-ca-trust-bundle",
+                "mountPath": "/var/run/certs/aio-mq-ca-cert"
+              }
+            ]
+          }
     spec:
       type: pubsub.aio-mq-pubsub-pluggable # DO NOT CHANGE
       version: v1
@@ -77,8 +91,6 @@ To create the yaml file, use the following component definitions:
         value: true
       - name: caCertPath
         value: "/var/run/certs/aio-mq-ca-cert/ca.crt"
-      - name: logLevel
-        value: "Info"
     ---
     # State Management component
     apiVersion: dapr.io/v1alpha1
@@ -86,6 +98,22 @@ To create the yaml file, use the following component definitions:
     metadata:
       name: aio-mq-statestore
       namespace: azure-iot-operations
+      annotations:
+        dapr.io/component-container: >
+          {
+            "name": "aio-mq-components",
+            "image": "ghcr.io/azure/iot-mq-dapr-components:latest",
+            "volumeMounts": [
+              {
+                "name": "mqtt-client-token",
+                "mountPath": "/var/run/secrets/tokens"
+              },
+              {
+                "name": "aio-ca-trust-bundle",
+                "mountPath": "/var/run/certs/aio-mq-ca-cert"
+              }
+            ]
+          }
     spec:
       type: state.aio-mq-statestore-pluggable # DO NOT CHANGE
       version: v1
@@ -98,8 +126,6 @@ To create the yaml file, use the following component definitions:
         value: true
       - name: caCertPath
         value: "/var/run/certs/aio-mq-ca-cert/ca.crt"
-      - name: logLevel
-        value: "Info"
     ```
 
 1. Apply the component yaml to your cluster by running the following command:

@@ -4,6 +4,7 @@ description: How to share a Windows folder with the Azure IoT Edge for Linux on 
 author: PatAltimore
 ms.reviewer: fcabrera
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
 ms.date: 11/1/2022

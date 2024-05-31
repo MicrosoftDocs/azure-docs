@@ -3,7 +3,11 @@ title: Monitor AKS data reference
 description: Important reference material needed when you monitor AKS
 ms.custom: subject-monitoring
 ms.date: 08/01/2023
+author: nickomang
+ms.author: nickoman
+
 ms.topic: conceptual
+ms.subservice: aks-monitoring
 ---
 
 # Monitor AKS data reference
@@ -99,3 +103,4 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 
 - See [Monitoring Azure AKS](monitor-aks.md) for a description of monitoring Azure AKS.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+

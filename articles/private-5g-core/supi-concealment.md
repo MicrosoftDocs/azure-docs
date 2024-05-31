@@ -1,5 +1,5 @@
 ---
-title: Enable SUPI concealment (preview)
+title: Enable SUPI concealment
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, learn how to configure SUPI concealment. 
 author: robswain
@@ -10,7 +10,7 @@ ms.date: 02/01/2024
 ms.custom: template-how-to
 ---
 
-# Enable SUPI concealment (preview)
+# Enable SUPI concealment
 
 The **subscription permanent identifier (SUPI)** is a unique, permanent identifier for a device. To avoid transmitting this identifier in plain text, it can be concealed through encryption. The encrypted value is known as the **subscription concealed identifier (SUCI)**. The encryption (SUPI concealment) is performed by the UE on registration, generating a new SUCI each time to prevent the user from being tracked. Decryption (SUCI deconcealment) is performed by the Unified Data Management (UDM) network function in the packet core.
 

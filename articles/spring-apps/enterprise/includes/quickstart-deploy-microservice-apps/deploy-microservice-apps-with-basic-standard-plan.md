@@ -59,7 +59,7 @@ This section describes how to create an Azure Spring Apps service instance and p
 
 ### 3.1. Sign in to the Azure portal
 
-Go to the [Azure portal](https://portal.azure.com) and enter your credentials to sign in to the portal. The default view is your service dashboard.
+Go to the [Azure portal](https://portal.azure.com/), enter your credentials, and sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create an Azure Spring Apps instance
 
@@ -106,7 +106,7 @@ Use the following steps to create the service instance:
 
 1. On the **Config Server** page, for **URI**, enter *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git* and then select **Validate**.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of the Azure portal that shows the Config Server page with the Default URI and the Validate button highlighted and the Apply button disabled." lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of the Azure portal that shows the Config Server page with the Default URI and the Validate button highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
 
 1. After validation, select **Apply** to finish the Config Server configuration.
 

@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop Insights?
 description: New features and product updates in Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 03/21/2024
+ms.date: 05/02/2024
 ms.author: helohr
 ms.custom: references_regions
 ---
@@ -19,7 +19,7 @@ The following table shows the latest available version of Azure Virtual Desktop 
 
 | Release | Latest version | Setup instructions |
 |---------|----------------|----------|
-| Public | 3.2.2 | [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md) |
+| Public | 3.3.1 | [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md) |
 
 ## How to read version numbers
 
@@ -35,12 +35,22 @@ For example, a release with a version number of 1.2.31 is on the first major rel
 
 When one of the numbers is increased, all numbers after it must change, too. One release has one version number. However, not all version numbers track releases. Patch numbers can be somewhat arbitrary, for example.
 
+## Version 3.3.1
+
+*Published: April 29, 2024*
+
+In this update, we made the following change:
+
+- Introduced Connection Reliability and Autoscale Reporting public previews.
+
 ## Version 3.2.2
 
 *Published: February 12, 2024*
 
 In this update, we made the following change:
 
+- Updated logic for Data Collection Rule (DCR) selection in the Configuration workbook.
+- Removed unused performance counters from DCR for data savings.
 - Removed Terminal Services counters that the Azure Virtual Desktop Insights workbook no longer uses.
 
 ## Version 3.2.0

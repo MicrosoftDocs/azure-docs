@@ -1,7 +1,8 @@
 ---
 title: UserNameTextBox UI element
 description: Describes the Microsoft.Compute.UserNameTextBox UI element for Azure portal. Enables users to provide Windows or Linux user names.
-ms.topic: conceptual
+ms.topic: reference
+ms.custom: linux-related-content
 ms.date: 06/27/2018
 ---
 

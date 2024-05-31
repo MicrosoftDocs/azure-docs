@@ -35,12 +35,12 @@ Following is an example for a schema of a pre-maintenance event:
   "subject": "contosomaintenanceconfiguration", 
 "data": 
 { 
-   "correlationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
-   "maintenanceConfigurationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
-   "startDateTime": "2023-05-09T15:00:00Z",  
-   "endDateTime": "2023-05-09T18:55:00Z",  
-   "cancellationCutOffDateTime": "2023-05-09T14:59:00Z",  
-   "resourceSubscriptionIds": ["subscription guid 1", "subscription guid 2"] 
+   "CorrelationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
+   "MaintenanceConfigurationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
+   "StartDateTime": "2023-05-09T15:00:00Z",  
+   "EndDateTime": "2023-05-09T18:55:00Z",  
+   "CancellationCutOffDateTime": "2023-05-09T14:59:00Z",  
+   "ResourceSubscriptionIds": ["subscription guid 1", "subscription guid 2"] 
 } 
 "type": "Microsoft.Maintenance.PreMaintenanceEvent", 
 "time": "2023-05-09T14:25:00.3717473Z", 
@@ -58,12 +58,12 @@ Following is an example of a schema for the Pre-Maintenance event:
   "subject": "contosomaintenanceconfiguration", 
 "data": 
 { 
-   "correlationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
-   "maintenanceConfigurationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
-   "startDateTime": "2023-05-09T15:00:00Z",  
-   "endDateTime": "2023-05-09T18:55:00Z",  
-   "cancellationCutOffDateTime": "2023-05-09T14:59:00Z",  
-   "resourceSubscriptionIds": ["subscription guid 1", "subscription guid 2"] 
+   "CorrelationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
+   "MaintenanceConfigurationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
+   "StartDateTime": "2023-05-09T15:00:00Z",  
+   "EndDateTime": "2023-05-09T18:55:00Z",  
+   "CancellationCutOffDateTime": "2023-05-09T14:59:00Z",  
+   "ResourceSubscriptionIds": ["subscription guid 1", "subscription guid 2"] 
 } 
 "eventType": "Microsoft.Maintenance.PreMaintenanceEvent", 
 "eventTime": "2023-05-09T14:25:00.3717473Z", 
@@ -86,12 +86,12 @@ Following is an example for a post maintenance event:
   "subject": "contosomaintenanceconfiguration", 
 "data": 
 { 
-   "correlationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
-   "maintenanceConfigurationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
-   "status": "Succeeded", 
-   "startDateTime": "2023-05-09T15:00:00Z",  
-   "endDateTime": "2023-05-09T18:55:00Z",  
-   "resourceSubscriptionIds": ["subscription guid 1", "subscription guid 2"] 
+   "CorrelationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
+   "MaintenanceConfigurationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
+   "Status": "Succeeded", 
+   "StartDateTime": "2023-05-09T15:00:00Z",  
+   "EndDateTime": "2023-05-09T18:55:00Z",  
+   "ResourceSubscriptionIds": ["subscription guid 1", "subscription guid 2"] 
 } 
 "type": "Microsoft.Maintenance.PostMaintenanceEvent", 
 "time": "2023-05-09T15:55:00.3717473Z", 
@@ -109,12 +109,12 @@ Following is an example of a schema for a post-maintenance event:
   "subject": "contosomaintenanceconfiguration", 
 "data": 
 { 
-   "correlationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
-   "maintenanceConfigurationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
-   "status": "Succeeded", 
-   "startDateTime": "2023-05-09T15:00:00Z",  
-   "endDateTime": "2023-05-09T18:55:00Z",  
-   "resourceSubscriptionIds": ["subscription guid 1", "subscription guid 2"] 
+   "CorrelationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration/providers/microsoft.maintenance/applyupdates/20230509150000",  
+   "MaintenanceConfigurationId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Maintenance/maintenanceConfigurations/contosomaintenanceconfiguration",  
+   "Status": "Succeeded", 
+   "StartDateTime": "2023-05-09T15:00:00Z",  
+   "EndDateTime": "2023-05-09T18:55:00Z",  
+   "ResourceSubscriptionIds": ["subscription guid 1", "subscription guid 2"] 
 } 
 "eventType": "Microsoft.Maintenance.PostMaintenanceEvent", 
 "eventTime": "2023-05-09T15:55:00.3717473Z", 
@@ -163,13 +163,13 @@ The data object has the following properties:
 
 **Property** | **Type** | **Description** |
 --- | --- | --- |
-correlationId | string | The resource ID of specific maintenance schedule instance. |
-maintenanceConfigurationId | string | The resource ID of maintenance configuration. |
-startDateTime | string | The maintenance schedule start time. |
-endDateTime | string | The maintenance schedule end time. |
-cancellationCutOffDateTime | string | The maintenance schedule instance cancellation cut-off time. | 
-resourceSubscriptionIds | string | The subscription IDs from which VMs are included in this schedule instance. |
-status | string | The completion status of maintenance schedule instance. 
+CorrelationId | string | The resource ID of specific maintenance schedule instance. |
+MaintenanceConfigurationId | string | The resource ID of maintenance configuration. |
+StartDateTime | string | The maintenance schedule start time. |
+EndDateTime | string | The maintenance schedule end time. |
+CancellationCutOffDateTime | string | The maintenance schedule instance cancellation cut-off time. | 
+ResourceSubscriptionIds | string | The subscription IDs from which VMs are included in this schedule instance. |
+Status | string | The completion status of maintenance schedule instance. 
 
 ## Next steps
 

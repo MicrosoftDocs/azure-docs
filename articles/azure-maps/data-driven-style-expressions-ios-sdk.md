@@ -12,6 +12,12 @@ services: azure-maps
 
 # Data-driven style expressions in the iOS SDK (Preview)
 
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
+
 Layers use predicates and expressions to determine what to display and how
 to format it. _Predicates_ are represented by the same `NSPredicate` class that
 filters results from Core Data or items in an `NSArray` in Objective-C.

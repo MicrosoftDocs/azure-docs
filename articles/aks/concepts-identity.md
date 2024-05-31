@@ -2,6 +2,7 @@
 title: Concepts - Access and identity in Azure Kubernetes Services (AKS)
 description: Learn about access and identity in Azure Kubernetes Service (AKS), including Microsoft Entra integration, Kubernetes role-based access control (Kubernetes RBAC), and roles and bindings.
 ms.topic: conceptual
+ms.subservice: aks-security
 ms.date: 03/07/2024
 author: palma21
 ms.author: jpalma
@@ -291,3 +292,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [upgrade-per-cluster]: ../azure-monitor/containers/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli
+

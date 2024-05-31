@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Use Microsoft Entra authentication for the self-hosted gateway
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 The Azure API Management [self-hosted gateway](self-hosted-gateway-overview.md) needs connectivity with its associated cloud-based API Management instance for reporting status, checking for and applying configuration updates, and sending metrics and events. 
 
 In addition to using a gateway access token (authentication key) to connect with its cloud-based API Management instance, you can enable the self-hosted gateway to authenticate to its associated cloud instance by using an [Microsoft Entra app](../active-directory/develop/app-objects-and-service-principals.md). With Microsoft Entra authentication, you can configure longer expiry times for secrets and use standard steps to manage and rotate secrets in Active Directory. 
@@ -55,9 +57,7 @@ When configuring the custom roles, update the [`AssignableScopes`](../role-based
   "Permissions": [
     {
       "Actions": [
-        "Microsoft.Authorization/denyAssignments/read",
-        "Microsoft.Authorization/roleAssignments/read",
-        "Microsoft.Authorization/roleDefinitions/read"
+        "Microsoft.Authorization/*/read"
       ],
       "NotActions": [],
       "DataActions": [],
@@ -99,7 +99,7 @@ When configuring the custom roles, update the [`AssignableScopes`](../role-based
 
 ### Assign API Management Configuration API Access Validator Service Role 
 
-Assign the API Management Configuration API Access Validator Service Role to the managed identity of the API Management instance. For detailed steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.md). 
+Assign the API Management Configuration API Access Validator Service Role to the managed identity of the API Management instance. For detailed steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.yml). 
 
 * Scope: The  resource group or subscription in which the API Management instance is deployed
 * Role: API Management Configuration API Access Validator Service Role

@@ -6,7 +6,7 @@ ms.date: 11/29/2022
 ms.author: msangapu
 author: msangapu-msft
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: devx-track-csharp, mvc, devx-track-azurecli, devdivchpfy22
+ms.custom: devx-track-csharp, mvc, devx-track-azurecli, devdivchpfy22, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
@@ -1103,7 +1103,10 @@ Or, check out other resources:
 > [!div class="nextstepaction"]
 > [Configure custom container](configure-custom-container.md)
 
+> [!div class="nextstepaction"]
+> [Configure sidecar](configure-custom-container.md)
+
 ::: zone pivot="container-linux"
 > [!div class="nextstepaction"]
-> [Tutorial: Multi-container WordPress app](tutorial-multi-container-app.md)
+> [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md)
 ::: zone-end

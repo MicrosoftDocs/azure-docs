@@ -6,7 +6,7 @@ description: Learn about topologies and constraints for NC2 on Azure.
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 04/01/2023
+ms.date: 05/21/2024
 ---
 
 # Solution design
@@ -19,7 +19,7 @@ The following table describes the network topologies supported by each network f
 
 |Topology |Supported |
 | :------------------- |:---------------:|
-|Connectivity to BareMetal Infrasturcture (BMI) in a local VNet| Yes |
+|Connectivity to BareMetal Infrastructure (BMI) in a local VNet| Yes |
 |Connectivity to BMI in a peered VNet (Same region)|Yes |
 |Connectivity to BMI in a peered VNet\* (Cross region or global peering) with VWAN\*|Yes |
 |Connectivity to BM in a peered VNet* (Cross region or global peering)* without VWAN| No|

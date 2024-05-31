@@ -3,7 +3,7 @@ title: Retire your Amazon Web Services (AWS) connector
 description: This article helps you transition away from the Connector for AWS and it helps you remove it from Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/20/2024 
+ms.date: 03/25/2024 
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -14,7 +14,7 @@ ms.reviewer: shasulin
 
 The Connector for AWS in the Cost Management service will retire on March 31, 2025. Consider alternative solutions for AWS cost management reporting. This article helps you transition away from the Connector for AWS and it helps you remove the Connector for AWS from the Cost Management service.
 
-Until the Connector for AWS in Cost Management is officially removed, existing connectors for AWS continue to work and are fully supported. On March 15, 2024, the ability to add new connectors for AWS will be disabled. You should transition away from the Connector for AWS at your earliest convenience. Doing so provides time for you to adopt your preferred alternative solution and carry out any necessary testing. After you successfully transition away from the Connector for AWS, you should  remove the Connector for AWS from the Cost Management service. Then delete budgets and alerts created to govern AWS costs in Cost Management, using the following information.
+Until the Connector for AWS in Cost Management is officially removed, existing connectors for AWS continue to work and are fully supported. On March 31, 2024, the ability to add new connectors for AWS will be disabled. You should transition away from the Connector for AWS at your earliest convenience. Doing so provides time for you to adopt your preferred alternative solution and carry out any necessary testing. After you successfully transition away from the Connector for AWS, you should  remove the Connector for AWS from the Cost Management service. Then delete budgets and alerts created to govern AWS costs in Cost Management, using the following information.
 
 On March 31, 2025, Azure will delete all remaining Connectors for AWS. The AWS connector will no longer be available. AWS cost and usage data stored in the Cost Management service, including historical data will be removed. All associated reports will also stop working.
 
@@ -61,6 +61,6 @@ To delete the connector, use the following information.
 Question: Who can I reach out to with questions about the Connector for AWS retirement?<br>
 Answer: If you have questions about the connector retirement, create a support request in the Azure portal. Select the **Billing** area and then under the **Cost Management** subject, submit a ticket using any of the topics listed with **Connector to AWS** in the content.
 
-## Next steps
+## Related content
 
 - To review the permissions provided during the Connector for AWS setup, see [Set up and configure AWS Cost and Usage report integration](aws-integration-set-up-configure.md#use-the-create-a-new-role-wizard).

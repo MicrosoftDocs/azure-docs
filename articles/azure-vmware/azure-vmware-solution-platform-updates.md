@@ -4,26 +4,36 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 3/19/2024
+ms.date: 5/24/2024
 ---
 
 # What's new in Azure VMware Solution
 
-Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
+
+## May 2024
+
+Azure VMware Solution is now generally available in the Central India, UAE North, and Italy North regions, increasing the total region count to 33. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
+
+## April 2024
+
+Azure VMware Solution Stretched Clusters is now generally available in the East US region. [Learn more](architecture-stretched-clusters.md)
 
 ## March 2024
 
 Pure Cloud Block Store for Azure VMware Solution is now generally available. [Learn more](ecosystem-external-storage-solutions.md)
 
+VMware vCenter Server 7.0 U3o and VMware ESXi 7.0 U3o are being rolled out. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
 ## February 2024
 
-All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. [Learn more](concepts-private-clouds-clusters.md#vmware-software-versions)
+All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
 ## November 2023
 
 **VMware vSphere 8.0**
 
-VMware vSphere 8.0 is targeted for rollout to Azure VMware Solution by Q2 2024.
+VMware vSphere 8.0 is targeted for rollout to Azure VMware Solution by H2 2024.
 
 **AV64 SKU**
 
@@ -65,7 +75,7 @@ Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now c
 
 **VMware Cloud Director Service**
 
-VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multicloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud. [Learn more](https://blogs.vmware.com/cloud/2023/08/15/cloud-director-service-ga-for-avs/)
+VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multicloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud.
 
 **Well-Architected Assessment Tool**
 
@@ -73,7 +83,7 @@ Azure VMware Solution Well-Architected Assessment Tool is now available. Based u
 
 **VMware Cloud Universal**
 
-VMware Cloud Universal now includes Azure VMware Solution. [Learn more](https://blogs.vmware.com/cloud/2023/07/06/avs-with-vmcu-announcement/)
+VMware Cloud Universal now includes Azure VMware Solution.
 
 **Updated cloudadmin Permissions**
 
@@ -90,7 +100,7 @@ Stretched Clusters for Azure VMware Solution is now available and provides 99.99
 
 **Azure VMware Solution in Azure Gov**
  
-Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virginia. With this release, we are combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
+Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virginia. With this release, we're combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
 
 **New Azure VMware Solution Region: Qatar**
 
@@ -112,7 +122,7 @@ All new Azure VMware Solution private clouds are being deployed with VMware NSX-
 
 **VMware HCX Enterprise Edition - Default**
 
-VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
+VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.9/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
 
 **Azure Log Analytics - Monitor Azure VMware Solution**
 

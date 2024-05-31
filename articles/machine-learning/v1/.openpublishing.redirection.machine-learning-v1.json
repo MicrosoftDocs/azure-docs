@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+        "source_path_from_root": "/articles/machine-learning/v1/how-to-migrate-from-estimators-to-scriptrunconfig.md",
+        "redirect_url": "/azure/machine-learning/how-to-set-up-training-targets",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v1/tutorial-1st-experiment-bring-data.md",
+        "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v1/tutorial-power-bi-custom-model.md",
         "redirect_url": "/azure/machine-learning/tutorial-train-deploy-notebook",
         "redirect_document_id": false

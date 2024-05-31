@@ -3,7 +3,7 @@ title: Configure VMware HCX in Azure VMware Solution
 description: In this tutorial, learn how to configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 12/07/2023
+ms.date: 5/15/2024
 ms.custom: engagement-fy23
 ---
 
@@ -28,7 +28,7 @@ After you complete these steps, you'll have a production-ready environment for c
 
 - If you plan to [enable VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html), make sure you have:  
 
-   - NSX-T Data Center or vSphere Distributed Switch (vDS) on-premises for HCX Network Extension (vSphere Standard Switch not supported).
+   - VMware NSX or vSphere Distributed Switch (vDS) on-premises for HCX Network Extension (vSphere Standard Switch not supported).
 
    - One or more active stretched network segments.
 
@@ -62,7 +62,7 @@ In your data center, connect or pair the VMware HCX Cloud Manager in Azure VMwar
    > To successfully establish a site pair:
    > * Your VMware HCX Connector must be able to route to your HCX Cloud Manager IP over port 443.
    >
-   > * A service account from your external identity source, such as Active Directory, is recommended for site pairing connections. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
+   > * A service account from your external identity source, such as Active Directory, is recommended for site pairing connections. For more information about setting up separate accounts for connected services, see [Access and identity architecture](./architecture-identity.md).
 
    A screen displays the connection (pairing) between your VMware HCX Cloud Manager in Azure VMware Solution and your on-premises VMware HCX Connector.
 

@@ -39,7 +39,7 @@ In this article, you learned about the architecture and capabilities of Defender
 
 To continue getting started with Defender for IoT deployment, use the following articles:
 
-- Deploy [azureiotsecurity for IoT Edge](how-to-deploy-edge.md)
+- Deploy [azureiotsecurity for IoT Edge](how-to-deploy-edge.yml)
 - Learn how to [configure your Defender-IoT-micro-agent](how-to-agent-configuration.md)
 - Learn how to [Enable Defender for IoT service in your IoT Hub](quickstart-onboard-iot-hub.md)
 - Learn more about the service from the [Defender for IoT FAQ](resources-agent-frequently-asked-questions.md)

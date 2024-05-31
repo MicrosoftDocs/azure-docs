@@ -225,7 +225,7 @@ Model deployments in batch endpoints can only deploy registered models. You can 
     > * Add an environment variable `AZUREML_BI_TEXT_COLUMN` to control (optionally) which input field you want to generate embeddings for.
 
     > [!TIP]
-    > By default, MLflow will use the first text column available in the input data to generate embeddings from. Use the environment variable `AZUREML_BI_TEXT_COLUMN` with the name of an existing column in the input dataset to change the column if needed. Leave it blank if the defaut behavior works for you.
+    > By default, MLflow will use the first text column available in the input data to generate embeddings from. Use the environment variable `AZUREML_BI_TEXT_COLUMN` with the name of an existing column in the input dataset to change the column if needed. Leave it blank if the default behavior works for you.
     
     The scoring script looks as follows:
 

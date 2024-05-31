@@ -7,7 +7,7 @@ manager: justhe
 ms.service: virtual-machines
 ms.collection: linux
 ms.devlang: azurecli
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: routlaw

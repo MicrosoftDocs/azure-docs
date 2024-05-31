@@ -4,6 +4,7 @@ description: How to configure the Azure IoT Edge for Linux (EFLOW) VM to support
 author: PatAltimore
 ms.reviewer: fcabrera
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
 ms.date: 07/22/2022

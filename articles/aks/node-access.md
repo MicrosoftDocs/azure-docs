@@ -2,7 +2,11 @@
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 ms.topic: troubleshooting
+ms.subservice: aks-security
 ms.date: 01/08/2024
+author: nickomang
+ms.author: nickoman
+
 ms.reviewer: mattmcinnes
 ms.custom:
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
@@ -26,9 +30,9 @@ Complete these steps if you don't have an SSH key. Create an SSH key depending o
 
 ### Linux and macOS
 
-Linux and macOS users can SSH to access their node using `kubectl debug` or their private IP Address. Windows users should skip to the Windows Server Proxy section for a workaround to SSH via proxy.
+Linux and macOS users can access their node using `kubectl debug` or their private IP Address. Windows users should skip to the Windows Server Proxy section for a workaround to SSH via proxy.
 
-#### SSH using kubectl debug
+#### Connect using kubectl debug
 
 To create an interactive shell connection, use the `kubectl debug` command to run a privileged container on your node.
 

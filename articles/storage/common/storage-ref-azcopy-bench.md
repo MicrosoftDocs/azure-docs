@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy bench co
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 03/29/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -85,6 +85,8 @@ Run an upload that doesn't delete the transferred files. (These files can then s
 `--mode`    (string)    Defines if Azcopy should test uploads or downloads from this target. Valid values are 'upload' and 'download'. Defaulted option is 'upload'. (default "upload")
 
 `--number-of-folders`    (uint)    If larger than 0, create folders to divide up the data.
+
+`--put-blob-size-mb`  Use this size (specified in MiB) as a threshold to determine whether to upload a blob as a single PUT request when uploading to Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
 
 `--put-md5`    Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob/file. (By default the hash is NOT created.) Identical to the same-named parameter in the copy command
 

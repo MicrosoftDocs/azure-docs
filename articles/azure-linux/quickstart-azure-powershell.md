@@ -4,7 +4,7 @@ description: Learn how to quickly create an Azure Linux Container Host for an AK
 author: schaffererin
 ms.author: schaffererin
 ms.service: microsoft-linux
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, linux-related-content
 ms.topic: quickstart
 ms.date: 11/20/2023
 ---
@@ -89,7 +89,7 @@ In this quickstart, you use a manifest to create all objects needed to run the [
 - The sample Azure Vote Python applications.
 - A Redis instance.
 
-This manifest also creates two [Kubernetes Services](../../articles/aks/concepts-network.md#services):
+This manifest also creates two [Kubernetes Services](../../articles/aks/concepts-network-services.md):
 
 - An internal service for the Redis instance.
 - An external service to access the Azure Vote application from the internet.

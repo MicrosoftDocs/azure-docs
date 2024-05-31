@@ -26,6 +26,7 @@ The following services are currently supported for Customer Lockbox for Microsof
 - Azure AI Search
 - Azure Chaos Studio
 - Azure Cognitive Services
+- Azure Communications Gateway
 - Azure Container Registry
 - Azure Data Box
 - Azure Data Explorer
@@ -40,6 +41,7 @@ The following services are currently supported for Customer Lockbox for Microsof
 - Azure HDInsight
 - Azure Health Bot
 - Azure Intelligent Recommendations
+- Azure Information Protection
 - Azure Kubernetes Service
 - Azure Load Testing (CloudNative Testing)
 - Azure Logic Apps
@@ -107,7 +109,7 @@ The following steps outline a typical workflow for a Customer Lockbox for Micros
 1. The designated approver reviews the request and selects **Approve** or **Deny**:
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-approval.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-approval.png" alt-text="A screenshot of the Approve or Deny UI.":::
     As a result of the selection:
-    - **Approve**:  Access is granted to the Microsoft engineer for the duration specified in the request details, which is shown in the email notification and in the Azure portal
+    - **Approve**:  Access is granted to the Microsoft engineer for the duration specified in the request details, which is shown in the email notification and in the Azure portal.
     - **Deny**: The elevated access request by the Microsoft engineer is rejected and no further action is taken.
     
     For auditing purposes, the actions taken in this workflow are logged in [Customer Lockbox request logs](#auditing-logs).
@@ -132,7 +134,7 @@ We introduced a new baseline control ([PA-8: Determine access process for cloud 
 
 Customer Lockbox requests are not triggered in the following scenarios:
 
-- Emergency scenarios that fall outside of standard operating procedures. For example, a major service outage requires immediate attention to recover or restore services in an unexpected or unpredictable scenario. These “break glass” events are rare and, in most instances, do not require any access to customer data to resolve.
+- Emergency scenarios that fall outside of standard operating procedures and require urgent action from Microsoft to restore access to online services or to prevent corruption or loss of customer data. For instance, a major service outage or a security incident demands immediate attention to recover or restore services under unexpected or unpredictable circumstances. These "break glass" events are rare and, in most cases, do not necessitate access to customer data for resolution. The controls and processes governing Microsoft's access to customer data in core online services align with NIST 800-53 and are validated through SOC 2 audits. For further information, refer to the [Azure security baseline for Customer Lockbox for Microsoft Azure](/security/benchmark/azure/baselines/customer-lockbox-for-microsoft-azure-security-baseline).
 - A Microsoft engineer accesses the Azure platform as part of troubleshooting and is inadvertently exposed to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. It is rare that such scenarios would result in access to meaningful quantities of customer data. Customers can further protect their data through the use of Customer-managed keys (CMK), which is available for some Azure service. For more information see [Overview of Key Management in Azure](key-management.md).
 
 External legal demands for data also do not trigger Customer Lockbox requests. For details, see the discussion of [government requests for data](https://www.microsoft.com/trust-center/) on the Microsoft Trust Center.

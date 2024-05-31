@@ -19,7 +19,8 @@ ms.author: lajanuar
     |Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview)  |
     |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
-    |Custom          |  ✔  | ✔ |   |
+    |Custom extraction |  ✔  | ✔ |   |
+    |Custom classification  |  ✔  | ✔ | ✔ (2024-02-29-preview)  |
 
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 

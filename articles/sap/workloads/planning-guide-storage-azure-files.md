@@ -6,7 +6,7 @@ manager: msjuergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 04/26/2023
+ms.date: 04/01/2024
 ms.author: robiro
 ---
 
@@ -24,7 +24,7 @@ For SAP workloads, the supported uses of Azure Files shares are:
 
 - sapmnt volume for a distributed SAP system
 - transport directory for SAP landscape
-- /hana/shared for HANA scale-out
+- /hana/shared for HANA scale-out. Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system), as appropriately sized **/hana/shared** volume contributes to system's stability
 - file interface between your SAP landscape and other applications
 
 > [!NOTE]
@@ -48,7 +48,7 @@ When you plan your deployment with Azure Files, consider the following important
 - If you're deploying your VMs across availability zones, use a [storage account with ZRS](/azure/storage/common/storage-redundancy#zone-redundant-storage) in the Azure regions that support ZRS.
 - Azure Premium Files doesn't currently support automatic cross-region replication for disaster recovery scenarios. See [guidelines on DR for SAP applications](disaster-recovery-overview-guide.md) for available options.
 
-Carefully consider when consolidating multiple activities into one file share or multiple file shares in one storage accounts. Distributing these shares onto separate storage accounts improves throughput, resiliency and simplifies the performance analysis. If many SAP SIDs and shares are consolidated onto a single Azure Files storage account and the storage account performance is poor due to hitting the throughput limits. It can become difficult to identify which SID or volume is causing the problem.
+Carefully consider when consolidating multiple activities into one file share or multiple file shares in one storage account. Distributing these shares onto separate storage accounts improves throughput, resiliency and simplifies the performance analysis. If many SAP SIDs and shares are consolidated onto a single Azure Files storage account and the storage account performance is poor due to hitting the throughput limits, it can become difficult to identify which SID or volume is causing the problem.
 
 ## NFS additional considerations
 

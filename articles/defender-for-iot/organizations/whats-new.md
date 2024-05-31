@@ -16,11 +16,37 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## April 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Single sign-on for the sensor console](#single-sign-on-for-the-sensor-console)<br>- [Sensor time drift detection](#sensor-time-drift-detection)<br>- [Security update](#security-update) |
+
+#### Single sign-on for the sensor console
+
+You can set up single sign-on (SSO) for the Defender for IoT sensor console using Microsoft Entra ID. SSO allows simple sign in for your organization's users, allows your organization to meet regulation standards, and increases your security posture. With SSO, your users don't need multiple login credentials across different sensors and sites. 
+
+Using Microsoft Entra ID simplifies the onboarding and offboarding processes, reduces administrative overhead, and ensures consistent access controls across the organization.
+
+:::image type="content" source="media/set-up-sso/sso-sign-in.png" alt-text="Screenshot of the sensor console login screen with SSO.":::
+
+For more information, see [Set up single sign-on on for the sensor console](set-up-sso.md).
+
+### Sensor time drift detection
+
+This version introduces a new troubleshooting test in the connectivity tool feature, specifically designed to identify time drift issues.
+
+One common challenge when connecting sensors to Defender for IoT in the Azure portal arises from discrepancies in the sensor’s UTC time, which can lead to connectivity problems. To address this issue, we recommend that you configure a Network Time Protocol (NTP) server [in the sensor settings](configure-sensor-settings-portal.md#ntp).
+
+### Security update
+
+This update resolves six CVEs, which are listed in [software version 23.1.3 feature documentation](release-notes.md#version-2413).
+
 ## February 2024
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 24.1.0**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) <br><br>- [New OT appliance hardware profile](#new-ot-appliance-hardware-profile) <br><br>- [New fields for SNMP MIB OIDs](#new-fields-for-snmp-mib-oids)|
+| **OT networks** | **Version 24.1.2**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) <br><br>- [New OT appliance hardware profile](#new-ot-appliance-hardware-profile) <br><br>- [New fields for SNMP MIB OIDs](#new-fields-for-snmp-mib-oids)|
 
 ### Alert suppression rules from the Azure portal (Public preview)
 
@@ -109,7 +135,7 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 ### OT network sensors now run on Debian 11
 
-Sensor versions 23.2.0 run on a Debian 11 operating system instead of Ubuntu. Debian is a Linux-based operating system that's widely used for servers and embedded devices, and is known for being leaner than other operating systems, and its stability, security, and extensive hardware support.
+Sensor version 23.2.0 run on a Debian 11 operating system instead of Ubuntu. Debian is a Linux-based operating system that's widely used for servers and embedded devices, and is known for being leaner than other operating systems, and its stability, security, and extensive hardware support.
 
 Using Debian as the base for our sensor software helps reduce the number of packages installed on the sensors, increasing efficiency and security of your systems.
 
@@ -497,7 +523,7 @@ For more information, see [Manage SSL/TLS certificates](how-to-manage-individual
 
 Activation files on locally managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
 
-You only need to update your activation file if you're [updating an OT sensor from a legacy version](update-legacy-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
+You only need to update your activation file if you're [updating an OT sensor from a recent version](update-ot-software.md?tabs=portal#update-ot-sensors) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
@@ -1329,7 +1355,7 @@ For more information, see [Update OT system software](update-ot-software.md).
 
 Defender for IoT version 22.1.x supports a new set of sensor connection methods that provide simplified deployment, improved security, scalability, and flexible connectivity.
 
-In addition to [migration steps](update-legacy-ot-software.md#migrate-a-cloud-connection-from-the-legacy-method), this new connectivity model requires that you open a new firewall rule. For more information, see:
+In addition to migration steps, this new connectivity model requires that you open a new firewall rule. For more information, see:
 
 - **New firewall requirements**: [Sensor access to Azure portal](networking-requirements.md#sensor-access-to-azure-portal).
 - **Architecture**: [Sensor connection methods](architecture-connections.md)

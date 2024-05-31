@@ -1,11 +1,13 @@
 ---
-title: Create or edit an activity log, service health, or resource health alert rule
-description: This article shows you how to create a new activity log, service health, and resource health alert rule.
+title: Create an activity log, service health, or resource health alert rule
+description: This article shows you how to create or edit a new activity log, service health, and resource health alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
 ms.date: 11/27/2023
 ms.reviewer: harelbr
+
+# Customer intent: As an cloud Azure administrator, I want to create a new log search alert rule so that I can use a log search query to monitor the performance and availability of my resources.
 ---
 
 # Create or edit an activity log, service health, or resource health alert rule
@@ -31,7 +33,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 ## Configure the alert rule conditions
 
-1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition.
+1. On the **Condition** tab, select **Activity log**, **Resource health**, or **Service health**, or select **See all signals** if you want to choose a different signal for the condition.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-popular-signals.png" alt-text="Screenshot that shows popular signals when creating an alert rule.":::
 
@@ -94,6 +96,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1. Enter values for the **Alert rule name** and the **Alert rule description**.
 1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
+1. (Optional) Select a region in which your alert rule will be processed. If you need to make sure the rule is processed within [EU Data Boundary](https://learn.microsoft.com/privacy/eudb/eu-data-boundary-learn), select the North Europe or West Europe region. In all other cases you can select the Global region (which is the default).
+
+> [!NOTE]
+> Service Health alert rules can only be located in the Global region.
 
 1. [!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
 
