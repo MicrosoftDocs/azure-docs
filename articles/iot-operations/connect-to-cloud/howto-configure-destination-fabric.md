@@ -23,7 +23,7 @@ Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft
 To configure and use a Microsoft Fabric destination pipeline stage, you need:
 
 - A deployed instance of Data Processor.
-- A Microsoft Fabric subscription. Or, sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial).
+- A Microsoft Fabric subscription. Or, sign up for a free [Microsoft Fabric trial capacity](/fabric/get-started/fabric-trial).
 - A [lakehouse in Microsoft Fabric](/fabric/data-engineering/create-lakehouse).
 
 ## Set up Microsoft Fabric
