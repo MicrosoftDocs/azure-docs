@@ -94,6 +94,25 @@ $LB = Get-AzLoadBalancer @LBinfo
 ```
 # [Azure CLI](#tab/azurecli)
 
+With Azure CLI, you create a load balancer with [`az network lb create`](/cli/azure/network/lb#az_network_lb_create) and update the backend pool. This example configures the following resources:
+
+- A frontend IP address that receives the incoming network traffic on the load balancer.
+- A backend address pool where the frontend IP sends the load balanced network traffic.
+
+```azurecli
+
+# Create a load balancer
+az network lb create --resource-group myResourceGroupLB --name myLoadBalancer --sku Standard --public-ip-address myPublicIP   --frontend-ip-name myFrontEnd --backend-pool-name BackendPool1 --tags 'IsRemoteFrontend=true'
+
+```
+
+In order to utilize the cross-subscription feature of Azure load balancer, backend pools need to have the syncMode property enabled and a virtual network reference. This section updates the backend pool created prior by attaching the cross-subscription virtual network and enabling the syncMode property. 
+
+```azurecli
+## Configure the backend address pool and syncMode property
+az network lb address-pool update --lb-name myLoadBalancer --resource-group myResourceGroupLB -n myResourceGroupLB --vnet ‘/subscriptions/<subscription A ID>/resourceGroups/{resource group name}/providers/Microsoft.Network/virtualNetwork/{VNet name}’ --sync-mode Automatic
+```
+
 ---
 
 [!INCLUDE [load-balancer-cross-subscription-health-probe-rules](../../includes/load-balancer-cross-subscription-health-probe-rules.md)]
