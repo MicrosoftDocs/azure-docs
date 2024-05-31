@@ -22,7 +22,7 @@ This article provides a summary of the latest releases and major documentation u
 
 ### GPT-4o provisioned deployments
 
-`gpt-4o` Version:`2024-05-13` is available for both standard and provisioned deployments. Provisioned and standard model deployments accept both text and image/vision inference requests.
+`gpt-4o` Version: `2024-05-13` is available for both standard and provisioned deployments. Provisioned and standard model deployments accept both text and image/vision inference requests.
 For information on model regional availability consult the model matrix for [provisioned deployments](./concepts/models.md#provisioned-deployment-model-availability).
 
 ### Assistants v2 (preview)
