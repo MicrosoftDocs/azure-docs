@@ -32,7 +32,7 @@ A common lifecycle of a job execution in Azure Spring Apps is from `pending`, `r
 
 Each time the job is executed, it adopts its preset configuration from the job, with certain aspects allowing for customization to accommodate different runs.
 
-In nonparallel job execution, only one instance runs at a time. Whereas, in parallel execution, multiple instances can run simultaneously.
+In nonparallel job execution, only one instance runs at a time. Whereas in parallel execution, multiple instances can run simultaneously.
 
 ## Configure a job
 
@@ -52,4 +52,4 @@ The following table shows the configuration in job level or job execution level:
 | CPU                          | Job/Execution | The value of CPU specified for the execution override of the job.                                                                                                                                                                                                                                                |
 | Memory                       | Job/Execution | The value of Memory specified for the execution override of the job.                                                                                                                                                                                                                                             |
 
-The configuration on job level applies when creating or updating the job resource, and configuration on job execution level applies when starting a job execution.
+The configuration on job level applies when creating or updating the job resource, and the configuration on job execution level applies when starting a job execution.
