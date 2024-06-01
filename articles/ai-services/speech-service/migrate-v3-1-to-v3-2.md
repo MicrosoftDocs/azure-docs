@@ -24,7 +24,7 @@ The Speech to text REST API is used for [Batch transcription](batch-transcriptio
 
 ## Base path
 
-You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2-preview.2`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
+You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
 
 For more information, see [Operation IDs](#operation-ids) later in this guide.
 
@@ -292,12 +292,10 @@ Added a new `copy` property.
 
 ## Operation IDs
 
-You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2-preview.2`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
+You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
 
 
 ## Next steps
 
 * [Speech to text REST API](rest-speech-to-text.md)
-* [Speech to text REST API v3.2 (preview)](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2-preview.2&preserve-view=true)
-* [Speech to text REST API v3.1 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.1&preserve-view=true)
-* [Speech to text REST API v3.0 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.0&preserve-view=true)
+* [Speech to text REST API v3.2 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2&preserve-view=true)

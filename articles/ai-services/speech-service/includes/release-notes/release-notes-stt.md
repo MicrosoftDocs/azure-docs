@@ -6,6 +6,15 @@ ms.date: 4/22/2024
 ms.author: eur
 ---
 
+### June 2024 release
+
+#### Speech to text REST API v3.2 general availability
+
+The Speech to text REST API version 3.2 is now generally available. For more information about speech to text REST API v3.2, see the [Speech to text REST API v3.2 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2&preserve-view=true) and the [Speech to text REST API guide](../../rest-speech-to-text.md).
+
+[Speech to text REST API](rest-speech-to-text.md) v3.1 will be retired on a date to be announced. Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information about upgrading, see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides.
+
+
 ### May 2024 release
 
 #### Video translation (Preview)
