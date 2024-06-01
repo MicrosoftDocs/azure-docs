@@ -1,5 +1,5 @@
 ---
-title: "Include file for TSI retirement" 
+title: "Include file for Time Series Insights retirement" 
 description: "include file" 
 ms.service: time-series-insights
 author: tedvilutis
