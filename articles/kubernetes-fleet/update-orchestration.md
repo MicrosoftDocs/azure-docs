@@ -276,27 +276,5 @@ Creating an update run required the stages, groups, and their order to be specif
 
 ---
 
-### Manage an Update run 
-
-#### [Azure portal](#tab/azure-portal)
-
-There are a couple of options to manage update runs:
-
-1. Under **Multi-cluster update** tab of the fleet resource, you can **Start** an update run that is either in **Not started** or **Failed** state.
-
-     :::image type="content" source="./media/update-orchestration/run-start.png" alt-text="A screenshot of the Azure portal showing how to start an update run in the 'Not started' state" lightbox="./media/update-orchestration/run-start.png":::
-
-1. Under **Multi-cluster update** tab of the fleet resource, you can **Stop** a currently **Running** update run.
-
-    :::image type="content" source="./media/update-orchestration/run-stop.png" alt-text="A screenshot of the Azure portal showing how to stop an update run in the 'Running' state" lightbox="./media/update-orchestration/run-stop.png":::
-
-1. Within any update run in **Not Started**, **Failed**, or **Running** state, you can select any **Stage** and **Skip** the upgrade.
-
-    :::image type="content" source="./media/update-orchestration/skip-stage.png" alt-text="A screenshot of the Azure portal shwowing how to skip upgrade for a specific stage in an update run." lightbox="./media/update-orchestration/skip-stage.png":::
-
-    You can similarly skip the upgrade at the update group or member cluster level too.
-
-    [Refer to conceptual overview on the update run states and skip behavior](concepts-update-orchestration.md#update-run-states) on runs/stages/groups for more information.
-
 [fleet-quickstart]: quickstart-create-fleet-and-members.md
 [azure-cli-install]: /cli/azure/install-azure-cli
