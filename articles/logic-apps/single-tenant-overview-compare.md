@@ -317,7 +317,7 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 
 * **Azure API Management**: You currently can't import a **Standard** logic app resource into Azure API Management. However, you can import a **Consumption** logic app resource.
 
-* **Authentication to backend storage**: **Standard** logic app relies on Storage access keys to establish connections with the backend Azure Storage Account. Currently, it does not support any alternative authentication methods such as Enterprise ID (Entra Id) authentication or Managed Identity authentication. Consequently, when deploying a Storage account alongside a **Standard** logic app, it is essential to ensure that Storage access keys are enabled.
+* **Authentication to backend storage**: Single-tenant Azure Logic Apps relies only on storage access keys to connect with the backend Azure Storage account. Alternative authentication methods, such as Microsoft Entra ID (Enterprise ID) and managed identity, currently aren't supported. So, when you deploy an Azure storage account alongside a **Standard** logic app, make sure that you enable storage access keys.
 
 <a name="firewall-permissions"></a>
 
