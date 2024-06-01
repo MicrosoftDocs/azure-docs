@@ -112,11 +112,11 @@ For more information, see [Language support](/azure/ai-services/content-safety/l
 
 To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, the Content Safety features are available in the following Azure regions: 
 
-| Region | Moderation APIs | Prompt Shields |  Protected material<br>detection | Groundedness<br>detection | Incident response | Blocklists |
-|---|---|---|---|---|---|--|
+|Region | Moderation APIs | Prompt Shields |  Protected material<br>detection | Groundedness<br>detection | Incident response | Blocklists |
+|---|---|---|---|---|---|---|
 | East US | ✅ | ✅| ✅ |✅ |✅ |✅ |
 | East US 2 | ✅ | | | ✅ | | |
-| West US | | | | | ✅ | | |
+| West US | | | | | ✅ | |
 | West US 2 | ✅ | | | | | |
 | Central US | ✅ | | | | | |
 | North Central US | ✅ | | | | | |
