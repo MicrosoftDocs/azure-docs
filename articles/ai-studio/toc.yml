@@ -72,11 +72,11 @@ items:
         href: how-to/deploy-models-cohere-command.md
       - name: Deploy Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
-    - name: Llama models
+    - name: Meta Llama models
       items:
-      - name: Deploy Llama family models
+      - name: Deploy Meta Llama family models
         href: how-to/deploy-models-llama.md
-      - name: Fine-tune Llama 2 family models
+      - name: Fine-tune Meta Llama family models
         href: how-to/fine-tune-model-llama.md
     - name: Deploy JAIS models
       href: how-to/deploy-jais-models.md

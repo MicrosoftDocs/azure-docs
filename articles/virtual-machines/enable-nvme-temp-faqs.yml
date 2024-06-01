@@ -5,7 +5,7 @@ metadata:
   ms.service: virtual-machines
   ms.topic: faq
   ms.custom: references_regions
-title: NVMe - Temp NVMe Disks FAQQ
+title: NVMe - Temp NVMe Disks FAQ
 summary: |
   This article addresses some common questions about support for Temp NVMe Disks on virtual machines created in Azure.
 
@@ -15,30 +15,30 @@ sections:
   - name: Azure Storage Considerations for temp NVMe Disks
     questions:
       - question: |
-          What are the prerequisites to enable the temp NVMe interface on my VM?
+          What are the prerequisites to enable the temp NVMe interface on my virtual machine (VM)?
         answer: |
           To enable the temp NVMe interface, the following prerequisites must be met:
           - Choose a VM family that supports NVMe (such as our v6 VMs). 
           - Select the operating system image that is tagged with NVMe support.
           - Only Gen2 images are supported.
-          By meeting the above three conditions, you'll be able to enable temp NVMe on the supported VM family in no time.
+          By meeting these three conditions, you're able to enable temp NVMe on the supported VM family.
       - question: |
           How are temp NVMe disks in our Dl/D/E_v6 VMs different?
         answer: |
-          A key difference between temp NVMe disks and remote NVMe disks is that the former are transient, and data on the VM can disappear. But data on the latter will stay. This should be factored in when choosing your VM’s storage options.
-          Unlike our previous D/E series VMs, the new v6 VMs come with raw, unformatted NVMe disks. This means that customers should initialize and format the disks into a file system of their preference after the VM boots up. The Dl/D/E v6 series VMs are optimized to use the local temp NVMe disk on the node attached directly to the VM rather than previously used local SCSI disks. This method allows for greater IOPS and throughput for your workloads. 
+          A key difference is that temp NVMe disks are transient and data on the VM can disappear, but data on remote NVMe disks stays. This difference should be factored in when choosing your VM’s storage options.
+          Unlike our previous D/E series VMs, the new v6 VMs come with raw, unformatted NVMe disks. Customers should initialize and format the disks into a file system of their preference after the VM boots up. The Dl/D/E v6 series VMs are optimized to use the local temp NVMe disk on the node attached directly to the VM rather than previously used local small computer system interface (SCSI) disks. This method allows for greater IOPS and throughput for your workloads. 
       - question: |
           What changes should you prepare for when configuring your VMs with temp NVMe disks?
         answer: |
-          - Disks should be initialized and formatted after VM boots up. After user-initiated stop/deallocate/planned maintenance and Azure-initiated auto-recovery events, the VMs boot up with only raw temp NVMe disks and therefore no temp NVMe disks are visible to applications until after they are initialized and formatted. 
+          - Disks should be initialized and formatted after the VM boots up. After user-initiated stop, deallocate, or planned maintenance and Azure-initiated autorecovery events, the VMs boot up with only raw temp NVMe disks. Therefore, no temp NVMe disks are visible to applications until after they're initialized and formatted. 
           - Separate NVMe drives can be spanned into one by customers as needed after VM boots up.
-          - Windows pagefile will be placed to persistent OS disk (except if Ephemeral OS feature is used), but it can be moved to temp NVMe disk as needed after VM boots up.
-          - Ephemeral OS feature, if used, will convert one or several NVMe disks (depending on the VM and image size) into a slower SCSI/VHD based disk, similar to how it was on v5 and older VMs. For the larger VM sizes, the remaining drives will stay raw unformatted NVMe.
-          - The [Resource Skus - List - REST API](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list?tabs=HTTP) exposes several capabilities of virtual machines.  The next iteration of virtual machine sizes use the faster and more efficient NVMe protocol for local storage, instead of the SCSI protocol used by earlier virtual machine sizes.  For Azure virtual machines, SCSI-based local storage is referred to as a temporary resource disk, and the size of this disk is specified by the value of MaxResourceVolumeMB.  In contrast, the size of NVMe-based local storage is specified by the value of NVMeDiskSizeInMiB. 
+          - Windows pagefile is placed to persistent OS disk (except if Ephemeral OS feature is used), but it can be moved to temp NVMe disk as needed after VM boots up.
+          - Ephemeral OS feature, if used, convert one or several NVMe disks (depending on the VM and image size) into a slower SCSI/VHD based disk, similar to how it was on v5 and older VMs. For the larger VM sizes, the remaining drives stay raw unformatted NVMe.
+          - The [Resource Skus - List - REST API](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list?tabs=HTTP) exposes several capabilities of virtual machines. The next iteration of virtual machine sizes uses the faster and more efficient NVMe protocol for local storage, instead of the SCSI protocol used by earlier virtual machine sizes. For Azure virtual machines, SCSI-based local storage is referred to as a temporary resource disk, and MaxResourceVolumeMB value specifies the size of this disk. In contrast, the NVMeDiskSizeInMiB value specifies the size of NVMe-based local storage. 
       - question: |
           How can I encrypt my temp NVMe disks?
         answer: |
-          The temp NVMe disks support the Data Encryption-at-Rest feature. For each temp NVMe disk assigned to the VM, its data is encrypted by a unique Data encryption key, which is protected by a Key Encryption Key (KEK). Upon the VM deletion, the data on its temp NVMe disk is cryptographically erased. 
+          The temp NVMe disks support the Data Encryption-at-Rest feature. A unique Data encryption key encrypts the data for each temp NVMe disk assigned to the VM, protected by a Key Encryption Key (KEK). Upon the VM deletion, the data on its temp NVMe disk is cryptographically erased. 
       - question: |
           How can I resize a v5 or older VM with temp disk to v6?
         answer: |
@@ -57,11 +57,11 @@ sections:
       - question: |
           How can I format and initialize temp NVMe disks in Windows at first VM launch?
         answer: |
-          You can either use the GUI or PowerShell as described below.
+          You can either use the GUI or the following PowerShell instructions.
           
           ### GUI
           >[!TIP]
-          > Note: The GUI example below is meant for illustrative purposes. It is recommended that scripts be created to automate this workflow for production deployments.
+          > Note: The following GUI example is meant for illustrative purposes. It's recommended that scripts be created to automate this workflow for production deployments.
           1. Press the **Windows key + R** to open the Run dialog box. Type **diskmgmt.msc** and press **Enter**.
           
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-1.png" alt-text="Screenshot of the Run dialog box opening diskmgmt.msc.":::
@@ -74,7 +74,7 @@ sections:
           
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-3.png" alt-text="Screenshot of the menu for selecting new volume types.":::
           
-          4. Follow the **New Simple Volume Wizard** in the next few steps to specify items such as Volume size, Drive letter, File system, Volume label, etc. by clicking on the **Next** button to advance through the wizard. 
+          4. To specify items such as Volume size, Drive letter, File system, and Volume label, follow the **New Simple Volume Wizard** in the next few steps. Select the **Next** button to advance through the wizard. 
           
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-4.png" alt-text="Screenshot of specifying the volume size in the New Simple Volume Wizard.":::
           
@@ -82,17 +82,17 @@ sections:
           
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-6.png" alt-text="Screenshot of specifying how to format the partition in the New Simple Volume Wizard.":::
           
-          5. Review your settings and click the **Finish** button to complete the partition and format.
+          5. To complete the partition and format, review your settings and select the **Finish** button.
           
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-7.png" alt-text="Screenshot of completing the New Simple Volume Wizard.":::
           
-          6. The formatted and initialized NVMe disks will show in the Windows Disk Management utility similar to how the “New Volume (E:)” does in this example.
+          6. The formatted and initialized NVMe disks show up in the Windows Disk Management utility similar to how the "New Volume (E:)" does in this example.
           
           :::image type="content" source="./media/enable-nvme/nvme-temp-init-8.png" alt-text="Screenshot of Disk Management utility showing the New Volume (E:).":::
           
           ### PowerShell Script – Initialize, format, and assign drive letters
           >[!TIP]
-          > Note: The following script will erase all data on the disk. You should thoroughly test it on your VMs before deploying it in production.
+          > Note: The following script erases all data on the disk. You should thoroughly test it on your VMs before deploying it in production.
           ```PowerShell
           # Select the raw NVMe disks to partition and format 
           
@@ -115,13 +115,13 @@ sections:
       - question: |
           How can I format and initialize temp NVMe disks in Linux?
         answer: |
-          The script below provides an example of initializing temp NVMe disks in Linux. The script enumerates all temp NVMe disks on the VM, combines the disks into a single RAID0 array, and creates a formatted partition of the specified filesystem.
-          Temp NVMe disks can be distinguished by the model number, which appears as “Microsoft NVMe Direct Disk” to the guest OS. This script uses the nvme-cli id-ctrl command to query the model number of each NVMe device.
-          The script first checks for any already-created temp NVMe disk volumes (identified by the filesystem label). If an array appears to be present, the script will verify array integrity and repeat the initialization process if necessary. The array will be re-initialized in the following cases: 
-          - One or more array temp disks are missing
-          - There are temp disks not already incorporated into the array
-          - The disk array is in an otherwise invalid or unknown state
-          - Associated configuration files are missing or invalid
+          The following script provides an example of initializing temp NVMe disks in Linux. The script enumerates all temp NVMe disks on the VM, combines the disks into a single RAID0 array, and creates a formatted partition of the specified filesystem.
+          Temp NVMe disks are distinguished by the model number, which appears as "Microsoft NVMe Direct Disk" to the guest OS. This script uses the nvme-cli id-ctrl command to query the model number of each NVMe device.
+          The script first checks for any already-created temp NVMe disk volumes (identified by the filesystem label). If an array appears to be present, the script verifies the array integrity and repeats the initialization process if necessary. The array re-initializes in the following cases: 
+          - One or more array temp disks are missing.
+          - There are temp disks not already incorporated into the array.
+          - The disk array is in an otherwise invalid or unknown state.
+          - Associated configuration files are missing or invalid.
           ```
           #!/bin/bash 
           
@@ -133,7 +133,7 @@ sections:
           readonly USAGE="Usage: $(basename "$0") <filesystem> <filesystem mount point (optional)>"
            
           # Label used to identify the NVMe array filesystem and associated disks
-          # Cannot exceed 16 characters
+          # Can't exceed 16 characters
           readonly RAID0_FILESYSTEM_LABEL="azure_nvme_temp"
           # Device path used for the RAID 0 NVMe array
           # Choose any unoccupied device path of format /dev/mdX (X = 0 to 99)
@@ -164,11 +164,11 @@ sections:
           elif [ -e "/etc/mdadm.conf" ]; then
               mdadm_conf_path="/etc/mdadm.conf"
           else
-              print "Could not find mdadm.conf file"
+              print "Couldn't find mdadm.conf file"
               exit 1
           fi
            
-          # Enumerate NVMe direct disks that are not already mounted
+          # Enumerate unmounted NVMe direct disks
           devices=$(lsblk -p -o NAME,TYPE,MOUNTPOINT | grep "nvme" | awk '$2 == "disk" && $3 == "" {print $1}')
           nvme_direct_disks=()
           for device in $devices
@@ -180,7 +180,7 @@ sections:
           nvme_direct_disk_count=${#nvme_direct_disks[@]}
           printf "Found $nvme_direct_disk_count NVMe Direct Disks\n"
            
-          # Check if there is already an NVMe Direct Disk RAID 0 disk (or remnant data)
+          # Check if there's already an NVMe Direct Disk RAID 0 disk (or remnant data)
           if grep "$RAID0_FILESYSTEM_LABEL" /etc/fstab > /dev/null; then
               fstab_entry_present=true
           fi
@@ -191,7 +191,7 @@ sections:
               nvme_raid0_present=true
           fi
           if [ "$fstab_entry_present" = true ] || [ "$mdadm_conf_entry_present" = true ] || [ "$nvme_raid0_present" = true ]; then
-              # Check if the RAID 0 volume and associated configs are still intact or need to be re-initialized
+              # Check if the RAID 0 volume and associated configs are still intact or need to be reinitialized
               #
               # If re-initialization is needed, then clear the old RAID 0 information and associated files
            
@@ -215,7 +215,7 @@ sections:
               fi
            
               if [ "$reinit_raid0" = true ]; then
-                  echo "Errors found in NVMe RAID 0 temp array device or configuration. Reinitializing.."
+                  echo "Errors found in NVMe RAID 0 temp array device or configuration. Reinitializing."
            
                   # Remove filesystem, partition table, and stop the RAID 0 array
                   if [ "$nvme_raid0_present" = true ]; then
@@ -234,7 +234,7 @@ sections:
                       mdadm --zero-superblock $device &> /dev/null
                   done
            
-                  # Remove any assoicated entries in fstab and mdadm.conf
+                  # Remove any associated entries in fstab and mdadm.conf
                   sed -i.bak "/$RAID0_FILESYSTEM_LABEL/d" /etc/fstab
                   sed -i.bak "/$RAID0_FILESYSTEM_LABEL/d" $mdadm_conf_path
               else
@@ -287,7 +287,7 @@ sections:
           printf "\nMounting filesystem to $mount_point..\n"
           mkdir $mount_point &> /dev/null
           if ! mount -a; then
-              printf "Failed to auto-mount partition\n"
+              printf "Failed to automount partition\n"
               exit 1
           fi
           printf "The operation has completed successfully.\n"
@@ -297,10 +297,10 @@ sections:
       - question: |
           How can I move the Windows pagefile from OS disk to a temp NVMe disk?
         answer: |
-          You can either use the GUI or PowerShell as described below.
+          You can either use the GUI or the following PowerShell instructions.
           ### GUI
           >[!TIP]
-          > Note: The GUI example below is meant for illustrative purposes. It is recommended that scripts be created to automate this workflow for production deployments.be created to automate this workflow for production deployments.
+          > Note: The following GUI example is meant for illustrative purposes. It's recommended that scripts be created to automate this workflow for production deployments.be created to automate this workflow for production deployments.
           
           1. Press the **Windows key + R** to open the Run dialog box. Type **sysdm.cpl** and press **Enter**.
           
@@ -314,12 +314,12 @@ sections:
 
           :::image type="content" source="./media/enable-nvme/nvme-temp-pagefile-3.png" alt-text="Screenshot of the Advanced tab of the Performance Options.":::
 
-          4. Uncheck the option that says **“Automatically manage paging file size for all drives”**. If there’s a paging file set to your OS disk, select your OS disk and click on the **No paging file** radio button, and then click on the **Set** button. Select your local temp NVMe drive and click on the **System managed size** radio button, and then click on the **Set** button. Click on **OK** to close all windows.
+          4. Uncheck the option that says **Automatically manage paging file size for all drives**. If there’s a paging file set to your OS disk, select your OS disk and click on the **No paging file** radio button, and then click on the **Set** button. Select your local temp NVMe drive and click on the **System managed size** radio button, and then click on the **Set** button. Click on **OK** to close all windows.
           
           :::image type="content" source="./media/enable-nvme/nvme-temp-pagefile-4.png" alt-text="Screenshot of Virtual Memory dialog box.":::
           
           >[!TIP]
-          > Please note that you may need to restart your VM for these changes to take effect.
+          > You may need to restart your VM for these changes to take effect.
           
           ### PowerShell script
 
@@ -341,7 +341,7 @@ sections:
           Set-WMIInstance -Class Win32_PageFileSetting -Arguments @{name="$NVMeDisk\\pagefile.sys"; InitialSize=0; MaximumSize=0} -EnableAllPrivileges
           
           >[!TIP]
-          > Please note that you may need to restart your VM for these changes to take effect.
+          > You may need to restart your VM for these changes to take effect.
       - question: |
           How can I move the Linux swap file from OS disk to a temp NVMe disk?
         answer: |
@@ -377,8 +377,7 @@ sections:
       - question: |
           What considerations do I need to be aware of for Maintenance Events, VM Redeploys, and VM Reboots?
         answer: |
-          Temp NVMe disks attached to V6 VMs are ephemeral, similar to temp drives on other VM series. This means that you will lose all data on the VM when you redeploy or during a maintenance event.
-          For more information on maintenance events and downtime, please refer to:
-          - [Understand VM reboots - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/understand-vm-reboots)
-          If the VM has moved to new hardware, these drives will also unmount, and new unmounted disks will be presented to the operating system when it comes back up. If the VM has not changed hardware, the temp NVME disks might still be present. In the scripts above for mounting the drives, it checks for unmounted drives before it tries to mount. 
-          It is best practice to run the mounting script automatically every time the VM boots and delay any other boot scripts that need the drives until after the mounting script has run.
+          Temp NVMe disks attached to V6 VMs are ephemeral, similar to temp drives on other VM series. This means that you lose all data on the VM when you redeploy or during a maintenance event.
+          For more information on maintenance events and downtime, see [Understand VM reboots - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/understand-vm-reboots).
+          If the VM moved to new hardware, these drives unmount and new unmounted disks are presented to the operating system when it comes back up. If the VM didn't changed hardware, the temp NVME disks might still be present. In the scripts above for mounting the drives, it checks for unmounted drives before it tries to mount. 
+          It's best practice to run the mounting script automatically every time the VM boots and delay any other boot scripts that need the drives until after the mounting script is finished running.

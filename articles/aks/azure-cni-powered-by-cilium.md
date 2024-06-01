@@ -73,7 +73,7 @@ Azure CNI powered by Cilium currently has the following limitations:
 Use the following commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
 
 ```azurecli-interactive
-az aks create --name <clusterName> --resource-group <resourceGroupName> --loctaion <location> \
+az aks create --name <clusterName> --resource-group <resourceGroupName> --location <location> \
   --network-plugin azure \
   --network-plugin-mode overlay \
   --pod-cidr 192.168.0.0/16 \
@@ -96,7 +96,7 @@ az group create --name <resourceGroupName> --location <location>
 # Create a virtual network with a subnet for nodes and a subnet for pods
 az network vnet create --resource-group <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
 az network vnet subnet create --resource-group <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
-az network vnet subnet create --resource-group<resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
+az network vnet subnet create --resource-group <resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
 ```
 
 Create the cluster using `--network-dataplane cilium`:

@@ -134,7 +134,7 @@ For example, if you're trying to consume a new Blob storage, you need to ensure 
 
 ## Manage access with roles 
 
-If you're an owner of a hub, you can add and remove roles for the Studio. Within the Azure AI Studio, go to **Manage** and select your hub. Then select **Permissions** to add and remove users for the hub. You can also manage permissions from the Azure portal under **Access Control (IAM)** or through the Azure CLI. For example, use the [Azure CLI](/cli/azure/) to assign the Azure AI Developer role to "joe@contoso.com" for resource group "this-rg" with the following command: 
+If you're an owner of a hub, you can add and remove roles for AI Studio. Go to the **Home** page in [AI Studio](https://ai.azure.com) and select your hub. Then select **Users** to add and remove users for the hub. You can also manage permissions from the Azure portal under **Access Control (IAM)** or through the Azure CLI. For example, use the [Azure CLI](/cli/azure/) to assign the Azure AI Developer role to "joe@contoso.com" for resource group "this-rg" with the following command: 
  
 ```azurecli-interactive
 az role assignment create --role "Azure AI Developer" --assignee "joe@contoso.com" --resource-group this-rg 

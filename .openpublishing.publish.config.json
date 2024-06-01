@@ -135,9 +135,9 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
+      "path_to_root": "ms-identity-dotnetcore-b2c-account-management-archive",
       "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
-      "branch": "master",
+      "branch": "archive",
       "branch_mapping": {}
     },
     {

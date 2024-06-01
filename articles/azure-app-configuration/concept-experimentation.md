@@ -98,7 +98,7 @@ The following sections detail the roles required to perform experiment-related o
 
 ### Set up experimentation
 
-To set up experimentation with required resources including Split experimentation workspace, the Azure subscription Owner or Contributor and User Access Administrator role is required.
+To set up experimentation with the required resources, including the Split Experimentation Workspace, either the Azure subscription Owner role or the combination of subscription Contributor and User Access Administrator roles is required.
 
 ### Create or update experiment
 

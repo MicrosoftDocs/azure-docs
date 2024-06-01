@@ -29,9 +29,12 @@ For more information about the experimentation metrics, go to [Create experiment
 
 :::image type="content" source="media/manage/experimentation-metrics.png" alt-text="Screenshot of the Azure platform showing experimentation metrics.":::
 
-## Configure Data Source
+## Configure data source
 
 Under **Configuration** > **Data Source**, configure the Log Analytics workspace and storage account for your Split Experimentation Workspace.
+
+  > [!NOTE]
+  > When creating a new storage account for your experimentation, you must use the same region as your Log Analytics workspace.
 
 - Under **Log Analytics workspace**, you find a link to the Log Analytics workspace that provides Split with the impressions and events data.
 - Under **Export Destination Details**, you find a link to the storage account where the information used by Split is stored.
