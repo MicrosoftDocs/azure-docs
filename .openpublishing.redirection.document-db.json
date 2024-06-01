@@ -465,6 +465,21 @@
       "source_path_from_root": "/articles/documentdb/fundamentals-data-management-nosql-chappell.md",
       "redirect_url": "https://azure.microsoft.com/services/cosmos-db/",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/documentdb/documentdb-search-indexer.md",
+      "redirect_url": "/azure/search/search-howto-index-documentdb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/documentdb/index.md",
+      "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/documentdb/sql-query-operators.md",
+      "redirect_url": "sql-query-logical-operators",
+      "redirect_document_id": false
     }
   ]
 }

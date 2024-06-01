@@ -91,11 +91,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cosmos-db/nosql/sdk-java-spark-v2.md",
-            "redirect_url": "/previous-versions/azure/cosmos-db/nosql/sdk-java-spark-v2",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/storage/common/storage-analytics-metrics.md",
             "redirect_url": "/previous-versions/azure/storage/common/storage-analytics-metrics",
             "redirect_document_id": false
@@ -3239,16 +3234,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/documentdb/index.md",
-            "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/documentdb/sql-query-operators.md",
-            "redirect_url": "sql-query-logical-operators",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/sdks/index.yml",
             "redirect_url": "https://azure.microsoft.com/downloads/",
             "redirect_document_id": false
@@ -3893,11 +3878,6 @@
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
         },
         {
-            "source_path_from_root": "/articles/aks/operator-best-practices-multi-region.md",
-            "redirect_url": "/azure/aks/ha-dr-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/orbital/license-spacecraft.md",
             "redirect_url": "/azure/orbital/initiate-licensing",
             "redirect_document_id": false
@@ -3913,19 +3893,9 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/aks/cluster-configuration.md",
-            "redirect_url": "/azure/aks/concepts-clusters-workloads",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/orbital/overview-analytics.md",
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false  
-        },
-        {
-            "source_path_from_root": "/articles/aks/intro-kubernetes.md",
-            "redirect_url": "/azure/aks/what-is-aks",
-            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-health-insights/request-info.md",
@@ -3956,16 +3926,6 @@
             "source_path_from_root": "/articles/cloud-services-php-create-web-role.md",
             "redirect_url": "/azure/cloud-services/cloud-services-php-create-web-role",
             "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/high-availability.md",
-            "redirect_url": "/azure/reliability/reliability-cosmos-mongodb",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/failover-disaster-recovery.md",
-            "redirect_url": "/azure/reliability/reliability-cosmos-mongodb",
-            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/notification-hubs/notification-hubs-high-availability.md",
@@ -4059,16 +4019,6 @@
             "redirect_document_id":false 
         },
         {
-            "source_path_from_root":"/articles/aks/generation-2-vm-windows.md",
-            "redirect_url":"/azure/aks/generation-2-vm",
-            "redirect_document_id":false
-        },
-        {
-            "source_path_from_root":"/articles/cosmos-db/high-availability.md",
-            "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql",
-            "redirect_document_id":false
-        },
-        {
             "source_path_from_root": "/articles/copilot/limited-access.md",
             "redirect_url": "/azure/copilot/manage-access",
             "redirect_document_id": false
@@ -4089,13 +4039,13 @@
             "redirect_document_id":false 
         },
         {
-            "source_path_from_root":"/articles/aks/troubleshoot-udp-packet-drops.md",
-            "redirect_url":"/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
-            "redirect_document_id":false
-        },
-        {
             "source_path_from_root": "/articles/physical-server-azure-architecture-preview.md",
             "redirect_url": "/azure/site-recovery/physical-server-azure-architecture-modernized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/store-php-create-mysql-database.md",
+            "redirect_url": "/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal",
             "redirect_document_id": false
         }
     ]
