@@ -54,13 +54,17 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
 
 1. On the page for your Azure Kubernetes Fleet Manager resource, go to the **Multi-cluster update** menu and select **Create**.
 
-1. You can choose either **One by one** or **Stages**.
+1. Choosing **One by one** would result in upgrading the member clusters present in the update run in a sequential manner one-by-one.
 
-    :::image type="content" source="./media/update-orchestration/one-by-one-inline.png" alt-text="Screenshot of the Azure portal pane for creating update runs that update clusters one by one in Azure Kubernetes Fleet Manager." lightbox="./media/update-orchestration/one-by-one-lightbox.png":::
+    :::image type="content" source="./media/update-orchestration/update-run-one-by-one.png" alt-text="Screenshot of the Azure portal pane for creating update runs that update clusters one by one in Azure Kubernetes Fleet Manager." lightbox="./media/update-orchestration/update-run-one-by-one.png":::
 
-1. For **upgrade scope**, you can choose to either update both the **Kubernetes version and the node image version** or you can update only your **Node image version only**.
+1. For **upgrade scope**, you can choose one of these three options: 
 
-    :::image type="content" source="./media/update-orchestration/update-scope-inline.png" alt-text="Screenshot of the Azure portal pane for creating update runs. The upgrade scope section is shown." lightbox="./media/update-orchestration/update-scope-lightbox.png":::
+    - Kubernetes version for both control plane and node pools
+    - Kubernetes version for only control plane of the cluster
+    - Node image version only
+
+    :::image type="content" source="./media/update-orchestration/upgrade-scope.png" alt-text="Screenshot of the Azure portal pane for creating update runs. The upgrade scope section is shown." lightbox="./media/update-orchestration/upgrade-scope.png":::
 
     For the node image, the following options are available:
     - **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
@@ -146,11 +150,13 @@ You can define an update run using update stages in order to sequentially order 
 
 #### [Azure portal](#tab/azure-portal)
 
-1. On the page for your Azure Kubernetes Fleet Manager resource, navigate to **Multi-cluster update** and select **Create**.
+1. On the page for your Azure Kubernetes Fleet Manager resource, navigate to **Multi-cluster update**. Under the **Runs** tab, select **Create**.
 
-1. Select **Stages**, and then choose either **Node image (latest) + Kubernetes version** or **Node image (latest)**, depending on your desired upgrade scope.
+1. Provide a name for your update run and then select 'Stages'.
 
-1. Under **Stages**, select **Create Stage**. You can now specify the stage name and the duration to wait after each stage.
+    :::image type="content" source="./media/update-orchestration/update-run-stages-inline.png" alt-text="Screenshot of the Azure portal page for choosing stages mode within update run." lightbox="./media/update-orchestration/update-run-stages-lightbox.png":::
+
+1. Choose **Create Stage**. You can now specify the stage name and the duration to wait after each stage.
 
     :::image type="content" source="./media/update-orchestration/create-stage-basics-inline.png" alt-text="Screenshot of the Azure portal page for creating a stage and defining wait time." lightbox="./media/update-orchestration/create-stage-basics.png":::
 
@@ -158,7 +164,22 @@ You can define an update run using update stages in order to sequentially order 
 
     :::image type="content" source="./media/update-orchestration/create-stage-choose-groups-inline.png" alt-text="Screenshot of the Azure portal page for stage creation that shows the selection of upgrade groups." lightbox="./media/update-orchestration/create-stage-choose-groups.png":::
 
-1. After you define all your stages and order them by using the **Move up** and **Move down** controls, proceed with creating the update run.
+1. After you define all your stages, you can order them by using the **Move up** and **Move down** controls.
+
+1. For **upgrade scope**, you can choose one of these three options: 
+
+    - Kubernetes version for both control plane and node pools
+    - Kubernetes version for only control plane of the cluster
+    - Node image version only
+
+    :::image type="content" source="./media/update-orchestration/upgrade-scope.png" alt-text="Screenshot of the Azure portal pane for creating update runs. The upgrade scope section is shown." lightbox="./media/update-orchestration/upgrade-scope.png":::
+
+    For the node image, the following options are available:
+    - **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
+    - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
+
+
+1. Click on **Create** at the bottom of the page to create the update run. Specifying stages and their order every time when creating an update run can get repetitive and cumbersome. Update strategies simplify this by allowing you to store templates for update runs. [Refer to update strategy creation and usage](#create-an-update-run-using-update-strategies) for more information.
 
 1. In the **Multi-cluster update** menu, choose the update run and select **Start**.
 
@@ -218,22 +239,26 @@ You can define an update run using update stages in order to sequentially order 
 
 ### Create an update run using update strategies
 
-In the previous section, creating an update run required the stages, groups, and their order to be specified each time. Update strategies simplify this by allowing you to store templates for update runs.
+Creating an update run required the stages, groups, and their order to be specified each time. Update strategies simplify this by allowing you to store templates for update runs.
 
 > [!NOTE]
 > It is possible to create multiple update runs with unique names from the same update strategy.
 
 #### [Azure portal](#tab/azure-portal)
 
-When creating your update runs, you are given an option to create an update strategy at the same time, effectively saving the run as a template for subsequent update runs.
+**Create an update strategy**: There are two ways to create an update strategy:
 
-1. Save an update strategy while creating an update run:
+- **Approach 1**: You can save an update strategy while creating an update run.
 
     :::image type="content" source="./media/update-orchestration/update-strategy-creation-from-run-inline.png" alt-text="A screenshot of the Azure portal showing update run stages being saved as an update strategy." lightbox="./media/update-orchestration/update-strategy-creation-from-run-lightbox.png":::
 
-1. The update strategy you created can later be referenced when creating new subsequent update runs:
+- **Approach 2**: You can navigate to **Multi-cluster update** and choose **Create** under the **Strategy** tab.
 
-    :::image type="content" source="./media/update-orchestration/update-run-creation-from-strategy-inline.png" alt-text="A screenshot of the Azure portal showing the creation of a new update run. The 'Copy from existing strategy' button is highlighted." lightbox="./media/update-orchestration/update-run-creation-from-strategy-lightbox.png":::
+    :::image type="content" source="./media/update-orchestration/create-strategy-inline.png" alt-text="A screenshot of the Azure portal showing creation of update strategy." lightbox="./media/update-orchestration/create-strategy-lightbox.png":::
+
+**Use an update strategy to create update run**: The update strategy you created can later be referenced when creating new subsequent update runs:
+
+:::image type="content" source="./media/update-orchestration/update-run-creation-from-strategy-inline.png" alt-text="A screenshot of the Azure portal showing the creation of a new update run. The 'Copy from existing strategy' button is highlighted." lightbox="./media/update-orchestration/update-run-creation-from-strategy-lightbox.png":::
 
 #### [Azure CLI](#tab/cli)
 
@@ -250,6 +275,28 @@ When creating your update runs, you are given an option to create an update stra
     ```
 
 ---
+
+### Manage an Update run 
+
+#### [Azure portal](#tab/azure-portal)
+
+There are a couple of options to manage update runs:
+
+1. Under **Multi-cluster update** tab of the fleet resource, you can **Start** an update run that is either in **Not started** or **Failed** state.
+
+     :::image type="content" source="./media/update-orchestration/run-start.png" alt-text="A screenshot of the Azure portal showing how to start an update run in the 'Not started' state" lightbox="./media/update-orchestration/run-start.png":::
+
+1. Under **Multi-cluster update** tab of the fleet resource, you can **Stop** a currently **Running** update run.
+
+    :::image type="content" source="./media/update-orchestration/run-stop.png" alt-text="A screenshot of the Azure portal showing how to stop an update run in the 'Running' state" lightbox="./media/update-orchestration/run-stop.png":::
+
+1. Within any update run in **Not Started**, **Failed**, or **Running** state, you can select any **Stage** and **Skip** the upgrade.
+
+    :::image type="content" source="./media/update-orchestration/skip-stage.png" alt-text="A screenshot of the Azure portal shwowing how to skip upgrade for a specific stage in an update run." lightbox="./media/update-orchestration/skip-stage.png":::
+
+    You can similarly skip the upgrade at the update group or member cluster level too.
+
+    [Refer to conceptual overview on the update run states and skip behavior](concepts-update-orchestration.md#update-run-states) on runs/stages/groups for more information.
 
 [fleet-quickstart]: quickstart-create-fleet-and-members.md
 [azure-cli-install]: /cli/azure/install-azure-cli
