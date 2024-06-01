@@ -1,6 +1,6 @@
 ---
 title: Configure networking for Azure Elastic SAN
-description: Learn how to configure access to an Azure Elastic SAN.
+description: Learn how to secure Azure Elastic SAN volumes through access configuration.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
