@@ -79,10 +79,10 @@ See the following sample request body:
 }
 ```
 
-Open a command prompt window and run the cURL command.
+Open a command prompt window, paste in the edited cURL command, and run it.
 
 
-### Interpret the API response
+## Output
 
 You should see the text moderation results displayed as JSON data in the console output. For example:
 
