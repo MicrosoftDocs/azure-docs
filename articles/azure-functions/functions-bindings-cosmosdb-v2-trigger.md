@@ -21,7 +21,7 @@ Cosmos DB scaling decisions for the Consumption and Premium plans are done via t
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
 ::: zone-end
 ::: zone pivot="programming-language-python"
-[!INCLUDE [functions-bindings-python-models-intro]../../includes/functions-bindings-python-models-intro.md]
+[!INCLUDE [functions-bindings-python-models-intro](../../includes/functions-bindings-python-models-intro.md)]
 
 ::: zone-end
 
