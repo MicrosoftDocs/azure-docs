@@ -72,22 +72,42 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
 
 ### [Azure CLI](#tab/cli)
 
-Run the following command to update the Kubernetes version and the node image version for all clusters of the fleet one by one:
+**Creating an update run**:
+
+- Run the following command to update the Kubernetes version and the node image version for all clusters of the fleet one by one:
+
+    ```azurecli-interactive
+    az fleet updaterun create --resource-group $GROUP --fleet-name $FLEET --name run-1 --upgrade-type Full --kubernetes-version 1.26.0
+    ```
+
+- Run the following command to update the Kubernetes version for only the control plane of all member clusters of the fleet one by one:
+
+    ```azurecli-interactive
+    az fleet updaterun create --resource-group $GROUP --fleet-name $FLEET --name run-2 --upgrade-type ControlPlaneOnly --kubernetes-version 1.26.0
+    ```
+
+- Run the following command to update only the node image versions for all clusters of the fleet one by one:
+
+    ```azurecli-interactive
+    az fleet updaterun create --resource-group $GROUP --fleet-name $FLEET --name run-3 --upgrade-type NodeImageOnly
+    ```
+
+When creating an update run, you have the ability to control the scope of the update run. The `--upgrade-type` flag supports the following values: 
+- `ControlPlaneOnly` only upgrades the Kubernetes version for the control plane of the cluster. 
+- `Full` upgrades Kubernetes version for control plane and node pools along with the node images.
+- `NodeImageOnly` only upgrades the node images.
+
+Also, the `--node-image-selection` flag supports choosing the behavior for the target node images used for upgrades in an update run
+- **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
+- **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
+
+
+**Starting an update run**:
+
+Run the following command to start any of the above created update run:
 
 ```azurecli-interactive
-az fleet updaterun create --resource-group $GROUP --fleet-name $FLEET --name run-1 --upgrade-type Full --kubernetes-version 1.26.0
-```
-
-> [!NOTE]
-> The `--upgrade-type` flag supports the values `Full` or `NodeImageOnly`. `Full` updates both the node images and the Kubernetes version.
-> `--node-image-selection` supports the values `Latest` and `Consistent`. 
-> - **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
-> - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
-
-Run the following command to update only the node image versions for all clusters of the fleet one by one:
-
-```azurecli-interactive
-az fleet updaterun create --resource-group $GROUP --fleet-name $FLEET --name run-2 --upgrade-type NodeImageOnly
+az fleet updaterun start --resource-group $GROUP --fleet-name $FLEET --name <run-name>
 ```
 
 ---
@@ -188,7 +208,7 @@ You can define an update run using update stages in order to sequentially order 
 1. Run the following command to create the update run:
 
     ```azurecli-interactive
-    az fleet updaterun create --resource-group $GROUP --fleet-name $FLEET --name run-3 --upgrade-type Full --kubernetes-version 1.26.0 --stages example-stages.json
+    az fleet updaterun create --resource-group $GROUP --fleet-name $FLEET --name run-4 --upgrade-type Full --kubernetes-version 1.26.0 --stages example-stages.json
     ```
 
     Here's an example of input from the stages file (*example-stages.json*):
@@ -229,10 +249,19 @@ You can define an update run using update stages in order to sequentially order 
     }
     ```
 
+    When creating an update run, you have the ability to control the scope of the update run. The `--upgrade-type` flag supports the following values: 
+    - `ControlPlaneOnly` only upgrades the Kubernetes version for the control plane of the cluster. 
+    - `Full` upgrades Kubernetes version for control plane and node pools along with the node images.
+    - `NodeImageOnly` only upgrades the node images.
+
+    Also, the `--node-image-selection` flag supports choosing the behavior for the target node images used for upgrades in an update run
+    - **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
+    - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
+
 1. Run the following command to start this update run:
 
     ```azurecli-interactive
-    az fleet updaterun start --resource-group $GROUP --fleet-name $FLEET --name run-3
+    az fleet updaterun start --resource-group $GROUP --fleet-name $FLEET --name run-4
     ```
 
 ---
@@ -271,8 +300,53 @@ Creating an update run required the stages, groups, and their order to be specif
 1. Run the following command to create an update run referencing this strategy:
 
     ```azurecli-interactive
-    az fleet updaterun create --resource-group $GROUP --fleet-name $FLEET --name run-4 --update-strategy-name strategy-1 --upgrade-type NodeImageOnly --node-image-selection Consistent
+    az fleet updaterun create --resource-group $GROUP --fleet-name $FLEET --name run-5 --update-strategy-name strategy-1 --upgrade-type NodeImageOnly --node-image-selection Consistent
     ```
+---
+
+### Manage an Update run 
+
+There are a few options to manage update runs:
+
+#### [Azure portal](#tab/azure-portal)
+
+- Under **Multi-cluster update** tab of the fleet resource, you can **Start** an update run that is either in **Not started** or **Failed** state.
+
+     :::image type="content" source="./media/update-orchestration/run-start.png" alt-text="A screenshot of the Azure portal showing how to start an update run in the 'Not started' state" lightbox="./media/update-orchestration/run-start.png":::
+
+- Under **Multi-cluster update** tab of the fleet resource, you can **Stop** a currently **Running** update run.
+
+    :::image type="content" source="./media/update-orchestration/run-stop.png" alt-text="A screenshot of the Azure portal showing how to stop an update run in the 'Running' state" lightbox="./media/update-orchestration/run-stop.png":::
+
+- Within any update run in **Not Started**, **Failed**, or **Running** state, you can select any **Stage** and **Skip** the upgrade.
+
+    :::image type="content" source="./media/update-orchestration/skip-stage.png" alt-text="A screenshot of the Azure portal shwowing how to skip upgrade for a specific stage in an update run." lightbox="./media/update-orchestration/skip-stage.png":::
+
+    You can similarly skip the upgrade at the update group or member cluster level too.
+
+    [Refer to conceptual overview on the update run states and skip behavior](concepts-update-orchestration.md#update-run-states) on runs/stages/groups for more information.
+
+#### [Azure CLI](#tab/cli)
+
+- You can **Start** an update run that is either in **Not started** or **Failed** state:
+
+    ```azurecli-interactive
+    az fleet updaterun start --resource-group $GROUP --fleet-name $FLEET --name <run-name>
+    ```
+
+- You can **Stop** a currently **Running** update run:
+
+    ```azurecli-interactive
+    az fleet updaterun stop --resource-group $GROUP --fleet-name $FLEET --name <run-name>
+    ```
+
+- You can skip update stages or groups by specifying them under targets of the skip command:
+
+    ```azurecli-interactive
+    az fleet updaterun skip --resource-group $GROUP --fleet-name $FLEET --name <run-name> --targets Group:my-group-name Stage:my-stage-name
+    ```
+
+    [Refer to conceptual overview on the update run states and skip behavior](concepts-update-orchestration.md#update-run-states) on runs/stages/groups for more information.
 
 ---
 
