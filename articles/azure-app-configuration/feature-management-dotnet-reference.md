@@ -1,6 +1,7 @@
 ---
-title: .NET Feature Management
+title: .NET feature management - Azure App Configuration
 description: Overview of .NET Feature Management library
+services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
@@ -187,7 +188,8 @@ The feature management library also supports the usage of the [`Microsoft Featur
 }
 ```
 
-**Note:** If the `feature_management` section can be found in the configuration, the `FeatureManagement` section is ignored.
+> [!NOTE]
+> If the `feature_management` section can be found in the configuration, the `FeatureManagement` section is ignored.
 
 :::zone-end
 
@@ -281,7 +283,8 @@ In the above example, `FeatureW` specifies a `requirement_type` of `All`, meanin
 
 In previous versions, the primary schema for the feature management library was the [`.NET feature management schema`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json). Starting from v4.0.0, new features including variants and telemetry won't be supported for the .NET feature management schema.
 
-**Note:** If a feature flag written with `Microsoft Feature Management schema` can be found in the configuration, any feature flag written with `.NET feature management schema` will be ignored.
+> [!NOTE]
+> If a feature flag written with `Microsoft Feature Management schema` can be found in the configuration, any feature flag written with `.NET feature management schema` will be ignored.
 
 :::zone-end
 
@@ -317,7 +320,8 @@ public class Startup
 
 By default, the feature manager retrieves feature flag configuration from the "FeatureManagement" section of the .NET Core configuration data. If the "FeatureManagement" section doesn't exist, the configuration is considered empty.
 
-**Note:** You can also specify that feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example tells the feature manager to read from a different section called "MyFeatureFlags" instead:
+> [!NOTE]
+> You can also specify that feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example tells the feature manager to read from a different section called "MyFeatureFlags" instead:
 
 ``` C#
 services.AddFeatureManagement(configuration.GetSection("MyFeatureFlags"));
@@ -467,11 +471,13 @@ The `<feature>` tag can reference multiple features/variants by specifying a com
 </feature>
 ```
 
-**Note:** if `variant` is specified, only *one* feature should be specified. 
+> [!NOTE]
+> If `variant` is specified, only *one* feature should be specified. 
 
 By default, all listed features must be enabled for the feature tag to be rendered. This behavior can be overridden by adding the `requirement` attribute as seen in the example below.
 
-**Note:** If a `requirement` of `And` is used in conjunction with `variant` an error will be thrown, as multiple variants can never be assigned.
+> [!NOTE]
+> If a `requirement` of `And` is used in conjunction with `variant` an error will be thrown, as multiple variants can never be assigned.
 
 ``` HTML+Razor
 <feature name="FeatureX,FeatureY" requirement="Any">
@@ -550,7 +556,8 @@ services.AddFeatureManagement()
 
 Feature filters are registered by calling `AddFeatureFilter<T>` on the `IFeatureManagementBuilder` returned from `AddFeatureManagement`. These feature filters have access to the services that exist within the service collection that was used to add feature flags. Dependency injection can be used to retrieve these services.
 
-**Note:** When filters are referenced in feature flag settings (for example, appsettings.json), the _Filter_ part of the type name should be omitted. For more information, see the [`Filter Alias Attribute`](#filter-alias-attribute) section.
+> [!NOTE]
+> When filters are referenced in feature flag settings (for example, appsettings.json), the _Filter_ part of the type name should be omitted. For more information, see the [`Filter Alias Attribute`](#filter-alias-attribute) section.
 
 ### Parameterized Feature Filters
 
@@ -683,7 +690,8 @@ class AccountIdFilter : IContextualFeatureFilter<IAccountContext>
 
 We can see that the `AccountIdFilter` requires an object that implements `IAccountContext` to be provided to be able to evaluate the state of a feature. When using this feature filter, the caller needs to make sure that the passed in object implements `IAccountContext`.
 
-**Note:** Only a single feature filter interface can be implemented by a single type. Trying to add a feature filter that implements more than a single feature filter interface results in an `ArgumentException`.
+> [!NOTE]
+> Only a single feature filter interface can be implemented by a single type. Trying to add a feature filter that implements more than a single feature filter interface results in an `ArgumentException`.
 
 ### Using Contextual and Non-contextual Filters With the Same Alias
 
@@ -745,7 +753,8 @@ This filter provides the capability to enable a feature based on a time window. 
 
 The time window can be configured to recur periodically. This can be useful for the scenarios where one may need to turn on a feature during a low or high traffic period of a day or certain days of a week. To expand the individual time window to recurring time windows, the recurrence rule should be specified in the `Recurrence` parameter.
 
-**Note:** `Start` and `End` must be both specified to enable `Recurrence`.
+> [!NOTE]
+> `Start` and `End` must be both specified to enable `Recurrence`.
 
 ``` JavaScript
 "EnhancedPipeline": {
@@ -808,7 +817,8 @@ Depending on the type, certain fields of the `Pattern` are required, optional, o
     }
     ```
 
-**Note:** `Start` must be a valid first occurrence that fits the recurrence pattern. Additionally, the duration of the time window can't be longer than how frequently it occurs. For example, it's invalid to have a 25-hour time window recur every day.
+> [!NOTE]
+> `Start` must be a valid first occurrence that fits the recurrence pattern. Additionally, the duration of the time window can't be longer than how frequently it occurs. For example, it's invalid to have a 25-hour time window recur every day.
 
 #### Recurrence Range
 
@@ -1211,7 +1221,8 @@ If the feature is enabled, the feature manager will check the `user`, `group`, a
 
 Allocation logic is similar to the [Microsoft.Targeting](#microsofttargeting) feature filter, but there are some parameters that are present in targeting that aren't in allocation, and vice versa. The outcomes of targeting and allocation aren't related.
 
-**Note:** To allow allocating feature variants, you need to register `ITargetingContextAccessor`. This can be done by calling the `WithTargeting<T>` method.
+> [!NOTE]
+> To allow allocating feature variants, you need to register `ITargetingContextAccessor`. This can be done by calling the `WithTargeting<T>` method.
 
 ### Overriding Enabled State with a Variant
 
@@ -1371,7 +1382,8 @@ builder.services
     .AddTelemetryPublisher<ApplicationInsightsTelemetryPublisher>();
 ```
 
-**Note:** The base `Microsoft.FeatureManagement` package doesn't include this telemetry publisher.
+> [!NOTE]
+> The base `Microsoft.FeatureManagement` package doesn't include this telemetry publisher.
 
 An example of its usage can be found in the [EvaluationDataToApplicationInsights](https://github.com/microsoft/FeatureManagement-Dotnet/tree/preview/examples/EvaluationDataToApplicationInsights) example.
 
