@@ -36,7 +36,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/storage/common/geo-redundant-design-legacy.md",
+            "source_path_from_root": "/articles/storage/common/geo-redundant-design-legacy.md",
             "redirect_url": "/previous-versions/azure/storage/common/geo-redundant-design-legacy",
             "redirect_document_id": false
         },
