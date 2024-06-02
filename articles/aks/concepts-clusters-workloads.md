@@ -145,7 +145,7 @@ Reserved memory in AKS includes the sum of two values:
    * If the VM provides 8GB of memory and the node supports up to 30 pods, AKS reserves *20MB * 30 Max Pods + 50MB = 650MB* for kube-reserved. `Allocatable space = 8GB - 0.65GB (kube-reserved) - 0.1GB (eviction threshold) = 7.25GB or 90.625% allocatable.`
    * If the VM provides 4GB of memory and the node supports up to 70 pods, AKS reserves *25% * 4GB = 1000MB* for kube-reserved, as this is less than *20MB * 70 Max Pods + 50MB = 1450MB*.
 
-    For more information, see [Configure maximum pods per node in an AKS cluster](./azure-cni-overview.md#maximum-pods-per-node).
+    For more information, see [Configure maximum pods per node in an AKS cluster][maximum-pods].
 
 **AKS versions prior to 1.29**
 
@@ -439,3 +439,5 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [aks-support]: support-policies.md#user-customization-of-agent-nodes
 [intro-azure-linux]: ../azure-linux/intro-azure-linux.md
 [fully-managed-resource-group]: ./node-resource-group-lockdown.md
+[maximum-pods]: concepts-network-ip-address-planning.md#maximum-pods-per-node
+

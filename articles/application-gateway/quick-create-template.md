@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use a Resource Manager templat
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 04/18/2024
+ms.date: 05/30/2024
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
@@ -24,6 +24,9 @@ You can also complete this quickstart using the [Azure portal](quick-create-port
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-qs%2Fazuredeploy.json":::
+
+> [!NOTE]
+> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 ## Prerequisites
 

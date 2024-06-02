@@ -241,6 +241,10 @@ items:
       href: tutorials/postman-tutorial.md
     - name: Send short URL
       href: tutorials/sms-url-shortener.md
+    - name: Migrate to Android push notifications FCM v1
+      href: tutorials/call-chat-migrate-android-push-fcm-v1.md
+    - name: Register for Android push notifications FCM v1
+      href: tutorials/call-chat-register-android-push-fcm-v1.md
     - name: Phone numbers
       items:
       - name: Port a phone number into Azure
