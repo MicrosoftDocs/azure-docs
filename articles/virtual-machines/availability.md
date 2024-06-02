@@ -19,7 +19,7 @@ This article provides an overview of the availability options for Azure virtual 
 ## Availability zones
 [Availability zones](../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context) expands the level of control you have to maintain the availability of the applications and data on your VMs. An Availability Zone is a physically separate zone, within an Azure region. There are three Availability Zones per supported Azure region. 
 
-Each Availability Zone has a distinct power source, network, and cooling. By designing your solutions to use replicated VMs in zones, you can protect your apps and data from the loss of a data center. If one zone is compromised, then replicated apps and data are instantly available in another zone. 
+Each Availability Zone has a distinct power source, network, and cooling. By designing your solutions to use replicated VMs in zones, you can protect your apps and data from the loss of a data center. If one zone is compromised, then replicated apps and data are instantly available in another zone. If you deploy two or more VMs to different availability zones in the same region you can achieve [99.99% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
 
 > [!NOTE]
 > Regional resources may or may not exist in an Availability zone, and there is no insight into what physical or logical zone a regional resource is in. A failure in any of the availability zones in a region has the potential to bring down a regional VM.
