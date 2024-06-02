@@ -40,6 +40,8 @@ Copilot for Security in Defender for Cloud allows you to remediate your recommen
 
 1. Select **Help me remediate this recommendation**.
 
+    :::image type="content" source="media/remediate-with-copilot/help-remediate.png" alt-text="Screenshot that shows where the help remediate the recommendation button is located." lightbox="media/remediate-with-copilot/help-remediate.png":::
+
 1. Review the suggested remediation information.
 
 1. Select **Run** to apply the remediation.
