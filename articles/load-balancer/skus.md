@@ -46,6 +46,10 @@ To compare and understand the differences between Basic and Standard SKU, see th
 
 For more information, see [Load balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). For Standard Load Balancer details, see [overview](./load-balancer-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla). For information on Gateway SKU - catered for third-party network virtual appliances (NVAs), see [Gateway Load Balancer overview](gateway-overview.md)
 
+> [!NOTE]  
+> To have 99.99% SLA for your virtual machines, you need to create and configure a standard SKU load balancer which includes creating a zone-redundant standard SKU IP address. You also need to deploy two or more VMs to different availability zones in the same region.
+>
+
 ## Limitations
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
 - [Move operations](../azure-resource-manager/management/move-resource-group-and-subscription.md):
