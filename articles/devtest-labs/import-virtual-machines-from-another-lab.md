@@ -25,7 +25,7 @@ Some scenarios where you might want to import VMs from one lab to another includ
 
 - You must be the owner of the virtual machine (VM) in the source lab.
 - You must be the owner of the destination lab.
-- VMs in the source lab can't be in a _claimable state_.
+- VMs in the source lab can't be in a _claimable_ state. For more information, see [Create and manage claimable VMs in Azure DevTest Labs](devtest-lab-add-claimable-vm.md).
 - To import VMs across subscriptions and across regions, all subscriptions must be associated with the same Microsoft Entra tenant.
 
 ## Explore the import process
@@ -41,7 +41,7 @@ The import can take some time to complete. The total time depends in part on the
 
 When the import finishes, the process shuts down the source VM and starts the new VM in the destination lab.
 
-## Use PowerShell script
+## Use a PowerShell script
 
 You can use PowerShell to import one or all VMs in your source lab to your destination lab.
 
@@ -53,12 +53,12 @@ Follow these steps to use a PowerShell script:
 
 1. Gather the following information to use with the script:
 
-   - `SourceDevTestLabName`: Source lab name
-   - `SourceSubscriptionId`: Source lab subscription ID
-   - `SourceVirtualMachineName`: Name of VM in source lab to import to destination lab
-   - `DestinationDevTestLabName`: Destination lab name
-   - `DestinationSubscriptionId`: Destination lab subscription ID
-   - `DestinationVirtualMachineName`: (Optional) Name of VM after import to destination lab
+   - `SourceDevTestLabName`: Source lab name.
+   - `SourceSubscriptionId`: Source lab subscription ID.
+   - `SourceVirtualMachineName`: Name of VM in source lab to import to destination lab.
+   - `DestinationDevTestLabName`: Destination lab name.
+   - `DestinationSubscriptionId`: Destination lab subscription ID.
+   - `DestinationVirtualMachineName`: (Optional) Name of VM after import to destination lab.
 
    > [!NOTE]
    > When you run the script, if you don't specify a new name for the VM (`DestinationVirtualMachineName`) in the destination lab, the import uses the name of the VM in the source lab.
@@ -77,7 +77,7 @@ Follow these steps to use a PowerShell script:
    > [!NOTE]
    > When you run the script, if you don't specify a source VM name (`SourceVirtualMachineName`), the process imports _all_ VMs in the source lab to the destination lab. In this case, the process uses the names of the VMs in the source lab to name the VMs in the destination lab.
 
-## Use REST API
+## Use the REST API
 
 It's easy to use the REST API to complete the import. The operation runs on the destination lab resource.
 
@@ -87,14 +87,14 @@ Follow these steps to complete the import process by calling the REST API:
 
 1. Gather the following information to use with the API:
 
-   - `<SourceLab>`: Source lab name
-   - `<SourceSubscriptionID>`: Source lab subscription ID
-   - `<SourceResourceGroup>`: Resource group for the source lab
-   - `<NameofVMTobeImported>`: Name of VM in source lab to import to destination lab
-   - `<DestinationLab>`: Destination lab name
-   - `<DestinationSubscriptionID>`: Destination lab subscription ID
-   - `<DestinationResourceGroup>`: Resource group for the destination lab
-   - `<NewNameForImportedVM>`: (Optional) Name of VM after import to destination lab
+   - `<SourceLab>`: Source lab name.
+   - `<SourceSubscriptionID>`: Source lab subscription ID.
+   - `<SourceResourceGroup>`: Resource group for the source lab.
+   - `<NameofVMTobeImported>`: Name of VM in source lab to import to destination lab.
+   - `<DestinationLab>`: Destination lab name.
+   - `<DestinationSubscriptionID>`: Destination lab subscription ID.
+   - `<DestinationResourceGroup>`: Resource group for the destination lab.
+   - `<NewNameForImportedVM>`: (Optional) Name of VM after import to destination lab.
 
 1. Call the HTTP REST API as follows and replace the `<placeholder>` values with your information:
 
