@@ -836,6 +836,8 @@ To work around this issue, you can configure Application Insights Java 3.x to us
 
 You can also set the http proxy using the environment variable `APPLICATIONINSIGHTS_PROXY`, which takes the format `https://<host>:<port>`. It then takes precedence over the proxy specified in the JSON configuration.
 
+You can provide a user and a password for your proxy with the `APPLICATIONINSIGHTS_PROXY` environment variable: `https://<user>:<password>@<host>:<port>`.
+
 Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties if they're set, and `http.nonProxyHosts`, if needed.
 
 ## Recovery from ingestion failures
