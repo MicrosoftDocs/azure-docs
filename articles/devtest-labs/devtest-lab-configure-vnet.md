@@ -39,9 +39,9 @@ To add a configured virtual network and subnet to a lab, follow these steps:
 
    :::image type="content" source="./media/devtest-lab-configure-vnet/lab-settings-vnet-select.png" alt-text="Screenshot that shows to choose the Select virtual network option on the Virtual network page." lightbox="./media/devtest-lab-configure-vnet/lab-settings-vnet-select.png":::
 
-1.  The **Choose virtual network** page shows all virtual networks in the subscription that are in the same region as the lab. Select the virtual network that you want to add to your lab:
+1. The **Choose virtual network** page shows all virtual networks in the subscription that are in the same region as the lab. Select the virtual network that you want to add to your lab:
 
-   :::image type="content" source="./media/devtest-lab-configure-vnet/choose-virtual-network.png" alt-text="Screenshot that shows the Choose virtual network page with a list of available virtual networks for the lab." lightbox="./media/devtest-lab-configure-vnet/choose-virtual-network.png" :::
+   :::image type="content" source="./media/devtest-lab-configure-vnet/choose-virtual-network.png" alt-text="Screenshot that shows the Choose virtual network page with a list of available virtual networks for the lab." lightbox="./media/devtest-lab-configure-vnet/choose-virtual-network.png":::
 
 1. The virtual network that you select appears on the **Virtual network** page. Select **Save** to add the virtual network to your lab:
 
