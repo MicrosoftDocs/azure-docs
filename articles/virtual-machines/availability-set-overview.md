@@ -26,6 +26,10 @@ Availability sets offer improved VM to VM latencies compared to availability zon
 
 For more reliability than availability sets offer, use [availability zones](availability.md#availability-zones). Availability zones offer the highest reliability since each VM is deployed in multiple datacenters, protecting you from loss of either power, networking, or cooling in an individual datacenter. If your highest priority is the best reliability for your workload, replicate your VMs across multiple availability zones.
 
+> [!NOTE]  
+> If you need 99.99% Azure SLA for your highly available applications, you need to deploy two or more Virtual Machines to different availability zones in the same region.
+> 
+
 ## How do availability sets work?
 Each virtual machine in your availability set is assigned an **update domain** and a **fault domain** by the underlying Azure platform. Each availability set can be configured with up to 3 fault domains and 20 update domains. These configurations can't be changed once the availability set has been created. Update domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single availability set with five update domains, the sixth virtual machine is placed into the same update domain as the first virtual machine, the seventh in the same update domain as the second virtual machine, and so on. The order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time. A rebooted update domain is given 30 minutes to recover before maintenance is initiated on a different update domain.
 
