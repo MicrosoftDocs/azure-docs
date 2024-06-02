@@ -36,7 +36,7 @@ To view the installed analytics rules in Microsoft Sentinel, go to the **Analyti
 
     1. From the resulting list, select **Scheduled**. Then select **Apply**.
 
-    :::image type="content" source="media/create-analytics-rule-from-template/view-oob-detections.png" alt-text="Screenshot shows built-in detection rules to find threats with Microsoft Sentinel." lightbox="media/create-analytics-rule-from-template/view-oob-detections.png":::
+    :::image type="content" source="media/create-analytics-rule-from-template/view-detections.png" alt-text="Screenshot of scheduled analytics rule templates in Microsoft Azure portal." lightbox="media/create-analytics-rule-from-template/view-detections.png":::
 
 # [Defender portal](#tab/defender-portal)
 
@@ -50,7 +50,7 @@ To view the installed analytics rules in Microsoft Sentinel, go to the **Analyti
 
     1. From the resulting list, select **Scheduled**. Then select **Apply**.
 
-    :::image type="content" source="media/create-analytics-rule-from-template/view-oob-detections-defender.png" alt-text="Screenshot shows built-in detection rules to find threats with Microsoft Sentinel." lightbox="media/create-analytics-rule-from-template/view-oob-detections-defender.png":::
+    :::image type="content" source="media/create-analytics-rule-from-template/view-detections-defender.png" alt-text="Screenshot of scheduled analytics rule templates in Microsoft Defender portal." lightbox="media/create-analytics-rule-from-template/view-detections-defender.png":::
 
 ---
 
@@ -74,7 +74,7 @@ From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then
 
     Each template has a list of required data sources. When you open the template, the data sources are automatically checked for availability. If a data source isn't enabled, the **Create rule** button may be disabled, or you might see a message to that effect.
 
-    :::image type="content" source="media/create-analytics-rule-from-template/use-built-in-template.png" alt-text="Detection rule preview panel":::
+    :::image type="content" source="media/create-analytics-rule-from-template/use-built-in-template.png" alt-text="Screenshot of analytics rule preview panel.":::
 
 1. The rule creation wizard opens. All the details are autofilled.
 
