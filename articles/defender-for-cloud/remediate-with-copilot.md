@@ -42,11 +42,11 @@ Copilot for Security in Defender for Cloud allows you to remediate your recommen
 
     :::image type="content" source="media/remediate-with-copilot/help-remediate.png" alt-text="Screenshot that shows where the help remediate the recommendation button is located." lightbox="media/remediate-with-copilot/help-remediate.png":::
 
-1. Review the suggested remediation information.
+1. Review the suggested remediation information and follow the instructions to remediate the recommendation.
 
-1. Select **Run** to apply the remediation.
+1. (Optional) If a script is presented, select **Run** to apply the remediation.
 
-1. Allow the Cloud shell to run.
+    :::image type="content" source="media/remediate-with-copilot/run-script.png" alt-text="Screenshot that shows where the run button is located in order to run the script.":::
 
 If you're unable or unsure how to remediate a recommendation, you can ask Copilot for additional information to assist you using natural language prompts. You can also delegate the recommendation to an appropriate person if needed.
 
