@@ -7,10 +7,9 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/22/2024
+ms.date: 05/30/2024
 ms.custom:
   - mode-ui
-  - ignite-2023
 ---
 
 # Quickstart: Use Search explorer to run queries in the Azure portal
@@ -47,9 +46,12 @@ Before you begin, have the following prerequisites in place:
 
 There are two approaches for querying in Search explorer. 
 
-+ The default search bar accepts an empty query or free text query with booleans. For example, `seattle condo +parking`.
++ Query view provides a default search bar. It accepts an empty query or free text query with booleans. For example, `seattle condo +parking`.
 
 + JSON view supports parameterized queries. Filters, orderby, select, count, searchFields, and all other parameters must be set in JSON view.
+
+  > [!TIP]
+  > JSON view provides intellisense for parameter name completion. Place the cursor inside the JSON view and type a space character to show a list of all query parameters, or type a single letter like "s" to show just the query parameters starting with "s". Intellisense doesn't exclude invalid parameters so use your best judgement.
 
   Switch to **JSON view** for parameterized queries. The examples in this article assume JSON view throughout. You can paste JSON examples from this article into the text area.
 
@@ -57,7 +59,7 @@ There are two approaches for querying in Search explorer.
 
 ## Run an unspecified query
 
-In Search explorer, POST requests are formulated internally using the [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true), with responses returned as verbose JSON documents.
+In Search explorer, POST requests are formulated internally using the [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true), with responses returned as verbose JSON documents.
 
 For a first look at content, execute an empty search by clicking **Search** with no terms provided. An empty search is useful as a first query because it returns entire documents so that you can review document composition. On an empty search, there's no search score and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
 

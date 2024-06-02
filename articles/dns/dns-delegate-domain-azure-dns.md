@@ -28,7 +28,7 @@ To host your domain in Azure:
 
 For example:
 
-![A simple diagram of a DNS zone hosted in Azure that is delegated at the registrar.](./media/dns-delegate-domain-azure-dns/public-dns.png)
+:::image type="content" source="./media/dns-delegate-domain-azure-dns/public-dns.png" alt-text="A simple diagram of a DNS zone hosted in Azure that is delegated at the registrar." lightbox="./media/dns-delegate-domain-azure-dns/public-dns.png":::
 
 In this tutorial, you learn how to:
 

@@ -1,7 +1,17 @@
 {
     "redirections": [
         {
-          "source_path_from_root": "/articles/traffic-manager/powershell-samples.md",
+             "source_path_from_root": "/articles/application-gateway/scripts/create-vmss-waf-cli.md",
+             "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-waf-cli",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/application-gateway/scripts/create-vmss-waf-powershell.md",
+             "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-waf-powershell",
+             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/traffic-manager/powershell-samples.md",
             "redirect_url": "/previous-versions/azure/traffic-manager/powershell-samples",
             "redirect_document_id": false
         },
@@ -44,7 +54,7 @@
             "source_path_from_root": "/articles/germany/index.yml",
             "redirect_url": "/previous-versions/azure/germany/index",
             "redirect_document_id": false
-        },
+        },     
         {
             "source_path_from_root": "/articles/internet-analyzer/internet-analyzer-cli.md",
             "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
