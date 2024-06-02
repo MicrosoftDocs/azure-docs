@@ -4057,6 +4057,16 @@
             "source_path_from_root": "/articles/store-php-create-mysql-database.md",
             "redirect_url": "/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cosmos-dbcreate-websitemd",
+            "redirect_url": "/azure/cosmos-db/sql/create-website",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines-linux-nodejs-deploy.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
         }
     ]
 }

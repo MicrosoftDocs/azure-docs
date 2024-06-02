@@ -3311,11 +3311,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cosmos-dbcreate-websitemd",
-      "redirect_url": "/azure/cosmos-db/sql/create-website",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cosmos-db/database-transactions-optimistic-concurrency.md",
       "redirect_url": "/azure/cosmos-db/sql/database-transactions-optimistic-concurrency",
       "redirect_document_id": true

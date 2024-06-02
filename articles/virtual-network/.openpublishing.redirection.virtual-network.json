@@ -950,7 +950,6 @@
             "redirect_url": "/azure/networking/fundamentals/networking-overview",
             "redirect_document_id": false
         },
-
         {
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-ipv6-dual-stack-standard-load-balancer.md",
             "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
@@ -1065,6 +1064,21 @@
             "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md",
             "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
+            "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/multiple-nics-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md",
+            "redirect_url": "/azure/virtual-machines/windows/multiple-nics",
+            "redirect_document_id": false
         }
     ]
 }
