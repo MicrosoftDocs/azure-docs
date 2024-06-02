@@ -197,10 +197,10 @@ Optionally, you can add customer-managed keys (CMK) for supplemental encryption 
 
 For search service connections over the public internet, Azure AI Search listens on HTTPS port 443.
 
-Client-to-service channel encryption is either TLS 1.2 or 1.3:
+Azure AI Search supports TLS 1.2 and 1.3 for client-to-service channel encryption:
 
 + TLS 1.3 is the default on newer client operating systems and versions of .NET.
-+ TLS 1.2 is the default on older systems, but you can [explicitly specify 1.3 on a client request](/dotnet/framework/network-programming/tls).
++ TLS 1.2 is the default on older systems, but you can [explicitly set TLS 1.3 on a client request](/dotnet/framework/network-programming/tls).
 
 Earlier versions of TLS (1.0 or 1.1) aren't supported.
 

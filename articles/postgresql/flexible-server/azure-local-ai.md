@@ -4,7 +4,7 @@ description: Enable RAG patterns with in-database embeddings and vectors on Azur
 author: jojohnso-msft
 ms.author: jojohnso
 ms.reviewer: maghan
-ms.date: 05/08/2024
+ms.date: 05/28/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview

@@ -98,12 +98,10 @@
       items:
       - name: Push and pull an image
         href: container-registry-get-started-docker-cli.md
-      - name: Push and pull an OCI artifact
-        href: container-registry-oci-artifacts.md
       - name: Push and pull a Helm chart
         href: container-registry-helm-repos.md
-      - name: Push and pull supply chain artifacts (preview)
-        href: container-registry-oras-artifacts.md
+      - name: Manage artifacts with ORAS
+        href: container-registry-manage-artifact.md
       - name: View repositories
         href: container-registry-repositories.md
       - name: Import container images

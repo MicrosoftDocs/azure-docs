@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: reference
-ms.date: 03/07/2024
+ms.date: 05/15/2024
 ms.author: lajanuar
 ---
 
@@ -32,7 +32,7 @@ Select a service from the table to learn how it can help you meet your developme
 | ![Face icon](../media/service-icons/face.svg) [Face](../computer-vision/overview-identity.md) | Detect and identify people and emotions in images | [Face API](../computer-vision/identity-api-reference.md) |
 | ![Language icon](../media/service-icons/language.svg) [Language](../language-service/index.yml) | Build apps with industry-leading natural language understanding capabilities | [REST API](/rest/api/language/) |
 | ![Speech icon](../media/service-icons/speech.svg) [Speech](../speech-service/index.yml) | Speech to text, text to speech, translation, and speaker recognition | **Speech APIs**<br>&bullet; [speech to text](../speech-service/rest-speech-to-text.md)<br>&bullet; [text to speech](../speech-service/rest-text-to-speech.md) |
-| ![Translator icon](../media/service-icons/translator.svg) [Translator](../translator/index.yml) | Translate more than 100 in-use, at-risk, and endangered languages and dialects | **Translator APIs**<br>&bullet; [text translation](../translator/reference/rest-api-guide.md) <br>&bullet; [batch translation](../translator/document-translation/reference/rest-api-guide.md) <br>&bullet; [synchronous translation](../translator/document-translation/reference/synchronous-rest-api-guide.md)|
+| ![Translator icon](../media/service-icons/translator.svg) [Translator](../translator/index.yml) | Translate more than 100 in-use, at-risk, and endangered languages and dialects | **Translator APIs**<br>&bullet; [text translation](../translator/reference/rest-api-guide.md) <br>&bullet; [document translation](../translator/document-translation/reference/rest-api-guide.md)|
 | ![Video Indexer icon](../media/service-icons/video-indexer.svg) [Video Indexer](/azure/azure-video-indexer) | Extract actionable insights from your videos | [Video Indexer API](/rest/api/videoindexer/accounts?view=rest-videoindexer-2024-01-01&preserve-view=true) |
 | ![Vision icon](../media/service-icons/vision.svg) [Vision](../computer-vision/index.yml) | Analyze content in images and videos | [Vision API](https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2024-02-01/operations/61d65934cd35050c20f73ab6) |
 

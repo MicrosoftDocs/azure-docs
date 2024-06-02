@@ -4,7 +4,7 @@ description: This article provides an overview of the built-in PgBouncer feature
 author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: maghan
-ms.date: 05/16/2024
+ms.date: 05/22/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
