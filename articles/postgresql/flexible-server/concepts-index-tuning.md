@@ -4,7 +4,7 @@ description: This article describes the index tuning feature in Azure Database f
 author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
-ms.date: 05/21/2024
+ms.date: 05/28/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: concept-article
@@ -183,6 +183,10 @@ Index tuning is supported on [major versions](concepts-supported-versions.md) **
 When an Azure Database for PostgreSQL - Flexible Server instance is in read-only modes, such as when the `default_transaction_read_only` parameter is set to `on,` or if the read-only mode is [automatically enabled due to reaching storage capacity](concepts-limits.md#storage), Query Store doesn't capture any data.
 
 Also, index tuning isn't supported currently on read replicas. Any recommendations seen on a read replica, is one that has been produced on the primary replica after having analyzed the workload recorded in it.
+
+### Network connectivity method
+
+Index tuning is currently supported on instances whose connectivity method is configured as [Public access (allowed IP addresses)](concepts-networking-public.md). For instances configured with [Private access (VNET Integration)](concepts-networking-private.md) the feature can be enabled, but it won't generate recommendations.
 
 ### Important considerations
 

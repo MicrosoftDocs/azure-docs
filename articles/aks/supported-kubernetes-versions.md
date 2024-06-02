@@ -48,7 +48,7 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 | 1.27* | Apr 2023 | Jun 2023 | Jul 2023 | Jul 2024, LTS until Jul 2025 | Until 1.31 GA |
 | 1.28 | Aug 2023 | Sep 2023 | Nov 2023 | Nov 2024 | Until 1.32 GA|
 | 1.29 | Dec 2023 | Feb 2024 | Mar 2024 | | Until 1.33 GA |
-| 1.30 | Apr 2024 | May 2024 | Jun 2024 | | Until 1.34 GA |
+| 1.30 | Apr 2024 | Jun 2024 | Jul 2024 | | Until 1.34 GA |
 
 *\* Indicates the version is designated for Long Term Support*
 
@@ -310,7 +310,7 @@ To upgrade from *1.27.x* -> *1.29.x*:
 
 Skipping multiple versions can only be done when upgrading from an unsupported version back into the minimum supported version. For example, you can upgrade from an unsupported *1.25.x* to a supported *1.27.x* if *1.27* is the minimum supported minor version.
 
-When performing an upgrade from an _unsupported version_ that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty.Clusters running _unsupported version_ has the flexibility of decoupling control plane upgrades with node pool upgrades. However if your version is significantly out of date, we recommend that you re-create the cluster.
+When performing an upgrade from an _unsupported version_ that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty. Clusters running _unsupported version_ has the flexibility of decoupling control plane upgrades with node pool upgrades. However if your version is significantly out of date, we recommend that you re-create the cluster.
 
 ### Can I create a new 1.xx.x cluster during its 30 day support window?
 
@@ -318,7 +318,7 @@ No. Once a version is deprecated/removed, you can't create a cluster with that v
 
 ### I'm on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?
 
-No. You aren't allowed to add node pools of the deprecated version to your cluster. Creation or upgrade of node pools upto the _unsupported version_ control plane version is allowed , irrespective of version difference between node pool and the control plane. Only alias minor upgrades are allowed.
+No. You aren't allowed to add node pools of the deprecated version to your cluster. Creation or upgrade of node pools upto the _unsupported version_ control plane version is allowed, irrespective of version difference between node pool and the control plane. Only alias minor upgrades are allowed.
 
 ### How often do you update patches?
 
