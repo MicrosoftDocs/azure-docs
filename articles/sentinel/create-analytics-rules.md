@@ -35,7 +35,7 @@ To view the installed analytics rules in Microsoft Sentinel, go to the **Analyti
 
     1. From the resulting list, select **Scheduled**. Then select **Apply**.
 
-    :::image type="content" source="media/tutorial-detect-built-in/view-oob-detections.png" alt-text="Screenshot shows built-in detection rules to find threats with Microsoft Sentinel.":::
+    :::image type="content" source="media/create-analytics-rule-from-template/view-detections.png" alt-text="Screenshot of analytics rule templates in Microsoft Azure portal." lightbox="media/create-analytics-rule-from-template/view-detections.png":::
 
 # [Defender portal](#tab/defender-portal)
 
@@ -48,6 +48,8 @@ To view the installed analytics rules in Microsoft Sentinel, go to the **Analyti
     1. Select **Add filter** and choose **Rule type** from the list of filters.
 
     1. From the resulting list, select **Scheduled**. Then select **Apply**.
+
+    :::image type="content" source="media/create-analytics-rule-from-template/view-detections-defender.png" alt-text="Screenshot of analytics rule templates in Microsoft Defender portal." lightbox="media/create-analytics-rule-from-template/view-detections-defender.png":::
 
 ---
 
