@@ -24,6 +24,9 @@ The following diagram shows several example Azure regions. Regions 1 and 2 suppo
 
 To see which regions support availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
+> [!NOTE]  
+> You need to deploy two or more Virtual Machines to different availability zones in the same region to acquire an SLA connectivity percentage of 99.99. This is currently the highest possible percentage you can get in Azure.
+
 ## Zonal and zone-redundant services
 
 When you deploy into an Azure region that contains availability zones, you can use multiple availability zones together. By using multiple availability zones, you can keep separate copies of your application and data within separate physical datacenters in a large metropolitan area.
