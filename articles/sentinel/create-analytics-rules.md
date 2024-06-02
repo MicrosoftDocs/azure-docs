@@ -63,7 +63,7 @@ This procedure describes how to create an analytics rule from a template.
 
     Each template has a list of required data sources. When you open the template, the data sources are automatically checked for availability. If a data source isn't enabled, the **Create rule** button may be disabled, or you might see a message to that effect.
 
-    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Detection rule preview panel":::
+    :::image type="content" source="media/create-analytics-rule-from-template/use-built-in-template.png" alt-text="Detection rule preview panel":::
 
 1. The rule creation wizard opens. All the details are autofilled, and you can customize the logic and other rule settings to better suit your specific needs. When you get to the end of the rule creation wizard, Microsoft Sentinel creates the rule. The new rule appears in the **Active rules** tab.
 
