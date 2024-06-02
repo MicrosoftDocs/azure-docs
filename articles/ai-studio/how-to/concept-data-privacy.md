@@ -4,9 +4,9 @@ titleSuffix: Azure AI Studio
 description: Details about how data provided by customers is processed, used, and stored when a user deploys a model from the model catalog.
 manager: scottpolly
 ms.service: azure-ai-studio
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ms.topic: conceptual
-ms.date: 5/6/2024
+ms.date: 5/21/2024
 ms.reviewer: shubhirajMsft
 ms.author: scottpolly
 author: s-polly
@@ -24,19 +24,21 @@ When you deploy models in Azure AI Studio, the following types of data are proce
 
 * **Uploaded** **data**. For models that support fine-tuning, customers can upload their data to a [datastore](../concepts/connections.md#connections-to-datastores) for use for fine-tuning.
 
-##  Generate inferencing outputs with real-time endpoints 
+##  Generate inferencing outputs with managed compute 
 
-Deploying models to managed online endpoints deploys model weights to dedicated Virtual Machines and exposes a REST API for real-time inference. Learn more about deploying models from the Model Catalog to real-time endpoints [here](model-catalog-overview.md). You manage the infrastructure for these real-time endpoints, and Azure's data, privacy, and security commitments apply. Learn more about Azure compliance offerings applicable to Azure AI Studio [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3).
+Deploying models to managed computes deploys model weights to dedicated Virtual Machines and exposes a REST API for real-time inference. Learn more about deploying models from the Model Catalog to managed computes [here](model-catalog-overview.md). You manage the infrastructure for these managed computes, and Azure's data, privacy, and security commitments apply. Learn more about Azure compliance offerings applicable to Azure AI Studio [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3).
 
 Although containers for models "Curated by Azure AI" are scanned for vulnerabilities that could exfiltrate data, not all models available through the Model Catalog are scanned. To reduce the risk of data exfiltration, you can protect your deployment using virtual networks. [Learn more](configure-managed-network.md) . You can also use [Azure Policy](../../ai-services/policy-reference.md) to regulate the models that your users can deploy.
 
-:::image type="content" source="../media/explore/platform-service.png" alt-text="A diagram showing the platform service life cycle." lightbox="../media/explore/platform-service.png":::
+:::image type="content" source="../media/explore/subscription-service-cycle.png" alt-text="A diagram showing the platform service life cycle." lightbox="../media/explore/subscription-service-cycle.png":::
 
-## Generate inferencing outputs with pay-as-you-go deployments (Models-as-a-Service)  
+## Generate inferencing outputs as a serverless API   
 
-When you deploy a model from the Model Catalog (base or fine-tuned) using pay-as-you-go deployments for inferencing, an API is provisioned giving you access to the model hosted and managed by the Azure Machine Learning Service. Learn more about Models-as-a-Service in [Model catalog and collections](./model-catalog-overview.md). The model processes your input prompts and generates outputs based on the functionality of the model, as described in the model details provided for the model. While the model is provided by the model provider, and your use of the model (and the model provider's accountability for the model and its outputs) is subject to the license terms provided with the model, Microsoft provides and manages the hosting infrastructure and API endpoint. The models hosted in Models-as-a-Service are subject to Azure's data, privacy, and security commitments. Learn more about Azure compliance offerings applicable to Azure AI Studio [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3). 
+When you deploy a model from the Model Catalog (base or fine-tuned) using serverless APIs with pay-as-you-go billing for inferencing, an API is provisioned giving you access to the model hosted and managed by the Azure Machine Learning Service. Learn more about serverless APIs in [Model catalog and collections](./model-catalog-overview.md). The model processes your input prompts and generates outputs based on the functionality of the model, as described in the model details provided for the model. While the model is provided by the model provider, and your use of the model (and the model provider's accountability for the model and its outputs) is subject to the license terms provided with the model, Microsoft provides and manages the hosting infrastructure and API endpoint. The models hosted in Models-as-a-Service are subject to Azure's data, privacy, and security commitments. Learn more about Azure compliance offerings applicable to Azure AI Studio [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3). 
 
-Microsoft acts as the data processor for prompts and outputs sent to and generated by a model deployed for pay-as-you-go inferencing (MaaS). Microsoft does not share these prompts and outputs with the model provider, and Microsoft does not use these prompts and outputs to train or improve Microsoft's, the model provider's, or any third party's models. Models are stateless and no prompts or outputs are stored in the model. If content filtering is enabled, prompts and outputs are screened for certain categories of harmful content by the Azure AI Content Safety service in real time; learn more about how Azure AI Content Safety processes data [here](/legal/cognitive-services/content-safety/data-privacy). Prompts and outputs are processed within the geography specified during deployment but may be processed between regions within the geography for operational purposes (including performance and capacity management).
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
+Microsoft acts as the data processor for prompts and outputs sent to and generated by a model deployed for pay-as-you-go inferencing (MaaS). Microsoft does not share these prompts and outputs with the model provider, and Microsoft does not use these prompts and outputs to train or improve Microsoft's, the model provider's, or any third party's models. Models are stateless and no prompts or outputs are stored in the model. If content filtering (preview) is enabled, prompts and outputs are screened for certain categories of harmful content by the Azure AI Content Safety service in real time; learn more about how Azure AI Content Safety processes data [here](/legal/cognitive-services/content-safety/data-privacy). Prompts and outputs are processed within the geography specified during deployment but may be processed between regions within the geography for operational purposes (including performance and capacity management).
 
 :::image type="content" source="../media/explore/model-publisher-cycle.png" alt-text="A diagram showing model publisher service cycle." lightbox="../media/explore/model-publisher-cycle.png":::
 
@@ -45,7 +47,7 @@ Microsoft acts as the data processor for prompts and outputs sent to and generat
 
 ## Fine-tune a model for pay-as-you-go deployment (Models-as-a-Service)
 
-If a model available for pay-as-you-go deployment (MaaS) supports fine-tuning, you can upload data to (or designate data already in) a [datastore](../concepts/connections.md#connections-to-datastores) to fine-tune the model. You can then create a pay-as-you-go deployment for the fine-tuned model. The fine-tuned model can't be downloaded, but the fine-tuned model:
+If a model available for serverless APIs supports fine-tuning, you can upload data to (or designate data already in) a [datastore](../concepts/connections.md#connections-to-datastores) to fine-tune the model. You can then create a serverless API deployment for the fine-tuned model. The fine-tuned model can't be downloaded, but the fine-tuned model:
 
 * Is available exclusively for your use;
 * Can be double [encrypted at rest](../../ai-services/openai/encrypt-data-at-rest.md) (by default with Microsoft's AES-256 encryption and optionally with a customer managed key).
@@ -60,5 +62,3 @@ If you download a model from the Model Catalog, you choose where to deploy the m
 ## Learn more
 
 *  [Model Catalog and Collections](model-catalog-overview.md)
-
-

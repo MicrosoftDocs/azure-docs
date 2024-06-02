@@ -1,6 +1,26 @@
 {
     "redirections": [
     {
+      "source_path": "articles/application-gateway/scripts/create-vmss-waf-cli.md",
+      "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-waf-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/scripts/create-vmss-waf-powershell.md",
+      "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-waf-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/traffic-manager/powershell-samples.md",
+      "redirect_url": "/previous-versions/azure/traffic-manager/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/traffic-manager/scripts/traffic-manager-cli-websites-high-availability.md",
+      "redirect_url": "/previous-versions/azure/traffic-manager/scripts/traffic-manager-cli-websites-high-availability",
+      "redirect_document_id": false
+     },
+     {
       "source_path": "articles/network-watcher/network-watcher-security-group-view-powershell.md",
       "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-security-group-view-powershell",
       "redirect_document_id": false
@@ -34,7 +54,7 @@
       "source_path": "articles/germany/index.yml",
       "redirect_url": "/previous-versions/azure/germany/index",
       "redirect_document_id": false
-    },
+     },
         {
             "source_path_from_root": "/articles/internet-analyzer/internet-analyzer-cli.md",
             "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
@@ -1871,6 +1891,14 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-spaces/quickstart-deploy-web-app.md",
+            "redirect_url": "/azure/app-spaces/quickstart-deploy-sample-app"
+        },
+        {
+            "source_path_from_root": "/articles/app-spaces/deploy-app-spaces-template.md",
+            "redirect_url": "/azure/app-spaces/quickstart-deploy-your-app"        
+        },
+        {
             "source_path_from_root": "/articles/application-insights/app-insights-analytics-reference.md",
             "redirect_url": "/azure/kusto/query/",
             "redirect_document_id": false
@@ -3626,6 +3654,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-web.md",
+            "redirect_url": "/azure/azure-functions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/twilio-dotnet-how-to-use-for-voice-sms.md",
             "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
             "redirect_document_id": false
@@ -3812,11 +3845,6 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/azure-information-protection.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/data-connectors/windows-firewall-events-via-ama.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
         },
@@ -4047,7 +4075,32 @@
         },
         {
             "source_path_from_root":"/articles/cosmos-db/high-availability.md",
-            "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql.md",
+            "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql",
+            "redirect_document_id":false
+        },
+        {
+            "source_path_from_root": "/articles/copilot/limited-access.md",
+            "redirect_url": "/azure/copilot/manage-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-portal/mobile-app/microsoft-copilot-for-azure.md",
+            "redirect_url": "/azure/azure-portal/mobile-app/microsoft-copilot-in-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root":"/articles/migrate/how-to-assess.md",
+            "redirect_url":"/azure/migrate/whats-new#update-april-2024",
+            "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root":"/articles/migrate/prepare-isv-movere.md",
+            "redirect_url":"/azure/migrate/whats-new#update-april-2024",
+            "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root":"/articles/aks/troubleshoot-udp-packet-drops.md",
+            "redirect_url":"/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
             "redirect_document_id":false
         }
     ]

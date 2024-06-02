@@ -6,8 +6,9 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
-ms.date: 12/7/2023
+ms.date: 5/21/2024
 ms.reviewer: fasantia
 ms.author: mopeakande
 author: msakande
@@ -15,7 +16,7 @@ author: msakande
 
 # Overview: Deploy models, flows, and web apps with Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Azure AI Studio supports deploying large language models (LLMs), flows, and web apps. Deploying an LLM or flow makes it available for use in a website, an application, or other production environments. This typically involves hosting the model on a server or in the cloud, and creating an API or other interface for users to interact with the model. 
 
@@ -38,9 +39,9 @@ Azure OpenAI allows you to get access to the latest OpenAI models with the enter
 
 The model catalog offers access to a large variety of models across different modalities. Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need.
 
-#### Deploy models with model as a service
+#### Deploy models with Model as a Service (Maas)
 
-This deployment option doesn't require quota from your subscription. You're billed per token in a pay-as-you-go fashion. Learn how to deploy and consume [Llama 2 model family](../how-to/deploy-models-llama.md) with model as a service.
+This deployment option doesn't require quota from your subscription. You deploy as a Serverless API deployment and are billed per token in a pay-as-you-go fashion. Learn how to deploy and consume [Llama 2 model family](../how-to/deploy-models-llama.md) with model as a service.
 
 #### Deploy models with hosted managed infrastructure
 
@@ -50,7 +51,7 @@ You can also host open models in your own subscription with managed infrastructu
 
 The following table describes how you're billed for deploying and inferencing LLMs in Azure AI Studio. See [monitor costs for models offered throughout the Azure Marketplace](../how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
 
-| Use case | Azure OpenAI models | Models deployed with pay-as-you-go | Models deployed to real-time endpoints |
+| Use case | Azure OpenAI models | Models deployed as Serverless APIs (pay-as-you-go) | Models deployed with managed compute |
 | --- | --- | --- | --- |
 | Deploying a model from the model catalog to your project | No, you aren't billed for deploying an Azure OpenAI model to your project. | Yes, you're billed per the infrastructure of the endpoint<sup>1</sup> | Yes, you're billed for the infrastructure hosting the model<sup>2</sup> |
 | Testing chat mode on Playground after deploying a model to your project | Yes, you're billed based on your token usage | Yes, you're billed based on your token usage | None. |
@@ -71,7 +72,7 @@ Whichever way you choose to create a flow in Azure AI Studio, you can deploy it 
 
 ## Deploying web apps
 
-The model or flow that you deploy can be used in a web application hosted in Azure. Azure AI Studio provides a quick way to deploy a web app. For more information, see the [chat with your data tutorial](../tutorials/deploy-chat-web-app.md).
+The model or flow that you deploy can be used in a web application hosted in Azure. Azure AI Studio provides a quick way to deploy a web app. For more information, see the [Azure AI Enterprise Chat tutorial](../tutorials/deploy-chat-web-app.md).
 
 
 ## Planning AI safety for a deployed model

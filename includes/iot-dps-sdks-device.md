@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-The DPS device SDKs provide implementations of the [Register](/rest/api/iot-dps/device/runtime-registration/register-device) API and others that devices call to provision through DPS. The device SDKs can run on general MPU-based computing devices such as a PC, tablet, smartphone, or Raspberry Pi. The SDKs support development in C and in modern managed languages including in C#, Node.JS, Python, and Java.
+The DPS device SDKs provide implementations of the [Register](/rest/api/iot-dps/device/device-registration-state) API and others that devices call to provision through DPS. The device SDKs can run on general MPU-based computing devices such as a PC, tablet, smartphone, or Raspberry Pi. The SDKs support development in C and in modern managed languages including in C#, Node.JS, Python, and Java.
 
 | Platform | Package | Code repository | Samples | Quickstart | Reference |
 | -----|-----|-----|-----|-----|-----|

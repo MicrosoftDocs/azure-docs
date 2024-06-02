@@ -6,11 +6,9 @@ description: Manage an Azure AI Search resource using the Azure portal.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.custom:
-  - ignite-2023
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/04/2024
+ms.date: 05/23/2024
 ---
 
 # Service administration for Azure AI Search in the Azure portal
@@ -98,6 +96,12 @@ Internally, Microsoft collects telemetry data about your service and the platfor
 
 > [!NOTE]
 > See the ["Data residency"](search-security-overview.md#data-residency) section of the security overview article for more information about data location and privacy.
+
+### Enable semantic ranking
+
+Semantic ranking is free for the first 1,000 requests per month, but you must opt-in to get the free quota. 
+
+In Azure portal, under **Settings** on the leftmost pane, select **Semantic ranker** and then choose the Free plan. For more information, see [Enable semantic ranker](semantic-how-to-enable-disable.md).
 
 ### Configure user access
 

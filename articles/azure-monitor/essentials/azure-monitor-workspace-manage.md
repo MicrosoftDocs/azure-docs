@@ -6,7 +6,7 @@ ms.author: edbaynash
 ms.reviewer: poojaa
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 03/28/2023
+ms.date: 05/31/2024
 ---
 
 # Manage an Azure Monitor workspace

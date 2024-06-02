@@ -2,12 +2,11 @@
 title: Overview - Oracle Database@Azure 
 description: Learn about Oracle Database@Azure.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: article
 ms.date: 12/12/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, references_regions
 ms.author: jacobjaygbay
 ---
 
@@ -49,6 +48,12 @@ Oracle Database@Azure is available in the following locations. Oracle Database@A
 |Azure region|
 |------------|
 |Germany West Central (Frankfurt)|
+
+### France
+
+|Azure region|
+|------------|
+|France Central (Paris)|
 
 ### United Kingdom
 

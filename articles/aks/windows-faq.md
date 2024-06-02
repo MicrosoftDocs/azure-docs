@@ -247,7 +247,7 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limit]: quotas-skus-regions.md
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
-[maximum-number-of-pods]: azure-cni-overview.md#maximum-pods-per-node
+[maximum-number-of-pods]: concepts-network-ip-address-planning.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
 [client-source-ip]: concepts-network.md#ingress-controllers
 [upgrade-node-image]: node-image-upgrade.md

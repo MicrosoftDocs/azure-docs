@@ -2,7 +2,7 @@
 description: Overview of how to use the Azure Cloud Shell window.
 ms.contributor: jahelmic
 ms.date: 01/23/2024
-ms.topic: article
+ms.topic: how-to
 tags: azure-resource-manager
 title: Using the Azure Cloud Shell window
 ---

@@ -26,7 +26,7 @@ To learn how to set up AZD to work with Azure Deployment Environments, see [Use 
 You should:
 - Be familiar with Azure Deployment Environments. Review [What is Azure Deployment Environments?](overview-what-is-azure-deployment-environments.md) and [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 - Create and configure a dev center with a project, environment types, and a catalog. Use the following article as guidance:
-   - [Quickstart: Create and configure a dev center for Azure Deployment Environments](/azure/deployment-environments/quickstart-create-and-configure-devcenter).
+   - [Quickstart: Configure Azure Deployment Environments](/azure/deployment-environments/quickstart-create-and-configure-devcenter).
 - A catalog attached to your dev center.
 
 ## Prepare to work with AZD 

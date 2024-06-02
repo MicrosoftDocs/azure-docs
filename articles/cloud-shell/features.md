@@ -2,7 +2,7 @@
 description: Overview of features in Azure Cloud Shell
 ms.contributor: jahelmic
 ms.date: 05/07/2024
-ms.topic: article
+ms.topic: overview
 tags: azure-resource-manager
 title: Azure Cloud Shell features
 ---

@@ -18,8 +18,8 @@ Follow this guide to use Azure AI Content Safety Groundedness detection to check
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US2, West US, Sweden Central), and supported pricing tier. Then select **Create**.
-   * The resource takes a few minutes to deploy. After it does, go to the new resource. In the left pane, under **Resource Management**, select **API Keys and Endpoints**. Copy one of the subscription key values and endpoint to a temporary location for later use.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US, East US2, West US, Sweden Central), and supported pricing tier. Then select **Create**.
+* The resource takes a few minutes to deploy. After it does, go to the new resource. In the left pane, under **Resource Management**, select **API Keys and Endpoints**. Copy one of the subscription key values and endpoint to a temporary location for later use.
 * (Optional) If you want to use the _reasoning_ feature, create an Azure OpenAI Service resource with a GPT model deployed.
 * [cURL](https://curl.haxx.se/) or [Python](https://www.python.org/downloads/) installed.
 
@@ -55,7 +55,7 @@ This section walks through a sample request with cURL. Paste the command below i
     }'
     ```
 
-1. Open a command prompt and run the cURL command.
+Open a command prompt and run the cURL command.
 
 
 #### [Python](#tab/python)
@@ -132,7 +132,7 @@ The parameters in the request body are defined in this table:
 | - `query`       | (Optional) This represents the question in a QnA task. Character limit: 7,500. | String  |
 | **text**   | (Required) The LLM output text to be checked. Character limit: 7,500. |  String  |
 | **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Up to 55,000 characters of grounding sources can be analyzed in a single request. | String array    |
-| **reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `false`. If `true`, you need to bring your own Azure OpenAI GPT-4 Turbo resources to provide an explanation. Be careful: using reasoning increases the processing time.| Boolean   |
+| **reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `false`. If `true`, you need to bring your own Azure OpenAI GPT-4 Turbo (1106-preview) resources to provide an explanation. Be careful: using reasoning increases the processing time.| Boolean   |
 
 ### Interpret the API response
 
@@ -161,30 +161,15 @@ The JSON objects in the output are defined here:
 
 ## Check groundedness with reasoning
 
-The Groundedness detection API provides the option to include _reasoning_ in the API response. With reasoning enabled, the response includes a `"reasoning"` field that details specific instances and explanations for any detected ungroundedness. Be careful: using reasoning increases the processing time and incurs extra fees. 
-
+The Groundedness detection API provides the option to include _reasoning_ in the API response. With reasoning enabled, the response includes a `"reasoning"` field that details specific instances and explanations for any detected ungroundedness.
 ### Bring your own GPT deployment
 
 > [!TIP]
-> At the moment, we only support **Azure OpenAI GPT-4 Turbo** resources and do not support other GPT types. Your GPT-4 Turbo resources can be deployed in any region; however, we recommend that they be located in the same region as the content safety resources to minimize potential latency.
+> At the moment, we only support **Azure OpenAI GPT-4 Turbo (1106-preview)** resources and do not support other GPT types. You have the flexibility to deploy your GPT-4 Turbo (1106-preview) resources in any region. However, to minimize potential latency and avoid any geographical boundary data privacy and risk concerns, we recommend situating them in the same region as your content safety resources. For comprehensive details on data privacy, please refer to the [Data, privacy and security guidelines for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy) and [Data, privacy, and security for Azure AI Content Safety](/legal/cognitive-services/content-safety/data-privacy?context=%2Fazure%2Fai-services%2Fcontent-safety%2Fcontext%2Fcontext).
 
-In order to use your Azure OpenAI GPT4-Turbo resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
+In order to use your Azure OpenAI GPT4-Turbo (1106-preview) resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
 
-1. Enable Managed Identity for Azure AI Content Safety.
-
-    Navigate to your Azure AI Content Safety instance in the Azure portal. Find the **Identity** section under the **Settings** category. Enable the system-assigned managed identity. This action grants your Azure AI Content Safety instance an identity that can be recognized and used within Azure for accessing other resources. 
-    
-    :::image type="content" source="media/content-safety-identity.png" alt-text="Screenshot of a Content Safety identity resource in the Azure portal." lightbox="media/content-safety-identity.png":::
-
-1. Assign Role to Managed Identity.
-
-    Navigate to your Azure OpenAI instance, select **Add role assignment** to start the process of assigning an Azure OpenAI role to the Azure AI Content Safety identity. 
-
-    :::image type="content" source="media/add-role-assignment.png" alt-text="Screenshot of adding role assignment in Azure portal.":::
-
-    Choose the **User** or **Contributor** role.
-
-    :::image type="content" source="media/assigned-roles-simple.png" alt-text="Screenshot of the Azure portal with the Contributor and User roles displayed in a list." lightbox="media/assigned-roles-simple.png":::
+[!INCLUDE [openai-account-access](includes/openai-account-access.md)]
 
 ### Make the API request
 
@@ -295,8 +280,8 @@ The parameters in the request body are defined in this table:
 | **text**   | (Required) The LLM output text to be checked. Character limit: 7,500. |  String  |
 | **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Up to 55,000 characters of grounding sources can be analyzed in a single request. | String array    |
 | **reasoning**  | (Optional) Set to `true`, the service uses Azure OpenAI resources to provide an explanation. Be careful: using reasoning increases the processing time and incurs extra fees.| Boolean   |
-| **llmResource**  | (Required) If you want to use your own Azure OpenAI GPT4-Turbo resource to enable reasoning, add this field and include the subfields for the resources used. | String   |
-| - `resourceType `| Specifies the type of resource being used. Currently it only allows `AzureOpenAI`. We only support Azure OpenAI GPT-4 Turbo resources and do not support other GPT types. Your GPT-4 Turbo resources can be deployed in any region; however, we recommend that they be located in the same region as the content safety resources to minimize potential latency. | Enum|
+| **llmResource**  | (Required) If you want to use your own Azure OpenAI GPT4-Turbo (1106-preview) resource to enable reasoning, add this field and include the subfields for the resources used. | String   |
+| - `resourceType `| Specifies the type of resource being used. Currently it only allows `AzureOpenAI`. We only support Azure OpenAI GPT-4 Turbo (1106-preview) resources and do not support other GPT types. | Enum|
 | - `azureOpenAIEndpoint `| Your endpoint URL for Azure OpenAI service.  | String |
 | - `azureOpenAIDeploymentName` | The name of the specific GPT deployment to use. | String|
 

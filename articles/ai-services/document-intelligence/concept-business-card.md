@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 05/23/2024
 ms.author: lajanuar
 ---
 
@@ -37,11 +37,11 @@ ms.author: lajanuar
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-The Document Intelligence business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract data from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
+The Document Intelligence business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract data from business card images. The API analyzes printed business cards; extracts key information such as first name, surname, company name, email address, and phone number;  and returns a structured JSON data representation.
 
 ## Business card data extraction
 
-Business cards are a great way to represent a business or a professional. The company logo, fonts and background images found in business cards help promote the company branding and differentiate it from others. Applying OCR and machine-learning based techniques to automate scanning of business cards is a common image processing scenario. Enterprise systems used by sales and marketing teams typically have business card data extraction capability integration into for the benefit of their users.
+Business cards are a great way to represent a business or a professional. The company logo, fonts, and background images found in business cards help promote the company branding and differentiate it from others. Applying OCR and machine-learning based techniques to automate scanning of business cards is a common image processing scenario. Enterprise systems used by sales and marketing teams typically have business card data extraction capability integration into for the benefit of their users.
 
 ***Sample business card processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***
 
@@ -74,7 +74,7 @@ Document Intelligence **v3.0:2022-08-31 (GA)** supports the following tools, app
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Business card model**| &bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)<br>&bullet; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)<br>&bullet; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)<br>&bullet; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)<br>&bullet; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)<br>&bullet; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-businessCard**|
+|**Business card model**| &bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)<br>&bullet; [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)<br>&bullet; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)<br>&bullet; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)<br>&bullet; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)<br>&bullet; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-businessCard**|
 
 ::: moniker-end
 
@@ -149,7 +149,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 1. Select **Run analysis**. The Document Intelligence Sample Labeling tool calls the Analyze Prebuilt API and analyze the document.
 
-1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
+1. View the results - see the key-value pairs extracted, line items, highlighted text extracted, and tables detected.
 
     :::image type="content" source="media/business-card-results.png" alt-text="Screenshot of the business card model analyze results operation.":::
 
@@ -168,8 +168,8 @@ See how data, including name, job title, address, email, and company name, is ex
 
 ::: moniker range="doc-intel-2.1.0"
 
-* Supported file formats: JPEG, PNG, PDF, and TIFF
-* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* The supported file formats: JPEG, PNG, PDF, and TIFF
+* PDF and TIFF, up to 2,000 pages are processed. For free tier subscribers, only the first two pages are processed.
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
@@ -187,16 +187,16 @@ See how data, including name, job title, address, email, and company name, is ex
 | ContactNames | Array of objects | Contact name |  |
 | FirstName | String | First (given) name of contact |  |
 | LastName | String | Last (family) name of contact |  |
-| CompanyNames | Array of strings | Company name(s)|  |
-| Departments | Array of strings | Department(s) or organization(s) of contact |  |
-| JobTitles | Array of strings | Listed Job title(s) of contact |  |
-| Emails | Array of strings | Contact email address(es) |  |
-| Websites | Array of strings | Company website(s) |  |
-| Addresses | Array of strings | Address(es) extracted from business card | |
-| MobilePhones | Array of phone numbers | Mobile phone number(s) from business card |+1 xxx xxx xxxx |
-| Faxes | Array of phone numbers | Fax phone number(s) from business card | +1 xxx xxx xxxx |
-| WorkPhones | Array of phone numbers | Work phone number(s) from business card | +1 xxx xxx xxxx |
-| OtherPhones     | Array of phone numbers | Other phone number(s) from business card | +1 xxx xxx xxxx |
+| CompanyNames | Array of strings | Company name|  |
+| Departments | Array of strings | Department or organization of contact |  |
+| JobTitles | Array of strings | Listed Job title of contact |  |
+| Emails | Array of strings | Contact email address |  |
+| Websites | Array of strings | Company website |  |
+| Addresses | Array of strings | Address extracted from business card | |
+| MobilePhones | Array of phone numbers | Mobile phone number from business card |+1 xxx xxx xxxx |
+| Faxes | Array of phone numbers | Fax phone number from business card | +1 xxx xxx xxxx |
+| WorkPhones | Array of phone numbers | Work phone number from business card | +1 xxx xxx xxxx |
+| OtherPhones     | Array of phone numbers | Other phone number from business card | +1 xxx xxx xxxx |
 
 ::: moniker-end
 
@@ -214,7 +214,7 @@ See how data, including name, job title, address, email, and company name, is ex
 | JobTitles | array of strings | Listed Job title of contact | ["Software Engineer"] |
 | Emails | array of strings | Contact email extracted from business card | ["johndoe@contoso.com"] |
 | Websites | array of strings | Website extracted from business card | ["https://www.contoso.com"] |
-| Addresses | array of strings | Address extracted from business card | ["123 Main Street, Redmond, WA 98052"] |
+| Addresses | array of strings | Address extracted from business card | ["123 Main Street, Redmond, Washington 98052"] |
 | MobilePhones | array of phone numbers | Mobile phone number extracted from business card | ["+19876543210"] |
 | Faxes | array of phone numbers | Fax phone number extracted from business card | ["+19876543211"] |
 | WorkPhones | array of phone numbers | Work phone number extracted from business card | ["+19876543231"] |

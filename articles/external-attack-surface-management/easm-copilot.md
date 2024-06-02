@@ -19,7 +19,7 @@ Microsoft Defender External Attack Surface Management (Defender EASM) continuous
 Defender EASM’s integration with Copilot for Security enables users to interact with Microsoft’s discovered attack surfaces. These attack surfaces allow users to quickly understand their externally facing infrastructure and relevant, critical risks to their organization. They provide insight into specific areas of risk, including vulnerabilities, compliance, and security hygiene. For more information about Copilot for Security, go to [What is Microsoft Copilot for Security](/security-copilot/microsoft-security-copilot).
 
 
-** Copilot for Security integrates with Defender EASM**.
+**Copilot for Security integrates with Defender EASM**.
 
 Copilot for Security can surface insights from Defender EASM about an organization's attack surface. You can use the system features built into Copilot for Security, and use prompts to get more information. This information can help you understand your security posture and mitigate vulnerabilities.
 
@@ -35,14 +35,14 @@ This article introduces you to Copilot for Security and includes sample prompts 
 ### Copilot  for Security connection 
 
 1. Access [Copilot for Security](https://securitycopilot.microsoft.com/) and ensure you're authenticated.
-2. Select the plugins icon on the upper-right side of the prompt input bar.
+1. Select the plugins icon on the upper-right side of the prompt input bar.
 
     ![Screenshot that shows the plugins icon.](media/copilot-2.png)
-
-3. Locate Defender External Attack Surface Management under the “Microsoft” section and toggle on to connect.
+   
+1. Locate Defender External Attack Surface Management under the “Microsoft” section and toggle on to connect.
 
     ![Screenshot that shows Defender EASM activated in Copilot.](media/copilot-4.png)
-
+   
 4. If you would like Copilot for Security to pull data from your Microsoft Defender External Attack Surface Resource, click on the gear to open the plugin settings, and fill out the fields from your resource’s “Essentials” section on the Overview blade.
 
   [ ![Screenshot that shows the Defender EASM fields that must be configured in Copilot.](media/copilot-6.png) ](media/copilot-6.png#lightbox) 
@@ -117,3 +117,4 @@ For more information about data privacy in Copilot for Security, go to [Privacy 
 
 - [What is Microsoft Copilot for Security?](/security-copilot/microsoft-security-copilot)
 - [Privacy and data security in Microsoft Copilot for Security](/security-copilot/privacy-data-security)
+- [Query your attack surface with Defender EASM using Microsoft Copilot in Azure](https://learn.microsoft.com/azure/copilot/query-attack-surface) 
