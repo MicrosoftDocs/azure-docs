@@ -11,7 +11,7 @@ ms.date: 04/25/2024
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
 
-# Quickstart: Get insights from Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster
+# Quickstart: Get insights from your processed data
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
