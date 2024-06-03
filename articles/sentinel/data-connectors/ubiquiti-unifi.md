@@ -49,7 +49,7 @@ UbiquitiAuditEvent
 
 1. Install and onboard the agent for Linux or Windows
 
-Install the agent on the Server to which the Ubiquiti logs are forwarder from Ubiquiti device (e.g.remote syslog server)
+Install the agent on the Server to which the Ubiquiti logs are forwarded from Ubiquiti device (e.g.remote syslog server)
 
 > Logs from Ubiquiti Server deployed on Linux or Windows servers are collected by **Linux** or **Windows** agents.
 
