@@ -52,7 +52,7 @@ Free services don't have fixed partitions or replicas and they share resources w
 | Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 |----------|------|--------|----|----|----|------------|----|----|
 | Service level agreement (SLA) | No |Yes |Yes |Yes |Yes |Yes |Yes |Yes |
-| Storage (partition size)  | 50&nbsp;MB | 15&nbsp;GB | 160&nbsp;GB | 512&nbsp;GB | 1&nbsp;TB | &nbsp;TB | **2&nbsp;TB** | **4&nbsp;TB**  |
+| Storage (partition size)  | 50&nbsp;MB | 15&nbsp;GB | 160&nbsp;GB | 512&nbsp;GB | 1&nbsp;TB | 1&nbsp;TB | **2&nbsp;TB** | **4&nbsp;TB**  |
 | Partitions | N/A |3 |12 |12 |12 |3 |12 |12 |
 | Replicas | N/A | 3 |12 |12 |12 |12 |12 |12 |
 
