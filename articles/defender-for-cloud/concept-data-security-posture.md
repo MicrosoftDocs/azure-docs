@@ -29,7 +29,7 @@ Data security posture management automatically and continuously discovers manage
 
 Defender for Cloud uses smart sampling to discover a selected number of assets in your cloud data stores. Smart sampling results discover evidence of sensitive data issues, while saving on discovery costs and time.
 
-## Data security in Defender CSPM
+## Data security posture management in Defender CSPM
 
 Defender CSPM provides visibility and contextual insights into your organizational security posture. The addition of data security posture management to the Defender CSPM plan enables you to proactively identify and prioritize critical data risks, distinguishing them from less risky issues.
 
@@ -45,7 +45,7 @@ Cloud Security Explorer helps you identify security risks in your cloud environm
 
 You can use Cloud Security Explorer query templates, or build your own queries, to find insights about misconfigured data resources that are publicly accessible and contain sensitive data, across multicloud environments. You can run queries to examine security issues, and to get environment context into your asset inventory, exposure to the internet, access controls, data flows, and more. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
 
-## Data security in Defender for Storage
+## Data security posture management in Defender for Storage
 
 Defender for Storage monitors Azure storage accounts with advanced threat detection capabilities. It detects potential data breaches by identifying harmful attempts to access or exploit data, and by identifying suspicious configuration changes that could lead to a breach.
 

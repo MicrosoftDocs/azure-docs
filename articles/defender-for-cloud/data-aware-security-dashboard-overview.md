@@ -88,12 +88,6 @@ You can select the **Manage data sensitivity settings** to get to the **Data sen
 
 :::image type="content" source="media/data-aware-security-dashboard/manage-security-sensitivity-settings.png" alt-text="Screenshot that shows where to access managing data sensitivity settings." lightbox="media/data-aware-security-dashboard/manage-security-sensitivity-settings.png":::
 
-### Data resources security status
-
-**Sensitive resources status over time** - displays how data security evolves over time with a graph that shows the number of sensitive resources affected by alerts, attack paths, and recommendations within a defined period (last 30, 14, or 7 days).
-
-:::image type="content" source="media/data-aware-security-dashboard/data-resources-security-status.png" alt-text="Screenshot that shows the data resources security status section of the data security view." lightbox="media/data-aware-security-dashboard/data-resources-security-status.png":::
-
 ## Next steps
 
 - Learn more about [data security posture management](concept-data-security-posture.md).
