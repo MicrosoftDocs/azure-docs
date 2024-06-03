@@ -3,7 +3,7 @@ title: Reference table for all security alerts
 description: This article lists the security alerts visible in Microsoft Defender for Cloud.
 ms.topic: reference
 ms.custom: linux-related-content
-ms.date: 05/01/2024
+ms.date: 06/03/2024
 ai-usage: ai-assisted
 ---
 
@@ -2695,7 +2695,7 @@ Synapse.SQLPool_VulnerabilityToSqlInjection)
 
 **Severity**: Medium
 
-### **Attempted logon by a potentially harmful application**
+### **Logon activity from a potentially harmful application**
 
 (SQL.DB_HarmfulApplication
 SQL.VM_HarmfulApplication
