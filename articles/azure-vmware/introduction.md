@@ -83,7 +83,7 @@ The following three scenarios show examples of instances that normally error out
 
      :::image type="content" source="media/introduction/remove-host-scenario-2.png" alt-text="Diagram showing how users can't take both of the hosts from the same FDs unless they're reducing the cluster size to four or lower." border="false" lightbox="media/introduction/remove-host-scenario-2.png":::
 
-- A selected host removal causes less than three active vSAN FDs. This scenario isn't expected to occur given that all AV64 regions have five FDs. While adding hosts, the Azure VMware Solution control plane takes care of adding hosts from all five FDs evenly.
+- A selected host removal causes less than three active vSAN FDs. This scenario isn't expected to occur given that all AV64 regions have five or seven FDs. While adding hosts, the Azure VMware Solution control plane takes care of adding hosts from all seven FDs evenly.
 	In the following example, users can remove one of the hosts from FD 1, but not from FD 2 or 3.
 
 	 :::image type="content" source="media/introduction/remove-host-scenario-3.png" alt-text="Diagram showing how users can remove one of the hosts from FD 1, but not from FD 2 or 3." border="false" lightbox="media/introduction/remove-host-scenario-3.png":::
