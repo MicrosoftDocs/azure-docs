@@ -150,3 +150,16 @@ catch(Exception e) {
     System.out.println("Something went wrong while un-registering for all Incoming Calls Push Notifications.")
 }
 ```
+
+## Disable internal push for incoming call
+
+There are 2 ways that a push payload of an incoming call can be delivered to the callee.
+  1. Using FCM and registering the device token with the API mentioned above , `registerPushNotification` on `CallAgent` or `TeamsCallAgent`.
+  2. When a `CallAgent` or `TeamsCallAgent` is created, SDK also registers with an internal service to get the push payload delivered.
+
+Using the property `setDisableInternalPushForIncomingCall` in `CallAgentOptions` or `TeamsCallAgentOptions` it's possible to instruct the SDK to disable the delivery of the push payload using the internal push service.
+
+```java
+CallAgentOptions callAgentOptions = new CallAgentOptions();
+callAgentOptions.setDisableInternalPushForIncomingCall(true);
+```
