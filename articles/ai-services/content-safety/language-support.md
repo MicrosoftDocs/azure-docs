@@ -7,14 +7,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 06/01/2024
 ms.author: pafarley
 
 ---
 
 # Language support for Azure AI Content Safety
 
-Some capabilities of Azure AI Content Safety support multiple languages; any capabilities not mentioned here only support English.
+Some capabilities of Azure AI Content Safety support multiple languages; any capabilities not listed here only support English.
 
 ## Text moderation
 
@@ -23,7 +23,7 @@ The Azure AI Content Safety text moderation feature supports many languages, but
 > [!NOTE]
 > **Language auto-detection**
 >
-> You don't need to specify a language code for text moderation; the service automatically detects your input language.
+> You don't need to specify a language code for text moderation. The service automatically detects your input language.
 
 | Language name         | Language code | Text moderation | Specially trained |
 |-----------------------|---------------|--------|--|
