@@ -57,9 +57,9 @@ The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tag
 
 **SKUs** marked in **bold** are of limited availability due to customer consumption and quota may not be available upon request. The AV64 SKU should be used instead when AV36, AV36P, or AV52 SKUs are limited.
 
-AV64 SKUs are available per Availability Zone, the table below lists the Azure regions that support this SKU. For RAID-6 FTT2 and RAID-1 FTT3 storage policies, six and seven Fault Domains (FDs) are needed respectively, FD count for each Azure region is listed in the "AV64 FD Support" column.
+AV64 SKUs are available per Availability Zone, the table below lists the Azure regions that support this SKU. For RAID-6 FTT2 and RAID-1 FTT3 storage policies, six and seven Fault Domains (FDs) are needed respectively, the FD count for each Azure region is listed in the "AV64 FDs Supported" column.
 
-| Azure region | Availability Zone | SKU   | Multi-AZ SDDC | AV64 FD Support |
+| Azure region | Availability Zone | SKU   | Multi-AZ SDDC | AV64 FDs Supported |
 | :---         | :---:             | :---: | :---:         | :---:           |
 | Australia East | AZ01 | AV36P, AV64 | Yes | 5 (7 Planned H2 2024) |
 | Australia East | AZ02 | AV36 | No | N/A |
@@ -69,7 +69,7 @@ AV64 SKUs are available per Availability Zone, the table below lists the Azure r
 | Canada Central | AZ02 | AV36, **AV36P** | No | N/A |
 | Canada East | N/A | AV36 | No | N/A |
 | Central India | AZ03 | AV36P | No | N/A |
-| Central US | AZ01 | AV36P | No | N/A | N/A |
+| Central US | AZ01 | AV36P | No | N/A |
 | Central US | AZ02 | **AV36** | No | N/A |
 | Central US | AZ03 | AV36P | No | N/A |
 | East Asia | AZ01 | AV36 | No | N/A |
