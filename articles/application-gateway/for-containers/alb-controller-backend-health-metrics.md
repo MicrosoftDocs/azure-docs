@@ -12,7 +12,7 @@ ms.author: greglin
 
 # ALB Controller - Backend Health and Metrics
 
-Understanding backend health of your Kubernetes services and pods is crucial in identifying issues and assistance in troubleshooting.  To help facilitate visibility into backend health, ALB Controller exposes backend health and metrics endpoints in all ALB Controller deployments.
+Understanding backend health of your Kubernetes services and pods is crucial in identifying issues and assistance in troubleshooting. To help facilitate visibility into backend health, ALB Controller exposes backend health and metrics endpoints in all ALB Controller deployments.
 
 ALB Controller's backend health exposes three different experiences:
 
@@ -20,7 +20,7 @@ ALB Controller's backend health exposes three different experiences:
 2. Summarized backend health by Kubernetes service
 3. Detailed backend health for a specified Kubernetes service
 
-ALB Controller's metric endpoint exposes both metrics and summary of backend health.  This endpoint enables exposure to Prometheus.
+ALB Controller's metric endpoint exposes both metrics and summary of backend health. This endpoint enables exposure to Prometheus.
 
 Access to these endpoints can be reached via the following URLs:
 
