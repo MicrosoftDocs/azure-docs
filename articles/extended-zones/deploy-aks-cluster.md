@@ -30,6 +30,9 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 In this section, you create an AKS cluster in an Extended Zone.
 
+> [!NOTE]
+> To quickly get started with provisioning an AKS cluster in an Extended Zone, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/extended-zones/toc.json) to consider how it aligns with your business requirements.
+
 1. In the search box at the top of the portal, enter ***Kubernetes***. Select **Kubernetes services** from the search results.
 
     :::image type="content" source="./media/deploy-aks-cluster/portal-search.png" alt-text="Screenshot that shows how to search for Azure Kubernetes Service in the Azure portal." lightbox="./media/deploy-aks-cluster/portal-search.png":::
@@ -49,8 +52,6 @@ In this section, you create an AKS cluster in an Extended Zone.
     | Region | Select **(US) West US** and then select **Deploy to an Azure Extended Zone**. </br> In  **Azure Extended Zones**, select **Los Angeles**. </br> Select the **Select** button. |
 
     :::image type="content" source="./media/deploy-aks-cluster/aks-basics.png" alt-text="Screenshot that shows the Basics tab of create an AKS cluster in the Azure portal." lightbox="./media/deploy-aks-cluster/aks-basics.png":::
-
-1. Select **Next** button or **Node pools** tab.
 
 1. Select **Review + create**.
 
