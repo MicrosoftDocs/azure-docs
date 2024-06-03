@@ -39,11 +39,11 @@ A hub can have multiple child projects. Each project can have its own set of pro
 
 ### Microsoft-hosted resources
 
-While most of the resources used by Azure AI Studio live in your Azure subscription, some resources are in an Azure subscription managed by Microsoft. This subscription provides some of the services used by Azure AI Studio. The following resources are in the Microsoft-managed Azure subscription, and don't appear in your Azure subscription:
+While most of the resources used by Azure AI Studio live in your Azure subscription, some resources are in an Azure subscription managed by Microsoft. The cost for these managed resources shows on your Azure bill as a line item under the Azure Machine Learning resource provider. The following resources are in the Microsoft-managed Azure subscription, and don't appear in your Azure subscription:
 
 - **Managed compute resources**: Provided by Azure Batch resources in the Microsoft subscription.
 - **Managed virtual network**: Provided by Azure Virtual Network resources in the Microsoft subscription. If FQDN rules are enabled, an Azure Firewall (standard) is added and charged to your subscription. For more information, see [Configure a managed virtual network for Azure AI Studio](../how-to/configure-managed-network.md).
-- **Metadata storage**: Provided by Azure Cosmos DB, Azure AI Search, and Azure Storage Account in the Microsoft subscription. 
+- **Metadata storage**: Provided by Azure Storage resources in the Microsoft subscription.  
 
     > [!NOTE]
     > If you use customer-managed keys, the metadata storage resources are created in your subscription. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
