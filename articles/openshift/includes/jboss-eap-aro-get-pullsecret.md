@@ -18,7 +18,7 @@ Use the following steps to get the pull secret.
 1. Select the **All categories** dropdown list and then select **Tokens**.
 1. Under **Pull secret**, select **Copy** or **Download** to get the value, as shown in the following screenshot.
 
-   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/red-hat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/howto-deploy-java-enterprise-application-platform-app/red-hat-console-portal-pull-secret.png":::
+   :::image type="content" source="../media/howto-deploy-java-enterprise-application-platform-app/red-hat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="../media/howto-deploy-java-enterprise-application-platform-app/red-hat-console-portal-pull-secret.png":::
 
    The following content is an example that was copied from the Red Hat console portal, with the auth codes replaced with `xxxx...xxx`.
 
