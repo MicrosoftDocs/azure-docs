@@ -22,11 +22,10 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 
 In this release, we made the following changes:
 
-- Improve graphics presentation latency  
+- Improved the graphics presentation latency.
 
->[!NOTE]
->This Insider release was originally version 1.2.5450, but we made a change to improve graphics and re-released as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
-
+> [!NOTE]
+> This Insider release was originally version 1.2.5450, but we made a change to improve graphics and re-released it as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
 
 ## Updates for version 1.2.5450  
 
