@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks using Azure PowerShell
 description: Learn how to back up Azure Managed Disks using Azure PowerShell.
 ms.topic: conceptual
-ms.date: 05/09/2024 
+ms.date: 06/03/2024 
 ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -190,7 +190,7 @@ To configure backup of managed disks, ensure the following prerequisites:
 
   1. Go to **Backup vault** -> **Identity** and select **Azure role assignments**.
  
-     :::image type="content" source="./media/backup-managed-disks-ps/select-azure-role-assignments-inline.png" alt-text="Screenshot showing the selection of Azure role assignments." lightbox="./media/backup-managed-disks-ps/select-azure-role-assignments-expanded.png":::
+     :::image type="content" source="./media/backup-managed-disks-ps/select-azure-role-assignments.png" alt-text="Screenshot showing the selection of Azure role assignments." lightbox="./media/backup-managed-disks-ps/select-azure-role-assignments.png":::
 
   1. Verify that the role, resource name, and resource type are correct.
  
