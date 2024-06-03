@@ -2,7 +2,7 @@
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data. 
 ms.topic: conceptual
-ms.date: 06/13/2023
+ms.date: 06/03/2024
 ---
 
 # Storage considerations for Azure Functions
@@ -38,15 +38,13 @@ Storage accounts created as part of the function app create flow in the Azure po
 
 + The account type must support Blob, Queue, and Table storage. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts and Azure Premium Storage. To learn more about storage account types, see [Storage account overview](../storage/common/storage-account-overview.md).
 
-+ You can't use a storage account already secured by using a firewall or a virtual private network when you create your function app in the Azure portal. However, the portal doesn't currently filter out these secured storage accounts. To learn how to use a secured storage account with your function app, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
-
-+ You can't use secured storage accounts with function apps hosted in the [Consumption plan](consumption-plan.md). 
++ You can't use network secured storage accounts with function apps hosted in the [Consumption plan](consumption-plan.md).
 
 + When creating your function app in the portal, you're only allowed to choose an existing storage account in the same region as the function app you're creating. This is a performance optimization and not a strict limitation. To learn more, see [Storage account location](#storage-account-location).
 
 + When creating your function app on a plan with [availability zone support](../reliability/reliability-functions.md#availability-zone-support) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
 
-You can create function apps in an Elastic Premium or Dedicated (App Service) plan using deployment automation. However, you must include specific networking configurations in your ARM template or Bicep file. When you don't include these settings and resources, your automated deployment might fail in validation. For more information, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). 
+When creating a function app with a network secured storage account in the Elastic Premium or Dedicated (App Service) plan using deployment automation, you must include specific networking configurations in your ARM template or Bicep file. When you don't include these settings and resources, your automated deployment might fail in validation. For more specific ARM and Bicep guidance, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). For an overview on configuring storage accounts with networking, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
 
 ## Storage account guidance
 
