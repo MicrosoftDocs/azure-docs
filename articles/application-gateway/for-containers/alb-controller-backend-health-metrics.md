@@ -206,7 +206,7 @@ Example output:
 
 ## Metrics
 
-ALB Controller currently surfaces metrics following [text based format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) to be exposed to Prometheus. Access to these logs are available on port 8001 of the primary alb controller pod `http://<alb-controller-pod-ip>:8001/metrics`.
+ALB Controller currently surfaces metrics following [text based format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) to be exposed to Prometheus. Access to these logs are available on port 8001 of the primary alb controller pod `http://\<alb-controller-pod-ip\>:8001/metrics`.
 
 The following metrics are exposed today:
 
