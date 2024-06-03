@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 3/29/2024
+ms.date: 6/3/2024
 ms.custom: engagement-fy23
 ---
 
@@ -43,14 +43,14 @@ See the following prerequisites for AV64 cluster deployment.
 When a customer has a deployed Azure VMware Solution private cloud, they can scale the private cloud by adding a separate AV64 vCenter node cluster to that private cloud. In this scenario, customers should use the following steps: 
 
 1. Get an AV64 [quota approval from Microsoft](/azure/azure-vmware/request-host-quota-azure-vmware-solution) with the minimum of three nodes. Add other details on the Azure VMware Solution private cloud that you plan to extend using AV64.
-2. For RAID-6 FTT2 or RAID-1 FTT3 support, ask Microsoft support to provide you with a feature flag to consume 6 or 7 Fault Domains per AV64 cluster.
+2. For RAID-6 FTT2 or RAID-1 FTT3 support, ask Microsoft support to provide you with a feature flag to consume seven Fault Domains per AV64 cluster.
 3. Use an existing Azure VMware Solution add-cluster workflow with AV64 hosts to expand. 
 
 **Customer plans to create a new Azure VMware Solution private cloud**: When a customer wants a new Azure VMware Solution private cloud that can use AV64 SKU but only for expansion. In this case, the customer meets the prerequisite of having an Azure VMware Solution private cloud built with AV36, AV36P, or AV52 SKU. The customer needs to buy a minimum of three nodes of AV36, AV36P, or AV52 SKU before expanding using AV64. For this scenario, use the following steps:
 
 1. Get AV36, AV36P, or AV52, and AV64 [quota approval from Microsoft](/azure/azure-vmware/request-host-quota-azure-vmware-solution) with a minimum of three nodes each.
 2. Create an Azure VMware Solution private cloud using AV36, AV36P, or AV52 SKU.
-3. For RAID-6 FTT2 or RAID-1 FTT3 support, ask Microsoft support to provide you with a feature flag to consume 6 or 7 Fault Domains per AV64 cluster.
+3. For RAID-6 FTT2 or RAID-1 FTT3 support, ask Microsoft support to provide you with a feature flag to consume seven Fault Domains per AV64 cluster.
 4. Use an existing Azure VMware Solution add-cluster workflow with AV64 hosts to expand.
 
 **Azure VMware Solution stretched clusters private cloud**: The AV64 SKU isn't supported with Azure VMware Solution stretched clusters private cloud. This means that an AV64-based expansion isn't possible for an Azure VMware Solution stretched clusters private cloud. 
