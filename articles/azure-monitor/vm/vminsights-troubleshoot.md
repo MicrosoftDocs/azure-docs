@@ -60,10 +60,10 @@ See the following articles for troubleshooting issues with the Log Analytics age
 ### Identifying the Issue
 
 To identify if this is the case you would first browse to the Monitor Dashboard, locate the Data Collection Rule in Question and view the JSON properties using the link on the top right-hand side of the overview blade:
-![DCR Dashboard.](media/vminsights-troubleshoot/image.png)
+![Screenshot of DCR Dashboard.](media/vminsights-troubleshoot/dcr-overview.png)
 
 You will see that stream name has been changed from its original name to reflect the performance counter stream name:
-![DCR JSON.](media/vminsights-troubleshoot/image1.png)
+![Screenshot of DCR JSON.](media/vminsights-troubleshoot/dcr-json.png)
 
 We can see while the counter sections are pointing the perf table, the stream dataflow is still configured for the proper destination Microsof-InsightsMetrics.
 
@@ -73,50 +73,54 @@ This issue can't be resolved using the Monitor Dashboard directly, but we can fi
 
 #### Export the DCR and save locally
 
-To do this first we must export the DCR:
-![Export DCR.](media/vminsights-troubleshoot/image2.png)
+1. To do this first we must export the DCR:
+   
+![Screenshot of Export DCR.](media/vminsights-troubleshoot/dcr-export.png)
 
-After selecting the Export Template blade for the selected DCR the portal will create the template file and a matching parameter file. Once this is complete, we can download the template package save and save it locally.
-![Download DCR Template.](media/vminsights-troubleshoot/image3.png)
+2. After selecting the Export Template blade for the selected DCR the portal will create the template file and a matching parameter file. Once this is complete, we can download the template package save and save it locally.
 
-Open the file
-![Open File.](media/vminsights-troubleshoot/image4.png)
+![Screenshot of Download DCR Template.](media/vminsights-troubleshoot/template-download.png)
 
-Copy these to a local folder:
-![Copy Files.](media/vminsights-troubleshoot/image5.png)
+3. Open the file
+
+![Screenshot of Open File.](media/vminsights-troubleshoot/downloads.png)
+
+4. Copy these to a local folder:
+
+![Screenshot of Copy Files.](media/vminsights-troubleshoot/copy-file.png)
 
 #### Modify the Template
 
-Open the template file in the editor of your choice and locate the invalid stream name under the performance counter data source.
-![Template.json.](media/vminsights-troubleshoot/image6.png)
+1. Open the template file in the editor of your choice and locate the invalid stream name under the performance counter data source.
+![Screenshot of Template.json.](media/vminsights-troubleshoot/update-template.png)
 
-Using the valid stream name from the dataflow node fix the invalid reference, then save and close your file:
-![Updated Stream.](media/vminsights-troubleshoot/image7.png)
+2. Using the valid stream name from the dataflow node fix the invalid reference, then save and close your file:
+![Screenshot of Updated Stream.](media/vminsights-troubleshoot/correct-template.png)
 
 #### Import the Template using the Custom Deployment Feature
 
-Back in the portal, search for and navigate to the custom template deployment:
-![Deploy a custom template.](media/vminsights-troubleshoot/image8.png)
+1. Back in the portal, search for and navigate to the custom template deployment:
+![Screenshot of Deploy a custom template.](media/vminsights-troubleshoot/deploy-template.png)
 
-Choose the Option to "Build Your Own Template"
-![Build your own template in the editor.](media/vminsights-troubleshoot/image9.png)
+2. Choose the Option to "Build Your Own Template"
+![Screenshot of Build your own template in the editor.](media/vminsights-troubleshoot/build-template.png)
 
-Using the "Load File" link browse to you saved template and parameter file:
-![Load File.](media/vminsights-troubleshoot/image10.png)
+3. Using the "Load File" link browse to your saved template and parameter file:
+![Screenshot of Load File.](media/vminsights-troubleshoot/load-file.png)
 
-Visually inspect the template to validate the change is in place and select the Save button
-![Edit Template.](media/vminsights-troubleshoot/image11.png)
+4. Visually inspect the template to validate the change is in place and select the Save button
+![Screenshot of Edit Template.](media/vminsights-troubleshoot/save-template.png)
 
-From here the portal will use the parameter file to fill in the deployment options (which can be changed) or left intact to overwrite the existing DCR, Once completed select the review and Create button.
-![Custom Deployment.](media/vminsights-troubleshoot/image12.png)
+5. From here the portal will use the parameter file to fill in the deployment options (which can be changed) or left intact to overwrite the existing DCR, Once completed select the review and Create button.
+![Screenshot of Custom Deployment.](media/vminsights-troubleshoot/deploy.png)
 
-After validation then we can select the Create button to finalize the deployment.
-![Create Deployment.](media/vminsights-troubleshoot/image13.png)
+6. After validation then we can select the Create button to finalize the deployment.
+![Screenshot of Create Deployment.](media/vminsights-troubleshoot/create-deployment.png)
 
-After the deployment is complete, we can browse to the DCR again and review the JSON in overview blade:
-![Review JSON.](media/vminsights-troubleshoot/image14.png)
+7. After the deployment is complete, we can browse to the DCR again and review the JSON in overview blade:
+![Screenshot of Review JSON.](media/vminsights-troubleshoot/updated-json.png)
 
-The agent will detect this change and download the new configuration, and this should restore ingestion to the insight metrics table.
+8. The agent will detect this change and download the new configuration, and this should restore ingestion to the insight metrics table.
 
 ## Performance view has no data
 
