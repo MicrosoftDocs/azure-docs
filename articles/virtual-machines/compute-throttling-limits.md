@@ -67,7 +67,7 @@ bucket is filled with 12 tokens at the start of the throttling window.
 By the fourth minute, the user utilizes all 12 tokens, leaving the
 bucket empty. In the fifth minute, the bucket is replenished with four new
 tokens in accordance with the Bucket Refill Rate. So, four API
-requests can be made in the fifth minute, while Microsoft Compute will throttle one API request due to insufficient tokens.
+requests can be made in the fifth minute, while Microsoft Compute throttles one API request due to insufficient tokens.
 
 |(min)|1st|2nd|3rd|4th|5th|6th|
 |-------|-----|----|----|----|----|----|
@@ -90,7 +90,7 @@ VMs](/rest/api/compute/virtual-machine-scale-set-vms/deallocate?tabs=HTTP).
 ## Throttling limits for Virtual machines 
 
 API requests for Virtual Machines are categorized into seven distinct
-policies. Each policy has its own limits, depending upon the how
+policies. Each policy has its own limits, depending upon how
 resource intensive the API requests under that policy are. Following table contains a
 comprehensive list of these policies, the corresponding REST APIs, and
 their respective throttling limits:
@@ -98,7 +98,7 @@ their respective throttling limits:
 
 |Policy category|REST APIs|Resource Level|Resource Level|Subscription Level|Subscription Level|
 |---------------|---------|-------|-------|----------|--------|
-|||Bucket refill rate (per min)|Maximum Bucket capacity<br>(per min)|Bucket refill rate<br>(per min)|Maximum Bucket capacity<br>(per min)|
+|||Bucket refill rate (Per Min)|Maximum Bucket capacity<br>(Per Min)|Bucket refill rate<br>(Per Min)|Maximum Bucket capacity<br>(Per Min)|
 |Put VM<br>(Create new VMs)|<a href="/rest/api/compute/virtual-machines/create-or-update?tabs=HTTP">Create</a>|4|12|500|1,500|
 |Update VM<br>(Update existing VMs)|<a href="/rest/api/compute/virtual-machines/update">Update</a><br><a href="/rest/api/compute/virtual-machines/reapply?tabs=HTTP">Reapply</a> <a href="/rest/api/compute/virtual-machines/restart?tabs=HTTP">Restart</a><br> <a href="/rest/api/compute/virtual-machines/power-off?tabs=HTTP">Power Off</a><br> <a href="/rest/api/compute/virtual-machines/start?tabs=HTTP">Start</a><br> <a href="/rest/api/compute/virtual-machines/generalize?tabs=HTTP">Generalize</a><br> <a href="/rest/api/compute/virtual-machines/convert-to-managed-disks?tabs=HTTP">Convert To Managed Disks</a><br> <a href="/rest/api/compute/virtual-machines/redeploy?tabs=HTTP">Redeploy</a><br> <a href="/rest/api/compute/virtual-machines/perform-maintenance?tabs=HTTP">Perform Maintenance</a><br> <a href="/rest/api/compute/virtual-machines/capture?tabs=HTTP">Capture</a><br> <a href="/rest/api/compute/virtual-machines/run-command?tabs=HTTP">Run Command</a><br> <a href="/rest/api/compute/virtual-machine-extensions/create-or-update?tabs=HTTP">Create Or Update</a><br> <a href="/rest/api/compute/virtual-machine-extensions/update?tabs=HTTP">Extensions - Update</a><br> <a href="/rest/api/compute/virtual-machine-extensions/delete?tabs=HTTP">Extensions - Delete</a><br> <a href="/rest/api/compute/virtual-machines/reimage?tabs=HTTP">Reimage</a><br> <a href="/rest/api/compute/virtual-machines/update?tabs=HTTP">Update</a><br> <a href="/rest/api/compute/virtual-machine-run-commands/update?tabs=HTTP">Run Commands - Update</a><br> <a href="/rest/api/compute/virtual-machine-run-commands/delete?tabs=HTTP">Run Commands - Delete</a><br> <a href="/rest/api/compute/virtual-machine-run-commands/create-or-update?tabs=HTTP">Run Commands - Create Or Update</a><br>|4|12|500|1,500|
 |Delete VM<br> (Delete VMs)<br>|<a href="/rest/api/compute/virtual-machines/delete">Delete</a><br> <a href="/rest/api/compute/virtual-machines/simulate-eviction">Simulate Eviction</a><br> <a href="/rest/api/compute/virtual-machines/deallocate?tabs=HTTP">Deallocate</a><br>|4|12|500|1,500| 
@@ -107,8 +107,7 @@ their respective throttling limits:
 |Get Operation<br> (Get information on async VM operations)<br>|<a href="/azure/azure-resource-manager/management/async-operations#start-virtual-machine-202-with-azure-asyncoperation">Status of asynchronous operations</a>|15|45|5,000|15,000| 
 |VM Guest Patch Operations<br> (Assess & install guest patches)<br>|<a href="/rest/api/compute/virtual-machines/assess-patches?tabs=HTTP">Assess Patches</a><br> <a href="/rest/api/compute/virtual-machines/install-patches?tabs=HTTP">Install Patches</a><br>|2|6|200|600|
 
-<sup>1</sup>Only subscription level policies are applicable to the Rest
-API.
+<sup>1</sup> Only subscription level policies are applicable.
 
 ## Throttling limits for Virtual Machine Scale Sets
 
@@ -120,27 +119,26 @@ APIs, and their respective throttling limits:
 
 |Policy category |REST APIs |Resource Level |Resource Level |Subscription Level |Subscription Level | 
 |-----|---------|--------|--------|---------|---------|
-|||Bucket refill rate<br> (per min)<br>|Maximum Bucket capacity<br> (per min)<br>|Bucket refill rate (per min)|Maximum Bucket capacity<br> (per min)<br>|   
+|||Bucket refill rate<br> (Per Min)<br>|Maximum Bucket capacity<br> (Per Min)<br>|Bucket refill rate (Per Min)|Maximum Bucket capacity<br> (Per Min)<br>|   
 |Put VMSS<br> (Create new scale set)<br>|<a href="/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP">Create</a>|4|12|125|375| 
 |Update VMSS<br> (Update existing scaleset)<br>|<a href="/rest/api/compute/virtual-machine-scale-sets/update?tabs=HTTP">Update</a><br> <a href="/rest/api/compute/virtual-machine-scale-sets/start?tabs=HTTP">Start</a><sup>2</sup><br> <a href="/rest/api/compute/virtual-machine-scale-sets/restart?tabs=HTTP">Restart</a><sup>2</sup><br> <a href="/rest/api/compute/virtual-machine-scale-sets/redeploy?tabs=HTTP">Redeploy</a><sup>2</sup><br> <a href="/rest/api/compute/virtual-machine-scale-sets/perform-maintenance?tabs=HTTP">Perform Maintenance</a><sup>2</sup><br> <a href="/rest/api/compute/virtual-machine-scale-sets/reimage?tabs=HTTP">Reimage</a><sup>2</sup><br> <a href="/rest/api/compute/virtual-machine-scale-sets/reimage-all?tabs=HTTP">Reimage All</a><sup>2</sup><br> <a href="/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP">Create Or Update</a><br> <a href="/rest/api/compute/virtual-machine-scale-set-rolling-upgrades/cancel?tabs=HTTP">Rolling Upgrades - Cancel</a><br> <a href="/rest/api/compute/virtual-machine-scale-set-extensions/create-or-update?tabs=HTTP">Extensions - Create</a><br> <a href="/rest/api/compute/virtual-machine-scale-set-extensions/update?tabs=HTTP">Extensions - Update</a><br> <a href="/rest/api/compute/virtual-machine-scale-set-extensions/delete?tabs=HTTP">Extensions - Delete</a><br> <a href="/rest/api/compute/virtual-machine-scale-sets/force-recovery-service-fabric-platform-update-domain-walk?tabs=HTTP">Force Recovery Service Fabric Platform Update Domain Walk</a><br> <a href="/rest/api/compute/virtual-machine-scale-sets/convert-to-single-placement-group?tabs=HTTP">Convert To Single Placement Group</a><br> <a href="/rest/api/compute/virtual-machine-scale-sets/set-orchestration-service-state?tabs=HTTP">Set Orchestration Service State</a><br>|4|12|500|1,500| 
 |Delete VMSS<br> (Delete scale set)<br>|<a href="/rest/api/compute/virtual-machine-scale-sets/delete?tabs=HTTP">Delete</a><br> <a href="/rest/api/compute/virtual-machine-scale-sets/power-off?tabs=HTTP">Power Off</a><sup>2</sup><br> <a href="/rest/api/compute/virtual-machine-scale-sets/deallocate?tabs=HTTP">Deallocate</a><br>|4|12|175|525| 
 |Low Cost Get VMSS<br> (Get information on single scale set)<br>|<a href="/rest/api/compute/virtual-machine-scale-sets/get?tabs=HTTP">Get</a><br> <a href="/rest/api/compute/virtual-machine-scale-sets/list-skus?tabs=HTTP">List Skus</a><br> <a href="/rest/api/compute/virtual-machine-scale-set-rolling-upgrades/get-latest?tabs=HTTP">Rolling Upgrades - Get Latest</a><br> <a href="/rest/api/compute/virtual-machine-scale-sets/get-os-upgrade-history?tabs=HTTP">Get OS Upgrade History</a><br>|12|36|800|2,400| 
 |High Cost Get VMSS<br> (Get resource intensive information)<br>|<a href="/rest/api/compute/virtual-machine-scale-sets/get-instance-view?tabs=HTTP">Get Instance View</a><br> <a href="/rest/api/compute/virtual-machine-scale-sets/list?tabs=HTTP"><u>List</u></a><sup>2</sup><br> <a href="/rest/api/compute/virtual-machine-scale-sets/list-all?tabs=HTTP">List All</a><sup>2</sup><br> <a href="/rest/api/compute/virtual-machine-scale-sets/list-by-location?tabs=HTTP">List By Location</a><sup>2</sup><br>|10|30|360|1,080| 
  
-<sup>2</sup>Only subscription level policies are applicable to the Rest
-API.
+<sup>2</sup> Only subscription level policies are applicable.
 
 ## Throttling limits for Virtual Machine Scale Set Virtual Machines 
 
 API requests for Virtual Machine Scale Set Virtual Machines are categorized into 3 distinct
-policies. Each policy has its own limits, depending upon the how
+policies. Each policy has its own limits, depending upon how
 resource intensive the API requests under that policy are. Following table contains a
 comprehensive list of these policies, the corresponding REST APIs, and
 their respective throttling limits:
 
 |Policy category |REST APIs |Resource Level |Resource Level |Subscription Level |Subscription Level |
 |-|-|-|-|-|-|
-|||Bucket refill rate<br>(per min)<br>|Maximum Bucket capacity<br>(per min)<br>|Bucket refill rate<br>(per min)<br>|Maximum Bucket capacity<br>(per min)<br>|
+|||Bucket refill rate<br>(Per Min)<br>|Maximum Bucket capacity<br>(Per Min)<br>|Bucket refill rate<br>(Per Min)<br>|Maximum Bucket capacity<br>(Per Min)<br>|
 |Update VMSS VMs<br>(Update existing VMs in a scale set)<br>|<a href="/rest/api/compute/virtual-machine-scale-set-vms/start?tabs=HTTP">Start</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vms/restart?tabs=HTTP">Restart</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vms/reimage?tabs=HTTP">Reimage</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vms/reimage-all?tabs=HTTP">ReimageAll</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vms/update?tabs=HTTP">Update</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vms/simulate-eviction?tabs=HTTP">SimulateEviction</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vm-extensions/create-or-update?tabs=HTTP">Extensions- Create Or Update</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vm-run-commands/create-or-update?tabs=HTTP">RunCommands - Create Or Update</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vm-run-commands/update?tabs=HTTP">RunCommands - Update</a><br>|4|12|500|1,500|
 |Delete VMSS VMs<br>(Delete scale set VMs)<br>|<a href="/rest/api/compute/virtual-machine-scale-set-vms/delete?tabs=HTTP">Delete</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vms/power-off?tabs=HTTP">PowerOff</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vms/deallocate?tabs=HTTP">Deallocate</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vm-extensions/delete?tabs=HTTP">Extensions- Delete</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vm-run-commands/delete?tabs=HTTP">RunCommands - Delete</a><br>|4|12|500|1,500|
 |Get VMSS VMs<br>(Get information on scale set VMs)<br>|<a href="/rest/api/compute/virtual-machine-scale-set-vms/get?tabs=HTTP">Get</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vms/get-instance-view?tabs=HTTP">GetInstance View</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vm-extensions/get?tabs=HTTP">Extensions- Get</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vm-run-commands/get?tabs=HTTP">RunCommands - Get</a><br><a href="/rest/api/compute/virtual-machine-scale-set-vms/retrieve-boot-diagnostics-data?tabs=HTTP">RetrieveBoot Diagnostics Data</a><br>|12|36|2,000|6,000|
