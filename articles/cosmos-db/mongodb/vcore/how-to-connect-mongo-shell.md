@@ -26,7 +26,7 @@ Here are some prerequisites.
 - Ensure the firewall settings to allow the machine to connect. Follow the guidelines for [configuring the firewall for Azure Cosmos DB](../../../cosmos-db/how-to-configure-firewall.md)
     - You can choose to allow requests from your current IP, requests from cloud services or requests from virtual machines - specific IP Ranges
     
-![Illustration that shows Firewall Settings update for MongoDB Vcore.](media/connect-using-mongo-shell/firewall-settings.gif)
+![Illustration that shows Firewall Settings update for MongoDB Vcore.](media/how-to-connect-mongo-shell/firewall-settings.gif)
 
 If you accidentally open all the ports, you're warned before saving the changes.
 
@@ -35,7 +35,7 @@ If you accidentally open all the ports, you're warned before saving the changes.
 To add your Azure Cosmos DB cluster to Mongo shell, perform the following steps:
 1. Retrieve the connection information for your Azure Cosmos DB for MongoDB vCore using the instructions [here](quickstart-portal.md#get-cluster-credentials).
 
-![Illustration that shows getting connection string.](./media/connect-using-mongo-shell/get-connection-string-portal.gif)
+![Illustration that shows getting connection string.](./media/how-to-connect-mongo-shell/get-connection-string-portal.gif)
 Once you have the connection string, you can either 
 - Have the shell prompt you to enter the password or
 - Provide the password as a part of the connection string 
@@ -53,7 +53,7 @@ Here's an example of how the command looks like:
     ```
     mongosh "mongodb+srv://testuser@mongodbvcoretesting.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000
     ```
-![Illustration that shows how to connect by entering a password.](./media/connect-using-mongo-shell/mongo-shell-connect.gif)
+![Illustration that shows how to connect by entering a password.](./media/how-to-connect-mongo-shell/mongo-shell-connect.gif)
 
 Once you provide the password and are successfully authenticated, you notice some warning. It states *"This server or service appears to be an emulation of MongoDB"*. 
 The warning can be ignored. It's the shell's way of notifying that you aren't connection to an emulation of MongoDB. When, it's an Azure as a platform as a service offering it's expected. 
@@ -69,7 +69,7 @@ Here's an example of how the command looks like:
 ```
  mongosh "mongodb+srv://mongodbvcoretesting.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000" --username "testuser" -password "******"
 ```
-![Screenshot that shows a password as a part of a connection string.](./media/connect-using-mongo-shell/connection-string-with-password.png)
+![Screenshot that shows a password as a part of a connection string.](./media/how-to-connect-mongo-shell/connection-string-with-password.png)
 
 ## Next step
 
