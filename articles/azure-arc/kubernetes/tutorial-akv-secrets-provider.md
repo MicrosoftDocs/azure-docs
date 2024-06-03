@@ -51,7 +51,7 @@ Only one instance of the extension can be deployed on each Azure Arc-enabled Kub
 
 1. From the list of available extensions, select **Azure Key Vault Secrets Provider** to deploy the latest version of the extension.
 
-   :::image type="content" source="media/tutorial-akv-secrets-provider/extension-install-new-resource.png" alt-text="Screenshot showing hte Azure Key Vault Secrets Provider extension in the Azure portal.":::
+   :::image type="content" source="media/tutorial-akv-secrets-provider/extension-install-new-resource.png" alt-text="Screenshot showing the Azure Key Vault Secrets Provider extension in the Azure portal.":::
 
 1. Follow the prompts to deploy the extension. If needed, customize the installation by changing the default options on the **Configuration** tab.
 
