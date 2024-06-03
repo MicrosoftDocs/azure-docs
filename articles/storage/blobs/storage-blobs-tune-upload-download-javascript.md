@@ -91,7 +91,7 @@ Tuning data transfer options for downloads is available only when using the [dow
 
 ### Set transfer options for downloads
 
-The following values can be tuned for downloads based on the needs of your app:
+The following values can be tuned for downloads when using the `downloadToBuffer` method:
 
 - [blockSize](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions#@azure-storage-blob-blobdownloadtobufferoptions-blocksize): The maximum block size to transfer for each request.
 - [concurrency](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions#@azure-storage-blob-blobdownloadtobufferoptions-concurrency): The maximum number of parallel requests issued at any given time as a part of a single parallel transfer.
