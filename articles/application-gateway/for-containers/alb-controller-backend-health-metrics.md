@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 02/27/2024
+ms.date: 06/03/2024
 ms.author: greglin
 ---
 
@@ -35,26 +35,43 @@ Any clients or pods that have connectivity to this pod and port may access these
 
 ### Discovering backend health
 
-Run the following kubectl command to identify your ALB Controller pod and its corresponding IP address.
+The ALB Controller will make backend health available on the controller pod that is acting as primary.
+
+To find the primary pod, you may run the following command:
 
 ```bash
-kubectl get pods -n azure-alb-system -o wide
+kubectl get lease -n azure-alb-system alb-controller-leader-election -o jsonpath='{.spec.holderIdentity}' | awk -F'_' '{print $1}'
 ```
 
-Example output:
+# [Access backend health via Kubectl command](#tab/backend-health-kubectl-access)
 
-| NAME                                       | READY | STATUS  | RESTARTS |  AGE | IP         | NODE                             | NOMINATED NODE | READINESS GATES |
-| ------------------------------------------ | ----- | ------- | -------- | ---- | ---------- | -------------------------------- | -------------- | --------------- |
-| alb-controller-74df7896b-gfzfc             | 1/1   | Running | 0        |  60m | 10.1.0.247 | aks-userpool-21921599-vmss000000 | \<none\>         | \<none\>          |
-| alb-controller-bootstrap-5f7f8f5d4f-gbstq  | 1/1   | Running | 0        |  60m | 10.1.1.183 | aks-userpool-21921599-vmss000001 | \<none\>         | \<none\>          |
+For indirect access via kubectl utility, you can create a listener that proxies traffic to the pod.
+
+```bash
+kubectl port-forward <pod-name> -n <namespace> 8000 8001
+```
+
+Once the kubectl command is listening, open another terminal (or cloud shell session) and execute curl to 127.0.0.1 to be redirected to the pod.
+
+```bash
+curl http://127.0.0.1:8000
+```
+
+# [Access backend health via controller pod directly](#tab/backend-health-direct-access)
+
+Run the following kubectl command to identify the IP address of the primary ALB Controller pod. You may return a list of all controller pods or run a single command to obtain the IP address per your preference.
+
+```bash
+kubectl get pod <alb controller pod name from previous step> -n azure-alb-system -o jsonpath="{.status.podIP}"
+```
 
 Once you have the IP address of your alb-controller pod, you may validate the backend health service is running by browsing to http://\<pod-ip\>:8000.
 
-For example, the following command may be run:
-
 ```bash
-curl http://10.1.0.247:8000
+curl http://<your-pod-ip>:8000
 ```
+
+---
 
 Example response:
 
@@ -188,9 +205,9 @@ Example output:
 
 ## Metrics
 
-ALB Controller currently surfaces metrics following [text based format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) to be exposed to Prometheus.
+ALB Controller currently surfaces metrics following [text based format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) to be exposed to Prometheus. Access to these logs may be found at http://<alb-controller-pod-ip>:8001/metrics
 
-The following Application Gateway for Containers specific metrics are currently available today:
+The following metrics are exposed today:
 
 | Metric Name | Description                                                                           |
 | ----------- | ------------------------------------------------------------------------------------- |
