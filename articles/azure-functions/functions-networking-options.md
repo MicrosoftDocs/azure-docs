@@ -304,6 +304,18 @@ When testing functions in a function app with private endpoints, you must do you
 * `https://functions.azure.com`
 * `https://portal.azure.com`
 
+If you've restricted access to your Function app with private endpoints or any other access restriction, you'll need to allow-list the service tag `AzureCloud`. To do this, complete the following steps:
+
+1. Navigate to the **Networking blade** of your Function app and select **Public network access** under Inbound access configuration. 
+
+1. Ensure that Public network access is set to **Enabled from select virtual networks and IP addresses**. 
+
+1. **Add a rule** under Site access and rules. 
+
+    1. Select `Service Tag` as the Source settings **Type** and `AzureCloud` as the **Service Tag**. 
+    
+    1. Make sure the action is **Allow**, and set your desired name and priority.
+
 ## Troubleshooting
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
