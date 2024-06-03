@@ -401,8 +401,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/azure/machine-learning/v1/concept-mlflow.md",
-        "redirect_url": "/articles/machine-learning/concept-mlflow",
+        "source_path_from_root": "/articles/machine-learning/v1/concept-mlflow.md",
+        "redirect_url": "/azure/machine-learning/concept-mlflow",
         "redirect_document_id": true
     },
     {
