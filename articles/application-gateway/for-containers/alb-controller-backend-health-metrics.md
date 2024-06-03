@@ -40,7 +40,8 @@ The ALB Controller will make backend health available on the controller pod that
 To find the primary pod, you may run the following command:
 
 ```bash
-kubectl get lease -n azure-alb-system alb-controller-leader-election -o jsonpath='{.spec.holderIdentity}' | awk -F'_' '{print $1}'
+CONTROLLER_NAMESPACE='azure-alb-system'
+kubectl get lease -n $CONTROLLER_NAMESPACE alb-controller-leader-election -o jsonpath='{.spec.holderIdentity}' | awk -F'_' '{print $1}'
 ```
 
 # [Access backend health via Kubectl command](#tab/backend-health-kubectl-access)
@@ -48,7 +49,7 @@ kubectl get lease -n azure-alb-system alb-controller-leader-election -o jsonpath
 For indirect access via kubectl utility, you can create a listener that proxies traffic to the pod.
 
 ```bash
-kubectl port-forward <pod-name> -n <namespace> 8000 8001
+kubectl port-forward <pod-name> -n $CONTROLLER_NAMESPACE 8000 8001
 ```
 
 Once the kubectl command is listening, open another terminal (or cloud shell session) and execute curl to 127.0.0.1 to be redirected to the pod.
@@ -62,7 +63,7 @@ curl http://127.0.0.1:8000
 Run the following kubectl command to identify the IP address of the primary ALB Controller pod. You may return a list of all controller pods or run a single command to obtain the IP address per your preference.
 
 ```bash
-kubectl get pod <alb controller pod name from previous step> -n azure-alb-system -o jsonpath="{.status.podIP}"
+kubectl get pod <alb controller pod name from previous step> -n $CONTROLLER_NAMESPACE -o jsonpath="{.status.podIP}"
 ```
 
 Once you have the IP address of your alb-controller pod, you may validate the backend health service is running by browsing to http://\<pod-ip\>:8000.
