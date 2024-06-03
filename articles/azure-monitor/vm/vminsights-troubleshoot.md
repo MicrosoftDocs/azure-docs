@@ -52,9 +52,74 @@ For Windows machines, you can use the TestCloudConnectivity tool to identify con
 See the following articles for troubleshooting issues with the Log Analytics agent:
 
 - [Troubleshoot issues with the Log Analytics agent for Windows](../agents/agent-windows-troubleshoot.md)
+
 - [Troubleshoot issues with the Log Analytics agent for Linux](../agents/agent-linux-troubleshoot.md)
 
+## DCR created by VMInsight Process was modified and now data is missing
+
+### Identifying the Issue
+
+To identify if this is the case you would first browse to the Monitor Dashboard, locate the Data Collection Rule in Question and view the JSON properties using the link on the top right-hand side of the overview blade:
+![DCR Dashboard.](media/vminsights-troubleshoot/image.png)
+
+You will see that stream name has been changed from its original name to reflect the performance counter stream name:
+![DCR JSON.](media/vminsights-troubleshoot/image1.png)
+
+We can see while the counter sections are pointing the perf table, the stream dataflow is still configured for the proper destination Microsof-InsightsMetrics.
+
+### Resolving the Issue
+
+This issue can't be resolved using the Monitor Dashboard directly, but we can fix this by exporting the template, normalizing the name and then import the modified rule over itself.
+
+#### Export the DCR and save locally
+
+To do this first we must export the DCR:
+![Export DCR.](media/vminsights-troubleshoot/image2.png)
+
+After selecting the Export Template blade for the selected DCR the portal will create the template file and a matching parameter file. Once this is complete, we can download the template package save and save it locally.
+![Download DCR Template.](media/vminsights-troubleshoot/image3.png)
+
+Open the file
+![Open File.](media/vminsights-troubleshoot/image4.png)
+
+Copy these to a local folder:
+![Copy Files.](media/vminsights-troubleshoot/image5.png)
+
+#### Modify the Template
+
+Open the template file in the editor of your choice and locate the invalid stream name under the performance counter data source.
+![Template.json.](media/vminsights-troubleshoot/image6.png)
+
+Using the valid stream name from the dataflow node fix the invalid reference, then save and close your file:
+![Updated Stream.](media/vminsights-troubleshoot/image7.png)
+
+#### Import the Template using the Custom Deployment Feature
+
+Back in the portal, search for and navigate to the custom template deployment:
+![Deploy a custom template.](media/vminsights-troubleshoot/image8.png)
+
+Choose the Option to "Build Your Own Template"
+![Build your own template in the editor.](media/vminsights-troubleshoot/image9.png)
+
+Using the "Load File" link browse to you saved template and parameter file:
+![Load File.](media/vminsights-troubleshoot/image10.png)
+
+Visually inspect the template to validate the change is in place and select the Save button
+![Edit Template.](media/vminsights-troubleshoot/image11.png)
+
+From here the portal will use the parameter file to fill in the deployment options (which can be changed) or left intact to overwrite the existing DCR, Once completed select the review and Create button.
+![Custom Deployment.](media/vminsights-troubleshoot/image12.png)
+
+After validation then we can select the Create button to finalize the deployment.
+![Create Deployment.](media/vminsights-troubleshoot/image13.png)
+
+After the deployment is complete, we can browse to the DCR again and review the JSON in overview blade:
+![Review JSON.](media/vminsights-troubleshoot/image14.png)
+
+The agent will detect this change and download the new configuration, and this should restore ingestion to the insight metrics table.
+
 ## Performance view has no data
+
 If the agents appear to be installed correctly but you don't see any data in the **Performance** view, see the following sections for possible causes.
 
 ### Has your Log Analytics workspace reached its data limit?
