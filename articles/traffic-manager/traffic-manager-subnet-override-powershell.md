@@ -5,7 +5,7 @@ services: traffic-manager
 author: greg-lindsay
 ms.topic: how-to
 ms.service: traffic-manager
-ms.date: 05/07/2023
+ms.date: 06/03/2024
 ms.author: greglin
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
@@ -24,6 +24,9 @@ There are two types of routing profiles that support subnet overrides:
 
 * **Geographic** - If Traffic Manager finds a subnet override for the DNS query's IP address, it will route the query to the endpoint whatever the health of the endpoint is.
 * **Performance** - If Traffic Manager finds a subnet override for the DNS query's IP address, it will only route the traffic to the endpoint if it's healthy.  Traffic Manager will fall back to the performance routing heuristic if the subnet override endpoint isn't healthy.
+
+> [!NOTE]
+> Azure Traffic Manager supports IPv6 addresses in subnet overrides for subnet profiles. This capability enables more granular control over traffic routing based on the source IP address of DNS queries, including both IPv4 and IPv6 addresses. 
 
 ## Prerequisites
 
