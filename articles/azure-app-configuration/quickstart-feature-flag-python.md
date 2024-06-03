@@ -26,7 +26,7 @@ These libraries do **not** have a dependency on any Azure libraries. They seamle
 
 ## Add a feature flag
 
-Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag). At this stage the Enable feature flag check bock should be unchecked.
 
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
@@ -48,7 +48,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     import os
     from time import sleep
     
-    connection_string = os.environ["APPCONFIGURATION_CONNECTION_STRING"]
+    connection_string = os.environ["APP_CONFIGURATION_CONNECTION_STRING"]
     
     # Connecting to Azure App Configuration using Microsoft Entra ID
     config = load(connection_string=connection_string, feature_flag_enabled=True, feature_flag_refresh_enabled=True)
@@ -131,7 +131,7 @@ The following example shows how to update an existing web application, using Azu
 
 ### [Flask](#tab/flask)
 
-In `app.py`, set up Azure App Configuration update your load method to also load feature flags.
+In `app.py`, set up Azure App Configuration's load method to additionally load feature flags, along with enabling refresh of feature flags.
 
 ```python
 from featuremanagement import FeatureManager
@@ -139,7 +139,7 @@ from featuremanagement import FeatureManager
 ...
 
 global azure_app_config, feature_manager
-azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING")
+azure_app_config = load(connection_string=os.environ.get("APP_CONFIGURATION_CONNECTION_STRING")
                         refresh_on=[WatchKey("sentinel")],
                         on_refresh_success=on_refresh_success,
                         refresh_interval=10, # Default value is 30 seconds, shortened for this sample
@@ -188,7 +188,7 @@ from featuremanagement import FeatureManager
 ...
 
 AZURE_APPCONFIGURATION = load(
-        connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"),
+        connection_string=os.environ.get("APP_CONFIGURATION_CONNECTION_STRING"),
         refresh_on=[WatchKey("sentinel")],
         on_refresh_success=on_refresh_success,
         refresh_interval=10, # Default value is 30 seconds, shortened for this sample
