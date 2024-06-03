@@ -329,6 +329,8 @@
                   href: connect-using-mongochef.md
                 - name: Connect using Compass
                   href: connect-using-compass.md
+                - name: Connect using Mongo Shell
+                  href: how-to-connect-mongo-shell.md
                 - name: Connect using Robo 3T
                   href: connect-using-robomongo.md
                 - name: Connect using Mongoose
