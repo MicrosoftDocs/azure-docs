@@ -4,12 +4,12 @@ description: Learn about the Azure Storage extension in Azure Database for Postg
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 03/28/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Azure Storage extension in Azure Database for PostgreSQL - Flexible Server

@@ -1,8 +1,8 @@
 ---
 title: Add a cluster
 description: How to add an Arc-enabled cluster to existing observability infrastructure in Azure IoT Operations.
-author: timlt
-ms.author: timlt
+author: kgremban
+ms.author: kgremban
 ms.topic: how-to
 ms.date: 02/27/2024
 

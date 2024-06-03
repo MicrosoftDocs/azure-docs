@@ -4,7 +4,7 @@ description: Learn how to encrypt disks using customer-managed keys in Azure Dev
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/29/2021
+ms.date: 04/29/2024
 ms.custom: subject-rbac-steps, UpdateFrequency2
 ---
 
@@ -70,7 +70,7 @@ The following section shows how a lab owner can set up encryption using a custom
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Validate encryption":::
   
-## Next steps
+## Related content
 
 See the following articles: 
 

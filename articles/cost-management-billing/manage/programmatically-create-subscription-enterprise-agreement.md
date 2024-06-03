@@ -290,6 +290,30 @@ You get the subscriptionId as part of the response from the command.
 
 ---
 
+## Create subscription and make subscriptionOwnerId the owner
+
+When a service principal uses the Subscription Alias API to create a new subscription and doesn't include `additionalProperties` in the request, the service principal automatically becomes the owner of the new subscription. If you don't want the service principal to be the owner, you can specify `subscriptionTenantId` and `subscriptionOwnerId` in the `additionalProperties`. This process makes the specified `subscriptionOwnerId` the owner of the new subscription, not the service principal.
+
+Sample request body:
+
+```json
+
+{
+    "properties": {
+        "billingScope": "/providers/Microsoft.Billing/billingAccounts/{EABillingAccountId}/enrollmentAccounts/{EnrollmentAccountId}",
+        "displayName": "{SubscriptionName}",
+        "workLoad": "Production",
+        "resellerId": null,
+        "additionalProperties": {
+            "managementGroupId": "",
+            "subscriptionTenantId": "{SubscriptionTenantId}", // Here you input the tenant GUID where the subscription resides after creation
+            "subscriptionOwnerId": "{ObjectId that becomes the owner of the subscription}", // Here you input the objectId which is set as the subscription owner when it gets created.
+            "tags": {}
+        }
+    }
+}
+```
+
 ## Create subscriptions in a different tenant
 
 Using the subscription [Alias](/rest/api/subscription/2021-10-01/alias/create) REST API, you can create a subscription in a different tenant using the `subscriptionTenantId` parameter in the request body. Your Azure Service Principal (SPN) must get a token from its home tenant to create the subscription. After you create the subscription, you must get a token from the target tenant to accept the transfer using the [Accept Ownership](/rest/api/subscription/2021-10-01/subscription/accept-ownership) API.

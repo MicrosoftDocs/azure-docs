@@ -1,6 +1,6 @@
 ---
-title: Enable data-aware security posture for Azure datastores
-description: Learn how to enable data-aware security posture in Defender for Cloud
+title: Enable data security posture management for Azure datastores
+description: Learn how to enable data security posture management in Defender for Cloud
 author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
@@ -9,22 +9,22 @@ ms.date: 09/05/2023
 ms.custom: template-how-to-pattern
 ---
 
-# Enable data-aware security posture
+# Enable data security posture management
 
-This article describes how to enable [data-aware security posture](data-security-posture-enable.md) in Microsoft Defender for Cloud.
+This article describes how to enable [data security posture management](data-security-posture-enable.md) in Microsoft Defender for Cloud.
 
 ## Before you start
 
-- Before you enable data-aware security posture, [review support and prerequisites](concept-data-security-posture-prepare.md).
-- When you enable Defender CSPM or Defender for Storage plans, the sensitive data discovery extension is automatically enabled. You can disable this setting if you don't want to use data-aware security posture, but we recommend that you use the feature to get the most value from Defender for Cloud.
+- Before you enable data security posture management, [review support and prerequisites](concept-data-security-posture-prepare.md).
+- When you enable Defender CSPM or Defender for Storage plans, the sensitive data discovery extension is automatically enabled. You can disable this setting if you don't want to use data security posture management, but we recommend that you use the feature to get the most value from Defender for Cloud.
 - Sensitive data is identified based on the data sensitivity settings in Defender for Cloud. You can [customize the data sensitivity settings](data-sensitivity-settings.md) to identify the data that your organization considers sensitive.
 - It takes up to 24 hours to see the results of a first discovery after enabling the feature.
 
 ## Enable in Defender CSPM (Azure)
 
-Follow these steps to enable data-aware security posture. Don't forget to review [required permissions](concept-data-security-posture-prepare.md#whats-supported) before you start.
+Follow these steps to enable data security posture management. Don't forget to review [required permissions](concept-data-security-posture-prepare.md#whats-supported) before you start.
 
-1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 1. Select the relevant Azure subscription.
 1. For the Defender CSPM plan, select the **On** status.
 

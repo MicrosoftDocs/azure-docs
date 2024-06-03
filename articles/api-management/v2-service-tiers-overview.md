@@ -83,7 +83,8 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Inbound connection using a private endpoint
 * Injection in a VNet in external mode or internal mode
 * Upgrade to v2 tiers from v1 tiers 
-* Workspaces 
+* Workspaces
+* CA Certificates
 
 **Developer portal**
 * Delegation of user registration and product subscription

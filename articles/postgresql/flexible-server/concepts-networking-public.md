@@ -4,12 +4,12 @@ description: Learn about connectivity and networking with public access for Azur
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 01/23/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Networking overview for Azure Database for PostgreSQL - Flexible Server with public access (allowed IP addresses)

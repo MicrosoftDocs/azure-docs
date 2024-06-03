@@ -3,7 +3,7 @@ title: Query Store scenarios
 description: This article describes some scenarios for Query Store in Azure Database for PostgreSQL - Flexible Server.
 author: markingmyname
 ms.author: maghan
-ms.date: 01/23/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

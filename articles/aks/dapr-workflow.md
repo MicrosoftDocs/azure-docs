@@ -192,7 +192,7 @@ Notice that the workflow status is marked as completed.
 [install-cli]: /cli/azure/install-azure-cli
 [k8s-ext]: ./dapr.md#set-up-the-azure-cli-extension-for-cluster-extensions
 [cluster]: ./tutorial-kubernetes-deploy-cluster.md
-[k8s-sp]: ./dapr.md#register-the-kubernetesconfiguration-service-provider
+[k8s-sp]: ./dapr.md#register-the-kubernetesconfiguration-resource-provider
 [dapr-config]: ./dapr-settings.md
 [az-cloud-shell]: ./learn/quick-kubernetes-deploy-powershell.md#azure-cloud-shell
 [kubectl]: ./tutorial-kubernetes-deploy-cluster.md#connect-to-cluster-using-kubectl

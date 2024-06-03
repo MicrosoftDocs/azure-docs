@@ -1,15 +1,20 @@
 ---
-title: 'Quickstart: Connect with C#'
+title: "Quickstart: Connect with C#"
 description: "This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL - Flexible Server."
+author: agapovm
+ms.author: maximagapov
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
-ms.custom: mvc, devcenter, devx-track-csharp, mode-other, devx-track-dotnet
-ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 01/23/2024
+ms.custom:
+  - mvc
+  - devcenter
+  - devx-track-csharp
+  - mode-other
+  - devx-track-dotnet
+ms.devlang: csharp
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Flexible Server

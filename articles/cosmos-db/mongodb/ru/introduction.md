@@ -81,3 +81,4 @@ Sharded cluster performance is dependent on the shard key you choose when creati
 
 - Follow the [Use Studio 3T with Azure Cosmos DB](../connect-using-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in Studio 3T.
 - Follow the [Import MongoDB data into Azure Cosmos DB](../../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) tutorial to import your data to an Azure Cosmos DB database.
+- Receive up to 63% discount on [Azure Cosmos DB prices with Reserved Capacity](../../reserved-capacity.md).

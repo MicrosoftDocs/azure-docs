@@ -1,6 +1,6 @@
 ---
-title: Support and prerequisites for data-aware security posture
-description: Learn about the requirements for data-aware security posture in Microsoft Defender for Cloud.
+title: Support and prerequisites for data security posture management
+description: Learn about the requirements for data security posture management in Microsoft Defender for Cloud.
 author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
@@ -9,9 +9,9 @@ ms.date: 03/04/2024
 ms.custom: references_regions
 ---
 
-# Support and prerequisites for data-aware security posture
+# Support and prerequisites for data security posture management
 
-Review the requirements on this page before setting up [data-aware security posture](concept-data-security-posture.md) in Microsoft Defender for Cloud.
+Review the requirements on this page before setting up [data security posture management](concept-data-security-posture.md) in Microsoft Defender for Cloud.
 
 ## Enabling sensitive data discovery
 
@@ -26,7 +26,7 @@ Sensitive data discovery is available in the Defender CSPM, Defender for Storage
 
 ## What's supported
 
-The table summarizes support for data-aware posture management.
+The table summarizes availability and supported scenarios for sensitive data discovery.
 
 |**Support** | **Details**|
 |--- | ---|
@@ -94,7 +94,7 @@ To protect AWS resources in Defender for Cloud, set up an AWS connector using a 
   - Use all KMS keys only for RDS on source account
   - Create & full control on all KMS keys with tag prefix *DefenderForDatabases*
   - Create alias for KMS keys
-- KMS keys are created once for each region that contains RDS instances. The creation of a KMS key may incur a minimal extra cost, according to AWS KMS pricing.
+- KMS keys are created once for each region that contains RDS instances. The creation of a KMS key might incur a minimal extra cost, according to AWS KMS pricing.
 
 ### Discovering GCP storage buckets
 
@@ -140,4 +140,4 @@ AWS:
 
 ## Next step
 
-[Enable](data-security-posture-enable.md) data-aware security posture.
+[Enable](data-security-posture-enable.md) data security posture management.

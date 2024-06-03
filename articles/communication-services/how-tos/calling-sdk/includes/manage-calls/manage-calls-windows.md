@@ -141,7 +141,7 @@ await this.call.UnmuteOutgoingAudioAsync();
 
 ## Mute other participants
 > [!NOTE]
-> This API is provided as a public preview for developers and may change based on feedback that we receive. To use this API please use 'beta' release of Azure Communication Services Calling Windows SDK version 1.4.0-beta.1 or higher. 
+> This API is provided as a public preview for developers and may change based on feedback that we receive. To use this API please use 'beta' release of Azure Communication Services Calling Windows SDK version 1.6.0-beta.1 or higher. 
 
 To mute all other participants or mute a specific participant, you can use the asynchronous APIs `MuteAllRemoteParticipantsAsync` on the call and `MuteAsync` on the remote participant:
 
@@ -152,6 +152,8 @@ await this.call.MuteAllRemoteParticipantsAsync();
 // mute specific participant in the call
 await this.call.RemoteParticipants.FirstOrDefault().MuteAsync();
 ```
+
+To notify the local participant they have been muted by others, subscribe to the `MutedByOthers` event. 
 
 ## End a call
 

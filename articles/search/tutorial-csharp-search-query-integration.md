@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 04/25/2024
 ms.custom:
   - devx-track-csharp
   - devx-track-dotnet
@@ -15,7 +15,7 @@ ms.custom:
 ms.devlang: csharp
 ---
 
-# 4 - Explore the .NET search code
+# Step 4 - Explore the .NET search code
 
 In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you're looking for a cheat sheet on how to integrate search into your web app, this article explains what you need to know.
 

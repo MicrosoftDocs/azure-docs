@@ -49,7 +49,7 @@ Set up connections to provisioned resources in prompt flow.
 |-------------|----------|----------|----------|-------------|
 | OpenAI      | Required | Required | -        | -           |
 | Azure OpenAI - API key| Required | Required | Required | Required    |
-| Azure OpenAI - Microsoft Entra ID| - | Required | Required | Required    |
+| Azure OpenAI - Microsoft Entra ID| Required | - | - | Required    |
 
   > [!TIP]
   > - To use Microsoft Entra ID auth type for Azure OpenAI connection, you need assign either the `Cognitive Services OpenAI User` or `Cognitive Services OpenAI Contributor role` to user or user assigned managed identity.

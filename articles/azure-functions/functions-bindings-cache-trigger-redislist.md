@@ -1,5 +1,5 @@
 ---
-title: RedisListTrigger for Azure Functions (preview)
+title: RedisListTrigger for Azure Functions
 description: Learn how to use the RedisListTrigger Azure Functions for Azure Cache for Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -8,10 +8,10 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 02/27/2024
+ms.date: 05/20/2024
 ---
 
-# RedisListTrigger for Azure Functions (preview)
+# RedisListTrigger for Azure Functions
 
 The `RedisListTrigger` pops new elements from a list and surfaces those entries to the function.
 

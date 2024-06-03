@@ -7,4 +7,4 @@ ms.author: danlep
 ---
 
 > [!NOTE]
-> Currently, API request tracing isn't supported in the Basic v2 and Standard v2 tiers. 
+> Currently, tracing of API requests isn't supported in the Basic v2 and Standard v2 tiers. 

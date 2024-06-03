@@ -40,7 +40,7 @@ The control plane includes the following core Kubernetes components:
 | Component | Description |  
 | ----------------- | ------------- |  
 | *kube-apiserver* | The API server exposes the underlying Kubernetes APIs and provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard. |  
-| *etcd* | etcd is a highly available key vault store within Kubernetes that helps maintain the state of your Kubernetes cluster and configuration. |  
+| *etcd* | etcd is a highly available key-value store within Kubernetes that helps maintain the state of your Kubernetes cluster and configuration. |  
 | *kube-scheduler* | When you create or scale applications, the scheduler determines what nodes can run the workload and starts the identified nodes. |  
 | *kube-controller-manager* | The controller manager oversees a number of smaller controllers that perform actions such as replicating pods and handling node operations. |  
 
@@ -87,7 +87,7 @@ A container runtime is software that executes containers and manages container i
 `Containerd` works on every GA version of Kubernetes in AKS, in every Kubernetes version starting from v1.19, and supports all Kubernetes and AKS features.
 
 > [!IMPORTANT]
-> Clusters with Linux node pools created on Kubernetes v1.19 or higher default to the `containerd` container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`.
+> Clusters with Linux node pools created on Kubernetes v1.19 or higher default to the `containerd` container runtime. Clusters with node pools on an earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`.
 >
 > `containerd` is generally available for clusters with Windows Server 2019 and 2022 node pools and is the only container runtime option for Kubernetes v1.23 and higher. You can continue using Docker node pools and clusters on versions earlier than 1.23, but Docker is no longer supported as of May 2023. For more information, see [Add a Windows Server node pool with `containerd`](./create-node-pools.md#windows-server-node-pools-with-containerd).
 >
@@ -145,7 +145,7 @@ Reserved memory in AKS includes the sum of two values:
    * If the VM provides 8GB of memory and the node supports up to 30 pods, AKS reserves *20MB * 30 Max Pods + 50MB = 650MB* for kube-reserved. `Allocatable space = 8GB - 0.65GB (kube-reserved) - 0.1GB (eviction threshold) = 7.25GB or 90.625% allocatable.`
    * If the VM provides 4GB of memory and the node supports up to 70 pods, AKS reserves *25% * 4GB = 1000MB* for kube-reserved, as this is less than *20MB * 70 Max Pods + 50MB = 1450MB*.
 
-    For more information, see [Configure maximum pods per node in an AKS cluster](./azure-cni-overview.md#maximum-pods-per-node).
+    For more information, see [Configure maximum pods per node in an AKS cluster][maximum-pods].
 
 **AKS versions prior to 1.29**
 
@@ -363,9 +363,7 @@ Two Kubernetes resources, however, let you manage these types of applications: *
 
 Modern application development often aims for stateless applications. For stateful applications, like those that include database components, you can use *StatefulSets*. Like deployments, a StatefulSet creates and manages at least one identical pod. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrade, and termination operations. The naming convention, network names, and storage persist as replicas are rescheduled with a StatefulSet.
 
-You can define the application in YAML format using `kind: StatefulSet`. From there, the StatefulSet Controller handles the deployment and management of the required replicas. Data writes to persistent storage, provided by Azure Managed Disks or Azure Files. With StatefulSets, the underlying persistent storage remains, even when the StatefulSet is deleted.
-
-For more information, see [Kubernetes StatefulSets][kubernetes-statefulsets].
+You can define the application in YAML format using `kind: StatefulSet`. From there, the StatefulSet Controller handles the deployment and management of the required replicas. Data writes to persistent storage, provided by Azure Managed Disks or Azure Files. The underlying persistent storage remains even when the StatefulSet is deleted, unless the `spec.persistentVolumeClaimRetentionPolicy` is set to `Delete`. For more information, see [Kubernetes StatefulSets][kubernetes-statefulsets].
 
 > [!IMPORTANT]
 > Replicas in a StatefulSet are scheduled and run across any available node in an AKS cluster. To ensure at least one pod in your set runs on a node, you should use a DaemonSet instead.
@@ -439,3 +437,5 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [aks-support]: support-policies.md#user-customization-of-agent-nodes
 [intro-azure-linux]: ../azure-linux/intro-azure-linux.md
 [fully-managed-resource-group]: ./node-resource-group-lockdown.md
+[maximum-pods]: concepts-network-ip-address-planning.md#maximum-pods-per-node
+

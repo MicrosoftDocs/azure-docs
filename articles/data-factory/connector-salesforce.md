@@ -19,7 +19,7 @@ ms.date: 04/01/2024
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 >[!IMPORTANT]
->The new Salesforce connector provides improved native Salesforce support. If you are using the legacy Salesforce connector in your solution, supported as-is for backward compatibility only, refer to [Salesforce connector (legacy)](connector-salesforce-legacy.md) article.
+>The new Salesforce connector provides improved native Salesforce support. If you are using the legacy Salesforce connector in your solution, please [upgrade your Salesforce connector](#upgrade-the-salesforce-linked-service) before **October 11, 2024**. Refer to this [section](#differences-between-salesforce-and-salesforce-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 

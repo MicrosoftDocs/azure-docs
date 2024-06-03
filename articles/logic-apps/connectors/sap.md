@@ -1207,7 +1207,7 @@ You can control this tracing capability at the application level by adding the f
 
 1. On the **Kudu** toolbar, select **Debug Console** > **CMD**.
 
-1. Browse to the folder for the parameter named **$ccl/trace/directory** from **CCLPROFILE.txt**. 
+1. Browse to the folder for the **$ccl/trace/directory** parameter, which is from the **CCLPROFILE.txt** file.
 
     Usually, the trace files are named **sec-Microsoft.Azure.Work-$processId.trc** and **sec-sapgenpse.exe-$processId.trc**.
 
