@@ -12,4 +12,4 @@ The following table describes the configuration settings supported under the `Ap
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|No| `InstrumentationKey` | String | The instrumentation key of the Application Insights instance to which telemetry data for the container is sent. For more information, see [Application Insights for ASP.NET Core](../articles/azure-monitor/app/asp-net-core.md). <br><br>Example:<br>`InstrumentationKey=123456789`|
+|No| `InstrumentationKey` | String | The instrumentation key of the Application Insights instance to which telemetry data for the container is sent. For more information, see [Application Insights for ASP.NET Core](../../azure-monitor/app/asp-net-core.md). <br><br>Example:<br>`InstrumentationKey=123456789`|
