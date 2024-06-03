@@ -19,23 +19,32 @@ author: Blackmist
     
 AI Studio provides a unified experience for AI developers and data scientists to build, evaluate, and deploy AI models through a web portal, SDK, or CLI. It's built on capabilities and services provided by other Azure services.
 
-The top level AI Studio resources (hub and project) are based on Azure Machine Learning. Other resources, such as Azure OpenAI, Azure AI services, and Azure AI Search, are used by the hub and project.
+The top level AI Studio resources (hub and project) are based on Azure Machine Learning. Other resources, such as Azure OpenAI, Azure AI services, and Azure AI Search, are used by the hub and project in reference, but follow their own resource management lifecycle.
 
 - **AI hub**: The hub is the top-level resource in AI Studio. The Azure resource provider for a hub is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Hub`. It provides the following features:
     - Security configuration and central governance.
     - Compute resources for interactive development, finetuning, open source and serverless model deployments.
     - Connections to other Azure services such as Azure OpenAI, Azure AI services, and Azure AI Search. Hub-scoped connections are shared can be used by all projects.
+    - Project management. A hub can have multiple child projects.
     - An associated Azure storage account for data upload and artifact storage.
-- **AI project**: A project is a child resource of the hub. The Azure resource provider for a project is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Project`. It inherits the hub's connections, and compute resources. When a new project is created from the hub, the security settings of the hub are applied to it. The project provides the following features:
+- **AI project**: A project is a child resource of the hub. The Azure resource provider for a project is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Project`. The project provides the following features:
     - Access to development tools for building and customizing AI applications.   
     - Reusable components including datasets, models, and indexes.
     - An isolated container to upload data to (within the storage inherited from the hub).
     - Project-scoped connections. For example, project members might need private access to data stored in an Azure Storage account without giving that same access to other projects.
     - Open source model deployments from catalog and fine-tuned model endpoints.
  
-A hub can have multiple child projects. Each project can have its own set of project-scoped connections.
-
 :::image type="content" source="../media/concepts/resource-provider-connected-resources.svg" alt-text="Diagram of the relationship between AI Studio resources." :::
+
+### Hub enable central resource setup and governance
+
+Hubs provide a central way for a team to govern security, connectivity, and computing resources across playgrounds and projects. Projects that are created using a hub inherit the same security settings and shared resource access. Teams can create as many projects as needed to organize work, isolate data, and/or restrict access.
+
+Often, projects in a business domain require access to the same company resources such as vector indices, model endpoints or repos. As a team lead, you can pre-configure connectivity with these resources within a hub, so developers can access them from any new project workspace without delay on IT.
+
+[Connections](connections.md) let you access objects in AI Studio that are managed outside of your hub. For example, uploaded data on an Azure storage account, or model deployments on an existing Azure OpenAI resource. A connection can be shared with every project or made accessible to one specific project, with the option to configure key-based access or EntraID-passthrough to authorize access to users on the connected resource. As an administrator, you can  track, audit, and manage connections across the organization from a single view in AI Studio.
+
+:::image type="content" source="../media/concepts/connected-resources-spog.png" alt-text="Single view in AI studio to see connected resources." :::
 
 ### Microsoft-hosted resources
 
