@@ -27,7 +27,7 @@ This article shows you how to manage the lifecycle of a job and run it in the Az
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the command `az spring job create` to create job and deploy the job with source code or artifacts of the application.
+Use the following commands to create and deploy a job:
 
 ```azurecli
 az spring job create \
@@ -40,7 +40,7 @@ az spring job deploy \
 
 ### [Azure portal](#tab/azure-portal)
 
-Use the following steps to create a job using the Azure portal:
+Use the following steps to create and deploy a job:
 
 1. Open your Azure Spring Apps service instance.
 
@@ -114,20 +114,22 @@ az spring job execution list \
 
 ### [Azure portal](#tab/azure-portal)
 
-In the **Executions** section of the **Jobs** overview page, find the latest job execution and select **View execution detail** to see the configuration both in the job level and the execution level.
+1. Go to the **Executions** section of the **Jobs** overview page.
+
+1. Find the latest job execution and select **View execution detail** to see the configuration both in the job level and in the execution level.
 
 ---
 
-For the public preview, the latest 10 completed or failed job execution records per job in the history are retained.
+For the public preview, the latest 10 completed or failed job execution records per job are retained in history.
 
 ## Query job execution logs
 
 For the history of job executions in the Azure portal, use the following command to query the logs in the Azure Log Analytics:
 
 ```SQL
-AppPlatformLogsforSpring
-| where AppName == '<job-name>' and InstanceName startswith '<execution-name>'
-| order by TimeGenerated asc
+AppPlatformLogsforSpring |
+    where AppName == '<job-name>' and InstanceName startswith '<execution-name>' |
+    order by TimeGenerated asc |
 ```
 
 For more information, see [Set up log analytics workspace](../basic-standard/quickstart-setup-log-analytics.md?tabs=Azure-Portal#prerequisites).
@@ -140,7 +142,7 @@ az spring job logs \
     --execution <execution-name> \
 ```
 
-If there are multiple instances for the job execution, specify `--instance <instance-name>` to view the logs of only one instance.
+If there are multiple instances for the job execution. Specify `--instance <instance-name>` to view the logs of only one instance.
 
 ## Rerun job execution
 
@@ -157,13 +159,13 @@ az spring job start \
 
 ### [Azure portal](#tab/azure-portal)
 
-Use the following steps to rerun the job execution:
+Use the following steps to rerun a job execution:
 
 1. Open the **Executions** section of the **Jobs** overview page.
 
 1. Select **Rerun** to trigger a new job execution with the same configuration as the previous one.
 
-A new job execution is shown in the **Executions** section.
+1. A new job execution is shown in the **Executions** section.
 
 ---
 
@@ -173,7 +175,7 @@ For the public preview, jobs are enabled to integrate seamlessly with Spring Clo
 
 ### Spring Cloud Config Server
 
-With the Spring Cloud Config Server, configurations or properties required by the job can be managed externally on GitHub repos and then loaded into the job accordingly. After setting up GitHub repo configurations on Spring Cloud Config Server, you need to bind the jobs with it.
+With the Spring Cloud Config Server, configurations or properties required by the job can be managed externally on GitHub repositories and then loaded into the job accordingly. After setting up GitHub repo configurations on Spring Cloud Config Server, you need to bind the jobs to it.
 
 #### [Azure CLI](#tab/azure-cli)
 
