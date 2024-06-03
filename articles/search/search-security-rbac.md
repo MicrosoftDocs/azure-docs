@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 06/03/2024
 ms.custom:
   - subject-rbac-steps
   - references_regions
