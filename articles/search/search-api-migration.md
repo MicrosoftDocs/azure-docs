@@ -29,7 +29,7 @@ We recommend upgrading API versions in succession, working through each version 
 `2023-07-01-preview` was the first REST API for vector support. It's now deprecated and you should migrate to either stable or newer preview REST APIs immediately.
 
 > [!NOTE]
-> REST API reference docs are now versioned. To get version-specific content, open a reference page and then filter by version, using the selector located above the table of contents.
+> REST API reference docs are now versioned. For version-specific content, open a reference page and then use the selector located to the right, above the table of contents, to pick your version.
 
 ## When to upgrade
 
@@ -57,7 +57,7 @@ Effective March 29, 2024 and applicable to all [supported REST APIs](/rest/api/s
 
 + In all versions after `2020-06-01-preview`: `semanticConfiguration` replaces `searchFields` as the mechanism for specifying which fields to use for L2 ranking.
 
-+ For all API versions, updates on July 14, 2023 to the Microsoft-hosteed semantic models made semantic ranking language-agnostic, effectively decommissioning the `queryLanguage` property. There's no "breaking change" in code, but the property is ignored.
++ For all API versions, updates on July 14, 2023 to the Microsoft-hosted semantic models made semantic ranking language-agnostic, effectively decommissioning the `queryLanguage` property. There's no "breaking change" in code, but the property is ignored.
 
 See [Migrate from preview version](semantic-how-to-configure.md#migrate-from-preview-versions) to transition your code to use `semanticConfiguration`.
 
@@ -75,7 +75,7 @@ If you're upgrading from `2024-03-01-preview`, the AzureOpenAIEmbedding skill no
 
 [`2024-03-01-preview`](/rest/api/searchservice/search-service-api-versions#2024-03-01-preview) adds narrow data types, scalar quantization, and vector storage options. 
 
-If your code currently targets `2023-10-01-preview`, you can target `2024-03-01-preview` with no breaking changes. However, there's one behavior difference: for `2023-11-01` and newer previews, the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md).
+If you're upgrading from `2023-10-01-preview`, there are no breaking changes. However, there's one behavior difference: for `2023-11-01` and newer previews, the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md).
 
 1. Search your codebase for `vectorFilterMode` references.
 
@@ -83,13 +83,13 @@ If your code currently targets `2023-10-01-preview`, you can target `2024-03-01-
 
 ## Upgrade to 2023-10-01-preview
 
-[`2023-10-01-preview`](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) was the first preview version to add [built-in data chunking and vectorization during indexing](vector-search-integrated-vectorization.md) and [built-in query vectorization](vector-search-how-to-configure-vectorizer.md). 
+[`2023-10-01-preview`](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) was the first preview version to add [built-in data chunking and vectorization during indexing](vector-search-integrated-vectorization.md) and [built-in query vectorization](vector-search-how-to-configure-vectorizer.md). It also supports vector indexing and queries from the previous version.
 
-The next section provides upgrade steps. 
+If you're upgrading from the previous version, the next section has the steps. 
 
 ## Upgrade from 2023-07-01-preview
 
-`2023-07-01-preview` is now deprecated, so you shouldn't upgrade to this version under any circumstances. This section explains the migration path from `2023-07-01-preview` to any newer API version. There are multiple breaking changes from `2023-07-01-preview` to any newer version.
+`2023-07-01-preview` is now deprecated, so you shouldn't upgrade *to* this version under any circumstances. This section explains the migration path from `2023-07-01-preview` to any newer API version. There are multiple breaking changes from `2023-07-01-preview` to any newer version.
 
 ### Portal upgrade for vector indexes
 
