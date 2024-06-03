@@ -5,7 +5,7 @@
  author: mbender
  ms.service: virtual-network-manager
  ms.topic: include
- ms.date: 05/21/2024
+ ms.date: 06/04/2024
  ms.author: mbender-ms
 ms.custom: include-file
 ---
@@ -27,7 +27,7 @@ In this task, you create a connectivity configuration that includes your network
     > [!IMPORTANT]
     > If you enable direct connectivity, you must have a routing configuration with direct routing within the virtual network. If you enable global mesh, you must have a routing configuration with global mesh enabled.
    
-   :::image type="content" source="media/virtual-network-manager-deploy-hub-spoke-topology/create-direct-connectivity-hub-spoke-configuration.png" alt-text="Screenshot of Create a connectivity configuration configuration for hub and spoke with direct connectivity.":::
+   :::image type="content" source="media/virtual-network-manager-deploy-hub-spoke-topology/create-direct-connectivity-hub-spoke-configuration.png" alt-text="Screenshot of Create a connectivity configuration for hub and spoke with direct connectivity.":::
 
 5. Choose **Next: Visualization >** to review the connectivity configuration then select **Review + create** > **Create**.
 
@@ -37,7 +37,7 @@ In this task, you deploy the connectivity configuration to create the hub and sp
 
 1. In the network manager instance, select **Configurations** under **Settings** then select the connectivity configuration you created.
 2. From the task bar, select **Deploy**.
-3. In the **Deploy a configuration** window, select the you connectivity configuration you created, and select the **Target Regions** you wish to deploy the configuration to.
+3. In the **Deploy a configuration** window, select the connectivity configuration you created, and select the **Target Regions** you wish to deploy the configuration to.
 
     > [!IMPORTANT]
     > The hub and spoke topology is created in the selected regions. Make sure to select the regions where your hub and spoke virtual networks are deployed.

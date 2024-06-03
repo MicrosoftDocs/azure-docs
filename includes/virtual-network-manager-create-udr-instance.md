@@ -5,7 +5,7 @@
  author: mbender
  ms.service: virtual-network-manager
  ms.topic: include
- ms.date: 05/08/2024
+ ms.date: 06/04/2024
  ms.author: mbender-ms
 ms.custom: include-file
 ---
@@ -29,7 +29,7 @@ In this step, you deploy a Virtual Network Manager instance with *user defined r
     | **Description** | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it's managing. |
     | [Features](../articles/virtual-network-manager/concept-network-manager-scope.md#features) | Select **User defined routing** and **Connectivity** from the dropdown list. |
 
-    :::image type="content" source="media/virtual-network-manager-create-udr-instance/create-network-manager-instance..png" alt-text="Screenshot of Create a network manager window with values for connectivity and user defined routing.":::
+    :::image type="content" source="media/virtual-network-manager-create-udr-instance/create-network-manager-instance.png" alt-text="Screenshot of Create a network manager window with values for connectivity and user defined routing.":::
 
 1. Select the **Management scope** tab or select **Next: Management scope >** to continue.
 
