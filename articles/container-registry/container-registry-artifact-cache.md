@@ -1,5 +1,5 @@
 ---
-title: "Artifact cache in Azure Container Registry (Preview)"
+title: "Artifact cache in Azure Container Registry"
 description: "Artifact cache is a feature that allows you to cache container images in Azure Container Registry, improving performance and efficiency."
 author: tejaswikolli-web
 ms.service: container-registry
