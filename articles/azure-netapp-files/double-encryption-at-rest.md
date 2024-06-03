@@ -69,7 +69,7 @@ Azure NetApp Files double encryption at rest is supported for the following regi
 * West US 2
 * West US 3
  
-\* Double-encryption at rest in US Gov regions is only supported with platform-managed keys, not customer-managed keys.
+\* Double encryption at rest in US Gov regions is only supported with platform-managed keys, not customer-managed keys.
 
 ## Considerations
 
