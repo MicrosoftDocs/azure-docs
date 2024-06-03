@@ -115,20 +115,20 @@ To use the Content Safety APIs, you must create your Azure AI Content Safety res
 |Region | Moderation APIs | Prompt Shields |  Protected material<br>detection | Groundedness<br>detection | Incident response | Blocklists |
 |---|---|---|---|---|---|---|
 | East US | ✅ | ✅| ✅ |✅ |✅ |✅ |
-| East US 2 | ✅ | | | ✅ | | |
-| West US | | | | | ✅ | |
-| West US 2 | ✅ | | | | | |
-| Central US | ✅ | | | | | |
-| North Central US | ✅ | | | | | |
-| South Central US | ✅ | | | | | |
-| Canada East | ✅ | | | | | |
-| Switzerland North | ✅ | | | | | |
-| Sweden Central | ✅ | | |✅ |✅ | |
-| UK South | ✅ | | | | | |
-| France Central | ✅ | | | | | |
+| East US 2 | ✅ | | | ✅ | | ✅|
+| West US | | | | | ✅ | ✅|
+| West US 2 | ✅ | | | | |✅ |
+| Central US | ✅ | | | | |✅ |
+| North Central US | ✅ | | | | | ✅|
+| South Central US | ✅ | | | | |✅ |
+| Canada East | ✅ | | | | | ✅|
+| Switzerland North | ✅ | | | | | ✅|
+| Sweden Central | ✅ | | |✅ |✅ | ✅|
+| UK South | ✅ | | | | |✅ |
+| France Central | ✅ | | | | | ✅|
 | West Europe | ✅ | ✅ |✅ | | |✅ |
-| Japan East | ✅ | | | | | |
-| Australia East| ✅ | ✅ | | | | |
+| Japan East | ✅ | | | | |✅ |
+| Australia East| ✅ | ✅ | | | | ✅|
 
 Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need other regions for your business.
 
