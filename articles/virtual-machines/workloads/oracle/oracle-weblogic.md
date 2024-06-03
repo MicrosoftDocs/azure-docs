@@ -27,7 +27,7 @@ There are several offers that target use cases such as [single instance with Adm
 
 The solution templates support a range of operating system, Java, and WebLogic Server versions through base images (such as WebLogic Server 14 and Java 11 on Red Hat Enterprise Linux 8). These [base images](#weblogic-server-on-azure-virtual-machines-base-images) are also available on Azure Marketplace on their own. The base images are suitable for customers that require complex, customized Azure deployments.
 
-If you're interested in working closely on your migration scenarios with the engineering team developing these offers, select the **Contact Me** button on the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). Program managers, architects, and engineers will reach back out to you shortly and start close collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing these solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## WebLogic Server single instance with admin console on Azure VM
 
@@ -67,5 +67,3 @@ The following articles provide more information on getting started with these te
 * [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](./weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 To find more about Oracle WebLogic offers at Azure Marketplace, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
-
-If you're interested in working closely on your migration scenarios with the engineering team developing these solutions, fill out [this short survey](https://aka.ms/wls-on-azure-survey) and include your contact information. Program managers, architects, and engineers will reach back out to you shortly and start close collaboration.

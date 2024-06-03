@@ -32,7 +32,7 @@ Beyond certifying WebLogic Server on AKS, Oracle and Microsoft jointly provide t
 
 After the solution template performs most boilerplate resource provisioning and configuration, you can focus on deploying your application to AKS, typically through a DevOps tool such as GitHub Actions and tools from WebLogic Kubernetes tooling such as the WebLogic Image Tool and WebLogic Deploy Tooling. You're completely free to customize the deployment further.
 
-To find more about Oracle WebLogic offers at Azure Marketplace, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing these solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Manual guidance, scripts, and samples for WebLogic Server on AKS
 
@@ -56,5 +56,3 @@ The following articles provide more information on getting started with these te
 * [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](./oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 To find more about Oracle WebLogic offers at Azure Marketplace, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
-
-If you're interested in working closely on your migration scenarios with the engineering team developing these solutions, fill out [this short survey](https://aka.ms/wls-on-azure-survey) and include your contact information. Program managers, architects, and engineers will reach back out to you shortly and start close collaboration.

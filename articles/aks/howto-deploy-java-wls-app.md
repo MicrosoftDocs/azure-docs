@@ -33,6 +33,8 @@ For full automation, you can select your application and configure datasource co
 
 For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Service, see the official documentation from Oracle at [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
 
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing these solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
@@ -726,5 +728,3 @@ Learn more about running WebLogic Server on AKS or virtual machines by following
 * [Migrate WebLogic Server applications to Azure Kubernetes Service](/azure/developer/java/migration/migrate-weblogic-to-azure-kubernetes-service?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 To find more about Oracle WebLogic offers at Azure Marketplace, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
-
-If you're interested in working closely on your migration scenarios with the engineering team developing these solutions, fill out [this short survey](https://aka.ms/wls-on-azure-survey) and include your contact information. Program managers, architects, and engineers will reach back out to you shortly and start close collaboration.
