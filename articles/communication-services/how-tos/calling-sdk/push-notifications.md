@@ -35,7 +35,7 @@ Once the register push notification API is called when the device token informat
 In case that you want to revoke an identity you need to follow [this process](../../concepts/identity-model.md#revoke-or-update-access-token), once the identity is revoked the Registrar entry should be deleted.
 
 >[!Note]
->For CTE (Custom Teams Endpoint) the max TTL value is **24 hrs (86,400 seconds)** there's no way to increase this value.
+>For a Teams user the max TTL value is **24 hrs (86,400 seconds)** there's no way to increase this value.
 
 ## Prerequisites
 
