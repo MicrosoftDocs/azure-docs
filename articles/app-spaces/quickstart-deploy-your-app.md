@@ -31,7 +31,7 @@ Follow these steps to deploy your app from a GitHub repository:
 
 1. Browse to the [Azure portal](https://portal.azure.com/).
 1. In the search bar, search for **app spaces** and select it in the results.
-:::image type="content" source="media/azure-portal-search-app-spaces.png" alt-text="Screenshot of React app running.":::
+:::image type="content" source="media/azure-portal-search-app-spaces.png" alt-text="Screenshot of App Space in Azure portal.":::
 1. In the *App Spaces page*, select **+ Create App Space**.
 1. In the *Create new App Space* page, under the *Deploy code from your GitHub repository* section, select **GitHub repository**.
 
@@ -48,7 +48,7 @@ Follow these steps to deploy your app from a GitHub repository:
 | Branch | Select your GitHub branch. |
 | App location | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
 | Listening port |Specify the port that your web server is listening on. External requests being made to port 80 or 443 get routed to this port internally for your application to server content from.|
-| Startup command (optional) | Under *Advanced configurations* enter a **Startup command**.|
+| Startup command (optional) | Under *Advanced configurations*, enter a **Startup command**.|
 
 #### [Static App Component (front end)](#tab/frontend/)
 - Enter the following values in the *Connect to GitHub to import your repository* section.

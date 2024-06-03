@@ -31,7 +31,7 @@ Follow these steps to deploy a starter app to App Spaces.
 
 1. Browse to the [Azure portal](https://portal.azure.com/).
 1. In the search bar, search for **app spaces** and select it in the results.
-:::image type="content" source="media/azure-portal-search-app-spaces.png" alt-text="Screenshot of React app running.":::
+:::image type="content" source="media/azure-portal-search-app-spaces.png" alt-text="Screenshot of App Space in Azure portal.":::
 1. In the *App Spaces page*, select **+ Create App Space**.
 
 ::: zone pivot="frontend"  
