@@ -6,10 +6,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 author: bobbytreed
 ms.author: robreed
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.collection: windows
 ms.date: 11/28/2022
-
 ---
 # PowerShell DSC Extension
 
@@ -26,7 +25,7 @@ The PowerShell DSC Extension for Windows is published and supported by Microsoft
 
 The DSC Extension supports the following OS's
 
-Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
+Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### Internet connectivity
 

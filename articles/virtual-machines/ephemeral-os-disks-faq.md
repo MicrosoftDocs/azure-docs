@@ -1,13 +1,12 @@
 ---
-title: FAQ Ephemeral OS disks 
+title: FAQ Ephemeral OS disks
 description: Frequently asked questions on ephemeral OS disks for Azure VMs.
 author: Aarthi-Vijayaraghavan
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/26/2022
 ms.author: aarthiv
-ms.subservice: disks 
+ms.subservice: disks
 ---
 
 # Frequently asked questions about Ephemeral OS disks

@@ -5,9 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/23/2023
-ms.custom: ignite-fall-2021
-
+ms.date: 01/03/2024
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -37,7 +35,7 @@ As you progress, you'll complete these high-level tasks:
 * Enable or open the Application Insights after deployment.
 * Enable run history for stateless workflows.
 
-In single-tenant Azure Logic Apps, workflows in the same logic app resource and tenant run in the same process as the runtime, so they share the same resources and provide better performance. For more information about single-tenant Azure Logic Apps, see [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md). 
+In single-tenant Azure Logic Apps, workflows in the same logic app resource and tenant run in the same process as the runtime, so they share the same resources and provide better performance. For more information about single-tenant Azure Logic Apps, see [Single-tenant versus multitenant and integration service environment](single-tenant-overview-compare.md). 
 
 ## Prerequisites
 
@@ -64,6 +62,18 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 * To deploy your Standard logic app resource to an [App Service Environment v3 (ASEv3) - Windows plan only](../app-service/environment/overview.md), you have to create this environment resource first. You can then select this environment as the deployment location when you create your logic app resource. For more information, review [Resources types and environments](single-tenant-overview-compare.md#resource-environment-differences) and [Create an App Service Environment](../app-service/environment/creation.md).
 
 * Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Throughout November 2022, existing Standard workflows in the Azure portal are automatically migrating to Azure Functions v4. Unless you deployed your Standard logic apps as NuGet-based projects or pinned your logic apps to a specific bundle version, this upgrade is designed to require no action from you nor have a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v4 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072).
+
+## Best practices and recommendations
+
+For optimal designer responsiveness and performance, review and follow these guidelines:
+
+- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
+
+- Consider splitting business logic into multiple workflows where necessary.
+
+- Have no more than 10-15 workflows per logic app resource.
+
+More workflows in your logic app raise the risk of longer load times, which negatively affect performance. If you have mission-critical logic apps that require zero downtime deployments, consider [setting up deployment slots](set-up-deployment-slots.md).
 
 <a name="create-logic-app-resource"></a>
 
@@ -92,7 +102,7 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
    | Plan type | Description |
    |-----------|-------------|
    | **Standard** | This logic app type is the default selection. Workflows run in single-tenant Azure Logic Apps and use the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
-   | **Consumption** | This logic app type and workflow runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
+   | **Consumption** | This logic app type and workflow runs in global, multitenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -122,7 +132,7 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The ongoing workflow state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
+   | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The workflow's state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
    | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <br><br>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <br><br>This example creates a storage account named **mystorageacct**. |
 
 1. On the **Networking** tab, you can leave the default options for this example.
@@ -203,9 +213,7 @@ This example workflow starts with the [built-in Request trigger](../connectors/c
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
----
-
-When you save a workflow for the first time, and that workflow starts with a Request trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
+   When you save a workflow for the first time, and that workflow starts with a Request trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
 
 ## Add an action
 
@@ -248,13 +256,30 @@ This example workflow continues with the [Office 365 Outlook managed connector a
    > make sure that you select **Done** to commit those changes before you switch tabs or change focus to the designer. 
    > Otherwise, the designer won't keep your changes.
 
-1. Save your work. On the designer toolbar, select **Save**.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 1. If your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow. To find the fully qualified domain names, review [Find domain names for firewall access](#firewall-setup).
 
    Otherwise, to test your workflow, [manually trigger a run](#trigger-workflow).
 
----
+<a name="delete-from-designer"></a>
+
+## Delete items from the designer
+
+To delete an item in your workflow from the designer, follow any of these steps:
+
+* Select the item, open the item's shortcut menu (Shift+F10), and select **Delete**. To confirm, select **OK**.
+
+* Select the item, and press the delete key. To confirm, select **OK**.
+
+* Select the item so that information pane opens for that item. In the pane's upper right corner, open the ellipses (**...**) menu, and select **Delete**. To confirm, select **OK**.
+
+  ![Screenshot that shows a selected item on designer with the opened information pane plus the selected ellipses button and "Delete" command.](./media/create-single-tenant-workflows-azure-portal/delete-item-from-designer.png)
+
+  > [!TIP]
+  >
+  > If the ellipses menu isn't visible, expand your browser window wide enough so that 
+  > the information pane shows the ellipses (**...**) button in the upper right corner.
 
 <a name="firewall-setup"></a>
 
@@ -340,114 +365,27 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
 <a name="review-run-history"></a>
 
-## Review run history
+## Review workflow run history
 
-For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, run history and trigger histories appear at the workflow level, not the logic app level. To review the trigger histories outside the run history context, see [Review trigger histories](#review-trigger-history).
+After a stateful workflow finishes running, you can view the workflow's run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, workflow run history and trigger history appear at the workflow level, not at the logic app resource level. For more information, see [Review workflow run history](monitor-logic-apps.md?tabs=standard#review-runs-history) and [Review trigger history](monitor-logic-apps.md?tabs=standard#review-trigger-history).
 
-1. In the Azure portal, on the workflow menu, select **Overview**.
+For this example workflow, the workflow run history looks similar to the following sample:
 
-1. On the **Overview** pane, select **Run History**, which shows the run history for that workflow.
+![Screenshot shows run details view with the status for each step in the workflow.](./media/create-single-tenant-workflows-azure-portal/review-run-details.png)
 
-   ![Screenshot that shows the workflow's "Overview" pane with "Run History" selected.](./media/create-single-tenant-workflows-azure-portal/find-run-history.png)
-
-   > [!TIP]
-   > If the most recent run status doesn't appear, on the **Overview** pane toolbar, select **Refresh**. 
-   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
-
-   The following table shows the possible final statuses that each workflow run can have and show in the portal:
-  
-   | Run status | Description |
-   |------------|-------------|
-   | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | The run was triggered and started but received a cancel request. |
-   | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
-   | **Running** | The run was triggered and is in progress, but this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
-   | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
-   | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
-   | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
-
-1. To review the status for each step in a run, select the run that you want to review.
-
-   The run details view opens and shows the status for each step in the run.
-
-   ![Screenshot that shows the run details view with the status for each step in the workflow.](./media/create-single-tenant-workflows-azure-portal/review-run-details.png)
-
-   The following table shows the possible statuses that each workflow action can have and show in the portal:
-
-   | Action status | Description |
-   |---------------|-------------|
-   | **Aborted** | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | The action was running but received a cancel request. |
-   | **Failed** | The action failed. |
-   | **Running** | The action is currently running. |
-   | **Skipped** | The action was skipped because its **runAfter** conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
-   | **Succeeded** | The action succeeded. |
-   | **Succeeded with retries** | The action succeeded but only after a single or multiple retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
-   | **Timed out** | The action stopped due to the timeout limit specified by that action's settings. |
-   | **Waiting** | Applies to a webhook action that's waiting for an inbound request from a caller. |
-
-   [aborted-icon]: ./media/create-single-tenant-workflows-azure-portal/aborted.png
-   [canceled-icon]: ./media/create-single-tenant-workflows-azure-portal/cancelled.png
-   [failed-icon]: ./media/create-single-tenant-workflows-azure-portal/failed.png
-   [running-icon]: ./media/create-single-tenant-workflows-azure-portal/running.png
-   [skipped-icon]: ./media/create-single-tenant-workflows-azure-portal/skipped.png
-   [succeeded-icon]: ./media/create-single-tenant-workflows-azure-portal/succeeded.png
-   [succeeded-with-retries-icon]: ./media/create-single-tenant-workflows-azure-portal/succeeded-with-retries.png
-   [timed-out-icon]: ./media/create-single-tenant-workflows-azure-portal/timed-out.png
-   [waiting-icon]: ./media/create-single-tenant-workflows-azure-portal/waiting.png
-
-1. To review the inputs and outputs for a specific step, select that step.
-
-   ![Screenshot that shows the inputs and outputs in the selected "Send an email" action.](./media/create-single-tenant-workflows-azure-portal/review-step-inputs-outputs.png)
-
-1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
+![Screenshot shows inputs and outputs in the selected action named Send an email.](./media/create-single-tenant-workflows-azure-portal/review-step-inputs-outputs.png)
 
 <a name="review-trigger-history"></a>
 
 ## Review trigger history
 
-For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [run history context](#review-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. To find this historical data, follow these steps:
+For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [workflow run history](#review-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. For more information, see [Review trigger history](monitor-logic-apps.md?tabs=standard#review-trigger-history).
 
-1. In the Azure portal, on the workflow menu, select **Overview**.
+<a name="resubmit-workflow-run"></a>
 
-1. On the **Overview** page, select **Trigger Histories**.
+## Resubmit workflow run with same inputs
 
-   The **Trigger Histories** pane shows the trigger histories for your workflow's runs.
-
-1. To review a specific trigger history, select the ID for that run.
-
-## Best practices and recommendations
-
-For optimal designer responsiveness and performance, review and follow these guidelines:
-
-- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
-
-- Consider splitting business logic into multiple workflows where necessary.
-
-- Have no more than 10-15 workflows per logic app resource.
-
-<a name="enable-open-application-insights"></a>
-
-## Enable or open Application Insights after deployment
-
-During workflow run, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
-
-If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
-
-To enable Application Insights on a deployed logic app or open the Application Insights dashboard if already enabled, follow these steps:
-
-1. In the Azure portal, find your deployed logic app.
-
-1. On the logic app menu, under **Settings**, select **Application Insights**.
-
-1. If Application Insights isn't enabled, on the **Application Insights** pane, select **Turn on Application Insights**. After the pane updates, at the bottom, select **Apply** > **Yes**.
-
-   If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
-
-After Application Insights opens, you can review various metrics for your logic app. For more information, review these topics:
-
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
+For an existing stateful workflow run, you can rerun the entire workflow with the same inputs that were previously used for that run. For more information, see [Rerun a workflow with same inputs](monitor-logic-apps.md?tabs=standard#resubmit-workflow-run).
 
 <a name="enable-run-history-stateless"></a>
 
@@ -473,241 +411,51 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 1. To disable the run history when you're done, either set the property named **Workflows.{*your-workflow-name*}.OperationOptions** to **None**, or delete the property and its value.
 
+<a name="enable-open-application-insights"></a>
+
+## Enable or open Application Insights after deployment
+
+During workflow run, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
+
+If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app workflow. You can do so either when you create your logic app resource in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment. You can also optionally [enable enhanced telemetry in Application Insights for Standard workflows](enable-enhanced-telemetry-standard-workflows.md).
+
+### Enable Application Insights on a deployed logic app
+
+1. In the Azure portal, find your deployed logic app.
+
+1. On the logic app menu, under **Settings**, select **Application Insights**.
+
+1. On the **Application Insights** pane, select **Turn on Application Insights**.
+
+1. After the pane updates, at the bottom, select **Apply** > **Yes**.
+
+1. On the **Application Insights** pane, select **View Application Insights data**.
+
+   After the Application Insights dashboard opens, you can review metrics or logs for your logic app workflow. For example, to chart or query for data, on the Application Insights resource menu, under **Monitoring**, select **Metrics** or **Logs**.
+
+<a name="open-application-insights"></a>
+
+### Open Application Insights
+
+1. In the Azure portal, find your deployed logic app.
+
+1. On the logic app menu, under **Settings**, select **Application Insights**.
+
+1. On the **Application Insights** pane, select **View Application Insights data**.
+
+   After the Application Insights dashboard opens, you can review metrics or logs for your logic app workflow. For example, to chart or query for data, on the Application Insights resource menu, under **Monitoring**, select **Metrics** or **Logs**.
+
 <a name="view-connections"></a>
 
 ## View connections
 
-When you create connections within a workflow using [managed connectors](../connectors/managed.md) or [service provider based, built-in connectors](../connectors/built-in.md), these connections are actually separate Azure resources with their own resource definitions.
-
-1. From your logic app's menu, under **Workflows**, select **Connections**.
-
-1. Based on the connection type, you want to view, select one of the following options:
-
-   | Option | Description |
-   |--------|-------------|
-   | **API Connections** | Connections created by managed connectors |
-   | **Service Provider Connections** | Connections created by built-in connectors based on the service provider interface implementation. a specific connection instance, which shows more information about that connection. To view the selected connection's underlying resource definition, select **JSON View**. |
-   | **JSON View** | The underlying resource definitions for all connections in the logic app |
-
-<a name="delete-from-designer"></a>
-
-## Delete items from the designer
-
-To delete an item in your workflow from the designer, follow any of these steps:
-
-* Select the item, open the item's shortcut menu (Shift+F10), and select **Delete**. To confirm, select **OK**.
-
-* Select the item, and press the delete key. To confirm, select **OK**.
-
-* Select the item so that information pane opens for that item. In the pane's upper right corner, open the ellipses (**...**) menu, and select **Delete**. To confirm, select **OK**.
-
-  ![Screenshot that shows a selected item on designer with the opened information pane plus the selected ellipses button and "Delete" command.](./media/create-single-tenant-workflows-azure-portal/delete-item-from-designer.png)
-
-  > [!TIP]
-  > If the ellipses menu isn't visible, expand your browser window wide enough so that 
-  > the information pane shows the ellipses (**...**) button in the upper right corner.
+When you create connections in a workflow using [connectors managed by Microsoft](../connectors/managed.md), these connections are actually separate Azure resources with their own resource definitions and are hosted in global, multitenant Azure. Standard logic app workflows can also use [built-in service provider connectors](/azure/logic-apps/connectors/built-in/reference/) that natively run and are powered by the single-tenant Azure Logic Apps runtime. To view and manage these connections, see [View connections](manage-logic-apps-with-azure-portal.md?tabs=standard#view-connections).
 
 <a name="restart-stop-start"></a>
 
-## Restart, stop, or start logic apps
+## Stop or start logic app resources
 
-You can stop or start a [single logic app](#restart-stop-start-single-logic-app) or [multiple logic apps at the same time](#stop-start-multiple-logic-apps). You can also restart a single logic app without first stopping. Your single-tenant based logic app can include multiple workflows, so you can either stop the entire logic app or [disable only workflows](#disable-enable-workflows).
-
-> [!NOTE]
-> The stop logic app and disable workflow operations have different effects. For more information, review 
-> [Considerations for stopping logic apps](#considerations-stop-logic-apps) and [considerations for disabling workflows](#disable-enable-workflows).
-
-<a name="considerations-stop-logic-apps"></a>
-
-### Considerations for stopping logic apps
-
-Stopping a logic app affects workflow instances in the following ways:
-
-* Azure Logic Apps cancels all in-progress and pending runs immediately.
-
-* Azure Logic Apps doesn't create or run new workflow instances.
-
-* Triggers won't fire the next time that their conditions are met. However, trigger states remember the points where the logic app was stopped. So, if you restart the logic app, the triggers fire for all unprocessed items since the last run.
-
-  To stop each workflow from triggering on unprocessed items since the last run, clear the trigger state before you restart the logic app by following these steps:
-
-  1. In the Azure portal, open your logic app.
-  1. On the logic app menu, under **Workflows**, select **Workflows**.
-  1. Open a workflow, and edit any part of that workflow's trigger.
-  1. Save your changes. This step resets the trigger's current state.
-  1. Repeat for each workflow.
-  1. When you're done, [restart your logic app](#restart-stop-start-single-logic-app).
-
-<a name="restart-stop-start-single-logic-app"></a>
-
-### Restart, stop, or start a single logic app
-
-1. In the Azure portal, open your logic app.
-
-1. On the logic app menu, select **Overview**.
-
-   * To restart a logic app without stopping, on the Overview pane toolbar, select **Restart**.
-   * To stop a running logic app, on the Overview pane toolbar, select **Stop**. Confirm your selection.
-   * To start a stopped logic app, on the Overview pane toolbar, select **Start**.
-
-   > [!NOTE]
-   > If your logic app is already stopped, you only see the **Start** option. 
-   > If your logic app is already running, you only see the **Stop** option.
-   > You can restart your logic app anytime.
-
-1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
-
-<a name="stop-start-multiple-logic-apps"></a>
-
-### Stop or start multiple logic apps
-
-You can stop or start multiple logic apps at the same time, but you can't restart multiple logic apps without stopping them first.
-
-1. In the Azure portal's main search box, enter **logic apps**, and select **Logic apps**.
-
-1. On the **Logic apps** page, review the logic app's **Status** column.
-
-1. In the checkbox column, select the logic apps that you want to stop or start.
-
-   * To stop the selected running logic apps, on the Overview pane toolbar, select **Disable/Stop**. Confirm your selection.
-   * To start the selected stopped logic apps, on the Overview pane toolbar, select **Enable/Start**.
-
-1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
-
-<a name="disable-enable-workflows"></a>
-
-## Disable or enable workflows
-
-To stop the trigger from firing the next time when the trigger condition is met, disable your workflow. You can disable or enable a single workflow, but you can't disable or enable multiple workflows at the same time. Disabling a workflow affects workflow instances in the following ways:
-
-* Azure Logic Apps continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
-
-* Azure Logic Apps doesn't create or run new workflow instances.
-
-* The trigger won't fire the next time that its conditions are met. However, the trigger state remembers the point at which the workflow was disabled. So, if you re-enable the workflow, the trigger fires for all the unprocessed items since the last run.
-
-  To stop the trigger from firing on unprocessed items since the last run, clear the trigger's state before you reactivate the workflow:
-
-  1. In the workflow, edit any part of the workflow's trigger.
-  1. Save your changes. This step resets your trigger's current state.
-  1. [Reactivate your workflow](#disable-enable-workflows).
-
-* When a workflow is disabled, you can still resubmit runs.
-
-> [!NOTE]
-> The disable workflow and stop logic app operations have different effects. For more information, review 
-> [Considerations for stopping logic apps](#considerations-stop-logic-apps).
-
-<a name="disable-workflow"></a>
-
-### Disable workflow
-
-1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select the workflow to disable.
-
-1. On the **Workflows** pane toolbar, select **Disable**.
-
-1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
-
-<a name="enable-workflow"></a>
-
-### Enable workflow
-
-1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select the workflow to enable.
-
-1. On the **Workflows** pane toolbar, select **Enable**.
-
-1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
-
-<a name="delete"></a>
-
-## Delete logic apps or workflows
-
-You can [delete a single or multiple logic apps at the same time](#delete-logic-apps). Your single-tenant based logic app can include multiple workflows, so you can either delete the entire logic app or [delete only workflows](#delete-workflows).
-
-<a name="delete-logic-apps"></a>
-
-### Delete logic apps
-
-Deleting a logic app cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
-
-1. In the Azure portal's main search box, enter **logic apps**, and select **Logic apps**.
-
-1. From the **Logic apps** list, in the checkbox column, select a single or multiple logic apps to delete. On the toolbar, select **Delete**.
-
-1. When the confirmation box appears, enter **yes**, and select **Delete**.
-
-1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
-
-<a name="delete-workflows"></a>
-
-### Delete workflows
-
-Deleting a workflow affects workflow instances in the following ways:
-
-* Azure Logic Apps cancels in-progress and pending runs immediately, but runs cleanup tasks on the storage used by the workflow.
-
-* Azure Logic Apps doesn't create or run new workflow instances.
-
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an **Unauthorized** error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
-
-1. In the Azure portal, open your logic app.
-
-1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select a single or multiple workflows to delete.
-
-1. On the toolbar, select **Delete**.
-
-1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
-
-<a name="recover-deleted"></a>
-
-## Recover deleted logic apps
-
-If you use source control, you can seamlessly redeploy a deleted Standard logic app resource to single-tenant Azure Logic Apps. However, if you're not using source control, try the following steps to recover your deleted logic app.
-
-> [!NOTE]
-> 
-> Before you try to recover your deleted logic app, review these considerations:
->
-> * You can recover only deleted Standard logic app resources that use the **Workflow Standard** 
-> hosting plan. You can't recover deleted Consumption logic app resources.
->
-> * If your workflow starts with the Request trigger, the callback URL for the recovered logic app differs from the URL for the deleted logic app.
->
-> * The run history from the deleted logic app is unavailable in the recovered logic app.>
-
-1. Confirm that your logic app's storage account still exists. If the storage account was deleted, you have to [first recover the deleted storage account](../storage/common/storage-account-recover.md).
-
-1. On the storage account menu, under **Security + networking**, select **Access keys**.
-
-1. On the **Access keys** page, copy the account's primary connection string, and save for later use, for example:
-
-   **DefaultEndpointsProtocol=https;AccountName=<*storage-account-name*>;AccountKey=<*access-key*>;EndpointSuffix=core.windows.net**
-
-1. On the storage account menu, under **Data storage**, select **File shares**, copy the name for the file share associated with your logic app, and save for later use.
-
-1. Create a new Standard logic app resource using the same hosting plan and pricing tier. You can either use a new name or reuse the name from the deleted logic app.
-
-1. Before you continue, stop the logic app. From the logic app menu, select **Overview**. On the **Overview** page toolbar, select **Stop**.
-
-1. From the logic app menu, under **Settings**, select **Configuration**.
-
-1. On the **Configuration** page, update the following application setting values, and remember to save your changes when finished.
-
-   | App setting | Replacement value |
-   |-------------|-------------------|
-   | **AzureWebJobsStorage** | Replace the existing value with the previously copied connection string from your storage account. |
-   | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING** | Replace the existing value with the previously copied string from your storage account. |
-   | **WEBSITE_CONTENTSHARE** | Replace the existing value with the previously copied file share name. |
-
-1. On your logic app menu, under **Workflows**, select **Connections**.
-
-1. Open each connection and under **Settings**, select **Access policies**.
-
-1. Delete the access policy for the deleted logic app, and then add a new access policy for the replacement logic app.
-
-1. Return to the logic app's **Configuration** page, and add any custom settings that existed on the deleted logic app.
-
-1. When you're done, restart your logic app.
+Follow the steps in [Disable or enable logic apps](manage-logic-apps-with-azure-portal.md?tabs=standard#disable-enable-logic-apps).
 
 <a name="troubleshoot"></a>
 
@@ -762,7 +510,4 @@ To fix this problem, follow these steps to delete the outdated version so that t
 
 ## Next steps
 
-We'd like to hear from you about your experiences with this scenario!
-
-* For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
-* For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/lafeedback).
+* [Monitor workflow run status, review trigger and workflow run history, and set up alerts in Azure Logic Apps](monitor-logic-apps.md?tabs=standard)

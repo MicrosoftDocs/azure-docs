@@ -6,7 +6,7 @@ ms.author: yexu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob storage using the Azure portal
@@ -379,7 +379,7 @@ PersonID | Name | LastModifytime
     | data_source_table | 2017-09-07 09:01:00.000 |
     ```
 
-## Next steps
+## Related content
 
 You performed the following steps in this tutorial:
 

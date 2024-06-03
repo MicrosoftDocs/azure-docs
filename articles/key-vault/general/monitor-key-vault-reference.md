@@ -5,8 +5,9 @@ author: msmbaldwin
 ms.topic: reference
 ms.author: mbaldwin
 ms.service: key-vault
+ms.subservice: general
 ms.custom: subject-monitoring
-ms.date: 07/07/2021
+ms.date: 02/20/2024
 ---
 
 # Monitoring Key Vault data reference

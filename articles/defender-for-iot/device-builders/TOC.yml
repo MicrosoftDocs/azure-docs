@@ -16,6 +16,12 @@
   - name: Enable Microsoft Defender for IoT on Azure IoT Hub
     displayName: IoT Hub, existing, enable, enable, onboard
     href: quickstart-onboard-iot-hub.md
+  - name: Upload Firmware using Azure CLI
+    displayName: Azure CLI, upload, firmware
+    href: quickstart-upload-firmware-using-azure-command-line-interface.md
+  - name: Upload Firmware using Azure PowerShell
+    displayName: Azure PowerShell, upload, firmware
+    href: quickstart-upload-firmware-using-powershell.md
 - name: Tutorials
   items:
   - name: Add a resource group to your IoT solution
@@ -30,10 +36,12 @@
     href: tutorial-investigate-security-recommendations.md
   - name: Investigate security alerts
     href: tutorial-investigate-security-alerts.md
+  - name: Analyze an IoT/OT firmware image
+    href: tutorial-analyze-firmware.md    
 - name: Concepts
   items:
   - name: Agent portfolio overview and OS support 
-    displayName: standalone agent, micro agent, RTOS
+    displayName: standalone agent, micro agent, Eclipse Threadx
     href: concept-agent-portfolio-overview-os-support.md
   - name: Standalone micro agent overview 
     displayName: endpoint, posture, distribution, flexible, model
@@ -41,7 +49,7 @@
   - name: Data processing and residency
     href: concept-data-processing.md
   - name: Micro agent configurations 
-    displayNAme: collectors, configuration, configurations, event-based, trigger, general
+    displayName: collectors, configuration, configurations, event-based, trigger, general
     href: concept-micro-agent-configuration.md
   - name: Micro agent event collection 
     displayName: process events, network connection
@@ -60,6 +68,12 @@
       href: concept-customizable-security-alerts.md
   - name: Security recommendations for IoT Hub
     href: concept-recommendations.md
+  - name: Firmware analysis (preview)
+    displayName: IoT, OT, firmware, analysis
+    href: overview-firmware-analysis.md
+  - name: Azure role-based access control for Defender for IoT Firmware analysis
+    displayName: RBAC, role, access, control, firmware, analysis
+    href: defender-iot-firmware-analysis-rbac.md
 - name: How-to guides
   items:
   - name: Install Defender for IoT micro agent for Edge
@@ -83,18 +97,18 @@
   - name: Create custom alerts
     displayName: security group
     href: quickstart-create-custom-alerts.md
-  - name: Defender-IoT-micro-agent for Azure RTOS (Preview)
-    href: iot-security-azure-rtos.md
+  - name: Defender-IoT-micro-agent for Eclipse ThreadX (Preview)
+    href: iot-security-threadx.md
     items:
-    - name: Work with Defender-IoT-micro-agent for Azure RTOS (Preview)
-      href: how-to-azure-rtos-security-module.md
-    - name: Understand the Defender-IoT-micro-agent for Azure RTOS (Preview)
-      href: concept-rtos-security-module.md
-    - name: Defender-IoT-micro-agent for Azure RTOS alerts and recommendations (Preview)
-      href: concept-rtos-security-alerts-recommendations.md
+    - name: Work with Defender-IoT-micro-agent for Eclipse ThreadX (Preview)
+      href: how-to-threadx-security-module.md
+    - name: Understand the Defender-IoT-micro-agent for Eclipse ThreadX (Preview)
+      href: concept-threadx-security-module.md
+    - name: Defender-IoT-micro-agent for Eclipse ThreadX alerts and recommendations (Preview)
+      href: concept-threadx-security-alerts-recommendations.md
   - name: Manage cloud device inventory
     href: how-to-manage-device-inventory-on-the-cloud.md
-    displayNAme: device inventory, device, inventory, EIoT, eiot
+    displayName: device inventory, device, inventory, EIoT, eiot
   - name: Move a resource to a different region
     href: how-to-region-move.md
   - name: Troubleshoot
@@ -154,7 +168,7 @@
     - name: Local configuration C#
       href: azure-iot-security-local-configuration-csharp.md 
   - name: Deploy Edge azureiotsecurity
-    href: how-to-deploy-edge.md
+    href: how-to-deploy-edge.yml
   - name: Configure security agents
     displayName: property
     href: how-to-agent-configuration.md
@@ -168,9 +182,9 @@
     href: how-to-investigate-device.md
 - name: Reference
   items:
-  - name: Defender-IoT-micro-agent for Azure RTOS API (Preview)
-    displayNAme: prototype, disable
-    href: azure-rtos-security-module-api.md
+  - name: Defender-IoT-micro-agent for Eclipse ThreadX API (Preview)
+    displayName: prototype, disable
+    href: threadx-security-module-api.md
   - name: Frequently asked questions
     displayName: FAQ, embedded, dependencies, data, quota, internet, 
     href: resources-agent-frequently-asked-questions.md
@@ -195,7 +209,4 @@
     href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
-  - name: Agent-based solution for device builders
-    items: 
-  - name: Azure RTOS Defender-IoT-micro-agent on Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module
+  

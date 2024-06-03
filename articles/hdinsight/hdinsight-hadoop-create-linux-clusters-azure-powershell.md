@@ -4,8 +4,8 @@ description: Learn how to create Apache Hadoop, Apache HBase, or Apache Spark cl
 ms.service: hdinsight
 ms.topic: how-to
 ms.tool: azure-powershell
-ms.custom: hdinsightactive, devx-track-azurepowershell
-ms.date: 08/05/2022
+ms.custom: hdinsightactive, devx-track-azurepowershell, linux-related-content
+ms.date: 01/29/2024
 ---
 
 # Create Linux-based clusters in HDInsight using Azure PowerShell
@@ -38,7 +38,7 @@ To create an HDInsight cluster by using Azure PowerShell, you must complete the 
 
 The following script demonstrates how to create a new cluster:
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-71)]
+[!code-powershell[main](../../azure_powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-74)]
 
 The values you specify for the cluster login are used to create the Hadoop user account for the cluster. Use this account to connect to services hosted on the cluster such as web UIs or REST APIs.
 

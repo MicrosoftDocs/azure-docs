@@ -1,20 +1,20 @@
 ---
 title: Static IP address for container group
-description: Create a container group in a virtual network and use an Azure application gateway to expose a static frontend IP address to a containerized web app
+description: Create a container group in a virtual network and use an Azure application gateway to expose a static frontend IP address to a containerized web app.
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 04/09/2024
 ---
 
 # Expose a static IP address for a container group
 
 This article shows one way to expose a static, public IP address for a [container group](container-instances-container-groups.md) by using an Azure [application gateway](../application-gateway/overview.md). Follow these steps when you need a static entry point for an external-facing containerized app that runs in Azure Container Instances.
 
-In this article you use the Azure CLI to create the resources for this scenario:
+In this article, you use the Azure CLI to create the resources for this scenario:
 
 * An Azure virtual network
 * A container group deployed [in the virtual network](container-instances-vnet.md) that hosts a small web app
@@ -23,6 +23,8 @@ In this article you use the Azure CLI to create the resources for this scenario:
 As long as the application gateway runs and the container group exposes a stable private IP address in the network's delegated subnet, the container group is accessible at this public IP address.
 
 > [!NOTE]
+> Azure Application Gateway [supports HTTP, HTTPS, HTTP/2, and WebSocket protocols](../application-gateway/application-gateway-faq.yml).
+>
 > Azure charges for an application gateway based on the amount of time that the gateway is provisioned and available, as well as the amount of data it processes. See [pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## Create virtual network
@@ -47,7 +49,7 @@ az network vnet create \
   --subnet-prefix 10.0.1.0/24
 ```
 
-Use the [az network vnet subnet create][az-network-vnet-subnet-create] command to create a subnet for the backend container group. Here it's named *myACISubnet*.
+Use the [az network vnet subnet create][az-network-vnet-subnet-create] command to create a subnet for the backend container group. Here, its name is *myACISubnet*.
 
 ```azurecli
 az network vnet subnet create \
@@ -119,7 +121,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \
-  --servers "$ACI_IP"
+  --servers "$ACI_IP" \ 
   --priority 100
 ```
 

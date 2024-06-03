@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot using cloud-init 
+title: Troubleshoot using cloud-init
 description: Troubleshoot provisioning an Azure VM using cloud-init.
 author: mattmcinnes
 ms.service: virtual-machines
@@ -8,9 +8,13 @@ ms.date: 03/29/2023
 ms.author: mattmcinnes
 ms.reviewer: cynthn
 ms.subservice: cloud-init
+ms.custom: linux-related-content
 ---
 
 # Troubleshooting VM provisioning with cloud-init
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
@@ -113,7 +117,7 @@ Once you have found an error or warning, read backwards in the cloud-init log to
 
 If you have access to the [Serial Console](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode), you can try to rerun the command that cloud-init was trying to run.
 
-The logging for `/var/log/cloud-init.log` can also be reconfigured within /etc/cloud/cloud.cfg.d/05_logging.cfg. For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/development/logging.html). 
+The logging for `/var/log/cloud-init.log` can also be reconfigured within /etc/cloud/cloud.cfg.d/05_logging.cfg. For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/development/logging.html).
 
 ### /var/log/cloud-init-output.log
 

@@ -3,11 +3,10 @@ title: Understand your Azure invoice
 description: Learn how to read and understand the usage and bill for your Azure subscription
 author: bandersmsft
 ms.reviewer: lishepar
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 
 ---
@@ -41,7 +40,7 @@ invoice and descriptions for each term.
 The account information section of the invoice is on the top of the
 first page and shows information about your profile and subscription.
 
-![Account information section of invoice](./media/understand-invoice/account-information-section.png)
+:::image type="content" border="true" source="./media/understand-invoice/account-information-section.png" alt-text="Screenshot showing the Account information section of a invoice.":::
 
 | Term | Description |
 | --- | --- |
@@ -51,15 +50,15 @@ first page and shows information about your profile and subscription.
 | Invoice date |Date that the invoice was generated, typically on the same day of the month that the Azure account was created. However, they sometimes get generated a day or two later than day of the month that the Azure account was created.|
 | Payment method |Type of payment used on the account (invoice or credit card) |
 | Bill to |Billing address that is listed for the account |
-| Subscription offer (“Pay-As-You-Go”) |Type of subscription offer that was purchased (Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.). For more information, see [Azure offer types](https://azure.microsoft.com/support/legal/offer-details/). |
-| Account owner email | The account email address that the Microsoft Azure account is registered under. <br /><br />To change the email address, see [How to change profile information of your Azure account such as contact email, address, and phone number](../manage/change-azure-account-profile.md). |
+| Subscription offer (“Pay-As-You-Go”) |Type of subscription offer that was purchased, such as Pay-As-You-Go and Azure Pass. For more information, see [Azure offer types](https://azure.microsoft.com/support/legal/offer-details/). |
+| Account owner email | The account email address that the Microsoft Azure account is registered under. <br /><br />To change the email address, see [How to change profile information of your Azure account such as contact email, address, and phone number](../manage/change-azure-account-profile.yml). |
 
 ### Understand the invoice summary
 The **Invoice Summary** section of the invoice lists the total
 transaction amounts since your last billing period, and your current
 usage charges.
 
-![Invoice summary section](./media/understand-invoice/invoice-summary-section.png)
+:::image type="content" border="true" source="./media/understand-invoice/invoice-summary-section.png" alt-text="Screenshot showing the Invoice summary section of an invoice.":::
 
 The Subscription name (“Production Storage”) is the name of the
 subscription for this invoice.
@@ -91,7 +90,7 @@ on the second page of your Invoice.
 
 | Term |Description |
 | --- | --- |
-| Sold to |Profile address that's on the account. <br/><br/>If you need to change the address, see [How to change profile information of your Azure account such as contact email, address, and phone number](../manage/change-azure-account-profile.md).|
+| Sold to |Profile address that's on the account. <br/><br/>If you need to change the address, see [How to change profile information of your Azure account such as contact email, address, and phone number](../manage/change-azure-account-profile.yml).|
 | Payment instructions |Instructions on how to pay depending on payment method (such as by credit card or by invoice). |
 
 #### Usage Charges
@@ -99,7 +98,7 @@ on the second page of your Invoice.
 The Usage charges section of the invoice displays meter level
 information on your charges.
 
-![Usage charges section](./media/understand-invoice/usage-charges-section.png)
+:::image type="content" border="true" source="./media/understand-invoice/usage-charges-section.png" alt-text="Screenshot showing the Usage charges section of an invoice.":::
 
 The following table describes the usage charges column headers shown on
 your Invoice.

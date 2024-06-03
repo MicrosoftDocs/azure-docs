@@ -1,6 +1,6 @@
 ---
-title: Allocate credits to educators - Azure Education Hub
-description: This article will show IT Administrators at a University how to assign credits to Educators to use in Education Hub labs
+title: "Quickstart: Allocate credits to educators"
+description: This article shows IT administrators at a university how to assign credits to educators to use in Azure Education Hub labs.
 author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
@@ -11,59 +11,60 @@ ms.custom: template-quickstart
 
 # Quickstart: Allocate credits to educators
 
-This quickstart article explains how to allocate credit to educators in the Azure Education Hub. This article is meant for IT Administrators to give credits to educators at their university to spend on creating labs for their students.
+In this quickstart, you allocate credits to educators in the Azure Education Hub. Educators use these credits in labs to distribute money to students for the deployment of Azure resources. These instructions are for IT administrators.
 
 ## Prerequisites
 
-- Signed up for the Azure for Teaching Paid Program
-- Signed MCA
-- In direct field led motion
-- Have billing profile and billing account
-- Have desired Educators owners on the billing profile
+- Sign up for the Azure Dev Tools for Teaching program.
+- Sign a Microsoft Customer Agreement.
+- Be in direct field-led motion.
+- Have a billing profile and a billing account.
+- Assign educators as owners on the billing profile.
 
-## Visit Education Hub in the Azure portal
+## Go to the Education Hub
 
-The first step in assigning credit to educators is to navigate to the Education section of the Azure portal
+The first step in assigning credit to educators is to go to the Education Hub:
 
-1. Go to portal.azure.com
-2. Sign in with the account that is associated with Azure for Teaching Paid
-3. Search for "Education" in the search bar
-
-You will now be in Education Hub.
+1. Go to the [Azure portal](https://ms.portal.azure.com/).
+2. Sign in with the account that's associated with Azure Dev Tools for Teaching.
+3. Search for **education** on the search bar, and then select the **Education** result.
 
 ## Add a credit
 
-Now that you are in Education Hub, you can provision a credit to Educators at your university. Assigning credit to an Educator means that you are allowing them to use "x" amount of money from your billing profile to use in Education Hub creating labs. Ensure that the desired Educator you want to assign the credit to are in the same tenant as you and are owners of the billing profile you want to create the credit on.
+Assigning credit means that you're allowing educators to use a certain amount of money from your billing profile to create labs in the Education Hub. Educators must be in the same tenant as you to receive the credit. They must also be owners of the billing profile where you want to create the credit.
 
-1. Navigate to the "Credits" section of Education Hub
-2. Select "Add" to begin adding a new Credit
-3. Choose the billing profile you want the educators to draw the money from
-4. Set the amount of credit. 
+1. Go to the **Credits** section of the Education Hub.
+2. Select **Add** to begin adding a new credit.
+3. Choose the billing profile that you want the educators to draw the money from.
+4. Set the amount of credit.
 
-   > [!NOTE] 
-   > Due to latency issues, there may be cases where the money spent is slightly higher than the set budget.
-   
-5. Set the date these credits will expire. You will be able to extend the date and modify credits after creation
-6. Select next and confirm details
-7. Finally, select the "create" button to finalize the credits
+   > [!NOTE]
+   > Because of latency issues, there might be cases where the money spent is slightly higher than the set budget.
 
-Congratulations! You just created a Credit that your Educators can use in labs to distribute money to students to deploy Azure Resources.
+5. Set an expiration date for this credit. You can extend the date later, if necessary.
+6. Select **Next** and confirm details.
+7. Select **Create** to finish creating the credit.
 
 ## Modify credits
 
-After you have created credits, they will be shown as rows in the "Credits" tab. You can modify these credits after creation if needed.
+After you create credits, they appear as rows on the **Credits** tab. You can modify them if necessary:
 
-1. Select the edit button to the right of the credit
-2. You will be able to modify the end date and credit amount. 
+1. Select the **Edit** button to the right of a credit.
+2. Change the end date or the credit amount.
 
    > [!NOTE]
-   > You can only extend the credit end date.
-   
-3. You can also modify which Educator's have access to the Credit. To do this, navigate to Cost Management and add or remove Educators from the billing profile associated with the credit.
+   > You can only extend the credit end date. You can't shorten it.
 
-The chosen Educators should now receive an email inviting them to visit the Education Hub to begin using these Credits. Ensure the Educators log into the Azure portal with the account associated with the credit's billing profile.
+## Modify access
 
-## Next steps
+You can modify which educators have access to a credit:
+
+1. Go to **Cost Management**.
+1. Add or remove educators from the billing profile that's associated with a credit.
+
+   Added educators receive an email that invites them to visit the Education Hub to begin using the credit. Ensure that the educators sign in to the Azure portal by using the account that's associated with the credit's billing profile.
+
+## Next step
 
 > [!div class="nextstepaction"]
 > [Create an assignment and allocate credit](create-assignment-allocate-credit.md)

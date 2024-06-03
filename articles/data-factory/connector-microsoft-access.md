@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/18/2023
+ms.date: 10/20/2023
 ---
 
 # Copy data from and to Microsoft Access using Azure Data Factory or Synapse Analytics
@@ -25,7 +25,7 @@ This Microsoft Access connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -37,7 +37,7 @@ To use this Microsoft Access connector, you need to:
 - Install the Microsoft Access ODBC driver for the data store on the Integration Runtime machine.
 
 >[!NOTE]
->Microsoft Access 2016 version of ODBC driver doesn't work with this connector. Use Microsoft Access 2013 or 2010 version of ODBC driver instead.
+>This connector works with Microsoft Access 2016 version of ODBC driver. The recommended driver version is 16.00.5378.1000 or above.
 
 ## Getting started
 
@@ -229,5 +229,5 @@ To copy data to Microsoft Access, the following properties are supported in the 
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

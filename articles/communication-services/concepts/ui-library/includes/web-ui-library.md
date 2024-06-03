@@ -2,11 +2,11 @@
 title: Web UI Library overview
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Web UI Library.
-author: ddematheu2
+author: RinaRish
 manager: chrispalm
 services: azure-communication-services
 
-ms.author: dademath
+ms.author: ektrishi
 ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services
@@ -51,9 +51,10 @@ UI Components support customization to give the components the right feel and lo
 |         | [Video Tile](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile)                   | Component that displays video stream when available and a default static component when not        |
 |         | [Control Bar](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar)                | Container to organize DefaultButtons to hook up to specific call actions like mute or share screen |
 |         | [VideoGallery](https://azure.github.io/communication-ui-library/?path=/story/ui-components-video-gallery--video-gallery)                                           | Turn-key video gallery component, which dynamically changes as participants are added               |
-|         | [Dialpad](https://azure.github.io/communication-ui-library/?path=/docs/ui-components-dialpad--dialpad) | Component to support phone number input and DTMF tones. |
+|         | [Dialpad](https://azure.github.io/communication-ui-library/?path=/docs/ui-components-dialpad--dialpad) | Component to support phone number input and DTMF tones |
 | Chat    | [Message Thread](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagethread--message-thread)       | Container that renders chat messages, system messages, and custom messages                          |
 |         | [Send Box](https://azure.github.io/communication-ui-library/?path=/story/ui-components-sendbox--send-box)                         | Text input component with a discrete send button                                                   |
+|         | [Rich Text Send Box](https://azure.github.io/communication-ui-library/?path=/docs/ui-components-richtextsendbox--rich-text-send-box) | Rich text input component with formatting options and a discrete send button |
 |         | [Message Status Indicator](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagestatusindicator--message-status-indicator)        | Multi-state read receipt component to show state of sent message                                   |
 |         | [Typing indicator](https://azure.github.io/communication-ui-library/?path=/story/ui-components-typingindicator--typing-indicator) | Text component to render the participants who are actively typing on a thread                      |
 | Common  | [Participant Item](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantitem--participant-item) | Common component to render a call or chat participant including avatar and display name            |

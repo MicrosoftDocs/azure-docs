@@ -5,8 +5,8 @@ author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022, build-2023
-ms.date: 03/31/2023
+ms.custom: build-2023, devx-track-azurecli
+ms.date: 05/08/2024
 ms.topic: how-to
 ms.reviewer: mjbrown
 ---
@@ -15,7 +15,7 @@ ms.reviewer: mjbrown
 
 [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
-Azure Cosmos DB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can apply the benefits of continuous mode.
+Azure Cosmos DB accounts with periodic mode backup policy can be migrated to continuous mode using the [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can apply the benefits of continuous mode.
 
 The following are the key reasons to migrate into continuous mode:
 
@@ -32,7 +32,8 @@ The following are the key reasons to migrate into continuous mode:
 >
 > * If the account is of type API for NoSQL,API for Table, Gremlin or API for MongoDB.
 > * If the account has a single write region.
-> * If the account isn't enabled with analytical store.
+> * If the account never had Synapse Link disabled for a container.
+
 >
 > If the account is using [customer-managed keys](./how-to-setup-cmk.md), a managed identity (System-assigned or User-assigned) must be declared in the Key Vault access policy and must be set as the default identity on the account.
 
@@ -48,7 +49,7 @@ After you migrate your account to continuous backup mode, the cost can change wh
 
 Use the following steps to migrate your account from periodic backup to continuous backup mode:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Navigate to your Azure Cosmos DB account and open the **Backup & Restore** pane. Select **Backup Policies** tab and select on **change**. Once you choose the target continuous mode, select on **Save**.
 
@@ -221,7 +222,9 @@ Yes.
 
 Currently, API for NoSQL, API for Table, Gremlin API and API for MongoDB accounts with single write region that have shared, provisioned, or autoscale provisioned throughput support migration.  
 
-Accounts enabled with analytical storage and multiple-write regions aren't supported for migration.
+Accounts enabled with multiple-write regions aren't supported for migration.
+
+Currently, accounts with Synapse Link enabled, that had Synapse Link disabled for one or more collections, can't migrate to continuous backup.
 
 ### Does the migration take time? What is the typical time?
 
@@ -273,4 +276,4 @@ To learn more about continuous backup mode, see the following articles:
 
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 
-* Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+* Restore an account using the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).

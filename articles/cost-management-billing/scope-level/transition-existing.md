@@ -1,10 +1,9 @@
 ---
 title: Transition to centrally managed Azure Hybrid Benefit
 description: This article describes the changes and several transition scenarios to illustrate transitioning to centrally managed Azure Hybrid Benefit.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/20/2023
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -70,7 +69,8 @@ Review the following transition scenario examples that most closely match your s
 - **Recommended Action -** To restore compliance, identify 6 SQL Server Enterprise or 24 SQL Server Standard edition core licenses with Software Assurance and assign them and the already-confirmed 64 SQL Server Standard core licenses to Azure using the scope-level management of Azure Hybrid Benefit experience.
 - **Result -** Non-compliance is eliminated and Azure Hybrid Benefit is used optimally to minimize costs.
 - **Alternative Action -** Assign only the available 64 SQL Server Standard edition core licenses to Azure. You'll be compliant, but because those licenses are insufficient to cover all Azure SQL usage, you'll experience some pay-as-you-go charges.
-## Next steps
+
+## Related content
 
 - Follow the [Optimize centrally managed Azure Hybrid Benefit for SQL Server](tutorial-azure-hybrid-benefits-sql.md) tutorial.
 - Move to scope-level license management by [creating SQL Server license assignments](create-sql-license-assignments.md).

@@ -7,25 +7,28 @@ author: tomvcassidy
 ms.service: service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
-ms.date: 07/11/2022
+ms.date: 05/21/2024
 ---
 
 # Select managed disk types for Service Fabric managed cluster nodes
 
-Azure Service Fabric managed clusters use managed disks for all storage needs, including application data, for scenarios such as reliable collections and actors. Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Managed disks are like a physical disk in an on-premises server but, virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk. Once you provision the disk, Azure handles the rest. For more information about managed disks, see [Introduction to Azure managed disks
+Azure Service Fabric managed clusters use managed disks for all storage needs, including application data, for scenarios such as reliable collections and actors. Azure managed disks are block-level storage volumes managed by Azure and used with Azure Virtual Machines. Managed disks are like a physical disk in an on-premises server but, virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk. Once you provision the disk, Azure handles the rest. For more information about managed disks, see [Introduction to Azure managed disks
 ](../virtual-machines/managed-disks-overview.md).
 
->[!NOTE] 
-> After node type deployment you cannot modify the managed disk type or size in place. Instead, you can easily deploy a new node type with with required configuration in your cluster and migrate your workloads. 
+**Disk size update:** Customers have the capability to update the disk size on current node type; however, it's important to note that only new nodes on the existing node type receive the new disk size. To implement this change, users can follow two approaches:
+* Scale the node type by adding new nodes with the desired disk size, and then remove the old nodes with smaller disk sizes.
+* Alternatively, create a new node type with the desired disk size and migrate their workload to the new node type using placement constraints.
+ 
+**Disk type update:** Updating disk types in place for node types isn't supported. Therefore, the only viable option is to create a new node type with the desired disk type and migrate the workload accordingly. This process ensures a seamless transition to the updated disk type without disrupting the cluster's operation.
 
 ## Managed disk types
 
 Azure Service Fabric manged clusters support the following managed disk types:
-* Standard HDD
-    * Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access. 
-* Standard SSD *Default*
+* Standard hard disk drive (HDD)
+    * Standard HDD locally redundant storage. Best for backup, noncritical, and infrequent access. 
+* Standard solid-state drive (SSD) *Default*
     * Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications, and dev/test.
-* Premium SSD *Compatible with specific VM sizes* for more information, see [Premium SSD](../virtual-machines/disks-types.md#premium-ssds)
+* Premium SSD *compatible with specific virtual machines (VM) sizes*. For more information, see [Premium SSD](../virtual-machines/disks-types.md#premium-ssds).
     * Premium SSD locally redundant storage. Best for production and performance sensitive workloads.
 
 >[!NOTE]
@@ -53,4 +56,4 @@ Possible values are:
 }
 ```
 
-Sample templates are available that include this specification: [Service Fabric managed cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+Sample templates are available that include this specification: [Service Fabric managed cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates).

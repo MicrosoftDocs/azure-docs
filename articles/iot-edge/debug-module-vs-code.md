@@ -4,7 +4,7 @@ description: Use Visual Studio Code to debug an Azure IoT Edge custom module wri
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2023
+ms.date: 02/14/2024
 ms.topic: conceptual
 ms.service: iot-edge
 zone_pivot_groups: iotedge-dev
@@ -61,7 +61,7 @@ Install [Visual Studio Code](https://code.visualstudio.com/)
 
 Add the following extensions:
 
-- [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension.
+- [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension. The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 - [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension.
 
 ::: zone-end
@@ -154,7 +154,7 @@ On your development machine, you can start an IoT Edge simulator instead of inst
 
 1. In the **Explorer** tab on the left side, expand the **Azure IoT Hub** section. Right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
 
-1. You can see the successful set up of the IoT Edge Simulator by reading the progress detail in the integrated terminal.
+1. You can see the successful setup of the IoT Edge Simulator by reading the progress detail in the integrated terminal.
 
 ### Build and run container for debugging and debug in attach mode
 
@@ -351,6 +351,8 @@ Select **Start Debugging** or select **F5**. Select the process to attach to. In
 
 The Docker and Moby engines support SSH connections to containers allowing you to debug in Visual Studio Code connected to a remote device. You need to meet the following prerequisites before you can use this feature.
 
+Remote SSH debugging prerequisites may be different depending on the language you are using. The following sections describe the setup for .NET. For information on other languages, see [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh) for an overview. Details about how to configure remote debugging are included in debugging sections for each language in the Visual Studio Code documentation.
+
 ### Configure Docker SSH tunneling
 
 1. Follow the steps in [Docker SSH tunneling](https://code.visualstudio.com/docs/containers/ssh#_set-up-ssh-tunneling) to configure SSH tunneling on your development computer. SSH tunneling requires public/private key pair authentication and a Docker context defining the remote device endpoint.
@@ -372,10 +374,10 @@ The Docker and Moby engines support SSH connections to containers allowing you t
     PS C:\> docker ps        
     CONTAINER ID   IMAGE                                                             COMMAND                   CREATED        STATUS         PORTS                                                                                                                                   NAMES
     a317b8058786   myacr.azurecr.io/filtermodule:0.0.1-amd64                         "dotnet filtermodule…"    24 hours ago   Up 6 minutes                                                                                                                                           filtermodule
-    d4d949f8dfb9   mcr.microsoft.com/azureiotedge-hub:1.4                            "/bin/sh -c 'echo \"$…"   24 hours ago   Up 6 minutes   0.0.0.0:443->443/tcp, :::443->443/tcp, 0.0.0.0:5671->5671/tcp, :::5671->5671/tcp, 0.0.0.0:8883->8883/tcp, :::8883->8883/tcp, 1883/tcp   edgeHub
+    d4d949f8dfb9   mcr.microsoft.com/azureiotedge-hub:1.5                            "/bin/sh -c 'echo \"$…"   24 hours ago   Up 6 minutes   0.0.0.0:443->443/tcp, :::443->443/tcp, 0.0.0.0:5671->5671/tcp, :::5671->5671/tcp, 0.0.0.0:8883->8883/tcp, :::8883->8883/tcp, 1883/tcp   edgeHub
     1f0da9cfe8e8   mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0   "/bin/sh -c 'echo \"$…"   24 hours ago   Up 6 minutes                                                                                                    
                                            tempSensor
-    66078969d843   mcr.microsoft.com/azureiotedge-agent:1.4                          "/bin/sh -c 'exec /a…"    24 hours ago   Up 6 minutes                                                                                                    
+    66078969d843   mcr.microsoft.com/azureiotedge-agent:1.5                          "/bin/sh -c 'exec /a…"    24 hours ago   Up 6 minutes                                                                                                    
                                            edgeAgent
     ```
 

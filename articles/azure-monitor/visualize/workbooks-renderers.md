@@ -69,8 +69,8 @@ The following instructions show you how to use thresholds with links to assign i
     |----------|---------|---------|
     | ==       | warning | Warning |
     | ==       | error   | Failed  |
-
-    ![Screenshot that shows the Edit column settings tab with the preceding settings.](./media/workbooks-grid-visualizations/column-settings.png)
+    <!-- convertborder later -->
+    :::image type="content" source="./media/workbooks-grid-visualizations/column-settings.png" lightbox="./media/workbooks-grid-visualizations/column-settings.png" alt-text="Screenshot that shows the Edit column settings tab with the preceding settings." border="false":::
    
 1. Select the **Make this item a link** checkbox.
      - Under **View to open**, select **Workbook (Template)**.
@@ -79,11 +79,11 @@ The following instructions show you how to use thresholds with links to assign i
      -  Choose the following settings in **Workbook Link Settings**:
         - Under **Template Id comes from**, select **Column**.
         - Under **Column**, select **link**.
-
-     ![Screenshot that shows link settings with the preceding settings.](./media/workbooks-grid-visualizations/make-this-item-a-link.png)
+     <!-- convertborder later -->
+     :::image type="content" source="./media/workbooks-grid-visualizations/make-this-item-a-link.png" lightbox="./media/workbooks-grid-visualizations/make-this-item-a-link.png" alt-text="Screenshot that shows link settings with the preceding settings." border="false":::
 
 1. Under **Columns**, select **link**. Under **Settings**, next to **Column renderer**, select **(Hide column)**.
 1. To change the display name of the **name** column, select the **Labels** tab. On the row with **name** as its **Column ID**, under **Column Label**, enter the name you want displayed.
 1. Select **Apply**.
-
-     ![Screenshot that shows thresholds in a grid with the preceding settings.](./media/workbooks-grid-visualizations/thresholds-workbooks-links.png)
+     <!-- convertborder later -->
+     :::image type="content" source="./media/workbooks-grid-visualizations/thresholds-workbooks-links.png" lightbox="./media/workbooks-grid-visualizations/thresholds-workbooks-links.png" alt-text="Screenshot that shows thresholds in a grid with the preceding settings." border="false":::

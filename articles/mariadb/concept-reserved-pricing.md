@@ -10,13 +10,15 @@ ms.date: 06/24/2022
 
 # Prepay for Azure Database for MariaDB compute resources with reserved capacity
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 Azure Database for MariaDB now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Database for MariaDB reserved capacity, you make an upfront commitment on MariaDB servers for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for MariaDB reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. </br>
 
 You do not need to assign the reservation to specific Azure Database for MariaDB servers. An already running Azure Database for MariaDB or ones that are newly deployed, will automatically get the benefit of reserved pricing. By purchasing a reservation, you are pre-paying for the compute costs for a period of one or three years. As soon as you buy a reservation, the Azure Database for MariaDB compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the MariaDB Database server. At the end of the reservation term, the billing benefit expires, and the Azure Database for MariaDB are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Database for MariaDB reserved capacity offering](https://azure.microsoft.com/pricing/details/mariadb/). </br>
 
 You can buy Azure Database for MariaDB reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 
-* You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
+* To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 * For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Database for MariaDB reserved capacity. </br>
 

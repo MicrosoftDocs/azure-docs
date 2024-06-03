@@ -15,17 +15,22 @@ Together with the new responsibilities, SOC teams deal with new challenges, incl
 
 - **Siloed or inefficient communication and processes** between OT and SOC organizations.
 
-- **Limited technology and tools**, such as lack of visibility or automated security remediation for OT networks. You'll need to evaluate and link information across data sources for OT networks, and integrations with existing SOC solutions may be costly.
+- **Limited technology and tools**, such as lack of visibility or automated security remediation for OT networks. You need to evaluate and link information across data sources for OT networks, and integrations with existing SOC solutions might be costly.
 
-However, without OT telemetry, context and integration with existing SOC tools and workflows, OT security and operational threats may be handled incorrectly, or even go unnoticed.
+However, without OT data, context and integration with existing SOC tools and workflows, OT security and operational threats might be handled incorrectly, or even go unnoticed.
 
 ## Integrate Defender for IoT and Microsoft Sentinel
 
-Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for Iot and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
+Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for IoT and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
 
 In Microsoft Sentinel, the Defender for IoT data connector and solution brings out-of-the-box security content to SOC teams, helping them to view, analyze and respond to OT security alerts, and understand the generated incidents in the broader organizational threat contents.
 
-Install the Defender for IoT data connector alone to stream your OT network alerts to Microsoft Sentinel. Then, also install the **Microsoft Defender for IoT** solution the extra value of IoT/OT-specific analytics rules, workbooks, and SOAR playbooks, as well as incident mappings to [MITRE ATT&CK for ICS techniques](https://attack.mitre.org/techniques/ics/).
+Install the Defender for IoT data connector alone to stream your OT network alerts to Microsoft Sentinel. Then, also install the **Microsoft Defender for IoT** solution for the extra value of IoT/OT-specific analytics rules, workbooks, and SOAR playbooks, and also incident mappings to [MITRE ATT&CK for ICS techniques](https://attack.mitre.org/techniques/ics/).
+
+Integrating Defender for IoT with Microsoft Sentinel also helps you ingest more data from Microsoft Sentinel's other partner integrations. For more information, see [Integrations with Microsoft and partner services](integrate-overview.md).
+
+> [!NOTE]
+> Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing).
 
 ### Integrated detection and response
 
@@ -53,7 +58,7 @@ After you've configured the Defender for IoT data connector and have IoT/OT aler
 |Method  |Description  |
 |---------|---------|
 |**Use the default data connector rule**     | Use the default, **Create incidents based on all alerts generated in Microsoft Defender for IOT** analytics rule provided with the data connector. This rule creates a separate incident in Microsoft Sentinel for each alert streamed from Defender for IoT.        |
-|**Use out-of-the-box solution rules**     |  Enable some or all of the [out-of-the-box analytics rules](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview) provided with the **Microsoft Defender for IoT** solution.<br><br>    These analytics rules help to reduce alert fatigue by creating incidents only in specific situations. For example, you might choose to create incidents for excessive login attempts, but for multiple scans detected in the network.       |
+|**Use out-of-the-box solution rules**     |  Enable some or all of the [out-of-the-box analytics rules](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview) provided with the **Microsoft Defender for IoT** solution.<br><br>    These analytics rules help to reduce alert fatigue by creating incidents only in specific situations. For example, you might choose to create incidents for excessive sign-in attempts, but for multiple scans detected in the network.       |
 |**Create custom rules**     | Create custom analytics rules to create incidents based only on your specific needs. You can use the out-of-the-box analytics rules as a starting point, or create rules from scratch.   <br><br>Add the following filter to prevent duplicate incidents for the same alert ID: `| where TimeGenerated <= ProcessingEndTime + 60m`     |
 
 Regardless of the method you choose to create alerts, only one incident should be created for each Defender for IoT alert ID.
@@ -74,15 +79,15 @@ Playbooks are collections of automated remediation actions that can be run from 
 
 For example, use SOAR playbooks to:
 
-- Open an asset ticket in ServiceNow when a new asset is detected, such as a new engineering workstation. This alert can be an unauthorized device that can be used by adversaries to reprogram PLCs.
+- Open an asset ticket in ServiceNow when a new asset is detected, such as a new engineering workstation. This alert can be an unauthorized device that might be used by adversaries to reprogram PLCs.
 
-- Send an email to relevant stakeholders when suspicious activity is detected, for example unplanned PLC reprogramming. The mail may be sent to OT personnel, such as a control engineer responsible on the related production line.
+- Send an email to relevant stakeholders when suspicious activity is detected, for example unplanned PLC reprogramming. The mail might be sent to OT personnel, such as a control engineer responsible on the related production line.
 
 ## Comparing Defender for IoT events, alerts, and incidents
 
 This section clarifies the differences between Defender for IoT events, alerts, and incidents in Microsoft Sentinel. Use the listed queries to view a full list of the current events, alerts, and incidents for your OT networks.
 
-You'll typically see more Defender for IoT *events* in Microsoft Sentinel than *alerts*, and more Defender for IoT *alerts* than *incidents*.
+You typically see more Defender for IoT *events* in Microsoft Sentinel than *alerts*, and more Defender for IoT *alerts* than *incidents*.
 
 ### Defender for IoT events in Microsoft Sentinel
 
@@ -114,7 +119,7 @@ After you've installed the Microsoft Defender for IoT solution and deployed the 
 
 ### Defender for IoT incidents in Microsoft Sentinel
 
-Microsoft Sentinel creates incidents based on your analytics rules. You might have several alerts grouped in the same incident, or you may have analytics rules configured to *not* create incidents for specific alert types.
+Microsoft Sentinel creates incidents based on your analytics rules. You might have several alerts grouped in the same incident, or you might have analytics rules configured to *not* create incidents for specific alert types.
 
 To view incidents in Microsoft Sentinel, run the following query:
 ```kql
@@ -129,4 +134,4 @@ For more information, see:
 - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md)
 - [Detect threats out-of-the-box with Defender for IoT data](../../sentinel/iot-advanced-threat-monitoring.md#detect-threats-out-of-the-box-with-defender-for-iot-data)
 - [Create custom analytics rules to detect threats](../../sentinel/detect-threats-custom.md)
-- [Tutorial Use playbooks with automation rules in Microsoft Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)

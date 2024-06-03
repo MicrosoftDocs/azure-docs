@@ -2,17 +2,21 @@
 title: Application Insights availability tests 
 description: Set up recurring web tests to monitor availability and responsiveness of your app or website.
 ms.topic: conceptual
-ms.date: 04/24/2023
-ms.reviewer: shyamala
+ms.date: 04/28/2024
+ms.reviewer: cogoodson
 ---
 
 # Application Insights availability tests
 
-After you've deployed your web app or website, you can set up recurring tests to monitor availability and responsiveness. [Application Insights](./app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding or responds too slowly.
+After you deploy your web app or website, you can set up recurring tests to monitor availability and responsiveness. [Application Insights](./app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding or responds too slowly.
 
 You can set up availability tests for any HTTP or HTTPS endpoint that's accessible from the public internet. You don't have to make any changes to the website you're testing. In fact, it doesn't even have to be a site that you own. You can test the availability of a REST API that your service depends on.
 
 ## Types of tests
+
+> [!IMPORTANT]
+> There are two upcoming availability tests retirements. On August 31, 2024 multi-step web tests in Application Insights will be retired. We advise users of these tests to transition to alternative availability tests before the retirement date. Following this date, we will be taking down the underlying infrastructure which will break remaining multi-step tests.
+> On September 30, 2026, URL ping tests in Application Insights will be retired. Existing URL ping tests will be removed from your resources. Review the [pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing) for standard tests and [transition](https://aka.ms/availabilitytestmigration) to using them before September 30, 2026 to ensure you can continue to run single-step availability tests in your Application Insights resources.
 
 There are four types of availability tests:
 
@@ -32,7 +36,25 @@ You can create up to 100 availability tests per Application Insights resource.
 
 ## Troubleshooting
 
+> [!WARNING]
+> We have recently enabled TLS 1.3 in Availability Tests.  If you are seeing new error messages as a result, please ensure that clients running on Windows Server 2022 with TLS 1.3 enabled can connect to your endpoint. If you are unable to do this, you may consider temporarily disabling TLS 1.3 on your endpoint so that Availability Tests will fall back to older TLS versions.  
+> For additional information, please check the  [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Can I run Availability tests on an intranet server?
+
+Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
+          
+* **Firewall door**: Allow requests to your server from [the long and changeable list of web test agents](../ip-addresses.md).
+* **Custom code**: Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights by using the `TrackAvailability()` API.
+
+### What is the user agent string for availability tests?
+
+The user agent string is **Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; AppInsights**
 
 ## Next steps
 

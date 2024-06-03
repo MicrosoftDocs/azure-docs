@@ -4,7 +4,7 @@ description: Learn how to configure encryption with customer-managed keys for Az
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ms.topic: how-to
 ms.date: 09/27/2022
 ms.reviewer: turao
@@ -19,9 +19,9 @@ Data stored in your Azure Cosmos DB account is automatically and seamlessly encr
 This article walks through how to configure encryption with customer-managed keys at the time that you create an Azure Cosmos DB account. In this example cross-tenant scenario, the Azure Cosmos DB account resides in a tenant managed by an Independent Software Vendor (ISV) referred to as the service provider. The key used for encryption of the Azure Cosmos DB account resides in a key vault in a different tenant that is managed by the customer.
 
 
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-overview](../../includes/entra-msi-cross-tenant-cmk-overview.md)]
 
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../includes/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../includes/entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
 
 ## Create a new Azure Cosmos DB account encrypted with a key from a different tenant
 
@@ -43,7 +43,7 @@ Deploy an ARM template with the following specific parameters:
 | --- | --- | --- |
 | `keyVaultKeyUri` | Identifier of the customer-managed key residing in the service provider's key vault. | `https://my-vault.vault.azure.com/keys/my-key` |
 | `identity` | Object specifying that the managed identity should be assigned to the Azure Cosmos DB account. | `"identity":{"type":"UserAssigned","userAssignedIdentities":{"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity":{}}}` |
-| `defaultIdentity` | Combination of the resource ID of the managed identity and the application ID of the multi-tenant Azure Active Directory application. | `UserAssignedIdentity=/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity&FederatedClientId=11111111-1111-1111-1111-111111111111` |
+| `defaultIdentity` | Combination of the resource ID of the managed identity and the application ID of the multi-tenant Microsoft Entra application. | `UserAssignedIdentity=/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity&FederatedClientId=11111111-1111-1111-1111-111111111111` |
 
 Here's an example of a template segment with the three parameters configured:
 

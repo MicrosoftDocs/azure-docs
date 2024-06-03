@@ -2,11 +2,11 @@
 title: Azure Database for PostgreSQL server support matrix
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL server backup.
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 09/07/2023
 ms.custom: references_regions
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Database for PostgreSQL server support matrix
@@ -15,9 +15,7 @@ You can use [Azure Backup](./backup-overview.md) to protect Azure Database for P
 
 ## Supported regions
 
-Azure Database for PostgreSQL server backup is available in the following regions:
-
-East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, Brazil South, Canada Central, North Europe, West Europe, UK South, UK West, Germany West Central, Switzerland North, Switzerland West, East Asia, Southeast Asia, Japan East, Japan West, Korea Central, Korea South, India Central, Australia East, Australia Central, Australia Central 2, UAE North
+Azure Database for PostgreSQL server backup is available in all regions, except for Germany Central (Sovereign), Germany Northeast (Sovereign) and China regions.
 
 ## Support scenarios
 
@@ -32,7 +30,7 @@ East US, East US 2, Central US, South Central US, West US, West US 2, West Centr
 - Cross-region backup isn't supported. Therefore, you can't back up an Azure PostgreSQL server to a vault in another region. Similarly, you can only restore a backup to a server within the same region as the vault. However, we support cross-subscription backup and restore. 
 - Private endpoint-enabled Azure PostgreSQL servers can be backed up by allowing trusted Microsoft services in the network settings.
 - Only the data is recovered during restore; _roles_ aren't restored.
-
+- Protection of PostgreSQL Flexible server is currently not supported.
 ## Next steps
 
 - [Back up Azure Database for PostgreSQL server](backup-azure-database-postgresql.md)

@@ -5,35 +5,20 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/21/2022
+ms.date: 01/04/2024
 ---
 
 # Create, edit, or extend JSON for logic app workflow definitions in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-When you create enterprise integration
-solutions with automated workflows in
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md),
-the underlying workflow definitions use simple
-and declarative JavaScript Object Notation (JSON)
-along with the [Workflow Definition Language (WDL) schema](../logic-apps/logic-apps-workflow-definition-language.md)
-for their description and validation. These formats
-make workflow definitions easier to read and
-understand without knowing much about code.
-When you want to automate creating and deploying logic app resources,
-you can include workflow definitions as
-[Azure resources](../azure-resource-manager/management/overview.md)
-inside [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md).
-To create, manage, and deploy logic apps, you can then use
-[Azure PowerShell](/powershell/module/az.logicapp),
-[Azure CLI](../azure-resource-manager/templates/deploy-cli.md), 
-or the [Azure Logic Apps REST APIs](/rest/api/logic/).
+When you create enterprise integration solutions with automated workflows in
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md), the underlying workflow definitions use simple and declarative JavaScript Object Notation (JSON) along with the [Workflow Definition Language (WDL) schema](../logic-apps/logic-apps-workflow-definition-language.md) for their description and validation. These formats make workflow definitions easier to read and understand without knowing much about code.
+When you want to automate creating and deploying logic app resources, you can include workflow definitions as
+[Azure resources](../azure-resource-manager/management/overview.md) inside [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md).
+To create, manage, and deploy logic apps, you can then use [Azure PowerShell](/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), or the [Azure Logic Apps REST APIs](/rest/api/logic/).
 
-To work with workflow definitions in JSON,
-open the Code View editor when working
-in the Azure portal or in Visual Studio,
-or copy the definition into any editor that you want.
+To work with workflow definitions in JSON, open the Code View editor when working in the Azure portal or in Visual Studio, or copy the definition into any editor that you want.
 If you're new to Azure Logic Apps, review
 [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
@@ -49,40 +34,25 @@ If you're new to Azure Logic Apps, review
 <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
 
 2. From the left menu, choose **All services**.
-In the search box, find "logic apps",
-and then from the results, select your logic app.
+In the search box, find "logic apps", and then from the results, select your logic app.
 
-3. On your logic app's menu, under **Development Tools**,
-select **Logic App Code View**.
+3. On your logic app's menu, under **Development Tools**, select **Logic App Code View**.
 
-   The Code View editor opens and shows
-   your workflow definition in JSON format.
+   The Code View editor opens and shows your workflow definition in JSON format.
 
 ## Edit JSON - Visual Studio
 
-Before you can work on your workflow definition
-in Visual Studio, make sure that you've
-[installed the required tools](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
-To create a logic app with Visual Studio, review
-[Quickstart: Automate tasks and processes with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Before you can work on your workflow definition in Visual Studio, make sure that you've [installed the required tools](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
+To create a logic app with Visual Studio, review [Quickstart: Automate tasks and processes with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-In Visual Studio, you can open logic apps that were
-created and deployed either directly from the Azure portal
-or as Azure Resource Manager projects from Visual Studio.
+In Visual Studio, you can open logic apps that were created and deployed either directly from the Azure portal or as Azure Resource Manager projects from Visual Studio.
 
-1. Open the Visual Studio solution,
-or [Azure Resource Group](../azure-resource-manager/management/overview.md)
-project, that contains your logic app.
+1. Open the Visual Studio solution, or [Azure Resource Group](../azure-resource-manager/management/overview.md) project, that contains your logic app.
 
-2. Find and open your workflow definition,
-which by default, appears in an
-[Resource Manager template](../azure-resource-manager/templates/overview.md),
-named **LogicApp.json**.
-You can use and customize this template for
-deployment to different environments.
+2. Find and open your workflow definition, which by default, appears in an [Resource Manager template](../azure-resource-manager/templates/overview.md), named **LogicApp.json**.
+You can use and customize this template for deployment to different environments.
 
-3. Open the shortcut menu for your
-workflow definition and template.
+3. Open the shortcut menu for your workflow definition and template.
 Select **Open With Logic App Designer**.
 
    ![Open logic app in a Visual Studio solution](./media/logic-apps-author-definitions/open-logic-app-designer.png)
@@ -92,12 +62,9 @@ Select **Open With Logic App Designer**.
 
 4. At the bottom of the workflow designer, choose **Code View**.
 
-   The Code View editor opens and shows
-   your workflow definition in JSON format.
+   The Code View editor opens and shows your workflow definition in JSON format.
 
-5. To return to designer view,
-at the bottom of the Code View editor,
-choose **Design**.
+5. To return to designer view, at the bottom of the Code View editor, choose **Design**.
 
 ## Parameters
 
@@ -119,12 +86,7 @@ Follow these general steps to *parameterize*, or define and use parameters for, 
 
 ## Process strings with functions
 
-Azure Logic Apps has various functions for working with strings.
-For example, suppose you want to pass a company name from an order to another system.
-However, you're not sure about proper handling for character encoding.
-You could perform base64 encoding on this string, but to avoid escapes in the URL,
-you can replace several characters instead. Also, you only need a substring for
-the company name because the first five characters aren't used.
+Azure Logic Apps has various functions for working with strings. For example, suppose you want to pass a company name from an order to another system. However, you're not sure about proper handling for character encoding. You could perform base64 encoding on this string, but to avoid escapes in the URL, you can replace several characters instead. Also, you only need a substring for the company name because the first five characters aren't used.
 
 ``` json
 {
@@ -159,15 +121,13 @@ the company name because the first five characters aren't used.
 }
 ```
 
-These steps describe how this example processes this string,
-working from the inside to the outside:
+These steps describe how this example processes this string, working from the inside to the outside:
 
 ```
 "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
-1. Get the [`length()`](../logic-apps/logic-apps-workflow-definition-language.md)
-for the company name, so you get the total number of characters.
+1. Get the [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) for the company name, so you get the total number of characters.
 
 2. To get a shorter string, subtract `5`.
 
@@ -176,28 +136,20 @@ Start at index `5`, and go to the remainder of the string.
 
 4. Convert this substring to a [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) string.
 
-5. Now [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md)
-all the `+` characters with `-` characters.
+5. Now [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) all the `+` characters with `-` characters.
 
-6. Finally, [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md)
-all the `/` characters with `_` characters.
+6. Finally, [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) all the `/` characters with `_` characters.
 
 ## Map list items to property values, then use maps as parameters
 
-To get different results based a property's value,
-you can create a map that matches each property value to a result,
-then use that map as a parameter.
+To get different results based a property's value, you can create a map that matches each property value to a result, then use that map as a parameter.
 
-For example, this workflow defines some categories as parameters
-and a map that matches those categories with a specific URL.
-First, the workflow gets a list of articles. Then, the workflow
-uses the map to find the URL matching the category for each article.
+For example, this workflow defines some categories as parameters and a map that matches those categories with a specific URL.
+First, the workflow gets a list of articles. Then, the workflow uses the map to find the URL matching the category for each article.
 
-*	The [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md)
-function checks whether the category matches a known defined category.
+*	The [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) function checks whether the category matches a known defined category.
 
-*	After getting a matching category, the example pulls the item from the map
-using square brackets: `parameters[...]`
+*	After getting a matching category, the example pulls the item from the map using square brackets: `parameters[...]`
 
 ``` json
 {
@@ -269,10 +221,7 @@ using square brackets: `parameters[...]`
 
 ## Get data with Date functions
 
-To get data from a data source that doesn't natively support *triggers*,
-you can use Date functions for working with times and dates instead.
-For example, this expression finds how long this workflow's steps are taking,
-working from the inside to the outside:
+To get data from a data source that doesn't natively support *triggers*, you can use Date functions for working with times and dates instead. For example, this expression finds how long this workflow's steps are taking, working from the inside to the outside:
 
 ``` json
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
@@ -288,11 +237,9 @@ working from the inside to the outside:
 
 3. Now, you can compare these two values.
 
-   If the first value is less than the second value,
-   then more than one second has passed since the order was first placed.
+   If the first value is less than the second value, then more than one second has passed since the order was first placed.
 
-To format dates, you can use string formatters. For example, to get the RFC1123,
-use [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
+To format dates, you can use string formatters. For example, to get the RFC1123, use [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
 Learn more about [date formatting](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ``` json

@@ -5,7 +5,7 @@ description: Learn how to configure VPN Gateway server settings for P2S configur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 01/25/2024
 ms.author: cherylmc
 
 ---
@@ -13,9 +13,9 @@ ms.author: cherylmc
 
 This article helps you configure the necessary VPN Gateway point-to-site (P2S) server settings to let you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. P2S VPN connections are useful when you want to connect to your VNet from a remote location, such as when you're telecommuting from home or a conference. You can also use P2S instead of a site-to-site (S2S) VPN when you have only a few clients that need to connect to a virtual network (VNet). P2S connections don't require a VPN device or a public-facing IP address.
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Diagram of point-to-site connection showing how to connect from a computer to an Azure VNet.":::
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Diagram of point-to-site connection showing how to connect from a computer to an Azure VNet." lightbox="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png":::
 
-There are various different configuration options available for P2S. For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md). This article helps you create a P2S configuration that uses **certificate authentication** and the Azure portal. To create this configuration using the Azure PowerShell, see the [Configure P2S - Certificate - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md) article. For RADIUS authentication, see the [P2S RADIUS](point-to-site-how-to-radius-ps.md) article. For Azure Active Directory authentication, see the [P2S Azure AD](openvpn-azure-ad-tenant.md) article.
+There are various different configuration options available for P2S. For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md). This article helps you create a P2S configuration that uses **certificate authentication** and the Azure portal. To create this configuration using the Azure PowerShell, see the [Configure P2S - Certificate - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md) article. For RADIUS authentication, see the [P2S RADIUS](point-to-site-how-to-radius-ps.md) article. For Microsoft Entra authentication, see the [P2S Microsoft Entra ID](openvpn-azure-ad-tenant.md) article.
 
 [!INCLUDE [P2S basic architecture](../../includes/vpn-gateway-p2s-architecture.md)]
 
@@ -117,7 +117,7 @@ The client address pool is a range of private IP addresses that you specify. The
 
 In this section, you specify the tunnel type and the authentication type. These settings can become complex, depending on the tunnel type you require and the VPN client software that will be used to make the connection from the user's operating system. The steps in this article will walk you through basic configuration settings and choices.
 
-You can select options that contain multiple tunnel types from the dropdown - such as *IKEv2 and OpenVPN(SSL)* or *IKEv2 and SSTP (SSL)*, however, only certain combinations of tunnel types and authentication types are supported. For example, Azure Active Directory authentication can only be used when you select *OpenVPN (SSL)* from the tunnel type dropdown, and not *IKEv2 and OpenVPN(SSL)*.
+You can select options that contain multiple tunnel types from the dropdown - such as *IKEv2 and OpenVPN(SSL)* or *IKEv2 and SSTP (SSL)*, however, only certain combinations of tunnel types and authentication types are supported. For example, Microsoft Entra authentication can only be used when you select *OpenVPN (SSL)* from the tunnel type dropdown, and not *IKEv2 and OpenVPN(SSL)*.
 
 Additionally, the tunnel type and the authentication type you choose impact the VPN client software that can be used to connect to Azure. Some VPN client software can only connect via IKEv2, others can only connect via OpenVPN. And some client software, while it supports a certain tunnel type, may not support the authentication type you choose.
 
@@ -134,7 +134,7 @@ As you can tell, planning the tunnel type and authentication type is important w
   * The native VPN client for iOS and macOS can only use the IKEv2 tunnel type to connect to Azure.
   * The Azure VPN Client isn't supported for certificate authentication at this time, even if you select the OpenVPN tunnel type.
   * If you want to use the OpenVPN tunnel type with certificate authentication, you can use an OpenVPN client.
-  * For macOS, you can use the Azure VPN Client with the OpenVPN tunnel type and Azure AD authentication (not certificate authentication).
+  * For macOS, you can use the Azure VPN Client with the OpenVPN tunnel type and Microsoft Entra authentication (not certificate authentication).
 
 * **Android and Linux**:
 
@@ -148,7 +148,7 @@ On the **Point-to-site configuration** page, select the **Tunnel type**. For thi
 
 ### <a name="authenticationtype"></a>Authentication type
 
-For this exercise, select **Azure certificate** for the authentication type. If you're interested in other authentication types, see the articles for [Azure AD](openvpn-azure-ad-tenant.md) and [RADIUS](point-to-site-how-to-radius-ps.md).
+For this exercise, select **Azure certificate** for the authentication type. If you're interested in other authentication types, see the articles for [Microsoft Entra ID](openvpn-azure-ad-tenant.md) and [RADIUS](point-to-site-how-to-radius-ps.md).
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-authentication-type.png" alt-text="Screenshot of Point-to-site configuration page - authentication type." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-authentication-type.png":::
 
@@ -156,13 +156,12 @@ For this exercise, select **Azure certificate** for the authentication type. If 
 
 In this section, you upload public root certificate data to Azure. Once the public certificate data is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate.
 
-1. Navigate to your **Virtual network gateway -> Point-to-site configuration** page in the **Root certificate** section. This section is only visible if you have selected **Azure certificate** for the authentication type.
 1. Make sure that you exported the root certificate as a **Base-64 encoded X.509 (.CER)** file in the previous steps. You need to export the certificate in this format so you can open the certificate with text editor. You don't need to export the private key.
 
-   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/export-base-64.png" alt-text="Screenshot showing export as Base-64 encoded X.509." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/export-base-64-expand.png" :::
 1. Open the certificate with a text editor, such as Notepad. When copying the certificate data, make sure that you copy the text as one continuous line without carriage returns or line feeds. You may need to modify your view in the text editor to 'Show Symbol/Show all characters' to see the carriage returns and line feeds. Copy only the following section as one continuous line:
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepad-root-cert.png" alt-text="Screenshot showing root certificate information in Notepad." border="false" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepad-root-cert-expand.png":::
+1. Navigate to your **Virtual network gateway -> Point-to-site configuration** page in the **Root certificate** section. This section is only visible if you have selected **Azure certificate** for the authentication type.
 1. In the **Root certificate** section, you can add up to 20 trusted root certificates.
 
    * Paste the certificate data into the **Public certificate data** field.

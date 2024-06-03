@@ -3,19 +3,19 @@ title: Deploy an IPv6 dual stack application in Azure virtual network - Resource
 titlesuffix: Azure Virtual Network
 description: This article shows how to deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network using Azure Resource Manager VM templates.
 services: virtual-network
-author: asudbring
-manager: mtillman
+author: mbender-ms
+manager: kumudD
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 03/31/2020
-ms.author: allensu
+ms.date: 12/04/2023
+ms.author: mbender
 ms.custom: template-how-to, devx-track-arm-template
+ROBOTS: NOINDEX
 ---
 
 # Deploy an IPv6 dual stack application in Azure virtual network - Template
 
-This article provides a list of IPv6 configuration tasks with the portion of the Azure Resource Manager VM template that applies to. Use the template described in this article to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure that includes a dual stack virtual network with IPv4 and IPv6 subnets, a Standard Load Balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs. 
+This article provides a list of IPv6 configuration tasks with the portion of the Azure Resource Manager VM template that applies to. Use the template described in this article to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure that includes a dual stack virtual network with IPv4 and IPv6 subnets, a Standard Load Balancer with dual (IPv4 + IPv6) frontend configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs. 
 
 ## Required configurations
 
@@ -142,7 +142,7 @@ If you're using a network virtual appliance, add IPv6 routes in the Route Table.
               }
 ```
 
-### IPv6 Back-end address pool for Load Balancer
+### IPv6 Backend address pool for Load Balancer
 
 ```JSON
               "backendAddressPool": {

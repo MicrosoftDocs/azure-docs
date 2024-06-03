@@ -5,9 +5,8 @@ description: Overview of the SAP templates
 author: ukchrist
 ms.author: ulrichchrist
 ms.service: data-factory
-ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 05/15/2024
 ---
 
 # SAP templates overview

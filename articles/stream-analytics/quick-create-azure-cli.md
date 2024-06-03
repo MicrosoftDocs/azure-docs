@@ -1,12 +1,10 @@
 ---
 title: Quickstart - Create an Azure Stream Analytics job using the Azure CLI
 description: This quickstart shows how to use the Azure CLI to create an Azure Stream Analytics job.
-services: stream-analytics
 ms.service: stream-analytics
 author: ahartoon
 ms.author: anboisve
 ms.reviewer: jasonh
-ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, mode-api
 ms.date: 02/28/2023
@@ -19,7 +17,7 @@ In this quickstart, you will use Azure CLI to define a Stream Analytics job that
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - Create a resource group. All Azure resources must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 

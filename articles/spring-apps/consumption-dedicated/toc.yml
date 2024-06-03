@@ -1,0 +1,143 @@
+items:
+- name: Azure Spring Apps Standard consumption and dedicated plan documentation
+  href: index.yml
+- name: Documentation for all plans
+  href: ../index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Spring Apps?
+    href: ../enterprise/overview.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: What's new
+    href: ../enterprise/whats-new.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Compare available plans
+    href: ../enterprise/plan-comparison.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Manage costs
+    href: ../enterprise/cost-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Compare Java application hosting options on Azure
+    href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Migrate Spring Boot to Azure Spring Apps
+    href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Migrate Spring Cloud to Azure Spring Apps
+    href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Launch your first app
+    href: ../enterprise/quickstart.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Launch your first web app
+    href: ../enterprise/quickstart-deploy-web-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Launch your first RESTful API app
+    href: ../enterprise/quickstart-deploy-restful-api-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Launch your first event-driven app
+    href: ../enterprise/quickstart-deploy-event-driven-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Authenticate client with Spring Cloud Gateway
+    href: ../enterprise/tutorial-authenticate-client-with-gateway.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+- name: Concepts
+  items:
+  - name: App and deployment
+    href: ../enterprise/concept-understand-app-and-deployment.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Version support for Java, Spring Boot, and more
+    href: ../enterprise/concept-app-customer-responsibilities.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Blue-green deployment strategies
+    href: ../enterprise/concepts-blue-green-deployment-strategies.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Zero downtime deployment
+    href: ../enterprise/concept-zero-downtime-deployment.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Quotas and limits
+    href: ../enterprise/quotas.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Understand app status
+    href: ../enterprise/concept-app-status.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Memory
+    items:
+    - name: Java memory management
+      href: ../enterprise/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+    - name: Tools to troubleshoot memory issues
+      href: ../enterprise/tools-to-troubleshoot-memory-issues.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+    - name: Fix app restart issues caused by OOM
+      href: ../enterprise/how-to-fix-app-restart-issues-caused-by-out-of-memory.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+    - name: Containerize your Java applications
+      href: /azure/developer/java/containers/overview?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Metrics
+    href: ../enterprise/concept-metrics.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Spring Boot Actuator
+    href: ../enterprise/concept-manage-monitor-app-spring-boot-actuator.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Customize Azure Spring Apps egress with a user-defined route
+    href: ../enterprise/concept-outbound-type.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+- name: Security
+  items:
+  - name: Passwordless connection to an Azure database
+    href: /azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Managed identity to connect Key Vault
+    href: ../enterprise/tutorial-managed-identities-key-vault.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Managed identity to invoke Azure Functions
+    href: ../enterprise/tutorial-managed-identities-functions.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Security controls
+    href: ../enterprise/concept-security-controls.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-spring-apps-security-baseline?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Azure Policy Security controls
+    href: ../enterprise/security-controls-policy.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+- name: How-to guides
+  items:
+  - name: Provision a service instance
+    href: quickstart-provision-standard-consumption-service-instance.md
+  - name: Provision in an Azure Container Apps environment with a virtual network
+    href: quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
+  - name: Access apps in a virtual network
+    href: quickstart-access-standard-consumption-within-virtual-network.md
+  - name: Set up autoscale
+    href: quickstart-apps-autoscale-standard-consumption.md
+  - name: Map a custom domain to Azure Spring Apps
+    href: quickstart-standard-consumption-custom-domain.md
+  - name: Analyze logs and metrics
+    href: quickstart-analyze-logs-and-metrics-standard-consumption.md
+  - name: Enable and disable Spring Cloud Config Server
+    href: quickstart-standard-consumption-config-server.md
+  - name: Set up a Config Server
+    href: ../basic-standard/how-to-config-server.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Enable and disable Eureka Server
+    href: quickstart-standard-consumption-eureka-server.md
+  - name: Enable Service Registration
+    href: ../basic-standard/how-to-service-registration.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Use custom persistent storage
+    href: how-to-custom-persistent-storage-with-standard-consumption.md
+  - name: Application Insights using Java In-Process Agent
+    href: ../enterprise/how-to-application-insights.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Use Dynatrace Java OneAgent
+    href: ../basic-standard/how-to-dynatrace-one-agent-monitor.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: New Relic Java in-process agent
+    href: ../basic-standard/how-to-new-relic-monitor.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: AppDynamics in-process agent
+    href: ../basic-standard/how-to-appdynamics-java-agent-monitor.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Customer responsibilities for Standard consumption and dedicated plan in a virtual network
+    href: standard-consumption-customer-responsibilities.md
+- name: Architecture
+  items:
+  - name: Architecture design
+    href: /azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Landing zone accelerator
+    href: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Deploy to multiple regions
+    href: /azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+- name: Reference
+  items:
+  - name: API breaking changes
+    href: ../enterprise/breaking-changes.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Azure CLI plugin
+    href: /cli/azure/spring?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Azure PowerShell
+    href: /powershell/module/az.springcloud?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Azure Pipelines task
+    href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Resources
+    href: ../enterprise/resources.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Frequently asked questions
+    href: ../enterprise/faq.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: REST API reference
+    href: /rest/api/azurespringcloud/?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../enterprise/policy-reference.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json

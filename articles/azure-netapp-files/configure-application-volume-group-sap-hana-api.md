@@ -1,21 +1,14 @@
 ---
-title: Configure application volume groups for SAP HANA REST API | Microsoft Docs
-description: Setting up your application volume groups for the SAP HANA API requires special configurations. 
+title: Configure application volume groups for SAP HANA using REST API
+description: Setting up your application volume groups for the SAP HANA API requires special configurations.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/09/2023
 ms.author: b-ahibbard
 ---
-# Configure application volume groups for the SAP HANA REST API
+# Configure application volume groups for SAP HANA using REST API
 
 Application volume groups (AVG) enable you to deploy all volumes for a single HANA host in one atomic step. The Azure portal and the Azure Resource Manager template have implemented prechecks and recommendations for deployment in areas including throughputs and volume naming conventions. As a REST API user, those checks and recommendations are not available.
 
@@ -54,7 +47,7 @@ The following list describes all the possible volume types for application volum
 
 ## Prepare your environment
 
-1. **Networking:** You need to decide on the networking architecture. To use Azure NetApp Files, you need to create create a VNet that will host a delegated subnet for the Azure NetApp Files storage endpoints (IPs). To ensure that the size of this subnet is large enough, see [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
+1. **Networking:** You need to decide on the networking architecture. To use Azure NetApp Files, you need to create a VNet that will host a delegated subnet for the Azure NetApp Files storage endpoints (IPs). To ensure that the size of this subnet is large enough, see [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
     1.	Create a VNet.
     2.	Create a virtual machine (VM) subnet and delegated subnet for Azure NetApp Files.
 1.	**Storage Account and Capacity Pool:** A storage account is the entry point to consume Azure NetApp Files. At least one storage account needs to be created. Within a storage account, a capacity pool is the logical unit to create volumes. Application volume groups require a capacity pool with a manual QoS. It should be created with a size and service level that meets your HANA requirements.
@@ -103,7 +96,6 @@ The following table describes the request body parameters and group level proper
 | `groupDescription` | Description for the group | Free-form string | 
 | `applicationType` | Application type | Must be "SAP-HANA" |
 | `applicationIdentifier` | Application specific identifier string, following application naming rules | The SAP System ID, which should follow aforementioned naming rules, for example `SH9` | 
-| `deploymentSpecId` | Deployment specification identifier defining the rules to deploy the specific application volume group type | Must be: “20542149-bfca-5618-1879-9863dc6767f1” |
 | `volumes` | Array of volumes to be created (see the next table for volume-granular details) | Volume count depends upon host configuration: <ul><li>Single-host (3-5 volumes) <br /> **Required**: _data_, _log_ and _shared_ <br /> **Optional**: _data-backup_, _log-backup_ </li><li> Multiple-host (two volumes) <br /> **Required**: _data_ and _log_ </li></ul> |
 
 This table describes the request body parameters and volume properties for creating a volume in a SAP HANA application volume group.   
@@ -181,8 +173,7 @@ This example pertains to data, log, shared, data-backup, and log-backup volumes 
             "groupMetaData": {
                 "groupDescription": "Test group for SH9",
                 "applicationType": "SAP-HANA",
-                "applicationIdentifier": "SH9",
-                "deploymentSpecId": "20542149-bfca-5618-1879-9863dc6767f1"
+                "applicationIdentifier": "SH9"
             },
             "volumes": [
                 {
@@ -398,7 +389,6 @@ This example pertains to data, log, shared, data-backup, and log-backup volumes 
       "groupDescription": "Test group for SH9",
       "applicationType": "SAP-HANA",
       "applicationIdentifier": "SH9",
-      "deploymentSpecId": "20542149-bfca-5618-1879-9863dc6767f1",
       "volumesCount": 0
     },
     "volumes": [
@@ -605,8 +595,7 @@ This example is similar to the single-host system request in the earlier example
         "groupMetaData": {
             "groupDescription": "Test group for SH9, host #2",
             "applicationType": "SAP-HANA",
-            "applicationIdentifier": "SH9",
-            "deploymentSpecId": "20542149-bfca-5618-1879-9863dc6767f1"
+            "applicationIdentifier": "SH9"
         },
         "volumes": [
             {
@@ -706,8 +695,7 @@ This example encompasses the creation of data, log, shared, data-backup, and log
         "groupMetaData": {
             "groupDescription": "HSR Secondary: Test group for SH9",
             "applicationType": "SAP-HANA",
-            "applicationIdentifier": "SH9",
-            "deploymentSpecId": "20542149-bfca-5618-1879-9863dc6767f1"
+            "applicationIdentifier": "SH9"
         },
         "volumes": [
             {
@@ -917,8 +905,7 @@ In this example, the following placeholders are specified and should be replaced
         "groupMetaData": {
             "groupDescription": "Data Protection: Test group for SH9",
             "applicationType": "SAP-HANA",
-            "applicationIdentifier": "SH9",
-            "deploymentSpecId": "20542149-bfca-5618-1879-9863dc6767f1"
+            "applicationIdentifier": "SH9"
         },
         "volumes": [
             {

@@ -1,21 +1,22 @@
 ---
-title: Manage server - Azure CLI - Azure Database for PostgreSQL - Flexible Server
-description: Learn how to manage an Azure Database for PostgreSQL - Flexible Server from the Azure CLI.
+title: Manage server - Azure CLI
+description: Learn how to manage an Azure Database for PostgreSQL - Flexible Server instance from the Azure CLI.
+author: gbowerman
+ms.author: guybo
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.custom:
+  - devx-track-azurecli
 ---
 
-# Manage an Azure Database for PostgreSQL - Flexible Server by using the Azure CLI
+# Manage Azure Database for PostgreSQL - Flexible Server by using the Azure CLI
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article shows you how to manage your flexible server deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
+This article shows you how to manage your Azure Database for PostgreSQL flexible server instance deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
 ## Prerequisites
 
@@ -36,9 +37,12 @@ az account set --subscription <subscription id>
 ```
 
 > [!Important]
-> If you haven't created a flexible server yet, you'll need to do so to follow this how-to guide.
+> If you haven't created Azure Database for PostgreSQL flexible server instance yet, you need to do so to follow this how-to guide.
 
 ## Scale compute and storage
+
+> [!IMPORTANT]
+> To scale the storage or compute, you must have at minimum READ permission on the owning resource group. 
 
 You can easily scale up your compute tier, vCores, and storage by using the following command. For a list of all the server operations you can run, see the [az postgres flexible-server](/cli/azure/postgres/flexible-server) overview.
 
@@ -58,9 +62,9 @@ storage-size | 6144 | Enter the storage capacity of the server in megabytes. The
 > [!IMPORTANT]
 > You cannot scale down storage. 
 
-## Manage PostgreSQL databases on a server
+## Manage Azure Database for PostgreSQL flexible server databases on a server
 
-There are a number of applications you can use to connect to your Azure Database for PostgreSQL server. If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html). Let's now use the psql command-line tool to connect to the Azure Database for PostgreSQL server.
+There are a number of applications you can use to connect to your Azure Database for PostgreSQL flexible server instance. If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html). Let's now use the psql command-line tool to connect to the Azure Database for PostgreSQL flexible server instance.
 
 1. Run the following **psql** command:
 
@@ -68,13 +72,13 @@ There are a number of applications you can use to connect to your Azure Database
    psql --host=<servername> --port=<port> --username=<user> --dbname=<dbname>
    ```
 
-   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** through your access credentials. When you're prompted, enter the `<server_admin_password>` that you chose.
+   For example, the following command connects to the default database called **postgres** on your Azure Database for PostgreSQL flexible server instance **mydemoserver.postgres.database.azure.com** through your access credentials. When you're prompted, enter the `<server_admin_password>` that you chose.
   
    ```bash
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
    ```
 
-   After you connect, the psql tool displays a **postgres** prompt where you can enter SQL commands. A warning will appear in the initial connection output if the version of psql you're using is different from the version on the Azure Database for PostgreSQL server.
+   After you connect, the psql tool displays a **postgres** prompt where you can enter SQL commands. A warning will appear in the initial connection output if the version of psql you're using is different from the version on the Azure Database for PostgreSQL flexible server instance.
 
    Example psql output:
 
@@ -109,7 +113,7 @@ There are a number of applications you can use to connect to your Azure Database
 
 4. Type  `\q` and select Enter to quit psql.
 
-In this section, you connected to the Azure Database for PostgreSQL server via psql and created a blank user database.
+In this section, you connected to the Azure Database for PostgreSQL flexible server instance via psql and created a blank user database.
 
 ## Reset the admin password
 
@@ -128,7 +132,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## Delete a server
 
-To delete the Azure Database for PostgreSQL flexible server, run the [az postgres flexible-server delete](/cli/azure/postgres/flexible-server#az-postgresql-flexible-server-delete) command.
+To delete the Azure Database for PostgreSQL flexible server instance, run the [az postgres flexible-server delete](/cli/azure/postgres/flexible-server#az-postgresql-flexible-server-delete) command.
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

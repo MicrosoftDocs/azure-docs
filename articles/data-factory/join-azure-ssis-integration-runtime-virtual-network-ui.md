@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu 
 ---
@@ -24,7 +24,7 @@ Use Azure portal to configure an Azure Resource Manager virtual network before y
 
 1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support ADF UI. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **More services**. Filter for and select **Virtual networks**. 
 
@@ -44,7 +44,7 @@ Use Azure portal to configure a classic virtual network before you try to join y
 
 1. Start Microsoft Edge or Google Chrome. Currently, only these web browsers support ADF UI. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **More services**. Filter for and select **Virtual networks (classic)**. 
 
@@ -144,7 +144,7 @@ After you've configured an Azure Resource Manager/classic virtual network, you c
 
 1. Start your Azure-SSIS IR by selecting the **Start** button in **Actions** column for your Azure-SSIS IR. It takes about 5/20-30 minutes to start your Azure-SSIS IR that joins a virtual network with express/standard injection method, respectively. 
 
-## Next steps
+## Related content
 
 - [Configure a virtual network to inject Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md)
 - [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md)

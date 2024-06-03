@@ -2,9 +2,9 @@
 title: Create an Azure App Configuration store using Bicep
 titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store using Bicep.
-author: mcleanbyron
-ms.author: mcleans
-ms.date: 05/06/2022
+author: maud-lv
+ms.author: malev
+ms.date: 05/30/2024
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
@@ -24,6 +24,13 @@ This quickstart describes how you can use Bicep to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Authorization
+
+Managing an Azure App Configuration resource with Bicep file requires an Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires an Azure Resource Manager role and an additional Azure App Configuration [data plane role](concept-enable-rbac.md) when the configuration store's ARM authentication mode is set to [pass-through](./quickstart-deployment-overview.md#azure-resource-manager-authentication-mode) ARM authentication mode.
+
+> [!IMPORTANT]
+> Configuring ARM authentication mode requires App Configuration control plane API version `2023-08-01-preview` or later.
+
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-configuration-store-kv/).
@@ -35,8 +42,8 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 Two Azure resources are defined in the Bicep file:
 
-- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores): create an App Configuration store.
-- [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues): create a key-value inside the App Configuration store.
+- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/configurationstores): create an App Configuration store.
+- [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/configurationstores/keyvalues): create a key-value inside the App Configuration store.
 
 With this Bicep file, we create one key with two different values, one of which has a unique label.
 

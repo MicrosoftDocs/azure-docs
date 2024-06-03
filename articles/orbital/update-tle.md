@@ -1,16 +1,16 @@
 ---
-title: Update the spacecraft TLE on Azure Orbital Earth Observation service
+title: Azure Orbital Ground Station - update spacecraft TLE
 description: Update the TLE of an existing spacecraft resource.
-author: apoorvanori
+author: hrshelar
 ms.service: orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 12/06/2022
-ms.author: apoorvanori
+ms.author: hrshelar
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
-# Tutorial: Update the spacecraft TLE
+# Update the spacecraft TLE
 
 Update the TLE of an existing spacecraft resource.
 
@@ -24,7 +24,7 @@ Update the TLE of an existing spacecraft resource.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A registered spacecraft. Learn more on how to [register spacecraft](register-spacecraft.md).
 
-## Update the spacecraft TLE
+## Azure portal method
 
 1.	In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
 2.	In the **Spacecraft** page, select the name of the spacecraft for which to update the ephemeris.
@@ -41,7 +41,10 @@ Update the TLE of an existing spacecraft resource.
 
 5. Select the **Submit** button.
 
+## API method
+
+Use the Spacecrafts REST Operation Group to [update a spacecraft's TLE](/rest/api/orbital/azureorbitalgroundstation/spacecrafts/create-or-update/) in the Azure Orbital Ground Station API.
+
 ## Next steps
 
-- [Tutorial: Schedule a contact](schedule-contact.md)
-- [Tutorial: Cancel a scheduled contact](delete-contact.md)
+- [Schedule a contact](schedule-contact.md)

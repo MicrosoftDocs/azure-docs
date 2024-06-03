@@ -1,12 +1,11 @@
 ---
 title: 'Quickstart: Create and configure Route Server - Azure PowerShell'
 description: In this quickstart, you learn how to create and configure an Azure Route Server using Azure PowerShell.
-services: route-server
 author: halkazwini
 ms.author: halkazwini
-ms.date: 04/06/2023
-ms.topic: quickstart
 ms.service: route-server
+ms.topic: quickstart
+ms.date: 08/11/2023
 ms.custom: template-quickstart, devx-track-azurepowershell, mode-api, engagement-fy23
 ---
 
@@ -14,7 +13,7 @@ ms.custom: template-quickstart, devx-track-azurepowershell, mode-api, engagement
 
 This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server learns routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server also advertises the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
 
-:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." border="false":::
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." lightbox="media/quickstart-configure-route-server-portal/environment-diagram.png":::
 
 [!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
@@ -145,6 +144,8 @@ RouteServerIps : {10.5.10.4, 10.5.10.5}
 If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual network, you can enable *BranchToBranchTraffic* to exchange routes between the gateway and the Route Server.
 
 [!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
+
+[!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
 
 1. To enable route exchange between Azure Route Server and the gateway(s), use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver) with the *-AllowBranchToBranchTraffic* flag:
 

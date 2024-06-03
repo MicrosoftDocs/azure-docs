@@ -1,10 +1,10 @@
 ---
 title: Overview - Azure Database for MySQL single server
 description: Learn about the Azure Database for MySQL single server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
-author: savjani
+author: sudheeshgh
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
-ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 06/20/2022
@@ -63,7 +63,7 @@ Single Server uses the FIPS 140-2 validated cryptographic module for storage enc
 
 The service allows private access to the servers using [private link](concepts-data-access-security-private-link.md) and offers threat protection through the optional [Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md) plan. Microsoft Defender for open-source relational databases detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-In addition to native authentication, Single Server supports [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) authentication. Azure AD authentication is a mechanism of connecting to the MySQL servers using identities defined and managed in Azure AD. With Azure AD authentication, you can manage database user identities and other Azure services in a central location, which simplifies and centralizes access control.
+In addition to native authentication, Single Server supports [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) authentication. Microsoft Entra authentication is a mechanism of connecting to the MySQL servers using identities defined and managed in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Azure services in a central location, which simplifies and centralizes access control.
 
 [Audit logging](concepts-audit-logs.md) is available to track all database level activity. 
 
@@ -83,11 +83,9 @@ The service runs community version of MySQL. This allows full application compat
 - **Azure Database Migration Service** – For seamless and simplified offline migrations to single server with high speed data migration, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md) can be leveraged. 
 - **Data-in replication** – For minimal downtime migrations, data-in replication, which relies on binlog based replication can also be leveraged. Data-in replication is preferred for minimal downtime migrations by hands-on experts looking for more control over migration. See [data-in replication](concepts-data-in-replication.md) for details.
 
-## Contacts
+## Feedback and support
 
-For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.
-
-In addition, consider the following points of contact as appropriate:
+For any questions or suggestions you might have about working with Azure Database for MySQL flexible server, consider the following points of contact:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.

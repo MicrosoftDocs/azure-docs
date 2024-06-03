@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Automated validation testing
 
-As part of each commit that builds up Arc-enabled data services, Microsoft runs automated CI/CD pipelines that perform end-to-end tests. These tests are orchestrated via two containers that are maintained alongside the core-product (Data Controller, Azure Arc-enabled SQL Managed Instance & PostgreSQL server). These containers are:
+As part of each commit that builds up Arc-enabled data services, Microsoft runs automated CI/CD pipelines that perform end-to-end tests. These tests are orchestrated via two containers that are maintained alongside the core-product (Data Controller, SQL Managed Instance enabled by Azure Arc & PostgreSQL server). These containers are:
 
 - `arc-ci-launcher`: Containing deployment dependencies (for example, CLI extensions), as well product deployment code (using Azure CLI) for both Direct and Indirect connectivity modes. Once Kubernetes is onboarded with the Data Controller, the container leverages [Sonobuoy](https://sonobuoy.io/) to trigger parallel integration tests.
 -  `arc-sb-plugin`: A [Sonobuoy plugin](https://sonobuoy.io/plugins/) containing [Pytest](https://docs.pytest.org/en/7.1.x/)-based end-to-end integration tests, ranging from simple smoke-tests (deployments, deletes), to complex high-availability scenarios, chaos-tests (resource deletions) etc.
@@ -105,7 +105,7 @@ There are two files that need to be generated to localize the launcher to run in
 * `patch.json`: fill out from `patch.json.tmpl`
 
 > [!TIP]
-> The `.test.env` is a single set of of environment variables that drives the launcher's behavior. Generating it with care for a given environment will ensure reproducibility of the launcher's behavior.
+> The `.test.env` is a single set of environment variables that drives the launcher's behavior. Generating it with care for a given environment will ensure reproducibility of the launcher's behavior.
 
 ### Config 1: `.test.env`
 
@@ -247,13 +247,15 @@ export ARC_DATASERVICES_WHL_OVERRIDE="https://azurearcdatacli.blob.core.windows.
 ```
 The CLI version to Blob URL mapping can be found [here](https://azcliextensionsync.blob.core.windows.net/index1/index.json).
 
-##### 3. `CUSTOM_LOCATION_OID` - Custom Locations Object ID from your specific Azure AD Tenant
+<a name='3-custom_location_oid---custom-locations-object-id-from-your-specific-azure-ad-tenant'></a>
+
+##### 3. `CUSTOM_LOCATION_OID` - Custom Locations Object ID from your specific Microsoft Entra tenant
 
 > Mandatory: this is required for Connected Cluster Custom Location creation.
 
-The following steps are sourced from [Enable custom locations on your cluster](../kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster) to retrieve the unique Custom Location Object ID for your Azure AD tenant.
+The following steps are sourced from [Enable custom locations on your cluster](../kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster) to retrieve the unique Custom Location Object ID for your Microsoft Entra tenant.
 
-There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure AD tenant.
+There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Microsoft Entra tenant.
 
 1. Via Azure CLI:
 
@@ -264,7 +266,7 @@ There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure A
 
     ![A screenshot of a PowerShell terminal that shows `az ad sp show --id <>`.](media/automated-integration-testing/custom-location-oid-cli.png)
 
-2. Via Azure portal - navigate to your Azure Active Directory blade, and search for `Custom Locations RP`:
+2. Via Azure portal - navigate to your Microsoft Entra blade, and search for `Custom Locations RP`:
 
     ![A screenshot of the custom locations RP.](media/automated-integration-testing/custom-location-oid-portal.png)
 
@@ -497,7 +499,7 @@ kubectl delete -k arc_data_services/test/launcher/overlays/aks
 
 This cleans up the resource manifests deployed as part of the launcher.
 
-## Next steps
+## Related content
 
 > [!div class="nextstepaction"]
 > [Pre-release testing](preview-testing.md)

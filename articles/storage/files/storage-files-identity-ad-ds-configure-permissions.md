@@ -1,28 +1,28 @@
 ---
-title: Control what a user can do at the directory and file level - Azure Files
-description: Learn how to configure Windows ACLs for directory and file level permissions for Active Directory authentication to Azure file shares, allowing you to take advantage of granular access control.
+title: Configure directory and file level permissions for Azure Files
+description: Learn how to configure Windows ACLs for directory and file level permissions for Active Directory (AD) authentication to Azure file shares over SMB for granular access control.
 author: khdownie
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
 ---
 
-# Configure directory and file-level permissions over SMB
+# Configure directory and file-level permissions for Azure file shares
 
 Before you begin this article, make sure you've read [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md) to ensure that your share-level permissions are in place with Azure role-based access control (RBAC).
 
 After you assign share-level permissions, you can configure Windows access control lists (ACLs), also known as NTFS permissions, at the root, directory, or file level. While share-level permissions act as a high-level gatekeeper that determines whether a user can access the share, Windows ACLs operate at a more granular level to control what operations the user can do at the directory or file level.
 
-Both share-level and file/directory-level permissions are enforced when a user attempts to access a file/directory, so if there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
+Both share-level and file/directory-level permissions are enforced when a user attempts to access a file/directory. If there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
 > [!IMPORTANT]
-> To configure Windows ACLs, you'll need a client machine running Windows that has line-of-sight to the domain controller. If you're authenticating with Azure Files using Active Directory Domain Services (AD DS) or Azure Active Directory Kerberos (Azure AD Kerberos) for hybrid identities, this means you'll need line-of-sight to the on-premises AD. If you're using Azure Active Directory Domain Services (Azure AD DS), then the client machine must have line-of-sight to the domain controllers for the domain that's managed by Azure AD DS, which are located in Azure.
+> To configure Windows ACLs, you'll need a client machine running Windows that has unimpeded network connectivity to the domain controller. If you're authenticating with Azure Files using Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos for hybrid identities, this means you'll need unimpeded network connectivity to the on-premises AD. If you're using Microsoft Entra Domain Services, then the client machine must have unimpeded network connectivity to the domain controllers for the domain that's managed by Microsoft Entra Domain Services, which are located in Azure.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -76,12 +76,15 @@ For more information on these advanced permissions, see [the command-line refere
 
 There are two approaches you can take to configuring and editing Windows ACLs:
 
-- **Log in with username and storage account key every time**: Anytime you want to configure ACLs, mount the file share by using your storage account key on a machine that has line-of-sight to the domain controller.
+- **Log in with username and storage account key every time**: Anytime you want to configure ACLs, mount the file share by using your storage account key on a machine that has unimpeded network connectivity to the domain controller.
 
 - **One-time username/storage account key setup:**
-  1. Log in with a username and storage account key on a machine that has line-of-sight to the domain controller, and give some users (or groups) permission to edit permissions on the root of the file share.
+> [!NOTE]
+> This setup works for newly created file shares because any new file/directory will inherit the configured root permission. For file shares migrated along with existing ACLs, or if you migrate any on premises file/directory with existing permissions in a new fileshare, this approach might not work because the migrated files don't inherit the configured root ACL.
+
+  1. Log in with a username and storage account key on a machine that has unimpeded network connectivity to the domain controller, and give some users (or groups) permission to edit permissions on the root of the file share.
   2. Assign those users the **Storage File Data SMB Share Elevated Contributor** Azure RBAC role.
-  3. In the future, anytime you want to update ACLs, you can use one of those authorized users to log in from a machine that has line-of-sight to the domain controller and edit ACLs.
+  3. In the future, anytime you want to update ACLs, you can use one of those authorized users to log in from a machine that has unimpeded network connectivity to the domain controller and edit ACLs.
 
 ## Mount the file share using your storage account key
 
@@ -90,7 +93,7 @@ Before you configure Windows ACLs, you must first mount the file share by using 
 It's important that you use the `net use` Windows command to mount the share at this stage and not PowerShell. If you use PowerShell to mount the share, then the share won't be visible to Windows File Explorer or cmd.exe, and you'll have difficulty configuring Windows ACLs.
 
 > [!NOTE]
-> You might see the **Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file/directory level), this is restricted. Only users who have the **SMB Elevated Contributor** role and create a new file or directory can assign permissions on those new files or directories without using the storage account key. All other file/directory permission assignment requires connecting to the share using the storage account key first.
+> You might see the **Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file/directory level), this is restricted. Only users who have the **Storage File Data SMB Share Elevated Contributor** role and create a new file or directory can assign permissions on those new files or directories without using the storage account key. All other file/directory permission assignment requires connecting to the share using the storage account key first.
 
 ```
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:localhost\<YourStorageAccountName> <YourStorageAccountKey>
@@ -128,6 +131,6 @@ If you're logged on to a domain-joined Windows client, you can use Windows File 
 1. In the **Security** tab, select all permissions you want to grant your new user.
 1. Select **Apply**.
 
-## Next steps
+## Next step
 
-Now that the feature is enabled and configured, you can [mount a file share from a domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md).
+Now that you've enabled and configured identity-based authentication with AD DS, you can [mount a file share](storage-files-identity-ad-ds-mount-file-share.md).

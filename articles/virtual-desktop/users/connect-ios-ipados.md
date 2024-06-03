@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop with the Remote Desktop client for iOS a
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client for iOS and iPadOS.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 03/19/2024
 ms.author: daknappe
 ---
 
@@ -21,7 +21,7 @@ Before you can access your resources, you'll need to meet the following prerequi
 
 - Internet access.
 
-- An iPhone running iOS 15 or later or an iPad running iPadOS 15 or later.
+- An iPhone running iOS 16 or later or an iPad running iPadOS 16 or later.
 
 - Download and install the Remote Desktop client from the [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092).
 
@@ -41,8 +41,8 @@ A workspace combines all the desktops and applications that have been made avail
    | Azure environment | Workspace URL |
    |--|--|
    | Azure cloud *(most common)* | `https://rdweb.wvd.microsoft.com` |
-   | Azure US Gov | `https://rdweb.wvd.azure.us/api/arm/feeddiscovery` |
-   | Azure China 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
+   | Azure for US Government | `https://rdweb.wvd.azure.us/api/arm/feeddiscovery` |
+   | Azure operated by 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
 
 1. Tap **Next**.
 

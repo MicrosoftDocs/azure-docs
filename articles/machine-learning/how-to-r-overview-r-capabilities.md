@@ -14,7 +14,7 @@ ms.devlang: r
 
 # Bring your R workloads
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 There's no Azure Machine Learning SDK for R.  Instead, you'll use either the CLI or a Python control script to run your R scripts.  
 

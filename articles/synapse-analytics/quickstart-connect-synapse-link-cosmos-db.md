@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 04/21/2020
 ms.author: rosouz
 ms.reviewer: sngun
-ms.custom: cosmos-db, mode-other, ignite-2022
+ms.custom: cosmos-db, mode-other
 ---
 
 # Quickstart: Connect to Azure Synapse Link for Azure Cosmos DB
@@ -19,7 +19,7 @@ This article describes how to access an Azure Cosmos DB database from Azure Syna
 
 Before you connect an Azure Cosmos DB account to your workspace, there are a few things that you need.
 
-* Existing Azure Cosmos DB account or create a new account following this [quickstart](../cosmos-db/how-to-manage-database-account.md)
+* Existing Azure Cosmos DB account or create a new account following this [quickstart](../cosmos-db/how-to-manage-database-account.yml)
 * Existing Synapse workspace or create a new workspace following this [quickstart](./quickstart-create-workspace.md) 
 
 ## Enable Azure Cosmos DB analytical store

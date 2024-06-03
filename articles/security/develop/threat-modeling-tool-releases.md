@@ -3,16 +3,9 @@ title: Microsoft Threat Modeling Tool release notes
 titleSuffix: Azure
 description: Read the release notes for all updates of the Microsoft Threat Modeling Tool. See a download link and system requirements.
 services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-
-ms.assetid: na
 ms.service: information-protection
 ms.subservice: aiplabels
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: jegeib
@@ -34,6 +27,10 @@ The Microsoft Threat Modeling Tool is currently released as a free [click-to-dow
 
 ## Release Notes
 
+- [Microsoft Threat Modeling Tool GA Release Version 7.3.31026.3](threat-modeling-tool-releases-73310263.md) - October 26 2023
+- [Microsoft Threat Modeling Tool GA Release Version 7.3.30925.1](threat-modeling-tool-releases-73309251.md) - September 25 2023
+- [Microsoft Threat Modeling Tool GA Release Version 7.3.30829.1](threat-modeling-tool-releases-73308291.md) - August 30 2023
+- [Microsoft Threat Modeling Tool GA Release Version 7.3.30630.5](threat-modeling-tool-releases-73306305.md) - June 30 2023
 - [Microsoft Threat Modeling Tool GA Release Version 7.3.21108.2](threat-modeling-tool-releases-73211082.md) - November 8 2022
 - [Microsoft Threat Modeling Tool GA Release Version 7.3.20927.9](threat-modeling-tool-releases-73209279.md) - September 27 2022
 - [Microsoft Threat Modeling Tool GA Release Version 7.3.00729.1](threat-modeling-tool-releases-73007291.md) - July 29 2020

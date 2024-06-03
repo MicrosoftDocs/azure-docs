@@ -24,6 +24,9 @@ In this tutorial, you learn how to:
 > * Mount the storage share in an individual container
 > * Verify the storage mount by viewing the website access log
 
+> [!NOTE]
+> Azure Container Apps supports mounting file shares using SMB and NFS protocols. This tutorial demonstrates mounting an Azure Files share using the SMB protocol. To learn more about mounting NFS shares, see [Use storage mounts in Azure Container Apps](storage-mounts.md).
+
 ## Prerequisites
 
 - Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli).

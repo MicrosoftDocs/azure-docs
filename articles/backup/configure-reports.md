@@ -1,13 +1,16 @@
 ---
 title: Configure Azure Backup reports
 description: Configure and view reports for Azure Backup by using Log Analytics and Azure workbooks
-ms.topic: conceptual
-ms.date: 04/18/2023
+ms.topic: how-to
+ms.date: 04/25/2024
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 # Configure Azure Backup reports
+
+This article describes how to configure and view Azure Backup reports.
 
 A common requirement for backup admins is to obtain insights on backups based on data that spans a long period of time. Use cases for such a solution include:
 
@@ -15,7 +18,7 @@ A common requirement for backup admins is to obtain insights on backups based on
 - Auditing of backups and restores.
 - Identifying key trends at different levels of granularity.
 
-Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
+Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md). These resources help you get rich insights on your backups across your entire backup estate.
 
 ## Supported scenarios
 
@@ -34,7 +37,7 @@ Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs]
 
 ## Get started
 
-Follow these steps to start using the reports.
+To start using the reports, follow these steps:
 
 ### 1. Create a Log Analytics workspace or use an existing one
 
@@ -87,13 +90,13 @@ Use this tab to get a high-level overview of your backup estate. You can get a q
 
 Use this tab to see information and trends on cloud storage consumed at a Backup-item level. For example, if you use SQL in an Azure VM backup, you can see the cloud storage consumed for each SQL database that's being backed up. You can also choose to see data for backup items of a particular protection status. For example, selecting the **Protection Stopped** tile at the top of the tab filters all the widgets underneath to show data only for Backup items in the Protection Stopped state.
 
-   ![Backup Items tab](./media/backup-azure-configure-backup-reports/backup-items.png)
+   :::image type="content" source="./media/backup-azure-configure-backup-reports/backup-items.png" alt-text="Screenshot shows the Backup Items tab." lightbox="./media/backup-azure-configure-backup-reports/backup-items.png":::
 
 ##### Usage
 
 Use this tab to view key billing parameters for your backups. The information shown on this tab is at a billing entity (protected container) level. For example, if a DPM server is being backed up to Azure, you can view the trend of protected instances and cloud storage consumed for the DPM server. Similarly, if you use SQL in Azure Backup or SAP HANA in Azure Backup, this tab gives you usage-related information at the level of the virtual machine in which these databases are contained.
 
-   ![Usage tab](./media/backup-azure-configure-backup-reports/usage.png)
+   :::image type="content" source="./media/backup-azure-configure-backup-reports/usage.png" alt-text="Screenshot shows the Usage tab." lightbox="./media/backup-azure-configure-backup-reports/usage.png":::
 
 > [!NOTE]
 >- For Azure File, Azure Blob and Azure Disk workloads, storage consumed shows as *zero*. This is because field refers to the storage consumed in the vault, and for Azure File, Azure Blob, and Azure Disk; only the snapshot-based backup solution is currently supported in the reports.
@@ -103,7 +106,7 @@ Use this tab to view key billing parameters for your backups. The information sh
 
 Use this tab to view long-running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. You can view this information at both an aggregate level and at a Backup-item level. Select a particular Backup item in a grid to view detailed information on each job that was triggered on that Backup item in the selected time range.
 
-   ![Jobs tab](./media/backup-azure-configure-backup-reports/jobs.png)
+   :::image type="content" source="./media/backup-azure-configure-backup-reports/jobs.png" alt-text="Screenshot shows the Jobs tab." lightbox="./media/backup-azure-configure-backup-reports/jobs.png":::
 
 > [!NOTE]
 > For Azure Database for PostgreSQL, Azure Blob, and Azure Disk workloads, data transferred field is currently not available in the *Jobs* table.
@@ -112,7 +115,7 @@ Use this tab to view long-running trends on jobs, such as the number of failed j
 
 Use this tab to view information on all of your active policies, such as the number of associated items and the total cloud storage consumed by items backed up under a given policy. Select a particular policy to view information on each of its associated Backup items.
 
-   ![Policies tab](./media/backup-azure-configure-backup-reports/policies.png)
+   :::image type="content" source="./media/backup-azure-configure-backup-reports/policies.png" alt-text="Screenshot shows the Policies tab." lightbox="./media/backup-azure-configure-backup-reports/policies.png":::
 
 ##### Optimize
 
@@ -126,7 +129,7 @@ To view inactive resources, navigate to the **Optimize** tab, and select the **I
 
 Once you've identified an inactive resource, you can investigate the issue further by navigating to the backup item dashboard or the Azure resource pane for that resource (wherever applicable). Depending on your scenario, you can choose to either stop backup for the machine (if it doesn't exist anymore) and delete unnecessary backups, which save costs, or you can fix issues in the machine to ensure that backups are taken reliably.
 
-![Optimize tab - Inactive Resources](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
+:::image type="content" source="./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png" alt-text="Screenshot shows the Optimize tab - Inactive Resources." lightbox="./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png":::
 
 > [!NOTE]
 > For Azure Database for PostgreSQL, Azure Blob, and Azure Disk workloads, Inactive Resources view is currently not supported.
@@ -139,7 +142,7 @@ Selecting the **Policy Optimizations** tile followed by the **Retention Optimiza
 
 For database workloads like SQL and SAP HANA, the retention periods shown in the grid correspond to the retention periods of the full backup points and not the differential backup points. The same applies for the retention filters as well.  
 
-![Optimize tab - Retention Optimizations](./media/backup-azure-configure-backup-reports/optimize-retention.png)
+:::image type="content" source="./media/backup-azure-configure-backup-reports/optimize-retention.png" alt-text="Screenshot shows the Optimize tab - Retention Optimizations." lightbox="./media/backup-azure-configure-backup-reports/optimize-retention.png":::
 
 > [!NOTE]
 > For backup instances that are using the vault-standard tier, the Retention Optimizations grid takes into consideration the retention duration in the vault-standard tier. For backup instances that aren't using the vault tier (for example, items protected by Azure Disk Backup solution), the grid takes into consideration the snapshot tier retention.
@@ -152,7 +155,7 @@ Selecting the **Policy Optimizations** tile followed by the **Backup Schedule Op
 
 The **Backup Management Type** filter at the top of the tab should have the items **SQL in Azure VM** and **SAP HANA in Azure VM** selected, for the grid to be able to display database workloads as expected.
 
-![Optimize tab - Backup Schedule Optimizations](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
+:::image type="content" source="./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png" alt-text="Screenshot shows the Optimize tab - Backup Schedule Optimizations." lightbox="./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png":::
 
 ###### Policy adherence
 
@@ -164,11 +167,11 @@ There are two types of policy adherence views available:
 
 In the case of items backed up weekly, this grid helps you identify all items that have had at least one successful backup in the given week. For a larger time range, such as the last 120 days, the grid is rendered in monthly view, and displays the count of all items that have had at least one successful backup in every week in the given month. Refer [Conventions used in Backup Reports](#conventions-used-in-backup-reports) for more details around daily, weekly and monthly views.
 
-![Policy Adherence By Time Period](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
+:::image type="content" source="./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png" alt-text="Screenshot shows the Policy Adherence By Time Period." lightbox="./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png":::
 
 * **Policy Adherence by Backup Instance**: Using this view, you can view policy adherence details at a backup instance level. A cell which is green denotes that the backup instance had at least one successful backup on the given day. A cell which is red denotes that the backup instance did not have even one successful backup on the given day. Daily, weekly and monthly aggregations follow the same behavior as the Policy Adherence by Time Period view. You can click on any row to view all backup jobs on the given backup instance in the selected time range.
 
-![Policy Adherence By Backup Instance](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
+:::image type="content" source="./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png" alt-text="Screenshot shows the policy adherence by backup instance." lightbox="./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png":::
 
 ###### Email Azure Backup reports
 
@@ -192,7 +195,7 @@ Select the pin button at the top of each widget to pin the widget to your Azure 
 
 ## Cross-tenant reports
 
-If you use [Azure Lighthouse](../lighthouse/index.yml) with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. Select the filter button in the upper-right corner of the Azure portal to choose all the subscriptions for which you want to see data. Doing so lets you select Log Analytics workspaces across your tenants to view multitenanted reports.
+If you use [Azure Lighthouse](../lighthouse/index.yml) with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. Select the filter button in the upper-right corner of the Azure portal to choose all the subscriptions for which you want to see data. Doing so lets you select Log Analytics workspaces across your tenants to view multi-tenanted reports.
 
 ## Conventions used in Backup reports
 

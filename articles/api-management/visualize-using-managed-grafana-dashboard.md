@@ -6,10 +6,11 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 10/17/2022
 ms.author: danlep
-ms.custom: 
 ---
 
 # Visualize API Management monitoring data using a Managed Grafana dashboard
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 You can use [Azure Managed Grafana](../managed-grafana/index.yml) to visualize API Management monitoring data that is collected into a Log Analytics workspace. Use a prebuilt [API Management dashboard](https://grafana.com/grafana/dashboards/16604-azure-api-management) for real-time visualization of logs and metrics collected from your API Management instance.
 
@@ -33,7 +34,7 @@ You can use [Azure Managed Grafana](../managed-grafana/index.yml) to visualize A
 
     * The Managed Grafana instance must be in the same subscription as the API Management instance.
     
-    * When created, the Grafana workspace is automatically assigned an Azure Active Directory managed identity, which is assigned the Monitor Reader role on the subscription. This gives you immediate access to Azure Monitor from the new Grafana workspace without needing to set permissions manually. Learn more about [configuring data sources](../managed-grafana/how-to-data-source-plugins-managed-identity.md) for Managed Grafana.
+    * When created, the Grafana workspace is automatically assigned a Microsoft Entra managed identity, which is assigned the Monitor Reader role on the subscription. This gives you immediate access to Azure Monitor from the new Grafana workspace without needing to set permissions manually. Learn more about [configuring data sources](../managed-grafana/how-to-data-source-plugins-managed-identity.md) for Managed Grafana.
 
     
 ## Import API Management dashboard
@@ -60,7 +61,3 @@ Review the default visualizations on the dashboard, which will appear similar to
 
 * For more information about managing your Grafana dashboard, see the [Grafana docs](https://grafana.com/docs/grafana/v9.0/dashboards/).
 * Easily pin log queries and charts from the Azure portal to your Managed Grafana dashboard. For more information, see [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana).
-
-
-
-

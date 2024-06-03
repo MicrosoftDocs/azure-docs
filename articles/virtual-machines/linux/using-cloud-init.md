@@ -1,17 +1,19 @@
 ---
-title: Overview of cloud-init support for Linux VMs in Azure 
+title: Overview of cloud-init support for Linux VMs in Azure
 description: Overview of cloud-init capabilities to configure a VM at provisioning time in Azure.
 author: srijang
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: linux-related-content
 ms.collection: linux
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/21/2022
 ms.author: srijangupta
-
 ---
 # cloud-init support for virtual machines in Azure
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 

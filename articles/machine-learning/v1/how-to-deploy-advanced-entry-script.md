@@ -1,34 +1,34 @@
 ---
-title: Author entry script for advanced scenarios
-titleSuffix: Azure Machine Learning entry script authoring
+title: Entry script authoring for advanced scenarios
+titleSuffix: Azure Machine Learning
 description: Learn how to write Azure Machine Learning entry scripts for pre- and post-processing during deployment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 03/12/2024
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, sdkv1
 ---
 
 # Advanced entry script authoring
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-This article shows how to write entry scripts for specialized use cases.
+This article explains how to write entry scripts for specialized use cases.
 
 ## Prerequisites
 
-This article assumes you already have a trained machine learning model that you intend to deploy with Azure Machine Learning. To learn more about model deployment, see [How to deploy and where](how-to-deploy-and-where.md).
+This article assumes you already have a trained machine learning model that you intend to deploy with Azure Machine Learning. To learn more about model deployment, see [Deploy machine learning models to Azure](how-to-deploy-and-where.md).
 
 ## Automatically generate a Swagger schema
 
-To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects. The type and sample are used to automatically create the schema. Azure Machine Learning then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment. 
+To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects. The type and sample are used to automatically create the schema. Azure Machine Learning then creates an [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly, Swagger specification) for the web service during deployment.
 
 > [!WARNING]
-> You must not use sensitive or private data for sample input or output. The Swagger page for AML-hosted inferencing exposes the sample data. 
+> You must not use sensitive or private data for sample input or output. The Swagger page for AML-hosted inferencing exposes the sample data.
 
 These types are currently supported:
 
@@ -37,18 +37,16 @@ These types are currently supported:
 * `pyspark`
 * Standard Python object
 
-To use schema generation, include the open-source `inference-schema` package version 1.1.0 or above in your dependencies file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). In order to generate conforming swagger for automated web service consumption, scoring script run() function must have API shape of:
-* A first parameter of type "StandardPythonParameterType", named **Inputs** and nested.
-* An optional second parameter of type "StandardPythonParameterType", named **GlobalParameters**.
-* Return a dictionary of type "StandardPythonParameterType" named **Results** and nested.
+To use schema generation, include the open-source `inference-schema` package version 1.1.0 or above in your dependencies file. For more information on this package, see [InferenceSchema on GitHub](https://github.com/Azure/InferenceSchema). In order to generate conforming Swagger for automated web service consumption, scoring script run() function must have API shape of:
+* A first parameter of type `StandardPythonParameterType`, named *Inputs* and nested
+* An optional second parameter of type `StandardPythonParameterType`, named *GlobalParameters*
+* Return a dictionary of type `StandardPythonParameterType`, named *Results* and nested
 
 Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
 
+## Power BI compatible endpoint
 
-
-## Power BI compatible endpoint 
-
-The following example demonstrates how to define API shape according to above instruction. This method is supported for consuming the deployed web service from Power BI. ([Learn more about how to consume the web service from Power BI](/power-bi/service-machine-learning-integration).)
+The following example demonstrates how to define API shape according to preceding instruction. This method is supported for consuming the deployed web service from Power BI.
 
 ```python
 import json
@@ -122,7 +120,7 @@ def run(Inputs, GlobalParameters):
 
 ## <a id="binary-data"></a> Binary (that is, image) data
 
-If your model accepts binary data, like an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. To accept raw data, use the `AMLRequest` class in your entry script and add the `@rawhttp` decorator to the `run()` function.
+If your model accepts binary data, like an image, you must modify the *score.py* file used for your deployment to accept raw HTTP requests. To accept raw data, use the `AMLRequest` class in your entry script and add the `@rawhttp` decorator to the `run()` function.
 
 Here's an example of a `score.py` that accepts binary data:
 
@@ -157,7 +155,6 @@ def run(request):
         return AMLResponse("bad request", 500)
 ```
 
-
 > [!IMPORTANT]
 > The `AMLRequest` class is in the `azureml.contrib` namespace. Entities in this namespace change frequently as we work to improve the service. Anything in this namespace should be considered a preview that's not fully supported by Microsoft.
 >
@@ -168,13 +165,12 @@ def run(request):
 > ```
 
 > [!NOTE]
-> 500 is not recommended as a customed status code, as at azureml-fe side, the status code will be rewritten to 502.
->   * The status code will be passed through the azureml-fe then sent to client.
->   * The azureml-fe will only rewrite the 500 returned from the model side to be 502,  the client will receive 502.
->   * But if the azureml-fe itself returns 500, client side will still receive 500.
+> *500* is not recommended as a customed status code, as at azureml-fe side, the status code will be rewritten to *502*.
+>   * The status code is passed through the azureml-fe, then sent to client.
+>   * The azureml-fe only rewrites the 500 returned from the model side to be 502, the client receives 502.
+>   * But if the azureml-fe itself returns 500, client side still receives 500.
 
-
-The `AMLRequest` class only allows you to access the raw posted data in the score.py, there's no client-side component. From a client, you post data as normal. For example, the following Python code reads an image file and posts the data:
+The `AMLRequest` class only allows you to access the raw posted data in the *score.py* file, there's no client-side component. From a client, you post data as normal. For example, the following Python code reads an image file and posts the data:
 
 ```python
 import requests
@@ -250,23 +246,21 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-
 > [!WARNING]
-> Azure Machine Learning will route only POST and GET requests to the containers running the scoring service. This can cause errors due to browsers using OPTIONS requests to pre-flight CORS requests.
-> 
-
+> Azure Machine Learning only routes POST and GET requests to the containers running the scoring service. This can cause errors due to browsers using OPTIONS requests to pre-flight CORS requests.
+>
 
 ## Load registered models
 
 There are two ways to locate models in your entry script:
-* `AZUREML_MODEL_DIR`: An environment variable containing the path to the model location.
-* `Model.get_model_path`: An API that returns the path to model file using the registered model name.
+* `AZUREML_MODEL_DIR`: An environment variable containing the path to the model location
+* `Model.get_model_path`: An API that returns the path to model file using the registered model name
 
 #### AZUREML_MODEL_DIR
 
-AZUREML_MODEL_DIR is an environment variable created during service deployment. You can use this environment variable to find the location of the deployed model(s).
+`AZUREML_MODEL_DIR` is an environment variable created during service deployment. You can use this environment variable to find the location of the deployed model(s).
 
-The following table describes the value of AZUREML_MODEL_DIR depending on the number of models deployed:
+The following table describes the value of `AZUREML_MODEL_DIR` depending on the number of models deployed:
 
 | Deployment | Environment variable value |
 | ----- | ----- |
@@ -290,8 +284,8 @@ file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'skl
 
 In this scenario, two models are registered with the workspace:
 
-* `my_first_model`: Contains one file (`my_first_model.pkl`) and there's only one version (`1`).
-* `my_second_model`: Contains one file (`my_second_model.pkl`) and there are two versions; `1` and `2`.
+* `my_first_model`: Contains one file (`my_first_model.pkl`) and there's only one version, `1`
+* `my_second_model`: Contains one file (`my_second_model.pkl`) and there are two versions, `1` and `2`
 
 When the service was deployed, both models are provided in the deploy operation:
 
@@ -301,11 +295,9 @@ second_model = Model(ws, name="my_second_model", version=2)
 service = Model.deploy(ws, "myservice", [first_model, second_model], inference_config, deployment_config)
 ```
 
-In the Docker image that hosts the service, the `AZUREML_MODEL_DIR` environment variable contains the directory where the models are located.
-In this directory, each of the models is located in a directory path of `MODEL_NAME/VERSION`. Where `MODEL_NAME` is the name of the registered model, and `VERSION` is the version of the model. The files that make up the registered model are stored in these directories.
+In the Docker image that hosts the service, the `AZUREML_MODEL_DIR` environment variable contains the directory where the models are located. In this directory, each of the models is located in a directory path of `MODEL_NAME/VERSION`. Where `MODEL_NAME` is the name of the registered model, and `VERSION` is the version of the model. The files that make up the registered model are stored in these directories.
 
 In this example, the paths would be `$AZUREML_MODEL_DIR/my_first_model/1/my_first_model.pkl` and `$AZUREML_MODEL_DIR/my_second_model/2/my_second_model.pkl`.
-
 
 ```python
 # Example when the model is a file, and the deployment contains multiple models
@@ -319,13 +311,13 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### get_model_path
 
-When you register a model, you provide a model name that's used for managing the model in the registry. You use this name with the [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) method to retrieve the path of the model file or files on the local file system. If you register a folder or a collection of files, this API returns the path of the directory that contains those files.
+When you register a model, you provide a model name that's used for managing the model in the registry. You use this name with the [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#azureml-core-model-model-get-model-path) method to retrieve the path of the model file or files on the local file system. If you register a folder or a collection of files, this API returns the path of the directory that contains those files.
 
 When you register a model, you give it a name. The name corresponds to where the model is placed, either locally or during service deployment.
 
 ## Framework-specific examples
 
-More entry script examples for specific machine learning use cases can be found below:
+See the following articles for more entry script examples for specific machine learning use cases:
 
 * [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
 * [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
@@ -333,14 +325,14 @@ More entry script examples for specific machine learning use cases can be found 
 * [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
 * [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
-## Next steps
+## Related content
 
-* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
-* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
-* [Create client applications to consume web services](how-to-consume-web-service.md)
-* [Update web service](how-to-deploy-update-web-service.md)
-* [How to deploy a model using a custom Docker image](../how-to-deploy-custom-container.md)
+* [Troubleshooting remote model deployment](how-to-troubleshoot-deployment.md)
+* [Deploy a model to an Azure Kubernetes Service cluster with v1](how-to-deploy-azure-kubernetes-service.md)
+* [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
+* [Update a deployed web service (v1)](how-to-deploy-update-web-service.md)
+* [Use a custom container to deploy a model to an online endpoint](../how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
-* [Collect data for models in production](how-to-enable-data-collection.md)
-* [Create event alerts and triggers for model deployments](../how-to-use-event-grid.md)
+* [Monitor and collect data from ML web service endpoints](how-to-enable-app-insights.md)
+* [Collect data from models in production](how-to-enable-data-collection.md)
+* [Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events](../how-to-use-event-grid.md)

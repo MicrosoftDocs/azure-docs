@@ -5,13 +5,12 @@ summary: Learn how to use API Management to publish APIs to external, partner, a
 
 metadata:
   title: API Management documentation
-  description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Shows you how to create and manage modern API gateways for existing back-end services hosted anywhere.
-  services: api-management
+  description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Shows you how to create and manage modern API gateways for existing backend services hosted anywhere.
   ms.service: api-management
   ms.topic: landing-page
   author: dlepow
   ms.author: danlep
-  ms.date: 05/13/2021
+  ms.date: 01/08/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -25,83 +24,99 @@ landingContent:
             url: api-management-key-concepts.md
           - text: Service tiers and features
             url: api-management-features.md
+      - linkListType: concept
+        links:
+          - text: Gateway capabilities
+            url: api-management-gateways-overview.md
+          - text: Hybrid and multicloud management
+            url: self-hosted-gateway-overview.md          
       - linkListType: architecture
         links:
           - text: Basic enterprise integration
             url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
           - text: Landing zone accelerator
             url: /azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-      - linkListType: learn
-        links:
-          - text: Introduction to Azure API Management
-            url: /training/modules/introduction-to-azure-api-management/
-          - text: Explore API Management
-            url: /training/modules/explore-api-management/  
-  # Card (optional)
-  - title: Create an instance
+   # Card 
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Azure CLI
+          - text: Create instance - Azure CLI
             url: get-started-create-service-instance-cli.md
-          - text: Azure portal
+          - text: Create instance - portal
             url: get-started-create-service-instance.md
-          - text: Azure PowerShell
-            url: powershell-create-service-instance.md
-          - text: Visual Studio Code 
-            url: vscode-create-service-instance.md
-          - text: ARM template
-            url: quickstart-arm-template.md
-
-  # Card
-  - title: Manage API Management
-    linkLists:
       - linkListType: tutorial
         links:
-          - text: 1. Import and publish your first API
+          - text: Import and publish your first API
             url: import-and-publish.md
-          - text: 2. Create and publish a product
-            url: api-management-howto-add-products.md
-          - text: 3. Mock API responses
-            url: mock-api-responses.md
-          - text: 4. Transform and protect your API
+          - text: Transform and protect your API
             url: transform-api.md
-          - text: 5. Monitor published APIs
-            url: api-management-howto-use-azure-monitor.md
-          - text: 6. Debug your APIs using request tracing
-            url: api-management-howto-api-inspector.md
-          - text: 7. Use revisions to make non-breaking changes safely
-            url: api-management-get-started-revise-api.md
-          - text: 8. Publish multiple versions of your API
-            url: api-management-get-started-publish-versions.md
-          - text: 9. Customize the style of the Developer portal pages
-            url: api-management-howto-developer-portal-customize.md
-          - text: 10. Manage APIs in Visual Studio Code
-            url: visual-studio-code-tutorial.md
-
-  # Card
-  - title: Samples
-    linkLists:
-      - linkListType: sample
+      - linkListType: learn  
         links:
-          - text: Policies
-            url: ./policies/index.md
-          - text: Azure PowerShell
-            url: powershell-samples.md
-          - text: Azure Policy built-ins
-            url: ./policy-reference.md
-
-# Card
-  - title: Enable hybrid and multi-cloud management
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Self-hosted gateway overview
-            url: self-hosted-gateway-overview.md
+          - text: Explore API Management
+            url: /training/modules/explore-api-management/  
       - linkListType: how-to-guide
         links:
-          - text: Host gateway on Azure Arc
-            url: how-to-deploy-self-hosted-gateway-azure-arc.md
-          - text: Host gateway on Kubernetes
-            url: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
+          - text: Import an OpenAPI specification
+            url: import-api-from-oas.md
+          - text: Import an Azure Function app as an API 
+            url: import-function-app-as-api.md  
+
+# Card
+  - title: Common tasks
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set and edit API policies
+            url: set-edit-policies.md
+          - text: Configure a custom domain name
+            url: configure-custom-domain.md
+          - text: Integrate with Application Insights 
+            url: api-management-howto-app-insights.md
+          - text: Deploy to VNet - external mode
+            url: api-management-using-with-vnet.md
+          - text: Deploy to VNet - internal mode
+            url: api-management-using-with-internal-vnet.md
+          - text: Configure with Application Gateway
+            url: api-management-howto-integrate-internal-vnet-appgateway.md
+          - text: Set up inbound private endpoint
+            url: private-endpoint.md
+          - text: Customize the developer portal
+            url: api-management-howto-developer-portal-customize.md  
+      - linkListType: concept
+        links:
+          - text: API authentication and authorization 
+            url: authentication-authorization-overview.md
+          - text: API Management policies
+            url: api-management-howto-policies.md
+          - text: Networking options
+            url: virtual-network-concepts.md
+          - text: High availability
+            url: high-availability.md
+      - linkListType: reference
+        links:
+          - text: API Management policy reference
+            url: api-management-policies.md
+# Card
+  - title: New content
+    linkLists:
+      -  linkListType: how-to-guide
+         links:
+          - text: Import API from Azure OpenAI service
+            url: azure-openai-api-from-specification.md
+          - text: Enable semantic caching for Azure OpenAI APIs
+            url: azure-openai-enable-semantic-caching.md   
+          - text: Authenticate and authorize to Azure OpenAI APIs
+            url: api-management-authenticate-authorize-azure-openai.md
+      - linkListType: concept
+        links:
+          - text: New v2 service tiers
+            url: v2-service-tiers-overview.md
+# Card
+  - title: Related services
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure API Center
+            url: ../api-center/overview.md
   

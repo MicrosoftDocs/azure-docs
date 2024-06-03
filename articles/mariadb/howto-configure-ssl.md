@@ -2,14 +2,17 @@
 title: Configure SSL - Azure Database for MariaDB
 description: Instructions for how to properly configure Azure Database for MariaDB and associated applications to correctly use SSL connections
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 04/19/2023
-ms.devlang: csharp, golang, java, php, python, ruby
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, php, python, ruby
 ms.custom: devx-track-csharp
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Azure Database for MariaDB supports connecting your Azure Database for MariaDB server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
@@ -18,7 +21,7 @@ Azure Database for MariaDB supports connecting your Azure Database for MariaDB s
 Download the certificate needed to communicate over SSL with your Azure Database for MariaDB server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive (this tutorial uses c:\ssl for example).
 **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
 
-See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
+See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Microsoft Azure operated by 21Vianet](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 ## Bind SSL
 
@@ -80,7 +83,7 @@ To establish a secure connection to Azure Database for MariaDB over SSL from you
 
 ```php
 $conn = mysqli_init();
-mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL) ; 
+mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL) ;
 mysqli_real_connect($conn, 'mydemoserver.mariadb.database.azure.com', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
@@ -114,9 +117,9 @@ conn = pymysql.connect(user='myadmin@mydemoserver',
 
 ```ruby
 client = Mysql2::Client.new(
-        :host     => 'mydemoserver.mariadb.database.azure.com', 
-        :username => 'myadmin@mydemoserver',      
-        :password => 'yourpassword',    
+        :host     => 'mydemoserver.mariadb.database.azure.com',
+        :username => 'myadmin@mydemoserver',
+        :password => 'yourpassword',
         :database => 'quickstartdb',
         :sslca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
         :ssl_mode => 'required'
@@ -145,7 +148,7 @@ if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
 }
 mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool})
 var connectionString string
-connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mariadb.database.azure.com', 'quickstartdb')	
+connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mariadb.database.azure.com', 'quickstartdb')
 db, _ := sql.Open("mysql", connectionString)
 ```
 
@@ -158,16 +161,16 @@ String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
     " -keystore truststore "+
-    " -trustcacerts " + 
+    " -trustcacerts " +
     " -storepass password -noprompt ";
 String genKey = " -genkey -keyalg rsa " +
     " -alias mysqlClientCertificate -keystore keystore " +
-    " -storepass password123 -keypass password " + 
+    " -storepass password123 -keypass password " +
     " -dname CN=MS ";
 sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
 sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
-# use the generated keystore and truststore 
+# use the generated keystore and truststore
 
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
@@ -189,16 +192,16 @@ String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
     " -keystore truststore "+
-    " -trustcacerts " + 
+    " -trustcacerts " +
     " -storepass password -noprompt ";
 String genKey = " -genkey -keyalg rsa " +
     " -alias mysqlClientCertificate -keystore keystore " +
-    " -storepass password123 -keypass password " + 
+    " -storepass password123 -keypass password " +
     " -dname CN=MS ";
 sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
 sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
-# use the generated keystore and truststore 
+# use the generated keystore and truststore
 
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");

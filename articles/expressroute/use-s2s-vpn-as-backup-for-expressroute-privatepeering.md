@@ -4,15 +4,19 @@ description: This page provides architectural recommendations for backing up Azu
 services: networking
 author: duongau
 ms.service: expressroute
-ms.topic: how-to
-ms.date: 12/27/2022
-ms.author: duau 
 ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.date: 04/15/2024
+ms.author: duau 
 ---
 
 # Using S2S VPN as a backup for ExpressRoute private peering
 
-In the article titled [Designing for disaster recovery with ExpressRoute private peering][DR-PP], we discussed the need for a backup connectivity solution when using ExpressRoute private peering. We also discussed how to use geo-redundant ExpressRoute circuits for high-availability. In this article, we'll explain how to use and maintain a site-to-site (S2S) VPN as a backup for ExpressRoute private peering. 
+In the article titled [Designing for disaster recovery with ExpressRoute private peering][DR-PP], we discussed the need for a backup connectivity solution when using ExpressRoute private peering. We also discussed how to use geo-redundant ExpressRoute circuits for high-availability. In this article, we explain how to use and maintain a site-to-site (S2S) VPN as a backup for ExpressRoute private peering. 
+
+> [!NOTE] 
+> Using site-to-site VPN as a backup solution for ExpressRoute connectivity is not recommended when dealing with latency-sensitive, mission-critical, or bandwidth-intensive workloads. In such cases, it's advisable to design for disaster recovery with ExpressRoute multi-site resiliency to ensure maximum availability.
+>
 
 Unlike geo-redundant ExpressRoute circuits, you can only use ExpressRoute and VPN disaster recovery combination in an active-passive setup. A major challenge of using any backup network connectivity in the passive mode is that the passive connection would often fail alongside the primary connection. The common reason for the failures of the passive connection is lack of active maintenance. Therefore, in this article, the focus is on how to verify and actively maintain a S2S VPN connectivity that is backing up an ExpressRoute private peering.
 
@@ -20,11 +24,11 @@ Unlike geo-redundant ExpressRoute circuits, you can only use ExpressRoute and VP
 > When a given route is advertised through both ExpressRoute and VPN, Azure will prefer routing over ExpressRoute.  
 >
 
-In this article, you'll also learn how to verify the connectivity from both the Azure perspective and the on-premises network edge side. The ability to validate from either side will help irrespective of whether or not you manage the on-premises network devices that peer with the Microsoft network entities. 
+In this article, you also learn how to verify the connectivity from both the Azure perspective and the on-premises network edge side. The ability to validate from either side helps irrespective of whether or not you manage the on-premises network devices that peer with the Microsoft network entities. 
 
 ## Example topology
 
-In our setup, we have an on-premises network connected to an Azure hub VNet via both an ExpressRoute circuit and a S2S VPN connection. The Azure hub VNet is in turn peered to a spoke VNet, as shown in the diagram:
+In our setup, we have an on-premises network connected to an Azure hub virtual network via both an ExpressRoute circuit and a S2S VPN connection. The Azure hub virtual network is in turn peered to a spoke virtual network, as shown in the diagram:
 
 ![1][1]
 
@@ -35,12 +39,12 @@ The following table lists the key IP prefixes of the topology:
 | **Entity** | **Prefix** |
 | --- | --- |
 | On-premises LAN | 10.1.11.0/25 |
-| Azure Hub VNet | 10.17.11.0/25 |
-| Azure spoke VNet | 10.17.11.128/26 |
+| Azure Hub virtual network | 10.17.11.0/25 |
+| Azure spoke virtual network | 10.17.11.128/26 |
 | On-premises test server | 10.1.11.10 |
-| Spoke VNet test VM | 10.17.11.132 |
-| ExpressRoute primary connection p2p subnet | 192.168.11.16/30 |
-| ExpressRoute secondary connection p2p subnet | 192.168.11.20/30 |
+| Spoke virtual network test VM | 10.17.11.132 |
+| ExpressRoute primary connection P2P subnet | 192.168.11.16/30 |
+| ExpressRoute secondary connection P2P subnet | 192.168.11.20/30 |
 | VPN gateway primary BGP peer IP | 10.17.11.76 |
 | VPN gateway secondary BGP peer IP | 10.17.11.77 |
 | On-premises firewall VPN BGP peer IP | 192.168.11.88 |
@@ -62,7 +66,7 @@ The following table lists the ASNs of the topology:
 
 ### Configuring for high availability
 
-[Configure ExpressRoute and Site-to-Site coexisting connections][Conf-CoExist] discusses how to configure coexisting ExpressRoute and S2S VPN connections. As we discussed in [Designing for high availability with ExpressRoute][HA], to improve ExpressRoute high availability, our setup maintains network redundancy to avoid a single point of failure all the way up to the endpoints. Also, both the primary and secondary connections of the ExpressRoute circuits are configured to operate in an active-active setup by advertising the on-premises prefixes the same way through both the connections. 
+The article [Configure ExpressRoute and Site-to-Site coexisting connections][Conf-CoExist] explains how to set up coexisting ExpressRoute and S2S VPN connections. As we mentioned in [Designing for high availability with ExpressRoute][HA], our setup ensures network redundancy to eliminate any single point of failure up to the endpoints, which improves ExpressRoute high availability. In addition, both the primary and secondary connections of the ExpressRoute circuits are active and advertise the on-premises prefixes in the same manner through both the connections.
 
 The on-premises route advertisement of the primary CE router through the primary connection of the ExpressRoute circuit is shown as follows (Junos commands):
 
@@ -88,7 +92,7 @@ To improve the high availability of the backup connection, the S2S VPN is also c
 
 ![2][2]
 
-The on-premises route is advertised by the firewalls to the primary and secondary BGP peers of the VPN gateway. The route advertisements are shown as follows (Junos):
+The on-premises route gets advertised by the firewall to the primary and secondary BGP peers of the VPN gateway. The route advertisements are shown as follows (Junos):
 
 ```console
 user@SEA-SRX42-01> show route advertising-protocol bgp 10.17.11.76 
@@ -182,7 +186,7 @@ Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
                      > via st0.119
 ```
 
-In the above route table, for the hub and spoke VNet routes--10.17.11.0/25 and 10.17.11.128/26--we see ExpressRoute circuit is preferred over VPN connections. The 192.168.11.0 and 192.168.11.2 are IPs on firewall interface towards CE routers.
+In the above route table, for the hub and spoke virtual network routes--10.17.11.0/25 and 10.17.11.128/26--we see ExpressRoute circuit is preferred over VPN connections. The 192.168.11.0 and 192.168.11.2 are IPs on firewall interface towards CE routers.
 
 ## Validation of route exchange over S2S VPN
 
@@ -241,13 +245,13 @@ Failure to see route exchanges indicate connection failure. See [Troubleshooting
 
 ## Testing failover
 
-Now that we have confirmed successful route exchanges over the VPN connection (control plane), we're set to switch traffic (data plane) from the ExpressRoute connectivity to the VPN connectivity. 
+Now that we confirmed successful route exchanges over the VPN connection (control plane), we're set to switch traffic (data plane) from the ExpressRoute connectivity to the VPN connectivity. 
 
 >[!NOTE] 
 >In production environments failover testing has to be done during scheduled network maintenance work-window as it can be service disruptive.
 >
 
-Prior to do the traffic switch, let's trace route the current path in our setup from the on-premises test server to the test VM in the spoke VNet.
+Prior to do the traffic switch, let's trace route the current path in our setup from the on-premises test server to the test VM in the spoke virtual network.
 
 ```console
 C:\Users\PathLabUser>tracert 10.17.11.132
@@ -301,7 +305,7 @@ To confirm the traffic is switched back to ExpressRoute, repeat the traceroute a
 
 ExpressRoute is designed for high availability with no single point of failure within the Microsoft network. Still an ExpressRoute circuit is confined to a single geographical region and to a service provider. S2S VPN can be a good disaster recovery passive backup solution to an ExpressRoute circuit. For a dependable passive backup connection solution, regular maintenance of the passive configuration and periodical validation the connection are important. It's essential not to let the VPN configuration become stale, and to periodically (say every quarter) repeat the validation and failover test steps described in this article during maintenance window.
 
-To enable monitoring and alerts based on VPN gateway metrics, see [Set up alerts on VPN Gateway metrics][VPN-alerts].
+To enable monitoring and alerts based on VPN gateway metrics, see [Setup alerts on VPN Gateway metrics][VPN-alerts].
 
 To expedite BGP convergence following an ExpressRoute failure, [Configure BFD over ExpressRoute][BFD].
 

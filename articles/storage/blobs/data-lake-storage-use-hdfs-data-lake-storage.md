@@ -5,11 +5,11 @@ description: Use the Hadoop Distributed File System (HDFS) CLI for Azure Data La
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-data-lake-storage
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 03/09/2023
 ms.author: normesta
-ms.subservice: data-lake-storage-gen2
 ---
 
 # Using the HDFS CLI with Data Lake Storage Gen2

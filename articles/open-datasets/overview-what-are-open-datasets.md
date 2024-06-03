@@ -3,8 +3,8 @@ title: What are open datasets? Curated public datasets
 description: Learn about Azure Open Datasets, curated datasets from the public domain such as weather, census, holidays, and location to enrich predictive solutions.
 ms.service: open-datasets
 ms.topic: overview
-author: sdgilley
-ms.author: sgilley
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 05/06/2020
 ---
 
@@ -54,4 +54,4 @@ If you can't find the data you want, email us to [request a dataset](mailto:aod@
 ## Next steps
 * [Sample notebook](samples.md)
 * [Tutorial: Regression modeling with NY taxi data](../machine-learning/tutorial-auto-train-models.md?context=azure%2fopen-datasets%2fcontext%2fopen-datasets-context)
-* [Python SDK for Open Datasets](/python/api/azureml-opendatasets/)
+* [Python SDK for Open Datasets](/python/api/azureml-opendatasets/azureml.opendatasets)

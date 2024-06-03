@@ -5,7 +5,7 @@ description: This guide provides step by step instruction on how to migrate lega
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 ---
 

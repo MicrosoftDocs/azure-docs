@@ -1,25 +1,31 @@
 ---
 title: Trial Matcher patient info 
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description: This article describes how and which patient information can be sent to the Trial Matcher
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: overview
-ms.date: 02/02/2023
+ms.date: 05/05/2024
 ms.author: behoorne
 ---
 
 
+ 
+
 # Trial Matcher patient info
 
-Trial Matcher uses patient information to match relevant patient(s) with the clinical trial(s). You can provide the information in four different ways: 
+Trial Matcher uses patient information to match relevant patient with a clinical trial eligibility section. The Trial Matcher is reviewing the patient eligibility for each relevant clinical trial. You can provide the information in four different ways: 
 
 -	Unstructured clinical notes
-- FHIR bundles
+- FHIR bundles 
 - gradual Matching (question and answer)
 - JSON key/value
+
+> [!NOTE]
+> The examples in this article are based on API version: 2023-03-01-preview. There might be changes between
+API versions. For a specific API version, please use the reference to the REST API to see full description.
 
 ## Unstructured clinical note
 
@@ -28,6 +34,8 @@ The Trial Matcher performs a prior step of language understanding to analyze the
 
 When providing patient data in clinical notes, use ```note``` value for  ```Patient.PatientDocument.type```.
 Currently, Trial Matcher only supports one clinical note per patient.
+
+
 
 The following example shows how to provide patient information as an unstructured clinical note:
 
@@ -96,7 +104,7 @@ The value of the ```fhirBundle``` should be provided as a reference with the con
 
 The following example shows how to provide patient information as a FHIR Bundle:
 
- ```json
+```json
 {
   "configuration": {
     "clinicalTrials": {
@@ -148,24 +156,24 @@ The following example shows how to provide patient information as a FHIR Bundle:
 
  ```
 
-## Gradual Matching
+## Gradual matching
 
-Trial Matcher can also be used with gradual Matching. In this mode, you can send requests to the Trial Matcher in a gradual way. This is done via conversational intelligence or chat-like scenarios. 
+Trial Matcher can also be used with gradual matching. In this mode, you can send requests to the Trial Matcher in a gradual way, using conversational intelligence or chat-like scenarios. 
 
-The gradual Matching uses patient information for matching, including demographics (gender and birthdate) and structured clinical information. When sending clinical information via gradual matching, it’s passed as a list of ```clinicalCodedElements```.  Each one is expressed in a clinical coding system as a code that’s extended by semantic information and value
+The gradual matching uses patient information for matching, including demographics (gender and birthdate) and structured clinical information. When sending clinical information via gradual matching, the clinical information is sent as a list of ```clinicalCodedElements```.  Each one is expressed in a clinical coding system as a code that is extended with semantic information and value.
 
 ### Differentiating concepts
 
-Other clinical information is derived from the eligibility criteria found in the subset of trials within the query. The model selects **up to three** most differentiating concepts, that is, that helps the most in qualifying the patient. The model will only indicate concepts that appear in trials and won't suggest collecting information that isn't required and won't help in qualification.
+Other clinical information is derived from the eligibility criteria found in the subset of trials within the query. The model selects **up to three** most differentiating concepts, that is, that helps the most in qualifying the patient. The model only indicates concepts that appear in trials and not suggests collecting information that isn't required and is not helping in the qualification.
 
-When you match potential eligible patients to a clinical trial, the same concept of needed clinical info will need to be provided. 
+When you match potential eligible patients to a clinical trial, the same concept of needed clinical info should be provided. 
 In this case, the three most differentiating concepts for the clinical trial provided are selected. 
 In case more than one trial was provided, three concepts for all the clinical trials provided are selected. 
 
-- Customers are expected to use the provided ```UMLSConceptsMapping.json``` file to map each selected concept with the expected answer type. Customers can also use the suggested question text to generate questions to users. Question text can also be edited and/or localized by customers.
+- Customers are expected to use the provided ```UMLSConceptsMapping.json``` file to map each selected concept with the expected answer type. Customers can also use the suggested question text to generate questions to users. Customer can also edit or localize the question text.
 
 - When you send patient information back to the Trial Matcher, you can also send a ```null``` value to any concept. 
-This instructs the Trial Matcher to skip that concept, ignore it in patient qualification and instead send the next differentiating concept in the response.
+Sending a ```null``` value to a concept instructs the Trial Matcher to skip that concept, ignore it in patient qualification and instead send the next differentiating concept in the response.
 
 > [!IMPORTANT]
 > Typically, when using gradual Matching, the first request to the Trial Matcher will include a list of ```registryFilters``` based on customer configuration and user responses (e.g. condition and location). The response to the initial request will include a list of trial ```ids```. To improve performance and reduce latency, the trial ```ids``` should be used in consecutive requests directly (utilizing the ```ids``` registryFilter), instead of the original ```registryFilters``` that were used.
@@ -182,7 +190,7 @@ There are five different categories that are used as concepts:
 
 ### 1. UMLS concept ID that represents a single concept
 
-Each concept in this category is represented by a unique UMLS ID. The expected answer types can be Boolean, Numeric, or from a defined Choice set.
+Each concept in this category is represented using a unique UMLS ID. The expected answer types can be Boolean, Numeric, or from a defined Choice set.
 
 Example concept from neededClinicalInfo API response:
 
@@ -283,7 +291,7 @@ Example values sent to Trial Matcher for the above category:
 
 ### 3. Textual concepts
 
-Textual concepts are concepts in which the code is a string, instead of a UMLS code. These are typically used to identify disease morphology and behavioral characteristics.
+Textual concepts are concepts in which the code is a string, instead of a UMLS code. The textual concepts are typically used to identify disease morphology and behavioral characteristics.
 
 Example concept from neededClinicalInfo API response:
 ```json
@@ -316,9 +324,10 @@ Example value sent to Trial Matcher for the above concept:
 
 
 ### 4. Entity types
-Entity type concepts are concepts that are grouped by common entity types, such as medications, genomic and biomarker information.
+Entity type concepts are concepts that are grouped to common entity types, such as medications, genomic and biomarker information.
 
-When entity type concepts are sent by customers to the Trial Matcher as part of the patient’s clinical info, customers are expected to concatenate the entity type string to the value, separated with a semicolon. 
+When customers sent entity type concepts to the Trial Matcher as part of the patient’s clinical info, they should concatenate the entity type string to the value, separated with a semicolon. 
+
 
 Example concept from neededClinicalInfo API response:
 ```json
@@ -352,7 +361,7 @@ Example value sent to Trial Matcher for the above category:
 ```
 
 ### 5. Semantic types
-Semantic type concepts are another category of concepts, grouped together by the semantic type of entities. When semantic type concepts are sent by customers to the Trial Matcher as part of the patient’s clinical info, there’s no need to concatenate the entity or semantic type of the entity to the value.
+Semantic type concepts are another category of concepts, grouped together by the semantic type of entities. When customers sent semantic type concepts to the Trial Matcher as part of the patient’s clinical info, there’s no need to concatenate the entity or semantic type of the entity to the value.
 
 Example concept from neededClinicalInfo API response:
 ```json

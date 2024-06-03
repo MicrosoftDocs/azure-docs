@@ -2,16 +2,21 @@
 title: Define a self-asserted technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a self-asserted technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 11/07/2022
+ms.date: 01/17/2024
+
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to define a self-asserted technical profile with display, so that I can collect and validate user input.
+
 ---
 
 # Define a self-asserted technical profile in an Azure Active Directory B2C custom policy
@@ -63,13 +68,15 @@ In the display claims collection, you can include a reference to a [DisplayContr
 The following example `TechnicalProfile` illustrates the use of display claims with display controls.
 
 * The first display claim makes a reference to the `emailVerificationControl` display control, which collects and verifies the email address.
-* The fifth display claim makes a reference to the `phoneVerificationControl` display control, which collects and verifies a phone number.
+* The second display claim makes a reference to the `captchaChallengeControl` display control, which generates and verifies CAPTCHA code.
+* The sixth display claim makes a reference to the `phoneVerificationControl` display control, which collects and verifies a phone number.
 * The other display claims are ClaimTypes to be collected from the user.
 
 ```xml
 <TechnicalProfile Id="Id">
   <DisplayClaims>
     <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim DisplayControlReferenceId="captchaChallengeControl" />
     <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
@@ -169,7 +176,8 @@ The following example demonstrates the use of a self-asserted technical profile 
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
 </TechnicalProfile>
 ```
-
+> [!NOTE]
+> When you collect the password claim value in the self-asserted technical profile, that value is only available within the same technical profile or within a validation technical profiles that are referenced by that same self-asserted technical profile. When execution of that self-asserted technical profile completes, and moves to another technical profile, the password's value is lost. Consequently, password claim can only be stored in the orchestration step in which it is collected.
 ### Output claims sign-up or sign-in page
 
 In a combined sign-up and sign-in page, note the following when using a content definition [DataUri](contentdefinitions.md#datauri) element that specifies a `unifiedssp` or `unifiedssd` page type:
@@ -186,7 +194,7 @@ The PersistedClaims element is not used. The self-asserted technical profile doe
 
 A validation technical profile is used for validating some or all of the output claims of the referencing technical profile. The input claims of the validation technical profile must appear in the output claims of the self-asserted technical profile. The validation technical profile validates the user input and can return an error to the user.
 
-The validation technical profile can be any technical profile in the policy, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md) technical profiles. In the previous example, the `LocalAccountSignUpWithLogonEmail` technical profile validates that the signinName does not exist in the directory. If not, the validation technical profile creates a local account and returns the objectId, authenticationSource, newUser. The `SelfAsserted-LocalAccountSignin-Email` technical profile calls the `login-NonInteractive` validation technical profile to validate the user credentials.
+The validation technical profile can be any technical profile in the policy, such as [Microsoft Entra ID](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md) technical profiles. In the previous example, the `LocalAccountSignUpWithLogonEmail` technical profile validates that the signinName does not exist in the directory. If not, the validation technical profile creates a local account and returns the objectId, authenticationSource, newUser. The `SelfAsserted-LocalAccountSignin-Email` technical profile calls the `login-NonInteractive` validation technical profile to validate the user credentials.
 
 You can also call a REST API technical profile with your business logic, overwrite input claims, or enrich user data by further integrating with corporate line-of-business application. For more information, see [Validation technical profile](validation-technical-profile.md)
 
@@ -201,7 +209,7 @@ You can also call a REST API technical profile with your business logic, overwri
 | AllowGenerationOfClaimsWithNullValues| No| Allow to generate a claim with null value. For example, in a case user doesn't select a checkbox.|
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
 | EnforceEmailVerification | No | For sign-up or profile edit, enforces email verification. Possible values: `true` (default), or `false`. |
-| setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile. For example, a user tries to sign-up with an account that already exists and keeps trying until the limit reached. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#retry-limit) of this metadata.|
+| setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile. For example, a user tries to sign up with an account that already exists and keeps trying until the limit reached. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#retry-limit) of this metadata.|
 | SignUpTarget <sup>1</sup>| No | The sign-up target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
 | setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false`. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#show-the-cancel-button) of this metadata.|
 | setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false`. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#show-the-continue-button) of this metadata. |
@@ -211,6 +219,7 @@ You can also call a REST API technical profile with your business logic, overwri
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Improves user experience, by waiting for the user to stop typing, and then validate the value. Default value 2000 milliseconds. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#input-verification-delay-time-in-milliseconds) of this metadata. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 |setting.forgotPasswordLinkOverride <sup>4</sup>| No | A password reset claims exchange to be executed. For more information, see [Self-service password reset](add-password-reset-policy.md). |
+| setting.enableCaptchaChallenge | No | Specifies whether CAPTCHA challenge code should be displayed. Possible values: `true` , or `false` (default). For this setting to work, the [CAPTCHA display control]() must be referenced in the [display claims](#display-claims) of the self-asserted technical profile. CAPTCHA feature is in **public preview**.|
 
 Notes:
 

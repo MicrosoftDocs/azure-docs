@@ -5,7 +5,7 @@ description: Learn how to configure active-active virtual network gateways using
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 04/17/2024
 ms.author: cherylmc
 
 ---
@@ -17,10 +17,10 @@ This article helps you create highly available active-active VPN gateways using 
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. See [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
 
 > [!IMPORTANT]
-> The active-active mode is available for all SKUs except Basic or Standard. For more information, see [Configuration settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+> The active-active mode is available for all SKUs except Basic or Standard. See [About Gateway SKUs](about-gateway-skus.md) article for the latest information about gateway SKUs, performance, and supported features. For this configuration, Standard SKU Public IP addresses are required. You can't use a Basic SKU Public IP address.
 >
 
-The steps in this article help you configure a VPN gateway in active-active mode. There are a few differences between active-active and active-standby modes. The other properties are the same as the non-active-active gateways. 
+The steps in this article help you configure a VPN gateway in active-active mode. There are a few differences between active-active and active-standby modes. The other properties are the same as the non-active-active gateways.
 
 * Active-active gateways have two Gateway IP configurations and two public IP addresses.
 * Active-active gateways have active-active setting enabled.
@@ -28,9 +28,9 @@ The steps in this article help you configure a VPN gateway in active-active mode
 
 If you already have a VPN gateway, you can [Update an existing VPN gateway](#update) from active-standby to active-active mode, or from active-active to active-standby mode.
 
-## <a name="vnet"></a>Create a VNet
+## <a name="vnet"></a>Create a virtual network
 
-If you don't already have a VNet that you want to use, create a VNet using the following values:
+If you don't already have a virtual network (VNet) that you want to use, create a VNet using the following values:
 
 * **Resource group:** TestRG1
 * **Name:** VNet1
@@ -67,7 +67,7 @@ You can see the deployment status on the Overview page for your gateway. After t
 
 ## <a name ="update"></a> Update an existing VPN gateway
 
-This section helps you change an existing Azure VPN gateway from active-standby to active-active mode, and from active-active to active-standby mode. When you change an active-standby gateway to active-active, you create another public IP address, then add a second gateway IP configuration. 
+This section helps you change an existing Azure VPN gateway from active-standby to active-active mode, and from active-active to active-standby mode. When you change an active-standby gateway to active-active, you create another public IP address, then add a second gateway IP configuration.
 
 ### Change active-standby to active-active
 
@@ -77,22 +77,20 @@ Use the following steps to convert active-standby mode gateway to active-active 
 
 1. On the left menu, select **Configuration**.
 
-1. On the **Configuration** page, configure the following settings: 
+1. On the **Configuration** page, configure the following settings:
 
    * Change the Active-active mode to **Enabled**.
-   * Click **Create another gateway IP configuration**.
+   * Click **Add new** to add another public IP address. If you already have an IP address that you previously created that's available to dedicate to this resource, you can instead select it from the **SECOND PUBLIC IP ADDRESS** dropdown.
 
-   :::image type="content" source="./media/active-active-portal/configuration.png" alt-text="Screenshot shows the Configuration page.":::
+   :::image type="content" source="./media/active-active-portal/active-active.png" alt-text="Screenshot shows the Configuration page with active-active mode enabled." lightbox="./media/active-active-portal/active-active.png":::
 
-1. On the **Choose public IP address** page and either specify an existing public IP address that meets the criteria, or select **+Create new** to create a new public IP address to use for the second VPN gateway instance.
-
-1. On the **Create public IP address** page, select the **Basic** SKU, then click **OK**.
+1. On the **Choose public IP address** page and either specify an existing public IP address that meets the criteria, or select **+Create new** to create a new public IP address to use for the second VPN gateway instance. After you've specified the second public IP address, click **OK**.
 
 1. At the top of the **Configuration** page, click **Save**. This update can take about 30-45 minutes to complete.
 
 > [!IMPORTANT]
 > If you have BGP sessions running, be aware that the Azure VPN Gateway BGP configuration will change and two newly assigned BGP IPs will be provisioned within the Gateway Subnet address range. The old Azure VPN Gateway BGP IP address will no longer exist. This will incur downtime and updating the BGP peers on the on-premises devices will be required. Once the gateway is finished provisioning, the new BGP IPs can be obtained and the on-premises device configuration will need to be updated accordingly. This applies to non APIPA BGP IPs. To understand how to configure BGP in Azure, see [How to configure BGP on Azure VPN Gateways](bgp-howto.md).
-> 
+>
 
 ### Change active-active to active-standby
 
@@ -108,11 +106,11 @@ Use the following steps to convert active-active mode gateway to active-standby 
 
 > [!IMPORTANT]
 > If you have BGP sessions running, be aware that the Azure VPN Gateway BGP configuration will change from two BGP IP addresses to a single BGP address. The platform generally assigns the last usable IP of the Gateway Subnet. This will incur downtime and updating the BGP peers on the on-premises devices will be required. This applies to non APIPA BGP IPs. To understand how to configure BGP in Azure, see [How to configure BGP on Azure VPN Gateways](bgp-howto.md).
-> 
+>
 
 ## Next steps
 
 To configure connections, see the following articles:
 
 * [Site-to-Site VPN connections](./tutorial-site-to-site-portal.md)
-* [VNet-to-VNet connections](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md#configure-the-vnet1-gateway-connection)
+* [VNet-to-VNet connections](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

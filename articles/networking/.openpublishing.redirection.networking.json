@@ -1,0 +1,124 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
+            "redirect_url": "/azure/orbital/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/cli-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/connectivty-interoperability-configuration.md",
+            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/connectivty-interoperability-control-plane.md",
+            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-control-plane",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/connectivty-interoperability-data-plane.md",
+            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-data-plane",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/connectivty-interoperability-preface.md",
+            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-preface",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/disaster-recovery-dns-traffic-manager.md",
+            "redirect_url": "/azure/reliability/reliability-traffic-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/edge-zones-overview.md",
+            "redirect_url": "/azure/private-multi-access-edge-compute-mec/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-configuration.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-control-plane.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-control-plane",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-data-plane.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-data-plane",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-preface.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-preface",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/networking-overview.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/networking-virtual-datacenter.md",
+            "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/powershell-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-multi-tier-application.md",
+            "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-multi-tier-application.md",
+            "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/virtual-network-test-latency.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-test-latency",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
+            "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-filter-network-traffic.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-filter-network-traffic.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-peer-two-virtual-networks.md",
+            "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-route-traffic-through-nva.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        }
+    ]
+}

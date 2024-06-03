@@ -20,7 +20,7 @@ This dataset is a mirror of the data store at https://www.encodeproject.org/
 
 ## Data volumes and update frequency
 
-This dataset includes approximately 756 TB of data, and is updated monthly during the first week of every month.
+This dataset includes approximately 756 TB of data, and is updated daily.
 
 ## Storage location
 

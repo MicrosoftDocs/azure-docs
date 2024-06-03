@@ -2,13 +2,12 @@
 title: Migrate a Linux VM from unmanaged disks to managed disks
 description: How to Migrate a Linux VM from unmanaged disks to managed disks by using Azure CLI.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.collection: linux
 ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
-ms.subservice: disks
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Migrate a Linux virtual machine from unmanaged disks to managed disks

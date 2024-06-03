@@ -8,7 +8,8 @@ ms.reviewer: maghan
 ms.date: 09/17/2022
 ms.service: dms
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom:
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate Azure Database for MySQL - Single Server to Flexible Server offline using DMS via the Azure portal
@@ -41,14 +42,19 @@ To complete this tutorial, you need to:
 
 * Create or use an existing instance of Azure Database for MySQL – Single Server (the source server).
 * To complete a schema migration successfully, on the source server, the user performing the migration requires the following privileges:
-  * “READ” privilege on the source database.
-  * “SELECT” privilege for the ability to select objects from the database
-  * If migrating views, user must have the “SHOW VIEW” privilege.
-  * If migrating triggers, user must have the “TRIGGER” privilege.
-  * If migrating routines (procedures and/or functions), the user must be named in the definer clause of the routine. Alternatively, based on version, the user must have the following privilege:
-    * For 5.7, have “SELECT” access to the “mysql.proc” table.
-    * For 8.0, have “SHOW_ROUTINE” privilege or have the “CREATE ROUTINE,” “ALTER ROUTINE,” or “EXECUTE” privilege granted at a scope that includes the routine.
-  * If migrating events, the user must have the “EVENT” privilege for the database from which the event is to be shown.
+  * [“SELECT”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) privilege at the server level on the source.
+  * If migrating views, user must have the [“SHOW VIEW”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_show-view) privilege on the source server and the [“CREATE VIEW”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-view) privilege on the target server.
+  * If migrating triggers, user must have the [“TRIGGER”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_trigger) privilege on the source and target server.
+  * If migrating routines (procedures and/or functions), the user must have the [“CREATE ROUTINE”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-routine) and [“ALTER ROUTINE”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_alter-routine) privileges granted at the server level on the target.
+  * If migrating events, the user must have the [“EVENT”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_event) privilege on the source and target server.
+  * If migrating users/logins, the user must have the ["CREATE USER"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-user) privilege on the target server.
+  * ["DROP"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_drop) privilege at the server level on the target, in order to drop tables that might already exist. For example, when retrying a migration.
+  * ["REFERENCES"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_references) privilege at the server level on the target, in order to create tables with foreign keys.
+  * If migrating to MySQL 8.0, the user must have the ["SESSION_VARIABLES_ADMIN"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_session-variables-admin) privilege on the target server.
+  * ["CREATE"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create) privilege at the server level on the target.
+  * ["INSERT"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_insert) privilege at the server level on the target.
+  * ["UPDATE"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_update) privilege at the server level on the target.
+  * ["DELETE"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_delete) privilege at the server level on the target.
 
 ## Limitations
 
@@ -96,7 +102,6 @@ With these best practices in mind, create your target flexible server and then c
 * Next to configure the newly created target flexible server, proceed as follows:
   * The user performing the migration requires the following permissions:
     * To create tables on the target, the user must have the “CREATE” privilege.
-    * If migrating a table with “DATA DIRECTORY” or “INDEX DIRECTORY” partition options, the user must have the “FILE” privilege.
     * If migrating to a table with a “UNION” option, the user must have the “SELECT,” “UPDATE,” and “DELETE” privileges for the tables you map to a MERGE table.
     * If migrating views, you must have the “CREATE VIEW” privilege.
     Keep in mind that some privileges may be necessary depending on the contents of the views. Refer to the MySQL docs specific to your version for “CREATE VIEW STATEMENT” for details

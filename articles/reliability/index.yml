@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   ms.author: anaharris
   author: anaharris-ms
-  ms.prod: non-product-specific
+  ms.service: reliability
   ms.date: 07/12/2022
 
 landingContent: 
@@ -23,7 +23,7 @@ landingContent:
           - text: Azure reliability guidance by service
             url: reliability-guidance-overview.md
           - text: Azure Service Manager Retirement
-            url: asm-retirement.md
+            url: asm-retirement.md    
   # Card
   - title: Availability zone support
     linkLists:
@@ -44,14 +44,13 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: What is disaster recovery?
+            url: disaster-recovery-overview.md
           - text: Business continuity management program
             url: business-continuity-management-program.md
-          - text: Cross-region replication
+          - text: Cross-region pairs
             url: cross-region-replication-azure.md
-          - text: Use Azure Site Recovery
-            url: ../site-recovery/index.yml
-          - text: Use Azure Backup
-            url: ../backup/index.yml
+  
   # Service availability
   - title: Service availability
     linkLists:

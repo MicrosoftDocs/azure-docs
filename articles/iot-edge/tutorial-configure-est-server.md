@@ -11,7 +11,7 @@ services: iot-edge
 
 # Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 With Azure IoT Edge, you can configure your devices to use an Enrollment over Secure Transport (EST) server to manage x509 certificates.
 
@@ -183,21 +183,24 @@ Using Device Provisioning Service allows you to automatically issue and renew ce
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
 1. Under **Settings**, select **Manage enrollments**.
-1. Select **Add enrollment group** then complete the following steps to configure the enrollment:
+1. Select **Add enrollment group** then complete the following steps to configure the enrollment.
+1. On the **Registration + provisioning** tab, choose the following settings:
 
-    :::image type="content" source="./media/tutorial-configure-est-server/dps-add-enrollment.png" alt-text="A screenshot adding DPS enrollment group using the Azure portal.":::
+    :::image type="content" source="./media/tutorial-configure-est-server/device-provisioning-service-add-enrollment-latest.png" alt-text="A screenshot adding DPS enrollment group using the Azure portal.":::
 
     |Setting | Value |
     |--------|---------|
-    |Group name | Provide a friendly name for this group enrollment |
-    |Attestation Type | Select **Certificate** |
-    |IoT Edge device | Select **True** |
-    |Certificate Type | Select **CA Certificate** |
+    |Attestation mechanism| Select **X.509 certificates uploaded to this Device Provisioning Service instance** |
     |Primary certificate | Choose your certificate from the dropdown list |
+    |Group name | Provide a friendly name for this group enrollment |
+    |Provisioning status | Select **Enable this enrollment** checkbox |
+
+1. On the **IoT hubs** tab, choose your IoT Hub from the list.
+1. On the **Device settings** tab, select the **Enable IoT Edge on provisioned devices** checkbox.
     
     The other settings aren't relevant to the tutorial. You can accept the default settings.
 
-1. Select **Save**.
+1. Select **Review + create**.
 
 Now that an enrollment exists for the device, the IoT Edge runtime can automatically manage device certificates for the linked IoT Hub.
 
@@ -261,7 +264,7 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
     > In this example, IoT Edge uses username and password to authenticate to the EST server *everytime* it needs to obtain a certificate. This method isn't recommended in production because 1) it requires storing a secret in plaintext and 2) IoT Edge should use an identity certificate to authenticate to the EST server too. To modify for production: 
     > 
     > 1. Consider using long-lived *bootstrap certificates* that can be stored onto the device during manufacturing [similar to the recommended approach for DPS](../iot-hub/iot-hub-x509ca-concept.md). To see how to configure bootstrap certificate for EST server, see [Authenticate a Device Using Certificates Issued Dynamically via EST](https://github.com/Azure/iotedge/blob/main/edgelet/doc/est.md). 
-    > 1. Configure `[cert_issuance.est.identity_auto_renew]` using the [same syntax](https://github.com/Azure/iotedge/blob/39b5c1ffee47235549fdf628591853a8989af989/edgelet/contrib/config/linux/template.toml#L232) as the provisioning certificate auto-renew configuration above. 
+    > 1. Configure `[cert_issuance.est.identity_auto_renew]` using the [same syntax](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml#L257) as the provisioning certificate auto-renew configuration above. 
     > 
     > This way, IoT Edge certificate service uses the bootstrap certificate for initial authentication with EST server, and requests an identity certificate for future EST requests to the same server. If, for some reason, the EST identity certificate expires before renewal, IoT Edge falls back to using the bootstrap certificate. 
 

@@ -2,12 +2,10 @@
 title: Disk metrics
 description: Examples of disk bursting metrics
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: conceptual
 ms.date: 10/12/2022
 ms.author: rogarana
-ms.subservice: disks
-ms.custom: ignite-2022
 ---
 # Disk performance metrics
 
@@ -15,29 +13,40 @@ ms.custom: ignite-2022
 
 Azure offers metrics in the Azure portal that provide insight on how your virtual machines (VM) and disks perform. The metrics can also be retrieved through an API call. This article is broken into 3 subsections:
 
-- **Disk IO, throughput and queue depth metrics** - These metrics allow you to see the storage performance from the perspective of a disk and a virtual machine.
+- **Disk IO, throughput, queue depth and latency metrics** - These metrics allow you to see the storage performance from the perspective of a disk and a virtual machine.
 - **Disk bursting metrics** - These are the metrics provide observability into our [bursting](disk-bursting.md) feature on our premium disks.
 - **Storage IO utilization metrics** - These metrics help diagnose bottlenecks in your storage performance with disks. 
 
 All metrics are emitted every minute, except for the bursting credit percentage metric, which is emitted every 5 minutes.
 
-## Disk IO, throughput and queue depth metrics
-The following metrics are available to get insight on VM and Disk IO, throughput, and queue depth performance:
+## Disk IO, throughput, queue depth and latency metrics
+The following metrics are available to get insight on VM and disk IO, throughput, and queue depth performance:
 
+- **OS Disk Latency (Preview)**: The average time to complete IOs during the monitoring for the OS disk. Values are in miliseconds.
 - **OS Disk Queue Depth**: The number of current outstanding IO requests that are waiting to be read from or written to the OS disk.
-- **OS Disk Read Bytes/Sec**: The number of bytes that are read in a second from the OS disk.
-- **OS Disk Read Operations/Sec**: The number of input operations that are read in a second from the OS disk.
+- **OS Disk Read Bytes/Sec**: The number of bytes that are read in a second from the OS disk. If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of bytes read from the cache.
+- **OS Disk Read Operations/Sec**: The number of input operations that are read in a second from the OS disk. If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of IOPs read from the cache.
 - **OS Disk Write Bytes/Sec**: The number of bytes that are written in a second from the OS disk.
 - **OS Disk Write Operations/Sec**: The number of output operations that are written in a second from the OS disk.
+- **Data Disk Latency (Preview)**: The average time to complete IOs during the monitoring for the data disk. Values are in miliseconds.
 - **Data Disk Queue Depth**: The number of current outstanding IO requests that are waiting to be read from or written to the data disk(s).
-- **Data Disk Read Bytes/Sec**: The number of bytes that are read in a second from the data disk(s).
-- **Data Disk Read Operations/Sec**: The number of input operations that are read in a second from data disk(s).
+- **Data Disk Read Bytes/Sec**: The number of bytes that are read in a second from the data disk(s). If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of bytes read from the cache.
+- **Data Disk Read Operations/Sec**: The number of input operations that are read in a second from data disk(s). If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of IOPs read from the cache.
 - **Data Disk Write Bytes/Sec**: The number of bytes that are written in a second from the data disk(s).
 - **Data Disk Write Operations/Sec**: The number of output operations that are written in a second from data disk(s).
-- **Disk Read Bytes/Sec**: The number of total bytes that are read in a second from all disks attached to a VM.
-- **Disk Read Operations/Sec**: The number of input operations that are read in a second from all disks attached to a VM.
-- **Disk Write Bytes/Sec**: The number of bytes that are written in a second from all disks attached to a VM.
+- **Disk Read Bytes**: The number of total bytes that are read in a minute from all disks attached to a VM. If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of bytes read from the cache.
+- **Disk Read Operations/Sec**: The number of input operations that are read in a second from all disks attached to a VM. If Read-only or Read/write [disk caching](premium-storage-performance.md#disk-caching) is enabled, this metric is inclusive of IOPs read from the cache.
+- **Disk Write Bytes**: The number of bytes that are written in a minute from all disks attached to a VM.
 - **Disk Write Operations/Sec**: The number of output operations that are written in a second from all disks attached to a VM.
+- **Temp Disk Latency (Preview)**: The average time to complete IOs during the monitoring for the temporary disk. Values are in miliseconds.
+- **Temp Disk Queue Depth**: The number of current outstanding IO requests that are waiting to be read from or written to the temporary disk.
+- **Temp Disk Read Bytes/Sec**: The number of bytes that are read in a second from the temporary disk.
+- **Temp Disk Read Operations/Sec**: The number of input operations that are read in a second from the temporary disk.
+- **Temp Disk Write Bytes/Sec**: The number of bytes that are written in a second from the temporary disk.
+- **Temp Disk Write Operations/Sec**: The number of output operations that are written in a second from the temporary disk.
+
+> [!NOTE]
+> Disk metrics can't log CRUD (Create, Read, Update, Delete) operations inside managed disks.
 
 ## Bursting metrics
 The following metrics help with observability into our [bursting](disk-bursting.md) feature on our premium disks:
@@ -54,6 +63,7 @@ The following metrics help with observability into our [bursting](disk-bursting.
 - **OS Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the OS disk. Emitted on a 5 minute interval.
 - **Data Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the data disk(s). Emitted on a 5 minute interval.
 - **OS Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the OS disk. Emitted on a 5 minute interval.
+- **Disk On-demand Burst Operations**: The accumulated operations of burst transactions used for disks with on-demand bursting enabled. Emitted on an hour interval.
 
 ## VM Bursting metrics
 The following metrics provide insight on VM-level bursting:
@@ -68,17 +78,17 @@ The following metrics help diagnose bottleneck in your Virtual Machine and Disk 
 
 Metrics that help diagnose disk IO capping:
 
-- **Data Disk IOPS Consumed Percentage**: The percentage calculated by the data disk IOPS completed over the provisioned data disk IOPS. If this amount is at 100%, your application running is IO capped from your data disk's IOPS limit.
-- **Data Disk Bandwidth Consumed Percentage**: The percentage calculated by the data disk throughput completed over the provisioned data disk throughput. If this amount is at 100%, your application running is IO capped from your data disk's bandwidth limit.
-- **OS Disk IOPS Consumed Percentage**: The percentage calculated by the OS disk IOPS completed over the provisioned OS disk IOPS. If this amount is at 100%, your application running is IO capped from your OS disk's IOPS limit.
-- **OS Disk Bandwidth Consumed Percentage**: The percentage calculated by the OS disk throughput completed over the provisioned OS disk throughput. If this amount is at 100%, your application running is IO capped from your OS disk's bandwidth limit.
+- **Data Disk IOPS Consumed Percentage**: The percentage calculated by dividing the actual data disk IOPS completed by the provisioned data disk IOPS. If this amount is at 100%, your application running is IO capped from your data disk's IOPS limit.
+- **Data Disk Bandwidth Consumed Percentage**: The percentage calculated by dividing the actual data disk throughput completed by the provisioned data disk throughput. If this amount is at 100%, your application running is IO capped from your data disk's bandwidth limit.
+- **OS Disk IOPS Consumed Percentage**: The percentage calculated by dividing the actual OS disk IOPS completed  by the provisioned OS disk IOPS. If this amount is at 100%, your application running is IO capped from your OS disk's IOPS limit.
+- **OS Disk Bandwidth Consumed Percentage**: The percentage calculated by dividing the actual OS disk throughput completed by the provisioned OS disk throughput. If this amount is at 100%, your application running is IO capped from your OS disk's bandwidth limit.
 
 Metrics that help diagnose VM IO capping:
 
-- **VM Cached IOPS Consumed Percentage**: The percentage calculated by the total IOPS completed over the max cached virtual machine IOPS limit. If this amount is at 100%, your application running is IO capped from your VM's cached IOPS limit.
-- **VM Cached Bandwidth Consumed Percentage**: The percentage calculated by the total disk throughput completed over the max cached virtual machine throughput. If this amount is at 100%, your application running is IO capped from your VM's cached bandwidth limit.
-- **VM uncached IOPS Consumed Percentage**: The percentage calculated by the total IOPS on a virtual machine completed over the max uncached  virtual machine IOPS limit. If this amount is at 100%, your application running is IO capped from your VM's uncached IOPS limit.
-- **VM Uncached Bandwidth Consumed Percentage**: The percentage calculated by the total disk throughput on a virtual machine completed over the max provisioned virtual machine throughput. If this amount is at 100%, your application running is IO capped from your VM's uncached bandwidth limit.
+- **VM Cached IOPS Consumed Percentage**: The percentage calculated by dividing the total actual cached IOPS completed by the max cached virtual machine IOPS limit. If this amount is at 100%, your application running is IO capped from your VM's cached IOPS limit.
+- **VM Cached Bandwidth Consumed Percentage**: The percentage calculated by dividing the total actual cached  throughput completed by the max cached virtual machine throughput. If this amount is at 100%, your application running is IO capped from your VM's cached bandwidth limit.
+- **VM uncached IOPS Consumed Percentage**: The percentage calculated by dividing the total actual uncached IOPS on a virtual machine completed by the max uncached  virtual machine IOPS limit. If this amount is at 100%, your application running is IO capped from your VM's uncached IOPS limit.
+- **VM Uncached Bandwidth Consumed Percentage**: The percentage calculated by dividing the total actual uncached throughput on a virtual machine completed over the max provisioned virtual machine throughput. If this amount is at 100%, your application running is IO capped from your VM's uncached bandwidth limit.
 
 ## Storage IO metrics example
 

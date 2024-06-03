@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/12/2022
+ms.date: 05/15/2024
 ---
 
 # Load data into Azure Synapse Analytics using Azure Data Factory or a Synapse pipeline
@@ -141,7 +141,7 @@ This article shows you how to use the Copy Data tool to _load data from Azure SQ
 
     :::image type="content" source="./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png" alt-text="Monitor activity run details second":::
 
-## Next steps
+## Related content
 
 Advance to the following article to learn about Azure Synapse Analytics support:
 

@@ -1,38 +1,54 @@
 ### YamlMime:Landing
 
-title: Azure Cosmos DB for MongoDB vCore documentation
-summary: Azure Cosmos DB for MongoDB vCore makes it easy to create a database with full native MongoDB support. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB vCore account's connection string.
+title: Azure Cosmos DB for MongoDB (vCore) documentation
+summary: Azure Cosmos DB for MongoDB in vCore architecture makes it easy to create a database with full native MongoDB support. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB (vCore) account's connection string.
 
 metadata:
-  title: Azure Cosmos DB for MongoDB vCore documentation
-  description: Azure Cosmos DB for MongoDB vCore makes it easy to create a database with full native MongoDB support.
-  services: service
+  title: Azure Cosmos DB for MongoDB (vCore) documentation
+  description: Azure Cosmos DB for MongoDB in vCore architecture makes it easy to create a database with full native MongoDB support.
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: gahllevy
   ms.service: cosmos-db
   ms.subservice: mongodb-vcore
   ms.topic: landing-page
-  ms.collection: collection
-  author: gahl-levy
-  ms.author: gahllevy
-  ms.reviewer: nayakshweta
-  ms.date: 03/07/2023
-landingContent:  
-  - title: Get started with Azure Cosmos DB for MongoDB vCore
+  ms.date: 02/21/2024
+landingContent:
+  - title: Get started with Azure Cosmos DB for MongoDB (vCore)
     linkLists:
       - linkListType: overview
         links:
           - text: Overview
             url: introduction.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: quickstart
         links:
           - text: Create resources - Azure portal
             url: quickstart-portal.md
           - text: Create resources - Bicep template
             url: quickstart-bicep.md
+  - title: Vector database
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Integrated vector database
+            url: vector-search.md
+          - text: Open-source vector database
+            url: vector-search-ai.md
+  - title: Develop applications
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Build a Node.js web application
             url: tutorial-nodejs-web-app.md
-  - title: Use a MongoDB vCore cluster
+      - linkListType: how-to-guide
+        links:
+          - text: Create transactions
+            url: how-to-transactions.md
+          - text: Create text search index
+            url: how-to-create-text-index.md
+  - title: Manage a vCore cluster
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -40,11 +56,41 @@ landingContent:
             url: how-to-scale-cluster.md
           - text: Restore cluster
             url: how-to-restore-cluster.md
+          - text: Monitor diagnostics logs
+            url: how-to-monitor-diagnostics-logs.md
       - linkListType: concept
         links:
           - text: MongoDB feature support
             url: compatibility.md
           - text: High availability
             url: high-availability.md
+          - text: Failover and disaster recovery
+            url: failover-disaster-recovery.md
           - text: Migration options
             url: migration-options.md
+  - title: Migrate to MongoDB (vCore)
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migration options
+            url: migration-options.md
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate using native tools
+            url: how-to-migrate-native-tools.md
+          - text: Migrate using Azure Data Studio
+            url: /azure-data-studio/extensions/database-migration-for-mongo-extension
+          - text: Migrate using Azure Database Migration Service
+            url: ../../../dms/tutorial-mongodb-cosmos-db-online.md
+          - text: Migrate using Azure Database Migration Service (offline)
+            url: ../../../dms/tutorial-mongodb-cosmos-db.md
+  - title: Samples
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Solution accelerators
+            url: ../../solutions.md?pivots=api-mongodb
+      - linkListType: sample
+        links:
+          - text: AI-Enhanced Advertisement Generation
+            url: ai-advertisement-generation.md

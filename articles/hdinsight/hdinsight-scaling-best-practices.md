@@ -5,8 +5,7 @@ ms.author: sairamyeturi
 author: yeturis
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
-ms.date: 11/17/2022
+ms.date: 05/21/2024
 ---
 
 # Manually scale Azure HDInsight clusters
@@ -15,7 +14,7 @@ HDInsight provides elasticity with options to scale up and scale down the number
 
 Scale up your cluster before periodic batch processing so the cluster has adequate resources.  After processing completes, and usage goes down, scale down the HDInsight cluster to fewer worker nodes.
 
-You can scale a cluster manually using one of the methods outlined below. You can also use [autoscale](hdinsight-autoscale-clusters.md) options to automatically scale up and down in response to certain metrics.
+You can scale a cluster manually using one of the following methods. You can also use [autoscale](hdinsight-autoscale-clusters.md) options to automatically scale up and down in response to certain metrics.
 
 > [!NOTE]  
 > Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.
@@ -32,7 +31,7 @@ Microsoft provides the following utilities to scale clusters:
 |[Azure Classic CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure portal](https://portal.azure.com)|Open your HDInsight cluster pane, select **Cluster size** on the left-hand menu, then on the Cluster size pane, type in the number of worker nodes, and select Save.|  
 
-:::image type="content" source="./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png" alt-text="Azure portal scale cluster option":::
+:::image type="content" source="./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png" alt-text="Azure portal scale cluster option.":::
 
 Using any of these methods, you can scale your HDInsight cluster up or down within minutes.
 
@@ -42,9 +41,9 @@ Using any of these methods, you can scale your HDInsight cluster up or down with
 
 ## Impact of scaling operations
 
-When you **add** nodes to your running HDInsight cluster (scale up), jobs won't be affected. New jobs can be safely submitted while the scaling process is running. If the scaling operation fails, the failure will leave your cluster in a functional state.
+When you **add** nodes to your running HDInsight cluster (scale up), jobs remains unaffected. New jobs can be safely submitted while the scaling process is running. If the scaling operation fails, the failure  leaves your cluster in a functional state.
 
-If you **remove** nodes (scale down), pending or running jobs will fail when the scaling operation completes. This failure is because of some of the services restarting during the scaling process. Your cluster may get stuck in safe mode during a manual scaling operation.
+If you **remove** nodes (scale down), pending or running jobs fail when the scaling operation completes. This failure is because of some of the services restarting during the scaling process. Your cluster may get stuck in safe mode during a manual scaling operation.
 
 The impact of changing the number of data nodes varies for each type of cluster supported by HDInsight:
 
@@ -66,13 +65,12 @@ The impact of changing the number of data nodes varies for each type of cluster 
 
     For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
 
-* Kafka
-
-    You should rebalance partition replicas after scaling operations. For more information, see the [High availability of data with Apache Kafka on HDInsight](./kafka/apache-kafka-high-availability.md) document.
+    > [!NOTE]
+    > Not appliable for Kafka clusters. 
 
 * Apache Hive LLAP
 
-    After scaling to `N` worker nodes, HDInsight will automatically set the following configurations and restart Hive.
+    After scaling to `N` worker nodes, HDInsight automatically set the following configurations and restart Hive.
 
   * Maximum Total Concurrent Queries: `hive.server2.tez.sessions.per.default.queue = min(N, 32)`
   * Number of nodes used by Hive's LLAP: `num_llap_nodes  = N`
@@ -95,13 +93,13 @@ To see a list of pending and running jobs, you can use the YARN **Resource Manag
 3. From the Ambari UI, select **YARN** on the list of services on the left-hand menu.  
 4. From the YARN page, select **Quick Links** and hover over the active head node, then select **Resource Manager UI**.
 
-    :::image type="content" source="./media/hdinsight-scaling-best-practices/resource-manager-ui1.png" alt-text="Apache Ambari quick links Resource Manager UI":::
+    :::image type="content" source="./media/hdinsight-scaling-best-practices/resource-manager-ui1.png" alt-text="Apache Ambari quick links Resource Manager UI.":::
 
 You may directly access the Resource Manager UI with `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
 You  see a list of jobs, along with their current state. In the screenshot, there's  one job currently running:
 
-:::image type="content" source="./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png" alt-text="Resource Manager UI applications":::
+:::image type="content" source="./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png" alt-text="Resource Manager UI applications.":::
 
 To  manually kill that running application, execute the following command from the SSH shell:
 
@@ -152,7 +150,7 @@ The following sections describe these options.
 
 Stop all Hive jobs before scaling down to one worker node. If  your workload is scheduled, then execute your scale-down after Hive work is done.
 
-Stopping the Hive jobs before scaling, helps minimize the number of scratch files in the tmp folder (if any).
+Stop the Hive jobs before scaling, helps minimize the number of scratch files in the tmp folder (if any).
 
 #### Manually clean up Hive's scratch files
 
@@ -199,11 +197,11 @@ If Hive has left behind temporary files, then you can manually clean up those fi
 
 If your clusters get stuck in safe mode frequently when scaling down to fewer than three worker nodes, then keep at least three worker nodes.
 
-Having three worker nodes is more costly than scaling down to only one worker node. However, this action will prevent your cluster from getting stuck in safe mode.
+Having three worker nodes is more costly than scaling down to only one worker node. However, this action prevents your cluster from getting stuck in safe mode.
 
 ### Scale HDInsight down to one worker node
 
-Even when the cluster is scaled down to one node, worker node 0 will still survive. Worker node 0 can never be decommissioned.
+Even when the cluster is scaled down to one node, worker node 0 still survive. Worker node 0 can never be decommissioned.
 
 #### Run the command to leave safe mode
 

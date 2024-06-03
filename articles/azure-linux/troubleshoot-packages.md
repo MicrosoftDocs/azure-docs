@@ -4,6 +4,7 @@ description: How to troubleshoot Azure Linux Container Host for AKS package upgr
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
+ms.custom: linux-related-content
 ms.topic: troubleshooting
 ms.date: 05/10/2023
 ---

@@ -10,9 +10,9 @@ ms.custom: mode-api
 ---
 # Quickstart: Broadcast real-time messages from console app
 
-Azure SignalR Service provides [REST API](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) to support server to client communication scenarios, such as broadcasting. You can choose any programming language that can make REST API call. You can post messages to all connected clients, a specific client by name, or a group of clients.
+Azure SignalR Service provides [REST API](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) to support server-to-client communication scenarios such as broadcasting. You can choose any programming language that can make REST API calls. You can post messages to all connected clients, a specific client by name, or a group of clients.
 
-In this quickstart, you will learn how to send messages from a command-line app to connected client apps in C#.
+In this quickstart, you learn how to send messages from a command-line app to connected client apps in C#.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Clone the sample application
 
-While the service is deploying, let's switch to prepare the code. Clone the [sample app from GitHub](https://github.com/aspnet/AzureSignalR-samples.git), set the SignalR Service connection string, and run the application locally.
+While the service is being deployed, let's switch to prepare the code. Clone the [sample app from GitHub](https://github.com/aspnet/AzureSignalR-samples.git), set the SignalR Service connection string, and run the application locally.
 
 1. Open a git terminal window. Change to a folder where you want to clone the sample project.
 
@@ -55,7 +55,7 @@ This sample is a console app showing the use of Azure SignalR Service. It provid
 - Server Mode: use simple commands to call Azure SignalR Service REST API.
 - Client Mode: connect to Azure SignalR Service and receive messages from server.
 
-Also you can find how to generate an access token to authenticate with Azure SignalR Service.
+You also learn how to generate an access token to authenticate with Azure SignalR Service.
 
 ### Build the executable file
 
@@ -87,7 +87,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Run the sample without publishing
 
-You can also run the command below to start a server or client
+You can also run the following command to start a server or client
 
 ```bash
 # Start a server
@@ -119,9 +119,9 @@ You can start multiple clients with different client names.
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
 
-## <a name="usage"> </a> Integration with third-party services
+## <a name="usage"> </a> Integration with non-Microsoft services
 
-The Azure SignalR service allows third-party services to integrate with the system.
+The Azure SignalR service allows non-Microsoft services to integrate with the system.
 
 ### Definition of technical specifications
 
@@ -157,7 +157,7 @@ Send to some users | **&#x2713;** (Deprecated) | `N / A`
 Version | API HTTP Method | Request URL | Request body
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
-`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>` | Same as above
+`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
 
 <a name="broadcast-group"> </a>
 ### Broadcast to a group
@@ -165,7 +165,7 @@ Version | API HTTP Method | Request URL | Request body
 Version | API HTTP Method | Request URL | Request body
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
-`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | Same as above
+`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
 
 <a name="send-user"> </a>
 ### Sending to a user
@@ -173,7 +173,7 @@ Version | API HTTP Method | Request URL | Request body
 Version | API HTTP Method | Request URL | Request body
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
-`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>` | Same as above
+`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>` |  `{"target": "<method-name>", "arguments": [...]}`
 
 <a name="add-user-to-group"> </a>
 ### Adding a user to a group

@@ -1,10 +1,11 @@
 ---
-title: Deploy GPU-enabled container instance 
+title: Deploy GPU-enabled container instance
 description: Learn how to deploy Azure container instances to run compute-intensive container applications using GPU resources.
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.date: 06/17/2022
 ---
@@ -16,6 +17,9 @@ To run certain compute-intensive workloads on Azure Container Instances, deploy 
 This article shows how to add GPU resources when you deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md) or [Resource Manager template](container-instances-multi-container-group.md). You can also specify GPU resources when you deploy a container instance using the Azure portal.
 
 > [!IMPORTANT]
+> K80 and P100 GPU SKUs are retiring by August 31st, 2023. This is due to the retirement of the underlying VMs used: [NC Series](../virtual-machines/nc-series-retirement.md) and [NCv2 Series](../virtual-machines/ncv2-series-retirement.md) Although V100 SKUs will be available, it is receommended to use Azure Kubernetes Service instead. GPU resources are not fully supported and should not be used for production workloads. Use the following resources to migrate to AKS today: [How to Migrate to AKS](../aks/aks-migration.md).
+
+> [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Prerequisites
@@ -23,11 +27,11 @@ This article shows how to add GPU resources when you deploy a container group by
 > [!NOTE]
 > Due to some current limitations, not all limit increase requests are guaranteed to be approved.
 
-* If you would like to use this sku for your production container deployments, create an [Azure Support request](https://azure.microsoft.com/support) to increase the limit. 
+* If you would like to use this sku for your production container deployments, create an [Azure Support request](https://azure.microsoft.com/support) to increase the limit.
 
 ## Preview limitations
 
-In preview, the following limitations apply when using GPU resources in container groups. 
+In preview, the following limitations apply when using GPU resources in container groups.
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
@@ -44,24 +48,22 @@ Support will be added for additional regions over time.
 To use GPUs in a container instance, specify a *GPU resource* with the following information:
 
 * **Count** - The number of GPUs: **1**, **2**, or **4**.
-* **SKU** - The GPU SKU: **K80**, **P100**, or **V100**. Each SKU maps to the NVIDIA Tesla GPU in one the following Azure GPU-enabled VM families:
+* **SKU** - The GPU SKU: **V100**. Each SKU maps to the NVIDIA Tesla GPU in one the following Azure GPU-enabled VM families:
 
   | SKU | VM family |
   | --- | --- |
-  | K80 | [NC](../virtual-machines/nc-series.md) |
-  | P100 | [NCv2](../virtual-machines/ncv2-series.md) |
   | V100 | [NCv3](../virtual-machines/ncv3-series.md) |
 
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the preceding table. These values are currently larger than the CPU and memory resources available in container groups without GPU resources.  
+When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the preceding table. These values are currently larger than the CPU and memory resources available in container groups without GPU resources.
 
 > [!IMPORTANT]
-> Default [subscription limits](container-instances-quotas.md) (quotas) for GPU resources differ by SKU. The default CPU limits for the P100 and V100 SKUs are initially set to 0. To request an increase in an available region, please submit an [Azure support request][azure-support].
+> Default [subscription limits](container-instances-quotas.md) (quotas) for GPU resources differ by SKU. The default CPU limits for V100 SKUs are initially set to 0. To request an increase in an available region, please submit an [Azure support request][azure-support].
 
 ### Things to know
 
-* **Deployment time** - Creation of a container group containing GPU resources takes up to **8-10 minutes**. This is due to the additional time to provision and configure a GPU VM in Azure. 
+* **Deployment time** - Creation of a container group containing GPU resources takes up to **8-10 minutes**. This is due to the additional time to provision and configure a GPU VM in Azure.
 
 * **Pricing** - Similar to container groups without GPU resources, Azure bills for resources consumed over the *duration* of a container group with GPU resources. The duration is calculated from the time to pull your first container's image until the container group terminates. It does not include the time to deploy the container group.
 
@@ -75,10 +77,10 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
 
   > [!NOTE]
   > To improve reliability when using a public container image from Docker Hub, import and manage the image in a private Azure container registry, and update your Dockerfile to use your privately managed base image. [Learn more about working with public images](../container-registry/buffer-gate-public-content.md).
-    
+
 ## YAML example
 
-One way to add GPU resources is to deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md). Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainergroup* specifying a container instance with a K80 GPU. The instance runs a sample CUDA vector addition application. The resource requests are sufficient to run the workload.
+One way to add GPU resources is to deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md). Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainergroup* specifying a container instance with a V100 GPU. The instance runs a sample CUDA vector addition application. The resource requests are sufficient to run the workload.
 
  > [!NOTE]
   > The following example uses a public container image. To improve reliability, import and manage the image in a private Azure container registry, and update your YAML to use your privately managed base image. [Learn more about working with public images](../container-registry/buffer-gate-public-content.md).
@@ -98,12 +100,12 @@ properties:
           memoryInGB: 1.5
           gpu:
             count: 1
-            sku: K80
+            sku: V100
   osType: Linux
   restartPolicy: OnFailure
 ```
 
-Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name for the `--file` parameter. You need to supply the name of a resource group and a location for the container group such as *eastus* that supports GPU resources.  
+Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name for the `--file` parameter. You need to supply the name of a resource group and a location for the container group such as *eastus* that supports GPU resources.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
@@ -197,10 +199,10 @@ Output:
 ```output
 2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
 2018-10-25 18:31:10.305937: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
-name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
+name: Tesla V100 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
 pciBusID: ccb6:00:00.0
 totalMemory: 11.92GiB freeMemory: 11.85GiB
-2018-10-25 18:31:10.305981: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: ccb6:00:00.0, compute capability: 3.7)
+2018-10-25 18:31:10.305981: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla V100, pci bus id: ccb6:00:00.0, compute capability: 3.7)
 2018-10-25 18:31:14.941723: I tensorflow/stream_executor/dso_loader.cc:139] successfully opened CUDA library libcupti.so.8.0 locally
 Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.
 Extracting /tmp/tensorflow/input_data/train-images-idx3-ubyte.gz

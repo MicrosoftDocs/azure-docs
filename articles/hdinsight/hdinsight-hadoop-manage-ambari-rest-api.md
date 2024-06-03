@@ -1,10 +1,10 @@
 ---
 title: Monitor and manage Hadoop with Ambari REST API - Azure HDInsight
-description: Learn how to use Ambari to monitor and manage Hadoop clusters in Azure HDInsight. In this document, you'll learn how to use the Ambari REST API included with HDInsight clusters.
+description: Learn how to use Ambari to monitor and manage Hadoop clusters in Azure HDInsight. In this document, you learn how to use the Ambari REST API included with HDInsight clusters.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, seoapr2020
-ms.date: 06/09/2022
+ms.custom: hdinsightactive
+ms.date: 05/22/2024
 ---
 
 # Manage HDInsight clusters by using the Apache Ambari REST API
@@ -21,7 +21,7 @@ Apache Ambari simplifies the management and monitoring of Hadoop clusters by pro
 
 * A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* Bash on Ubuntu on Windows 10.  The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.  The examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use Windows PowerShell.
+* Bash on Ubuntu on Windows 10.  The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) work as well.  The examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use Windows PowerShell.
 
 * jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
@@ -41,10 +41,10 @@ For Enterprise Security Package clusters, instead of `admin`, use a fully qualif
 
 ### Setup (Preserve credentials)
 
-Preserve your credentials to avoid reentering them for each example.  The cluster name will be preserved in a separate step.
+Preserve your credentials to avoid reentering them for each example.  The cluster name is preserved in a separate step.
 
 **A. Bash**  
-Edit the script below by replacing `PASSWORD` with your actual password.  Then enter the command.
+Edit the script by replacing `PASSWORD` with your actual password.  Then enter the command.
 
 ```bash
 export password='PASSWORD'
@@ -58,9 +58,9 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 
 ### Identify correctly cased cluster name
 
-The actual casing of the cluster name may be different than you expect.  The steps here will show the actual casing, and then store it in a variable for all later examples.
+The actual casing of the cluster name may be different than you expect.  The following steps show the actual casing, and then store it in a variable for all later examples.
 
-Edit the scripts below to replace `CLUSTERNAME` with your cluster name. Then enter the command. (The cluster name for the FQDN isn't case-sensitive.)
+Edit the scripts to replace `CLUSTERNAME` with your cluster name. Then enter the command. (The cluster name for the FQDN isn't case-sensitive.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -297,7 +297,7 @@ This example returns a JSON document containing the current configuration for th
 ### Update configuration
 
 1. Create `newconfig.json`.  
-   Modify, and then enter the commands below:
+   Modify, and then enter the commands as follows:
 
    * Replace `livy2-conf` with the new component.
    * Replace `INITIAL` with actual value retrieved for `tag` from [Get all configurations](#get-all-configurations).

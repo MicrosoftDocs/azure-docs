@@ -5,8 +5,8 @@ ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions]
-ms.date: 08/09/2022
+ms.custom: references_regions
+ms.date: 05/15/2024
 ---
 
 # Access a secured Microsoft Purview account from Azure Data Factory
@@ -15,13 +15,21 @@ This article describes how to access a secured Microsoft Purview account from Az
 
 ## Microsoft Purview private endpoint deployment scenarios
 
-You can use [Azure private endpoints](../private-link/private-endpoint-overview.md) for your Microsoft Purview accounts to allow secure access from a virtual network (VNet) to the catalog over a Private Link. Microsoft Purview provides different types of private points for various access need: *account* private endpoint, *portal* private endpoint, and *ingestion* private endpoints. Learn more from [Microsoft Purview private endpoints conceptual overview](../purview/catalog-private-link.md#conceptual-overview). 
+Microsoft Purview provides different options of [firewall settings](/purview/catalog-firewall). Refer to the following pipeline lineage support matrix for each Data Factory integration runtime type. 
 
-If your Microsoft Purview account is protected by firewall and denies public access, make sure you follow below checklist to set up the private endpoints so Data Factory can successfully connect to Microsoft Purview. 
+| Microsoft Purview firewall settings | Azure integration runtime | Azure integration runtime with managed virtual network       | Self-hosted integration runtime                              |
+| ----------------------------------- | ------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Enabled from all networks           | Supported                 | Supported                                                    | Supported                                                    |
+| Disabled for ingestion only         | Supported                 | Supported                                                    | Supported, ***ingestion*** private endpoints are required    |
+| Disabled from all networks          | Unsupported               | Supported, ***account*** and ***ingestion*** private endpoints are required | Supported, ***account*** and ***ingestion*** private endpoints are required |
 
-| Scenario                                                     | Required Microsoft Purview private endpoints                           |
+You can use [Azure private endpoints](../private-link/private-endpoint-overview.md) for your Microsoft Purview accounts to allow secure access from a virtual network (VNet) to the catalog over a Private Link. Microsoft Purview provides different types of private endpoints for various access need: *account* private endpoint, *portal* private endpoint, and *ingestion* private endpoints. Learn more from [Microsoft Purview private endpoints conceptual overview](../purview/catalog-private-link.md#conceptual-overview). 
+
+When private endpoints are needed, make sure you follow below instruction to set them up so Data Factory can successfully connect to Microsoft Purview. If the integration runtime cannot connect to Purview, you will see lineage status as failed or timed out on the activity run monitoring, and the activity execution duration might be slight longer (up to 2-minute which is the default timeout setting).
+
+| Scenario                                                     | Required Microsoft Purview private endpoints                 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Run pipeline and report lineage to Microsoft](tutorial-push-lineage-to-purview.md) | For Data Factory pipeline to push lineage to Microsoft, Microsoft Purview ***account*** and ***ingestion*** private endpoints are required. <br>- When using **Azure Integration Runtime**, follow the steps in [Managed private endpoints for Microsoft Purview](#managed-private-endpoints-for-microsoft-purview) section to create managed private endpoints in the Data Factory managed virtual network.<br>- When using **Self-hosted Integration Runtime**, follow the steps in [this section](../purview/catalog-private-link-end-to-end.md#option-2---enable-account-portal-and-ingestion-private-endpoint-on-existing-microsoft-purview-accounts) to create the *account* and *ingestion* private endpoints in your integration runtime's virtual network. |
+| [Run pipeline and report lineage to Microsoft](tutorial-push-lineage-to-purview.md) | For Data Factory pipeline to push lineage to Microsoft Purview: <br>- When using **Azure Integration Runtime**, follow the steps in [Managed private endpoints for Microsoft Purview](#managed-private-endpoints-for-microsoft-purview) section to create managed private endpoints in the Data Factory managed virtual network.<br>- When using **Self-hosted Integration Runtime**, follow the steps in [this section](../purview/catalog-private-link-end-to-end.md#option-2---enable-account-portal-and-ingestion-private-endpoint-on-existing-microsoft-purview-accounts) to create the ***account*** and ***ingestion*** private endpoints in your integration runtime's virtual network. |
 | [Discover and explore data using Microsoft on ADF UI](how-to-discover-explore-purview-data.md) | To use the search bar at the top center of Data Factory authoring UI to search for Microsoft Purview data and perform actions, you need to create Microsoft Purview ***account*** and ***portal*** private endpoints in the virtual network that you launch the Data Factory Studio. Follow the steps in [Enable *account* and *portal* private endpoint](../purview/catalog-private-link-account-portal.md#option-2---enable-account-and-portal-private-endpoint-on-existing-microsoft-purview-accounts). |
 
 ## Managed private endpoints for Microsoft Purview
@@ -57,13 +65,28 @@ If you have permission to approve the Microsoft Purview private endpoint connect
 1. Go to **Manage** -> **Microsoft Purview** -> **Edit**
 2. In the private endpoint list, click the **Edit** (pencil) button next to each private endpoint name
 3. Click **Manage approvals in Azure portal** which will bring you to the resource.
-4. On the given resource, go to **Networking** -> **Private endpoint connection** to approve it. The private endpoint is named as `data_factory_name.your_defined_private_endpoint_name` with description as "Requested by data_factory_name".
+4. On the given resource, go to **Networking** -> **Private endpoint connection** or **Ingestion private endpoint connections** to approve it. The private endpoint is named as `data_factory_name.your_defined_private_endpoint_name` with description as "Requested by data_factory_name".
 5. Repeat this operation for all private endpoints.
 
 If you don't have permission to approve the Microsoft Purview private endpoint connection, ask the Microsoft Purview account owner to do as follows.
 
+For Microsoft Purview accounts using the [Microsoft Purview portal](/purview/purview-portal):
+
+1. Go to the Azure portal -> your Microsoft Purview account.
+1. Select **Networking** -> **Ingestion private endpoint connections** to approve it. The private endpoint is named as `data_factory_name.your_defined_private_endpoint_name` with description as "Requested by data_factory_name".
+
+For Microsoft Purview accounts using the [classic Microsoft Purview governance portal](/purview/use-microsoft-purview-governance-portal):
+
 - For *account* private endpoint, go to Azure portal -> your Microsoft Purview account -> Networking -> Private endpoint connection to approve.
-- For *ingestion* private endpoints, go to Azure portal -> your Microsoft Purview account -> Managed resources, click into the Storage account and Event Hubs namespace respectively, and approve the private endpoint connection in Networking -> Private endpoint connection page.
+- If your account was created after November 10 2023 (or deployed using API version 2023-05-01-preview onwards):
+   1. Go to the Azure portal -> your Microsoft Purview account.
+   1. Select **Networking** -> **Ingestion private endpoint connections** to approve it. The private endpoint is named as `data_factory_name.your_defined_private_endpoint_name` with description as "Requested by data_factory_name".
+- If your account was created before November 10 2023 (or deployed using a version of the API older than 2023-05-01-preview):
+   1. Go to Azure portal -> your Microsoft Purview account -> Managed resources.
+   1. Select the Storage account and Event Hubs namespace respectively, and approve the private endpoint connection in Networking -> Private endpoint connection page.
+
+      >[!TIP]
+      > Your account will only have a managed Event Hubs namespace if it is [configured for Kafka notifications](/purview/configure-event-hubs-for-kafka).
 
 ### Monitor managed private endpoints
 

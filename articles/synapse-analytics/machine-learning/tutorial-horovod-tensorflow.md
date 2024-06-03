@@ -1,30 +1,35 @@
 ---
-title: 'Tutorial: Distributed training with Horovod and Tensorflow'
-description: Tutorial on how to run distributed training with the Horovod Runner and Tensorflow
+title: 'Tutorial: Distributed training with Horovod and TensorFlow'
+description: Tutorial on how to run distributed training with the Horovod Runner and TensorFlow
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.date: 04/19/2022
+ms.date: 05/02/2024
 author: midesa
 ms.author: midesa
 ---
 
-# Tutorial: Distributed Training with Horovod Runner and Tensorflow (Preview)
+# Tutorial: Distributed Training with Horovod Runner and TensorFlow (Preview)
 
 [Horovod](https://github.com/horovod/horovod) is a distributed training framework for libraries like TensorFlow and PyTorch. With Horovod, users can scale up an existing training script to run on hundreds of GPUs in just a few lines of code. 
 
-Within Azure Synapse Analytics, users can quickly get started with Horovod using the default Apache Spark 3 runtime.For Spark ML pipeline applications using Tensorflow, users can use ```HorovodRunner```. This notebook uses an Apache Spark dataframe to perform distributed training of a distributed neural network (DNN) model on MNIST dataset. This tutorial leverages Tensorflow and the ```HorovodRunner``` to run the training process.
+Within Azure Synapse Analytics, users can quickly get started with Horovod using the default Apache Spark 3 runtime. For Spark ML pipeline applications using TensorFlow, users can use ```HorovodRunner```. This notebook uses an Apache Spark dataframe to perform distributed training of a distributed neural network (DNN) model on MNIST dataset. This tutorial uses TensorFlow and the ```HorovodRunner``` to run the training process.
 
 ## Prerequisites
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Create a GPU-enabled Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a GPU-enabled Apache Spark pool in Azure Synapse](../spark/apache-spark-gpu-concept.md). For this tutorial, we suggest using the GPU-Large cluster size with 3 nodes.
 
+> [!WARNING]
+> - The GPU accelerated preview is limited to the [Apache Spark 3.2 (End of Support announced)](../spark/apache-spark-32-runtime.md) runtime. End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of Support announced runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime and the corresponding GPU accelerated preview on Spark 3.2 will be retired and disabled as of July 8, 2024.
+> - The GPU accelerated preview is now unsupported on the [Azure Synapse 3.1 (unsupported) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its End of Support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
+
+
 ## Configure the Apache Spark session
 
-At the start of the session, we will need to configure a few Apache Spark settings. In most cases, we only needs to set the ```numExecutors``` and ```spark.rapids.memory.gpu.reserve```. For very large models, users may also need to configure the  ```spark.kryoserializer.buffer.max``` setting. For Tensorflow models, users will need to set the ```spark.executorEnv.TF_FORCE_GPU_ALLOW_GROWTH``` to be true.
+At the start of the session, we need to configure a few Apache Spark settings. In most cases, we only need to set the ```numExecutors``` and ```spark.rapids.memory.gpu.reserve```. For very large models, users may also need to configure the  ```spark.kryoserializer.buffer.max``` setting. For TensorFlow models, users need to set the ```spark.executorEnv.TF_FORCE_GPU_ALLOW_GROWTH``` to be true.
 
-In the example below, you can see how the Spark configurations can be passed with the ```%%configure``` command. The detailed meaning of each parameter is explained in the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/configuration.html). The values provided below are the suggested, best practice values for Azure Synapse GPU-large pools.  
+In the example, you can see how the Spark configurations can be passed with the ```%%configure``` command. The detailed meaning of each parameter is explained in the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/configuration.html). The values provided are the suggested, best practice values for Azure Synapse GPU-large pools.  
 
 ```spark
 
@@ -43,7 +48,7 @@ In the example below, you can see how the Spark configurations can be passed wit
 }
 ```
 
-For this tutorial, we will use the following configurations:
+For this tutorial, we use the following configurations:
 
 ```python
 
@@ -62,9 +67,9 @@ For this tutorial, we will use the following configurations:
 
 ## Setup primary storage account
 
-We will need the Azure Data Lake Storage (ADLS) account for storing intermediate and model data. If you are using an alternative storage account, be sure to set up the [linked service](../../data-factory/concepts-linked-services.md) to automatically authenticate and read from the account. 
+We need the Azure Data Lake Storage (ADLS) account for storing intermediate and model data. If you are using an alternative storage account, be sure to set up the [linked service](../../data-factory/concepts-linked-services.md) to automatically authenticate and read from the account. 
 
-In this example, we will read from the primary Azure Synapse Analytics storage account. To do this, you will need to modify the following properties below: ```remote_url```.
+In this example, we read data from the primary Azure Synapse Analytics storage account. To read the results you need to modify the following properties: ```remote_url```.
 
 ```python
 # Specify training parameters
@@ -79,7 +84,7 @@ remote_url = "<<abfss path to storage account>>
 
 ## Prepare dataset
 
-Next, we will prepare the dataset for training. In this tutorial, we will use the MNIST dataset from [Azure Open Datasets](../../open-datasets/dataset-mnist.md?tabs=azureml-opendatasets).
+Next, we prepare the dataset for training. In this tutorial, we use the MNIST dataset from [Azure Open Datasets](../../open-datasets/dataset-mnist.md?tabs=azureml-opendatasets).
 
 ```python
 def get_dataset(rank=0, size=1):
@@ -126,7 +131,7 @@ def get_dataset(rank=0, size=1):
 
 ## Define DNN model
 
-Once we have finished processing our dataset, we can now define our Tensorflow model. The same code could also be used to train a single-node Tensorflow model.
+Once our dataset is processed, we can define our TensorFlow model. The same code could also be used to train a single-node TensorFlow model.
 
 ```python
 # Define the TensorFlow model without any Horovod-specific parameters
@@ -153,7 +158,7 @@ def get_model():
 
 ## Define a training function for a single node
 
-First, we will train our Tensorflow model on the driver node of the Apache Spark pool. Once we have finished the training process, we will evaluate the model and print the loss and accuracy scores.
+First, we train our TensorFlow model on the driver node of the Apache Spark pool. Once the training process is complete, we evaluate the model and print the loss and accuracy scores.
 
 ```python
 
@@ -203,7 +208,7 @@ Next, we will take a look at how the same code could be re-run using ```HorovodR
 
 ### Define training function
 
-To do this, we will first define a training function for ```HorovodRunner```.
+To train a model, we first define a training function for ```HorovodRunner```.
 
 ```python
 # Define training function for Horovod runner
@@ -284,7 +289,7 @@ def train_hvd(learning_rate=0.1):
 
 ### Run training
 
-Once we have defined the model, we will run the training process. 
+Once the model is defined, we can run the training process. 
 
 ```python
 # Run training
@@ -302,7 +307,7 @@ best_model_bytes = \
 
 ### Save checkpoints to ADLS storage
 
-The code below shows how to save the checkpoints to the Azure Data Lake Storage (ADLS) account.
+The code shows how to save the checkpoints to the Azure Data Lake Storage (ADLS) account.
 
 ```python
 import tempfile
@@ -325,7 +330,7 @@ print(adls_ckpt_file)
 
 ### Evaluate Horovod trained model
 
-Once we have finished training our model, we can then take a look at the loss and accuracy for the final model. 
+Once the model training is complete, we can then take a look at the loss and accuracy for the final model. 
 
 ```python
 import tensorflow as tf

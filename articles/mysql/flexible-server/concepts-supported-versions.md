@@ -1,12 +1,11 @@
 ---
-title: Supported versions - Azure Database for MySQL - Flexible Server
-description: Learn which versions of the MySQL server are supported in the Azure Database for MySQL - Flexible Server
+title: Supported versions
+description: Learn which versions of the MySQL server are supported in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: code-sidd 
+author: code-sidd
 ms.author: sisawant
-ms.custom: event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 
@@ -14,26 +13,26 @@ ms.date: 05/24/2022
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL - Flexible Server is powered by [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB engine.
+Azure Database for MySQL flexible server is powered by [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB engine.
 
 MySQL uses the X.Y.Z naming scheme. X is the major version, Y is the minor version, and Z is the bug fix release. For more information about the scheme, see the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
 > [!NOTE]
-> To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt.
+> To determine the version of your Azure Database for MySQL flexible server instance, use the `SELECT VERSION();` command at the MySQL prompt.
 
-Azure Database for MySQL currently supports the following versions:
+Azure Database for MySQL flexible server currently supports the following versions:
 
 ## MySQL Version 5.7
 
-Bug fix release: 5.7.40
+Bug fix release: 5.7.44
 
-Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-40.html) to learn more about improvements and fixes in this version.
+Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-44.html) to learn more about improvements and fixes in this version.
 
 ## MySQL Version 8
 
-Bug fix release: 8.0.31
+Bug fix release: 8.0.35
 
-Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-31.html) to learn more about improvements and fixes in this version.
+Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-35.html) to learn more about improvements and fixes in this version.
 
 
 The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are also included as part of the planned maintenance release. Users can configure the patching schedule to be system managed or define their custom schedule. During the maintenance schedule, the patch is applied and server may require a restart as part of the patching process to complete the update. With the custom schedule, users can make their patching cycle predictable and choose a maintenance window with minimum impact to the business. In general, the service follows monthly release schedule as part of the continuous integration and release.

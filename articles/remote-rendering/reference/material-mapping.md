@@ -1,8 +1,8 @@
 ---
 title: Material mapping for model formats
 description: Describes the default conversion from model source formats to PBR material
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: reference
 ---

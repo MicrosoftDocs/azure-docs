@@ -1,7 +1,7 @@
 ---
 title: KeyVaultCertificateSelector UI element
 description: Describes the Microsoft.KeyVault.KeyVaultCertificateSelector UI element for Azure portal.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/27/2020
 ---
 

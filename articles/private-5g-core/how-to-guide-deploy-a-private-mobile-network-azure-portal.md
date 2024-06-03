@@ -1,9 +1,9 @@
 ---
 title: Deploy a private mobile network - Azure portal
 titleSuffix: Azure Private 5G Core
-description: This how-to guide shows how to deploy a private mobile network through Azure Private 5G Core using the Azure portal 
-author: djrmetaswitch
-ms.author: drichards
+description: This how-to guide shows how to deploy a private mobile network through Azure Private 5G Core using the Azure portal. 
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 01/03/2022
@@ -36,9 +36,7 @@ In this step, you'll create the Mobile Network resource representing your privat
 
     :::image type="content" source="media/create-button-mobile-networks.png" alt-text="Screenshot of the Azure portal showing the Create button on the Mobile Networks page.":::
 
-1. Use the information you collected in [Collect private mobile network resource values](collect-required-information-for-private-mobile-network.md#collect-mobile-network-resource-values) to fill out the fields on the **Basics** configuration tab. Once you've done this, select **Next : SIMs >**.
-    > [!CAUTION]
-    > If you configure **Mobile Country Code (MCC)** or **Mobile Network Code (MNC)** values incorrectly, you must redeploy the mobile network to change them.
+1. Use the information you collected in [Collect private mobile network resource values](collect-required-information-for-private-mobile-network.md#collect-mobile-network-resource-values) to fill out the fields on the **Basics** configuration tab, then select **Next : SIMs >**.
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-private-mobile-network-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab.":::
 
@@ -60,14 +58,14 @@ In this step, you'll create the Mobile Network resource representing your privat
 1. If you're provisioning SIMs at this point, you'll need to take the following additional steps.
    1. If you want to use the default service and allow-all SIM policy, set **Do you wish to create a basic, allow-all SIM policy and assign it to these SIMs?** to **Yes**, and then enter the name of the data network into the **Data network name** field that appears. 
    1. Under **Enter SIM group information**, set **SIM group name** to your chosen name for the SIM group to which your SIMs will be added.
-   1. Under **Enter encryption details for SIM group**, set **Encryption type** to your chosen encryption type. Once the SIM group is created, you cannot change the encryption type.
+   1. Under **Enter encryption details for SIM group**, set **Encryption type** to your chosen encryption type. Once the SIM group is created, you can't change the encryption type.
    1. If you selected **Customer-managed keys (CMK)**, set the **Key URI** and **User-assigned identity** to those the SIM group will use for encryption.
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-private-mobile-network-review-create-tab.png" alt-text="Screenshot of the Azure portal showing validated configuration for a private mobile network.":::
 
-    If the validation fails, you'll see an error message and the configuration tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
+    If the validation fails, you'll see an error message, and the configuration tab or tabs containing the invalid configuration will be flagged with red dots. Select the flagged tabs and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
 1. Once the configuration has been validated, select **Create** to create the Mobile Network, slice, and any SIM resources.
 1. The Azure portal will now deploy the resources into your chosen resource group. You'll see the following confirmation screen when your deployment is complete.
@@ -81,10 +79,25 @@ In this step, you'll create the Mobile Network resource representing your privat
 
     :::image type="content" source="media/pmn-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing Mobile Network, SIM, SIM group, Service, SIM policy, Data Network, and Slice resources.":::
 
+## Modify a private mobile network
+
+You can change the public land mobile network (PLMN) identifier, comprising a Mobile Country Code (MCC) and Mobile Network Code (MNC), using the **Modify mobile network** button on the **Mobile Network** resource.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for and select the **Mobile Network** resource representing the private mobile network.
+1. Select **Modify mobile network**.
+
+    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/modify-mobile-network-button.png" alt-text="Screenshot of the Azure portal showing the modify mobile network button.":::
+
+1. Update the MCC and/or MNC as required.
+1. Select **Modify**.
+1. [Reinstall the packet core](reinstall-packet-core.md) to apply the change. If you have multiple packet cores in this mobile network, you'll need to reinstall all of them.
+
 ## Next steps
 
-You can begin designing policy control to determine how your private mobile network will handle traffic, create more network slices, or start adding sites to your private mobile network.
+You can begin designing policy control to determine how your private mobile network will handle traffic, create more network slices, enable SUPI concealment, or start adding sites to your private mobile network.
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
 - [Create and manage network slices](create-manage-network-slices.md)
+- [Enable SUPI concealment](supi-concealment.md)
 - [Collect the required information for a site](collect-required-information-for-a-site.md)

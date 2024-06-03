@@ -2,14 +2,14 @@
 title: Validation activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: The Validation activity in Azure Data Factory and Synapse Analytics delays execution of the pipeline until a dataset is validated with user-defined criteria.
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/24/2022
+ms.date: 10/20/2023
 ---
 
 # Validation activity in Azure Data Factory and Synapse Analytics pipelines
@@ -73,7 +73,7 @@ To use a Validation activity in a pipeline, complete the following steps:
 |minimumSize | Minimum size of a file in bytes. If no value is specified, default value is 0 bytes | Integer | No |
 
 
-## Next steps
+## Related content
 See other supported control flow activities:
 
 - [If Condition Activity](control-flow-if-condition-activity.md)

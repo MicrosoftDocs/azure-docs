@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/14/2022
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge Pro FPGA device via Windows PowerShell
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 Azure Stack Edge Pro FPGA solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Azure Stack Edge Pro FPGA device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 

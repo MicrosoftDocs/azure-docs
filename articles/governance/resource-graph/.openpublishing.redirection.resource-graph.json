@@ -1,0 +1,39 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/governance/resource-graph/how-to/get-resource-changes.md",
+      "redirect_url": "/azure/governance/resource-graph/changes/get-resource-changes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/resource-graph/first-query-dotnet.md",
+      "redirect_url": "/azure/governance/resource-graph/first-query-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/resource-graph/first-query-go.md",
+      "redirect_url": "/azure/governance/resource-graph/first-query-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/resource-graph/first-query-java.md",
+      "redirect_url": "/azure/governance/resource-graph/first-query-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/resource-graph/first-query-javascript.md",
+      "redirect_url": "/azure/governance/resource-graph/first-query-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/resource-graph/first-query-python.md",
+      "redirect_url": "/azure/governance/resource-graph/first-query-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/resource-graph/first-query-ruby.md",
+      "redirect_url": "/azure/governance/resource-graph/first-query-powershell",
+      "redirect_document_id": false
+    }
+  ]
+}

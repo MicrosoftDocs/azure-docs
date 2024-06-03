@@ -1,21 +1,24 @@
 ---
-title: 'Connect to Azure Database for PostgreSQL flexible server with private access in the Azure portal'
-description: This article shows how to create and connect to Azure Database for PostgreSQL flexible server with private access or virtual network using Azure portal.
+title: Connect with private access in the Azure portal
+description: This article shows how to create and connect to Azure Database for PostgreSQL - Flexible Server with private access or virtual network using the Azure portal.
+author: GennadNY
+ms.author: gennadyk
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
-ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 11/30/2021
+ms.custom:
+  - mvc
+  - mode-ui
+  - linux-related-content
 ---
 
-# Connect Azure Database for PostgreSQL Flexible Server with the private access connectivity method
+# Connect Azure Database for PostgreSQL - Flexible Server with the private access connectivity method
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Azure Database for PostgreSQL Flexible Server is a managed service that you can use to run, manage, and scale highly available PostgreSQL servers in the cloud. This quickstart shows you how to create a flexible server in a virtual network by using the Azure portal.
+Azure Database for PostgreSQL flexible server is a managed service that you can use to run, manage, and scale highly available PostgreSQL servers in the cloud. This quickstart shows you how to create an Azure Database for PostgreSQL flexible server instance in a virtual network by using the Azure portal.
 
 
 
@@ -23,13 +26,13 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Sign in to the Azure portal
 
-Go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Sign in to the [Azure portal](https://portal.azure.com). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for PostgreSQL flexible server
 
-You create a flexible server with a defined set of [compute and storage resources](./concepts-compute-storage.md). You create the server within an [Azure resource group](../../azure-resource-manager/management/overview.md).
+You create an Azure Database for PostgreSQL flexible server instance with a defined set of [compute and storage resources](./concepts-compute-storage.md). You create the server within an [Azure resource group](../../azure-resource-manager/management/overview.md).
 
-Complete these steps to create a flexible server:
+Complete these steps to create an Azure Database for PostgreSQL flexible server instance:
 
 1. Search for and select **Azure Database for PostgreSQL servers** in the portal:
 
@@ -37,13 +40,13 @@ Complete these steps to create a flexible server:
 
 2. Select **Add**.
 
-3. On the **Select Azure Database for PostgreSQL deployment option** page, select **Flexible server** as the deployment option:
+<!-- This no longer happens. 3. On the **Select Azure Database for PostgreSQL deployment option** page, select **Flexible server** as the deployment option:
 
     :::image type="content" source="./media/quickstart-create-connect-server-vnet/deployment-option.png" alt-text="Screenshot that shows the Flexible server option." lightbox="./media/quickstart-create-connect-server-vnet/deployment-option.png":::
+-->
+4. On the **Basics** tab, enter the **subscription**, **resource group**, **region**, and **server name**.  With the default values, this will provision an Azure Database for PostgreSQL flexible server instance of version 12 with General purpose pricing tier  using 2 vCores, 8 GiB RAM, and 28 GiB storage. The backup retention is **seven** days. You can use **Development** workload to default to a lower-cost pricing tier.
 
-4. On the **Basics** tab, enter the **subscription**, **resource group**, **region**, and **server name**.  With the default values, this will provision a PostgreSQL server of version 12 with General purpose pricing tier  using 2 vCores, 8 GiB RAM, and 28 GiB storage. The backup retention is **seven** days. You can use **Development** workload to default to a lower-cost pricing tier.
-
-    :::image type="content" source="./media/quickstart-create-connect-server-vnet/postgres-create-basics.png" alt-text="Screenshot that shows the Basics tab of the postgres flexible server page." lightbox="./media/quickstart-create-connect-server-vnet/postgres-create-basics.png":::
+    :::image type="content" source="./media/quickstart-create-connect-server-vnet/postgres-create-basics.png" alt-text="Screenshot that shows the Basics tab of the Azure Database for PostgreSQL flexible server page." lightbox="./media/quickstart-create-connect-server-vnet/postgres-create-basics.png":::
 
 5. In the **Basics** tab, enter  a unique **admin username** and **admin password**.
 
@@ -53,19 +56,19 @@ Complete these steps to create a flexible server:
 
     :::image type="content" source="./media/quickstart-create-connect-server-vnet/create-new-vnet-for-postgres-server.png" alt-text="Screenshot that shows the Networking tab with new VNET." lightbox="./media/quickstart-create-connect-server-vnet/create-new-vnet-for-postgres-server.png":::
 
-7. Select **Review + create** to review your flexible server configuration.
+7. Select **Review + create** to review your Azure Database for PostgreSQL flexible server configuration.
 
 8. Select **Create** to provision the server. Provisioning can take a few minutes.
 
 9. Wait until the deployment is complete and successful.
 
-   :::image type="content" source="./media/quickstart-create-connect-server-vnet/deployment-success.png" alt-text="Screenshot that shows the Networking settings with new VNET." lightbox="./media/quickstart-create-connect-server-vnet/deployment-success.png":::
+   :::image type="content" source="./media/quickstart-create-connect-server-vnet/deployment-success.png" alt-text="Screenshot that shows deployment success." lightbox="./media/quickstart-create-connect-server-vnet/deployment-success.png":::
 
-9.  Select **Go to resource** to view the server's **Overview** page opens.
+9.  Select **Go to resource** to view the server's **Overview** page.
 
 ## Create an Azure Linux virtual machine
 
-Since the server is in a virtual network, you can only connect to the server from other Azure services in the same virtual network as the server. To connect and manage the server, let's create a Linux virtual machine. The virtual machine must be created in the **same region** and **same subscription**. The Linux virtual machine can be used as an SSH tunnel to manage your database server. 
+Since the server is in a virtual network, you can only connect to the server from other Azure services in the same virtual network as the server. To connect and manage the server, let's create a Linux virtual machine. The virtual machine must be created in the **same region** and **same subscription**. The Linux virtual machine can be used as an SSH tunnel to manage your Azure Database for PostgreSQL flexible server instance. 
 
 1. Go to your resource group in which the server was created. Select **Add**.
 2. Select **Ubuntu Server 18.04 LTS**.
@@ -73,7 +76,7 @@ Since the server is in a virtual network, you can only connect to the server fro
 
    :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine." lightbox="../../virtual-machines/linux/media/quick-create-portal/project-details.png"::: 
 
-2. Under **Instance details**, type *myVM* for the **Virtual machine name**, and choose the same **Region** as your database server.
+2. Under **Instance details**, type *myVM* for the **Virtual machine name**, and choose the same **Region** as your Azure Database for PostgreSQL flexible server instance.
 
    :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size." lightbox="../../virtual-machines/linux/media/quick-create-portal/instance-details.png":::
 
@@ -149,7 +152,7 @@ psql --host=mydemoserver-pg.postgres.database.azure.com --port=5432 --username=m
 ```
 
 ## Clean up resources
-You have now created an Azure Database for PostgreSQL flexible server in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group, or you can just delete the PostgreSQL server. To delete the resource group, complete the following steps:
+You have now created an Azure Database for PostgreSQL flexible server instance in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group, or you can just delete the Azure Database for PostgreSQL flexible server instance. To delete the resource group, complete the following steps:
 
 1. In the Azure portal, search for and select **Resource groups**.
 1. In the list of resource groups, select the name of your resource group.

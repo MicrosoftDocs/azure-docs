@@ -4,6 +4,7 @@ description: Learn how to monitor churn patterns on Virtual Machines protected u
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: ankitadutta

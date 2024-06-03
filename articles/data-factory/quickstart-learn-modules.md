@@ -5,7 +5,7 @@ author: jonburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: quickstart
-ms.date: 09/14/2022
+ms.date: 05/15/2024
 ms.author: jburchel
 ---
 
@@ -34,7 +34,7 @@ This module introduces you to the details of Azure Data Factory's ingestion meth
 
 :::image type="content" source="media/quickstart-learn-modules/petabyte-scale-ingestion.png" alt-text="Screenshot showing the Petabyte-scale ingestion with Azure Data Factory module start page.":::
 
-## Next steps
+## Related content
 
 - [Quickstart: Get started with Azure Data Factory](quickstart-get-started.md)
 - [Quickstart: Create data factory using UI](quickstart-create-data-factory-portal.md)

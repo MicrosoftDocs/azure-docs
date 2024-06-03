@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Window functions in mapping data flow
@@ -34,7 +34,7 @@ The following functions are only available in window transformations.
 | [rowNumber](data-flow-expressions-usage.md#rowNumber) | Assigns a sequential row numbering for rows in a window starting with 1.  |
 |||
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).

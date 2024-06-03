@@ -3,7 +3,7 @@ title: Deploy Traffic Manager to balance Azure VMware Solution workloads
 description: Learn how to integrate Traffic Manager with Azure VMware Solution to balance application workloads across multiple endpoints in different regions.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/26/2022
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 
 ---
@@ -14,14 +14,14 @@ This article walks through the steps of how to integrate [Azure Traffic Manager]
 
 The gateways have Azure VMware Solution virtual machines (VMs) configured as backend pool members to load balance the incoming layer 7 requests. For more information, see [Use Azure Application Gateway to protect your web apps on Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
 
-The diagram shows how Traffic Manager provides load balancing for the applications at the DNS level between regional endpoints. The gateways have backend pool members configured as IIS Servers and referenced as Azure VMware Solution external endpoints. Connection over the virtual network between the two private cloud regions uses an ExpressRoute gateway.   
+The diagram shows how Traffic Manager provides load balancing for the applications at the DNS level between regional endpoints. The gateways have backend pool members configured as IIS Servers and referenced as Azure VMware Solution external endpoints. Connection over the virtual network between the three private cloud regions uses an ExpressRoute gateway.   
 
-:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagram of the Traffic Manager integration with Azure VMware Solution." lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagram of the Azure Traffic Manager integration with Azure VMware Solution." lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
 
-Before you begin, first review the [Prerequisites](#prerequisites) and then we'll walk through the procedures to:
+Before you begin, review the [Prerequisites](#prerequisites) list, then go through the following procedures:
 
 > [!div class="checklist"]
-> * Verify configuration of your application gateways and the NSX-T segment
+> * Verify configuration of your application gateways and the NSX segment
 > * Create your Traffic Manager profile
 > * Add external endpoints into your Traffic Manager profile
 
@@ -32,11 +32,11 @@ Before you begin, first review the [Prerequisites](#prerequisites) and then we'l
    - West Europe
    - East US (on-premises) 
 
-- An application gateway with external endpoints in the Azure VMware Solution regions mentioned above.
+- An application gateway with external endpoints in the Azure VMware Solution regions previously mentioned.
 
 - Host with internet connectivity for verification. 
 
-- An [NSX-T network segment created in Azure VMware Solution](tutorial-nsx-t-network-segment.md).
+- An [NSX network segment created in Azure VMware Solution](tutorial-nsx-t-network-segment.md).
 
 ## Verify your application gateways configuration
 
@@ -62,13 +62,13 @@ The following steps verify the configuration of your application gateways.
 
 1. Verify the configuration of the other application gateways and backend pool members. 
 
-## Verify the NSX-T segment configuration
+## Verify the NSX segment configuration
 
-The following steps verify the configuration of the NSX-T segment in the Azure VMware Solution environment.
+The following steps verify the configuration of the NSX segment in the Azure VMware Solution environment.
 
 1. Select **Segments** to view your configured segments.  You see Contoso-segment1 connected to Contoso-T01 gateway, a Tier-1 flexible router.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png" alt-text="Screenshot showing segment profiles in NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png" alt-text="Screenshot showing segment profiles in NSX Manager." lightbox="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png":::    
 
 1. Select **Tier-1 Gateways** to see a list of Tier-1 gateways with the number of linked segments. 
 
@@ -83,7 +83,7 @@ The following steps verify the configuration of the NSX-T segment in the Azure V
 
    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Screenshot showing VM details in vSphere Client." lightbox="media/traffic-manager/nsx-t-vm-details.png":::    
 
-4. Select the VM, then select **ACTIONS > Edit Settings** to verify connection to the NSX-T segment.
+4. Select the VM, then select **ACTIONS > Edit Settings** to verify connection to the NSX segment.
 
 ## Create your Traffic Manager profile
 
@@ -128,7 +128,7 @@ The following steps verify the configuration of the NSX-T segment in the Azure V
 
 ## Next steps
 
-Now that you've covered integrating Azure Traffic Manager with Azure VMware Solution, you may want to learn about:
+Now that you covered integrating Azure Traffic Manager with Azure VMware Solution, learn more about:
 
 - [Using Azure Application Gateway on Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
 - [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md)

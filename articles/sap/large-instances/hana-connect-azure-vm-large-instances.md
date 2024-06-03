@@ -2,21 +2,15 @@
 title: Connectivity setup from virtual machines to SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Connectivity setup from virtual machines for using SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter: 
-author: lauradolan
+author: ju-shim
 manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: ''
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 05/28/2021
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Connecting Azure VMs to HANA Large Instances
@@ -38,7 +32,7 @@ Looking closer at the Azure virtual network side, you'll need:
 >[!Note]
 >The Azure virtual network for HANA Large Instances must be created by using the Azure Resource Manager deployment model. The older Azure deployment model, commonly known as the classic deployment model, isn't  supported by the HANA Large Instance solution.
 
-You can use the Azure portal, PowerShell, an Azure template, or the Azure CLI to create the virtual network. (For more information, see [Create a virtual network using the Azure portal](../../virtual-network/manage-virtual-network.md#create-a-virtual-network)). In the following example, we look at a virtual network that's created by using the Azure portal.
+You can use the Azure portal, PowerShell, an Azure template, or the Azure CLI to create the virtual network. (For more information, see [Create a virtual network using the Azure portal](../../virtual-network/manage-virtual-network.yml#create-a-virtual-network)). In the following example, we look at a virtual network that's created by using the Azure portal.
 
 In this documentation, **address space** refers to the address space that the Azure virtual network is allowed to use. This address space is also the address range that the virtual network uses for BGP route propagation. This **address space** can be seen here:
 
@@ -141,8 +135,6 @@ At the end of the deployment process, Microsoft delivers the following data to y
      - Authorization key(s)
      - ExpressRoute PeerID
 - Data for accessing HANA Large Instances after you establish the ExpressRoute circuit and Azure virtual network.
-
-You can also find the sequence of connecting HANA Large Instances in the document [SAP HANA on Azure (Large Instances) Setup](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Many of the steps are shown in an example deployment in that document. 
 
 ## Next steps
 

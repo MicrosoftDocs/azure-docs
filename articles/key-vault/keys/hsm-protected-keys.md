@@ -4,21 +4,20 @@ description: Learn how to plan for, generate, and then transfer your own HSM-pro
 services: key-vault
 author: mbaldwin
 manager: devtiw
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 01/24/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---
 
 # Import HSM-protected keys to Key Vault
 
-For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. Azure Key Vault uses nCipher nShield family of HSMs (FIPS 140-2 Level 2 validated) to protect your keys.
+For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. Azure Key Vault uses [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance) to protect your keys.
 
-This functionality is not available for Azure China 21Vianet.
+This functionality is not available for Microsoft Azure operated by 21Vianet.
 
 > [!NOTE]
 > For more information about Azure Key Vault, see [What is Azure Key Vault?](../general/overview.md)  
@@ -30,7 +29,7 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 
 |Vendor Name|Vendor Type|Supported HSM models|Supported HSM-key transfer method|
 |---|---|---|---|
-|Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/azurebyok)|[Use new BYOK method](hsm-protected-keys-byok.md)|
+|Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/)|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Entrust|Manufacturer,<br/>HSM as a Service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Fortanix|Manufacturer,<br/>HSM as a Service|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |IBM|Manufacturer|IBM 476x, CryptoExpress|[Use new BYOK method](hsm-protected-keys-byok.md)|

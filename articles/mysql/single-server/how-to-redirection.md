@@ -1,12 +1,13 @@
 ---
 title: Connect with redirection - Azure Database for MySQL
 description: This article describes how you can configure your application to connect to Azure Database for MySQL with redirection.
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 05/03/2023
 ms.service: mysql
 ms.subservice: single-server
+ms.custom:
 ms.topic: how-to
 ---
 
@@ -24,7 +25,7 @@ Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Databas
 
 For details, refer to how to create an Azure Database for MySQL server using the [Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Redirection is currently not supported with [Private Link for Azure Database for MySQL](concepts-data-access-security-private-link.md).
 
 ## Enable redirection
@@ -37,12 +38,12 @@ Support for redirection in PHP applications is available through the [mysqlnd_az
 
 The mysqlnd_azure extension is available to add to PHP applications through PECL, and it's highly recommended to install and configure the extension through the officially published [PECL package](https://pecl.php.net/package/mysqlnd_azure).
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Support for redirection in the PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension is currently in preview.
 
 ### Redirection logic
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Redirection logic/behavior beginning version 1.1.0 was updated and **it is recommended to use version 1.1.0+**.
 
 The redirection behavior is determined by the value of `mysqlnd_azure.enableRedirect`. The table below outlines the behavior of redirection based on the value of this parameter beginning in **version 1.1.0+**.
@@ -152,7 +153,7 @@ The subsequent sections of the document outline how to install the `mysqlnd_azur
 
 You can also confirm redirection is configured with the below sample PHP code. Create a PHP file called `mysqlConnect.php` and paste the below code. Update the server name, username, and password with your own.
 
- ```php
+```php
 <?php
 $host = '<yourservername>.mysql.database.azure.com';
 $username = '<yourusername>@<yourservername>';
@@ -172,7 +173,7 @@ $db_name = 'testdb';
     $db->close();
   }
 ?>
- ```
+```
 
 ## Next steps
 

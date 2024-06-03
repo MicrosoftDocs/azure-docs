@@ -2,13 +2,11 @@
 title: APIs for Azure reservation automation
 description: Learn about the Azure APIs that you can use to programmatically get reservation information.
 author: bandersmsft
-ms.reviewer: nitinarora
-tags: billing
-ms.custom: ignite-2022
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -103,7 +101,7 @@ The scope of a reservation can be single subscription, single resource group or 
 
 To change the scope programmatically, use the API [Reservation - Update](/rest/api/reserved-vm-instances/reservation/update).
 
-## Learn more
+## Related content
 
 - [What are reservations for Azure](save-compute-costs-reservations.md)
 - [Understand how the VM reservation discount is applied](../manage/understand-vm-reservation-charges.md)

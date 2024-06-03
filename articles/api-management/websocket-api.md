@@ -1,16 +1,17 @@
 ---
 title: Import a WebSocket API to Azure API Management | Microsoft Docs
-titleSuffix: 
 description: Learn how API Management supports WebSocket, add a WebSocket API, and WebSocket limitations.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 10/27/2022
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to
 ---
 
 # Import a WebSocket API
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 With API Management’s WebSocket API solution, API publishers can quickly add a WebSocket API in API Management via the Azure portal, Azure CLI, Azure PowerShell, and other Azure tools. 
 
@@ -114,11 +115,11 @@ For example, the following screenshot shows  recent WebSocket API responses with
 Below are the current restrictions of WebSocket support in API Management:
 
 * WebSocket APIs are not supported yet in the Consumption tier.
-* WebSocket APIs are not supported yet in the [self-hosted gateway](./self-hosted-gateway-overview.md).
-* 200 active connections limit per unit.
 * WebSocket APIs support the following valid buffer types for messages: Close, BinaryFragment, BinaryMessage, UTF8Fragment, and UTF8Message.
 * Currently, the [set-header](set-header-policy.md) policy doesn't support changing certain well-known headers, including `Host` headers, in onHandshake requests.
 * During the TLS handshake with a WebSocket backend, API Management validates that the server certificate is trusted and that its subject name matches the hostname. With HTTP APIs, API Management validates that the certificate is trusted but doesn’t validate that hostname and subject match.
+
+For WebSocket connection limits, see [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits).
 
 ### Unsupported policies
 

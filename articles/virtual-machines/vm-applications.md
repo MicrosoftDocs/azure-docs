@@ -4,13 +4,11 @@ description: Learn more about VM application packages in an Azure Compute Galler
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
-ms.workload: infrastructure
-ms.date: 04/12/2023
-author: ericd-mst-github
-ms.author: nikhilpatel
-ms.reviewer: erd
-ms.custom: 
-
+ms.date: 02/26/2024
+author: ju-shim
+ms.author: gabsta
+ms.reviewer: jushiman
+ms.custom: linux-related-content
 ---
 
 # VM Applications overview
@@ -31,7 +29,9 @@ Application packages provide benefits over other deployment and packaging method
 
 - Support for virtual machines, and both flexible and uniform scale sets
 
-- If you have Network Security Group (NSG) rules applied on your VM or scale set, downloading the packages from an internet repository might not be possible. And  with storage accounts, downloading packages onto locked-down VMs would require setting up private links.
+- If you have Network Security Group (NSG) rules applied on your VM or scale set, downloading the packages from an internet repository might not be possible. And with storage accounts, downloading packages onto locked-down VMs would require setting up private links.
+
+- Support for Block Blobs: This feature allows the handling of large files efficiently by breaking them into smaller, manageable blocks. Ideal for uploading large amounts of data, streaming, and background uploading.
 
 ## What are VM app packages?
 
@@ -47,13 +47,13 @@ The VM application packages use multiple resource types:
 
 - **No more than 3 replicas per region**: When you're creating a VM Application version, the maximum number of replicas per region is three.
 
-- **Public access on storage**: Only public level access to storage accounts work, as other restriction levels fail deployments.
+- **Storage with public access or SAS URI with read privilege:** The storage account needs to has public level access or use an SAS URI with read privilege, as other restriction levels fail deployments.
 
 - **Retrying failed installations**: Currently, the only way to retry a failed installation is to remove the application from the profile, then add it back.
 
 - **Only 25 applications per VM**: No more than 25 applications may be deployed to a VM at any point.
 
-- **2GB application size**: The maximum file size of an application version is 2 GB. 
+- **2GB application size**: The maximum file size of an application version is 2 GB.
 
 - **No guarantees on reboots in your script**: If your script requires a reboot, the recommendation is to place that application last during deployment. While the code attempts to handle reboots, it may fail.
 
@@ -69,7 +69,7 @@ The VM application packages use multiple resource types:
 
 There's no extra charge for using VM Application Packages, but you're charged for the following resources:
 
-- Storage costs of storing each package and any replicas. 
+- Storage costs of storing each package and any replicas.
 - Network egress charges for replication of the first image version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no extra charges.
 
 For more information on network egress, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
@@ -96,7 +96,7 @@ VM application versions are the deployable resource. Versions are defined with t
 - A link to the configuration file for the VM application, which you can include license files
 - Update string for how to update the VM application to a newer version
 - End-of-life date. End-of-life dates are informational; you're still able to deploy VM application versions past the end-of-life date.
-- Exclude from latest. You can keep a version from being used as the latest version of the application. 
+- Exclude from latest. You can keep a version from being used as the latest version of the application.
 - Target regions for replication
 - Replica count per region
 
@@ -111,13 +111,23 @@ The install/update/remove commands should be written assuming the application pa
 
 ## File naming
 
-When the application file gets downloaded to the VM, the file name is the same as the name you use when you create the VM application. For example, if I name my VM application `myApp`, the file that is downloaded to the VM is also named `myApp`, regardless of what the file name is used in the storage account. If your VM application also has a configuration file, that file is the name of the application with `_config` appended. If `myApp` has a configuration file, it's named `myApp_config`.
+When the application file gets downloaded to the VM, it's renamed as "MyVmApp" (no extension). This is because the VM isn't aware of your package's original name or extension. It utilizes the only name it has, which is the application name itself - "MyVmApp".
 
-For example, if I name my VM application `myApp` when I create it in the Gallery, but it's stored as `myApplication.exe` in the storage account, when it gets downloaded to the VM the file name is `myApp`. My install string should start by renaming the file to be whatever it needs to be to run on the VM (like `myApp.exe`).
+Here are a few alternatives to navigate this issue:
 
-The install, update, and remove commands must be written with file naming in mind. The `configFileName` is assigned to the config file for the VM and `packageFileName` is the name assigned downloaded package on the VM. For more information regarding these other VM settings, see [UserArtifactSettings](/rest/api/compute/gallery-application-versions/create-or-update?tabs=HTTP#userartifactsettings) in our API docs.
+You can modify your script to include a command for renaming the file before execution:
+```azurepowershell
+move .\\MyVmApp .\\MyApp.exe & MyApp.exe /S
+```
+You can also use the `packageFileName` (and the corresponding `configFileName`) property to instruct us what to rename your file. For example, setting it to "MyApp.exe" will make your install script only need to be:
+```powershell
+MyAppe.exe /S
+```
+> [!TIP]
+> If your blob was originally named "myApp.exe" instead of "myapp", then the above script would have worked without setting the `packageFileName` property.
 
-## Command interpreter  
+
+## Command interpreter
 
 The default command interpreters are:
 
@@ -304,7 +314,7 @@ sudo yum install --downloadonly --downloaddir=/tmp/powershell powershell
 sudo tar -cvzf powershell.tar.gz *.rpm
 ```
 
-4. This tar archive is the application package file. 
+4. This tar archive is the application package file.
 
 - The install command in this case is:
 
@@ -415,15 +425,15 @@ Most third party applications in Windows are available as .exe or .msi installer
 
 Installer executables typically launch a user interface (UI) and require someone to select through the UI. If the installer supports a silent mode parameter, it should be included in your installation string.
 
-Cmd.exe also expects executable files to have the extension `.exe`, so you need to rename the file to have the `.exe` extension.  
+Cmd.exe also expects executable files to have the extension `.exe`, so you need to rename the file to have the `.exe` extension.
 
 If I want to create a VM application package for `myApp.exe`, which ships as an executable, my VM Application is called 'myApp', so I write the command assuming the application package is in the current directory:
 
 ```terminal
-"move .\\myApp .\\myApp.exe & myApp.exe /S -config myApp_config" 
+"move .\\myApp .\\myApp.exe & myApp.exe /S -config myApp_config"
 ```
 
-If the installer executable file doesn't support an uninstall parameter, you can sometimes look up the registry on a test machine to know here the uninstaller is located. 
+If the installer executable file doesn't support an uninstall parameter, you can sometimes look up the registry on a test machine to know here the uninstaller is located.
 
 In the registry, the uninstall string is stored in `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\<installed application name>\UninstallString` so I would use the contents as my remove command:
 
@@ -447,7 +457,7 @@ start /wait %windir%\\system32\\msiexec.exe /x $appname /quiet /forcerestart /lo
 
 ### Zipped files
 
-For .zip or other zipped files, rename and unzip the contents of the application package to the desired destination. 
+For .zip or other zipped files, rename and unzip the contents of the application package to the desired destination.
 
 Example install command:
 
@@ -474,7 +484,7 @@ To learn more about getting the status of VM extensions, see [Virtual machine ex
 To get status of VM extensions, use [Get-AzVM](/powershell/module/az.compute/get-azvm):
 
 ```azurepowershell-interactive
-Get-AzVM -name <VM name> -ResourceGroupName <resource group name> -Status | convertto-json -Depth 10    
+Get-AzVM -name <VM name> -ResourceGroupName <resource group name> -Status | convertto-json -Depth 10
 ```
 
 To get status of scale set extensions, use [Get-AzVMSS](/powershell/module/az.compute/get-azvmss):
@@ -486,7 +496,7 @@ $result | ForEach-Object {
     $res = @{ instanceId = $_.InstanceId; vmappStatus = $_.InstanceView.Extensions | Where-Object {$_.Name -eq "VMAppExtension"}}
     $resultSummary.Add($res) | Out-Null
 }
-$resultSummary | convertto-json -depth 5  
+$resultSummary | convertto-json -depth 5
 ```
 
 ## Error messages

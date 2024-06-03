@@ -2,16 +2,14 @@
 title: GitHub projects for the MedTech service - Azure Health Data Services
 description: Learn about the MedTech service open-source software library for ingesting device messages from popular wearable devices.
 services: healthcare-apis
-author: msjasteppe
+author: chachachachami
 ms.service: healthcare-apis
+ms.subservice: iomt
 ms.topic: reference
 ms.date: 04/28/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 # Open-source projects
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 Check out our open-source software (OSS) projects on GitHub, which provide source code and instructions to deploy services for various use cases with the MedTech service.
 
@@ -22,7 +20,7 @@ Check out our open-source software (OSS) projects on GitHub, which provide sourc
 
 ### FHIR integration
 
-* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Health Data Services MedTech service managed service. Can be used with any FHIR service that supports [FHIR](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
+* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Health Data Services MedTech service managed service. Can be used with any FHIR&reg; service that supports [HL7 FHIR](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491).
 
 ### Wearables integration
 
@@ -34,7 +32,7 @@ HealthKit
 
 * [microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): Bring Apple&#174; HealthKit&#174; data to a FHIR service.
 
-* [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): Provides a simple way to create FHIR Resources from HKObjects
+* [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): Provides a simple way to create FHIR resources from HKObjects.
 
 Fit on FHIR
 
@@ -46,11 +44,6 @@ Health Data Sync
 
 ## Next steps
 
-In this article, you learned about the open-source projects for the MedTech service.
+[Choose a deployment method for the MedTech service](deploy-choose-method.md)
 
-To learn about the different deployment methods for the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-choose-method.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

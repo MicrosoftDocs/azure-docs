@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/19/2022
+ms.date: 05/15/2024
 ---
 
 # Schema drift in mapping data flow
@@ -72,5 +72,5 @@ In the generated Derived Column transformation, each drifted column is mapped to
 
 :::image type="content" source="media/data-flow/map-drifted-2.png" alt-text="Screenshot shows the Derived Column's Settings tab.":::
 
-## Next steps
+## Related content
 In the [Data Flow Expression Language](data-transformation-functions.md), you'll find additional facilities for column patterns and schema drift including "byName" and "byPosition".

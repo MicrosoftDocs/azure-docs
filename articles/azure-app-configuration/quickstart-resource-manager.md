@@ -2,17 +2,18 @@
 title: Create an Azure App Configuration store by using Azure Resource Manager template (ARM template)
 titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store by using Azure Resource Manager template (ARM template).
-author: mcleanbyron
-ms.author: mcleans
-ms.date: 06/09/2021
+author: maud-lv
+ms.author: malev
+ms.date: 05/29/2024
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+#customer intent: As a developer, I want learn how to create an Azure App Configuration store using an ARM template so that I can get started using Azure App Configuration quickly.
 ---
 
 # Quickstart: Create an Azure App Configuration store by using an ARM template
 
-This quickstart describes how to :
+This quickstart describes how to:
 
 - Deploy an App Configuration store using an Azure Resource Manager template (ARM template).
 - Create key-values in an App Configuration store using ARM template.
@@ -25,7 +26,7 @@ This quickstart describes how to :
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -33,10 +34,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Authorization
 
-Accessing key-value data inside an ARM template requires an Azure Resource Manager role, such as contributor or owner. Access via one of the Azure App Configuration [data plane roles](concept-enable-rbac.md) currently is not supported.
+Managing Azure App Configuration resource inside an ARM template requires Azure Resource Manager role, such as contributor or owner. Accessing Azure App Configuration data (key-values, snapshots) requires Azure Resource Manager role and Azure App Configuration [data plane role](concept-enable-rbac.md) under [pass-through](./quickstart-deployment-overview.md#azure-resource-manager-authentication-mode) ARM authentication mode.
 
-> [!NOTE]
-> Key-value data access inside an ARM template is disabled if access key authentication is disabled. For more information, see [disable access key authentication](./howto-disable-access-key-authentication.md#limitations).
+> [!IMPORTANT]
+> Configuring ARM authentication mode requires App Configuration control plane API version `2023-08-01-preview` or later.
 
 ## Review the template
 
@@ -45,14 +46,14 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 The quickstart uses the `copy` element to create multiple instances of key-value resource. To learn more about the `copy` element, see [Resource iteration in ARM templates](../azure-resource-manager/templates/copy-resources.md).
 
 > [!IMPORTANT]
-> This template requires App Configuration resource provider version `2020-07-01-preview` or later. This version uses the `reference` function to read key-values. The `listKeyValue` function that was used to read key-values in the previous version is not available starting in version `2020-07-01-preview`.
+> This template requires App Configuration control plane API version `2022-05-01` or later. This version uses the `reference` function to read key-values. The `listKeyValue` function that was used to read key-values in the previous version is not available starting in version `2020-07-01-preview`.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.appconfiguration/app-configuration-store-kv/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
-- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores): create an App Configuration store.
-- [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues): create a key-value inside the App Configuration store.
+- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/configurationstores): create an App Configuration store.
+- [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/configurationstores/keyvalues): create a key-value inside the App Configuration store.
 
 > [!TIP]
 > The `keyValues` resource's name is a combination of key and label. The key and label are joined by the `$` delimiter. The label is optional. In the above example, the `keyValues` resource with name `myKey` creates a key-value without a label.
@@ -76,7 +77,7 @@ Two Azure resources are defined in the template:
 
 Select the following image to sign in to Azure and open a template. The template creates an App Configuration store with two key-values inside.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json":::
 
 You can also deploy the template by using the following PowerShell cmdlet. The key-values will be in the output of PowerShell console.
 

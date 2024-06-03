@@ -34,6 +34,9 @@ The Dedicated cluster offers self-serve scaling capabilities that allow you to a
 ### High-end features and generous quotas
 Dedicated clusters include all features of the Premium tier and more. The service also manages load balancing, operating system updates, security patches, and partitioning. So, you can spend less time on infrastructure maintenance and more time on building your event streaming applications.  
 
+### Supports streaming large messages
+In most streaming scenarios, data is lightweight, typically less than 1 MB, and requires high throughput. However, there are instances where messages cannot be divided into smaller segments. Self-serve Dedicated clusters can effortlessly accommodate events up to 20 MB of size at no additional cost. This capability allows Event Hubs to handle a wide range of message sizes, thereby ensuring uninterrupted business operations. For more information, refer stream [large messages](event-hubs-quickstart-stream-large-messages.md).
+
 ## Capacity Units(CU)
 Dedicated clusters are provisioned and billed by capacity units (CUs), a pre-allocated amount of CPU and memory resources. 
 
@@ -61,7 +64,7 @@ With self-serve scalable clusters, you can purchase up to 10 CUs for a cluster i
 If you need a cluster larger than 10 CU, you can [submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to scale up your cluster after its creation.
 
 > [!IMPORTANT] 
-> Self-serve scalable Dedicated can be deployed with [availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) enabled with 3 CUs but you won't be able to use the self-serve scaling capability to scale the cluster. You must instead [submit a support request](event-hubs-> Dedicated-cluster-create-portal.md#submit-a-support-request) to scale the AZ enabled cluster. 
+> Self-serve scalable Dedicated can be deployed with [availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) enabled with 3 CUs but you won't be able to use the self-serve scaling capability to scale the cluster. To create or scale an AZ enabled self-serve cluster you must [submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request). 
 
 ### Legacy clusters 
 Event Hubs Dedicated clusters created prior to the availability of self-serve scalable clusters are referred to as legacy clusters. 
@@ -73,7 +76,7 @@ Approximately, one capacity unit (CU) in a legacy cluster provides *ingress capa
 With Legacy cluster, you can purchase up to 20 CUs. 
 
 > [!Note] 
-> Event Hubs Dedicated clusters require at least 8 Capacity Units(CUs) to enable availability zones. Clusters with self-serve scaling does not support availability zones yet. Availability zone support is only available in [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
+> Legacy Event Hubs Dedicated clusters require at least 8 Capacity Units(CUs) to enable availability zones. Availability zone support is only available in [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
 
 > [!IMPORTANT] 
 > Migrating an existing Legacy cluster to a Self-Serve Cluster isn't currently support. For more information, see [migrating a Legacy cluster to Self-Serve Scalable cluster.](#can-i-migrate-my-standard-or-premium-namespaces-to-a-dedicated-tier-cluster). 

@@ -1,10 +1,11 @@
 ---
-title: 'Quickstart: Create an Azure Data Catalog'
+title: Create an Azure Data Catalog
 description: This quickstart describes how to create an Azure Data Catalog using the Azure portal.
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 12/07/2022
+ms.date: 04/29/2024
 ms.custom: mode-ui
+ROBOTS: NOINDEX
 #Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---
 
@@ -25,14 +26,14 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To get started, you need to have:
 
-* A [Microsoft Azure](https://azure.microsoft.com/) subscription.
-* You need to have your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+* A Microsoft Azure subscription.
+* You need to have your own [Microsoft Entra ID tenant](/entra/fundamentals/create-new-tenant).
 
 To set up Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
 ## Create a data catalog
 
-You can create only one data catalog per organization (Azure Active Directory domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Azure Active Directory domain has already created a catalog, then you can't create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Azure Active Directory domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.
+You can create only one data catalog per organization (Microsoft Entra domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Microsoft Entra domain has already created a catalog, then you can't create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Microsoft Entra domain, go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.
 
 1. Go to the [Azure portal](https://portal.azure.com) > **Create a resource** and select **Data Catalog**.
 
@@ -40,7 +41,7 @@ You can create only one data catalog per organization (Azure Active Directory do
 
 1. Specify a **name** for the data catalog, the **subscription** you want to use, the **location** for the catalog, and the **pricing tier**. Then select **Create**.
 
-1. Go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and select **Publish Data**.
+1. Go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com) and select **Publish Data**.
 
    :::image type="content" source="media/data-catalog-get-started/data-catalog-publish-data.png" alt-text="On the data catalog homepage, the Publish Data button is selected.":::
 
@@ -56,7 +57,7 @@ You can create only one data catalog per organization (Azure Active Directory do
 
     :::image type="content" source="media/data-catalog-get-started/data-catalog-create-catalog-select-edition.png" alt-text="The pricing option expanded with the free edition selected.":::
 
-1. If you choose *Standard* edition as your pricing tier, you can expand **Security Groups** and enable authorizing Active Directory security groups to access Data Catalog and enable automatic adjustment of billing.
+1. If you choose *Standard* edition as your pricing tier, you can expand **Security Groups** and enable authorizing security groups to access Data Catalog and enable automatic adjustment of billing.
 
     :::image type="content" source="media/data-catalog-get-started/data-catalog-standard-security-groups.png" alt-text="The security groups option expanded with the option to enable authorizing shown.":::
 

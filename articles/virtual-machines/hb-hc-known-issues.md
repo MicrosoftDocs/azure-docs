@@ -1,16 +1,20 @@
 ---
 title: Troubleshooting known issues with HPC and GPU VMs - Azure Virtual Machines | Microsoft Docs
-description: Learn about troubleshooting known issues with HPC and GPU VM sizes in Azure. 
+description: Learn about troubleshooting known issues with HPC and GPU VM sizes in Azure.
 ms.service: virtual-machines
 ms.subservice: hpc
+ms.custom: linux-related-content
 ms.topic: article
 ms.date: 03/10/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 
 # Known issues with HB-series and N-series VMs
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -28,7 +32,7 @@ If it is necessary to use the incompatible OFED, a solution is to use the **Cano
 
 ## Accelerated Networking on HB, HC, HBv2, HBv3, HBv4, HX, NDv2 and NDv4
 
-[Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is now available on the RDMA and InfiniBand capable and SR-IOV enabled VM sizes [HB](hb-series.md), [HC](hc-series.md), [HBv2](hbv2-series.md), [HBv3](hbv3-series.md), [HBv4](hbv4-series.md), [HX](hx-series.md), [NDv2](ndv2-series.md) and [NDv4](nda100-v4-series.md). This capability now allows enhanced throughout (up to 30 Gbps) and latencies over the Azure Ethernet network. Though this is separate from the RDMA capabilities over the InfiniBand network, some platform changes for this capability may impact behavior of certain MPI implementations when running jobs over InfiniBand. Specifically the InfiniBand interface on some VMs may have a slightly different name (mlx5_1 as opposed to earlier mlx5_0). This may require tweaking of the MPI command lines especially when using the UCX interface (commonly with OpenMPI and HPC-X). 
+[Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is now available on the RDMA and InfiniBand capable and SR-IOV enabled VM sizes [HB](hb-series.md), [HC](hc-series.md), [HBv2](hbv2-series.md), [HBv3](hbv3-series.md), [HBv4](hbv4-series.md), [HX](hx-series.md), [NDv2](ndv2-series.md) and [NDv4](nda100-v4-series.md). This capability now allows enhanced throughout (up to 30 Gbps) and latencies over the Azure Ethernet network. Though this is separate from the RDMA capabilities over the InfiniBand network, some platform changes for this capability may impact behavior of certain MPI implementations when running jobs over InfiniBand. Specifically the InfiniBand interface on some VMs may have a slightly different name (mlx5_1 as opposed to earlier mlx5_0). This may require tweaking of the MPI command lines especially when using the UCX interface (commonly with OpenMPI and HPC-X).
 
 The simplest solution currently is to use the latest HPC-X on the CentOS-HPC VM images where we rename the InfiniBand and Accelerated Networking interfaces accordingly or to run the [script](https://github.com/Azure/azhpc-images/blob/master/common/install_azure_persistent_rdma_naming.sh) to rename the InfiniBand interface.
 

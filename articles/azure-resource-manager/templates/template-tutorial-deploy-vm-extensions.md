@@ -1,7 +1,7 @@
 ---
 title: Deploy VM extensions with template
 description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates (ARM templates).
-ms.date: 05/22/2023
+ms.date: 03/20/2024
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
@@ -146,7 +146,7 @@ From the Cloud Shell, run the following command to retrieve the public IP addres
 
 Paste the IP address into a Web browser. The default Internet Information Services (IIS) welcome page opens:
 
-![The Internet Information Services welcome page](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
+:::image type="content" source="./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png" alt-text="Screenshot of the Internet Information Services welcome page.":::
 
 ## Clean up resources
 

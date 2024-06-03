@@ -1,12 +1,12 @@
 ---
 title: Azure Private Link availability
 description: In this article, learn about which Azure services support Private Link.
-author: asudbring
-ms.author: allensu
+author: abell
+ms.author: abell
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 10/28/2022
-ms.custom: template-concept, references_regions, ignite-2022
+ms.date: 03/18/2024
+ms.custom: template-concept, references_regions
 ---
 
 # Azure Private Link availability
@@ -26,8 +26,8 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure Machine Learning | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
 |Azure Bot Service | All public regions | Supported only on Direct Line App Service extension | GA </br> [Learn how to create a private endpoint for Azure Bot Service](/azure/bot-service/dl-network-isolation-concept) |
-| Azure Cognitive Services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](../cognitive-services/cognitive-services-virtual-networks.md#use-private-endpoints)  |
-| Azure Cognitive Search | All public regions | | GA </br> [Learn how to create a private endpoint for Azure Cognitive Search](../search/service-create-private-endpoint.md) |
+| Azure AI services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](../ai-services/cognitive-services-virtual-networks.md#use-private-endpoints)  |
+| Azure AI Search | All public regions | | GA </br> [Learn how to create a private endpoint for Azure AI Search](../search/service-create-private-endpoint.md) |
 
 ### Analytics
 
@@ -45,7 +45,7 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure-managed Disks | All public regions<br/> All Government regions<br/>All China regions    | [Select for known limitations](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
+|Azure-managed Disks | All public regions<br/> All Government regions<br/>All China regions    | [Select for known limitations](../virtual-machines/disks-enable-private-links-for-import-export-portal.yml#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.yml)   |
 | Azure Batch (batchAccount) | All public regions<br/> All Government regions<br/>All China regions  | | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
 | Azure Batch (nodeManagement) | [Selected regions](../batch/simplified-compute-node-communication.md#supported-regions) | Supported for [simplified compute node communication](../batch/simplified-compute-node-communication.md) | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
 | Azure Functions | All public regions | | GA </br> [Learn how to create a private endpoint for Azure Functions.](../azure-functions/functions-create-vnet.md) |
@@ -100,6 +100,8 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 |  Azure Key Vault         | All public regions<br/> All Government regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Key Vault.](../key-vault/general/private-link-service.md)   |
 |Azure App Configuration | All public regions      |  | GA  </br> [Learn how to create a private endpoint for Azure App Configuration](../azure-app-configuration/concept-private-endpoint.md) |
+|Azure Application Gateway | All public regions      |  | GA  </br> [Azure Application Gateway Private Link](../application-gateway/private-link.md) |
+
 
 ### Storage
 |Supported services  |Available regions | Other considerations | Status  |

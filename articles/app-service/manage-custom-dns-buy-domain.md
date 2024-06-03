@@ -1,11 +1,11 @@
 ---
 title: Buy a custom domain
-description: Learn how to buy an App Service domain and use it as a custom domain for your app Azure App Service. 
+description: Learn how to buy an App Service domain and use it as a custom domain for your app Azure App Service.
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 01/31/2023
-ms.custom: seodec18
-
+ms.author: msangapu
+author: msangapu-msft
 ---
 # Buy an App Service domain and configure an app with it
 
@@ -16,6 +16,11 @@ App Service domains are custom domains that are managed directly in Azure. They 
 * [Create an App Service app](./index.yml), or use an app that you created for another tutorial. The app should be in an Azure Public region. At this time, Azure National Clouds are not supported.
 * To use an App Service domain, the app's [App Service plan](overview-hosting-plans.md) must be a paid tier and not **Free (F1)**. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
 * [Remove the spending limit on your subscription](../cost-management-billing/manage/spending-limit.md#remove).
+
+> [!NOTE]
+> Some subscriptions types would be required to have sufficient history on Azure prior to creating an App Service Domain.
+> Free trial and credit based subscriptions are not eligible to create an App Service Domain.
+>
 
 ## Buy and map an App Service domain
 
@@ -45,7 +50,11 @@ For pricing information on App Service domains, visit the [App Service Pricing p
     
 1. Select **Next: Contact information** and supply your information as required by [ICANN](https://lookup.icann.org/) for the domain registration. 
 
-    It's important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to buy the domain.
+   It's important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to buy the domain.
+
+    > [!NOTE]
+    > Make sure you have access to the email address on your contact information. GoDaddy will send emails directly to your contact information from a "@secureserver.net" email; these will only be important transactional emails.
+    >
 
 1. Select **Next: Hostname assignment** and verify the default hostnames to map to your app:
 
@@ -71,7 +80,6 @@ For pricing information on App Service domains, visit the [App Service Pricing p
     > [!NOTE]
     > App Service Domains use GoDaddy for domain registration and Azure DNS to host the domains. In addition to the yearly domain registration fee, usage charges for Azure DNS apply. For information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
     >
-    >
 
 1. When the domain registration is complete, you see a **Go to resource** button. Select it to see its management page.
 
@@ -80,7 +88,9 @@ For pricing information on App Service domains, visit the [App Service Pricing p
 You're now ready to assign an App Service app to this custom domain.
 
 > [!NOTE]
-> Depending on the subscription type, a sufficient payment history may be required prior to creating an App Service domain. 
+> Some subscriptions types would be required to have sufficient history on Azure prior to creating an App Service Domain.
+> Free trial and credit based subscriptions are not eligible to create an App Service Domain.
+>
 
 ## Map a hostname manually
 
@@ -130,7 +140,11 @@ If launched from an app's **Custom domains** page, the App Service domain wizard
 
 ## Renew the domain
 
-The App Service domain you bought is valid for one year from the time of purchase. You can configure to renew your domain automatically, which will charge your payment method when your domain renews the following year. You can also manually renew your domain name.
+The App Service domain you bought is valid for one year from the time of purchase. You can configure to renew your domain automatically, or you can also manually renew your domain name up to 90 days ahead of domain expiration. Upon successful auto or manual renewal, you will be billed for the cost of the domain and your domain expiration will be extended for another year.
+
+> [!NOTE]
+> For .nl domains, you can only manually renew the domain starting 90 days ahead of domain expiration and up to the 20th of the month before the expiration date. You will not be able to renew the domain after this period even if the domain has not yet expired.
+> 
 
 If you want to configure automatic renewal, or if you want to manually renew your domain, follow the steps here.
 
@@ -169,6 +183,46 @@ In Azure, DNS records for an App Service Domain are managed using [Azure DNS](ht
     ![Screenshot that shows where to access the DNS records.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
 
 For information on how to edit DNS records, see [How to manage DNS Zones in the Azure portal](../dns/dns-operations-dnszones-portal.md).
+
+## Update contact information
+
+After you purchase the App Service Domain, you can still update the domain contact information if needed. It is important to keep this contact information up to date so that you can receive notifications about your domain and receive verification emails if you decide to transfer out your domain. To update your contact information:
+
+1. In the search bar, search for and select **App Service Domains**.
+
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view." border="true":::
+
+1. Select the domain you want to configure.
+
+1. From the left navigation of the domain, select **Advance domain management (preview)**. To update your contact information, click on **Edit contact**.
+
+    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomain-update-contact.png" alt-text="Screenshot showing where to update contact information for a purchased domain." border="true":::
+
+1. A rightside plane will pop up and you will need to update the necessary fields then click on **Submit**.
+
+1. Once you submit the request, it might take some time for your contact information to update.
+
+    > [!NOTE]
+    > If you have Privacy disabled and have updated the name or organization information, an email verification will be sent to the email address on file for confirmation. Additionally, if you updated your email address, a verification email will be sent first to the previous email on file for confirmation, and once that is completed, another email would be sent to the new email on file for confirmation. The contact information will not update until after you have confirmed via email.
+    > 
+## Disable privacy protection
+
+> [!IMPORTANT]
+> Once you disable privacy protection, you can no longer re-enable privacy protection again.
+>
+
+Privacy protection hides your domain registration contact information from the WHOIS database. If opted-in during domain creation, privacy protection is already included in the yearly domain registration fee for no additional cost. However, there are some scenarios, such as transfering domain out, where you would need to Disable privacy protection, you can do that by:
+
+
+1. In the search bar, search for and select **App Service Domains**.
+
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view." border="true":::
+
+1. Select the domain you want to configure.
+
+1. From the left navigation of the domain, select **Advance domain management (preview)**. To disable privacy protection, click on **Disable** in the **Domain Privacy** section.
+
+    :::image type="content" source="./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-disable-privacy.png" alt-text="Screenshot showing where to disable privacy for a purchased domain." border="true":::
 
 ## Cancel purchase (delete domain)
 

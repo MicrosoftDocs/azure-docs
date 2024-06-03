@@ -4,6 +4,8 @@
   items: 
     - name: About the Azure Linux Container Host for AKS
       href: intro-azure-linux.md
+    - name: Support cycle for the Azure Linux Container Host for AKS
+      href: support-cycle.md
     #- name: Supported Azure Linux versions
     #  href: azure-linux-supported-versions.md
 - name: Quickstarts
@@ -12,6 +14,8 @@
       items:
         - name: Use the Azure CLI
           href: quickstart-azure-cli.md
+        - name: Use Azure PowerShell
+          href: quickstart-azure-powershell.md
         - name: Use the ARM template
           href: quickstart-azure-resource-manager-template.md
         - name: Use Terraform
@@ -33,16 +37,16 @@
   items: 
     - name: Core concepts
       href: concepts-core.md
-    #- name: Security
-    #  items:
+    - name: Security
+      items:
       #  - name: Security baseline
       #    href: concepts-security.md
-      #  - name: Compliance 
-      #    items:
-      #      - name: CIS baseline overview
-      #        href: /compliance/regulatory/offering-CIS-Benchmark
-      #      - name: CIS Azure Linux Container Host for AKS benchmark
-      #        href: cis-azure-linux.md
+        - name: Compliance 
+          items:
+            - name: CIS baseline overview
+              href: /compliance/regulatory/offering-CIS-Benchmark
+            - name: CIS Azure Linux Container Host for AKS benchmark
+              href: ../aks/cis-azure-linux.md
     - name: Packages
       href: concepts-packages.md
     #- name: Certification

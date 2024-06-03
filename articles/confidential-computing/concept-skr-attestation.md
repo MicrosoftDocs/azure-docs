@@ -1,13 +1,12 @@
 ---
 title: Secure Key Release with Azure Key Vault and Azure Confidential Computing
 description: Concept guide on what SKR is and its usage with Azure Confidential Computing Offerings
-author: agowdamsft
+author: angarg05
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 2/2/2023
-ms.author: amgowda
+ms.date: 8/22/2023
+ms.author: ananyagarg
 ---
 
 # Secure Key Release feature with AKV and Azure Confidential Computing (ACC)
@@ -37,7 +36,7 @@ Make sure to set the value of [--sku] to "premium".
 
 A Secure Key Release Policy is a json format release policy as defined [here](/rest/api/keyvault/keys/create-key/create-key?tabs=HTTP#keyreleasepolicy) that specifies a set of claims required in addition to authorization to release the key. The claims here are MAA based claims as referenced [here for SGX](/azure/attestation/attestation-token-examples#sample-jwt-generated-for-sgx-attestation) and here for [AMD SEV-SNP CVM](/azure/attestation/attestation-token-examples#sample-jwt-generated-for-sev-snp-attestation).
 
-Visit the TEE specific [examples page for more details](skr-policy-examples.md)
+Visit the TEE specific [examples page for more details](skr-policy-examples.md). For more information on the SKR policy grammar, see [Azure Key Vault secure key release policy grammar](../key-vault/keys/policy-grammar.md).
 
 Before you set an SKR policy make sure to run your TEE application through the remote attestation flow. Remote attestation isn't covered as part of this tutorial.
 
@@ -71,7 +70,7 @@ Example
 Exact details of the type of key and other attributes associated can be found [here](../key-vault/general/quick-create-cli.md).
 
 ```azurecli
-az keyvault key create --exportable true --vault-name "vault name from step 1" --kty RSA-HSM --name "keyname" --policy "jsonpolicyfromstep3 -can be a path to JSON" --protection hsm --vault-name "name of vault created from step1"               
+az keyvault key create --exportable true --vault-name "vault name from step 1" --kty RSA-HSM --name "keyname" --policy "jsonpolicyfromstep3 -can be a path to JSON"
 ```
 
 ### Step 4: Application running within a TEE doing a remote attestation
@@ -115,5 +114,7 @@ No. Not at this time.
 [CVM on AMD SEV-SNP Applications with Secure Key Release Example](skr-flow-confidential-vm-sev-snp.md)
 
 [AKV REST API With SKR Details](/rest/api/keyvault/keys/create-key/create-key?tabs=HTTP)
+
+[Azure Key Vault secure key release policy grammar](../key-vault/keys/policy-grammar.md)
 
 [AKV SDKs](../key-vault/general/client-libraries.md)

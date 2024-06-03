@@ -3,13 +3,15 @@ title: Azure Application Insights standard metrics | Microsoft Docs
 description: This article lists Azure Application Insights metrics with supported aggregations and dimensions. 
 services: azure-monitor
 ms.topic: reference
-ms.date: 04/05/2023
+ms.date: 01/31/2024
 ms.reviewer: vitalyg
 ---
 
 # Application Insights standard metrics
 
-Standard metrics are pre-aggregated during collection, they have better performance at query time. This makes them the best choice for dashboards and real-time alerting.
+Standard metrics are pre-aggregated during collection, which gives them better performance at query time. This makes them the best choice for dashboards and real-time alerting.
+
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 ## Availability metrics
 
@@ -269,7 +271,7 @@ The count of trace statements logged with the TrackTrace() Application Insights 
 
 ## Next steps
 
-* [Metrics - Get - REST API](https://learn.microsoft.com/rest/api/application-insights/metrics/get)
+* [Metrics - Get - REST API](/rest/api/application-insights/metrics/get)
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * Learn about [Log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
 * [Log-based metrics queries and definitions](../essentials/app-insights-metrics.md).

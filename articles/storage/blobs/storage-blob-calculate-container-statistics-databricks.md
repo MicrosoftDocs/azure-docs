@@ -2,11 +2,10 @@
 title: 'Tutorial: Calculate Azure Blob Storage container statistics'
 description: Description goes here  
 author: normesta
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 02/08/2023
 ms.author: normesta
-ms.subservice: blobs
 ---
 
 # Tutorial: Calculate container statistics by using Databricks
@@ -186,7 +185,7 @@ To avoid unnecessary billing, make sure to terminate the cluster. See [Terminate
   
 ## Next steps
 
-- Learn how to use Azure Synapse to calculate the blob count and total size of blobs per container. See [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md)
+- Learn how to use Azure Synapse to calculate the blob count and total size of blobs per container. See [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.yml)
 
 - Learn how to generate and visualize statistics that describes containers and blobs. See [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 

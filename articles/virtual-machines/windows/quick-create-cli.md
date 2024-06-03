@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Create a Windows VM using the Azure CLI
 description: In this quickstart, you learn how to use the Azure CLI to create a Windows virtual machine
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 02/23/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
@@ -38,8 +38,7 @@ az group create --name $resourcegroup --location $location
 
 Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name. Replace the values of the variables as needed.
 
-You'll be prompted to supply a password that meets the [password requirements for Azure VMs](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-
-).
+You'll be prompted to supply a password that meets the [password requirements for Azure VMs](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
 Using the example below, you'll be prompted to enter a password at the command line. You could also add the `--admin-password` parameter with a value for your password. The user name and password will be used when you connect to the VM.
 
@@ -72,6 +71,8 @@ It takes a few minutes to create the VM and supporting resources. The following 
 ```
 
 Take a note your own `publicIpAddress` in the output when you create your VM. This IP address is used to access the VM later in this article.
+
+Cost information isn't presented during the virtual machine creation process for CLI like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../cost-optimization-plan-to-manage-costs.md).
 
 ## Install web server
 

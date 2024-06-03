@@ -1,16 +1,16 @@
 ---
-title: Assess errors in machine learning models 
+title: Assess errors in machine learning models
 titleSuffix: Azure Machine Learning
 description: Assess model error distributions in different cohorts of your dataset with the Responsible AI dashboard's integration of error analysis.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
-ms.date: 08/17/2022
-ms.custom: responsible-ml, event-tier1-build-2022
+ms.date: 03/29/2024
+ms.custom: responsible-ml
 ---
 # Assess errors in machine learning models
 

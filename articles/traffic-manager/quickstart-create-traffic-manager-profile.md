@@ -4,11 +4,10 @@ description: This quickstart article describes how to create a Traffic Manager p
 services: traffic-manager
 author: greg-lindsay
 ms.author: greglin
-manager: twooley
+
 ms.date: 02/18/2023
 ms.topic: quickstart
 ms.service: traffic-manager
-ms.workload: infrastructure-services
 ms.custom: template-quickstart, mode-ui
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
@@ -19,7 +18,7 @@ This quickstart describes how to create a Traffic Manager profile that delivers 
 
 In this quickstart, you'll read about two instances of a web application. Each of them is running in a different Azure region. You'll create a Traffic Manager profile based on [endpoint priority](traffic-manager-routing-methods.md#priority-traffic-routing-method). The profile directs user traffic to the primary site running the web application. Traffic Manager continuously monitors the web application. If the primary site is unavailable, it provides automatic failover to the backup site.
 
-:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagram of Traffic Manager deployment environment." border="false":::
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagram of Traffic Manager deployment environment." lightbox="./media/quickstart-create-traffic-manager-profile/environment-diagram.png":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 

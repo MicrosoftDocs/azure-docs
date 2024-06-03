@@ -1,16 +1,16 @@
 ---
-title: Common Azure CLI commands 
+title: Common Azure CLI commands
 description: Learn some of the common Azure CLI commands to get you started managing your VMs in Azure Resource Manager mode
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
-ms.custom: devx-track-azurecli, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-arm-template, linux-related-content
 ms.topic: how-to
 ms.date: 04/11/2023
-ms.author: cynthn
+ms.author: jushiman
 ---
 # Common Azure CLI commands for managing Azure resources
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 The Azure CLI allows you to create and manage your Azure resources on macOS, Linux, and Windows. This article details some of the most common commands to create and manage virtual machines (VMs).
 
@@ -53,6 +53,7 @@ For more detailed help with specific command line switches and options, you can 
 | Task | Azure CLI commands |
 | --- | --- |
 | Add a data disk to a VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
+| List attached disks to a VM | `az vm show --resource-group groupName --name vmName --query "storageProfile"` |
 | Remove a data disk from a VM | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
 | Resize a disk | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
 | Snapshot a disk | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |

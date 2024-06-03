@@ -4,8 +4,8 @@ description: This tutorial explains how to create and manage Azure Database for 
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: tutorial
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
 ms.date: 06/20/2022
@@ -30,7 +30,7 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

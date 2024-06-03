@@ -226,7 +226,7 @@ Save the following code as a file named *deployment.json*. This final template a
                     "accountName": {"value": "[parameters('applicationStorageAccountName')]"}
                 }
             }
-        },  
+        },
         {
             "apiVersion": "2017-05-10",
             "name": "batchAccountDeployment",

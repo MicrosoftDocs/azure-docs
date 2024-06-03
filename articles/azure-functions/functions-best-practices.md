@@ -1,10 +1,13 @@
 ---
-title: Azure Functions best practices 
+title: Azure Functions best practices
 description: Learn best practices for designing, deploying, and maintaining efficient function code running in Azure.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.devlang: csharp, java, javascript, powershell, python
+ms.devlang: csharp
+ms.custom:
+  - build-2024
+# ms.devlang: csharp, java, javascript, powershell, python
 # Customer intent: As a developer, I want to understand how to correctly design, deploy, and maintain my functions so I can run them in the most safe and efficient way possible.
 ---
 # Best practices for reliable Azure Functions
@@ -15,15 +18,16 @@ This article details some best practices for designing and deploying efficient f
 
 ## Choose the correct hosting plan 
 
-When you create a function app in Azure, you must choose a hosting plan for your app. The plan you choose has an effect on performance, reliability, and cost. There are three basic hosting plans available for Functions: 
+When you create a function app in Azure, you must choose a hosting plan for your app. The plan you choose has an effect on performance, reliability, and cost. These are the hosting plans provided by Azure Functions: 
 
 + [Consumption plan](consumption-plan.md)
++ [Flex Consumption plan](./flex-consumption-plan.md)
 + [Premium plan](functions-premium-plan.md)
 + [Dedicated (App Service) plan](dedicated-plan.md)
 
-All hosting plans are generally available (GA) when running either Linux or Windows.
+[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
-In the context of the App Service platform, the Premium plan used to dynamically host your functions is the Elastic Premium plan (EP). There are other Dedicated (App Service) plans called Premium. To learn more, see the [Premium plan](functions-premium-plan.md) article.
+In the context of the App Service platform, the _Premium_ plan used to dynamically host your functions is the Elastic Premium plan (EP). There are other Dedicated (App Service) plans called Premium. To learn more, see the [Premium plan](functions-premium-plan.md) article.
 
 The hosting plan you choose determines the following behaviors:
 

@@ -2,9 +2,8 @@
 title: Create a Batch account in the Azure portal
 description: Learn how to use the Azure portal to create and manage an Azure Batch account for running large-scale parallel workloads in the cloud.
 ms.topic: how-to
-ms.date: 04/03/2023
-ms.custom: subject-rbac-steps
-
+ms.date: 04/16/2024
+ms.custom: subject-rbac-steps, linux-related-content
 ---
 
 # Create a Batch account in the Azure portal
@@ -30,12 +29,12 @@ To create a Batch account in the default Batch service mode:
    - **Subscription**: Select the subscription to use if not already selected.
    - **Resource group**: Select the resource group for the Batch account, or create a new one.
    - **Account name**: Enter a name for the Batch account. The name must be unique within the Azure region, can contain only lowercase characters or numbers, and must be 3-24 characters long.
-     
+
      > [!NOTE]
      > The Batch account name is part of its ID and can't be changed after creation.
 
    - **Location**: Select the Azure region for the Batch account if not already selected.
-   - **Storage account**: Optionally, select **Select a storage account** to associate an [Azure Storage account](accounts.md#azure-storage-accounts) with the Batch account. 
+   - **Storage account**: Optionally, select **Select a storage account** to associate an [Azure Storage account](accounts.md#azure-storage-accounts) with the Batch account.
 
      :::image type="content" source="media/batch-account-create-portal/batch-account-portal.png" alt-text="Screenshot of the New Batch account screen.":::
 
@@ -63,7 +62,7 @@ On your Batch account page, you can access all account settings and properties f
 
   :::image type="content" source="media/batch-account-create-portal/batch-account-keys.png" alt-text="Screenshot of Batch account keys in the Azure portal.":::
 
-  Batch also supports Azure Active Directory (Azure AD) authentication. User subscription mode Batch accounts must be accessed by using Azure AD. For more information, see [Authenticate Azure Batch services with Azure Active Directory](batch-aad-auth.md).
+  Batch also supports Microsoft Entra authentication. User subscription mode Batch accounts must be accessed by using Microsoft Entra ID. For more information, see [Authenticate Azure Batch services with Microsoft Entra ID](batch-aad-auth.md).
 
 - To view the name and keys of the storage account associated with your Batch account, select **Storage account**.
 
@@ -112,21 +111,22 @@ When you create the first user subscription mode Batch account in an Azure subsc
    :::image type="content" source="media/batch-account-create-portal/register_provider.png" alt-text="Screenshot of the Resource providers page.":::
 
 1. Return to the **Subscription** page and select **Access control (IAM)** from the left navigation.
-1. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**. 
+1. At the top of the **Access control (IAM)** page, select **Add** > **Add role assignment**.
 1. On the **Add role assignment** screen, under **Assignment type**, select **Privileged administrator role**, and then select **Next**.
 1. On the **Role** tab, select either the **Contributor** or **Owner** role for the Batch account, and then select **Next**.
 1. On the **Members** tab, select **Select members**. On the **Select members** screen, search for and select **Microsoft Azure Batch**, and then select **Select**.
 
-For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ### Create a key vault
 
-User subscription mode requires [Azure Key Vault](/azure/key-vault/general/overview). The key vault must be in the same subscription and region as the Batch account.
+User subscription mode requires [Azure Key Vault](/azure/key-vault/general/overview). The key vault must be in the same subscription and region as the Batch account and use a [Vault Access Policy](/azure/key-vault/general/assign-access-policy).
 
 To create a new key vault:
 
 1. Search for and select **key vaults** from the Azure Search box, and then select **Create** on the **Key vaults** page.
 1. On the **Create a key vault** page, enter a name for the key vault, and choose an existing resource group or create a new one in the same region as your Batch account.
+1. On the **Access configuration** tab, select **Vault access policy** under **Permission model**.
 1. Leave the remaining settings at default values, select **Review + create**, and then select **Create**.
 
 ### Create a Batch account in user subscription mode
@@ -137,6 +137,23 @@ To create a Batch account in user subscription mode:
 1. You must then select **Select a key vault** to select an existing key vault or create a new one.
 1. After you select the key vault, select the checkbox next to **I agree to grant Azure Batch access to this key vault**.
 1. Select **Review + create**, and then select **Create** to create the Batch account.
+
+### Create a Batch account with designated authentication mode
+
+To create a Batch account with authentication mode settings:
+
+1. Follow the preceding instructions to [create a Batch account](#create-a-batch-account), but select **Batch Service** for **Authentication mode** on the **Advanced** tab of the **New Batch account** page.
+1. You must then select **Authentication mode** to define which authentication mode that a Batch account can use by authentication mode property key.
+1. You can select either of the 3 **"Microsoft Entra ID**, **Shared Key**, **Task Authentication Token** authentication mode for the Batch account to support or leave the settings at default values. 
+
+   :::image type="content" source="media/batch-account-create-portal/authentication-mode-property.png" alt-text="Screenshot of the Authentication Mode options when creating a Batch account.":::
+1. Leave the remaining settings at default values, select **Review + create**, and then select **Create**.
+
+> [!TIP]
+> For enhanced security, it is advised to confine the authentication mode of the Batch account solely to **Microsoft Entra ID**. This measure mitigates the risk of shared key exposure and introduces additional RBAC controls. For more details, see [Batch security best practices](./security-best-practices.md#batch-account-authentication).
+
+> [!WARNING]
+> The **Task Authentication Token** will retire on September 30, 2024. Should you require this feature, it is recommended to use [User assigned managed identity](./managed-identity-pools.md) in the Batch pool as an alternative. 
 
 ### Grant access to the key vault manually
 
@@ -159,6 +176,8 @@ Select **Add**, then ensure that the **Azure Virtual Machines for deployment** a
 :::image type="content" source="media/batch-account-create-portal/key-vault-access-policy.png" alt-text="Screenshot of the Access policy screen.":::
 
 -->
+> [!NOTE]
+> Currently, the Batch account name supports only access policies. When creating a Batch account, ensure that the key vault uses the associated access policy instead of the EntraID RBAC permissions. For more information on how to add an access policy to your Azure key vault instance, see [Configure your Azure Key Vault instance](batch-customer-managed-key.md).
 
 ### Configure subscription quotas
 

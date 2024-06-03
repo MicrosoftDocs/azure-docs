@@ -3,11 +3,11 @@ title: How to generate and transfer HSM-protected keys for Azure Key Vault Manag
 description: Use this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM. Also known as bring your own key (BYOK).
 services: key-vault
 author: mbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 
@@ -18,7 +18,7 @@ ms.author: mbaldwin
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM.
 
 > [!NOTE]
-> This functionality is not available for Azure China 21Vianet. This import method is available only for [supported HSMs](#supported-hsms). 
+> This functionality is not available for Microsoft Azure operated by 21Vianet. This import method is available only for [supported HSMs](#supported-hsms). 
 
 For more information, and for a tutorial to get started using Managed HSM, see [What is Managed HSM?](overview.md).
 
@@ -58,7 +58,7 @@ For more information on login options via the CLI, take a look at [sign in with 
 
 |Vendor name|Vendor Type|Supported HSM models|More information|
 |---|---|---|---|
-|Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/azurebyok)|[Cryptomathic BYOK tool and documentation](https://www.cryptomathic.com/azurebyok)|
+|Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/)||
 |Entrust|Manufacturer,<br/>HSM as a service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|[nCipher new BYOK tool and documentation](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|
 |Fortanix|Manufacturer,<br/>HSM as a service|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Exporting SDKMS keys to Cloud Providers for BYOK - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |IBM|Manufacturer|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
@@ -127,7 +127,7 @@ Refer to your HSM vendor's documentation to download and install the BYOK tool. 
 Transfer the BYOK file to your connected computer.
 
 > [!NOTE] 
-> Importing RSA 1,024-bit keys is not supported. Currently, importing an Elliptic Curve (EC) key is not supported.
+> Importing RSA 1,024-bit keys is not supported. Importing EC-HSM P256K keys is supported.
 >
 > **Known issue**: Importing an RSA 4K target key from Luna HSMs is only supported with firmware 7.4.0 or newer.
 

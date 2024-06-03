@@ -65,7 +65,7 @@ After geo-replication is configured, the following restrictions apply to your li
   - Applications reading from Geo-Secondary should be built to fall back to the Geo-Primary whenever the Geo-Secondary is throwing such errors.
 - Any data that was in the secondary linked cache before the link was added is removed. If the geo-replication is later removed however, the replicated data remains in the secondary linked cache.
 - You can't [scale](cache-how-to-scale.md) either cache while the caches are linked.
-- You can't [change the number of shards](cache-how-to-premium-clustering.md) if the cache has clustering enabled.
+- You can't change the number of shards if the cache has clustering enabled.
 - You can't enable persistence on either cache.
 - You can [Export](cache-how-to-import-export-data.md#export) from either cache.
 - You can't [Import](cache-how-to-import-export-data.md#import) into the secondary linked cache.
@@ -75,7 +75,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
 ### Move
 
-1. To link two caches together for geo-replication, fist select **Geo-replication** from the Resource menu of the cache that you intend to be the primary linked cache. Next, select **Add cache replication link** from **Geo-replication** on the left.
+1. To link two caches together for geo-replication, first select **Geo-replication** from the Resource menu of the cache that you intend to be the primary linked cache. Next, select **Add cache replication link** from **Geo-replication** on the left.
 
     :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-menu.png" alt-text="Screenshot showing the cache's Geo-replication menu.":::
 

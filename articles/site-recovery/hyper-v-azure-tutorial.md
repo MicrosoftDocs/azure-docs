@@ -1,13 +1,12 @@
 ---
-title: Set up Hyper-V disaster recovery by using Azure Site Recovery  
-description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without SCVMM) to Azure by using Site Recovery.
+title: Set up Hyper-V disaster recovery by using Azure Site Recovery
+description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without SCVMM) to Azure by using Site Recovery and MARS.
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 05/04/2023
 ms.custom: MVC, engagement-fy23
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-
 ---
 # Set up disaster recovery of on-premises Hyper-V VMs to Azure
 
@@ -45,13 +44,13 @@ It's important to prepare the infrastructure before you set up disaster recovery
 
     > [!TIP]
     > For this tutorial, you don't need to use the Deployment Planner. If you're planning a large deployment, download the Deployment Planner for Hyper-V from the link on the pane. [Learn more](hyper-v-deployment-planner-overview.md) about Hyper-V deployment planning.
-  
+
     :::image type="content" source="./media/hyper-v-azure-tutorial/deployment-planning.png" alt-text="Screenshot that shows the Deployment planning pane.":::
 1. Select **Next**.
 
 ### Source settings
 
-To set up the source environment, you create a Hyper-V site. You add to the site the Hyper-V hosts that contain VMs you want to replicate. Then, you download and install the Azure Site Recovery provider and the Azure Recovery Services agent on each host, and register the Hyper-V site in the vault.
+To set up the source environment, you create a Hyper-V site. You add to the site the Hyper-V hosts that contain VMs you want to replicate. Then, you download and install the Azure Site Recovery provider and the Microsoft Azure Recovery Services (MARS) agent for Azure Site Recovery on each host, and register the Hyper-V site in the vault.
 
 1. On **Prepare infrastructure**, on the **Source settings** tab, complete these steps:
     1. For **Are you Using System Center VMM to manage Hyper-V hosts?**, select **No**.
@@ -71,7 +70,7 @@ Site Recovery checks for compatible Azure storage accounts and networks in your 
 
 #### Install the provider
 
-Install the downloaded setup file (*AzureSiteRecoveryProvider.exe*) on each Hyper-V host that you want to add to the Hyper-V site. Setup installs the Site Recovery provider and the Recovery Services agent on each Hyper-V host.
+Install the downloaded setup file (*AzureSiteRecoveryProvider.exe*) on each Hyper-V host that you want to add to the Hyper-V site. Setup installs the Site Recovery provider and the Recovery Services agent (MARS for Azure Site Recovery) on each Hyper-V host.
 
 1. Run the setup file.
 1. In the Azure Site Recovery provider setup wizard, for **Microsoft Update**, opt in to use Microsoft Update to check for provider updates.
@@ -126,7 +125,7 @@ On **Prepare infrastructure**, on the **Replication policy** tab, complete these
     1. For **Copy frequency**, select **5 Minutes**.
     1. For **Recovery point retention in hours**, select **2**.
     1. For **App-consistent snapshot frequency**, select **1**.
-    1. For **Initial replication start time**, select **Immediately**.  
+    1. For **Initial replication start time**, select **Immediately**.
     1. Select **OK** to create the policy. When you create a new policy, it's automatically associated with the specified Hyper-V site.
 
     :::image type="content" source="./media/hyper-v-azure-tutorial/create-policy.png" alt-text="Screenshot that shows Create and associate policy pane and options.":::
@@ -141,7 +140,7 @@ You can track progress in your Azure portal notifications. When the job finishes
 1. On the vault command bar, select **Enable Site Recovery**.
 1. On **Site Recovery**, under the **Hyper-V machines to Azure** tile, select **Enable replication**.
 1. On **Enable replication**, on the **Source environment** tab, select a source location, and then select **Next**.
-  
+
     :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-source.png" alt-text="Screenshot that shows the source environment pane.":::
 1. On the **Target environment** tab, complete these steps:
     1. For **Subscription**, enter or select the subscription.

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Education Hub Documentation # < 60 chars
-summary: Use the Education Hub to quickly and easily provide students with all the necessary software, learning, and Azure services they need to become cloud proficient.  # < 160 chars
+title: Azure Education Hub documentation
+summary: Use the Education Hub to provide students with all the software, learning materials, and Azure services that they need to become cloud proficient.
 
 metadata:
-  title: Azure Education Hub Documentation
-  description: Use the Education Hub to quickly and easily provide students with all the necessary software, learning, and Azure services they need to become cloud proficient. #< 160 chars.
+  title: Azure Education Hub documentation
+  description: Use the Education Hub to provide students with all the software, learning materials, and Azure services that they need to become cloud proficient.
   ms.service: azure-education
   ms.topic: landing-page
   author: tfosmark 
@@ -15,64 +15,49 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card
-  - title: Education Hub
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: About the Education Hub
-            url: about-education-hub.md
-          - text: Allocate Credits to Educators
-            url: it-admin-allocate-credit.md
-      - linkListType: quickstart
-        links:
-          - text: Use the Education Hub
-            url: access-education-hub.md
 
-  # Card
   - title: Azure Dev Tools for Teaching
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Dev Tools for Teaching?
             url: ./azure-dev-tools-teaching/about-program.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Enroll in Azure Dev Tools for Teaching
             url: ./azure-dev-tools-teaching/enroll-renew-subscription.md
           - text: Set up access
             url: ./azure-dev-tools-teaching/set-up-access.md
-      - linkListType: how-to-guide
-        links:
-          - text: How to manage students
+          - text: Manage students
             url: ./azure-dev-tools-teaching/manage-students.md
-          - text: How to download software
+          - text: Download software
             url: ./azure-dev-tools-teaching/download-software.md
 
-  # Card
-  - title: Education Hub REST APIs
+  - title: Azure for Students
     linkLists:
-      - linkListType: tutorial
+      - linkListType: overview
         links:
+          - text: What is Azure for Students?
+            url: about-azure-for-students.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy resources with Azure for Students
+            url: deploy-resources-azure-for-students.md
+          - text: Track usage and create budgets in Azure for Students
+            url: navigate-costs.md
+
+  - title: Azure for Students Starter
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure for Students Starter?
+            url: about-azure-for-students-starter.md
+
+  - title: Azure Classroom
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up a custom tenant for Azure Classroom
+            url: custom-tenant-set-up-classroom.md
           - text: Find IDs
             url: find-ids.md
-      - linkListType: how-to-guide
-        links:
-          - text: How to use a script to automate lab functionality
-            url: full-api-script.md
-          - text: How to create a lab
-            url: create-lab-education-hub.md
-          - text: How to add a student to a lab
-            url: add-student-api.md
-          - text: How to delete a lab
-            url: delete-lab-education-hub-apis.md
-  
-  # Card
-  - title: Azure for Classroom
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: How to set-up a custom tenant for Azure Classroom
-            url: custom-tenant-set-up-classroom.md

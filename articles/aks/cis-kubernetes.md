@@ -2,18 +2,19 @@
 title: Center for Internet Security (CIS) Kubernetes benchmark
 description: Learn how AKS applies the CIS Kubernetes benchmark
 ms.topic: article
-ms.date: 12/20/2022
+ms.subservice: aks-security
+ms.date: 01/10/2024
 ---
 
 # Center for Internet Security (CIS) Kubernetes benchmark
 
-As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS based on the CIS Kubernetes benchmark. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](./concepts-security.md). For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks].
+As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS based on the CIS Kubernetes benchmark. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)][security-concepts-aks-apps-clusters]. For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks].
 
 ## Kubernetes CIS benchmark
 
-The following are the results from the [CIS Kubernetes V1.24 Benchmark v1.0.0][cis-benchmark-kubernetes] recommendations on AKS. These are applicable to AKS 1.21.x through AKS 1.24.x.
+The following are the results from the [CIS Kubernetes V1.27 Benchmark v1.8.0][cis-benchmark-kubernetes] recommendations on AKS. The results are applicable to AKS 1.21.x through AKS 1.27.x.
 
-*Scored* recommendations affect the benchmark score if they are not applied, while *Not Scored* recommendations don't.
+*Scored* recommendations affect the benchmark score if they aren't applied, while *Not Scored* recommendations don't.
 
 CIS benchmarks provide two levels of security settings:
 
@@ -23,9 +24,9 @@ CIS benchmarks provide two levels of security settings:
 Recommendations can have one of the following statuses:
 
 * *Pass* - The recommendation has been applied.
-* *Fail* - The recommendation has not been applied.
+* *Fail* - The recommendation hasn't been applied.
 * *N/A* - The recommendation relates to manifest file permission requirements that are not relevant to AKS. Kubernetes clusters by default use a manifest model to deploy the control plane pods, which rely on files from the node VM. The CIS Kubernetes benchmark recommends these files must have certain permission requirements. AKS clusters use a Helm chart to deploy control plane pods and don't rely on files in the node VM.
-* *Depends on Environment* - The recommendation is applied in the user's specific environment and is not controlled by AKS. *Scored* recommendations affect the benchmark score whether the recommendation applies to the user's specific environment or not.
+* *Depends on Environment* - The recommendation is applied in the user's specific environment and isn't controlled by AKS. *Scored* recommendations affect the benchmark score whether the recommendation applies to the user's specific environment or not.
 * *Equivalent Control* - The recommendation has been implemented in a different, equivalent manner.
 
 | CIS ID | Recommendation description|Scoring Type|Level|Status|
@@ -56,7 +57,7 @@ Recommendations can have one of the following statuses:
 |1.2|API Server||||
 |1.2.1|Ensure that the `--anonymous-auth` argument is set to false|Not Scored|L1|Pass|
 |1.2.2|Ensure that the `--token-auth-file` parameter is not set|Scored|L1|Fail|
-|1.2.3|Ensure that `--DenyServiceExternalIPs` is not set|Scored|L1|Pass|
+|1.2.3|Ensure that `--DenyServiceExternalIPs` is not set|Scored|L1|Fail|
 |1.2.4|Ensure that the `--kubelet-client-certificate` and `--kubelet-client-key` arguments are set as appropriate|Scored|L1|Pass|
 |1.2.5|Ensure that the `--kubelet-certificate-authority` argument is set as appropriate|Scored|L1|Fail|
 |1.2.6|Ensure that the `--authorization-mode` argument is not set to AlwaysAllow|Scored|L1|Pass|
@@ -71,9 +72,9 @@ Recommendations can have one of the following statuses:
 |1.2.15|Ensure that the admission control plugin NodeRestriction is set|Scored|L1|Pass|
 |1.2.16|Ensure that the `--secure-port` argument is not set to 0|Scored|L1|Pass|
 |1.2.17|Ensure that the `--profiling` argument is set to false|Scored|L1|Pass|
-|1.2.18|Ensure that the `--audit-log-path` argument is set|Scored|L1|Pass|
+|1.2.18|Ensure that the `--audit-log-path` argument is set|Scored|L1|Equivalent Control|
 |1.2.19|Ensure that the `--audit-log-maxage` argument is set to 30 or as appropriate|Scored|L1|Equivalent Control|
-|1.2.20|Ensure that the `--audit-log-maxbackup` argument is set to 10 or as appropriate|Scored|L1|Equivalent Control|
+|1.2.20|Ensure that the `--audit-log-maxbackup` argument is set to 10 or as appropriate|Scored|L1|Pass|
 |1.2.21|Ensure that the `--audit-log-maxsize` argument is set to 100 or as appropriate|Scored|L1|Pass|
 |1.2.22|Ensure that the `--request-timeout` argument is set as appropriate|Scored|L1|Pass|
 |1.2.23|Ensure that the `--service-account-lookup` argument is set to true|Scored|L1|Pass|
@@ -81,7 +82,7 @@ Recommendations can have one of the following statuses:
 |1.2.25|Ensure that the `--etcd-certfile` and `--etcd-keyfile` arguments are set as appropriate|Scored|L1|Pass|
 |1.2.26|Ensure that the `--tls-cert-file` and `--tls-private-key-file` arguments are set as appropriate|Scored|L1|Pass|
 |1.2.27|Ensure that the `--client-ca-file` argument is set as appropriate|Scored|L1|Pass|
-|1.2.28|Ensure that the `--etcd-cafile` argument is set as appropriate|Scored|L1|Pass|
+|1.2.28|Ensure that the `--etcd-cafile` argument is set as appropriate|Scored|L1|Depends on Environment|
 |1.2.29|Ensure that the `--encryption-provider-config` argument is set as appropriate|Scored|L1|Depends on Environment|
 |1.2.30|Ensure that encryption providers are appropriately configured|Scored|L1|Depends on Environment|
 |1.2.31|Ensure that the API Server only makes use of Strong Cryptographic Ciphers|Not Scored|L1|Pass|
@@ -107,6 +108,8 @@ Recommendations can have one of the following statuses:
 |3|Control Plane Configuration||||
 |3.1|Authentication and Authorization||||
 |3.1.1|Client certificate authentication should not be used for users|Not Scored|L2|Pass|
+|3.1.2|Service account token authentication should not be used for users|Not Scored|L2|Pass|
+|3.1.3|Bootstrap token authentication should not be used for users|Not Scored|L2|Pass|
 |3.2|Logging||||
 |3.2.1|Ensure that a minimal audit policy is created|Scored|L1|Pass|
 |3.2.2|Ensure that the audit policy covers key security concerns|Not Scored|L2|Pass|
@@ -144,16 +147,28 @@ Recommendations can have one of the following statuses:
 |5.1.4|Minimize access to create pods|Not Scored|L1|Depends on Environment|
 |5.1.5|Ensure that default service accounts are not actively used|Scored|L1|Depends on Environment|
 |5.1.6|Ensure that Service Account Tokens are only mounted where necessary|Not Scored|L1|Depends on Environment|
+|5.1.7|Avoid use of system:masters group|Not Scored|L1|Depends on Environment|
+|5.1.8|Limit use of the Bind, Impersonate and Escalate permissions in the Kubernetes cluster|Not Scored|L1|Depends on Environment|
+|5.1.9|Minimize access to create persistent volumes|Not Scored|L1|Depends on Environment|
+|5.1.10|Minimize access to the proxy sub-resource of nodes|Not Scored|L1|Depends on Environment|
+|5.1.11|Minimize access to the approval sub-resource of certificatesigningrequests objects|Not Scored|L1|Depends on Environment|
+|5.1.12|Minimize access to webhook configuration objects|Not Scored|L1|Depends on Environment|
+|5.1.13|Minimize access to the service account token creation|Not Scored|L1|Depends on Environment|
 |5.2|Pod Security Policies||||
-|5.2.1|Minimize the admission of privileged containers|Not Scored|L1|Depends on Environment|
-|5.2.2|Minimize the admission of containers wishing to share the host process ID namespace|Scored|L1|Depends on Environment|
-|5.2.3|Minimize the admission of containers wishing to share the host IPC namespace|Scored|L1|Depends on Environment|
-|5.2.4|Minimize the admission of containers wishing to share the host network namespace|Scored|L1|Depends on Environment|
-|5.2.5|Minimize the admission of containers with allowPrivilegeEscalation|Scored|L1|Depends on Environment|
+|5.2.1|Ensure that the cluster has at least one active policy control mechanism in place|Not Scored|L1|Depends on Environment|
+|5.2.2|Minimize the admission of privileged containers|Not Scored|L1|Depends on Environment|
+|5.2.3|Minimize the admission of containers wishing to share the host process ID namespace|Scored|L1|Depends on Environment|
+|5.2.4|Minimize the admission of containers wishing to share the host IPC namespace|Scored|L1|Depends on Environment|
+|5.2.5|Minimize the admission of containers wishing to share the host network namespace|Scored|L1|Depends on Environment|
+|5.2.6|Minimize the admission of containers with allowPrivilegeEscalation|Scored|L1|Depends on Environment|
 |5.2.6|Minimize the admission of root containers|Not Scored|L2|Depends on Environment|
 |5.2.7|Minimize the admission of containers with the NET_RAW capability|Not Scored|L1|Depends on Environment|
 |5.2.8|Minimize the admission of containers with added capabilities|Not Scored|L1|Depends on Environment|
-|5.2.9|Minimize the admission of containers with capabilities assigned|Not Scored|L2|Depends on Environment|
+|5.2.9|Minimize the admission of containers with capabilities assigned|Not Scored|L1|Depends on Environment|
+|5.2.10|Minimize the admission of containers with capabilities assigned|Not Scored|L2||
+|5.2.11|Minimize the admission of Windows HostProcess Containers|Not Scored|L1|Depends on Environment|
+|5.2.12|Minimize the admission of HostPath volumes|Not Scored|L1|Depends on Environment|
+|5.2.13|Minimize the admission of containers which use HostPorts|Not Scored|L1|Depends on Environment|
 |5.3|Network Policies and CNI||||
 |5.3.1|Ensure that the CNI in use supports Network Policies|Not Scored|L1|Pass|
 |5.3.2|Ensure that all Namespaces have Network Policies defined|Scored|L2|Depends on Environment|
@@ -161,12 +176,12 @@ Recommendations can have one of the following statuses:
 |5.4.1|Prefer using secrets as files over secrets as environment variables|Not Scored|L1|Depends on Environment|
 |5.4.2|Consider external secret storage|Not Scored|L2|Depends on Environment|
 |5.5|Extensible Admission Control||||
-|5.5.1|Configure Image Provenance using ImagePolicyWebhook admission controller|Not Scored|L2|Depends on Environment|
-|5.6|General Policies||||
-|5.6.1|Create administrative boundaries between resources using namespaces|Not Scored|L1|Depends on Environment|
-|5.6.2|Ensure that the seccomp profile is set to docker/default in your pod definitions|Not Scored|L2|Depends on Environment|
-|5.6.3|Apply Security Context to Your Pods and Containers|Not Scored|L2|Depends on Environment|
-|5.6.4|The default namespace should not be used|Scored|L2|Depends on Environment|
+|5.5.1|Configure Image Provenance using ImagePolicyWebhook admission controller|Not Scored|L2|Fail|
+|5.7|General Policies||||
+|5.7.1|Create administrative boundaries between resources using namespaces|Not Scored|L1|Depends on Environment|
+|5.7.2|Ensure that the seccomp profile is set to docker/default in your pod definitions|Not Scored|L2|Depends on Environment|
+|5.7.3|Apply Security Context to Your Pods and Containers|Not Scored|L2|Depends on Environment|
+|5.7.4|The default namespace should not be used|Scored|L2|Depends on Environment|
 
 > [!NOTE]
 > In addition to the Kubernetes CIS benchmark, there is an [AKS CIS benchmark][cis-benchmark-aks] available as well.
@@ -184,10 +199,10 @@ For more information about AKS security, see the following articles:
 * [AKS security considerations](./concepts-security.md)
 * [AKS best practices](./best-practices.md)
 
-[azure-update-management]: ../automation/update-management/overview.md
-[azure-file-integrity-monotoring]: ../security-center/security-center-file-integrity-monitoring.md
-[azure-time-sync]: ../virtual-machines/linux/time-sync.md
-[auzre-log-analytics-agent-overview]: ../azure-monitor/platform/log-analytics-agent.md
-[cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
+<!-- EXTERNAL LINKS -->
 [cis-benchmark-aks]: https://www.cisecurity.org/benchmark/kubernetes/
 [cis-benchmark-kubernetes]: https://www.cisecurity.org/benchmark/kubernetes/
+
+<!-- INTERNAL LINKS -->
+[cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
+[security-concepts-aks-apps-clusters]: concepts-security.md

@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/28/2022
-ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022
+ms.date: 01/31/2024
+ms.custom: UpdateFrequency5, tracking-python, devx-track-azurecli, sdkv1
 ---
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 
 In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning. This article is specific to the SDK/CLI v1 deployment workflow of deploying a model as a web service.
@@ -47,7 +47,7 @@ In this article you learn how to secure the following inferencing resources in a
 
 [!INCLUDE [network-rbac](../includes/network-rbac.md)]
 
-[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+[!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Limitations
 
@@ -72,11 +72,11 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 To add AKS in a virtual network to your workspace, use the following steps:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
-1. Select __Compute__ on the left, __Inference clusters__ from the center, and then select __+ New__.
+1. Select __Compute__ on the left, __Inference clusters__ from the center, and then select __+ New__. Finally, select __AksCompute__.
 
     :::image type="content" source="./media/how-to-secure-inferencing-vnet/create-inference.png" alt-text="Screenshot of create inference cluster dialog.":::
 
-1. From the __Create inference cluster__ dialog, select __Create new__ and the VM size to use for the cluster. Finally, select __Next__.
+1. From the __Create AksCompute__ dialog, select __Create new__, the __Location__ and the VM size to use for the cluster. Finally, select __Next__.
 
     :::image type="content" source="./media/how-to-secure-inferencing-vnet/create-inference-vm.png" alt-text="Screenshot of VM settings.":::
 
@@ -101,14 +101,14 @@ To add AKS in a virtual network to your workspace, use the following steps:
    > [!IMPORTANT]
    > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](../../virtual-network/network-security-groups-overview.md#default-security-rules).
 
-   ![Screenshot that shows an inbound security rule.](./media/how-to-secure-inferencing-vnet/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-secure-inferencing-vnet/aks-vnet-inbound-nsg-scoring.png#lightbox)
+   :::image type="content" source="./media/how-to-secure-inferencing-vnet/aks-vnet-inbound-nsg-scoring.png" alt-text="Screenshot that shows an inbound security rule." lightbox="./media/how-to-secure-inferencing-vnet/aks-vnet-inbound-nsg-scoring.png":::
 
     > [!IMPORTANT]
     > The IP address shown in the image for the scoring endpoint will be different for your deployments. While the same IP is shared by all deployments to one AKS cluster, each AKS cluster will have a different IP address.
 
 You can also use the Azure Machine Learning SDK to add Azure Kubernetes Service in a virtual network. If you already have an AKS cluster in a virtual network, attach it to the workspace as described in [How to deploy to AKS](how-to-deploy-and-where.md). The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -192,7 +192,7 @@ The following examples demonstrate how to __create a new AKS cluster with a priv
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import azureml.core

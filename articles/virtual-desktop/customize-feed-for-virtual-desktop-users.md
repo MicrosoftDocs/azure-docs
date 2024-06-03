@@ -1,12 +1,11 @@
 ---
 title: Customize feed for Azure Virtual Desktop users - Azure
-description: How to customize feed for Azure Virtual Desktop users with PowerShell cmdlets.
+description: How to customize feed for Azure Virtual Desktop users using the Azure portal and PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/16/2020
+ms.date: 02/01/2024
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Customize the feed for Azure Virtual Desktop users
 
@@ -17,93 +16,19 @@ You can customize the feed so the RemoteApp and remote desktop resources appear 
 
 ## Prerequisites
 
-This article assumes you've already downloaded and installed the Azure Virtual Desktop PowerShell module. If you haven't, follow the instructions in [Set up the PowerShell module](powershell-module.md).
+If you're using either the Azure portal or PowerShell method, you'll need the following things:
 
-## Customize the display name for a session host
+- An Azure account assigned the [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) role.
+- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
-You can change the display name for a remote desktop for your users by setting its session host friendly name. By default, the session host friendly name is empty, so users only see the app name. You can set the session host friendly name using REST API.
 
->[!NOTE]
->The following instructions only apply to personal desktops, not pooled desktops. Also, personal host pools only allow and support desktop application groups.
+## Customize the display name for a RemoteApp or desktop 
 
-To add or change a session host's friendly name, use the [Session Host - Update REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) and update the *properties.friendlyName* parameter with a REST API request.
+You can change the display name for a published RemoteApp or desktop to make it easier for users to identify what to connect to. 
 
-## Customize the display name for a RemoteApp
+#### [Azure portal](#tab/portal)
 
-You can change the display name for a published RemoteApp by setting the friendly name. By default, the friendly name is the same as the name of the RemoteApp program.
-
-To retrieve a list of published RemoteApps for an application group, run the following PowerShell cmdlet:
-
-```powershell
-Get-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname>
-```
-
-To assign a friendly name to a RemoteApp, run the following cmdlet with the required parameters:
-
-```powershell
-Update-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
-```
-
-For example, let's say you retrieved the current applications with the following example cmdlet:
-
-```powershell
-Get-AzWvdApplication -ResourceGroupName 0301RG -ApplicationGroupName 0301RAG | format-list
-```
-
-The output would look like this:
-
-```powershell
-CommandLineArgument :
-CommandLineSetting  : DoNotAllow
-Description         :
-FilePath            : C:\Program Files\Windows NT\Accessories\wordpad.exe
-FriendlyName        : Microsoft Word
-IconContent         : {0, 0, 1, 0…}
-IconHash            : --iom0PS6XLu-EMMlHWVW3F7LLsNt63Zz2K10RE0_64
-IconIndex           : 0
-IconPath            : C:\Program Files\Windows NT\Accessories\wordpad.exe
-Id                  : /subscriptions/<subid>/resourcegroups/0301RG/providers/Microsoft.DesktopVirtualization/applicationgroups/0301RAG/applications/Microsoft Word
-Name                : 0301RAG/Microsoft Word
-ShowInPortal        : False
-Type                : Microsoft.DesktopVirtualization/applicationgroups/applications
-```
-To update the friendly name, run this cmdlet:
-
-```powershell
-Update-AzWvdApplication -GroupName 0301RAG -Name "Microsoft Word" -FriendlyName "WordUpdate" -ResourceGroupName 0301RG -IconIndex 0 -IconPath "C:\Program Files\Windows NT\Accessories\wordpad.exe" -ShowInPortal:$true -CommandLineSetting DoNotallow -FilePath "C:\Program Files\Windows NT\Accessories\wordpad.exe"
-```
-
-To confirm you've successfully updated the friendly name, run this cmdlet:
-
-```powershell
-Get-AzWvdApplication -ResourceGroupName 0301RG -ApplicationGroupName 0301RAG | format-list FriendlyName
-```
-
-The cmdlet should give you the following output:
-
-```powershell
-FriendlyName        : WordUpdate
-```
-
-## Customize the display name for a Remote Desktop
-
-You can change the display name for a published remote desktop by setting a friendly name. If you manually created a host pool and desktop application group through PowerShell, the default friendly name is "Session Desktop." If you created a host pool and desktop application group through the GitHub Azure Resource Manager template or the Azure Marketplace offering, the default friendly name is the same as the host pool name.
-
-To retrieve the remote desktop resource, run the following PowerShell cmdlet:
-
-```powershell
-Get-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname>
-```
-
-To assign a friendly name to the remote desktop resource, run the following PowerShell cmdlet:
-
-```powershell
-Update-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
-```
-
-## Customize a display name in the Azure portal
-
-You can change the display name for a published remote desktop by setting a friendly name using the Azure portal.
+Here's how to customize the display name for a published RemoteApp or desktop using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -111,20 +36,85 @@ You can change the display name for a published remote desktop by setting a frie
 
 3. Under Services, select **Azure Virtual Desktop**.
 
-4. On the Azure Virtual Desktop page, select **Application groups** on the left side of the screen, then select the name of the application group you want to edit. (For example, if you want to edit the display name of the desktop application group, select the application group named **Desktop**.)
+4. On the Azure Virtual Desktop page, select **Application groups** on the left side of the screen, then select the name of the application group you want to edit.
 
 5. Select **Applications** in the menu on the left side of the screen.
 
 6. Select the application you want to update, then enter a new **Display name**.
 
-7. Select **Save**. The application you edited should now display the updated name.
+7. Select **Save**. The application you edited should now display the updated name. Users see the new name once their client refreshes.
 
-## Next steps
 
-Now that you've customized the feed for users, you can sign in to a Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
+### [Azure PowerShell](#tab/powershell)
 
- * [Connect with Windows](./users/connect-windows.md)
- * [Connect with the web client](./users/connect-web.md)
- * [Connect with the Android client](./users/connect-android-chrome-os.md)
- * [Connect with the iOS client](./users/connect-ios-ipados.md)
- * [Connect with the macOS client](./users/connect-macos.md)
+### Customize the display name for a RemoteApp
+
+Here's how to customize the display name for a RemoteApp using PowerShell. By default, the display name is the same as the name of the application identifier.
+
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. To retrieve a list of published applications for an application group, run the following PowerShell cmdlet:
+
+   ```azurepowershell
+   $parameters = @{
+      ResourceGroupName = "<resourcegroupname>"
+      ApplicationGroupName = "<appgroupname>"
+   }
+
+   Get-AzWvdApplication @parameters
+   ```
+
+3. To assign a friendly name to a RemoteApp, run the following cmdlet with the required parameters:
+
+   ```azurepowershell
+   $parameters = @{
+      ResourceGroupName = "<resourcegroupname>"
+      ApplicationGroupName = "<appgroupname>"
+      Name = "<applicationname>"
+      FriendlyName = "<newfriendlyname>"
+   }
+
+   Update-AzWvdApplication @parameters
+   ```
+
+
+### Customize the display name for a Remote Desktop
+
+You can change the display name for a published remote desktop for all users by setting a friendly name. If you manually created a host pool and desktop application group through PowerShell, the default friendly name is **Session Desktop**. If you created a host pool and desktop application group through the GitHub Azure Resource Manager template or the Azure Marketplace offering, the default friendly name is the same as the host pool name. If you have a personal host pool, you can also [set a friendly name for individual session hosts](#set-a-friendly-name-for-an-individual-session-host-in-a-personal-host-pool). 
+
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. To assign a friendly name to the remote desktop resource, run the following PowerShell cmdlet:
+
+   ```azurepowershell
+   $parameters = @{
+      ResourceGroupName = "<resourcegroupname>"
+      ApplicationGroupName = "<appgroupname>"
+      Name = "<applicationname>"
+      FriendlyName = "<newfriendlyname>"
+   }
+
+   Update-AzWvdDesktop @parameters
+   ```
+
+3. To retrieve the friendly name for the remote desktop resource, run the following PowerShell cmdlet:
+
+   ```azurepowershell
+   $parameters = @{
+      ResourceGroupName = "<resourcegroupname>"
+      ApplicationGroupName = "<appgroupname>"
+      Name = "<applicationname>"
+   }
+    
+   Get-AzWvdDesktop @parameters | FL ApplicationGroupName, Name, FriendlyName
+   ```
+
+--- 
+
+## Set a friendly name for an individual session host in a personal host pool
+
+For session hosts in a personal host pool, you can change the display name for a desktop for each individual session host by setting its friendly name using PowerShell. By default, the session host friendly name is empty, so all users only see the same desktop display name. There isn't currently a way to set the session host friendly name in the Azure portal.
+
+[!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)] 
+
+

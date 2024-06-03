@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 05/15/2024
 ---
 
 # Change data capture in Azure Data Factory and Azure Synapse Analytics
@@ -41,6 +41,7 @@ The changed data including inserted, updated and deleted rows can be automatical
 -   [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
 -   [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md)
 -   [Azure Cosmos DB analytical store](../cosmos-db/analytical-store-introduction.md)
+-   [Snowflake](connector-snowflake.md)
 
 ### Auto incremental extraction in mapping data flow
 
@@ -98,7 +99,7 @@ The followings are the templates to use the change data capture in Azure Data Fa
 - [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md)
 
 
-## Next steps
+## Related content
 
 - [Learn how to use the checkpoint key in the data flow activity](control-flow-execute-data-flow-activity.md).
 - [Learn about the ADF Change Data Capture resource](concepts-change-data-capture-resource.md).

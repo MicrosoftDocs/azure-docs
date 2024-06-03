@@ -5,14 +5,15 @@ author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 9/27/2023
 ms.author: kesheth
 ---
 
 # FHIR REST API capabilities for Azure API for FHIR
 
-In this article, we'll cover some of the nuances of the RESTful interactions of Azure API for FHIR.
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
+In this article, we cover some of the nuances of the RESTful interactions of Azure API for FHIR.
 
 ## Conditional create/update
 
@@ -22,9 +23,11 @@ Azure API for FHIR supports create, conditional create, update, and conditional 
 
 Azure API for FHIR offers two delete types. There's [Delete](https://www.hl7.org/fhir/http.html#delete), which is also know as Hard + Soft Delete, and [Conditional Delete](https://www.hl7.org/fhir/http.html#3.1.0.7.1).
 
+**Delete can be performed for individual resource id or in bulk. To learn more on deleting resources in bulk, visit [$bulk-delete operation](bulk-delete-operation.md).**
+
 ### Delete (Hard + Soft Delete)
 
-Delete defined by the FHIR specification requires that after deleting a resource, subsequent non-version specific reads of a resource returns a 410 HTTP status code. Therefore, the resource is no longer found through searching. Additionally, Azure API for FHIR enables you to fully delete (including all history) the resource. To fully delete the resource, you can pass a parameter settings `hardDelete` to true `(DELETE {{FHIR_URL}}/{resource}/{id}?hardDelete=true)`. If you don't pass this parameter or set `hardDelete` to false, the historic versions of the resource will still be available.
+Delete defined by the FHIR specification requires that after deleting a resource, subsequent nonversion specific reads of a resource returns a 410 HTTP status code. Therefore, the resource is no longer found through searching. Additionally, Azure API for FHIR enables you to fully delete (including all history) the resource. To fully delete the resource, you can pass a parameter settings `hardDelete` to true `(DELETE {{FHIR_URL}}/{resource}/{id}?hardDelete=true)`. If you don't pass this parameter or set `hardDelete` to false, the historic versions of the resource will still be available.
 
 > [!NOTE]
 > If you only want to delete the history, Azure API for FHIR supports a custom operation called `$purge-history`. This operation allows you to delete the history off of a resource.
@@ -41,13 +44,13 @@ You can do the same search but include `hardDelete=true` to also delete all hist
 
 `DELETE https://{{FHIR_URL}}/Patient?identifier=1032704&hardDelete=true`
 
-To delete multiple resources, include `_count=100` parameter. This parameter will delete up to 100 resources that match the search criteria.
+To delete multiple resources, include `_count=100` parameter. This parameter deletes up to 100 resources that match the search criteria.
 
 `DELETE https://{{FHIR_URL}}/Patient?identifier=1032704&_count=100`
  
 ### Recovery of deleted files
 
-If you don't use the hard delete parameter, then the record(s) in Azure API for FHIR should still exist. The record(s) can be found by doing a history search on the resource and looking for the last version with data.
+If you don't use the hard delete parameter, then the records in Azure API for FHIR should still exist. The records can be found by doing a history search on the resource and looking for the last version with data.
  
 If the ID of the resource that was deleted is known, use the following URL pattern:
 
@@ -65,6 +68,68 @@ After you've found the record you want to restore, use the `PUT` operation to re
  
 > [!NOTE]
 > There is no time-based expiration for history/soft delete data. The only way to remove history/soft deleted data is with a hard delete or the purge history operation.
+
+## Batch Bundles 
+In FHIR, bundles can be considered as a container that holds multiple resources. Batch bundles enable users to submit a set of actions to be performed on a server in single HTTP request/response.
+
+A batch bundle interaction with FHIR service is performed with HTTP POST command at base URL.  
+```rest
+POST {{fhir_url}} 
+{ 
+  "resourceType": "Bundle", 
+  "type": "batch", 
+  "entry": [ 
+    { 
+      "resource": { 
+        "resourceType": "Patient", 
+        "id": "patient-1", 
+        "name": [ 
+          { 
+            "given": ["Alice"], 
+            "family": "Smith" 
+          } 
+        ], 
+        "gender": "female", 
+        "birthDate": "1990-05-15" 
+      }, 
+      "request": { 
+        "method": "POST", 
+        "url": "Patient" 
+      } 
+    }, 
+    { 
+      "resource": { 
+        "resourceType": "Patient", 
+        "id": "patient-2", 
+        "name": [ 
+          { 
+            "given": ["Bob"], 
+            "family": "Johnson" 
+          } 
+        ], 
+        "gender": "male", 
+        "birthDate": "1985-08-23" 
+      }, 
+      "request": { 
+        "method": "POST", 
+        "url": "Patient" 
+      } 
+    } 
+   } 
+  ] 
+} 
+```
+
+In the case of a batch, each entry is treated as an individual interaction or operation. 
+> [!NOTE]
+> For batch bundles there should be no interdependencies between different entries in FHIR bundle. The success or failure of one entry should not impact the success or failure of another entry.
+
+### Batch bundle parallel processing
+
+Currently batch bundles are executed serially in FHIR service. To improve performance and throughput, we're enabling parallel processing of batch bundles in public preview.  
+To use the capability of parallel batch bundle processing-
+* Set header 'x-bundle-processing-logic' value to 'parallel'. 
+* Ensure there's no overlapping resource ID that is executing on DELETE, POST, PUT, or PATCH operations in the same bundle.
 
 ## Patch and Conditional Patch
 
@@ -157,6 +222,10 @@ Content-Type: `application/json`
 	]
 }
 ```
+
+## Performance consideration with Conditional operations
+1. Conditional interactions can be complex and performance-intensive. To enhance the latency of queries involving conditional interactions, you have the option to utilize the request header **x-conditionalquery-processing-logic** . Setting this header to **parallel** allows concurrent execution of queries with conditional interactions.
+2. **x-ms-query-latency-over-efficiency** header value when set to "true", all queries are executed using maximum supported parallelism, which forces the scan of physical partitions to be executed concurrently. This feature was designed for accounts with a high number of physical partitions which queries can take longer due to the number of physical segments that need to be scanned. 
 
 ## Next steps
 

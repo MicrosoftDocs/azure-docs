@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Create a custom image factory in Azure DevTest Labs
@@ -15,12 +16,12 @@ An image factory is a configuration-as-code solution that builds and distributes
 
 The significant accelerator to get a developer desktop to a ready state in DevTest Labs is using custom images. The downside of custom images is that there's something extra to maintain in the lab. For example, trial versions of products expire over time (or) newly released security updates aren't applied, which force us to refresh the custom image periodically. With an image factory, you have a definition of the image checked in to source code control and have an automated process to produce custom images based on the definition.
 
-The solution enables the speed of creating virtual machines from custom images while eliminating extra ongoing maintenance costs. With this solution, you can automatically create custom images, distribute them to other DevTest Labs, and retire the old images. In the following video, you learn about the image factory, and how it's implemented with DevTest Labs.  All the Azure PowerShell scripts are freely available and located here:  [https://aka.ms/dtlimagefactory](https://aka.ms/dtlimagefactory).
+The solution enables the speed of creating virtual machines from custom images while eliminating extra ongoing maintenance costs. With this solution, you can automatically create custom images, distribute them to other DevTest Labs, and retire the old images. All the Azure PowerShell scripts are freely available and located here:  [https://aka.ms/dtlimagefactory](https://aka.ms/dtlimagefactory).
 
 <br/>
 
 ## High-level view of the solution
-The solution enables the speed of creating virtual machines from custom images while eliminating extra ongoing maintenance costs. With this solution, you can automatically create custom images and distribute them to other DevTest Labs. You use Azure DevOps (formerly Visual Studio Team Services) as the orchestration engine for automating the all the operations in the DevTest Labs.
+The solution enables the speed of creating virtual machines from custom images while eliminating extra ongoing maintenance costs. With this solution, you can automatically create custom images and distribute them to other DevTest Labs. You use Azure DevOps (formerly Visual Studio Team Services) as the orchestration engine for automating all the operations in the DevTest Labs.
 
 ![High-level view of the solution.](./media/create-image-factory/high-level-view-of-solution.png)
 

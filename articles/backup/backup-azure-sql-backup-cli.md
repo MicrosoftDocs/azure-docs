@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 08/11/2022
 ms.service: backup
 ms.custom: devx-track-azurecli
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up SQL databases in Azure VM using Azure CLI
@@ -25,7 +25,7 @@ In this article, you'll learn how to:
 
 See the [currently supported scenarios](sql-support-matrix.md) for SQL in Azure VM.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a Recovery Services vault
 

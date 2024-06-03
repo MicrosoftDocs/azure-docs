@@ -3,31 +3,30 @@ title: Allocate Azure costs
 description: This article explains how create cost allocation rules to distribute costs of subscriptions, resource groups, or tags to others.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/28/2023
+ms.date: 01/23/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: benshy
+ms.reviewer: sadoulta
 ---
 
-# Create and manage Azure cost allocation rules (Preview)
+# Create and manage Azure cost allocation rules
 
 Large enterprises often centrally manage Azure services or resources. However, different internal departments or business units use them. Typically, the centrally managing team wants to reallocate the cost of the shared services back out to the internal departments or organizational business units who are actively using the services. This article helps you understand and use cost allocation in Cost Management.
 
 With cost allocation, you can reassign or distribute the costs of shared services. Costs from subscriptions, resource groups, or tags get assigned to other subscriptions, resource groups or tags in your organization. Cost allocation shifts costs of the shared services to another subscription, resource groups, or tags owned by the consuming internal departments or business units. In other words, cost allocation helps to manage and show _cost accountability_ from one place to another.
 
+Cost allocation doesn't support purchases, including reservations and savings plans.
+
 Cost allocation doesn't affect your billing invoice. Billing responsibilities don't change. The primary purpose of cost allocation is to help you charge back costs to others. All chargeback processes happen in your organization outside of Azure. Cost allocation helps you charge back costs by showing them as the get reassigned or distributed.
 
 Allocated costs appear in cost analysis. They appear as other items associated with the targeted subscriptions, resource groups, or tags that you specify when you create a cost allocation rule.
 
-> [!NOTE]
-> Cost Management's cost allocation feature is currently in public preview. Some features in Cost Management might not be supported or might have limited capabilities.
-
 ## Prerequisites
 
 - Cost allocation currently only supports customers with:
-  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. It's also called an MCA enterprise agreement.
-  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) that you bought through the Azure website. It's also called an MCA individual agreement.
+  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.
+  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) that you bought through the Azure website. Also called an MCA individual agreement.
   - An [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/).
 - To create or manage a cost allocation rule, you must use an Enterprise Administrator account for [Enterprise Agreements](../manage/understand-ea-roles.md). Or you must be a [Billing account](../manage/understand-mca-roles.md) owner for Microsoft Customer Agreements.
 
@@ -35,12 +34,12 @@ Allocated costs appear in cost analysis. They appear as other items associated w
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 2. Navigate to **Cost Management + Billing** > **Cost Management**.
-3. Under **Settings** > **Configuration**, select **Cost allocation (Preview)**.
+3. Under **Settings** > **Configuration**, select **Cost allocation**.
 4. Ensure that you select the correct EA enrollment or billing account.
 5. Select **+Add**.
 6. Enter descriptive text for the cost allocation rule name.
 
-:::image type="content" source="./media/allocate-costs/rule-name.png" alt-text="Example showing creating a rule name" lightbox="./media/allocate-costs/rule-name.png" :::
+:::image type="content" source="./media/allocate-costs/rule-name.png" alt-text="Screenshot showing creating a rule name." lightbox="./media/allocate-costs/rule-name.png" :::
 
 The rule's evaluation start date generates the cost allocation percentages and prefills them.
 
@@ -56,7 +55,7 @@ When you distribute costs by compute cost, storage cost, or network cost, the pr
 
 When you distribute costs proportional to total cost, the proportional percentage allocates by the sum or total cost of the selected targets for the current billing month.
 
-:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Example showing allocation percentage" lightbox="./media/allocate-costs/cost-distribution.png" :::
+:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Screenshot showing allocation percentage." lightbox="./media/allocate-costs/cost-distribution.png" :::
 
 Once set, the prefilled percentages defined don't change. All ongoing allocations use them. The percentages change only when you manually update the rule.
 
@@ -71,12 +70,17 @@ Once set, the prefilled percentages defined don't change. All ongoing allocation
 
 The allocation rule starts processing. When the rule is active, all the selected source's costs allocate to the specified targets.
 
-> [!NOTE] 
-> New rule processing can take up to two hours before it completes and is active.
-
 Here's a video that demonstrates how to create a cost allocation rule.
 
 >[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+
+## Rules processing
+
+Rules are processed in the order in which they're created and can take up to 24 hours to take effect.
+
+Let's look at an example. Assume that an active rule, *Rule CA-1*, allocates costs from subscription A (the source) to subscription B (the target).
+
+Later, a new rule, *Rule CA-2* gets created. Its source is subscription A and its target is subscription C. So, the rule has no effect because costs for subscription A are zero. The costs are zero because *Rule CA-1* is active. It already allocated all the costs from subscription A to subscription B.
 
 ## Verify the cost allocation rule
 
@@ -86,7 +90,7 @@ When the cost allocation rule is active, costs from the selected sources distrib
 
 You view the effect of the allocation rule in cost analysis. In the Azure portal, go to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Select a subscription in the list that is the target of an active cost allocation rule. Then select **Cost analysis** in the menu. In Cost analysis, select **Group by** and then select **Cost allocation**. The resulting view shows a quick cost breakdown generated by the subscription. Costs allocated to the subscription appear, similar to the following image.
 
-:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Example showing cost breakdown" lightbox="./media/allocate-costs/cost-breakdown.png" :::
+:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Screenshot showing cost breakdown." lightbox="./media/allocate-costs/cost-breakdown.png" :::
 
 ### View cost allocation for a resource group
 
@@ -94,9 +98,9 @@ Use a similar process to assess the effect of a cost allocation rule for a resou
 
 ### View cost allocation for tags
 
-In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. In Cost analysis, select **Add filter**. Select **Tag**, choose the tag key, and tag values that have cost allocated to them.
+In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. In Cost analysis, select **Add filter**. Select **Tag**, choose the tag key, and tag values with allocated costs.
 
-:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Example showing costs for tagged items" lightbox="./media/allocate-costs/tagged-costs.png" :::
+:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Screenshot showing costs for tagged items." lightbox="./media/allocate-costs/tagged-costs.png" :::
 
 ### View cost allocation in the downloaded Usage Details and in Exports CSV files
 
@@ -108,7 +112,7 @@ Cost allocation rules are also available in the downloaded Usage Details file an
 
 Azure invoice reconciliation also uses the Usage Details file. Showing any internal allocated costs during reconciliation could be confusing. To reduce any potential confusion and to align to the data shown on the invoice, you can filter out any Cost allocation rules. After you remove the cost allocation rules, your Usage Details file should match the cost shown by the billed subscription invoice.
 
-:::image type="content" source="./media/allocate-costs/rule-name-filtered.png" alt-text="Screenshot showing allocated costs with rule name filtered out" lightbox="./media/allocate-costs/rule-name-filtered.png" :::
+:::image type="content" source="./media/allocate-costs/rule-name-filtered.png" alt-text="Screenshot showing allocated costs with rule name filtered out." lightbox="./media/allocate-costs/rule-name-filtered.png" :::
 
 ## Edit an existing cost allocation rule
 
@@ -118,7 +122,7 @@ You can edit a cost allocation rule to change the source or the target or if you
 
 Currently, Cost Management supports cost allocation in Cost analysis, budgets, and forecast views. Allocated costs appear in the subscriptions list and on the Subscriptions overview page.
 
-The following items are currently unsupported by the cost allocation public preview:
+The following items are currently unsupported by cost allocation:
 
 - Billing subscriptions area
 - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
@@ -130,7 +134,7 @@ However, cost allocation data results might be empty if you're using an unsuppor
 
 If you have cost allocation rules enabled, the `UnitPrice` field in your usage details file is 0. We recommend that you use price sheet data to get unit price information until it's available in the usage details file.
 
-Cost allocation to a target won't happen if that target doesn't have any costs associated with it.
+Cost allocation to a target doesn't happen if that target doesn't have any costs associated with it.
 
 ## Next steps
 

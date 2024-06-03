@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Parse transformation in mapping data flow
@@ -21,17 +21,17 @@ Use the Parse transformation to parse text columns in your data that are strings
 
 ## Configuration
 
-In the parse transformation configuration panel, you'll first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
+In the parse transformation configuration panel, you first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
 
 :::image type="content" source="media/data-flow/data-flow-parse-1.png" alt-text="Parse settings":::
 
 ### Column
 
-Similar to derived columns and aggregates, this is where you'll either modify an existing column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you'll want to define a new column that parses the incoming embedded document string field.
+Similar to derived columns and aggregates, the Column property is where you either modify an existing column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF stores the parsed source data in this column. In most cases, you want to define a new column that parses the incoming embedded document string field.
 
 ### Expression
 
-Use the expression builder to set the source for your parsing. This can be as simple as just selecting the source column with the self-contained data that you wish to parse, or you can create complex expressions to parse.
+Use the expression builder to set the source for your parsing. Setting the source can be as simple as just selecting the source column with the self-contained data that you wish to parse, or you can create complex expressions to parse.
 
 #### Example expressions
 
@@ -50,16 +50,23 @@ Use the expression builder to set the source for your parsing. This can be as si
 * Source XML with Attribute data: ```<cars><car model="camaro"><year>1989</year></car></cars>```
   * Expression: ```(cars as (car as ({@model} as string, year as integer)))```
 
-* Note: If you run into errors extracting attributes (i.e. @model) from a complex type, a workaround is to convert the complex type to a string, remove the @ symbol (i.e. replace(toString(your_xml_string_parsed_column_name.cars.car),'@','')
-), and then use the parse JSON transformation activity. 
+* Expressions with reserved characters: ```{ "best-score": { "section 1": 1234 } }```
+  * The above expression doesn't work since the '-' character in ```best-score``` is interpreted as a subtraction operation. Use a variable with bracket notation in these cases to tell the JSON engine to interpret the text literally:
+    ```
+    var bestScore = data["best-score"];
+    { bestScore : { "section 1": 1234 } }
+    ```
+
+* Note: If you run into errors extracting attributes (specifically, @model) from a complex type, a workaround is to convert the complex type to a string, remove the @ symbol (specifically, replace(toString(your_xml_string_parsed_column_name.cars.car),'@','')
+), and then use the parse JSON transformation activity.
 
 ### Output column type
 
-Here's where you'll configure the target output schema from the parsing that will be written into a single column. The easiest way to set a schema for your output from parsing is to select the 'Detect Type' button on the top right of the expression builder. ADF will attempt to autodetect the schema from the string field, which you're parsing and set it for you in the output expression.
+Here's where you configure the target output schema from the parsing that is written into a single column. The easiest way to set a schema for your output from parsing is to select the 'Detect Type' button on the top right of the expression builder. ADF attempts to autodetect the schema from the string field, which you're parsing and set it for you in the output expression.
 
 :::image type="content" source="media/data-flow/data-flow-parse-2.png" alt-text="Parse example":::
 
-In this example, we have defined parsing of the incoming field "jsonString", which is plain text, but formatted as a JSON structure. We're going to store the parsed results as JSON in a new column called "json" with this schema:
+In this example, we defined parsing of the incoming field "jsonString", which is plain text, but formatted as a JSON structure. We're going to store the parsed results as JSON in a new column called "json" with this schema:
 
 `(trade as boolean, customers as string[])`
 
@@ -138,7 +145,7 @@ parse(csv = csvString ? (id as integer,
                 documentForm: 'documentPerLine') ~> ParseCsv
 ```    
 
-## Next steps
+## Related content
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
 * Use the [Derived column transformation](data-flow-derived-column.md) to transform rows.

@@ -1,20 +1,19 @@
 ---
 title: PowerShell - How to create VM Images with Packer
 description: Learn how to use Packer and PowerShell to create images of virtual machines in Azure
-author: ericd-mst-github
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: windows
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 03/31/2023
-ms.author: erd 
+ms.author: jushiman
 ms.custom: devx-track-azurepowershell
 ---
 
 # PowerShell: How to use Packer to create virtual machine images in Azure
 
-**Applies to:** :heavy_check_mark: Windows VMs 
+**Applies to:** :heavy_check_mark: Windows VMs
 
 
 Each virtual machine (VM) in Azure is created from an image that defines the Windows distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common OS' and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open-source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
@@ -38,7 +37,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## Create Azure credentials
 Packer authenticates with Azure using a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Packer. You control and define the permissions as to what operations the service principal can perform in Azure.
 
-Create a service principal with [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal). The value for `-DisplayName` needs to be unique; replace with your own value as needed.  
+Create a service principal with [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal). The value for `-DisplayName` needs to be unique; replace with your own value as needed.
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerPrincipal" -role Contributor -scope /subscriptions/yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy
@@ -284,7 +283,7 @@ Get-AzPublicIPAddress `
 
 To see your VM, that includes the IIS install from the Packer provisioner, in action, enter the public IP address in to a web browser.
 
-![IIS default site](./media/build-image-with-packer/iis.png) 
+![IIS default site](./media/build-image-with-packer/iis.png)
 
 
 ## Next steps

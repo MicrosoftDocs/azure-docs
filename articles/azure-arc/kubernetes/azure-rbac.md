@@ -1,18 +1,16 @@
 ---
-title: "Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)"
-ms.date: 05/04/2023
+title: "Azure RBAC on Azure Arc-enabled Kubernetes clusters"
+ms.date: 05/28/2024
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
-# Use Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)
+# Use Azure RBAC on Azure Arc-enabled Kubernetes clusters
 
-Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. Azure role assignments let you granularly control which users can read, write, and delete Kubernetes objects such as deployment, pod, and service.
+Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Microsoft Entra ID and role assignments in Azure to control authorization checks on the cluster. Azure role assignments let you granularly control which users can read, write, and delete Kubernetes objects such as deployment, pod, and service.
 
 For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md).
-
-[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
@@ -35,222 +33,32 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
   - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 > [!NOTE]
-> You can't set up this feature for Red Hat OpenShift, or for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. For AKS on Azure Stack HCI, see [Use Azure RBAC for AKS hybrid clusters (preview)](/azure/aks/hybrid/azure-rbac-aks-hybrid).
-
-## Set up Azure AD applications
-
-### [Azure CLI >= v2.3.7](#tab/AzureCLI)
-
-#### Create a server application
-
-1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
-
-    ```azurecli
-    CLUSTER_NAME="<name-of-arc-connected-cluster>"
-    TENANT_ID="<tenant>"
-    SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
-    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
-    echo $SERVER_APP_ID
-    ```
-
-1. To grant "Sign in and read user profile" API permissions to the server application, copy this JSON and save it in a file called oauth2-permissions.json:
-
-    ```json
-    {
-        "oauth2PermissionScopes": [
-            {
-                "adminConsentDescription": "Sign in and read user profile",
-                "adminConsentDisplayName": "Sign in and read user profile",
-                "id": "<paste_the_SERVER_APP_ID>",
-                "isEnabled": true,
-                "type": "User",
-                "userConsentDescription": "Sign in and read user profile",
-                "userConsentDisplayName": "Sign in and read user profile",
-                "value": "User.Read"
-            }
-        ]
-    }
-    ```
-
-1. Update the application's group membership claims. Run the commands in the same directory as the `oauth2-permissions.json` file. RBAC for Azure Arc-enabled Kubernetes requires [`signInAudience` to be set to **AzureADMyOrg**](../../active-directory/develop/supported-accounts-validation.md):
-
-   ```azurecli
-   az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
-   az ad app update --id ${SERVER_APP_ID} --set  api=@oauth2-permissions.json
-   az ad app update --id ${SERVER_APP_ID} --set  signInAudience=AzureADMyOrg
-   SERVER_OBJECT_ID=$(az ad app show --id "${SERVER_APP_ID}" --query "id" -o tsv)
-   az rest --method PATCH --headers "Content-Type=application/json" --uri https://graph.microsoft.com/v1.0/applications/${SERVER_OBJECT_ID}/ --body '{"api":{"requestedAccessTokenVersion": 1}}'
-   ```
-
-1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. This secret is valid for one year by default and will need to be [rotated after that](#refresh-the-secret-of-the-server-application). To set a custom expiration duration, use [`az ad sp credential reset`](/cli/azure/ad/sp/credential?view=azure-cli-latest&preserve-view=true#az-ad-sp-credential-reset):
-
-   ```azurecli
-   az ad sp create --id "${SERVER_APP_ID}"
-   SERVER_APP_SECRET=$(az ad sp credential reset --id "${SERVER_APP_ID}"  --query password -o tsv) 
-   ```
-
-1. Grant "Sign in and read user profile" API permissions to the application by using [`az ad app permission`](/cli/azure/ad/app/permission?view=azure-cli-latest&preserve-view=true##az-ad-app-permission-add-examples):
-
-   ```azurecli
-   az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
-   az ad app permission grant --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --scope User.Read
-   ```
-
-    > [!NOTE]
-    > An Azure [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) has to run this step.
-    >
-    > For usage of this feature in production, we recommend that you create a different server application for every cluster.  
-
-#### Create a client application
-
-1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
-
-   ```azurecli
-   CLIENT_UNIQUE_SUFFIX="<identifier_suffix>" 
-   CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Client" --is-fallback-public-client --public-client-redirect-uris "api://${TENANT_ID}/${CLIENT_UNIQUE_SUFFIX}" --query appId -o tsv)
-   echo $CLIENT_APP_ID 
-   ```
-
-2. Create a service principal for this client application:
-
-    ```azurecli
-    az ad sp create --id "${CLIENT_APP_ID}"
-    ```
-
-3. Get the `oAuthPermissionId` value for the server application:
-
-    ```azurecli
-        az ad app show --id "${SERVER_APP_ID}" --query "api.oauth2PermissionScopes[0].id" -o tsv
-    ```
-
-4. Grant the required permissions for the client application. RBAC for Azure Arc-enabled Kubernetes requires [`signInAudience` to be set to **AzureADMyOrg**](../../active-directory/develop/supported-accounts-validation.md):
-
-    ```azurecli
-        az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
-        RESOURCE_APP_ID=$(az ad app show --id "${CLIENT_APP_ID}"  --query "requiredResourceAccess[0].resourceAppId" -o tsv)
-        az ad app permission grant --id "${CLIENT_APP_ID}" --api "${RESOURCE_APP_ID}" --scope User.Read
-        az ad app update --id ${CLIENT_APP_ID} --set  signInAudience=AzureADMyOrg
-        CLIENT_OBJECT_ID=$(az ad app show --id "${CLIENT_APP_ID}" --query "id" -o tsv)
-        az rest --method PATCH --headers "Content-Type=application/json" --uri https://graph.microsoft.com/v1.0/applications/${CLIENT_OBJECT_ID}/ --body '{"api":{"requestedAccessTokenVersion": 1}}'
-    ```
-
-### [Azure CLI < v2.3.7](#tab/AzureCLI236)
-
-#### Create a server application
-
-1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
-
-    ```azurecli
-    CLUSTER_NAME="<name-of-arc-connected-cluster>"
-    TENANT_ID="<tenant>"
-    SERVER_UNIQUE_SUFFIX="<identifier_suffix>"
-    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/${SERVER_UNIQUE_SUFFIX}" --query appId -o tsv)
-    echo $SERVER_APP_ID
-    ```
-
-1. Update the application's group membership claims:
-
-   ```azurecli
-   az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
-   ```
-
-1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. This secret is valid for one year by default and will need to be [rotated after that](#refresh-the-secret-of-the-server-application). To set a custom expiration duration, use [`az ad sp credential reset`](/cli/azure/ad/sp/credential?view=azure-cli-latest&preserve-view=true#az-ad-sp-credential-reset):
-
-    ```azurecli
-        az ad sp create --id "${SERVER_APP_ID}"
-        SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
-    ```
-
-1. Grant "Sign in and read user profile" API permissions to the application by using [`az ad app permission`](/cli/azure/ad/app/permission?view=azure-cli-latest&preserve-view=true##az-ad-app-permission-add-examples):
-
-    ```azurecli
-        az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
-        az ad app permission grant --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 
-    ```
-
-    > [!NOTE]
-    > An Azure [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) has to run this step.
-    >
-    > For usage of this feature in production, we recommend that you create a different server application for every cluster.
-
-#### Create a client application
-
-1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
-
-   ```azurecli
-   CLIENT_UNIQUE_SUFFIX="<identifier_suffix>" 
-   CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Client" --native-app --reply-urls "api://${TENANT_ID}/${CLIENT_UNIQUE_SUFFIX}" --query appId -o tsv)
-   echo $CLIENT_APP_ID
-   ```
-
-2. Create a service principal for this client application:
-
-   ```azurecli
-   az ad sp create --id "${CLIENT_APP_ID}"
-   ```
-
-3. Get the `oAuthPermissionId` value for the server application:
-
-   ```azurecli
-   az ad app show --id "${SERVER_APP_ID}" --query "oauth2Permissions[0].id" -o tsv
-   ```
-
-4. Grant the required permissions for the client application:
-
-   ```azurecli
-   az ad app permission add --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}" --api-permissions <oAuthPermissionId>=Scope
-   az ad app permission grant --id "${CLIENT_APP_ID}" --api "${SERVER_APP_ID}"
-   ```
-
----
-
-## Create a role assignment for the server application
-
-The server application needs the `Microsoft.Authorization/*/read` permissions so that it can confirm that the user making the request is authorized on the Kubernetes objects that are included in the request.
-
-1. Create a file named *accessCheck.json* with the following contents:
-
-   ```json
-   {
-   "Name": "Read authorization",
-   "IsCustom": true,
-   "Description": "Read authorization",
-   "Actions": ["Microsoft.Authorization/*/read"],
-   "NotActions": [],
-   "DataActions": [],
-   "NotDataActions": [],
-   "AssignableScopes": [
-     "/subscriptions/<subscription-id>"
-     ]
-   }
-   ```
-
-    Replace `<subscription-id>` with the actual subscription ID.
-
-2. Run the following command to create the new custom role:
-
-    ```azurecli
-    ROLE_ID=$(az role definition create --role-definition ./accessCheck.json --query id -o tsv)
-    ```
-
-3. Create a role assignment on the server application as `assignee` by using the role that you created:
-
-    ```azurecli
-    az role assignment create --role "${ROLE_ID}" --assignee "${SERVER_APP_ID}" --scope /subscriptions/<subscription-id>
-    ```
+> You can't set up this feature for Red Hat OpenShift, or for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc.
 
 ## Enable Azure RBAC on the cluster
 
-Enable Azure role-based access control (RBAC) on your Azure Arc-enabled Kubernetes cluster by running the following command:
+1. Get the cluster MSI identity by running the following command:
 
-```azurecli
-az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
-```
+   ```azurecli
+   az connectedk8s show -g <resource-group> -n <connected-cluster-name>
+   ```
 
-> [!NOTE]
-> Before you run the preceding command, ensure that the `kubeconfig` file on the machine is pointing to the cluster on which you'll enable the Azure RBAC feature.
->
-> Use `--skip-azure-rbac-list` with the preceding command for a comma-separated list of usernames, emails, and OpenID connections undergoing authorization checks by using Kubernetes native `ClusterRoleBinding` and `RoleBinding` objects instead of Azure RBAC.
+1. Get the ID (`identity.principalId`) from the output and run the following command to assign the **Connected Cluster Managed Identity CheckAccess Reader** role to the cluster MSI:
+
+   ```azurecli
+   az role assignment create --role "Connected Cluster Managed Identity CheckAccess Reader" --assignee "<Cluster MSI ID>" --scope <cluster ARM ID>
+   ```
+
+1. Enable Azure role-based access control (RBAC) on your Azure Arc-enabled Kubernetes cluster by running the following command:
+
+   ```azurecli
+   az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac
+   ```
+
+   > [!NOTE]
+   > Before you run the preceding command, ensure that the `kubeconfig` file on the machine is pointing to the cluster on which you'll enable the Azure RBAC feature.
+   >
+   > Use `--skip-azure-rbac-list` with the preceding command for a comma-separated list of usernames, emails, and OpenID connections undergoing authorization checks by using Kubernetes native `ClusterRoleBinding` and `RoleBinding` objects instead of Azure RBAC.
 
 ### Generic cluster where no reconciler is running on the `apiserver` specification
 
@@ -485,7 +293,7 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
 
 ### [Kubernetes version >= 1.26](#tab/kubernetes-latest)
 
-1. Run the following command to set the credentials for the user:
+1. Run the following command to set the credentials for the user. Specify `serverApplicationId` as `6256c85f-0aad-4d50-b960-e6e9b21efe35` and `clientApplicationId` as `3f4439ff-e698-4d6d-84fe-09c9d574f06b`:
 
    ```console
    kubectl config set-credentials <testuser>@<mytenant.onmicrosoft.com> \
@@ -517,10 +325,10 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
        name: azure
    ```
 
-> [!NOTE]
->[Exec plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins) is a Kubernetes authentication strategy that allows `kubectl` to execute an external command to receive user credentials to send to `apiserver`. Starting with Kubernetes version 1.26, the default Azure authorization plugin is no longer included in `client-go` and `kubectl`. With later versions, in order to use the exec plugin to receive user credentials you must use [Azure Kubelogin](https://azure.github.io/kubelogin/index.html), a `client-go` credential (exec) plugin that implements Azure authentication.
+   > [!NOTE]
+   >[Exec plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins) is a Kubernetes authentication strategy that allows `kubectl` to execute an external command to receive user credentials to send to `apiserver`. Starting with Kubernetes version 1.26, the default Azure authorization plugin is no longer included in `client-go` and `kubectl`. With later versions, in order to use the exec plugin to receive user credentials you must use [Azure Kubelogin](https://azure.github.io/kubelogin/index.html), a `client-go` credential (exec) plugin that implements Azure authentication.
 
-4. Install Azure Kubelogin:
+1. Install Azure Kubelogin:
 
    - For Windows or Mac, follow the [Azure Kubelogin installation instructions](https://azure.github.io/kubelogin/install.html#installation).
    - For Linux or Ubuntu, download the [latest version of kubelogin](https://github.com/Azure/kubelogin/releases), then run the following commands:
@@ -535,17 +343,17 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
      sudo chmod +x /usr/local/bin/kubelogin 
      ```
 
-5. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with an Azure Active Directory user, the commands would be as follows:
+1. Kubelogin can be used to authenticate with Azure Arc-enabled clusters by requesting a proof-of-possession (PoP) token. [Convert](https://azure.github.io/kubelogin/concepts/azure-arc.html) the kubeconfig using kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with a Microsoft Entra user, the commands would be as follows:
 
    ```bash
    export KUBECONFIG=/path/to/kubeconfig
 
-   kubelogin convert-kubeconfig
+   kubelogin convert-kubeconfig --pop-enabled --pop-claims 'u=<ARM ID of cluster>"
    ```
 
 ### [Kubernetes < v1.26](#tab/Kubernetes-earlier)
 
-1. Run the following command to set the credentials for the user:
+1. Run the following command to set the credentials for the user. Specify `serverApplicationId` as `6256c85f-0aad-4d50-b960-e6e9b21efe35` and `clientApplicationId` as `3f4439ff-e698-4d6d-84fe-09c9d574f06b`:
 
    ```console
    kubectl config set-credentials <testuser>@<mytenant.onmicrosoft.com> \
@@ -600,17 +408,19 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
 
     An administrator needs to create a new role assignment that authorizes this user to have access on the resource.
 
-## Use Conditional Access with Azure AD
+<a name='use-conditional-access-with-azure-ad'></a>
 
-When you're integrating Azure AD with your Azure Arc-enabled Kubernetes cluster, you can also use [Conditional Access](../../active-directory/conditional-access/overview.md) to control access to your cluster.
+## Use Conditional Access with Microsoft Entra ID
+
+When you're integrating Microsoft Entra ID with your Azure Arc-enabled Kubernetes cluster, you can also use [Conditional Access](../../active-directory/conditional-access/overview.md) to control access to your cluster.
 
 > [!NOTE]
-> [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md) is an Azure AD Premium capability.
+> [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md) is a Microsoft Entra ID P2 capability.
 
 To create an example Conditional Access policy to use with the cluster:
 
-1. At the top of the Azure portal, search for and select **Azure Active Directory**.
-1. On the menu for Azure Active Directory on the left side, select **Enterprise applications**.
+1. At the top of the Azure portal, search for and select **Microsoft Entra ID**.
+1. On the menu for Microsoft Entra ID on the left side, select **Enterprise applications**.
 1. On the menu for enterprise applications on the left side, select **Conditional Access**.
 1. On the menu for Conditional Access on the left side, select **Policies** > **New policy**.
 
@@ -618,7 +428,7 @@ To create an example Conditional Access policy to use with the cluster:
 
 1. Enter a name for the policy, such as **arc-k8s-policy**.
 
-1. Select **Users and groups**. Under **Include**, choose **Select users and groups**. Then choose the users and groups where you want to apply the policy. For this example, choose the same Azure AD group that has administrative access to your cluster.
+1. Select **Users and groups**. Under **Include**, choose **Select users and groups**. Then choose the users and groups where you want to apply the policy. For this example, choose the same Microsoft Entra group that has administrative access to your cluster.
 
     :::image type="content" source="media/azure-rbac/conditional-access-users-groups.png" alt-text="Screenshot that shows selecting users or groups to apply the Conditional Access policy." lightbox="media/azure-rbac/conditional-access-users-groups.png":::
 
@@ -641,31 +451,33 @@ Access the cluster again. For example, run the `kubectl get nodes` command to vi
 kubectl get nodes
 ```
 
-Follow the instructions to sign in again. An error message states that you're successfully logged in, but your admin requires the device that's requesting access to be managed by Azure AD in order to access the resource. Follow these steps:
+Follow the instructions to sign in again. An error message states that you're successfully logged in, but your admin requires the device that's requesting access to be managed by Microsoft Entra ID in order to access the resource. Follow these steps:
 
-1. In the Azure portal, go to **Azure Active Directory**.
+1. In the Azure portal, go to **Microsoft Entra ID**.
 1. Select **Enterprise applications**. Then under **Activity**, select **Sign-ins**.
 1. An entry at the top shows **Failed** for **Status** and **Success** for **Conditional Access**. Select the entry, and then select **Conditional Access** in **Details**. Notice that your Conditional Access policy is listed.
 
     :::image type="content" source="media/azure-rbac/conditional-access-sign-in-activity.png" alt-text="Screenshot showing a failed sign-in entry in the Azure portal." lightbox="media/azure-rbac/conditional-access-sign-in-activity.png":::
 
-## Configure just-in-time cluster access with Azure AD
+<a name='configure-just-in-time-cluster-access-with-azure-ad'></a>
+
+## Configure just-in-time cluster access with Microsoft Entra ID
 
 Another option for cluster access control is to use [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) for just-in-time requests.
 
 >[!NOTE]
-> [Azure AD PIM](../../active-directory/privileged-identity-management/pim-configure.md) is an Azure AD Premium capability that requires a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
+> [Microsoft Entra PIM](../../active-directory/privileged-identity-management/pim-configure.md) is a Microsoft Entra ID P2 capability. For more on Microsoft Entra ID SKUs, see the [pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
 
 To configure just-in-time access requests for your cluster, complete the following steps:
 
-1. At the top of the Azure portal, search for and select **Azure Active Directory**.
+1. At the top of the Azure portal, search for and select **Microsoft Entra ID**.
 1. Take note of the tenant ID. For the rest of these instructions, we'll refer to that ID as `<tenant-id>`.
 
-    :::image type="content" source="media/azure-rbac/jit-get-tenant-id.png" alt-text="Screenshot showing Azure Active Directory details in the Azure portal." lightbox="media/azure-rbac/jit-get-tenant-id.png":::
+    :::image type="content" source="media/azure-rbac/jit-get-tenant-id.png" alt-text="Screenshot showing Microsoft Entra ID details in the Azure portal." lightbox="media/azure-rbac/jit-get-tenant-id.png":::
 
-1. On the menu for Azure Active Directory on the left side, under **Manage**, select **Groups** > **New group**.
+1. On the menu for Microsoft Entra ID on the left side, under **Manage**, select **Groups** > **New group**.
 
-1. Make sure that **Security** is selected for **Group type**.  Enter a group name, such as **myJITGroup**. Under **Azure AD Roles can be assigned to this group (Preview)**, select **Yes**. Finally, select **Create**.
+1. Make sure that **Security** is selected for **Group type**.  Enter a group name, such as **myJITGroup**. Under **Microsoft Entra roles can be assigned to this group (Preview)**, select **Yes**. Finally, select **Create**.
 
     :::image type="content" source="media/azure-rbac/jit-new-group-created.png" alt-text="Screenshot showing details for the new group in the Azure portal." lightbox="media/azure-rbac/jit-new-group-created.png":::
 
@@ -704,20 +516,6 @@ NAME      STATUS   ROLES    AGE      VERSION
 node-1    Ready    agent    6m36s    v1.18.14
 node-2    Ready    agent    6m42s    v1.18.14
 node-3    Ready    agent    6m33s    v1.18.14
-```
-
-## Refresh the secret of the server application
-
-If the secret for the server application's service principal has expired, you'll need to rotate it.
-
-```azurecli
-SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
-```
-
-Update the secret on the cluster. Include any optional parameters you configured when the command was originally run.
-
-```azurecli
-az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
 
 ## Next steps

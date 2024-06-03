@@ -19,6 +19,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 > * [Java SDK v4](troubleshoot-java-sdk-v4.md)
 > * [Async Java SDK v2](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dotnet-sdk.md)
+> * [Python SDK](troubleshoot-python-sdk.md)
 > 
 
 > [!IMPORTANT]
@@ -188,7 +189,7 @@ This failure is a server-side failure. It indicates that you consumed your provi
 
 ### Failure connecting to Azure Cosmos DB Emulator
 
-The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](../local-emulator-export-ssl-certificates.md).
+The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](../emulator.md).
 
 ### Dependency Conflict Issues
 

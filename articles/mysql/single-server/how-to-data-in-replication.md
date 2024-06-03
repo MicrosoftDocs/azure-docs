@@ -3,8 +3,9 @@ title: Configure Data-in Replication - Azure Database for MySQL
 description: This article describes how to set up Data-in Replication for Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+ms.custom:
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 05/03/2023
 ---
@@ -93,7 +94,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
       > [!NOTE]
       > This IP address may change due to  maintenance / deployment operations. This method of connectivity is only for customers who cannot afford to allow all IP address on 3306 port.
-  
+
 3. Turn on binary logging.
 
    Check to see if binary logging has been enabled on the source by running the following command:
@@ -151,7 +152,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    ```sql
    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
+   GRANT REPLICATION SLAVE ON *.* TO 'syncuser'@'%' REQUIRE SSL;
    ```
 
    *Replication without SSL*
@@ -160,7 +161,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    ```sql
    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
+   GRANT REPLICATION SLAVE ON *.* TO 'syncuser'@'%';
    ```
 
    **MySQL Workbench**

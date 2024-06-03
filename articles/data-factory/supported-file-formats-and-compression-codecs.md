@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -28,7 +28,7 @@ In addition, you can also parse or generate files of a given format. For example
 * Copy data in Gzip compressed-text (CSV) format from Azure Blob storage and write it to Azure SQL Database.
 * Many more activities that require serialization/deserialization or compression/decompression.
 
-## Next steps
+## Related content
 
 See the other Copy Activity articles:
 

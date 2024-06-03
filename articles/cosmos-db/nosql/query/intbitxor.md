@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Compares the bits on both the left-hand and right-hand operators using exclusive
 
 ## Syntax
 
-```sql
+```nosql
 IntBitXor(<int_expr_1>, <int_expr_2>)
 ```
 
@@ -33,30 +34,18 @@ IntBitXor(<int_expr_1>, <int_expr_2>)
 
 ## Return types
 
-Returns a 64-bit integer. For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
+Returns a 64-bit integer.
+
+> [!NOTE]
+> For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
 
 ## Examples
 
 This example tests the function with various static values.
 
-```sql
-SELECT VALUE {
-    exclusiveOr: IntBitXor(56, 100),
-    exclusiveOrSame: IntBitXor(56, 56),
-    exclusiveOrZero: IntBitXor(56, 0),
-    exclusiveOrDecimal: IntBitXor(56, 0.1)
-}
-```
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/intbitxor/query.novalidate.sql" highlight="2-5":::
 
-```json
-[
-  {
-    "exclusiveOr": 92,
-    "exclusiveOrSame": 0,
-    "exclusiveOrZero": 56
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/intbitxor/result.novalidate.json":::
 
 ## Remarks
 

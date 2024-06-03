@@ -139,7 +139,7 @@ Parameters work the same way when building policy initiatives. By including para
 initiative definition, you can reuse that parameter in the included policies.
 
 > [!NOTE]
-> Once an initiative is assigned, initative level parameters can't be altered. Due to this, the
+> Once an initiative is assigned, initiative level parameters can't be altered. Due to this, the
 > recommendation is to set a **defaultValue** when defining the parameter.
 
 ### Parameter properties

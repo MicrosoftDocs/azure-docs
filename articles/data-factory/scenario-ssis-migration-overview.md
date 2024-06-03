@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 05/15/2024
 ---
 
 # Migrate on-premises SSIS workloads to SSIS in ADF or Synapse Pipelines
@@ -75,7 +75,7 @@ It is also a practical way to use [SSIS DevOps Tools](/sql/integration-services/
 - [Configure the Azure-SSIS Integration Runtime for high performance](configure-azure-ssis-integration-runtime-performance.md)
 - [How to start and stop Azure-SSIS Integration Runtime on a schedule](how-to-schedule-azure-ssis-integration-runtime.md)
 
-## Next steps
+## Related content
 
 - [Validate SSIS packages deployed to Azure](/sql/integration-services/lift-shift/ssis-azure-validate-packages)
 - [Run SSIS packages deployed in Azure](/sql/integration-services/lift-shift/ssis-azure-run-packages)

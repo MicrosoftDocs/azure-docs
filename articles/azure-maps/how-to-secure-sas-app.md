@@ -2,8 +2,8 @@
 title: How to secure an Azure Maps application with a SAS token
 titleSuffix: Azure Maps
 description: Create an Azure Maps account secured with SAS token authentication.
-author: stack111
-ms.author: dstack
+author: eriklindeman
+ms.author: eriklind
 ms.date: 06/08/2022
 ms.topic: how-to
 ms.service: azure-maps
@@ -12,7 +12,7 @@ manager: philema
 ms.custom: subject-rbac-steps, kr2b-contr-experiment, devx-track-azurecli
 ---
 
-# Secure an Azure Maps account with a SAS token (preview)
+# Secure an Azure Maps account with a SAS token
 
 This article describes how to create an Azure Maps account with a securely stored SAS token you can use to call the Azure Maps REST API.
 
@@ -62,7 +62,7 @@ The following steps describe how to create and configure an Azure Maps account w
    az provider register --namespace Microsoft.Maps
    ```
 
-1. Retrieve your Azure Active Directory (Azure AD) object ID.
+1. Retrieve your Microsoft Entra object ID.
 
     ```azurecli
     $id = $(az rest --method GET --url 'https://graph.microsoft.com/v1.0/me?$select=id' --headers 'Content-Type=application/json' --query "id")
@@ -171,6 +171,12 @@ The following steps describe how to create and configure an Azure Maps account w
    ```
 
 1. Create a template file *azuredeploy.json* to provision the Azure Maps account, role assignment, and SAS token.
+
+    > [!NOTE]
+    >
+    > **Azure Maps Gen1 pricing tier retirement**
+    >
+    > Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
     ```json
     {
@@ -305,7 +311,7 @@ The following steps describe how to create and configure an Azure Maps account w
             {
                 "name": "[parameters('accountName')]",
                 "type": "Microsoft.Maps/accounts",
-                "apiVersion": "2021-12-01-preview",
+                "apiVersion": "2023-06-01",
                 "location": "[parameters('location')]",
                 "sku": {
                     "name": "[parameters('pricingTier')]"
@@ -353,7 +359,7 @@ The following steps describe how to create and configure an Azure Maps account w
                     "expiry" : "[variables('sasParameters').expiry]"
                 },
                 "properties": {
-                    "value": "[listSas(variables('accountId'), '2021-12-01-preview', variables('sasParameters')).accountSasToken]"
+                    "value": "[listSas(variables('accountId'), '2023-06-01', variables('sasParameters')).accountSasToken]"
                 }
             }
         ]
@@ -448,12 +454,14 @@ Deploy a quickstart ARM template to create an Azure Maps account that uses a SAS
 
 For more detailed examples, see:
 > [!div class="nextstepaction"]
-> [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md)
+> [Authentication scenarios for Microsoft Entra ID](../active-directory/develop/authentication-vs-authorization.md)
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
 > [View usage metrics](how-to-view-api-usage.md)
 
-Explore samples that show how to integrate Azure AD with Azure Maps:
+Explore samples that show how to integrate Microsoft Entra ID with Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+
+[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md

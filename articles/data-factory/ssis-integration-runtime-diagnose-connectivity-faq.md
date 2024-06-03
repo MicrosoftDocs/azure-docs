@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: meiyl
 author: meiyl
 ms.reviewer: chugugrace
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Use the diagnose connectivity feature in the SSIS integration runtime
@@ -95,7 +95,7 @@ Use the following sections to learn about the most common errors that occur when
 - **Potential cause**: Transient network issue.
 - **Recommendation**: Check whether the server or firewall network is stable.
 
-## Next steps
+## Related content
 
 - [Migrate SSIS jobs with SSMS](how-to-migrate-ssis-job-ssms.md)
 - [Run SSIS packages in Azure with SSDT](how-to-invoke-ssis-package-ssdt.md)

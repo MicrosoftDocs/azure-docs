@@ -1,16 +1,19 @@
 ---
-title: Time sync for Linux VMs in Azure 
+title: Time sync for Linux VMs in Azure
 description: Time sync for Linux virtual machines.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 04/26/2023
-ms.author: cynthn
+ms.author: jushiman
 ---
 
 # Time sync for Linux VMs in Azure
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
@@ -71,7 +74,7 @@ There are some basic commands for checking your time synchronization configurati
 Check to see if the integration service (hv_utils) is loaded.
 
 ```bash
-lsmod | grep hv_utils
+$ sudo lsmod | grep hv_utils
 ```
 You should see something similar to this:
 
@@ -89,26 +92,43 @@ install the updated driver. When the PTP clock source is available, the Linux de
 See which PTP clock sources are available.
 
 ```bash
-ls /sys/class/ptp
+$ ls /sys/class/ptp
 ```
 
 In this example, the value returned is *ptp0*, so we use that to check the clock name. To verify the device, check the clock name.
 
 ```bash
-cat /sys/class/ptp/ptp0/clock_name
+$ sudo cat /sys/class/ptp/ptp0/clock_name
 ```
 
 This should return `hyperv`, meaning the Azure host.
 
-In Linux VMs with Accelerated Networking enabled, you may see multiple PTP devices listed because the Mellanox mlx5 driver also creates a /dev/ptp device. Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be `/dev/ptp0` or it might be `/dev/ptp1`, which makes it difficult to configure `chronyd` with the correct clock source. To solve this problem, the most recent Linux images have a `udev` rule that creates the symlink `/dev/ptp_hyperv` to whichever `/dev/ptp` entry corresponds to the Azure host. Chrony should be configured to use this symlink instead of `/dev/ptp0` or `/dev/ptp1`.
+In some Linux VMs you may see multiple PTP devices listed. One example is for Accelerated Networking the Mellanox mlx5 driver also creates a /dev/ptp device. Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be `/dev/ptp0` or it might be `/dev/ptp1`, which makes it difficult to configure `chronyd` with the correct clock source. To solve this problem, the most recent Linux images have a `udev` rule that creates the symlink `/dev/ptp_hyperv` to whichever `/dev/ptp` entry corresponds to the Azure host. Chrony should always be configured to use the `/dev/ptp_hyperv` symlink instead of `/dev/ptp0` or `/dev/ptp1`.
+
+If you are having issues with the `/dev/ptp_hyperv` device not being created, you can use the `udev` rule and steps below to configure it:
+
+NOTE: Most Linux distributions should not need this udev rule as it has been implemented in newer versions of [systemd](https://github.com/systemd/systemd/commit/32e868f058da8b90add00b2958c516241c532b70)
+
+Create the `udev` rules file:
+````bash
+$ sudo cat > /etc/udev/rules.d/99-ptp_hyperv.rules << EOF
+ACTION!="add", GOTO="ptp_hyperv"
+SUBSYSTEM=="ptp", ATTR{clock_name}=="hyperv", SYMLINK += "ptp_hyperv"
+LABEL="ptp_hyperv"
+EOF
+````
+Reboot the Virtual Machine OR reload the `udev` rules with:
+````bash
+$ sudo udevadm control --reload
+$ sudo udevadm trigger --subsystem-match=ptp --action=add
+````
 
 ### chrony
 
 On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following statement:
 
 ```bash
-local stratum 2
-refclock PHC /dev/ptp_hyperv poll 3 dpoll -2 offset 0
+refclock PHC /dev/ptp_hyperv poll 3 dpoll -2 offset 0 stratum 2
 ```
 
 If the /dev/ptp_hyperv symlink is available, use it instead of /dev/ptp0 to avoid any confusion with the /dev/ptp device created by the Mellanox mlx5 driver.
@@ -117,14 +137,14 @@ Stratum information isn't automatically conveyed from the Azure host to the Linu
 
 By default, chronyd accelerates or slows the system clock to fix any time drift. If the drift becomes too large, chrony fails to fix the drift. To overcome this, the `makestep` parameter in **/etc/chrony.conf** can be changed to force a time sync if the drift exceeds the threshold specified.
 
- ```bash
+```bash
 makestep 1.0 -1
 ```
 
 Here, chrony will force a time update if the drift is greater than 1 second. To apply the changes restart the chronyd service:
 
 ```bash
-systemctl restart chronyd
+$ sudo systemctl restart chronyd && sudo systemctl restart chrony
 ```
 
 ### Time sync messages related to systemd-timesyncd
@@ -143,11 +163,11 @@ Aug  1 12:59:45 vm-name systemd-timesyncd[945]: Synchronized to time server 185.
 You can disable it by using:
 
 ```bash
-systemctl disable systemd-timesyncd
+$ sudo systemctl disable systemd-timesyncd
 ````
 In most cases, systemd-timesyncd will try during boot but once chrony starts up it will overwrite and become the default time sync source.
 
-For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
+For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/about-time-synchronisation).
 
 For more information about Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
 
@@ -175,8 +195,8 @@ ntp:
        ## template:jinja
        driftfile /var/lib/chrony/chrony.drift
        logdir /var/log/chrony
-       maxupdateskey 100.0
-       refclock PHC /dev/ptp_hyperv poll 3 dpoll -2
+       maxupdateskew 100.0
+       refclock PHC /dev/ptp_hyperv poll 3 dpoll -2 offset 0 stratum 2
        makestep 1.0 -1
 ```
 

@@ -194,6 +194,10 @@ The `partitionCount` parameter can be specified in the **host.json** file. The f
 }
 ```
 
+## Considerations to minimize invocation latencies
+
+Under normal circumstances, invocation requests (to activities, orchestrators, entities, etc.) should be processed rather quickly. However, there's no guarantee on the maximum latency of any invocation request as it depends on factors such as: the type of scale behavior your App Service Plan, your concurrency settings, and the size of your application's backlog. As such, we recommend investing in [stress testing](./durable-functions-best-practice-reference.md#invest-in-stress-testing) to measure and optimize your application's tail latencies.
+
 ## Performance targets
 
 When planning to use Durable Functions for a production application, it is important to consider the performance requirements early in the planning process. Some basic usage scenarios include:

@@ -1,38 +1,41 @@
 ---
-title: Azure Pipelines task Azure Database for PostgreSQL Flexible Server
-description: Enable  Azure Database for PostgreSQL Flexible Server CLI  task for using with Azure Pipelines
+title: Azure Pipelines task
+description: Enable Azure Database for PostgreSQL - Flexible Server CLI task for using with Azure Pipelines.
+author: nachoalonsoportillo
+ms.author: ialonso
+ms.reviewer: maghan
+ms.date: 04/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.author: sunila
-author: sunilagarwal
-ms.custom: seodec18, mode-other
-ms.date: 11/30/2021
+ms.custom:
+  - mode-other
 ---
 
-# Azure Pipelines task for Azure Database for PostgreSQL Flexible Server
+# Azure Pipelines task - Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-You can automatically deploy your database updates to Azure Database for PostgreSQL Flexible Server after every successful build with **Azure Pipelines**.  You can use Azure CLI task to update the database either with a SQL file or an inline SQL script against the database. This task  can be run on cross-platform agents running on Linux, macOS, or Windows operating systems.
+You can automatically deploy your database updates to Azure Database for PostgreSQL flexible server after every successful build with **Azure Pipelines**.  You can use Azure CLI task to update the database either with a SQL file or an inline SQL script against the database. This task  can be run on cross-platform agents running on Linux, macOS, or Windows operating systems.
 
 ## Prerequisites
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
 - [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) to your Azure account
-- Microsoft hosted agents have Azure CLI pre-installed. However if you are using private agents, [install Azure CLI](/cli/azure/install-azure-cli) on the computer(s) that run the build and release agent. If an agent is already running on the machine on which the Azure CLI is installed, restart the agent to ensure all the relevant stage variables are updated.
-- Create an Azure Database for PostgreSQL Flexible Server using [Azure portal](./quickstart-create-server-portal.md) or  [Azure CLI](./quickstart-create-server-cli.md)
+- Microsoft hosted agents have Azure CLI preinstalled. However if you are using private agents, [install Azure CLI](/cli/azure/install-azure-cli) on the computer(s) that run the build and release agent. If an agent is already running on the machine on which the Azure CLI is installed, restart the agent to ensure all the relevant stage variables are updated.
+- Create an Azure Database for PostgreSQL flexible server instance using the [Azure portal](./quickstart-create-server-portal.md) or  [Azure CLI](./quickstart-create-server-cli.md)
 
 
 ## Use SQL file
 
-The following example illustrates how to pass database arguments and run ```execute``` command  
+The following example illustrates how to pass database arguments and run `execute` command  
 
 ```yaml
 - task: AzureCLI@2
   displayName: Azure CLI
   inputs:
     azureSubscription: <Name of the Azure Resource Manager service connection>
+    scriptType: 'pscore'
     scriptLocation: inlineScript
     arguments:
       -SERVERNAME mydemoserver `
@@ -48,13 +51,14 @@ The following example illustrates how to pass database arguments and run ```exec
 
 ## Use inline SQL script
 
-The following example illustrates how to run an inline SQL script using ```execute```  command.
+The following example illustrates how to run an inline SQL script using `execute`  command.
 
 ```yaml
 - task: AzureCLI@2
   displayName: Azure CLI
   inputs:
     azureSubscription: <Name of the Azure Resource Manager service connection>
+    scriptType: 'pscore'
     scriptLocation: inlineScript
     arguments:
       -SERVERNAME mydemoserver `
@@ -76,11 +80,11 @@ You can see the full list of all the task inputs when using Azure CLI task with 
 | Parameter            | Description         | 
 | :------------------- | :-------------------|
 | azureSubscription| (Required) Provide the Azure Resource Manager subscription for the deployment. This parameter is shown only when the selected task version is 0.* as Azure CLI task v1.0 supports only Azure Resource Manager subscriptions. |
-|scriptType| (Required) Provide the type of script. Supported scripts are PowerShell, PowerShell Core, Bat, Shell, and script. When running on a **Linux agent**, select one of the following: ```bash``` or  ```pscore``` . When running **Windows agent**, select one of the following: ```batch```,```ps``` and ```pscore```. |
-|sriptLocation| (Required) Provide the path to script, for example real file path or use ```Inline script``` when providing the scripts inline. The default value is ```scriptPath```. |
+|scriptType| (Required) Provide the type of script. Supported scripts are PowerShell, PowerShell Core, Bat, Shell, and script. When running on a **Linux agent**, select one of the following: `bash` or  `pscore` . When running **Windows agent**, select one of the following: `batch`,`ps` and `pscore`. |
+|scriptLocation| (Required) Provide the path to script, for example real file path or use `Inline script` when providing the scripts inline. The default value is `scriptPath`. |
 |scriptPath| (Required) Fully qualified path of the script(.ps1 or .bat or .cmd when using Windows-based agent else <code>.ps1 </code> or <code>.sh </code> when using linux-based agent) or a path relative to the default working directory. |
-|inlineScript|(Required) You can write your scripts inline here. When using Windows agent, use PowerShell or PowerShell Core or batch scripting whereas use PowerShell Core or shell scripting when using Linux-based agents. For batch files use the prefix \"call\" before every Azure command. You can also pass predefined and custom variables to this script using arguments. <br/>Example for PowerShell/PowerShellCore/shell:``` az --version az account show``` <br/>Example for batch: ``` call az --version call az account show```. |
-| arguments| (Optional) Provide all the arguments passed to the script. For examples ```-SERVERNAME mydemoserver```. |
+|inlineScript|(Required) You can write your scripts inline here. When using Windows agent, use PowerShell or PowerShell Core or batch scripting whereas use PowerShell Core or shell scripting when using Linux-based agents. For batch files use the prefix \"call\" before every Azure command. You can also pass predefined and custom variables to this script using arguments. <br/>Example for PowerShell/PowerShellCore/shell:` az --version az account show` <br/>Example for batch: ` call az --version call az account show`. |
+| arguments| (Optional) Provide all the arguments passed to the script. For examples `-SERVERNAME mydemoserver`. |
 |powerShellErrorActionPreference| (Optional) Prepends the line <b>$ErrorActionPreference = 'VALUE'</b> at the top of your PowerShell/PowerShell Core script. The default value is stop. Supported values are stop, continue, and silentlyContinue. |
 |addSpnToEnvironment|(Optional) Adds service principal ID and key of the Azure endpoint you chose to the script's execution environment. You can use these variables: <b>$env:servicePrincipalId, $env:servicePrincipalKey and $env:tenantId</b> in your script. This is honored only when the Azure endpoint has Service Principal authentication scheme. The default value is false.|
 |useGlobalConfig|(Optional) If this is false, this task will use its own separate <a href= "/cli/azure/azure-cli-configuration#cli-configuration-file">Azure CLI configuration directory</a>. This can be used to run Azure CLI tasks in <b>parallel</b> releases" <br/>Default value: false</td>
@@ -91,7 +95,7 @@ You can see the full list of all the task inputs when using Azure CLI task with 
 Having issues with CLI Task, see [how to troubleshoot Build and Release](/azure/devops/pipelines/troubleshooting/troubleshooting).
 
 ## Next steps 
-Here are some related tasks that can be used to deploy with Azure Piplelines.
+Here are some related tasks that can be used to deploy with Azure Pipelines.
 
 - [Azure Resource Group Deployment](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
 - [Azure Web App Deployment](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment)

@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an Azure Recovery Servi
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.author: ankitadutta
-ms.date: 06/27/2022
+ms.date: 05/23/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
@@ -102,7 +102,4 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-In this quickstart, you created a Recovery Services vault using Bicep. To learn more about disaster recovery, continue to the next quickstart article.
-
-> [!div class="nextstepaction"]
-> [Set up disaster recovery](azure-to-azure-quickstart.md)
+In this quickstart, you created a Recovery Services vault using Bicep. To learn more about disaster recovery, continue to the next quickstart article - [Set up disaster recovery](azure-to-azure-quickstart.md).

@@ -3,7 +3,7 @@ title: Create a standalone Azure Automation account
 description: This article tells how to create a standalone Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2021
+ms.date: 04/25/2024
 ms.topic: conceptual
 ---
 # Create a standalone Azure Automation account
@@ -18,7 +18,7 @@ With this account created for you, you can quickly start building and deploying 
 
 To create or update an Automation account, and to complete the tasks described in this article, you must have the following privileges and permissions:
 
-To create an Automation account, your Azure AD user account must be added to a role with permissions equivalent to the Owner role for `Microsoft.Automation` resources. For more information, see [Role-Based Access Control in Azure Automation](automation-role-based-access-control.md).
+To create an Automation account, your Microsoft Entra user account must be added to a role with permissions equivalent to the Owner role for `Microsoft.Automation` resources. For more information, see [Role-Based Access Control in Azure Automation](automation-role-based-access-control.md).
 
 ## Create a new Automation account in the Azure portal
 
@@ -28,7 +28,7 @@ To create an Azure Automation account in the Azure portal, complete the followin
 1. Select **+ Create a Resource**.
 1. Search for **Automation**. In the search results, select **Automation**.
 
-   :::image type="content" source="./media/automation-create-standalone-account/automation-account-portal.png" alt-text="Locating Automation accounts in portal":::
+   :::image type="content" source="./media/automation-create-standalone-account/automation-account-portal.png" alt-text="Screenshot of Automation accounts in the portal." lightbox="./media/automation-create-standalone-account/automation-account-portal.png":::
 
 Options for your new Automation account are organized into tabs in the **Create an Automation Account** page. The following sections describe each of the tabs and their options.
 
@@ -62,7 +62,7 @@ The following table describes the fields on the **Advanced** tab.
 
 | **Field** | **Required**<br> **or**<br> **optional** |**Description** |
 |---|---|---|
-|System-assigned |Optional |An Azure Active Directory identity that is tied to the lifecycle of the Automation account. |
+|System-assigned |Optional |A Microsoft Entra identity that is tied to the lifecycle of the Automation account. |
 |User-assigned |Optional |A managed identity represented as a standalone Azure resource that is managed separately from the resources that use it.|
 
 You can chose to enable managed identities later, and the Automation account is created without one. To enable a managed identity after the account is created, see [Enable managed identity](enable-managed-identity-for-automation.md). If you select both options, for the user-assigned identity, select the **Add user assigned identities** option. On the **Select user assigned managed identity** page, select a subscription and add one or more user-assigned identities created in that subscription to assign to the Automation account.
@@ -111,7 +111,7 @@ When you create an Automation account, Azure generates two 512-bit automation ac
 ### View Automation account keys
 
 To view and copy your Automation account access keys, follow these steps:
-1. In the [Azure portal](https://portal.azure.com/), go to your Automation account.
+1. In the [Azure portal](https://portal.azure.com), go to your Automation account.
 1. Under **Account Settings**, select **Keys** to view your Automation account's primary and secondary access keys. 
 You can use any of the two keys to access your Automation account. However, we recommend that you use the first key and reserve the use of second key.
 
@@ -126,7 +126,7 @@ Choose a client
 # [Azure portal](#tab/azureportal)
 
 Follow these steps:
-1. Go to your Automation account in [Azure portal](https://portal.azure.com/).
+1. Go to your Automation account in the [Azure portal](https://portal.azure.com).
 1. Under **Account Settings**, select **Keys**.
 1. Select **Regenerate primary** to regenerate the primary access key for your Automation account.
 1. Select the **Regenerate secondary** to regenerate the secondary access key.

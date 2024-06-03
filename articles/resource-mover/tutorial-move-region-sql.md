@@ -2,13 +2,12 @@
 title: Move Azure SQL resources between regions with Azure Resource Mover
 description: Learn how to move Azure SQL resources to another region with Azure Resource Mover
 author: ankitaduttaMSFT
-manager: evansma
 ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 02/10/2023
+ms.date: 03/29/2024
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
-#Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region.
+#Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region using Azure Resource Mover.
 ---
 
 # Move Azure SQL Database resources to another region
@@ -99,14 +98,14 @@ To select the resources you want to move, follow these steps:
 To resolve the dependent resources you want to move, follow these steps:
 
 
-1. Dependencies are automatically validated in the background when you add the resources. If you still see the **Validate dependencies** option, select it to trigger the validation manually.
+1. Dependencies are auto-validated in the background when you add the resources. If the initial auto validation does not resolve the issue, you will see a **Validate dependencies** option, select it to validate manually. 
 1. If dependencies are found, select **Add dependencies**.
 
     :::image type="content" source="./media/tutorial-move-region-sql/add-dependencies.png" alt-text="Screenshot displays button to add dependencies." lightbox="./media/tutorial-move-region-sql/add-dependencies.png":::
    
 3. In **Add dependencies**, select the dependent resources > **Add dependencies**. You can monitor the progress in the notifications.
 
-4. Dependencies are automatically validated in the background once you add the dependencies. If you see a **Validate dependencies** option, select it to trigger the manual validation. 
+4. Dependencies are auto-validated in the background once you add the dependencies. If you see a **Validate dependencies** option, select it to trigger the manual validation. 
 
 5. On the **Across regions** page, verify that the resources are now in a *Prepare pending* state with no issues.
 

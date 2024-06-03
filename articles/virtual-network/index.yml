@@ -6,10 +6,8 @@ summary: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples
 metadata:
   title: Azure Virtual Network Documentation - Tutorials, quickstarts, API references
   description: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
-  services: virtual-network
   ms.service: virtual-network
   ms.topic: landing-page
-  ms.collection: collection
   author: asudbring
   ms.author: allensu
   ms.date: 06/29/2022
@@ -55,7 +53,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create, change, or delete a virtual network
-            url: manage-virtual-network.md
+            url: manage-virtual-network.yml
           - text: Add, change, or delete a subnet
             url: virtual-network-manage-subnet.md
 
@@ -74,6 +72,8 @@ landingContent:
             url: virtual-networks-faq.md#security
           - text: Default outbound access
             url: ./ip-services/default-outbound-access.md
+          - text: Virtual network encryption
+            url: ./virtual-network-encryption-overview.md
       - linkListType: tutorial
         links:
           - text: Filter network traffic using network security groups
@@ -82,6 +82,10 @@ landingContent:
             url: tutorial-restrict-network-access-to-resources.md
           - text: Work with application security groups
             url: manage-network-security-group.md#work-with-application-security-groups
+      - linkListType: how-to-guide
+        links:
+          - text: Create a virtual network with encryption
+            url: ./how-to-create-encryption-portal.md
       - linkListType: learn
         links:
           - text: Secure and isolate access to Azure resources
@@ -95,7 +99,7 @@ landingContent:
           - text: Virtual network peering
             url: virtual-network-peering-overview.md
           - text: Virtual network peering FAQ
-            url: virtual-networks-faq.md#vnet-peering            
+            url: virtual-networks-faq.md#virtual-network-peering            
       - linkListType: tutorial
         links:
           - text: Connect VNets with virtual network peering

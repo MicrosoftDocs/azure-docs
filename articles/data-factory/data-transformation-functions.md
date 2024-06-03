@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 05/15/2024
 ---
 
 # Data transformation expressions in mapping data flow
@@ -35,6 +35,6 @@ The following articles provide details about expressions and functions supported
 
 For details about the usage of each function in a comprehensive alphabetical list, refer to [Usage details of all data transformation expressions](data-flow-expressions-usage.md).
 
-## Next steps
+## Related content
 
 [Learn how to use Expression Builder](concepts-data-flow-expression-builder.md).

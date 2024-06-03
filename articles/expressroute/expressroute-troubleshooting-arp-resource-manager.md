@@ -4,10 +4,10 @@ description: This page provides instructions on getting the Address Resolution P
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: troubleshooting
 ms.date: 06/30/2023
 ms.author: duau
-
 ---
 # Getting ARP tables in the Resource Manager deployment model
 
@@ -91,32 +91,6 @@ Age InterfaceProperty IpAddress  MacAddress
  10 On-Prem           10.0.0.1   ffff.eeee.dddd
   0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 ```
-
-
-### ARP tables for Azure public peering
-The following cmdlet provides the ARP tables for Azure public peering
-
-```azurepowershell
-# Required Variables
-$RG = "<Your Resource Group Name Here>"
-$Name = "<Your ExpressRoute Circuit Name Here>"
-
-# ARP table for Azure public peering - Primary path
-Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
-
-# ARP table for Azure public peering - Secondary path
-Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
-```
-
-Sample output for one of the paths:
-
-```output
-Age InterfaceProperty IpAddress  MacAddress    
---- ----------------- ---------  ----------    
- 10 On-Prem           64.0.0.1   ffff.eeee.dddd
-  0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
-```
-
 
 ### ARP tables for Microsoft peering
 The following cmdlet provides the ARP tables for Microsoft peering
@@ -205,4 +179,3 @@ Age InterfaceProperty IpAddress  MacAddress
   * Get route table to determine which prefixes are advertised across ExpressRoute.
 * Validate data transfer by reviewing bytes in / out.
 * Open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you're still experiencing issues.
-

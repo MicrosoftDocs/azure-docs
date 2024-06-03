@@ -4,6 +4,7 @@ description: Learn how to deploy virtual appliances and route tables to create a
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
+ms.custom:
 ms.topic: conceptual
 ms.date: 03/22/2023
 ms.author: allensu
@@ -23,11 +24,11 @@ A common scenario among larger Azure customers is the need to provide a two-tier
 
 * Administrators must be able to manage the firewall virtual appliances from their on-premises computers, by using a third firewall virtual appliance used exclusively for management purposes.
 
-This example is a standard perimeter network (also known as DMZ) scenario with a DMZ and a protected network. Such scenario can be constructed in Azure by using NSGs, firewall virtual appliances, or a combination of both. 
+This example is a standard perimeter network (also known as DMZ) scenario with a DMZ and a protected network. Such scenario can be constructed in Azure by using NSGs, firewall virtual appliances, or a combination of both.
 
 The following table shows some of the pros and cons between NSGs and firewall virtual appliances.
 
-| Item  | Pros | Cons | 
+| Item  | Pros | Cons |
 | ----- | --- | --- |
 | **NSG** | No cost. <br/>Integrated into Azure role based access. <br/>Rules can be created in Azure Resource Manager templates. | Complexity could vary in larger environments. |
 | **Firewall** | Full control over data plane. <br/> Central management through firewall console. |Cost of firewall appliance. <br/> Not integrated with Azure role based access. |
@@ -40,7 +41,7 @@ You can deploy the environment explained previously in Azure using different fea
 
 * **Virtual network**. An Azure virtual network acts in similar fashion to an on-premises network, and can be segmented into one or more subnets to provide traffic isolation, and separation of concerns.
 
-* **Virtual appliance**. Several partners provide virtual appliances in the Azure Marketplace that can be used for the three firewalls described previously. 
+* **Virtual appliance**. Several partners provide virtual appliances in the Azure Marketplace that can be used for the three firewalls described previously.
 
 * **Route tables**. Route tables are used by Azure networking to control the flow of packets within a virtual network. These route tables can be applied to subnets. You can apply a route table to the GatewaySubnet, which forwards all traffic entering into the Azure virtual network from a hybrid connection to a virtual appliance.
 
@@ -52,11 +53,11 @@ You can deploy the environment explained previously in Azure using different fea
 
 In this example, there's a subscription that contains the following items:
 
-* Two resource groups, not shown in the diagram. 
+* Two resource groups, not shown in the diagram.
 
   * **ONPREMRG**. Contains all resources necessary to simulate an on-premises network.
 
-  * **AZURERG**. Contains all resources necessary for the Azure virtual network environment. 
+  * **AZURERG**. Contains all resources necessary for the Azure virtual network environment.
 
 * A virtual network named **onpremvnet** segmented as follows used to mimic an on-premises datacenter.
 
@@ -76,9 +77,9 @@ In this example, there's a subscription that contains the following items:
 
   * **azsn4**. Management subnet used exclusively to provide management access to all firewall virtual appliances. This subnet only contains a NIC for each firewall virtual appliance used in the solution.
 
-  * **GatewaySubnet**. Azure hybrid connection subnet required for ExpressRoute and VPN Gateway to provide connectivity between Azure VNets and other networks. 
+  * **GatewaySubnet**. Azure hybrid connection subnet required for ExpressRoute and VPN Gateway to provide connectivity between Azure VNets and other networks.
 
-* There are 3 firewall virtual appliances in the **azurevnet** network. 
+* There are 3 firewall virtual appliances in the **azurevnet** network.
 
   * **AZF1**. External firewall exposed to the public Internet by using a public IP address resource in Azure. You need to ensure you have a template from the Marketplace or directly from your appliance vendor that deploys a 3-NIC virtual appliance.
 
@@ -145,13 +146,13 @@ As an example, imagine you have the following setup in an Azure vnet:
 
 * A user defined route linked to **onpremsn1** specifies that all traffic to **onpremsn2** must be sent to **OPFW**.
 
-At this point, if **onpremvm1** tries to establish a connection with **onpremvm2**, the UDR will be used and traffic will be sent to **OPFW** as the next hop. Keep in mind that the actual packet destination isn't being changed, it still says **onpremvm2** is the destination. 
+At this point, if **onpremvm1** tries to establish a connection with **onpremvm2**, the UDR will be used and traffic will be sent to **OPFW** as the next hop. Keep in mind that the actual packet destination isn't being changed, it still says **onpremvm2** is the destination.
 
 Without IP Forwarding enabled for **OPFW**, the Azure virtual networking logic drops the packets, since it only allows packets to be sent to a VM if the VM’s IP address is the destination for the packet.
 
 With IP Forwarding, the Azure virtual network logic forwards the packets to OPFW, without changing its original destination address. **OPFW** must handle the packets and determine what to do with them.
 
-For the scenario previously to work, you must enable IP Forwarding on the NICs for **OPFW**, **AZF1**, **AZF2**, and **AZF3** that are used for routing (all NICs except the ones linked to the management subnet). 
+For the scenario previously to work, you must enable IP Forwarding on the NICs for **OPFW**, **AZF1**, **AZF2**, and **AZF3** that are used for routing (all NICs except the ones linked to the management subnet).
 
 ## Firewall Rules
 

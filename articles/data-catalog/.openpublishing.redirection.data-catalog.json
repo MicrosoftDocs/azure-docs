@@ -19,6 +19,21 @@
         "source_path_from_root": "/articles/data-catalog/data-catalog-what-is-data-catalog.md",
         "redirect_url": "/azure/data-catalog/overview",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/data-catalog/data-catalog-adopting-data-catalog.md",
+        "redirect_url": "/azure/data-catalog/overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/data-catalog/data-catalog-common-scenarios.md",
+        "redirect_url": "/azure/data-catalog/overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/data-catalog/data-catalog-migration-to-azure-purview.md",
+        "redirect_url": "/azure/data-catalog/data-catalog-migration-to-microsoft-purview",
+        "redirect_document_id": false
       }
 ]
 }

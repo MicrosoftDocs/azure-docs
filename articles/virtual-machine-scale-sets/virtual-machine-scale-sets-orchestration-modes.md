@@ -23,7 +23,7 @@ Scale set orchestration modes allow you to have greater control over how virtual
 
 Optimized for large-scale stateless workloads with identical instances.
 
-Virtual Machine Scale Sets with Uniform orchestration use a virtual machine profile or template to scale up to desired capacity. While there is some ability to manage or customize individual virtual machine instances, Uniform uses identical VM instances. Individual Uniform VM instances are exposed via the Virtual Machine Scale Set VM API commands. Individual instances aren't compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging RBAC permissions, Azure Backup, or Azure Site Recovery. Uniform orchestration provides fault domain high availability guarantees when configured with fewer than 100 instances. Uniform orchestration is generally available and supports a full range of scale set management and orchestration, including metrics-based autoscaling, instance protection, and automatic OS upgrades.
+Virtual Machine Scale Sets with Uniform orchestration use a virtual machine profile or template to scale up to desired capacity. While there is some ability to manage or customize individual virtual machine instances, Uniform uses identical VM instances. Individual Uniform VM instances are exposed via the Virtual Machine Scale Set VM API commands. Individual instances aren't compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging, RBAC permissions, Azure Backup, or Azure Site Recovery. Uniform orchestration provides fault domain high availability guarantees when configured with fewer than 100 instances. Uniform orchestration is generally available and supports a full range of scale set management and orchestration, including metrics-based autoscaling, instance protection, and automatic OS upgrades.
 
 
 ## Scale sets with Flexible orchestration
@@ -159,8 +159,8 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Terminate Notifications (Virtual Machine Scale Set) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | N/A |
 | Monitor Application Health | Application health extension | Application health extension or Azure load balancer probe | Application health extension |
 | Instance Repair (Virtual Machine Scale Set) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | N/A |
-| Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) | Yes | No |
-| Scale In Policy | No | Yes | No |
+| Instance Protection | Yes | Yes | No |
+| Scale In Policy | Yes | Yes | No |
 | VMSS Get Instance View | No | Yes | N/A |
 | VM Batch Operations (Start all, Stop all, delete subset, etc.) | Yes | Yes | No |
 
@@ -212,8 +212,6 @@ The following Virtual Machine Scale Set parameters aren't currently supported wi
 - Application health via SLB health probe - use Application Health Extension on instances
 - Virtual Machine Scale Set upgrade policy - must be null or empty
 - Unmanaged disks
-- Virtual Machine Scale Set Scale in Policy
-- Virtual Machine Scale Set Instance Protection
 - Basic Load Balancer
 - Port Forwarding via Standard Load Balancer NAT Pool - you can configure NAT rules
 - System assigned Managed Identity - Use User assigned Managed Identity instead

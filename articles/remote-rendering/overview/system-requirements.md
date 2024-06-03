@@ -45,9 +45,12 @@ Even though the correct H265 codec might be installed, security properties on th
 
 ### Desktop Windows
 
-32-Bit Windows versions are not supported.
+Requirements and limitations:
 
-You need to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
+* 32-Bit Windows versions are not supported.
+* You need to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
+* No VR support. Only the [simulation](../concepts/graphics-bindings.md#simulation) graphics binding is supported.
+* Only the DX11 rendering API is supported.
 
 It's important to use the latest HEVC codec, as newer versions have significant improvements in latency. To check which version is installed on your device:
 
@@ -61,8 +64,11 @@ It's important to use the latest HEVC codec, as newer versions have significant 
 
 ### HoloLens 2
 
-> [!NOTE]
-> The [render from PV camera](/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature isn't supported.
+Requirements and limitations:
+
+* Both Unity's [OpenXR](https://docs.unity3d.com/Manual/com.unity.xr.openxr.html) (Unity 2020 or newer) and [Windows XR Plugin](https://docs.unity3d.com/2020.3/Documentation/Manual/com.unity.xr.windowsmr.html) (up to Unity 2020 only) are supported.
+* The [render from PV camera](/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature isn't supported.
+* Only the DX11 rendering API is supported.
 
 ### Quest 2 and Quest Pro
 
@@ -124,7 +130,7 @@ The following software must be installed:
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development** 
-* **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
+* **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-sdk/)
 * To work with the samples repository:
   * **Git** [(download)](https://git-scm.com/downloads)
   * **Git LFS plugin** [(download)](https://git-lfs.github.com/)

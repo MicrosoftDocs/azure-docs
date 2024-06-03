@@ -4,13 +4,16 @@ description: This article describes ways to troubleshoot common errors in failin
 author: ankitaduttaMSFT
 manager: abhemraj
 ms.service: site-recovery
+ms.custom: linux-related-content
 services: site-recovery
 ms.topic: article
-ms.workload: storage-backup-recovery
-ms.date: 01/08/2020
+ms.date: 03/07/2024
 ms.author: ankitadutta
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 You may receive one of the following errors while doing failover of a virtual machine to Azure. To troubleshoot, use the described steps for each error condition.
 
@@ -138,7 +141,7 @@ This is normally not a cause for concern and can usually be ignored for unplanne
 
 ## Unable to select the Datastore
 
-This issue is indicated when you're unable to see the datastore in Azure the portal when trying to reprotect the virtual machine that has experienced a failover. This is because the Master target isn't recognized as a virtual machine under vCenters added to Azure Site Recovery.
+This issue is indicated when you're unable to see the datastore in the Azure portal when trying to reprotect the virtual machine that has experienced a failover. This is because the Master target isn't recognized as a virtual machine under vCenters added to Azure Site Recovery.
 
 For more information about reprotecting a virtual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
 

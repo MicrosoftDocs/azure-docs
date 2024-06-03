@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Map functions in mapping data flow
@@ -31,7 +31,7 @@ The following articles provide details about map functions supported by Azure Da
 | [reassociate](data-flow-expressions-usage.md#reassociate) | Transforms a map by associating the keys to new values. It takes a mapping function where you can address the item as #key and current value as #value.  |
 |||
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).

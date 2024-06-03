@@ -3,7 +3,7 @@
  description: include file
  services: storage
  author: khdownie
- ms.service: storage
+ ms.service: azure-file-storage
  ms.topic: include
  ms.date: 6/2/2020
  ms.author: kendownie
@@ -40,7 +40,7 @@ if ($null -eq $subnet) {
 }
 ```
 
-In order for traffic from the virtual network to be allowed by the Azure network fabric to get to the storage account public endpoint, the virtual network's subnet must have the `Microsoft.Storage` service endpoint exposed. The following PowerShell commands will add the the `Microsoft.Storage` service endpoint to the subnet if it's not already there.
+In order for traffic from the virtual network to be allowed by the Azure network fabric to get to the storage account public endpoint, the virtual network's subnet must have the `Microsoft.Storage` service endpoint exposed. The following PowerShell commands will add the `Microsoft.Storage` service endpoint to the subnet if it's not already there.
 
 ```PowerShell
 $serviceEndpoints = $subnet | `

@@ -1,15 +1,13 @@
 ### YamlMime:Landing
 
 title: Azure Virtual Desktop documentation
-summary: Securely deliver virtual desktops and remote apps with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 11 and Windows 10 experience, with exceptional scale and reduced IT costs.
+summary: Securely deliver virtual desktops and applications remotely with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 11 and Windows 10 experience, with exceptional scale and reduced IT costs.
 
 metadata:
   title: Azure Virtual Desktop documentation
-  description: Azure Virtual Desktop securely delivers virtual desktops and remote apps and provide users with the only multi-session Windows 11 and Windows 10 experience.
+  description: Azure Virtual Desktop securely delivers virtual desktops and applications remotely and provides users with the only multi-session Windows 11 and Windows 10 experience.
   ms.service: virtual-desktop
-  services: virtual-desktop
   ms.topic: landing-page
-  manager: femila
   author: Heidilohr
   ms.author: helohr
   ms.date: 02/28/2022
@@ -28,7 +26,9 @@ landingContent:
             url: whats-new.md
           - text: Terminology
             url: terminology.md
-
+          - text: Service architecture and resilience
+            url: service-architecture-resilience.md
+  
   # Card
   - title: Get started with Azure Virtual Desktop
     linkLists:
@@ -42,10 +42,8 @@ landingContent:
             url: prerequisites.md
       - linkListType: how-to-guide
         links:
-          - text: Create a host pool
-            url: create-host-pool.md
-          - text: Create an application group, a workspace, and assign users
-            url: create-application-group-workspace.md
+          - text: Deploy Azure Virtual Desktop
+            url: deploy-azure-virtual-desktop.md
           - text: Add session hosts to a host pool
             url: add-session-hosts-host-pool.md
           - text: Publish applications
@@ -58,26 +56,26 @@ landingContent:
         links:
           - text: Azure Virtual Desktop for users
             url: ./users/index.yml
-          - text: Remote Desktop clients overview
+          - text: Windows App
             url: ./users/remote-desktop-clients-overview.md
-      - linkListType: how-to-guide
+          - text: Remote Desktop clients
+            url: ./users/remote-desktop-clients-overview.md
+      - linkListType: get-started
         links:
-          - text: Connect with the Windows Desktop client
-            url: ./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-          - text: Connect with the Azure Virtual Desktop Store app for Windows
-            url: ./users/connect-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-          - text: Connect with the web client
-            url: ./users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-          - text: Connect with macOS
-            url: ./users/connect-macos.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-          - text: Connect with iOS/iPadOS
-            url: ./users/connect-ios-ipados.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-          - text: Connect with Android/Chrome OS
-            url: ./users/connect-android-chrome-os.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-          - text: Connect with Remote Desktop app for Windows
-            url: ./users/connect-microsoft-store.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-          - text: Connect with thin clients
-            url: ./users/connect-thin-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+          - text: Get started with Windows App to connect to devices and apps
+            url: /windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop
+      - linkListType: get-started
+        links:
+          - text: Connect using the Remote Desktop client for Windows
+            url: ./users/connect-windows.md
+          - text: Connect using the Remote Desktop client from a web browser
+            url: ./users/connect-web.md
+          - text: Connect using the Remote Desktop client for macOS
+            url: ./users/connect-macos.md
+          - text: Connect using the Remote Desktop client for iOS/iPadOS
+            url: ./users/connect-ios-ipados.md
+          - text: Connect using the Remote Desktop client for Android/Chrome OS
+            url: ./users/connect-android-chrome-os.md
 
   # Card
   - title: More information
@@ -106,14 +104,6 @@ landingContent:
             url: /powershell/module/az.desktopvirtualization/
           - text: REST API
             url: /rest/api/desktopvirtualization/
-
-  # Card
-  - title: Remote app streaming with Azure Virtual Desktop
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Stream apps to your customers
-            url: ./remote-app-streaming/overview.md
 
   # Card
   - title: Azure Virtual Desktop (classic) documentation

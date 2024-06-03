@@ -1,11 +1,12 @@
 ---
 title: "Dynamics 365 connector for Microsoft Sentinel"
-description: "Learn how to install the connector Dynamics 365 to connect your data source to Microsoft Sentinel."
+description: "Learn how to install the connector Dynamics365 to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/06/2023
+ms.date: 01/06/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Dynamics 365 connector for Microsoft Sentinel

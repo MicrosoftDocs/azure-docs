@@ -1,22 +1,24 @@
 ---
-title: Create and provision an IoT Edge device on Linux using symmetric keys - Azure IoT Edge | Microsoft Docs
+title: Create IoT Edge device on Linux using symmetric keys
+titleSuffix: Azure IoT Edge
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with symmetric keys
 author: PatAltimore
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
-ms.date: 04/25/2023
+ms.topic: how-to
+ms.date: 03/04/2024
 ms.author: patricka
 ms.reviewer: mattmcinnes
 ---
 
 # Create and provision an IoT Edge device on Linux using symmetric keys
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, which includes installing IoT Edge.
+This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device that includes installing IoT Edge.
 
-Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that's used to track [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes: 
+Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that's used to track [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes:
 
 * IoT hub hostname
 * Device ID
@@ -54,11 +56,11 @@ This article shows how to register your IoT Edge device and install IoT Edge (al
 <!-- Azure IoT extensions for Visual Studio Code-->
 ### Visual Studio Code extensions
 
-If you are using Visual Studio Code, there are helpful Azure IoT extensions that will make the device creation and management process easier.
+If you are using Visual Studio Code, there are helpful Azure IoT extensions that make the device creation and management process easier.
 
 Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
-* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 * [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 
@@ -74,7 +76,9 @@ Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
 Now that the container engine and the IoT Edge runtime are installed on your device, you're ready to set up the device with its cloud identity and authentication information.
 
-You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+
+You can configure your IoT Edge device with symmetric key authentication using the following command:
 
    ```bash
    sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
@@ -94,6 +98,32 @@ You can quickly configure your IoT Edge device with symmetric key authentication
    sudo nano /etc/aziot/config.toml
    ```
 
+# [Ubuntu Core snaps](#tab/snaps)
+
+1. Create a **config.toml** file in your home directory and configure your IoT Edge device with a symmetric key authentication for the snap.
+
+    ```bash
+    sudo nano ~/config.toml
+    ```
+
+1. You can manually provision with a connection string using the following provisioning settings:
+
+    ```toml
+    [provisioning]
+    source = "manual"
+    connection_string = "REPLACE_WITH_DEVICE_CONNECTION_STRING"
+    ```
+
+    For more information about provisioning configuration settings, see [Configure IoT Edge device settings](configure-device.md#provisioning).
+
+1. Set the configuration for IoT Edge and the Identity Service using the following command:
+
+    ```bash
+    sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
+    ```
+
+---
+
 ## Deploy modules
 
 To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
@@ -106,8 +136,8 @@ To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
 
 1. Since we want to deploy the IoT Edge default modules (edgeAgent and edgeHub), we don't need to add any modules to this pane, so select **Review + create** at the bottom.
 
-1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.<br>
-   
+1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.
+
 For more information, see [Deploy a module](quickstart-linux.md#deploy-a-module).
 
 ## Verify successful configuration
@@ -137,7 +167,7 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
    sudo iotedge check
    ```
 
-   You can expect a range of responses that may include **OK** (green), **Warning** (yellow), or **Error** (red).
+   You can expect a range of responses that may include **OK** (green), **Warning** (yellow), or **Error** (red). For troubleshooting common errors, see [Solutions to common issues for Azure IoT Edge](troubleshoot-common-errors.md).
 
    :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/config-checks.png" alt-text="Screenshot of sample responses from the check command." lightbox="media/how-to-provision-single-device-linux-symmetric/config-checks.png":::
 
@@ -159,7 +189,7 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
    Check that your device and modules are deployed and running, by viewing your device page in the Azure portal.
 
-   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal." lightbox="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png":::   
+   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal." lightbox="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png":::
 
    Once your modules are deployed and running, list them in your device or virtual machine with the following command:
 
@@ -176,10 +206,9 @@ The steps in this section are for scenarios not covered by the standard installa
 
 Use the steps in this section if you want to install a [specific version of the Azure IoT Edge runtime](version-history.md) that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
-Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
+If you are using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
->[!NOTE]
->If your device is currently running IoT Edge version 1.1 or older, uninstall the **iotedge** and **libiothsm-std** packages before following the steps in this section. For more information, see [Update from 1.0 or 1.1 to latest release](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-latest-release).
+Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
 
 1. Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target.
 
@@ -200,6 +229,10 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```bash
       curl -L <identity service link> -o aziot-identity-service.rpm && sudo yum localinstall ./aziot-identity-service.rpm
       ```
+
+      # [Ubuntu Core snaps](#tab/snaps)
+      If you are using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+
       ---
 
    3. Find the **aziot-edge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
@@ -215,9 +248,11 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```bash
       curl -L <iotedge link> -o aziot-edge.rpm && sudo yum localinstall ./aziot-edge.rpm
       ```
-      ---
 
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to [Provision the device with its cloud identity](#provision-the-device-with-its-cloud-identity).
+      # [Ubuntu Core snaps](#tab/snaps)
+      If you are using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+
+      ---
 
 ## Uninstall IoT Edge
 
@@ -230,12 +265,27 @@ Remove the IoT Edge runtime.
 sudo apt-get autoremove --purge aziot-edge
 ```
 
-Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same configuration information in the future. The `--purge` flags deletes all the files associated with IoT Edge, including your configuration files.
+Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same configuration information in the future. The `--purge` flag deletes all the files associated with IoT Edge, including your configuration files.
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 ```bash
 sudo yum remove aziot-edge
 ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+Remove the IoT Edge runtime:
+
+```bash
+sudo snap remove azure-iot-edge
+```
+
+Remove Azure Identity Service:
+
+```bash
+sudo snap remove azure-iot-identity
+```
+
 ---
 
 When the IoT Edge runtime is removed, any containers that it created are stopped but still exist on your device. View all containers to see which ones remain.
@@ -247,7 +297,7 @@ sudo docker ps -a
 Delete the containers from your device, including the two runtime containers.
 
 ```bash
-sudo docker rm -f <container name>
+sudo docker rm -f <container ID>
 ```
 
 Finally, remove the container runtime from your device.
@@ -258,10 +308,19 @@ sudo apt-get autoremove --purge moby-engine
 ```
 
 # [Red Hat Enterprise Linux](#tab/rhel)
+
 ```bash
 sudo yum remove moby-cli
 sudo yum remove moby-engine
 ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+```bash
+sudo snap remove docker
+```
+
+---
 
 ## Next steps
 

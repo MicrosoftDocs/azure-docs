@@ -5,9 +5,9 @@ description: Manage blobs with Azure CLI
 author: StevenMatthew
 
 ms.author: shaas
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 08/28/2023
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
@@ -20,15 +20,15 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 - This article requires version 2.0.46 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ### Authorize access to Blob storage
 
-You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using a storage account access key. Using Azure AD credentials is recommended, and this article's examples use Azure AD exclusively.
+You can authorize access to Blob storage from the Azure CLI either with Microsoft Entra credentials or by using a storage account access key. Using Microsoft Entra credentials is recommended, and this article's examples use Microsoft Entra ID exclusively.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to *login* to authorize with Azure AD credentials. Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization. For more information, see [Choose how to authorize access to blob data with Azure CLI](authorize-data-operations-cli.md).
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to *login* to authorize with Microsoft Entra credentials. Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Microsoft Entra credentials for authorization. For more information, see [Choose how to authorize access to blob data with Azure CLI](authorize-data-operations-cli.md).
 
 Run the `login` command to open a browser and connect to your Azure subscription.
 
@@ -64,18 +64,18 @@ Azure CLI offers commands that perform operations on one resource or on multiple
 
 To upload a file to a block blob, pass the required parameter values to the `az storage blob upload` command. Supply the source path and file name with the `--file` parameter, and the name of the destination container with the `--container-name` parameter. You'll also need to supply the `--account-name` parameter. This command creates a new blob or overwrites the original blob if it already exists.
 
-You can use the `az storage blob upload-batch` command to recursively upload multiple blobs to a storage container. You can use Unix filename pattern matching specify a range of files to upload with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
+You can use the `az storage blob upload-batch` command to recursively upload multiple blobs to a storage container. You can use Unix filename pattern matching specify a range of files to upload with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3/library/fnmatch.html).
 
 In the following example, the first operation uses the `az storage blob upload` command to upload a single, named file. The source file and destination storage container are specified with the `--file` and `--container-name` parameters.  
 
-The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-unmodified-since` parameter ensures that only files modified with the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
+The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-modified-since` parameter ensures that only files modified within the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
 
 ```azurecli-interactive
 
 #!/bin/bash
 storageAccount="<storage-account>"
 containerName="demo-container"
-lastModified=`date -d "10 days ago" '+%Y-%m-%dT%H:%MZ'`
+lastModified=`date -d "7 days ago" '+%Y-%m-%dT%H:%MZ'`
 
 path="C:\\temp\\"
 filename="demo-file.txt"
@@ -96,7 +96,7 @@ az storage blob upload-batch \
     --pattern *.png \
     --account-name $storageAccount \
     --auth-mode login \
-    --if-unmodified-since $lastModified
+    --if-modified-since $lastModified
 
 ```
 
@@ -156,7 +156,7 @@ done
 
 Depending on your use case, you'll use either the `az storage blob download` or `az storage blob download-batch` command to download blobs. To download an individual blob, call the `az storage blob download` command directly and pass values for the `--container-name`, `--file`, and `--name` parameters. The blob will be downloaded to the shell directory by default, but an alternate location can be specified. The operation will fail with an error if your specified path doesn't exist.
 
-To recursively download multiple blobs from a storage container, use the `az storage blob download-batch` command. This command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
+To recursively download multiple blobs from a storage container, use the `az storage blob download-batch` command. This command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3/library/fnmatch.html).
 
 The following sample code provides an example of both single and multiple download approaches. It also offers a simplified approach to searching all containers for specific files using a wildcard. Because some environments may have many thousands of resources, using the `--num-results` parameter is recommended.
 
@@ -284,7 +284,7 @@ To copy a specific blob, use the `az storage blob copy start` command and specif
 
 You can also specify the conditions under which the blob will be copied. These conditions can be set for either the source or destination blob. You can reference the last modified date, tag data, or ETag value. You may, for example, choose to copy blobs that haven't been recently modified to a separate container. For more information, see [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
 
-You can use the `az storage blob copy start-batch` command to recursively copy multiple blobs between storage containers within the same storage account. This command requires values for the `--source-container` and `--destination-container` parameters, and can copy all files between the source and destination. Like other CLI batch commands, this command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
+You can use the `az storage blob copy start-batch` command to recursively copy multiple blobs between storage containers within the same storage account. This command requires values for the `--source-container` and `--destination-container` parameters, and can copy all files between the source and destination. Like other CLI batch commands, this command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3/library/fnmatch.html).
 
 > [!NOTE]
 > Consider the use of AzCopy for ease and performance, especially when copying blobs between storage accounts. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. Find out more about how to [Get started with AzCopy](../common/storage-use-azcopy-v10.md).
@@ -331,15 +331,15 @@ az storage blob snapshot \
 
 ## Set blob tier
 
-When you change a blob's tier, you move the blob and all of its data to the target tier. You can change the tier between **Hot**, **Cool**, and **Archive** with the `az storage blob set-tier` command.
+When you change a blob's tier, you move the blob and all of its data to the target tier. You can change the tier between **hot**, **cool**, and **archive** with the `az storage blob set-tier` command.
 
 Depending on your requirements, you may also utilize the *Copy Blob* operation to copy a blob from one tier to another. The *Copy Blob* operation will create a new blob in the desired tier while leaving the source blob remains in the original tier.
 
-Changing tiers from **Cool** or **Hot** to **Archive** takes place almost immediately. After a blob is moved to the **Archive** tier, it's considered to be offline and can't be read or modified. Before you can read or modify an archived blob's data, you'll need to rehydrate it to an online tier. Read more about [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+Changing tiers from **cool** or **hot** to **archive** takes place almost immediately. After a blob is moved to the **archive** tier, it's considered to be offline and can't be read or modified. Before you can read or modify an archived blob's data, you'll need to rehydrate it to an online tier. Read more about [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 For additional information, see the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) reference.
 
-The following sample code sets the tier to **Hot** for a single, named blob within the `archive` container.
+The following sample code sets the tier to **hot** for a single, named blob within the `archive` container.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -621,5 +621,5 @@ fi
 ## Next steps
 
 - [Choose how to authorize access to blob data with Azure CLI](./authorize-data-operations-cli.md)
-- [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-cli.md)
+- [Run PowerShell commands with Microsoft Entra credentials to access blob data](./authorize-data-operations-cli.md)
 - [Manage blob containers using CLI](blob-containers-cli.md)

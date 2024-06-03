@@ -1,21 +1,15 @@
 ---
 title: Create or update Azure custom roles using the REST API - Azure RBAC
 description: Learn how to list, create, update, or delete Azure custom roles using the REST API and Azure role-based access control (Azure RBAC).
-services: active-directory
-documentationcenter: na
 author: rolyon
 manager: amycolannino
-editor: ''
-
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: role-based-access-control
-ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 ms.reviewer: bagovind
-
 ---
 # Create or update Azure custom roles using the REST API
 
@@ -420,7 +414,7 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 ## Update a custom role
 
-To update a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/role-definitions/create-or-update) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/write` permission on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) include this permission.
+To update a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/role-definitions/create-or-update) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/write` permission on all the `assignableScopes`, such as [User Access Administrator](built-in-roles.md#user-access-administrator).
 
 1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) or [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API to get information about the custom role. For more information, see the earlier [List all custom role definitions](#list-all-custom-role-definitions) section.
 

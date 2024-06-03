@@ -1,8 +1,8 @@
 ---
-ms.author: dbasantes
-title: Azure Communication Services Call Recording refreshed API quickstart
+ms.author: rahulva
+title: Azure Communication Services Call Recording API quickstart
 titleSuffix: An Azure Communication Services document
-description: Public Preview quickstart for Call Recording APIs
+description: Quickstart for Call Recording APIs
 author: dbasantes
 services: azure-communication-services
 ms.date: 06/12/2023
@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-js-csharp-java-python
-ms.custom: mode-api, devx-track-extended-java
+ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 # Call Recording Quickstart
 
@@ -41,6 +41,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Download our [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording), [.NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording), [Python](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/call-recording), and [JavaScript](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/call-recording) call recording sample apps
+- Download our [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording), [Python](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/call-recording), and [JavaScript](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/call-recording) call recording sample apps
 - Learn more about [Call Recording](../../concepts/voice-video-calling/call-recording.md)
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md)

@@ -6,14 +6,11 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 09/06/2023
 ms.author: duau 
 
 ---
 # ExpressRoute circuits and peering
-
-> [!IMPORTANT]
-> Public peering for ExpressRoute is being retired on **March 31, 2024**. For more information, see [**retirement notice**](https://azure.microsoft.com/updates/retirement-notice-migrate-from-public-peering-by-march-31-2024/).
 
 ExpressRoute circuits connect your on-premises infrastructure to Microsoft through a connectivity provider. This article helps you understand ExpressRoute circuits and routing domains/peering. The following figure shows a logical representation of connectivity between your WAN and Microsoft.
 
@@ -21,7 +18,6 @@ ExpressRoute circuits connect your on-premises infrastructure to Microsoft throu
 
 > [!NOTE]
 > * In the context of ExpressRoute, the Microsoft Edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
-> * Azure public peering has been deprecated and is not available for new ExpressRoute circuits. New circuits support Microsoft peering and private peering.  
 >
 
 ## <a name="circuits"></a>ExpressRoute circuits
@@ -69,7 +65,7 @@ You can connect more than one virtual network to the private peering domain. Rev
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Connectivity to Microsoft online services (Microsoft 365 and Azure PaaS services) occurs through Microsoft peering. We enable bi-directional connectivity between your WAN and Microsoft cloud services through the Microsoft peering routing domain. You must connect to Microsoft cloud services only over public IP addresses that are owned by you or your connectivity provider and you must adhere to all the defined rules. For more information, see the [ExpressRoute prerequisites](expressroute-prerequisites.md) page.
+Connectivity to Microsoft online services (Microsoft 365, Azure PaaS services and Microsoft PSTN services) occurs through Microsoft peering. We enable bi-directional connectivity between your WAN and Microsoft cloud services through the Microsoft peering routing domain. You must connect to Microsoft cloud services only over public IP addresses that are owned by you or your connectivity provider and you must adhere to all the defined rules. For more information, see the [ExpressRoute prerequisites](expressroute-prerequisites.md) page.
 
 For more information on services supported, costs, and configuration details, see the [FAQ page](expressroute-faqs.md). For information on the list of connectivity providers offering Microsoft peering support, see the [ExpressRoute locations](expressroute-locations.md) page.
 

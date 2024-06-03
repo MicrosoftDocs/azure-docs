@@ -1,7 +1,7 @@
 ---
 title: Manage your OT device inventory from a sensor console
 description: Learn how to view and manage OT devices (assets) from the Device inventory page on a sensor console.
-ms.date: 05/17/2023
+ms.date: 12/19/2023
 ms.topic: how-to
 ---
 
@@ -12,7 +12,7 @@ Use the **Device inventory** page from a sensor console to manage all OT and IT 
 For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 > [!TIP]
-> Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
+> Alternately, view your device inventory from [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
 >
 
 ## View the device inventory
@@ -143,7 +143,7 @@ The device or devices are deleted, and a confirmation message appears at the top
 
 **To delete all inactive devices**:
 
-This procedure is supported for the *cyberx* and admin users only.
+This procedure is supported for the admin users only, including the default privileged *admin* user.
 
 1. Select the **Last Activity** filter icon in the Inventory.
 1. Select a filter option.
@@ -151,6 +151,8 @@ This procedure is supported for the *cyberx* and admin users only.
 1. Select **Delete Inactive Devices**. In the prompt displayed, enter the reason you're deleting the devices, and then select **Delete**.
 
 All devices detected within the range of the filter will be deleted. If you delete a large number of devices, the delete process may take a few minutes.
+
+For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Next steps
 

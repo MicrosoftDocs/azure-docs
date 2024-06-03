@@ -1,18 +1,19 @@
 ---
-title: HTTP application routing add-on for Azure Kubernetes Service (AKS)
-description: Use the HTTP application routing add-on to access applications deployed on Azure Kubernetes Service (AKS).
+title: HTTP application routing add-on for Azure Kubernetes Service (AKS) (retired)
+description: Use the HTTP application routing add-on to access applications deployed on Azure Kubernetes Service (AKS) (retired).
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 author: asudbring
 ms.topic: how-to
 ms.date: 04/05/2023
 ms.author: allensu
+ROBOTS: NOINDEX
 ---
 
-# HTTP application routing add-on for Azure Kubernetes Service (AKS)
+# HTTP application routing add-on for Azure Kubernetes Service (AKS) (retired)
 
 > [!CAUTION]
-> The HTTP application routing add-on is in the process of being retired and isn't recommended for production use. We recommend using the [Web Application Routing add-on](./web-app-routing.md) instead.
+> HTTP application routing add-on (preview) for Azure Kubernetes Service (AKS) will be [retired](https://azure.microsoft.com/updates/retirement-http-application-routing-addon-preview-for-aks-will-retire-03032025) on 03 March 2025. We recommend migrating to the [Application Routing add-on](./app-routing-migration.md) by that date.
 
 The HTTP application routing add-on makes it easy to access applications that are deployed to your Azure Kubernetes Service (AKS) cluster by:
 
@@ -82,7 +83,7 @@ The add-on deploys two components: a [Kubernetes ingress controller][ingress] an
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: aks-helloworld  
+      name: aks-helloworld
     spec:
       replicas: 1
       selector:
@@ -105,7 +106,7 @@ The add-on deploys two components: a [Kubernetes ingress controller][ingress] an
     apiVersion: v1
     kind: Service
     metadata:
-      name: aks-helloworld  
+      name: aks-helloworld
     spec:
       type: ClusterIP
       ports:
@@ -127,9 +128,9 @@ The add-on deploys two components: a [Kubernetes ingress controller][ingress] an
           - path: /
             pathType: Prefix
             backend:
-              service: 
+              service:
                 name: aks-helloworld
-                port: 
+                port:
                   number: 80
     ```
 
@@ -280,3 +281,4 @@ For information on how to install an HTTPS-secured ingress controller in AKS, se
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource
+

@@ -2,11 +2,11 @@
 title: 'Quickstart: Create a private endpoint - Azure portal'
 titleSuffix: Azure Private Link
 description: In this quickstart, learn how to create a private endpoint using the Azure portal.
-author: asudbring
+author: abell
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 06/13/2023
-ms.author: allensu
+ms.date: 02/26/2024
+ms.author: abell
 ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ---
@@ -19,13 +19,13 @@ In this quickstart, create a private endpoint for an Azure App Services web app 
 
 You can create private endpoints for various Azure services, such as Azure SQL and Azure Storage.
 
-:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart." lightbox="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png":::
 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure App Services web app with a *PremiumV2-tier* or higher app service plan, deployed in your Azure subscription.  
+- An Azure App Services web app with a Basic, Standard, PremiumV2, PremiumV3, IsolatedV2, Functions Premium (sometimes referred to as the Elastic Premium plan) app service plan, deployed in your Azure subscription.  
 
     - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md). 
     
@@ -89,7 +89,7 @@ Next, you create a private endpoint for the web app that you created in the **Pr
     | ------- | ----- |
     | **Private IP configuration** | Select **Dynamically allocate IP address**. |
 
-    :::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true":::
+    :::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true" lightbox="./media/create-private-endpoint-portal/dynamic-ip-address.png":::
 
     # [**Static IP**](#tab/static-ip)
 
@@ -99,7 +99,7 @@ Next, you create a private endpoint for the web app that you created in the **Pr
     | Name | Enter **ipconfig-1**. |
     | Private IP | Enter **10.0.0.10**. |
 
-    :::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true":::
+    :::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true" lightbox="./media/create-private-endpoint-portal/static-ip-address.png":::
 
     ---
 
@@ -149,7 +149,7 @@ Use the virtual machine that you created earlier to connect to the web app acros
 
    If your web app hasn't been deployed, you get the following default web app page:
 
-    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
+    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true" lightbox="./media/create-private-endpoint-portal/web-app-default-page.png":::
 
 1. Close the connection to **vm-1**.
 

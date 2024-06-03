@@ -2,9 +2,9 @@
 title: Restore Azure Blobs
 description: Learn how to restore Azure Blobs.
 ms.topic: how-to
-ms.date: 04/11/2023
-author: jyothisuri
-ms.author: jsuri
+ms.date: 03/06/2024
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure Blobs
@@ -75,6 +75,7 @@ To initiate a restore through the Backup center, follow these steps:
    - **Restore all backed-up containers**: Use this option to restore all backed-up containers in the storage account.
    - **Browse and select containers to restore**: Use this option to browse and select up to **100** containers to restore. You must have sufficient permission to view the containers in the storage account, or you can't see the contents of the storage account. Select the target storage account (and its subscription), that is, the storage account where the data needs to be restored.
 
+   You can optionally specify a set of prefixes to restore specific blobs within a container. To provide the list of prefixes, select **Add/Edit containers** corresponding to each container that you select for restore.
      >[!Note]
      >The vault must have the *Storage account backup contributor* role assigned on the target storage account. Select **Validate** to ensure that the required permissions to perform the restore are assigned. Once done, proceed to the next tab.
 
@@ -101,9 +102,6 @@ The restore operation shown in the image performs the following actions:
 - It restores the complete contents of *container1*.
 - It restores blobs in the lexicographical range *blob1* through *blob5* in *container2*. This range restores blobs with names such as *blob1*, *blob11*, *blob100*, *blob2*, and so on. Because the end of the range is exclusive, it restores blobs whose names begin with *blob4*, but doesn't restore blobs whose names begin with *blob5*.
 - It restores all blobs in *container3* and *container4*. Because the end of the range is exclusive, this range doesn't restore *container5*.
-
->[!Note]
->This capability is currently supported only for operational backups.
 
 ## Next steps
 

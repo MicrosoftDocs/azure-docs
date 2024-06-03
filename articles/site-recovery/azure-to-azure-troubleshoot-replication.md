@@ -2,9 +2,10 @@
 title: Troubleshoot replication of Azure VMs with Azure Site Recovery
 description: Troubleshoot replication in Azure VM disaster recovery with Azure Site Recovery
 author: ankitaduttaMSFT
+ms.author: ankitadutta
 manager: rochakm
 ms.topic: troubleshooting
-ms.date: 03/07/2022
+ms.date: 03/29/2024
 ms.service: site-recovery
 ms.custom: engagement-fy23
 ---
@@ -158,3 +159,7 @@ Restart the following services:
 - VSS service.
 - Azure Site Recovery VSS Provider.
 - VDS service.
+
+## Next steps
+
+[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md).

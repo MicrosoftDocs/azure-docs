@@ -2,21 +2,22 @@
 title: Subscriptions in Azure API Management | Microsoft Docs
 description: Learn about the concept of subscriptions in Azure API Management. Consumers commonly get access to APIs by using subscriptions in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 04/19/2023
+ms.date: 08/02/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 # Subscriptions in Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In Azure API Management, *subscriptions* are the most common way for API consumers to access APIs published through an API Management instance. This article provides an overview of the concept.
 
 > [!NOTE]
-> An API Management subscription is used specifically to call APIs through API Management. It's not the same as an Azure subscription.
+> An API Management subscription is used specifically to call APIs through API Management using a subscription key. It's not the same as an Azure subscription.
 
 ## What are subscriptions?
 
@@ -40,6 +41,9 @@ In addition,
 ## Manage subscription keys
 
 Regularly regenerating keys is a common security precaution. Like most Azure services requiring a subscription key, API Management generates keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vice versa.
+
+Setting specific keys instead of regenerating ones can be performed by invoking the [Azure API Management Subscription - Create Or Update Azure REST API](/rest/api/apimanagement/current-ga/subscription/create-or-update). Specifically, the `properties.primaryKey` and/or `properties.secondaryKey` need to be set in the HTTP request body.
+
 > [!NOTE]
 > * API Management doesn't provide built-in features to manage the lifecycle of subscription keys, such as setting expiration dates or automatically rotating keys. You can develop workflows to automate these processes using tools such as Azure PowerShell or the Azure SDKs. 
 > * To enforce time-limited access to APIs, API publishers may be able to use policies with subscription keys, or use a mechanism that provides built-in expiration such as token-based authentication.
@@ -69,13 +73,12 @@ In these cases, you don't need to create a product and add APIs to it first.
 
 ### All-access subscription
 
-Each API Management instance comes with an immutable, all-APIs subscription (also called an *all-access* subscription). This built-in subscription makes it straightforward to test and debug APIs within the test console.
+Each API Management instance comes with a built in all-access subscription that grants access to all APIs. This service-scoped subscription makes it straightforward for service owners to test and debug APIs within the test console.
 
 > [!WARNING]
 > The all-access subscription enables access to every API in the API Management instance and should only be used by authorized users. Never use this subscription for routine API access or embed the all-access subscription key in client apps.
 
-> [!NOTE]
-> If you're using an API-scoped subscription or the all-access subscription, any [policies](api-management-howto-policies.md) configured at the product scope aren't applied to requests from that subscription.
+[!INCLUDE [api-management-product-policy-alert](../../includes/api-management-product-policy-alert.md)]
 
 ### Standalone subscriptions
 
@@ -89,7 +92,7 @@ Creating a subscription without assigning an owner makes it a standalone subscri
 
 API publishers can [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal. 
 
-When created in the portal, a subscription is in the **Active** state, meaning a subscriber can call an associated API using a valid subscription key. You can change the state of the subscription as needed - for example, you can suspend, cancel, or delete the subscription to prevent API access.
+When created in the portal, a subscription is in the **Active** state, meaning a subscriber can call an associated API using a valid subscription key. You can change the state of the subscription as needed. For example, you can suspend, cancel, or delete any subscription (including the built-in all-access subscription) to prevent API access.
 
 ## Use a subscription key
 
@@ -102,12 +105,18 @@ A subscriber can use an API Management subscription key in one of two ways:
 > [!TIP]
 > **Ocp-Apim-Subscription-Key** is the default name of the subscription key header, and **subscription-key** is the default name of the query parameter. If desired, you may modify these names in the settings for each API. For example, in the portal, update these names on the **Settings** tab of an API.
 
+> [!NOTE]
+> When included in a request header or query parameter, the subscription key by default is passed to the backend and may be exposed in backend monitoring logs or other systems. If this is considered sensitive data, you can configure a policy at the end of the `inbound` section to remove the subscription key header ([`set-header`](set-header-policy.md)) or query parameter ([`set-query-parameter`](set-query-parameter-policy.md)).  
+
 ## Enable or disable subscription requirement for API or product access
 
 By default when you create an API, a subscription key is required for API access. Similarly, when you create a product, by default a subscription key is required to access any API that's added to the product. Under certain scenarios, an API publisher might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured (anonymous) access to certain APIs, configuring another mechanism to secure client access is recommended.
 
 > [!CAUTION]
 > Use care when configuring a product or an API that doesn't require a subscription. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
+
+> [!NOTE]
+> Open products have the **Requires subscription** setting disabled, which means that users don't need to subscribe to it. For this reason, open products aren't displayed on the **Products** page of the developer portal.
 
 You can disable the subscription requirement at the time you create an API or product, or at a later date.
 

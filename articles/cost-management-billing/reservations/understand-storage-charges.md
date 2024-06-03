@@ -1,12 +1,13 @@
 ---
 title: Understand how reservation discounts are applied to Azure storage services | Microsoft Docs
 description: Learn about how reserved capacity discounts are applied to Azure Blob storage, Azure Files, and Azure Data Lake Storage Gen2 resources.
-author: tamram
+author: akashdubey-ms
+
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2022
-ms.author: tamram
+ms.date: 05/20/2024
+ms.author: akashdubey
 ---
 
 # Understand how reservation discounts are applied to Azure storage services 
@@ -24,19 +25,19 @@ The reserved capacity discount is a "use-it-or-lose-it" discount. If you don't h
 
 When you delete a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
 
-Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
+Stopped resources are billed and continue to use reservation hours. To use your available reservation hours with other workloads, deallocate or delete resources or scale-in other resources. 
 
 ## Discount examples
 The following examples show how the reserved capacity discount applies, depending on the deployments.
 
-Suppose that you have purchased 100 TiB of reserved capacity in the US West 2 region for a 1-year term. Your reservation is for locally redundant storage (LRS) blob storage in the hot access tier.
+Suppose that you purchased 100 TiB of reserved capacity in the US West 2 region for a one-year term. Your reservation is for locally redundant storage (LRS) blob storage in the hot access tier.
 
-Assume that the cost of this sample reservation is $18,540. You can either choose to pay the full amount up front or to pay fixed monthly installments of $1,545 per month for the next twelve months.
+Assume that the cost of this sample reservation is $18,540. You can either choose to pay the full amount up front or to pay fixed monthly installments of $1,545 per month for the next 12 months.
 
-For these examples, assume that you have signed up for a monthly reservation payment plan. The following scenarios describe what happens if you under-use or overuse your reserved capacity.
+For these examples, assume that you signed up for a monthly reservation payment plan. The following scenarios describe what happens if you under-use or overuse your reserved capacity.
 
 ### Underusing your capacity
-Suppose that in a given hour within the reservation period, you used only 80 TiB of your 100 TiB reserved capacity. The remaining 20 TiB is not applied for that hour and does not carry over.
+Suppose that in a given hour within the reservation period, you used only 80 TiB of your 100-TiB reserved capacity. The remaining 20 TiB isn't applied for that hour and doesn't carry over.
 
 ### Overusing your capacity
 Suppose that in a given hour within the reservation period, you used 101 TiB of storage capacity. The reservation discount applies to 100 TiB of your data, and the remaining 1 TiB is charged at pay-as-you-go rates for that hour. If in the next hour your usage changes to 100 TiB, then all usage is covered by the reservation.
@@ -44,7 +45,8 @@ Suppose that in a given hour within the reservation period, you used 101 TiB of 
 ## Need help? Contact us
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
+
 - [Optimize costs for Blob storage with reserved capacity](../../storage/blobs/storage-blob-reserved-capacity.md)
 - [Optimize costs for Azure Files with reserved capacity](../../storage/files/files-reserve-capacity.md)
 - [What are Azure Reservations?](save-compute-costs-reservations.md)

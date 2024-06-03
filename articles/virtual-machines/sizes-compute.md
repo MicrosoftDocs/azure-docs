@@ -5,10 +5,8 @@ author: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 12/21/2022
 ms.author: mimckitt
-
 ---
 
 # Compute optimized virtual machine sizes

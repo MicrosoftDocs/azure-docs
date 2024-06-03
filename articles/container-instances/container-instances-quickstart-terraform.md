@@ -4,9 +4,12 @@ description: 'In this article, you create an Azure Container Instance with a pub
 ms.topic: quickstart
 ms.service: container-instances
 ms.date: 4/14/2023
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform, linux-related-content
 author: TomArcherMsft
 ms.author: tarcher
+content_well_notification: 
+  - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure Container Instance with a public IP address using Terraform
@@ -22,8 +25,6 @@ In this article, you learn how to:
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a random value for the container name using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create an Azure container group using [azurerm_container_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_group)
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

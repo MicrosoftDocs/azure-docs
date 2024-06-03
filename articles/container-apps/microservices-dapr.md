@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 09/29/2022
 ms.author: aawislan
-ms.custom: devx-track-azurecli, ignite-2022, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
@@ -25,7 +25,7 @@ You learn how to:
 
 With Azure Container Apps, you get a [fully managed version of the Dapr APIs](./dapr-overview.md) when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
 
-In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes) quickstart. 
+In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes) quickstart.
 
 The application consists of:
 
@@ -38,52 +38,11 @@ The following architecture diagram illustrates the components that make up this 
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
----
+[!INCLUDE [container-apps-set-environment-variables.md](../../includes/container-apps-set-environment-variables.md)]
 
-# [Azure CLI](#tab/azure-cli)
+[!INCLUDE [container-apps-create-resource-group.md](../../includes/container-apps-create-resource-group.md)]
 
-Individual container apps are deployed to an Azure Container Apps environment. To create the environment, run the following command:
-
-```azurecli-interactive
-az containerapp env create \
-  --name $CONTAINERAPPS_ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --location "$LOCATION"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-Individual container apps are deployed to an Azure Container Apps environment. A Log Analytics workspace is deployed as the logging backend before the environment is deployed. The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
-
-```azurepowershell-interactive
-$WorkspaceArgs = @{
-    Name = 'myworkspace'
-    ResourceGroupName = $ResourceGroupName
-    Location = $Location
-    PublicNetworkAccessForIngestion = 'Enabled'
-    PublicNetworkAccessForQuery = 'Enabled'
-}
-New-AzOperationalInsightsWorkspace @WorkspaceArgs
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
-$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
-```
-
-To create the environment, run the following command:
-
-```azurepowershell-interactive
-$EnvArgs = @{
-    EnvName = $ContainerAppsEnvironment
-    ResourceGroupName = $ResourceGroupName
-    Location = $Location
-    AppLogConfigurationDestination = 'log-analytics'
-    LogAnalyticConfigurationCustomerId = $WorkspaceId
-    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
-}
-
-New-AzContainerAppManagedEnv @EnvArgs
-```
-
----
+[!INCLUDE [container-apps-create-environment.md](../../includes/container-apps-create-environment.md)]
 
 ## Set up a state store
 
@@ -91,7 +50,7 @@ New-AzContainerAppManagedEnv @EnvArgs
 
 With the environment deployed, the next step is to deploy an Azure Blob Storage account that is used by one of the microservices to store data. Before deploying the service, you need to choose a name for the storage account. Storage account names must be _unique within Azure_, from 3 to 24 characters in length and must contain numbers and lowercase letters only.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 STORAGE_ACCOUNT_NAME="<storage account name>"
@@ -107,7 +66,7 @@ $StorageAcctName = '<storage account name>'
 
 Use the following command to create the Azure Storage account.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az storage account create \
@@ -141,7 +100,7 @@ While Container Apps supports both user-assigned and system-assigned managed ide
 
 1. Create a user-assigned identity.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az identity create --resource-group $RESOURCE_GROUP --name "nodeAppIdentity" --output json
@@ -160,7 +119,7 @@ New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -Name 'nodeAppI
 
 Retrieve the `principalId` and `id` properties and store in variables.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 PRINCIPAL_ID=$(az identity show -n "nodeAppIdentity" --resource-group $RESOURCE_GROUP --query principalId | tr -d \")
@@ -182,7 +141,7 @@ $ClientId = (Get-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -N
 
 Retrieve the subscription ID for your current subscription.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 SUBSCRIPTION_ID=$(az account show --query id --output tsv)
@@ -196,7 +155,7 @@ $SubscriptionId=$(Get-AzContext).Subscription.id
 
 ---
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az role assignment create --assignee $PRINCIPAL_ID  \
@@ -239,7 +198,7 @@ To use this file, update the placeholders:
 
 - Replace `<STORAGE_ACCOUNT_NAME>` with the value of the `STORAGE_ACCOUNT_NAME` variable you defined. To obtain its value, run the following command:
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 echo $STORAGE_ACCOUNT_NAME
@@ -286,7 +245,7 @@ New-AzContainerAppManagedEnvDapr @DaprArgs
 
 ## Deploy the service application (HTTP web server)
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az containerapp create \
@@ -344,7 +303,7 @@ By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapri
 
 Run the following command to deploy the client container app.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az containerapp create \
@@ -412,7 +371,7 @@ Logs from container apps are stored in the `ContainerAppConsoleLogs_CL` custom t
 
 Use the following CLI command to view logs using the command line.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
@@ -453,7 +412,7 @@ Congratulations! You've completed this tutorial. If you'd like to delete the res
 > [!CAUTION]
 > This command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az group delete --resource-group $RESOURCE_GROUP

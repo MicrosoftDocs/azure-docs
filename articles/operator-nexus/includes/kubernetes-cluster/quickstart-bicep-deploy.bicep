@@ -39,7 +39,7 @@ param dnsServiceIp string = '10.96.0.10'
 param agentPoolL2Networks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The Layer 3 networks associated with the initial agent pool')
@@ -54,14 +54,14 @@ param agentPoolL3Networks array = []
 param agentPoolTrunkedNetworks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The Layer 2 networks associated with the cluster')
 param l2Networks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The Layer 3 networks associated with the cluster')
@@ -76,7 +76,7 @@ param l3Networks array = []
 param trunkedNetworks array = []
 // {
 //   networkId: 'string'
-//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN'
+//   pluginType: 'SRIOV|DPDK|OSDevice|MACVLAN'
 // }
 
 @description('The LoadBalancer IP address pools associated with the cluster')
@@ -107,13 +107,13 @@ param agentPoolZones array = []
 // "string" Example: ["1", "2", "3"]
 
 @description('The size of the control plane nodes')
-param controlPlaneVmSkuName string = 'NC_G2_v1'
+param controlPlaneVmSkuName string = 'NC_G6_28_v1'
 
 @description('The number of worker nodes to be deployed in the initial agent pool')
 param systemPoolNodeCount int = 1
 
 @description('The size of the worker nodes')
-param workerVmSkuName string = 'NC_M4_v1'
+param workerVmSkuName string = 'NC_P10_56_v1'
 
 @description('The configurations for the initial agent pool')
 param initialPoolAgentOptions object = {}
@@ -138,7 +138,7 @@ param taints array = []
 //   value: 'string:NoSchedule|PreferNoSchedule|NoExecute'
 // }
 
-resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01-preview' = {
+resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-07-01' = {
   name: kubernetesClusterName
   location: location
   tags: tags
@@ -166,6 +166,7 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01
     initialAgentPoolConfigurations: [
       {
         name: '${kubernetesClusterName}-nodepool-1'
+        administratorConfiguration: {}
         count: systemPoolNodeCount
         vmSkuName: workerVmSkuName
         mode: 'System'
@@ -184,6 +185,7 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01
       }
     ]
     controlPlaneNodeConfiguration: {
+      administratorConfiguration: {}
       count: controlPlaneCount
       vmSkuName: controlPlaneVmSkuName
       availabilityZones: empty(controlPlaneZones) ? null : controlPlaneZones

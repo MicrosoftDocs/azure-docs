@@ -19,7 +19,7 @@ Data encryption with customer-managed keys for Azure Database for MySQL enables 
 
 Data encryption with customer-managed keys for Azure Database for MySQL, is set at the server-level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](../../key-vault/general/security-features.md) instance. The Key Encryption Key (KEK) and Data Encryption Key (DEK) is described in more detail later in this article.
 
-Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key, but does provide services of encryption and decryption to authorized entities. Key Vault can generate the key, import it, or [have it transferred from an on-premises HSM device](../../key-vault/keys/hsm-protected-keys.md).
+Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance) hardware security modules (HSMs). It doesn't allow direct access to a stored key, but does provide services of encryption and decryption to authorized entities. Key Vault can generate the key, import it, or [have it transferred from an on-premises HSM device](../../key-vault/keys/hsm-protected-keys.md).
 
 > [!NOTE]
 > This feature is supported only on "General Purpose storage v2 (support up to 16TB)" storage available in General Purpose and Memory Optimized pricing tiers. Refer [Storage concepts](concepts-pricing-tiers.md#storage) for more details. For other limitations, refer to the [limitation](concepts-data-encryption-mysql.md#limitations) section.
@@ -60,7 +60,7 @@ When the server is configured to use the customer-managed key stored in the key 
 
 The following are requirements for configuring Key Vault:
 
-* Key Vault and Azure Database for MySQL must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and server interactions aren't supported. Moving Key Vault resource afterwards requires you to reconfigure the data encryption.
+* Key Vault and Azure Database for MySQL must belong to the same Microsoft Entra tenant. Cross-tenant Key Vault and server interactions aren't supported. Moving Key Vault resource afterwards requires you to reconfigure the data encryption.
 * Enable the [soft-delete](../../key-vault/general/soft-delete-overview.md) feature on the key vault with retention period set to **90 days**, to protect from data loss if an accidental key (or Key Vault) deletion happens. Soft-deleted resources are retained for 90 days by default, unless the retention period is explicitly set to <=90 days. The recover and purge actions have their own permissions associated in a Key Vault access policy. The soft-delete feature is off by default, but you can enable it through PowerShell or the Azure CLI (note that you can't enable it through the Azure portal).
 * Enable the [Purge Protection](../../key-vault/general/soft-delete-overview.md#purge-protection) feature on the key vault with retention period set to **90 days**. Purge protection can only be enabled once soft-delete is enabled. It can be turned on via Azure CLI or PowerShell. When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed. 
 * Grant the Azure Database for MySQL access to the key vault with the get, wrapKey, and unwrapKey permissions by using its unique managed identity. In the Azure portal, the unique 'Service' identity is automatically created when data encryption is enabled on the MySQL. See [Configure data encryption for MySQL](how-to-data-encryption-portal.md) for detailed, step-by-step instructions when you're using the Azure portal.
@@ -109,7 +109,7 @@ It might happen that someone with sufficient access rights to Key Vault accident
 * Deleting the key.
 * Deleting the key vault.
 * Changing the key vault's firewall rules.
-* Deleting the managed identity of the server in Azure AD.
+* Deleting the managed identity of the server in Microsoft Entra ID.
 
 ## Monitor the customer-managed key in Key Vault
 
@@ -139,7 +139,7 @@ For Azure Database for MySQL, the support for encryption of data at rest using c
 
     > [!NOTE]
     > - All new MySQL servers created in the [Azure regions](concepts-pricing-tiers.md#storage) supporting general purpose storage v2, support for encryption with customer manager keys is **available**. Point In Time Restored (PITR) server or read replica will not qualify though in theory they are ‘new’.
-    > - To validate if your provisioned server general purpose storage v2, you can go to the pricing tier blade in the portal and see the max storage size supported by your provisioned server. If you can move the slider up to 4TB, your server is on general purpose storage v1 and will not support encryption with customer managed keys. However, the data is encrypted using service managed keys at all times. Please reach out to AskAzureDBforMySQL@service.microsoft.com if you have any questions.
+    > - To validate if your provisioned server general purpose storage v2, you can go to the pricing tier blade in the portal and see the max storage size supported by your provisioned server. If you can move the slider up to 4TB, your server is on general purpose storage v1 and will not support encryption with customer managed keys. However, the data is encrypted using service managed keys at all times.
 
 * Encryption is only supported with RSA 2048 cryptographic key.
 

@@ -2,12 +2,15 @@
 title: Collect Syslog data sources with the Log Analytics agent in Azure Monitor
 description: Syslog is an event logging protocol that's common to Linux. This article describes how to configure collection of Syslog messages in Log Analytics and details the records they create.
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.custom: linux-related-content
+ms.date: 07/06/2023
 ms.reviewer: luki
-
 ---
 
 # Collect Syslog data sources with the Log Analytics agent
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Syslog is an event logging protocol that's common to Linux. Applications send messages that might be stored on the local machine or delivered to a Syslog collector. When the Log Analytics agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent. The agent then sends the messages to Azure Monitor where a corresponding record is created.
 
@@ -16,7 +19,7 @@ Syslog is an event logging protocol that's common to Linux. Applications send me
 > [!NOTE]
 > Azure Monitor supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default Syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) isn't supported for Syslog event collection. To collect Syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
 
-![Diagram that shows Syslog collection.](media/data-sources-syslog/overview.png)
+:::image type="content" source="media/data-sources-syslog/overview.png" lightbox="media/data-sources-syslog/overview.png" alt-text="Diagram that shows Syslog collection.":::
 
 The following facilities are supported with the Syslog collector:
 
@@ -46,7 +49,7 @@ Configure Syslog from the [Agent configuration menu](../agents/agent-data-source
 
 You can add a new facility by selecting **Add facility**. For each facility, only messages with the selected severities will be collected. Select the severities for the particular facility that you want to collect. You can't provide any other criteria to filter messages.
 
-[![Screenshot that shows configuring Syslog.](media/data-sources-syslog/configure.png)](media/data-sources-syslog/configure.png#lightbox)
+:::image type="content" source="media/data-sources-syslog/configure.png" lightbox="media/data-sources-syslog/configure.png" alt-text="Screenshot that shows configuring Syslog.":::
 
 By default, all configuration changes are automatically pushed to all agents. If you want to configure Syslog manually on each Linux agent, clear the **Apply below configuration to my machines** checkbox.
 

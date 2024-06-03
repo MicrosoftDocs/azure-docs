@@ -24,7 +24,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Submit AutoML run
 
-* SDK v1: Below is a sample AutoML classification task. For the entire code, check out our [examples repo](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
+* SDK v1: Below is a sample AutoML classification task. For the entire code, check out our [examples repo](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
 
     ```python
     # Imports
@@ -125,7 +125,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[Method/API in SDK v1 (use links to ref docs)](/python/api/azureml-train-automl-client/azureml.train.automl)|[Method/API in SDK v2 (use links to ref docs)](/python/api/azure-ai-ml/azure.ai.ml.automl)|
+|[Method/API in SDK v1 (use links to ref docs)](/python/api/azureml-train-automl-client/azureml.train.automl.client)|[Method/API in SDK v2 (use links to ref docs)](/python/api/azure-ai-ml/azure.ai.ml.automl)|
 
 ## Next steps
 

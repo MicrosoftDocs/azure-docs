@@ -5,32 +5,28 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
-manager: femila
 ---
-# Use Log Analytics for the diagnostics feature
+
+# Send diagnostic data to Log Analytics for Azure Virtual Desktop
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 
 Azure Virtual Desktop uses [Azure Monitor](../azure-monitor/overview.md) for monitoring and alerts like many other Azure services. This lets admins identify issues through a single interface. The service creates activity logs for both user and administrative actions. Each activity log falls under the following categories:
 
-- Management Activities:
-    - Track whether attempts to change Azure Virtual Desktop objects using APIs or PowerShell are successful. For example, can someone successfully create a host pool using PowerShell?
-- Feed:
-    - Can users successfully subscribe to workspaces?
-    - Do users see all resources published in the Remote Desktop client?
-- Connections:
-    - When users initiate and complete connections to the service.
-- Host registration:
-    - Was the session host successfully registered with the service upon connecting?
-- Errors:
-    - Are users encountering any issues with specific activities? This feature can generate a table that tracks activity data for you as long as the information is joined with the activities.
-- Checkpoints:
-    - Specific steps in the lifetime of an activity that were reached. For example, during a session, a user was load balanced to a particular host, then the user was signed on during a connection, and so on.
-- Agent Health Status:
-    - Monitor the health and status of the Azure Virtual Desktop agent installed on each session host. For example, verify that the agents are up to date, or whether the agent is in a healthy state and ready to accept new user sessions. 
-- Connection Network Data:
-    - Track the average network data for user sessions to monitor for details including the estimated round trip time and available bandwidth throughout their connection.
+| Category | Description |
+|--|--|
+| Management Activities | Whether attempts to change Azure Virtual Desktop objects using APIs or PowerShell are successful. |
+| Feed | Whether users can successfully subscribe to workspaces. |
+| Connections | When users initiate and complete connections to the service. |
+| Host registration | Whether a session host successfully registered with the service upon connecting. |
+| Errors | Where users encounter issues with specific activities. |
+| Checkpoints | Specific steps in the lifetime of an activity that were reached. |
+| Agent Health Status | Monitor the health and status of the Azure Virtual Desktop agent installed on each session host. |
+| Network | The average network data for user sessions to monitor for details including the estimated round trip time. |
+| Connection Graphics | Performance data from the Azure Virtual Desktop graphics stream. |
+| Session Host Management Activity | Management activity of session hosts. |
+| Autoscale | Scaling operations. |
 
 Connections that don't reach Azure Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Azure Virtual Desktop. Azure Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
 
@@ -39,21 +35,19 @@ Azure Monitor lets you analyze Azure Virtual Desktop data and review virtual mac
 >[!NOTE]
 >To learn how to monitor your VMs in Azure, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Also, make sure to review the [Azure Virtual Desktop Insights glossary](./insights-glossary.md) for a better understanding of your user experience on the session host.
 
-## Before you get started
+## Prerequisites
 
-Before you can use Log Analytics, you'll need to create a workspace. To do that, follow the instructions in one of the following two articles:
+Before you can use Azure Virtual Desktop with Log Analytics, you need:
 
-- If you prefer using Azure portal, see [Create a Log Analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
-- If you prefer PowerShell, see [Create a Log Analytics workspace with PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
+- A Log Analytics workspace. For more information, see [Create a Log Analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md) or [Create a Log Analytics workspace with PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md). After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/agents/agent-windows.md#workspace-id-and-key) to get the following information:
+   - The workspace ID
+   - The primary key of your workspace
 
-After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/agents/agent-windows.md#workspace-id-and-key) to get the following information:
+   You'll need this information later in the setup process.
 
-- The workspace ID
-- The primary key of your workspace
+- Access to specific URLs from your session hosts for diagnostics to work. For more information, see [Required URLs for Azure Virtual Desktop](safe-url-list.md) where you'll see entries for **Diagnostic output**.
 
-You'll need this information later in the setup process.
-
-Make sure to review permission management for Azure Monitor to enable data access for those who monitor and maintain your Azure Virtual Desktop environment. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md).
+- Make sure to review permission management for Azure Monitor to enable data access for those who monitor and maintain your Azure Virtual Desktop environment. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md).
 
 ## Push diagnostics data to your workspace
 
@@ -101,7 +95,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 
 ### Access Log Analytics on Azure Monitor
 
-1. Sign into the Azure portal
+1. Sign in to the Azure portal.
 
 2. Search for and select **Monitor**.
 
@@ -198,4 +192,5 @@ WVDErrors
 
 ## Next steps
 
-To review common error scenarios that the diagnostics feature can identify for you, see [Identify and diagnose issues](./troubleshoot-set-up-overview.md).
+- [Enable Insights to monitor Azure Virtual Desktop](insights.md).
+- To review common error scenarios that the diagnostics feature can identify for you, see [Identify and diagnose issues](./troubleshoot-set-up-overview.md).

@@ -5,9 +5,9 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/03/2023
+ms.date: 03/31/2024
 ms.author: duau
-ms.custom: seodec18, devx-track-azurepowershell, FY23 content-maintenance
+ms.custom: devx-track-azurepowershell, FY23 content-maintenance
 ---
 
 # Configure a site-to-site VPN over ExpressRoute Microsoft peering
@@ -53,7 +53,7 @@ To configure a site-to-site VPN connection over ExpressRoute, you must use Expre
 
 * If you already have an ExpressRoute circuit, but don't have Microsoft peering configured, configure Microsoft peering using the [Create and modify peering for an ExpressRoute circuit](expressroute-howto-routing-arm.md#msft) article.
 
-Once you've configured your circuit and Microsoft peering, you can easily view it using the **Overview** page in the Azure portal.
+Once you configured your circuit and Microsoft peering, you can easily view it using the **Overview** page in the Azure portal.
 
 :::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/circuit.png" alt-text="Screenshot of the overview page of an ExpressRoute circuit.":::
 
@@ -73,7 +73,7 @@ Configure a route filter. For steps, see [Configure route filters for Microsoft 
 
 ### <a name="verifybgp"></a>2.2 Verify BGP routes
 
-Once you have successfully created Microsoft peering over your ExpressRoute circuit and associated a route filter with the circuit, you can verify the BGP routes received from MSEEs on the PE devices that are peering with the MSEEs. The verification command varies, depending on the operating system of your PE devices.
+Once you successfully created the Microsoft peering over your ExpressRoute circuit and associated a route filter with the circuit, you can verify the BGP routes received from Microsoft Enterprise Edge (MSEEs) on the PE devices that are peering with the MSEEs. The verification command varies, depending on the operating system of your PE devices.
 
 #### Cisco examples
 
@@ -83,7 +83,7 @@ This example uses a Cisco IOS-XE command. In the example, a virtual routing and 
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-The following partial output shows that 68 prefixes were received from the neighbor \*.243.229.34 with the ASN 12076 (MSEE):
+The following partial output shows that 68 prefixes were received from the neighbor \*.243.229.34 with the Autonomous System Number (ASN) 12076 (MSEE):
 
 ```
 ...
@@ -122,7 +122,7 @@ The following diagram shows the abstracted overview of the example network:
 
 ### About the Azure Resource Manager template examples
 
-In the examples, the VPN gateway and the IPsec tunnel terminations are configured using an Azure Resource Manager template. If you're new to using Resource Manager templates, or to understand the Resource Manager template basics, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). The template in this section creates a green field Azure environment (VNet). However, if you have an existing VNet, you can reference it in the template. If you aren't familiar with VPN gateway IPsec/IKE site-to-site configurations, see [Create a site-to-site connection](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+In the examples, the VPN gateway and the IPsec tunnel terminations are configured using an Azure Resource Manager template. If you're new to using Resource Manager templates, or to understand the Resource Manager template basics, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). The template in this section creates a green field Azure environment (virtual network). However, if you have an existing virtual network, you can reference it in the template. If you aren't familiar with VPN gateway IPsec/IKE site-to-site configurations, see [Create a site-to-site connection](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 >[!NOTE]
 >You do not need to use Azure Resource Manager templates in order to create this configuration. You can create this configuration using the Azure portal, or PowerShell.
@@ -166,9 +166,9 @@ In this example, the variable declarations correspond to the example network. Wh
 },
 ```
 
-### <a name="vnet"></a>3.2 Create virtual network (VNet)
+### <a name="vnet"></a>3.2 Create virtual network (virtual network)
 
-If you're associating an existing VNet with the VPN tunnels, you can skip this step.
+If you're associating an existing virtual network with the VPN tunnels, you can skip this step.
 
 ```json
 {
@@ -347,14 +347,14 @@ The final action of the script creates IPsec tunnels between the Azure VPN gatew
 
 ## <a name="device"></a>4. Configure the on-premises VPN device
 
-The Azure VPN gateway is compatible with many VPN devices from different vendors. For configuration information and devices that have been validated to work with VPN gateway, see [About VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
+The Azure VPN gateway is compatible with many VPN devices from different vendors. For configuration information and devices that are validated to work with VPN gateway, see [About VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 When configuring your VPN device, you need the following items:
 
 * A shared key. This value is the same shared key that you specify when creating your site-to-site VPN connection. The examples use a basic shared key. We recommend that you generate a more complex key to use.
 * The Public IP address of your VPN gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the Public IP address of your VPN gateway using the Azure portal, navigate to Virtual network gateways, then select the name of your gateway.
 
-Typically eBGP peers are directly connected (often over a WAN connection). However, when you're configuring eBGP over IPsec VPN tunnels via ExpressRoute Microsoft peering, there are multiple routing domains between the eBGP peers. Use the **ebgp-multihop** command to establish the eBGP neighbor relationship between the two not-directly connected peers. The integer that follows ebgp-multihop command specifies the TTL value in the BGP packets. The command **maximum-paths eibgp 2** enables load balancing of traffic between the two BGP paths.
+Typically eBGP peers are directly connected (often over a WAN connection). However, when you're configuring eBGP over IPsec VPN tunnels via ExpressRoute Microsoft peering, there are multiple routing domains between the eBGP peers. Use the **ebgp-multihop** command to establish the eBGP neighbor relationship between the two not-directly connected peers. The integer that follows ebgp-multihop command specifies the time to live (TTL) value in the BGP packets. The command **maximum-paths eibgp 2** enables load balancing of traffic between the two BGP paths.
 
 ### <a name="cisco1"></a>Cisco CSR1000 example
 
@@ -562,7 +562,7 @@ Peer: 52.175.253.112 port 4500 fvrf: (none) ivrf: (none)
         Outbound: #pkts enc'ed 477 drop 0 life (KB/Sec) 4607953/437
 ```
 
-The line protocol on the Virtual Tunnel Interface (VTI) doesn't change to "up" until IKE phase 2 has completed. The following command verifies the security association:
+The line protocol on the Virtual Tunnel Interface (VTI) doesn't change to "up" until IKE phase 2 completes. The following command verifies the security association:
 
 ```
 csr1#show crypto ikev2 sa
@@ -588,7 +588,7 @@ csr1#show crypto ipsec sa | inc encaps|decaps
     #pkts decaps: 746, #pkts decrypt: 746, #pkts verify: 746
 ```
 
-### <a name="verifye2e"></a>Verify end-to-end connectivity between the inside network on-premises and the Azure VNet
+### <a name="verifye2e"></a>Verify end-to-end connectivity between the inside network on-premises and the Azure virtual network
 
 If the IPsec tunnels are up and the static routes are correctly set, you should be able to ping the IP address of the remote BGP peer:
 
@@ -702,4 +702,4 @@ Total number of prefixes 2
 
 * [Configure Network Performance Monitor for ExpressRoute](how-to-npm.md)
 
-* [Add a site-to-site connection to a VNet with an existing VPN gateway connection](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+* [Add a site-to-site connection to a virtual network with an existing VPN gateway connection](../vpn-gateway/add-remove-site-to-site-connections.md)

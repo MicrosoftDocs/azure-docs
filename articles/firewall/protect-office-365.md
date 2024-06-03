@@ -5,13 +5,16 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 11/27/2023
 ms.author: yuvalpery
 ---
 
 # Use Azure Firewall to protect Office 365
 
 You can use the Azure Firewall built-in Service Tags and FQDN tags to allow outbound communication to [Office 365 endpoints and IP addresses](/microsoft-365/enterprise/urls-and-ip-address-ranges).
+
+> [!NOTE]
+> Office 365 service tags and FQDN tags are supported in Azure Firewall policy only. They aren't supported in classic rules.
 
 ## Tags creation
 
@@ -50,5 +53,6 @@ For more information, see [Use FQDN filtering in network rules](fqdn-filtering-n
 
 ## Next steps
 
+- For more information, see [Protect Office365 and Windows365 with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/protect-office365-and-windows365-with-azure-firewall/ba-p/3824533).
 - Learn more about Office 365 network connectivity: [Microsoft 365 network connectivity overview](/microsoft-365/enterprise/microsoft-365-networking-overview)
 

@@ -41,16 +41,15 @@ To ingest your historical data into Microsoft Sentinel Basic Logs (option 2 in t
 
 1. If you don't have an existing Log Analytics workspace, create a new workspace and [install Microsoft Sentinel](quickstart-onboard.md#enable-microsoft-sentinel-).
 1. [Create an App registration to authenticate against the API](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application).
-1. [Create a data collection endpoint](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-data-collection-endpoint). This endpoint acts as the API endpoint that accepts the data.
 1. [Create a custom log table](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-new-table-in-log-analytics-workspace) to store the data, and provide a data sample. In this step, you can also define a transformation before the data is ingested.
 1. [Collect information from the data collection rule](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-the-dcr) and assign permissions to the rule.
 1. [Change the table from Analytics to Basic Logs](../azure-monitor/logs/basic-logs-configure.md).
 1. Run the [Custom Log Ingestion script](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/CustomLogsIngestion-DCE-DCR). The script asks for the following details:  
     - Path to the log files to ingest 
-    - Azure AD tenant ID 
+    - Microsoft Entra tenant ID 
     - Application ID 
     - Application secret 
-    - DCE endpoint 
+    - DCE endpoint (Use the logs ingestion endpoint URI for the DCR)
     - DCR immutable ID 
     - Data stream name from the DCR  
 
@@ -61,7 +60,7 @@ To ingest your historical data into Microsoft Sentinel Basic Logs (option 2 in t
 To ingest your historical data into Azure Blob Storage (option 3 in the [diagram above](#export-data-from-the-legacy-siem)): 
 
 1. [Install and configure AzCopy](../storage/common/storage-use-azcopy-v10.md) on the system to which you exported the logs. Alternatively, install AzCopy on another system that has access to the exported logs.  
-1. [Create an Azure Blob Storage account](../storage/common/storage-account-create.md) and copy the authorized [Azure Active Directory](../storage/common/storage-use-azcopy-v10.md#option-1-use-azure-active-directory) credentials or [Shared Access Signature](../storage/common/storage-use-azcopy-v10.md#option-2-use-a-sas-token) token.   
+1. [Create an Azure Blob Storage account](../storage/common/storage-account-create.md) and copy the authorized [Microsoft Entra ID](../storage/common/storage-use-azcopy-v10.md#option-1-use-azure-active-directory) credentials or [Shared Access Signature](../storage/common/storage-use-azcopy-v10.md#option-2-use-a-sas-token) token.   
 1. [Run AzCopy](../storage/common/storage-use-azcopy-v10.md#run-azcopy) with the folder path that includes the exported logs as the source, and the Azure Blob Storage connection string as the output.
 
 ## Next steps

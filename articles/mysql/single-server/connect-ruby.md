@@ -3,8 +3,8 @@ title: 'Quickstart: Connect using Ruby - Azure Database for MySQL'
 description: This quickstart provides several Ruby code samples you can use to connect and query data from Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: ruby
 ms.topic: quickstart
 ms.custom: mvc, mode-other
@@ -262,7 +262,7 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate your database using Export and Import](./concepts-migrate-import-export.md)
+> [Migrate your database using Export and Import](../flexible-server/concepts-migrate-import-export.md)
 
 > [!div class="nextstepaction"]
 > [Learn more about MySQL2 client](https://rubygems.org/gems/mysql2-client-general_log)

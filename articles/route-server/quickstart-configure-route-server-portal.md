@@ -1,12 +1,11 @@
 ---
 title: 'Quickstart: Create and configure Route Server - Azure portal'
 description: In this quickstart, you learn how to create and configure an Azure Route Server using the Azure portal.
-services: route-server
 author: halkazwini
+ms.author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 07/19/2022
-ms.author: halkazwini
+ms.date: 08/11/2023
 ms.custom: mode-ui, template-quickstart
 ---
 
@@ -14,7 +13,7 @@ ms.custom: mode-ui, template-quickstart
 
 This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. Azure Route Server will learn routes from the NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, read [Azure Route Server](overview.md).
 
-:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal." border="false":::
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure Portal." lightbox="media/quickstart-configure-route-server-portal/environment-diagram.png":::
 
 [!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
@@ -94,9 +93,11 @@ If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual 
 
 [!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
 
-1. Go to [Route Server](./overview.md) in the Azure portal and select the Route Server you want to configure.
+[!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
 
-1. Select **Configuration** under *Settings* in the left navigation panel.
+1. Go to the Route Server that you want to configure.
+
+1. Select **Configuration** under **Settings** in the left navigation panel.
 
 1. Select **Enable** for the **Branch-to-Branch** setting and then select **Save**.
 

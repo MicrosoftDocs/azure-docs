@@ -1,16 +1,16 @@
 ---
-title: 'Enable MFA for VPN users by using Azure AD authentication'
-description: Learn how to enable Azure AD Multi-Factor Authentication (MFA) for VPN users by using Azure AD authentication.
+title: 'Enable MFA for VPN users by using Microsoft Entra authentication'
+description: Learn how to enable Microsoft Entra multifactor authentication (MFA) for VPN users by using Microsoft Entra authentication.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 08/23/2023
 ms.author: alzam
 
 ---
-# Enable Azure AD Multi-Factor Authentication (MFA) for VPN users by using Azure AD authentication
+# Enable Microsoft Entra multifactor authentication (MFA) for VPN users by using Microsoft Entra authentication
 
 [!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 
@@ -32,4 +32,4 @@ ms.author: alzam
 
 ## Next steps
 
-To connect to your virtual network, you must create and configure a VPN client profile. See [Configure Azure AD authentication for Point-to-Site connection to Azure](virtual-wan-point-to-site-azure-ad.md).
+To connect to your virtual network, you must create and configure a VPN client profile. See [Configure Microsoft Entra authentication for Point-to-Site connection to Azure](virtual-wan-point-to-site-azure-ad.md).

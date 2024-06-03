@@ -5,8 +5,8 @@ author: anraghun
 ms.author: anraghun
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 02/28/2023
-ms.custom: template-tutorial
+ms.date: 11/23/2023
+ms.custom: template-tutorial, engagement-fy24
 ---
 
 # Modernize ASP.NET web apps to Azure Kubernetes Service (preview)
@@ -35,7 +35,7 @@ Before you begin this tutorial, you should address the following:
 ### Limitations
 
  - You can migrate ASP.NET applications using Microsoft .NET framework 3.5 or later.
- - You can migrate application servers running Windows Server 2008 R2 or later (application servers should be running PowerShell version 5.1).
+ - You can migrate application servers running Windows Server 2012 R2 or later (application servers should be running PowerShell version 5.1).
  - Applications should be running on Internet Information Services (IIS) 7.5 or later.
 
 ## Enable replication
@@ -58,7 +58,7 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
 
 ### Choose from discovered apps
 
-In **Replicate** > **Web apps**, a paged list of discovered ASP.NET apps discovered on your environment is shown.
+In **Replicate** > **Web apps**, you can see a list of ASP.NET apps discovered on your environment.
 
 :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-list.png" alt-text="Screenshot of the Web apps tab on the Replicate tab.":::
 
@@ -72,24 +72,43 @@ In **Replicate** > **Web apps**, a paged list of discovered ASP.NET apps discove
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-app-dir.png" alt-text="Screenshot of the Application directories tab.":::
 
-5. Select **Next**.
+5. For the applications using Windows authentication, indicated by the **Authentication type**, you can configure gMSA V2 on the target AKS cluster. 
+
+    :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-gmsa.png" alt-text="Screenshot of the gMSA configuration tab.":::
+
+    | Setting |  Comments |
+    | --- | --- |
+    | Account name | Name of the gMSA account to use. If the account doesn't exist, a new account with this name is created automatically. |
+    | Account username | Username of the standard domain user that's authorized to access the gMSA configured on your Domain Controller. If the given username doesn't exist, a new standard domain user is created automatically. |
+    | Account password | Password of the above user. |
+    | Domain DNS server | IP address of the DNS server which can resolve your Active Directory domain name. |
+    | Domain FQDN | Fully qualified domain name of your Active Directory domain. |
+    | Domain controller address | IP address of the Active Directory Domain Controller. Connection is established to remotely allow the specified domain user to retrieve credentials for the specified gMSA. |
+    | Domain admin username | Username of a user that has sufficient privileges to remotely validate the gMSA account and domain user. |
+    | Domain admin password | Password for the admin user above. |
+
+
+6. Select **Next**.
+
+> [!NOTE]
+> The source path and the attribute value of App configurations and App directories together must be under 3000 characters in length. This can roughly be translated to around 15 entries (inclusive of both configurations and directories) of character length of about 200 each.
 
 ### Configure target settings
 
-In **Replicate** > **Target settings**, settings are provided to configure the target where the applications will be migrated to.
+In **Replicate** > **Target settings**, you can configure the target where the applications will be migrated to.
 
 :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-target-settings.png" alt-text="Screenshot of the Target settings tab on the Replicate tab.":::
 
-1. Choose the subscription, resource group, and container registry resource to which the app container images should be pushed to.
+1. Choose the subscription, resource group, and container registry resource to which the app container images should be pushed.
 2. Choose the subscription, resource group, and AKS cluster resource on which the app should be deployed.
 3. Select **Next**.
 
 > [!NOTE]
-> Only AKS clusters with windows nodes are listed.
+> Only AKS clusters with Windows nodes are listed.
 
 ### Configure deployment settings
 
-In **Replicate** > **Deployment settings**, settings are provided to configure the application on the AKS cluster.
+In **Replicate** > **Deployment settings**, you can configure the application on the AKS cluster.
 
 :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-deployment-settings.png" alt-text="Screenshot of the Deployment settings tab on the Replicate tab.":::
 

@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the largest integer less than or equal to the specified numeric expressi
   
 ## Syntax
   
-```sql
+```nosql
 FLOOR(<numeric_expr>)  
 ```
 
@@ -38,32 +39,15 @@ Returns a numeric expression.
 
 The following example shows positive numeric, negative, and zero values evaluated with this function.  
 
-```sql
-SELECT VALUE {
-    floorPostiveNumber: FLOOR(62.6),
-    floorNegativeNumber: FLOOR(-145.12),
-    floorSmallNumber: FLOOR(0.2989),
-    floorZero: FLOOR(0.0),
-    floorNull: FLOOR(null)
-}
-```
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/floor/query.sql" highlight="2-6":::  
 
-```json
-[
-  {
-    "floorPostiveNumber": 62,
-    "floorNegativeNumber": -146,
-    "floorSmallNumber": 0,
-    "floorZero": 0
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/floor/result.json":::
 
 ## Remarks
 
 - This system function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

@@ -1,11 +1,12 @@
 ---
 title: MABS (Azure Backup Server) V3 UR1 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server protects.
-ms.date: 08/08/2022
+ms.date: 03/25/2024
 ms.topic: conceptual
+ms.custom: engagement-fy24, linux-related-content
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # MABS (Azure Backup Server) V3 UR1 (and later) protection matrix
@@ -38,7 +39,7 @@ The following sections details the protection support matrix for MABS:
 | **Workload**               | **Version**                                                  | **Azure Backup Server   installation**                       | **Azure Backup Server** | **Protection and recovery**                                  |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------- | ------------------------------------------------------------ |
 | Client  computers (64-bit) | Windows 11, Windows 10                                                  | Physical  server  <br><br>    Hyper-V virtual machine   <br><br>   VMware virtual machine | V3 UR1 and V3 UR2                            | Volume,  share, folder, files, deduped volumes   <br><br>   Protected volumes must be NTFS. FAT and FAT32 aren't supported.  <br><br>    Volumes must be at least 1 GB. Azure Backup Server uses Volume Shadow Copy  Service (VSS) to take the data snapshot and the snapshot only works if the  volume is at least 1 GB. |
-| Servers  (64-bit)          | Windows  Server 2022, 2019, 2016, 2012 R2, 2012 <br /><br />(Including Windows Server Core edition)                   | Azure  virtual machine (when workload is running as Azure virtual machine)  <br><br>    Physical server  <br><br>    Hyper-V virtual machine <br><br>     VMware virtual machine  <br><br>    Azure Stack | V3 UR1 and V3 UR2                            | Volume,  share, folder, file <br><br>    Deduped  volumes (NTFS only) <br><br>When protecting a WS 2016 NTFS deduped volume with MABS v3 running on Windows Server 2019, the recoveries may be affected. We have a fix for doing recoveries in a non-deduped way that will be part of later versions of MABS. Contact MABS support if you need this fix on MABS v3 UR1.<br><br> When protecting a WS 2019 NTFS deduped volume with MABS v3 on Windows Server 2016, the backups and restores will be non-deduped. This means that the backups will consume more space on the MABS server than the original NTFS deduped volume.   <br><br>   System  state and  bare metal  (Not  supported when workload is running as Azure virtual machine) |
+| Servers  (64-bit)          | Windows  Server 2022, 2019, 2016, 2012 R2, 2012 <br /><br />(Including Windows Server Core edition)                   | Azure  virtual machine (when workload is running as Azure virtual machine)  <br><br>    Physical server  <br><br>    Hyper-V virtual machine <br><br>     VMware virtual machine  <br><br>    Azure Stack | V3 UR1 and V3 UR2                            | Volume,  share, folder, file <br><br>    Deduped  volumes (NTFS only) <br><br> When you protect a WS 2016 NTFS deduped volume with MABS v3 running on Windows Server 2019, the recoveries may be affected. We have a fix for doing recoveries in a non-deduped way that will be part of later versions of MABS. Contact MABS support if you need this fix on MABS v3 UR1.<br><br> When you protect a WS 2019 NTFS deduped volume with MABS v3 on Windows Server 2016, the backups and restores will be non-deduped. This means that the backups will consume more space on the MABS server than the original NTFS deduped volume.   <br><br>   System  state and  bare metal  (Not  supported when workload is running as Azure virtual machine) |
 | SQL  Server                | SQL  Server 2019, 2017, 2016 and [supported SPs](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202016), 2014 and supported [SPs](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202014) | Physical  server  <br><br>     Hyper-V virtual machine   <br><br>     VMware  virtual machine  <br><br>   Azure virtual machine (when workload is running as Azure virtual machine)  <br><br>     Azure Stack | V3 UR1 and V3 UR2                            | All  deployment scenarios: database       <br><br>    MABS v3 UR2 and later supports the backup of SQL database, stored on the Cluster Shared Volume.     <br><br>  MABS v3 UR1 supports the backup of SQL databases over ReFS volumes     <br><br>     MABS doesn't support SQL Server databases hosted on Windows Server 2012 Scale-Out File Servers (SOFS). <br><br>   MABS can't protect SQL server Distributed Availability Group (DAG) or Availability Group (AG), where the role name on the failover cluster is different than the named AG on SQL.       |
 | Exchange                   | Exchange  2019, 2016                                         | Physical  server   <br><br>   Hyper-V virtual machine  <br><br>      VMware  virtual machine  <br><br>   Azure Stack  <br><br>    Azure virtual machine (when workload is running as Azure virtual machine) | V3 UR1 and V3 UR2                            | Protect  (all deployment scenarios): Standalone Exchange server, database under a  database availability group (DAG)  <br><br>    Recover (all deployment scenarios): Mailbox, mailbox databases under a DAG    <br><br>  Backup of Exchange over ReFS is supported with MABS v3 UR1 |
 | SharePoint                 | SharePoint  2019, 2016 with latest SPs                       | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine  <br><br>   Azure virtual machine (when workload is running as Azure virtual machine)   <br><br>   Azure Stack | V3 UR1 and V3 UR2                            | Protect  (all deployment scenarios): Farm, frontend web server content  <br><br>    Recover (all deployment scenarios): Farm, database, web application, file, or  list item, SharePoint search, frontend web server  <br><br>    Protecting a SharePoint farm that's using the SQL Server 2012  Always On feature for the content databases isn't supported. |
@@ -80,7 +81,7 @@ With public peering: Ensure access to the following domains/addresses:
 
 With Microsoft peering, select the following services/regions and relevant community values:
 
-* Azure Active Directory (12076:5060)
+* Microsoft Entra ID (12076:5060)
 * Microsoft Azure Region (according to the location of your Recovery Services vault)
 * Azure Storage (according to the location of your Recovery Services vault)
 

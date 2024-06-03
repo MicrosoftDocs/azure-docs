@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # Prepare data with data wrangling
@@ -57,6 +57,6 @@ Go to the **Monitor** tab to visualize the output of a triggered Power Query act
 
 :::image type="content" source="media/wrangling-data-flow/tutorial2.png" alt-text="Screenshot that shows the output of a triggered wrangling Power Query activity run.":::
 
-## Next steps
+## Related content
 
 Learn how to [create a mapping data flow](tutorial-data-flow.md).

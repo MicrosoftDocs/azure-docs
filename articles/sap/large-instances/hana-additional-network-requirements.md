@@ -2,19 +2,15 @@
 title: Other network requirements for SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about added network requirements for SAP HANA on Azure (Large Instances) that you might have.
 services: virtual-machines-linux
-documentationcenter: 
-author: lauradolan
+author: ju-shim
 manager: bburns
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 6/3/2021
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Other network requirements for Large Instances
@@ -33,7 +29,7 @@ You may find you need to add more IP addresses or subnets. Use either the Azure 
 
 Add the new IP address range as a new range to the virtual network address space. Don't generate a new aggregated range. Submit this change to Microsoft. This way you can connect from that new IP address range to the HANA Large Instances in your client. You can open an Azure support request to get the new virtual network address space added. Once you receive confirmation, do the steps discussed in [Connecting Azure VMs to HANA Large Instances](hana-connect-azure-vm-large-instances.md). 
 
-To create another subnet from the Azure portal, see [Create a virtual network using the Azure portal](../../virtual-network/manage-virtual-network.md#create-a-virtual-network). To create one from PowerShell, see [Create a virtual network using PowerShell](../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
+To create another subnet from the Azure portal, see [Create a virtual network using the Azure portal](../../virtual-network/manage-virtual-network.yml#create-a-virtual-network). To create one from PowerShell, see [Create a virtual network using PowerShell](../../virtual-network/manage-virtual-network.yml#create-a-virtual-network).
 
 ## Add virtual networks
 
@@ -59,7 +55,7 @@ For more information, see [Delete a subnet](../../virtual-network/virtual-networ
 
 ## Delete a virtual network
 
-For information, see [Delete a virtual network](../../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
+For information, see [Delete a virtual network](../../virtual-network/manage-virtual-network.yml#delete-a-virtual-network).
 
 SAP HANA on Microsoft Service Management removes the existing authorizations on the SAP HANA on Azure (Large Instances) ExpressRoute circuit. It also removes the Azure virtual network IP address range or address space for the communication with HANA Large Instances.
 

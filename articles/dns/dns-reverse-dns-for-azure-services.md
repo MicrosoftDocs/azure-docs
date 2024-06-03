@@ -2,14 +2,11 @@
 title: Reverse DNS for Azure services - Azure DNS
 description: With this learning path, get started configuring reverse DNS lookups for services hosted in Azure.
 services: dns
-documentationcenter: na
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/27/2022
-ms.author: greglin 
+ms.date: 01/10/2024
+ms.author: greglin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -25,36 +22,41 @@ This scenario differs from the ability to [host the reverse DNS lookup zones](dn
 
 Before reading this article, you should familiarize yourself with [reverse DNS in Azure DNS](dns-reverse-dns-overview.md).
 
-In Azure DNS, compute resources such as virtual machines, virtual machine scale sets, and Service Fabric clusters have Public IP addresses. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the Public IP address.
+In Azure DNS, compute resources such as virtual machines, virtual machine scale sets, and Service Fabric clusters have public IP addresses. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the public IP address.
 
 Reverse DNS is currently not supported for the Azure App Service and Application Gateway.
 
 ## Validation of reverse DNS records
 
-A third party shouldn't have access to create reverse DNS records for Azure service mapping to your DNS domains. That's why Azure only allows you to create a reverse DNS record if the domain name is the same or resolves to a Public IP address in the same subscription. This restriction also applies to Cloud Service.
+A third party shouldn't have access to create reverse DNS records for Azure service mapping to your DNS domains. That's why Azure only allows you to create a reverse DNS record if a forward DNS lookup resolves to the same public IP address, or to names that are defined in your subscription. See the following example. This restriction also applies to Cloud Service.
 
-This validation is only done when the reverse DNS record is set or modified. Periodic revalidation isn't done.
+Validation is only done when the reverse DNS record is set or modified. Periodic revalidation isn't done.
 
-For example, suppose the Public Ip address resource has the DNS name `contosoapp1.northus.cloudapp.azure.com` and IP address `23.96.52.53`. The reverse FQDN for the Public IP address can be specified as:
+For example, suppose the public IP address resource has the DNS name `contosoapp1.northus.cloudapp.azure.com` and IP address `23.96.52.53`. The reverse FQDN for the public IP address can be specified as:
 
-* The DNS name for the Public IP address: `contosoapp1.northus.cloudapp.azure.com`.
+* The DNS name for the public IP address: `contosoapp1.northus.cloudapp.azure.com`.
 * The DNS name for a different PublicIpAddress in the same subscription, such as: `contosoapp2.westus.cloudapp.azure.com`.
-* A vanity DNS name, such as: `app1.contoso.com`. As long as the name is *first* configured as a CNAME pointing to `contosoapp1.northus.cloudapp.azure.com`. The name can also be pointed to a different Public IP address in the same subscription.
+* A vanity DNS name, such as: `app1.contoso.com`. As long as the name is *first* configured as a CNAME pointing to `contosoapp1.northus.cloudapp.azure.com`. The name can also be pointed to a different public IP address in the same subscription.
 * A vanity DNS name, such as: `app1.contoso.com`. As long as this name is *first* configured as an A record pointing to the IP address 23.96.52.53. The name can also be pointed to another IP address in the same subscription.
 
 The same constraints apply to reverse DNS for Cloud Services.
 
-## Reverse DNS for Public IP address resources
+## Reverse DNS for public IP address resources
 
-This section provides detailed instructions for how to configure reverse DNS for Public IP address resources in the Resource Manager deployment model. You can use either Azure PowerShell, Azure classic CLI, or Azure CLI to accomplish this task. Configuring reverse DNS for a Public IP address resource is currently not supported in the Azure portal.
+This section provides detailed instructions for how to configure reverse DNS for public IP address resources in the Resource Manager deployment model. You can use either Azure PowerShell, Azure classic CLI, or Azure CLI to accomplish this task. Configuring reverse DNS for a public IP address resource is currently not supported in the Azure portal.
 
-Azure currently supports reverse DNS only for Public IPv4 address resources.
+Azure currently supports reverse DNS only for public IPv4 address resources.
 
-### Add reverse DNS to an existing PublicIpAddresses
+> [!IMPORTANT]
+> New or updated PTR records must pass [validation](#validation-of-reverse-dns-records). If the PTR for a public IP address doesn't currently exist, you must specify the hostname using **DomainNameLabel** (Azure PowerShell), the **-d** parameter (Azure Classic CLI), or the **--dns-name** parameter (Azure CLI) as shown in the following examples.
+
+### Configure reverse DNS for a public IP address with an existing name
+
+Use the following procedures if a public IP address already has a [defined name](#validation-of-reverse-dns-records) in your subscription or via forward DNS lookup. After updating or adding a PTR to your existing public IP address, [view and verify that the correct PTR is configured](#view-reverse-dns-for-an-existing-public-ip-address).
 
 #### Azure PowerShell
 
-To update reverse DNS to an existing PublicIpAddress:
+To update reverse DNS on a public IP address with an existing PTR:
 
 ```azurepowershell-interactive
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -62,7 +64,7 @@ $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
 Set-AzPublicIpAddress -PublicIpAddress $pip
 ```
 
-To add reverse DNS to an existing PublicIpAddress that doesn't already have a DNS name, you must also specify a DNS name:
+To add reverse DNS to a public IP address that doesn't already have a PTR, you must specify the DomainNameLabel:
 
 ```azurepowershell-interactive
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -74,13 +76,13 @@ Set-AzPublicIpAddress -PublicIpAddress $pip
 
 #### Azure Classic CLI
 
-To add reverse DNS to an existing PublicIpAddress:
+To update reverse DNS on a public IP address with an existing PTR:
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup -f contosoapp1.westus.cloudapp.azure.com.
 ```
 
-To add reverse DNS to an existing PublicIpAddress that doesn't already have a DNS name, you must also specify a DNS name:
+To add reverse DNS to a public IP address that doesn't already have a PTR, you must specify the DNS name (-d):
 
 ```azurecli-interactive
 azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
@@ -88,19 +90,22 @@ azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f con
 
 #### Azure CLI
 
-To add reverse DNS to an existing PublicIpAddress:
+To update reverse DNS on a public IP address with an existing PTR:
 
 ```azurecli-interacgive
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn contosoapp1.westus.cloudapp.azure.com.
 ```
 
-To add reverse DNS to an existing PublicIpAddress that doesn't already have a DNS name, you must also specify a DNS name:
+To add reverse DNS to a public IP address that doesn't already have a PTR, you must specify the DNS name (--dns-name):
 
 ```azurecli-interactive
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn contosoapp1.westus.cloudapp.azure.com --dns-name contosoapp1
 ```
 
-### Create a Public IP Address with reverse DNS
+### Create a public IP address with reverse DNS
+
+> [!NOTE]
+> If the public IP address already exists in your subscription, see [Configure reverse DNS for a public IP address with an existing name](#configure-reverse-dns-for-a-public-ip-address-with-an-existing-name)
 
 To create a new PublicIpAddress with the reverse DNS property already specified:
 
@@ -122,9 +127,9 @@ azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d conto
 az network public-ip create --name PublicIp --resource-group MyResourceGroup --location westcentralus --dns-name contosoapp1 --reverse-fqdn contosoapp1.westcentralus.cloudapp.azure.com
 ```
 
-### View reverse DNS for an existing PublicIpAddress
+### View reverse DNS for an existing public IP address
 
-To view the configured value for an existing PublicIpAddress:
+To view the configured reverse DNS value for an existing PublicIpAddress:
 
 #### Azure PowerShell
 
@@ -144,7 +149,7 @@ azure network public-ip show -n PublicIp -g MyResourceGroup
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
 ```
 
-### Remove reverse DNS from existing Public IP Addresses
+### Remove reverse DNS from an existing public IP address
 
 To remove a reverse DNS property from an existing PublicIpAddress:
 
@@ -210,7 +215,7 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 
 They're free! There's no extra cost for reverse DNS records or queries.
 
-### Will my reverse DNS records resolve from the internet?
+### Do my reverse DNS records resolve from the internet?
 
 Yes. Once you set the reverse DNS property for your Azure service, Azure manages all the DNS delegations and DNS zones needed to ensure it resolves for all internet users.
 
@@ -222,9 +227,9 @@ No. Reverse DNS is an opt-in feature. No default reverse DNS records are created
 
 FQDNs are specified in forward order, and must be terminated by a dot (for example, "app1.contoso.com.").
 
-### What happens if the validation check for the reverse DNS I've specified fails?
+### What happens if the validation check for the specified reverse DNS entry fails?
 
-Where the reverse DNS validation check fails, the operation to configure the reverse DNS record fails. Correct the reverse DNS value as required, and retry.
+If the reverse DNS validation check fails, the operation to configure the reverse DNS record fails. Correct the reverse DNS value as required and retry.
 
 ### Can I configure reverse DNS for Azure App Service?
 

@@ -1,14 +1,13 @@
 ---
-title: Deploy ElasticSearch on a development virtual machine in Azure 
+title: Deploy ElasticSearch on a development virtual machine in Azure
 description: Install the Elastic Stack (ELK) onto a development Linux VM in Azure
 services: virtual-machines
 author: rloutlaw
 manager: justhe
 ms.service: virtual-machines
 ms.collection: linux
-ms.workload: infrastructure-services
 ms.devlang: azurecli
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: routlaw
@@ -20,7 +19,7 @@ ms.author: routlaw
 
 This article walks you through how to deploy [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash), and [Kibana](https://www.elastic.co/products/kibana), on an Ubuntu VM in Azure. To see the Elastic Stack in action, you can optionally connect to Kibana  and work with some sample logging data. 
 
-Additionally, you can follow the [Deploy Elastic on Azure Virtual Machines](https://learn.microsoft.com/training/modules/deploy-elastic-azure-virtual-machines/) module for a more guided tutorial on deploying Elastic on Azure Virtual Machines.   
+Additionally, you can follow the [Deploy Elastic on Azure Virtual Machines](/training/modules/deploy-elastic-azure-virtual-machines/) module for a more guided tutorial on deploying Elastic on Azure Virtual Machines.   
 
 In this tutorial you learn how to:
 
@@ -33,7 +32,7 @@ In this tutorial you learn how to:
 
  This deployment is suitable for basic development with the Elastic Stack. For more on the Elastic Stack, including recommendations for a production environment, see the [Elastic documentation](https://www.elastic.co/guide/index.html) and the [Azure Architecture Center](/azure/architecture/elasticsearch/).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -57,7 +56,7 @@ The following example creates a VM named *myVM* and creates SSH keys if they do 
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```

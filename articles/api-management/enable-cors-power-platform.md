@@ -11,6 +11,9 @@ ms.author: danlep
 
 ---
 # Enable CORS policies for API Management custom connector 
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Cross-origin resource sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. Customers can add a [CORS policy](cors-policy.md) to their web APIs in Azure API Management, which adds cross-origin resource sharing support to an operation or an API to allow cross-domain calls from browser-based clients.
 
 If you've exported an API from API Management as a [custom connector](export-api-power-platform.md) in the Power Platform and want to use browser-based clients including Power Apps or Power Automate to call the API, you need to configure your API to explicitly enable cross-origin requests from Power Platform applications. This article shows you how to configure the following two necessary policy settings:
@@ -28,7 +31,7 @@ If you've exported an API from API Management as a [custom connector](export-api
 
 Follow these steps to configure the CORS policy in API Management.
 
-1. Sign into [Azure portal](https://portal.azure.com) and go to your API Management instance.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your API Management instance.
 1. In the left menu, select **APIs** and select the API that you exported as a custom connector. If you want to, select only an API operation to apply the policy to.
 1. In the **Policies** section, in the **Inbound processing** section, select **+ Add policy**.
     1. Select **Allow cross-origin resource sharing (CORS)**.

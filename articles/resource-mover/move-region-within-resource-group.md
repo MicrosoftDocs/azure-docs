@@ -1,19 +1,21 @@
 ---
 title: Move resources to another region with Azure Resource Mover
 description: Learn how to move resources within a resource group to another region with Azure Resource Mover.
-manager: evansma
 author: ankitaduttaMSFT
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 03/29/2024
 ms.author: ankitadutta
 
-#Customer intent: As an Azure admin,  I want to move Azure resources to a different Azure region.
+#Customer intent: As an Azure admin,  I want to relocate Azure resources to a different Azure region with Azure Resource Mover
+
 ---
 
-# Move resources across regions (from resource group)
+# Move resources across regions (from resource group) with Azure Resource Mover
 
-In this article, learn how to move resources in a specific resource group to a different Azure region. In the resource group, you select the resources you want to move. Then, you move them using [Azure Resource Mover](overview.md).
+In this article, learn how to move resources in a specific resource group to a different Azure region with [Azure Resource Mover](overview.md). In the resource group, you select the resources you want to move.
+
+To move services and resources manually or to move services and resources that aren't supported by Azure Resource Mover, see [Azure services relocation guidance](/azure/operational-excellence/overview-relocation).
 
 ## Prerequisites
 
@@ -87,7 +89,7 @@ Select resources you want to move. You move resources to a target region in the 
 
 Resources you're moving appear in the **Across regions** page, in a *Prepare pending* state. Start validation as follows:
 
-1. Dependencies are *auto validated* at the beginning when you add the resources. If the initial auto validation does not resolves the issue, you will see a **Validate dependencies** ribbon, select it to validate manually.
+1. Dependencies are validated in the background after you add them. If you see a **Validate dependencies** button, select it to trigger the manual validation.
 
     ![Button to validate dependencies](./media/move-region-within-resource-group/validate-dependencies.png)
 
@@ -260,7 +262,8 @@ Delete as follows:
     - The cache storage account name is ```resmovecache<guid>```
     - The vault name is ```ResourceMove-<sourceregion>-<target-region>-GUID```.
 
-## Next steps
+## Related content
 
-
-[Learn about](about-move-process.md) the move process.
+- [Azure services relocation guidance](/azure/operational-excellence/overview-relocation)
+- [Cloud Adoption Framework - Relocate cloud workloads](/azure/cloud-adoption-framework/relocate/)
+- [Learn about](about-move-process.md) the move process with Resource Mover.

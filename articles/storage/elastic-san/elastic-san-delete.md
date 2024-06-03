@@ -1,86 +1,71 @@
 ---
-title: Delete an Azure Elastic SAN Preview
-description: Learn how to delete an Azure Elastic SAN Preview with the Azure portal, Azure PowerShell module, or the Azure CLI.
+title: Delete an Azure Elastic SAN
+description: Learn how to delete an Azure Elastic SAN and its resources with the Azure portal, Azure PowerShell module, or the Azure CLI.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 05/31/2024
 ms.author: rogarana
-ms.subservice: elastic-san
-ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Delete an Elastic SAN Preview
+# Delete an Elastic SAN
 
-To delete an elastic storage area network (SAN), you first need to disconnect every volume in your Elastic SAN Preview from any connected hosts.
+Your Elastic storage area network (SAN) resources can be deleted at different resource levels. This article covers the overall deletion process, starting from disconnecting iSCSI connections to volumes, deleting the volumes themselves, deleting a volume group, and deleting an elastic SAN itself. Before you delete your elastic SAN, make sure it's not being used in any running workloads.
 
 ## Disconnect volumes from clients
 
 ### Windows
 
-To delete iSCSI connections to volumes, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure Elastic SAN volume.
+You can use the following script to delete your connections. To execute it, you require the following parameters:
+- $ResourceGroupName: Resource Group Name
+- $ElasticSanName: Elastic SAN Name
+- $VolumeGroupName: Volume Group Name
+- $VolumeName: List of Volumes to be disconnected (comma separated)
 
-Run the following commands to get these values:
-
-```azurepowershell
-# Get the target name and iSCSI portal name to connect a volume to a client 
-$connectVolume = Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $searchedVolumeGroup -Name $searchedVolume
-$connectVolume.storagetargetiqn
-$connectVolume.storagetargetportalhostname
-$connectVolume.storagetargetportalport
+Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/disconnect.ps1) and save it as a .ps1 file, for example, disconnect.ps1. Then execute it with the required parameters. The following is an example of how to run the script:
 ```
-
-Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands.
-
-In your compute client, retrieve the sessionID for the Elastic SAN volumes you'd like to disconnect using `iscsicli SessionList`.
-
-Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to disconnect an Elastic SAN volume.
-
-```
-iscsicli RemovePersistentTarget ROOT\ISCSIPRT\0000_0 $yourStorageTargetIQN -1 $yourStorageTargetPortalPort $yourStorageTargetPortalHostName
-
-iscsicli LogoutTarget <sessionID>
+./disconnect.ps1 $ResourceGroupName $ElasticSanName $VolumeGroupName $VolumeName
 
 ```
 
 ### Linux
 
-To delete iSCSI connections to volumes, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure Elastic SAN volume.
+You can use the following script to create your connections. To execute it, you'll require the following parameters:
 
-Run the following command to get these values:
+- subscription: Subscription ID
+- g: Resource Group Name
+- e: Elastic SAN Name
+- v: Volume Group Name
+- n <vol1, vol2, ...>: Names of volumes 1 and 2 and other volume names that you might require, comma separated
 
-```azurecli
-az elastic-san volume-group list -e $sanName -g $resourceGroupName -v $searchedVolumeGroup -n $searchedVolume
-```
-
-Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands.
-
-Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
+Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/CLI%20(Linux)%20Multi-Session%20Connect%20Scripts/disconnect_for_documentation.py) and save it as a .py file, for example, disconnect.py. Then execute it with the required parameters. The following is an example of how you'd run the script:
 
 ```
-iscsiadm --mode node --target **yourStorageTargetIQN** --portal **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** --logout
+./disconnect.py --subscription <subid> -g <rgname> -e <esanname> -v <vgname> -n <vol1, vol2>
 ```
 
 ## Delete a SAN
 
-When your SAN has no active connections to any clients, you may delete it using the Azure portal or Azure PowerShell module.
+You can delete your SAN by using the Azure portal, Azure PowerShell, or Azure CLI. If you delete a SAN or a volume group, the corresponding child resources are deleted along with it. The delete commands for each of the resource levels are below.
 
-First, delete each volume.
+
+The following commands delete your volumes. These commands use `ForceDelete false`, `-DeleteSnapshot false`, `--x-ms-force-delete false`, and `--x-ms-delete-snapshots false` parameters for PowerShell and CLI, respectively. If you set `ForceDelete` or `--x-ms-force-delete` to `true`, it causes volume deletion to succeed even if you have active iSCSI connections. If you set `-DeleteSnapshot` or `--x-ms-delete-snapshots` to `true`, it deletes all snapshots associated with the volume, and the volume itself.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $volumeGroupName -Name $volumeName
+Remove-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $volumeGroupName -Name $volumeName -ForceDelete false -DeleteSnapshot false
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san volume delete -e $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName
+az elastic-san volume delete -e $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName --x-ms-force-delete false --x-ms-delete-snapshots false
 ```
 ---
 
-Then, delete each volume group.
+To delete volume groups, run the following commands.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -95,7 +80,7 @@ az elastic-san volume-group delete -e $sanName -g $resourceGroupName -n $volumeG
 ```
 ---
 
-Finally, delete the Elastic SAN itself.
+To delete the Elastic SAN itself, run the following commands.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -111,4 +96,4 @@ az elastic-san delete -n $sanName -g $resourceGroupName
 
 ## Next steps
 
-[Plan for deploying an Elastic SAN Preview](elastic-san-planning.md)
+[Plan for deploying an Elastic SAN](elastic-san-planning.md)

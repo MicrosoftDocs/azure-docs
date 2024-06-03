@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/29/2023
 ms.author: mattmcinnes
 ms.subservice: cloud-init
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 # Use cloud-init to set hostname for a Linux VM in Azure
 
@@ -18,9 +18,9 @@ This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io)
 
 ## Set the hostname with cloud-init
 
-By default, the hostname is the same as the VM name when you create a new virtual machine in Azure.  To run a cloud-init script to change this default hostname when you create a VM in Azure with [az vm create](/cli/azure/vm), specify the cloud-init file with the `--custom-data` switch.  
+By default, the hostname is the same as the VM name when you create a new virtual machine in Azure.  To run a cloud-init script to change this default hostname when you create a VM in Azure with [az vm create](/cli/azure/vm), specify the cloud-init file with the `--custom-data` switch.
 
-To see upgrade process in action, create a file in your current shell named *cloud_init_hostname.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
+To see upgrade process in action, create a file in your current shell named *cloud_init_hostname.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.
 
 ```yaml
 #cloud-config
@@ -41,7 +41,7 @@ az vm create \
   --name vmName \
   --image imageCIURN \
   --custom-data cloud_init_hostname.txt \
-  --generate-ssh-keys 
+  --generate-ssh-keys
 ```
 
 > [!NOTE]
@@ -71,5 +71,5 @@ For additional cloud-init examples of configuration changes, see the following:
 
 - [Add an additional Linux user to a VM](cloudinit-add-user.md)
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
-- [Change VM local hostname](cloudinit-update-vm-hostname.md) 
+- [Change VM local hostname](cloudinit-update-vm-hostname.md)
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)

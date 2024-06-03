@@ -30,7 +30,7 @@ If you prefer, you can complete this procedure using [Azure PowerShell](tutorial
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -189,7 +189,7 @@ for i in `seq 1 3`; do
 
   if [ $i -eq 1 ]
   then
-    poolName="appGatewayBackendPool" 
+    poolName="appGatewayBackendPool"
   fi
 
   if [ $i -eq 2 ]
@@ -205,7 +205,7 @@ for i in `seq 1 3`; do
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --admin-password Azure123456! \
     --instance-count 2 \

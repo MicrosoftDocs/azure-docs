@@ -3,23 +3,21 @@ title: Analyze Azure network security group flow logs - Graylog
 description: Learn how to manage and analyze network security group flow logs in Azure using Network Watcher and Graylog.
 services: network-watcher
 author: halkazwini
-tags: azure-resource-manager
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 05/03/2023
+ms.date: 05/31/2024
 ms.author: halkazwini
-ms.custom: engagement-fy23
+ms.custom: linux-related-content
 ---
 
 # Manage and analyze network security group flow logs in Azure using Network Watcher and Graylog
 
-[Network security group flow logs](network-watcher-nsg-flow-logging-overview.md) provide information that you can use to understand ingress and egress IP traffic for Azure network interfaces. Flow logs show outbound and inbound flows on a per network security group rule basis, the network interface the flow applies to, 5-tuple information (Source/Destination IP, Source/Destination Port, Protocol) about the flow, and if the traffic was allowed or denied.
+[Network security group flow logs](nsg-flow-logs-overview.md) provide information that you can use to understand ingress and egress IP traffic for Azure network interfaces. Flow logs show outbound and inbound flows on a per network security group rule basis, the network interface the flow applies to, 5-tuple information (Source/Destination IP, Source/Destination Port, Protocol) about the flow, and if the traffic was allowed or denied.
 
 You can have many network security groups in your network with flow logging enabled. Several network security groups with flow logging enabled can make it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these network security group flow logs using Graylog, an open source log management and analysis tool, and Logstash, an open source server-side data processing pipeline.
 
 > [!Warning]
-> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md). The following instructions will not work with version 2 of the log files, without modification.
+> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](nsg-flow-logs-overview.md). The following instructions will not work with version 2 of the log files, without modification.
 
 ## Scenario
 
@@ -32,7 +30,7 @@ Network security group flow logs are enabled using Network Watcher. Flow logs fl
 ### Enable network security group flow logging
 
 For this scenario, you must have network security group flow logging enabled on at least one network security group in your account. For instructions on
-enabling network security group flow logs, refer to the following article [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md).
+enabling network security group flow logs, refer to the following article [Introduction to flow logging for network security groups](nsg-flow-logs-overview.md).
 
 ### Setting up Graylog
 
@@ -54,7 +52,7 @@ prerequisites:
 ### Install Logstash
 
 Logstash is used to flatten the JSON formatted flow logs to a flow tuple level. Flattening the flow logs makes the logs easier to organize and search in Graylog.
-The following instructions are used to install Logstash in Ubuntu. For instructions about how to install this package in RHEL/CentOS, refer to the [Installing from Package Repositories - yum](https://www.elastic.co/guide/en/logstash/8.7/installing-logstash.html#_yum) article.
+The following instructions are used to install Logstash in Ubuntu. For instructions about how to install this package in Red Hat Enterprise Linux, see [Installing from Package Repositories - yum](https://www.elastic.co/guide/en/logstash/8.7/installing-logstash.html#_yum).
 
 1. To install Logstash, run the following commands:
 
@@ -90,14 +88,14 @@ The following instructions are used to install Logstash in Ubuntu. For instructi
             interval => 5
         }
     }
-    
+
     filter {
         split { field => "[records]" }
         split { field => "[records][properties][flows]"}
         split { field => "[records][properties][flows][flows]"}
         split { field => "[records][properties][flows][flows][flowTuples]"
     }
-    
+
      mutate {
         split => { "[records][resourceId]" => "/"}
         add_field =>{
@@ -197,7 +195,7 @@ Now that you have established a connection to the flow logs using Logstash and s
 
 ### Search through Graylog messages
 
-After allowing some time for your Graylog server to collect messages, you are able to search through the messages. To check the messages being sent to your Graylog server, from the **Inputs** configuration page click the "**Show received messages**" button of the GELF UDP input you created. You are directed to a screen that looks similar to the following picture: 
+After allowing some time for your Graylog server to collect messages, you are able to search through the messages. To check the messages being sent to your Graylog server, from the **Inputs** configuration page click the "**Show received messages**" button of the GELF UDP input you created. You are directed to a screen that looks similar to the following picture:
 
 ![Screenshot shows the Graylog server that displays Search result, Histogram, and Messages.](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
 

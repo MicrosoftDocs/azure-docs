@@ -2,14 +2,11 @@
 title: Restrict data exfiltration to Azure Storage - Azure CLI
 description: In this article, you learn how to limit and restrict virtual network data exfiltration to Azure Storage resources with virtual network service endpoint policies using the Azure CLI.
 services: virtual-network
-documentationcenter: virtual-network
 author: asudbring
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
@@ -31,7 +28,7 @@ In this article, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -56,9 +53,9 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-## Enable a service endpoint 
+## Enable a service endpoint
 
-In this example, a service endpoint for *Microsoft.Storage* is created for the subnet *Private*: 
+In this example, a service endpoint for *Microsoft.Storage* is created for the subnet *Private*:
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -89,7 +86,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Create security rules with [az network nsg rule create](/cli/azure/network/nsg/rule). The rule that follows allows outbound access to the public IP addresses assigned to the Azure Storage service: 
+Create security rules with [az network nsg rule create](/cli/azure/network/nsg/rule). The rule that follows allows outbound access to the public IP addresses assigned to the Azure Storage service:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -307,7 +304,7 @@ The VM takes a few minutes to create. After creation, take note of the **publicI
 
 SSH into the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your *myVmPrivate* VM.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
@@ -333,8 +330,8 @@ From the same VM *myVmPrivate*, create a directory for a mount point:
 sudo mkdir /mnt/MyAzureFileShare2
 ```
 
-Attempt to mount the Azure file share from storage account *notallowedstorageacc* to the directory you created. 
-This article assumes you deployed the latest version of Linux distribution. If you are using earlier versions of Linux distribution, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for additional instructions about mounting file shares. 
+Attempt to mount the Azure file share from storage account *notallowedstorageacc* to the directory you created.
+This article assumes you deployed the latest version of Linux distribution. If you are using earlier versions of Linux distribution, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for additional instructions about mounting file shares.
 
 Before executing the command below, replace *\<storage-account-key>* with value of *AccountKey* from **$saConnectionString2**.
 
@@ -342,7 +339,7 @@ Before executing the command below, replace *\<storage-account-key>* with value 
 sudo mount --types cifs //notallowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare2 --options vers=3.0,username=notallowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Access is denied, and you receive a `mount error(13): Permission denied` error, because this storage account is not in the allow list of the service endpoint policy we applied to the subnet. 
+Access is denied, and you receive a `mount error(13): Permission denied` error, because this storage account is not in the allow list of the service endpoint policy we applied to the subnet.
 
 Exit the SSH session to the *myVmPublic* VM.
 
@@ -350,7 +347,7 @@ Exit the SSH session to the *myVmPublic* VM.
 
 When no longer needed, use [az group delete](/cli/azure) to remove the resource group and all of the resources it contains.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

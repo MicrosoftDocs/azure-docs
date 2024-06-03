@@ -98,7 +98,7 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP \
   --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-After saving text using the app, you can use the [Azure portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] to retrieve and inspect the file or files written to the file share.
+After saving text using the app, you can use the [Azure portal](https://portal.azure.com) or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] to retrieve and inspect the file or files written to the file share.
 
 ## Deploy container and mount volume - YAML
 
@@ -285,7 +285,6 @@ Learn how to mount other volume types in Azure Container Instances:
 
 <!-- LINKS - External -->
 [aci-hellofiles]: https://hub.docker.com/_/microsoft-azuredocs-aci-hellofiles 
-[portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 
 <!-- LINKS - Internal -->

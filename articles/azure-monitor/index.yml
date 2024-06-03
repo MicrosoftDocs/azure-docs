@@ -8,10 +8,9 @@ metadata:
   description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications.
   ms.topic: landing-page
   ms.service: azure-monitor
-  ms.custom: ignite-2022
   author: rboucher
   ms.author: robb
-  ms.date: 03/14/2023
+  ms.date: 03/11/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -54,16 +53,12 @@ landingContent:
     linkLists: 
       - linkListType: learn
         links:
-          - text: Azure Monitor learning path 
+          - text: Azure Monitor fundamentals 
             url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
-          - text: Configure Azure Monitor
-            url: /training/modules/configure-azure-monitor/
-          - text: Analyze logs in Azure Monitor with KQL
-            url: /training/modules/analyze-logs-with-kql/
-          - text: Monitor performance of virtual machines using Azure Monitor VM Insights
-            url: /training/modules/monitor-performance-using-azure-monitor-for-vms/
-          - text: Visualize data combined from multiple data sources using Azure Workbooks
-            url: /training/modules/visualize-data-workbooks/
+          - text: Analyze monitoring data with Kusto Query Language
+            url: /training/paths/analyze-monitoring-data-with-kql/
+          - text: Monitor hybrid virtual machines, containers, and network resources
+            url: /training/paths/monitor-hybrid-virtual-machines-containers-network/
 
 # Card 
   - title: Get started with Azure Monitor
@@ -152,5 +147,5 @@ landingContent:
             url:  /cli/azure/azure-cli-reference-for-monitor
           - text: PowerShell Reference
             url:  /powershell/module/az.monitor/?view=azps-9.5.0
-          - text: REST API Reference
-            url:  /rest/api/monitor/
+          - text: REST API Reference Index
+            url:  azure-monitor-rest-api-index.md  

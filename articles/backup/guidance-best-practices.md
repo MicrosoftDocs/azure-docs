@@ -2,11 +2,12 @@
 title: Guidance and best practices
 description: Discover the best practices and guidance for backing up cloud and on-premises workload to the cloud
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 03/12/2024
 ms.reviewer: dapatil
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Backup cloud and on-premises workloads to cloud
@@ -133,7 +134,7 @@ Review the default settings for Storage Replication type and Security settings t
 
   * Geo-Redundant Storage (GRS) is recommended for mission-critical workloads, such as the ones running in production environment, to prevent permanent data loss, and protect it in case of complete regional outage or a disaster in which the primary region isn’t recoverable.
 
-* *Soft delete* by default is Enabled on newly created vaults to protect backup data from accidental or malicious deletes. Follow [these](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) steps to review and modify the settings.
+* *Soft delete* by default is Enabled on newly created vaults to protect backup data from accidental or malicious deletes. Follow [these](backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete) steps to review and modify the settings.
 
 * *Cross Region Restore* allows you to restore Azure VMs in a secondary region, which is an Azure paired region. This option allows you to conduct drills to meet audit or compliance requirements, and to restore the VM or its disk if there's a disaster in the primary region. CRR is an opt-in feature for any GRS vault. [Learn more here](backup-create-rs-vault.md#set-cross-region-restore).
 
@@ -267,7 +268,7 @@ Azure Backup requires movement of data from your workload to the Recovery Servic
 
 * **Azure VM backup**: All the required communication and data transfer between storage and Azure Backup service happens within the Azure network without needing to access your virtual network. So backup of Azure VMs placed inside secured networks don't require you to allow access to any IPs or FQDNs.
 
-* **SAP HANA databases on Azure VM, SQL Server databases on Azure VM**: Requires connectivity to the Azure Backup service, Azure Storage, and Azure Active Directory. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data. For complete network guidance while using NSG tags, Azure firewall, and HTTP Proxy, refer to these [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) and [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity) articles.
+* **SAP HANA databases on Azure VM, SQL Server databases on Azure VM**: Requires connectivity to the Azure Backup service, Azure Storage, and Microsoft Entra ID. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data. For complete network guidance while using NSG tags, Azure firewall, and HTTP Proxy, refer to these [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) and [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity) articles.
 
 * **Hybrid**: The MARS (Microsoft Azure Recovery Services) agent requires network access for all critical operations - install, configure, backup, and restore. The MARS agent can connect to the Azure Backup service over [Azure ExpressRoute](install-mars-agent.md#azure-expressroute-support) by using public peering (available for old circuits) and Microsoft peering, using [private endpoints](install-mars-agent.md#private-endpoint-support) or via [proxy/firewall with appropriate access controls](install-mars-agent.md#verify-internet-access).
 
@@ -281,7 +282,7 @@ To fulfill all these needs, use [Azure Private Endpoint](../private-link/private
 
 * When you enable private endpoints for the vault, they're only used for backup and restore of SQL and SAP HANA workloads in an Azure VM, MARS agent, DPM/MABS backups. You can use the vault for the backup of other workloads as well (they won’t require private endpoints though). In addition to the backup of SQL and SAP HANA workloads, backup using the MARS agent and DPM/MABS Server, private endpoints are also used to perform file recovery in the case of Azure VM backup. [Learn more here](private-endpoints-overview.md#recommended-and-supported-scenarios).
 
-* Azure Active Directory doesn't currently support private endpoints. So, IPs and FQDNs required for Azure Active Directory will need to be allowed outbound access from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Azure AD, as applicable. Learn more about the [prerequisites here](./private-endpoints.md#before-you-start).
+* Microsoft Entra ID doesn't currently support private endpoints. So, IPs and FQDNs required for Microsoft Entra ID will need to be allowed outbound access from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Microsoft Entra ID, as applicable. Learn more about the [prerequisites here](./private-endpoints.md#before-you-start).
 
 ## Governance considerations
 
@@ -311,7 +312,7 @@ The Azure Backup service offers the flexibility to effectively manage your costs
   * Optimize retention settings for Instant Restore.
   * Choose the right backup type to meet requirements, while taking supported backup types (full, incremental, log, differential) by the workload in Azure Backup.
 
-* **Reduce the backup storage cost with Selectively backup disks**: Exclude disk (preview feature) provides an efficient and cost-effective choice to selectively backup critical data. For example, you can back up only one disk when you don't want to back up all disks attached to a VM. This is also useful when you have multiple backup solutions. For example, to back up your databases or data with a workload backup solution (SQL Server database in Azure VM backup), use Azure VM level backup for selected disks.
+* **Reduce the backup storage cost with Selectively backup disks**: Exclude disk feature provides an efficient and cost-effective choice to selectively backup critical data. For example, you can back up only one disk when you don't want to back up all disks attached to a VM. This is also useful when you have multiple backup solutions. For example, to back up your databases or data with a workload backup solution (SQL Server database in Azure VM backup), use Azure VM level backup for selected disks.
 
 - **Speed up your Restores and minimize RTO using the Instant Restore feature**: Azure Backup takes snapshots of Azure VMs and stores them along with the disks to boost recovery point creation and to speed up restore operations. This is called Instant Restore. This feature allows a restore operation from these snapshots by cutting down the restore times. It reduces the time needed to transform and copy data back from the vault. Therefore,  it’ll incur storage costs for the snapshots taken during this period. Learn more about [Azure Backup Instant Recovery capability](./backup-instant-restore-capability.md).
 

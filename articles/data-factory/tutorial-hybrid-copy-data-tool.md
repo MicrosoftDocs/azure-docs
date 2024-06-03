@@ -6,14 +6,10 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](tutorial-hybrid-copy-data-tool.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -36,7 +32,7 @@ Before you begin, if you don't already have an Azure subscription, [create a fre
 ### Azure roles
 To create data factory instances, the user account you use to log in to Azure must be assigned a *Contributor* or *Owner* role or must be an *administrator* of the Azure subscription.
 
-To view the permissions you have in the subscription, go to the Azure portal. Select your user name in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+To view the permissions you have in the subscription, go to the Azure portal. Select your user name in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ### SQL Server 2014, 2016, and 2017
 In this tutorial, you use a SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this SQL Server database (source) to Blob storage (sink). You then create a table named **emp** in your SQL Server database and insert a couple of sample entries into the table.
@@ -207,7 +203,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
     :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/author-tab.png" alt-text="Screenshot that shows the Author tab.":::
 
-## Next steps
+## Related content
 The pipeline in this sample copies data from a SQL Server database to Blob storage. You learned how to:
 
 > [!div class="checklist"]

@@ -6,7 +6,6 @@ summary: 'Microsoft Defender for IoT provides comprehensive threat detection for
 metadata: 
   title: Microsoft Defender for IoT for device builders documentation
   description: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
-  services: service
   ms.service: defender-for-iot
   ms.topic: landing-page
   ms.collection: M365-security-compliance
@@ -41,6 +40,8 @@ landingContent:
             url: concept-recommendations.md
           - text: Event aggregation
             url: concept-event-aggregation.md
+          - text: Firmware analysis (preview)
+            url: overview-firmware-analysis.md
   - title: How-to
     linkLists:
       - linkListType: how-to-guide
@@ -51,8 +52,8 @@ landingContent:
             url: how-to-investigate-cis-benchmark.md
           - text: Create custom alerts
             url: quickstart-create-custom-alerts.md
-          - text: Configure and customize Defender-IoT-micro-agent for Azure RTOS (preview)
-            url: how-to-azure-rtos-security-module.md
+          - text: Configure and customize Defender-IoT-micro-agent for Eclipse ThreadX (preview)
+            url: how-to-threadx-security-module.md
   - title: New in docs
     linkLists:
       - linkListType: whats-new

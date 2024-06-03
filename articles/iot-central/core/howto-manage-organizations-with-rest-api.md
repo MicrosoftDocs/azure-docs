@@ -116,12 +116,10 @@ Use the following request to update details of an organization in your applicati
 PATCH https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-07-31
 ```
 
-The following example shows a request body that updates an organization.
+The following example shows a request body that updates the parent of the organization:
 
 ```json
 {
-  "id": "seattle",
-  "displayName": "Seattle Sales",
   "parent": "washington"
 }
 ```

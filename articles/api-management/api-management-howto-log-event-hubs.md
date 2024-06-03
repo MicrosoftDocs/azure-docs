@@ -12,6 +12,8 @@ ms.author: danlep
 ---
 # How to log events to Azure Event Hubs in Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article describes how to log API Management events using Azure Event Hubs.
 
 Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule.
@@ -116,9 +118,24 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 
 For prerequisites, see [Configure API Management managed identity](#option-2-configure-api-management-managed-identity).
 
-#### [PowerShell](#tab/PowerShell)
+#### [REST API](#tab/PowerShell)
 
 Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) or a Bicep or ARM template to configure a logger to an event hub with system-assigned managed identity credentials.
+
+```JSON
+{
+  "properties": {
+    "loggerType": "azureEventHub",
+    "description": "adding a new logger with system assigned managed identity",
+    "credentials": {
+         "endpointAddress":"<EventHubsNamespace>.servicebus.windows.net",
+         "identityClientId":"SystemAssigned",
+         "name":"<EventHubName>"
+    }
+  }
+}
+
+```
 
 #### [Bicep](#tab/bicep)
 
@@ -132,9 +149,9 @@ resource ehLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/log
     loggerType: 'azureEventHub'
     description: 'Event hub logger with system-assigned managed identity'
     credentials: {
-      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net/<EventHubName>'
+      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net'
       identityClientId: 'systemAssigned'
-      name: 'ApimEventHub'
+      name: '<EventHubName>'
     }
   }
 }
@@ -154,9 +171,9 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
     "description": "Event hub logger with system-assigned managed identity",
     "resourceId": "<EventHubsResourceID>",
     "credentials": {
-      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net/<EventHubName>",
+      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net",
       "identityClientId": "SystemAssigned",
-      "name": "ApimEventHub"
+      "name": "<EventHubName>"
     },
   }
 }
@@ -166,9 +183,24 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 
 For prerequisites, see [Configure API Management managed identity](#option-2-configure-api-management-managed-identity).
 
-#### [PowerShell](#tab/PowerShell)
+#### [REST API](#tab/PowerShell)
 
 Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) or a Bicep or ARM template to configure a logger to an event hub with user-assigned managed identity credentials.
+
+```JSON
+{
+  "properties": {
+    "loggerType": "azureEventHub",
+    "description": "adding a new logger with user-assigned managed identity",
+    "credentials": {
+         "endpointAddress":"<EventHubsNamespace>.servicebus.windows.net",
+         "identityClientId":"<ClientID>",
+         "name":"<EventHubName>"
+    }
+  }
+}
+
+```
 
 #### [Bicep](#tab/bicep)
 
@@ -182,9 +214,9 @@ resource ehLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/logge
     loggerType: 'azureEventHub'
     description: 'Event hub logger with user-assigned managed identity'
     credentials: {
-      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net/<EventHubName>'
+      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net'
       identityClientId: '<ClientID>'
-      name: 'ApimEventHub'
+      name: '<EventHubName>'
     }
   }
 }
@@ -204,9 +236,9 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
     "description": "Event hub logger with user-assigned managed identity",
     "resourceId": "<EventHubsResourceID>",
     "credentials": {
-      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net/<EventHubName>",
+      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net",
       "identityClientId": "<ClientID>",
-      "name": "ApimEventHub"
+      "name": "<EventHubName>"
     },
   }
 }
@@ -245,7 +277,7 @@ Once your logger is configured in API Management, you can configure your [log-to
 1. Select **Save** to save the updated policy configuration. As soon as it's saved, the policy is active and events are logged to the designated event hub.
 
 > [!NOTE]
-> The maximum supported message size that can be sent to an event hub from this API Management policy is 200 kilobytes (KB). If a message that is sent to an event hub is larger than 200 KB, it will be automatically truncated, and the truncated message will be transferred to the event hub.
+> The maximum supported message size that can be sent to an event hub from this API Management policy is 200 kilobytes (KB). If a message that is sent to an event hub is larger than 200 KB, it will be automatically truncated, and the truncated message will be transferred to the event hub. For larger messages, consider using Azure Storage with Azure API Management as a workaround to bypass the 200KB limit. More details can be found in [this article](https://techcommunity.microsoft.com/t5/microsoft-developer-community/how-to-send-requests-to-azure-storage-from-azure-api-management/ba-p/3624955). 
 
 ## Preview the log in Event Hubs by using Azure Stream Analytics
 

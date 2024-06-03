@@ -4,8 +4,8 @@ description: This article describes how you enable VM insights for multiple Azur
 ms.topic: how-to
 author: guywi-ms
 ms.author: guywild
-ms.reviewer: xpathak
-ms.date: 12/13/2022
+ms.reviewer: Rahul.Bagaria
+ms.date: 07/09/2023
 
 ---
 
@@ -15,11 +15,17 @@ ms.date: 12/13/2022
 
 This article explains how to enable VM insights for Azure virtual machines, virtual machine scale sets, and hybrid virtual machines connected with Azure Arc by using predefined VM insights policy initiates.
 
-> [!NOTE]
-> For information about how to use Azure Policy with Azure virtual machine scale sets and how to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
 ## VM insights initiatives
 VM insights policy initiatives install Azure Monitor Agent and the Dependency agent on new virtual machines in your Azure environment. Assign these initiatives to a management group, subscription, or resource group to install the agents on Windows or Linux Azure virtual machines in the defined scope automatically.
+
+> [!NOTE]
+> The VM Insights initiatives listed below don't update a Dependency Agent extension that already exists on your VM with Azure Monitoring Agent settings. Make sure to uninstall the Dependency Agent extension from your VM before deploying these initiatives.
+
+Enable Azure Monitor for VMs with Azure Monitoring Agent
+Enable Azure Monitor for virtual machine scale sets with Azure Monitoring Agent
+Enable Azure Monitor for Hybrid VMs with Azure Monitoring Agent
+
 
 The initiatives apply to new machines you create and machines you modify, but not to existing VMs.
 
@@ -30,6 +36,12 @@ The initiatives apply to new machines you create and machines you modify, but no
 | Enable Azure Monitor for Hybrid VMs with Azure Monitoring Agent | Installs Azure Monitor Agent and Dependency agent on hybrid VMs connected with Azure Arc. |
 | Legacy: Enable Azure Monitor for VMs | Installs the Log Analytics agent and Dependency agent on virtual machine scale sets. |
 | Legacy: Enable Azure Monitor for virtual machine scale sets | Installs the Log Analytics agent and Dependency agent on virtual machine scale sets. |
+
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
+
+## Support for custom images
+
+Azure Monitor Agent-based VM insights policy and initiative definitions have a `scopeToSupportedImages` parameter that's set to `true` by default to enable onboarding Dependency Agent on supported images only. Set this parameter to `false`to allow onboarding Dependency Agent on custom images.  
 
 ## Assign a VM insights policy initiative
 
@@ -42,7 +54,7 @@ To assign a VM insights policy initiative to a subscription or management group 
 
     The **Assign initiative** screen appears.
 
-    [![Screenshot that shows Assign initiative.](media/vminsights-enable-policy/assign-initiative.png)](media/vminsights-enable-policy/assign-initiative.png#lightbox)
+    :::image type="content" source="media/vminsights-enable-policy/assign-initiative.png" lightbox="media/vminsights-enable-policy/assign-initiative.png" alt-text="Screenshot that shows Assign initiative.":::
 
 1. Configure the initiative assignment:
 
@@ -52,9 +64,7 @@ To assign a VM insights policy initiative to a subscription or management group 
     1. (Optional) Change the **Assignment name** and add a **Description**.
     1. On the **Parameters** tab, select a **Log Analytics workspace** to which all virtual machines in the assignment will send data. For virtual machines to send data to different workspaces, create multiple assignments, each with their own scope.
     
-        If you're assigning a legacy initiative, the workspace must have the *VMInsights* solution installed, as described in [Configure Log Analytics workspace for VM insights](vminsights-configure-workspace.md).
-    
-        [![Screenshot that shows a workspace.](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
+        :::image type="content" source="media/vminsights-enable-policy/assignment-workspace.png" lightbox="media/vminsights-enable-policy/assignment-workspace.png" alt-text="Screenshot that shows a workspace.":::
        
         > [!NOTE]
         > If you select a workspace that's not within the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's principal ID. Otherwise, you might get a deployment failure like:
@@ -77,8 +87,8 @@ To see how many virtual machines exist in each of the management groups or subsc
     :::image type="content" source="media/vminsights-enable-policy/other-onboarding-options.png" lightbox="media/vminsights-enable-policy/other-onboarding-options.png" alt-text="Screenshot that shows other onboarding options page of VM insights with the Enable using policy option.":::
 
     The **Azure Monitor for VMs Policy Coverage** page appears.
-
-    [![Screenshot that shows the VM insights Azure Monitor for VMs Policy Coverage page.](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
+    <!-- convertborder later -->
+    :::image type="content" source="media/vminsights-enable-policy/manage-policy-page-01.png" lightbox="media/vminsights-enable-policy/manage-policy-page-01.png" alt-text="Screenshot that shows the VM insights Azure Monitor for VMs Policy Coverage page." border="false":::
 
     The following table describes the compliance information presented on the **Azure Monitor for VMs Policy Coverage** page.
     
@@ -94,16 +104,16 @@ To see how many virtual machines exist in each of the management groups or subsc
     | **Compliance State** | **Compliant**: All VMs in the scope have Azure Monitor Agent or the Log Analytics agent and Dependency agent deployed to them, or any new VMs in the scope haven't yet been evaluated.<br>**Noncompliant**: There are VMs that aren't enabled and might need remediation.<br>**Not Started**: A new assignment was added.<br>**Lock**: You don't have sufficient privileges to the management group.<br>**Blank**: No policy assigned.  |
 
 1. Select the ellipsis (**...**) > **View Compliance**.
-
-    [![Screenshot that shows View Compliance.](media/vminsights-enable-policy/view-compliance.png)](media/vminsights-enable-policy/view-compliance.png#lightbox)
+    <!-- convertborder later -->
+    :::image type="content" source="media/vminsights-enable-policy/view-compliance.png" lightbox="media/vminsights-enable-policy/view-compliance.png" alt-text="Screenshot that shows View Compliance." border="false":::
 
     The **Compliance** page appears. It lists assignments that match the specified filter and indicates whether they're compliant.
 
-    [![Screenshot that shows Policy compliance for Azure VMs.](./media/vminsights-enable-policy/policy-view-compliance.png)](./media/vminsights-enable-policy/policy-view-compliance.png#lightbox)
+    :::image type="content" source="./media/vminsights-enable-policy/policy-view-compliance.png" lightbox="./media/vminsights-enable-policy/policy-view-compliance.png" alt-text="Screenshot that shows Policy compliance for Azure VMs.":::
 
 1. Select an assignment to view its details. The **Initiative compliance** page appears. It lists the policy definitions in the initiative and whether each is in compliance.
 
-    [![Screenshot that shows Compliance details.](media/vminsights-enable-policy/compliance-details.png)](media/vminsights-enable-policy/compliance-details.png#lightbox)
+    :::image type="content" source="media/vminsights-enable-policy/compliance-details.png" lightbox="media/vminsights-enable-policy/compliance-details.png" alt-text="Screenshot that shows Compliance details.":::
 
     Policy definitions are considered noncompliant if:
 
@@ -121,11 +131,11 @@ To create a remediation task:
 
 1. On the **Initiative compliance** page, select **Create Remediation Task**.
 
-    [![Screenshot that shows Policy compliance details.](media/vminsights-enable-policy/policy-compliance-details.png)](media/vminsights-enable-policy/policy-compliance-details.png#lightbox)
+    :::image type="content" source="media/vminsights-enable-policy/policy-compliance-details.png" lightbox="media/vminsights-enable-policy/policy-compliance-details.png" alt-text="Screenshot that shows Policy compliance details.":::
 
     The **New remediation task** page appears.
 
-    [![Screenshot that shows the New remediation task page.](media/vminsights-enable-policy/new-remediation-task.png)](media/vminsights-enable-policy/new-remediation-task.png#lightbox)
+    :::image type="content" source="media/vminsights-enable-policy/new-remediation-task.png" lightbox="media/vminsights-enable-policy/new-remediation-task.png" alt-text="Screenshot that shows the New remediation task page.":::
 
 1. Review **Remediation settings** and **Resources to remediate** and modify as necessary. Then select **Remediate** to create the task.
 
@@ -135,7 +145,7 @@ To create a remediation task:
 
 To track the progress of remediation tasks, on the **Policy** menu, select **Remediation** and select the **Remediation tasks** tab.
 
-[![Screenshot that shows the Policy Remediation page for Monitor | Virtual Machines.](media/vminsights-enable-policy/remediation.png)](media/vminsights-enable-policy/remediation.png#lightbox)
+:::image type="content" source="media/vminsights-enable-policy/remediation.png" lightbox="media/vminsights-enable-policy/remediation.png" alt-text="Screenshot that shows the Policy Remediation page for Monitor | Virtual Machines.":::
 
 ## Next steps
 

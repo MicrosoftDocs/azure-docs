@@ -1,16 +1,16 @@
 ---
-title: Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+title: Istio-based service mesh add-on for Azure Kubernetes Service
 description: Istio-based service mesh add-on for Azure Kubernetes Service.
 ms.topic: article
+ms.service: azure-kubernetes-service
 ms.date: 04/09/2023
 ms.author: shasb
+author: shashankbarsin
 ---
 
-# Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+# Istio-based service mesh add-on for Azure Kubernetes Service
 
 [Istio][istio-overview] addresses the challenges developers and operators face with a distributed or microservices architecture. The Istio-based service mesh add-on provides an officially supported and tested integration for Azure Kubernetes Service (AKS).
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## What is a Service Mesh?
 
@@ -45,13 +45,12 @@ This service mesh add-on uses and builds on top of open-source Istio. The add-on
 ## Limitations
 
 Istio-based service mesh add-on for AKS has the following limitations:
-
-* The add-on currently doesn't work on AKS clusters using [Azure CNI Powered by Cilium][azure-cni-cilium].
 * The add-on doesn't work on AKS clusters that are using [Open Service Mesh addon for AKS][open-service-mesh-about].
 * The add-on doesn't work on AKS clusters that have Istio installed on them already outside the add-on installation.
-* Managed lifecycle of mesh on how Istio versions are installed and later made available for upgrades.
+* The add-on doesn't support adding pods associated with virtual nodes to be added under the mesh.
 * Istio doesn't support Windows Server containers.
 * Customization of mesh based on the following custom resources is blocked for now - `EnvoyFilter, ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin`
+* Gateway API for Istio ingress gateway or managing mesh traffic (GAMMA) are currently not yet supported with Istio addon.
 
 ## Next steps
 

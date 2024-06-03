@@ -5,7 +5,7 @@ author: apurbasroy
 ms.author: apsinhar
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 07/22/2022
+ms.date: 08/21/2023
 ---
 
 # Apache Spark operations supported by Hive Warehouse Connector in Azure HDInsight
@@ -81,7 +81,7 @@ Spark doesn't natively support writing to Hive's managed ACID tables. However, u
     hive.table("sampletable_colorado").show()
     ```
     
-    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png" alt-text="hive warehouse connector show hive table" border="true":::
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png" alt-text="hive warehouse connector show hive table." border="true":::
 
 
 ## Structured streaming writes

@@ -2,14 +2,17 @@
 title: Create Azure Backup policies for blobs using data protection REST API
 description: In this article, you'll learn how to create and manage backup policies for blobs using REST API.
 ms.topic: how-to
-ms.date: 10/28/2022
+ms.date: 05/30/2024
 ms.assetid: 472d6a4f-7914-454b-b8e4-062e8b556de3
 ms.service: backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Create Azure Data Protection backup policies for blobs using REST API
+
+This article describes how to create Azure Data Protection backup policies for Azure Blobs using REST API.
 
 Azure Backup policy typically governs the retention and schedule of your backups. As operational backup for blobs is continuous in nature, you don't need a schedule to perform backups. The policy is essentially needed to specify the retention period. You can reuse the backup policy to configure backup for multiple storage accounts to a vault.
 
@@ -59,7 +62,7 @@ The following request body defines a backup policy for blob backups.
 The policy says:
 
 - Retention period is 30 days.
-- Datastore is 'operational store' since the backups are local and no data is stored in the Backup vault.
+- Datastore is 'operational store'.
 
 ```json
 {
@@ -89,6 +92,92 @@ The policy says:
     ]
   }
 }
+```
+
+To configure a backup policy with the vaulted backup (preview), use the following JSON script:
+
+```json
+{
+  "id": "/subscriptions/495944b2-66b7-4173-8824-77043bb269be/resourceGroups/Blob-Backup/providers/Microsoft.DataProtection/BackupVaults/yavovaultecy01/backupPolicies/TestPolicy",
+  "name": "TestPolicy",
+  "type": "Microsoft.DataProtection/BackupVaults/backupPolicies",
+  "properties": {
+    "policyRules": [
+      {
+        "name": "Default",
+        "objectType": "AzureRetentionRule",
+        "isDefault": true,
+        "lifecycles": [
+          {
+            "deleteAfter": {
+              "duration": "P30D",
+              "objectType": "AbsoluteDeleteOption"
+            },
+            "sourceDataStore": {
+              "dataStoreType": "OperationalStore",
+              "objectType": "DataStoreInfoBase"
+            },
+            "targetDataStoreCopySettings": []
+          }
+        ]
+      },
+      {
+        "name": "Default",
+        "objectType": "AzureRetentionRule",
+        "isDefault": true,
+        "lifecycles": [
+          {
+            "deleteAfter": {
+              "duration": "P7D",
+              "objectType": "AbsoluteDeleteOption"
+            },
+            "sourceDataStore": {
+              "dataStoreType": "VaultStore",
+              "objectType": "DataStoreInfoBase"
+            },
+            "targetDataStoreCopySettings": []
+          }
+        ]
+      },
+      {
+        "name": "BackupDaily",
+        "objectType": "AzureBackupRule",
+        "backupParameters": {
+          "backupType": "Discrete",
+          "objectType": "AzureBackupParams"
+        },
+        "dataStore": {
+          "dataStoreType": "VaultStore",
+          "objectType": "DataStoreInfoBase"
+        },
+        "trigger": {
+          "schedule": {
+            "timeZone": "UTC",
+            "repeatingTimeIntervals": [
+              "R/2024-05-08T14:00:00+00:00/P1D"
+            ]
+          },
+          "taggingCriteria": [
+            {
+              "isDefault": true,
+              "taggingPriority": 99,
+              "tagInfo": {
+                "id": "Default_",
+                "tagName": "Default"
+              }
+            }
+          ],
+          "objectType": "ScheduleBasedTriggerContext"
+        }
+      }
+    ],
+    "datasourceTypes": [
+      "Microsoft.Storage/storageAccounts/blobServices"
+    ],
+    "objectType": "BackupPolicy",
+    "name": "TestPolicy"
+  }
+} 
 ```
 
 > [!IMPORTANT]

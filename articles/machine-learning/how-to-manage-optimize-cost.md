@@ -5,11 +5,11 @@ description: Learn tips to optimize your cost when building machine learning mod
 ms.reviewer: ssalgado
 author: joburges
 ms.author: joburges
-ms.custom: subject-cost-optimization, event-tier1-build-2022
+ms.custom: subject-cost-optimization
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 06/08/2021 
+ms.date: 08/01/2023
 ---
 
 # Manage and optimize Azure Machine Learning costs
@@ -19,6 +19,7 @@ Learn how to manage and optimize costs when training and deploying machine learn
 Use the following tips to help you manage and optimize your compute resource costs.
 
 - Configure your training clusters for autoscaling
+- Configure your managed online endpoints for autoscaling
 - Set quotas on your subscription and workspaces
 - Set termination policies on your training job
 - Use low-priority virtual machines (VM)
@@ -28,6 +29,7 @@ Use the following tips to help you manage and optimize your compute resource cos
 - Parallelize training
 - Set data retention and deletion policies
 - Deploy resources to the same region
+- Delete failed deployments if computes are created for them
 
 For information on planning and monitoring costs, see the [plan to manage costs for Azure Machine Learning](concept-plan-manage-cost.md) guide.
 
@@ -40,7 +42,7 @@ For information on planning and monitoring costs, see the [plan to manage costs 
 
 With constantly changing data, you need fast and streamlined model training and retraining to maintain accurate models. However, continuous training comes at a cost, especially for deep learning models on GPUs. 
 
-Azure Machine Learning users can use the managed Azure Machine Learning compute cluster, also called AmlCompute. AmlCompute supports a variety of GPU and CPU options. The AmlCompute is internally hosted on behalf of your subscription by Azure Machine Learning. It provides the same enterprise grade security, compliance and governance at Azure IaaS cloud scale.
+Azure Machine Learning users can use the managed Azure Machine Learning compute cluster, also called AmlCompute. AmlCompute supports various GPU and CPU options. The AmlCompute is internally hosted on behalf of your subscription by Azure Machine Learning. It provides the same enterprise grade security, compliance and governance at Azure IaaS cloud scale.
 
 Because these compute pools are inside of Azure's IaaS infrastructure, you can deploy, scale, and manage your training with the same security and compliance requirements as the rest of your infrastructure.  These deployments occur in your subscription and obey your governance rules. Learn more about [Azure Machine Learning compute](how-to-create-attach-compute-cluster.md).
 
@@ -48,9 +50,9 @@ Because these compute pools are inside of Azure's IaaS infrastructure, you can d
 
 Autoscaling clusters based on the requirements of your workload helps reduce your costs so you only use what you need.
 
-AmlCompute clusters are designed to scale dynamically based on your workload. The cluster can be scaled up to the maximum number of nodes you configure. As each job completes, the cluster will release nodes and scale to your configured minimum node count.
+AmlCompute clusters are designed to scale dynamically based on your workload. The cluster can be scaled up to the maximum number of nodes you configure. As each job completes, the cluster releases nodes and scale to your configured minimum node count.
 
-[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
+[!INCLUDE [min-nodes-note](includes/machine-learning-min-nodes.md)]
 
 You can also configure the amount of time the node is idle before scale down. By default, idle time before scale down is set to 120 seconds.
 
@@ -59,6 +61,11 @@ You can also configure the amount of time the node is idle before scale down. By
 
 AmlCompute clusters can be configured for your changing workload requirements in Azure portal, using the [AmlCompute SDK class](/python/api/azure-ai-ml/azure.ai.ml.entities.amlcompute), [AmlCompute CLI](/cli/azure/ml/compute#az-ml-compute-create), with the [REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
+## Configure your managed online endpoints for autoscaling
+
+Autoscale automatically runs the right amount of resources to handle the load on your application. [Managed online endpoints](concept-endpoints-online.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
+
+Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Autoscale online endpoints](how-to-autoscale-endpoints.md). 
 
 ## Set quotas on resources
 
@@ -70,12 +77,12 @@ To set quotas at the workspace level, start in the [Azure portal](https://portal
 
 ## Set job autotermination policies 
 
-In some cases, you should configure your training runs to limit their duration or terminate them early. For example, when you are using Azure Machine Learning's built-in hyperparameter tuning or automated machine learning.
+In some cases, you should configure your training runs to limit their duration or terminate them early. For example, when you're using Azure Machine Learning's built-in hyperparameter tuning or automated machine learning.
 
 Here are a few options that you have:
 * Define a parameter called `max_run_duration_seconds` in your RunConfiguration to control the maximum duration a run can extend to on the compute you choose (either local or remote cloud compute).
 * For [hyperparameter tuning](how-to-tune-hyperparameters.md#early-termination), define an early termination policy from a Bandit policy, a Median stopping policy, or a Truncation selection policy. To further control hyperparameter sweeps, use parameters such as `max_total_runs` or `max_duration_minutes`.
-* For [automated machine learning](how-to-configure-auto-train.md#exit), set similar termination policies using the  `enable_early_stopping` flag. Also use properties such as `iteration_timeout_minutes` and `experiment_timeout_minutes` to control the maximum duration of a job or for the entire experiment.
+* For [automated machine learning](how-to-configure-auto-train.md#exit-criteria), set similar termination policies using the  `enable_early_stopping` flag. Also use properties such as `iteration_timeout_minutes` and `experiment_timeout_minutes` to control the maximum duration of a job or for the entire experiment.
 
 ## <a id="low-pri-vm"></a> Use low-priority VMs
 
@@ -87,19 +94,19 @@ Low-Priority VMs have a single quota separate from the dedicated quota value, wh
 
 ## Schedule compute instances
 
-When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
-* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
-* Or [set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it's available for your work.  
+* [Enable idle shutdown (preview)](how-to-create-compute-instance.md#configure-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
+* Or [set up a schedule](how-to-create-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
 
 ## Use reserved instances
 
 Another way to save money on compute resources is Azure Reserved VM Instance. With this offering, you commit to one-year or three-year terms. These discounts range up to 72% of the pay-as-you-go prices and are applied directly to your monthly Azure bill.
 
-Azure Machine Learning Compute supports reserved instances inherently. If you purchase a one-year or three-year reserved instance, we will automatically apply discount against your Azure Machine Learning managed compute.
+Azure Machine Learning Compute supports reserved instances inherently. If you purchase a one-year or three-year reserved instance, we'll automatically apply discount against your Azure Machine Learning managed compute.
 
 ## Parallelize training
 
-One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel component in Azure Machine Learning. A parallel component allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelComponent](/python/api/azure-ai-ml/azure.ai.ml.entities.parallelcomponent) documentation.
+One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel component in Azure Machine Learning. A parallel component allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There's an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For more details, follow this link for [ParallelComponent](/python/api/azure-ai-ml/azure.ai.ml.entities.parallelcomponent) documentation.
 
 ## Set data retention & deletion policies
 
@@ -110,6 +117,10 @@ Every time a pipeline is executed, intermediate datasets are generated at each s
 Computes located in different regions may experience network latency and increased data transfer costs. Azure network costs are incurred from outbound bandwidth from Azure data centers. To help reduce network costs, deploy all your resources in the region. Provisioning your Azure Machine Learning workspace and dependent resources in the same region as your data can help lower cost and improve performance.
 
 For hybrid cloud scenarios like those using ExpressRoute, it can sometimes be more cost effective to move all resources to Azure to optimize network costs and latency.
+
+## Delete failed deployments if computes are created for them
+
+Managed online endpoint uses VMs for the deployments. If you submitted request to create an online deployment and it failed, it may have passed the stage when compute is created. In that case, the failed deployment would incur charges. If you finished debugging or investigation for the failure, you may delete the failed deployments to save the cost.
 
 ## Next steps
 

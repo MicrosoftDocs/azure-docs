@@ -1,17 +1,19 @@
 ---
 title: Tutorial - Access and customize the developer portal - Azure API Management | Microsoft Docs
-description: Follow this to tutorial to learn how to customize the API Management developer portal, an automatically generated, fully customizable website with the documentation of your APIs. 
+description: Follow this tutorial to learn how to customize the API Management developer portal, an automatically generated, fully customizable website with the documentation of your APIs. 
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 03/29/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 
 # Tutorial: Access and customize the developer portal
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 The *developer portal* is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, and request access.
 
@@ -24,216 +26,197 @@ In this tutorial, you learn how to:
 > * Publish the changes
 > * View the published portal
 
-You can find more details on the developer portal in the [Azure API Management developer portal overview](api-management-howto-developer-portal.md).
+For more information about developer portal features and options, see [Azure API Management developer portal overview](developer-portal-overview.md).
 
 :::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="Screenshot of the API Management developer portal - administrator mode." border="false":::
 
 ## Prerequisites
 
-- Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
-- Import and publish an API. For more information, see [Import and publish](import-and-publish.md)
+- Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
+- [Import and publish](import-and-publish.md) an API.
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 
 ## Access the portal as an administrator
 
-Follow the steps below to access the managed version of the portal.
+Follow these steps to access the managed version of the developer portal.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
+1. If you created your instance in a v2 service tier that supports the developer portal, first enable the developer portal. 
+    1. In the left menu, under **Developer portal**, select **Portal settings**. 
+    1. In the **Portal settings** window, select **Enabled**. Select **Save**. 
+    
+    It might take a few minutes to enable the developer portal.
+1. In the left menu, under **Developer portal**, select **Portal overview**. Then select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
 
-
-## Developer portal architectural concepts
-
-The portal components can be logically divided into two categories: *code* and *content*.
-
-### Code
-
-Code is maintained in the API Management developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal) and includes:
-
-- **Widgets** - represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
-- **Styling definitions** - specify how widgets can be styled
-- **Engine** - which generates static webpages from portal content and is written in JavaScript
-- **Visual editor** - allows for in-browser customization and authoring experience
-
-### Content
-
-Content is divided into two subcategories: *portal content* and *API Management content*.
-
-*Portal content* is specific to the portal and includes:
-
-- **Pages** - for example, landing page, API tutorials, blog posts
-- **Media** - images, animations, and other file-based content
-- **Layouts** - templates, which are matched against a URL and define how pages are displayed
-- **Styles** - values for styling definitions, such as fonts, colors, borders
-- **Settings** - configurations such as favicon, website metadata
-
-    Portal content, except for media, is expressed as JSON documents.
-
-*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
 ## Understand the portal's administrative interface
 
-### Default content 
+[!INCLUDE [api-management-developer-portal-editor](../../includes/api-management-developer-portal-editor.md)]
 
-If you're accessing the portal for the first time, the default content is automatically provisioned in the background. Default content has been designed to showcase the portal's capabilities and minimize the customizations needed to personalize your portal. You can learn more about what is included in the portal content in the [Azure API Management developer portal overview](api-management-howto-developer-portal.md).
+## Add an image to the media library
 
-### Visual editor
+You'll want to use your own images and other media content in the developer portal to reflect your organization's branding. If an image that you want to use isn't already in the portal's media library, add it in the developer portal:
 
-You can customize the content of the portal with the visual editor. 
-* The menu sections on the left let you create or modify pages, media, layouts, menus, styles, or website settings. 
-* The menu items on the bottom let you switch between viewports (for example, mobile or desktop), view the elements of the portal visible to users in different groups, or save or undo actions.
-* Add sections to a page by clicking on a blue icon with a plus sign. 
-* Widgets (for example, text, images, or APIs list) can be added by pressing a grey icon with a plus sign.
-* Rearrange items in a page with the drag-and-drop interaction. 
-
-### Layouts and pages
-
-:::image type="content" source="media/api-management-howto-developer-portal-customize/pages-layouts.png" alt-text="Screenshot of the visual editor in the developer portal." border="false":::
-
-Layouts define how pages are displayed. For example, in the default content, there are two layouts: one applies to the home page, and the other to all remaining pages.
-
-A layout gets applied to a page by matching its URL template to the page's URL. For example, a layout with a URL template of `/wiki/*` will be applied to every page with the `/wiki/` segment in the URL: `/wiki/getting-started`, `/wiki/styles`, etc.
-
-In the preceding image, content belonging to the layout is marked in blue, while the page is marked in red. The menu sections are marked respectively.
-
-### Styling guide
-
-:::image type="content" source="media/api-management-howto-developer-portal-customize/styling-guide.png" alt-text="Screenshot of the styling guide in the developer portal." border="false":::
-
-Styling guide is a panel created with designers in mind. It allows for overseeing and styling all the visual elements in your portal. The styling is hierarchical - many elements inherit properties from other elements. For example, button elements use colors for text and background. To change a button's color, you need to change the original color variant.
-
-To edit a variant, select it and select the pencil icon that appears on top of it. After you make the changes in the pop-up window, close it.
-
-### Save button
-
-:::image type="content" source="media/api-management-howto-developer-portal-customize/save-button.png" alt-text="Screenshot of the Save button in the developer portal." :::
-
-Whenever you make a change in the portal, you need to save it manually by selecting the **Save** button in the menu at the bottom, or press [Ctrl]+[S]. When you save your changes, the modified content is automatically uploaded to your API Management service.
-
-## Customize the portal's content
-
-Before you make your portal available to the visitors, you should personalize the automatically generated content. Recommended changes include the layouts, styles, and the content of the home page. You can also make certain content elements accessible only to selected users or groups.
-
-> [!NOTE]
-> Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
-
-### Home page
-
-The default **Home** page is filled with placeholder content. You can either remove entire sections containing this content or keep the structure and adjust the elements one by one. Replace the generated text and images with your own and make sure the links point to desired locations. You can edit the structure and content of the home page by:
-* Dragging and dropping page elements to the desired placement on the site.
-* Selecting text and heading elements to edit and format content. 
-* Verifying your buttons point to the right locations.
-
-### Layouts
-
-Replace the automatically generated logo in the navigation bar with your own image.
-
-1. In the developer portal, select the default **Contoso** logo in the top left of the navigation bar. 
-1. Select the **Edit** icon. 
-1. Under the **Main** section, select **Source**.
-1. In the **Media** pop-up, either select:
-    * An image already uploaded in your library, or
-    * **Upload file** to upload a new image file to use, or
-    * Select **None** to forego using a logo.
-1. The logo updates in real-time.
-1. Select outside the pop-up windows to exit the media library.
-1. Click **Save**.
-
-### Styling
-
-Although you don't need to adjust any styles, you may consider adjusting particular elements. For example, change the primary color to match your brand's color. You can do this in two ways:
-
-#### Overall site style
-
-1. In the developer portal, select the **Styles** icon from the left tool bar.
-1. Under the **Colors** section, select the color style item you want to edit.
-1. Click the **Edit** icon for that style item.
-1. Select the color from the color-picker, or enter the hex color code.
-1. Add and name another color item by clicking **Add color**.  
-1. Click **Save**.
-
-#### Container style
-
-1. On the main page of the developer portal, select the container background.
-1. Click the **Edit** icon.
-1. In the pop-up, set:
-    * The background to clear, an image, a specific color, or a gradient.
-    * The container size, margin, and padding.
-    * Container position and height.
-1. Select outside the pop-up windows to exit the container settings.
-1. Click **Save**.
-
-### Visibility and access controls
-
-You can control which portal content appears to different users, based on their identity. For example, you might want to display certain pages only to users who have access to a specific product or API. Or, make a section of a page appear only for certain [groups of users](api-management-howto-create-groups.md). The developer portal has built-in controls for these needs.
-
-> [!NOTE]
-> Visibility and access controls are supported only in the managed developer portal. They are not supported in the [self-hosted portal](developer-portal-self-host.md).
-
-* When you add or edit a page, select the **Access** tab to control the users or groups that can access the page
-    
-    :::image type="content" source="media/api-management-howto-developer-portal-customize/page-access-control.png" alt-text="Screenshot of the page access control settings in the developer portal.":::
-
-* When you customize page content such as a page section, menu, or button, select the **Change visibility** icon to control the users or groups that can see the element on the page
-
-    :::image type="content" source="media/api-management-howto-developer-portal-customize/change-visibility-button.png" alt-text="Screenshot of the change visibility button in the developer portal.":::
-
-    * You can change the visibility of the following page content: sections, menus, buttons, and sign-in for OAuth authorization.    
-
-    * Media files such as images on a page inherit the visibility of the elements that contain them.
-
-When a user visits the developer portal with visibility and access controls applied:
-
-* The developer portal automatically hides buttons or navigation items that point to pages that a user doesn't have access to.
-
-* An attempt by a user to access a page they aren't authorized to will result in a 404 Not Found error.
+1. In the left menu of the visual editor, select **Media**.
+1. Do one of the following:
+    * Select **Upload file** and select a local image file on your computer.
+    * Select **Link file**. Enter a **Reference URL** to the image file and other details. Then select **Download**.
+1. Select **Close** to exit the media library.
 
 > [!TIP]
-> Using the administrative interface, you can preview pages as a user associated with any built-in or custom group by selecting the **Impersonate** icon in the menu at the bottom. 
-> 
+> You can also add an image to the media library by dragging and dropping it directly in the visual editor window.
 
-### Customization example
+## Replace the default logo on the home page
 
-In the following video, we demonstrate how to edit the content of the portal, customize the website's look, and publish the changes.
+A placeholder logo is provided in the top left corner of the navigation bar. You can replace it with your own logo to match your organization's branding.
 
-> [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
+1. In the developer portal, select the default **Contoso** logo in the top left of the navigation bar. 
+1. Select **Edit**. 
+1. In the **Picture** pop-up, under **Main**, select **Source**.
+1. In the **Media** pop-up, select one of the following:
+    * An image already uploaded in your media library
+    * **Upload file** to upload a new image file to your media library
+    * **None** if you don't want to use a logo
+1. The logo updates in real time.
+1. Select outside the pop-up windows to exit the media library.
+1. In the top bar, select **Save**.
 
-## <a name="publish"></a> Publish the portal
+## Edit content on the home page
 
-To make your portal and its latest changes available to visitors, you need to *publish* it. You can publish the portal within the portal's administrative interface or from the Azure portal.
+The default **Home** page and other pages are provided with placeholder text and other images. You can either remove entire sections containing this content or keep the structure and adjust the elements one by one. Replace the generated text and images with your own and make sure any links point to desired locations. 
 
-### Publish from the administrative interface
+Edit the structure and content of the generated pages in several ways. For example:
 
-1. Make sure you saved your changes by selecting the **Save** icon.
-1. In the **Operations** section of the menu, select **Publish website**. This operation may take a few minutes.  
+[!INCLUDE [api-management-developer-portal-add](../../includes/api-management-developer-portal-add.md)]
 
-    :::image type="content" source="media/api-management-howto-developer-portal-customize/publish-portal.png" alt-text="Screenshot of the Publish website button in the developer portal." border="false":::
+## Edit the site's primary color
 
-### Publish from the Azure portal
+To change colors, gradients, typography, buttons, and other user interface elements in the developer portal, edit the site styles. For example, change the primary color used in the navigation bar, buttons, and other elements to match your organization's branding.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, under **Developer portal**, select **Portal overview**.
-1. In the **Portal overview** window, select **Publish**.
+1. In the developer portal, in the left menu of the visual editor, select **Styles**. 
+1. Under the **Colors** section, select the color style item you want to edit. For example, select **Primary**.
+1. Select **Edit color**.
+1. Select the color from the color-picker, or enter the color hex code.
+1. In the top bar, elect **Save**.
 
-    :::image type="content" source="media/api-management-howto-developer-portal-customize/pubish-portal-azure-portal.png" alt-text="Publish portal from Azure portal":::
+The updated color is applied to the site in real time.
 
-> [!NOTE]
-> The portal needs to be republished after API Management service configuration changes. For example, republish the portal after assigning a custom domain, updating the identity providers, setting delegation, or specifying sign-in and product terms.
+> [!TIP]
+> If you want, add and name another color item by selecting **+ Add color** on the **Styles** page.
 
+## Change the background image on the home page
+
+You can change the background on your portal's home page to an image or color that matches your organization's branding. If you haven't already uploaded a different image to the media library, you can upload it before changing the background image, or when you're changing it.
+
+1. On the home page of the developer portal, click in the top right corner so that the top section is highlighted at the corners and a pop-up menu appears.
+1. To the right of **Edit article** in the pop-up menu, select the up-down arrow (**Switch to parent**). 
+1. Select **Edit section**.
+1. In the **Section** pop-up, under **Background**, select one of the icons:
+
+    :::image type="content" source="media/api-management-howto-developer-portal-customize/background.png" alt-text="Screenshot of background settings in the developer portal.":::
+    * **Clear background**, to remove a background image
+    * **Background image**, to select an image from the media library, or to upload a new image
+    * **Background color**, to select a color from the color picker, or to clear a color
+    * **Background gradient**, to select a gradient from your site styles page, or to clear a gradient
+1. Under **Background sizing**, make a selection appropriate for your background.
+1. In the top bar, select **Save**.
+
+## Change the default layout
+
+The developer portal uses *layouts* to define common content elements such as navigation bars and footers on groups of related pages. Each page is automatically matched with a layout based on a URL template. 
+
+By default, the developer portal comes with two layouts:
+
+* **Home** - used for the home page (URL template `/`)
+
+* **Default** - used for all other pages (URL template `/*`). 
+
+:::image type="content" source="media/api-management-howto-developer-portal-customize/layouts.png" alt-text="Screenshot of default layouts in the developer portal.":::
+
+You can change the layout for any page in the developer portal and define new layouts to apply to pages that match other URL templates.
+
+For example, to change the logo that's used in the navigation bar of the Default layout to match your organization's branding:
+
+1. In the left menu of the visual editor, select **Pages**.
+1. Select the **Layouts** tab, and select **Default**.
+1. Select the picture of the logo in the upper left corner and select **Edit**.
+1. Under **Main**, select **Source**.
+1. In the **Media** pop-up windows, select one of the following:
+    * An image already uploaded in your media library
+    * **Upload file** to upload a new image file to your media file that you can select
+    * **None** if you don't want to use a logo
+1. The logo updates in real time.
+1. Select outside the pop-up windows to exit the media library.
+1. In the top bar, select **Save**.
+
+## Edit navigation menus
+
+You can edit the navigation menus at the top of the developer portal pages to change the order of menu items, add items, or remove items. You can also change the name of menu items and the URL or other content they point to.
+
+For example, the **Default** and **Home** layouts for the developer portal display two menus to guest users of the developer portal: 
+
+* a main menu with links to **Home**, **APIs**, and **Products**
+* an anonymous user menu with links to **Sign in** and **Sign up** pages. 
+
+However, you might want to customize them. For example, if you want to independently invite users to your site, you could disable the **Sign up** link in the anonymous user menu.
+
+:::image type="content" source="media/api-management-howto-developer-portal-customize/navigation-menus.png" alt-text="Screenshot of default navigation menus in the developer portal.":::
+
+1. In the left menu of the visual editor, select **Site menu**.
+1. On the left, expand **Anonymous user menu**.
+1. Select the settings (gear icon) next to **Sign up**, and select **Delete**. 
+1. Select **Save**.
+
+## Edit site settings
+
+Edit the site settings for the developer portal to change the site name, description, and other details. 
+
+1. In the left menu of the visual editor, select **Settings**.
+1. In the **Settings** pop-up, enter the site metadata you want to change. Optionally, set up a favicon for the site from an image in your media library.
+1. In the top bar, **Save**.
+
+> [!TIP]
+> If you want to change the site's domain name, you must first set up a custom domain in your API Management instance. [Learn more about custom domain names](configure-custom-domain.md) in API Management.
+
+
+## Publish the portal
+
+To make your portal and its latest changes available to visitors, you need to *publish* it.
+
+To publish from the administrative interface of the developer portal:
+
+[!INCLUDE [api-management-developer-portal-publish](../../includes/api-management-developer-portal-publish.md)]
+
+
+> [!TIP]
+> Another option is to publish the site from the Azure portal. On the **Portal overview** page of your API Management instance in the Azure portal, select **Publish**. 
 
 ## Visit the published portal
 
-After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.developer.azure-api.net`. View it in a separate browser session (using incognito or private browsing mode) as an external visitor.
+To view your changes after you publish the portal, access it at the same URL as the administrative panel, for example `https://contoso-api.developer.azure-api.net`. View it in a separate browser session (using incognito or private browsing mode) as an external visitor.
 
 ## Apply the CORS policy on APIs
 
-To let the visitors of your portal test the APIs through the built-in interactive console, enable CORS (cross-origin resource sharing) on your APIs. For details, see the [Azure API Management developer portal FAQ](developer-portal-faq.md#cors).
+To let the visitors of your portal test the APIs through the built-in interactive console, enable CORS (cross-origin resource sharing) on your APIs, if you haven't already done so. On the **Portal overview** page of your API Management instance in the Azure portal, select **Enable CORS**. [Learn more](enable-cors-developer-portal.md).
 
 ## Next steps
 
-Learn more about the developer portal:
+In this tutorial, you learned how to:
 
-- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
-- [Migrate to the new developer portal](developer-portal-deprecated-migration.md) from the deprecated legacy portal.
-- Configure authentication to the developer portal with [usernames and passwords](developer-portal-basic-authentication.md), [Azure AD](api-management-howto-aad.md), or [Azure AD B2C](api-management-howto-aad-b2c.md).
+> [!div class="checklist"]
+> * Access the managed version of the developer portal
+> * Navigate its administrative interface
+> * Customize the content
+> * Publish the changes
+> * View the published portal
+
+Advance to the next tutorial:
+
+> [!div class="nextstepaction"]
+> [Import and manage APIs using Visual Studio Code](visual-studio-code-tutorial.md)
+
+See related content about the developer portal:
+
+- [Azure API Management developer portal overview](developer-portal-overview.md)
+- Configure authentication to the developer portal with [usernames and passwords](developer-portal-basic-authentication.md), [Microsoft Entra ID](api-management-howto-aad.md), or [Azure AD B2C](api-management-howto-aad-b2c.md).
 - Learn more about [customizing and extending](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.

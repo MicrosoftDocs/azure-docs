@@ -26,7 +26,7 @@ You can also subscribe to recording changes:
 
 ```csharp
 private async void Call__OnIsRecordingActiveChanged(object sender, PropertyChangedEventArgs args)
-	boolean isRecordingActive = recordingFeature.IsRecordingActive;
+  boolean isRecordingActive = recordingFeature.IsRecordingActive;
 }
 
 recordingFeature.IsRecordingActiveChanged += Call__OnIsRecordingActiveChanged;

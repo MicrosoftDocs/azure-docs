@@ -12,8 +12,8 @@ Now that the repository is created, you can create a static web app from the Azu
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Select **Create a Resource**.
-1. Search for **Static Web Apps**.
-1. Select **Static Web Apps**.
+1. Search for **Static Web App**.
+1. Select **Static Web App**.
 1. Select **Create**.
 
 In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.

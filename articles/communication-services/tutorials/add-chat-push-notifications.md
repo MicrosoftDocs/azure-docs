@@ -93,6 +93,8 @@ Here we recommend creating a .p12 APNS cert and set it in Notification Hub.
 
 <img src="./media/add-chat-push-notification/xcode-config.png"  width="730" height="500" alt="Screenshot of Enable Push Notifications and Background modes in Xcode.">  
 
+* Set "Require Only App-Extension-Safe API" as "No" for Pod Target - AzureCore
+  
 ## Implementation
 
 
@@ -144,3 +146,55 @@ In protocol extension, chat SDK provides the implementation of `decryptPayload(n
 5. Plug the IOS device into your mac, run the program and click “allow” when asked to authorize push notification on device. 
 
 6. As User B, send a chat message. You (User A) should be able to receive a push notification in your IOS device.
+
+## Registration Auto-Renew 
+
+For Microsoft to provide secure chat service, the registration for push notifications on iOS devices remains valid for only 45 minutes. To maintain the functionality of push notifications, you need to implement registration renewal in the client app.  
+
+Here we propose two solutions aligned with Apple's official guidelines. It is important to note that the effectiveness of either solution may be influenced by various factors such as the device's battery status, network conditions, and iOS-specific restrictions that could affect the app's ability to execute background tasks, which is stated in [Apple WWDC Video](https://developer.apple.com/videos/play/wwdc2019/707) and [Apple official wiki](https://developer.apple.com/documentation/usernotifications/pushing-background-updates-to-your-app). We recommend that you implement both solutions together to increase their effectiveness. 
+
+### Solution 1. Background Tasks
+Background Tasks offer a way to perform activities even when the app is not in the foreground. By implementing a background task, your app can request additional time to complete a specific task, such as renewing the push notification registration. Here’s how you can leverage background tasks for registration renewal:<br>
+
+**Step 1. Configure User Access Token Auto Refresh**<br><br>
+To ensure uninterrupted access to chat services, you need to maintain valid user access tokens. Tokens typically have a default validity period (24 hours), after which they expire, requiring renewal. Implementing an auto-refresh mechanism guarantees that the token is always valid whenever the chat application is activated.<br>
+The Chat SDK streamlines token management by automating the refresh process when a custom access token refresher is implemented. Complete the following steps to configure your chat application to support token auto-refresh:<br>
+
+1.1 Establish a Service Tier for Token Issuance<br><br>
+To ensure your chat application maintains continuous and secure user access, you need to implement a service tier dedicated to issuing tokens. One option is to leverage Azure Functions for this purpose. 
+
+To create your Azure Function, see [Build a trusted user access service using Azure Functions](../tutorials/trusted-service-tutorial.md). This guide describes how to set up your function app and deploy the code needed to issue tokens.
+
+1.2 Implement the Token Refresher in Your Chat Application<br><br>
+Once your Azure Function is configured: <br>
+Obtain the Token Issuer URL from the Azure Portal, which your chat application uses to request new tokens.<br>
+Create and Integrate the Token Refresher within your chat application. This implements a token refresher component that requests fresh tokens and initializes the Chat Client with this component for seamless automatic token renewal. 
+
+For easy reference and implementation, sample code for the token refresher and its integration with the Chat Client is available in our [Sample App Repository](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat-push-notifications-auto-renew) .<br><br> 
+
+**Step 2. Follow Apple Instruction to enable and schedule Background tasks**<br><br>
+To activate and schedule background tasks in your application, adhere to Apple's guidelines as outlined in their documentation on [Using Background Tasks to Update Your App](https://developer.apple.com/documentation/uikit/app_and_environment/scenes/preparing_your_ui_to_run_in_the_background/using_background_tasks_to_update_your_app). This guide provides comprehensive steps for integrating background task capabilities into your iOS app. 
+
+For practical implementation, consult our [Sample App Repository](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat-push-notifications-auto-renew). In the provided sample, we use BGProcessingTask configured to initiate no sooner than 1 minute into the future, demonstrating how to efficiently fetch data in the background. 
+
+### Solution 2. Remote Notification
+[Remote notification](https://developer.apple.com/documentation/usernotifications/setting-up-a-remote-notification-server) is the mechanism for iOS applications to execute background tasks in response to external triggers. They can be used for tasks like refreshing registrations without user intervention. Here's how to use remote notification to run a background task:
+
+1.Implement a Triggering Mechanism<br>
+For example, you can use an Azure Function App as the triggering mechanism. It enables you to run code in response to various triggers, including HTTP requests, making it ideal for initiating silent push notifications. Remember to implement the device registry on your end so that the function app knows where to deliver the notifications. 
+
+
+2.Set Up an Azure Notification Hub<br>
+Azure Notification Hub provides a scalable, easy-to-use push notification infrastructure that can send notifications to any platform (iOS, Android, Windows, and so on) from any backend (cloud or on-premises). It's essential for managing and pushing notifications to devices. You can reuse the same notification hub that you use for regular push notifications. If you want to set up a new one, see [Azure Notification Hubs Documentation](../../notification-hubs/notification-hubs-push-notification-overview.md). 
+
+3.Configure Azure Function App for Regular Notifications<br>
+Adjust the Azure Function App to periodically send remote notifications via the Azure Notification Hub. These notifications are forwarded to the Apple Push Notification Service (APNS) and directed to the specified device. For more instructions, see [Functions-bindings-notification-hubs](../../azure-functions/functions-bindings-notification-hubs.md). 
+
+4.Handle Notifications in Your App<br>
+In your iOS app, implement [the application instance method](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application) to trigger a registration auto-refresh upon receiving a silent notification.
+
+## Related articles
+
+- [Build a trusted user access service using Azure Functions](../tutorials/trusted-service-tutorial.md)
+- [Chat Quickstart](../quickstarts/chat/get-started.md?pivots=programming-language-swift)
+- [UI Library Overview](../concepts/ui-library/ui-library-overview.md)

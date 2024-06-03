@@ -75,7 +75,7 @@ When routing IoT Hub platform metrics to other locations:
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer. For more information on this tool, see [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md).
+You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer. For more information on this tool, see [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md).
 
 To open metrics explorer, go to the Azure portal and open your IoT hub, then select **Metrics** under **Monitoring**. This explorer is scoped, by default, to the platform metrics emitted by your IoT hub.
 
@@ -137,7 +137,7 @@ The following table shows the SDK name used for different Azure IoT SDKs:
 | com.microsoft.azure.sdk.iot.iot-device-client | Java device SDK |
 | com.microsoft.azure.sdk.iot.iot-service-client | Java service SDK |
 | C | Embedded C |
-| C + (OSSimplified = Azure RTOS) | Azure RTOS |
+| C + (OSSimplified = Eclipse ThreadX) | Eclipse ThreadX |
 
 You can extract the SDK version property when you perform queries against IoT Hub resource logs. For example, the following query extracts the SDK version property (and device ID) from the properties returned by Connections operations. These two properties are written to the results along with the time of the operation and the resource ID of the IoT hub that the device is connecting to.
 

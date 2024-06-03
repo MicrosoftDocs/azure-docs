@@ -1,25 +1,26 @@
 ---
 title: Performance tips
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn about tips and best practices for maximizing performance on a search service.
-
-author: LiamCavanagh
-ms.author: liamca
+author: mattgotteiner
+ms.author: magottei
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 04/20/2023
+ms.date: 04/03/2024
 ---
 
-# Tips for better performance in Azure Cognitive Search
+# Tips for better performance in Azure AI Search
 
-This article is a collection of tips and best practices that are often recommended for boosting performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
+This article is a collection of tips and best practices for boosting query and indexing performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
 
 + Index composition (schema and size)
 + Query design
 + Service capacity (tier, and the number of replicas and partitions)
 
 > [!NOTE]
-> Looking for strategies on high volume indexing? See [Index large data sets in Azure Cognitive Search](search-howto-large-index.md).
+> Looking for strategies on high volume indexing? See [Index large data sets in Azure AI Search](search-howto-large-index.md).
 
 ## Index size and schema
 
@@ -68,7 +69,7 @@ Query composition and complexity are one of the most important factors for perfo
 
 + **Number of facets.** Adding facets to queries requires aggregations for each query. Requesting a higher "count" for a facet also requires extra work by the service. In general, only add the facets that you plan to render in your app and avoid requesting a high count for facets unless necessary.
 
-+ **High skip values.** Setting the $skip parameter to a high value (for example, in the thousands) increases search latency because the engine is retrieving and ranking a larger volume of documents for each request. For performance reasons, it's best to avoid high $skip values and use other techniques instead, such as filtering, to retrieve large numbers of documents.
++ **High skip values.** Setting the `$skip` parameter to a high value (for example, in the thousands) increases search latency because the engine is retrieving and ranking a larger volume of documents for each request. For performance reasons, it's best to avoid high `$skip` values and use other techniques instead, such as filtering, to retrieve large numbers of documents.
 
 + **Limit high cardinality fields.**  A *high cardinality field* refers to a facetable or filterable field that has a significant number of unique values, and as a result, consumes significant resources when computing results. For example, setting a Product ID or Description field as facetable and filterable would count as high cardinality because most of the values from document to document are unique.
 
@@ -94,13 +95,17 @@ When query performance is slowing down in general, adding more replicas frequent
 
 One positive side-effect of adding partitions is that slower queries sometimes perform faster due to parallel computing. We've noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
 
-To add partitions, use [Azure portal](search-create-service-portal.md), [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md), or a management SDK.
+To add partitions, use [Azure portal](search-capacity-planning.md#adjust-capacity), [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md), or a management SDK.
 
 ## Service capacity
 
 A service is overburdened when queries take too long or when the service starts dropping requests. If this happens, you can address the problem by upgrading the service or by adding capacity.
 
 The tier of your search service and the number of replicas/partitions also have a large impact on performance. Each progressively higher tier provides faster CPUs and more memory, both of which have a positive impact on performance.
+
+### Tip: Create a new high capacity search service
+
+Basic and standard services created [in supported regions]([supported regions](search-limits-quotas-capacity.md#supported-regions-with-higher-storage-limits) after April 3, 2024 have more storage per partition than older services. Before upgrading to a higher tier and a higher billable rate, revisit the [tier service limits](search-limits-quotas-capacity.md#service-limits) to see if the same tier on a newer service gives you the necessary storage.
 
 ### Tip: Upgrade to a Standard S2 tier
 
@@ -115,7 +120,7 @@ Consider the following topology as an example of a service that has taken on inc
 + Partition Count: 8 (on S1, partition size is 25 GB per partition)
 + Replica Count: 2
 + Total Search Units: 16 (8 partitions x 2 replicas)
-+ Hypothetical Retail Price: ~$4,000 USD / month (assume $250 USD x 16 search units)
++ Hypothetical Retail Price: ~$4,000 USD / month (assume 250 USD x 16 search units)
 
 Suppose the service administrator is still seeing higher latency rates and is considering adding another replica. This would change the replica count from 2 to 3 and as a result change the Search Unit count to 24 and a resulting price of $6,000 USD/month.
 
@@ -126,7 +131,7 @@ However, if the administrator chose to move to a Standard S2 tier the topology w
 + Partition Count: 2 (on S2, partition size is 100 GB per partition)
 + Replica Count: 2
 + Total Search Units: 4 (2 partitions x 2 replicas)
-+ Hypothetical Retail Price: ~$4,000 USD / month ($1000 USD x 4 search units)
++ Hypothetical Retail Price: ~$4,000 USD / month (1,000 USD x 4 search units)
 
 As this hypothetical scenario illustrates, you can have configurations on lower tiers that result in similar costs as if you had opted for a higher tier in the first place. However, higher tiers come with premium storage, which makes indexing faster. Higher tiers also have much more compute power, as well as extra memory. For the same costs, you could have more powerful infrastructure backing the same index.
 
@@ -134,15 +139,14 @@ An important benefit of added memory is that more of the index can be cached, re
 
 ### Tip: Consider alternatives to regular expression queries
 
-[Regular expression queries](query-lucene-syntax.md#bkmk_regex) or regex can be particularly expensive. While they can be very useful for complex searches, they also may require a lot of processing power to be executed, especially if the regular expression has a lot of complexity or when searching through a large amount of data. This would result in high search latency. In order to reduce the search latency, try to simplify the regular expression or break the complex query down into smaller, more manageable queries. 
-
+[Regular expression queries](query-lucene-syntax.md#bkmk_regex) or regex can be particularly expensive. While they can be very useful for advanced searches, execution can require a lot of processing power, especially if the regular expression is complicated or if you're searching through a large amount of data. All of these factors contribute to high search latency. As a mitigation, try to simplify the regular expression or break the complex query down into smaller, more manageable queries. 
 
 ## Next steps
 
 Review these other articles related to service performance:
 
 + [Analyze performance](search-performance-analysis.md)
-+ [Index large data sets in Azure Cognitive Search](search-howto-large-index.md)
++ [Index large data sets in Azure AI Search](search-howto-large-index.md)
 + [Choose a service tier](search-sku-tier.md)
 + [Plan or add capacity](search-capacity-planning.md#adjust-capacity)
 + [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

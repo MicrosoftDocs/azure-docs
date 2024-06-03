@@ -3,8 +3,8 @@ title: Back up an Azure VM from the VM settings
 description: In this article, learn how to back up either a singular Azure VM or multiple Azure VMs with the Azure Backup service.
 ms.topic: how-to
 ms.date: 06/24/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ms.custom: engagement-fy23
 ---
 # Back up an Azure VM from the VM settings

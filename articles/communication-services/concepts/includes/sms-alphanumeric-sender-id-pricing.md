@@ -7,7 +7,7 @@ manager: sundraman
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/28/2023
+ms.date: 07/10/2023
 ms.topic: include
 ms.custom: Include file
 ms.author: prakulka
@@ -26,8 +26,10 @@ The following prices are exclusive of the required communications taxes and fees
 |-----------|---------|
 |Australia| $0.049 | 
 |Austria| $0.0932 | 
+|Czech Republic| $0.0490|
 |Denmark| $0.0499 | 
 |Estonia | $0.0845 |
+|Finland| $0.0820|
 |France | $0.076 |
 |Germany | $0.0895 | 
 |Ireland| $0.07 | 
@@ -35,8 +37,11 @@ The following prices are exclusive of the required communications taxes and fees
 |Lithuania| $0.041 |
 |Latvia | $0.065 | 
 |Netherlands| $0.092 | 
+|Norway| $0.0620|
 |Poland | $0.041 | 
 |Portugal | $0.045 | 
+|Slovakia| $0.0650|
+|Slovenia| $0.0470|
 |Spain| $0.0833 | 
 |Sweden| $0.055 | 
 |Switzerland | $0.069 | 

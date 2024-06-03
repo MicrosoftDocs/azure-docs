@@ -138,10 +138,10 @@ items:
           href: ./security/connect-to-a-secure-storage-account.md
       - name: Authentication and pass-through
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           href: ./sql/active-directory-authentication.md
           displayName: authentication
-        - name: Multi-factor authentication
+        - name: Multifactor authentication
           href: ./sql/mfa-authentication.md
         - name: SQL authorization
           href: ./sql/sql-authentication.md
@@ -165,8 +165,10 @@ items:
     items:
     - name: Manage and Monitor
       items:
-      - name: Azure Monitor metrics, alerts, and logs
-        href: monitoring/how-to-monitor-using-azure-monitor.md
+      - name: Monitor
+        href: monitor-synapse-analytics.md
+      - name: Monitoring data reference
+        href: monitor-synapse-analytics-reference.md
     - name: Secure
       items:
       - name: Manage access control 
@@ -646,7 +648,7 @@ items:
         href: data-explorer/ingest-data/data-explorer-ingest-data-one-click.md
       - name: Streaming ingestion
         href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
-      - name: Event Hub
+      - name: Event Hubs
         items:
           - name: Event Hubs data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
@@ -692,8 +694,6 @@ items:
       href: quickstart-create-apache-spark-pool-portal.md
     - name: Create a Spark pool using Synapse Studio
       href: quickstart-create-apache-spark-pool-studio.md
-    - name: Create a GPU-accelerated Apache Spark pool
-      href: quickstart-create-apache-gpu-pool-portal.md
   - name: Tutorials
     items:
     - name: Data visualization with Synapse Studio notebooks
@@ -732,13 +732,15 @@ items:
       items:
         - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
+        - name: Azure Synapse Apache Spark 3.4 runtime (GA)
+          href: ./spark/apache-spark-34-runtime.md
         - name: Azure Synapse Apache Spark 3.3 runtime (GA)
           href: ./spark/apache-spark-33-runtime.md
-        - name: Azure Synapse Apache Spark 3.2 runtime (GA)
+        - name: Azure Synapse Apache Spark 3.2 runtime (EOSA)
           href: ./spark/apache-spark-32-runtime.md
-        - name: Azure Synapse Apache Spark 3.1 runtime (EOLA)
+        - name: Azure Synapse Apache Spark 3.1 runtime (deprecated)
           href: ./spark/apache-spark-3-runtime.md
-        - name: Azure Synapse Apache Spark 2.4 runtime (EOLA)
+        - name: Azure Synapse Apache Spark 2.4 runtime (deprecated)
           href: ./spark/apache-spark-24-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
@@ -914,7 +916,7 @@ items:
           href: ./synapse-link/synapse-link-for-sql-known-issues.md
         - name: Failover of an Azure SQL Database
           href: ./synapse-link/troubleshoot/troubleshoot-sql-database-failover.md
-        - name: Azure AD user impersonation
+        - name: Microsoft Entra user impersonation
           href: ./synapse-link/troubleshoot/troubleshoot-sql-azure-active-directory.md
         - name: Troubleshoot initial snapshot
           href: ./synapse-link/troubleshoot/troubleshoot-sql-snapshot-issues.md
@@ -1035,7 +1037,7 @@ items:
         href: ../data-factory/format-avro.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Blob Storage
         href: ../data-factory/connector-azure-blob-storage.md?toc=/azure/synapse-analytics/toc.json&tabs=synapse-analytics
-      - name: Azure Cognitive Search
+      - name: Azure AI Search
         href: ../data-factory/connector-azure-search.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Cosmos DB for NoSQL
         href: ../data-factory/connector-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
@@ -1494,7 +1496,7 @@ items:
       - name: Azure Machine Learning
         displayName: linked service
         href: machine-learning/quickstart-integrate-azure-machine-learning.md
-      - name: Cognitive Services
+      - name: Azure AI services
         displayName: linked service, configure
         href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
   - name: Concepts
@@ -1512,17 +1514,19 @@ items:
       - name: Visualize data with Apache Spark
         displayName: data prep, data preparation, visualization
         href: ./spark/apache-spark-data-visualization-tutorial.md
+      - name: Access ADLSg2 from Azure ML
+        href: ./machine-learning/access-data-from-aml.md 
     - name: Train a model
       items:
       - name: With Apache Spark MLlib
         displayName: train model
         href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-      - name: With automated machine learning
+      - name: With automated machine learning (deprecated)
         items:
-        - name: Code-free
+        - name: Code-free (deprecated)
           displayName: train model, automated machine learning, automated ml, automl
           href: ./machine-learning/tutorial-automl.md
-        - name: In Python
+        - name: In Python (deprecated)
           displayName: train model, automated machine learning, automated ml, automl
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
       - name: With Horovod and Petastorm 
@@ -1541,31 +1545,34 @@ items:
       - name: PREDICT score in Synapse spark using model registered in AML or ADLS
         displayName: predict score, Synapse spark, model registered in AML or ADLS
         href: ./machine-learning/tutorial-score-model-predict-spark-pool.md
-      - name: With Cognitive Services
+      - name: With Azure AI services
         items:
         - name: Overview
-          displayName: cognitive services, score model
+          displayName: cognitive services, ai services, score model
           href: machine-learning/overview-cognitive-services.md
+        - name: Setup environment
+          displayName: cognitive services, ai services, score model
+          href: ./machine-learning/setup-environment-cognitive-services.md
         - name: Sentiment analysis wizard
-          displayName: cognitive services, score model
+          displayName: cognitive services, ai services, score model
           href: ./machine-learning/tutorial-cognitive-services-sentiment.md
         - name: Anomaly detection wizard
-          displayName: cognitive services, score model
+          displayName: cognitive services, ai services, score model
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
         - name: Text Analytics with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-text-analytics-use-mmlspark.md
         - name: Computer Vision with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-computer-vision-use-mmlspark.md        
-        - name: Form Recognizer with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+        - name: Document Intelligence with Apache Spark (SynapseML)
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
         - name: Translator with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-translator-use-mmlspark.md
         - name: With Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
 - name: Data Catalog and Governance
   items:

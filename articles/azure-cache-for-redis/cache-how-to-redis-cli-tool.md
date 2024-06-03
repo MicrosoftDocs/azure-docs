@@ -1,77 +1,114 @@
 ---
 title: Use redis-cli with Azure Cache for Redis
-description: Learn how to use *redis-cli.exe* as a command-line tool for interacting with an Azure Cache for Redis as a client
+description: Learn how to use *redis-cli* as a command-line tool for interacting with an Azure Cache for Redis as a client
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 01/04/2024
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 
-Use the popular `redis-cli.exe` command-line tool to interact with an Azure Cache for Redis as a client. The tool is available for Windows platforms by downloading the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/).
+Use the [redis-cli command-line tool](https://redis.io/docs/connect/cli/) to interact with an Azure Cache for Redis as a client. Use this tool to directly interact with your Azure Cache for Redis instance and for debugging and troubleshooting.
 
-If you want to run the command-line tool on another platform, download open-source Redis from [https://redis.io/download](https://redis.io/download).
+## Install redis-cli
+
+The _redis-cli_ tool is installed automatically with the _Redis package_, which is available for multiple operating systems. See the open source [install Redis](https://redis.io/docs/install/install-redis/) guide for the most detailed documentation on your preferred operating system.
+
+### Linux
+
+The _redis-cli_ runs natively on Linux, and most distributions include a _Redis package_ that contains the _redis-cli_ tool. On Ubuntu, for instance, you install the _Redis package_  with the following commands:
+
+```linux
+sudo apt-get update
+sudo apt-get install redis
+```
+
+### Windows
+
+The best way to use _redis-cli_ on a Windows computer is to install the [Windows Subsystem for Linux (WSL)](/windows/wsl/about). The Linux subsystem allows you to run linux tools directly on Windows. To install WSL, follow the [WSL installation instructions](/windows/wsl/install).
+
+Once WSL is installed, you can install _redis-cli_ using whatever package management is available in the Linux distro you chose for WSL.
 
 ## Gather cache access information
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+You can gather the information needed to access the cache using these methods:
 
-You can gather the information needed to access the cache using three methods:
-
-1. Azure CLI using [az redis list-keys](/cli/azure/redis#az-redis-list-keys)
-2. Azure PowerShell using [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
-3. Using the Azure portal
+- Azure CLI using [az redis list-keys](/cli/azure/redis#az-redis-list-keys)
+- Azure PowerShell using [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
+- Using the Azure portal
 
 In this section, you retrieve the keys from the Azure portal.
 
 [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
-## Enable access for redis-cli.exe
+## Connect using redis-cli
 
-With Azure Cache for Redis, only the TLS port (6380) is enabled by default. The `redis-cli.exe` command-line tool doesn't support TLS. You have two configuration choices to use it:
+Open up a shell or terminal on a computer with the _Redis package_ installed. If using WSL, you can [use the Windows Terminal](/windows/wsl/install#ways-to-run-multiple-linux-distributions-with-wsl) to open a Linux command line. Before connecting with redis-cli, check:
 
-1. [Enable the non-TLS port (6379)](cache-configure.md#access-ports) - **This configuration is not recommended** because in this configuration, the access keys are sent via TCP in clear text. This change can compromise access to your cache. The only scenario where you might consider this configuration is when you’re just accessing a test cache.
+1. Whether TLS access is needed - By default, Azure Cache for Redis instances use [TLS](cache-remove-tls-10-11.md) encryption for connections. Whenever TLS is used on the server side, TLS on redis-cli must be enabled using the `--tls` option.
+1. The port used - All Enterprise and Enterprise Flash tier caches use port `10000`. Basic, Standard, and Premium tier caches, however, use either port `6379` for non-TLS connections or port `6380` for TLS connections.
+1. Whether the cache instance uses clustering - If you're using a Premium tier cache that uses clustering or an Enterprise/Enterprise Flash tier cache that is using OSS cluster policy, add the `-c`option to ensure all shards can be accessed.
 
-2. Download and install [stunnel](https://www.stunnel.org/downloads.html).
+### Examples
 
-    Run **stunnel GUI Start** to start the server.
+1. Use the following command to connect to a Basic, Standard, or Premium tier Azure Cache for Redis instance using TLS:
 
-    Right-click the taskbar icon for the *stunnel* server and select **Show Log Window**.
-
-    On the *stunnel* Log Window menu, select **Configuration** > **Edit Configuration** to open the current configuration file.
-
-    Add the following entry for `redis-cli.exe` under the **Service definitions** section. Insert your actual cache name in place of `yourcachename`. 
-
-    ```properties
-    [redis-cli]
-    client = yes
-    accept = 127.0.0.1:6380
-    connect = yourcachename.redis.cache.windows.net:6380
+    ```console
+    redis-cli -p 6380 -h yourcachename.redis.cache.windows.net -a YourAccessKey --tls
     ```
 
-    Save and close the configuration file.
-  
-    On the stunnel Log Window menu, select **Configuration** > **Reload Configuration**.
+1. Connect to a Basic, Standard, or Premium tier Azure Cache for Redis instance that doesn't use TLS:
 
-## Connect using the Redis command-line tool.
+    ```console
+    redis-cli -p 6379 -h yourcachename.redis.cache.windows.net -a YourAccessKey
+    ```
 
-When using *stunnel*, run `redis-cli.exe`, and pass only your *port*, and *access key* (primary or secondary) to connect to the cache.
+1. Connect to a Basic, Standard, or Premium tier Azure Cache for Redis instance using TLS and clustering:
 
-```console
-redis-cli.exe -p 6380 -a YourAccessKey
+    ```console
+    redis-cli -p 6380 -h yourcachename.redis.cache.windows.net -a YourAccessKey --tls -c
+    ```
+
+1. Connect to an Enterprise or Enterprise Flash tier cache instance using Enterprise cluster policy with TLS:
+
+    ```console
+    redis-cli -p 10000 -h yourcachename.eastus.redisenterprise.cache.azure.net -a YourAccessKey --tls
+    ```
+
+1. Connect to an Enterprise or Enterprise Flash tier cache instance using  OSS cluster policy without TLS:
+
+    ```console
+    redis-cli -p 10000 -h yourcachename.eastus.redisenterprise.cache.azure.net -a YourAccessKey -c
+    ```
+
+### Testing the connection
+
+Once the connection is established, you can issue commands to your Azure Cache for Redis instance. One easy way to test the connection is to use the [`PING`](https://redis.io/commands/ping/) command. This command returns `PONG` in the console.
+
+```output
+yourcachename.redis.cache.windows.net:6380> PING
+PONG
 ```
 
-![Screenshot that shows that your connection to the cache is successful.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+You can also run commands like `SET` and `GET`:
 
-If you're using a test cache with the **unsecure** non-TLS port, run `redis-cli.exe` and pass your *host name*, *port*, and *access key* (primary or secondary) to connect to the test cache.
-
-```console
-redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
+```output
+yourcachename.redis.cache.windows.net:6380> SET hello world
+OK
+yourcachename.redis.cache.windows.net:6380> GET hello
+"world"
 ```
 
-![stunnel with redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-non-ssl.png)
+You're now connected to your Azure Cache for Redis instance using the _redis-cli_.
 
-## Next steps
+## redis-cli alternatives
 
-Learn more about using the [Redis Console](cache-configure.md#redis-console) to issue commands.
+While the _redis-cli_ is a useful tool, you can connect to your cache in other ways for troubleshooting or testing:
+
+- Azure Cache for Redis offers a [Redis Console](cache-configure.md#redis-console) built into the Azure portal where you can issue commands without needing to install the command-line tool. The Redis Console feature is currently only available in the Basic, Standard, and Premium tiers.
+- [RedisInsight](https://redis.com/redis-enterprise/redis-insight/) is a rich open source graphical tool for issuing Redis commands and viewing the contents of a Redis instance. It works with Azure Cache for Redis and is supported on Linux, Windows, and macOS.
+
+## Related content
+
+Get started by creating a [new Enterprise-tier cache](quickstart-create-redis-enterprise.md) instance.

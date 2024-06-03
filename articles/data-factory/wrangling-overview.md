@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # What is data wrangling?
@@ -57,6 +57,6 @@ Currently not all Power Query M functions are supported for data wrangling despi
 
 For more information on supported transformations, see [Power Query data wrangling functions](wrangling-functions.md).
 
-## Next steps
+## Related content
 
 Learn how to [create a data wrangling Power Query mash-up](wrangling-tutorial.md).

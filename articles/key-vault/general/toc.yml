@@ -6,7 +6,14 @@
     href: overview.md
   - name: About keys, secrets, and certificates
     href: about-keys-secrets-certificates.md
-
+- name: Documentation for keys, secrets, and certificates
+  items:
+  - name: Keys
+    href: ../keys/about-keys.md
+  - name: Secrets
+    href: ../secrets/about-secrets.md
+  - name: Certificates
+    href: ../certificates/about-certificates.md
 - name: Quickstarts
   expanded: true
   items:
@@ -114,7 +121,7 @@
     - name: Use Azure Resource Manager to deploy Key Vault
       href: vault-create-template.md
     - name: Use Key Vault Connected Service
-      href: vs-key-vault-add-connected-service.md
+      href: /visualstudio/azure/vs-key-vault-add-connected-service?context=/azure/key-vault/general/context/context
   - name: Monitor and govern
     items:
     - name: Monitoring Key Vault
@@ -158,7 +165,7 @@
     - name: Move Key Vault to Another Subscription
       href: move-subscription.md
     - name: Move Key Vault to Another Region
-      href: move-region.md
+      href: ../../operational-excellence/relocation-key-vault.md?toc=/azure/key-vault/general/toc.json
 - name: Reference
   items:
   - name: What's new

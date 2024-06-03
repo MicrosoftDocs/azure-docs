@@ -15,7 +15,7 @@ ms.custom: device-developer
 
 A device template in Azure IoT Central is a blueprint that defines the characteristics and behaviors of a type of device that connects to your application. For example, the device template defines the telemetry that a device sends so that IoT Central can create visualizations that use the correct units and data types.
 
-A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template. To learn more about the data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
+A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template. To learn more about the data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
 A device template includes the following sections:
 
@@ -39,7 +39,7 @@ For a device to interact with IoT Central, it must be assigned to a device templ
 IoT Central can automatically assign a device to a device template when the device connects. A device should send a [model ID](../../iot/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json#model-id) when it connects. IoT Central uses the model ID to identify the device template for that specific device model. The discovery process works as follows:
 
 1. If the device template is already published in the IoT Central application, the device is assigned to the device template.
-1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the [public model repository](https://github.com/Azure/iot-plugandplay-models). If IoT Central finds the model, it uses it to generate a basic device template.
+1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the public device model repository. If IoT Central finds the model, it uses it to generate a basic device template.
 1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassigned**. An operator can:
 
     - Create a device template for the device and then migrate the unassigned device to the new device template.
@@ -79,7 +79,7 @@ To learn more about editing a device model, see [Edit an existing device templat
 
 A solution developer can also export a JSON file from the device template that contains a complete device model or individual interface. A device developer can use this JSON document to understand how the device should communicate with the IoT Central application.
 
-The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central expects the JSON file to contain the device model with the interfaces defined inline, rather than in separate files. Models created in IoT Central have the context `dtmi:iotcentral:context;2` defined to indicate that the model was created in IoT Central:
+The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central expects the JSON file to contain the device model with the interfaces defined inline, rather than in separate files. Models created in IoT Central have the context `dtmi:iotcentral:context;2` defined to indicate that the model was created in IoT Central:
 
 ```json
 "@context": [
@@ -88,7 +88,7 @@ The JSON file that defines the device model uses the [Digital Twin Definition La
 ]
 ```
 
-To learn more about DTDL models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
+To learn more about DTDL models, see the [IoT Plug and Play modeling guide](../../iot/concepts-modeling-guide.md).
 
 > [!NOTE]
 > IoT Central defines some extensions to the DTDL v2 language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
@@ -251,4 +251,4 @@ A solution developer creates views that let operators monitor and manage connect
 
 ## Next steps
 
-Now that you've learned about device templates, a suggested next step is to read [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md) to learn more about the data a device exchanges with IoT Central.
+Now that you've learned about device templates, a suggested next step is to read [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md) to learn more about the data a device exchanges with IoT Central.

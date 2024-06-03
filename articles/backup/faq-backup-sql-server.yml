@@ -5,9 +5,9 @@ metadata:
   ms.reviewer: vijayts
   ms.topic: faq
   ms.service: backup
-  ms.date: 07/15/2022
-  author: jyothisuri
-  ms.author: jsuri
+  ms.date: 03/05/2024
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 
     
 title: FAQ about SQL Server databases that are running on an Azure VM backup
@@ -31,7 +31,7 @@ sections:
           - If log or differential backup fails due to LSN Validation Error, next log or differential backup is instead converted to a full backup.
           - If no full backup has happened before a log or differential backup, that log or differential backup is instead converted to a full backup.
           - If the latest full backup's point-in-time is older than 15 days, the next log or differential backup is instead converted to a full backup.
-          - All the backup jobs that get canceled due to an extension upgrade are re-triggered after the upgrade is completed and the extension is started.
+          - All the backup jobs that get canceled due to an extension upgrade are retriggered after the upgrade is completed and the extension is started.
           - If you choose to overwrite the database during Restore, the next log/differential backup fails and a full backup is triggered instead.
           - In cases where a full backup is required to reset the log chains due to change in database recovery model, a full gets triggered automatically on the next schedule.
           
@@ -41,7 +41,7 @@ sections:
           No, you can’t cancel an auto-heal job. However, you can opt out of it by following these steps:
           
           1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
-          1. In the **ExtensionSettingsOverrides.json** file, set *{"EnableAutoHealer": false}*.
+          1. In the **ExtensionSettingsOverrides.json** file, set `{"EnableAutoHealer": false}`.
           1. Save the changes and close the file.
           1. On the SQL Server instance, open **Task Manage**, and then restart the **AzureWLBackupCoordinatorSvc** service.
           
@@ -51,7 +51,7 @@ sections:
           Yes. You can throttle the rate at which the backup policy runs to minimize the impact on a SQL Server instance. To change the setting:
           
           1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create the *ExtensionSettingsOverrides.json* file.
-          2. In the *ExtensionSettingsOverrides.json* file, change the **DefaultBackupTasksThreshold** setting to a lower value (for example, 5). <br>
+          2. In the **ExtensionSettingsOverrides.json** file, change the `DefaultBackupTasksThreshold` setting to a lower value (for example, 5). <br>
             `{"DefaultBackupTasksThreshold": 5}`
           <br>
           The default value of DefaultBackupTasksThreshold is **20**.
@@ -71,7 +71,7 @@ sections:
       - question: |
           Are future databases automatically added for backup?
         answer: |
-          Yes, you can achieve this capability with [auto-protection](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
+          Yes, you can achieve this capability with [autoprotection](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
           
       - question: |
           If I delete a database from an autoprotected instance, what will happen to the backups?
@@ -96,6 +96,11 @@ sections:
           We do perform a checksum operation on the data stream. However, this isn't to be confused with [SQL checksum](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
           Azure workload backup computes the checksum on the data stream and stores it explicitly during the backup operation. This checksum stream is then taken as a reference and cross-verified with the checksum of the data stream during the restore operation to make sure that the data is consistent.
 
+      - question: |
+          Can I use Azure Site Recovery for SQL machine as well as Azure SQL database backup on the same machine?
+        answer: |
+          Yes. Azure Site Recovery will trigger a *copy-only full backup* while taking the *application consistent snapshot* on the VM not to truncate the logs. [Learn more](../site-recovery/site-recovery-sql.md#combining-bcdr-technologies-with-site-recovery).   
+
   - name: Manage
     questions:
       - question: |
@@ -108,10 +113,10 @@ sections:
         answer: |
           If you do **stop backup with retain data**, no future backups will take place and the existing recovery points will remain intact. The database will still be considered as protected and be shown under the **Backup items**.
           
-          If you do **stop backup with delete data**, no future backups will take place and the existing recovery points will also be deleted. The database will be considered un-protected and be shown under the instance in the Configure Backup. However, unlike other up-protected databases that can be selected manually or that can get autoprotected, this database appears greyed out and can’t be selected. The only way to re-protect this database is to disable auto-protection on the instance. You can now select this database and configure protection on it or re-enable auto-protection on the instance again.
+          If you do **stop backup with delete data**, no future backups will take place and the existing recovery points will also be deleted. The database will be considered un-protected and be shown under the instance on the **Configure Backup** blade. However, unlike other up-protected databases that can be selected manually or that can get autoprotected, this database appears greyed out and can’t be selected. The only way to re-protect this database is to disable auto-protection on the instance. You can now select this database and configure protection on it or re-enable auto-protection on the instance again.
 
       - question: |
-          If I change the name of the database after it has been protected, what will be the behavior?
+          If I've changed the name of the database after it has been protected, what will be the behavior?
         answer: |
           A renamed database is treated as a new database. So the service will treat this situation as if the database weren't found and with fail the backups.
           

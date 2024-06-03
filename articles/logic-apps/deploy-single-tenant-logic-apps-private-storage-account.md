@@ -6,8 +6,8 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23, devx-track-arm-template
-ms.date: 10/18/2022
-# As a developer, I want to deploy Standard logic apps to Azure storage accounts that use private endpoints.
+ms.date: 10/09/2023
+# Customer intent: As a developer, I want to deploy Standard logic apps to Azure storage accounts that use private endpoints.
 ---
 
 # Deploy single-tenant Standard logic apps to private storage accounts using private endpoints
@@ -128,7 +128,7 @@ As the logic app isn't running when these errors occur, you can't use the Kudu c
 
      `C:\psping {storage-account-host-name}.table.core.windows.net:443`
 
-     `C:\psping {storage-account-host-name}.file.core.windows.net:445`
+     `C:\psping {storage-account-host-name}.file.core.windows.net:443`
 
   1. If the queries resolve from the VM, continue with the following steps:
 

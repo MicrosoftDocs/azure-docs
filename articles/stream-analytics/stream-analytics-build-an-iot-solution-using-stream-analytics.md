@@ -6,7 +6,6 @@ ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/15/2023
-ms.custom: seodec18, ignite-2022
 ---
 
 # Build an IoT solution by using Stream Analytics
@@ -134,7 +133,7 @@ There are several resources that can easily be deployed in a resource group toge
 
 ### Review the Azure Stream Analytics TollApp resources
 
-1. Sign in to the Azure portal
+1. Sign in to the Azure portal.
 
 2. Locate the Resource Group that you named in the previous section.
 

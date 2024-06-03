@@ -2,7 +2,7 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 09/13/2023
 ms.author: rifox
 ---
 
@@ -17,7 +17,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions
+- You need to have [Node.js 18](https://nodejs.org/dist/v18.18.0/). You can use the msi installer to install it.
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows). You need to **record your connection string** for this quickstart.
 - Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../identity/access-tokens.md). You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
@@ -36,15 +36,20 @@ Open your terminal or command window create a new directory for your app, and na
 mkdir calling-quickstart && cd calling-quickstart
 ```
 
+Run `npm init -y` to create a **package.json** file with default settings.
+
+```console
+npm init -y
+```
+
 ### Install the package
 
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
-> [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `1.4.4`.
+
 
 ```console
 npm install @azure/communication-common --save
-npm install @azure/communication-calling@1.4.4 --save
+npm install @azure/communication-calling --save
 ```
 
 ### Set up the app framework
@@ -52,7 +57,7 @@ npm install @azure/communication-calling@1.4.4 --save
 This quickstart uses Webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
 
 ```console
-npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
+npm install copy-webpack-plugin@^11.0.0 webpack@^5.88.2 webpack-cli@^5.1.4 webpack-dev-server@^4.15.1 --save-dev
 ```
 
 Here's the code:
@@ -93,7 +98,7 @@ Create an `index.html` file in the root directory of your project. We use this f
         <br>
         <div id="localVideoContainer" style="width: 30%;" hidden>Local video stream:</div>
         <!-- points to the bundle generated from client.js -->
-        <script src="./bundle.js"></script>
+        <script src="./main.js"></script>
     </body>
 </html>
 ```
@@ -111,7 +116,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `RemoteParticipant`                 | Used for representing a remote participant in the Call                                                                                   |
 | `RemoteVideoStream`                 | Used for representing a remote video stream from a Remote Participant.        
 
-Create a file in the root directory of your project called `client.js` to contain the application logic for this quickstart. Add the following code to client.js:
+Create a file in the root directory of your project called `index.js` to contain the application logic for this quickstart. Add the following code to index.js:
 
 ```JavaScript
 // Make sure to install the necessary dependencies
@@ -146,7 +151,7 @@ let remoteVideosGallery = document.getElementById('remoteVideosGallery');
 let localVideoContainer = document.getElementById('localVideoContainer');
 
 /**
- * Using the CallClient, initialize a CallAgent instance with a CommunicationUserCredential which enable us to make outgoing calls and receive incoming calls. 
+ * Using the CallClient, initialize a CallAgent instance with a CommunicationUserCredential which will enable us to make outgoing calls and receive incoming calls. 
  * You can then use the CallClient.getDeviceManager() API instance to get the DeviceManager.
  */
 initializeCallAgentButton.onclick = async () => {
@@ -250,6 +255,10 @@ subscribeToCall = (call) => {
             }   
         });
 
+        call.on('isLocalVideoStartedChanged', () => {
+            console.log(`isLocalVideoStarted changed: ${call.isLocalVideoStarted}`);
+        });
+        console.log(`isLocalVideoStarted: ${call.isLocalVideoStarted}`);
         call.localVideoStreams.forEach(async (lvs) => {
             localVideoStream = lvs;
             await displayLocalVideoStream();
@@ -331,11 +340,6 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     let remoteVideoContainer = document.createElement('div');
     remoteVideoContainer.className = 'remote-video-container';
 
-    /**
-     * isReceiving API is currently a @beta feature.
-     * To use this api, please use 'beta' version of Azure Communication Services Calling Web SDK.
-     * Create a CSS class to style your loading spinner.
-     *
     let loadingSpinner = document.createElement('div');
     loadingSpinner.className = 'loading-spinner';
     remoteVideoStream.on('isReceivingChanged', () => {
@@ -353,7 +357,6 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
             console.error(e);
         }
     });
-    */
 
     const createView = async () => {
         // Create a renderer view for the remote video stream.
@@ -459,7 +462,7 @@ hangUpCallButton.addEventListener("click", async () => {
     // end the current call
     await call.hangUp();
 });
-```                                                          
+```
 
 Create a file in the root directory of your project called `styles.css` to contain the application styling for this quickstart. Add the following code to styles.css:
 
@@ -497,12 +500,41 @@ Create a file in the root directory of your project called `styles.css` to conta
 }
 ```
 
+## Add the webpack local server code
+
+Create a file in the root directory of your project called **webpack.config.js** to contain the local server logic for this quickstart. Add the following code to **webpack.config.js**:
+```javascript
+const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
+
+module.exports = {
+    mode: 'development',
+    entry: './index.js',
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, './')
+        },
+    },
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                './index.html'
+            ]
+        }),
+    ]
+};
+```
+
 ## Run the code
 
 Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host in a local webserver:
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+npx webpack serve --config webpack.config.js
 ```
 
 Open your browser and on two tabs navigate to http://localhost:8080/.You should see the following screen:

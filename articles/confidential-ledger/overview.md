@@ -5,13 +5,13 @@ services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---
 # Microsoft Azure confidential ledger
 
-Microsoft Azure confidential ledger (ACL) is a new and highly secure service for managing sensitive data records. It runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment which keeps potential attacks at bay. Furthermore, Azure confidential ledger runs on a minimalistic Trusted Computing Base (TCB), which ensures that no one⁠—not even Microsoft⁠—is "above" the ledger.
+Microsoft Azure confidential ledger (ACL) is a new and highly secure service for managing sensitive data records. It runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment, which keeps potential attacks at bay. Furthermore, Azure confidential ledger runs on a minimalistic Trusted Computing Base (TCB), which ensures that no one⁠—not even Microsoft⁠—is "above" the ledger.
 
 As its name suggests, Azure confidential ledger utilizes the [Azure Confidential Computing platform](../confidential-computing/index.yml) and the [Confidential Consortium Framework](https://ccf.dev) to provide a high integrity solution that is tamper-protected and evident. One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
 
@@ -28,19 +28,19 @@ For more information, you can watch the [Azure confidential ledger demo](https:/
 
 ## Key Features
 
-The confidential ledger is exposed through REST APIs which can be integrated into new or existing applications. The confidential ledger can be managed by administrators utilizing Administrative APIs (Control Plane). It can also be called directly by application code through Functional APIs (Data Plane). The Administrative APIs support basic operations such as create, update, get and, delete. The Functional APIs allow direct interaction with your instantiated ledger and include operations such as put and get data.
+The confidential ledger is exposed through REST APIs, which can be integrated into new or existing applications. Administrators can manage the confidential ledger with Administrative APIs (Control Plane). The confidential ledger can also be called directly by application code through Functional APIs (Data Plane). The Administrative APIs support basic operations such as create, update, get and, delete. The Functional APIs allow direct interaction with your instantiated ledger and include operations such as put and get data.
 
 ## Ledger security
 
-The ledger APIs support certificate-based authentication process with owner roles as well as Azure Active Directory (AAD) based authentication and also role-based access (for example, owner, reader, and contributor).
+The ledger APIs support certificate-based authentication process with owner roles as well as Microsoft Entra ID based authentication and also role-based access (for example, owner, reader, and contributor).
 
-The data to the ledger is sent through TLS 1.3 connection and the TLS 1.3 connection terminates inside the hardware backed security enclaves (Intel® SGX enclaves). This ensures that no one can intercept the connection between a customer's client and the confidential ledger server nodes.
+The data to the ledger is sent through TLS 1.3 connection and the TLS 1.3 connection terminates inside the hardware backed security enclaves (Intel® SGX enclaves), ensuring that no one can intercept the connection between a customer's client and the confidential ledger server nodes.
 
 ### Ledger storage
 
 Confidential ledgers are created as blocks in blob storage containers belonging to an Azure Storage account. Transaction data can either be stored encrypted or in plaintext depending on your needs.
 
-The confidential ledger can be managed by administrators utilizing Administrative APIs (Control Plane), and can be called directly by your application code through Functional APIs (Data Plane). The Administrative APIs support basic operations such as create, update, get and, delete.
+Administrators can manage the confidential ledger with Administrative APIs (Control Plane), and the confidential ledger can be called directly by your application code through Functional APIs (Data Plane). The Administrative APIs support basic operations such as create, update, get and, delete.
 
 The Functional APIs allow direct interaction with your instantiated confidential ledger and include operations such as put and get data.
 
@@ -56,8 +56,8 @@ The Functional APIs allow direct interaction with your instantiated confidential
 |--|--|
 | ACL | Azure confidential ledger |
 | Ledger | An immutable append-only record of transactions (also known as a Blockchain) |
-| Commit | A confirmation that a transaction has been appended to the ledger. |
-| Receipt | Proof that the transaction was processed by the ledger. |
+| Commit | A confirmation that a transaction was appended to the ledger. |
+| Receipt | Proof that the ledger processed a transaction. |
 
 ## Next steps
 

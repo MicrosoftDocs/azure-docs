@@ -1,11 +1,12 @@
 ---
 title: Selecting the right deployment type - Azure Database for MySQL
 description: This article describes what factors to consider before you deploy Azure Database for MySQL as either infrastructure as a service (IaaS) or platform as a service (PaaS).
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 04/18/2023
+ms.date: 12/01/2023
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
@@ -19,13 +20,13 @@ With Azure, your MySQL server workloads can run in a hosted virtual machine infr
 
 When making your decision, consider the following two options:
 
-- **Azure Database for MySQL**. This option is a fully managed MySQL database engine based on the stable version of the MySQL community edition. This relational database as a service (DBaaS), hosted on the Azure cloud platform, falls into the industry category of PaaS. With a managed instance of MySQL on Azure, you can use built-in features viz automated patching, high availability, automated backups, elastic scaling, enterprise-grade security, compliance and governance, monitoring and alerting that require extensive configuration when MySQL Server is either on-premises or in an Azure VM. When using MySQL as a service, you pay-as-you-go, with options to scale up or out for greater control without interruption. [Azure Database for MySQL](flexible-server/overview.md), powered by the MySQL community edition, is available in two deployment modes:
+- **Azure Database for MySQL**. This option falls into the industry category of PaaS, and represents a fully managed MySQL database engine based on the stable version of the MySQL community edition. This relational database as a service (DBaaS), hosted on the Azure cloud platform, falls into the industry category of PaaS. With a managed instance of MySQL on Azure, you can use built-in features viz automated patching, high availability, automated backups, elastic scaling, enterprise-grade security, compliance and governance, monitoring and alerting that require extensive configuration when MySQL Server is either on-premises or in an Azure VM. When using MySQL as a service, you pay-as-you-go, with options to scale up or out for greater control without interruption. [Azure Database for MySQL](flexible-server/overview.md), powered by the MySQL community edition, is available in two deployment modes:
 
-   - [Flexible Server](flexible-server/overview.md) - Azure Database for MySQL Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. The flexible server architecture allows users to opt for high availability within a single availability zone and across multiple availability zones. Flexible servers provide better cost optimization controls with the ability to stop/start the server and burstable compute tier, ideal for workloads that don't need full compute capacity continuously. Flexible Server also supports reserved instances allowing you to save up to 63% cost, which is ideal for production workloads with predictable compute capacity requirements. The service supports the community version of MySQL 5.7 and 8.0. The service is generally available today in various [Azure regions](flexible-server/overview.md#azure-regions). Flexible servers are best suited for all new developments and migration of production workloads to Azure Database for MySQL service.
+   - [Flexible Server](flexible-server/overview.md) is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. The flexible server architecture allows users to opt for high availability within a single availability zone and across multiple availability zones. Flexible servers provide better cost optimization controls with the ability to stop/start the server and burstable compute tier, ideal for workloads that don't need full compute capacity continuously. Flexible Server also supports reserved instances allowing you to save up to 63% cost, which is ideal for production workloads with predictable compute capacity requirements. The service supports the community version of MySQL 5.7 and 8.0. The service is generally available today in various [Azure regions](flexible-server/overview.md#azure-regions). Flexible servers are best suited for all new developments and migration of production workloads to Azure Database for MySQL service.
 
-   - [Single Server](single-server/single-server-overview.md) is a fully managed database service designed for minimal customization. The single server platform is designed to handle most database management functions such as patching, backups, high availability, and security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability in a single availability zone. It supports the community version of MySQL 5.6 (retired), 5.7, and 8.0. The service is generally available today in various [Azure regions](https://azure.microsoft.com/global-infrastructure/services/). Single servers are best-suited **only for existing applications already leveraging single servers**. A Flexible Server would be the recommended deployment option for all new developments or migrations.
+   - [Single Server](single-server/single-server-overview.md) is a fully managed database service designed for minimal customization. The single server platform is designed to handle most database management functions such as patching, backups, high availability, and security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability in a single availability zone. It supports the community version of MySQL 5.6 (retired), 5.7, and 8.0. The service is generally available today in various [Azure regions](https://azure.microsoft.com/global-infrastructure/services/). Single servers are best-suited **only for existing applications already leveraging single servers**. It's recommended to choose Flexible Server for all new developments or migrations.
 
-- **MySQL on Azure VMs**. This option falls into the industry category of IaaS. With this service, you can run MySQL Server inside a managed virtual machine on the Azure cloud platform. All recent versions and editions of MySQL can be installed on the virtual machine.
+- **MySQL on Azure VMs**. This option falls into the industry category of IaaS. With this service, you can run MySQL Server inside a managed virtual machine on the Azure cloud platform. You can install all recent versions and editions of MySQL on a virtual machine.
 
 ## Compare the MySQL deployment options in Azure
 
@@ -52,12 +53,12 @@ The main differences between these options are listed in the following table:
 | Reserved Instance Pricing | Supported | Supported | Supported |
 | Stop/Start Server for development | Server can be stopped up to seven days | Server can be stopped up to 30 days | Supported |
 | Low cost Burstable SKU | Not Supported | Supported | Supported |
-| [[**Networking/Security**](single-server/concepts-security.md) | | | |
-| Network Connectivity | - Public endpoints with server firewall.<br />- Private access with Private Link support. | - Public endpoints with server firewall.<br />- Private access with Virtual Network integration. | - Public endpoints with server firewall.<br />- Private access with Private Link support. |
+| [**Networking/Security**](single-server/concepts-security.md) | | | |
+| Network Connectivity | - Public endpoints with server firewall.<br />- Private access with Private Link support. | - Public endpoints with server firewall.<br />- Private access with Private Link support. <br />- Private access with Virtual Network integration. | - Public endpoints with server firewall.<br />- Private access with Private Link support.  |
 | SSL/TLS | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Supported with TLS v1.2, 1.1 and 1.0 |
 | Data Encryption at rest | Supported with customer-managed keys (BYOK) | Supported with service managed keys | Not Supported |
-| Azure AD Authentication | Supported | Supported | Not Supported |
-| Microsoft Defender for Cloud support | Yes | No | No |
+| Microsoft Entra authentication | Supported | Supported | Not Supported |
+| Microsoft Defender for Cloud support | Yes | Yes | No |
 | Server Audit | Supported | Supported | User Managed |
 | [**Patching & Maintenance**](flexible-server/concepts-maintenance.md) | | |
 | Operating system patching | Automatic | Automatic | User managed |
@@ -90,7 +91,7 @@ The main differences between these options are listed in the following table:
 | Point in time restore capability to any time within the retention period | Yes | Yes | User Managed |
 | Fast restore point | No | Yes | No |
 | Ability to restore on a different zone | Not supported | Yes | Yes |
-| Ability to restore to a different VNET | No | Yes | Yes |
+| Ability to restore to a different VNet | No | Yes | Yes |
 | Ability to restore to a different region | Yes (Geo-redundant) | Yes (Geo-redundant) | User Managed |
 | Ability to restore a deleted server | Yes | Yes | No |
 | [**Disaster Recovery**](flexible-server/concepts-business-continuity.md) | | | |
@@ -121,7 +122,7 @@ Several factors can influence whether you choose PaaS or IaaS to host your MySQL
 
 Cost reduction is often the primary consideration in determining the best solution for hosting your databases. This is true whether you're a startup with little cash or a team in an established company that operates under tight budget constraints. This section describes billing and licensing basics in Azure as they apply to Azure Database for MySQL and MySQL on Azure VMs.
 
-#### Bill
+#### Billing
 
 Azure Database for MySQL is currently available as a service in several tiers with different resource prices. All resources are billed hourly at a fixed rate. For the latest information on the currently supported service tiers, compute sizes, and storage amounts, see [pricing page](https://azure.microsoft.com/pricing/details/mysql/). You can dynamically adjust service tiers and compute sizes to match your application's varied throughput needs. You're billed for outgoing Internet traffic at regular [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/).
 
