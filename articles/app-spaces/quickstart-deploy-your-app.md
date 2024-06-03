@@ -11,6 +11,8 @@ ms.date: 05/20/2024
 
 # Quickstart: Deploy your app with App Spaces
 
+[!include [preview note](./includes/preview-note.md)]
+
 In this quickstart, you learn to connect to GitHub and deploy your code to a recommended Azure service with App Spaces. For more information, see [App Spaces overview](overview.md).
 
 [!include [component types](./includes/component-types-table.md)]
@@ -27,7 +29,11 @@ To deploy your repository to App Spaces, you must have the following items:
 
 Follow these steps to deploy your app from a GitHub repository:
 
-- Browse to [https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotCreate.ReactView](https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotCreate.ReactView).
+1. Browse to the [Azure portal](https://portal.azure.com/).
+1. In the search bar, search for **app spaces** and select it in the results.
+:::image type="content" source="media/azure-portal-search-app-spaces.png" alt-text="Screenshot of React app running.":::
+1. In the *App Spaces page*, select **+ Create App Space**.
+1. In the *Create new App Space* page, under the *Deploy code from your GitHub repository* section, select **GitHub repository**.
 
 ## Connect to GitHub to import your repository
 
