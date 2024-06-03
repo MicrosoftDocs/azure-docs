@@ -54,9 +54,29 @@ You can also export summarized data from a custom log table to a Storage Account
 
 :::image type="content" source="media/summary-rules/ingestion-flow.png" alt-text="Screenshot that shows how Summary rules ingest data through the Azure Monitor pipeline to Log Analytics workspace." border="false" lightbox="media/summary-rules/ingestion-flow.png":::
 
-## Configure summary rule properties
+## Create or update a summary rule
 
-For all summary rules, you need to define a query, the bin size for the data aggregation, and a new or existing destination table. You can also add a minimum delay (`binDelay`) before bin execution for late arriving data, along with rule execution time (`binStartTime`) to control the bin aggregation time.
+Azure services provide and manage two types of predefined Summary rules, `User` and `System`. For rules that you create and configure, the `ruleType` property is always `User` and the `destinationTable` name must end with `_CL`. When you update a query and output fields are omitted from the results set, existing fields aren't automatically removed from the destination table. You can remove the fields by using the [Table API](/rest/api/loganalytics/tables/update?tabs=HTTP). 
+
+> [!NOTE]
+> Before you create a rule configuration, first experiment with the intended query in Log Analytics Logs. Verify that the query doesn't hit or get close to the query limit. Confirm the query produces the intended schema shape and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
+
+```kusto
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summaryslogs/{ruleName}?api-version=2023-01-01-preview
+Authorization: {credential}
+
+{
+  "properties": {
+      "ruleType": "User",
+      "description": "My test rule",
+      "ruleDefinition": {
+          "query": "StorageBlobLogs | summarize count() by AccountName",
+          "binSize": 30,
+          "destinationTable": "MySummaryLogs_CL"
+      }
+  }
+}
+```
 
 This table describes the summary rule properties:
 
@@ -74,6 +94,20 @@ This table describes the summary rule properties:
 After a rule configuration, the initial execution is at the next whole hour or per the `binStartTime` value (optional), plus a specified delay. Execution recurs per the value specified in the `binSize` property. 
 
 The following sections provide example executions for a rule defined at `2023-06-07 14:44`.
+
+The destination table is created after initial rule execution, which is at the next whole hour after rule configuration plus a specified delay. The destination table is always appended with the following fields:
+
+- `_BinStartTime`: The start time of each bin.
+- `_BinSize`: The interval query performed and query time range. The bin end time can be calculated as the `_BinStartTime` value plus the `_BinSize` value.
+- `_RuleLastModifiedTime`: The time that the rule was last modified. This value is helpful for rule change tracking.
+- `_RuleName`: The name of the rule. This value is helpful with rules mapping, especially when multiple rules send data to a table.
+
+The following image shows the results for the example request:
+
+:::image type="content" source="media/summary-rules/example-request.png" alt-text="Screenshot that shows the results for the example Summary rules request." lightbox="media/summary-rules/example-request.png":::
+
+The next sections provide more examples for working with Summary rules.
+
 
 ### Use basic rule configuration
 
@@ -128,42 +162,6 @@ For this example, the rule includes the following configuration:
 
 The initial rule execution is after the bin range plus an 8-minute delay. The typical delay can be between 4 minutes and up to 10% of the `binSize` value. For example, a rule with a 12-hours bin size can execute bin 02:00 to 14:00 at 15:12. 
 
-## Create or update Summary rules
-
-Azure services provide and manage two types of predefined Summary rules, `User` and `System`. For rules that you create and configure, the `ruleType` property is always `User` and the `destinationTable` name must end with `_CL`. When you update a query and output fields are omitted from the results set, existing fields aren't automatically removed from the destination table. You can remove the fields by using the [Table API](/rest/api/loganalytics/tables/update?tabs=HTTP). 
-
-> [!NOTE]
-> Before you create a rule configuration, first experiment with the intended query in Log Analytics Logs. Verify that the query doesn't hit or get close to the query limit. Confirm the query produces the intended schema shape and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
-
-```kusto
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summaryslogs/{ruleName}?api-version=2023-01-01-preview
-Authorization: {credential}
-
-{
-  "properties": {
-      "ruleType": "User",
-      "description": "My test rule",
-      "ruleDefinition": {
-          "query": "StorageBlobLogs | summarize count() by AccountName",
-          "binSize": 30,
-          "destinationTable": "MySummaryLogs_CL"
-      }
-  }
-}
-```
-
-The destination table is created after initial rule execution, which is at the next whole hour after rule configuration plus a specified delay. The destination table is always appended with the following fields:
-
-- `_BinStartTime`: The start time of each bin.
-- `_BinSize`: The interval query performed and query time range. The bin end time can be calculated as the `_BinStartTime` value plus the `_BinSize` value.
-- `_RuleLastModifiedTime`: The time that the rule was last modified. This value is helpful for rule change tracking.
-- `_RuleName`: The name of the rule. This value is helpful with rules mapping, especially when multiple rules send data to a table.
-
-The following image shows the results for the example request:
-
-:::image type="content" source="media/summary-rules/example-request.png" alt-text="Screenshot that shows the results for the example Summary rules request." lightbox="media/summary-rules/example-request.png":::
-
-The next sections provide more examples for working with Summary rules.
 
 ### Get specific rule
 
