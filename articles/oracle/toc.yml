@@ -19,6 +19,8 @@ items:
     href: oracle-db/oracle-database-groups-roles.md
   - name: Provision and manage Oracle Database@Azure
     href: oracle-db/provision-oracle-database.md
+  - name: Provision Oracle Autonomous Databases
+    href: oracle-db/provision-oracle-autonomous-database.md
   - name: Support for Oracle Database@Azure
     href: oracle-db/oracle-database-support.md
   
