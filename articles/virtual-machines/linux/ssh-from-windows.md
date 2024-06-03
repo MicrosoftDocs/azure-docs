@@ -38,6 +38,9 @@ Your public key can be shared with anyone, but only you (or your local security 
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
+> [!NOTE]
+> During preview, Ed25519 keys can only be used with Linux VMs, we intend to extend the ED25519 support to Windows VMs soon.
+
 ## SSH clients
 
 Recent versions of Windows 10 include [OpenSSH client commands](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) to create and use SSH keys and make SSH connections from PowerShell or a command prompt.
@@ -52,7 +55,7 @@ The easiest way to create and manage your SSH keys is to [use the portal to crea
 
 You can also create key pairs with the [Azure CLI](/cli/azure) with the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command, as described in [Generate and store SSH keys](../ssh-keys-azure-cli.md).
 
-To create an SSH key pair on your local computer using the `ssh-keygen` command from PowerShell or a command prompt, type the following command:
+To create an SSH key pair on your local computer using the `ssh-keygen` command from PowerShell or a command prompt, use the following command:
 
 ```powershell
 ssh-keygen -m PEM -t rsa -b 2048
