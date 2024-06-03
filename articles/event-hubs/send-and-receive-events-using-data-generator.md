@@ -66,7 +66,7 @@ When you select **Send**, Data Generator sends the events to the event hubs of y
 
 ## Frequently asked questions
 
-This section has answers to common questions.
+This section answers common questions.
 
 #### I get the error "Oops! We couldn't read events from Event Hubs -`<your event hub name>`. Please make sure that there is no active consumer reading events from $Default Consumer group."
 
