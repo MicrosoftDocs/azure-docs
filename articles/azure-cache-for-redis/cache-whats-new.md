@@ -19,11 +19,11 @@ ms.date: 05/20/2024
 
 Using Azure Cache for Reds as output cache was introduced in .NET 8 in November 2023. Output Caching saves rendered web pages to improve performance, resilience, and reduce cost through server resource utilization. You can use Redis as a built-in output cache store in .NET 8. For more information on using Redis as an output cache, see [Output caching middleware in ASP.NET Core](/aspnet/core/performance/caching/output#redis-cache)
 
-ASP.NET Core's support for distributed caching is broadening _.NET 9 Preview 4_ for .NET 9 a new _HybridCache_ API. _HybridCache_ augments the existing `IDistributedCache` support in ASP.NET Core with new capabilities, including multi-tier storage, with a limited in-process L1 cache supplemented by a separate (usually larger) out-of-process L2 cache. The hybrid approach to cache storage provides you with two advantages: most fetches are served efficiently from L1, but cold-start and data you access infrequently use L2. Using L2 for data you access less frequently doesn't over-utilize the underlying backend.
+ASP.NET Core's support for distributed caching is broadening _.NET 9 Preview 4_ for .NET 9 a new HybridCache API. HybridCache augments the existing `IDistributedCache` support in ASP.NET Core with new capabilities, including multi-tier storage, with a limited in-process L1 cache supplemented by a separate (usually larger) out-of-process L2 cache. The hybrid approach to cache storage provides you with two advantages: most fetches are served efficiently from L1, but cold-start and data you access infrequently use L2. Using L2 for data you access less frequently doesn't over-utilize the underlying backend.
 
 For more information and downloading, see [.NET 9 Preview 4](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
-_HybridCache_ also includes:
+HybridCache also includes:
 
 - _stampede protection_ to prevent parallel fetches of the same data
 - configurable serialization
