@@ -1,3 +1,13 @@
+---
+description: Learn how to use the Calling composite on Android to customize the leave call confirmation API
+author: garchiro7
+
+ms.author: jorgegarc
+ms.date: 05/01/2024
+ms.topic: include
+ms.service: azure-communication-services
+---
+
 ### Disabling Leave Call Confirmation
 
 To disable the left call confirmation prompt when clicking the end call button, utilize `CallCompositeCallScreenOptions` to configure `CallCompositeCallScreenControlBarOptions`. Set `CallCompositeLeaveCallConfirmationMode.ALWAYS_DISABLED` as the constructor parameter. By default, the UI library employs `CallCompositeLeaveCallConfirmationMode.ALWAYS_ENABLED`.
