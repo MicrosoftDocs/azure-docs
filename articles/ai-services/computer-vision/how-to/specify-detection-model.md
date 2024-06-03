@@ -42,7 +42,7 @@ The different face detection models are optimized for different tasks. See the f
 |---------|------------|-------------------|-------------|--|
 |**detection_01** | Default choice for all face detection operations. | Not optimized for small, side-view, or blurry faces.                                                     | Returns main face attributes (head pose, age, emotion, and so on) if they're specified in the detect call. | Returns face landmarks if they're specified in the detect call. |
 |**detection_02** | Released in May 2019 and available optionally in all face detection operations.   | Improved accuracy on small, side-view, and blurry faces.  | Does not return face attributes. | Does not return face landmarks.     |
-|**detection_03** | Released in February 2021 and available optionally in all face detection operations.                   | Further improved accuracy, including on smaller faces (64x64 pixels) and rotated face orientations.       | Returns mask and head pose attributes if they're specified in the detect call. | Returns face landmarks if they're specified in the detect call. |
+|**detection_03** | Released in February 2021 and available optionally in all face detection operations.                   | Further improved accuracy, including on smaller faces (64x64 pixels) and rotated face orientations.       | Returns mask, blur, and head pose attributes if they're specified in the detect call. | Returns face landmarks if they're specified in the detect call. |
 
 
 The best way to compare the performances of the detection models is to use them on a sample dataset. We recommend calling the [Detect] API on a variety of images, especially images of many faces or of faces that are difficult to see, using each detection model. Pay attention to the number of faces that each model returns.
@@ -64,7 +64,7 @@ A request URL for the [Detect] REST API will look like this:
 If you are using the client library, you can assign the value for `detectionModel` by passing in an appropriate string. If you leave it unassigned, the API will use the default model version (`detection_01`). See the following code example for the .NET client library.
 
 ```csharp
-string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
 var faces = await faceClient.Face.DetectWithUrlAsync(url: imageUrl, returnFaceId: false, returnFaceLandmarks: false, recognitionModel: "recognition_04", detectionModel: "detection_03");
 ```
 
@@ -81,7 +81,7 @@ await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", 
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
-string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_03");
 ```
 
@@ -97,7 +97,7 @@ You can also specify a detection model when you add a face to an existing **Face
 ```csharp
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 
-string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_03");
 ```
 

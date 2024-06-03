@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: Heidilohr
 ms.author: helohr
-ms.date: 04/15/2024
+ms.date: 05/29/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -22,23 +22,37 @@ Make sure to check back here often to keep up with new updates.
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
 
+## April 2024 
+
+Here's what changed in April 2024: 
+
+### Updated administrative template for Watermarking in Intune and Group Policy
+
+The [administrative template for Azure Virtual Desktop](administrative-template.md) now includes updated template settings for watermarking, which are available in Microsoft Intune and Group Policy. For more information, along with instructions, see [Enable watermarking](watermarking.md#enable-watermarking) and 
+
+### Autoscale and Start VM on Connect for Azure Stack HCI with Azure Virtual Desktop is in preview
+
+Autoscale and Start VM on Connect are now available for session hosts running on Azure Stack HCI in preview. Autoscale lets you scale your session host virtual machines in a host pool up or down according to schedule to optimize deployment costs. Start VM On Connect lets you reduce costs by enabling end users to turn on their session host virtual machines only when they need them so you can power them off when they're not needed. 
+
+For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Set up Start VM on Connect](start-virtual-machine-connect.md).
+ 
 ## March 2024
 
 Here's what changed in March 2024:
 
-### URI schemes with the Remote Desktop client for Azure Virtual Desktop now available
+### ms-avd Uniform Resource Identifier (URI) scheme for Azure Virtual Desktop with the Remote Desktop client now generally available
 
-You can now use Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values designed for using Azure Virtual Desktop. For example, you can use URI to subscribe to a workspace or connect to a particular desktop or RemoteApp. 
+The Uniform Resource Identifier (URI) scheme `ms-avd`, which is used to invoke the Remote Desktop client with specific commands, parameters, and values designed for using Azure Virtual Desktop, is now generally available. For example, you can use a URI to subscribe to a workspace or connect to a particular desktop or RemoteApp. 
 
 For more information and examples, see [Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop](uri-scheme.md). 
 
-### Every time sign-in frequency Conditional Access option for Azure Virtual Desktop is now in public preview 
+### Every time sign-in frequency Conditional Access option is now in public preview 
 
 Using Microsoft Entra sign-in frequency with Azure Virtual Desktop prompts users to reauthenticate when launching a new connection after a period of time. You can now require reauthentication after a shorter period of time. 
 
 For more information, see [Configure sign-in frequency](set-up-mfa.md?tabs=avd#configure-sign-in-frequency). 
 
-### Configuring the clipboard transfer direction in Azure Virtual Desktop is now in public preview 
+### Configuring the clipboard transfer direction is now in public preview 
 
 Clipboard redirection in Azure Virtual Desktop allows users to copy and paste content in either direction between the user's local device and the remote session. However, in some scenarios you might want to limit the direction of the clipboard for users to prevent data exfiltration or copying malicious files to a session host. You can configure users to only be able to use the clipboard to copy data from session host to client or client to session host, as well as what kind of data they can copy.
 
@@ -294,9 +308,9 @@ The Shutdown session host status is now available in the Azure Virtual Desktop p
 
 Windows 10 and 11 22H2 Enterprise and Enterprise multi-session images are now visible in the image dropdown when creating a new host pool or adding a VM in a host pool from the Azure Virtual Desktop portal.
 
-### Uniform Resource Identifier Schemes in public preview
+### ms-avd Uniform Resource Identifier (URI) scheme in public preview
 
-Uniform Resource Identifier (URI) schemes with the Remote Desktop client for Azure Virtual Desktop is now in public preview. This new feature lets you subscribe to a workspace or connect to a particular desktop or RemoteApp using URI schemes. URI schemes also provide fast and efficient end-user connection to Azure Virtual Desktop resources. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-uniform-resource-identifier/ba-p/3763075) and [URI schemes with the Remote Desktop client for Azure Virtual Desktop (preview)](uri-scheme.md). 
+A Uniform Resource Identifier (URI) scheme for Azure Virtual Desktop that you can use with the Remote Desktop client for Azure Virtual Desktop. You can use `ms-avd` to subscribe to a workspace or connect to a particular desktop or RemoteApp. URI schemes provide fast and efficient end-user connection to Azure Virtual Desktop resources. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-uniform-resource-identifier/ba-p/3763075) and [URI schemes with the Remote Desktop client for Azure Virtual Desktop (preview)](uri-scheme.md). 
 
 ### Azure Virtual Desktop Insights at Scale now generally available
 
