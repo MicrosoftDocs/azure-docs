@@ -74,15 +74,14 @@ callAgent.unregisterPushNotification { (error) in
 ```
 
 ## Disable internal push for incoming call
-There are 2 ways that a push payload of an incming call can be delivered to the callee.
-  1. Using APNS and registering the device token with the API mentioned above , `registerPushNotification()` on a `CallAgent`.
-  2. When a `CallAgent` is created, SDK also registers an internal service to get the push payload delivered.
 
-Using the property `disableInternalPushForIncomingCall` in `CallAgentOptions` or `TeamsCallAgentOptions` its possible to disable the push payload from being delivered using the internal push service.
+There are 2 ways that a push payload of an incoming call can be delivered to the callee.
+  1. Using APNS and registering the device token with the API mentioned above , `registerPushNotification` on `CallAgent` or `TeamsCallAgent`.
+  2. When a `CallAgent` or `TeamsCallAgent` is created, SDK also registers with an internal service to get the push payload delivered.
+
+Using the property `disableInternalPushForIncomingCall` in `CallAgentOptions` or `TeamsCallAgentOptions` it's possible to instruct the SDK to disable the delivery of the push payload using the internal push service.
 
 ```swift
 let options = CallAgentOptions()
 options.disableInternalPushForIncomingCall = true
 ```
-
-
