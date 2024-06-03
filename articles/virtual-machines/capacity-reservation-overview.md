@@ -89,15 +89,17 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - Fx series
     - Lsv3 (Intel) and Lasv3 (AMD)
     - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation.
-- Support for below VM Series for Capacity Reservation is in Public Preview: 
-    - M-series, v3
+- At VM deployment for below VM Series for Capacity Reservation, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation:
     - NC-series, v3
     - NCasT4_v3 series
     - NC_A100_v4 series
     - NV-series, v3 and newer
     - NVadsA10_v5 series
+- Support for below VM Series for Capacity Reservation is in Public Preview: 
+    - M-series, v2
+    - M-series, v3
     - Lsv2
-    - For above mentioned M and N series, at VM deployment, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation.
+    - For above mentioned M series, at VM deployment, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation.
 - Support for other VM Series isn't currently available:  
     - M series, v1 and v2 
     - ND-series 
