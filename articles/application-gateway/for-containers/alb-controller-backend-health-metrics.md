@@ -35,9 +35,9 @@ Any clients or pods that have connectivity to this pod and port may access these
 
 ### Discovering backend health
 
-The ALB Controller will make backend health available on the controller pod that is acting as primary.
+The ALB Controller exposes backend health on the ALB controller pod that is acting as primary.
 
-To find the primary pod, you may run the following command:
+To find the primary pod, run the following command:
 
 ```bash
 CONTROLLER_NAMESPACE='azure-alb-system'
@@ -60,7 +60,7 @@ curl http://127.0.0.1:8000
 
 # [Access backend health via controller pod directly](#tab/backend-health-direct-access)
 
-Run the following kubectl command to identify the IP address of the primary ALB Controller pod. You may return a list of all controller pods or run a single command to obtain the IP address per your preference.
+Run the following kubectl command to identify the IP address of the primary ALB Controller pod.
 
 ```bash
 kubectl get pod <alb controller pod name from previous step> -n $CONTROLLER_NAMESPACE -o jsonpath="{.status.podIP}"
@@ -206,7 +206,7 @@ Example output:
 
 ## Metrics
 
-ALB Controller currently surfaces metrics following [text based format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) to be exposed to Prometheus. Access to these logs may be found at http://<alb-controller-pod-ip>:8001/metrics
+ALB Controller currently surfaces metrics following [text based format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) to be exposed to Prometheus. Access to these logs are available on port 8001 of the primary alb controller pod `http://<alb-controller-pod-ip>:8001/metrics`.
 
 The following metrics are exposed today:
 
