@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc-enabled servers
 description: Azure Arc-enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 10/08/2022
+ms.date: 05/17/2024
 ms.topic: conceptual
 ---
 
@@ -65,9 +65,11 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md) |
 |Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Install the Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-manage.md) |
-|Azure Automation Hybrid Runbook Worker extension |Microsoft.Compute |HybridWorkerForWindows |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally. |
-|Azure Extension for SQL Server |Microsoft.AzureData |WindowsAgent.SqlServer |[Install Azure extension for SQL Server](/sql/sql-server/azure-arc/connect#initiate-the-connection-from-azure) to initiate SQL Server connection to Azure. |
+|Azure Automation Hybrid Runbook Worker extension |Microsoft.Compute |HybridWorkerForWindows |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally |
+|Azure Extension for SQL Server |Microsoft.AzureData |WindowsAgent.SqlServer |[Install Azure extension for SQL Server](/sql/sql-server/azure-arc/connect#initiate-the-connection-from-azure) to initiate SQL Server connection to Azure |
 |Windows Admin Center (preview) |Microsoft.AdminCenter |AdminCenter |[Manage Azure Arc-enabled Servers using Windows Admin Center in Azure](/windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines) |
+|Windows OS Update Extension |WindowsOsUpdateExtension |Microsoft.SoftwareUpdateManagement |[Overview of Azure Update Manager](/azure/update-manager/overview?tabs=azure-vms) |
+|Windows Patch Extension |Microsoft.CPlat.Core |WindowsPatchExtension |[Automatic Guest Patching for Azure Virtual Machines and Scale Sets](../../virtual-machines/automatic-vm-guest-patching.md) |
 
 ### Linux extensions
 
@@ -79,7 +81,9 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) |
 |Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Install the Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-manage.md) |
-|Azure Automation Hybrid Runbook Worker extension  |Microsoft.Compute |HybridWorkerForLinux |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally.|
+|Azure Automation Hybrid Runbook Worker extension  |Microsoft.Compute |HybridWorkerForLinux |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally|
+|Linux OS Update Extension  |Microsoft.SoftwareUpdateManagement |LinuxOsUpdateExtension |[Overview of Azure Update Manager](/azure/update-manager/overview?tabs=azure-vms)|
+|Linux Patch Extension  |Microsoft.CPlat.Core |LinuxPatchExtension |[Automatic Guest Patching for Azure Virtual Machines and Scale Sets](../../virtual-machines/automatic-vm-guest-patching.md)|
 
 ## Prerequisites
 

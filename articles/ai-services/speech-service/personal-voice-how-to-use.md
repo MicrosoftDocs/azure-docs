@@ -8,12 +8,10 @@ ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 2/7/2024
 ms.author: eur
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ---
 
-# Use personal voice (preview) in your application
-
-[!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
+# Use personal voice in your application
 
 You can use the [speaker profile ID](./personal-voice-create-voice.md) for your personal voice to synthesize speech in any of the 91 languages supported across 100+ locales. A locale tag isn't required. Personal voice uses automatic language detection at the sentence level. 
 

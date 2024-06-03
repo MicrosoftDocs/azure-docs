@@ -23,8 +23,10 @@
     href:  /azure/ai-services/openai/use-your-data-quickstart?context=/azure/search/context/context
   - name: Portal
     items:
-    - name: Create an index
+    - name: Create an index (Import data wizard)
       href: search-get-started-portal.md
+    - name: Import, chunk, and vectorize data
+      href: search-get-started-portal-import-vectors.md
     - name: Create a demo app
       href: search-create-app-portal.md
     - name: Create a skillset
@@ -121,6 +123,8 @@
     href: samples-python.md
   - name: REST samples
     href: samples-rest.md
+  - name: Vector samples
+    href: https://github.com/Azure/azure-search-vector-samples
 - name: Concepts
   items:
   - name: Data
@@ -198,16 +202,18 @@
       href: ../reliability/migrate-search-service.md
     - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
-    - name: Manage in the portal
-      href: search-manage.md
-    - name: Manage with PowerShell
-      href: search-manage-powershell.md
-    - name: Manage with Azure CLI
-      href: search-manage-azure-cli.md
-    - name: Manage with REST
-      href: search-manage-rest.md
-    - name: Move service across regions
-      href: search-howto-move-across-regions.md
+    - name: Manage
+      items:
+      - name: Manage in the portal
+        href: search-manage.md
+      - name: Manage with PowerShell
+        href: search-manage-powershell.md
+      - name: Manage with Azure CLI
+        href: search-manage-azure-cli.md
+      - name: Manage with REST
+        href: search-manage-rest.md
+      - name: Move service across regions
+        href: search-howto-move-across-regions.md
   - name: Index management
     items:
     - name: Create a search index
@@ -286,6 +292,8 @@
             href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
           - name: Azure SQL Server VMs
             href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: OneLake files
+          href: search-how-to-index-onelake-files.md
         - name: SharePoint in Microsoft 365
           href: search-howto-index-sharepoint-online.md
     - name: Skillsets
@@ -322,6 +330,8 @@
     items:
     - name: Create a vector index
       href: vector-search-how-to-create-index.md
+    - name: Index binary data for vector search
+      href: vector-search-how-to-index-binary-data.md
     - name: Query vectors
       href: vector-search-how-to-query.md
     - name: Filter vectors
@@ -336,8 +346,8 @@
       href: vector-search-how-to-chunk-documents.md
     - name: Generate embeddings
       href: vector-search-how-to-generate-embeddings.md
-    - name: Chunk and embed in Azure portal (preview)
-      href: search-get-started-portal-import-vectors.md
+    - name: Integrated vectorization with Azure AI Studio models
+      href: vector-search-integrated-vectorization-ai-studio.md
   - name: Keyword search
     items:
     - name: Full text query
@@ -512,36 +522,80 @@
     href: /legal/search/transparency-note?context=/azure/search/context/context
 - name: Reference
   items:
-  - name: REST
+  - name: API reference
     items:
     - name: Search REST API
       href: /rest/api/searchservice
     - name: Management REST API
       href: /rest/api/searchmanagement
-  - name: .NET
+  - name: Azure SDK reference
     items:
-    - name: Azure.Search.Documents
-      href: /dotnet/api/overview/azure/search.documents-readme
-    - name: Azure.ResourceManager.Search
-      href: /dotnet/api/overview/azure/resourcemanager.search-readme
-  - name: Java
+    - name: .NET
+      items:
+      - name: Azure.Search.Documents
+        href: /dotnet/api/overview/azure/search.documents-readme
+      - name: Azure.ResourceManager.Search
+        href: /dotnet/api/overview/azure/resourcemanager.search-readme
+    - name: Java
+      items:
+      - name: com.azure.search.documents
+        href: /java/api/overview/azure/search-documents-readme
+      - name: com.azure.resourcemanager.search
+        href: /java/api/overview/azure/search/management
+    - name: JavaScript
+      items:
+      - name: azure/search-documents
+        href: /javascript/api/overview/azure/search-documents-readme
+      - name: azure/arm-search
+        href: /javascript/api/@azure/arm-search/
+    - name: Python
+      items:
+      - name: azure-search-documents
+        href: /python/api/overview/azure/search-documents-readme
+      - name: azure-mgmt-search
+        href: /python/api/azure-mgmt-search/
+  - name: Data reference
     items:
-    - name: com.azure.search.documents
-      href: /java/api/overview/azure/search-documents-readme
-    - name: com.azure.resourcemanager.search
-      href: /java/api/overview/azure/search/management
-  - name: JavaScript
+    - name: Data types
+      href: /rest/api/searchservice/supported-data-types
+    - name: Data types for indexer data sources
+      href: /rest/api/searchservice/data-type-map-for-indexers-in-azure-search
+    - name: Stopwords reference
+      href: reference-stopwords.md
+  - name: Query reference
     items:
-    - name: azure/search-documents
-      href: /javascript/api/overview/azure/search-documents-readme
-    - name: azure/arm-search
-      href: /javascript/api/@azure/arm-search/
-  - name: Python
-    items:
-    - name: azure-search-documents
-      href: /python/api/overview/azure/search-documents-readme
-    - name: azure-mgmt-search
-      href: /python/api/azure-mgmt-search/
+    - name: Simple query syntax
+      href: query-simple-syntax.md
+    - name: Full Lucene query syntax
+      href: query-lucene-syntax.md
+    - name: moreLikeThis (preview)
+      href: search-more-like-this.md
+    - name: OData language reference
+      items:
+      - name: Overview
+        href: query-odata-filter-orderby-syntax.md
+      - name: $filter
+        href: search-query-odata-filter.md
+      - name: $orderby
+        href: search-query-odata-orderby.md
+      - name: $select
+        href: search-query-odata-select.md
+      - name: any, all
+        href: search-query-odata-collection-operators.md
+      - name: eq, ne, gt, lt, ge, le
+        href: search-query-odata-comparison-operators.md
+      - name: search.ismatch, search.ismatchscoring
+        href: search-query-odata-full-text-search-functions.md
+      - name: geo.distance, geo.intersects
+        href: search-query-odata-geo-spatial-functions.md
+      - name: and, or, not
+        href: search-query-odata-logical-operators.md
+      - name: search.in
+        href: search-query-odata-search-in-function.md
+      - name: search.score
+        href: search-query-odata-search-score-function.md
+      - name: OData Language Grammar
+        href: search-query-odata-syntax-reference.md
   - name: Resource management
     items:
     - name: Azure CLI
@@ -555,46 +609,6 @@
       href: ./policy-reference.md
     - name: Monitoring data reference
       href: monitor-azure-cognitive-search-data-reference.md
-  - name: Data type reference
-    href: /rest/api/searchservice/supported-data-types
-  - name: Data types for indexer data sources
-    href: /rest/api/searchservice/data-type-map-for-indexers-in-azure-search
-  - name: Stopwords reference
-    href: reference-stopwords.md
-  - name: OData language reference
-    items:
-    - name: Overview
-      href: query-odata-filter-orderby-syntax.md
-    - name: $filter
-      href: search-query-odata-filter.md
-    - name: $orderby
-      href: search-query-odata-orderby.md
-    - name: $select
-      href: search-query-odata-select.md
-    - name: any, all
-      href: search-query-odata-collection-operators.md
-    - name: eq, ne, gt, lt, ge, le
-      href: search-query-odata-comparison-operators.md
-    - name: search.ismatch, search.ismatchscoring
-      href: search-query-odata-full-text-search-functions.md
-    - name: geo.distance, geo.intersects
-      href: search-query-odata-geo-spatial-functions.md
-    - name: and, or, not
-      href: search-query-odata-logical-operators.md
-    - name: search.in
-      href: search-query-odata-search-in-function.md
-    - name: search.score
-      href: search-query-odata-search-score-function.md
-    - name: OData Language Grammar
-      href: search-query-odata-syntax-reference.md
-  - name: Query syntax reference
-    items:
-    - name: Simple query syntax
-      href: query-simple-syntax.md
-    - name: Full Lucene query syntax
-      href: query-lucene-syntax.md
-    - name: moreLikeThis (preview)
-      href: search-more-like-this.md
   - name: Skills reference
     items:
     - name: Overview
@@ -623,6 +637,8 @@
         href: cognitive-search-skill-sentiment-v3.md
       - name: Text Translation
         href: cognitive-search-skill-text-translation.md
+      - name: AI Vision multimodal embeddings
+        href: cognitive-search-skill-vision-vectorize.md
     - name: Azure AI Search utility skills (nonbillable)
       items:
       - name: Conditional
@@ -654,20 +670,34 @@
         href: cognitive-search-skill-entity-recognition.md
       - name: Sentiment (v2)
         href: cognitive-search-skill-sentiment.md
+  - name: Vectorizers reference
+    items:
+    - name: Azure OpenAI
+      href: vector-search-vectorizer-azure-open-ai.md
+    - name: Azure AI Vision
+      href: vector-search-vectorizer-ai-services-vision.md
+    - name: Azure AI Studio model catalog
+      href: vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md
+    - name: Custom Web API
+      href: vector-search-vectorizer-custom-web-api.md
 - name: Resources
   items:
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-cognitive-search
-  - name: Pricing
+  - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/details/search/
-  - name: Products by Region
+  - name: Azure products by region
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search
-  - name: Demo sites
-    href: resource-demo-sites.md
-  - name: Tools and Accelerators
-    href: resource-tools.md
-  - name: Training
-    href: resource-training.md
+  - name: Compliance and certification
+    href: /azure/compliance/
+  - name: Demos, tools, and training
+    items:
+    - name: Demo sites
+      href: resource-demo-sites.md
+    - name: Tools and accelerators
+      href: resource-tools.md
+    - name: Training
+      href: resource-training.md
   - name: Partner solutions
     items:
     - name: Partner spotlight

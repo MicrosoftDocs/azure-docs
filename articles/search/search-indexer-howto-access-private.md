@@ -7,29 +7,27 @@ manager: nitinme
 author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: how-to
-ms.date: 04/03/2024
+ms.date: 05/23/2024
 ---
 
 # Make outbound connections through a shared private link
 
-This article explains how to configure private, outbound calls from Azure AI Search to an Azure PaaS resource that runs within a virtual network.
+This article explains how to configure private, outbound calls from Azure AI Search to an Azure PaaS resource that runs within an Azure virtual network.
 
 Setting up a private connection allows a search service to connect to a virtual network IP address instead of a port that's open to the internet. The object created for the connection is called a *shared private link*. On the connection, the search service uses the shared private link internally to reach an Azure PaaS resource inside the network boundary.
 
 Shared private link is a premium feature that's billed by usage. When you set up a shared private link, charges for the private endpoint are added to your Azure invoice. As you use the shared private link, data transfer rates for inbound and outbound access are also invoiced. For details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!NOTE]
-> If you're setting up a private indexer connection to a SQL Managed Instance, see [this article](search-indexer-how-to-access-private-sql.md) instead.
+> If you're setting up a private indexer connection to a SQL Managed Instance, see [this article](search-indexer-how-to-access-private-sql.md) instead for steps specific to that resource type.
 
 ## When to use a shared private link
 
 Azure AI Search makes outbound calls to other Azure PaaS resources in the following scenarios:
 
-+ Indexer or search engine connects to Azure OpenAI for text-to-vector embeddings
-+ Indexer connects to supported data sources
++ Indexer or search engine connections to Azure OpenAI for text-to-vector embeddings
++ Indexer connections to supported data sources
 + Indexer (skillset) connections to Azure Storage for caching enrichments, debug session sate, or writing to a knowledge store
 + Encryption key requests to Azure Key Vault
 + Custom skill requests to Azure Functions or similar resource
@@ -56,7 +54,7 @@ There are two scenarios for using [Azure Private Link](../private-link/private-l
 
 Scenario one is covered in this article.
 
-While both scenarios have a dependency on Azure Private Link, they are independent. You can create a shared private link without having to configure your own search service for a private endpoint.
+While both scenarios have a dependency on Azure Private Link, they're independent. You can create a shared private link without having to configure your own search service for a private endpoint.
 
 ### Limitations
 
@@ -66,21 +64,23 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + Indexer execution must use the private execution environment that's specific to your search service. Private endpoint connections aren't supported from the multitenant environment. The configuration setting for this requirement is covered in this article.
 
++ 
+
 ## Prerequisites
 
 + An Azure AI Search at the Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
 
 + An Azure PaaS resource from the following list of [supported resource types](#supported-resource-types), configured to run in a virtual network.
 
-
 + Permissions on both Azure AI Search and the data source:
 
   + On the Azure PaaS resource, you must have the permission to approve private endpoint connections. For instance, if you're using an Azure Storage account as your data source (such as Blob container, Azure Files share, Azure table), you need `Microsoft.Storage/storageAccounts/privateEndpointConnectionsApproval/action`.
 
-  + On the search service, you must have read and write permissions on shared private link resources and read operation statuses: 
-     + `Microsoft.Search/searchServices/sharedPrivateLinkResources/write`
-     + `Microsoft.Search/searchServices/sharedPrivateLinkResources/read`
-     + `Microsoft.Search/searchServices/sharedPrivateLinkResources/operationStatuses/read`
+  + On the search service, you must have read and write permissions on shared private link resources and read operation statuses:
+
+    + `Microsoft.Search/searchServices/sharedPrivateLinkResources/write`
+    + `Microsoft.Search/searchServices/sharedPrivateLinkResources/read`
+    + `Microsoft.Search/searchServices/sharedPrivateLinkResources/operationStatuses/read`
 
 <a name="group-ids"></a>
 
@@ -92,22 +92,24 @@ You can create a shared private link for the following resources.
 |-----------------------------------|----------------------------|
 | Microsoft.Storage/storageAccounts <sup>1</sup> | `blob`, `table`, `dfs`, `file` |
 | Microsoft.DocumentDB/databaseAccounts <sup>2</sup>| `Sql` |
-| Microsoft.Sql/servers | `sqlServer` |
+| Microsoft.Sql/servers <sup>3</sup> | `sqlServer` |
 | Microsoft.KeyVault/vaults | `vault` |
 | Microsoft.DBforMySQL/servers (preview) | `mysqlServer`|
-| Microsoft.Web/sites (preview) <sup>3</sup> | `sites` |
-| Microsoft.Sql/managedInstances (preview) <sup>4</sup>| `managedInstance` |
-| Microsoft.CognitiveServices/accounts (preview) <sup>5</sup>| `openai_account` |
+| Microsoft.Web/sites (preview) <sup>4</sup> | `sites` |
+| Microsoft.Sql/managedInstances (preview) <sup>5</sup>| `managedInstance` |
+| Microsoft.CognitiveServices/accounts (preview) <sup>6</sup>| `openai_account` |
 
 <sup>1</sup> If Azure Storage and Azure AI Search are in the same region, the connection to storage is made over the Microsoft backbone network, which means a shared private link is redundant for this configuration. However, if you already set up a private endpoint for Azure Storage, you should also set up a shared private link or the connection is refused on the storage side. Also, if you're using multiple storage formats for various scenarios in search, make sure to create a separate shared private link for each subresource.
 
 <sup>2</sup> The `Microsoft.DocumentDB/databaseAccounts` resource type is used for indexer connections to Azure Cosmos DB for NoSQL. The provider name and group ID are case-sensitive.
 
-<sup>3</sup> The `Microsoft.Web/sites` resource type is used for App service and Azure functions. In the context of Azure AI Search, an Azure function is the more likely scenario. An Azure function is commonly used for hosting the logic of a custom skill. Azure Function has Consumption, Premium, and Dedicated [App Service hosting plans](../app-service/overview-hosting-plans.md). The [App Service Environment (ASE)](../app-service/environment/overview.md) and [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) aren't supported at this time.
+<sup>3</sup> The `Microsoft.Sql/servers` resource type is used for connections to Azure SQL database. There's currently no support for a shared private link to Azure Synapse SQL.
 
-<sup>4</sup> See [Create a shared private link for a SQL Managed Instance](search-indexer-how-to-access-private-sql.md) for instructions.
+<sup>4</sup> The `Microsoft.Web/sites` resource type is used for App service and Azure functions. In the context of Azure AI Search, an Azure function is the more likely scenario. An Azure function is commonly used for hosting the logic of a custom skill. Azure Function has Consumption, Premium, and Dedicated [App Service hosting plans](../app-service/overview-hosting-plans.md). The [App Service Environment (ASE)](../app-service/environment/overview.md) and [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) aren't supported at this time.
 
-<sup>5</sup> The `Microsoft.CognitiveServices/accounts` resource type is used for indexer connections to Azure OpenAI when implementing [integrated Vectorization](vector-search-integrated-vectorization.md).
+<sup>5</sup> See [Create a shared private link for a SQL Managed Instance](search-indexer-how-to-access-private-sql.md) for instructions.
+
+<sup>6</sup> The `Microsoft.CognitiveServices/accounts` resource type is used for vectorizer and indexer connections to Azure OpenAI when implementing [integrated Vectorization](vector-search-integrated-vectorization.md). There's currently no support for shared private link to embedding models in the Azure AI Studio model catalog or to the Azure AI Vision multimodal API.
 
 ## 1 - Create a shared private link
 

@@ -87,28 +87,28 @@ Other points to note about certificates:
 
 #### Register Azure Front Door
 
-Register the service principal for Azure Front Door as an app in your Microsoft Entra ID by using Azure PowerShell or the Azure CLI.
+Register the service principal for Azure Front Door as an app in your Microsoft Entra ID by using Microsoft Graph PowerShell or the Azure CLI.
 
 > [!NOTE]
 > * This action requires you to have Global Administrator permissions in Microsoft Entra ID. The registration only needs to be performed *once per Microsoft Entra tenant*.
 > * The application IDs of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** and **d4631ece-daab-479b-be77-ccb713491fc0** are predefined by Azure for Azure Front Door Standard and Premium across all Azure tenants and subscriptions. Azure Front Door (classic) has a different application ID.
 
-# [Azure PowerShell](#tab/powershell)
+# [Microsoft Graph PowerShell](#tab/powershell)
 
-1. If needed, install [Azure PowerShell](/powershell/azure/install-azure-powershell) in PowerShell on your local machine.
+1. If needed, install [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation) in PowerShell on your local machine.
 
 1. Use PowerShell to run the following command:
 
     Azure public cloud:
 
      ```azurepowershell-interactive
-     New-AzADServicePrincipal -ApplicationId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
+     New-MgServicePrincipal -ApplicationId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
      ```
 
     Azure government cloud:
 
     ```azurepowershell-interactive
-     New-AzADServicePrincipal -ApplicationId 'd4631ece-daab-479b-be77-ccb713491fc0'
+     New-MgServicePrincipal -ApplicationId 'd4631ece-daab-479b-be77-ccb713491fc0'
      ```
 
 # [Azure CLI](#tab/cli)

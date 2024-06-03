@@ -2,8 +2,8 @@
 title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
-ms.topic: conceptual
-ms.date: 12/13/2023
+ms.topic: how-to
+ms.date: 05/22/2024
 ---
 
 # Use deployment scripts in Bicep
@@ -141,6 +141,75 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "inlineScript.bicep"
 
 Write-Host "Press [ENTER] to continue ..."
+```
+
+## Use managed identity
+
+The following example demonstrates how to use managed identity to interact with Azure from inside the deployment script.
+
+```bicep
+@description('The location of the resources.')
+param location string = resourceGroup().location
+
+@description('The storage account to list blobs from.')
+param storageAccountData {
+  name: string
+  container: string
+}
+
+@description('The role id of Storage Blob Data Reader.')
+var storageBlobDataReaderRoleId = '2a2b9908-6ea1-4ae2-8e65-a410df84e7d1'
+
+@description('The storage account to read blobs from.')
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+  name: storageAccountData.name
+}
+
+@description('The Storage Blob Data Reader Role definition from [Built In Roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles).')
+resource storageBlobDataReaderRoleDef 'Microsoft.Authorization/roleDefinitions@2022-05-01-preview' existing = {
+  scope: subscription()
+  name: storageBlobDataReaderRoleId
+}
+
+@description('The user identity for the deployment script.')
+resource scriptIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-07-31-preview' = {
+  name: 'script-identity'
+  location: location
+}
+
+@description('Assign permission for the deployment scripts user identity access to the read blobs from the storage account.')
+resource dataReaderRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  scope: storageAccount
+  name: guid(storageBlobDataReaderRoleDef.id, scriptIdentity.id, storageAccount.id)
+  properties: {
+    principalType: 'ServicePrincipal'
+    principalId: scriptIdentity.properties.principalId
+    roleDefinitionId: storageBlobDataReaderRoleDef.id
+  }
+}
+
+@description('The deployment script.')
+resource script 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'script'
+  location: location
+  kind: 'AzureCLI'
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${scriptIdentity.id}': {}
+    }
+  }
+  properties: {
+    azCliVersion: '2.59.0'
+    retentionInterval: 'PT1H'
+    arguments: '${storageAccount.properties.primaryEndpoints.blob} ${storageAccountData.container}'
+    scriptContent: '''
+      #!/bin/bash
+      set -e
+      az storage blob list --auth-mode login --blob-endpoint $1 --container-name $2
+    '''
+  }
+}
 ```
 
 ## Monitor and troubleshoot a deployment script

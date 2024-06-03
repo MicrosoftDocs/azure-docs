@@ -15,7 +15,7 @@ ms.date: 10/26/2023
 
 In this tutorial, you use Azure Network Watcher [next hop](network-watcher-next-hop-overview.md) tool to troubleshoot and diagnose a VM routing problem that's preventing it from correctly communicating with other resources. Next hop shows you that a [custom route](../virtual-network/virtual-networks-udr-overview.md?toc=/azure/network-watcher/toc.json#custom-routes) caused the routing problem.
 
-:::image type="content" source="./media/diagnose-vm-network-routing-problem/next-hop-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial.":::
+:::image type="content" source="./media/diagnose-vm-network-routing-problem/next-hop-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial." lightbox="./media/diagnose-vm-network-routing-problem/next-hop-tutorial-diagram.png":::
 
 In this tutorial, you learn how to:
 

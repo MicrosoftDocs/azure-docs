@@ -22,7 +22,7 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
 In this article, two VMs are used in a single VNet linked to your private DNS zone with autoregistration enabled. The setup is summarized in the following figure.
 
-![Summary diagram of the quickstart setup](media/private-dns-portal/private-dns-quickstart-summary.png)
+:::image type="content" source="media/private-dns-portal/private-dns-quickstart-summary.png" alt-text="Summary diagram of the quickstart setup." border="false" lightbox="media/private-dns-portal/private-dns-quickstart-summary.png":::
 
 ## Prerequisites
 
