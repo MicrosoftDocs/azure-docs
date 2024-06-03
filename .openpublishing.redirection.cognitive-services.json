@@ -131,6 +131,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/v2-preview/project-overview.md",
+            "redirect_url": "/azure/ai-services/translator/custom-translator/v2-preview/beginners-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis.md",
+            "redirect_url": "/learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/translator/tutorial-wpf-translation-csharp.md",
+            "redirect_url": "/ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/academic-knowledge/AffiliationEntityAttributes.md",
             "redirect_url": "/academic-services/project-academic-knowledge/reference-affiliation-entity-attributes",
             "redirect_document_id": false
@@ -6111,11 +6126,6 @@
         {
             "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/label-tool.md",
             "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/try-sample-label-tool",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/ai-services/computer-vision/how-to/install-sdk.md",
-            "redirect_url": "/articles/ai-services/computer-vision/sdk/install-sdk",
             "redirect_document_id": false
         },
         {
