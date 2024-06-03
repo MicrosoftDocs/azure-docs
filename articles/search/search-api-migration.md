@@ -18,11 +18,15 @@ ms.date: 06/03/2024
 
 Use this article to migrate data plane calls to newer versions of the [**Search REST APIs**](/rest/api/searchservice/).
 
-+ [**`2023-11-01`**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version.
++ [`2023-11-01`](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version.
 
-+ [**`2024-05-01-preview`**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview API version. 
++ [`2024-05-01-preview`](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview API version. 
 
-**`2023-07-01-preview`** was the first REST API for vector support. It's now deprecated and you should migrate to either stable or newer preview REST APIs immediately.
+Upgrade instructions focus on code changes that get you through breaking changes from previous versions so that existing code runs the same as before, but on the newer API version. Once your code is in working order, you can decide whether to adopt newer features. To learn more about preview features, see [vector code samples](https://github.com/Azure/azure-search-vector-samples) and [What's New](whats-new.md).
+
+We recommend upgrading API versions in succession, working through each version until you get to the newest one.
+
+`2023-07-01-preview` was the first REST API for vector support. It's now deprecated and you should migrate to either stable or newer preview REST APIs immediately.
 
 > [!NOTE]
 > REST API reference docs are now versioned. To get version-specific content, open a reference page and then filter by version, using the selector located above the table of contents.
@@ -31,7 +35,7 @@ Use this article to migrate data plane calls to newer versions of the [**Search 
 
 Azure AI Search breaks backward compatibility as a last resort. Upgrade is necessary when:
 
-+ Your code references a retired or deprecated API version and is subject to one or more breaking changes. You must address breaking changes if your code targets [`2023-07-10-preview`](#code-upgrade-for-vector-indexes-and-queries) for vectors, [`2020-06-01-preview]`(#breaking-change-for-semantic-ranking) for semantic ranking, and [`2019-05-06`](#upgrade-to-2019-05-06) for obsolete skills and workarounds. 
++ Your code references a retired or deprecated API version and is subject to one or more breaking changes. You must address breaking changes if your code targets [`2023-07-10-preview`](#code-upgrade-for-vector-indexes-and-queries) for vectors, [`2020-06-01-preview`](#breaking-change-for-semantic-ranking) for semantic ranking, and [`2019-05-06`](#upgrade-to-2019-05-06) for obsolete skills and workarounds. 
 
 + Your code fails when unrecognized properties are returned in an API response. As a best practice, your application should ignore properties that it doesn't understand.
 
@@ -57,9 +61,9 @@ Effective March 29, 2024 and applicable to all [supported REST APIs](/rest/api/s
 
 See [Migrate from preview version](semantic-how-to-configure.md#migrate-from-preview-versions) to transition your code to use `semanticConfiguration`.
 
-## Upgrade from 2024-03-01-preview
+## Upgrade to 2024-05-01-preview
 
-[`2024-03-01-preview`](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) adds new data types and properties for compression. 
+[`2024-05-01-preview`](/rest/api/searchservice/search-service-api-versions#2024-05-01-preview) adds OneLake index, support for binary vectors, and support for more embedding models. 
 
 If you're upgrading from `2024-03-01-preview`, the AzureOpenAIEmbedding skill now requires a model name and dimensions property.
 
@@ -67,21 +71,25 @@ If you're upgrading from `2024-03-01-preview`, the AzureOpenAIEmbedding skill no
 
 1. Set `modelName` to "text-embedding-ada-002" and set `dimensions` to "1536".
 
-## Upgrade from 2023-10-01-preview
+## Upgrade to 2024-03-01-preview
 
-[`2023-10-01-preview`](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) was the first preview version to add [built-in data chunking and vectorization during indexing](vector-search-integrated-vectorization.md) and [built-in query vectorization](vector-search-how-to-configure-vectorizer.md). 
+[`2024-03-01-preview`](/rest/api/searchservice/search-service-api-versions#2024-03-01-preview) adds narrow data types, scalar quantization, and vector storage options. 
 
-If your code currently targets `2023-10-01-preview`, you can target `2023-11-01` or `2024-03-01-preview` with no breaking changes. However, there's one behavior difference: for `2023-11-01` and newer previews, the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md).
+If your code currently targets `2023-10-01-preview`, you can target `2024-03-01-preview` with no breaking changes. However, there's one behavior difference: for `2023-11-01` and newer previews, the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md).
 
 1. Search your codebase for `vectorFilterMode` references.
 
 1. If the property is explicitly set, no action is required. If you used the default, be aware that the new default behavior is to filter before query execution. If you want post-query filtering, explicitly set `vectorFilterMode` to postfilter to retain the old behavior. 
 
+## Upgrade to 2023-10-01-preview
+
+[`2023-10-01-preview`](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) was the first preview version to add [built-in data chunking and vectorization during indexing](vector-search-integrated-vectorization.md) and [built-in query vectorization](vector-search-how-to-configure-vectorizer.md). 
+
+The next section provides upgrade steps. 
+
 ## Upgrade from 2023-07-01-preview
 
-This section explains the migration path from 2023-07-01-preview to any newer API version. There are multiple breaking changes from `2023-07-01-preview` to any newer version.
-
-Upgrade instructions focus on code changes that get you through breaking changes from previous versions so that existing code runs the same as before, but on the newer API version. Once your code is in working order, you can decide whether to adopt newer features. To learn more about preview features, see [vector code samples](https://github.com/Azure/azure-search-vector-samples) and [What's New](whats-new.md).
+`2023-07-01-preview` is now deprecated, so you shouldn't upgrade to this version under any circumstances. This section explains the migration path from `2023-07-01-preview` to any newer API version. There are multiple breaking changes from `2023-07-01-preview` to any newer version.
 
 ### Portal upgrade for vector indexes
 
