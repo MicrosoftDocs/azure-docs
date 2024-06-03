@@ -360,5 +360,7 @@
           href: /Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
         - name: Three reasons to use configuration snapshots
           href: https://aka.ms/appconfig/snapshotVideo
+        - name: Five things you might not know about Azure App Configuration
+          href: https://aka.ms/appconfig/fiveThingsVideo
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues
