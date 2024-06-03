@@ -562,6 +562,8 @@
               href: istio-deploy-ingress.md
             - name: Deploy secure Istio ingress gateway
               href: istio-secure-gateway.md
+            - name: Use unmanaged ingress controller
+              href: ingress-basic.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer
