@@ -75,6 +75,7 @@ The following is the request body to configure backup for all blobs within a sto
   }
 }
 ```
+
 To configure backup with vaulted backup enabled, refer the below request body.
 
 ```json
@@ -153,6 +154,7 @@ The [request body](#prepare-the-request-to-configure-blob-backup) that you prepa
   }
 }
 ```
+
 #### Example request body for vaulted backup
 
 ```json

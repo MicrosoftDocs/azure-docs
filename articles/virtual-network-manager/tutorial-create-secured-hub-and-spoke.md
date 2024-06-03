@@ -24,7 +24,8 @@ In this tutorial, you learn how to:
 > * Create a security configuration blocking traffic on port 80 and 443.
 > * Verify configurations were applied.
 
-:::image type="content" source="media/tutorial-create-secured-hub-and-spoke/create-secure-hub-spoke-network.png" alt-text="Diagram of secure hub and spoke topology components.":::
+:::image type="content" source="media/tutorial-create-secured-hub-and-spoke/create-secure-hub-spoke-network.png" alt-text="Diagram of secure hub and spoke topology components." lightbox="media/tutorial-create-secured-hub-and-spoke/create-secure-hub-spoke-network.png":::
+
 ## Prerequisite
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
