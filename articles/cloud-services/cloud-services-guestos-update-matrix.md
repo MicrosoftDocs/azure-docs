@@ -34,13 +34,19 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
-###### **April 9, 2023**
+###### **June 1, 2024**
+The May Guest OS has released. 
+
+###### **April 19, 2024**
+The April Guest OS has released. 
+
+###### **April 9, 2024**
 The March Guest OS has released. 
 
-###### **February 24, 2023**
+###### **February 24, 2024**
 The February Guest OS has released. 
 
-###### **January 22, 2023**
+###### **January 22, 2024**
 The January Guest OS has released. 
 
 ###### **January 16, 2023**
