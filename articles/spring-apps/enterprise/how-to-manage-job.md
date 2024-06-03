@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to manage the lifecycle of the job and run it in the Azure Spring Apps Enterprise plan.
+This article shows you how to manage the lifecycle of a job and run it in the Azure Spring Apps Enterprise plan.
 
 ## Prerequisites
 
@@ -25,241 +25,289 @@ This article shows you how to manage the lifecycle of the job and run it in the 
 
 ## Create and deploy a job
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
-To create a job, run the command `az spring job create` to create job and deploy the job with source code or artifacts of the application.
+Use the command `az spring job create` to create job and deploy the job with source code or artifacts of the application.
 
+```azurecli
+az spring job create \
+    --name <job-name> \
+
+az spring job deploy \
+    --artifact-path <artifact-path> \
+    --name <job-name> \
 ```
-az spring job create --name <job-name>
-az spring job deploy --artifact-path <artifact-path> --name <job-name>
-```
 
-# [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-To create a job using the Azure portal, follow the steps:
+Use the following steps to create a job using the Azure portal:
 
-1. Go to your Azure Spring Apps instance. From the navigation pane, select *Jobs* in *Settings*.
-1. Select *Create Job* in the *Jobs* blade.
-1. Input the job name and other configurations of the job, click *Create* button and wait until the job is created succesfully.
-1. Select *Deploy Job* next to *Create Job*, a panel is open.
-1. To deploy the job, copy the Azure CLI commands in the panel and run the commands in command line.
+1. Open your Azure Spring Apps service instance.
+
+1. In the navigation pane, select **Settings**, and then select **Jobs**.
+
+1. On the **Jobs** page, select **Create Job**.
+
+1. Add a name for the job and select other configurations. Select **Create** and wait until the job is created succesfully.
+
+1. Select **Deploy Job**. A panel opens.
+
+1. To deploy the job, copy the Azure CLI commands in the panel, and run the commands in the command line.
 
 ---
 
-For public preview, at most 10 jobs can be created per service instance.
+For the public preview, you can create 10 jobs per service instance.
 
 ## Start and cancel a job execution
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
-To start a job execution with Azure CLI, run the following command.
+Use the following command to start a job execution:
 
-```
-az spring job start --name <job-name>
-```
-
-If the command runs successfully, the name of the job execution is returned. With `--wait-until-finished true` parameter, the command doesn't return until the job execution finishes.
-
-To query the status of the job execution, use the command, replace the `<execution-name>` with the name returned from start command
-
-```
-az spring job execution show --job <job-name> --name <execution-name>
+```azurecli
+az spring job start \
+    --name <job-name> \
 ```
 
-To cancel those job executions that are running, run the following command.
+If the command runs successfully, it returns the name of the job execution. With the `--wait-until-finished true` parameter, the command doesn't return until the job execution finishes.
 
+To query the status of the job execution, use the following command. Replace the `<execution-name>` with the name returned from the start command.
+
+```azurecli
+az spring job execution show \
+    --job <job-name> \
+    --name <execution-name> \
 ```
-az spring job execution cancel --job <job-name> --name <execution-name>
+
+To cancel the job executions that are running, use the following command:
+
+```azurecli
+az spring job execution cancel \
+    --job <job-name> \
+    --name <execution-name> \
 ```
 
-# [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-1. Open the overview page of the job by selecting the job name in the *Jobs* blade
-1. Select *Run* to open settings panel of the job execution
-1. Input specific arguments and add environment variables as wanted for this execution, click *Run* button to run the execution.
-1. In the *Executions* blade of *Jobs* overview page, find the latest job execution and select *View execution detail* to see the configuration both in job level and execution level
+1. On the **Jobs** page, select the job name to open the overview page of the job.
 
-To rerun the job execution, select *Rerun Job* to trigger a new job execution with the same configuration.
+1. Select **Run** to open the settings panel of the job execution.
 
-To cancel the running job execution, select *Cancel Job*.
+1. Add specific arguments and environment variables as needed for this execution. Select **Run** to run the execution.
+
+1. To rerun the job execution, select **Rerun Job** to trigger a new job execution with the same configuration.
+
+1. To cancel the running job execution, select **Cancel Job**.
 
 ---
 
 ## Query job execution history
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
-To show the execution history, run the command:
+To show the execution history, use the following command:
 
+```azurecli
+az spring job execution list \
+    --job <job-name> \
 ```
-az spring job execution list --job <job-name>
-```
 
-# [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-1. In the *Executions* blade of *Jobs* overview page, latest job executions are listed
-1. Select *Cancel Job* to cancel a running job execution
-1. Select *View execution detail* to see the configuration both in job level and execution level
+In the **Executions** section of the **Jobs** overview page, find the latest job execution and select **View execution detail** to see the configuration both in the job level and the execution level.
 
 ---
 
-For the public preview, we retain the latest 10 completed or failed job execution records per job in the history.
-
+For the public preview, the latest 10 completed or failed job execution records per job in the history are retained.
 
 ## Query job execution logs
 
-For history job executions, you can query the logs in the log analytics using the query in Azure portal:
+For the history of job executions in the Azure portal, use the following command to query the logs in the Azure Log Analytics:
 
-```
+```SQL
 AppPlatformLogsforSpring
 | where AppName == '<job-name>' and InstanceName startswith '<execution-name>'
 | order by TimeGenerated asc
 ```
 
-See the step to [set up log analytics workspace](../basic-standard/quickstart-setup-log-analytics.md?tabs=Azure-Portal#prerequisites).
-
+For more information, see [Set up log analytics workspace](../basic-standard/quickstart-setup-log-analytics.md?tabs=Azure-Portal#prerequisites).
 
 For real time log, use the following command:
 
-```
-az spring job logs --name <job-name> --execution <execution-name>
+```azurecli
+az spring job logs \
+    --name <job-name> \
+    --execution <execution-name> \
 ```
 
-If there are multiple instances for the job execution, specify `--instance <instance-name>` to view logs of one instance.
+If there are multiple instances for the job execution, specify `--instance <instance-name>` to view the logs of only one instance.
 
 ## Rerun job execution
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
-Using Azure CLI, you can use the same command as the previous one to start the job execution to trigger a new one:
+Use the following command to trigger a new job execution:
 
+```azurecli
+az spring job start \
+    --name <job-name> \
+    --args <argument-value> \
+    --envs <key=value> \
 ```
-az spring job start --name <job-name> --args <argument-value> --envs <key=value>
-```
 
-# [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-In Azure Portal, to rerun the job execution:
+Use the following steps to rerun the job execution:
 
-1. Open the *Executions* blade of *Jobs* overview page
-1. Select *Rerun* to trigger a new job execution with the same configuration as the previous one
-1. A new job execution is shown in the *Executions* blade
+1. Open the **Executions** section of the **Jobs** overview page.
+
+1. Select **Rerun** to trigger a new job execution with the same configuration as the previous one.
+
+A new job execution is shown in the **Executions** section.
 
 ---
 
 ## Integrate with managed components
 
-During the public preview, jobs are enabled to integrate seamlessly with Spring Cloud Config Server for efficient configuration management and Tanzu Service Registry for service discovery.
+For the public preview, jobs are enabled to integrate seamlessly with Spring Cloud Config Server for efficient configuration management and Tanzu Service Registry for service discovery.
 
 ### Spring Cloud Config Server
 
-With Spring Cloud Config Server, configurations or properties that are required by the job can be managed externally on Git repos and then loaded into the job accordingly. After setting up git repo configurations on Spring Cloud Config Server, you need bind the jobs with it as below.
+With the Spring Cloud Config Server, configurations or properties that are required by the job can be managed externally on GitHub repos and then loaded into the job accordingly. After setting up GitHub repo configurations on Spring Cloud Config Server, you need to bind the jobs with it.
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
-1. Bind the job to Spring Cloud Config Server during job creation using the command:
+1. Use the following command to bind the job to the Spring Cloud Config Server during job creation:
 
-```
-az spring job create --bind-config-server true --name <job-name>
-```
+   ```azurecli
+   az spring job create \
+       --bind-config-server true \
+       --name <job-name> \
+   ```
 
-1. For existing jobs, you can bind them with Spring Cloud Config Server using this command:
+1. For existing jobs, use the following command to bind them to the Spring Cloud Config Server:
 
-```
-az spring config-server bind --job <job-name>
-```
+   ```azurecli
+   az spring config-server bind \
+       --job <job-name> \
+   ```
 
-# [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
-Bind the job to Spring Cloud Config Server during job creation:
+Use the following steps to bind the job to the Spring Cloud Config Server during job creation:
 
-1. Go to your Azure Spring Apps instance. From the navigation pane, select *Job*
-1. Click *Create Job* button and choose *Spring Cloud Config Server* in the *bind* part
-1. Click *Create* button to start creation process
+1. Open your Azure Spring Apps service instance. In the navigation pane, select **Job**.
 
-For existing jobs, you can bind them with Spring Cloud Config Server with following steps:
+1. Select **Create Job** and then select **Spring Cloud Config Server** in the **Bind** page.
 
-1. Go to your Azure Spring Apps instance. From the navigation pane, select *Spring Cloud Config Server* in *Managed components*.
-1. If the component is disabled, select *Manage* to enable it.
-1. In the *Settings* tab, configure Spring Cloud Config Server with the right git repository. Click *Validate* and *Apply* to make it take effect.
-1. In *Job binding* tab, select *Bind job* and choose the job to apply.
-1. After binding successfully, the job name shows in the list.
-1. Run the job
+1. Select **Create** to start the creation process.
+
+For existing jobs, use the following steps to bind them to the Spring Cloud Config Server:
+
+1. Open your Azure Spring Apps service instance. In the navigation pane, go to the **Managed components** section, and then select **Spring Cloud Config Server**.
+
+1. If the component is disabled, select **Manage** to enable it.
+
+1. On the **Settings** tab, configure Spring Cloud Config Server with the right GitHub repository. Select **Validate** and then select **Apply**.
+
+1. On the **Job binding** tab, select **Bind job** and select the job to apply.
+
+1. After binding successfully, the job name shows up on the list.
+
+1. Run the job.
 
 ---
 
-If you no longer need Spring Cloud Config Server for your jobs, you can unbind them from it. This change will take effect on new job executions.
+If you no longer need Spring Cloud Config Server for your jobs, you can unbind them. This change takes effect on the new job executions.
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
-Use the following Azure CLI command to unbind the job:
+Use the following command to unbind the job:
 
+```azurecli
+az spring config-server unbind \
+    --job <job-name> \
 ```
-az spring config-server unbind --job <job-name>
-```
 
-# [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
-1. Go to your Azure Spring Apps instance. From the navigation pane, select *Spring Cloud Config Server* in *Managed components*.
-1. In *Job binding* tab, select the job that needs to be unbind
-1. Click *Unbind job* button.
+Use the following steps to unbind the job:
+
+1. Open your Azure Spring Apps service instance. In the navigation pane, go to the **Managed components** section, and then select **Spring Cloud Config Server**.
+
+1. On the **Job binding** tab, select the job you need to unbind.
+
+1. Select **Unbind job**.
 
 ---
 
 ### Tanzu Service registry
 
-It's pretty common for a job to call an API from a long running app in collaboration for querying some info, notifying, etc. To make the job discover apps running in the same Azure Spring Apps service, you can enable both your apps and jobs binding to managed Service Registry. Please refer to below instructions about how to bind a job with Service Registry.
+It's common for a job to call an API from a long running app in collaboration to query information, notification, and many more. To make the job discover apps running in the same Azure Spring Apps service, you can enable both your apps and jobs binding to managed Service Registry. The following section describes how to bind a job with Service Registry.
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
-Bind the job to Service Registry during job creation using the following Azure CLI command:
+Use the following command to bind the job to Service Registry during job creation:
 
-```
-az spring job create --bind-service-registry true
-```
-
-1. For existing jobs, you can bind them with Service Registry using this command:
-
-```
-az spring service-registry bind --job <job-name>
+```azurecli
+az spring job create \
+    --bind-service-registry true \
 ```
 
-# [Azure portal](#tab/azure-portal)
+For existing jobs, use the following command to bind them to the Service Registry:
 
-Bind the job to Service Registry during job creation:
+```azurecli
+az spring service-registry bind \
+    --job <job-name> \
+```
 
-1. Go to your Azure Spring Apps instance. From the navigation pane, select *Service Registry* in *Managed components*.
-1. If the component is disabled, select *Manage* to enable it.
-1. In *Job binding* tab, select *Bind job* and choose the job to apply.
-1. After binding successfully, the job name shows in the list.
-1. Run the job
+#### [Azure portal](#tab/azure-portal)
 
-For existing jobs, you can bind them with Service Registry with following steps:
+Use the following steps to bind the job to Service Registry during job creation:
 
-1. Go to your Azure Spring Apps instance. From the navigation pane, select *Service Registry* in *Managed components*.
-1. If the component is disabled, select *Manage* to enable it.
-1. In *Job binding* tab, select *Bind job* and choose the job to apply.
-1. After binding successfully, the job name shows in the list.
-1. Run the job
+1. Open your Azure Spring Apps service instance. In the navigation pane, go to the **Managed components** section, and then select **Service Registry**.
+
+1. If the component is disabled, select **Manage** to enable it.
+
+1. On the **Job binding** tab, select **Bind job** and then select the job to apply.
+
+1. After binding successfully, the job name shows up on the list.
+
+1. Run the job.
+
+For existing jobs, use the following steps to bind them to the Service Registry:
+
+1. Open your Azure Spring Apps service instance. In the navigation pane, go to the **Managed components** section, and then select **Service Registry**.
+
+1. If the component is disabled, select **Manage** to enable it.
+
+1. On the **Job binding** tab, select **Bind job** and then select the job to apply.
+
+1. After binding successfully, the job name shows up on the list.
+
+1. Run the job.
 
 ---
 
-When running the job execution, it can access the endpoint of registered apps through Service Registry then.
+When you run the job execution, it can access the endpoint of registered apps through Service Registry.
 
-If you no longer need Service Registry for your jobs, you can unbind them from it. This change will take effect on new job executions.
+If you no longer need Service Registry for your jobs, you can unbind them. This change takes effect on new job executions.
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
-Use the following Azure CLI command to unbind the job:
+Use the following command to unbind the job:
 
+```azurecli
+az spring service-registry unbind \
+    --job <job-name> \
 ```
-az spring service-registry unbind --job <job-name>
-```
 
-# [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
-1. Go to your Azure Spring Apps instance. From the navigation pane, select *Service Registry* in *Managed components*.
-1. In *Job binding* tab, select the job that needs to be unbind
-1. Click *Unbind job* button.
+1. Open your Azure Spring Apps service instance. In the navigation pane, go to the **Managed components** section, and then select **Service Registry**.
+
+1. In *Job binding* tab, select the job that you need to unbind.
+
+1. Select **Unbind job**.
 
 ---
