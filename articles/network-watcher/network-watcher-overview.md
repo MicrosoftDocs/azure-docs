@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: overview
-ms.date: 04/24/2024
+ms.date: 06/03/2024
 
 #CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
@@ -34,7 +34,7 @@ Network Watcher offers two monitoring tools that help you view and monitor resou
 
 ### Topology
 
-**Topology** provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups, and locations. For more information, see [Topology overview](network-insights-topology.md).
+**Topology** provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups, and locations. For more information, see [View topology](network-insights-topology.md).
 
 ### Connection monitor
 
