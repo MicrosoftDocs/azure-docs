@@ -675,6 +675,7 @@ Immersive Reader supports the following human languages.
 | Chinese Traditional | zh-Hant |
 | Danish (Denmark) | da-DK |
 | Dutch (Netherlands) | nl-NL |
+| English (United States) | en-US |
 | Finnish (Finland) | fi-FI |
 | French (France) | fr-FR |
 | German (Germany) | de-DE |
