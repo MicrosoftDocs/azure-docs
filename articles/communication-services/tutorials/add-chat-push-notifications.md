@@ -22,7 +22,7 @@ Push notifications alert users of incoming messages in a chat thread when the mo
   > [!div class="mx-imgBorder"]
   > ![Screenshot of the basic version of a push notification.](./media/add-chat-push-notification/basic-version.png)
 
-- **Advanced version**: In addition to the features supported in the basic version, you can customize the title and message preview section in the alert banner.
+- **Advanced version**: In addition to the features supported in the basic version, you can customize the title and the message preview in the alert banner.
 
   > [!div class="mx-imgBorder"]
   > ![Screenshot of the advanced version of a push notification.](./media/add-chat-push-notification/advanced-version.png)
@@ -55,7 +55,7 @@ If you're a Microsoft internal customer, [submit a ticket](https://aka.ms/mapsup
 
 1. Sign in to the [Apple Developer Portal](https://developer.apple.com/).
 
-1. Go to **Certificates, IDs & Profiles** > **Identifiers** > **App IDs**, and then select the app ID that's associated with your app.
+1. Go to **Certificates, Identifiers & Profiles** > **Identifiers** > **App IDs**, and then select the app ID that's associated with your app.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows selections for choosing an app ID.](./media/add-chat-push-notification/cert-1.png)
@@ -65,7 +65,7 @@ If you're a Microsoft internal customer, [submit a ticket](https://aka.ms/mapsup
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows options for editing an app ID configuration.](./media/add-chat-push-notification/cert-2.png)
 
-   In the **Modify App Capabilities** dialog that appears, select **Confirm**.
+1. In the **Modify App Capabilities** dialog that appears, select **Confirm**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the Confirm button for modifying app capabilities.](./media/add-chat-push-notification/cert-3.png)
@@ -78,12 +78,12 @@ If you're a Microsoft internal customer, [submit a ticket](https://aka.ms/mapsup
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows options for creating a development certificate or a production certificate.](./media/add-chat-push-notification/cert-4.png)
 
-1. The **Certificates, Identifiers & Profiles** page appears.
+1. The **Create a New Certificate** area appears on the **Certificates, Identifiers & Profiles** page.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the option for uploading a certificate signing request.](./media/add-chat-push-notification/cert-5.png)
 
-   On this page, you upload a certificate signing request (CSR):
+   In this area, you upload a certificate signing request (CSR):
 
    1. On a new browser tab, follow [this Apple help page](https://help.apple.com/developer-account/#/devbfa00fef7) to create a CSR and save the file as *App name.cer*. The instructions include using the Certificate Assistant to request a certificate and to fill in the certificate information.
 
@@ -108,7 +108,7 @@ If you're a Microsoft internal customer, [submit a ticket](https://aka.ms/mapsup
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the area for saving a certificate file.](./media/add-chat-push-notification/cert-11.png)
 
-1. Open the .cer file that you downloaded. In Keychain Access, select your certificate, right-click, and export your certificate in .p12 format.
+1. Open the .cer file that you downloaded. In Keychain Access, select your certificate, right-click it, and then export your certificate in .p12 format.
 
 1. Go to your notification hub. Under **Settings**, select **Apple (APNS)**. Then fill in the certificate details:
 
@@ -129,7 +129,7 @@ If you're a Microsoft internal customer, [submit a ticket](https://aka.ms/mapsup
 
 1. Add another capability by selecting **+ Capability**, and then select **Background Modes**.
 
-1. Under **Background Modes**, select **Remote Notifications**.
+1. Under **Background Modes**, select **Remote notifications**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the addition of push notifications and background modes in Xcode.](./media/add-chat-push-notification/xcode-config.png)
@@ -150,9 +150,9 @@ If you want to implement an advanced version of push notifications, you need to 
 
 Create persistent data storage in iOS devices. This data storage should be able to share data between the main app and app extensions.
 
-In the sample code for this tutorial, choose App Group as the data storage by taking these actions:
+In the sample code for this tutorial, choose App Groups as the data storage by taking these actions:
 
-- Add the App Group capability to your app's targets (main app and app extensions) by following the steps in the Apple article [Adding capabilities to your app](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app?changes=latest_minor#Add-a-capability).
+- Add the App Groups capability to your app's targets (main app and app extensions) by following the steps in the Apple article [Adding capabilities to your app](https://developer.apple.com/documentation/xcode/adding-capabilities-to-your-app?changes=latest_minor#Add-a-capability).
 
 - Configure App Groups by following the steps in the Apple article [Configuring App Groups](https://developer.apple.com/documentation/xcode/configuring-app-groups?changes=latest_minor). Make sure your main app and your app extensions have the same container name.
 
@@ -166,7 +166,7 @@ Implement the Notification Service Extension bundled with the main app. This app
 
 #### Implementation of the PushNotificationKeyStorage protocol
 
-The `PushNotificationKeyStorage` protocol is required for the advanced version of push notifications. You could use the default `AppGroupPushNotificationKeyStorage` class that the Chat SDK provides. If you don't use App Group as the key storage, or if you want to customize key storage methods, create your own class that conforms to the `PushNotificationKeyStorage` protocol.
+The `PushNotificationKeyStorage` protocol is required for the advanced version of push notifications. You could use the default `AppGroupPushNotificationKeyStorage` class that the Chat SDK provides. If you don't use App Groups as the key storage, or if you want to customize key storage methods, create your own class that conforms to the `PushNotificationKeyStorage` protocol.
 
 `PushNotificationKeyStorage` defines two methods:
 
@@ -188,7 +188,7 @@ In the protocol extension, the Chat SDK provides an implementation of the `decry
 
 5. Plug the iOS device into your Mac and run the program. When you're asked to authorize push notifications on the device, select **Allow**.
 
-6. As User B, send a chat message. You (User A) should receive a push notification on your iOS device.
+6. As User B, send a chat message. Confirm that User A receives a push notification on the iOS device.
 
 ## Implement registration renewal
 
@@ -201,7 +201,7 @@ This tutorial proposes two solutions that are aligned with Apple's official guid
 
 ### Solution 1: Background tasks
 
-Background tasks offer a way to perform activities even when the app is not in the foreground. By implementing a background task, your app can request more time to complete a specific task, such as renewing the push notification registration.
+Background tasks offer a way to perform activities even when the app is not in the foreground. When you implement a background task, your app can request more time to complete a specific task, such as renewing the push notification registration.
 
 The following sections describe how you can use background tasks for registration renewal.
 
