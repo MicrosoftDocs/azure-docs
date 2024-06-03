@@ -9,7 +9,7 @@ ms.topic:  how-to
 ms.reviewer: lagayhar
 ms.author: wenxwei
 author: wenxwei
-ms.date: 05/15/2024
+ms.date: 06/03/2024
 ms.custom: responsible-ml, build-2023
 ---
 
@@ -39,7 +39,7 @@ The Responsible AI text dashboard is a customizable, interoperable toolbox where
 
   The Responsible AI text dashboard opens.
 
-  :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/rai-text-dashboard.png" alt-text="Screenshot of a Responsible AI text dashboard." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/rai-text-dashboard.png":::
+  :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/dashboard.png" alt-text="Screenshot of a Responsible AI text dashboard." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/dashboard.png":::
 
 ## Cohorts
 
