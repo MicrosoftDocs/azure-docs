@@ -12,7 +12,7 @@ Use the following steps to get the pull secret.
 
 1. Open the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned), then use your Red Hat account to sign in to the OpenShift cluster manager portal. You may need to accept more terms and update your account as shown in the following screenshot. Use the same password as when you created the account.
 
-   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/red-hat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/howto-deploy-java-enterprise-application-platform-app/red-hat-account-complete-profile.png":::
+   :::image type="content" source="../media/howto-deploy-java-enterprise-application-platform-app/red-hat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="../media/howto-deploy-java-enterprise-application-platform-app/red-hat-account-complete-profile.png":::
 
 1. After you sign in, select **OpenShift** then **Downloads**.
 1. Select the **All categories** dropdown list and then select **Tokens**.
