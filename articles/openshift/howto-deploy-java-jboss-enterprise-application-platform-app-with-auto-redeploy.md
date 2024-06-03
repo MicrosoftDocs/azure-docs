@@ -24,8 +24,7 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
-> [!NOTE]
-> Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](/azure/azure-portal/supportability/per-vm-quota-requests). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](/azure/cost-management-billing/manage/upgrade-azure-subscription) before requesting a quota increase.
+[!INCLUDE [jboss-eap-aro-minimum-cores.md](./includes/jboss-eap-aro-minimum-cores.md)]
 
 [!INCLUDE [jboss-eap-aro-get-pullsecret.md](./includes/jboss-eap-aro-get-pullsecret.md)]
 
@@ -39,7 +38,7 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
     ````
     :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/create-service-principal-with-azure-cli.png " alt-text="Screenshot of Azure Cloud Shell showing how to create a service principal with Azure CLI." lightbox="media/howto-deploy-java-enterprise-application-platform-app/create-service-principal-with-azure-cli.png":::
 
-3. Copy the value of the clientId and clientSecret fields. You will use these values later in the deployment process.
+3. Copy the value of the **clientId** and **clientSecret** fields. You will use these values later in the deployment process.
 
 ## Fork repository from GitHub
 1. Open the repository https://github.com/redhat-mw-demos/eap-on-aro-helloworld in your browser. 
@@ -120,7 +119,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
    :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/deployments.png" alt-text="Screenshot of Azure portal showing JBoss EAP on Azure Red Hat OpenShift deployments with the oldest deployment highlighted." lightbox="media/howto-deploy-java-enterprise-application-platform-app/deployments.png":::
 
-1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment, which includes some useful information.
+1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment, which includes some useful information like **cmdToGetKubeadminCredentials** and **consoleUrl**.
 
 1. Open the Azure Cloud Shell, paste the value from the **cmdToGetKubeadminCredentials** field, and execute it. You see the admin account and credential for signing in to the OpenShift cluster console portal. The following example shows an admin account:
 
