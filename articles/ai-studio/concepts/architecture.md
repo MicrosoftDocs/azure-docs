@@ -58,7 +58,7 @@ Since Azure AI Studio is built from other Azure services, the resource providers
 
 [!INCLUDE [Resource provider kinds](../includes/resource-provider-kinds.md)]
 
-When you create a new hub, a set of dependent Azure resources are required to store data, manage security, and provide compute resources. The following table lists the dependent Azure resources and their resource providers:
+When you create a new hub, a set of dependent Azure resources are required to store data, get access to models, and provide compute resources for AI customization. The following table lists the dependent Azure resources and their resource providers:
 
 > [!TIP]
 > If you don't provide a dependent resource when creating a hub, and it's a required dependency, AI Studio creates the resource for you.
