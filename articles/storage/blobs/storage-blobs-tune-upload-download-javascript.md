@@ -87,7 +87,7 @@ The Storage REST layer doesn’t support picking up a REST upload operation wher
 
 ## Performance tuning for downloads
 
-Properly tuning data transfer options is key to reliable performance for downloads. Storage transfers are partitioned into several subtransfers based on the values defined in [BlobDownloadToBufferOptions](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions).
+Tuning data transfer options for downloads is available only when using the [downloadToBuffer](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtobuffer) method. This method downloads a blob in parallel to a buffer based on the values defined in [BlobDownloadToBufferOptions](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions). Other download methods don't support tuning data transfer options.
 
 ### Set transfer options for downloads
 
@@ -98,9 +98,24 @@ The following values can be tuned for downloads based on the needs of your app:
 
 ### Performance considerations for downloads
 
-During a download, the Storage client libraries split a given download request into multiple subdownloads based on the configuration options defined by `BlobDownloadToBufferOptions`. Each subdownload has its own dedicated call to the REST operation. Depending on transfer options, the client libraries manage these REST operations in parallel to complete the full download.
+During a download using `downloadToBuffer`, the Storage client libraries split a given download request into multiple subdownloads based on the configuration options defined by `BlobDownloadToBufferOptions`. Each subdownload has its own dedicated call to the REST operation. Depending on transfer options, the client libraries manage these REST operations in parallel to complete the full download.
 
-## Next steps
+#### Code example
+
+The following code example shows how to set values for [BlobDownloadToBufferOptions](/javascript/api/@azure/storage-blob/blobdownloadtobufferoptions) and include the options as part of a [downloadToBuffer](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtobuffer) method call. The values provided in the samples aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
+
+```javascript
+// Specify data transfer options
+    const downloadToBufferOptions = {
+        blockSize: 4 * 1024 * 1024, // 4 MiB max block size
+        concurrency: 2, // maximum number of parallel transfer workers
+    }
+
+    // Download data to buffer
+    const result = await client.downloadToBuffer(offset, count, downloadToBufferOptions);
+```
+
+## Related content
 
 - To understand more about factors that can influence performance for Azure Storage operations, see [Latency in Blob storage](storage-blobs-latency.md).
 - To see a list of design considerations to optimize performance for apps using Blob storage, see [Performance and scalability checklist for Blob storage](storage-performance-checklist.md).
