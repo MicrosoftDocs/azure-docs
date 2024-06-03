@@ -129,13 +129,21 @@ The cost details file itself doesn’t uniquely identify individual records with
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
 
-## Reconcile charges for MCA accounts
+## Reconcile charges in the cost and usage details file
 
-MCA customers can use the following information to reconcile charges between billing and pricing currencies. 
+Microsoft Customer Agreement (MCA) customers can use the following information to reconcile charges between billing and pricing currencies. 
 
-1.	Manually calculate the `CostInPricingCurrency` by: `(EffectivePrice)` * `(Quantity)`
-2.	Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostinPricingCurrency)` * `(ExchangeRatePricingToBilling)`
-3.	Summarize the values that you calculated for `CostInBillingCurrency` and compare them to the invoice.
+1. Manually calculate the `CostInPricingCurrency` by: `(EffectivePrice)` * `(Quantity)`
+
+1. Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostinPricingCurrency)` * `(ExchangeRatePricingToBilling)`
+
+1. Summarize the values that you calculated for `CostInBillingCurrency` and compare them to the invoice.
+
+Enterprise Agreement (EA) customers can reconcile their charges using the following computation:
+
+Manually calculate the cost by multiplying the **Effective Price** by the **Quantity**:
+
+`Cost` = `(EffectivePrice)` * `(Quantity)`
 
 ## Reconcile reservation purchases with usage records
 
