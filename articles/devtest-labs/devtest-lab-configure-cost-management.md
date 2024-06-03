@@ -42,13 +42,13 @@ The following articles describe how to create tags and enable tag inheritance:
 
 If the lab is updated correctly by using the billing properties method, you see **Tag inheritance** is **Enabled**: 
 
-:::image type="content" source="./media/devtest-lab-configure-cost-management/tag-inheritance.png" alt-text="Screenshot that shows Tag Inheritance is Enabled in the Azure portal.":::
+:::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tag-inheritance.png" alt-text="Screenshot that shows Tag Inheritance is Enabled for cost management in the Azure portal." border"false" lightbox="./media/devtest-lab-configure-cost-management/devtest-tag-inheritance-large.png":::
 
 ## Apply tags to DevTest Labs
 
 DevTest Labs automatically propagates tags applied at the lab level to resources created by the lab. For virtual machines, tags are applied to the billable resources. For environments, tags are applied to the resource group for the environment. To apply tags to your labs, follow the steps in [Add tags to a lab](devtest-lab-add-tag.md).
 
-:::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tags.png" alt-text="Screenshot that shows tags added for a DevTest Labs resource in the Azure portal." border="false" lightbox="./media/devtest-lab-configure-cost-management/devtest-tags-large.png":::
+:::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tags.png" alt-text="Screenshot that shows tags added for a DevTest Labs resource in the Azure portal." lightbox="./media/devtest-lab-configure-cost-management/devtest-tags-large.png":::
 
 > [!NOTE]
 > After you apply a new tag to your lab, the tag is automatically applied to new lab resources when they're created. If you want to apply a new or updated tag to existing resources, you can use a script to propagate the tag correctly. Use the [Update-DevTestLabsTags script](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/UpdateDtlTags) located in the DevTest Labs GitHub repository.
