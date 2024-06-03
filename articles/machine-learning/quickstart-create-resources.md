@@ -66,7 +66,7 @@ If you don't yet have a workspace, create one now:
 1. Select **Create** to create the workspace
 
 > [!NOTE]
-> This creates a workspace along with all required resources. If you would like to more customization, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.
+> This creates a workspace along with all required resources. If you would like to more customization, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.  See [Create a workspace](how-to-manage-workspace.md) for more information.
 
 ## Create a compute instance
 
