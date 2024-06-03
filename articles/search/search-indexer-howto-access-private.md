@@ -64,8 +64,6 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + Indexer execution must use the private execution environment that's specific to your search service. Private endpoint connections aren't supported from the multitenant environment. The configuration setting for this requirement is covered in this article.
 
-+ 
-
 ## Prerequisites
 
 + An Azure AI Search at the Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
@@ -287,6 +285,7 @@ Approval of the private endpoint connection is granted on the Azure PaaS side. E
 
 + On Azure Storage, use [Private Endpoint Connections - Put](/rest/api/storagerp/private-endpoint-connections/put)
 + On Azure Cosmos DB, use [Private Endpoint Connections - Create Or Update](/rest/api/cosmos-db-resource-provider/private-endpoint-connections/create-or-update)
++ On Azure OpenAI, use [Private Endpoint Connections - Create Or Update](/rest/api/aiservices/accountmanagement/private-endpoint-connections/create-or-update?view=rest-aiservices-accountmanagement-2023-05-01&preserve-view=true)
 
 Using the Azure portal, perform the following steps:
 
