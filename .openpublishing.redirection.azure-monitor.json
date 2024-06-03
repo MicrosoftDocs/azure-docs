@@ -6728,7 +6728,13 @@
             "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-get-started.md",
             "redirect_url": "/azure/azure-monitor/essentials/prometheus-metrics-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/pipeline-overview.md",
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-overview",
+            "redirect_document_id": false
         }
+        
         
 
     ]

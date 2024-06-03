@@ -1747,6 +1747,38 @@ This field can be specified only if `subnetId` is also specified and must meet t
 #### proxyVmSize (optional)
 Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This field must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
 
+## Properties: autoRun
+
+You can use the `autoRun` property to control whether the image template build process should automatically start when the template is created or updated. It's an enum with two possible values:
+- **Enabled** - Auto run is enabled, so your image template build process will automatically start when the template is created or updated. 
+- **Disabled** - Auto run is disabled, so you will have to manually start the image build process after the template is created or updated.
+
+```json
+"properties": {
+		"autoRun": "Enabled"
+}
+```
+
+> [!NOTE]
+> When you set `autoRun` to "Enabled," the image build process runs **once** upon template creation or update. It ensures that the initial image build occurs seamlessly. However, it does not provide consistent and ongoing image builds. For consistent and ongoing image builds that run once an image template is updated, see [How to use Azure Image Builder triggers to set up an automatic image build](../image-builder-triggers-how-to.md).
+>
+> Unlike `autoRun`, automatic image creation via the Azure Image Builder trigger resource ensures that image builds occur consistently. Whenever there are changes to the template, the Azure Image Builder service will automatically trigger the image build process.
+>
+> Choose `autoRun` for immediate image builds upon template creation or update. Opt for automatic image creation when you need ongoing consistency in image builds. Consider your specific requirements and use the appropriate option based on your workflow.
+
+## Properties: managedResourceTags
+
+You can use the `managedResourceTags` property to apply tags to the resources that the Azure Image Builder service creates in the staging resource group during the image build. For more information on the staging resource group, see [Azure Image Builder Overview](../image-builder-overview.md#how-it-works)
+
+```json
+"properties": {
+		"managedResourceTags": {
+			"tag1": "value1",
+      			"tag2": "value2"
+              }
+}
+```
+
 ## Image Template Operations
 
 ### Starting an Image Build
