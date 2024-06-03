@@ -1,5 +1,5 @@
 ---
-title: Aggregate data with Summary rules in Log Analytics
+title: Aggregate data in a Log Analytics workspace with Summary rules
 description: Aggregate data in Log Analytics workspace with Summary rules feature in Azure Monitor, including creating, starting, stopping, and troubleshooting rules. 
 ms.service: azure-monitor
 ms.subservice: logs
@@ -9,42 +9,34 @@ ms.author: guywild
 ms.reviewer: yossi-y
 ms.date: 04/23/2024
 
-# Customer intent: As a Log Analytics workspace administrator or developer, I want to optimize the cost-effectiveness, query performance, and analysis capabilities by using summary rules to aggregate data I ingest to specific tables.
+# Customer intent: As a Log Analytics workspace administrator or developer, I want to optimize my cost-effectiveness, query performance, and analysis capabilities by using summary rules to aggregate data I ingest to specific tables.
 ---
 
-# Aggregate data in Log Analytics workspace with Summary rules
+# Aggregate data in a Log Analytics workspace with Summary rules
 
-Azure Monitor provides a complete observability solution that collects logs from multiple sources in Azure, other clouds, and on-premises environments. For large systems, the performance of logs consumption in queries depends on the amount of processed data, the time range, and results set. It's possible for the logs consumption to exceed query limits. 
+Complex queries on large data sets often time out. It's easier to analyze and report on summarized data that's _cleaned_ and _aggregated_. A summary rule lets you aggregate data you ingest into your Log Analytics workspace based on a defined query and cadence. The rule sends the aggregated data to a custom log table in your Log Analytics workspace. This lets you optimize your data for:
 
-Summary rules provide a way to aggregate ingested data to Log Analytics workspace per given query and cadence. The process supports ingesting the result back to a custom log table in Log Analytics workspace for optimal consumption experiences, including:
+- **Analysis and reports** on large data sets and time ranges when you use summarized data in scenarios. Some examples include security and incident analysis, and month-over-month or annual business reports.
 
-- **Perform analysis and reports** on large data sets and time ranges when you use summarized data in scenarios. Some examples include security and incident analysis, and month-over-month or annual business reports.
+- **Cost savings** verbose logs to tables in Basic or Auxiliary tiers, and summarize to Analytics table for analysis, reports, and long retention. Or, ingest to Analytics table with short retention, and summarize it to a table with longer retention.
 
-- **Optimize cost to ingest** verbose logs to tables in Basic or Auxiliary tiers, and summarize to Analytics table for analysis, reports, and long retention. Or, ingest to Analytics table with short retention, and summarize it to a table with longer retention.
-
-- **Enhance with alerts, dashboards, and cross-referencing** on data ingested in Basic or Auxiliary tiers, when summarized and used in Analytics tier.
+- **Alerts, dashboards, and cross-referencing** on data ingested in Basic or Auxiliary tiers, when summarized and used in Analytics tier.
 
 - **Segregate table-level access** for privacy and security by obfuscation of privacy details in summarized shareable data.
 
 
-## Prerequisites
+This article describes how summary rules work, explains how to define a summary rule, and provides some examples of the use and benefits of summary rules.
 
-- To create Summary rules in your Log Analytics workspace, you must register your Azure subscriptions during the Private Preview. [Sign up here](https://forms.office.com/r/yYLZ78rzHu?origin=lprLink).
+## Prerequisites
 
 - For limits and restrictions related to Summary rules in Log Analytics, see [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces).
 
 ### Permissions required
 
-<!-- Questions:
-
- - Since "summarylogs" is new, it's not yet mentioned in the permissions article. Need to identify section in the permissions article to link for each action in the table.
-
--->
-
 | Action | Permissions required |
 | --- | --- |
-| Create or update rule | `Microsoft.Operationalinsights/workspaces/summarylogs/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
-| Create or update destination table | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
+| Create or update summary rule | `Microsoft.Operationalinsights/workspaces/summarylogs/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
+| Create or update destination table | `Microsoft.OperationalInsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
 | Enable query in workspace | `Microsoft.OperationalInsights/workspaces/query/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
 | Query all logs in workspace | `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
 | Query logs in table | `Microsoft.OperationalInsights/workspaces/query/<table>/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
@@ -52,28 +44,26 @@ Summary rules provide a way to aggregate ingested data to Log Analytics workspac
 
 ## How summary rules work
 
-Summary rules perform batch processing directly in your Log Analytics workspace. Use summary rules to process incoming data in small chunks and ingest the summarized results into a custom [Analytics table](basic-logs-configure.md) in your Log Analytics workspace. 
+Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule takes a chunk of data, defined by bin size, aggregates the data based on a query, and reingests the summarized results into a custom [Analytics table](basic-logs-configure.md) in your Log Analytics workspace. 
 
-You can use summary rules to aggregate data from both [Analytics and Basic](basic-logs-query.md) log tables. The rules help to optimize costs when you need to retain raw data data in the cheap archiving tier for the time needed for your scenario and retain summarized data longer.
+You can aggregate data in any data plan, including [Analytics and Basic](basic-logs-query.md) tables. Using summary rules to retain raw and summarized data in different plans can help optimize costs - for example, you can retain raw data in the cheaper Basic log data plan for as little or as long as you need for compliance, and retain summarized data you use for analysis and reports in an Analytics table for longer.
 
 You can configure several rules to aggregate data from multiple tables and send the aggregated data to the same destination table or separate tables. 
 
-When you run complex queries on large data sets, the process might time out. It's easier to do analysis and reporting for summarized data that's _cleaned_ and aggregated to a reduced set of data.
-
-The summarized data in a custom log table can be exported to a Storage Account or Event Hubs for further integrations. Set the [Data Export rule](logs-data-export.md) in your workspace to enable the export.
+You can also export summarized data from a custom log table to a Storage Account or Event Hubs for further integrations by defining a [data export rule](logs-data-export.md) in your workspace.
 
 :::image type="content" source="media/summary-rules/ingestion-flow.png" alt-text="Screenshot that shows how Summary rules ingest data through the Azure Monitor pipeline to Log Analytics workspace." border="false" lightbox="media/summary-rules/ingestion-flow.png":::
 
 ## Configure summary rule properties
 
-A basic Summary rule can include a query, bin, and destination table. As an option, you can add a minimum delay (`binDelay`) before bin execution for late arriving data, along with rule execution time (`binStartTime`) to control the bin aggregation time.
+For all summary rules, you need to define a query, the bin size for the data aggregation, and a new or existing destination table. You can also add a minimum delay (`binDelay`) before bin execution for late arriving data, along with rule execution time (`binStartTime`) to control the bin aggregation time.
 
-The following table lists the Summary rules properties and descriptions:
+This table describes the summary rule properties:
 
 | Property | Description |
 | --- | --- |
-| `ruleType` | Specifies the type of rule. <br> - `User` or `System.User`: Use these values for rules you author with a query, bin, and so on. <br> - `System`: Use this value for predefined rules managed by Azure services. |
-| `description` | Provides details about the rule and its function. This property is helpful when you have several rules and can help with rule management. |
+| `ruleType` | Specifies the type of rule. <br> - `User`: Rules you define. <br> - `System`: Predefined rules managed by Azure services. |
+| `description` | Describes the rule and its function. This property is helpful when you have several rules and can help with rule management. |
 | `binSize` | Defines the interval query to perform and the query time range. The value can be every 20, 30, 60, 120, 180, 360, 720, or 1,440 minutes. The bin summarization is at the whole hour, for example, `02:00 to 04:00, 04:00 to 06:00` when the bin is 120. When the bin is smaller than an hour, execution is at the bin fraction, 20, and 30 minutes. |
 | `query` | Defines the query to execute in the rule. A time range isn't needed because the `binSize` property determines the value, such as `02:00 to 03:00` for a 60-minutes bin. If you add a time filter in the query, the time rage used in the query is the intersection between the filter and the bin size. |
 | `destinationTable` | Specifies the name of the destination custom log table. The name value must end with `_CL`. The table is created automatically in the workspace, if it doesn't already exist, including the schema derived by the query in the rule. If the table already exists in the workspace, new fields introduced in the query are automatically appended. <br><br> When a reserved field, such as `TimeGenerated`, `_IsBillable`, `_ResourceId`, `TenantId`, or `Type`, is included in the summary results, the `_Original` prefix is appended to the fields to preserve their original values. <br><br> The following standard fields are always included in the Summary rule results: <br> - `_BinStartTime`: The start time of each bin <br> - `_BinSize`: The interval query to perform and the query time range. The bin end time can be calculated as `_BinStartTime` plus `_BinSize`. <br> - `_RuleLastModifiedTime`: The time the rule was last modified, which is helpful for rule change tracking. <br> - `_RuleName`: The name of the rule, which is helpful with rules mapping, especially when multiple rules send data to a table. |
