@@ -82,23 +82,17 @@ To **create a queue with auto forwarding enabled**, use the [`New-AzServiceBusQu
 ```azurepowershell-interactive
 New-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
-    -QueueName myqueue `
+    -Name myqueue `
     -ForwardTo myqueue2
 ```
 
 To **update the auto forward setting for an existing queue**, use the [`Set-AzServiceBusQueue`](/powershell/module/az.servicebus/set-azservicebusqueue) command as shown in the following example.
 
 ```azurepowershell-interactive
-$queue=Get-AzServiceBusQueue -ResourceGroup myresourcegroup `
-    -NamespaceName mynamespace `
-    -QueueName myqueue 
-
-$queue.ForwardTo='myqueue2'
-
 Set-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
-    -QueueName myqueue `
-    -QueueObj $queue
+    -Name myqueue `
+    -ForwardTo myqueue2
 ``` 
 
 To **create a subscription for a topic with auto forwarding enabled**, use the [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-ForwardTo` set to the name of queue or topic to which you want the messages to be forwarded.
@@ -107,25 +101,18 @@ To **create a subscription for a topic with auto forwarding enabled**, use the [
 New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
     -TopicName mytopic `
-    -SubscriptionName mysubscription `
+    -Name mysubscription `
     -ForwardTo myqueue2
 ```
 
 To **update the auto forward setting for an existing subscription**, see the following example.
 
 ```azurepowershell-interactive
-$subscription=Get-AzServiceBusSubscription -ResourceGroup myresourcegroup `
-    -NamespaceName mynamespace `
-    -TopicName mytopic `
-    -SubscriptionName mysub
-
-$subscription.ForwardTo='mytopic2'
-
 Set-AzServiceBusSubscription -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
-    -Name mytopic `
-    -SubscriptionName mysub `
-    -SubscriptionObj $subscription 
+    -TopicName mytopic `
+    -Name mysub `
+    -ForwardTo mytopic2 
 ```
 
 ## Using Azure Resource Manager template

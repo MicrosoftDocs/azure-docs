@@ -69,8 +69,7 @@ Every recommendation in Defender for Cloud has an associated risk level that rep
 
 The MCSB standard is an Azure Policy initiative that includes multiple compliance controls. One of these controls is "Storage accounts should restrict network access using virtual network rules."
 
-As Defender for Cloud continually assesses and finds resources that don't satisfy this control, it marks the resources as noncompliant and triggers a recommendation. In this case, guidance is to harden Azure Storage accounts that aren't protected with virtual network rules.
-
+Defender for Cloud continuously assesses resources. If it finds any that don’t satisfy this control, it marks them as noncompliant and triggers a recommendation. In this case, guidance is to harden Azure Storage accounts that aren't protected with virtual network rules.
 
 ## Next steps
 

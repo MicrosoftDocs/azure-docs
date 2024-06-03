@@ -219,37 +219,39 @@ A second service isn't required for high availability. High availability for que
 
 ## Add more services to a subscription
 
-Azure AI Search restricts the [number of resources](search-limits-quotas-capacity.md#subscription-limits) you can initially create in a subscription. If you exhaust your maximum limit, file a new support request to add more search services.
+Azure AI Search restricts the [number of search services](search-limits-quotas-capacity.md#subscription-limits) you can initially create in a subscription. If you exhaust your maximum limit, you can request more quota.
 
-1. Sign in to the Azure portal and find your search service.
+You must have Owner or Contributor permissions on the subscription to request quota.
 
-1. On the left-navigation pane, scroll down and select **Support and Troubleshooting**. This experience is fluid, and the options and prompts might vary slightly depending on your inputs.
+Maximum quota for a given tier and region combination is an extra 100 search services over the baseline quota (which means 106, 108, or 116 [depending on the tier](search-limits-quotas-capacity.md#subscription-limits)). You can't increase quota for the Free tier.
 
-1. In **How can we help?**, type **quota** and then select **Go**.
+1. Sign in to the Azure portal, search for "quotas" in your dashboard, and then select the **Quotas** service.
 
-1. You should see **Service and subscription limits (quotas)** as an option. Select it and then select **Next**.
+   :::image type="content" source="media/search-create-service-portal/quota-search.png" lightbox="media/search-create-service-portal/quota-search.png" alt-text="Screenshot of the quota search term and Quotas service in the results.":::
 
-   :::image type="content" source="media/search-create-service-portal/support-ticket.png" alt-text="Screenshot of options for increasing a subscription limit.":::
+1. In the Quota's Overview page, select **Search**.
 
-1. Follow the prompts to select the subscription and resource for which you want to increase the limit.
+   :::image type="content" source="media/search-create-service-portal/quota-overview-page.png" lightbox="media/search-create-service-portal/quota-overview-page.png" alt-text="Screenshot of the search tile in the Quota's overview page.":::
 
-1. Select **Create a support ticket**.
+1. Set filters so that you can review existing quota for search services in the current subscription. We recommend filtering by usage.
 
-   :::image type="content" source="media/search-create-service-portal/support-ticket-create.png" alt-text="Screenshot of the create support ticket button.":::
+1. Find the region and tier that needs more quota and select the **Edit** pencil icon to begin your request.
 
-1. Select the subscription and set quota type to **Azure AI Search**, and then select **Next**.
+   :::image type="content" source="media/search-create-service-portal/quota-pencil-edit.png" lightbox="media/search-create-service-portal/quota-pencil-edit.png" alt-text="Screenshot of the My Quotas page with a region at maximum quota.":::
 
-1. In **Problem details**, select **Enter details**.
+1. In **Quota details**, specify the location, tier, and a new limit for your subscription quota. None of the values can be empty. The new limit must be greater than the current limit, and equal to or lower than the number in the auto-approved quota increase column. For example, for the Basic tier in a given region, if the current limit is 16, your new limit can be between 17 and 80.
 
-1. In **Quota details**, specify the location, tier, and new quota. None of the values can be empty. Quota must be between 0 to 100, and it should be higher than the current quota. For example, the maximum number of Basic services is 16, so your quota request should be higher than 16.
+   | Tier | Default limit | Auto-approved quota increase | Combined total |
+   |--|--|--|--|
+   | Basic | 16 | 80 | 96 |
+   | S1 | 16 | 30 | 46 |
+   | S2 | 8 | 10 | 18 |
+   | S3, S3HD | 6 | 10 | 16 |
+   | L1, L2 | 6 |  10 | 16 |
 
-   :::image type="content" source="media/search-create-service-portal/support-ticket-quota-details.png" alt-text="Screenshot of the quota details page.":::
+1. Submit the request.
 
-1. Select **Save and continue**.
-
-1. Provide more information, such as contact information, that's required to file the request, and then select **Next**.
-
-1. On **Review + create**, select **Create**. 
+1. Monitor notifications in the Azure portal for status updates on the new limit. Most requests are approved within 24 hours.
 
 ## Next steps
 

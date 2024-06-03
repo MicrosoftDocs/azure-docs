@@ -100,8 +100,6 @@ And here's an example of the tracing and debugging view:
 
 If you're evaluating a prompt flow, you can select the  **View in flow** button to navigate to the evaluated flow page to make update to your flow. For example, adding additional meta prompt instruction, or change some parameters and re-evaluate.  
 
-:::image type="content" source="../media/evaluations/view-results/view-in-flow.png" alt-text="Screenshot of the evaluation flow diagram." lightbox="../media/evaluations/view-results/view-in-flow.png":::
-
 ## Compare the evaluation results
 
 To facilitate a comprehensive comparison between two or more runs, you have the option to select the desired runs and initiate the process by selecting either the **Compare** button or, for a general detailed dashboard view, the **Switch to dashboard view** button. This feature empowers you to analyze and contrast the performance and outcomes of multiple runs, allowing for more informed decision-making and targeted improvements.

@@ -43,8 +43,8 @@ Models deployed to [serverless API endpoints](../how-to/deploy-models-serverless
 > [!div class="checklist"]
 > * [Cohere Embed V3](../how-to/deploy-models-cohere-embed.md) family of models
 > * [Cohere Command R](../how-to/deploy-models-cohere-command.md) family of models
-> * [Llama2](../how-to/deploy-models-llama.md) family of models
-> * [Llama3](../how-to/deploy-models-llama.md) family of models
+> * [Meta Llama 2](../how-to/deploy-models-llama.md) family of models
+> * [Meta Llama 3](../how-to/deploy-models-llama.md) family of models
 > * [Mistral-Small](../how-to/deploy-models-mistral.md)
 > * [Mistral-Large](../how-to/deploy-models-mistral.md)
 > * [Phi-3](../how-to/deploy-models-phi-3.md) family of models
@@ -77,7 +77,7 @@ The following example shows a request passing the parameter `safe_prompt` suppor
 __Request__
 
 ```HTTP/1.1
-POST /chat/completions?api-version=2024-05-01-preview
+POST /chat/completions?api-version=2024-04-01-preview
 Authorization: Bearer <bearer-token>
 Content-Type: application/json
 extra-parameters: allow
@@ -114,7 +114,7 @@ The following example shows the response for a chat completion request indicatin
 __Request__
 
 ```HTTP/1.1
-POST /chat/completions?api-version=2024-05-01-preview
+POST /chat/completions?api-version=2024-04-01-preview
 Authorization: Bearer <bearer-token>
 Content-Type: application/json
 ```
@@ -199,7 +199,7 @@ wget -d --header="Authorization: Bearer <TOKEN>" <ENDPOINT_URI>/swagger.json
 Use the **Endpoint URI** and the **Key** to submit requests. The following example sends a request to a Cohere embedding model:
 
 ```HTTP/1.1
-POST /embeddings?api-version=2024-05-01-preview
+POST /embeddings?api-version=2024-04-01-preview
 Authorization: Bearer <bearer-token>
 Content-Type: application/json
 ```

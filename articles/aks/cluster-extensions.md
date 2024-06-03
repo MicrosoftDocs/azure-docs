@@ -39,6 +39,7 @@ For supported Kubernetes versions, refer to the corresponding documentation for 
 | Extension | Description |
 | --------- | ----------- |
 | [Dapr][dapr-overview] | Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on cloud and edge. |
+| [Azure App Configuration][app-config-overview] | Use Azure App Configuration to centrally manage application settings and feature flags. |
 | [Azure Machine Learning][azure-ml-overview] | Use Azure Kubernetes Service clusters to train, inference, and manage machine learning models in Azure Machine Learning. |
 | [Flux (GitOps)][gitops-overview] | Use GitOps with Flux to manage cluster configuration and application deployment. See also [supported versions of Flux (GitOps)][gitops-support] and [Tutorial: Deploy applications using GitOps with Flux v2][gitops-tutorial].|
 | [Azure Container Storage](../storage/container-storage/container-storage-introduction.md) | Use Azure Container Storage to manage block storage on AKS clusters to store data in persistent volumes. |
@@ -57,6 +58,7 @@ You can also [select and deploy Kubernetes applications available through Market
 <!-- LINKS -->
 <!-- INTERNAL -->
 [arc-k8s-extensions]: ../azure-arc/kubernetes/conceptual-extensions.md
+[app-config-overview]: ./azure-app-configuration.md
 [azure-ml-overview]: ../machine-learning/how-to-attach-kubernetes-anywhere.md
 [dapr-overview]: ./dapr.md
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md

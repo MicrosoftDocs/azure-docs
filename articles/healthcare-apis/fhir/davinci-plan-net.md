@@ -66,10 +66,6 @@ The next test we'll walk through is the [query capabilities test](https://touchs
 
 :::image type="content" source="media/davinci-plan-net/touchstone-query-test-execution-failed.png" alt-text="Da Vinci plan net query test failed":::
 
-> [!NOTE]
-> With the sample resources provided, you should expect a 98% success rate of the query tests.
-> There's an open GitHub issue against the FHIR Server that's causing one of these tests to fail.
- Resource returned multiple times if it meets both base criteria and _include criteria. [#2037](https://github.com/microsoft/fhir-server/issues/2037)
 
 ## Next steps
 

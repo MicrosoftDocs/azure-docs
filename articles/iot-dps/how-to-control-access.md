@@ -33,7 +33,7 @@ In some cases you may need to use the HTTP Device Provisioning Service REST APIs
 
 ## Device API authentication
 
-The [Device API](/rest/api/iot-dps/device/runtime-registration) is used by devices to attest to the Device Provisioning Service and receive an IoT Hub connection.
+The [Device API](/rest/api/iot-dps/device/device-registration-state) is used by devices to attest to the Device Provisioning Service and receive an IoT Hub connection.
 
 >[!NOTE]
 >In order to receive an authenticated connection, devices must first be registered in the Device Provisioning Service through an enrollment. Use the Service API to programmatically register a device through an enrollment.

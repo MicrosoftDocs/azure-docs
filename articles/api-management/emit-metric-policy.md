@@ -60,7 +60,7 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 * Product ID
 * User ID
 * Subscription ID
-* Location ID
+* Location
 * Gateway ID
 
 ## Usage

@@ -105,8 +105,3 @@ By default, all hubs share the same quota as the subscription-level quota for VM
 
 - [Plan to manage costs](./costs-plan-manage.md)
 - [How to create compute](./create-manage-compute.md)
-
-
- 
-
- 

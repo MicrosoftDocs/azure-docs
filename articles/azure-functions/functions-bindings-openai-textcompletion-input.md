@@ -4,7 +4,7 @@ description: Learn how to use the Azure OpenAI text completion input binding to 
 ms.topic: reference
 ms.custom:
   - build-2024
-ms.date: 05/08/2024
+ms.date: 05/23/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -15,24 +15,12 @@ zone_pivot_groups: programming-languages-set-functions
 The Azure OpenAI text completion input binding allows you to bring the results text completion APIs into your code executions. You can define the binding to use both predefined prompts with parameters or pass through an entire prompt.
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI completions, see [Learn how to generate or manipulate text](../ai-services/openai/how-to/completions.md).
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-> [!NOTE]  
-> References and examples are only provided for the [Node.js v4 model](./functions-reference-node.md?pivots=nodejs-model-v4).
-::: zone-end  
-::: zone pivot="programming-language-python"  
-> [!NOTE]  
-> References and examples are only provided for the [Python v2 model](functions-reference-python.md?pivots=python-mode-decorators#development-options).
-::: zone-end  
+
+[!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
 ## Example
 
 ::: zone pivot="programming-language-csharp"  
-A C# function can be created using one of the following C# modes:
-
-[!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
-
-### [Isolated process](#tab/isolated-process)
-
 This example demonstrates the _templating_ pattern, where the HTTP trigger function takes a `name` parameter and embeds it into a text prompt, which is then sent to the Azure OpenAI completions API by the extension. The response to the prompt is returned in the HTTP response. 
 
 :::code language="csharp" source="~/functions-openai-extension/samples/textcompletion/csharp-ooproc/TextCompletions.cs" range="23-31"::: 
@@ -40,12 +28,6 @@ This example demonstrates the _templating_ pattern, where the HTTP trigger funct
 This example takes a prompt as input, sends it directly to the completions API, and returns the response as the output.
 
 :::code language="csharp" source="~/functions-openai-extension/samples/textcompletion/csharp-ooproc/TextCompletions.cs" range="37-46"::: 
-
-### [In-process](#tab/in-process)
-
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-
----
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"

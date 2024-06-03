@@ -554,7 +554,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
    | Variable               | Description                                | Example                                                                                       |
    |------------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------|
-   | `DB_CONNECTION_STRING` | The connection string of SQL server.       | `jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125` |
+   | `DB_CONNECTION_STRING` | The connection string of SQL server.       | `jdbc:sqlserver://server-name.database.windows.net:1433;database=wlsaksquickstart0125` |
    | `DB_USER`              | The username to sign in to the SQL server. | `welogic@sqlserverforwlsaks`                                                                  |
    | `DB_PASSWORD`          | The password to sign in to the sQL server. | `Secret123456`                                                                                |
 
@@ -577,7 +577,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
    In the following commands, be sure to set the variables `DB_CONNECTION_STRING`, `DB_USER`, and `DB_PASSWORD` correctly by replacing the placeholder examples with the values described in the previous steps. Be sure to enclose the value of the `DB_` variables in single quotes to prevent the shell from interfering with the values.
 
    ```bash
-   export DB_CONNECTION_STRING='<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125>'
+   export DB_CONNECTION_STRING='<example-jdbc:sqlserver://server-name.database.windows.net:1433;database=wlsaksquickstart0125>'
    export DB_USER='<example-welogic@sqlserverforwlsaks>'
    export DB_PASSWORD='<example-Secret123456>'
    export WLS_DOMAIN_NS=sample-domain1-ns

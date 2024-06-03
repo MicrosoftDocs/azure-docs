@@ -18,6 +18,9 @@ Running experiments on your application can help you make informed decisions to 
 
 By doing so, you can make data-driven decisions to improve your application.
 
+> [!NOTE]
+> A quick way to start your experimentation journey is to run the [Quote of the Day AZD sample.](https://github.com/Azure-Samples/quote-of-the-day-dotnet/) This repository provides a comprehensive example, complete with Azure resource provisioning and a first experiment, on how to integrate Azure App Configuration with your .NET applications to run experiments.
+
 In this tutorial, you:
 
 > [!div class="checklist"]
@@ -140,7 +143,7 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
 
     * Adds an Application Insights telemetry client to the application.
     * Adds a telemetry initializer that appends targeting information to outgoing telemetry.
-    * Disables adaptive sampling. For more information about disabling adaptive sampling, go to [Troublehooting](../partner-solutions/split-experimentation/troubleshoot.md#sampling-in-application-insights).
+    * Disables adaptive sampling. For more information about disabling adaptive sampling, go to [Troubleshooting](../partner-solutions/split-experimentation/troubleshoot.md#sampling-in-application-insights).
 
 1. In the root folder *QuoteOfTheDay*, create a new file named *ExampleTargetingContextAccessor.cs*. This creates a new class named `ExampleTargetingContextAccessor`. Paste the content below into the file.
 
@@ -475,7 +478,7 @@ The app we created only specifies one event, but you can have multiple events an
 
 To put your newly setup experiment to the test and generate results for you to analyze, simulate some traffic to your application and wait a 10 to 15 minutes.
 
-To view the results of your experiment, navigate to **Feature Manager** and on the list of variant feature flags, select the **Active** link under the **Experiment** label in the grid view or click on **...** > **Experiment**.
+To view the results of your experiment, navigate to **Feature Manager** and on the list of variant feature flags, click on **...** > **Experiment**, or select the **Active** link in the **Experiment** column. This column isn't displayed by default. To show it, in **Feature manager**, select **Manage view** > **Edit Columns** > **Add Column** > **Experiment** and  **Apply**.
 
 On the results page, a **Version** of the Experiment, a **Baseline** to compare the results against, and a **Comparison** variant are selected by default. If needed, change the defaults per your liking, then select **Apply** to view the result of your experiment.
 

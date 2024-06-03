@@ -194,8 +194,8 @@ In addition to the regions above which are available to all Azure OpenAI custome
 
 | Model | Region |  
 |---|:---|  
-| `gpt-4` (0314) | East US <br> France Central <br> South Central US <br> UK South |  
-| `gpt-4` (0613) | East US <br> East US 2 <br> Japan East <br> UK South |  
+| `gpt-4` (0314) <br> `gpt-4-32k` (0314) | East US <br> France Central <br> South Central US <br> UK South |  
+| `gpt-4` (0613) <br> `gpt-4-32k` (0613) | East US <br> East US 2 <br> Japan East <br> UK South |  
 
 #### Azure Government regions
 
@@ -309,7 +309,6 @@ For Assistants you need a combination of a supported model, and a supported regi
 | East US  | ✅ | | | | | ✅ |
 | East US 2 | ✅ |  | ✅ | ✅ |✅ | |
 | France Central  | ✅ | ✅ | | ✅ |✅ |  |
-| India South |  | ✅ | | | ✅ | |
 | Japan East | ✅ |  | | | | | 
 | Norway East | |  | | | ✅ |  |
 | Sweden Central  | ✅ |✅ | ✅ |✅ |✅| |

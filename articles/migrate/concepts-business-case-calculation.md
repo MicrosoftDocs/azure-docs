@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 04/01/2024
+ms.date: 05/22/2024
 ms.custom: engagement-fy24
 ---
 
@@ -45,7 +45,7 @@ There are three types of migration strategies that you can choose while building
 Although the Business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness, and Azure cost estimates, you can create respective assessments for the servers or workloads.
 
 
-## How do I build a business case?
+## Discovery sources to create a Business case
 
 Currently, you can create a Business case with the two discovery sources:
 

@@ -411,6 +411,8 @@
       items:
       - name: Kubernetes provider
         href: ./bicep-extensibility-kubernetes-provider.md
+      - name: Microsoft Graph provider
+        href: https://aka.ms/graphbicep
     - name: Patterns
       items:
       - name: Configuration set
