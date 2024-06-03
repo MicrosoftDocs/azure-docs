@@ -44,7 +44,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 Limitations for log search alert rule queries:
 - Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()'.
-- Log search alert rule queries support ['ago()'](https://learn.microsoft.com/azure/data-explorer/kusto/query/ago-function) with [timespan literals](https://learn.microsoft.com/azure/data-explorer/kusto/query/scalar-data-types/timespan#timespan-literals) only.
+- Log search alert rule queries support ['ago()'](/azure/data-explorer/kusto/query/ago-function) with [timespan literals](/azure/data-explorer/kusto/query/scalar-data-types/timespan#timespan-literals) only.
 - The word "AggregatedValue" is a reserved word, it cannot be used in the query on Log search Alerts rules.
 - The combined size of all data in the log alert rule properties cannot exceed 64KB.
 
