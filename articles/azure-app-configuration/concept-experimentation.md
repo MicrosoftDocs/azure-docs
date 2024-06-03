@@ -19,7 +19,7 @@ Experimentation is the process of systematically testing hypotheses or changes t
 - **Observation** of the results measured by the metrics defined in the previous step,
 - **Drawing a conclusion** regarding whether the hypothesis was validated or invalidated.
 
-[Check this video](https://www.youtube.com/watch?v=MLhOJps6VFY) for a quick demonstration of Experimentation in App Configuration, highlighting the user experience optimization use case to boost your business metrics.
+[Check this video](https://aka.ms/eshopSplitDemo) for a quick demonstration of Experimentation in App Configuration, highlighting the user experience optimization use case to boost your business metrics.
 
 ## Experimentation in Azure App Configuration (preview)
 
