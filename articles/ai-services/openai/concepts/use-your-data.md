@@ -581,7 +581,7 @@ Each user message can translate to multiple search queries, all of which get sen
 
 ## Regional availability and model support
 
-| Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125-preview)` | `gpt-4 (0613)`  | `gpt-4o`   | `gpt-turbo (409)` |
+| Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125-preview)` | `gpt-4 (0613)`  | `gpt-4o`   | `gpt-turbo (0409)` |
 |------|---|---|---|---|---|----|----|----|
 | Australia East | ✅ | ✅ | ✅ |✅ |   | ✅ | | | 
 | Canada East | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | 
