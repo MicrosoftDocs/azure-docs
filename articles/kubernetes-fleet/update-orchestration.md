@@ -48,6 +48,12 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
 > [!NOTE]
 > Update runs honor [planned maintenance windows](../aks/planned-maintenance.md) that you set at the AKS cluster level. For more information, see [planned maintenance across multiple member clusters](./concepts-update-orchestration.md#planned-maintenance) which explains how update runs handle member clusters that have been configured with planned maintenance windows.
 
+
+Update run supports two options for the sequence in which the clusters are upgraded:
+
+- **One-by-one**: If you don't care about controlling the sequence in which the clusters are upgraded, `one-by-one` provides a simple approach to upgrade all member clusters of the fleet in sequence one-by-one
+- **Control sequence of clusters using update groups and stages** - If you want to control the sequence in which the clusters are upgraded, you can structure member clusters in update groups and update stages.
+
 ## Update all clusters one by one
 
 ### [Azure portal](#tab/azure-portal)
