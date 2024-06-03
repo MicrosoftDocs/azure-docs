@@ -20,22 +20,22 @@ This article lists significant updates and new features available in Azure Conta
 
 | Feature | Description |
 | ------- | ------------ |
-| [Generally Available: Azure Functions on Azure Container Apps](../azure-functions/functions-container-apps-hosting) | Azure Function’s host, runtime, extensions and Azure Function apps can be deployed as containers into the same compute environment. You can use centralized networking, observability, and configuration boundary for multi-type application development like microservices. |
-| [Public preview: Dynamic sessions](./sessions) | This fast, sandboxed, ephemeral compute is suitable for running untrusted code at scale in hostile multi-tenancy scenarios. Each session has full compute isolation using Hyper-V. |
-| [Public preview: Aspire dashboard support](./aspire-dashboard) | Access live data about your .NET project and containers in the cloud to evaluate the performance of your applications and debug errors with comprehensive logs, metrics, traces, and more. |
-| [Public Preview: NFS Azure Files volume mount support](./storage-mounts) | You can use NFS Azure Files volumes to share data between multiple containers in your application, or to persist data across container restarts. |
-| [Public Preview: Monitor apps with Java metrics]() | You can now monitor the performance and health of your apps with Java metrics such as garbage collection and memory usage. |
-| [Public Preview: Set Java log levels](./java-dynamic-log-level) | You can now set Java application log levels in Azure Container Apps without redeploying or restarting your apps. |
+| [Generally Available: Azure Functions on Azure Container Apps](../azure-functions/functions-container-apps-hosting.md) | Azure Function’s host, runtime, extensions and Azure Function apps can be deployed as containers into the same compute environment. You can use centralized networking, observability, and configuration boundary for multi-type application development like microservices. |
+| [Public preview: Dynamic sessions](./sessions.md) | This fast, sandboxed, ephemeral compute is suitable for running untrusted code at scale in hostile multi-tenancy scenarios. Each session has full compute isolation using Hyper-V. |
+| [Public preview: Aspire dashboard support](./aspire-dashboard.md) | Access live data about your .NET project and containers in the cloud to evaluate the performance of your applications and debug errors with comprehensive logs, metrics, traces, and more. |
+| [Public Preview: NFS Azure Files volume mount support](./storage-mounts.md) | You can use NFS Azure Files volumes to share data between multiple containers in your application, or to persist data across container restarts. |
+| [Public Preview: Monitor apps with Java metrics](./java-metrics.md) | You can now monitor the performance and health of your apps with Java metrics such as garbage collection and memory usage. |
+| [Public Preview: Set Java log levels](./java-dynamic-log-level.md) | You can now set Java application log levels in Azure Container Apps without redeploying or restarting your apps. |
 
 ## March 2024 
 
 | Feature | Description |
 | ------- | ------------ |
-| [Generally Available: Free managed certificates](./custom-domains-managed-certificates) | Managed certificates are free and enable you to automatically provision and renew TLS certificates for any custom domain you add to your container app. |
-| [Public Preview: OpenTelemetry Agent support](./opentelemetry-agents) | Allows you to use open-source standards to send your app’s data without setting up an OTLP collector yourself. You can use the managed agent to choose where to send logs, metrics, and traces. |
+| [Generally Available: Free managed certificates](./custom-domains-managed-certificates.md) | Managed certificates are free and enable you to automatically provision and renew TLS certificates for any custom domain you add to your container app. |
+| [Public Preview: OpenTelemetry Agent support](./opentelemetry-agents.md) | Allows you to use open-source standards to send your app’s data without setting up an OTLP collector yourself. You can use the managed agent to choose where to send logs, metrics, and traces. |
 | [Public preview: Support for Key Vault Certificates](https://azure.microsoft.com/updates/public-preview-support-for-key-vault-certificates/) | Use Azure Key Vault to store and manage your own TLS/SSL certificates for use with Azure Container Apps at the app and environment level.  |
-| [Public Preview: Tomcat support](./java-get-started) | Azure Container Apps now supports Apache Tomcat in the code-to-cloud build process.  This means that you can use your existing code, and configuration, to create a cloud-native container app without the hassle. |
-| [Public Preview: JVM memory fit](./java-memory-fit) | All Java apps are now calibrated with JVM memory defaults for better performance and reliability in container environment. |
+| [Public Preview: Tomcat support](./java-get-started.md) | Azure Container Apps now supports Apache Tomcat in the code-to-cloud build process.  This means that you can use your existing code, and configuration, to create a cloud-native container app without the hassle. |
+| [Public Preview: JVM memory fit](./java-memory-fit.md) | All Java apps are now calibrated with JVM memory defaults for better performance and reliability in container environment. |
 | [Public Preview: Managed Java components: Eureka Server](./java-eureka-server.md) and [Public Preview: Managed Java components: Config Server](./java-config-server.md)| You can use managed Java components to access platform features for your apps that you would otherwise have to manage yourself. |
 
 ## January 2024 
