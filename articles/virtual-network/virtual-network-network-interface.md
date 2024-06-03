@@ -603,7 +603,9 @@ $nic.NetworkSecurityGroup = $nsg
 ## Save the configuration to the network interface. ##
 $nic | Set-AzNetworkInterface
 ```
-
+> [!NOTE]  
+> You can associate NSGs to virtual machine's NIC for granular traffic restriction within a virtual network or a subnet. For example, if you have dev, test and production VMs within a virtual network, you can associate separate NSGs to their NICs to control and restrict their corresponding traffic. However, Azure recommends assigning NSGs at subnet level to reduce complexity.
+> 
 ---
 
 ## Delete a network interface
