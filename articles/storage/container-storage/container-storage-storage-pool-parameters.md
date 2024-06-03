@@ -5,16 +5,12 @@ author: khdownie
 ms.service: azure-container-storage
 ms.date: 06/03/2024
 ms.author: kendownie
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Azure Container Storage Preview storage pool parameters
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article lists the mandatory and optional storage pool parameters, along with their default values.
-
-## Mandatory and optional storage pool parameters
-
-You can specify the following parameters for the storage pool that's created when you install Azure Container Storage with the `az aks create` command.
 
 [!INCLUDE [container-storage-storage-pool-parameters](../../../includes/container-storage-storage-pool-parameters.md)]
 
