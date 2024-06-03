@@ -148,7 +148,7 @@ Subnet routing allows you to differentiate the experience you deliver for specif
 Another reason to use Subnet routing method is in conjunction with other profiles in a nested profile set. For example, if you want to use Geographic routing method for geo-fencing your users, but for a specific ISP you want to do a different routing method, you can have a profile withy Subnet routing method as the parent profile and override that ISP to use a specific child profile and have the standard Geographic profile for everyone else.
 
 > [!NOTE]
-> Azure Traffic Manager supports IPv6 addresses in subnet overrides for subnet profiles. This capability enables more granular control over traffic routing based on the source IP address of DNS queries, including both IPv4 and IPv6 addresses.  
+> Azure Traffic Manager supports IPv6 addresses in subnet overrides for subnet profiles. This capability enables more granular control over traffic routing based on the source IP address of DNS queries, including both IPv4 and IPv6 addresses. 
 
 ### How does Traffic Manager know the IP address of the end user?
 
@@ -341,7 +341,7 @@ For more information, see [To move an endpoint](traffic-manager-manage-endpoints
 
 ### Does Azure Traffic Manager support IPv6 Extension Mechanisms for DNS (ECS)?
 
-Azure Traffic Manager supports IPv6 addresses with Extension Mechanisms for DNS (ECS). This means that when a DNS query includes ECS information, Azure Traffic Manager can use the source IP address within the ECS to make intelligent routing decisions.  
+Azure Traffic Manager supports IPv6 addresses with Extension Mechanisms for DNS (ECS). This means that when a DNS query includes ECS information, Azure Traffic Manager can use the source IP address within the ECS to make intelligent routing decisions. 
 
 The support for IPv6 ECS brings several advantages: 
 
@@ -494,7 +494,7 @@ The number of Traffic Manager health checks reaching your endpoint depends on th
 
 ### How can I get notified if one of my endpoints goes down?
 
-One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](../azure-monitor/alerts/alerts-metric.md) to get notifications when there's a change in the health status of your endpoint. For more information, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).  
+One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](../azure-monitor/alerts/alerts-metric.md) to get notifications when there's a change in the health status of your endpoint. For more information, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md). 
 
 ## Traffic Manager nested profiles
 
