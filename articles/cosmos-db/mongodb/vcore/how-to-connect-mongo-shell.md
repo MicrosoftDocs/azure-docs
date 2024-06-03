@@ -44,7 +44,6 @@ Once you have the connection string, you can either
 
 **A. By entering the password in the MongoShell Prompt**
 
-![Screenshot that shows the prompt for a password for MongoShell.](./media/connect-using-mongo-shell/password-shell-prompt.png)
 
 Your connection string would look like this:
     ```
