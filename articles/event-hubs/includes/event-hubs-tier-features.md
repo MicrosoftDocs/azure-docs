@@ -10,9 +10,9 @@ ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
 ---
 
-The following table shows the list of features that are available (or not available) in a specific tier of Azure Event Hubs. 
+The following table shows the list of features that are available (or not available) in a specific tier of Azure Event Hubs.
 
-| Feature | Basic |  Standard | Premium | Dedicated |
+| Feature | Basic | Standard | Premium | Dedicated |
 | ------- | ------| -------- | ------- | --------- |
 | Tenancy | Multitenant | Multitenant | Multitenant with resource isolation | Exclusive single tenant |
 | Private link | N/A | Yes | Yes | Yes |
@@ -26,7 +26,7 @@ The following table shows the list of features that are available (or not availa
 | IP Firewall | N/A | Yes | Yes | Yes |
 
 > [!NOTE]
-> **Included** in the table means the feature is available and there's no separate charge for using it. 
+> *Included* in the table means the feature is available and there's no separate charge for using it.
 
 
 
