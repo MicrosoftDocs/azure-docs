@@ -14,11 +14,15 @@ ms.custom: template-tutorial
 
 # Tutorial: Filter network traffic with a network security group using the Azure portal
 
-You can use a network security group to filter inbound and outbound network traffic to and from Azure resources in an Azure virtual network.
+You can use a network security group to filter inbound and outbound network traffic to and from Azure resources in an Azure virtual network or in a subnet.
 
 Network security groups contain security rules that filter network traffic by IP address, port, and protocol. When a network security group is associated with a subnet, security rules are applied to resources deployed in that subnet.
 
 :::image type="content" source="./media/tutorial-filter-network-traffic/virtual-network-filter-resources.png" alt-text="Diagram of resources created during tutorial." lightbox="./media/tutorial-filter-network-traffic/virtual-network-filter-resources.png":::
+
+> [!NOTE]  
+> You can associate NSGs to virtual machine's NIC for granular traffic restriction within a virtual network or a subnet. For example, if you have dev, test and production VMs within a virtual network, you can associate separate NSGs to their NICs to control and restrict their corresponding traffic. However, Azure recommends assigning NSGs at subnet level to reduce complexity.
+>
 
 In this tutorial, you learn how to:
 
