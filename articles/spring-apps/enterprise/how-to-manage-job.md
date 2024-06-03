@@ -127,9 +127,9 @@ For the public preview, the latest 10 completed or failed job execution records 
 For the history of job executions in the Azure portal, use the following command to query the logs in the Azure Log Analytics:
 
 ```SQL
-AppPlatformLogsforSpring |
-    where AppName == '<job-name>' and InstanceName startswith '<execution-name>' |
-    order by TimeGenerated asc |
+AppPlatformLogsforSpring
+| where AppName == '<job-name>' and InstanceName startswith '<execution-name>' 
+| order by TimeGenerated asc 
 ```
 
 For more information, see [Set up log analytics workspace](../basic-standard/quickstart-setup-log-analytics.md?tabs=Azure-Portal#prerequisites).
