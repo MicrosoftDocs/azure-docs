@@ -124,7 +124,7 @@ Create a service connection between an AKS cluster and an Azure storage account 
     | **User assigned managed identity** | `<MyIdentity>`      | A user assigned managed identity is needed to enable workload identity. |
 
 1. Once the connection has been created, the Service Connector page displays information about the new connection.
-    :::image type="content" source="./media/aks-tutorial/kubernetes-resources.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
+    :::image type="content" source="./media/aks-tutorial/aks-storage.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
 
 
 ### [Azure CLI](#tab/azure-cli)

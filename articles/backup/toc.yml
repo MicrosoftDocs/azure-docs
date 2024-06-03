@@ -33,18 +33,22 @@
       - name: With Azure PowerShell
         href: quick-secondary-region-restore-postgresql-powershell.md  
   - name: Configure AKS cluster backup
-    href: quick-backup-aks.md
+    items:
+    - name: From the Azure portal
+      href: quick-backup-aks.md
+    - name: With Terraform
+      href: quick-kubernetes-backup-terraform.md
   - name: Configure vaulted backup for Azure Blob
     items: 
-    - name: Configure blob backup from the Azure portal
+    - name: From the Azure portal
       href: blob-backup-configure-quick.md
-    - name: Configure blob backup using PowerShell
+    - name: Using PowerShell
       href: quick-blob-vaulted-backup-powershell.md
-    - name: Configure blob backup using Azure CLI
+    - name: Using Azure CLI
       href: quick-blob-vaulted-backup-cli.md
-    - name: Configure blob backup using ARM template
+    - name: Using ARM template
       href: backup-blobs-storage-account-arm-template.md  
-    - name: Configure blob backup using Bicep
+    - name: Using Bicep
       href: backup-blobs-storage-account-bicep.md
   - name: Install Backup extension in AKS cluster
     href: quick-install-backup-extension.md    

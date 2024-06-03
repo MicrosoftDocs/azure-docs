@@ -82,4 +82,4 @@ curl -v "http://localhost:5000/translator/document:translate?sourceLanguage=en&t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about synchronous document translation](../document-translation/reference/synchronous-rest-api-guide.md)
+> [Learn more about synchronous document translation](../document-translation/reference/rest-api-guide.md)
