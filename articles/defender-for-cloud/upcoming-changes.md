@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan.
 ms.topic: overview
-ms.date: 04/03/2024
+ms.date: 06/03/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Changes to identity recommendations](#changes-to-identity-recommendations) | June 3, 2024 | July 2024 |
 | [Removal of FIM over AMA and release of new version over Defender for Endpoint](#removal-of-fim-over-ama-and-release-of-new-version-over-defender-for-endpoint) | May 1, 2024 | June 2024 |
 | [Deprecation of system update recommendations](#deprecation-of-system-update-recommendations) | May 1, 2024 | May 2024 |
 | [Deprecation of MMA related recommendations](#deprecation-of-mma-related-recommendations) | May 1, 2024 | May 2024 |
@@ -45,6 +46,31 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Changes to identity recommendations
+
+**Announcement date: June 3, 2024**
+
+**Estimated date for change: July 2024**
+
+These changes:
+
+- The assessed resource will become the identity instead of the subscription
+- The recommendations won't have 'sub-recommendations' anymore
+- The value of the 'assessmentKey' field in the API will be changed for those recommendations
+
+Will be applied to the following recommendations: 
+
+- Accounts with owner permissions on Azure resources should be MFA enabled
+- Accounts with write permissions on Azure resources should be MFA enabled
+- Accounts with read permissions on Azure resources should be MFA enabled
+- Guest accounts with owner permissions on Azure resources should be removed
+- Guest accounts with write permissions on Azure resources should be removed
+- Guest accounts with read permissions on Azure resources should be removed
+- Blocked accounts with owner permissions on Azure resources should be removed
+- Blocked accounts with read and write permissions on Azure resources should be removed
+- A maximum of 3 owners should be designated for your subscription
+- There should be more than one owner assigned to your subscription
 
 ## Removal of FIM over AMA and release of new version over Defender for Endpoint
 
