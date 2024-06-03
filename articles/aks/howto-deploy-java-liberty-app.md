@@ -33,7 +33,9 @@ If you prefer manual step-by-step guidance for running Liberty on AKS, see [Manu
 
 This article is intended to help you quickly get to deployment. Before you go to production, you should explore the [IBM documentation about tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing the Azure Marketplace solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -526,3 +528,8 @@ You can learn more from the following references:
 * [Open Liberty](https://openliberty.io/)
 * [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator)
 * [Open Liberty server configuration](https://openliberty.io/docs/ref/config/)
+
+Learn more about deploying IBM WebSphere family on Azure by following these links:
+
+> [!div class="nextstepaction"]
+> [Explore the IBM WebSphere family of products on Azure](/azure/developer/java/ee/websphere-family)

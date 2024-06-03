@@ -16,6 +16,8 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing the Azure Marketplace solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 [!INCLUDE [aro-support](includes/aro-support.md)]
 
 [!INCLUDE [aro-quota](includes/aro-quota.md)]
@@ -417,4 +419,4 @@ az group delete --name $DB_RESOURCE_GROUP_NAME --yes --no-wait
 Learn more about deploying IBM WebSphere family on Azure by following these links:
 
 > [!div class="nextstepaction"]
-> [What are solutions to run the IBM WebSphere family of products on Azure?](/azure/developer/java/ee/websphere-family?toc=/azure/openshift/toc.json&bc=/azure/openshift/breadcrumb/toc.json)
+> [Explore the IBM WebSphere family of products on Azure](/azure/developer/java/ee/websphere-family)
