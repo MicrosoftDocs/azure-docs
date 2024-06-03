@@ -46,7 +46,7 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
   ```
 
 > [!NOTE]
-> Update runs honor [planned maintenance windows](../aks/planned-maintenance.md) that you set at the AKS cluster level. For more information about how update runs handle member clusters that have been configured with planned maintenance windows, see [Planned maintenance across multiple member clusters](./concepts-update-orchestration.md#planned-maintenance).
+> Update runs honor [planned maintenance windows](../aks/planned-maintenance.md) that you set at the AKS cluster level. Refer to [planned maintenance across multiple member clusters](./concepts-update-orchestration.md#planned-maintenance) for more information about how update runs handle member clusters that have been configured with planned maintenance windows.
 
 ## Update all clusters one by one
 
@@ -104,7 +104,7 @@ Also, the `--node-image-selection` flag supports choosing the behavior for the t
 
 **Starting an update run**:
 
-Run the following command to start any of the above created update run:
+Run the following command to start any of these update runs:
 
 ```azurecli-interactive
 az fleet updaterun start --resource-group $GROUP --fleet-name $FLEET --name <run-name>
@@ -166,13 +166,13 @@ az fleet member update --resource-group $GROUP --fleet-name $FLEET --name member
 
 ### Define an update run and stages
 
-You can define an update run using update stages in order to sequentially order the application of updates to different update groups. For example, a first update stage might update test environment member clusters, and a second update stage would then subsequently update production environment member clusters. You can also specify a wait time between the update stages.
+You can define an update run using update stages in order to sequentially order the application of updates to different update groups. For example, a first update stage might update test environment member clusters, and a second update stage would then update production environment member clusters. You can also specify a wait time between the update stages.
 
 #### [Azure portal](#tab/azure-portal)
 
 1. On the page for your Azure Kubernetes Fleet Manager resource, navigate to **Multi-cluster update**. Under the **Runs** tab, select **Create**.
 
-1. Provide a name for your update run and then select 'Stages'.
+1. Provide a name for your update run and then select 'Stages' for update sequence type.
 
     :::image type="content" source="./media/update-orchestration/update-run-stages-inline.png" alt-text="Screenshot of the Azure portal page for choosing stages mode within update run." lightbox="./media/update-orchestration/update-run-stages-lightbox.png":::
 
@@ -199,7 +199,7 @@ You can define an update run using update stages in order to sequentially order 
     - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
 
 
-1. Click on **Create** at the bottom of the page to create the update run. Specifying stages and their order every time when creating an update run can get repetitive and cumbersome. Update strategies simplify this by allowing you to store templates for update runs. [Refer to update strategy creation and usage](#create-an-update-run-using-update-strategies) for more information.
+1. Click on **Create** at the bottom of the page to create the update run. Specifying stages and their order every time when creating an update run can get repetitive and cumbersome. Update strategies simplify this process by allowing you to store templates for update runs. [Refer to update strategy creation and usage](#create-an-update-run-using-update-strategies) for more information.
 
 1. In the **Multi-cluster update** menu, choose the update run and select **Start**.
 
@@ -268,7 +268,7 @@ You can define an update run using update stages in order to sequentially order 
 
 ### Create an update run using update strategies
 
-Creating an update run required the stages, groups, and their order to be specified each time. Update strategies simplify this by allowing you to store templates for update runs.
+Creating an update run required the stages, groups, and their order to be specified each time. Update strategies simplify this process by allowing you to store templates for update runs.
 
 > [!NOTE]
 > It is possible to create multiple update runs with unique names from the same update strategy.
@@ -320,7 +320,7 @@ There are a few options to manage update runs:
 
 - Within any update run in **Not Started**, **Failed**, or **Running** state, you can select any **Stage** and **Skip** the upgrade.
 
-    :::image type="content" source="./media/update-orchestration/skip-stage.png" alt-text="A screenshot of the Azure portal shwowing how to skip upgrade for a specific stage in an update run." lightbox="./media/update-orchestration/skip-stage.png":::
+    :::image type="content" source="./media/update-orchestration/skip-stage.png" alt-text="A screenshot of the Azure portal showing how to skip upgrade for a specific stage in an update run." lightbox="./media/update-orchestration/skip-stage.png":::
 
     You can similarly skip the upgrade at the update group or member cluster level too.
 
