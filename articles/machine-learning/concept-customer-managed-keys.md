@@ -136,7 +136,7 @@ Set the `enableServiceSideCMKEncryption` when you create a workspace to opt-in f
 > [!NOTE]
 > During this preview key rotation and data labeling capabilities are not supported.
 
-For a template that creates a workspace with service-side encryption of metadata, see [https://github.com/deeikele/azure-quickstart-templates/tree/cmk-service-side/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-cmk-service-side-encryption](https://github.com/deeikele/azure-quickstart-templates/tree/cmk-service-side/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-cmk-service-side-encryption).
+For a template that creates a workspace with service-side encryption of metadata, see [https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-cmk-service-side-encryption](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-cmk-service-side-encryption).
   
 ## hbi_workspace flag
 
