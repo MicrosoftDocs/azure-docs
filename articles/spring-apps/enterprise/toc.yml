@@ -68,7 +68,7 @@ items:
   items:
   - name: App and deployment
     href: concept-understand-app-and-deployment.md
-  - name: Job (Preview)
+  - name: Job
     href: concept-job.md
   - name: Version support for Java, Spring Boot, and more
     href: concept-app-customer-responsibilities.md
@@ -130,7 +130,7 @@ items:
     items:
     - name: Prepare a Java Spring app for deployment
       href: how-to-prepare-app-deployment.md?tabs=enterprise-plan
-    - name: Manage Job
+    - name: Manage and use jobs
       href: how-to-manage-job.md
     - name: Use Application Configuration Service
       href: how-to-enterprise-application-configuration-service.md

@@ -48,7 +48,7 @@ Use the following steps to create a job using the Azure portal:
 
 1. On the **Jobs** page, select **Create Job**.
 
-1. Add a name for the job and select other configurations. Select **Create** and wait until the job is created succesfully.
+1. Add a name for the job and select other configurations. Select **Create** and wait until the job is created successfully.
 
 1. Select **Deploy Job**. A panel opens.
 
@@ -173,7 +173,7 @@ For the public preview, jobs are enabled to integrate seamlessly with Spring Clo
 
 ### Spring Cloud Config Server
 
-With the Spring Cloud Config Server, configurations or properties that are required by the job can be managed externally on GitHub repos and then loaded into the job accordingly. After setting up GitHub repo configurations on Spring Cloud Config Server, you need to bind the jobs with it.
+With the Spring Cloud Config Server, configurations or properties required by the job can be managed externally on GitHub repos and then loaded into the job accordingly. After setting up GitHub repo configurations on Spring Cloud Config Server, you need to bind the jobs with it.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -212,7 +212,7 @@ For existing jobs, use the following steps to bind them to the Spring Cloud Conf
 
 1. On the **Job binding** tab, select **Bind job** and select the job to apply.
 
-1. After binding successfully, the job name shows up on the list.
+1. After the job binds successfully, the job name shows up on the list.
 
 1. Run the job.
 
@@ -271,7 +271,7 @@ Use the following steps to bind the job to Service Registry during job creation:
 
 1. On the **Job binding** tab, select **Bind job** and then select the job to apply.
 
-1. After binding successfully, the job name shows up on the list.
+1. After the job binds successfully, the job name shows up on the list.
 
 1. Run the job.
 
@@ -283,7 +283,7 @@ For existing jobs, use the following steps to bind them to the Service Registry:
 
 1. On the **Job binding** tab, select **Bind job** and then select the job to apply.
 
-1. After binding successfully, the job name shows up on the list.
+1. After the job binds successfully, the job name shows up on the list.
 
 1. Run the job.
 
@@ -306,7 +306,7 @@ az spring service-registry unbind \
 
 1. Open your Azure Spring Apps service instance. In the navigation pane, go to the **Managed components** section, and then select **Service Registry**.
 
-1. In *Job binding* tab, select the job that you need to unbind.
+1. On the **Job binding** tab, select the job that you need to unbind.
 
 1. Select **Unbind job**.
 
