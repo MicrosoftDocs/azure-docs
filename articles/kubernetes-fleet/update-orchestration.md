@@ -54,7 +54,7 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
 
 1. On the page for your Azure Kubernetes Fleet Manager resource, go to the **Multi-cluster update** menu and select **Create**.
 
-1. Choosing **One by one** would result in upgrading the member clusters present in the update run in a sequential manner one-by-one.
+1. Choosing **One by one** upgrades all member clusters of the fleet in sequence one-by-one.
 
     :::image type="content" source="./media/update-orchestration/update-run-one-by-one.png" alt-text="Screenshot of the Azure portal pane for creating update runs that update clusters one by one in Azure Kubernetes Fleet Manager." lightbox="./media/update-orchestration/update-run-one-by-one.png":::
 
@@ -97,7 +97,7 @@ When creating an update run, you have the ability to control the scope of the up
 - `Full` upgrades Kubernetes version for control plane and node pools along with the node images.
 - `NodeImageOnly` only upgrades the node images.
 
-Also, the `--node-image-selection` flag supports choosing the behavior for the target node images used for upgrades in an update run
+Also, `--node-image-selection` flag supports the following values:
 - **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
 - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
 
@@ -254,7 +254,7 @@ You can define an update run using update stages in order to sequentially order 
     - `Full` upgrades Kubernetes version for control plane and node pools along with the node images.
     - `NodeImageOnly` only upgrades the node images.
 
-    Also, the `--node-image-selection` flag supports choosing the behavior for the target node images used for upgrades in an update run
+    Also, `--node-image-selection` flag supports the following values:
     - **Latest**: Updates every AKS cluster in the update run to the latest image available for that cluster in its region.
     - **Consistent**: As it's possible for an update run to have AKS clusters across multiple regions where the latest available node images can be different (check [release tracker](../aks/release-tracker.md) for more information). The update run picks the **latest common** image across all these regions to achieve consistency.
 
