@@ -21,15 +21,16 @@ AI Studio provides a unified experience for AI developers and data scientists to
 
 The top level AI Studio resources (hub and project) are based on Azure Machine Learning. Other resources, such as Azure OpenAI, Azure AI services, and Azure AI Search, are used by the hub and project.
 
-- **AI Studio hub**: The hub is the top-level resource in AI Studio. The Azure resource provider for a hub is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Hub`. It provides the following features:
-    - Data upload and artifact storage.
-    - Hub-scoped connections to Azure services such as Azure OpenAI, Azure AI services, and Azure AI Search. These connections can be used by all projects.
-    - Compute resources.
-    - Security and governance.
-- **AI Studio project**: A project is a child resource of the hub. The Azure resource provider for a project is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Project`. It inherits the hub's connections, and compute resources. When a new project is created from the hub, the security settings of the hub are applied to it. The project provides the following features:
-    - Groups of components such as datasets, models, and indexes.
-    - An isolated data container (within the storage inherited from the hub).
-    - Project-scoped connections. For example, a project might need access to data stored in a separate Azure Storage account.
+- **AI hub**: The hub is the top-level resource in AI Studio. The Azure resource provider for a hub is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Hub`. It provides the following features:
+    - Security configuration and central governance.
+    - Compute resources for interactive development, finetuning, open source and serverless model deployments.
+    - Connections to other Azure services such as Azure OpenAI, Azure AI services, and Azure AI Search. Hub-scoped connections are shared can be used by all projects.
+    - An associated Azure storage account for data upload and artifact storage.
+- **AI project**: A project is a child resource of the hub. The Azure resource provider for a project is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Project`. It inherits the hub's connections, and compute resources. When a new project is created from the hub, the security settings of the hub are applied to it. The project provides the following features:
+    - Access to development tools for building and customizing AI applications.   
+    - Reusable components including datasets, models, and indexes.
+    - An isolated container to upload data to (within the storage inherited from the hub).
+    - Project-scoped connections. For example, project members might need private access to data stored in an Azure Storage account without giving that same access to other projects.
     - Open source model deployments from catalog and fine-tuned model endpoints.
  
 A hub can have multiple child projects. Each project can have its own set of project-scoped connections.
