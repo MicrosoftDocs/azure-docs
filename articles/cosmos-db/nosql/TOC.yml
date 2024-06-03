@@ -613,7 +613,9 @@
           items:
             - name: Use explorer
               href: ../data-explorer.md
-            - name: Keyboard shorcuts
+            - name: Manage multiple items
+              href: ../how-to-data-explorer-manage-items.md
+            - name: Keyboard shortcuts
               href: ../data-explorer-shortcuts.md
         - name: SDK observability
           href: sdk-observability.md
