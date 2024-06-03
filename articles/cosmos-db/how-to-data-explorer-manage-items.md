@@ -1,5 +1,6 @@
 ---
 title: Manage multiple items in Data Explorer
+titleSuffix: Azure Cosmos DB
 description: Use the multiple selection feature of the Data Explorer for Azure Cosmos DB to batch delete items directly in the Azure portal.
 author: meredithmooreux
 ms.author: merae
