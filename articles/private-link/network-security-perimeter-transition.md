@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: overview
-ms.date: 05/29/2024
+ms.date: 06/04/2024
 #CustomerIntent: As a network administrator, I want to understand the different access modes and how to transition to a network security perimeter in Azure.
 ---
 
@@ -31,7 +31,7 @@ Along with the original two values (*enabled* and *disabled*) on `publicNetworkA
 | **SecuredByPerimeter** | In Secured mode, the network security perimeter configuration governs the resource's inbound and outbound connectivity. Specifically, PaaS-to-PaaS communication is restricted to members of the same perimeter. Public access is granted in accordance with the access rules defined by the associated perimeter profile. |
 
 > [!NOTE]
-> Most onboarded PaaS teams are in the phase of UX implementation, and this configuration point may or may not be available until then in the resource specific blades.
+> Currently, most [onboarded Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) teams are in the phase of user experience implementation. Until this work completes for each service, this configuration point may or may not be available within the specific service's configuration experience.
 
 ### Access mode configuration point on resource associations 
 
