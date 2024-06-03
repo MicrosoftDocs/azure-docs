@@ -93,7 +93,7 @@ dotnet add package Azure.Identity
 
 #### Set environment variables
 
-This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
+The application obtains the key vault name from an environment variable called `KEY_VAULT_NAME`.
 
 Windows
 ```cmd
