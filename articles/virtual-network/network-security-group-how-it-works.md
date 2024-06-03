@@ -20,6 +20,10 @@ The following picture illustrates different scenarios for how network security g
 
 :::image type="content" source="./media/network-security-group-how-it-works/network-security-group-interaction.png" alt-text="Diagram of NSG processing.":::
 
+> [!NOTE]  
+> You can associate NSG to virtual machine's network interface (NIC) for granular traffic restriction within a virtual network or a subnet. For example, if you have dev, test and production VMs within a virtual network, you can associate separate NSGs to their NICs to control and restrict their corresponding traffic. However, Azure recommends assigning NSGs at subnet level to reduce complexity.
+>
+
 Reference the previous picture, along with the following text, to understand how Azure processes inbound and outbound rules for network security groups:
 
 ## Inbound traffic
