@@ -52,7 +52,7 @@ Spring Cloud Config Server provides server and client-side support for an extern
 
 ## Enable Spring Cloud Config Server
 
-You can enable Spring Cloud Config Server when you provision an Azure Spring Apps Enterprise plan instance. If you already have an Azure Spring Apps Enterprise plan resource, see the [Manage Spring Cloud Config Server in an existing Enterprise plan instance](#manage-spring-cloud-config-in-an-existing-enterprise-plan-instance) section to enable it.
+You can enable Spring Cloud Config Server when you provision an Azure Spring Apps Enterprise plan instance. If you already have an Azure Spring Apps Enterprise plan resource, see the [Manage Spring Cloud Config Server in an existing Enterprise plan instance](#manage-spring-cloud-config-server-in-an-existing-enterprise-plan-instance) section to enable it.
 
 You can enable Spring Cloud Config Server using the Azure portal or Azure CLI.
 
