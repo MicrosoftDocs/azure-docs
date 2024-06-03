@@ -1,10 +1,22 @@
 {
     "redirections": [
+        
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-oci-artifacts.md",
+            "redirect_url": "/azure/container-registry/container-registry-manage-artifact",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-oras-artifacts.md",
+            "redirect_url": "/azure/container-registry/container-registry-manage-artifact",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache-auth.md",
             "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
             "redirect_document_id": false
         },
+        
         {
             "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache-auth-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-artifact-cache",

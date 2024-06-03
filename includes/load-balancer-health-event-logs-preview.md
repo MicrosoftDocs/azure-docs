@@ -14,8 +14,26 @@ ms.custom: include-file
 > LoadBalancerHealthEvent logs for Azure Load Balancer is currently in Preview and is available in the following regions:
 > 
 > - West Central US
-> - Central US, East Asia
+> - Central US
+> - East Asia
 > - Australia East
+> - Switzerland North
+> - UAE Central
+> - UK South
+> - West India
+> - France South
+> - Central Canada
+> - Germany North
+> - Australia East
+> 	Korea South
+> - North US
+> - North Europe
+> - Australia Southeast
+> - East Asia
+> - Norway East
+> - Central India
+> - Central US
+> - Japan East	 
 > 
 > While in Preview, the log structure, event types, publishing behavior, and other aspects of this feature may change in response to feedback.
 >
