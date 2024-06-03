@@ -8,7 +8,7 @@ ms.subservice: aks-security
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-ms.date: 05/29/2024
+ms.date: 06/03/2024
 ms.author: tamram
 ---
 
@@ -22,13 +22,15 @@ This article shows how to enable the following types of managed identity on a ne
 
 * System-assigned managed identity. A system-assigned managed identity is associated with a single Azure resource, such as an AKS cluster.
 * User-assigned managed identity. A user-assigned managed identity is a standalone Azure resource that can be assigned to an Azure resource
-* Pre-created Kubelet managed identity
+* Pre-created Kubelet managed identity.
 
 ## Overview
 
 When you deploy an AKS cluster, a system-assigned managed identity is automatically created for you by default. A system-assigned managed identity is managed by the Azure platform, so it doesn't require you to provision or rotate any secrets. For more information about system-assigned managed identities, see [Managed identities for Azure resources][managed-identity-resources-overview].
 
-AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable. These identity types differ a [Microsoft Entra Workload identity][workload-identity-overview], which is intended for use by an application running on a pod.
+AKS supports both system-assigned and user-assigned managed identity types, and these identities are immutable. These identity types differ a [Microsoft Entra Workload identity][workload-identity-overview], which is intended for use by an application running on a pod.
+
+It's also possible to create a cluster with a service principal rather that a managed identity. Managed identities are recommended over service principals for security and ease of use. For more information about creating a cluster with a service principal, see [Use a service principal with Azure Kubernetes Service (AKS)](kubernetes-service-principal.md).
 
 > [!IMPORTANT]
 > The open source [Microsoft Entra pod-managed identity][entra-id-pod-managed-identity] (preview) in Azure Kubernetes Service was deprecated on 10/24/2022, and the project archived in Sept. 2023. For more information, see the [deprecation notice](https://github.com/Azure/aad-pod-identity#-announcement). The AKS Managed add-on begins deprecation in Sept. 2024.
@@ -82,7 +84,11 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | Cost analysis | Used to gather cost allocation data |  |
 | Workload identity | Microsoft Entra workload ID | Enables applications to access cloud resources securely with Microsoft Entra workload ID. | N/A | No |
 
-## Enable a system-assigned managed identity on a new AKS cluster
+## Use a system-assigned managed identity
+
+system MSI
+
+### Enable a system-assigned managed identity on a new AKS cluster
 
 To enable a system-assigned managed identity on a new cluster, call the [`az aks create`][az-aks-create]. A system-assigned managed identity is enabled on the new cluster by default.
 
@@ -128,11 +134,11 @@ To enable a system-assigned managed identity on a new cluster, call the [`az aks
 > [!NOTE]
 > AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][use-a-pre-created-kubelet-managed-identity].
 >
-> If your cluster is already using a managed identity and the identity was changed, for example if you updated the cluster identity type from system-assigned to user-assigned, then there is a delay for control plane components to switch to the new identity. Control plane components continue to use the old identity until its token expires. After the token is refreshed, they switch to the new identity. This process can take several hours.
+> If your cluster is already using a managed identity and the identity was changed, for example if you updated the cluster identity type from system-assigned to user-assigned, then there is a delay while control plane components switch to the new identity. Control plane components continue to use the old identity until its token expires. After the token is refreshed, they switch to the new identity. This process can take several hours.
 
-## Enable a system-assigned managed identity on an existing AKS cluster
+### Enable a system-assigned managed identity on an existing AKS cluster
 
-To update an existing AKS cluster to use a system-assigned managed identity, run the [`az aks update`][az-aks-update] command with the `--enable-managed-identity` parameter.
+To update an existing AKS cluster that is using a service principal to use a system-assigned managed identity instead, run the [`az aks update`][az-aks-update] command with the `--enable-managed-identity` parameter.
 
 ```azurecli-interactive
 az aks update \
@@ -141,7 +147,7 @@ az aks update \
     --enable-managed-identity
 ```
 
-After you update the cluster, the control plane and pods use the system-assigned managed identity for authorization. Kubelet continues using a service principal until you upgrade your agentpool. You can use the `az aks nodepool upgrade --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --node-image-only` command on your nodes to update to a managed identity. A node pool upgrade causes downtime for your AKS cluster as the nodes in the node pools are cordoned, drained, and re-imaged.
+After you update the cluster, the control plane and pods use the system-assigned managed identity for authorization when accessing other services in Azure. Kubelet continues using a service principal until you upgrade your agentpool. You can use the `az aks nodepool upgrade --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --node-image-only` command on your nodes to update to a managed identity. A node pool upgrade causes downtime for your AKS cluster as the nodes in the node pools are cordoned, drained, and re-imaged.
 
 > [!NOTE]
 >
@@ -153,49 +159,49 @@ After you update the cluster, the control plane and pods use the system-assigned
 >
 > * If your cluster was using `--attach-acr` to pull from images from Azure Container Registry (ACR), you need to run the `az aks update --resource-group myResourceGroup --name myAKSCluster --attach-acr <ACR resource ID>` command after updating your cluster to let the newly-created kubelet used for managed identity get the permission to pull from ACR. Otherwise, you won't be able to pull from ACR after the update.
 
-## Add a role assignment for the managed identity
+### Add a role assignment for a system-assigned managed identity
 
-You can assign a role to the system-assigned managed identity to grant permissions to the cluster for another Azure resource.
+Azure role-based access control (Azure RBAC) supports both built-in and custom role definitions that specify levels of permissions. You can assign an Azure RBAC role to the system-assigned managed identity to grant the cluster permissions on another Azure resource.
 
-When you create and use your own VNet, attached Azure disks, static IP address, route table, or user-assigned kubelet identity where the resources are outside of the worker node resource group, the Azure CLI adds the role assignment automatically. If you're using an ARM template or another method, you need to use the principal ID of the cluster managed identity to perform a role assignment.
+When you create and use your own VNet, attached Azure disks, static IP address, route table, or user-assigned kubelet identity where the resources are outside of the worker node resource group, the Azure CLI adds the role assignment automatically. If you're using an ARM template or another method, use the principal ID of the cluster managed identity to perform a role assignment.
 
-If you're not using the Azure CLI, but you're using your own VNet, attached Azure disks, static IP address, route table, or user-assigned kubelet identity that's outside of the worker node resource group, we recommend using a [user-assigned managed identity for the control plane][bring-your-own-control-plane-managed-identity]. When the control plane uses a system-assigned managed identity, the identity ID isn't known before creating the cluster, which delays the role assignment from taking effect.
+If you're not using the Azure CLI, but you're using your own VNet, attached Azure disks, static IP address, route table, or user-assigned kubelet identity that's outside of the worker node resource group, we recommend using a [user-assigned managed identity for the control plane][bring-your-own-control-plane-managed-identity]. When the control plane uses a system-assigned managed identity, the identity is created at the same time as the cluster, so the role assignment can't be performed until the cluster has been created.
 
-### Get the principal ID of the managed identity
+#### Get the principal ID of the managed identity
 
-* Get the principal ID for the cluster's system-assigned managed identity by calling the [`az aks show`](/cli/azure/identity#az-identity-show) command.
+To assign an Azure RBAC role to a cluster's system-assigned managed identity, you first need the principal ID for the cluster. Get the principal ID for the cluster's system-assigned managed identity by calling the [`az aks show`](/cli/azure/identity#az-identity-show) command.
 
-    ```azurecli-interactive
-    az aks show \
-        --resource-group myResourceGroup \
-        --name myManagedCluster \
-        --query identity.principalId
-    ```
+```azurecli-interactive
+az aks show \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --query identity.principalId
+```
 
-    Your output should resemble the following example output:
+Your output should resemble the following example output:
 
-    ```output
-    {
-      "delegatedResources": null,
-      "principalId": "<identity-principal-id>",
-      "tenantId": "<tenant-id>",
-      "type": "SystemAssigned",
-      "userAssignedIdentities": null
-    }
-    ```
+```output
+{
+  "delegatedResources": null,
+  "principalId": "<identity-principal-id>",
+  "tenantId": "<tenant-id>",
+  "type": "SystemAssigned",
+  "userAssignedIdentities": null
+}
+```
 
-### Add role assignment
+#### Assign an Azure RBAC role
 
 For a VNet, attached Azure disk, static IP address, or route table outside the default worker node resource group, you need to assign the `Contributor` role on the custom resource group.
 
-* Assign the `Contributor` role on the custom resource group using the [`az role assignment create`][az-role-assignment-create] command. For the `--scope` parameter, provide the resource ID for the resource group for the cluster.
+Assign the `Contributor` role on the custom resource group using the [`az role assignment create`][az-role-assignment-create] command. For the `--scope` parameter, provide the resource ID for the resource group for the cluster.
 
-    ```azurecli-interactive
-    az role assignment create \
-        --assignee <control-plane-identity-principal-id> \
-        --role "Contributor" \
-        --scope "<custom-resource-group-resource-id>"
-    ```
+```azurecli-interactive
+az role assignment create \
+    --assignee <control-plane-identity-principal-id> \
+    --role "Contributor" \
+    --scope "<custom-resource-group-resource-id>"
+```
 
 For a user-assigned kubelet identity outside the default worker node resource group, you need to assign the [Managed Identity Operator][managed-identity-operator] role on the kubelet identity for control plane managed identity.
 
@@ -215,69 +221,16 @@ For a user-assigned kubelet identity outside the default worker node resource gr
 
 Bring your own managed identity
 
-### Create a cluster with a user-assigned managed identity
+### Create a user-assigned managed identity
 
-A user-assigned managed identity is a standalone Azure resource. When you create a cluster with a user-assigned managed identity for the control plane, the user-assigned managed identity resource must exist prior to cluster creation. This feature enables scenarios such as using a custom VNet or outboundType of UDR with a pre-created managed identity.
+A user-assigned managed identity is a standalone Azure resource. When you create a cluster with a user-assigned managed identity for the control plane, the user-assigned managed identity resource must exist prior to cluster creation. This feature enables scenarios such as creating the cluster with a custom VNet or with an outbound type of [user-defined routing (UDR)](egress-outboundtype.md#outbound-type-of-userdefinedrouting).
 
-> [!NOTE]
->
-> USDOD Central, USDOD East, and USGov Iowa regions in Azure US Government cloud aren't supported.
->
-> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][use-a-pre-created-kubelet-managed-identity].
-
-* If you don't yet have a user-assigned managed identity, create one using the [`az identity create`][az-identity-create] command.
-
-    ```azurecli-interactive
-    az identity create \
-        --name myIdentity \
-        --resource-group myResourceGroup
-    ```
-
-    Your output should resemble the following example output:
-
-    ```output
-    {                                  
-      "clientId": "<client-id>",
-      "clientSecretUrl": "<clientSecretUrl>",
-      "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
-      "location": "westus2",
-      "name": "myIdentity",
-      "principalId": "<principal-id>",
-      "resourceGroup": "myResourceGroup",                       
-      "tags": {},
-      "tenantId": "<tenant-id>",
-      "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-    }
-    ```
-
-> [!NOTE]
-> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
-
-Before you create the cluster, [add a role assignment for the managed identity][add-a-role-assignment-for-the-managed-identity] by calling the [`az role assignment create`][az-role-assignment-create] command.
-
-Next, create the cluster with user-assigned managed identity:
+If you don't yet have a user-assigned managed identity, create one using the [`az identity create`][az-identity-create] command.
 
 ```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myManagedCluster \
-    --network-plugin azure \
-    --vnet-subnet-id <subnet-id> \
-    --dns-service-ip 10.2.0.10 \
-    --service-cidr 10.2.0.0/24 \
-    --enable-managed-identity \
-    --assign-identity <identity-resource-id>
-  ```
-
-### Update an existing cluster to use a user-assigned managed identity
-
-> [!NOTE]
-> Migrating a managed identity for the control plane from system-assigned to user-assigned doesn't result in any downtime for control plane and agent pools. Control plane components continue to the old system-assigned identity for up to several hours, until the next token refresh.
-
-If you don't have a managed identity, create one using the [`az identity create`][az-identity-create] command.
-
-```azurecli-interactive
-az identity create --name myIdentity --resource-group myResourceGroup
+az identity create \
+    --name myIdentity \
+    --resource-group myResourceGroup
 ```
 
 Your output should resemble the following example output:
@@ -296,10 +249,39 @@ Your output should resemble the following example output:
   "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
 }
 ```
-  
-After creating the custom user-assigned managed identity for the control plane, [add the role assignment for the managed identity][add-a-role-assignment-for-the-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
-Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument.
+### Assign an Azure RBAC role to the user-assigned managed identity
+
+After creating a user-assigned managed identity for the cluster's control plane, [add the role assignment for the managed identity][add-a-role-assignment-for-the-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
+
+Before you create the cluster, [add a role assignment for the managed identity][add-a-role-assignment-for-the-managed-identity] by calling the [`az role assignment create`][az-role-assignment-create] command.
+
+### Create a cluster with the user-assigned managed identity
+
+To create an AKS cluster with the user-assigned managed identity, call the [`az aks create`][az-aks-create] command. Include the `--assign-identity` parameter and pass in the user-assigned managed identity's resource ID:
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 \
+    --assign-identity <identity-resource-id>
+  ```
+
+> [!NOTE]
+>
+> The USDOD Central, USDOD East, and USGov Iowa regions in Azure US Government cloud don't support user-assigned managed identities.
+>
+> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][use-a-pre-created-kubelet-managed-identity].
+>
+> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
+
+### Update an existing cluster to use a user-assigned managed identity
+
+To update an existing cluster to use a user-assigned managed identity, call the [`az aks update`][az-aks-update] command. Provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument.
 
 ```azurecli-interactive
 az aks update \
@@ -324,6 +306,9 @@ Your output for a successful cluster update using your own kubelet managed ident
     }
   },
 ```
+
+> [!NOTE]
+> Migrating a managed identity for the control plane from system-assigned to user-assigned doesn't result in any downtime for control plane and agent pools. Control plane components continue to the old system-assigned identity for up to several hours, until the next token refresh.
 
 ## Use a pre-created kubelet managed identity
 
