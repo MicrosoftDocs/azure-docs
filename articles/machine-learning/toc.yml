@@ -186,10 +186,6 @@
         items:
           - name: MLflow and Azure Machine Learning
             href: concept-mlflow.md
-          # v1
-          - name: MLflow
-            href: ./v1/concept-mlflow.md
-          # end v1
           - name: MLflow models
             displayName: tracking models, mlflow, custom, flavors
             href: concept-mlflow-models.md

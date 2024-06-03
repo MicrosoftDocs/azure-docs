@@ -661,6 +661,10 @@ In this example;
 - **DemoWebApp333** has been manually instrumented using the Application Insights SDK. Application Insights Agent detected the SDK and doesn't monitor this site.
 
 
+- `AppAlreadyInstrumented : true` indicates that the web app running on that specific w3wp.exe process is already instrumented using a manual SDK in code and the instrumentation shipped by the on-premises agent is not in effect. 
+
+- `Instrumented : true` indicates that the web app running on that specific w3wp.exe process was successfully instrumented by the on-premises agent. 
+
 ##### Example: PowerShell module information
 
 Run the command `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` to display information about the current module:
@@ -1006,7 +1010,7 @@ Each of these options is described in the [detailed instructions](?tabs=detailed
 
 ### How do I verify that the enablement succeeded?
 
-  - You can use the [Get-ApplicationInsightsMonitoringStatus](?tabs=api-reference#get-applicationinsightsmonitoringstatus) cmdlet to verify that enablement succeeded.
+- You can use the [Get-ApplicationInsightsMonitoringStatus](?tabs=api-reference#get-applicationinsightsmonitoringstatus) cmdlet to verify that enablement succeeded.
   - Use [Live Metrics](./live-stream.md) to quickly determine if your app is sending telemetry.
   - You can also use [Log Analytics](../logs/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry:
 

@@ -3593,7 +3593,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/translator/reference/rest-api-guide.md",
       "redirect_url": "/azure/ai-services/translator/reference/rest-api-guide",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/translator/reference/v3-0-break-sentence.md",
@@ -4343,7 +4343,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/translator/document-translation/how-to-guides/use-rest-api-programmatically.md",
       "redirect_url": "/azure/ai-services/translator/document-translation/how-to-guides/use-rest-api-programmatically",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/translator/document-translation/quickstarts/document-translation-rest-api.md",
@@ -4398,7 +4398,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/rest-api-guide.md",
       "redirect_url": "/azure/ai-services/translator/document-translation/reference/rest-api-guide",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/translator/document-translation/reference/start-translation.md",
