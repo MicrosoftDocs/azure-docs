@@ -104,7 +104,7 @@ Also, the `--node-image-selection` flag supports choosing the behavior for the t
 
 **Starting an update run**:
 
-Run the following command to start update runs:
+To start update runs, run the following command:
 
 ```azurecli-interactive
 az fleet updaterun start --resource-group $GROUP --fleet-name $FLEET --name <run-name>
