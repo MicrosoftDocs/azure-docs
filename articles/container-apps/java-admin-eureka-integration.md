@@ -136,6 +136,9 @@ With the Eureka Server set up, you can now bind other applications to it for ser
 
 ## View the application in both Admin for Spring and Eureka Server for Spring dashboards
 
+> [!IMPORTANT]
+> To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can either explicitly assign `Owner` or `Contributor` role on the resource or follow the steps to create a custom role definition and assign it to your account.
+
 1. Create the custom role definition.
 
     ```azurecli

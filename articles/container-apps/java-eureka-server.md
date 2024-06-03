@@ -150,6 +150,9 @@ Now that you have an existing environment, you can create your container app and
 
 ## View the application in Eureka Server for Spring dashboards
 
+> [!IMPORTANT]
+> To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can either explicitly assign `Owner` or `Contributor` role on the resource or follow the steps to create a custom role definition and assign it to your account.
+
 1. Create the custom role definition.
 
     ```azurecli
