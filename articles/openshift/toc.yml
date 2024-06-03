@@ -119,7 +119,7 @@
           href: howto-deploy-java-liberty-app.md
         - name: Deploy a JBoss EAP Java app
           href: howto-deploy-java-jboss-enterprise-application-platform-app.md
-        - name: Deploy a JBoss EAP Java app from source code
+        - name: Deploy a Jboss EAP Java App From Source Code With Automatic Deployment
           href: howto-deploy-java-jboss-enterprise-application-platform-app-with-auto-redeploy.md
 - name: Concepts
   items:
