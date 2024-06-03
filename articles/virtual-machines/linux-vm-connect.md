@@ -16,6 +16,9 @@ When hosting a Linux virtual machine on Azure, the most common method for access
 
 This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP, see [Azure Bastion Service](../bastion/bastion-overview.md).
 
+> [!Note]
+> ED25519 SSH key support for Linux VMs is now in preview across Azure public cloud regions, with plans to expand to sovereign clouds shortly.
+
 ## Prerequisites
 
 - You need an SSH key pair. If you don't already have one, Azure creates a key pair during the deployment process. If you need help with creating one manually, see [Create and use an SSH public-private key pair for Linux VMs in Azure](./linux/mac-create-ssh-keys.md).

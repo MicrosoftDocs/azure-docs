@@ -21,6 +21,9 @@ If you want quick commands rather than a more in-depth explaination of SSH keys,
 
 To create SSH keys and use them to connect to a Linux VM from a **Windows** computer, see [How to use SSH keys with Windows on Azure](ssh-from-windows.md). You can also use the [Azure portal](../ssh-keys-portal.md) to create and manage SSH keys for creating VMs in the portal.
 
+> [!Note]
+> ED25519 SSH key support for Linux VMs is now in preview across Azure public cloud regions, with plans to expand to sovereign clouds shortly.
+
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
@@ -191,7 +194,7 @@ To create a Linux VM that uses SSH keys for authentication, provide your SSH pub
 
 If you're not familiar with the format of an SSH public key, you can see your public key by running `cat` as follows, replacing `~/.ssh/id_rsa.pub` with your own public key file location:
 
-# RSA key pair
+### RSA key pair
 ```bash
 cat ~/.ssh/id_rsa.pub
 ```
@@ -215,7 +218,7 @@ ssh-keygen \
 -m RFC4716 > ~/.ssh/id_ssh2.pem
 ```
 
-# ED25519 key pair
+### ED25519 key pair
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```

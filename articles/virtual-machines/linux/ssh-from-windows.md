@@ -20,6 +20,9 @@ This article is for Windows users who want to [create](#create-an-ssh-key-pair) 
 
 To use SSH keys from a Linux or macOS client, see the [quick steps](mac-create-ssh-keys.md). For a more detailed overview of SSH, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](create-ssh-keys-detailed.md).
 
+> [!Note]
+> ED25519 SSH key support for Linux VMs is now in preview across Azure public cloud regions, with plans to expand to sovereign clouds shortly.
+
 ## Overview of SSH and keys
 
 [SSH](https://www.ssh.com/ssh/) is an encrypted connection protocol that allows secure sign-ins over unsecured connections. SSH is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH still leaves the VM vulnerable to brute-force attacks. We recommend connecting to a VM over SSH using a public-private key pair, also known as *SSH keys*.
