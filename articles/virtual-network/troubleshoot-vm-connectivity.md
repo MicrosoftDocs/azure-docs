@@ -23,6 +23,11 @@ This article helps administrators diagnose and resolve connectivity problems tha
 
 To resolve these problems, follow the steps in the following section.
 
+> [!NOTE]  
+> You can use followings:
+> * ```netstat -an``` to list the ports that the VM is listening.
+> * Test-NetConnection module in PowerShell to display diagnostic information for a connection such as ping test, tcp test etc.
+> 
 ## Resolution
 
 ### Azure VM cannot connect to another Azure VM in same virtual network
