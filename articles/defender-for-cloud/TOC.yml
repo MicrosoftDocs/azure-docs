@@ -1079,7 +1079,7 @@
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation
-      href: ../defender-for-iot/index.yml
+      href: /azure/defender-for-iot/
     - name: Azure security documentation
       href: ../security/index.yml
     - name: Microsoft Defender for Cloud tech community blogs
