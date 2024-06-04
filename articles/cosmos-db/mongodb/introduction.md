@@ -18,7 +18,7 @@ Azure Cosmos DB is a fully managed NoSQL, relational, and vector database for mo
 
 Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB. 
 
-Azure Cosmos DB for MongoDB provides an SLA that covers the full stack: the database and the underlying infrastructure such as the VMs and network. Unlike third-party MongoDB service such as MongoDB Atlas, which only cover the database and leave you unsupported for the rest, leaving your applications at risk.
+Azure Cosmos DB for MongoDB provides an SLA that covers the full stack: the database and the underlying infrastructure such as the VMs and network. Unlike third-party MongoDB services such as MongoDB Atlas, which only cover the database and leave out services, hardware, or software provided by the cloud platform, leaving your applications at risk.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWXr4T]
 
