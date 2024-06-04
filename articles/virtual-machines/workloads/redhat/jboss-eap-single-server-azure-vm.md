@@ -180,4 +180,4 @@ az group delete --name <resource-group-name> --yes --no-wait
 Learn more about options of deploying JBoss EAP on Azure:
 
 > [!div class="nextstepaction"]
-> [JBoss EAP on Azure](jboss-on-azure.md)
+> [JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure)
