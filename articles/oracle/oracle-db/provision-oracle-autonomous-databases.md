@@ -16,17 +16,17 @@ This article discusses how provision and conduct basic management functions for 
 
 1. You provision an Oracle Autonomous Database instance from the Microsoft Azure portal. Select the Oracle Autonomous Database@Azure blade.
 1. There are two paths to begin the Oracle Autonomous Database instance provisioning flow.
-    1. From the Oracle Autonomous Database@Azure application Home, select the Create an Oracle Autonomous Database button.
-    2. From the Oracle Autonomous Database blade, select the + Create at the top of the blade. The Oracle Autonomous Database@Azure blade shows all your existing Autonomous Databases along with their current status. Selecting a specific Autonomous Database shows you that instance's detailed information.
+    1. From the Oracle Autonomous Database@Azure application Home, select the **Create an Oracle Autonomous Database** button.
+    2. From the Oracle Autonomous Database blade, select the **+ Create** at the top of the blade. The Oracle Autonomous Database@Azure blade shows all your existing Autonomous Databases along with their current status. Selecting a specific Autonomous Database shows you that instance's detailed information.
 
-1. From the Basics tab of the Create Oracle Autonomous Database flow, enter the following information.
-    1. The Subscription field is a drop-down containing the current subscription, plus any other subscriptions that your account can access.
-    1. The Resource group field is a drop-down containing the existing resource groups.
-    1. To create a new Resource group, select the Create new link.
-    1. Enter a Name for your Oracle Autonomous Database Serverless instance. This name must be unique within your subscription.
-    1. Select the Region. The current region is automatically selected. If your subscription has access to other regions, those regions appear in the drop-down list.
-    1. Select the Next button to continue the provisioning flow.
-1. From the Configuration tab of the Created Oracle Autonomous Database flow, enter the following information.
+1. From the **Basics** tab of the Create Oracle Autonomous Database flow, enter the following information.
+    1. The **Subscription** field is a drop-down containing the current subscription, plus any other subscriptions that your account can access.
+    1. The **Resource group** field is a drop-down containing the existing resource groups.
+    1. To create a new Resource group, select the **Create new** link.
+    1. Enter a **Name** for your Oracle Autonomous Database Serverless instance. This name must be unique within your subscription.
+    1. Select the **Region**. The current region is automatically selected. If your subscription has access to other regions, those regions appear in the drop-down list.
+    1. Select the **Next** button to continue the provisioning flow.
+1. From the **Configuration** tab of the Created Oracle Autonomous Database flow, enter the following information.
     1. The **Workload type** is a drop-down list that provides all the options for your Oracle Autonomous Database Serverless instance. Select the appropriate option from the list.
     1. The **Database version** is a drop-down list that allows you to select the options provided by your subscription and the currently supported versions of Oracle Autonomous Database Serverless.
     1. The **ECPU count** is a slider UI that allows setting the ECPU count from 2 to 512.
