@@ -54,7 +54,7 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 
 - **Automatic and transparent sharding**: The API for MongoDB manages all of the infrastructure for you. This management includes sharding and optimizing the number of shards. Other MongoDB offerings such as MongoDB Atlas, require you to specify and manage sharding to horizontally scale. This automation gives you more time to focus on developing applications for your users.
 
-- - **Full-stack SLA**: Build your applications on a database with an SLA that covers the full stack: the database and the underlying infrastructure. Unlike third-party MongoDB services, which only cover the database and leave you unsupported for the rest.
+- **Full-stack SLA**: Build your applications on a database with an SLA that covers the full stack: the database and the underlying infrastructure. Unlike third-party MongoDB services, which only cover the database and leave you unsupported for the rest.
 
 - **Five 9's of availability**: [99.999% availability](../high-availability.md) is easily configurable to ensure your data is always there for you.
 
