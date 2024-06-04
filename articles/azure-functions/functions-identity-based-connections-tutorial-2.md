@@ -198,7 +198,7 @@ Now that you have updated the function app with the new trigger, you can verify 
 
 Congratulations! You have successfully set up your Service Bus queue trigger with a managed identity!
 
-[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+[!INCLUDE [clean-up-section-portal](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
 
 ## Next steps
 
