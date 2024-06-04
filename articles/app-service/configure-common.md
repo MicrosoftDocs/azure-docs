@@ -4,7 +4,7 @@ description: Learn to configure common settings for an App Service app. App sett
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 04/21/2023
+ms.date: 06/04/2024
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
 ms.devlang: azurecli
 author: cephalin
@@ -48,20 +48,20 @@ App settings are always encrypted when stored (encrypted-at-rest).
 
     ![Search for App Services](./media/configure-common/search-for-app-services.png)
 
-1. In the app's left menu, select **Configuration** > **Application settings**.
+1. In the app's left menu, select **Environment variables** > **App settings**.
 
     ![Application Settings](./media/configure-common/open-ui.png)
 
     By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, select its **Value** field. To see the hidden values of all app settings, select the **Show values** button.
 
-1. To add a new app setting, select **New application setting**. To edit a setting, select the **Edit** button on the right side.
+1. To add a new app setting, select **Add**. To edit a setting, click the setting.
 
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
 
     > [!NOTE]
     > In a default Linux app service or a custom Linux container, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore). Any periods in the app setting name will be replaced with a `_` (single underscore).
 
-1. When finished, select **Update**. Don't forget to select **Save** back in the **Configuration** page.
+1. When finished, select **Apply**. Don't forget to select **Apply** back in the **Environment variables** page.
 
 # [Azure CLI](#tab/cli)
 
@@ -131,7 +131,7 @@ Set-AzWebAppSlotConfigName -ResourceGroupName <group-name> -Name <app-name> -App
 
 # [Azure portal](#tab/portal)
 
-Select the **Advanced edit** button. Edit the settings in the text area. When finished, select **Update**. Don't forget to select **Save** back in the **Configuration** page.
+Select the **Advanced edit** button. Edit the settings in the text area. When finished, select **OK**. Don't forget to select **Apply** back in the **Environment variables** page.
 
 App settings have the following JSON formatting:
 
@@ -199,16 +199,12 @@ It's not possible to edit app settings in bulk by using a JSON file with Azure P
 
 ## Configure connection strings
 
-In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Application settings**.
-
-![Application Settings](./media/configure-common/open-ui.png)
-
 For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. 
 
 > [!NOTE]
-> There is one case where you may want to use connection strings instead of app settings for non-.NET languages: certain Azure database types are backed up along with the app _only_ if you configure a connection string for the database in your App Service app. For more information, see [Create a custom backup](manage-backup.md#create-a-custom-backup). If you don't need this automated backup, then use app settings.
+> There is one case where you may want to use connection strings instead of app settings for non-.NET languages: certain Azure database types are backed up along with the app *only* if you configure a connection string for the database in your App Service app. For more information, see [Create a custom backup](manage-backup.md#create-a-custom-backup). If you don't need this automated backup, then use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
@@ -242,17 +238,17 @@ Connection strings are always encrypted when stored (encrypted-at-rest).
 
     ![Search for App Services](./media/configure-common/search-for-app-services.png)
 
-1. In the app's left menu, select **Configuration** > **Application settings**.
+1. In the app's left menu, select **Environment variables** > **Connection strings**.
 
-    ![Application Settings](./media/configure-common/open-ui.png)
+    ![Application Settings](./media/configure-common/open-ui-connstring.png)
 
     By default, values for connection strings are hidden in the portal for security. To see a hidden value of a connection string, select its **Value** field. To see the hidden values of all connection strings, select the **Show value** button.
 
-1. To add a new connection string, select **New connection string**. To edit a connection string, select the **Edit** button on the right side.
+1. To add a new connection string, select **Add**. To edit a connection string, select the connection string.
 
 1. In the dialog, you can [stick the connection string to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
 
-1. When finished, select **Update**. Don't forget to select **Save** back in the **Configuration** page.
+1. When finished, select **Apply**. Don't forget to select **Apply** back in the **Environment variables** page.
 
 # [Azure CLI](#tab/cli)
 
@@ -333,7 +329,7 @@ Set-AzWebAppSlotConfigName -ResourceGroupName <group-name> -Name <app-name> -Con
 
 # [Azure portal](#tab/portal)
 
-Select the **Advanced edit** button. Edit the connection strings in the text area. When finished, select **Update**. Don't forget to select **Save** back in the **Configuration** page.
+Select the **Advanced edit** button. Edit the connection strings in the text area. When finished, select **Apply**. Don't forget to select **Apply** back in the **Environment variables** page.
 
 Connection strings have the following JSON formatting:
 
@@ -524,7 +520,7 @@ By default, App Service starts your app from the root directory of your app code
       
     ![Directory check box](./media/configure-common/directory-check-box.png)
 
-1. Select **OK**.
+1. Select **OK**. Don't forget to select **Save** in the **Configuration** page.
 
 # [Azure CLI](#tab/cli)
 
@@ -593,7 +589,7 @@ To add a custom handler:
     - **Script processor**. The absolute path of the script processor to you. Requests to files that match the file extension are processed by the script processor. Use the path `D:\home\site\wwwroot` to refer to your app's root directory.
     - **Arguments**. Optional command-line arguments for the script processor.
 
-1. Select **OK**.
+1. Select **OK**. Don't forget to select **Save** in the **Configuration** page.
 
 ## Configure custom containers
 
@@ -617,7 +613,5 @@ To add a custom handler:
 [Azure portal]: https://portal.azure.com/
 [Configure a custom domain name in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Set up staging environments in Azure App Service]: ./deploy-staging-slots.md
-[How to: Monitor web endpoint status]: ./web-sites-monitor.md
 [Monitoring basics in Azure App Service]: ./web-sites-monitor.md
-[pipeline mode]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Scale an app in Azure App Service]: ./manage-scale-up.md
