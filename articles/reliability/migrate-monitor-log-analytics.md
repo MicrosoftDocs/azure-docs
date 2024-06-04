@@ -15,7 +15,7 @@ This guide describes how to migrate Log Analytics workspaces from non-availabili
 
 > [!NOTE]
 > Application Insights resources can also use availability zones, but only if they are workspace-based and the workspace uses a dedicated cluster. Classic (non-workspace-based) Application Insights resources cannot use availability zones.
-> ## 
+
 
 ## Dedicated clusters
 
@@ -47,7 +47,7 @@ Transitioning to a new cluster can be a gradual process. Don't remove the previo
 Any queries against your workspace queries both clusters as required to provide you with a single, unified result set. As a result, all Azure Monitor features that rely on the workspace, such as workbooks and dashboards, continue to receive the full, unified result set based on data from both clusters.
 
 ## Billing
-[Dedicated clustrs](../azure-monitor/logs/logs-dedicated-clusters.md#create-a-dedicated-cluster) require a commitment tier starting at 100 GB per day.
+[Dedicated clusters](../azure-monitor/logs/logs-dedicated-clusters.md#create-a-dedicated-cluster) require a commitment tier starting at 100 GB per day.
 
 The new cluster isn’t billed during its first day to avoid double billing during configuration. Only the data ingested before the migration completes would still be billed on the date of migration. 
 
