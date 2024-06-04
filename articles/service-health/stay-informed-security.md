@@ -20,7 +20,7 @@ You receive security-related notifications affecting your Azure **subscription**
 
 **Security Advisory in [Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health/)**
 
-Service health notifications are published by Azure and contain information about the resources under your subscription. You can review these security advisories in the Service Health experience in the Azure portal and get notified about security advisories via your preferred channel by setting up Service Health alerts for this type of notification. You can create [Activity Log alerts](../service-health/alerts-activity-log-service-notifications-portal.md) on Service notifications by using the Azure portal.
+Service Health notifications are published by Azure and contain information about the resources under your subscription. You can review these security advisories in the Service Health experience in the Azure portal and get notified about security advisories via your preferred channel by setting up Service Health alerts for this type of notification. You can create [Activity Log alerts](../service-health/alerts-activity-log-service-notifications-portal.md) on Service Health notifications by using the Azure portal.
 
 >[!Note]
 >Depending on your requirements, you can configure various alerts to use the same [action group](../azure-monitor/alerts/action-groups.md) or different action groups. Action group types include sending a voice call, SMS, or email. You can also trigger various types of automated actions.
@@ -34,11 +34,10 @@ If a security issue requires direct action taken by subscription admins/owners, 
 
 ### Security issues affecting your Azure tenant workloads
 
-We typically communicate security-related information affecting your Azure **tenant** workloads via **Email Notification**. We send an email notification to Global admin and Technical Contacts.
+We communicate security-related information affecting your Azure **tenant** workloads via Email and/or Azure Service Health Notifications. We send notifications to Global Admin(s), Technical Contacts, and Security Admin(s). 
 
->[!Note]
->You should ensure that there is a **contactable email address** entered for your organization's [Global Admin](../active-directory/roles/permissions-reference.md) and [Technical contact](../active-directory/fundamentals/active-directory-properties-area.md) on your tenant. This email address is used for security issues that would have impact at the tenant level.  
-
+> [!Note]
+> You should ensure that there is a **contactable email address** entered for your organization's [Global Admin](../active-directory/roles/permissions-reference.md), [Technical contact](../active-directory/fundamentals/active-directory-properties-area.md), and [security admin](/azure/defender-for-cloud/permissions) on your tenant. This email address is used for security issues that would have impact at the tenant level.  
 As of June 2024, we're enhancing the visibility of our Azure Service Health security communications. Typically, notifications are issued at the corresponding level for which they are architected, i.e. if a service is architected at the subscription level, we will send communications at the subscription level. Conversely, if the service is architected at the tenant level (such as Entra) we will send communications at the tenant level. 
 
 However, when Microsoft determines a security event is particularly impactful AND architected at the subscription level, we will also proactively issue additional communications at the tenant level to guarantee the broadest possible awareness. 
