@@ -30,7 +30,7 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 
 [A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, instantaneous scaling, and seamless native integration with Azure services.
 
-- **Native Vector Database**: Seamlessly integrate your AI-based applications with your data that's stored in Azure Cosmos DB for MongoDB vCore. This integration is an all-in-one solution, unlike other vector search solutions that send your data between service integrations.  
+- **Native Vector Search**: Seamlessly integrate your AI-based applications with your data that's stored in Azure Cosmos DB for MongoDB vCore. This integration is an all-in-one solution, unlike other vector search solutions that send your data between service integrations.  
 
 - **Instantaneous scalability**: With Autoscale, your database scales instantaneously with zero warmup period. Other MongoDB offerings such as MongoDB Atlas can take hours to scale up and up to days to scale down.
 - **Flat pricing with Low total cost of ownership**: Enjoy a familiar pricing model for Azure Cosmos DB for MongoDB vCore, based on compute (vCores & RAM) and storage (disks).
@@ -51,7 +51,6 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 - **Instantaneous scalability**: With the [Autoscale](../provision-throughput-autoscale.md) feature, your database scales instantaneously with zero warmup period. Other MongoDB offerings such as MongoDB Atlas can take hours to scale up and up to days to scale down.
 
 - **Automatic and transparent sharding**: The API for MongoDB manages all of the infrastructure for you. This management includes sharding and optimizing the number of shards. Other MongoDB offerings such as MongoDB Atlas, require you to specify and manage sharding to horizontally scale. This automation gives you more time to focus on developing applications for your users.
-
 
 - **Five 9's of availability**: [99.999% availability](../high-availability.md) is easily configurable to ensure your data is always there for you.
 
