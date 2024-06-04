@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 04/03/2024
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -56,6 +56,17 @@ To review the logs related to all actions performed by the extension, on Windows
 
 ### Cause
 Periodic assessment isn't getting set correctly during create for specialized, migrated, and restored VMs because of the way the current modify policy is designed. Post-creation, the policy will show these resources as non-compliant on the compliance dashboard.
+
+### Resolution
+
+Run a remediation task post create to remediate newly created resources. For more information see, [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
+
+
+## The prerequisite for scheduled patching and attaching schedules is not being set correctly when utilizing the Schedule recurring updates using Azure Update Manager and Set prerequisite for Scheduling recurring updates on Azure virtual machines policies during create for specialized, generalized, migrated, and restored VMs
+
+### Cause
+
+The prerequisite for scheduled patching and attaching schedules is not being set correctly during create for specialized, migrated, and restored VMs because of the way the current Deploy If Not Exists policy is designed. Post-creation, the policy will show these resources as non-compliant on the compliance dashboard.
 
 ### Resolution
 
