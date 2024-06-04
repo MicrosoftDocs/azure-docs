@@ -39,7 +39,6 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 
 - **Scale with no shard key required**: Simplify your development process with high-capacity vertical scaling, all without the need for a shard key. Sharding and scaling horizontally is simple once collections are into the TBs.
 
-
 - **Free 35 day Backups with point in time restore (PITR)**: Azure Cosmos DB for MongoDB vCore offers free 35 day backups for any amount of data.
 
 > [!TIP]
