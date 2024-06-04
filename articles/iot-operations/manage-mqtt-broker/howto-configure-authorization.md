@@ -166,7 +166,7 @@ spec:
               - "orders"                                       
 ```
 
-To learn more with an example, see [Set up Authorization Policy with Dapr Client](../develop/howto-develop-dapr-apps.md).
+To learn more with an example, see [Set up Authorization Policy with Dapr Client](../create-edge-apps/howto-develop-dapr-apps.md).
 
 ## Distributed state store
 
