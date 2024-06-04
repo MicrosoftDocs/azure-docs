@@ -524,6 +524,26 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 
 For reference about how to invoke Llama models deployed to managed compute, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
 
+##### More inference examples
+
+| **Package**       | **Sample Notebook**                             |
+|----------------|----------------------------------------|
+| CLI using CURL and Python web requests - Command R   | [command-r.ipynb](https://aka.ms/samples/cohere-command-r/webrequests)|
+| CLI using CURL and Python web requests - Command R+   | [command-r-plus.ipynb](https://aka.ms/samples/cohere-command-r-plus/webrequests)|
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-command/openaisdk)                                    |
+| LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere/langchain)                                |
+| Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-python-sdk)                                 |
+| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
+
+##### Retrieval Augmented Generation (RAG) and tool use samples
+**Description** | **Package** | **Sample Notebook**
+--|--|--
+Create a local Facebook AI similarity search (FAISS) vector index, using Cohere embeddings - Langchain|`langchain`, `langchain_cohere`|[cohere_faiss_langchain_embed.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere_faiss_langchain_embed.ipynb)
+Use Cohere Command R/R+ to answer questions from data in local FAISS vector index - Langchain|`langchain`, `langchain_cohere`|[command_faiss_langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_faiss_langchain.ipynb)
+Use Cohere Command R/R+ to answer questions from data in AI search vector index - Langchain|`langchain`, `langchain_cohere`|[cohere-aisearch-langchain-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-langchain-rag.ipynb)
+Use Cohere Command R/R+ to answer questions from data in AI search vector index - Cohere SDK| `cohere`, `azure_search_documents`|[cohere-aisearch-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-rag.ipynb)
+Command R+ tool/function calling, using LangChain|`cohere`, `langchain`, `langchain_cohere`|[command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb)
+
 ## Cost and quotas
 
 ### Cost and quota considerations for Llama models deployed as a service
