@@ -20,7 +20,7 @@ The following table lists the current versions available for the public and Insi
 
 In this release, we made the following changes:
 
-- Fixed an issue where the client crashed when responding to incoming Teams call.  
+- Fixed an issue where the client crashed when responding to an incoming Teams call.  
 
 >[!NOTE]
 >This Insider release was originally version 1.2.5452, but we made a change to improve graphics and re-released as 1.2.5453. This version contains all of the changes made in 1.2.5450 and 1.2.5452. 
