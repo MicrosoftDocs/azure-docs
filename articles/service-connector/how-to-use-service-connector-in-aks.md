@@ -183,7 +183,7 @@ If there's an error during the extension installation, and the error message in 
    kubectl logs job/sc-job -n sc-system
    ```
 
-### Common Errors and Mitigations
+### Common errors and mitigations
 
 #### 1. Conflict
 
