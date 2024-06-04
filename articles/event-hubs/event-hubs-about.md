@@ -15,7 +15,7 @@ Businesses can use Event Hubs to ingest and store streaming data. By using strea
 
 Event Hubs is the preferred event ingestion layer of any event streaming solution that you build on top of Azure. It integrates with data and analytics services inside and outside Azure to build a complete data streaming pipeline to serve the following use cases:
 
-- [Process real-time analytics with Azure Stream Analytics](./process-data-azure-stream-analytics.md) to generate real-time insights from streaming data.
+- [Process data from your event hub by using Azure Stream Analytics](./process-data-azure-stream-analytics.md) to generate real-time insights.
 - [Analyze and explore streaming data with Azure Data Explorer](/azure/data-explorer/ingest-data-event-hub-overview).
 - Create your own cloud native applications, functions, or microservices that run on streaming data from Event Hubs.
 - [Stream events with schema validation by using the built-in Azure Schema Registry to ensure quality and compatibility of streaming data](schema-registry-overview.md).
