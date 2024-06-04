@@ -41,7 +41,7 @@ To add your Azure Cosmos DB cluster to MongoDB Shell, perform the following step
 
 2. Connect by using either of these methods:
 
-   - By entering the password in the Mongo Shell prompt. Your connection string looks like this example:
+   - Enter the password in the Mongo Shell prompt. Your connection string looks like this example:
 
      ```
      "mongodb+srv://<username>@<servername>.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000"
@@ -57,7 +57,7 @@ To add your Azure Cosmos DB cluster to MongoDB Shell, perform the following step
 
      After you provide the password and are successfully authenticated, this warning appears: "This server or service appears to be an emulation of MongoDB." You can ignore it. The shell is notifying you that you aren't connected to an emulation of MongoDB. For an Azure platform as a service (PaaS) offering, this warning is expected.
 
-   - By providing the password as a part of the connection string. The format looks something like this example:
+   - Provide the password as a part of the connection string. The format looks something like this example:
 
      ```
      mongosh "mongodb+srv://<SERVERNAME>.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000" --username "<USER>" -password "<PASSWORD>"
