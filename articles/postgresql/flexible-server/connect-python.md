@@ -111,9 +111,9 @@ In this section, you add authentication code to your working directory and perfo
         
         # Use passwordless authentication via DefaultAzureCredential.
         # Call get_token() to get a token from Microsft Entra ID and add it as the password in the connection string.
-        # Note the requested scope parameter in the call to get_token, "https://ossrdbms-aad.database.windows.net".
+        # Note the requested scope parameter in the call to get_token, "https://ossrdbms-aad.database.windows.net/.default".
         credential = DefaultAzureCredential()
-        token=credential.get_token("https://ossrdbms-aad.database.windows.net").token
+        token=credential.get_token("https://ossrdbms-aad.database.windows.net/.default").token
     
         conn_string = f"host={host} user={user} dbname={dbname} password={token} sslmode={sslmode}"
         return conn_string
