@@ -1,6 +1,6 @@
 ---
-title: Migrate from Azure Monitor Application Insights .NET Classic API SDKs to OpenTelemetry
-description: This article provides guidance on how to migrate .NET applications from the Azure Monitor Application Insights Classic API SDK to OpenTelemetry.
+title: Migrate from Application Insights .NET SDKs to Azure Monitor OpenTelemetry
+description: This article provides guidance on how to migrate .NET applications from the Application Insights Classic API SDKs to Azure Monitor OpenTelemetry.
 ms.topic: conceptual
 ms.date: 06/07/2024
 ms.devlang: csharp
@@ -8,9 +8,9 @@ ms.custom: devx-track-dotnet
 ms.reviewer: mmcc
 ---
 
-# Migrate from .NET Classic API SDKs to Azure Monitor OpenTelemetry
+# Migrate from .NET Application Insights SDKs to Azure Monitor OpenTelemetry
 
-This guide provides options to migrate various .NET applications from the Application Insights Classic API SDK to Azure Monitor OpenTelemetry.
+This guide provides options to migrate various .NET applications from Application Insights SDKs to Azure Monitor OpenTelemetry.
 
 ## Migration paths
 
@@ -168,7 +168,7 @@ The following scenarios are optional and may only apply to advanced users.
 
   - `Properties/ServiceDependencies` directory might have a reference to your Application Insights resource.
 
-### [.NET](#tab/net)
+### [ASP.NET](#tab/net)
 
 ### Prerequisites
 
@@ -1445,7 +1445,7 @@ TelemetryClient.TrackPageView()
 * [Logging in C# and .NET](https://learn.microsoft.com/dotnet/core/extensions/logging)
 * See this doc for our full getting started guide: [Enable Azure Monitor OpenTelemetry for ASP.NET Core](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore)
 
-### [.NET](#tab/net)
+### [ASP.NET](#tab/net)
 
 * [OpenTelemetry SDK's getting started guide](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry)
 * [OpenTelemetry's example ASP.NET project](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/main/examples/AspNet/Global.asax.cs)
