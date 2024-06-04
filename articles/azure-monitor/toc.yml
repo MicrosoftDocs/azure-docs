@@ -950,7 +950,7 @@ items:
           href: essentials/private-link-data-ingestion.md
         - name: Private link data query of Prometheus metrics
           displayName: Private link data query
-          href: /azure/managed-grafana/how-to-connect-to-data-source-privately.md
+          href: /azure/managed-grafana/how-to-connect-to-data-source-privately
           maintainContext: true
       - name: Alerting and rule groups
         displayName: Prometheus
