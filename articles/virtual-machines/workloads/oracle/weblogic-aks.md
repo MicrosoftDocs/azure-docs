@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 This page describes the solutions for running Oracle WebLogic Server (WLS) on the Azure Kubernetes Service (AKS). These solutions are jointly developed and supported by Oracle and Microsoft.
 
-It's also possible to run WebLogic Server on Azure Virtual Machines. The solutions to do so are described in the article [Running Oracle WebLogic Server on the Azure Virtual Machines](./oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
+It's also possible to run WebLogic Server on Azure Virtual Machines. The solutions to do so are described in the article [Running Oracle WebLogic Server on the Azure Virtual Machines](./oracle-weblogic.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 WebLogic Server is a leading Java application server running some of the most mission-critical enterprise Java applications across the globe. WebLogic Server forms the middleware foundation for the Oracle software suite. Oracle and Microsoft are committed to empowering WebLogic Server customers with choice and flexibility to run workloads on Azure as a leading cloud platform.
 
@@ -53,6 +53,6 @@ Beyond what the solutions provide you have complete flexibility to customize you
 The following articles provide more information on getting started with these technologies.
 
 * [Deploy a Java application with WebLogic Server on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-* [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](./oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+* [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](./oracle-weblogic.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 To find more about Oracle WebLogic offers, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure. You're encouraged to [connect with the development team](https://aka.ms/wls-on-azure-survey) and provide feedback on further improving WebLogic on AKS solutions.
