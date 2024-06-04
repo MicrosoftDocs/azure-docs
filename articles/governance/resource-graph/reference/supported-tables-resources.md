@@ -1,12 +1,14 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 05/03/2024
+ms.date: 06/05/2024
 ms.topic: reference
 ms.custom: generated
 ---
 
 # Azure Resource Graph table and resource type reference
+
+[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/archive-samples.md)]
 
 Azure Resource Graph supports the following **resource types** of [Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is part of a **table** in Resource Graph.
 
