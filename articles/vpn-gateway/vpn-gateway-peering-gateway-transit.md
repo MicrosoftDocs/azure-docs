@@ -30,7 +30,7 @@ There are two scenarios in this article. Select the scenario that applies to you
 * **Different deployment models**: The spoke virtual network is created in the classic deployment model, and the hub virtual network and gateway are in the Resource Manager deployment model. This scenario is useful when you need to connect a legacy VNet that already exists in the classic deployment model.
 
 >[!NOTE]
-> If you make a change to the topology of your network and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
+> If you make a change to the topology of your network (such as adding peering) and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
 >
 
 ## Prerequisites
