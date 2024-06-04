@@ -112,7 +112,7 @@ For more information, see [Language support](/azure/ai-services/content-safety/l
 
 To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, the Content Safety features are available in the following Azure regions: 
 
-|Region | Moderation APIs | Prompt Shields |  Protected material<br>detection | Groundedness<br>detection | Incident response | Blocklists |
+|Region | Moderation APIs | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Blocklists |
 |---|---|---|---|---|---|---|
 | East US | ✅ | ✅| ✅ |✅ |✅ |✅ |
 | East US 2 | ✅ | | | ✅ | | ✅|
@@ -134,26 +134,12 @@ Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need
 
 ### Query rates
 
-#### Moderation APIs
+Content Safety features have query rate limits in requests-per-10-seconds. See the following table for the rate limits for each feature.
 
-| Pricing Tier | Requests per 10 seconds  |
-| :----------- | :--------------------- |
-| F0           | 1000                     |
-| S0           | 1000                     |
-
-
-#### Prompt Shields
-| Pricing Tier | Requests per 10 seconds |
-| :----------- | :---------------------------- |
-| F0           | 1000         |
-| S0           | 1000         |
-
-#### Groundedness detection
-| Pricing Tier | Requests per 10 seconds |
-| :----------- | :--------------------------- |
-| F0           | 50                           |
-| S0           | 50                           |
-
+|Pricing tier | Moderation APIs | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | 
+|--------|---------|-------------|---------|---------|---------|
+| F0    | 1000     | 1000        | 1000     | 50      | 1000 |
+| S0    | 1000     | 1000        | 1000     | 50      | 1000 |
 
 If you need a faster rate, please [contact us](mailto:contentsafetysupport@microsoft.com) to request.
 
