@@ -251,7 +251,7 @@ sections:
       - question: | 
           Does Assistants support customer-managed key encryption (CMK)?
         answer: |
-          Today we support CMK for Threads and Files in Assistants. See the [What's new page](./faq.yml#customer-managed-key-cmk-support-for-assistants) for available regions for this feature.
+          Today we support CMK for Threads and Files in Assistants. See the [What's new page](./whats-new.md#customer-managed-key-cmk-support-for-assistants) for available regions for this feature.
       - question: |
           Is my data used by Microsoft for training models? 
         answer: |
