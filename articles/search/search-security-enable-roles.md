@@ -226,4 +226,4 @@ To re-enable key authentication, set "disableLocalAuth" to false. The search ser
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure a managed identity for a search service](search-howto-managed-identities-data-sources.md)
+> [Set up roles for access to a search service](search-security-rbac.md)
