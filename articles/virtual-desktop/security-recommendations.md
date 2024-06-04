@@ -4,7 +4,7 @@ description: Learn about recommendations for helping keep your Azure Virtual Des
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/09/2024
+ms.date: 06/03/2024
 ---
 
 # Security recommendations for Azure Virtual Desktop
@@ -204,8 +204,10 @@ Azure Virtual Desktop support for Azure Confidential computing virtual machines 
 
 The following operating systems are supported for use as session hosts with confidential VMs on Azure Virtual Desktop:
 
-- Windows 11 Enterprise, version 22H2
-- Windows 11 Enterprise multi-session, version 22H2
+- Windows 11 Enterprise
+- Windows 11 Enterprise multi-session
+- Windows 10 Enterprise
+- Windows 10 Enterprise multi-session
 - Windows Server 2022
 - Windows Server 2019
 
