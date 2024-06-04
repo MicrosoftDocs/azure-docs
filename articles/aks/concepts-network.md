@@ -52,9 +52,6 @@ In AKS, you can deploy a cluster that uses one of the following network models:
 * **Overlay network model**: Overlay networking is the most common networking model used in Kubernetes. Pods are given an IP address from a private, logically separate CIDR from the Azure virtual network subnet where AKS nodes are deployed. This model enables simpler, improved scalability when compared to the flat network model.
 * **Flat network model**: A flat network model in AKS assigns IP addresses to pods from a subnet from the same Azure virtual network as the AKS nodes. Any traffic leaving your clusters isn't SNAT'd, and the pod IP address is directly exposed to the destination. This model can be useful for scenarios like exposing pod IP addresses to external services.
 
-
-  
-
 For more information on networking models in AKS, see [CNI Networking in AKS][network-cni-overview].
 
 ## Ingress controllers
