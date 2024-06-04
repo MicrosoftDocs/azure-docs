@@ -15,7 +15,7 @@ ms.custom: devx-track-python, mode-other
 
 In this quickstart, you incorporate Azure App Configuration into a Python web app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states.
 
-These libraries do **not** have a dependency on any Azure libraries. They seamlessly integrate with App Configuration through its Python configuration provider.
+This library does **not** have a dependency on any Azure libraries. They seamlessly integrate with App Configuration through its Python configuration provider.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     
     connection_string = os.environ["APP_CONFIGURATION_CONNECTION_STRING"]
     
-    # Connecting to Azure App Configuration using Microsoft Entra ID
+    # Connecting to Azure App Configuration using a connection string
     config = load(connection_string=connection_string, feature_flag_enabled=True, feature_flag_refresh_enabled=True)
     
     feature_manager = FeatureManager(config)
@@ -127,7 +127,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Web applications
 
-The following example shows how to update an existing web application, using Azure App Configuration with refresh to also use feature flags. See [Python Dynamic Configuration](./enable-dynamic-configuration-python.md) for a more detailed example of how to use refreshable configuration values.
+The following example shows how to update an existing web application, using Azure App Configuration with dynamic refresh to also use feature flags. See [Python Dynamic Configuration](./enable-dynamic-configuration-python.md) for a more detailed example of how to use dynamic refresh for configuration values.
 
 ### [Flask](#tab/flask)
 
@@ -234,17 +234,13 @@ Whenever these endpoints are triggered, a refresh check can be performed to ensu
 
 When a refresh is complete all values are updated at once, so the configuration is always consistent within the object.
 
-NOTE: If the refresh interval has yet to pass, then the refresh won't be attempted and the function will return right away.
-
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it to manage features in a Spring Boot web app via the [Feature Management libraries](https://azure.github.io/azure-sdk-for-java/springboot.html).
+In this quickstart, you created a new App Configuration store and used it to manage features in a Python app via the [Feature Management library](https://microsoft.github.io/FeatureManagement-Python/html/index.html).
 
-* See library [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917).
-* Learn more about [feature management](./concept-feature-management.md).
-* [Manage feature flags](./manage-feature-flags.md).
-* [Use feature flags in a Spring Boot Core app](./use-feature-flags-spring-boot.md).
+- Learn more about [feature management](./concept-feature-management.md).
+- [Manage feature flags](./manage-feature-flags.md).
