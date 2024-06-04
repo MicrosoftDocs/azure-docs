@@ -35,7 +35,7 @@ You might want to containerize existing applications and run them using Windows 
 
 AKS uses Windows Server 2019 and Windows Server 2022 as the host OS versions and only supports process isolation. AKS doesn't support container images built by other versions of Windows Server. For more information, see [Windows container version compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of life (EOL). Windows Server 2022 will retire after Kubernetes version 1.34 reaches its end of life (EOL). For more information, see [AKS release notes][aks-release-notes]. To stay up to date on the latest Windows Server OS versions and learn more about our roadmap of what's planned for support on AKS, see our [AKS public roadmap](https://github.com/azure/aks/projects/1).
+Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of life. Windows Server 2022 will retire after Kubernetes version 1.34 reaches its end of life. For more information, see [AKS release notes][aks-release-notes]. To stay up to date on the latest Windows Server OS versions and learn more about our roadmap of what's planned for support on AKS, see our [AKS public roadmap](https://github.com/azure/aks/projects/1).
 
 
 ## Networking
@@ -63,7 +63,7 @@ To help you decide which networking mode to use, see [Choosing a network model][
 
 When managing traffic between pods, you should apply the principle of least privilege. The Network Policy feature in Kubernetes allows you to define and enforce ingress and egress traffic rules between the pods in your cluster. For more information, see [Secure traffic between pods using network policies in AKS][network-policies-aks].
 
-Windows pods on AKS clusters that use the Calico Network Policy enable [Floating IP][dsr] by default.
+Windows pods on AKS clusters that use the Calico Network Policy enable Floating IP by default.
 
 ## Upgrades and updates
 

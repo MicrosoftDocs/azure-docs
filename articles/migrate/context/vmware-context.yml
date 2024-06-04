@@ -1,5 +1,4 @@
 ### YamlMime:ContextObject
 brand: azure
-uhfHeaderId: azure
-breadcrumb_path: /azure/azure-vmware/breadcrumbs/toc.json
-toc_rel: /azure/migrate/vmware/toc.json
+breadcrumb_path: ../breadcrumb/toc.yml
+toc_rel: ../vmware/toc.yml

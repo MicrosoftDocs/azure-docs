@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # How to use parameters, expressions and functions in Azure Data Factory

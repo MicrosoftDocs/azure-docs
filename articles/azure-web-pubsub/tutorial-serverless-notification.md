@@ -105,7 +105,7 @@ In this tutorial, you learn how to:
 
     # [Python](#tab/python)
     ```bash
-    func init --worker-runtime python
+    func init --worker-runtime python --model V1
     ```
     
 2. Follow the steps to install `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.

@@ -5,7 +5,7 @@ author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 03/01/2024
+ms.date: 05/06/2024
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
@@ -61,7 +61,7 @@ Provide the following information as prompted:
 ### [Using a workload identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation will fail. You can ask your subscription owner for the permission or use an access key to create the connection.
+> Using Managed Identity requires you have the permission to [Microsoft Entra ID role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation will fail. You can ask your subscription owner for the permission or use an access key to create the connection.
 
 Use the Azure CLI command to create a service connection to a Blob Storage with a workload identity, providing the following information:
 

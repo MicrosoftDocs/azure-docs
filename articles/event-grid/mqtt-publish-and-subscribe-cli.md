@@ -27,12 +27,12 @@ If you don't have an [Azure subscription](/azure/guides/developer/azure-develope
 
 ## Prerequisites
 
-- If you're new to Event Grid, read through the [Event Grid overview](/azure/event-grid/overview) before you start this tutorial.
-- Register the Event Grid resource provider according to the steps in [Register the Event Grid resource provider](/azure/event-grid/custom-event-quickstart-portal#register-the-event-grid-resource-provider).
+- If you're new to Event Grid, read through the [Event Grid overview](../event-grid/overview.md) before you start this tutorial.
+- Register the Event Grid resource provider according to the steps in [Register the Event Grid resource provider](../event-grid/custom-event-quickstart-portal.md#register-the-event-grid-resource-provider).
 - Make sure that port 8883 is open in your firewall. The sample in this tutorial uses the MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.
-- Use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
+- Use the Bash environment in [Azure Cloud Shell](../cloud-shell/overview.md). For more information, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running the Azure CLI in a Docker container. For more information, see [Run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
-- If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps that appear in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+- If you're using a local installation, sign in to the Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps that appear in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - This article requires version 2.53.1 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
@@ -93,7 +93,7 @@ az eventgrid namespace topic-space create -g {Resource Group} --namespace-name {
 
 ## Create permission bindings
 
-Use the `az resource` command to create the first permission binding for publisher permission. Update the command with your resource group, namespace name, and permission binding name.
+Use the `az eventgrid` command to create the first permission binding for publisher permission. Update the command with your resource group, namespace name, and permission binding name.
 
 ```azurecli-interactive
 az eventgrid namespace permission-binding create -g {Resource Group} --namespace-name {Namespace Name} -n {Permission Binding Name} --client-group-name '$all' --permission publisher --topic-space-name {Topicspace Name}
@@ -102,7 +102,7 @@ az eventgrid namespace permission-binding create -g {Resource Group} --namespace
 Use the command to create the second permission binding. Update the command with your resource group, namespace name, and permission binding name. This permission binding is for subscribers.
 
 ```azurecli-interactive
-az eventgrid namespace permission-binding create -g {Resource Group} --namespace-name {Namespace Name} -n {Name of second Permission Binding} --client-group-name '$all' --permission publisher --topic-space-name {Topicspace Name}
+az eventgrid namespace permission-binding create -g {Resource Group} --namespace-name {Namespace Name} -n {Name of second Permission Binding} --client-group-name '$all' --permission subscriber --topic-space-name {Topicspace Name}
 ```
 
 ## Publish and subscribe to MQTT messages

@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs, devx-track-arm-template
-ms.date: 04/28/2021
+ms.date: 04/10/2024
 ---
 
 # Quickstart: Create an Azure Cache for Redis using an ARM template
@@ -28,7 +28,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/redis-cache/).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cache/redis-cache/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cache/redis-cache-microsoft-entra-authentication/azuredeploy.json":::
 
 The following resources are defined in the template:
 

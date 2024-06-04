@@ -13,12 +13,13 @@ Nvidia's A100 GPU can be divided in up to seven independent instances. Each inst
 
 This article walks you through how to create a multi-instance GPU node pool in an Azure Kubernetes Service (AKS) cluster.
 
-## Prerequisites
+## Prerequisites and limitations
 
 * An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Azure CLI version 2.2.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * The Kubernetes command-line client, [kubectl](https://kubernetes.io/docs/reference/kubectl/), installed and configured. If you use Azure Cloud Shell, `kubectl` is already installed. If you want to install it locally, you can use the [`az aks install-cli`][az-aks-install-cli] command.
 * Helm v3 installed and configured. For more information, see [Installing Helm](https://helm.sh/docs/intro/install/).
+* You can't use Cluster Autoscaler with multi-instance node pools.
 
 ## GPU instance profiles
 

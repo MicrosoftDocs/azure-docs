@@ -3,7 +3,7 @@ title: Enable Azure Automation Change Tracking for single machine and multiple m
 description: This article tells how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/28/2023
+ms.date: 06/03/2024
 ms.topic: conceptual
 ---
 
@@ -23,7 +23,7 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 
 This section provides detailed procedure on how you can enable change tracking on a single VM and multiple VMs.
 
-#### [For a single VM](#tab/singlevm)
+#### [Single Azure VM -portal](#tab/singlevm)
 
 1. Sign in to [Azure portal](https://portal.azure.com) and navigate to **Virtual machines**.
 
@@ -41,7 +41,7 @@ This section provides detailed procedure on how you can enable change tracking o
    :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
 
 
-#### [For multiple VMs](#tab/multiplevms)
+#### [Multiple Azure VMs - portal](#tab/multiplevms)
 
 1. Sign in to [Azure portal](https://portal.azure.com) and navigate to **Virtual machines**.
 
@@ -64,6 +64,40 @@ This section provides detailed procedure on how you can enable change tracking o
 
 1. Select **Enable** to initiate the deployment.
 1. A notification appears on the top right corner of the screen indicating the status of deployment.
+
+#### [Arc-enabled VMs - portal/CLI](#tab/arcvms)
+
+To enable the Change Tracking and Inventory on Arc-enabled servers, ensure that the custom Change Tracking Data collection rule is associated to the Arc-enabled VMs. 
+
+Follow these steps to associate the data collection rule to the Arc-enabled VMs:
+
+1. [Create Change Tracking Data collection rule](#create-data-collection-rule).
+1. Sign in to [Azure portal](https://portal.azure.com) and go to **Monitor** and under **Settings**, select **Data Collection Rules**.
+      
+   :::image type="content" source="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png":::
+
+1. Select the data collection rule that you have created in Step 1 from the listing page.
+1. In the data collection rule page, under **Configurations**, select **Resources** and then select **Add**.
+    
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-resources.png" alt-text="Screenshot showing the menu option to select resources from the data collection rule page." lightbox="media/enable-vms-monitoring-agent/select-resources.png":::
+    
+1. In the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* that is connected to the subscription and then select **Apply** to associate the *ctdcr* created in Step 1 to the Arc-enabled machine and it will also install the Azure Monitoring Agent extension.
+    
+   :::image type="content" source="media/enable-vms-monitoring-agent/scope-select-arc-machines.png" alt-text="Screenshot showing the selection of Arc-enabled machines from the scope." lightbox="media/enable-vms-monitoring-agent/scope-select-arc-machines.png":::
+    
+1. Install the Change Tracking extension as per the OS type for the Arc-enabled VM.
+    
+   **Linux**
+       
+   ```azurecli
+   az connectedmachine extension create  --name ChangeTracking-Linux  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Linux  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
+   ```
+
+   **Windows**
+
+   ```azurecli
+   az connectedmachine extension create  --name ChangeTracking-Windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
+   ```   
 --- 
 
 >[!NOTE]
@@ -129,7 +163,8 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
    :::image type="content" source="media/enable-vms-monitoring-agent/build-template.png" alt-text="Screenshot to get started with building a template.":::
 1. In the **Edit template**, select **Load file** to upload the *CtDcrCreation.json* file.
 1. Select **Save**.
-1. In the **Custom deployment** > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional.
+1. In the **Custom deployment** > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional. The resource group must be same as the resource group associated with the Log Analytic workspace id chosen here.
+
    :::image type="content" source="media/enable-vms-monitoring-agent/build-template-basics.png" alt-text="Screenshot to provide subscription and resource group details to deploy data collection rule.":::
    
    >[!NOTE]

@@ -7,7 +7,7 @@ author: maud-lv
 
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 01/18/2023
+ms.date: 04/12/2024
 ms.author: malev 
 ms.custom: devx-track-azurecli
 ---

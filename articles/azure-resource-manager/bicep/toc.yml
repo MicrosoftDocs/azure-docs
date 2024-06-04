@@ -19,7 +19,7 @@
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
-    displayname: vscode
+    displayName: vscode
     href: quickstart-create-bicep-use-visual-studio-code.md
   - name: Create Bicep templates - Visual Studio
     href: quickstart-create-bicep-use-visual-studio.md
@@ -377,6 +377,8 @@
       href: operators-numeric.md
     - name: Safe-dereference operator
       href: operator-safe-dereference.md
+    - name: Spread 
+      href: operator-spread.md
 - name: How to
   items:
   - name: Author
@@ -384,7 +386,7 @@
     - name: Best practices
       href: best-practices.md
     - name: Visual Studio Code
-      displayname: vscode,vs code
+      displayName: vscode,vs code
       href: visual-studio-code.md
     - name: Private module registry
       href: private-module-registry.md
@@ -409,6 +411,8 @@
       items:
       - name: Kubernetes provider
         href: ./bicep-extensibility-kubernetes-provider.md
+      - name: Microsoft Graph provider
+        href: https://aka.ms/graphbicep
     - name: Patterns
       items:
       - name: Configuration set
@@ -542,6 +546,9 @@
       - name: Use resource symbol reference
         displayName: linter
         href: linter-rule-use-resource-symbol-reference.md
+      - name: Use secure value for secure inputs
+        displayName: linter
+        href: linter-rule-use-secure-value-for-secure-inputs.md
       - name: Use stable resource identifier
         displayName: linter
         href: linter-rule-use-stable-resource-identifier.md

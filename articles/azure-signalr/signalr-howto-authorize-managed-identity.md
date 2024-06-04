@@ -43,7 +43,7 @@ To learn how to configure managed identities for Azure App Service and Azure Fun
 
 ## Add role assignments in the Azure portal
 
-The following steps describe how to assign a SignalR App Server role to a system-assigned identity over an Azure SignalR Service resource. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The following steps describe how to assign a SignalR App Server role to a system-assigned identity over an Azure SignalR Service resource. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 > [!NOTE]
 > A role can be assigned to any scope, including management group, subscription, resource group, or single resource. To learn more about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
@@ -71,7 +71,7 @@ The following steps describe how to assign a SignalR App Server role to a system
 
 To learn more about how to assign and manage Azure roles, see these articles:
 
-- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
 - [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md)
 - [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [Assign Azure roles using the Azure CLI](../role-based-access-control/role-assignments-cli.md)

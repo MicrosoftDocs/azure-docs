@@ -76,7 +76,7 @@ IoT Hub currently supports the following Azure services as custom endpoints:
 * Event Hubs
 * Service Bus Queues
 * Service Bus Topics
-* Cosmos DB (preview)
+* Cosmos DB
    
 For the limits on endpoints per hub, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
@@ -126,7 +126,7 @@ Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions
 
 Apart from the built-in-Event Hubs compatible endpoint, you can also route data to custom endpoints of type Event Hubs.
 
-### Azure Cosmos DB as a routing endpoint (preview)
+### Azure Cosmos DB as a routing endpoint
 
 You can send data directly to Azure Cosmos DB from IoT Hub. IoT Hub supports writing to Cosmos DB in JSON (if specified in the message content-type) or as base 64 encoded binary.
 

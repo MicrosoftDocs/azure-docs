@@ -90,9 +90,9 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
 ```json
 [
   {
-    "TenantId": "766eaf62-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "TenantId": "{tenant-id}",
     "time": "2020-08-31T19:52:39.763Z",
-    "resourceId": "/SUBSCRIPTIONS/A1BA9AAA-xxxx-xxxx-xxxx-xxxxxxxxxxxx/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/CONTOSOMHSM",
+    "resourceId": "/SUBSCRIPTIONS/{subscription-id}/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/CONTOSOMHSM",
     "operationName": "BackupCreate",
     "operationVersion": "7.0",
     "category": "AuditEvent",
@@ -104,7 +104,7 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
     },
     "durationMs": 488,
     "callerIpAddress": "X.X.X.X",
-    "identity": "{\"claim\":{\"appid\":\"04b07795-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"http_schemas_microsoft_com_identity\":{\"claims\":{\"objectidentifier\":\"b1c52bf0-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"}},\"http_schemas_xmlsoap_org_ws_2005_05_identity\":{\"claims\":{\"upn\":\"admin@contoso.com\"}}}}",
+    "identity": "{\"claim\":{\"appid\":\"{application-id}\",\"http_schemas_microsoft_com_identity\":{\"claims\":{\"objectidentifier\":\"{object-id}\"}},\"http_schemas_xmlsoap_org_ws_2005_05_identity\":{\"claims\":{\"upn\":\"admin@contoso.com\"}}}}",
     "clientInfo": "azsdk-python-core/1.7.0 Python/3.8.2 (Linux-4.19.84-microsoft-standard-x86_64-with-glibc2.29) azsdk-python-azure-keyvault/7.2",
     "correlationId": "8806614c-ebc3-11ea-9e9b-00155db778ad",
     "subnetId": "(unknown)",
@@ -118,14 +118,6 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
   }
 ]
 ```
-
-
-
-## Use Azure Monitor logs
-
-You can use the Key Vault solution in Azure Monitor logs to review Managed HSM **AuditEvent** logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need.
-
-For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../key-vault-insights-overview.md).
 
 ## Next steps
 

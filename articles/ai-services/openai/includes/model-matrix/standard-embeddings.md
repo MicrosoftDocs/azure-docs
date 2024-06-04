@@ -8,22 +8,23 @@ ms.topic: include
 ms.date: 03/13/2024
 ---
 
-| `Region`   | `text-embedding-ada-002`, `1`   | `text-embedding-ada-002`, `2`   | `text-embedding-3-small`, `1`   | `text-embedding-3-large`, `1`   |
+| **Region**   | **text-embedding-ada-002**, **1**   | **text-embedding-ada-002**, **2**   | **text-embedding-3-small**, **1**   | **text-embedding-3-large**, **1**   |
 |:-----------------|:---------------------------------:|:---------------------------------:|:---------------------------------:|:---------------------------------:|
 | australiaeast    | -                             | ✅                              | -                             | -                             |
 | brazilsouth      | -                             | ✅                              | -                             | -                             |
 | canadaeast       | -                             | ✅                              | ✅                              | ✅                              |
 | eastus           | ✅                              | ✅                              | ✅                              | ✅                              |
 | eastus2          | -                             | ✅                              | ✅                              | ✅                              |
-| francecentral    | -                             | ✅                              | -                             | -                             |
-| japaneast        | -                             | ✅                              | -                             | -                             |
+| francecentral    | -                             | ✅                              | -                             | ✅                              |
+| japaneast        | -                             | ✅                              | -                             | ✅                              |
 | northcentralus   | -                             | ✅                              | -                             | -                             |
 | norwayeast       | -                             | ✅                              | -                             | -                             |
 | southafricanorth | -                             | ✅                              | -                             | -                             |
 | southcentralus   | ✅                              | ✅                              | -                             | -                             |
-| southindia       | -                             | ✅                              | -                             | -                             |
-| swedencentral    | -                             | ✅                              | -                             | -                             |
+| southindia       | -                             | ✅                              | -                             | ✅                              |
+| swedencentral    | -                             | ✅                              | -                             | ✅                              |
 | switzerlandnorth | -                             | ✅                              | -                             | -                             |
-| uksouth          | -                             | ✅                              | -                             | -                             |
+| uksouth          | -                             | ✅                              | -                             | ✅                              |
 | westeurope       | -                             | ✅                              | -                             | -                             |
 | westus           | -                             | ✅                              | -                             | -                             |
+| westus3          | -                             | ✅                              | -                             | ✅                              |

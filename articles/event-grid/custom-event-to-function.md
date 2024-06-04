@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Send custom events to Azure Function - Event Grid'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI or portal to publish a topic, and subscribe to that event. An Azure Function is used for the endpoint.'
-ms.date: 01/04/2024
+ms.date: 04/24/2024
 ms.topic: quickstart
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
@@ -26,6 +26,7 @@ ms.devlang: azurecli
     1. Create a new **resource group** or select an existing resource group.
     1. Specify a **name** for the function app.
     1. Select **.NET** for **Runtime stack**.
+    1. For **Version**, select **6 (LTS), in-process model**.
     1. Select the **region** closest to you. 
     1. Select **Next: Storage** at the bottom of the page. 
     
@@ -39,18 +40,20 @@ ms.devlang: azurecli
 ## Create a function
 Before subscribing to the custom topic, create a function to handle the events. 
 
-1. On the **Function App** page, select **Create in Azure portal** link in the right pane.
+1. On the **Function App** page, in the **Create in Azure portal** section, select **Create function** link in the right pane.
 
-    :::image type="content" source="./media/custom-event-to-function/create-function-link.png" alt-text="Screenshot showing the selection of Create function link.":::  
-    
+    :::image type="content" source="./media/custom-event-to-function/create-function-link.png" alt-text="Screenshot showing the selection of Create function link.":::      
 1. On the **Create Function** page, follow these steps:
     1. In the **Select a template** section, in the filter or search box, type **Azure Event Grid trigger**.
-    1. Select **Azure Event Grid Trigger** template in the template list. 
-    1. In the **Template details** section in the bottom pane, enter a name for the function. In this example, it's **HandleEventsFunc**. 
-    1. Select **Create**.
+    1. Select **Azure Event Grid Trigger** template in the template list.
+    1. Select **Next** at the bottom of the page.
 
         :::image type="content" source="./media/custom-event-to-function/function-trigger.png" lightbox="./media/custom-event-to-function/function-trigger.png" alt-text="Screenshot showing select Event Grid trigger.":::
-4. On the **Function** page for the **HandleEventsFunc**, select **Code + Test** on the left navigational menu, replace the code with the following code, and then select **Save** on the command bar.
+    1. On the **Template details** page, enter a name for the function. In this example, it's **HandleEventsFunc**. 
+    1. Select **Create**.
+    
+        :::image type="content" source="./media/custom-event-to-function/create-function-template-details.png" lightbox="./media/custom-event-to-function/create-function-template-details.png" alt-text="Screenshot showing Template details page.":::
+1. On the **Function** page for the **HandleEventsFunc**, select **Code + Test** on the left navigational menu, replace the code with the following code, and then select **Save** on the command bar.
 
     ```csharp
     #r "Azure.Messaging.EventGrid"
@@ -66,7 +69,7 @@ Before subscribing to the custom topic, create a function to handle the events.
     ```
 
     :::image type="content" source="./media/custom-event-to-function/function-code-test-menu.png" alt-text="Image showing the selection Code + Test menu for an Azure function.":::
-6. Select **Monitor** on the left menu, and keep this window or tab of the browser open so that you can see the received event information. 
+6. Select **Monitor** on the left menu, and switch to the **Logs** tab. Keep this window or tab of the browser open so that you can see the received event information. 
 
     :::image type="content" source="./media/custom-event-to-function/monitor-page.png" alt-text="Screenshot showing the Monitor view the Azure function.":::
 
@@ -77,7 +80,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
 1. On a new tab of the web browser window, sign in to [Azure portal](https://portal.azure.com/).
 2. In the search bar at the topic, search for **Event Grid Topics**, and select **Event Grid Topics**. 
 
-    :::image type="content" source="./media/custom-event-to-function/select-topics.png" alt-text="Image showing the selection of Event Grid topics.":::
+    :::image type="content" source="./media/custom-event-to-function/select-topics.png" alt-text="Image showing the selection of Event Grid topics." lightbox="./media/custom-event-to-function/select-topics.png" :::
 3. On the **Event Grid Topics** page, select **+ Create** on the command bar.
 
     :::image type="content" source="./media/custom-event-to-function/add-topic-button.png" alt-text="Screenshot showing the Create button to create an Event Grid topic.":::

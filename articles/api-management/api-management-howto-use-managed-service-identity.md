@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 05/22/2024
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
 ---
@@ -456,17 +456,6 @@ Keep these considerations in mind:
 > [!Important]
 > If you don't provide the object version of the certificate, API Management will automatically obtain the newer version of the certificate within four hours after it's updated in Key Vault.
 
-For the complete template, see [API Management with Key Vault based SSL using User Assigned Identity](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.apimanagement/api-management-key-vault-create/azuredeploy.json).
-
-In this template, you'll deploy:
-
-* Azure API Management instance
-* Azure user-assigned managed identity
-* Azure Key Vault for storing the SSL/TLS certificate
-
-To run the deployment automatically, select the following button:
-
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-key-vault-create%2Fazuredeploy.json":::
 
 ### Store and manage named values from Azure Key Vault
 

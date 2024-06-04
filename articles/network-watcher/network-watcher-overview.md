@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: overview
-ms.date: 04/08/2024
+ms.date: 06/03/2024
 
 #CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
@@ -34,7 +34,7 @@ Network Watcher offers two monitoring tools that help you view and monitor resou
 
 ### Topology
 
-**Topology** provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups, and locations. For more information, see [Topology overview](network-insights-topology.md).
+**Topology** provides a visualization of the entire network for understanding network configuration. It provides an interactive interface to view resources and their relationships in Azure spanning across multiple subscriptions, resource groups, and locations. For more information, see [View topology](network-insights-topology.md).
 
 ### Connection monitor
 
@@ -90,8 +90,8 @@ Network Watcher offers two traffic tools that help you log and visualize network
 ### Flow logs
 
 **Flow logs** allows you to log information about your Azure IP traffic and stores the data in Azure storage. You can log IP traffic flowing through a network security group or Azure virtual network. For more information, see:
-- [NSG flow logs](nsg-flow-logs-overview.md) and [Manage NSG flow logs](nsg-flow-logs-portal.md).
-- [VNet flow logs (preview)](vnet-flow-logs-overview.md) and [Manage VNet flow logs](vnet-flow-logs-portal.md).
+- [Network security group flow logs](nsg-flow-logs-overview.md) and [Manage network security group flow logs](nsg-flow-logs-portal.md).
+- [Virtual network flow logs](vnet-flow-logs-overview.md) and [Manage virtual network flow logs](vnet-flow-logs-portal.md).
 
 ### Traffic analytics
 

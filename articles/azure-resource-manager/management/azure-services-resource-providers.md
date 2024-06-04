@@ -158,6 +158,7 @@ The resource providers for hybrid services are:
 | Microsoft.HybridCompute | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) |
 | Microsoft.Kubernetes | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
 | Microsoft.KubernetesConfiguration | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
+| Microsoft.Edge | [Azure Arc site manager](../../azure-arc/site-manager/index.yml) |
 
 ## Identity resource providers
 

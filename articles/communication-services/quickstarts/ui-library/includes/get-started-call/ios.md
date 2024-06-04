@@ -44,11 +44,11 @@ In Xcode, create a new project:
 1. Add the following code to your Podfile. Replace `UILibraryQuickStart` with your project name.
 
     ```ruby
-    platform :ios, '14.0'
+    platform :ios, '15.0'
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUICalling', '1.6.0'
+        pod 'AzureCommunicationUICalling'
     end
     ```
 

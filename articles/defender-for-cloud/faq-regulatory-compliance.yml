@@ -31,7 +31,7 @@ sections:
 
           To track your compliance with any other standard, you'll need to explicitly add them to your dashboard.
           
-          For a list of available regulatory standards, see [What regulatory compliance standards are available in Defender for Cloud](update-regulatory-compliance-packages.md).
+          For a list of available regulatory standards, see [What regulatory compliance standards are available in Defender for Cloud](update-regulatory-compliance-packages.yml).
 
           **AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
 
@@ -53,7 +53,7 @@ sections:
 
               :::image type="content" source="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png":::
 
-          More standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+          More standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 
       - question: |
@@ -67,7 +67,7 @@ sections:
       - question: |
           How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard?
         answer: |
-          To customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you, you can remove any of the displayed regulatory standards that aren't relevant to your organization. To remove a standard, follow the instructions in [Remove a standard from your dashboard](update-regulatory-compliance-packages.md).
+          To customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you, you can remove any of the displayed regulatory standards that aren't relevant to your organization. To remove a standard, follow the instructions in [Remove a standard from your dashboard](update-regulatory-compliance-packages.yml).
 
 
       - question: |

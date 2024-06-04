@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 04/04/2024
+ms.date: 04/12/2024
 ms.topic: how-to
 ---
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 You can change the default settings of the Azure portal to meet your own preferences.
 
-To view and manage your settings, select the **Settings** menu icon in the top right section of the global page header to open **Portal settings**.
+To view and manage your portal settings, select the **Settings** menu icon in the global controls, which are located in the page header at the top right of the screen.
 
 :::image type="content" source="media/set-preferences/settings-top-header.png" alt-text="Screenshot showing the settings icon in the global page header.":::
 
@@ -54,15 +54,15 @@ If you want to stop using advanced filters, select the toggle again to restore t
 
 ## Advanced filters
 
-After enabling **Advanced filters**, you can create, modify, or delete subscription filters.
-
-:::image type="content" source="media/set-preferences/settings-advanced-filters.png" lightbox="media/set-preferences/settings-advanced-filters.png" alt-text="Screenshot showing the Advanced filters screen.":::
+After enabling **Advanced filters**, you can create, modify, or delete subscription filters by selecting **Modify advanced filters**.
 
 The **Default** filter shows all subscriptions to which you have access. This filter is used if there are no other filters, or when the active filter fails to include any subscriptions.
 
 You may also see a filter named **Imported-filter**, which includes all subscriptions that had been selected previously.
 
 To change the filter that is currently in use, select **Activate** next to that filter.
+
+:::image type="content" source="media/set-preferences/settings-advanced-filters.png" lightbox="media/set-preferences/settings-advanced-filters.png" alt-text="Screenshot showing the Advanced filters screen.":::
 
 ### Create a filter
 
@@ -87,7 +87,8 @@ To delete a filter, select the trash can icon in that filter's row. You can't de
 
 ## Appearance + startup views
 
-The **Appearance + startup views** pane has two sections. The **Appearance** section lets you choose menu behavior, your color theme, and whether to use a high-contrast theme.
+The **Appearance + startup views** pane has two sections. The **Appearance** section lets you choose menu behavior, your color theme, and whether to use a high-contrast theme. 
+The **Startup views** section lets you set options for what you see when you first sign in to the Azure portal.
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-appearance.png" alt-text="Screenshot showing the Appearance section of Appearance + startup views.":::
 
@@ -104,18 +105,16 @@ The theme that you choose affects the background and font colors that appear in 
 
 Alternatively, you can choose a theme from the **High contrast theme** section. These themes can make the Azure portal easier to read, especially if you have a visual impairment. Selecting either the white or black high-contrast theme will override any other theme selections.
 
-### Startup page
-
-The **Startup views** section lets you set options for what you see when you first sign in to the Azure portal.
-
-:::image type="content" source="media/set-preferences/azure-portal-settings-startup-views.png" alt-text="Screenshot showing the Startup section of Appearance + startup views.":::
+### Choose a startup page
 
 Choose one of the following options for **Startup page**. This setting determines which page you see when you first sign in to the Azure portal.
 
 - **Home**: Displays the home page, with shortcuts to popular Azure services, a list of resources you've used most recently, and useful links to tools, documentation, and more.
 - **Dashboard**: Displays your most recently used dashboard. Dashboards can be customized to create a workspace designed just for you. For more information, see [Create and share dashboards in the Azure portal](azure-portal-dashboards.md).
 
-### Startup directory
+:::image type="content" source="media/set-preferences/azure-portal-settings-startup-views.png" alt-text="Screenshot showing the Startup section of Appearance + startup views.":::
+
+### Manage startup directory options
 
 Choose one of the following options for the directory to work in when you first sign in to the Azure portal.
 
@@ -139,7 +138,7 @@ Use the drop-down list to select from the list of available languages. This sett
 
 Select an option to control the way dates, time, numbers, and currency are shown in the Azure portal.
 
-The options shown in the **Regional format** drop-down list correspond to the **Language** options. For example, if you select **English** as your language, and then select **English (United States)** as the regional format, currency is shown in U.S. dollars. If you select **English** as your language and then select **English (Europe)** as the regional format, currency is shown in euros. You can also select a regional format that is different from your language selection.
+The options shown in the **Regional format** drop-down list correspond to the **Language** options. For example, if you select **English** as your language, and then select **English (United States)** as the regional format, currency is shown in U.S. dollars. If you select **English** as your language and then select **English (Europe)** as the regional format, currency is shown in euros. If you prefer, you can select a regional format that is different from your language selection.
 
 After making the desired changes to your language and regional format settings, select **Apply**.
 
@@ -175,7 +174,7 @@ Information about your custom settings is stored in Azure. You can export the fo
 
 To export your portal settings, select **Export settings** from the top of the **My information** pane. This creates a JSON file that contains your user settings data.
 
-Due to the dynamic nature of user settings and risk of data corruption, you can't import settings from the JSON file. However, you can use this file to review the settings you selected. It can be useful to have a backup of your selections if you choose to delete your settings and private dashboards.
+Due to the dynamic nature of user settings and risk of data corruption, you can't import settings from the JSON file. However, you can use this file to review the settings you selected. It can be useful to have an exported backup of your selections if you choose to delete your settings and private dashboards.
 
 #### Restore default settings
 
@@ -229,7 +228,7 @@ To enforce an idle timeout setting for all users of the Azure portal, sign in wi
 
 To confirm that the inactivity timeout policy is set correctly, select **Notifications** from the global page header and verify that a success notification is listed.
 
-To change a previously selected directory timeout, any Global Administrator can follow these steps again to apply a new timeout interval. If a Global Administrator unchecks the box for **Enable directory level idle timeout**, the previous setting will remain in place by default for all users; however, any user can change their individual setting to whatever they prefer.
+To change a previously selected directory timeout, any Global Administrator can follow these steps again to apply a new timeout interval. If a Global Administrator unchecks the box for **Enable directory level idle timeout**, the previous setting will remain in place by default for all users; however, each user can change their individual setting to whatever they prefer.
 
 ### Enable or disable pop-up notifications
 
@@ -245,7 +244,7 @@ To view notifications from previous sessions, look for events in the Activity lo
 
 ## Next steps
 
-- [Learn about keyboard shortcuts in the Azure portal](azure-portal-keyboard-shortcuts.md)
-- [View supported browsers and devices](azure-portal-supported-browsers-devices.md)
-- [Add, remove, and rearrange favorites](azure-portal-add-remove-sort-favorites.md)
-- [Create and share custom dashboards](azure-portal-dashboards.md)
+- Learn about [keyboard shortcuts in the Azure portal](azure-portal-keyboard-shortcuts.md).
+- [View supported browsers and devices](azure-portal-supported-browsers-devices.md) for the Azure portal.
+- Learn how to [add, remove, and rearrange favorite services](azure-portal-add-remove-sort-favorites.md).
+- Learn how to [create and share custom dashboards](azure-portal-dashboards.md).

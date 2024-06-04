@@ -40,7 +40,7 @@ There are three different tile service naming conventions supported by the Azure
 
 * **X, Y, Zoom notation** - X is the column, Y is the row position of the tile in the tile grid, and the Zoom notation a value based on the zoom level.
 * **Quadkey notation** - Combines x, y, and zoom information into a single string value. This string value becomes a unique identifier for a single tile.
-* **Bounding Box** - Specify an image in the Bounding box coordinates format: `{west},{south},{east},{north}`. This format is commonly used by [Web Mapping Services (WMS)].
+* **Bounding Box** - Specify an image in the Bounding box coordinates format: `{west},{south},{east},{north}`.
 
 The tile URL an https URL to a tile URL template that uses the following
 parameters:
@@ -54,7 +54,7 @@ parameters:
 As an example, here's a formatted tile URL for the [weather radar tile service] in Azure Maps.
 
 ```html
-`https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}`
+https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 For more information on Azure Maps tiling system, see [Zoom levels and tile grid].
@@ -66,7 +66,6 @@ Add more context to the map:
 > [!div class="nextstepaction"]
 > [Show real-time traffic]
 
-[Web Mapping Services (WMS)]: https://www.opengeospatial.org/standards/wms
 [Show real-time traffic]: power-bi-visual-show-real-time-traffic.md
 [Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
 [weather radar tile service]: /rest/api/maps/render/get-map-tile

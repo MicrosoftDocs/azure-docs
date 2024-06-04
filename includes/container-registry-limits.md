@@ -13,7 +13,7 @@ ms.custom: include file
 | Resource | Basic | Standard | Premium |
 |---|---|---|---|
 | Included storage<sup>1</sup> (GiB) | 10 | 100 | 500 |
-| Storage limit (TiB) | 20| 20 | 20 |
+| Storage limit (TiB) | 40| 40 | 40 |
 | Maximum image layer size (GiB) | 200 | 200 | 200 |
 | Maximum manifest size (MiB) | 4 | 4 | 4 |
 | ReadOps per minute<sup>2, 3</sup> | 1,000 | 3,000 | 10,000 |

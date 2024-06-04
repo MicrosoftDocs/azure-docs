@@ -19,7 +19,7 @@ In this quickstart, create a private endpoint for an Azure App Services web app 
 
 You can create private endpoints for various Azure services, such as Azure SQL and Azure Storage.
 
-:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart." lightbox="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png":::
 
 ## Prerequisites
 

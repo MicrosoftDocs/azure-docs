@@ -7,13 +7,13 @@ metadata:
   ms.date: 01/19/2024
   ms.author: jacodel
   author: jcodella
-  ms.manager: nitinme
+  manager: nitinme
 title: Personalizer frequently asked questions
 summary: This article contains answers to frequently asked troubleshooting questions about the Personalizer service.
 
 sections:
   - name: Single region data residency
-    questions: 
+    questions:
       - question: |
           When will Personalizer be deprecated?
         answer:  |

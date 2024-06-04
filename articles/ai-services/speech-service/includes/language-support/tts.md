@@ -165,5 +165,5 @@ ms.custom: references_regions
 
 <sup>3</sup> The neural voice is a multilingual voice in Azure AI Speech. 
 
-<sup>4</sup> The OpenAI text to speech voices in Azure AI Speech are in public preview and only available in North Central US (`northcentralus`) and Sweden Central (`swedencentral`).
+<sup>4</sup> The OpenAI text to speech voices in Azure AI Speech are in public preview and only available in North Central US (`northcentralus`) and Sweden Central (`swedencentral`). Locales not listed for OpenAI voices aren't supported. For information about additional differences between OpenAI text to speech voices and Azure AI Speech text to speech voices, see [OpenAI text to speech voices](../../openai-voices.md#openai-text-to-speech-voices-via-azure-openai-service-or-via-azure-ai-speech).
 

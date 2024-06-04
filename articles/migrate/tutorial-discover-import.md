@@ -5,9 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: tutorial
-ms.date: 09/21/2023
+ms.date: 03/18/2024
 ms.service: azure-migrate
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 
 ---
 
@@ -67,7 +67,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |

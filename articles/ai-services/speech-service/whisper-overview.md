@@ -61,7 +61,7 @@ Whisper Model via Azure AI Speech might be best for:
 
 Regional support is another consideration. 
 - The Whisper model via Azure OpenAI Service is available in the following regions: EastUS 2, India South, North Central, Norway East, Sweden Central, and West Europe. 
-- The Whisper model via Azure AI Speech is available in the following regions: Australia East, Central US, East US, North Central US, South Central US, Southeast Asia, and West Europe.
+- The Whisper model via Azure AI Speech is available in the following regions: Australia East, East US, North Central US, South Central US, Southeast Asia, UK South, and West Europe.
 
 ## Next steps
 

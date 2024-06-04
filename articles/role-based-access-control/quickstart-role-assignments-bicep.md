@@ -82,7 +82,7 @@ Get-AzRoleAssignment -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 Use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group.
 

@@ -14,7 +14,7 @@ ms.date: 09/12/2023
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-[Azure Cosmos DB](../introduction.md) is a fully managed NoSQL, relational, and vector database for modern app development.
+Azure Cosmos DB is a fully managed NoSQL, relational, and vector database for modern app development. It offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. It is the database that ChatGPT relies on to [dynamically scale](../introduction.md) with high reliability and low maintenance.
 
 Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB.
 
@@ -22,7 +22,24 @@ Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a
 
 ## Cosmos DB for MongoDB benefits
 
-Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service offerings such as MongoDB Atlas:
+Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service offerings such as MongoDB Atlas. 
+
+### vCore Architecture
+
+[A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, efficient scaling, and seamless integration with Azure services.
+
+- **Native Vector Search**: Seamlessly integrate your AI-based applications with your data that's stored in Azure Cosmos DB for MongoDB vCore. This integration is an all-in-one solution, unlike other vector search solutions that send your data between service integrations.  
+
+- **Flat pricing with Low total cost of ownership**: Enjoy a familiar pricing model for Azure Cosmos DB for MongoDB vCore, based on compute (vCores & RAM) and storage (disks).
+
+- **Elevate querying with Text Indexes**: Enhance your data querying efficiency with our text indexing feature. Seamlessly navigate full-text searches across MongoDB collections, simplifying the process of extracting valuable insights from your documents.
+
+- **Scale with no shard key required**: Simplify your development process with high-capacity vertical scaling, all without the need for a shard key. Sharding and scaling horizontally is simple once collections are into the TBs.
+
+- **Free 35 day Backups with point in time restore (PITR)**: Azure Cosmos DB for MongoDB vCore offers free 35 day backups for any amount of data.
+
+> [!TIP]
+> Visit [Choose your model](./choose-model.md) for an in-depth comparison of each architecture to help you choose which one is right for you.
 
 ### Request Unit (RU) architecture
 
@@ -44,22 +61,6 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 > [!TIP]
 > Visit [Choose your model](./choose-model.md) for an in-depth comparison of each architecture to help you choose which one is right for you.
 
-### vCore Architecture
-
-[A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, efficient scaling, and seamless integration with Azure services.
-
-- **Native Vector Search**: Seamlessly integrate your AI-based applications with your data that's stored in Azure Cosmos DB for MongoDB vCore. This integration is an all-in-one solution, unlike other vector search solutions that send your data between service integrations.  
-
-- **Flat pricing with Low total cost of ownership**: Enjoy a familiar pricing model for Azure Cosmos DB for MongoDB vCore, based on compute (vCores & RAM) and storage (disks).
-
-- **Elevate querying with Text Indexes**: Enhance your data querying efficiency with our text indexing feature. Seamlessly navigate full-text searches across MongoDB collections, simplifying the process of extracting valuable insights from your documents.
-
-- **Scale with no shard key required**: Simplify your development process with high-capacity vertical scaling, all without the need for a shard key. Sharding and scaling horizontally is simple once collections are into the TBs.
-
-- **Free 35 day Backups with point in time restore (PITR)**: Azure Cosmos DB for MongoDB vCore offers free 35 day backups for any amount of data.
-
-> [!TIP]
-> Visit [Choose your model](./choose-model.md) for an in-depth comparison of each architecture to help you choose which one is right for you.
 
 ## How Azure Cosmos DB for MongoDB works
 
@@ -71,4 +72,6 @@ Cosmos DB for MongoDB implements the wire protocol for MongoDB. This implementat
 ## Next steps
 
 - Read the [FAQ](faq.yml)
-- [Connect an existing MongoDB application to Azure Cosmos DB for MongoDB RU](connect-account.md)
+- [Get started with Azure Cosmos DB for MongoDB vCore](./vcore/quickstart-portal.md)
+- [Connect an existing MongoDB application to Azure Cosmos DB for MongoDB RU](connect-account.yml)
+- Receive up to 63% discount on [Azure Cosmos DB prices with Reserved Capacity](../reserved-capacity.md)

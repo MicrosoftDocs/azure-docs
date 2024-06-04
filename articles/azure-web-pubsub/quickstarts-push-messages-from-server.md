@@ -85,7 +85,7 @@ client.on("server-message", (e) => {
 
 // Before a client can receive a message, 
 // you must invoke start() on the client object.
-await client.start();
+client.start();
 ```
 
 #### Run the program

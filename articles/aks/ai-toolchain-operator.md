@@ -196,7 +196,7 @@ The following sections describe how to create an AKS cluster with the AI toolcha
 1. Deploy the Falcon 7B-instruct model from the KAITO model repository using the `kubectl apply` command.
 
     ```azurecli-interactive
-    kubectl apply -f https://raw.githubusercontent.com/Azure/kaito/main/examples/kaito_workspace_falcon_7b-instruct.yaml
+    kubectl apply -f https://raw.githubusercontent.com/Azure/kaito/main/examples/inference/kaito_workspace_falcon_7b-instruct.yaml
     ```
 
 2. Track the live resource changes in your workspace using the `kubectl get` command.

@@ -244,7 +244,7 @@ This procedure describes how to turn off learning mode manually if you feel that
 
 ## Update a sensor's monitoring interfaces (configure ERSPAN)
 
-You may want to change the interfaces used by your sensor to monitor traffic. You'd originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but may need to modify the settings as part of system maintenance, such as configuring ERSPAN monitoring.
+You may want to change the interfaces used by your sensor to monitor traffic. You originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but may need to modify the settings as part of system maintenance, such as configuring ERSPAN monitoring.
 
 For more information, see [ERSPAN ports](best-practices/traffic-mirroring-methods.md#erspan-ports).
 

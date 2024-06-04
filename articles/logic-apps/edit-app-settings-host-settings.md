@@ -62,7 +62,6 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | `ServiceProviders.Sftp.SftpConnectionPoolSize` | `2` connections | Sets the number of connections that each processor can cache. The total number of connections that you can cache is *ProcessorCount* multiplied by the setting value. |
 | `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
 | `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
-| `TARGET_BASED_SCALING_ENABLED` | `1` | Sets Azure Logic Apps to use target-based scaling (`1`) or incremental scaling (`0`). By default, target-based scaling is automatically enabled. For more information see [Target-based scaling](#scaling). |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
 | `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
 | `Workflows.CustomHostName` | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
@@ -183,93 +182,6 @@ The following example shows the syntax for these settings where each workflow ID
 "Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2:",
 "Jobs.SuspendedJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2>:"
 ```
-
-<a name="scaling"></a>
-
-### Target-based scaling
-
-Single-tenant Azure Logic Apps gives you the option to select your preferred compute resources and set up your logic app resources to dynamically scale based on varying workload demands. The target-based scaling model used by Azure Logic Apps includes settings that you can use to fine-tune the model's underlying dynamic scaling mechanism, which can result in faster scale-out and scale-in times. For more information about the target-based scaling model, see [Target-based scaling for Standard workflows in single-tenant Azure Logic Apps](target-based-scaling-standard.md).
-
-#### Considerations
-
-- Target-based scaling isn't available or supported for Standard workflows running on an App Service Environment or Consumption plan.
-
-- If you have scale-in requests without any scale-out requests, Azure Logic Apps uses the maximum scale-in value. Target-based scaling can scale down unused worker instances faster, resulting in more efficient resource usage.
-
-#### Requirements
-
-- Your logic apps must use [Azure Functions runtime version 4.3.0 or later](../azure-functions/set-runtime-version.md).
-
-- Your logic app workflows must use single-tenant Azure Logic Apps runtime version 1.55.1 or later.
-
-#### Target-based scaling settings in host.json
-
-| Setting | Default value | Description |
-|---------|---------------|-------------|
-| `Runtime.TargetScaler.TargetConcurrency` | `null` | The number of target executions per worker instance. By default, the value is `null`. If you leave this value unchanged, your logic app defaults to using dynamic concurrency. You can set a targeted maximum value for concurrent job polling by using this setting. For an example, see the section following this table. |
-| `Runtime.TargetScaler.TargetScalingCPU` | `70` | The maximum percentage of CPU usage that you expect at target concurrency. You can change this default percentage for each logic app by using this setting. For an example, see the section following this table. |
-| `Runtime.TargetScaler.TargetScalingFactor` | `0.3` | A numerical value from `0.05` to `1.0` that determines the degree of scaling intensity. A higher target scaling factor results in more aggressive scaling. A lower target scaling factor results in more conservative scaling. You can fine-tune the target scaling factor for each logic app by using this setting. For an example, see the section following this table. |
-
-##### TargetConcurrency example
-
-```json
-{
-   "version": "2.0",
-   "extensionBundle": {
-      "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
-      "version": "[1.*, 2.0.0)"
-   },
-   "extensions": {
-      "workflow": {
-         "Settings": {
-            "Runtime.TargetScaler.TargetConcurrency": "280"
-         }
-      }
-   }
-}
-```
-
-#### TargetScalingCPU example
-
-```json
-{
-   "version": "2.0",
-   "extensionBundle": {
-      "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
-      "version": "[1.*, 2.0.0)"
-   },
-   "extensions": {
-      "workflow": {
-         "Settings": {
-            "Runtime.TargetScaler.TargetScalingCPU": "76"
-         }
-      }
-   }
-}
-```
-
-##### TargetScalingFactor example
-
-```json
-{
-   "version": "2.0",
-   "extensionBundle": {
-      "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
-      "version": "[1.*, 2.0.0)"
-   },
-   "extensions": {
-      "workflow": {
-         "Settings": {
-            "Runtime.TargetScaler.TargetScalingFactor": "0.62"
-         }
-      }
-   }
-}
-```
-
-#### Disable target-based scaling
-
-By default, target-based scaling is automatically enabled. To opt out from using target-based scaling and revert back to incremental scaling, add the app setting named **TARGET_BASED_SCALING_ENABLED** and set the value set to **0** in your Standard logic app resource using the Azure portal or in your logic app project's **local.settings.json file** using Visual Studio Code. For more information, see [Manage app settings - local.settings.json](#manage-app-settings).
 
 <a name="recurrence-triggers"></a>
 
