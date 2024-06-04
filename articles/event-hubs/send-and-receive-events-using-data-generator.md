@@ -26,7 +26,7 @@ To complete this quickstart, you need the following prerequisites:
 
 ## Send events by using Event Hubs Data Generator
 
-To send events to Event Hubs Data Generator:
+To send events to an event hub by using Event Hubs Data Generator:
 
 1. On the **Event Hubs Namespace** page, select **Generate data** in the **Overview** section on the leftmost menu.
 
