@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/24/2024
+ms.date: 06/04/2024
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-js, devx-track-extended-js
 ---
@@ -29,7 +29,7 @@ You can configure properties in [BlockBlobParallelUploadOptions](/javascript/api
 | Property | Description |
 | --- | --- |
 | [`blockSize`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-blocksize) | The maximum block size to transfer for each request as part of an upload operation. To learn more, see [blockSize](#blocksize). |
-| [`maxSingleShotSize`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-maxsingleshotsize) | If the size of the data is less than or equal to this value, it's uploaded in a single put rather than broken up into chunks. If the data is uploaded in a single shot, the block size is ignored. Default value is 256 MiB. To learn more, see [maxSingleShotSize](#maxsingleshotsize). |
+| [`maxSingleShotSize`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-maxsingleshotsize) | If the size of the data is less than or equal to this value, it's uploaded in a single put rather than broken up into chunks. If the data is uploaded in a single shot, the block size is ignored. Default value is 256 MB. If you customize this property, you must use a value less than or equal to 256 MB. To learn more, see [maxSingleShotSize](#maxsingleshotsize). |
 | [`concurrency`](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions#@azure-storage-blob-blockblobparalleluploadoptions-concurrency) | The maximum number of parallel requests that are issued at any given time as a part of a single parallel transfer. |
 
 > [!NOTE]
