@@ -315,7 +315,7 @@ To get a token for a resource, make an HTTP GET request to the endpoint, includi
 
 ## Use Managed Identity for Scale Rules
 
-Starting in API version 2024-02-02-preview, you can use managed identities in your scale rules to authenticate with Azure services that support managed identities. To use a managed identity in your scale rule, use the `identity` property with the Azure resource ID of a user-assigned identity, or "system" to use a system-assigned identity, instead of the `auth` property in your scale rule.
+Starting in API version `2024-02-02-preview`, you can use managed identities in your scale rules to authenticate with Azure services that support managed identities. To use a managed identity in your scale rule, use the `identity` property with the Azure resource ID of a user-assigned identity, or "system" to use a system-assigned identity, instead of the `auth` property in your scale rule.
 
 The following example shows how to use a managed identities with an Azure Queue scale rule:
 
@@ -341,9 +341,9 @@ Note the additional properties `accountName`, which is the name of the Storage a
 
 ## Control managed identity availability
 
-Container apps allow you to specify [init containers](containers.md#init-containers) and main containers. By default, both init and main containers can get managed identity access tokens for every managed identity configured on the container app and use them to access other Azure services. However, there are situations where only the init container or the main container actually need to get access tokens for a given managed identity. Other times, you may use a managed identity only to access your Azure Container Registry to pull the image, and your application itself doesn't need to have access to your Azure Container Registry. You can control which managed identities are available to your container app during the init and main phases to follow the security principle of least privilege.
+Container apps allow you to specify [init containers](containers.md#init-containers) and main containers. By default, main containers - and init containers in Workload Profile Consumption environments - can get managed identity access tokens for every managed identity configured on the container app and use them to access other Azure services. However, there are situations where only the init container or the main container actually need to get access tokens for a given managed identity. Other times, you may use a managed identity only to access your Azure Container Registry to pull the image, and your application itself doesn't need to have access to your Azure Container Registry. 
 
-The following options are available:
+Starting in API version `2024-02-02-preview`, You can control which managed identities are available to your container app during the init and main phases to follow the security principle of least privilege. The following options are available:
 
 - `Init`: available only to init containers. Use this when you want to perform some intilization work that requires a managed identity, but you no longer need the managed identity in the main container. This option is currently not supported in [Consumption-only environments](environment.md#types)
 - `Main`: available only to main containers. Use this if your init container does not need managed identity.
