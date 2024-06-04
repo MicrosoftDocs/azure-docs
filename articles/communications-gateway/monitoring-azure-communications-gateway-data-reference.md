@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Communications Gateway
 description: This article contains important reference material you need when you monitor Azure Communications Gateway.
-ms.date: 05/13/2024
+ms.date: 06/04/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: rcdun
@@ -25,7 +25,7 @@ The following table lists the metrics available for the Microsoft.VoiceServices/
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-[!INCLUDE [Microsoft.VoiceServices/communicationsGateways](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-voiceservices-communicationsgateways-metrics-include.md)]
+[!INCLUDE [Microsoft.VoiceServices/communicationsGateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-voiceservices-communicationsgateways-metrics-include.md)]
 
 The automatically collected metrics for Azure Communications Gateway include the following types:
 
