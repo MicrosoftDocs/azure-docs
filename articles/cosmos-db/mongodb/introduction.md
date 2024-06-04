@@ -39,7 +39,6 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 
 - **Scale with no shard key required**: Simplify your development process with high-capacity vertical scaling, all without the need for a shard key. Sharding and scaling horizontally is simple once collections are into the TBs.
 
-- **Full-stack SLA**: Build your applications on a database with an SLA that covers the full stack: the database and the underlying infrastructure. Unlike third-party MongoDB services, which only cover the database and leave you unsupported for the rest.
 
 - **Free 35 day Backups with point in time restore (PITR)**: Azure Cosmos DB for MongoDB vCore offers free 35 day backups for any amount of data.
 
@@ -54,7 +53,6 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 
 - **Automatic and transparent sharding**: The API for MongoDB manages all of the infrastructure for you. This management includes sharding and optimizing the number of shards. Other MongoDB offerings such as MongoDB Atlas, require you to specify and manage sharding to horizontally scale. This automation gives you more time to focus on developing applications for your users.
 
-- **Full-stack SLA**: Build your applications on a database with an SLA that covers the full stack: the database and the underlying infrastructure. Unlike third-party MongoDB services, which only cover the database and leave you unsupported for the rest.
 
 - **Five 9's of availability**: [99.999% availability](../high-availability.md) is easily configurable to ensure your data is always there for you.
 
