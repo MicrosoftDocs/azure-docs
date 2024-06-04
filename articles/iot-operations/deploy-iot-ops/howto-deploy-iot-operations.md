@@ -131,11 +131,25 @@ To view your cluster on the Azure portal, use the following steps:
 > [!TIP]
 > You can run `az iot ops check` to assess health and configurations of deployed AIO workloads. By default, MQ including cloud connectors are assessed and you can [specifiy the service](/cli/azure/iot/ops#az-iot-ops-check-examples) with `--ops-service --svc`.
 
-## Update a deployment
+## Update Azure IoT Operations
 
-Currently, there's no support for updating an existing Azure IoT Operations deployment. Instead, start with a clean cluster for a new deployment.
+Currently, there's no support for updating an existing Azure IoT Operations deployment. Instead, use the following steps to uninstall and redeploy a new version of Azure IoT Operations.
 
-If you want to delete the Azure IoT Operations deployment on your cluster so that you can redeploy to it, navigate to your cluster on the Azure portal. Select the extensions of the type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. Keep the secrets provider on your cluster, as that is a prerequisite for deployment and not included in a fresh deployment. 
+1. Delete the Azure IoT Operations deployment on your cluster so that you can redeploy to it.
+
+   1. In the Azure portal, navigate to your cluster.
+   1. Select all of the extensions of the type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. Keep the secrets provider on your cluster, as that's a prerequisite for deployment and not included in a fresh deployment. 
+
+1. Update the CLI extension to get the latest Azure IoT Operations version.
+
+  ```azurecli
+  az extension add --upgrade --name azure-iot-ops
+  ```
+
+1. Follow the steps in this article to deploy Azure IoT Operations to your cluster again.
+
+   >[!TIP]
+   >Add the `--ensure-latest` flag to the `az iot ops init` command to check that the latest Azure IoT Operations CLI version is installed and raise an error if an upgrade is available.
 
 ## Next steps
 
