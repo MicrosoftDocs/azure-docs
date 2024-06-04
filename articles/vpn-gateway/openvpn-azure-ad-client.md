@@ -29,6 +29,10 @@ After your Azure VPN Gateway P2S configuration is complete, your next steps are 
 
 [!INCLUDE [Download Azure VPN Client](../../includes/vpn-gateway-download-vpn-client.md)]
 
+>[!NOTE]
+> If you make a change to the topology of your network (such as adding peering) and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
+>
+
 ## <a name="generate"></a>Generate VPN client profile configuration files
 
 1. To generate the VPN client profile configuration package, see [Working with P2S VPN client profile files](about-vpn-profile-download.md).
