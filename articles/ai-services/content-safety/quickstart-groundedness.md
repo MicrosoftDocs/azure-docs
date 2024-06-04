@@ -169,7 +169,7 @@ The Groundedness detection API provides the option to include _reasoning_ in the
 
 In order to use your Azure OpenAI GPT4-Turbo (1106-preview) resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
 
-[!INCLUDE [openai-account-access](includes/openai-account-access.md)]
+[!INCLUDE [openai-account-access](~/reusable-content/ce-skilling/azure/includes/ai-services/content-safety/includes/openai-account-access.md)]
 
 ### Make the API request
 
