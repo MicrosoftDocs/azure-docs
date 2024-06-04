@@ -7,7 +7,7 @@ ms.date: 05/06/2024
 ---
 
 
-# Overview of the Event Hubs emulator
+# Overview of the Azure Event Hubs emulator
 
 The Azure Event Hubs emulator offers a local development experience for the Event Hubs service. You can use the emulator to develop and test code against the service in isolation, free from cloud interference.
 
@@ -21,7 +21,7 @@ The primary advantages of using the emulator are:
 - **Optimized inner development loop**: You can use the emulator to quickly prototype and test your applications before deploying them to the cloud.
 
 > [!NOTE]
-> The Event Hubs emulator is available under a license agreement. For more information, see the [Microsoft Software License Terms](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EMULATOR_EULA.md).
+> The Event Hubs emulator is available under the [Microsoft Software License Terms](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EMULATOR_EULA.md).
 
 ## Features
 
@@ -30,18 +30,18 @@ The emulator provides these features:
 - **Containerized deployment**: It runs as a Docker container (Linux based).
 - **Cross-platform compatibility**: You can use it on any platform, including Windows, macOS, and Linux.
 - **Configurability**: You can manage the number of event hubs, partitions, and other entities by using the JSON supplied configuration.
-- **Streaming support**: It supports streaming messages that use the Advanced Message Queuing Protocol (AMQP).
+- **Streaming support**: It supports streaming messages by using the Advanced Message Queuing Protocol (AMQP).
 - **Observability**: It provides observability features, including console and file logging.
 
 ## Known limitations
 
 The current version of the emulator has the following limitations:
 
-- It can't stream messages that use the Kafka protocol.  
+- It can't stream messages by using the Kafka protocol.  
 - It doesn't support on-the-fly management operations through a client-side SDK.
 
 > [!NOTE]
-> After a container restart, data and entities are not persisted in the emulator.
+> After a container restart, data and entities don't persist in the emulator.
 
 ## Differences from the cloud service
 
@@ -60,7 +60,7 @@ The emulator doesn't support these high-level features:
 > [!NOTE]
 > The emulator is intended solely for development and test scenarios. We discourage any kind of production use. We don't provide any official support for the emulator.
 >
-> Report any problems or suggestions as GitHub issues in the [emulator installer repository](https://github.com/Azure/azure-event-hubs-emulator-installer/issues).
+> Report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-event-hubs-emulator-installer/issues).
 
 ## Usage quotas
 

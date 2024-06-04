@@ -29,7 +29,7 @@ To run the Event Hubs emulator, you can use an automated script or a Linux conta
 
 ### [Automated script](#tab/automated-script)
 
-Before you run an automated script, clone the Event Hubs emulator's [GitHub installer repository](https://github.com/Azure/azure-event-hubs-emulator-installer) locally.
+Before you run an automated script, clone the emulator's [GitHub installer repository](https://github.com/Azure/azure-event-hubs-emulator-installer) locally.
 
 ### Windows
 
@@ -45,9 +45,9 @@ Use the following steps to run the Event Hubs emulator locally on Windows:
 
 To run the Event Hubs emulator locally on Linux or macOS:
 
-- Execute the setup script *LaunchEmulator.sh*. Running the script brings up two containers: the Event Hubs emulator and Azurite (a dependency for the emulator).
+- Run the setup script *LaunchEmulator.sh*. Running the script brings up two containers: the Event Hubs emulator and Azurite (a dependency for the emulator).
 
-### [Docker (Linux Container)](#tab/docker-linux-container)
+### [Docker (Linux container)](#tab/docker-linux-container)
 
 1. To start the emulator, supply a configuration for the entities that you want to use. Save the following JSON file locally as *config.json*:
 
@@ -161,4 +161,4 @@ To get started, refer to the [Event Hubs emulator samples on GitHub](https://git
 
 ## Related content
 
-[Overview of the Event Hubs emulator](overview-emulator.md)
+[Overview of the Azure Event Hubs emulator](overview-emulator.md)
