@@ -3016,3 +3016,16 @@ groups:
     title: Build from scratch
   - id: blob-storage-quickstart-template
     title: Start with a template
+# Owner: eihaugho
+- id: energy-data-services-gcz-options
+  title: Energy Data Services
+  prompt: Choose a deployment option
+  pivots:
+  - id: energy-data-services-gcz-aks
+    title: Azure Kubernetes Service
+  - id: energy-data-services-gcz-windows
+    title: Windows
+  - id: energy-data-services-gcz-apim-portal
+    title: Azure portal
+  - id: energy-data-services-gcz-apim-cli
+    title: Azure CLI

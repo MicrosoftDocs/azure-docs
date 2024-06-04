@@ -21,7 +21,7 @@ ms.date: 05/11/2024
 1. Select **Create**.
 1. Repeat the steps for the `gcz-openapi-transformer.yaml` file, but use `gcz/transformer/admin` as the **API URL suffix**.
 
-    [![Add GCZ API to APIM](../../media/how-to-deploy-gcz/deploy-gcz-apim.png)](../../media/how-to-deploy-gcz/deploy-gcz-apim.png)
+    [![Add GCZ API to APIM](media/how-to-deploy-gcz/deploy-gcz-apim.png)](media/how-to-deploy-gcz/deploy-gcz-apim.png)
 
 ### Configure policies
 

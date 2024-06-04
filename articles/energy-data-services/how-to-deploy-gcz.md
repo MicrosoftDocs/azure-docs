@@ -8,7 +8,7 @@ ms.reviewer:
 ms.author: eihaugho
 author: EirikHaughom
 ms.date: 05/11/2024
-zone_pivot_groups: app-service-containers-windows-linux-portal-ps-cli
+zone_pivot_groups: energy-data-services-gcz-options
 ---
 
 # Deploy Geospatial Consumption Zone
@@ -24,7 +24,7 @@ The OSDU Geospatial Consumption Zone (GCZ) is a service that enables enhanced ma
 To deploy the GCZ, you need to create an App Registration in Microsoft Entra ID. The App Registration is to authenticate the GCZ APIs with Azure Data Manager for Energy to be able to generate the cache of the geospatial data.
 
 1. See [Create an App Registration in Microsoft Entra ID](/azure/active-directory/develop/quickstart-register-app) for instructions on how to create an App Registration.
-1. Grant the App Registration permission to read the relevant data in Azure Data Manager for Energy. See [How to add members to an OSDU group](./how-to-manage-users.md#add-members-to-an-osdu-group-in-a-data-partition) for further instructions.
+1. Grant the App Registration permission to read the relevant data in Azure Data Manager for Energy. See [How to add members to an OSDU group](/how-to-manage-users.md#add-members-to-an-osdu-group-in-a-data-partition) for further instructions.
 
 ## Setup
 
@@ -32,13 +32,13 @@ There are two main deployment options for the GCZ service:
 - **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This deployment option is recommended for production environments. It requires more setup, configuration, and maintenance. It also has some limitations in the provided container images.
 - **Windows**: Deploy the GCZ service on a Windows. This deployment option recommended for development and testing environments, as it's easier to set up and configure, and requires less maintenance.
 
-::: zone pivot="container-linux-azure-portal"
+::: zone pivot="energy-data-services-gcz-aks"
 
 [!INCLUDE [Azure Kubernetes Service (AKS)](includes/how-to/how-to-deploy-gcz/deploy-gcz-on-aks.md]
 
 ::: zone-end
 
-::: zone pivot="container-windows-cli"
+::: zone pivot="energy-data-services-gcz-windows"
 
 [!INCLUDE [Windows](includes/how-to/how-to-deploy-gcz/deploy-gcz-on-windows.md)]
 
@@ -63,8 +63,8 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
 #### Download the GCZ OpenAPI specifications
 
 1. Download the two OpenAPI specification to your local computer.
-    - [GCZ Provider](./media/how-to-deploy-gcz/gcz-openapi-provider.yaml)
-    - [GCZ Transformer](./media/how-to-deploy-gcz/gcz-openapi-transformer.yaml)
+    - [GCZ Provider](https://github.com/microsoft/adme-samples/blob/main/services/gcz/gcz-openapi-provider.yaml)
+    - [GCZ Transformer](https://github.com/microsoft/adme-samples/blob/main/services/gcz/gcz-openapi-transformer.yaml)
 1. Open each OpenAPI specification file in a text editor and replace the `servers` section with the corresponding IPs of the AKS GCZ Services' Load Balancer (External IP).
 
     ```yaml
@@ -72,13 +72,13 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
     - url: "http://<GCZ-Service-External-IP>/ignite-provider"
     ```
 
-::: zone pivot="container-windows-azure-portal"
+::: zone pivot="energy-data-services-gcz-apim-portal"
 
 [!INCLUDE [Azure portal](includes/how-to/how-to-deploy-gcz/deploy-gcz-apim-portal.md)]
 
 ::: zone-end
 
-::: zone pivot="container-windows-cli"
+::: zone pivot="energy-data-services-gcz-apim-cli"
 
 [!INCLUDE [Azure CLI](includes/how-to/how-to-deploy-gcz/deploy-gcz-apim-cli.md)]
 

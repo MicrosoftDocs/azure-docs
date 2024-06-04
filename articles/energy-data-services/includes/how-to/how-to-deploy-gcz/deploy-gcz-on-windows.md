@@ -13,7 +13,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Windows. This deploymen
 
 ### Prerequisites
 
-- An Azure Data Manager for Energy instance. If you don't have an Azure Data Manager for Energy instance, see [Create an Azure Data Manager for Energy instance](../../quickstart-create-microsoft-energy-data-services-instance.md).
+- An Azure Data Manager for Energy instance. If you don't have an Azure Data Manager for Energy instance, see [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - A Windows Virtual Machine. If you don't have a Windows Virtual Machine, see [Create a Windows Virtual Machine in Azure](/azure/virtual-machines/windows/quick-create-portal). It's also possible to use your local machine.
 - Java JDK 17 installed on the Windows Virtual Machine. If you don't have Java installed, see [Install Java on Windows](https://adoptium.net/temurin/releases/?version=17).
 - Node 18.19.1 (LTS) installed on the Windows Virtual Machine. If you don't have Node installed, see [Install Node.js and npm on Windows](https://nodejs.org/en/blog/release/v18.19.1).
