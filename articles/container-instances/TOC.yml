@@ -104,7 +104,7 @@
     - name: Deploy on dedicated hosts
       href: container-instances-dedicated-hosts.md
     - name: Availability zones and disaster recovery 
-      href: /azure/reliability/reliability-containers.md
+      href: /azure/reliability/reliability-containers
       maintainContext: true
     - name: Configure DNS name reuse
       href: how-to-reuse-dns-names.md
