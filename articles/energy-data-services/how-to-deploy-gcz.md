@@ -4,7 +4,6 @@ description: Learn how to deploy Geospatial Consumption Zone on top of your Azur
 ms.service: energy-data-services
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.reviewer: 
 ms.author: eihaugho
 author: EirikHaughom
 ms.date: 05/11/2024
