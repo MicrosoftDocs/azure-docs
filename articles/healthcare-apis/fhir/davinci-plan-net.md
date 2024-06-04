@@ -65,6 +65,6 @@ The second test is of [error handling](https://touchstone.aegis.net/touchstone/t
 The next test is the [query capabilities test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/03-Query&activeOnly=false&contentEntry=TEST_SCRIPTS). This test checks conformance against the profiles you loaded in the first test. You need to load resources that conform to the profiles. The best path is to test against resources already in your database. However, there's also the [DaVinci_PlanNet_Sample_Resources.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciPlanNet/DaVinci_PlanNet_Sample_Resources.http) file with sample resources pulled from the examples in the Implementation Guide, which you can use to create the resources and test against.  
 
 
-:::image type="content" source="media/davinci-plan-net/touchstone-query-test-execution.png" alt-text="Screenshot showing Da Vinci Plan Net query test result." lightbox="media/article-folder-name/media/davinci-plan-net/touchstone-query-test-execution.png":::
+:::image type="content" source="media/davinci-plan-net/touchstone-query-test-execution.png" alt-text="Screenshot showing Da Vinci Plan Net query test result." lightbox="media/davinci-plan-net/touchstone-query-test-execution.png":::
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
