@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 05/19/2024
+ms.date: 06/04/2024
 ms.author: mbullwin
 ---
 
@@ -45,6 +45,7 @@ The following sections provide you with a quick guide to the default quotas and 
 | Max files per Assistant/thread | 20 |
 | Max file size for Assistants & fine-tuning | 512 MB |
 | Assistants token limit | 2,000,000 token limit |
+| GPT-4o max images per request (# of images in the messages array/conversation history) | 10 |
 
 ## Regional quota limits
 
