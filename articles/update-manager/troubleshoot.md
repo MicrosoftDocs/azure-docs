@@ -62,7 +62,7 @@ Periodic assessment isn't getting set correctly during create for specialized, m
 Run a remediation task post create to remediate newly created resources. For more information see, [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
 
-## The prerequisite for scheduled patching isn't set correctly and schedules aren't attached when utilizing certain specific policies during create for specialized, generalized, migrated and restored VMs
+## The prerequisite for scheduled patching isn't set correctly and schedules aren't attached when utilizing specific policies during create for specialized, generalized, migrated and restored VMs
 
 
 ### Cause
