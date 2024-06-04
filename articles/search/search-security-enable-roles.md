@@ -16,7 +16,7 @@ ms.date: 06/03/2024
 
 Azure AI Search supports authentication and authorization through role assignments and Microsoft Entra ID, which is built into all Azure tenants.
 
-Roles for service administration (control plane) are built in and can't be disabled. Roles for data plane operations are optional, but recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. However, if you want to assign Search Service Contributor, Search Index Data Contributor, or Search Index Data Reader roles for data plane operations, you must enable role-based access on your service.
+Roles for service administration (control plane) are built in and can't be disabled. Roles for data plane operations are optional, but recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. However, if you want to use role-based authentication for data plane operations, you must enable role-based access on your service.
 
 In this article, learn how to configure your search service to recognize an **authorization** header on data plane requests that provide an OAuth2 access token.
 
@@ -132,7 +132,7 @@ All calls to the Management REST API are authenticated through Microsoft Entra I
 
 ## Disable role-based access control
 
-Because roles aren't required, it's possible to disable role-based access control for data plane operations and use key-based authentication instead. You might do this as part of a test workflow, for example to rule out permission issues.
+It's possible to disable role-based access control for data plane operations and use key-based authentication instead. You might do this as part of a test workflow, for example to rule out permission issues.
 
 Reverse the steps you followed previously to enable role-based access.
 
