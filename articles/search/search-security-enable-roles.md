@@ -16,7 +16,7 @@ ms.date: 06/03/2024
 
 Azure AI Search supports authentication and authorization through role assignments and Microsoft Entra ID, which is built into all Azure tenants.
 
-Roles for service administration (control plane) are built-in and can't be disabled. Roles for data plane operations are optional, but strongly recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. However, if you want to assign Search Service Contributor, Search Index Data Contributor, or Search Index Data Reader roles for data plane operations, you must enable role-based access on your service.
+Roles for service administration (control plane) are built in and can't be disabled. Roles for data plane operations are optional, but recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. However, if you want to assign Search Service Contributor, Search Index Data Contributor, or Search Index Data Reader roles for data plane operations, you must enable role-based access on your service.
 
 In this article, learn how to configure your search service to recognize an **authorization** header on data plane requests that provide an OAuth2 access token.
 
@@ -31,7 +31,7 @@ In this article, learn how to configure your search service to recognize an **au
 
 ## Enable role-based access for data plane operations
 
-When you enables roles, the change is effective immediately, but wait a few seconds before assigning roles.
+When you enable roles, the change is effective immediately, but wait a few seconds before assigning roles.
 
 The default failure mode is h`ttp401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`.
 
@@ -132,7 +132,7 @@ All calls to the Management REST API are authenticated through Microsoft Entra I
 
 ## Disable role-based access control
 
-Because roles aren't required, it's possible to disable role-based access control for data plane operations and use key-based authentication instead. You might do this as part of a test worklow, for example to rule out permission issues.
+Because roles aren't required, it's possible to disable role-based access control for data plane operations and use key-based authentication instead. You might do this as part of a test workflow, for example to rule out permission issues.
 
 Reverse the steps you followed previously to enable role-based access.
 
@@ -200,7 +200,7 @@ To disable key-based authentication, set "disableLocalAuth" to true.
    GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2023-11-01
    ```
 
-1. Use PATCH to update service configuration. The following modification will set "authOptions" to null.
+1. Use PATCH to update service configuration. The following modification sets "authOptions" to null.
 
     ```http
     PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01

@@ -16,13 +16,13 @@ ms.date: 06/03/2024
 
 # Configure a search service to connect using a managed identity
 
-You can configure an Azure AI Search service to connect to other Azure resources using a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) and an Azure role assignment. Managed identities and role assignments eliminate the need for passing secrets and credentials in a connection string or code.
+You can configure an Azure AI Search service to make outbound connections to other Azure resources using a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) and an Azure role assignment. Managed identities and role assignments eliminate the need for passing secrets and credentials in a connection string or code.
 
 ## Prerequisites
 
-+ A search service at the [Basic tier or above](search-sku-tier.md), any region.
++ A search service at the [Basic tier or higher](search-sku-tier.md), any region.
 
-+ An Azure resource that accepts incoming requests from a Microsoft Entra login that has a valid role assignment.
++ An Azure resource that accepts incoming requests from a Microsoft Entra security principal that has a valid role assignment.
 
 ## Supported scenarios
 
@@ -43,7 +43,7 @@ A search service uses Azure Storage as an indexer data source and as a data sink
 
 <sup>2</sup> For enrichment caching in Azure table storage, the search service currently can't connect to tables on a storage account that prevents has [shared key access turned off](../storage/common/shared-key-authorization-prevent.md).
 
-<sup>3</sup> Connections to Azure OpenAI or Azure AI include: [Custom skill (hosted in Azure Functions or equivalent)](cognitive-search-custom-skill-interface.md), [Custom vectorizer](vector-search-vectorizer-custom-web-api.md), [Azure OpenAI embedding skill](cognitive-search-skill-azure-openai-embedding.md), [Azure OpenAI vectorizer](vector-search-how-to-configure-vectorizer.md), [AML skill](cognitive-search-aml-skill.md), [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md), [Azure AI Vision multimodal embeddings skill](cognitive-search-skill-vision-vectorize), [Azure AI Vision vectorizer](vector-search-vectorizer-ai-services-vision).
+<sup>3</sup> Connections to Azure OpenAI or Azure AI include: [Custom skill](cognitive-search-custom-skill-interface.md), [Custom vectorizer](vector-search-vectorizer-custom-web-api.md), [Azure OpenAI embedding skill](cognitive-search-skill-azure-openai-embedding.md), [Azure OpenAI vectorizer](vector-search-how-to-configure-vectorizer.md), [AML skill](cognitive-search-aml-skill.md), [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md), [Azure AI Vision multimodal embeddings skill](cognitive-search-skill-vision-vectorize.md), [Azure AI Vision vectorizer](vector-search-vectorizer-ai-services-vision.md).
 
 ## Create a system managed identity
 
@@ -63,7 +63,7 @@ A system-assigned managed identity is unique to your search service and bound to
 
    :::image type="content" source="media/search-managed-identities/turn-on-system-assigned-identity.png" alt-text="Screenshot of the Identity page in Azure portal." border="true":::
 
-   After saving, the page updates to show an object identifier that's assigned to your search service. 
+   After you save the settings, the page updates to show an object identifier that's assigned to your search service. 
 
    :::image type="content" source="media/search-managed-identities/system-assigned-identity-object-id.png" alt-text="Screenshot of a system identity object identifier." border="true":::
 
@@ -174,7 +174,7 @@ You can use the Management REST API instead of the portal to assign a user-assig
 
 1. Set the "identity" property to specify a fully qualified managed identity:
 
-   + "type" is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" will clear any previously assigned identities from the search service.
+   + "type" is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" clears any previously assigned identities from the search service.
 
    + "userAssignedIdentities" includes the details of the user assigned managed identity. This identity [must already exist](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) before you can specify it in the Create or Update Service request.
 
@@ -217,7 +217,7 @@ Once a managed identity is defined for the search service and given a role assig
 
 An indexer data source includes a "credentials" property that determines how the connection is made to the data source. The following example shows a connection string specifying the unique resource ID of a storage account. 
 
-Microsoft Entra ID will authenticate the request using the system managed identity of the search service. Notice that the connection string doesn't include a container. In a data source definition, a container name is specified in the "container" property (not shown), not the connection string.
+Microsoft Entra ID authenticates the request using the system managed identity of the search service. Notice that the connection string doesn't include a container. In a data source definition, a container name is specified in the "container" property (not shown), not the connection string.
 
 ```json
 "credentials": {
