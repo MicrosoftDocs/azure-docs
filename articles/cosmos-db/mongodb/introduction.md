@@ -26,7 +26,7 @@ Azure Cosmos DB for MongoDB provides an SLA that covers the full stack: the data
 
 Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service offerings such as MongoDB Atlas. 
 
-### vCore Architecture (Recommended)
+### vCore architecture (recommended)
 
 [A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, instantaneous scaling, and seamless native integration with Azure services.
 
