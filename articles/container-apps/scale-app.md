@@ -248,7 +248,7 @@ The following example demonstrates how to create a custom scale rule.
 
 This example shows how to convert an [Azure Service Bus scaler](https://keda.sh/docs/latest/scalers/azure-service-bus/) to a Container Apps scale rule, but you use the same process for any other [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)-based [KEDA scaler](https://keda.sh/docs/latest/scalers/) specification.
 
-For authentication, KEDA scaler authentication parameters convert into [Container Apps secrets](manage-secrets.md).
+For authentication, KEDA scaler authentication parameters take [Container Apps secrets](manage-secrets.md) or managed identity.
 
 ::: zone pivot="azure-resource-manager"
 
@@ -320,7 +320,9 @@ First, you define the type and metadata of the scale rule.
 
 ### Authentication
 
-A KEDA scaler supports authentication through either secrets or managed identity. 
+A KEDA scaler supports authentication through either secrets or managed identity. We recommend managed identity whenever possible to avoid storing secrets within the app. 
+
+Secrets-based authentication supports all scalers. Authentication with managed identity supports all Azure scalers, including Azure Application Insights, Azure Blob Storage, Azure Monitor, and many more.
 
 #### Using secrets
 
@@ -348,7 +350,27 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
 
 #### Using managed identity
 
-PLACEHOLDER - managed identity with ARM
+KEDA scalers can use managed identity. The following ARM template passes in system-based managed identity to authenticate for an Azure Queue scaler.
+
+``` "scale": {
+                "minReplicas": 0,
+                "maxReplicas": 4,
+                "rules": [
+                    {
+                        "name": "azure-queue",
+                        "custom": {
+                            "type": "azure-queue",
+                            "metadata": {
+                                "accountName": "apptest123",
+                                "queueName": "queue1",
+                                "queueLength": "1"
+                            },
+                            "identity": "system"
+                        }
+                    }
+                ]
+            }
+```
 
 ::: zone-end
 
@@ -374,7 +396,9 @@ PLACEHOLDER - managed identity with ARM
 
 ### Authentication
 
-A KEDA scaler supports authentication through either secrets or managed identity. 
+A KEDA scaler supports authentication through either secrets or managed identity. We recommend managed identity whenever possible to avoid storing secrets within the app. 
+
+Secrets-based authentication supports all scalers. Authentication with managed identity supports all Azure scalers, including Azure Application Insights, Azure Blob Storage, Azure Monitor, and many more.
 
 #### Using secrets
 
@@ -396,7 +420,9 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
    
 #### Using managed identity
 
-PLACEHOLDER - managed identity with Azure CLI
+KEDA scalers can use managed identity. The following command creates a Container App Environment with a user-assigned managed identity and uses it to authenticate for an Azure Queue scaler.
+
+``` az containerapp create -g eastus2euap -n kedamsi3 --environment v2-vnet --system-assigned --user-assigned msi3 --scale-rule-name azure-queue --scale-rule-type azure-queue --scale-rule-metadata "accountName=apptest123" "queueName=queue1" "queueLength=1" --scale-rule-identity msi3 ```
 
 ::: zone-end
 
@@ -434,7 +460,11 @@ PLACEHOLDER - managed identity with Azure CLI
 
 ### Authentication
 
-A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the authenticationRef property. You can map the TriggerAuthentication object to the Container Apps scale rule.
+A KEDA scaler supports authentication through either secrets or managed identity. We recommend managed identity whenever possible to avoid storing secrets within the app. 
+
+Secrets-based authentication supports all scalers. Authentication with managed identity supports all Azure scalers, including Azure Application Insights, Azure Blob Storage, Azure Monitor, and many more.
+
+#### Using secrets
 
 1. In your container app, create the [secrets](./manage-secrets.md) that you want to reference.
 
