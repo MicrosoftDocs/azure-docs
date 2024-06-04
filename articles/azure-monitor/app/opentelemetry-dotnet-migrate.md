@@ -18,14 +18,14 @@ We cover ASP.NET, ASP.NET Core, console, and WorkerService migrations. For more 
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-## Prerequisites
+### Prerequisites
 
 * An ASP.NET Core web application already instrumented with Application Insights without any customizations
 * An actively supported version of [.NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 
-## Steps to Migrate
+### Steps to Migrate
 
-### Step 1: Remove Application Insights SDK
+#### Step 1: Remove Application Insights SDK
 
 The first step is to remove the Application Insights SDK.
 If you used Visual Studio's Add Application Insights experience, this would have added some additional files.
@@ -70,7 +70,7 @@ Before continuing with these steps, you should confirm that you have a current b
 
     Verify that your application has no unexpected consequenses.
 
-### Step 2: Install the Azure Monitor Distro and Enable at Application Startup
+#### Step 2: Install the Azure Monitor Distro and Enable at Application Startup
 
 1. Install the Azure Monitor Distro
 
@@ -112,7 +112,7 @@ Before continuing with these steps, you should confirm that you have a current b
 
     Additional options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=aspnetcore#connection-string).
 
-## Step 3: Additional configurations
+#### Step 3: Additional configurations
 
 Application Insights offered many additional configuration options via `ApplicationInsightsServiceOptions`.
 
@@ -139,7 +139,7 @@ Application Insights offered many additional configuration options via `Applicat
 | InstrumentationKey                         | Use ConnectionString.                                                                                                |
 | RequestCollectionOptions                   | N/A. See OpenTelemetry.Instrumentation.AspNetCore options.                                                           |
 
-## Remove Custom Configurations
+### Remove Custom Configurations
 
 The following scenarios are optional and may only apply to advanced users.
 
@@ -170,14 +170,14 @@ The following scenarios are optional and may only apply to advanced users.
 
 ### [.NET](#tab/net)
 
-## Prerequisites
+### Prerequisites
 
 * An ASP.NET web application already instrumented with Application Insights
 * An actively supported version of [.NET Framework](https://learn.microsoft.com/lifecycle/products/microsoft-net-framework)
 
-## Steps to Migrate
+### Steps to Migrate
 
-### Step 1: Remove Application Insights SDK
+#### Step 1: Remove Application Insights SDK
 
 When you first added Application Insights to your project, the SDK would have added a config file and made some edits to the web.config.
 If you used Visual Studio's Add Application Insights experience, this would have added additional files.
@@ -257,7 +257,7 @@ Before continuing with these steps, you should confirm that you have a current b
 
     Verify that your application has no unexpected consequenses.
 
-### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
+#### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
 
 1. Install the OpenTelemetry SDK via Azure Monitor
 
@@ -274,7 +274,7 @@ Before continuing with these steps, you should confirm that you have a current b
     Each of these signals will need to be configured as part of your application startup.
     `TracerProvider`, `MeterProvider`, and `ILoggerFactory` should be created once for your application and disposed when your application shuts down.
 
-#### Global.asax.cs
+##### Global.asax.cs
 
 The following code sample shows a simple example meant only to show the basics.
 No telemetry will be collected at this point.
@@ -315,7 +315,7 @@ public class Global : System.Web.HttpApplication
 }
 ```
 
-### Step 3: Install and Configure Instrumentation Libraries
+#### Step 3: Install and Configure Instrumentation Libraries
 
 [Instrumentation libraries](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) can be added to your project to auto collect telemetry about specific components or dependencies. We recommend the following libraries:
 
@@ -357,7 +357,7 @@ public class Global : System.Web.HttpApplication
 
     A complete getting started guide is available here: [OpenTelemetry.Instrumentation.SqlClient Readme](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/tree/main/src/OpenTelemetry.Instrumentation.SqlClient)
 
-#### Global.asax.cs
+##### Global.asax.cs
 
 The following code sample expands on the previous example.
 This now collects telemetry, but does not yet send to Application Insights.
@@ -402,11 +402,11 @@ public class Global : System.Web.HttpApplication
 }
 ```
 
-### Step 4: Configure the Azure Monitor Exporter
+#### Step 4: Configure the Azure Monitor Exporter
 
 To send your telemetry to Application Insights, the Azure Monitor Exporter must be added to the configuration of all three signals.
 
-#### Global.asax.cs
+##### Global.asax.cs
 
 The following code sample expands on the previous example.
 This now collects telemetry and will send to Application Insights.
@@ -458,14 +458,14 @@ Additional options to configure the Connection String are detailed here: [Config
 
 ### [Console](#tab/console)
 
-## Prerequisites
+### Prerequisites
 
 * A Console application already instrumented with Application Insights
 * An actively supported version of [.NET Framework](https://learn.microsoft.com/lifecycle/products/microsoft-net-framework) or [.NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 
-## Steps to Migrate
+### Steps to Migrate
 
-### Step 1: Remove Application Insights SDK
+#### Step 1: Remove Application Insights SDK
 
 Before continuing with these steps, you should confirm that you have a current backup of your application.
 
@@ -505,7 +505,7 @@ Before continuing with these steps, you should confirm that you have a current b
 
     Verify that your application has no unexpected consequenses.
 
-### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
+#### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
 
 1. Install the OpenTelemetry SDK via Azure Monitor
 
@@ -525,7 +525,7 @@ Before continuing with these steps, you should confirm that you have a current b
 The following code sample shows a simple example meant only to show the basics.
 No telemetry will be collected at this point.
 
-#### Program.cs
+##### Program.cs
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -565,7 +565,7 @@ internal class Program
 }
 ```
 
-### Step 3: Install and Configure Instrumentation Libraries
+#### Step 3: Install and Configure Instrumentation Libraries
 
 [Instrumentation libraries](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) can be added to your project to auto collect telemetry about specific components or dependencies. We recommend the following libraries:
 
@@ -588,7 +588,7 @@ internal class Program
 The following code sample expands on the previous example.
 This now collects telemetry, but does not yet send to Application Insights.
 
-#### Program.cs
+##### Program.cs
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -623,11 +623,11 @@ internal class Program
 }
 ```
 
-### Step 4: Configure the Azure Monitor Exporter
+#### Step 4: Configure the Azure Monitor Exporter
 
 To send your telemetry to Application Insights, the Azure Monitor Exporter must be added to the configuration of all three signals.
 
-#### Program.cs
+##### Program.cs
 
 The following code sample expands on the previous example.
 This now collects telemetry and will send to Application Insights.
@@ -675,7 +675,7 @@ APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
 
 Additional options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=net#connection-string).
 
-## Remove Custom Configurations
+### Remove Custom Configurations
 
 The following scenarios are optional and may only apply to advanced users.
 
@@ -696,14 +696,14 @@ The following scenarios are optional and may only apply to advanced users.
 
 ### [WorkerService](#tab/workerservice)
 
-## Prerequisites
+### Prerequisites
 
 * A WorkerService application already instrumented with Application Insights without any customizations
 * An actively supported version of [.NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 
-## Steps to Migrate
+### Steps to Migrate
 
-### Step 1: Remove Application Insights SDK
+#### Step 1: Remove Application Insights SDK
 
 The first step is to remove the Application Insights SDK.
 If you used Visual Studio's Add Application Insights experience, this would have added some additional files.
@@ -748,7 +748,7 @@ Before continuing with these steps, you should confirm that you have a current b
 
     Verify that your application has no unexpected consequenses.
 
-### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
+#### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
 
 1. Install the OpenTelemetry SDK via Azure Monitor
 
@@ -774,7 +774,7 @@ Before continuing with these steps, you should confirm that you have a current b
 The following code sample shows a simple example meant only to show the basics.
 No telemetry will be collected at this point.
 
-#### Program.cs
+##### Program.cs
 
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
@@ -800,7 +800,7 @@ public class Program
 }
 ```
 
-### Step 3: Install and Configure Instrumentation Libraries
+#### Step 3: Install and Configure Instrumentation Libraries
 
 [Instrumentation libraries](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) can be added to your project to auto collect telemetry about specific components or dependencies. We recommend the following libraries:
 
@@ -823,7 +823,7 @@ public class Program
 The following code sample expands on the previous example.
 This now collects telemetry, but does not yet send to Application Insights.
 
-#### Program.cs
+##### Program.cs
 
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
@@ -856,11 +856,11 @@ public class Program
 }
 ```
 
-### Step 4: Configure the Azure Monitor Exporter
+#### Step 4: Configure the Azure Monitor Exporter
 
 To send your telemetry to Application Insights, the Azure Monitor Exporter must be added to the configuration of all three signals.
 
-#### Program.cs
+##### Program.cs
 
 The following code sample expands on the previous example.
 This now collects telemetry and will send to Application Insights.
@@ -906,7 +906,7 @@ APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
 
 Additional options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=net#connection-string).
 
-### Step 5: Additional configurations
+#### Step 5: Additional configurations
 
 Application Insights offered many additional configuration options via `ApplicationInsightsServiceOptions`.
 
@@ -929,7 +929,7 @@ Application Insights offered many additional configuration options via `Applicat
 | EndpointAddress                            | Use ConnectionString.                                                                                                |
 | InstrumentationKey                         | Use ConnectionString.                                                                                                |
 
-## Remove Custom Configurations
+### Remove Custom Configurations
 
 The following scenarios are optional and may only apply to advanced users.
 
