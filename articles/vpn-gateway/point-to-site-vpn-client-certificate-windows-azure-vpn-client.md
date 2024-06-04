@@ -24,6 +24,10 @@ Before beginning client configuration steps, verify that you're on the correct V
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
+>[!NOTE]
+> If you make a change to the topology of your network (such as adding peering) and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
+>
+
 ### Connection requirements
 
 To connect to Azure, each connecting client computer requires the following items:
