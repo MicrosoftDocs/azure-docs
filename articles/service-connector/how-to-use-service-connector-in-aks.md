@@ -125,19 +125,19 @@ Service Connector kubernetes extension is built on top of [Azure Arc-enabled Kub
 
 1. Install the `k8s-extension` Azure CLI extension.
 
-```azurecli
+  ```azurecli
   az extension add --name k8s-extension
-```
+  ```
 
 1. Get the Service Connector extension status. Check the `statuses` property in the command output to see if there are any errors.
 
-```azurecli
+  ```azurecli
   az k8s-extension show \
       --resource-group MyClusterResourceGroup \
       --cluster-name MyCluster \
       --cluster-type managedClusters \
       --name sc-extension
-```
+  ```
 
 ### Check kubernetes cluster logs
 
@@ -150,7 +150,7 @@ If there's an error during the extension installation, and the error message in 
        --resource-group MyClusterResourceGroup \
        --name MyCluster
    ```
-2. Service Connector extension is installed in the namespace `sc-system` through helm chart, check the namespace and the helm release by following commands.
+1. Service Connector extension is installed in the namespace `sc-system` through helm chart, check the namespace and the helm release by following commands.
 
    - Check the namespace exists.
 
@@ -163,7 +163,7 @@ If there's an error during the extension installation, and the error message in 
    ```Bash
    helm list -n sc-system
    ```
-3. During the extension installation or updating, a kubernetes job called `sc-job` creates the kubernetes resources for the service connection. The job execution failure usually causes the extension failure. Check the job status by running the following commands. If `sc-job` doesn't exist in `sc-system` namespace, it should have been executed successfully. This job is designed to be automatically deleted after successful execution.
+1. During the extension installation or updating, a kubernetes job called `sc-job` creates the kubernetes resources for the service connection. The job execution failure usually causes the extension failure. Check the job status by running the following commands. If `sc-job` doesn't exist in `sc-system` namespace, it should have been executed successfully. This job is designed to be automatically deleted after successful execution.
 
    - Check the job exists.
 
