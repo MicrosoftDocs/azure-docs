@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Application Gateway
 description: This article contains important reference material you need when you monitor Azure Application Gateway.
-ms.date: 05/06/2024
+ms.date: 06/04/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: greg-lindsay
@@ -23,7 +23,7 @@ The following table lists the metrics available for the Microsoft.Network/applic
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-[!INCLUDE[Microsoft.Network/applicationgateways](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-network-applicationgateways-metrics-include.md)]
+[!INCLUDE[Microsoft.Network/applicationgateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-applicationgateways-metrics-include.md)]
 
 ### Timing metrics
 
@@ -213,7 +213,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 ### Supported resource logs for Microsoft.Network/applicationGateways
 
-[!INCLUDE [Microsoft.Network/applicationgateways](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-network-applicationgateways-logs-include.md)]
+[!INCLUDE [Microsoft.Network/applicationgateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-applicationgateways-logs-include.md)]
 
 - **Access Log**. You can use the Access log to view Application Gateway access patterns and analyze important information. This information includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. This log contains one record per instance of Application Gateway. The `instanceId` property identifies the Application Gateway instance.
 
