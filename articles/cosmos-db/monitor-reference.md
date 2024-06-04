@@ -21,17 +21,17 @@ For a list of all Azure Monitor supported metrics, including Azure Cosmos DB, se
 ### Supported metrics for Microsoft.DocumentDB/DatabaseAccounts
 The following table lists the metrics available for the Microsoft.DocumentDB/DatabaseAccounts resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.DocumentDB/DatabaseAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-databaseaccounts-metrics-include.md)]
+[!INCLUDE [microsoft-documentdb-databaseaccounts-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-documentdb-databaseaccounts-metrics-include.md)]
 
 ### Supported metrics for Microsoft.DocumentDB/cassandraClusters
 The following table lists the metrics available for the Microsoft.DocumentDB/cassandraClusters resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.DocumentDB/cassandraClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-cassandraclusters-metrics-include.md)]
+[!INCLUDE [microsoft-documentdb-cassandraclusters-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-documentdb-cassandraclusters-metrics-include.md)]
 
 ### Supported metrics for Microsoft.DocumentDB/mongoClusters
 The following table lists the metrics available for the Microsoft.DocumentDB/mongoClusters resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.DocumentDB/mongoClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-documentdb-mongoclusters-metrics-include.md)]
+[!INCLUDE [microsoft-documentdb-mongoclusters-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-documentdb-mongoclusters-metrics-include.md)]
 
 ### Metrics by category
 
@@ -156,13 +156,13 @@ The following table lists error codes for your API for Cassandra account. For sa
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.DocumentDB/DatabaseAccounts
-[!INCLUDE [Microsoft.DocumentDB/DatabaseAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-documentdb-databaseaccounts-logs-include.md)]
+[!INCLUDE [microsoft-documentdb-databaseaccounts-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-documentdb-databaseaccounts-logs-include.md)]
 
 ### Supported resource logs for Microsoft.DocumentDB/cassandraClusters
-[!INCLUDE [Microsoft.DocumentDB/cassandraClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-documentdb-cassandraclusters-logs-include.md)]
+[!INCLUDE [microsoft-documentdb-cassandraclusters-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-documentdb-cassandraclusters-logs-include.md)]
 
 ### Supported resource logs for Microsoft.DocumentDB/mongoClusters
-[!INCLUDE [Microsoft.DocumentDB/mongoClusters](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-documentdb-mongoclusters-logs-include.md)]
+[!INCLUDE [microsoft-documentdb-mongoclusters-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-documentdb-mongoclusters-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
