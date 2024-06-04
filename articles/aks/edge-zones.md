@@ -264,7 +264,7 @@ az aks create --resource-group $RG_NAME --name $CLUSTER_NAME --edge-zone $EDGE_Z
 
 In this section you'll learn how to deploy a Kubernetes cluster in the Edge Zone.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
