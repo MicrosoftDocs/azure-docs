@@ -66,11 +66,11 @@ After the GitHub Azure Resource Manager template completes, you'll find a resour
 
 Before you sign in and use the management tool, you must provide consent for the new Microsoft Entra application associated with the management tool. Providing consent lets the management tool make Azure Virtual Desktop management calls on behalf of the user currently signed in to the tool.
 
-:::image type="content" source="../media/management-ui-delegated-permissions.png" alt-text="A screenshot showing the permissions being provided when you consent to the UI management tool" lightbox="../media/management-ui-delegated-permissions-large.png":::
+:::image type="content" source="../media/management-ui-delegated-permissions-inline.png" alt-text="A screenshot showing the permissions being provided when you consent to the UI management tool" lightbox="../media/management-ui-delegated-permissions-expanded.png":::
 
 To determine which user you can use to sign in to the tool, go to your [Microsoft Entra user settings page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) and take note of the value for **Users can consent to apps accessing company data on their behalf**.
 
-:::image type="content" source="../media/management-ui-user-consent-allowed.png" alt-text="A screenshot showing if users can grant consent to applications for just their user." lightbox="../media/management-ui-user-consent-allowed-large.png":::
+:::image type="content" source="../media/management-ui-user-consent-allowed-inline.png" alt-text="A screenshot showing if users can grant consent to applications for just their user." lightbox="../media/management-ui-user-consent-allowed-expanded.png":::
 
 - If the value is set to **Yes**, you can sign in with any user account in the Microsoft Entra ID and provide consent for that user only. However, if you sign in to the management tool with a different user later, you must perform the same consent again.
 - If the value is set to **No**, you must sign in as a Global Administrator in the Microsoft Entra ID and provide admin consent for all users in the directory. No other users will face a consent prompt.

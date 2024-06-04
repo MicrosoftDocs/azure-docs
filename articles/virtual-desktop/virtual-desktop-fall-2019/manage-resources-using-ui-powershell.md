@@ -148,7 +148,7 @@ To verify the Microsoft Entra application configuration and provide consent:
 
 5. In the left panel, select **API permissions** to confirm that permissions were added. If you're a global admin, select the **Grant admin consent for `tenantname`**  button and follow the dialog prompts to provide admin consent for your organization.
 
-    :::image type="content" source="media/article-folder-name/image-file-inline.png" alt-text="Screenshot of the API permissions page for an app registration that highlights the option to grant admin consent for Contoso." lightbox="../media/management-ui-permissions-large.png"
+    :::image type="content" source="media/article-folder-name/image-file-inline.png" alt-text="Screenshot of the API permissions page for an app registration that highlights the option to grant admin consent for Contoso." lightbox="../media/management-ui-permissions-expanded.png"
 
 You can now start using the management tool.
 
