@@ -4,8 +4,8 @@ description: Tutorial - Containerize & migrate ASP.NET applications to Azure Kub
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
-ms.custom: subject-rbac-steps
-ms.service: azure-migrate, engagement-fy24
+ms.custom: subject-rbac-steps, engagement-fy24
+ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 03/06/2024
 ---
