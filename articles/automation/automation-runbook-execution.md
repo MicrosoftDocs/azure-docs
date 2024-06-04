@@ -24,7 +24,7 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 
 ![Job Statuses - PowerShell Workflow](./media/automation-runbook-execution/job-statuses.png)
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 ## Runbook execution environment
 
