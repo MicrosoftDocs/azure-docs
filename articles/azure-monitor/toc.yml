@@ -763,7 +763,7 @@ items:
             href: /azure/virtual-machines/extensions/oms-windows
             maintainContext: true
           - name: VM Extension for Linux
-            href: /azure/virtual-machines/extensions/oms-linux.md
+            href: /azure/virtual-machines/extensions/oms-linux
             maintainContext: true
           - name: LA Agent Management
             href: agents/agent-manage.md
