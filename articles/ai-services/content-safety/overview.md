@@ -99,9 +99,29 @@ Currently, Azure AI Content Safety has an **F0 and S0** pricing tier. See the Az
 
 ### Input requirements
 
-The default maximum length for text submissions is 10K characters. If you need to analyze longer blocks of text, you can split the input text (for example, by punctuation or spacing) across multiple related submissions.
+See the following list for the input requirements for each feature.
 
-The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats.
+<!--
+|  | Analyze text API | Analyze image API |  Prompt Shields<br>(preview) | Groundedness<br>detection (preview) | Protected material<br>detection (preview) |
+|-------|---|----------|----------|-----|-----|
+| Input requirements:   | Default maximum length: 10K characters (split longer texts as needed). | Maximum image file size: 4 MB<br>Dimensions between 50x50 and 2048x2048 pixels.<br>Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats. | Maximum prompt length: 10K characters.<br>Up to five documents with a total of 10D characters. | Maximum 55,000 characters for grounding sources per API call.<br>Maximum text and query length: 7,500 characters. | Default maximum: 1K characters.<br>Minimum: 111 characters (for scanning LLM completions, not user prompts). | -->
+
+- **Analyze text API**: 
+  - Default maximum length: 10K characters (split longer texts as needed).
+- **Analyze image API**: 
+  - Maximum image file size: 4 MB
+  - Dimensions between 50 x 50 and 2048 x 2048 pixels.
+  - Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats.
+- **Prompt Shields (preview)**: 
+  - Maximum prompt length: 10K characters.
+  - Up to five documents with a total of 10K characters.
+- **Groundedness detection (preview)**: 
+  - Maximum length for grounding sources: 55,000 characters (per API call).
+  - Maximum text and query length: 7,500 characters.
+- **Protected material detection (preview)**: 
+  - Default maximum length: 1K characters.
+  - Minimum length: 111 characters (for scanning LLM completions, not user prompts).
+
 
 ### Language support
 
