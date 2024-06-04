@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2024
+ms.date: 06/04/2024
 ---
 
 # Da Vinci Plan Net
@@ -32,7 +32,7 @@ Next, define six [new search parameters](how-to-do-custom-search.md) for the Hea
 > [!NOTE]
 > In the raw JSON for these search parameters, the name is set to `Plannet_sp_<Resource Name>_<SearchParameter Name>`. The Touchstone test expects the name to be only the `SearchParameter Name` (coverage-area, plan-type, or network).
 
-The rest of the search parameters needed for the Da Vinci Plan-Net Implementation Guide are defined by the base specification, and are already available in the FHIR service without any other updates.
+The rest of the search parameters needed for the Da Vinci Plan Net Implementation Guide are defined by the base specification, and are already available in the FHIR service without any other updates.
 
 ## Store profiles
 
@@ -52,22 +52,19 @@ After defining search parameters, load the [required profiles and extensions](./
 
 To assist with creation of the search parameters and profiles, there's a sample HTTP file on the open-source site that includes all the steps described in this article in a single file. After you upload the necessary profiles and search parameters, run the capability statement test in Touchstone.
 
-:::image type="content" source="media/davinci-plan-net/davinci-plan-net-test-script-execution-passed.png" alt-text="Da Vinci plan net sample rest test execution script passed":::
+:::image type="content" source="media/davinci-plan-net/davinci-plan-net-test-script-execution-passed.png" alt-text="Screenshot showing Da Vinci Plan Net sample REST test execution script passed." lightbox="media/davinci-plan-net/davinci-plan-net-test-script-execution-passed.png":::
 
 ## Touchstone error handling test
 
 The second test is of [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/01-Error-Codes&activeOnly=false&contentEntry=TEST_SCRIPTS). The only step you need to do is delete a `HealthcareService` resource from your database and use the ID of the deleted HealthcareService resource in the test. The sample [DaVinci_PlanNet.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciPlanNet/DaVinci_PlanNet.http) file on the open-source site provides an example `HealthcareService` to post and delete for this step.
 
-:::image type="content" source="media/davinci-plan-net/davinci-test-script-execution-passed.png" alt-text="Da Vinci plan net touchstone error test execution script passed":::
+:::image type="content" source="media/davinci-plan-net/davinci-test-script-execution-passed.png" alt-text="Screenshot showing Da Vinci Plan Net touchstone error test execution script passed." lightbox="media/davinci-plan-net/davinci-test-script-execution-passed.png":::
 
 ## Touchstone query test
 
 The next test is the [query capabilities test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/03-Query&activeOnly=false&contentEntry=TEST_SCRIPTS). This test checks conformance against the profiles you loaded in the first test. You need to load resources that conform to the profiles. The best path is to test against resources already in your database. However, there's also the [DaVinci_PlanNet_Sample_Resources.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciPlanNet/DaVinci_PlanNet_Sample_Resources.http) file with sample resources pulled from the examples in the Implementation Guide, which you can use to create the resources and test against.  
 
-:::image type="content" source="media/davinci-plan-net/touchstone-query-test-execution-failed.png" alt-text="Da Vinci plan net query test failed":::
 
-## Related content
-
-[Supported features](fhir-features-supported.md)
+:::image type="content" source="media/davinci-plan-net/touchstone-query-test-execution.png" alt-text="Screenshot showing Da Vinci Plan Net query test result." lightbox="media/article-folder-name/media/davinci-plan-net/touchstone-query-test-execution.png":::
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
