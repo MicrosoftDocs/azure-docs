@@ -57,15 +57,9 @@ In this section, you create an AKS cluster in an Extended Zone.
 
 1. Review the settings, and then select **Create**.
 
-    It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
-    - Selecting **Go to resource**, or
-    - Browsing to the AKS cluster resource group and selecting the AKS resource.
+    It takes a few minutes to create the AKS cluster. 
 
-
-## Connect to the cluster
-
-
-
+1. When your deployment is complete, go to your resource by selecting **Go to resource**.
 
 ## Clean up resources
 
