@@ -103,7 +103,7 @@ spec:
       version: v1
 ```
 
-This simple policy takes the `test-deployment` namespace and all resources contained within it and deploys it to all member clusters in the fleet with the given `environment` label. If all clusters are desired, you can remove the `affinity` term entirely.
+This simple policy takes the `prod-deployment` namespace and all resources contained within it and deploys it to all member clusters in the fleet with the given `environment` label. If all clusters are desired, you can remove the `affinity` term entirely.
 
 ### `PickFixed` placement policy
 
@@ -153,11 +153,11 @@ spec:
     affinity:
         clusterAffinity:
             preferredDuringSchedulingIgnoredDuringExecution:
-              weight: 20
+            - weight: 20
               preference:
-              - labelSelector:
+                labelSelector:
                   matchLabels:
-                    critical-level: 1
+                    critical-level: "1"
             requiredDuringSchedulingIgnoredDuringExecution:
                 clusterSelectorTerms:
                 - labelSelector:
