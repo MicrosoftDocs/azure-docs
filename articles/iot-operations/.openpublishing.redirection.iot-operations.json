@@ -219,6 +219,31 @@
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-data-lake.md",
             "redirect_url": "/azure/iot-operations/manage-mqtt-broker/connect-to-cloud/howto-configure-data-lake",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-observability.md",
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-observability-manual.md",
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability-manual",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-diagnostics.md",
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-diagnostics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/monitor/howto-clean-up-observability-resources.md",
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-clean-up-observability-resources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/monitor/howto-add-cluster.md",
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-add-cluster",
+            "redirect_document_id": true
         }
     ]
 }

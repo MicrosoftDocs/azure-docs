@@ -65,4 +65,4 @@ Azure IoT Layered Network Management Preview provides a set of observability met
 
 ## Related content
 
-- [Configure observability](../monitor/howto-configure-observability.md)
+- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)

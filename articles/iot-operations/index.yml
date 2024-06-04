@@ -42,7 +42,7 @@ landingContent:
           - text: Manage layered network
             url: manage-layered-network/overview-layered-network.md
           - text: Monitor service and asset health
-            url: monitor/howto-configure-observability.md
+            url: configure-observability-monitoring/howto-configure-observability.md
 
   # Card
   - title: Connect to the cloud

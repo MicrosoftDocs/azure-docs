@@ -61,4 +61,4 @@ spec:
 ## Related content
 
 - [Configure MQ broker diagnostic settings](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-mq-broker-diagnostic-settings)
-- [Configure observability](../monitor/howto-configure-observability.md)
+- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)

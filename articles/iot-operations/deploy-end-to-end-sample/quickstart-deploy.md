@@ -26,7 +26,7 @@ The services deployed in this quickstart include:
 * [Azure IoT Akri Preview](../discover-manage-assets/overview-akri.md)
 * [Azure Device Registry Preview](../discover-manage-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
 * [Azure IoT Layered Network Management Preview](../manage-layered-network/overview-layered-network.md)
-* [Observability](../monitor/howto-configure-observability.md)
+* [Observability](../configure-observability-monitoring/howto-configure-observability.md)
 
 The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to a cluster such as AKS Edge Essentials in order to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials) and [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 

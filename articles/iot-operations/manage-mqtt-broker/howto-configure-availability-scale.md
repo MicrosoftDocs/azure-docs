@@ -148,7 +148,7 @@ Diagnostic settings allow you to enable metrics and tracing for MQ broker.
 - Metrics provide information about the resource utilization and throughput of MQ broker.
 - Tracing provides detailed information about the requests and responses handled by MQ broker.
 
-To enable these features, first [Configure the MQ diagnostic service settings](../monitor/howto-configure-diagnostics.md).
+To enable these features, first [Configure the MQ diagnostic service settings](../configure-observability-monitoring/howto-configure-diagnostics.md).
 
 To override default diagnostic settings for MQ broker, update the `spec.diagnostics` section in  the Broker CR. You also need to specify the diagnostic service endpoint, which is the address of the service that collects and stores the metrics and traces. The default endpoint is `aio-mq-diagnostics-service :9700`.
 

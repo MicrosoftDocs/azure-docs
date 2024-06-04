@@ -159,5 +159,5 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 
 ## Related content
 
-- [Azure Monitor overview](../../azure-monitor/overview.md)
+- [Azure Monitor overview](../../azure-configure-observability-monitoring/overview.md)
 - [How to configure observability manually](howto-configure-observability-manual.md)
