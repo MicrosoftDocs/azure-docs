@@ -46,9 +46,7 @@ User-assigned identities are ideal for workloads that:
 
 ## Limitations
 
-Using managed identities in scale rules isn't supported. You'll still need to include the connection string or key in the `secretRef` of the scaling rule.
-
-[Init containers](containers.md#init-containers) can't access managed identities.
+[Init containers](containers.md#init-containers) can't access managed identities in [Consumption-only environments](environment.md#types)
 
 ## Configure managed identities
 
@@ -314,6 +312,102 @@ To get a token for a resource, make an HTTP GET request to the endpoint, includi
 > If you are attempting to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.
 
 ---
+
+## Use Managed Identity for Scale Rules
+
+Starting in API version `2024-02-02-preview`, you can use managed identities in your scale rules to authenticate with Azure services that support managed identities. To use a managed identity in your scale rule, use the `identity` property with the Azure resource ID of a user-assigned identity, or "system" to use a system-assigned identity, instead of the `auth` property in your scale rule.
+
+The following example shows how to use a managed identities with an Azure Queue scale rule:
+
+# [ARM template](#tab/arm)
+
+Note the additional properties `accountName`, which is the name of the Storage account that the queue is in, and `identity`, which specifies the managed identity to use. You do not need to use the `auth` property.
+
+```json
+"scale": {
+    "minReplicas": 1,
+    "maxReplicas": 10,
+    "rules": [{
+        "name": "myQueueRule",
+        "azureQueue": {
+            "accountName": "mystorageaccount",
+            "queueName": "myqueue",
+            "queueLength": 2,
+            "identity": "/subscriptions/580c472d-3045-4ca1-9773-f58d56ffe662/resourceGroups/myRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity"
+        }
+    }]
+}
+```
+
+## Control managed identity availability
+
+Container apps allow you to specify [init containers](containers.md#init-containers) and main containers. By default, main containers - and init containers in Workload Profile Consumption environments - can get managed identity access tokens for every managed identity configured on the container app and use them to access other Azure services. However, there are situations where only the init container or the main container actually need to get access tokens for a given managed identity. Other times, you may use a managed identity only to access your Azure Container Registry to pull the image, and your application itself doesn't need to have access to your Azure Container Registry. 
+
+Starting in API version `2024-02-02-preview`, You can control which managed identities are available to your container app during the init and main phases to follow the security principle of least privilege. The following options are available:
+
+- `Init`: available only to init containers. Use this when you want to perform some intilization work that requires a managed identity, but you no longer need the managed identity in the main container. This option is currently not supported in [Consumption-only environments](environment.md#types)
+- `Main`: available only to main containers. Use this if your init container does not need managed identity.
+- `All`: available to all containers. This is the default setting.
+- `None`: not available to any containers. Use this when you have a managed identity that is only used for ACR image pull or scale rules, and does not need to be available to the code running in your containers.
+
+The following example shows the following in a Workload Profile Consumption environment:
+
+- How to restrict the container app's system-assigned identity to main containers only.
+- How to restrict a specific user-assigned identity to init containers only.
+- How to use a specific user-assigned identity for Azure Container Registry image pull without allowing the code in the containers to use that managed identity to access the ACR. In this example, the containers themselves don't need to access the ACR, so this reduces the blast radius if a malicious actor gains unauthorized access to the containers.  
+
+# [ARM template](#tab/arm)
+
+```json
+{
+    "location": "eastus2",
+    "identity":{
+    "type": "SystemAssigned, UserAssigned",
+        "userAssignedIdentities": {
+            "/subscriptions/580c472d-3045-4ca1-9773-f58d56ffe662/resourceGroups/myRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity":{},
+            "/subscriptions/580c472d-3045-4ca1-9773-f58d56ffe662/resourceGroups/myRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myAcrPullIdentity":{}
+         }
+     },
+    "properties": {
+    "workloadProfileName":"Consumption",
+    "environmentId": "/subscriptions/1d7aa588-e409-456c-95c2-5b48a03ad562/resourceGroups/myRg/providers/Microsoft.App/managedEnvironments/myenv",
+        "configuration": {
+            "registries": [
+            {
+                "server": "myregistry.azurecr.io",
+                "identity": "/subscriptions/580c472d-3045-4ca1-9773-f58d56ffe662/resourceGroups/myRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myAcrPullIdentity"
+            }],
+            "identitySettings":[
+            {
+                "identity": "/subscriptions/580c472d-3045-4ca1-9773-f58d56ffe662/resourceGroups/myRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myAcrPullIdentity",
+                "lifecycle": "none"
+            },
+            {
+                "identity": "/subscriptions/580c472d-3045-4ca1-9773-f58d56ffe662/resourceGroups/myRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+                "lifecycle": "init"
+            },
+            {
+                "identity": "system",
+                "lifecycle": "main"
+            }]
+        },
+        "template": {
+            "containers":[
+                {
+                    "image":"myregistry.azurecr.io/main:1.0",
+                    "name":"app-main"
+                }
+            ],
+            "initContainers":[
+                {
+                    "image":"myregistry.azurecr.io/init:1.0",
+                    "name":"app-init",
+                }
+            ]
+        }
+    }
+}
+```
 
 ## View managed identities
 
