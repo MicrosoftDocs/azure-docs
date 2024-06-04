@@ -66,7 +66,7 @@ Now, use the adjustment features in the Data Explorer to adjust the viewport of 
 
 ## Comments
 
-Use the **Feedback** icon in the command bar of the Data Explorer to give the product team any comments you have about the keyboard shortcuts.
+Use the **Feedback** icon in the command bar of the Data Explorer to give the product team any comments you have about managing items in Data Explorer.
 
 ## Related content
 
