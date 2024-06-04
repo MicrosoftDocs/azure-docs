@@ -79,6 +79,7 @@ This quickstart is using Azure Identity library with Azure PowerShell to authent
 ### Grant access to your key vault
 
 [!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac.md)]
+
 ---
 
 ### Create new .NET console app
