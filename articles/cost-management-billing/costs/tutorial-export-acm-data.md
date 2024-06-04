@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/11/2024
+ms.date: 06/04/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -423,22 +423,19 @@ Check if decimal places are being dropped when cost values are converted into in
 To manually transform a column to a decimal number in Power BI, follow these steps:
 
 1. Go to the **Table** view.
-
 1. Select **Transform data**.
-
 1. Right-click the required column.
-
 1. Change the type to **Decimal Number**.
 
 #### Using Microsoft Excel
 
-When opening a .csv or .txt file, Excel may display a warning message if it detects that an automatic data conversion is about to occur. Select the **Convert** option when prompted to ensure numbers are stored as numbers and not as text. This ensures the correct aggregated total. For more information, refer to [Control data conversions in Excel for Windows and Mac](https://support.microsoft.com/en-us/excel). 
+When you open a .csv or .txt file, Excel might display a warning message if it detects that an automatic data conversion is about to occur. Select the **Convert** option when prompted to ensure numbers are stored as numbers and not as text. It ensures the correct aggregated total. For more information, see [Control data conversions in Excel for Windows and Mac](https://insider.microsoft365.com/blog/control-data-conversions-in-excel-for-windows-and-mac).
 
-![User's image](media/tutorial-export-acm-data/image.png)
+:::image type="content" source="./media/tutorial-export-acm-data/excel-convert-dialog.png" border="true" alt-text="Screenshot showing the Convert dialog.":::
 
-If the correct conversion is not used, you will see a green triangle with a 'Number Stored as Text' error. This will result in incorrect aggregation of charges, leading to discrepancies with Cost Analysis.
+If the correct conversion isn't used, you get a green triangle with a `Number Stored as Text` error. This error might result in incorrect aggregation of charges, leading to discrepancies with cost analysis.
 
-![User's image](media/tutorial-export-acm-data/image1.png)
+:::image type="content" source="./media/tutorial-export-acm-data/number-stored-as-text-error.png" border="true" alt-text="Screenshot showing the Number stored as text error.":::
 
 ## Next steps
 
