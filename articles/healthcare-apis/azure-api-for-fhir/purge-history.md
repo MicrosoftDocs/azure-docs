@@ -49,7 +49,7 @@ For example:
 DELETE https://workspace-fhir.fhir.azurehealthcareapis.com/Observation/123/$purge-history
 ```
 
-To use 'allowPartialSuccess' parameter, you must set it to true. The template of request is:
+To use the 'allowPartialSuccess' parameter, you need to set it to true. The template of request is:
 ```http
 DELETE <FHIR-Service-Url>/<Resource-Type>/<Resource-Id>/$purge-history?allowPartialSuccess=true
 ```
