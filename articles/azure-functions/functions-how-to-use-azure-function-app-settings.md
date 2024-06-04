@@ -3,7 +3,7 @@ title: Configure function app settings in Azure Functions
 description: Learn how to configure function app settings in Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 12/28/2023
+ms.date: 06/03/2024
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -159,7 +159,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` with the resource group and function app names, respective. 
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 Run the following Azure PowerShell command to get your hosting plan type:
 
@@ -257,7 +257,7 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
 
 HTTP triggered functions can generally be called by using a URL in the format: `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. When the authorization to your function is set a value other than `anonymous`, you must also provide an access key in your request. The access key can either be provided in the URL using the `?code=` query string or in the request header. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). There are several ways to get your  access keys. 
 
-# [Portal](#tab/portal)
+### [Portal](#tab/portal)
 
 1. Sign in to the Azure portal, then search for and select **Function App**.
 
@@ -269,7 +269,7 @@ HTTP triggered functions can generally be called by using a URL in the format: `
 
 You can also practice least privilege by using the key just for the specific function key by selecting **Function keys** under **Developer** in your HTTP triggered function. 
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Run the following script in Azure Cloud Shell, the output of which is the [default (host) key](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) that can be used to access any HTTP triggered function in the function app.
 
@@ -283,7 +283,7 @@ az rest --method POST --uri $path --query functionKeys.default --output tsv
 
 In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your subscription and your function app name, respective. This script runs on Bash in Cloud Shell. It must be modified to run in a Windows command prompt.  
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 Run the following script, the output of which is the [default (host) key](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) that can be used to access any HTTP triggered function in the function app. 
 
@@ -303,11 +303,11 @@ In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your
 
 You must consider these limitations when developing your functions in the [Azure portal](https://portal.azure.com):
 
-+ In-portal editing is only supported for JavaScript, PowerShell, Python, and C# Script functions.
-+ Python in-portal editing is only supported when running in the Consumption plan.       
 + In-portal editing is currently only supported for functions that were created or last modified in the portal.
++ In-portal editing is only supported for JavaScript, PowerShell, Python, and C# Script functions.
++ In-portal editing isn't currently supported in the preview release of the [Flex Consumption plan](flex-consumption-plan.md#considerations).   
 + When you deploy code to a function app from outside the portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md). 
-+ For compiled C# functions, Java functions, and some Python functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
++ For compiled C# functions and Java functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
 
 When possible, you should develop your functions locally and publish your code project to a function app in Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
 
