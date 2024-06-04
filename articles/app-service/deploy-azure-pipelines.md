@@ -91,8 +91,6 @@ To get started:
       buildConfiguration: 'Release'
     
     steps:
-    - script: dotnet build --configuration $(buildConfiguration)
-      displayName: 'dotnet build $(buildConfiguration)'
     - task: DotNetCoreCLI@2
       inputs:
         command: 'publish'
@@ -140,8 +138,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
@@ -390,8 +386,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
