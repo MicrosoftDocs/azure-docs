@@ -86,25 +86,25 @@ On the existing Arc-enabled cluster, create the ClusterRoleBinding with either M
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Get the `objectId` associated with your Microsoft Entra entity. 
+1. Get the `objectId` associated with your Microsoft Entra entity. If you are using a single user account, get the user principal name (UPN) associated with your Microsoft Entra entity. 
 
-   - For a Microsoft Entra group account:
-   
-     ```azurecli
-     AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query id -o tsv)
-     ```
+- For a Microsoft Entra group account:
 
-   - For a Microsoft Entra single user account:
-   
-     ```azurecli
-     AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query userPrincipalName -o tsv)
-     ```
+  ```azurecli
+  AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query id -o tsv)
+  ```
 
-   - For a Microsoft Entra application:
+- For a Microsoft Entra single user account:
 
-     ```azurecli
-     AAD_ENTITY_OBJECT_ID=$(az ad sp show --id <id> --query id -o tsv)
-     ```
+  ```azurecli
+  AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query userPrincipalName -o tsv)
+  ```
+
+- For a Microsoft Entra application:
+
+  ```azurecli
+  AAD_ENTITY_OBJECT_ID=$(az ad sp show --id <id> --query id -o tsv)
+  ```
 
 1. Authorize the entity with appropriate permissions.
 
