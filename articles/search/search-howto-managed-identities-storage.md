@@ -43,18 +43,17 @@ You can use a system-assigned managed identity or a user-assigned managed identi
    | Write to a knowledge store | Add **Storage Blob DataContributor** for object and file projections, and **Reader and Data Access** for table projections. |
    | Write to an enrichment cache | Add **Storage Blob Data Contributor**  |
    | Save debug session state | Add **Storage Blob Data Contributor**  |
-   | Embedding data (vectorizing) using Azure OpenAI embedding models | Add **Cognitive Services OpenAI User** |
 
 1. Select **Next**.
 1. Select **Managed identity** and then select **Members**.
-1. Filter by system-assigned managed identities or user-assigned managed identities.
+1. Filter by system-assigned managed identities or user-assigned managed identities. If you don't have a managed identity, see [Configure search to use a managed identity](search-howto-managed-identities-data-sources.md). If you already set one up but it's not available, give it a few minutes.
 1. Select the identity and save the role assignment.
 
 ## Specify a managed identity in a connection string
 
-Indexers use a data source object to provide connection details. This section explains how to specify a system-assigned managed identity or a user-assigned managed identity on the connection string.
+Once you have a role assignment, you can set up a connection to Azure Storage that operates under that role.
 
-This section shows you several examples. You can find more [connection string examples](search-howto-managed-identities-data-sources.md#connection-string-examples) in the managed identity article.
+Indexers use a data source object for connections to an external data source. This section explains how to specify a system-assigned managed identity or a user-assigned managed identity on a data source connection string. You can find more [connection string examples](search-howto-managed-identities-data-sources.md#connection-string-examples) in the managed identity article.
 
 > [!TIP]
 > You can create a data source connection to Azure Storage in the Azure portal, specifying either a system or user-assigned managed identity, and then view the JSON definition to see how the connection string is formulated.
