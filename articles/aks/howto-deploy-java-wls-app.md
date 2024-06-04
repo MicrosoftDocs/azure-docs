@@ -33,7 +33,7 @@ For full automation, you can select your application and configure datasource co
 
 For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Service, see the official documentation from Oracle at [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
 
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing these solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebLogic on AKS solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
@@ -490,7 +490,7 @@ Use the following steps to build the image:
 
 1. Use the following steps to push the auxiliary image to Azure Container Registry:
 
-   1. Open the Azure portal and go to the resource group that you provisioned in the [Deploy WSL on AKS](#deploy-wls-on-aks) section.
+   1. Open the Azure portal and go to the resource group that you provisioned in the [Deploy WebLogic Server on AKS](#deploy-weblogic-server-on-aks) section.
    1. Select the resource of type **Container registry** from the resource list.
    1. Hover the mouse over the value next to **Login server** and select the copy icon next to the text.
    1. Save the value in the `ACR_LOGIN_SERVER` environment variable by using the following command:

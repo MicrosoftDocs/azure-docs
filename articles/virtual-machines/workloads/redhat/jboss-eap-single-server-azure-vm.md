@@ -15,7 +15,7 @@ This article shows you how to quickly deploy JBoss Enterprise Application Platfo
 
 This article uses the Azure Marketplace offer for JBoss EAP standalone server to accelerate your journey to Azure Virtual Machine. This solution automates most boilerplate steps to provision a single JBoss EAP instance on an Azure Virtual Machine. Once initial provisioning is complete, you are completely free to customize deployments further. The solution is jointly developed by Red Hat and Microsoft. If you prefer manual step-by-step guidance for installing Red Hat JBoss EAP Cluster on Azure VMs that doesn't utilize the automation enabled by the offer, see [Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually](/Azure/developer/java/migration/migrate-jboss-eap-to-azure-vm-manually).
 
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing the Azure Marketplace solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
@@ -177,7 +177,7 @@ az group delete --name <resource-group-name> --yes --no-wait
 
 ## Next steps
 
-Learn more about migrating JBoss EAP applications to JBoss EAP on Azure VMs by following these links:
+Learn more about options of deploying JBoss EAP on Azure:
 
 > [!div class="nextstepaction"]
-> [Migrate JBoss EAP applications to JBoss EAP on Azure VMs](/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-vms?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+> [JBoss EAP on Azure](jboss-on-azure.md)
