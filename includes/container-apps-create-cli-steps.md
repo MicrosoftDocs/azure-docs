@@ -53,7 +53,7 @@ az extension add --name containerapp --upgrade
 ```
 
 > [!NOTE]
-> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](./whats-new.md) are not available, install the Container Apps extension with `--allow-preview true`.
+> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](/azure/container-apps/whats-new.md) are not available, install the Container Apps extension with `--allow-preview true`.
 > ```azurecli
 > az extension add --name containerapp --upgrade --allow-preview true
 > ```
