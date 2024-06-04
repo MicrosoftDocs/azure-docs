@@ -16,12 +16,12 @@ ms.author: tamram
 
 Azure Kubernetes Service (AKS) clusters require an identity to access Azure resources like load balancers and managed disks. Managed identities for Azure resources are the recommended way to authorize access from an AKS cluster to other Azure services. To learn more about managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
-You can use a managed identity to authenticate from an AKS cluster to any service that supports Microsoft Entra authentication, without having credentials in your code.
+You can use a managed identity to authorize access from an AKS cluster to any service that supports Microsoft Entra authorization, without needing to include credentials in your code. You assign to the managed identity an Azure role-based access control (Azure RBAC) role to grant it permissions to a particular resource in Azure. For example, you can grant permissions to a managed identity to access secrets in an Azure key vault for use by the cluster. For more information about Azure RBAC, see [What is Azure role\-based access control \(Azure RBAC\)?](../role-based-access-control/overview.md).
 
 This article shows how to enable the following types of managed identity on a new or existing AKS cluster:
 
-* System-assigned managed identity. A system-assigned managed identity is associated with a single Azure resource, such as an AKS cluster.
-* User-assigned managed identity. A user-assigned managed identity is a standalone Azure resource that can be assigned to an Azure resource
+* System-assigned managed identity. A system-assigned managed identity is associated with a single Azure resource, such as an AKS cluster. It exists for the lifecycle of the cluster only.
+* User-assigned managed identity. A user-assigned managed identity is a standalone Azure resource that an AKS cluster can use to authorize access to other Azure services.
 * Pre-created Kubelet managed identity.
 
 ## Overview
@@ -55,7 +55,7 @@ az account set --subscription <subscription-id>
 
 A system-assigned managed identity is an identity that is associated with an AKS cluster or another Azure resource. The system-assigned managed identity is tied to the lifecycle of the cluster. When the cluster is deleted, the system-assigned managed identity is deleted.
 
-The cluster can use the system-assigned managed identity to request tokens from Microsoft Entra. These tokens are used to authorize access to other resources running in Azure. You can assign an Azure role-based access control (Azure RBAC) role to the system-assigned managed identity to grant the cluster permissions to access specific resources. For example, if your cluster needs to access secrets in an Azure key vault, you can assign to the system-assigned managed identity an Azure RBAC role that grants those permissions.
+The cluster can use the system-assigned managed identity to request tokens from Microsoft Entra. These tokens are used to authorize access to other resources running in Azure. You can assign an Azure RBAC role to the system-assigned managed identity to grant the cluster permissions to access specific resources. For example, if your cluster needs to access secrets in an Azure key vault, you can assign to the system-assigned managed identity an Azure RBAC role that grants those permissions.
 
 For more information on system-assigned managed identities, see **Managed identity types** in [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
@@ -110,15 +110,17 @@ After you update the cluster, the control plane and pods use the system-assigned
 
 ### Add a role assignment for a system-assigned managed identity
 
-Azure RBAC supports both built-in and custom role definitions that specify levels of permissions. You can assign an Azure RBAC role to the system-assigned managed identity to grant the cluster permissions on another Azure resource.
+Azure RBAC supports both built-in and custom role definitions that specify levels of permissions. You can assign an Azure RBAC role to the system-assigned managed identity to grant the cluster permissions on another Azure resource. For more information about assigning Azure RBAC roles, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
 
-When you create and use your own VNet, attached Azure disks, static IP address, route table, or user-assigned kubelet identity where the resources are outside of the worker node resource group, the Azure CLI adds the role assignment automatically. If you're using an ARM template or another method, use the principal ID of the cluster managed identity to perform a role assignment.
+When you assign an Azure RBAC role to a managed identity, you must define the scope for the role. In general, it's a best practice to limit the scope of a role to the minimum privileges required by the managed identity. For more information on scoping Azure RBAC roles, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
+
+When you create and use your own VNet, attached Azure disks, static IP address, route table, or user-assigned kubelet identity where the resources are outside of the worker node resource group, the Azure CLI adds the role assignment automatically. If you're using an ARM template or another method, use the principal ID of the managed identity to perform a role assignment.
 
 If you're not using the Azure CLI, but you're using your own VNet, attached Azure disks, static IP address, route table, or user-assigned kubelet identity that's outside of the worker node resource group, we recommend using a [user-assigned managed identity for the control plane][bring-your-own-control-plane-managed-identity]. When the control plane uses a system-assigned managed identity, the identity is created at the same time as the cluster, so the role assignment can't be performed until the cluster has been created.
 
-#### Get the principal ID of the managed identity
+#### Get the principal ID of the system-assigned managed identity
 
-To assign an Azure RBAC role to a cluster's system-assigned managed identity, you first need the principal ID for the cluster. Get the principal ID for the cluster's system-assigned managed identity by calling the [`az aks show`](/cli/azure/identity#az-identity-show) command.
+To assign an Azure RBAC role to a cluster's system-assigned managed identity, you first need the principal ID for the managed identity. Get the principal ID for the cluster's system-assigned managed identity by calling the [`az aks show`](/cli/azure/identity#az-identity-show) command.
 
 ```azurecli-interactive
 # Get the principal ID for a system-assigned managed identity.
@@ -129,19 +131,9 @@ CLIENT_ID=$(az aks show \
     --output tsv)
 ```
 
-Your output should resemble the following example output:
-
-```output
-{
-  "delegatedResources": null,
-  "principalId": "<identity-principal-id>",
-  "tenantId": "<tenant-id>",
-  "type": "SystemAssigned",
-  "userAssignedIdentities": null
-}
-```
-
 #### Assign an Azure RBAC role to the system-assigned managed identity
+
+To grant the system-assigned managed identity permissions to a resource in Azure, assign an Azure RBAC role that grants the appropriate permissions to the managed identity.
 
 For a VNet, attached Azure disk, static IP address, or route table outside the default worker node resource group, you need to assign the `Contributor` role on the custom resource group.
 
@@ -188,13 +180,46 @@ Your output should resemble the following example output:
 }
 ```
 
+#### Get the principal ID of the user-assigned managed identity
+
+To get the principal ID of the user-assigned managed identity, call [az aks show][az-aks-show] and query on the `principalId` property:
+
+```azurecli-interactive
+CLIENT_ID=$(az identity show \
+    --name myIdentity \
+    --resource-group myResourceGroup \
+    --query principalId \
+    --output tsv)
+```
+
+#### Get the resourcce ID of the user-assigned managed identity
+
+To create a cluster with a user-assigned managed identity, you will need the resource ID for the new managed identity. To get the resource ID of the user-assigned managed identity, call [az aks show][az-aks-show] and query on the `id` property:
+
+```azurecli-interactive
+RESOURCE_ID=$(az identity show \
+    --name myIdentity \
+    --resource-group myResourceGroup \
+    --query id \
+    --output tsv)
+```
+
 ### Assign an Azure RBAC role to the user-assigned managed identity
 
-show role assignment
+Before you create the cluster, add a role assignment for the managed identity by calling the [`az role assignment create`][az-role-assignment-create] command.
 
-After creating a user-assigned managed identity for the cluster's control plane, [add the role assignment for the managed identity][add-a-role-assignment-for-the-user-assigned-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
+The following example assigns the **Key Vault Secrets User** role to the user-assigned managed identity to grant it permissions to access secrets in a key vault. The role assignment is scoped to the key vault resource:
 
-Before you create the cluster, [add a role assignment for the managed identity][add-a-role-assignment-for-the-managed-identity] by calling the [`az role assignment create`][az-role-assignment-create] command.
+```azurecli-interactive
+az role assignment create \
+    --assignee $CLIENT_ID \
+    --role "Key Vault Secrets User" \
+    --scope "<keyvault-resource-id>"
+```
+
+> [!NOTE]
+>
+> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to propagate.
 
 ### Create a cluster with the user-assigned managed identity
 
@@ -208,14 +233,13 @@ az aks create \
     --vnet-subnet-id <subnet-id> \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 \
-    --assign-identity <identity-resource-id>
-  ```
+    --assign-identity $RESOURCE_ID \
+    --generate-ssh-keys
+```
 
 > [!NOTE]
 >
-> The USDOD Central, USDOD East, and USGov Iowa regions in Azure US Government cloud don't support user-assigned managed identities.
->
-> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
+> The USDOD Central, USDOD East, and USGov Iowa regions in Azure US Government cloud don't support creating a cluster with a user-assigned managed identity.
 
 ### Update an existing cluster to use a user-assigned managed identity
 
