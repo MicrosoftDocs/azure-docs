@@ -18,7 +18,7 @@ Azure Cosmos DB is a fully managed NoSQL, relational, and vector database for mo
 
 Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB. 
 
-Azure Cosmos DB for MongoDB provides an SLA that covers the full stack: the database and the underlying infrastructure such as the VMs and network. Unlike third-party MongoDB services such as MongoDB Atlas, which only cover the database and exclude services, hardware, or software provided by the cloud platform, leaving your applications at risk.
+Azure Cosmos DB for MongoDB provides an SLA that covers the full stack: the database and the underlying infrastructure. Unlike third-party MongoDB services such as MongoDB Atlas, which only cover the database and exclude services, hardware, or software provided by the cloud platform.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWXr4T]
 
@@ -33,7 +33,6 @@ Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service of
 - **Native Vector Database**: Seamlessly integrate your AI-based applications with your data that's stored in Azure Cosmos DB for MongoDB vCore. This integration is an all-in-one solution, unlike other vector search solutions that send your data between service integrations.  
 
 - **Instantaneous scalability**: With Autoscale, your database scales instantaneously with zero warmup period. Other MongoDB offerings such as MongoDB Atlas can take hours to scale up and up to days to scale down.
-- 
 - **Flat pricing with Low total cost of ownership**: Enjoy a familiar pricing model for Azure Cosmos DB for MongoDB vCore, based on compute (vCores & RAM) and storage (disks).
 
 - **Elevate querying with Text Indexes**: Enhance your data querying efficiency with our text indexing feature. Seamlessly navigate full-text searches across MongoDB collections, simplifying the process of extracting valuable insights from your documents.
