@@ -4,12 +4,6 @@ description: This article shows you where Azure customers receive Azure security
 ms.topic: conceptual
 ms.date: 10/27/2022
 ---
----
-title: Stay informed about Azure security issues
-description: This article shows you where Azure customers receive Azure security notifications and three steps you can follow to ensure security alerts reach the right people in your organization.
-ms.topic: conceptual
-ms.date: 10/27/2022
----
 # Stay informed about Azure security issues
 
 With the increased adoption of cloud computing, customers rely increasingly on Azure to run their workload for critical and non-critical business applications. It is important for you as Azure customers to stay informed about Azure security issues or privacy breaches and take the right action to protect your environment.
@@ -38,16 +32,18 @@ If a security issue requires direct action taken by subscription admins/owners, 
 >[!Note]
 >You should ensure that there is a **contactable email address** as the [subscription administrator or subscription owner](../cost-management-billing/manage/add-change-subscription-administrator.md). This email address is used for security issues that would have impact at the subscription level.
 
-### Security issues affecting your Azure workloads
+### Security issues affecting your Azure tenant workloads
 
-We typically communicate security-related information affecting your Azure workloads via **Email Notification**. We send an email notification to Global Admin(s) and Technical Contact(s).
+We typically communicate security-related information affecting your Azure **tenant** workloads via **Email Notification**. We send an email notification to Global admin and Technical Contacts.
+
+>[!Note]
+>You should ensure that there is a **contactable email address** entered for your organization's [Global Admin](../active-directory/roles/permissions-reference.md) and [Technical contact](../active-directory/fundamentals/active-directory-properties-area.md) on your tenant. This email address is used for security issues that would have impact at the tenant level.  
 
 As of June 2024, we're enhancing the visibility of our Azure Service Health security communications. Typically, notifications are issued at the corresponding level for which they are architected, i.e. if a service is architected at the subscription level, we will send communications at the subscription level. Conversely, if the service is architected at the tenant level (such as Entra) we will send communications at the tenant level. 
 
 However, when Microsoft determines a security event is particularly impactful AND architected at the subscription level, we will also proactively issue additional communications at the tenant level to guarantee the broadest possible awareness. 
 
-> [!Note]
-> You should ensure that there is a **contactable email address** entered for your organization's [Global Admin](../active-directory/roles/permissions-reference.md) and [Technical contact](../active-directory/fundamentals/active-directory-properties-area.md) on your tenant. This email address is used for security issues that would have impact at the tenant level.  ## Three steps to help you stay informed about Azure security issues
+## Three steps to help you stay informed about Azure security issues
 
 **1. Check Contact on Subscription Admin Owner Role**
 
@@ -66,4 +62,3 @@ Depending on your requirements, you can configure various alerts to use the same
 There's an important difference between Service Health security advisories and [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) security notifications. Security advisories in Service Health provide notifications dealing with platform vulnerabilities and security and privacy breaches at the subscription and tenant level,   while security notifications in Microsoft Defender for Cloud communicate vulnerabilities that pertain to affected individual Azure resources.
 
 More information about the Azure Service Health notifications can be found at: [What are Azure service health notifications? - Azure Service Health | Microsoft Learn](../service-health/service-health-notifications-properties.md)
-
