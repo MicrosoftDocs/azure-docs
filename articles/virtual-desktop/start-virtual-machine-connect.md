@@ -1,6 +1,6 @@
 ---
 title: Configure Start VM on Connect for Azure Virtual Desktop
-description: How to enable or disable Start VM on Connect for Azure Virtual Desktop to power on session host virtual machines only when they're needed.
+description: Learn how to enable or disable Start VM on Connect for Azure Virtual Desktop to power on session host virtual machines only when they're needed.
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
@@ -14,7 +14,7 @@ ms.date: 06/04/2024
 
 Start VM on Connect lets you reduce costs by enabling end users to power on the virtual machines (VMs) used as session hosts only when they're needed. You can then power off VMs when they're not needed.
 
-For personal host pools, Start VM on Connect will only power on an existing session host VM that has already been assigned or will be assigned to a user. For pooled host pools, Start VM on Connect will only power on a session host VM when none are turned on and additional VMs will only be turned on when the first VM reaches the session limit.
+For personal host pools, Start VM on Connect only powers on an existing session host VM that is already assigned or can be assigned to a user. For pooled host pools, Start VM on Connect only powers on a session host VM when none are turned on and more VMs are only be turned on when the first VM reaches the session limit.
 
 The time it takes for a user to connect to a remote session on a session host that is powered off (deallocated) increases because the VM needs time to power on again, much like turning on a physical computer. When a user uses Windows App and the Remote Desktop app to connect to Azure Virtual Desktop, they're told a VM is being powered on while they're connecting.
 
@@ -30,13 +30,13 @@ Before you can use Start VM on Connect, you need:
 
 - Windows App or the Remote Desktop app installed on a local device with a user account assigned to a desktop or application in the application group you can test with.
 
-- Make sure that the name of the host pool, session hosts in that host pool, and the resource group only have ANSI characters. If a name contains non-ANSI characters, Start VM on Connect won't work as expected.
+- Make sure that the name of the host pool, session hosts in that host pool, and the resource group only have ANSI characters.
 
 - If you want to use Azure PowerShell or Azure CLI locally, see [Use Azure PowerShell and Azure CLI with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module or the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## Assign the Desktop Virtualization Power On Contributor role with the Azure portal
 
-To configure Start VM on Connect, you need to assign the *Desktop Virtualization Power On Contributor* role-based access control (RBAC) role to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. Assigning this role at any level lower than a subscription, such as the resource group, host pool, or VM, prevents Start VM on Connect from working properly.
+To configure Start VM on Connect, you need to assign the *Desktop Virtualization Power On Contributor* role-based access control (RBAC) role to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. If you assign this role at any level lower than a subscription, such as the resource group, host pool, or VM, prevents Start VM on Connect from working properly.
 
 You need to add each Azure subscription that contains host pools and session host VMs you want to use with Start VM on Connect as an assignable scope. This role assignment allows Azure Virtual Desktop to power on VMs, check their status, and report diagnostic information for those subscriptions.
 
@@ -44,7 +44,7 @@ To learn how to assign the *Desktop Virtualization Power On Contributor* role to
 
 ## Enable or disable Start VM on Connect
 
-Once you've assigned the *Desktop Virtualization Power On Contributor* role to the service principal on relevant subscriptions, you can configure Start VM on Connect using the Azure portal, Azure PowerShell, or Azure CLI.
+Once you assign the *Desktop Virtualization Power On Contributor* role to the service principal on relevant subscriptions, you can configure Start VM on Connect using the Azure portal, Azure PowerShell, or Azure CLI.
 
 # [Azure portal](#tab/azure-portal)
 
