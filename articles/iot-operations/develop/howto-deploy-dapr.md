@@ -16,7 +16,7 @@ ms.date: 1/31/2024
 
 The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed applications. Dapr lets you build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): pub/sub, state management, service invocation, actors, and more.  
 
-Azure IoT MQ Preview supports two of these building blocks, powered by [Azure IoT MQ MQTT broker](../manage-mqtt-connectivity/overview-iot-mq.md):
+Azure IoT MQ Preview supports two of these building blocks, powered by [Azure IoT MQ MQTT broker](../manage-mqtt-broker/overview-iot-mq.md):
 
 - Publish and subscribe
 - State management
@@ -143,7 +143,7 @@ To create the yaml file, use the following component definitions:
 
 ## Create authorization policy for IoT MQ
 
-To configure authorization policies to Azure IoT MQ, first you create a [BrokerAuthorization](../manage-mqtt-connectivity/howto-configure-authorization.md) resource.
+To configure authorization policies to Azure IoT MQ, first you create a [BrokerAuthorization](../manage-mqtt-broker/howto-configure-authorization.md) resource.
 
 > [!NOTE]
 > If Broker Authorization is not enabled on this cluster, you can skip this section as the applications will have access to all MQTT topics, including those needed to access the IoT MQ State Store.

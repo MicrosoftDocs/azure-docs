@@ -174,7 +174,7 @@ spec:
 
 It might take a few minutes for the changes to take effect.
 
-You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
+You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-broker/howto-manage-secrets.md).
 
 ## X.509 client certificate
 
@@ -227,7 +227,7 @@ kubectl create secret generic x509-attributes --from-file=x509Attributes.toml -n
 
 To learn about the attributes file syntax, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
 
-Like with username-password authentication, you can use Azure Key Vault to manage this secret for instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
+Like with username-password authentication, you can use Azure Key Vault to manage this secret for instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-broker/howto-manage-secrets.md).
 
 ### Enable X.509 client authentication
 

@@ -56,7 +56,7 @@ The [Azure IoT Akri Preview](discover-manage-assets/overview-akri.md) component 
 
 ## Publish and subscribe with MQTT
 
-[Azure IoT MQ Preview](manage-mqtt-connectivity/overview-iot-mq.md) is an MQTT broker that runs on the edge. It lets you publish and subscribe to MQTT topics. You can use MQ to build event-driven architectures that connect your devices and assets to the cloud.
+[Azure IoT MQ Preview](manage-mqtt-broker/overview-iot-mq.md) is an MQTT broker that runs on the edge. It lets you publish and subscribe to MQTT topics. You can use MQ to build event-driven architectures that connect your devices and assets to the cloud.
 
 Examples of how components in Azure IoT Operations use MQ Preview include:
 

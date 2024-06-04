@@ -163,7 +163,7 @@ The `x509` field includes the following fields:
 
 | Field | Required | Description |
 | --- | --- | --- |
-| secretName | Yes | The Kubernetes secret containing the client certificate and private key. You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).|
+| secretName | Yes | The Kubernetes secret containing the client certificate and private key. You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-broker/howto-manage-secrets.md).|
 
 Many MQTT brokers, like Event Grid, support X.509 authentication. Azure IoT MQ's MQTT bridge can present a client X.509 certificate and negotiate the TLS communication. Use a Kubernetes secret to store the X.509 client certificate, private key and intermediate CA.
 
@@ -211,7 +211,7 @@ spec:
 
 Here, `trustedCaCertifcateName` is the *ConfigMap* for the root CA of Azure IoT MQ, like the [ConfigMap for the root ca of the remote broker](#tls-support). The default root CA is stored in a ConfigMap named `aio-ca-trust-bundle-test-only`.
 
-For more information on obtaining the root CA, see [Configure TLS with automatic certificate management to secure MQTT communication](../manage-mqtt-connectivity/howto-configure-tls-auto.md). 
+For more information on obtaining the root CA, see [Configure TLS with automatic certificate management to secure MQTT communication](../manage-mqtt-broker/howto-configure-tls-auto.md). 
 
 ### TLS support
 
@@ -411,4 +411,4 @@ Azure IoT MQ is a compliant MQTT broker and other brokers can bridge to it with 
 
 ## Related content
 
-- [Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)
+- [Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-broker/overview-iot-mq.md)

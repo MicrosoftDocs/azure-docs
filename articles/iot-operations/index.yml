@@ -36,7 +36,7 @@ landingContent:
           - text: Manage assets
             url: discover-manage-assets/overview-manage-assets.md
           - text: Manage MQTT connectivity
-            url: manage-mqtt-connectivity/overview-iot-mq.md
+            url: manage-mqtt-broker/overview-iot-mq.md
           - text: Process data
             url: process-data/overview-data-processor.md
           - text: Manage layered network

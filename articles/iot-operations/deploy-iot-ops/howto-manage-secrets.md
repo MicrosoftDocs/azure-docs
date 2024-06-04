@@ -174,4 +174,4 @@ kubectl delete pod aio-dp-runner-worker-0 -n azure-iot-operations
 
 ## Azure IoT MQ Preview secrets
 
-The steps to manage secrets with Azure Key Vault for Azure IoT MQ Preview are different. For more information, see [Manage MQ secrets using Key Vault](../manage-mqtt-connectivity/howto-manage-secrets.md).
+The steps to manage secrets with Azure Key Vault for Azure IoT MQ Preview are different. For more information, see [Manage MQ secrets using Key Vault](../manage-mqtt-broker/howto-manage-secrets.md).

@@ -70,23 +70,23 @@ items:
     - name: Manage MQTT broker
       items:
       - name: Overview
-        href: manage-mqtt-connectivity/overview-iot-mq.md
+        href: manage-mqtt-broker/overview-iot-mq.md
       - name: Configure core MQTT broker settings
-        href: manage-mqtt-connectivity/howto-configure-availability-scale.md
+        href: manage-mqtt-broker/howto-configure-availability-scale.md
       - name: Secure MQTT communication endpoints
-        href: manage-mqtt-connectivity/howto-configure-brokerlistener.md
+        href: manage-mqtt-broker/howto-configure-brokerlistener.md
       - name: Configure automatic TLS
-        href: manage-mqtt-connectivity/howto-configure-tls-auto.md
+        href: manage-mqtt-broker/howto-configure-tls-auto.md
       - name: Configure manual TLS
-        href: manage-mqtt-connectivity/howto-configure-tls-manual.md
+        href: manage-mqtt-broker/howto-configure-tls-manual.md
       - name: Configure authentication
-        href: manage-mqtt-connectivity/howto-configure-authentication.md
+        href: manage-mqtt-broker/howto-configure-authentication.md
       - name: Configure authorization
-        href: manage-mqtt-connectivity/howto-configure-authorization.md
+        href: manage-mqtt-broker/howto-configure-authorization.md
       - name: Test connection
-        href: manage-mqtt-connectivity/howto-test-connection.md
+        href: manage-mqtt-broker/howto-test-connection.md
       - name: Manage secrets
-        href: manage-mqtt-connectivity/howto-manage-secrets.md
+        href: manage-mqtt-broker/howto-manage-secrets.md
       - name: Connect to cloud services
         items:
         - name: Connect to MQTT or Event Grid

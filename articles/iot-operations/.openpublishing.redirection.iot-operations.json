@@ -139,6 +139,51 @@
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/concept-akri-architecture.md",
             "redirect_url": "/azure/iot-operations/discover-manage-assets/concept-akri-architecture",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/overview-iot-mq.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/overview-iot-mq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-test-connection.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-test-connection",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-manage-secrets.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-manage-secrets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-tls-manual.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-tls-manual",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-tls-auto.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-tls-auto",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-brokerlistener.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-brokerlistener",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-availability-scale.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-availability-scale",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-authorization.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-authorization",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-authentication.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-authentication",
+            "redirect_document_id": true
         }
     ]
 }
