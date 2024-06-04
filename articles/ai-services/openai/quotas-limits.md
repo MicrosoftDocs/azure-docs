@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 05/19/2024
+ms.date: 06/04/2024
 ms.author: mbullwin
 ---
 
@@ -45,10 +45,11 @@ The following sections provide you with a quick guide to the default quotas and 
 | Max files per Assistant/thread | 20 |
 | Max file size for Assistants & fine-tuning | 512 MB |
 | Assistants token limit | 2,000,000 token limit |
+| GPT-4o max images per request (# of images in the messages array/conversation history) | 10 |
 
 ## Regional quota limits
 
-[!INCLUDE [Quota](includes/model-matrix/quota.md)]
+[!INCLUDE [Quota](~/reusable-content/ce-skilling/azure/includes/ai-services/openai/includes/model-matrix/quota.md)]
 
 ## gpt-4o rate limits
 
@@ -74,6 +75,18 @@ M = million | K = thousand
 |Default | 150 K | 900 |
 
 M = million | K = thousand
+
+#### Usage tiers
+
+Global Standard deployments use Azure's global infrastructure, dynamically routing customer traffic to the data center with best availability for the customer’s inference requests. This enables more consistent latency for customers with low to medium levels of traffic. Customers with high sustained levels of usage may see more variability in response latency.
+
+The Usage Limit determines the level of usage above which customers might see larger variability in response latency. A customer’s usage is defined per model and is the total tokens consumed across all deployments in all subscriptions in all regions for a given tenant.
+
+#### GPT-4o global standard & standard
+
+|Model| Usage Tiers per month |
+|----|----|
+|`GPT-4o` |1.5 Billion tokens |
 
 ### General best practices to remain within rate limits
 

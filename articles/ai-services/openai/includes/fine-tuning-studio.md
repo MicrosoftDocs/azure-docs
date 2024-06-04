@@ -321,7 +321,7 @@ Here are some of the tasks you can do on the **Models** pane:
 
 [!INCLUDE [Safety evaluation](../includes/safety-evaluation.md)]
 
-## Deploy a custom model
+## Deploy a fine-tuned model
 
 When the fine-tuning job succeeds, you can deploy the custom model from the **Models** pane. You must deploy your custom model to make it available for use with completion calls.
 
