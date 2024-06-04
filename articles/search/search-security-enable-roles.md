@@ -33,7 +33,7 @@ In this article, learn how to configure your search service to recognize an **au
 
 When you enable roles, the change is effective immediately, but wait a few seconds before assigning roles.
 
-The default failure mode is h`ttp401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`.
+The default failure mode is `http401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`.
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
