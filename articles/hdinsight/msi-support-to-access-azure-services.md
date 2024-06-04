@@ -4,7 +4,7 @@ description: Learn how to provide MSI Support to Access Azure services.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/29/2024
+ms.date: 06/04/2024
 ---
 
 # MSI Support to access Azure services
@@ -31,7 +31,7 @@ Implemented a convenient utility class to fetch MSI access token by providing ta
 ### Prerequisites
 
 1. Make sure the Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/<hdi-version>/hadoop/client/*` in the classpath.
-1. Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see [How to build application code with this utility](#how-to-build-application-code-with-this-utility).
+1. Make sure the utility jar dependency is added into the application and compile time dependency.
 
 ### How to use the API
 
@@ -64,14 +64,6 @@ public class AccessToken {
   public OffsetDateTime getExpiresAt();
 }
 ```
-
-### Jar location of the Utils 
-
-You can find the jar files from [here](https://msdata.visualstudio.com/HDInsight/_artifacts/feed/HDInsight-Client-Feed).
-
-> [!NOTE] 
-> Microsoft Azure Feed available shortly by May 31st, then the jar name, version and location changes.
-
 ## Option 2 -Utility, TokenCredential implementation to fetch access token
 
 Provided `HdiIdentityTokenCredential` feature class, which is the standard implementation of `com.azure.core.credential.TokenCredential` interface.
@@ -81,7 +73,7 @@ Make sure, Hadoop's `core-site.xml` and all the client jars from this cluster lo
 ### Prerequisites
 
 * Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/<hdi-version>/hadoop/client/*` in classpath.
-* Make sure the utility jar dependency is added into the application and compile time dependency. For more information, see [How to build application code with this utility](#how-to-build-application-code-with-this-utility).
+* Make sure the utility jar dependency is added into the application and compile time dependency.
 
 ### If the client is a Key Vault
 
@@ -110,21 +102,3 @@ KeyVaultSecret secret = secretClient.getSecret("<your-secret-name>");
 
 > [!NOTE]
 > This is a standard token credential interface, the Azure resource clients which supported `TokenCredential` is the recommended approach.
-
-Jar Location of the Utils
-
-https://hdiconfigactions2.blob.core.windows.net/hdi-oauth-token-utils-jar/oauth-token-utils-shaded-1.1.jar
-
-:::image type="content" source="./media/msi-support-to-access-azure-services/jar-file-location.png" alt-text="Screenshot showing jar file location." border="true" lightbox="./media/msi-support-to-access-azure-services/jar-file-location.png":::
-
-## How to build application code with this utility
-
-1. Download the utility from the [jar location](https://msdata.visualstudio.com/HDInsight/_artifacts/feed/HDInsight-Client-Feed/maven/com.microsoft.hdinsight%2Fhdi-oauth-token-utils/overview/1.0.0) and keep it to the local `.m2` repository location.
-   
-   :::image type="content" source="./media/msi-support-to-access-azure-services/download-jar-file.png" alt-text="Screenshot showing how to download-jar-file." border="true" lightbox="./media/msi-support-to-access-azure-services/download-jar-file.png":::
-
-1. Add dependencies in the application build script pom.xml.
-
-   :::image type="content" source="./media/msi-support-to-access-azure-services/add-dependencies.png" alt-text="Screenshot showing how to add dependencies." border="true" lightbox="./media/msi-support-to-access-azure-services/add-dependencies.png":::
-
-1. Run maven command `mvn clean install -Dskiptests`
