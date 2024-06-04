@@ -20,7 +20,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 ## **May 2024**
 
 ### FHIR service
-**Enhancements to purge-history operation**
+**Enhancements to the purge-history operation**
 The purge history operation now allows partial delete success using the query parameter ‘allowPartialSuccess’. By default, the purge history operation waits for successful completion before deleting resources. However, if an error occurs during execution, the deletion of resources would be rolled back. By using the ‘allowPartialSuccess’ query parameter, you can prevent the transaction from being rolled back in case of an error.
 
 **Bug Fixes**
