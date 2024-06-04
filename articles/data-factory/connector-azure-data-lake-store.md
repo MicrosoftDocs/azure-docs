@@ -18,7 +18,7 @@ ms.date: 06/03/2024
 This article outlines how to copy data to and from Azure Data Lake Storage Gen1. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!Note]
->Azure Data Lake Storage Gen1 was retired on **February 29, 2024**. Please migrate to [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). See this [article](https://azure.microsoft.com/en-us/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/) for the Azure Data Lake Storage Gen1 migration guidance.
+>Azure Data Lake Storage Gen1 was retired on **February 29, 2024**. Please migrate to [Azure Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md). See this [article](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/) for the Azure Data Lake Storage Gen1 migration guidance.
 
 ## Supported capabilities
 
