@@ -62,11 +62,12 @@ Periodic assessment isn't getting set correctly during create for specialized, m
 Run a remediation task post create to remediate newly created resources. For more information see, [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
 
-## The prerequisite for scheduled patching and attaching schedules is not being set correctly when utilizing the Schedule recurring updates using Azure Update Manager and Set prerequisite for Scheduling recurring updates on Azure virtual machines policies during create for specialized, generalized, migrated, and restored VMs
+## The prerequisite for scheduled patching isn't set correctly and schedules aren't attached when utilizing certain specific policies during create for specialized, generalized, migrated and restored VMs
+
 
 ### Cause
 
-The prerequisite for scheduled patching and attaching schedules is not being set correctly during create for specialized, migrated, and restored VMs because of the way the current Deploy If Not Exists policy is designed. Post-creation, the policy will show these resources as non-compliant on the compliance dashboard.
+The prerequisite for scheduled patching and attaching schedules is not being set correctly when utilizing the **Schedule recurring updates using Azure Update Manager** and **Set prerequisite for Scheduling recurring updates on Azure virtual machines** policies during create for specialized, generalized, migrated, and restored VMs because of the way the current *Deploy If Not Exists policy* is designed. Post-creation, the policy will show these resources as non-compliant on the compliance dashboard.
 
 ### Resolution
 
