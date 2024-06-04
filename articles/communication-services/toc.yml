@@ -414,25 +414,27 @@ items:
         href: how-tos/calling-sdk/push-notifications.md
       - name: Using the mobile UI Library for voice and video
         items: 
-        - name: Set up localization
-          href: how-tos/ui-library-sdk/localization.md
-        - name: Set up theming
+        - name: Configure default orientation
+          href: how-tos/ui-library-sdk/orientation.md
+        - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
+        - name: Disable end call confirmation
+          href: how-tos/ui-library-sdk/leave-call-confirmation.md
+        - name: Enable audio only mode
+          href: how-tos/ui-library-sdk/audio-only-mode.md
+        - name: Enable picture-in-picture
+          href: how-tos/ui-library-sdk/picture-in-picture.md
+        - name: Enable skip the setup screen
+          href: how-tos/ui-library-sdk/skip-setup-screen.md
         - name: Inject participant view data
           href: how-tos/ui-library-sdk/data-model.md
-        - name: Skip the setup screen
-          href: how-tos/ui-library-sdk/skip-setup-screen.md
-        - name: Set up orientation
-          href: how-tos/ui-library-sdk/orientation.md
-        - name: Set up picture-in-picture
-          href: how-tos/ui-library-sdk/picture-in-picture.md
-        - name: Set up CallKit
+        - name: Integrate CalllKit
           href: how-tos/ui-library-sdk/callkit.md
-        - name: Set up one-to-one calling and push notifications
+        - name: Set up localization
+          href: how-tos/ui-library-sdk/localization.md
+        - name: Set up up one-to-one calling and push notifications
           href: how-tos/ui-library-sdk/one-to-one-calling.md
-        - name: Audio Only Mode
-          href: how-tos/ui-library-sdk/audio-only-mode.md
-        - name: Troubleshoot
+        - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
       items:
