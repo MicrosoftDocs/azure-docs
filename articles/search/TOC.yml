@@ -420,6 +420,8 @@
     items:
     - name: Enable role-based access control
       href: search-security-enable-roles.md
+    - name: Configure a managed identity
+      href: search-howto-managed-identities-data-sources.md
     - name: Inbound connections
       items:
       - name: Connect using API keys
@@ -440,8 +442,6 @@
         href: search-indexer-howto-access-trusted-service-exception.md
       - name: Connect using a managed identity
         items:
-        - name: Any Azure resource
-          href: search-howto-managed-identities-data-sources.md
         - name: Azure Storage
           href: search-howto-managed-identities-storage.md
         - name: Azure Cosmos DB

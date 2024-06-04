@@ -16,9 +16,9 @@ ms.date: 06/03/2024
 
 Azure AI Search supports authentication and authorization through role assignments and Microsoft Entra ID, which is built into all Azure tenants.
 
-+ Roles for service administration (control plane) are mandatory. 
+Roles for service administration (control plane) are built-in and can't be disabled.
 
-+ Roles for data plane operations are optional, but strongly recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. You must enable role-based access before you can assign Search Service Contributor, Search Index Data Contributor, or Search Index Data Reader roles for data operations.
+Roles for data plane operations are optional, but strongly recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. You must enable role-based access before you can assign Search Service Contributor, Search Index Data Contributor, or Search Index Data Reader roles for data operations.
 
 In this article, configure your search service to recognize an **authorization** header on data plane requests that provide an OAuth2 access token.
 
@@ -31,15 +31,11 @@ In this article, configure your search service to recognize an **authorization**
 
 + A search service in any region, on any tier.
 
-## Limitations
-
-+ Role-based access control can increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal triggers an authorization check. These authorization checks can add up to 200 milliseconds of latency per request. 
-
-+ In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
-
 ## Enable role-based access for data plane operations
 
-Use the Azure portal, Management REST API, the Azure CLI, or Azure PowerShell to configure the search service.
+When you enables roles, the change is effective immediately, but wait a few seconds before assigning roles.
+
+The default failure mode is h`ttp401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`.
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
@@ -57,9 +53,50 @@ Use the Azure portal, Management REST API, the Azure CLI, or Azure PowerShell to
    | Role-based access control | Requires membership in a role assignment to complete the task. It also requires an authorization header on the request. |
    | Both | Requests are valid using either an API key or role-based access control, but if you provide both in the same request, the API key is used. |
 
-The change is effective immediately, but wait a few seconds before assigning roles.
+### [**Azure CLI**](#tab/config-svc-cli)
 
-When you enable role-based access control, the failure mode is "http401WithBearerChallenge" if authorization fails.
+Run this script to support roles only:
+
+```azurecli
+az search service update `
+  --name YOUR-SEARCH-SERVICE-NAME `
+  --resource-group YOUR-RESOURCE-GROUP-NAME `
+  --disable-local-auth
+```
+
+Or, run this script to support both keys and roles:
+
+```azurecli
+az search service update `
+  --name YOUR-SEARCH-SERVICE-NAME `
+  --resource-group YOUR-RESOURCE-GROUP-NAME `
+  --aad-auth-failure-mode http401WithBearerChallenge `
+  --auth-options aadOrApiKey
+```
+
+For more information, see [Manage your Azure AI Search service with the Azure CLI](search-manage-azure-cli.md).
+
+### [**Azure PowerShell**](#tab/config-svc-powershell)
+
+Run this command to set the authentication type to roles only:
+
+```azurepowershell
+Set-AzSearchService `
+  -Name YOUR-SEARCH-SERVICE-NAME `
+  -ResourceGroupName YOUR-RESOURCE-GROUP-NAME `
+  -DisableLocalAuth 1
+```
+
+Or, run this command to support both keys and roles:
+
+```azurepowershell
+Set-AzSearchService `
+  -Name YOUR-SEARCH-SERVICE-NAME `
+  -ResourceGroupName YOUR-RESOURCE-GROUP-NAME `
+  -AuthOption AadOrApiKey
+```
+
+For more information, see [Manage your Azure AI Search service with PowerShell](search-manage-powershell.md).
 
 ### [**REST API**](#tab/config-svc-rest)
 
@@ -93,15 +130,11 @@ All calls to the Management REST API are authenticated through Microsoft Entra I
     }
     ```
 
-The change is effective immediately, but wait a few seconds before assigning roles. 
-
-When you enable role-based access control, the failure mode is "http401WithBearerChallenge" if authorization fails.
-
 ---
 
 ## Disable role-based access control
 
-Because roles aren't required, it's possible to disable role-based access control for data plane operations and use key-based authentication instead. You might want to do this as part of test worklow, for example to rule out permission issues.
+Because roles aren't required, it's possible to disable role-based access control for data plane operations and use key-based authentication instead. You might do this as part of a test worklow, for example to rule out permission issues.
 
 Reverse the steps you followed previously to enable role-based access.
 
@@ -113,16 +146,14 @@ Reverse the steps you followed previously to enable role-based access.
 
 ## Disable API key authentication
 
-Key access, or local authentication, can be disabled on your service if you're exclusively using the built-in roles and Microsoft Entra authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
+[Key access](search-security-api-keys.md), or local authentication, can be disabled on your service if you're exclusively using the built-in roles and Microsoft Entra authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
 
 > [!NOTE]
 > Admin API keys can only be disabled, not deleted. Query API keys can be deleted.
 
-Owner or Contributor permissions are required to disable features.
+Owner or Contributor permissions are required to disable security features.
 
-To disable [key-based authentication](search-security-api-keys.md), use Azure portal or the Management REST API.
-
-### [**Portal**](#tab/disable-keys-portal)
+### [**Azure portal**](#tab/disable-keys-portal)
 
 1. In the Azure portal, navigate to your search service.
 
@@ -131,6 +162,36 @@ To disable [key-based authentication](search-security-api-keys.md), use Azure po
 1. Select **Role-based access control**.
 
 The change is effective immediately, but wait a few seconds before testing. Assuming you have permission to assign roles as a member of Owner, service administrator, or coadministrator, you can use portal features to test role-based access.
+
+### [**Azure CLI**](#tab/disable-keys-cli)
+
+To disable key-based authentication, set -disableLocalAuth to true. This is the same syntax as the "enable roles only" script presented in the previous section.
+
+```azurecli
+az search service update `
+  --name YOUR-SEARCH-SERVICE-NAME `
+  --resource-group YOUR-RESOURCE-GROUP-NAME `
+  --disable-local-auth
+```
+
+To re-enable key authentication, set -disableLocalAuth to false. The search service resumes acceptance of API keys on the request automatically (assuming they're specified).
+
+For more information, see [Manage your Azure AI Search service with the Azure CLI](search-manage-azure-cli.md).
+
+### [**Azure PowerShell**](#tab/disable-keys-ps)
+
+To disable key-based authentication, set DisableLocalAuth to true. This is the same syntax as the "enable roles only" script presented in the previous section.
+
+```azurepowershell
+Set-AzSearchService `
+  -Name YOUR-SEARCH-SERVICE-NAME `
+  -ResourceGroupName YOUR-RESOURCE-GROUP-NAME `
+  -DisableLocalAuth 1
+```
+
+To re-enable key authentication, set DisableLocalAuth to false. The search service resumes acceptance of API keys on the request automatically (assuming they're specified).
+
+For more information, see [Manage your Azure AI Search service with PowerShell](search-manage-powershell.md).
 
 ### [**REST API**](#tab/disable-keys-rest)
 
@@ -153,13 +214,19 @@ To disable key-based authentication, set "disableLocalAuth" to true.
     }
     ```
 
-Requests that include an API key only, with no bearer token, fail with an HTTP 401.
+To re-enable key authentication, set "disableLocalAuth" to false. The search service resumes acceptance of API keys on the request automatically (assuming they're specified).
 
-To re-enable key authentication, rerun the last request, setting "disableLocalAuth" to false. The search service resumes acceptance of API keys on the request automatically (assuming they're specified).
+---
+
+## Limitations
+
++ Role-based access control can increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal triggers an authorization check. These authorization checks can add up to 200 milliseconds of latency per request. 
+
++ In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
 
 ---
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure a managed identity for a search service]()
+> [Configure a managed identity for a search service](search-howto-managed-identities-data-sources.md)
