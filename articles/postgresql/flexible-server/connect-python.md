@@ -12,6 +12,7 @@ ms.custom:
   - mvc
   - mode-api
   - devx-track-python
+  - passwordless-python
 ms.devlang: python
 ---
 
