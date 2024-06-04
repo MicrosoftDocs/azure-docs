@@ -44,11 +44,19 @@ Ignore any warnings about modules currently in use.
 
 Next, install or update the Azure Container Apps extension for the CLI.
 
+If, when you run `az containerapp` commands in Azure CLI, or `Az.App` commands in Azure PowerShell, you receive errors about missing parameters, be sure you have the latest version of the Azure Container Apps extension installed.
+
 # [Bash](#tab/bash)
 
 ```azurecli
 az extension add --name containerapp --upgrade
 ```
+
+> [!NOTE]
+> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](./whats-new.md) are not available, install the Container Apps extension with `--allow-preview true`.
+> ```azurecli
+> az extension add --name containerapp --upgrade --allow-preview true
+> ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
