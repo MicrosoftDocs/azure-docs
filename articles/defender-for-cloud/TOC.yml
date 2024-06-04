@@ -917,7 +917,7 @@
       - name: DevOps environment security posture
         href: concept-devops-environment-posture-management-overview.md
       - name: Reliability in Cloud for DevOps security
-        href: ../reliability/reliability-defender-devops.md?toc=/azure/defender-for-cloud/toc.json&bc=/azure/defender-for-cloud/breadcrumb/toc.json
+        href: /azure/reliability/reliability-defender-devops?toc=/azure/defender-for-cloud/toc.json&bc=/azure/defender-for-cloud/breadcrumb/toc.json
       - name: Onboard
         items:
           - name: Connect your Azure DevOps environment
@@ -1079,9 +1079,9 @@
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation
-      href: ../defender-for-iot/index.yml
+      href: /azure/defender-for-iot/
     - name: Azure security documentation
-      href: ../security/index.yml
+      href: /azure/security/
     - name: Microsoft Defender for Cloud tech community blogs
       href: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog
     - name: Microsoft Defender for Cloud on Stack Overflow
