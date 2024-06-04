@@ -212,6 +212,8 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [What API version should I use to create a VM or Virtual Machine Scale Set out of the image version?](#what-api-version-should-i-use-to-create-a-vm-or-virtual-machine-scale-set-out-of-the-image-version)
 * [Can I update my Virtual Machine Scale Set created using managed image to use Azure Compute Gallery images?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-azure-compute-gallery-images)
 * [How can I update my code to use the new property and ensure permissions are granted accurately during VM image creation?](#how-can-i-update-my-code-to-use-the-new-property-and-ensure-permissions-are-granted-accurately-during-vm-image-creation)
+* [Does deleting the Azure Compute Gallery affect VMs (using custom image) created from it?](#does-deleting-the-azure-compute-gallery-affect-vm's-created-from-it)
+* [Does deleting the Azure Compute Gallery in the source region affect VMs created from replicated images (custom images) in the destination region?](#does-deleting-the-azure-compute-gallery-in-the-source-region-affect-vm's-created-from-replicated-images-(custome-images)-in-the-destination-region)
 
 ### How can I list all the Azure Compute Gallery resources across subscriptions?
 
@@ -368,6 +370,16 @@ StorageProfile = new GalleryImageVersionStorageProfile()
                 }
             },
 ```
+
+### Does deleting the Azure Compute Gallery affect VMs (using custom image) created from it?
+VMs created from the Azure Compute Gallery image remains unaffected due to their persistent disks. 
+However, VMSS may fail as they rely on the source image ID reference which would be lost once the Azure Compute Gallery is deleted.
+
+### Does deleting the Azure Compute Gallery in the source region affect VMs created from replicated images (custom images) in the destination region?
+VMs created from the Azure Compute Gallery image remains unaffected due to their persistent disks. 
+However, VMSS may fail as they rely on the source image ID reference which would be lost once the Azure Compute Gallery is deleted.
+
+
 ## Troubleshoot
 If you have issues with performing any operations on the gallery resources, consult the list of common errors in the [troubleshooting guide](troubleshooting-shared-images.md).
 
