@@ -22,7 +22,7 @@ This article provides a summary of the latest releases and major documentation u
 
 ### Customer-managed key (CMK) support for Assistants
 
-Today we support CMK for Threads and Files in Assistants. Currently CMK is available in:
+Threads and Files in Assistants now supports CMK in the following region:
 * West US 3
 
 ## May 2024
