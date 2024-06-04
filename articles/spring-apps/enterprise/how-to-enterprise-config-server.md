@@ -155,7 +155,7 @@ Some configurable properties are available only for certain types. The following
 
 ### Public repository
 
-When you use a public repository, your configurable properties are more limited than that of a private repository.
+When you use a public repository, your configurable properties are more limited than a private repository.
 
 The following table lists the configurable properties you can use to set up a public Git repository:
 
@@ -203,7 +203,7 @@ The following table lists the configurable properties you can use to set up Git 
 | Property                           | Required       | Feature                                                                                                                                                             |
 |:-----------------------------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `repos`                            | No             | A map consisting of the settings for a Git repository with a given name.                                                                                            |
-| `repos."uri"`                      | Yes on `repos` | The URI of the Git repository that's used as the Config Server back end. Should begin with `http://`, `https://`, `git@`, or `ssh://`.                              |
+| `repos."uri"`                      | Yes on `repos` | The URI of the Git repository used as the Config Server back end. Should begin with `http://`, `https://`, `git@`, or `ssh://`.                                     |
 | `repos."name"`                     | Yes on `repos` | A name to identify the repository; for example, *team-A* or *team-B*. Required only if `repos` exists.                                                              |
 | `repos."pattern"`                  | No             | An array of strings used to match an application name. For each pattern, use the format *{application}/{profile}* with wildcards.                                   |
 | `repos."default-label"`            | No             | The default label of the Git repository. Should be the branch name, tag name, or commit IOD of the repository.                                                      |
@@ -303,7 +303,7 @@ If you want to configure your service with an optional extra repository, specify
 
 ### Configure Git repository by Importing a YAML file
 
-If you've written a YAML file with your repository settings, you can import the file directly from your local machine to Azure Spring Apps. The following example shows a simple YAML file for a private repository with basic authentication:
+If you wrote a YAML file with your repository settings, you can import the file directly from your local machine to Azure Spring Apps. The following example shows a simple YAML file for a private repository with basic authentication:
 
 ```yaml
 spring:
