@@ -36,7 +36,7 @@ The top level AI Studio resources (hub and project) are based on Azure Machine L
  
 :::image type="content" source="../media/concepts/resource-provider-connected-resources.svg" alt-text="Diagram of the relationship between AI Studio resources." :::
 
-### Hub enable central resource setup and governance
+### Centrally setup and govern Azure resources using hubs
 
 Hubs provide a central way for a team to govern security, connectivity, and computing resources across playgrounds and projects. Projects that are created using a hub inherit the same security settings and shared resource access. Teams can create as many projects as needed to organize work, isolate data, and/or restrict access.
 
