@@ -31,7 +31,7 @@ In the domain of network management, monitoring the Interface In and Out Packet 
 	
 ## Step 3: Select the network fabric devices
   
-  After choosing the desired subscription and resource type, you'll need to narrow down to the specific network fabric device you want to monitor.
+  After choosing your preferred subscription and resource type, you'll then need to focus on choosing the particular network fabric device you wish to monitor. Alternatively, you can choose the resource group to include all network devices within it.
 
   :::image type="content" source="media/select-network-device-resource.png" alt-text="Screenshot of Azure portal showing the list of resource types." lightbox="media/select-network-device-resource.png":::
 	
@@ -46,6 +46,8 @@ In the domain of network management, monitoring the Interface In and Out Packet 
   **Interface In Pkts**
 
   :::image type="content" source="media/metrics-interface-in-pkts.png" alt-text="Screenshot of Azure portal showing the interface in packet rate metric chart." lightbox="media/metrics-interface-in-pkts.png":::
+
+ 
 	
   **Interface Out Pkts**
 
@@ -62,6 +64,42 @@ In the domain of network management, monitoring the Interface In and Out Packet 
  - **In packet rate:** This metric refers to the rate at which the network interface received packets. Essentially, it measures the flow of incoming data packets to the device.
 	
 	:::image type="content" source="media/metrics-interface-in-pkt-avg.png" alt-text="Screenshot of Azure portal showing the average interface in packet rate metric chart." lightbox="media/metrics-interface-in-pkt-avg.png":::
+
+- Below is the equivalent show command run on the device to retrieve the interface's "In" and "Out" packet rate.
+
+  ```bash
+  show int eth17/1
+  ```
+
+  ```Output
+  Ethernet17/1 is up, line protocol is up (connected)
+  Hardware is Ethernet, address is c4ca.2b69.bcc7
+  Description: "AR-CE1:Et17/1 to CR1-TOR1-Port31"
+  Internet address is 10.100.12.1/31
+  Broadcast address is 255.255.255.255
+  IPv6 link-local address is fe80::c6ca:2bff:fe69:bcc7/64
+  IPv6 global unicast address(es):
+    fda0:d59c:df06:c::1, subnet is fda0:d59c:df06:c::/127
+  IP MTU 9214 bytes, Ethernet MRU 10240 bytes, BW 100000000 kbit
+  Full-duplex, 100Gb/s, auto negotiation: off, uni-link: disabled
+  Up 39 days, 14 hours, 26 minutes, 33 seconds
+  Loopback Mode : None
+  2 link status changes since last clear
+  Last clearing of "show interface" counters 39 days, 14:39:49 ago
+  5 minutes input rate 1.62 Mbps (0.0% with framing overhead), **166 packets/sec**
+  5 minutes output rate 215 kbps (0.0% with framing overhead), 86 packets/sec
+     453326486 packets input, 522128942184 bytes
+     Received 18 broadcasts, 119342 multicast
+     0 runts, 0 giants
+     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards
+     0 PAUSE input
+     239392039 packets output, 127348527379 bytes
+     Sent 16 broadcasts, 119510 multicast
+     0 output errors, 0 collisions
+     0 late collision, 0 deferred, 0 output discards
+     0 PAUSE output
+
+  ```
 
 - **Out packet rate:** Conversely, the network interface sent packets at the rate measured by this metric. It indicates the flow of outgoing data packets from the device to other network destinations.
   

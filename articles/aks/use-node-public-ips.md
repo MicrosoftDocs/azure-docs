@@ -21,13 +21,13 @@ az group create --name myResourceGroup2 --location eastus
 Create a new AKS cluster and attach a public IP for your nodes. Each of the nodes in the node pool receives a unique public IP. You can verify this by looking at the Virtual Machine Scale Set instances.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+az aks create --resource-group MyResourceGroup2 --name MyManagedCluster --location eastus  --enable-node-public-ip
 ```
 
 For existing AKS clusters, you can also add a new node pool, and attach a public IP for your nodes.
 
 ```azurecli-interactive
-az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+az aks nodepool add --resource-group MyResourceGroup2 --cluster-name MyManagedCluster --name nodepool2 --enable-node-public-ip
 ```
 
 ## Use a public IP prefix
@@ -53,7 +53,7 @@ View the output, and take note of the `id` for the prefix:
 Finally, when creating a new cluster or adding a new node pool, use the flag `node-public-ip-prefix` and pass in the prefix's resource ID:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
+az aks create --resource-group MyResourceGroup3 --name MyManagedCluster --location eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
 ```
 
 ## Locate public IPs for nodes
@@ -68,7 +68,7 @@ You can locate the public IPs for your nodes in various ways:
 > The [node resource group][node-resource-group] contains the nodes and their public IPs. Use the node resource group when executing commands to find the public IPs for your nodes.
 
 ```azurecli
-az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+az vmss list-instance-public-ips --resource-group MC_MyResourceGroup2_MyManagedCluster_eastus --name YourVirtualMachineScaleSetName
 ```
 
 ## Use public IP tags on node public IPs
@@ -82,7 +82,7 @@ Public IP tags can be utilized on node public IPs to utilize the [Azure Routing 
 ### Create a new cluster using routing preference internet
 
 ```azurecli-interactive
-az aks create -n <clusterName> -l <location> -g <resourceGroup> \
+az aks create --name <clusterName> --location <location> --resource-group <resourceGroup> \
   --enable-node-public-ip \
   --node-public-ip-tags RoutingPreference=Internet
 ```
@@ -90,7 +90,7 @@ az aks create -n <clusterName> -l <location> -g <resourceGroup> \
 ### Add a node pool with routing preference internet
 
 ```azurecli-interactive
-az aks nodepool add --cluster-name <clusterName> -n <nodepoolName> -l <location> -g <resourceGroup> \
+az aks nodepool add --cluster-name <clusterName> --name <nodepoolName> --location <location> --resource-group <resourceGroup> \
   --enable-node-public-ip \
   --node-public-ip-tags RoutingPreference=Internet
 ```

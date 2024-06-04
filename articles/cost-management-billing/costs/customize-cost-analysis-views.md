@@ -87,7 +87,7 @@ Costs are shown in your billing currency by default. If you have charges in mult
 
 When you view a chart, it can be helpful to visualize your charges against a budget. It's especially helpful when showing accumulated daily costs with a forecast trending towards your budget. If your costs go over your budget, you'll see a red critical icon next to your budget. If your forecast goes over your budget, you'll see a yellow warning icon.
 
-When you view daily or monthly costs, your budget may be estimated for the period. For instance, a monthly budget of $31 will be shown as `$1/day (est)`. Note your budget won't be shown as red when it exceeds this estimated amount on a specific day or month.
+When you view daily or monthly costs, your budget may be estimated for the period. For instance, a monthly budget of $31 are shown as `$1/day (est)`. Note your budget won't be shown as red when it exceeds this estimated amount on a specific day or month.
 
 Budgets that have filters aren't currently supported in cost analysis. You won't see them in the list. Budgets on lower-level scopes are also not shown in cost analysis today. To view a budget for a specific scope, change scope using the scope picker.
 
@@ -121,6 +121,6 @@ You can view the full dataset for any view. Whichever selections or filters that
 
 :::image type="content" source="./media/customize-cost-analysis-views/accumulated-costs-resource-chart.png" alt-text="Screenshot showing the table view." lightbox="./media/customize-cost-analysis-views/accumulated-costs-resource-chart.png" :::
 
-## Next steps
+## Related content
 
 - Learn about [Saving and sharing customized views](save-share-views.md).

@@ -39,7 +39,7 @@ In addition to risk level, we recommend that you prioritize the security control
 
 ## Use the Fix option
 
-To simplify the remediation process, a Fix button may appear in a recommendation. The Fix button helps you quickly remediate a recommendation on multiple resources. If the Fix button is not present in the recommendation, then there is no option to apply a quick fix, and you must follow the presented remediation steps to address the recommendation.
+To simplify the remediation process, a Fix button might appear in a recommendation. The Fix button helps you quickly remediate a recommendation on multiple resources. If the Fix button is not present in the recommendation, then there is no option to apply a quick fix, and you must follow the presented remediation steps to address the recommendation.
 
 **To remediate a recommendation with the Fix button**:
 

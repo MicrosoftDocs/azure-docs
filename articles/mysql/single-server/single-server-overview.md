@@ -83,11 +83,9 @@ The service runs community version of MySQL. This allows full application compat
 - **Azure Database Migration Service** – For seamless and simplified offline migrations to single server with high speed data migration, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md) can be leveraged. 
 - **Data-in replication** – For minimal downtime migrations, data-in replication, which relies on binlog based replication can also be leveraged. Data-in replication is preferred for minimal downtime migrations by hands-on experts looking for more control over migration. See [data-in replication](concepts-data-in-replication.md) for details.
 
-## Contacts
+## Feedback and support
 
-For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.
-
-In addition, consider the following points of contact as appropriate:
+For any questions or suggestions you might have about working with Azure Database for MySQL flexible server, consider the following points of contact:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.

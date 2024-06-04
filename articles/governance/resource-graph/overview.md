@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 01/29/2024
+ms.date: 05/08/2024
 ms.topic: overview
 ms.custom: devx-track-arm-template
 ---
@@ -146,9 +146,6 @@ Resource Graph also supports Azure CLI, Azure PowerShell, and REST API. The quer
 You can create alert rules by using either Azure Resources Graph queries or integrating Log Analytics with Azure Resources Graph queries through Azure Monitor. Both methods can be used to create alerts for Azure resources. For examples, go to [Quickstart: Create alerts with Azure Resource Graph and Log Analytics](./alerts-query-quickstart.md).
 
 ## Run queries with Power BI connector
-
-> [!NOTE]
-> The Azure Resource Graph Power BI connector is in public preview.
 
 The Azure Resource Graph Power BI connector runs queries at the tenant level but you can change the scope to subscription or management group. The Power BI connector has an optional setting to return all records if your query results have more than 1,000 records. For more information, go to [Quickstart: Run queries with the Azure Resource Graph Power BI connector](./power-bi-connector-quickstart.md).
 

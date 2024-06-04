@@ -56,7 +56,9 @@ In a code editor, create a new file named `test_entitylinking_payload.json` and 
 
 Save `test_entitylinking_payload.json` somewhere on your computer. For example, your desktop.
 
-## Send a entity linking API request
+<a name='send-a-entity-linking-api-request'></a>
+
+## Send an entity linking API request
 
 Use the following commands to send the API request using the program you're using. Copy the command into your terminal, and run it.
 
