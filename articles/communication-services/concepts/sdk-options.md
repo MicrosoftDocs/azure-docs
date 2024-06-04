@@ -2,12 +2,12 @@
 title: SDK's and REST APIs for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn more about Azure Communication Services SDK's and REST APIs.
-author: tophpalmer
+author: sloanster
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
-ms.date: 04/16/2024
+ms.author: micahvivion
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -18,6 +18,9 @@ Azure Communication Services capabilities are conceptually organized into discre
 In the tables below we summarize these areas and availability of REST APIs and SDK libraries. We note if APIs and SDKs are intended for end-user clients or trusted service environments. APIs such as SMS shouldn't be directly accessed by end-user devices in low trust environments.
 
 Development of Calling and Chat applications can be accelerated by the  [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
+
+## Creating a practice to use the latest SDK
+In today's, browser versions and operating systems are always being upgraded to support the latest in advancement and to help fixi outstanding bugus and isues. Using the latest Azure Communication Services SDK can help you achieve the best quality for your application. The latest ACS's SDK and offers many benefits, such as improved performance, security, compatibility, and usability. It also allows you to take advantage of the newest features and updates that are constantly being added to the javascript language and ecosystem. The SDK's are always upgraded on a regular basis. It is recommended that as a developer you create a procress to ensure that you are always upgrading to the latest SDK's.
 
 ## SDKs
 
