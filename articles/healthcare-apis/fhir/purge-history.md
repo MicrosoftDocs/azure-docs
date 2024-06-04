@@ -33,17 +33,12 @@ For example:
 DELETE https://workspace-fhir.fhir.azurehealthcareapis.com/Observation/123/$purge-history
 ```
 
-## Next steps
+## Related content
 
-In this article, you learned how to purge the history for resources in the FHIR service. For more information about how to disable history and some concepts about history management, see
+[Versioning policy and history management](fhir-versioning-policy-and-history-management.md)
 
->[!div class="nextstepaction"]
->[Versioning policy and history management](fhir-versioning-policy-and-history-management.md)
+[Supported FHIR features](fhir-features-supported.md)
 
->[!div class="nextstepaction"]
->[Supported FHIR features](fhir-features-supported.md)
+[REST API capabilities in the FHIR service in Azure Health Data Services](rest-api-capabilities.md)
 
->[!div class="nextstepaction"]
->[FHIR REST API capabilities for Azure Health Data Services FHIR service](fhir-rest-api-capabilities.md)
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

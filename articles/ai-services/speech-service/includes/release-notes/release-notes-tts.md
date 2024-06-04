@@ -7,6 +7,12 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### May 2024 release
+
+#### Personal voice (GA)
+
+Personal voice is now generally available. With personal voice, you can get AI generated replication of your voice (or users of your application) in a few seconds. You provide a one-minute speech sample as the audio prompt, and then use it to generate speech in any of the more than 90 languages supported across more than 100 locales. For more information, see the [personal voice overview](../../personal-voice-overview.md).
+
 ### April 2024 release
 
 #### Text to speech avatar

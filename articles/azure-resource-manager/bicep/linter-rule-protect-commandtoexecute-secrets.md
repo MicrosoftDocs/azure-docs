@@ -1,7 +1,7 @@
 ---
 title: Linter rule - use protectedSettings for commandToExecute secrets
 description: Linter rule - use protectedSettings for commandToExecute secrets
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 03/20/2024
 ---

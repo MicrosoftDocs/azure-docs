@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 03/26/2024
+ms.date: 05/15/2024
 ms.author: danlep
 ---
 # Deploy your Azure API Management instance to a virtual network - external mode
@@ -40,7 +40,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 1. In the list of locations (regions) where your API Management service is provisioned: 
     1. Choose a **Location**.
-    1. Select **Virtual network**, **Subnet**, and **IP address**. 
+    1. Select **Virtual network**, **Subnet**, and (optionally) **IP address**. 
     * The VNet list is populated with Resource Manager VNets available in your Azure subscriptions, set up in the region you are configuring.
 
         :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="VNet settings in the portal.":::
@@ -49,7 +49,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
 
-7. In the top navigation bar, select **Save**, then select **Apply network configuration**.
+7. In the top navigation bar, select **Save**.
 
 It can take 15 to 45 minutes to update the API Management instance. Instances in the Developer tier have downtime during the process. Instances in the Premium tier don't have downtime during the process. 
 

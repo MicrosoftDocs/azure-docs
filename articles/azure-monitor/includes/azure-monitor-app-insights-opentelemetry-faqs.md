@@ -93,7 +93,7 @@ The following chart breaks out OpenTelemetry feature support for each language.
 | [Logs collection](../app/asp-net-trace-logs.md)                                                                       | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: |
 | [Custom Events](../app/usage-overview.md#custom-business-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
 | [Microsoft Entra authentication](../app/azure-ad-authentication.md)                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Live metrics](../app/live-stream.md)                                                                                 | :x:                | :x:                | :x:                | :white_check_mark: |
+| [Live metrics](../app/live-stream.md)                                                                                 | :warning:          | :warning:          | :warning:          | :white_check_mark: |
 | Detect Resource Context for VM/VMSS and App Service                                                                   | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
 | Detect Resource Context for Azure Kubernetes Service (AKS) and Functions                                              | :x:                | :x:                | :x:                | :white_check_mark: |           
 | Availability Testing Span Filtering                                                                                   | :x:                | :x:                | :x:                | :white_check_mark: |

@@ -32,7 +32,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ACP Technologies](https://acp.us.com)|
 |[ActioNet](https://www.actionet.com/)|
 |[ADNET Technologies](https://thinkadnet.com/)|
-|[Adoxio Business Solutions Limited](https://www.adoxio.com)|
 |[Advisicon, Inc](https://advisicon.com/)|
 |[Advizex Technologies](https://advizex.com/)|
 |[Aeon Nexus Corp.](https://www.aeonnexus.com/)|
@@ -381,6 +380,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Saasplaza](https://www.intwo.cloud/)|
 |[Science Applications International Corporation](https://www.saic.com)|
 |[Secure-24](https://www.secure-24.com)|
+|[Sela Cloud](https://www.selacloud.com)|
 |[Selex Galileo Inc](http://www.selexgalileo.com/)|
 |[Sentinel Blue](https://www.sentinelblue.com/)|
 |[Sev1Tech](https://www.sev1tech.com/)|

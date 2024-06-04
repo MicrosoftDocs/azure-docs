@@ -50,20 +50,6 @@
         href: tutorial-rotate-revoke-customer-managed-keys.md
       - name: Troubleshoot
         href: tutorial-troubleshoot-customer-managed-keys.md
-    - name: Artifact Cache
-      items:
-      - name: Artifact Cache - Overview
-        href: tutorial-artifact-cache.md
-      - name: Enable Artifact Cache - Azure portal
-        href: tutorial-enable-artifact-cache.md
-      - name: Enable Artifact Cache with authentication - Azure portal
-        href: tutorial-enable-artifact-cache-auth.md
-      - name: Enable Artifact Cache - Azure CLI
-        href: tutorial-enable-artifact-cache-cli.md
-      - name: Enable Artifact Cache with authentication - Azure CLI
-        href: tutorial-enable-artifact-cache-auth-cli.md
-      - name: Troubleshoot 
-        href: tutorial-troubleshoot-artifact-cache.md
   - name: Samples
     items:
     - name: Azure Resource Graph queries
@@ -90,6 +76,8 @@
       href: container-registry-image-tag-version.md
     - name: Artifact streaming
       href: container-registry-artifact-streaming.md
+    - name: Artifact cache
+      href: container-registry-artifact-cache.md
     - name: Geo-replication
       href: container-registry-geo-replication.md
     - name: Zone redundancy
@@ -110,12 +98,10 @@
       items:
       - name: Push and pull an image
         href: container-registry-get-started-docker-cli.md
-      - name: Push and pull an OCI artifact
-        href: container-registry-oci-artifacts.md
       - name: Push and pull a Helm chart
         href: container-registry-helm-repos.md
-      - name: Push and pull supply chain artifacts (preview)
-        href: container-registry-oras-artifacts.md
+      - name: Manage artifacts with ORAS
+        href: container-registry-manage-artifact.md
       - name: View repositories
         href: container-registry-repositories.md
       - name: Import container images
@@ -369,6 +355,8 @@
     href: container-registry-api-deprecation.md
   - name: Troubleshoot Artifact streaming
     href: troubleshoot-artifact-streaming.md
+  - name: Troubleshoot Artifact cache
+    href: troubleshoot-artifact-cache.md
 - name: Resources
   expanded: false
   items:

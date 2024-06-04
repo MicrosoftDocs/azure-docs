@@ -1454,6 +1454,14 @@ If other relationships are listed, then the control passes.
 
 **Severity**: Low
 
+## AI recommendations
+
+### [AWS Bedrock should have model invocation logging enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/Recommendation.ReactView/assessedResourceId/%2Fsubscriptions%2Fd1d8779d-38d7-4f06-91db-9cbc8de0176f%2Fresourcegroups%2Fsoc-asc%2Fproviders%2Fmicrosoft.security%2Fsecurityconnectors%2Fawsdspm%2Fsecurityentitydata%2Faws-account-in-region-323104580785-us-west-2%2Fproviders%2Fmicrosoft.security%2Fassessments%2F1a202dce-e13f-43ba-8a97-2f9235c5c834/recommendationDisplayName/AWS%20Bedrock%20should%20have%20model%20invocation%20logging%20enabled)
+
+**Description:** With invocation logging, you can collect the full request data, response data, and metadata associated with all calls performed in your account. This enables you to recreate activity trails for investigation purposes when a security incident occurs.
+
+**Severity:** Low
+
 ## Related content
 
 - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)

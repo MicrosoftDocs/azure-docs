@@ -4,7 +4,7 @@ description: Learn how to use Azure Database for PostgreSQL - Flexible Server to
 author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: rajsell, maghan
-ms.date: 04/27/2024
+ms.date: 05/21/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -47,6 +47,15 @@ Here are some of the important considerations with in-place major version upgrad
 - Long-running transactions or high workload before the upgrade might increase the time taken to shut down the database and increase upgrade time.
 
 - After an in-place major version upgrade is successful, there are no automated ways to revert to the earlier version. However, you can perform a point-in-time recovery (PITR) to a time before the upgrade to restore the previous version of the database instance.
+
+## Post upgrade/migrate
+
+After the major version upgrade is complete, we recommend to run the `ANALYZE` command  in each database to refresh the `pg_statistic` table. Otherwise, you may run into performance issues.
+
+```SQL
+postgres=> analyze;
+ANALYZE
+```
 
 ## Major version upgrade logs
 

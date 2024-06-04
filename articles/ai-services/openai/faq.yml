@@ -181,7 +181,7 @@ sections:
       - question: |
           Why was my fine-tuned model deployment deleted? 
         answer:
-          If a customized (fine-tuned) model is deployed for more than 15 days during which no completions or chat completions calls are made to it, the deployment is automatically deleted (and no further hosting charges are incurred for that deployment). The underlying customized model remains available and can be redeployed at any time. To learn more, check out the [how-to-article](how-to/fine-tuning.md?pivots=programming-language-studio#deploy-a-customized-model).  
+          If a customized (fine-tuned) model is deployed for more than 15 days during which no completions or chat completions calls are made to it, the deployment is automatically deleted (and no further hosting charges are incurred for that deployment). The underlying customized model remains available and can be redeployed at any time. To learn more, check out the [how-to-article](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio#deploy-a-custom-model).  
       - question: |
           How do I deploy a model with the REST API? 
         answer:

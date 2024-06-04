@@ -35,7 +35,7 @@ Automatic OS upgrade has the following characteristics:
 
 An upgrade works by replacing the OS disk of a VM with a new disk created using the  image version. Any configured extensions and custom data scripts are run on the OS disk, while data disks are retained. To minimize the application downtime, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time.
 
-You can integrate an Azure Load Balancer application health probe or [Application Health extension](virtual-machine-scale-sets-health-extension.md) to track the health of the application after an upgrade. We recommended incorporating an application heartbeat to validate upgrade success.
+You can integrate an Azure Load Balancer application health probe or [Application Health extension](virtual-machine-scale-sets-health-extension.md) to track the health of the application after an upgrade. We recommend incorporating an application heartbeat to validate upgrade success.
 
 ### Availability-first Updates
 The availability-first model for platform orchestrated updates described below ensures that availability configurations in Azure are respected across multiple availability levels.
