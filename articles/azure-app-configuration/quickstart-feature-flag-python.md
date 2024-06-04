@@ -13,7 +13,9 @@ ms.custom: devx-track-python, mode-other
 
 # Quickstart: Add feature flags to a Python app (preview)
 
-In this quickstart, you incorporate Azure App Configuration into a Python web app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states.
+ In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control Python apps to create an end-to-end implementation of feature management.
+
+The feature management support entends the dynmic configuration feature in App Configuration. These examples in the quickstart build on thePpython apps introduced in the dynamic configuration tutorial. Before you continue, finish the [quickstart](./quickstart-python-provider.md) and the [tutorial](./enable-dynamic-configuration-python.md) to create python apps with dynamic configuration first.
 
 This library does **not** have a dependency on any Azure libraries. They seamlessly integrate with App Configuration through its Python configuration provider.
 
