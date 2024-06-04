@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Edge for Linux on Windows security
-description: Overview o the Azure IoT Edge for Linux on Windows security framework and the different security premises that are enabled by default or optional. 
+description: Overview of the Azure IoT Edge for Linux on Windows security framework and the different security premises that are enabled by default or optional. 
 author: PatAltimore
 ms.author: patricka
 ms.date: 06/04/2024
