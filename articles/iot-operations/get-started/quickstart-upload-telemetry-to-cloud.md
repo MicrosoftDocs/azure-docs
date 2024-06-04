@@ -86,6 +86,11 @@ Your codespace comes with the following sample connector configuration file, `/w
 
 1. Save the file.
 
+1. Navigate to the correct directory. Run the following command:
+   ```console
+   cd "samples/quickstarts"
+   ```   
+
 1. Run the following command to create the connector:
 
    ```console
