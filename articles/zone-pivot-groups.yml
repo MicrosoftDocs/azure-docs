@@ -772,10 +772,10 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
-  - id: programming-language-javascript
-    title: JavaScript
   - id: programming-language-python
     title: Python
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-rest-api
     title: REST API
 - id: programming-languages-content-safety
@@ -2885,13 +2885,22 @@ groups:
     title: Azure DevOps
 # Owner: mametcal
 - id: appconfig-provider
-  title: Client Library pivots
-  prompt: Choose a Client Library
+  title: Client library pivots
+  prompt: Choose a client library
   pivots:
   - id: framework-dotnet
     title: .NET
   - id: framework-spring
     title: Spring Framework
+# Owner: zhiyuanliang
+- id: feature-management
+  title: Library version pivots
+  prompt: Choose a release
+  pivots:
+  - id: stable-version
+    title: Stable release
+  - id: preview-version
+    title: Preview release
 # Owner: nicktrog
 - id: load-testing-config
   title: Experience

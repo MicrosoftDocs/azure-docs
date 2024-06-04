@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/03/2023
+ms.date: 06/03/2024
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -130,10 +130,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 
 For more information, see [User-defined data types](./user-defined-data-types.md).
 
-## Functions (Preview)
-
-> [!NOTE]
-> To enable the preview feature, see [Enable experimental features](./bicep-config.md#enable-experimental-features).
+## Functions
 
 In your Bicep file, you can create your own functions in addition to using the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
 

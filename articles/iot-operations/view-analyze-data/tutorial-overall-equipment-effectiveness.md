@@ -793,10 +793,13 @@ In [Microsoft Fabric](https://msit.powerbi.com/groups/me/list?experience=power-b
 1. Select **DirectQuery** as the connection setting and then select **OK**.
 
 You can now create measurements and tiles to display OEE for your production lines by using formulae such as:
-- `OEE = Availability\*performance\*Quality`
-- `Performance = TotalUnitsProduced/10 (StandardProductionOutput)`
+
+- `OEE = Availability*Performance*Quality`
+- `Performance = TotalUnitsProduced/10`
 - `Availability = TotalOperatingTime/PlannedProductionTime`
 - `Quality = TotalGoodUnitsProduced/TotalUnitsProduced`
+
+The performance calculation above uses a factor of 10 in the calculation. This factor is specific to Contoso bakery and uses an estimate of the ideal cycle time for the production line. To learn more, see [Overall equipment effectiveness](https://wikipedia.org/wiki/Overall_equipment_effectiveness).
 
 Follow these steps to create some measures and use them to build a visualization dashboard.
 
