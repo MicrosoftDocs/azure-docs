@@ -5,7 +5,7 @@ author: Guitar
 ms.author: guitarsheng
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 05/03/2025
+ms.date: 06/04/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: spring-apps-tier-selection
 ---
@@ -19,9 +19,9 @@ zone_pivot_groups: spring-apps-tier-selection
 
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
-This article shows you how to configure a managed Spring Cloud Config Server in Azure Spring Apps service.
+This article shows you how to configure a managed Spring Cloud Config Server in Azure Spring Apps service instance.
 
-Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Spring Cloud Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config documentation](https://spring.io/projects/spring-cloud-config).
+Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Spring Cloud Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see [Spring Cloud Config](https://spring.io/projects/spring-cloud-config).
 
 ::: zone pivot="sc-standard"
 
@@ -36,7 +36,7 @@ Spring Cloud Config Server provides server and client-side support for an extern
 
 ::: zone pivot="sc-standard"
 
-- An already provisioned and running Azure Spring Apps service instance using the Basic or Standard plan. To set up and launch an Azure Spring Apps service, see [Quickstart: Deploy your first application to Azure Spring Apps](../enterprise/quickstart.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+- An already provisioned and running Azure Spring Apps service instance using the Basic/Standard plan. To set up and launch an Azure Spring Apps service, see [Quickstart: Deploy your first application to Azure Spring Apps](../enterprise/quickstart.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
 
 ::: zone-end
 
@@ -52,13 +52,13 @@ Spring Cloud Config Server provides server and client-side support for an extern
 
 ## Enable Spring Cloud Config Server
 
-You can enable Spring Cloud Config Server when you provision an Azure Spring Apps Enterprise plan instance. If you already have an Azure Spring Apps Enterprise plan resource, see the [Manage Spring Cloud Config Server in an existing Enterprise plan instance](#manage-spring-cloud-config-server-in-an-existing-enterprise-plan-instance) section to enable it.
+You can enable Spring Cloud Config Server when you provision an Azure Spring Apps Enterprise plan service instance. If you already have an Azure Spring Apps Enterprise plan instance, see the [Manage Spring Cloud Config Server in an existing Enterprise plan instance](#manage-spring-cloud-config-server-in-an-existing-enterprise-plan-instance) section in this article.
 
 You can enable Spring Cloud Config Server using the Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/Portal)
 
-Use the following steps to enable Spring Cloud Config Server using the Azure portal:
+Use the following steps to enable Spring Cloud Config Server:
 
 1. Open the [Azure portal](https://portal.azure.com).
 
@@ -74,9 +74,9 @@ Use the following steps to enable Spring Cloud Config Server using the Azure por
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following steps to provision an Azure Spring Apps service instance with Spring Cloud Config Server enabled using the Azure CLI.
+Use the following steps to provision an Azure Spring Apps service instance with Spring Cloud Config Server enabled.
 
-1. Use the following command to sign in to the Azure CLI and choose your active subscription:
+1. Use the following commands to sign in to the Azure CLI and choose your active subscription:
 
    ```azurecli
    az login
@@ -84,7 +84,7 @@ Use the following steps to provision an Azure Spring Apps service instance with 
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to accept the legal terms and privacy statements for the Azure Spring Apps Enterprise plan. This step is necessary only if your subscription has never been used to create an Enterprise plan instance.
+1. Use the following commands to accept the legal terms and privacy statements for the Azure Spring Apps Enterprise plan. This step is necessary only if your subscription is never used to create an Enterprise plan service instance.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
@@ -94,7 +94,7 @@ Use the following steps to provision an Azure Spring Apps service instance with 
        --plan asa-ent-hr-mtr
    ```
 
-1. Select a location. The location must support the Azure Spring Apps Enterprise plan. For more information, see the [Azure Spring Apps FAQ](faq.md).
+1. Select a location. The location must support the Azure Spring Apps Enterprise plan. For more information, see [Azure Spring Apps FAQ](faq.md).
 
 1. Use the following command to create a resource group:
 
@@ -104,7 +104,7 @@ Use the following steps to provision an Azure Spring Apps service instance with 
        --location <location>
    ```
 
-   For more information about resource groups, see [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md)
+   For more information about resource groups, see [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md).
 
 1. Prepare a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
@@ -140,7 +140,7 @@ management.endpoints.jmx.exposure.include
 ```
 
 > [!CAUTION]
-> Don't put these properties in your Config Server application files.
+> Avoid putting these properties in your Config Server application files.
 
 ## Create your Config Server files
 
@@ -150,28 +150,24 @@ Some configurable properties are available only for certain types. The following
 
 > [!NOTE]
 > Config Server takes `master` (on Git) as the default label if you don't specify one. However, GitHub has recently changed the default branch from `master` to `main`. To avoid Azure Spring Apps Config Server failure, be sure to pay attention to the default label when setting up Config Server with GitHub, especially for newly-created repositories.
+>
+> Using a hyphen (-) to separate words is the only naming convention currently supported. For example, you can use *default-label*, but not *defaultLabel*.
 
 ### Public repository
 
-When you use a public repository, your configurable properties are more limited than with a private repository.
+When you use a public repository, your configurable properties are more limited than that of a private repository.
 
-The following table lists the configurable properties that you can use to set up a public Git repository.
-
-> [!NOTE]
-> Using a hyphen (-) to separate words is the only naming convention that's currently supported. For example, you can use *default-label*, but not *defaultLabel*.
+The following table lists the configurable properties you can use to set up a public Git repository:
 
 | Property        | Required | Feature                                                                                                                         |
 |:----------------|----------|---------------------------------------------------------------------------------------------------------------------------------|
-| `uri`           | Yes      | The URI of the Git repository that's used as the Config Server back end. Should begin with `http://`, `https://`, `git@`, or `ssh://`. |
-| `default-label` | No       | The default label of the Git repository. Should be the branch name, tag name, or commit ID of the repository.             |
+| `uri`           | Yes      | The URI of the Git repository used as the Config Server back end. Should begin with `http://`, `https://`, `git@`, or `ssh://`. |
+| `default-label` | No       | The default label of the Git repository. Should be the branch name, tag name, or commit ID of the repository.                   |
 | `search-paths`  | No       | An array of strings that are used to search subdirectories of the Git repository.                                               |
 
 ### Private repository with SSH authentication
 
-The following table lists the configurable properties that you can use to set up a private Git repository with SSH.
-
-> [!NOTE]
-> Using a hyphen (-) to separate words is the only naming convention that's currently supported. For example, you can use *default-label*, but not *defaultLabel*.
+The following table lists the configurable properties you can use to set up a private Git repository with SSH:
 
 | Property                   | Required | Feature                                                                                                                                                             |
 |:---------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -181,21 +177,18 @@ The following table lists the configurable properties that you can use to set up
 | `private-key`              | No       | The SSH private key to access the Git repository. Required when the URI starts with `git@` or `ssh://`.                                                             |
 | `host-key`                 | No       | The host key of the Git repository server. Shouldn't include the algorithm prefix as covered by `host-key-algorithm`.                                               |
 | `host-key-algorithm`       | No       | The host key algorithm. Should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. Required only if `host-key` exists. |
-| `strict-host-key-checking` | No       | Indicates whether the Config Server instance fails to start when using the private `host-key`. Should be *true* (default value) or *false*.                         |
+| `strict-host-key-checking` | No       | The Config Server indicator that shows whether it fails to start when using the private `host-key`. Should be *true* (default value) or *false*.                    |
 
 ### Private repository with basic authentication
 
-The following table lists the configurable properties that you can use to set up a private Git repository with basic authentication.
-
-> [!NOTE]
-> Using a hyphen (-) to separate words is the only naming convention that's currently supported. For example, use *default-label*, not *defaultLabel*.
+The following table lists the configurable properties you can use to set up a private Git repository with basic authentication:
 
 | Property        | Required | Feature                                                                                                                                                     |
 |:----------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `uri`           | Yes      | The URI of the Git repository that's used as the Config Server back end. Should begin with `http://`, `https://`, `git@`, or `ssh://`.                      |
+| `uri`           | Yes      | The URI of the Git repository used as the Config Server back end. Should begin with `http://`, `https://`, `git@`, or `ssh://`.                             |
 | `default-label` | No       | The default label of the Git repository. Should be the *branch name*, *tag name*, or *commit-id* of the repository.                                         |
 | `search-paths`  | No       | An array of strings used to search subdirectories of the Git repository.                                                                                    |
-| `username`      | No       | The username that's used to access the Git repository server. Required when the Git repository server supports HTTP basic authentication.                   |
+| `username`      | No       | The username used to access the Git repository server. Required when the Git repository server supports HTTP basic authentication.                          |
 | `password`      | No       | The password or personal access token used to access the Git repository server. Required when the Git repository server supports HTTP basic authentication. |
 
 > [!NOTE]
@@ -205,17 +198,14 @@ The following table lists the configurable properties that you can use to set up
 
 ### Other Git repositories
 
-The following table lists the configurable properties you can use to set up Git repositories with a pattern.
-
-> [!NOTE]
-> Using a hyphen (-) to separate words is the only naming convention that's currently supported. For example, use *default-label*, not *defaultLabel*.
+The following table lists the configurable properties you can use to set up Git repositories with a pattern:
 
 | Property                           | Required       | Feature                                                                                                                                                             |
 |:-----------------------------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `repos`                            | No             | A map consisting of the settings for a Git repository with a given name.                                                                                            |
 | `repos."uri"`                      | Yes on `repos` | The URI of the Git repository that's used as the Config Server back end. Should begin with `http://`, `https://`, `git@`, or `ssh://`.                              |
 | `repos."name"`                     | Yes on `repos` | A name to identify the repository; for example, *team-A* or *team-B*. Required only if `repos` exists.                                                              |
-| `repos."pattern"`                  | No             | An array of strings used to match an application name. For each pattern, use the format *{application}/{profile}* format with wildcards.                            |
+| `repos."pattern"`                  | No             | An array of strings used to match an application name. For each pattern, use the format *{application}/{profile}* with wildcards.                                   |
 | `repos."default-label"`            | No             | The default label of the Git repository. Should be the branch name, tag name, or commit IOD of the repository.                                                      |
 | `repos."search-paths`"             | No             | An array of strings used to search subdirectories of the Git repository.                                                                                            |
 | `repos."username"`                 | No             | The username used to access the Git repository server. Required when the Git repository server supports HTTP basic authentication.                                  |
@@ -223,9 +213,9 @@ The following table lists the configurable properties you can use to set up Git 
 | `repos."private-key"`              | No             | The SSH private key to access Git repository. Required when the URI begins with `git@` or `ssh://`.                                                                 |
 | `repos."host-key"`                 | No             | The host key of the Git repository server. Shouldn't include the algorithm prefix as covered by `host-key-algorithm`.                                               |
 | `repos."host-key-algorithm"`       | No             | The host key algorithm. Should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. Required only if `host-key` exists. |
-| `repos."strict-host-key-checking"` | No             | Indicates whether the Config Server instance fails to start when using the private `host-key`. Should be *true* (default value) or *false*.                         |
+| `repos."strict-host-key-checking"` | No             | The Config Server indicator that shows whether it  fails to start when using the private `host-key`. Should be *true* (default value) or *false*.                   |
 
-The following table shows some examples of patterns for configuring your service with an optional extra repository. For more information, see the [Extra repositories](#extra-repositories) section and the [Pattern Matching and Multiple Repositories section](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) of the Spring documentation.
+The following table shows some examples of patterns for configuring your service with an optional extra repository. For more information, see the [Extra repositories](#extra-repositories) section in this article and the [Pattern Matching and Multiple Repositories](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) section of [Spring Cloud Config](https://spring.io/projects/spring-cloud-config).
 
 | Patterns                        | Description                                                                                                            |
 |:--------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -235,54 +225,54 @@ The following table shows some examples of patterns for configuring your service
 
 ::: zone pivot="sc-standard"
 
-:::image type="content" source="../basic-standard/media/how-to-config-server/additional-repositories.png" lightbox="media/how-to-config-server/additional-repositories.png" alt-text="Screenshot of Azure portal showing the Config Server page with the Patterns column of the Additional repositories table highlighted.":::
+:::image type="content" source="../basic-standard/media/how-to-config-server/additional-repositories.png" alt-text="Screenshot of the Azure portal that shows the Config Server page with the Patterns column of the Additional repositories table highlighted." lightbox="../basic-standard/media/how-to-config-server/additional-repositories.png":::
 
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
 
-:::image type="content" source="media/how-to-enterprise-config-server/additional-repositories.png" lightbox="media/how-to-enterprise-config-server/additional-repositories.png" alt-text="Screenshot of Azure portal showing the Config Server page with the Patterns column of the Additional repositories table highlighted.":::
+:::image type="content" source="media/how-to-enterprise-config-server/additional-repositories.png" alt-text="Screenshot of the Azure portal that shows the Config Server page with the Patterns column of the Additional repositories table highlighted." lightbox="media/how-to-enterprise-config-server/additional-repositories.png":::
 
 ::: zone-end
 
 ## Configure Git repository against Config Server
 
-Now that your configuration files are saved in a repository, use the following steps to connect Azure Spring Apps to the repository.
+After you save your configuration files in a repository, use the following steps to connect Azure Spring Apps to the repository:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Go to your Azure Spring Apps **Overview** page.
 
-1. Select **Spring Cloud Config Server** in the left navigation pane.
+1. Select **Spring Cloud Config Server** in the navigation pane.
 
 1. In the **Default repository** section, set **URI** to `https://github.com/Azure-Samples/piggymetrics-config`.
 
 1. Select **Validate**.
 
    ::: zone pivot="sc-standard"
-   
-   :::image type="content" source="../basic-standard/media/how-to-config-server/portal-config.png" lightbox="media/how-to-config-server/portal-config.png" alt-text="Screenshot of Azure portal showing the Config Server page.":::
-   
+
+   :::image type="content" source="../basic-standard/media/how-to-config-server/portal-config.png" alt-text="Screenshot of the Azure portal that shows the Config Server page." lightbox="../basic-standard/media/how-to-config-server/portal-config.png":::
+
    ::: zone-end
-   
+
    ::: zone pivot="sc-enterprise"
-   
-   :::image type="content" source="media/how-to-enterprise-config-server/portal-config.png" lightbox="media/how-to-enterprise-config-server/portal-config.png" alt-text="Screenshot of Azure portal showing the Config Server page.":::
-   
+
+   :::image type="content" source="media/how-to-enterprise-config-server/portal-config.png" alt-text="Screenshot of the Azure portal that shows the Config Server page." lightbox="media/how-to-enterprise-config-server/portal-config.png":::
+
    ::: zone-end
 
 1. When validation is complete, select **Apply** to save your changes.
 
    ::: zone pivot="sc-standard"
-   
-   :::image type="content" source="../basic-standard/media/how-to-config-server/validate-complete.png" lightbox="media/how-to-config-server/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted.":::
-   
+
+   :::image type="content" source="../basic-standard/media/how-to-config-server/validate-complete.png" alt-text="Screenshot of the Azure portal that shows the Config Server page with Apply button highlighted." lightbox="../basic-standard/media/how-to-config-server/validate-complete.png":::
+
    ::: zone-end
-   
+
    ::: zone pivot="sc-enterprise"
-   
-   :::image type="content" source="media/how-to-enterprise-config-server/validate-complete.png" lightbox="media/how-to-enterprise-config-server/validate-complete.png" alt-text="Screenshot of Azure portal showing Config Server page with Apply button highlighted.":::
-   
+
+   :::image type="content" source="media/how-to-enterprise-config-server/validate-complete.png" alt-text="Screenshot of the Azure portal that shows the Config Server page with Apply button highlighted." lightbox="media/how-to-enterprise-config-server/validate-complete.png":::
+
    ::: zone-end
 
 Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
@@ -293,24 +283,19 @@ You can enter repository information for the default repository and, optionally,
 
 #### Default repository
 
-Use the steps in this section to enter repository information for a public or private repository.
+Use the following steps to enter repository information for a public or private repository:
 
-- **Public repository**: In the **Default repository** section, in the **Uri** box, paste the repository URI. Enter *config* for the **Label** setting. Ensure that the **Authentication** setting is *Public*, and then select **Apply**.
+- **Public repository**: In the **Default repository** section, in the **Uri** box, paste the repository URI. Enter *config* for the **Label** setting. Ensure that the **Authentication** setting is **Public**, and then select **Apply**.
 
 - **Private repository**: Azure Spring Apps supports basic password/token-based authentication and SSH.
 
   - **Basic Authentication**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the setting under **Authentication** to open the **Edit Authentication** pane. In the **Authentication type** drop-down list, select **HTTP Basic**, and then enter your username and password/token to grant access to Azure Spring Apps. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
-  :::image type="content" source="../basic-standard/media/how-to-config-server/basic-auth.png" lightbox="media/how-to-config-server/basic-auth.png" alt-text="Screenshot of the Default repository section showing authentication settings for Basic authentication.":::
-
-  > [!NOTE]
-  > Many Git repository servers support the use of tokens rather than passwords for HTTP basic authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire shouldn't use token-based authentication with Azure Spring Apps. If you use such a token, remember to update it before it expires.
-  >
-  > GitHub has removed support for password authentication, so you need to use a personal access token instead of password authentication for GitHub. For more information, see [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
+   :::image type="content" source="../basic-standard/media/how-to-config-server/basic-auth.png" alt-text="Screenshot of the Default repository section that shows the authentication settings for Basic authentication." lightbox="../basic-standard/media/how-to-config-server/basic-auth.png":::
 
   - **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the setting under **Authentication** to open the **Edit Authentication** pane. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your private key. Optionally, specify your host key and host key algorithm. Include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
-  :::image type="content" source="../basic-standard/media/how-to-config-server/ssh-auth.png" lightbox="media/how-to-config-server/ssh-auth.png" alt-text="Screenshot of the Default repository section showing authentication settings for SSH authentication.":::
+   :::image type="content" source="../basic-standard/media/how-to-config-server/ssh-auth.png" alt-text="Screenshot of the Default repository section that shows the authentication settings for SSH authentication." lightbox="../basic-standard/media/how-to-config-server/ssh-auth.png":::
 
 #### Extra repositories
 
@@ -318,7 +303,7 @@ If you want to configure your service with an optional extra repository, specify
 
 ### Configure Git repository by Importing a YAML file
 
-If you've written a YAML file with your repository settings, you can import the file directly from your local machine to Azure Spring Apps. The following example shows a simple YAML file for a private repository with basic authentication.
+If you've written a YAML file with your repository settings, you can import the file directly from your local machine to Azure Spring Apps. The following example shows a simple YAML file for a private repository with basic authentication:
 
 ```yaml
 spring:
@@ -331,21 +316,21 @@ spring:
           password: <password/token>
 ```
 
-Select the **Import settings** button, and then select the YAML file from your project directory. Select **Import**.
+1. Select **Import settings** and then select the YAML file from your project directory. Select **Import**.
 
-::: zone pivot="sc-standard"
+   ::: zone pivot="sc-standard"
 
-:::image type="content" source="../basic-standard/media/how-to-config-server/import-settings.png" lightbox="media/how-to-config-server/import-settings.png" alt-text="Screenshot of the Config Server Import settings pane.":::
+   :::image type="content" source="../basic-standard/media/how-to-config-server/import-settings.png" alt-text="Screenshot of the Azure portal that shows the Config Server Import settings pane." lightbox="../basic-standard/media/how-to-config-server/import-settings.png":::
 
-::: zone-end
+   ::: zone-end
 
-::: zone pivot="sc-enterprise"
+   ::: zone pivot="sc-enterprise"
 
-:::image type="content" source="media/how-to-enterprise-config-server/import-settings.png" lightbox="media/how-to-enterprise-config-server/import-settings.png" alt-text="Screenshot of the Config Server Import settings pane.":::
+   :::image type="content" source="media/how-to-enterprise-config-server/import-settings.png" alt-text="Screenshot of the Azure portal that shows the Config Server Import settings pane." lightbox="media/how-to-enterprise-config-server/import-settings.png":::
 
-::: zone-end
+   ::: zone-end
 
-Your **Notifications** displays an `async` operation. Config Server should report success after 1-2 minutes. The information from your YAML file displays in the Azure portal. Select **Apply** to finish the import.
+1. Your **Notifications** displays an `async` operation. Config Server should report success after 1-2 minutes. The information from your YAML file displays in the Azure portal. Select **Apply** to finish the import.
 
 ## Configure Azure Repos against Config Server
 
@@ -353,9 +338,9 @@ Azure Spring Apps can access Git repositories that are public, secured by SSH, o
 
 ### Get repo URL and credentials
 
-Use the following steps to get your repo URL and credentials.
+Use the following steps to get your repo URL and credentials:
 
-1. In the Azure Repos portal for your project, select the **Clone** button:
+1. In the Azure Repos portal for your project, select **Clone**.
 
 1. Copy the clone URL from the textbox. This URL is typically in the following form:
 
@@ -369,9 +354,9 @@ Use the following steps to get your repo URL and credentials.
    https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
    ```
 
-   Save this URL for use in the next section.
+   Save this URL to use later.
 
-1. Select **Generate Git Credentials** to display a username and password, which should be saved for use in the following section.
+1. Select **Generate Git Credentials** to display a username and password. Save this username and password to use in the following section.
 
 ### Configure the Git repository against Config Server
 
@@ -381,20 +366,22 @@ Use the following steps to get your repo URL and credentials.
 
 1. Select the service to configure.
 
-1. In the left pane of the service page under **Settings**, select the **Spring Cloud Config Server** tab. Configure the repository you created, as follows:
+1. In the left pane of the service page under **Settings**, select the **Spring Cloud Config Server** tab. 
 
-   - Add the repository URI that you saved in the previous section.
+1. Use the following steps to configure the repository you created:
+
+   - Add the repository URI that you saved earlier.
    - Select the setting under **Authentication** to open the **Edit Authentication** pane.
    - For **Authentication type**, select **HTTP Basic**.
-   - For **Username**, specify the user name that you saved in the previous section.
-   - For **Password**, specify the password that you saved in the previous section.
+   - For **Username**, specify the user name that you saved earlier.
+   - For **Password**, specify the password that you saved earlier.
    - Select **OK**, and then wait for the operation to complete.
 
-   :::image type="content" source="../basic-standard/media/how-to-config-server/config-server-azure-repos.png" lightbox="media/how-to-config-server/config-server-azure-repos.png" alt-text="Screenshot of repository configuration settings.":::
+   :::image type="content" source="../basic-standard/media/how-to-config-server/config-server-azure-repos.png" alt-text="Screenshot of the default repository configuration settings with the Uri and Authentication Type highlighted." lightbox="../basic-standard/media/how-to-config-server/config-server-azure-repos.png":::
 
 ::: zone pivot="sc-enterprise"
 
-### **Bind** **an app** to Spring Cloud Config Server
+### Bind an app to Spring Cloud Config Server
 
 Use the following command to bind an app to Spring Cloud Config Server, enabling the app to pull configurations from Config Server.
 
@@ -407,14 +394,14 @@ az spring config-server bind \
 
 You can also set up the app binding from the Azure portal, as shown in the following screenshot:
 
-:::image type="content" source="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app.png" lightbox="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Config Server page with the App binding dropdown highlighted.":::
+:::image type="content" source="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Config Server page with the App binding dropdown highlighted." lightbox="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app.png":::
 
 > [!NOTE]
-> These changes will take a few minutes to propagate to all applications when the config server status changes.
+> These changes take a few minutes to propagate to all applications when the config server status changes.
 >
 > If you change the binding/unbinding status, you need to restart or redeploy the application.
 
-You can now choose to bind your application to the Spring Cloud Config Server directly when creating a new app by using the following commands:
+You can now choose to bind your application to the Spring Cloud Config Server directly when creating a new app by using the following command:
 
 ```azurecli
 az spring app create \ 
@@ -426,7 +413,7 @@ az spring app create \
 
 You can also bind your application to the Spring Cloud Config Server from the Azure portal, as shown in the following screenshot:
 
-:::image type="content" source="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app-when-creation.png" lightbox="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app-when-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App page with the Bind dropdown highlighted.":::
+:::image type="content" source="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app-when-creation.png" alt-text="Screenshot of the Azure portal that shows the Create App page with the Bind dropdown highlighted." lightbox="media/how-to-enterprise-config-server/spring-cloud-config-server-bind-app-when-creation.png":::
 
 ::: zone-end
 
@@ -436,11 +423,13 @@ Select **Reset** on the **Spring Cloud Config Server** tab to erase your existin
 
 ## Config Server refresh
 
-When properties are changed, services consuming those properties must be notified before changes can be made. The default solution for Spring Cloud Config Server is to manually trigger the refresh event, which may not be feasible if there are many app instances. For more information, see [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
+When properties are changed, services consuming those properties must be notified before changes can be made. The default solution for Spring Cloud Config Server is to manually trigger the refresh event, which might not be feasible if there are many app instances. For more information, see [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
 
-Instead, you can automatically refresh values from Config Server by letting the config client poll for changes based on a refresh internal. Use the following steps to automatically refresh values from Config Server.
+Instead, you can automatically refresh values from Config Server by letting the config client poll for changes based on a refresh internal. 
 
-1. Register a scheduled task to refresh the context in a given interval, as shown in the following example.
+Use the following steps to automatically refresh values from Config Server:
+
+1. Register a scheduled task to refresh the context in a given interval, as shown in the following example:
 
    ```java
    @ConditionalOnBean({RefreshEndpoint.class})
@@ -467,7 +456,7 @@ Instead, you can automatically refresh values from Config Server by letting the 
    }
    ```
 
-1. Enable autorefresh and set the appropriate refresh interval in your *application.yml* file. In the following example, the client polls for configuration changes every 60 seconds, which is the minimum value you can set for a refresh interval.
+1. Enable autorefresh and set the appropriate refresh interval in your *application.yml* file. In the following example, the client polls for configuration change every 60 seconds, which is the minimum value you can set for a refresh interval.
 
    By default, autorefresh is set to *false* and the refresh-interval is set to *60 seconds*.
 
@@ -506,15 +495,15 @@ You can enable and disable Spring Cloud Config Server after service creation usi
 
 ### [Azure portal](#tab/Portal)
 
-Use the following steps to enable or disable Spring Cloud Config Server using the Azure portal:
+Use the following steps to enable or disable Spring Cloud Config Server:
 
-1. Navigate to your service resource, and then select **Spring Cloud Config Server**.
+1. Navigate to your service instance and then select **Spring Cloud Config Server**.
 
 1. Select **Manage**.
 
-1. Select or unselect the **Enable Spring Cloud Config Server**, and then select **Save**.
+1. Select or unselect **Enable Spring Cloud Config Server**, and then select **Save**.
 
-   :::image type="content" source="media/how-to-enterprise-config-server/enable-config-server.png" alt-text="Screenshot of the Azure portal that shows the Manage  pane with the Enable Config Server option highlighted." lightbox="media/how-to-enterprise-config-server/enable-config-server.png":::
+   :::image type="content" source="media/how-to-enterprise-config-server/enable-config-server.png" alt-text="Screenshot of the Azure portal that shows the Manage pane with the Enable Config Server option highlighted." lightbox="media/how-to-enterprise-config-server/enable-config-server.png":::
 
 1. You can now view the state of Spring Cloud Config Server on the **Spring Cloud Config Server** page.
 
