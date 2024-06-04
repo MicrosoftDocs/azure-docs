@@ -116,7 +116,7 @@ To use the Content Safety APIs, you must create your Azure AI Content Safety res
 |---|---|---|---|---|---|---|
 | East US | ✅ | ✅| ✅ |✅ |✅ |✅ |
 | East US 2 | ✅ | | | ✅ | | ✅|
-| West US | | | | | ✅ | ✅|
+| West US | | | | | ✅ | |
 | West US 2 | ✅ | | | | |✅ |
 | Central US | ✅ | | | | |✅ |
 | North Central US | ✅ | | | | | ✅|
