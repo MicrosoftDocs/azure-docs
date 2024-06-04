@@ -111,7 +111,9 @@ There are ASP.NET Core features that require additional configuration to work co
 
 #### Configure data protection
 
-ASP.NET Core uses data protection to protect and unprotect data, such as session data and anti-forgery tokens. By default, data protection keys are stored in the file system, which isn't suitable for a cloud-native environment. When deploying your ASP.NET Core app to Azure Container Apps, you must configure data protection to use Azure Key Vault and Blob Storage for key persistence. To learn more, see [Configure ASP.NET Core Data Protection](/aspnet/core/security/data-protection/configuration/overview).
+ASP.NET Core uses data protection to protect and unprotect data, such as session data and anti-forgery tokens. By default, data protection keys are stored in the file system, which isn't suitable for a cloud-native environment. When deploying your ASP.NET Core app to Azure Container Apps without `azd`, you must configure data protection to use Azure Key Vault and Blob Storage for key persistence. When deploying with `azd`, the keys will be provided automatically to your app instances. 
+
+To configure data protection, refer to this documentation: [Configure ASP.NET Core Data Protection](https://github.com/aspnet/core/security/data-protection/configuration/overview).
 
 #### Configure ASP.NET Core SignalR
 
