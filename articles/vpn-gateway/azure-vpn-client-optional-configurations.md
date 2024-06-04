@@ -35,6 +35,10 @@ If you haven't already done so, make sure you complete the following items:
   * [Certificate authentication](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md)
   * [Microsoft Entra authentication](openvpn-azure-ad-client.md#download)
 
+>[!NOTE]
+> If you make a change to the topology of your network (such as adding peering) and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
+>
+
 ## Working with VPN client profile configuration files
 
 The steps in this article require you to modify and import the Azure VPN Client profile configuration file. To work with VPN client profile configuration files (xml files), use the following steps:
