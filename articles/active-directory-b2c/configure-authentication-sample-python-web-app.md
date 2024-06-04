@@ -3,7 +3,7 @@ title: Configure authentication in a sample Python web app by using Azure AD B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a Python web application.
 
 author: kengaderdus
-manager: CelesteDG
+manager: mwongerapk
 ms.service: active-directory
 
 ms.topic: reference
@@ -13,7 +13,7 @@ ms.subservice: B2C
 ms.custom: b2c-support, devx-track-python
 
 
-#Customer intent: As a Python web app developer, I want to configure Azure AD B2C authentication in a samples web app by using my own tenant, so that I can securely sign customer users.
+#Customer intent: As a Python web app developer, I want to configure Azure AD B2C authentication in a sample web app by using my own tenant, so that I can securely sign customer users.
 
 ---
 
