@@ -20,7 +20,7 @@ You can configure an Azure AI Search service to connect to other Azure resources
 
 ## Prerequisites
 
-+ A search service at the [Basic tier or above](search-sku-tier.md).
++ A search service at the [Basic tier or above](search-sku-tier.md), any region.
 
 + An Azure resource that accepts incoming requests from a Microsoft Entra login that has a valid role assignment.
 
@@ -30,22 +30,20 @@ Azure AI Search can use a system-assigned or user-assigned managed identity on o
 
 A search service uses Azure Storage as an indexer data source and as a data sink for debug sessions, enrichment caching, and knowledge store. For search features that write back to storage, the managed identity needs a contributor role assignment as described in the ["Assign a role"](#assign-a-role) section. 
 
-| Scenario | System managed identity | User-assigned managed identity (preview) |
+| Scenario | System  | User-assigned |
 |----------|-------------------------|---------------------------------|
-| [Indexer connections to supported Azure data sources](search-indexer-overview.md) <sup>1,</sup> <sup>3</sup>| Yes | Yes |
+| [Indexer connections to supported Azure data sources](search-indexer-overview.md) <sup>1</sup>| Yes | Yes |
 | [Azure Key Vault for customer-managed keys](search-security-manage-encryption-keys.md) | Yes | Yes |
 | [Debug sessions (hosted in Azure Storage)](cognitive-search-debug-session.md)	<sup>1</sup> | Yes | No |
 | [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md) <sup>1,</sup> <sup>2</sup> | Yes | Yes |
 | [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) <sup>1</sup>| Yes | Yes |
-| Connections to Azure OpenAI or Azure AI <sup>4</sup> | Yes | Yes |
+| Connections to Azure OpenAI or Azure AI <sup>3</sup> | Yes | Yes |
 
 <sup>1</sup> For connectivity between search and storage, your network security configuration imposes constraints on which type of managed identity you can use. Only a system managed identity can be used for a same-region connection to storage via the trusted service exception or resource instance rule. See [Access to a network-protected storage account](search-indexer-securing-resources.md#access-to-a-network-protected-storage-account) for details.
 
-<sup>2</sup> One method for specifying an enrichment cache is in the Import data wizard. Currently, the wizard doesn't accept a managed identity connection string for an enrichment cache. However, after the wizard completes, you can update the connection string in the indexer JSON definition to specify either a system or user-assigned managed identity, and then rerun the indexer.
+<sup>2</sup> For enrichment caching in Azure table storage, the search service currently can't connect to tables on a storage account that prevents has [shared key access turned off](../storage/common/shared-key-authorization-prevent.md).
 
-<sup>3</sup> For enrichment caching in Azure table storage, the search service currently can't connect to tables on a storage account that prevents has [shared key access turned off](../storage/common/shared-key-authorization-prevent.md).
-
-<sup>4</sup> Connections to Azure OpenAI and Azure AI include: [Custom skill (hosted in Azure Functions or equivalent)](cognitive-search-custom-skill-interface.md), [Custom vectorizer](vector-search-vectorizer-custom-web-api.md), [Azure OpenAI embedding skill](cognitive-search-skill-azure-openai-embedding.md), [Azure OpenAI vectorizer](vector-search-how-to-configure-vectorizer.md), [AML skill](cognitive-search-aml-skill.md), [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md), [Azure AI Vision multimodal embeddings skill](cognitive-search-skill-vision-vectorize), [Azure AI Vision vectorizer](vector-search-vectorizer-ai-services-vision).
+<sup>3</sup> Connections to Azure OpenAI or Azure AI include: [Custom skill (hosted in Azure Functions or equivalent)](cognitive-search-custom-skill-interface.md), [Custom vectorizer](vector-search-vectorizer-custom-web-api.md), [Azure OpenAI embedding skill](cognitive-search-skill-azure-openai-embedding.md), [Azure OpenAI vectorizer](vector-search-how-to-configure-vectorizer.md), [AML skill](cognitive-search-aml-skill.md), [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md), [Azure AI Vision multimodal embeddings skill](cognitive-search-skill-vision-vectorize), [Azure AI Vision vectorizer](vector-search-vectorizer-ai-services-vision).
 
 ## Create a system managed identity
 

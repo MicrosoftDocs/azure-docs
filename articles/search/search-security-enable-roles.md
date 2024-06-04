@@ -16,20 +16,18 @@ ms.date: 06/03/2024
 
 Azure AI Search supports authentication and authorization through role assignments and Microsoft Entra ID, which is built into all Azure tenants.
 
-Roles for service administration (control plane) are built-in and can't be disabled.
+Roles for service administration (control plane) are built-in and can't be disabled. Roles for data plane operations are optional, but strongly recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. However, if you want to assign Search Service Contributor, Search Index Data Contributor, or Search Index Data Reader roles for data plane operations, you must enable role-based access on your service.
 
-Roles for data plane operations are optional, but strongly recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. You must enable role-based access before you can assign Search Service Contributor, Search Index Data Contributor, or Search Index Data Reader roles for data operations.
-
-In this article, configure your search service to recognize an **authorization** header on data plane requests that provide an OAuth2 access token.
+In this article, learn how to configure your search service to recognize an **authorization** header on data plane requests that provide an OAuth2 access token.
 
 > [!NOTE]
 > *Data plane* refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries.
 
 ## Prerequisites
 
-+ **Owner**, **User Access Administrator**, or a role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
++ **Owner**, **User Access Administrator**, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
 
-+ A search service in any region, on any tier.
++ A search service in any region, on any tier, including free.
 
 ## Enable role-based access for data plane operations
 
@@ -148,8 +146,7 @@ Reverse the steps you followed previously to enable role-based access.
 
 [Key access](search-security-api-keys.md), or local authentication, can be disabled on your service if you're exclusively using the built-in roles and Microsoft Entra authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
 
-> [!NOTE]
-> Admin API keys can only be disabled, not deleted. Query API keys can be deleted.
+Admin API keys can be disabled, but not deleted. Query API keys can be deleted.
 
 Owner or Contributor permissions are required to disable security features.
 
