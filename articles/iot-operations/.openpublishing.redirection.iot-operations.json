@@ -244,6 +244,26 @@
             "source_path_from_root": "/articles/iot-operations/monitor/howto-add-cluster.md",
             "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-add-cluster",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-upload-mqtt-lakehouse.md",
+            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-upload-mqtt-lakehouse",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-real-time-dashboard-fabric.md",
+            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-overall-equipment-effectiveness.md",
+            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-overall-equipment-effectiveness",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-anomaly-detection.md",
+            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-anomaly-detection",
+            "redirect_document_id": true
         }
     ]
 }
