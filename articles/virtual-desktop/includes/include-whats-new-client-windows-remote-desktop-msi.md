@@ -15,18 +15,18 @@ The following table lists the current versions available for the public and Insi
 | Insider | 1.2.5452 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
 
-## Updates for version 1.2.5452 (Insider) 
+## Updates for version 1.2.5452 (Insider)
+
 *Date published: May 29, 2024* 
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
 
 In this release, we made the following changes:
 
-- Improve graphics presentation latency  
+- Improved the graphics presentation latency.
 
->[!NOTE]
->This Insider release was originally version 1.2.5450, but we made a change to improve graphics and re-released as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
-
+> [!NOTE]
+> This Insider release was originally version 1.2.5450, but we made a change to improve graphics and re-released it as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
 
 ## Updates for version 1.2.5450  
 
@@ -639,7 +639,7 @@ In this release, we've made the following changes:
 - Added updates to Teams on Azure Virtual Desktop, including:
   - Fixed an issue that caused the screen to turn black when Direct X wasn't available for hardware decoding.
   - Fixed a software decoding and camera preview issue that happened when falling back to software decode.
-- [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) is now in public preview.
+- [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) is now in preview.
 
 ## Updates for version 1.2.2223
 

@@ -426,7 +426,7 @@ There are several ways to validate that the container is running:
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../../includes/cognitive-services-containers-stop.md)]
 
 ## Use cases for supporting containers
 

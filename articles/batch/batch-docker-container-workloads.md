@@ -2,7 +2,7 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 01/19/2024
+ms.date: 05/31/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, linux-related-content
 ---
@@ -51,7 +51,7 @@ Keep in mind the following limitations:
 
 > [!IMPORTANT]
 > Docker, by default, will create a network bridge with a subnet specification of `172.17.0.0/16`. If you are specifying a
-> [virtual network](batch-virtual-network.md) for your pool, please ensure that there are no conflicting IP ranges.
+> [virtual network](batch-virtual-network.md) for your pool, ensure that there are no conflicting IP ranges.
 
 ## Supported VM images
 
@@ -77,6 +77,9 @@ without the need for a custom image.
 
 - Publisher: `microsoft-dsvm`
   - Offer: `ubuntu-hpc`
+- Publisher: `almalinux`
+  - Offer: `8-hpc-gen1`
+  - Offer: `8-hpc-gen2`
 
 #### Alternate image options
 
@@ -88,9 +91,9 @@ Currently there are other images published by `microsoft-azure-batch` that suppo
   - Offer: `ubuntu-server-container`
   - Offer: `ubuntu-server-container-rdma` (For use exclusively on VM SKUs with Infiniband)
 
-> [!IMPORTANT]
-> It is recommended to use the `microsoft-dsvm` `ubuntu-hpc` VM image instead of images published by
-> `microsoft-azure-batch`. This image may be used on any VM SKU.
+> [!WARNING]
+> It is recommended to use images other than those published by `microsoft-azure-batch` as these
+> images are deprecated due to imminent image end-of-life.
 
 #### Notes
   The docker data root of the above images lies in different places:
@@ -144,6 +147,13 @@ To enable a Batch pool to run container workloads, you must specify [ContainerCo
 You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you preload container images from either Docker Hub or another container registry on the Internet. For best performance, use an [Azure container registry](../container-registry/container-registry-intro.md) in the same region as the Batch account.
 
 The advantage of prefetching container images is that when tasks first start running, they don't have to wait for the container image to download. The container configuration pulls container images to the VMs when the pool is created. Tasks that run on the pool can then reference the list of container images and container run options.
+
+> [!NOTE]
+> Docker Hub limits the number of image pulls. Ensure that your workload doesn't
+> [exceed published rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for Docker
+> Hub-based images. It's recommended to use
+> [Azure Container Registry](../container-registry/container-registry-intro.md) directly or leverage
+> [Artifact cache in ACR](../container-registry/container-registry-artifact-cache.md).
 
 ### Pool without prefetched container images
 
