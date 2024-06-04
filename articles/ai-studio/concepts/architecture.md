@@ -44,7 +44,7 @@ Often, projects in a business domain require access to the same company resource
 
 [Connections](connections.md) let you access objects in AI Studio that are managed outside of your hub. For example, uploaded data on an Azure storage account, or model deployments on an existing Azure OpenAI resource. A connection can be shared with every project or made accessible to one specific project, with the option to configure key-based access or EntraID-passthrough to authorize access to users on the connected resource. As an administrator, you can  track, audit, and manage connections across the organization from a single view in AI Studio.
 
-:::image type="content" source="../media/concepts/connected-resources-spog.png" alt-text="Single view in AI studio to see connected resources." :::
+:::image type="content" source="../media/concepts/connected-resources-spog.png" alt-text="Screenshot of AI Studio showing an audit view of all connected resources across a hub and its projects." :::
 
 ### Microsoft-hosted resources
 
