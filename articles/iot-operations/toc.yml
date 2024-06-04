@@ -3,7 +3,7 @@ items:
     href: index.yml
     items:
     - name: Overview
-      href: deploy-end-to-end-sample/overview-iot-operations.md
+      href: overview-iot-operations.md
     - name: Deploy an end-to-end sample
       expanded: true
       items:
@@ -26,18 +26,18 @@ items:
       - name: Deploy custom workloads
         items:
         - name: Overview
-          href: deploy-custom/overview-orchestrator.md
+          href: deploy-iot-ops/deploy-custom/overview-orchestrator.md
           displayName: Deploy, Orchestrator
         - name: Manifests
-          href: deploy-custom/concept-manifests.md
+          href: deploy-iot-ops/deploy-custom/concept-manifests.md
         - name: Providers and components
-          href: deploy-custom/concept-providers.md
+          href: deploy-iot-ops/deploy-custom/concept-providers.md
         - name: Deploy K8s custom resources
-          href: deploy-custom/howto-k8s.md
+          href: deploy-iot-ops/deploy-custom/howto-k8s.md
         - name: Deploy Helm charts
-          href: deploy-custom/howto-helm.md
+          href: deploy-iot-ops/deploy-custom/howto-helm.md
         - name: Troubleshoot
-          href: deploy-custom/howto-troubleshoot-deployment.md
+          href: deploy-iot-ops/deploy-custom/howto-troubleshoot-deployment.md
           displayName: Deploy, Orchestrator
     - name: Discover and manage assets
       items:

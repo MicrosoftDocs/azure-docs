@@ -19,7 +19,7 @@ In this quickstart, you deploy a suite of IoT services to an Azure Arc-enabled K
 
 The services deployed in this quickstart include:
 
-* [Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md)
+* [Azure IoT Orchestrator Preview](../deploy-iot-ops/deploy-custom/overview-orchestrator.md)
 * [Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)
 * [Azure IoT OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
 * [Azure IoT Data Processor Preview](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data

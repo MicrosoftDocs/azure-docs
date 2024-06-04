@@ -11,7 +11,7 @@ ms.date: 10/18/2023
 
 # What is Azure IoT Operations Preview?
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](includes/public-preview-note.md)]
 
 _Azure IoT Operations Preview_ is a unified data plane for the edge. It's composed of a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters such as [AKS Edge Essentials](#validated-environments). It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
 
@@ -23,7 +23,7 @@ Azure IoT Operations:
 * Lets you manage all edge services from the cloud by using Azure Arc.
 * Can integrate customer workloads into the platform to create a unified solution.
 * Supports GitOps configuration as code for deployment and updates.
-* Natively integrates with [Azure Event Hubs](../../event-hubs/azure-event-hubs-kafka-overview.md), [Azure Event Grid's MQTT broker](../../event-grid/mqtt-overview.md), and [Microsoft Fabric](/fabric/) in the cloud.
+* Natively integrates with [Azure Event Hubs](../event-hubs/azure-event-hubs-kafka-overview.md), [Azure Event Grid's MQTT broker](../event-grid/mqtt-overview.md), and [Microsoft Fabric](/fabric/) in the cloud.
 
 ## Architecture overview
 
@@ -41,22 +41,22 @@ There are two core elements in the Azure IoT Operations Preview architecture:
 
 Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You can deploy Azure IoT Operations by using the Azure portal or the Azure CLI.
 
-[Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md) manages the deployment and configuration of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
+[Azure IoT Orchestrator Preview](deploy-iot-ops/deploy-custom/overview-orchestrator.md) manages the deployment and configuration of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
 
 > [!NOTE]
 > During public preview, there's no support for upgrading an existing Azure IoT Operations deployment to a newer version. Instead, remove Azure IoT Operations from your cluster and then deploy the latest version.
 
 ## Manage devices and assets
 
-Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations (preview)](../manage-devices-assets/howto-manage-assets-remotely.md?tabs=portal) portal or the [Azure CLI](../manage-devices-assets/howto-manage-assets-remotely.md?tabs=cli) to manage the devices and assets that you want to connect to.
+Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations (preview)](manage-devices-assets/howto-manage-assets-remotely.md?tabs=portal) portal or the [Azure CLI](manage-devices-assets/howto-manage-assets-remotely.md?tabs=cli) to manage the devices and assets that you want to connect to.
 
-The [Azure IoT OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri Preview_ to Azure IoT MQ topics.
+The [Azure IoT OPC UA Broker Preview](manage-devices-assets/overview-opcua-broker.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri Preview_ to Azure IoT MQ topics.
 
-The [Azure IoT Akri Preview](../manage-devices-assets/overview-akri.md) component helps you discover and connect to other types of devices and assets.
+The [Azure IoT Akri Preview](manage-devices-assets/overview-akri.md) component helps you discover and connect to other types of devices and assets.
 
 ## Publish and subscribe with MQTT
 
-[Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md) is an MQTT broker that runs on the edge. It lets you publish and subscribe to MQTT topics. You can use MQ to build event-driven architectures that connect your devices and assets to the cloud.
+[Azure IoT MQ Preview](manage-mqtt-connectivity/overview-iot-mq.md) is an MQTT broker that runs on the edge. It lets you publish and subscribe to MQTT topics. You can use MQ to build event-driven architectures that connect your devices and assets to the cloud.
 
 Examples of how components in Azure IoT Operations use MQ Preview include:
 
@@ -66,7 +66,7 @@ Examples of how components in Azure IoT Operations use MQ Preview include:
 
 ## Process data
 
-Message processing includes operations such as data normalization, data enrichment, and data filtering. You can use [Data Processor](../process-data/overview-data-processor.md) pipelines to process messages.
+Message processing includes operations such as data normalization, data enrichment, and data filtering. You can use [Data Processor](process-data/overview-data-processor.md) pipelines to process messages.
 
 A Data Processor pipeline typically:
 
@@ -80,14 +80,14 @@ To connect to the cloud from Azure IoT Operations, you have the following option
 
 The north-bound cloud connectors let you connect MQ directly to cloud services such as:
 
-* [MQTT brokers](../connect-to-cloud/howto-configure-mqtt-bridge.md)
-* [Azure Event Hubs or Kafka](../connect-to-cloud/howto-configure-kafka.md)
-* [Azure Data Lake Storage](../connect-to-cloud/howto-configure-data-lake.md)
+* [MQTT brokers](connect-to-cloud/howto-configure-mqtt-bridge.md)
+* [Azure Event Hubs or Kafka](connect-to-cloud/howto-configure-kafka.md)
+* [Azure Data Lake Storage](connect-to-cloud/howto-configure-data-lake.md)
 
 The Data Processor pipeline destinations let you connect to cloud services such as:
 
-* [Microsoft Fabric](../connect-to-cloud/howto-configure-destination-fabric.md)
-* [Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md)
+* [Microsoft Fabric](connect-to-cloud/howto-configure-destination-fabric.md)
+* [Azure Data Explorer](connect-to-cloud/howto-configure-destination-data-explorer.md)
 
 ## Visualize and analyze telemetry
 
@@ -102,7 +102,7 @@ To secure communication between devices and the cloud through isolated network e
 
 ## Validated environments
 
-[!INCLUDE [validated-environments](../includes/validated-environments.md)]
+[!INCLUDE [validated-environments](includes/validated-environments.md)]
 
 ## Next step
 
