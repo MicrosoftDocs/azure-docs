@@ -240,7 +240,7 @@ Connection strings are always encrypted when stored (encrypted-at-rest).
 
 1. In the app's left menu, select **Environment variables** > **Connection strings**.
 
-    ![Open to Connection strings](./media/configure-common/open-ui-connection-strings.png)
+    ![Screenshot showing UI open to Connection strings.](./media/configure-common/open-ui-connection-strings.png)
 
     By default, values for connection strings are hidden in the portal for security. To see a hidden value of a connection string, select its **Value** field. To see the hidden values of all connection strings, select the **Show value** button.
 
