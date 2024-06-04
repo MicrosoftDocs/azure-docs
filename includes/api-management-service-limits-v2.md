@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: include
-ms.date: 03/22/2024
+ms.date: 05/15/2024
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -58,11 +58,11 @@ To request a limit increase, create a support request from the Azure portal. For
 | Maximum length of URL path segment | 1,024 characters | 1,024 characters  |
 | Maximum size of request or response body in [validate-content policy](../articles/api-management/validate-content-policy.md) | 100 KiB |  100 KiB |
 | Maximum size of API schema used by [validation policy](../articles/api-management/validation-policies.md) | 4 MB | 4 MB |
-| Maximum number of active WebSocket connections per unit | 5,000 | 5,000 |
+| Maximum number of active WebSocket connections per unit<sup>3</sup> | 5,000 | 5,000 |
 
 <sup>1</sup> Connections are pooled and reused unless explicitly closed by the backend.<br/>
 <sup>2</sup> Includes an up to 2048-bytes long query string.<br/>
-
+<sup>3</sup> Up to a maximum of 60,000 connections per service instance.
 
 
 

@@ -95,22 +95,24 @@ When a VM is moved to another subscription or resource group, the scheduled main
 
 #### Resolution
 
-The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move.
+The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a pre requisite, first remove the assignment before following the steps.** 
 
 If you're using a `static` scope:
 
-1. Remove the resource assignment.
 1. Move the resource to a different resource group or subscription.
 1. Re-create the resource assignment.
 
 If you're using a `dynamic` scope:
 
-1. Remove the resource assignment.
 1. Initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, so you can proceed with the next steps.
 1. Move the resource to a different resource group or subscription.
 1. Re-create the resource assignment.
 
-If you miss any of the preceding steps, please reach out to the support team for mitigation.
+If any of the steps are missed, please move the resource to the previous resource group or subscription ID and reattempt the steps.
+
+> [!NOTE]
+> If the resource group is deleted, recreate it with the same name. If the subscription ID is deleted, reach out to the support team for mitigation.
+
 ### Unable to change the patch orchestration option to manual updates from automatic updates
 
 #### Issue

@@ -73,10 +73,10 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | MeterCategory | All | Name of the classification category for the meter. For example, _Cloud services_ and _Networking_. Purchases and Marketplace usage might be shown as blank or `unassigned`. |
 | MeterId¹ | All | The unique identifier for the meter. |
 | MeterName | All | The name of the meter. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
-| MeterRegion | All | Name of the datacenter location for services priced based on location. See Location. |
+| MeterRegion | All | Name of the datacenter location for services priced based on location. See `Location`. |
 | MeterSubCategory | All | Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
 | OfferId¹ | EA, pay-as-you-go | Name of the Azure offer, which is the type of Azure subscription that you have. For more information, see supported [Microsoft Azure offer details](https://azure.microsoft.com/support/legal/offer-details/). |
-| pay-as-you-goPrice² ³| All | The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details). |
+| pay-as-you-goPrice² ³| All | The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details). |
 | PartnerEarnedCreditApplied | MPA | Indicates whether the partner earned credit was applied. |
 | PartnerEarnedCreditRate | MPA | Rate of discount applied if there's a partner earned credit (PEC), based on partner admin link access. |
 | PartnerName | MPA | Name of the partner Microsoft Entra tenant. |
@@ -115,13 +115,13 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | Tags¹ | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 | Term | All | Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
 | UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour. |
-| UnitPrice² ³| All | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details). |
+| UnitPrice² ³| All | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details). |
 
 ¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
 
 ² For MCA customers, prices are shown in the pricing currency in the Actual Cost and Amortized Cost reports. In contrast, for EA customers, the billing and pricing currencies are the same.
 
-³ For more information about pricing terms and definitions, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details).
+³ For more information about pricing terms and definitions, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).
 
 ⁴ The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](../costs/retire-aws-connector.md).
 
@@ -129,13 +129,21 @@ The cost details file itself doesn’t uniquely identify individual records with
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
 
-## Reconcile charges for MCA accounts
+## Reconcile charges in the cost and usage details file
 
-MCA customers can use the following information to reconcile charges between billing and pricing currencies. 
+Microsoft Customer Agreement (MCA) customers can use the following information to reconcile charges between billing and pricing currencies. 
 
-1.	Manually calculate the `CostInPricingCurrency` by: `(EffectivePrice)` * `(Quantity)`
-2.	Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostinPricingCurrency)` * `(ExchangeRatePricingToBilling)`
-3.	Summarize the values that you calculated for `CostInBillingCurrency` and compare them to the invoice.
+1. Manually calculate the `CostInPricingCurrency` by: `(EffectivePrice)` * `(Quantity)`
+
+1. Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostinPricingCurrency)` * `(ExchangeRatePricingToBilling)`
+
+1. Summarize the values that you calculated for `CostInBillingCurrency` and compare them to the invoice.
+
+Enterprise Agreement (EA) customers can reconcile their charges using the following computation:
+
+Manually calculate the cost by multiplying the **Effective Price** by the **Quantity**:
+
+`Cost` = `(EffectivePrice)` * `(Quantity)`
 
 ## Reconcile reservation purchases with usage records
 
@@ -216,7 +224,7 @@ UsageDate | Date
 UsageEnd | Date
 UsageStart | Date
 
-## Next steps
+## Related content
 
 - Get an overview of how to [ingest cost data](automation-ingest-usage-details-overview.md).
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).

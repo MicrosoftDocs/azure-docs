@@ -11,6 +11,8 @@ ms.custom: AppServiceConnectivity
 
 # Use Key Vault references as app settings in Azure App Service and Azure Functions
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This article shows you how to use secrets from Azure Key Vault as values of [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings) in your App Service or Azure Functions apps. 
 
 [Azure Key Vault](../key-vault/general/overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history. When an app setting or connection string is a key vault reference, your application code can use it like any other app setting or connection string. This way, you can maintain secrets apart from your app's configuration. App settings are securely encrypted at rest, but if you need secret management capabilities, they should go into a key vault.
@@ -25,7 +27,7 @@ In order to read secrets from a key vault, you need to have a vault created and 
 
     Key vault references use the app's system-assigned identity by default, but you can [specify a user-assigned identity](#access-vaults-with-a-user-assigned-identity).
 
-1. Authorize [read access to secrets your key vault](../key-vault/general/security-features.md#privileged-access) for the managed identity you created earlier. How you do it depends on the permissions model of your key vault:
+1. Authorize [read access to secrets in your key vault](../key-vault/general/security-features.md#privileged-access) for the managed identity you created earlier. How you do it depends on the permissions model of your key vault:
 
     - **Azure role-based access control**: Assign the **Key Vault Secrets User** role to the managed identity. For instructions, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md).
     - **Vault access policy**: Assign the **Get** secrets permission to the managed identity. For instructions, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md).

@@ -55,7 +55,7 @@ Accelerated networking greatly improves networking performance of virtual machin
 2. Create a proximity placement group using the [`az ppg create`][az-ppg-create] command. Make sure to note the ID value in the output.
 
     ```azurecli-interactive
-    az ppg create -n myPPG -g myResourceGroup -l centralus -t standard
+    az ppg create --name myPPG --resource-group myResourceGroup --location centralus --type standard
     ```
 
     The command produces an output similar to the following example output, which includes the *ID* value you need for upcoming CLI commands.

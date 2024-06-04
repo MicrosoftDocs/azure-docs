@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ms.author: abnarain
 ---
 

@@ -134,7 +134,7 @@ It's a best practice to grant minimum permissions. If your application only need
 
 You can assign multiple roles, such as Search Service Contributor and Search Index Data Contributor, if your application needs comprehensive access to the search services, objects, and content.
 
-You can also [assign roles using PowerShell](search-security-rbac.md#assign-roles).
+You can also [assign roles using PowerShell](search-security-rbac.md).
 
 <a name='set-up-azure-ad-authentication-in-your-client'></a>
 

@@ -97,8 +97,6 @@ You can use these basic Log Analytics queries to explore your log data:
 
 Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. In this article, you learned how to enable these logs for the FHIR service. 
 
-> [!NOTE]
-> Metrics will be added when the Azure Health Data Services service is generally available.
 
 ## Next steps
 

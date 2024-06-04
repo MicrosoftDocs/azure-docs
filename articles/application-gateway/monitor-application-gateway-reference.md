@@ -2,7 +2,7 @@
 title: Monitoring data reference for Azure Application Gateway
 description: This article contains important reference material you need when you monitor Azure Application Gateway.
 ms.date: 06/04/2024
-ms.custom: horz-monitor
+ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: greg-lindsay
 ms.author: greglin
@@ -131,7 +131,10 @@ These metrics apply to layer 4 only.
 
 #### TLS/TCP proxy logs
 
-Application Gateway's Layer 4 proxy provides log data through access logs. These logs are only generated and published if they're configured in the diagnostic settings of your gateway. For more information, see [Supported categories for Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkapplicationgateways).
+Application Gateway’s Layer 4 proxy provides log data through access logs. These logs are only generated and published if they are configured in the diagnostic settings of your gateway. Also see: [Supported categories for Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkapplicationgateways).
+
+> [!NOTE]
+> The columns with Mutual Authentication details for a TLS listener are currently available only through the [AzureDiagnostics table](application-gateway-diagnostics.md#storage-locations). 
 
 | Category | Resource log category |
 |:--------------|:----------------------------------------------------------------------|

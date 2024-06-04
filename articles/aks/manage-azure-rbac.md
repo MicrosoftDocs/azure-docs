@@ -39,7 +39,7 @@ az group create --name myResourceGroup --location westus2
 Create an AKS cluster with managed Microsoft Entra integration and Azure RBAC for Kubernetes Authorization using the [`az aks create`][az-aks-create] command.
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n myManagedCluster --enable-aad --enable-azure-rbac
+az aks create --resource-group myResourceGroup --name myManagedCluster --enable-aad --enable-azure-rbac
 ```
 
 The output will look similar to the following example output:
@@ -61,7 +61,7 @@ The output will look similar to the following example output:
 Add Azure RBAC for Kubernetes Authorization into an existing AKS cluster using the [`az aks update`][az-aks-update] command with the `enable-azure-rbac` flag.
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster --enable-azure-rbac
+az aks update --resource-group myResourceGroup --name myAKSCluster --enable-azure-rbac
 ```
 
 ## Disable Azure RBAC for Kubernetes Authorization from an AKS cluster
@@ -69,7 +69,7 @@ az aks update -g myResourceGroup -n myAKSCluster --enable-azure-rbac
 Remove Azure RBAC for Kubernetes Authorization from an existing AKS cluster using the [`az aks update`][az-aks-update] command with the `disable-azure-rbac` flag.
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster --disable-azure-rbac
+az aks update --resource-group myResourceGroup --name myAKSCluster --disable-azure-rbac
 ```
 
 ## Create role assignments for users to access the cluster
@@ -88,7 +88,7 @@ Roles assignments scoped to the **entire AKS cluster** can be done either on the
 Get your AKS resource ID using the [`az aks show`][az-aks-show] command.
 
 ```azurecli
-AKS_ID=$(az aks show -g myResourceGroup -n myManagedCluster --query id -o tsv)
+AKS_ID=$(az aks show --resource-group myResourceGroup --name myManagedCluster --query id -o tsv)
 ```
 
 Create a role assignment using the [`az role assignment create`][az-role-assignment-create] command. `<AAD-ENTITY-ID>` can be a username or the client ID of a service principal.
@@ -150,7 +150,7 @@ az role assignment create --role "AKS Deployment Reader" --assignee <AAD-ENTITY-
 Make sure you have the [Azure Kubernetes Service Cluster User](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) built-in role, and then get the kubeconfig of your AKS cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
 ```azurecli-interactive
-az aks get-credentials -g myResourceGroup -n myManagedCluster
+az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 
 Now, you can use `kubectl` manage your cluster. For example, you can list the nodes in your cluster using `kubectl get nodes`. The first time you run it, you'll need to sign in, as shown in the following example:
@@ -203,13 +203,13 @@ az role assignment delete --ids <LIST OF ASSIGNMENT IDS>
 ### Delete role definition
 
 ```azurecli-interactive
-az role definition delete -n "AKS Deployment Reader"
+az role definition delete --name "AKS Deployment Reader"
 ```
 
 ### Delete resource group and AKS cluster
 
 ```azurecli-interactive
-az group delete -n myResourceGroup
+az group delete --name myResourceGroup
 ```
 
 ## Next steps

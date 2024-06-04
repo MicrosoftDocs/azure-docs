@@ -80,8 +80,9 @@ Follow the procedure to [create or edit an alert rule](alerts-create-new-alert-r
     1. In the **Aggregation type**, we recommend that you don't select **Maximum**.
     1. In the **Operator** field, select **Greater than** unless behavior represents the application usage.
     1. In **Threshold Sensitivity**, select **Medium** or **Low** to reduce alert noise.
-    1. In the **Check every** field, consider lowering the frequency based on the business impact of the alert.
-    1. In the **Lookback period**, set the look-back window to at least 15 minutes. For example, if the **check every** field is set to 5 minutes, the lookback period should be at least 3 minutes or more.
+    1. In the **Check every** field, select how often the alert rule checks if the condition is met. To minimize the the business impact of the alert, consider using a lower frequency. Make sure that the **check every** field is less than or equal to the **lookback period** field.
+    1. In the **Lookback period**, set the time period to look back at each time the data is checked. Make sure that this **lookback period** is greater than or equal to the **Check every** field.
+    1. In the **Advanced Settings**, choose how many violations will trigger the alert within a specific time period. Optionally, set the date from which to start learning the metric historical data and calculate the dynamic thresholds.
 1. Continue with the rest of the process to create an alert rule.
 
 > [!NOTE]
