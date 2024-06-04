@@ -167,7 +167,7 @@ In this section, you add authentication code to your working directory and perfo
     az login
     ```
 
-    The authentication code uses [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate with Microsoft Entra ID and get a token that authorizes you to perform operations on your server instance. `DefaultAzureCredential` supports a chain of authentication credential types. Among the credentials supported are credentials that you're signed in to developer tools with like the Azure CLI, PowerShell, or Azure Developer CLI.
+    The authentication code uses [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate with Microsoft Entra ID and get a token that authorizes you to perform operations on your server instance. `DefaultAzureCredential` supports a chain of authentication credential types. Among the credentials supported are credentials that you're signed in to developer tools with like the Azure CLI, Azure PowerShell, or Azure Developer CLI.
 
 #### [Password](#tab/password)
 
