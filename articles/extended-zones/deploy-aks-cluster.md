@@ -28,7 +28,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create an AKS cluster in an Extended Zone
 
-In this section, you create an AKS cluster in an Extended Zone.
+In this section, you create an AKS cluster in Los Angeles.
 
 > [!NOTE]
 > To quickly get started with provisioning an AKS cluster in an Extended Zone, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/extended-zones/toc.json) to consider how it aligns with your business requirements.
@@ -62,8 +62,6 @@ In this section, you create an AKS cluster in an Extended Zone.
 1. When your deployment is complete, go to your resource by selecting **Go to resource**.
 
 ## Clean up resources
-
-If you're not going to continue to use this application, delete the resources that you created in this tutorial.
 
 When no longer needed, delete the AKS cluster and its resource group to avoid Azure charges:
 
