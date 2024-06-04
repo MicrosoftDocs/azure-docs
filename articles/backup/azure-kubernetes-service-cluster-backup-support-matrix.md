@@ -43,7 +43,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Currently, AKS clusters using a Service Principal aren't supported. If your AKS cluster uses a Service Principal, you can [update your AKS cluster to use a System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
 
-- You can deploy the Backup Extension in the Ubuntu-based cluster nodes. AKS Clusters with the Windows-based nodes aren't supported by Azure Backup for AKS.
+- You can only deploy the Backup Extension on Ubuntu and Azure Linux based cluster nodes. AKS Clusters with the ARM 64 and Windows based nodes cannot get have Backup Extension installed on them.
 
 - You must install the backup extension in the AKS cluster. If you're using Azure CLI to install the backup extension, ensure that the version is 2.41 or later. Use `az upgrade` command to upgrade the Azure CLI.
 
