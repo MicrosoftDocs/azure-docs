@@ -134,7 +134,7 @@ These metrics apply to layer 4 only.
 Application Gateway’s Layer 4 proxy provides log data through access logs. These logs are only generated and published if they are configured in the diagnostic settings of your gateway. Also see: [Supported categories for Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkapplicationgateways).
 
 > [!NOTE]
-> The columns with Mutual Authentication details for a TLS listener are currently available only through the [AzureDiagnostics table](application-gateway-diagnostics.md#storage-locations). 
+> The columns with Mutual Authentication details for a TLS listener are currently available only through the [AzureDiagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 | Category | Resource log category |
 |:--------------|:----------------------------------------------------------------------|
