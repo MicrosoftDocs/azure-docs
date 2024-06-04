@@ -14,18 +14,16 @@ ms.date: 04/23/2024
 
 # Aggregate data in a Log Analytics workspace with Summary rules
 
-Complex queries on large data sets often time out. It's easier to analyze and report on summarized data that's _cleaned_ and _aggregated_. A summary rule lets you aggregate data you ingest into your Log Analytics workspace based on a defined query and cadence. The rule sends the aggregated data to a custom log table in your Log Analytics workspace. This lets you optimize your data for:
+A summary rule lets you aggregate data in your Log Analytics workspace and send the aggregated results to a custom log table in your Log Analytics workspace. This lets you optimize your data for:
 
-- **Analysis and reports** on large data sets and time ranges when you use summarized data in scenarios. Some examples include security and incident analysis, and month-over-month or annual business reports.
+- **Analysis and reports**, especially those based on large data sets and time ranges required for security and incident analysis, month-over-month or annual business reports, and so on. Complex queries on large data sets often time out. It's easier and more efficient to analyze and report on summarized data that's _cleaned_ and _aggregated_. 
 
-- **Cost savings** verbose logs to tables in Basic or Auxiliary tiers, and summarize to Analytics table for analysis, reports, and long retention. Or, ingest to Analytics table with short retention, and summarize it to a table with longer retention.
+- **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a cheap Basic log table, and send summarized data to an Analytics table for analysis and reports. 
 
-- **Alerts, dashboards, and cross-referencing** on data ingested in Basic or Auxiliary tiers, when summarized and used in Analytics tier.
-
-- **Segregate table-level access** for privacy and security by obfuscation of privacy details in summarized shareable data.
+- **Segregated, table-level access** for privacy and security by obfuscation of privacy details in summarized shareable data.
 
 
-This article describes how summary rules work, explains how to define a summary rule, and provides some examples of the use and benefits of summary rules.
+This article describes how summary rules work and how to define a summary rule, and provides some examples of the use and benefits of summary rules.
 
 ## Prerequisites
 
@@ -44,9 +42,9 @@ This article describes how summary rules work, explains how to define a summary 
 
 ## How summary rules work
 
-Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule takes a chunk of data, defined by bin size, aggregates the data based on a query, and reingests the summarized results into a custom [Analytics table](basic-logs-configure.md) in your Log Analytics workspace. 
+Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule takes a chunk of data, defined by bin size, aggregates the data based on a KQL query, and reingests the summarized results into a custom [Analytics table](basic-logs-configure.md) in your Log Analytics workspace. 
 
-You can aggregate data in any data plan, including [Analytics and Basic](basic-logs-query.md) tables. Using summary rules to retain raw and summarized data in different plans can help optimize costs - for example, you can retain raw data in the cheaper Basic log data plan for as little or as long as you need for compliance, and retain summarized data you use for analysis and reports in an Analytics table for longer.
+You can aggregate data you ingest into any table, including both [Analytics and Basic](basic-logs-query.md) tables. 
 
 You can configure several rules to aggregate data from multiple tables and send the aggregated data to the same destination table or separate tables. 
 
