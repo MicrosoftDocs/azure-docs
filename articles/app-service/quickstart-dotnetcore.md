@@ -842,12 +842,12 @@ The **Overview** page for your web app, contains options for basic management li
 <!-- markdownlint-disable MD044 -->
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
-[!INCLUDE [Clean-up CLI resources](../../includes/cli-samples-clean-up.md)]
+[!INCLUDE [Clean-up CLI resources](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
 :::zone-end
 
 :::zone target="docs" pivot="development-environment-ps"
 <!-- markdownlint-enable MD044 -->
-[!INCLUDE [Clean-up PowerShell resources](../../includes/powershell-samples-clean-up.md)]
+[!INCLUDE [Clean-up PowerShell resources](~/reusable-content/ce-skilling/azure/includes/powershell-samples-clean-up.md)]
 :::zone-end
 <!-- markdownlint-enable MD044 -->
 
