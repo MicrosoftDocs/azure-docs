@@ -21,12 +21,12 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ### FHIR service
 **Enhancements to the purge-history operation**
-The purge history operation now allows partial delete success using the query parameter ‘allowPartialSuccess’. By default, the purge history operation waits for successful completion before deleting resources. However, if an error occurs during execution, the deletion of resources would be rolled back. By using the ‘allowPartialSuccess’ query parameter, you can prevent the transaction from being rolled back in case of an error.
+The purge-history operation allows you to perform a partial delete by using the query parameter ‘allowPartialSuccess’. By default, the purge-history operation waits for successful completion before deleting resources. However, if an error occurs during execution, the deletion of resources is rolled back. By using the ‘allowPartialSuccess’ query parameter, you can prevent the transaction from being rolled back in case of an error.
 
-**Bug Fixes**
+**Bug fixes**
 
-- **Fixed: HTTP Status Code for Long-Running Requests** FHIR requests that take longer than 100 seconds to execute will now return an HTTP 408 status code instead of HTTP 500. 
-- **Fixed: History request in bundle** Prior to the fix, history request in a bundle returned HTTP status code 404.
+- **Fixed: HTTP status code for long-running requests**. FHIR requests that take longer than 100 seconds to execute return an HTTP 408 status code instead of HTTP 500. 
+- **Fixed: History request in bundle**. Prior to the fix, a history request in a bundle returned HTTP status code 404.
 
 ## **March 2024**
 **Batch-bundle parallelization**
