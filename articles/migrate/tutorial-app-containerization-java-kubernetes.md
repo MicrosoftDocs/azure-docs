@@ -4,10 +4,10 @@ description: Tutorial:Containerize & migrate Java web applications to Azure Kube
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
-ms.custom: devx-track-java, devx-track-javaee, migration-java, subject-rbac-steps, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-javaee, migration-java, subject-rbac-steps, devx-track-extended-java, engagement-fy24
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 04/03/2024
+ms.date: 03/18/2024
 ---
 # Java web app containerization and migration to Azure Kubernetes Service
 

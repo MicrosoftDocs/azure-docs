@@ -5,9 +5,9 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.custom: subject-rbac-steps
-ms.service: azure-migrate
+ms.service: azure-migrate, engagement-fy24
 ms.topic: tutorial
-ms.date: 07/14/2023
+ms.date: 03/06/2024
 ---
 # ASP.NET app containerization and migration to Azure Kubernetes Service
 
