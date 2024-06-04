@@ -80,12 +80,7 @@ Once you decide which user you'll use to provide consent, follow these instructi
 
 1. Go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  `https://rdmimgmtweb-210520190304.azurewebsites.net`.
 2. Sign in using the appropriate Microsoft Entra user account.
-3. If you authenticated with a Global Administrator, you can now select the checkbox to **Consent on behalf of your organization**. Select **Accept** to provide consent.
-
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot showing the full consent page that the user or admin will see.](../media/management-ui-consent-page.png)
-
-This will now take you to the management tool.
+3. If you authenticated with a Global Administrator, you can now select the checkbox to **Consent on behalf of your organization**. Select **Accept** to provide consent. This will now take you to the management tool.
 
 ## Use the management tool
 
