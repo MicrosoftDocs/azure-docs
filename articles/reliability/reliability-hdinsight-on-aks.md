@@ -32,7 +32,7 @@ This article describes reliability support in [Azure HDInsight on Azure Kubernet
 
 [!INCLUDE [next step](includes/reliability-availability-zone-description-include.md)]
 
-Azure HDInsight on AKS supports availability zone by leveraging Azure Kubernetes Service's ability to create zone redundant node pools. You can select which availability zones to deploy the cluster pool and cluster during their creation. Once the cluster pool or cluster are created, you can't change the availability zones.
+Azure HDInsight on AKS supports availability zone by leveraging Azure Kubernetes Service's ability to create zone redundant node pools. You can select which availability zones to deploy the cluster pool and cluster during their creation. Once the cluster pool or cluster is created, you can't change the availability zones.
 
 ### Prerequisites
 
@@ -90,7 +90,7 @@ Currently, Azure HDInsight on AKS only has one standard service offering and clu
 
 Azure HDInsight on AKS and its customers operate under the Shared responsibility model, which means that the customer must address disaster recovery requirements for the service they deploy and control. To ensure that recovery is proactive, customers should always predeploy secondaries because there's no guarantee of capacity at time of impact for those who haven't preallocated.
 
-Unlike HDInsight, the Virtual Machines used in HDInsight on AKS clusters require the same Quota as Azure VMs. For more information, see [Capacity planning](../hdinsight-aks/virtual-machine-recommendation-capacity-planning.md#capacity-planning).
+Unlike HDInsight, the Virtual Machines used in HDInsight on AKS clusters requires the same Quota as Azure VMs. For more information, see [Capacity planning](../hdinsight-aks/virtual-machine-recommendation-capacity-planning.md#capacity-planning).
 
 ## Related content
 
