@@ -20,7 +20,7 @@ Understanding the distinction between these two approaches helps in selecting th
 
 ![Diagram showing Ingress traffic flow in an AKS cluster][aks-ingress]
 
-### Compare ingress options
+## Compare ingress options
 
 The following table lists the feature differences between the different ingress controller options:
 
@@ -45,7 +45,7 @@ The following table lists the different scenarios where you might use each ingre
 | **Application Gateway for Containers** | • Azure hosted ingress gateway. </br> • Flexible deployment strategies managed by the controller or bring your own Application Gateway for Containers. </br> • Advanced traffic management features such as automatic retries, availability zone resiliency, mutual authentication (mTLS) to backend target, traffic splitting / weighted round robin, and autoscaling. </br> • Integration with Azure Key Vault for certificate management. </br> • Integration with Azure DNS Zones for public and private DNS management. </br> • Supports the Ingress and Gateway APIs. |
 | **Istio Ingress Gateway** | • Based on Envoy, when using with Istio for a service mesh. </br> • Advanced traffic management features such as rate limiting and circuit breaking. </br> • Support for mTLS </br> • Supports the Gateway API. |
 
-### Create an Ingress resource
+## Create an Ingress resource
 
 The application routing addon is the recommended way to configure an Ingress controller in AKS. The application routing addon is a fully managed ingress controller for Azure Kubernetes Service (AKS) that provides the following features:
 
@@ -57,11 +57,11 @@ The application routing addon is the recommended way to configure an Ingress con
 
 For more information about the application routing addon, see [Managed NGINX ingress with the application routing add-on](app-routing.md).
 
-### Client source IP preservation
+## Client source IP preservation
 
-Configure your ingress controller to preserve the client source IP on requests to containers in your AKS cluster. When your ingress controller routes a client's request to a container in your AKS cluster, the original source IP of that request is unavailable to the target container. When you enable *client source IP preservation*, the source IP for the client is available in the request header under *X-Forwarded-For*.
+Configure your ingress controller to preserve the client source IP on requests to containers in your AKS cluster. When your ingress controller routes a client's request to a container in your AKS cluster, the original source IP of that request is unavailable to the target container. When you enable _client source IP preservation_, the source IP for the client is available in the request header under _X-Forwarded-For*.
 
-If you're using client source IP preservation on your ingress controller, you can't use TLS pass-through. Client source IP preservation and TLS pass-through can be used with other services, such as the *LoadBalancer* type.
+If you're using client source IP preservation on your ingress controller, you can't use TLS pass-through. Client source IP preservation and TLS pass-through can be used with other services, such as the _LoadBalancer_ type.
 
 To learn more about client source IP preservation, see [How client source IP preservation works for LoadBalancer Services in AKS][ip-preservation].
 
