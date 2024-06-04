@@ -34,7 +34,7 @@ landingContent:
           - text: Deploy Azure IoT Operations
             url: deploy-iot-ops/howto-deploy-iot-operations.md
           - text: Manage assets
-            url: manage-devices-assets/overview-manage-assets.md
+            url: discover-manage-assets/overview-manage-assets.md
           - text: Manage MQTT connectivity
             url: manage-mqtt-connectivity/overview-iot-mq.md
           - text: Process data

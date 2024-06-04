@@ -42,31 +42,31 @@ items:
     - name: Discover and manage assets
       items:
       - name: Overview
-        href: manage-devices-assets/overview-manage-assets.md
+        href: discover-manage-assets/overview-manage-assets.md
       - name: Manage your assets
-        href: manage-devices-assets/howto-manage-assets-remotely.md
+        href: discover-manage-assets/howto-manage-assets-remotely.md
       - name: OPC UA (connect to your assets)
         items:
         - name: OPC UA broker overview
-          href: manage-devices-assets/overview-opcua-broker.md
+          href: discover-manage-assets/overview-opcua-broker.md
         - name: OPC UA application authentication overview
-          href: manage-devices-assets/overview-opcua-broker-certificates-management.md
+          href: discover-manage-assets/overview-opcua-broker-certificates-management.md
         - name: Configure OPC UA application authentication
-          href: manage-devices-assets/howto-configure-opcua-certificates-infrastructure.md
+          href: discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md
         - name: Configure OPC UA user authentication
-          href: manage-devices-assets/howto-configure-opcua-authentication-options.md
+          href: discover-manage-assets/howto-configure-opcua-authentication-options.md
         - name: Configure an OPC PLC simulator
-          href: manage-devices-assets/howto-configure-opc-plc-simulator.md
+          href: discover-manage-assets/howto-configure-opc-plc-simulator.md
         - name: Configure OPC UA authentication options
-          href: manage-devices-assets/howto-configure-opcua-authentication-options.md
+          href: discover-manage-assets/howto-configure-opcua-authentication-options.md
       - name: Akri (automatic asset discovery)
         items:
         - name: Akri overview
-          href: manage-devices-assets/overview-akri.md
+          href: discover-manage-assets/overview-akri.md
         - name: Akri architecture
-          href: manage-devices-assets/concept-akri-architecture.md
+          href: discover-manage-assets/concept-akri-architecture.md
         - name: Discover OPC UA data sources with Akri
-          href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
+          href: discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md
     - name: Manage MQTT broker
       items:
       - name: Overview

@@ -78,5 +78,5 @@ On first mention in an article, use _Azure Device Registry Preview_. On subseque
 ## Related content
 
 - [What is Azure IoT Operations Preview?](../overview-iot-operations.md)
-- [Connect industrial assets using Azure IoT OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md)
+- [Connect industrial assets using Azure IoT OPC UA Broker Preview](../discover-manage-assets/overview-opcua-broker.md)
 - [Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)

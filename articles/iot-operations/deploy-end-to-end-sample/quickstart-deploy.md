@@ -21,10 +21,10 @@ The services deployed in this quickstart include:
 
 * [Azure IoT Orchestrator Preview](../deploy-iot-ops/deploy-custom/overview-orchestrator.md)
 * [Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)
-* [Azure IoT OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
+* [Azure IoT OPC UA Broker Preview](../discover-manage-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
 * [Azure IoT Data Processor Preview](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
-* [Azure IoT Akri Preview](../manage-devices-assets/overview-akri.md)
-* [Azure Device Registry Preview](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
+* [Azure IoT Akri Preview](../discover-manage-assets/overview-akri.md)
+* [Azure Device Registry Preview](../discover-manage-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
 * [Azure IoT Layered Network Management Preview](../manage-layered-network/overview-layered-network.md)
 * [Observability](../monitor/howto-configure-observability.md)
 

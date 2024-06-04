@@ -95,7 +95,7 @@ These quickstarts use the **OPC PLC simulator** to generate sample data. To enab
     > [!CAUTION]
     > Don't use this configuration in production or pre-production environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
 
-    To learn more, see [Deploy the OPC PLC simulator](../manage-devices-assets/howto-configure-opc-plc-simulator.md) section.
+    To learn more, see [Deploy the OPC PLC simulator](../discover-manage-assets/howto-configure-opc-plc-simulator.md) section.
 
 1. To enable the configuration changes to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
 

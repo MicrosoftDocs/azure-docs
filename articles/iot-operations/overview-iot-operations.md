@@ -48,11 +48,11 @@ Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You ca
 
 ## Manage devices and assets
 
-Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations (preview)](manage-devices-assets/howto-manage-assets-remotely.md?tabs=portal) portal or the [Azure CLI](manage-devices-assets/howto-manage-assets-remotely.md?tabs=cli) to manage the devices and assets that you want to connect to.
+Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations (preview)](discover-manage-assets/howto-manage-assets-remotely.md?tabs=portal) portal or the [Azure CLI](discover-manage-assets/howto-manage-assets-remotely.md?tabs=cli) to manage the devices and assets that you want to connect to.
 
-The [Azure IoT OPC UA Broker Preview](manage-devices-assets/overview-opcua-broker.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri Preview_ to Azure IoT MQ topics.
+The [Azure IoT OPC UA Broker Preview](discover-manage-assets/overview-opcua-broker.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri Preview_ to Azure IoT MQ topics.
 
-The [Azure IoT Akri Preview](manage-devices-assets/overview-akri.md) component helps you discover and connect to other types of devices and assets.
+The [Azure IoT Akri Preview](discover-manage-assets/overview-akri.md) component helps you discover and connect to other types of devices and assets.
 
 ## Publish and subscribe with MQTT
 
