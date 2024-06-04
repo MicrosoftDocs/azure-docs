@@ -16,7 +16,7 @@ You can customize a host pool's Remote Desktop Protocol (RDP) properties, such a
 
 See [Supported RDP properties with Azure Virtual Desktop](rdp-properties.md) for a full list of supported properties and their default values.
 
-## Default RDP file properties
+## Default host pool RDP properties
 
 RDP files have the following properties by default:
 
@@ -27,6 +27,23 @@ RDP files have the following properties by default:
 |Remote audio mode|Play locally|
 |VideoPlayback|Enabled|
 |EnableCredssp|Enabled|
+
+
+|Name  |RDP Property |Details  |
+|---------|---------|---------|
+|Audio output location   | audiomode:i:0         | Determines whether the local or remote machine plays audio.        |
+| Media Transfer Protocol (MTP) and Picture Transfer Protocol (PTP)   |devicestoredirect:s:*         | Determines which devices on the local computer will be redirected and available in the remote session.        |
+| Drive/storage redirection |drivestoredirect:s:*   |Determines which disk drives on the local computer will be redirected and available in the remote session.    |
+| Credential Security Support Provider  | enablecredsspsupport:i:1         |Determines whether the client will use the Credential Security Support Provider (CredSSP) for authentication if it's available.         |
+| Clipboard redirection  | redirectclipboard:i:1   | Determines whether clipboard redirection is enabled.         |
+| COM ports redirection   |  redirectcomports:i:1       | Determines whether COM (serial) ports on the local computer will be redirected and available in the remote session.        |
+|Printer redirection  |  redirectprinters:i:1        | Determines whether printers configured on the local computer will be redirected and available in the remote session.         |
+| Smart card redirection	 |  redirectsmartcards:i:1       | Determines whether smart card devices on the local computer will be redirected and available in the remote session.    |
+|WebAuthn redirection   | redirectwebauthn:i:1        | Determines whether WebAuthn requests on the remote computer will be redirected to the local computer allowing the use of local authenticators (such as Windows Hello for Business and security key).        |
+|USB device redirection   |  usbdevicestoredirect:s:*       | Determines which supported RemoteFX USB devices on the client computer will be redirected and available in the remote session when you connect to a remote session that supports RemoteFX USB redirection.        |
+|Multiple displays	   | use multimon:i:1         | Determines whether the remote session will use one or multiple displays from the local computer.        |
+|Video playback  |  videoplaybackmode:i:1        | Determines if the connection will use RDP-efficient multimedia streaming for video playback.        |
+
 
 >[!IMPORTANT]
 >- Multi-monitor mode is only enabled for Desktop application groups and will be ignored for RemoteApp application groups.
@@ -41,7 +58,9 @@ RDP files have the following properties by default:
 
 Before you begin, follow the instructions in [Set up the Azure Virtual Desktop PowerShell module](powershell-module.md) to set up your PowerShell module and sign in to Azure.
 
-## Configure RDP properties in the Azure portal
+## Configure RDP properties
+
+### [Azure portal](#tab/portal)
 
 To configure RDP properties in the Azure portal:
 
@@ -55,57 +74,34 @@ To configure RDP properties in the Azure portal:
    - Alternatively, you can open the **Advanced** tab and add your RDP properties in a semicolon-separated format like the PowerShell examples in the following sections.
 8. When you're done, select **Save** to save your changes.
 
-The next sections will tell you how to edit custom RDP properties manually in PowerShell.
 
-## Add or edit a single custom RDP property
 
-To add or edit a single custom RDP property, run the following PowerShell cmdlet:
+### [Azure PowerShell](#tab/powershell)
 
-```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty <property>
-```
+To edit custom RDP properties manually in PowerShell, use the following cmdlets. 
 
->[!NOTE]
->The Azure Virtual Desktop service doesn't accept escape characters, such as semicolons or colons, as valid custom RDP property names.
+### Add or edit multiple custom RDP properties
 
-To check if the cmdlet you just ran updated the property, run this cmdlet:
+To add or edit multiple custom RDP properties in PowerShell: 
 
-```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
+2. Run the following PowerShell cmdlets by providing the custom RDP properties as a semicolon-separated string:
 
-Name              : <hostpoolname>
-CustomRdpProperty : <customRDPpropertystring>
-```
+    ```powershell
+    $properties="<property1>;<property2>;<property3>"
+    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty $properties
+    ```
+    
+    >[!NOTE]
+    >The Azure Virtual Desktop service doesn't accept escape characters, such as semicolons or colons, as valid custom RDP property names.
 
-For example, if you were checking for the "audiocapturemode" property on a host pool named 0301HP, you'd enter this cmdlet:
+3. You can check to make sure the RDP property was added by running the following cmdlet:
 
-```powershell
-Get-AzWvdHostPool -ResourceGroupName 0301rg -Name 0301hp | format-list Name, CustomRdpProperty
-
-Name              : 0301HP
-CustomRdpProperty : audiocapturemode:i:1;
-```
-
-## Add or edit multiple custom RDP properties
-
-To add or edit multiple custom RDP properties, run the following PowerShell cmdlets by providing the custom RDP properties as a semicolon-separated string:
-
-```powershell
-$properties="<property1>;<property2>;<property3>"
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty $properties
-```
-
->[!NOTE]
->The Azure Virtual Desktop service doesn't accept escape characters, such as semicolons or colons, as valid custom RDP property names.
-
-You can check to make sure the RDP property was added by running the following cmdlet:
-
-```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
-
-Name              : <hostpoolname>
-CustomRdpProperty : <customRDPpropertystring>
-```
+    ```powershell
+    Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
+    
+    Name              : <hostpoolname>
+    CustomRdpProperty : <customRDPpropertystring>
+    ```
 
 Based on our earlier cmdlet example, if you set up multiple RDP properties on the 0301HP host pool, your cmdlet would look like this:
 
@@ -116,22 +112,32 @@ Name              : 0301HP
 CustomRdpProperty : audiocapturemode:i:1;audiomode:i:0;
 ```
 
-## Reset all custom RDP properties
+### Remove all RDP properties
 
-You can reset individual custom RDP properties to their default values by following the instructions in [Add or edit a single custom RDP property](#add-or-edit-a-single-custom-rdp-property). You can also reset all custom RDP properties for a host pool by running the following PowerShell cmdlet:
+To remove all custom RDP properties: 
 
-```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty ""
-```
+1. You can remove all custom RDP properties for a host pool by running the following PowerShell cmdlet:
 
-To make sure you've successfully removed the setting, enter this cmdlet:
+    ```powershell
+    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty ""
+    ```
 
-```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
+2. To make sure you've successfully removed the setting, enter this cmdlet:
 
-Name              : <hostpoolname>
-CustomRdpProperty : <CustomRDPpropertystring>
-```
+    ```powershell
+    Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
+    
+    Name              : <hostpoolname>
+    CustomRdpProperty : <CustomRDPpropertystring>
+    ```
+
+### [Azure CLI](#tab/cli)
+
+To edit custom RDP properties manually in Azure CLI:
+
+
+---
+
 
 ## Next steps
 
