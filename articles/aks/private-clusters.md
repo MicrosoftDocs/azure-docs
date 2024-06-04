@@ -56,7 +56,7 @@ az group create --location eastus --name myResourceGroup
 Create a private cluster with default basic networking using the [`az aks create`][az-aks-create] command with the `--enable-private-cluster` flag.
 
 ```azurecli-interactive
-az aks create --name <private-cluster-name> --resource-group-name <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
+az aks create --name <private-cluster-name> --resource-group <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
 
 ### Advanced networking  
