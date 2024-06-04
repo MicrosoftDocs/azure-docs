@@ -94,7 +94,10 @@ Deleted clusters take two weeks to be completely removed. You can have up to sev
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Click **Create** in the **Log Analytics dedicated clusters** menu in the Azure portal. You will be prompted for details such as the name of the cluster and the commitment tier.
+
+:::image type="content" source=".media/logs-dedicated-cluster/create-cluster.png" alt-text="Screenshot for creating dedicated cluster in the Azure portal." lightbox=".media/logs-dedicated-cluster/create-cluster.png":::
+
 
 #### [CLI](#tab/cli)
 
@@ -161,7 +164,7 @@ The provisioning of the Log Analytics cluster takes a while to complete. Use one
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+The Azure portal will provide a message when the creating of the dedicated cluster is completed.
 
 #### [CLI](#tab/cli)
 
@@ -250,7 +253,11 @@ Use the following steps to link a workspace to a cluster. You can use automation
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Linked workspaces** to view all workspaces currently linked to the dedicated cluster. Click **Link workspaces** to link additional workspaces.
+
+:::image type="content" source=".media/logs-dedicated-cluster/linked-workspaces.png" alt-text="Screenshot for linking workspaces to a dedicated cluster in the Azure portal." lightbox=".media/logs-dedicated-cluster/linked-workspaces.png":::
+
+
 
 #### [CLI](#tab/cli)
 
@@ -322,8 +329,9 @@ When a cluster is configured with customer-managed keys, data ingested to the wo
 
 #### [Portal](#tab/azure-portal)
 
-1. Open the **Log Analytics workspaces** menu and then select your workspace.
-1. On the **Overview** page, select **JSON View**.
+On the **Overview** page for your dedicated cluster, select **JSON View**. The `associatedWorkspaces` section lists the workspaces linked to the cluster.
+
+
 
 #### [CLI](#tab/cli)
 
@@ -404,9 +412,12 @@ After you create your cluster resource and it's fully provisioned, you can edit 
 
 ## Get all clusters in resource group
 
+
 #### [Portal](#tab/azure-portal)
 
-N/A
+From the **Log Analytics dedicated clusters** menu in the Azure portal, select the **Resource group** filter.
+
+:::image type="content" source=".media/logs-dedicated-cluster/resource-group-clusters.png" alt-text="Screenshot for viewing all dedicated clusters in a resource group in the Azure portal." lightbox=".media/logs-dedicated-cluster/resource-group-clusters.png":::
 
 #### [CLI](#tab/cli)
 
@@ -478,7 +489,11 @@ Authorization: Bearer <token>
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+From the **Log Analytics dedicated clusters** menu in the Azure portal, select the **Subscription** filter.
+
+:::image type="content" source=".media/logs-dedicated-cluster/subscription-group-clusters.png" alt-text="Screenshot for viewing all dedicated clusters in a resource group in the Azure portal." lightbox=".media/logs-dedicated-cluster/subscription-group-clusters.png":::
+
+
 
 #### [CLI](#tab/cli)
 
@@ -519,7 +534,9 @@ During the commitment period, you can change to a higher commitment tier, which 
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Change** next to **Commitment tier**
+
+:::image type="content" source=".media/logs-dedicated-cluster/commitment-tier.png" alt-text="Screenshot for changing commitment tier for a dedicated cluster in the Azure portal." lightbox=".media/logs-dedicated-cluster/commitment-tier.png":::
 
 #### [CLI](#tab/cli)
 
@@ -619,7 +636,10 @@ Use the following commands to unlink a workspace from cluster:
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Linked workspaces** to view all workspaces currently linked to the dedicated cluster. Select any workspaces you want to unlink and click **Unlink**.
+
+:::image type="content" source=".media/logs-dedicated-cluster/unlink-workspace.png" alt-text="Screenshot for linking workspaces to a dedicated cluster in the Azure portal." lightbox=".media/logs-dedicated-cluster/unlink-workspace.png":::
+
 
 #### [CLI](#tab/cli)
 
@@ -665,7 +685,9 @@ Use the following commands to delete a cluster:
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Delete**.
+
+:::image type="content" source=".media/logs-dedicated-cluster/delete-cluster.png" alt-text="Screenshot for deleting a dedicated cluster in the Azure portal." lightbox=".media/logs-dedicated-cluster/delete-cluster.png":::
 
 #### [CLI](#tab/cli)
 
