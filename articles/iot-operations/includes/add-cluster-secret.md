@@ -7,7 +7,7 @@ ms.date: 02/29/2024
 ms.author: dobett
 ---
 
-Use the following command to add a secret to your Azure Key Vault that contains the client secret you made a note of when you created the service principal. You created the Azure Key Vault in the [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) quickstart:
+Use the following command to add a secret to your Azure Key Vault that contains the client secret you made a note of when you created the service principal. You created the Azure Key Vault in the [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../deploy-end-to-end-sample/quickstart-deploy.md) quickstart:
 
 ```azurecli
 az keyvault secret set --vault-name <your-key-vault-name> --name AIOFabricSecret --value <client-secret>

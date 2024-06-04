@@ -83,7 +83,7 @@ Data Processor pipelines can use the following stages:
 
 ## Next step
 
-To try out Data Processor pipelines, see the [Azure IoT Operations quickstarts](../get-started/quickstart-deploy.md).
+To try out Data Processor pipelines, see the [Azure IoT Operations quickstarts](../deploy-end-to-end-sample/quickstart-deploy.md).
 
 To learn more about Data Processor, see:
 

@@ -18,7 +18,7 @@ In this article, you learn how to configure and connect the OPC PLC simulator. T
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). If you deploy Azure IoT Operations as described, the installation includes the OPC PLC simulator.
+A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../deploy-end-to-end-sample/quickstart-deploy.md). If you deploy Azure IoT Operations as described, the installation includes the OPC PLC simulator.
 
 ## Deploy the OPC PLC simulator
 

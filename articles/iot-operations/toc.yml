@@ -3,18 +3,18 @@ items:
     href: index.yml
     items:
     - name: Overview
-      href: get-started/overview-iot-operations.md
+      href: deploy-end-to-end-sample/overview-iot-operations.md
     - name: Deploy an end-to-end sample
       expanded: true
       items:
       - name: Deploy Azure IoT Operations
-        href: get-started/quickstart-deploy.md
+        href: deploy-end-to-end-sample/quickstart-deploy.md
       - name: Add OPC UA assets to your cluster
-        href: get-started/quickstart-add-assets.md
+        href: deploy-end-to-end-sample/quickstart-add-assets.md
       - name: Upload data to the cloud
-        href: get-started/quickstart-upload-telemetry-to-cloud.md
+        href: deploy-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md
       - name: Get insights from your data
-        href: get-started/quickstart-get-insights.md
+        href: deploy-end-to-end-sample/quickstart-get-insights.md
     - name: Deploy Azure IoT Operations components
       items:
       - name: Prepare a cluster

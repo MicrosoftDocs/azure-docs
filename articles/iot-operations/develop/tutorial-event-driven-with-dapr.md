@@ -29,7 +29,7 @@ The Dapr application performs the following steps:
 
 ## Prerequisites
 
-* Azure IoT Operations Preview installed - [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
+* Azure IoT Operations Preview installed - [Deploy Azure IoT Operations](../deploy-end-to-end-sample/quickstart-deploy.md)
 * IoT MQ Dapr components installed - [Install IoT MQ Dapr Components](./howto-deploy-dapr.md)
  
 ## Deploy the Dapr application

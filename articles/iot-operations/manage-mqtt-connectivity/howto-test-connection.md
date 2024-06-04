@@ -30,7 +30,7 @@ By default, Azure IoT MQ Preview:
 > - [Configure authentication in Azure IoT MQ Preview](./howto-configure-authentication.md)
 > - [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) using port forwarding or a virtual switch with Azure Kubernetes Services Edge Essentials.
 
-Before you begin, [install or deploy IoT Operations](../get-started/quickstart-deploy.md). Use the following options to test connectivity to IoT MQ with MQTT clients in a nonproduction environment.
+Before you begin, [install or deploy IoT Operations](../deploy-end-to-end-sample/quickstart-deploy.md). Use the following options to test connectivity to IoT MQ with MQTT clients in a nonproduction environment.
 
 ## Connect from a pod within the cluster with default configuration
 

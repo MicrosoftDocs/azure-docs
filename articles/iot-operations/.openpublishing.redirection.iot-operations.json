@@ -37,8 +37,29 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/get-started/quickstart-process-telemetry.md",
-            "redirect_url": "/azure/iot-operations/get-started/quickstart-upload-telemetry-to-cloud",
+            "redirect_url": "/azure/iot-operations/deploy-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/get-started/quickstart-deploy.md",
+            "redirect_url": "/azure/iot-operations/deploy-end-to-end-sample/quickstart-deploy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/get-started/quickstart-add-assets.md",
+            "redirect_url": "/azure/iot-operations/deploy-end-to-end-sample/quickstart-add-assets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/get-started/quickstart-upload-telemetry-to-cloud.md",
+            "redirect_url": "/azure/iot-operations/deploy-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/get-started/quickstart-get-insights.md",
+            "redirect_url": "/azure/iot-operations/deploy-end-to-end-sample/quickstart-get-insights",
+            "redirect_document_id": true
         }
+
     ]
 }

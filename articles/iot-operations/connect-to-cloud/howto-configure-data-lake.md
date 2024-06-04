@@ -29,7 +29,7 @@ You can use the data lake connector to send data from Azure IoT MQ Preview broke
     - Azure Data Explorer cluster:
       - Follow the **Full cluster** steps in the [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database?tabs=full).
 
-- An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-end-to-end-sample/quickstart-deploy.md).
 
 ## Configure to send data to Microsoft Fabric OneLake using managed identity
 
