@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Container Registry
 description: This article contains important reference material you need when you monitor Azure Container Registry.
-ms.date: 05/20/2024
+ms.date: 06/04/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: tejaswikolli-web
@@ -23,7 +23,7 @@ The following table lists the metrics available for the Microsoft.ContainerRegis
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-[!INCLUDE [Microsoft.ContainerRegistry/registries](~/reusuable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-containerregistry-registries-metrics-include.md)]
+[!INCLUDE [Microsoft.ContainerRegistry/registries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-containerregistry-registries-metrics-include.md)]
 
 > [!NOTE]
 > Because of layer sharing, registry **Storage used** might be less than the sum of storage for individual repositories. When you [delete](container-registry-delete.md) a repository or tag, you recover only the storage used by manifest files and the unique layers referenced.
@@ -38,7 +38,7 @@ The following table lists the metrics available for the Microsoft.ContainerRegis
 
 ### Supported resource logs for Microsoft.ContainerRegistry/registries
 
-[!INCLUDE [Microsoft.ContainerRegistry/registries](~/reusuable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-containerregistry-registries-logs-include.md)]
+[!INCLUDE [Microsoft.ContainerRegistry/registries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-containerregistry-registries-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
