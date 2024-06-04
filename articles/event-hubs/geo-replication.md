@@ -1,55 +1,67 @@
+---
+title: Azure Event Hubs geo-replication
+description: This article describes the Azure Event Hubs geo-replication feature
+ms.topic: article
+ms.date: 06/10/2024
+---
  
 # Geo replication (Public Preview)
  
-There are two features that provide Geo-disaster recovery in Azure Event Hubs. There is Geo-disaster recovery (Metadata DR) that just provides replication of metadata and then a second feature, in public preview, Geo replication that provides replication of both metadata and the data itself. Neither geo-disaster recovery feature should be confused with Availability Zones. Regardless of if it is Metadata DR or Geo replication, both geo-graphic recovery features provide resilience between Azure regions such as East US and West US.  Availability Zone support provides resilience within a specific geographic region, such as East US. For more details on Availability Zones, please read the documentation here: Event Hubs Availability Zone support.
+There are two features that provide Geo-disaster recovery in Azure Event Hubs. There is ***Geo-disaster recovery*** (Metadata DR) that just provides replication of metadata and then a second feature, in public preview, ***Geo replication*** that provides replication of both metadata and the data itself. Neither geo-disaster recovery feature should be confused with Availability Zones. Regardless of if it is Metadata DR or Geo replication, both geo-graphic recovery features provide resilience between Azure regions such as East US and West US.  Availability Zone support provides resilience within a specific geographic region, such as East US. For more details on Availability Zones, please read the documentation here: [Event Hubs Availability Zone support](https://learn.microsoft.com/azure/event-hubs/event-hubs-availability-and-consistency).
+
 **High level feature differences**
 The Metadata DR feature replicates configuration information for a namespace from a primary namespace to a secondary namespace.  It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken.  No data is replicated other than configuration information nor are RBAC assignments replicated.  
 The Geo replication feature replicates configuration information and all of the data from a primary namespace to one or more secondary namespaces.  When a failover is performed by the customer, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired. 
-This rest of this document is focused on the Geo replication feature.  For details on the metadata DR feature, please read Event Hubs Geo-disaster recovery for metadata. 
+This rest of this document is focused on the Geo replication feature.  For details on the metadata DR feature, please read [Event Hubs Geo-disater recovery for metadata](https://learn.microsoft.com/azure/event-hubs/event-hubs-geo-dr).
 
 ## Geo replication 
-The public preview of the Geo replication feature will initially only be supported for namespaces in Event Hubs self-serve scaling Dedicated clusters.  You can use the feature with existing namespaces though your namespaces can't have the following features enabled:
--	Large messages support (just now going to public preview)
--	VNet features (service endpoints or private endpoints)
+For public preview, Geo replication is initially only enabled in a small subset of regions and will be enabled in more regions in the coming months. The public preview of the Geo replication feature will initially be supported for namespaces in Event Hubs self-serve scaling Dedicated clusters. You can use the feature with new or existing namespaces in dedicated self-serve clusters. The following features are not supported with Geo replication:
 -	Customer Managed Keys (CMK)
 -	Managed Identity for Capture
+-	VNet features (service endpoints or private endpoints)
+-	Large messages support (just now going to public preview)
+-	Kafka Transactions (just now going to public preview)
  
-Geo replication is initially only enabled in a subset of smaller regions. Additional regions will be enabled in the coming months.  Some of the key aspects of Geo Data Replication Public Preview are: 
+Some of the key aspects of Geo Data Replication public preview are: 
 -	Primary-secondary replication model – Geo replication is built on primary-secondary replication model, where at a given time there’s only one Primary namespace which is serving both event producers and event consumers. 
--	Event Hubs services perform fully managed byte-to-byte replication of metadata, event data and consumer offset across geo replicas adhering to the consistency levels configured at the namespace. 
+-	Event Hubs performs fully managed byte-to-byte replication of metadata, event data and consumer offset across secondaries with the configured consistency levels. 
 -	Stable namespace FQDN – Upon successful configuration of a Geo replication enabled namespace, users can use the namespace FQDN in their client application and that is completely agnostic of the Geo replication regions and topology. 
--	Replication consistency – async or sync
--	User-managed failovers from primary to secondary region. 
+-	Replication consistency - There are two replication consistency settings that are described below
+-	User-managed promotion of a secondary to being the new primary.
+
+Changing a secondary to being a new primary can be done two ways:
+- as a failover where the secondary becomes primary as fast as possible
+- as a promotion where the secondary becomes primary and the system re
 The Geo replication feature replicates all data and metadata from the primary region to the selected secondary regions.  The namespace FQDN always points to the primary region.  
 
-[img](../media/geo-replication/replication-a.png)
+[img](../media/geo-replication/primary.png)
   
-When a customer initiates a failover, the FQDN points to the region selected to be the new primary.  The old primary then becomes a secondary.    
-
-[img](../media/geo-replication/replication-b.png)
+When a customer initiates a promotion of a secondary, the FQDN points to the region selected to be the new primary.  The old primary then becomes a secondary.    
+[img](../media/geo-replication/secondary.png)
  
 Secondary regions can be added or removed at the customer's discretion. 
 There are some current limitations worth noting:
 -	There is no ability to support read-only views on secondary regions 
--	There is no automatic failover capability.  All failovers are customer initiated.
+-	There is no automatic promotion/failover capability.  All promotions are customer initiated.
 -	Secondary regions must be different from the primary region. You can't select another dedicated cluster in the same region.
 -	Only one secondary is supported for public preview
  
-## Replication Mode
-There are two replication modes, synchronous and asynchronous.  It is very important to know the differences between the two modes and for almost all use cases, asynchronous replication should be used.  
+## Replication consistency
+There are two replication consistency configurations, synchronous and asynchronous.  It is very important to know the differences between the two configurations as they have an impact on your applications and your data consistency.
 
 **Asynchronous replication**
 With asynchronous replication enabled, all messages are committed in the primary and then sent onwards to the secondary.  Users can configure an acceptable amount of lag time that the secondary has to catch-up.  If the lag for an active secondary grows beyond user configuration, the primary will throttle incoming publish requests.  
 
 **Synchronous replication**
-When synchronous replication is enabled, published events are replicated to the secondary which must confirm the message before it is committed in the primary. This means your application publishes at the rate it takes to publish, replicate, acknowledge and commit.  It also means that your application is tied to the availability of both regions.  If the secondary region goes down, messages will not be able to be acknowledged and committed.  
+When synchronous replication is enabled, published events are replicated to the secondary which must confirm the message before it is committed in the primary. This means your application publishes at the rate it takes to publish, replicate, acknowledge and commit.  It also means that your application is tied to the availability of both regions.  If the secondary region goes down, messages will not be able to be acknowledged and committed. This is sometimes also called ***RPO 0*** where RPO means Recovery Point Objective. 
 
-**Replication mode comparison**
+**Replication consistency comparison**
 With synchronous replication:
--	Latency is longer due to the distributed commit
-- Availability is tied to the availability of two regions
+-	Latency is longer due to the distributed commit. The geographic distance between your primary and secondaries will be a major factor in your latency if you are configured with synchronous replication.
+- Availability is tied to the availability of two regions. If one region goes down, your namespace will be unavailable.
+- Received data always resides in at least two regions (only two regions supported in the initial public preview)
 
-On the other hand, synchronous replication provides the greatest assurance that your data is safe.  If you have synchronous replication, then when we commit it, then it is committed in all of the regions you have configured for Geo replication. It provides the best data assurance and reliability.
+Synchronous replication provides the greatest assurance that your data is safe.  If you have synchronous replication, then when it is committed, then it is committed in all of the regions you have configured for Geo replication. It provides the best data assurance and reliability.
 Enabling asynchronous replication doesn't have much impact on latency, and service availability isn't impacted by the loss of a secondary region. .  It doesn’t have the absolute guarantee that all regions have the data before we commit it like synchronous replication does.
 Replication mode can be changed after Geo replication has been configured. You can go from synchronous to asynchronous or from asynchronous to synchronous.  If you go from synchronous to asynchronous, your latency, availability and reliability will improve.  If you go from asynchronous to synchronous, your secondary will be configured as synchronous after lag reaches zero. If you are running with a continual lag for whatever reason, then you may need to pause your publishers in order for lag to reach zero and your mode to be able to switch to synchronous.  
 The reasons to have synchronous replication enabled, instead of asynchronous replication, are tied to the importance of the data, specific business needs or compliance reasons rather than availability and reliability of your application. 
