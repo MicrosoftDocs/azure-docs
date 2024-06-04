@@ -440,7 +440,7 @@
         href: configure-automatic-updates.md
       - name: Start VM on Connect
         items:
-        - name: Set up Start VM on Connect
+        - name: Configure Start VM on Connect
           displayName: svmonc
           href: start-virtual-machine-connect.md
         - name: Start VM on Connect FAQ
