@@ -101,7 +101,7 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
    {
      "Endpoint": "<Trusted Signing account endpoint>",
      "CodeSigningAccountName": "<Trusted Signing account name>",
-     "CertificateProfileName": "<certificate profile name>",
+     "CertificateProfileName": "<Certificate profile name>",
      "CorrelationId": "<Optional CorrelationId value>"
    }
    ```
