@@ -561,7 +561,8 @@ items:
       - name: Monitor GPU performance
         href: containers/container-insights-gpu-monitoring.md
       - name: Monitor network configuration
-        href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
+        href: /azure/virtual-network/kubernetes-network-policies#monitor-and-visualize-network-configurations-with-azure-npm
+        maintainContext: true
       - name: Monitor Deployments & HPAs
         href: containers/container-insights-deployment-hpa-metrics.md
       - name: Monitor Persistent Volumes (PVs)
@@ -602,15 +603,19 @@ items:
   - name: Monitor networks
     items:
     - name: Network Watcher
-      href: ../network-watcher/network-watcher-monitoring-overview.md
+      href: /azure/network-watcher/network-watcher-monitoring-overview
+      maintainContext: true
     - name: Network Insights
       items:
       - name: Overview
-        href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
+        href: /azure/network-watcher/network-insights-overview
+        maintainContext: true
       - name: Topology
-        href: ../network-watcher/network-insights-topology.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
+        href: /azure/network-watcher/network-insights-topology
+        maintainContext: true
       - name: Troubleshoot
-        href: ../network-watcher/network-insights-troubleshooting.md?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
+        href: /azure/network-watcher/network-insights-troubleshooting
+        maintainContext: true
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
 - name: Data collection
@@ -718,7 +723,8 @@ items:
         - name: Collect syslog data
           href: agents/data-collection-syslog.md
         - name: Configure a syslog forwarder
-          href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
+          href: /azure/sentinel/forward-syslog-monitor-agent
+          maintainContext: true
         - name: Log Analytics gateway
           href: agents/gateway.md
         - name: Send data to Event Hubs and Storage
@@ -754,9 +760,11 @@ items:
           - name: Linux agents
             href: agents/agent-linux.md
           - name: VM Extension for Windows
-            href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
+            href: /azure/virtual-machines/extensions/oms-windows
+            maintainContext: true
           - name: VM Extension for Linux
-            href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
+            href: /azure/virtual-machines/extensions/oms-linux
+            maintainContext: true
           - name: LA Agent Management
             href: agents/agent-manage.md
           - name: LA Agent Health
@@ -799,9 +807,11 @@ items:
               - name: Installation options
                 href: agents/diagnostics-extension-windows-install.md
               - name: PowerShell
-                href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+                href: /azure/virtual-machines/extensions/diagnostics-windows
+                maintainContext: true
               - name: Resource Manager template
-                href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+                href: /azure/virtual-machines/extensions/diagnostics-template
+                maintainContext: true
             - name: Send to Azure Monitor Metrics
               items:
                 - name: Virtual Machine
@@ -826,9 +836,11 @@ items:
             displayName: diagnostics extension
             items:
               - name: Version 4.0
-                href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+                href: /azure/virtual-machines/extensions/diagnostics-linux
+                maintainContext: true
               - name: Version 3.0
-                href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
+                href: /azure/virtual-machines/extensions/diagnostics-linux-v3
+                maintainContext: true
               - name: Collect metrics with Telegraf
                 href: essentials/collect-custom-metrics-linux-telegraf.md
     - name: Custom metrics ingestion using REST
@@ -938,7 +950,8 @@ items:
           href: essentials/private-link-data-ingestion.md
         - name: Private link data query of Prometheus metrics
           displayName: Private link data query
-          href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
+          href: /azure/managed-grafana/how-to-connect-to-data-source-privately
+          maintainContext: true
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
@@ -983,7 +996,8 @@ items:
               - name: Move a workspace
                 href: logs/move-workspace.md
               - name: Move a workspace across regions
-                href: ../operational-excellence/relocation-log-analytics.md?toc=/azure/azure-monitor/toc.json
+                href: /azure/operational-excellence/relocation-log-analytics
+                maintainContext: true
               - name: Delete and recover a workspace
                 href: logs/delete-workspace.md
           - name: Replicate workspace across regions
@@ -1053,9 +1067,11 @@ items:
     - name: Integrate with Azure Logic Apps
       items:
         - name: Azure Monitor Logs connector
-          href: ../connectors/connectors-azure-monitor-logs.md
+          href: /azure/connectors/connectors-azure-monitor-logs
+          maintainContext: true
         - name: Application Insights connector
-          href: ../connectors/connectors-azure-application-insights.md
+          href: /azure/connectors/connectors-azure-application-insights
+          maintainContext: true
     - name: Data export
       items:
           - name: Workspace data export
@@ -1423,7 +1439,8 @@ items:
       - name: Autoscale Virtual Machine Scale Sets using PowerShell
         href: autoscale/autoscale-using-powershell.md
       - name: Scale Virtual Machine Scale Sets using CLI
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
+        href: /azure/virtual-machine-scale-sets/tutorial-autoscale-cli
+        maintainContext: true
       - name: Use webhooks and email notifications
         href: autoscale/autoscale-webhook-email.md
       - name: Autoscale diagnostics
