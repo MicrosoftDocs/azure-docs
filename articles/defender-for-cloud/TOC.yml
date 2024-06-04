@@ -371,6 +371,9 @@
         - name: Delegate recommendations with Copilot for Security
           displayName: copilot, security, recommendations, delegate
           href: delegate-with-copilot.md
+        - name: Remediate code with Copilot for Security
+          displayName: copilot, security, recommendations, code, remediate, iac, infrastructure as code
+          href: remediate-code-with-copilot.md
     - name: Manage security standards and recommendations
       items:
       - name: Choose standards for your compliance dashboard
