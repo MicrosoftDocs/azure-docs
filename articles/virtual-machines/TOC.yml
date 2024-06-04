@@ -846,7 +846,7 @@
       maintainContext: true
   - name: Azure Boost
     displayName: Boost, Azure Boost, boost vm, boost virtual machine
-    href: ../azure-boost/overview.md
+    href: /azure/azure-boost/overview
   - name: Azure Hybrid Benefit
     items:
     - name: Linux
