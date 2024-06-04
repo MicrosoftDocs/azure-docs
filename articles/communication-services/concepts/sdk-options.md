@@ -126,8 +126,8 @@ Communication Services APIs are documented alongside other [Azure REST APIs](/re
 
 In the future we may retire versions of the Communication Services SDKs, and we may introduce breaking changes to our REST APIs and released SDKs. Azure Communication Services *generally* follows two supportability policies for retiring service versions:
 
-- You are notified at least three years before being required to change code due to a Communication Services interface change. All documented REST APIs and SDK APIs generally enjoy at least three years warning before interfaces are decommissioned.
-- You are notified at least one year before having to update SDK assemblies to the latest minor version. These required updates shouldn't require any code changes because they're in the same major version. Using the latest SDK is especially important for the Calling and Chat libraries that real-time components that often require security and performance updates. We strongly encourage you to keep all your Communication Services SDKs updated.
+- You're notified at least three years before being required to change code due to a Communication Services interface change. All documented REST APIs and SDK APIs generally enjoy at least three years warning before interfaces are decommissioned.
+- You're notified at least one year before having to update SDK assemblies to the latest minor version. These required updates shouldn't require any code changes because they're in the same major version. Using the latest SDK is especially important for the Calling and Chat libraries that real-time components that often require security and performance updates. We strongly encourage you to keep all your Communication Services SDKs updated.
 
 ### API and SDK decommissioning examples
 
