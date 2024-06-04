@@ -123,25 +123,25 @@ On the existing Arc-enabled cluster, create the ClusterRoleBinding with either M
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-1. Get the `objectId` associated with your Microsoft Entra entity.
+1. Get the `objectId` associated with your Microsoft Entra entity. If you are using a single user account, you will get the user principal name (UPN) associated with your Microsoft Entra entity.
 
-   - For a Microsoft Entra group account:
+- For a Microsoft Entra group account:
 
-     ```azurepowershell
-     $AAD_ENTITY_OBJECT_ID = (az ad signed-in-user show --query id -o tsv)
-     ```
+  ```azurepowershell
+  $AAD_ENTITY_OBJECT_ID = (az ad signed-in-user show --query id -o tsv)
+  ```
 
-   - For a Microsoft Entra single user account:
+- For a Microsoft Entra single user account:
 
-     ```azurepowershell
-     $AAD_ENTITY_OBJECT_ID = (az ad signed-in-user show --query userPrincipalName -o tsv)
-     ```
+  ```azurepowershell
+  $AAD_ENTITY_OBJECT_ID = (az ad signed-in-user show --query userPrincipalName -o tsv)
+  ```
 
-   - For a Microsoft Entra application:
+- For a Microsoft Entra application:
 
-     ```azurepowershell
-     $AAD_ENTITY_OBJECT_ID = (az ad sp show --id <id> --query objectId -o tsv)
-     ```
+  ```azurepowershell
+  $AAD_ENTITY_OBJECT_ID = (az ad sp show --id <id> --query objectId -o tsv)
+  ```
 
 1. Authorize the entity with appropriate permissions.
 
