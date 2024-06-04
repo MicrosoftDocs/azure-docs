@@ -2563,7 +2563,7 @@ This release provides Zeppelin 0.7.3 with no more Apache patches.
 
 -   [ZEPPELIN-3072](https://issues.apache.org/jira/browse/ZEPPELIN-3072): Zeppelin UI becomes slow/unresponsive if there are too many notebooks.
 
--   [ZEPPELIN-3129](https://issues.apache.org/jira/browse/ZEPPELIN-3129): Zeppelin UI doesn't sign out in IE.
+-   [ZEPPELIN-3129](https://issues.apache.org/jira/browse/ZEPPELIN-3129): Zeppelin UI doesn't sign out in Internet Explorer.
 
 -   [ZEPPELIN-903](https://issues.apache.org/jira/browse/ZEPPELIN-903): Replace CXF with `Jersey2`.
 
@@ -2778,7 +2778,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-90041              | [OOZIE-2723](https://issues.apache.org/jira/browse/OOZIE-2723)                                                                                                                                             | JSON.org license is now CatX                                                                                          |
 | BUG-93754              | [RANGER-1943](https://issues.apache.org/jira/browse/RANGER-1943)                                                                                                                                           | Ranger Solr authorization is skipped when collection is empty or null                                                 |
 | BUG-93804              | [HIVE-17419](https://issues.apache.org/jira/browse/HIVE-17419)                                                                                                                                             | ANALYZE TABLE...COMPUTE STATISTICS FOR COLUMNS command shows computed stats for masked tables                         |
-| BUG-94276              | [ZEPPELIN-3129](https://issues.apache.org/jira/browse/ZEPPELIN-3129)                                                                                                                                       | Zeppelin UI does not sign out in IE                                                                                    |
+| BUG-94276              | [ZEPPELIN-3129](https://issues.apache.org/jira/browse/ZEPPELIN-3129)                                                                                                                                       | Zeppelin UI does not sign out in Internet Explorer                                                                                    |
 | BUG-95349              | [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256), [ZOOKEEPER-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901)                                                             | Upgrade netty                                                                                                         |
 | BUG-95483              | N/A                                                                                                                                                                                                        | Fix for CVE-2017-15713                                                                                                |
 | BUG-95646              | [OOZIE-3167](https://issues.apache.org/jira/browse/OOZIE-3167)                                                                                                                                             | Upgrade tomcat version on Oozie 4.3 branch                                                                            |
