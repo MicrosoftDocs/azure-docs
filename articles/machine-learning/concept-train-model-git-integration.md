@@ -85,7 +85,7 @@ cat ~/.ssh/id_rsa.pub
 > **Copy and Paste in Terminal**
 > * Windows: `Ctrl-Insert` to copy and use `Ctrl-Shift-v` or `Shift-Insert` to paste.
 > * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
-> * FireFox/IE may not support clipboard permissions properly.
+> * FireFox and Internet Explorer may not support clipboard permissions properly.
 
 2) Select and copy the SSH key output to your clipboard.
 3) Next, follow the steps to add the SSH key to your preferred account type:
