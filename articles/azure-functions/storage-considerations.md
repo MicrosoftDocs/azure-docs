@@ -162,18 +162,22 @@ Creating your function app resources using methods other than the Azure CLI requ
 
 ## Create an app without Azure Files
 
-Azure Files is set up by default for Elastic Premium and non-Linux Consumption plans to serve as a shared file system in high-scale scenarios. The file system is used by the platform for some features such as log streaming, but it primarily ensures consistency of the deployed function payload. When an app is [deployed using an external package URL](./run-functions-from-deployment-package.md), the app content is served from a separate read-only file system. This means that you can create your function app without Azure Files. If you create your function app with Azure Files, a writeable file system is still provided. However, this file system might not be available for all function app instances.  
+Azure Files is set up by default for the Elastic Premium plan and Consumption plans running on Windows. This section is only relevant to these hosting plans.
 
-When Azure Files isn't used, you must meet the following requirements:
+Azure Files serves as a shared file system in high-scale scenarios. The file system it provides is used by the platform for some features such as log streaming, but it primarily ensures consistency of the deployed app content across all instances. When using the default deployment method for the above plans, [zip deployment](./deployment-zip-push.md), your app content is stored here.
 
-* You must deploy from an external package URL.
+Because Azure Files requires the use of a connection string stored in the app setting `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, removing your app's dependency on Azure Files is recommended for scenarios where storage keys must be disabled. This can be achieved by creating your app without Azure Files. 
+
+To run your app without Azure Files, you must meet the following requirements:
+
+* You must [deploy your package to a remote URL](./run-functions-from-deployment-package.md) using the app setting `WEBSITE_RUN_FROM_PACKAGE = <URL>`. This option stores your app content in Azure Blob storage instead of Azure Files, and it supports [managed identity](./run-functions-from-deployment-package.md#fetch-a-package-from-azure-blob-storage-using-a-managed-identity). 
 * Your app can't rely on a shared writeable file system.
 * The app can't use version 1.x of the Functions runtime.
 * Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
 
-If the above are properly accounted for, you could create the app without Azure Files. Create the function app without specifying the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` application settings. You can avoid these settings by generating an ARM template for a standard deployment, removing the two settings, and then deploying the template. 
+If the above requirements suit your scenario, you can proceed to create a function app without Azure Files. You can do this by creating an app without the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` app settings. To get started, generate an ARM template for a standard deployment, remove the two settings, and then deploy the modified template. 
 
-Because Functions use Azure Files during parts of the dynamic scale-out process, scaling could be limited when running without Azure Files on Consumption and Elastic Premium plans.
+Since Azure Files is used to enable dynamic scale-out for Functions, scaling could be limited when running your app without Azure Files in the Elastic Premium plan and Consumption plans running on Windows. 
 
 ## Mount file shares
 
