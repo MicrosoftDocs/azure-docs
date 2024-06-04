@@ -59,7 +59,7 @@ Enter your Azure OpenAI endpoint and deployment name in the text fields.
 
 In order to use your Azure OpenAI GPT4-Turbo resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
 
-[!INCLUDE [openai-account-access](../../ai-services/content-safety/includes/openai-account-access.md)]
+[!INCLUDE [openai-account-access](~/reusable-content/ce-skilling/azure/includes/ai-services/content-safety/includes/openai-account-access.md)]
 
 ### Get reasoning results
 

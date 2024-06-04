@@ -14,7 +14,8 @@ ms.author: pafarley
 
 # Language support for Azure AI Content Safety
 
-Some capabilities of Azure AI Content Safety support multiple languages; any capabilities not listed here only support English.
+> [!IMPORTANT]
+> Azure AI Content Safety features not listed in this article, such as Prompt Shields, Protected material detection, Groundedness detection, and Custom categories (rapid) only support English.
 
 ## Text moderation
 
