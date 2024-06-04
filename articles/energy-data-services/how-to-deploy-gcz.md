@@ -8,7 +8,7 @@ ms.reviewer:
 ms.author: eihaugho
 author: EirikHaughom
 ms.date: 05/11/2024
-zone_pivot_groups: azure-cli-or-portal, client-operating-system
+zone_pivot_groups: app-service-containers-windows-linux-portal-ps-cli
 ---
 
 # Deploy Geospatial Consumption Zone
@@ -32,13 +32,13 @@ There are two main deployment options for the GCZ service:
 - **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This deployment option is recommended for production environments. It requires more setup, configuration, and maintenance. It also has some limitations in the provided container images.
 - **Windows**: Deploy the GCZ service on a Windows. This deployment option recommended for development and testing environments, as it's easier to set up and configure, and requires less maintenance.
 
-::: zone pivot="k8s-host"
+::: zone pivot="container-linux-azure-portal"
 
 [!INCLUDE [Azure Kubernetes Service (AKS)](includes/how-to/deploy-gcz-on-aks.md)]
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-windows"
+::: zone pivot="container-windows-cli"
 
 [!INCLUDE [Windows](includes/how-to/deploy-gcz-on-windows.md)]
 
@@ -72,13 +72,13 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
     - url: "http://<GCZ-Service-External-IP>/ignite-provider"
     ```
 
-::: zone pivot="azure-portal"
+::: zone pivot="container-windows-azure-portal"
 
-[!INCLUDE [Azure Portal](includes/how-to/deploy-gcz-apim-portal.md)]
+[!INCLUDE [Azure portal](includes/how-to/deploy-gcz-apim-portal.md)]
 
 ::: zone-end
 
-::: zone pivot="azure-cli"
+::: zone pivot="container-windows-cli"
 
 [!INCLUDE [Azure CLI](includes/how-to/deploy-gcz-apim-cli.md)]
 
