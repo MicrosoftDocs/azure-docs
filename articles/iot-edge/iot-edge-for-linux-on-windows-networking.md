@@ -9,7 +9,7 @@ ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
 ms.date: 06/04/2024
-ms.author: fcabrera
+ms.author: patricka
 ---
 
 # IoT Edge for Linux on Windows networking

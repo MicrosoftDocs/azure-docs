@@ -51,7 +51,7 @@ The following steps provide example EFLOW PowerShell commands to share one or mo
 
    For example, create a *root folder* under *C:\Shared* named **EFLOW-Shared**.
 
-   :::image type="content" source="media/how-to-share-windows-folder-to-vm/root-folder.png" alt-text="Screenshot of the C:\Shared folder that includes EFLOW-Shared folder":::
+   :::image type="content" source="media/how-to-share-windows-folder-to-vm/root-folder.png" alt-text="Screenshot of the C:\Shared folder that includes EFLOW-Shared folder.":::
 
 1. Create one or more *shared folders* to be shared with the EFLOW virtual machine. Shared folders should be created under the *root folder* from the previous step. 
 
