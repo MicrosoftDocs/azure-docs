@@ -125,7 +125,7 @@ In this section, you add authentication code to your working directory and perfo
     
         db_uri = f"postgresql://{dbuser}:{password}@{dbhost}/{dbname}?sslmode={sslmode}"
         return db_uri
-        ```
+    ```
 
 1. Get database connection information.
 
@@ -133,7 +133,7 @@ In this section, you add authentication code to your working directory and perfo
     1. On the server's **Overview** page, copy the fully qualified **Server name**. The fully qualified **Server name** is always of the form *\<my-server-name>.postgres.database.azure.com*.
     1. On the left menu, under **Security**, select **Authentication**. Make sure your account is listed under **Microsoft Entra Admins**. If it isn't, complete the steps in [Configure Microsoft Entra integration on the server (passwordless only)](#configure-microsoft-entra-integration-on-the-server-passwordless-only).
 
-1. Set enviornment variables for the connection URI elements:
+1. Set environment variables for the connection URI elements:
 
     ### [Windows](#tab/cmd)
 
@@ -158,7 +158,7 @@ In this section, you add authentication code to your working directory and perfo
     Replace the following placeholder values in the commands:
 
     * `<server-name>` with the value you copied from the Azure portal.
-    * `<username>` with your Azure user name; for example. `john@contoso.com`.
+    * `<username>` with your Azure user name; for example,. `john@contoso.com`.
     * `<database-name>` with the name of your Azure Database for PostgreSQL flexible server database. A default database named *postgres* was automatically created when you created your server. You can use that database or create a new database by using SQL commands.
 
 1. Sign in to Azure on your workstation. You can sign in using the Azure CLI, Azure PowerShell, or Azure Developer CLI. For example, to sign in via the Azure CLI, enter this command:
@@ -200,7 +200,7 @@ In this section, you add authentication code to your working directory and perfo
 
        <!--![Azure Database for PostgreSQL server name](./media/connect-python/1-connection-string.png)-->
 
-1. Set enviornment variables for the connection URI elements:
+1. Set environment variables for the connection URI elements:
 
     ### [Windows](#tab/cmd)
 
