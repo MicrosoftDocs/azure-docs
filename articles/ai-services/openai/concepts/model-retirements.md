@@ -116,6 +116,10 @@ If you're an existing customer looking for information about these models, see [
 
 ## Retirement and deprecation history
 
+### June 4, 2024
+
+Retirement date for legacy models updated by one month.
+
 ### April 24, 2024
 
 Earliest retirement date for `gpt-35-turbo` 0301 and 0613 has been updated to August 1, 2024.
@@ -134,4 +138,4 @@ The default version of `gpt-4` and `gpt-3-32k` was updated from `0314` to `0613`
 
 ### July 6, 2023
 
-We announced the deprecation of models with upcoming retirement on June 14, 2024.
+We announced the deprecation of models with upcoming retirement on July 5, 2024.
