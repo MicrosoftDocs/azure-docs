@@ -19,7 +19,7 @@ author: Blackmist
     
 AI Studio provides a unified experience for AI developers and data scientists to build, evaluate, and deploy AI models through a web portal, SDK, or CLI. It's built on capabilities and services provided by other Azure services.
 
-The top level AI Studio resources (hub and project) are based on Azure Machine Learning. Other resources, such as Azure OpenAI, Azure AI services, and Azure AI Search, are used by the hub and project in reference, but follow their own resource management lifecycle.
+The top level AI Studio resources (hub and project) are based on Azure Machine Learning. Connected resources, such as Azure OpenAI, Azure AI services, and Azure AI Search, are used by the hub and project in reference, but follow their own resource management lifecycle.
 
 - **AI hub**: The hub is the top-level resource in AI Studio. The Azure resource provider for a hub is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Hub`. It provides the following features:
     - Security configuration including a managed network that spans projects and model endpoints.
@@ -46,6 +46,21 @@ Often, projects in a business domain require access to the same company resource
 
 :::image type="content" source="../media/concepts/connected-resources-spog.png" alt-text="Screenshot of AI Studio showing an audit view of all connected resources across a hub and its projects." :::
 
+## Azure resource types and providers
+
+Azure AI Studio is built on the Azure Machine Learning resource provider, and takes a dependency on a number of other Azure services. The resource providers for these services must be registered in your Azure subscription. The following table lists the resource types, provider, and kind:
+
+[!INCLUDE [Resource provider kinds](../includes/resource-provider-kinds.md)]
+
+When you create a new hub, a set of dependent Azure resources are required to store data, get access to models, and provide compute resources for AI customization. The following table lists the dependent Azure resources and their resource providers:
+
+> [!TIP]
+> If you don't provide a dependent resource when creating a hub, and it's a required dependency, AI Studio creates the resource for you.
+
+[!INCLUDE [Dependent Azure resources](../includes/dependent-resources.md)]
+
+For information on registering resource providers, see [Register an Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+
 ### Microsoft-hosted resources
 
 While most of the resources used by Azure AI Studio live in your Azure subscription, some resources are in an Azure subscription managed by Microsoft. The cost for these managed resources shows on your Azure bill as a line item under the Azure Machine Learning resource provider. The following resources are in the Microsoft-managed Azure subscription, and don't appear in your Azure subscription:
@@ -60,21 +75,6 @@ While most of the resources used by Azure AI Studio live in your Azure subscript
 Managed compute resources and managed virtual networks exist in the Microsoft subscription, but are managed by you. For example, you control which VM sizes are used for compute resources, and which outbound rules are configured for the managed virtual network.
 
 Managed compute resources also require vulnerability management. This is a shared responsibility between you and Microsoft. For more information, see [vulnerability management](vulnerability-management.md).
- 
-## Azure resource providers
-
-Since Azure AI Studio is built from other Azure services, the resource providers for these services must be registered in your Azure subscription. The following table lists the resource, provider, and resource provider kinds:
-
-[!INCLUDE [Resource provider kinds](../includes/resource-provider-kinds.md)]
-
-When you create a new hub, a set of dependent Azure resources are required to store data, get access to models, and provide compute resources for AI customization. The following table lists the dependent Azure resources and their resource providers:
-
-> [!TIP]
-> If you don't provide a dependent resource when creating a hub, and it's a required dependency, AI Studio creates the resource for you.
-
-[!INCLUDE [Dependent Azure resources](../includes/dependent-resources.md)]
-
-For information on registering resource providers, see [Register an Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
 ## Role-based access control and control plane proxy
 
