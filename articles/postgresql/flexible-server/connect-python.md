@@ -92,31 +92,34 @@ In this section, you add authentication code to your working directory and perfo
 
 #### [Passwordless (Recommended)](#tab/passwordless)
 
-1. Copy the following code into an editor and save it in a file named *get_conn_str.py*.
+1. Copy the following code into an editor and save it in a file named *get_conn.py*.
 
     ```python
+    import urllib.parse
+    import os
+    
     from azure.identity import DefaultAzureCredential
     
     # IMPORTANT! This code is for demonstration purposes only. It's not suitable for use in production. 
     # For example, tokens issued by Microsoft Entra ID have a limited lifetime (24 hours by default). 
     # In production code, you need to implement a token refresh policy.
 
-    def get_connection_string():
+    def get_connection_uri():
     
-        # Update connection string information 
-        host = "<server-name>"
-        dbname = "<database-name>"
-        user = "<username>"
-        sslmode = "require"
-        
+        # Read URI parameters from the environment
+        dbhost = os.environ['DBHOST']
+        dbname = os.environ['DBNAME']
+        dbuser = urllib.parse.quote(os.environ['DBUSER'])
+        sslmode = os.environ['SSLMODE']
+            
         # Use passwordless authentication via DefaultAzureCredential.
-        # Call get_token() to get a token from Microsft Entra ID and add it as the password in the connection string.
+        # Call get_token() to get a token from Microsft Entra ID and add it as the password in the URI.
         # Note the requested scope parameter in the call to get_token, "https://ossrdbms-aad.database.windows.net/.default".
         credential = DefaultAzureCredential()
-        token=credential.get_token("https://ossrdbms-aad.database.windows.net/.default").token
+        password=credential.get_token("https://ossrdbms-aad.database.windows.net/.default").token
     
-        conn_string = f"host={host} user={user} dbname={dbname} password={token} sslmode={sslmode}"
-        return conn_string
+        db_uri = f"postgresql://{dbuser}:{password}@{dbhost}/{dbname}?sslmode={sslmode}"
+        return db_uri
         ```
 
 1. Get database connection information.
@@ -125,11 +128,33 @@ In this section, you add authentication code to your working directory and perfo
     1. On the server's **Overview** page, copy the fully qualified **Server name**. The fully qualified **Server name** is always of the form *\<my-server-name>.postgres.database.azure.com*.
     1. On the left menu, under **Security**, select **Authentication**. Make sure your account is listed under **Microsoft Entra Admins**. If it isn't, complete the steps in [Configure Microsoft Entra integration on the server (passwordless only)](#configure-microsoft-entra-integration-on-the-server-passwordless-only).
 
-1. Replace the following placeholder values in the code:
+1. Set enviornment variables for the connection URI elements:
 
-    - `<server-name>` with the value you copied from the Azure portal.
-    - `<username>` with your Azure user name; for example. `john@contoso.com`.
-    - `<database-name>` with the name of your Azure Database for PostgreSQL flexible server database. A default database named *postgres* was automatically created when you created your server. You can rename that database or create a new database by using SQL commands.
+    ### [Windows](#tab/cmd)
+
+    ```cmd
+    set DBHOST=<server-name>
+    set DBNAME=<database-name>
+    set DBUSER=<username>
+    set SSLMODE=require
+    ```
+
+    ### [macOS/Linux](#tab/bash)
+
+    ```bash
+    DBHOST=<server-name>
+    DBNAME=<database-name>
+    DBUSER=<username>
+    SSLMODE=require
+    ```
+
+    ---
+
+    Replace the following placeholder values in the commands:
+
+    * `<server-name>` with the value you copied from the Azure portal.
+    * `<username>` with your Azure user name; for example. `john@contoso.com`.
+    * `<database-name>` with the name of your Azure Database for PostgreSQL flexible server database. A default database named *postgres* was automatically created when you created your server. You can use that database or create a new database by using SQL commands.
 
 1. Sign in to Azure on your workstation. You can sign in using the Azure CLI, Azure PowerShell, or Azure Developer CLI. For example, to sign in via the Azure CLI, enter this command:
 
@@ -141,26 +166,24 @@ In this section, you add authentication code to your working directory and perfo
 
 #### [Password](#tab/password)
 
-1. Copy the following code into an editor and save it in a file named *get_conn_str.py*.
+1. Copy the following code into an editor and save it in a file named *get_conn.py*.
 
     ```python
+    import urllib.parse
+    import os
 
-    # IMPORTANT! This code is for demonstration purposes only. It's not suitable for use in production. 
-    # For example, in production you should never place a password directly in code. Instead, you should use some 
-    # other mechanism, like environment variables or Azure keyvault to hold passwords.
-
-    def get_connection_string():
+    def get_connection_uri():
     
-        # Update connection string information 
-        host = "<server-name>"
-        dbname = "<database-name>"
-        user = "<username>"
-        password = "<password>"
-        sslmode = "require"
-        
-        # Construct connection string
-        conn_string = f"host={host} user={user} dbname={dbname} password={password} sslmode={sslmode}"
-        return conn_string
+        # Read URI parameters from the environment
+        dbhost = os.environ['DBHOST']
+        dbname = os.environ['DBNAME']
+        dbuser = urllib.parse.quote(os.environ['DBUSER'])
+        password = os.environ['DBPASSWORD']
+        sslmode = os.environ['SSLMODE']
+            
+        # Construct connection URI
+        db_uri = f"postgresql://{dbuser}:{password}@{dbhost}/{dbname}?sslmode={sslmode}"
+        return db_uri
     ```
 
 1. Get database connection information.
@@ -172,11 +195,35 @@ In this section, you add authentication code to your working directory and perfo
 
        <!--![Azure Database for PostgreSQL server name](./media/connect-python/1-connection-string.png)-->
 
-1. Replace the following placeholder values in the code:
+1. Set enviornment variables for the connection URI elements:
 
-    - `<server-name>` and `<username>` with the values you copied from the Azure portal.
-    - `<password>` with your server password.
-    - `<database-name>` with the name of your Azure Database for PostgreSQL flexible server database. A default database named *postgres* was automatically created when you created your server. You can rename that database or create a new database by using SQL commands. 
+    ### [Windows](#tab/cmd)
+
+    ```cmd
+    set DBHOST=<server-name>
+    set DBNAME=<database-name>
+    set DBUSER=<username>
+    set DBPASSWORD=<password>
+    set SSLMODE=require
+    ```
+
+    ### [macOS/Linux](#tab/bash)
+
+    ```bash
+    DBHOST=<server-name>
+    DBNAME=<database-name>
+    DBUSER=<username>
+    DBPASSWORD=<password>
+    SSLMODE=require
+    ```
+
+    ---
+
+    Replace the following placeholder values in the commands:
+
+    * `<server-name>` and `<username>` with the values you copied from the Azure portal.
+    * `<password>` with your server password.
+    * `<database-name>` with the name of your Azure Database for PostgreSQL flexible server database. A default database named *postgres* was automatically created when you created your server. You can rename that database or create a new database by using SQL commands. 
 
 ---
 
@@ -198,9 +245,9 @@ The following code example connects to your Azure Database for PostgreSQL flexib
 
 ```Python
 import psycopg2
-from get_conn_str import get_connection_string
+from get_conn import get_connection_uri
 
-conn_string = get_connection_string()
+conn_string = get_connection_uri()
 
 conn = psycopg2.connect(conn_string) 
 print("Connection established")
@@ -241,9 +288,9 @@ The following code example connects to your Azure Database for PostgreSQL flexib
 
 ```Python
 import psycopg2
-from get_conn_str import get_connection_string
+from get_conn import get_connection_uri
 
-conn_string = get_connection_string()
+conn_string = get_connection_uri()
 
 conn = psycopg2.connect(conn_string) 
 print("Connection established")
@@ -278,9 +325,9 @@ The following code example connects to your Azure Database for PostgreSQL flexib
 
 ```Python
 import psycopg2
-from get_conn_str import get_connection_string
+from get_conn import get_connection_uri
 
-conn_string = get_connection_string()
+conn_string = get_connection_uri()
 
 conn = psycopg2.connect(conn_string) 
 print("Connection established")
@@ -298,13 +345,13 @@ conn.close()
 
 ## Delete data
 
-The following code example connects to your Azure Database for PostgreSQL flexible server database and uses cursor.execute with the SQL **DELETE** statement to delete an inventory item that you previously inserted. 
+The following code example connects to your Azure Database for PostgreSQL flexible server database and uses cursor.execute with the SQL **DELETE** statement to delete an inventory item that you previously inserted.
 
 ```Python
 import psycopg2
-from get_conn_str import get_connection_string
+from get_conn import get_connection_uri
 
-conn_string = get_connection_string()
+conn_string = get_connection_uri()
 
 conn = psycopg2.connect(conn_string) 
 print("Connection established")
