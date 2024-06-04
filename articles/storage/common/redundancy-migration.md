@@ -211,14 +211,28 @@ Get-AzStorageAccountMigration
    -ResourceGroupName <String>
 ```
 
+
+Example :
+
+```
+Get-AzStorageAccountMigration -AccountName myaccount -ResourceGroupName myresroucegroup
+```
+
+
 # [Azure CLI](#tab/azure-cli)
 
-To track the current migration status of the conversion initiated on your storage account, call the [Get-AzStorageAccountMigration](/powershell/module/az.storage/get-azstorageaccountmigration) cmdlet:
+To track the current migration status of the conversion initiated on your storage account, call the [az storage account migration show](/cli/azure/storage/account/migration) cmdlet:
 
-```powershell
-Get-AzStorageAccountMigration
-   -AccountName <String>
-   -ResourceGroupName <String>
+```CLI
+az storage account migration show [--account-name]
+                                  [--resource-group]
+
+```
+
+Example :
+
+```
+az storage account migration show --account-name "storage_account_name" -g "resource_group_name"
 ```
 
 ---
