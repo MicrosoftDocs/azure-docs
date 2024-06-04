@@ -72,13 +72,13 @@ You need to make sure you have the names of the resource group and host pool you
 
    - To enable Start VM on Connect, run the following command, replacing the value for `-ResourceGroupName` and `-Name` with your values:
 
-       ```powershell
-       Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$true
-       ```
+      ```azurepowershell
+      Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$true
+      ```
 
    - To disable Start VM on Connect, run the following command, replacing the value for `-ResourceGroupName` and `-Name` with your values:
 
-      ```powershell
+      ```azurepowershell
       Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$false
       ```
 
@@ -90,23 +90,23 @@ You need to make sure you have the names of the resource group and host pool you
 
 2. To enable or disable Start VM on Connect, do one of the following steps:
 
-    - To enable Start VM on Connect, run the following command, replacing the value for `--resource-group` and `--name` with your values:
-    
-          ```azurecli
-          az desktopvirtualization hostpool update \
-               --resource-group $resourceGroupName \
-               --name $hostPoolName \
-               --start-vm-on-connect true
-          ```
+   - To enable Start VM on Connect, run the following command, replacing the value for `--resource-group` and `--name` with your values:
 
-    - To disable Start VM on Connect, run the following command, replacing the value for `--resource-group` and `--name` with your values:
-    
-          ```azurecli
-          az desktopvirtualization hostpool update \
-               --resource-group $resourceGroupName \
-               --name $hostPoolName \
-               --start-vm-on-connect false
-          ```
+      ```azurecli
+      az desktopvirtualization hostpool update \
+          --resource-group $resourceGroupName \
+          --name $hostPoolName \
+          --start-vm-on-connect true
+      ```
+
+   - To disable Start VM on Connect, run the following command, replacing the value for `--resource-group` and `--name` with your values:
+
+      ```azurecli
+      az desktopvirtualization hostpool update \
+          --resource-group $resourceGroupName \
+          --name $hostPoolName \
+          --start-vm-on-connect false
+      ```
 
 ---
 
