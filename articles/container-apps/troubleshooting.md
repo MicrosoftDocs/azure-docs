@@ -27,8 +27,8 @@ The following table lists issues you might encounter while using Azure Container
 | Requests to endpoints fail | The container app endpoint doesn't respond to requests. | [Review ingress configuration](#review-ingress-configuration) |
 | Requests return status 403 | The container app endpoint responds to requests with HTTP error 403 (access denied). |  [Verify networking configuration is correct](#verify-networking-configuration) |
 | Responses not as expected | The container app endpoint responds to requests, but the responses aren't as expected. | [Verify traffic is routed to the correct revision](#verify-traffic-is-routed-to-the-correct-revision)<br><br>[Verify you're using unique tags when deploying images to the container registry](/azure/container-registry/container-registry-image-tag-version) |
-| Missing parameters error when running Azure CLI/Azure PowerShell commands | [Verify latest version of Azure Container Apps extension is installed](#verify-latest-version-of-azure-container-apps-extension-is-installed) |
-| Preview features not available when running `az containerapp` commands | [Verify Azure Container Apps extension allows preview features](#verify-azure-container-apps-extension-allows-preview-features) |
+| Missing parameters error | You receive error messages about missing parameters when you run `az containerapp` commands in the Azure CLI, or run cmdlets from the `Az.App` module in Azure PowerShell. | [Verify latest version of Azure Container Apps extension is installed](#verify-latest-version-of-azure-container-apps-extension-is-installed) |
+| Preview features not available | [Preview features](./whats-new.md) are not available when you run `az containerapp` commands in the Azure CLI. | [Verify Azure Container Apps extension allows preview features](#verify-azure-container-apps-extension-allows-preview-features) |
 
 ## View logs
 
@@ -182,7 +182,7 @@ For more information about configuring traffic splitting, see [Traffic splitting
 
 ## Verify latest version of Azure Container Apps extension is installed
 
-If, when you run `az containerapp` commands in Azure CLI, or `Az.App` commands in Azure PowerShell, you receive errors about missing parameters, be sure you have the latest version of the Azure Container Apps extension installed.
+If, when you run `az containerapp` commands in Azure CLI, or cmdlets from the `Az.App` module in Azure PowerShell, you receive errors about missing parameters, be sure you have the latest version of the Azure Container Apps extension installed.
 
 # [Bash](#tab/bash)
 

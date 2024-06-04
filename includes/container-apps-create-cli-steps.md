@@ -44,7 +44,7 @@ Ignore any warnings about modules currently in use.
 
 Next, install or update the Azure Container Apps extension for the CLI.
 
-If, when you run `az containerapp` commands in Azure CLI, or `Az.App` commands in Azure PowerShell, you receive errors about missing parameters, be sure you have the latest version of the Azure Container Apps extension installed.
+If, when you run `az containerapp` commands in Azure CLI, or cmdlets from the `Az.App` module in Azure PowerShell, you receive errors about missing parameters, be sure you have the latest version of the Azure Container Apps extension installed.
 
 # [Bash](#tab/bash)
 
@@ -64,7 +64,7 @@ az extension add --name containerapp --upgrade
 Install-Module -Name Az.App
 ```
 
-If you have an older version of the Az.App module installed, update it.
+If you have an older version of the `Az.App` module installed, update it.
 
 ```azurepowershell
 Update-Module -Name Az.App
