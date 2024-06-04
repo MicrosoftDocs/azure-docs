@@ -59,7 +59,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 
 In this release, we made the following changes:
 
-- Fixed an issue that made the multi-factor authentication (MFA) prompt appear twice when users tried to connect to a resource 
+- Fixed an issue that made the multifactor authentication (MFA) prompt appear twice when users tried to connect to a resource 
 - Fixed an issue that caused an extra string to appear next to a user's tenant URL.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
