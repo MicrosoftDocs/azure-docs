@@ -34,13 +34,13 @@ There are two main deployment options for the GCZ service:
 
 ::: zone pivot="container-linux-azure-portal"
 
-[!INCLUDE [Azure Kubernetes Service (AKS)](includes/how-to/deploy-gcz-on-aks.md)]
+[!INCLUDE [Azure Kubernetes Service (AKS)](includes/how-to/how-to-deploy-gcz/deploy-gcz-on-aks.md]
 
 ::: zone-end
 
 ::: zone pivot="container-windows-cli"
 
-[!INCLUDE [Windows](includes/how-to/deploy-gcz-on-windows.md)]
+[!INCLUDE [Windows](includes/how-to/how-to-deploy-gcz/deploy-gcz-on-windows.md)]
 
 ::: zone-end
 
@@ -74,13 +74,13 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
 
 ::: zone pivot="container-windows-azure-portal"
 
-[!INCLUDE [Azure portal](includes/how-to/deploy-gcz-apim-portal.md)]
+[!INCLUDE [Azure portal](includes/how-to/how-to-deploy-gcz/deploy-gcz-apim-portal.md)]
 
 ::: zone-end
 
 ::: zone pivot="container-windows-cli"
 
-[!INCLUDE [Azure CLI](includes/how-to/deploy-gcz-apim-cli.md)]
+[!INCLUDE [Azure CLI](includes/how-to/how-to-deploy-gcz/deploy-gcz-apim-cli.md)]
 
 ::: zone-end
 
