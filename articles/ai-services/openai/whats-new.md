@@ -18,6 +18,13 @@ recommendations: false
 
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
+## June 2024
+
+### Customer-managed key (CMK) support for Assistants
+
+Today we support CMK for Threads and Files in Assistants. Currently CMK is available in:
+* West US 3
+
 ## May 2024
 
 ### GPT-4o provisioned deployments
