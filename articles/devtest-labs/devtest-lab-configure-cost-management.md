@@ -42,7 +42,7 @@ The following articles describe how to create tags and enable tag inheritance:
 
 If the lab is updated correctly by using the billing properties method, you see **Tag inheritance** is **Enabled**: 
 
-:::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tag-inheritance.png" alt-text="Screenshot that shows Tag Inheritance is Enabled for cost management in the Azure portal." border"false" lightbox="./media/devtest-lab-configure-cost-management/devtest-tag-inheritance-large.png":::
+:::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tag-inheritance.png" alt-text="Screenshot that shows Tag Inheritance is Enabled for cost management in the Azure portal." lightbox="./media/devtest-lab-configure-cost-management/devtest-tag-inheritance-large.png":::
 
 ## Apply tags to DevTest Labs
 
