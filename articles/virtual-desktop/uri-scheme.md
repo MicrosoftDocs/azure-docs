@@ -50,7 +50,7 @@ The *ms-avd* Uniform Resource Identifier scheme for Azure Virtual Desktop is now
 | version | **0** | Specify the version of the connect URI scheme to use. |
 | launchpartnerid *(optional)*| GUID. | Specify the partner or customer-provided ID that you can use with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md) to help with troubleshooting. We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
 | peeractivityid *(optional)*| GUID. | Specify the partner or customer-provided ID that you can use with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md) to help with troubleshooting. We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
-| usemultimon | **true** or **false** | Specify whether the session will use all the monitors. |
+| usemultimon | **true** or **false** | Specify whether the remote session will use one or multiple displays from the local computer. |
 
 **Example:**
 ```
