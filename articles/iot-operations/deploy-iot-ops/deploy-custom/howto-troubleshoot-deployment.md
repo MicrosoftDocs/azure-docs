@@ -14,7 +14,7 @@ ms.date: 11/02/2023
 
 # Troubleshoot Azure IoT Orchestrator Preview deployments
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 If you need to troubleshoot a deployment, you can find error details in the Azure portal to understand which resources failed or succeeded and why.
 

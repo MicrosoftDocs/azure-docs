@@ -14,7 +14,7 @@ ms.date: 05/06/2024
 
 # Send data from Azure IoT MQ Preview to Data Lake Storage
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 You can use the data lake connector to send data from Azure IoT MQ Preview broker to a data lake, like Azure Data Lake Storage Gen2 (ADLSv2), Microsoft Fabric OneLake, and Azure Data Explorer. The connector subscribes to MQTT topics and ingests the messages into Delta tables in the Data Lake Storage account.
 
@@ -29,7 +29,7 @@ You can use the data lake connector to send data from Azure IoT MQ Preview broke
     - Azure Data Explorer cluster:
       - Follow the **Full cluster** steps in the [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database?tabs=full).
 
-- An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-end-to-end-sample/quickstart-deploy.md).
+- An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../../deploy-end-to-end-sample/quickstart-deploy.md).
 
 ## Configure to send data to Microsoft Fabric OneLake using managed identity
 
@@ -489,4 +489,4 @@ Like MQTT bridge, the data lake connector acts as a client to the IoT MQ MQTT br
 
 ## Related content
 
-[Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-broker/overview-iot-mq.md)
+[Publish and subscribe MQTT messages using Azure IoT MQ Preview](../overview-iot-mq.md)

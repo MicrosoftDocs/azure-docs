@@ -14,9 +14,9 @@ ms.date: 01/10/2024
 
 # Send data to Azure Data Explorer from an Azure IoT Data Processor Preview pipeline
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
-Use the _Azure Data Explorer_ destination to write data to a table in Azure Data Explorer from an [Azure IoT Data Processor Preview pipeline](../process-data/overview-data-processor.md). The destination stage batches messages before it sends them to Azure Data Explorer.
+Use the _Azure Data Explorer_ destination to write data to a table in Azure Data Explorer from an [Azure IoT Data Processor Preview pipeline](../../process-data/overview-data-processor.md). The destination stage batches messages before it sends them to Azure Data Explorer.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Before you can write to Azure Data Explorer from a data pipeline, you need to gr
 
 To create a service principal with a client secret:
 
-[!INCLUDE [data-processor-create-service-principal](../includes/data-processor-create-service-principal.md)]
+[!INCLUDE [data-processor-create-service-principal](../../includes/data-processor-create-service-principal.md)]
 
 To grant admin access to your Azure Data Explorer database, run the following command in your database query tab:
 
@@ -50,11 +50,11 @@ For the destination stage to connect to Azure Data Explorer, it needs access to 
     az keyvault secret set --vault-name <your-key-vault-name> --name AccessADXSecret --value <client-secret>
     ```
 
-1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-manage-secrets.md).
+1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations Preview deployment](../../deploy-iot-ops/howto-manage-secrets.md).
 
 # [Managed identity](#tab/managedidentity)
 
-[!INCLUDE [get-managed-identity](../includes/get-managed-identity.md)]
+[!INCLUDE [get-managed-identity](../../includes/get-managed-identity.md)]
 
 To add the managed identity to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of in the previous step:
 
@@ -92,11 +92,11 @@ The Azure Data Explorer destination stage JSON configuration defines the details
 | Cluster URL | String | The URI (This value isn't the data ingestion URI). | Yes | - | |
 | Database | String | The database name.  | Yes | - | |
 | Table | String |  The name of the table to write to.  | Yes | - |  |
-| Batch | [Batch](../process-data/concept-configuration-patterns.md#batch) | How to [batch](../process-data/concept-configuration-patterns.md#batch) data.  | No | `60s` | `10s`  |
-| Retry | [Retry](../process-data/concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
+| Batch | [Batch](../../process-data/concept-configuration-patterns.md#batch) | How to [batch](../../process-data/concept-configuration-patterns.md#batch) data.  | No | `60s` | `10s`  |
+| Retry | [Retry](../../process-data/concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
 | Authentication<sup>1</sup> | String | The authentication details to connect to Azure Data Explorer. `Service principal` or `Managed identity` | Service principal | Yes | - |
 | Columns&nbsp;>&nbsp;Name | string | The name of the column. | Yes | | `temperature` |
-| Columns&nbsp;>&nbsp;Path | [Path](../process-data/concept-configuration-patterns.md#path) | The location within each record of the data where the value of the column should be read from. | No | `.{{name}}` | `.temperature` |
+| Columns&nbsp;>&nbsp;Path | [Path](../../process-data/concept-configuration-patterns.md#path) | The location within each record of the data where the value of the column should be read from. | No | `.{{name}}` | `.temperature` |
 
 <sup>1</sup>Authentication: Currently, the destination stage supports service principal based authentication or managed identity when it connects to Azure Data Explorer.
 
@@ -214,7 +214,7 @@ The following example shows a sample input message to the Azure Data Explorer de
 
 - [Send data to Microsoft Fabric](howto-configure-destination-fabric.md)
 - [Send data to Azure Blob Storage](howto-configure-destination-blob.md)
-- [Send data to a gRPC endpoint](../process-data/howto-configure-destination-grpc.md)
-- [Send data to an HTTP endpoint](../process-data/howto-configure-destination-http.md)
-- [Publish data to an MQTT broker](../process-data/howto-configure-destination-mq-broker.md)
-- [Send data to the reference data store](../process-data/howto-configure-destination-reference-store.md)
+- [Send data to a gRPC endpoint](../../process-data/howto-configure-destination-grpc.md)
+- [Send data to an HTTP endpoint](../../process-data/howto-configure-destination-http.md)
+- [Publish data to an MQTT broker](../../process-data/howto-configure-destination-mq-broker.md)
+- [Send data to the reference data store](../../process-data/howto-configure-destination-reference-store.md)

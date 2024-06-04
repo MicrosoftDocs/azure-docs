@@ -12,7 +12,7 @@ ms.date: 02/16/2024
 
 # Send data to Azure Blob Storage from a Data Processor pipeline
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 Use the _Azure Blob Storage_ destination to write unstructured data to Azure Blob Storage for storage and analysis.
 
@@ -33,9 +33,9 @@ The _Azure Blob Storage_ destination stage JSON configuration defines the detail
 | `containerName` | string | The name of container created in the storage account to store the blobs. | Yes |  | `mycontainer` |
 | `authentication` | string | Authentication information to connect to the storage account. One of `servicePrincipal`, `systemAssignedManagedIdentity`, and `accessKey`. | Yes |  | See the [sample configuration](#sample-configuration). |
 | `format` | Object. | Formatting information for data. All types are supported. | Yes |  | `{"type": "json"}` |
-| `blobPath` | [Templates](../process-data/concept-configuration-patterns.md#templates)| Template string that identifies the path to write files to. All the template components shown in the default are required. | No | `{{{instanceId}}}/{{{pipelineId}}}/{{{partitionId}}}/{{{YYYY}}}/{{{MM}}}/{{{DD}}}/{{{HH}}}/{{{mm}}}/{{{fileNumber}}}` | `{{{instanceId}}}/{{{pipelineId}}}/{{{partitionId}}}/{{{YYYY}}}/{{{MM}}}/{{{DD}}}/{{{HH}}}/{{{mm}}}/{{{fileNumber}}}.xyz` |
-| `batch` | [Batch](../process-data/concept-configuration-patterns.md#batch) | How to batch data before writing it to Blob Storage. | No | `{"time": "60s"}` | `{"time": "60s"}` |
-| `retry` | [Retry](../process-data/concept-configuration-patterns.md#retry) | The retry mechanism to use when a Blob Storage operation fails. | No | (empty) | `{"type": "fixed"}` |
+| `blobPath` | [Templates](../../process-data/concept-configuration-patterns.md#templates)| Template string that identifies the path to write files to. All the template components shown in the default are required. | No | `{{{instanceId}}}/{{{pipelineId}}}/{{{partitionId}}}/{{{YYYY}}}/{{{MM}}}/{{{DD}}}/{{{HH}}}/{{{mm}}}/{{{fileNumber}}}` | `{{{instanceId}}}/{{{pipelineId}}}/{{{partitionId}}}/{{{YYYY}}}/{{{MM}}}/{{{DD}}}/{{{HH}}}/{{{mm}}}/{{{fileNumber}}}.xyz` |
+| `batch` | [Batch](../../process-data/concept-configuration-patterns.md#batch) | How to batch data before writing it to Blob Storage. | No | `{"time": "60s"}` | `{"time": "60s"}` |
+| `retry` | [Retry](../../process-data/concept-configuration-patterns.md#retry) | The retry mechanism to use when a Blob Storage operation fails. | No | (empty) | `{"type": "fixed"}` |
 
 ## Sample configuration
 
@@ -69,7 +69,7 @@ The following JSON shows a sample configuration for the _Azure Blob Storage_ des
 
 - [Send data to Azure Data Explorer](howto-configure-destination-data-explorer.md)
 - [Send data to Microsoft Fabric](howto-configure-destination-fabric.md)
-- [Send data to a gRPC endpoint](../process-data/howto-configure-destination-grpc.md)
-- [Send data to an HTTP endpoint](../process-data/howto-configure-destination-http.md)
-- [Publish data to an MQTT broker](../process-data/howto-configure-destination-mq-broker.md)
-- [Send data to the reference data store](../process-data/howto-configure-destination-reference-store.md)
+- [Send data to a gRPC endpoint](../../process-data/howto-configure-destination-grpc.md)
+- [Send data to an HTTP endpoint](../../process-data/howto-configure-destination-http.md)
+- [Publish data to an MQTT broker](../../process-data/howto-configure-destination-mq-broker.md)
+- [Send data to the reference data store](../../process-data/howto-configure-destination-reference-store.md)

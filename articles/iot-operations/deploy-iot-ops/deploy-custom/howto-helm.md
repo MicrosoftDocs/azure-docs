@@ -14,17 +14,17 @@ ms.date: 11/01/2023
 
 # Deploy a Helm chart to a Kubernetes cluster with Azure IoT Orchestrator Preview
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 Once you have Azure IoT Operations Preview deployed to a connected cluster, you can use Azure IoT Orchestrator Preview to deploy custom workloads including Helm charts.
 
 ## Prerequisites
 
-* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../howto-deploy-iot-operations.md).
 
 ## Deploy a helm chart with override values
 
-This section shows you how to deploy a helm chart using the orchestrator through [Bicep](../../azure-resource-manager/bicep/deploy-cli.md). The helm values used during the helm install are stored in separate files that are imported at the time of the deployment. There are two helm value files that are unioned together to form the helm values used by the helm chart: a base helm values file and an overlay helm values file. The base helm values file defines values common to many deployment environments. The overlay helm values file defines a few specific values for a single deployment environment.
+This section shows you how to deploy a helm chart using the orchestrator through [Bicep](../../../azure-resource-manager/bicep/deploy-cli.md). The helm values used during the helm install are stored in separate files that are imported at the time of the deployment. There are two helm value files that are unioned together to form the helm values used by the helm chart: a base helm values file and an overlay helm values file. The base helm values file defines values common to many deployment environments. The overlay helm values file defines a few specific values for a single deployment environment.
 
 The following example is a Bicep template that deploys a helm chart:
 

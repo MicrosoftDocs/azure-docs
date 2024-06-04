@@ -14,7 +14,7 @@ ms.date: 10/25/2023
 
 # Azure IoT Orchestrator Preview - manifests
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 The Azure IoT Orchestrator Preview service extends the resource management capabilities of Azure beyond the cloud. Through the orchestration service, customers are able to define and manage their edge infrastructure using the same Arm manifest files they use to manage cloud resources today. There are two main types of resources use for orchestration: targets and solutions. Together these resources define the desired state of an edge environment.
 
@@ -107,7 +107,7 @@ To create a target resource for an Arc-enabled K8s cluster, add the resource def
 | location         | Name of the region where the target resource will be created. |
 | apiVersion       | Resource API version: *2023-10-04-preview*. |
 | extendedLocation | An abstraction of a namespace that resides on the ARC-enabled cluster. To create any resources on the ARC-enabled cluster, one must create a custom location first. |
-| tags             | Optional [resource tags](../../azure-resource-manager/management/tag-resources.md). |
+| tags             | Optional [resource tags](../../../azure-resource-manager/management/tag-resources.md). |
 | properties       | List of properties for the target resource. For more information, see the following [properties parameters table](#target-properties-parameters). |
 
 ### Target properties parameters
@@ -187,7 +187,7 @@ To create a solution resource, add the resource definition JSON to an Azure Reso
 | location         | Name of the region where the solution resource will be created. |
 | apiVersion       | Resource API version: *2023-10-04-preview*. |
 | extendedLocation | An abstraction of a namespace that resides on the ARC-enabled cluster. To create any resources on the ARC-enabled cluster, one must create a custom location first. |
-| tags             | Optional [resource tags](../../azure-resource-manager/management/tag-resources.md). |
+| tags             | Optional [resource tags](../../../azure-resource-manager/management/tag-resources.md). |
 | properties       | List of properties for the solution resource. For more information, see the following [properties parameters table](#solution-properties-parameters). |
 
 ### Solution properties parameters
@@ -235,7 +235,7 @@ To create an instance resource, add the resource definition JSON to an Azure Res
 | location         | Name of the region where the instance resource will be created. |
 | apiVersion       | Resource API version: *2023-10-04-preview*. |
 | extendedLocation | An abstraction of a namespace that resides on the ARC-enabled cluster. To create any resources on the ARC-enabled cluster, one must create a custom location first. |
-| tags             | Optional [resource tags](../../azure-resource-manager/management/tag-resources.md). |
+| tags             | Optional [resource tags](../../../azure-resource-manager/management/tag-resources.md). |
 | properties       | List of properties for the instance resource. For more information, see the following [properties parameters table](#instance-properties-parameters). |
 
 ### Instance properties parameters

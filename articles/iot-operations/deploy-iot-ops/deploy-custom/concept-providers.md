@@ -14,7 +14,7 @@ ms.date: 11/02/2023
 
 # Azure IoT Orchestrator Preview - providers and components
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 Providers are an extensibility model in the Azure IoT Orchestrator Preview service that allows it to support deployments and configuration across a wide range of OS platforms and deployment mechanisms. Providers are responsible for executing the actions required to achieve the desired state of a resource.
 

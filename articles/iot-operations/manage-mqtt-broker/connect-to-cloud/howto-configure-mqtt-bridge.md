@@ -14,7 +14,7 @@ ms.date: 04/22/2024
 
 # Connect Azure IoT MQ Preview MQTT bridge cloud connector to other MQTT brokers
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 You can use the Azure IoT MQ Preview MQTT bridge to connect to Azure Event Grid or other MQTT brokers. MQTT bridging is the process of connecting two MQTT brokers together so that they can exchange messages.
 
@@ -163,7 +163,7 @@ The `x509` field includes the following fields:
 
 | Field | Required | Description |
 | --- | --- | --- |
-| secretName | Yes | The Kubernetes secret containing the client certificate and private key. You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-broker/howto-manage-secrets.md).|
+| secretName | Yes | The Kubernetes secret containing the client certificate and private key. You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../howto-manage-secrets.md).|
 
 Many MQTT brokers, like Event Grid, support X.509 authentication. Azure IoT MQ's MQTT bridge can present a client X.509 certificate and negotiate the TLS communication. Use a Kubernetes secret to store the X.509 client certificate, private key and intermediate CA.
 
@@ -211,7 +211,7 @@ spec:
 
 Here, `trustedCaCertifcateName` is the *ConfigMap* for the root CA of Azure IoT MQ, like the [ConfigMap for the root ca of the remote broker](#tls-support). The default root CA is stored in a ConfigMap named `aio-ca-trust-bundle-test-only`.
 
-For more information on obtaining the root CA, see [Configure TLS with automatic certificate management to secure MQTT communication](../manage-mqtt-broker/howto-configure-tls-auto.md). 
+For more information on obtaining the root CA, see [Configure TLS with automatic certificate management to secure MQTT communication](../howto-configure-tls-auto.md). 
 
 ### TLS support
 
@@ -374,7 +374,7 @@ This helps you balance the message traffic for the bridge between multiple clien
 
 ## Azure Event Grid MQTT broker support
 
-To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with [Azure Event Grid's MQTT broker feature](../../event-grid/mqtt-overview.md).
+To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with [Azure Event Grid's MQTT broker feature](../../../event-grid/mqtt-overview.md).
 
 For an end-to-end tutorial, see [Tutorial: Configure MQTT bridge between Azure IoT MQ Preview and Azure Event Grid](tutorial-connect-event-grid.md).
 
@@ -393,7 +393,7 @@ az role assignment create --assignee <MQ_ID> --role 'EventGrid TopicSpaces Publi
 ```
 
 > [!TIP]
-> To optimize for principle of least privilege, you can assign the role to a topic space instead of the entire Event Grid namespace. To learn more, see [Event Grid RBAC](../../event-grid/mqtt-client-azure-ad-token-and-rbac.md) and [Topic spaces](../../event-grid/mqtt-topic-spaces.md).
+> To optimize for principle of least privilege, you can assign the role to a topic space instead of the entire Event Grid namespace. To learn more, see [Event Grid RBAC](../../../event-grid/mqtt-client-azure-ad-token-and-rbac.md) and [Topic spaces](../../../event-grid/mqtt-topic-spaces.md).
 
 Finally, create an MQTTBridgeConnector and choose [managed identity](#managed-identity) as the authentication method. Create MqttBridgeTopicMaps and deploy the MQTT bridge with `kubectl`.
 
@@ -411,4 +411,4 @@ Azure IoT MQ is a compliant MQTT broker and other brokers can bridge to it with 
 
 ## Related content
 
-- [Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-broker/overview-iot-mq.md)
+- [Publish and subscribe MQTT messages using Azure IoT MQ Preview](../overview-iot-mq.md)

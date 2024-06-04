@@ -12,7 +12,7 @@ ms.date: 10/25/2023
 
 # Deploy a solution in Azure IoT Operations Preview
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 Use Azure IoT Orchestrator Preview to deploy, configure, and update the components of your Azure IoT Operations Preview edge computing scenario.
 

@@ -14,9 +14,9 @@ ms.date: 10/09/2023
 
 # Send data to Microsoft Fabric from a Data Processor pipeline
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
-Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft Fabric from an [Azure IoT Data Processor Preview pipeline](../process-data/overview-data-processor.md). The destination stage writes parquet files to a lakehouse that lets you view the data in delta tables. The destination stage batches messages before it sends them to Microsoft Fabric.
+Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft Fabric from an [Azure IoT Data Processor Preview pipeline](../../process-data/overview-data-processor.md). The destination stage writes parquet files to a lakehouse that lets you view the data in delta tables. The destination stage batches messages before it sends them to Microsoft Fabric.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Before you configure either service principal or managed identity access to a la
 
 To create a service principal with a client secret:
 
-[!INCLUDE [data-processor-create-service-principal](../includes/data-processor-create-service-principal.md)]
+[!INCLUDE [data-processor-create-service-principal](../../includes/data-processor-create-service-principal.md)]
 
 To add the service principal to your Microsoft Fabric workspace:
 
@@ -68,11 +68,11 @@ For the destination stage to connect to Microsoft Fabric, it needs access to a s
     az keyvault secret set --vault-name <your-key-vault-name> --name AccessFabricSecret --value <client-secret>
     ```
 
-1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-manage-secrets.md).
+1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations Preview deployment](../../deploy-iot-ops/howto-manage-secrets.md).
 
 # [Managed identity](#tab/managedidentity)
 
-[!INCLUDE [get-managed-identity](../includes/get-managed-identity.md)]
+[!INCLUDE [get-managed-identity](../../includes/get-managed-identity.md)]
 
 To grant the service principal access to your Microsoft Fabric workspace:
 
@@ -95,15 +95,15 @@ The _Fabric Lakehouse_ destination stage JSON configuration defines the details 
 | WorkspaceId | String | The lakehouse workspace ID.  | Yes | - | |
 | LakehouseId | String | The lakehouse Lakehouse ID.  | Yes | - |  |
 | Table | String |  The name of the table to write to.  | Yes | - |  |
-| File path<sup>1</sup> | [Template](../process-data/concept-configuration-patterns.md#templates) |  The file path for where to write the parquet file to.  | No | `{{{instanceId}}}/{{{pipelineId}}}/{{{partitionId}}}/{{{YYYY}}}/{{{MM}}}/{{{DD}}}/{{{HH}}}/{{{mm}}}/{{{fileNumber}}}` |  |
-| Batch<sup>2</sup> | [Batch](../process-data/concept-configuration-patterns.md#batch) |  How to [batch](../process-data/concept-configuration-patterns.md#batch) data. | No | `60s` | `10s`  |
+| File path<sup>1</sup> | [Template](../../process-data/concept-configuration-patterns.md#templates) |  The file path for where to write the parquet file to.  | No | `{{{instanceId}}}/{{{pipelineId}}}/{{{partitionId}}}/{{{YYYY}}}/{{{MM}}}/{{{DD}}}/{{{HH}}}/{{{mm}}}/{{{fileNumber}}}` |  |
+| Batch<sup>2</sup> | [Batch](../../process-data/concept-configuration-patterns.md#batch) |  How to [batch](../../process-data/concept-configuration-patterns.md#batch) data. | No | `60s` | `10s`  |
 | Authentication<sup>4</sup> | String | The authentication details to connect to Azure Data Explorer. `Service principal` or `Managed identity` | Service principal | Yes | - |
-| Retry | [Retry](../process-data/concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
+| Retry | [Retry](../../process-data/concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
 | Columns&nbsp;>&nbsp;Name | string | The name of the column. | Yes | | `temperature` |
 | Columns&nbsp;>&nbsp;Type<sup>3</sup> | string enum | The type of data held in the column, using one of the [Delta primitive types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types). | Yes | | `integer` |
-| Columns&nbsp;>&nbsp;Path | [Path](../process-data/concept-configuration-patterns.md#path) | The location within each record of the data from where to read the value of the column. | No | `.{{name}}` | `.temperature` |
+| Columns&nbsp;>&nbsp;Path | [Path](../../process-data/concept-configuration-patterns.md#path) | The location within each record of the data from where to read the value of the column. | No | `.{{name}}` | `.temperature` |
 
-<sup>1</sup>File path: To write files to Microsoft Fabric, you need a file path. You can use [templates](../process-data/concept-configuration-patterns.md#templates) to configure file paths. File paths must contain the following components in any order:
+<sup>1</sup>File path: To write files to Microsoft Fabric, you need a file path. You can use [templates](../../process-data/concept-configuration-patterns.md#templates) to configure file paths. File paths must contain the following components in any order:
 
 - `instanceId`
 - `pipelineId`
@@ -117,7 +117,7 @@ The _Fabric Lakehouse_ destination stage JSON configuration defines the details 
 
 The files names are incremental integer values as indicated by `fileNumber`. Be sure to include a file extension if you want your system to recognize the file type.
 
-<sup>2</sup>Batching: Batching is mandatory when you write data to Microsoft Fabric. The destination stage [batches](../process-data/concept-configuration-patterns.md#batch) messages over a configurable time interval.
+<sup>2</sup>Batching: Batching is mandatory when you write data to Microsoft Fabric. The destination stage [batches](../../process-data/concept-configuration-patterns.md#batch) messages over a configurable time interval.
 
 If you don't configure a batching interval, the stage uses 60 seconds as the default.
 
@@ -251,7 +251,7 @@ The following example shows a sample input message to the Microsoft Fabric lakeh
 
 - [Send data to Azure Data Explorer](howto-configure-destination-data-explorer.md)
 - [Send data to Azure Blob Storage](howto-configure-destination-blob.md)
-- [Send data to a gRPC endpoint](../process-data/howto-configure-destination-grpc.md)
-- [Send data to an HTTP endpoint](../process-data/howto-configure-destination-http.md)
-- [Publish data to an MQTT broker](../process-data/howto-configure-destination-mq-broker.md)
-- [Send data to the reference data store](../process-data/howto-configure-destination-reference-store.md)
+- [Send data to a gRPC endpoint](../../process-data/howto-configure-destination-grpc.md)
+- [Send data to an HTTP endpoint](../../process-data/howto-configure-destination-http.md)
+- [Publish data to an MQTT broker](../../process-data/howto-configure-destination-mq-broker.md)
+- [Send data to the reference data store](../../process-data/howto-configure-destination-reference-store.md)

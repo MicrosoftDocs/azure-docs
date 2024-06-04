@@ -14,17 +14,17 @@ ms.date: 11/01/2023
 
 # Deploy a K8s resource to a Kubernetes cluster with Azure IoT Orchestrator Preview
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 Once you have Azure IoT Operations Preview deployed to a connected cluster, you can use Azure IoT Orchestrator Preview to deploy custom workloads including K8s custom resources.
 
 ## Prerequisites
 
-* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../howto-deploy-iot-operations.md).
 
 ## Deploy a K8s resource
 
-This article shows you how to deploy a K8s custom resource using Azure IoT Orchestrator through [Bicep](../../azure-resource-manager/bicep/deploy-cli.md).
+This article shows you how to deploy a K8s custom resource using Azure IoT Orchestrator through [Bicep](../../../azure-resource-manager/bicep/deploy-cli.md).
 
 The following example is a Bicep template that deploys a K8s ConfigMap:
 

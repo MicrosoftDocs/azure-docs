@@ -14,7 +14,7 @@ ms.date: 04/22/2024
 
 # Send and receive messages between Azure IoT MQ Preview and Azure Event Hubs or Kafka
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 The Kafka connector pushes messages from Azure IoT MQ Preview MQTT broker to a Kafka endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), the connector works out-of-the-box with Event Hubs.
 
@@ -204,7 +204,7 @@ The authentication field supports different types of authentication methods, suc
 | systemAssignedManagedIdentity | The configuration for managed identity authentication. Specify the audience for the token request, which must match the Event Hubs namespace (`https://<NAMESPACE>.servicebus.windows.net`) [because the connector is a Kafka client](/azure/event-hubs/authenticate-application). A system-assigned managed identity is automatically created and assigned to the connector when it's enabled. | Yes, if using managed identity authentication |
 | x509 | The configuration for X509 authentication. Specify the `secretName` or `keyVault` field. The `secretName` field is the name of the secret that contains the client certificate and the client key in PEM format, stored as a TLS secret. | Yes, if using X509 authentication |
 
-To learn how to use Azure Key Vault and the `keyVault` to manage secrets for Azure IoT MQ instead of Kubernetes secrets, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-broker/howto-manage-secrets.md).
+To learn how to use Azure Key Vault and the `keyVault` to manage secrets for Azure IoT MQ instead of Kubernetes secrets, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../howto-manage-secrets.md).
 
 ##### Authenticate to Event Hubs
 
@@ -279,7 +279,7 @@ authentication:
       secretName: my-tls-secret
 ```
 
-To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`.
+To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`.
 
 ```yaml
 authentication:
@@ -492,4 +492,4 @@ This connector only uses MQTT v5.
 
 ## Related content
 
-[Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-broker/overview-iot-mq.md)
+[Publish and subscribe MQTT messages using Azure IoT MQ Preview](../overview-iot-mq.md)

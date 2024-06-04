@@ -87,6 +87,11 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/deploy-custom/concept-providers.md",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/deploy-custom/concept-providers",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/concept-manifests.md",
             "redirect_url": "/azure/iot-operations/deploy-iot-ops/deploy-custom/concept-manifests",
             "redirect_document_id": true
         },

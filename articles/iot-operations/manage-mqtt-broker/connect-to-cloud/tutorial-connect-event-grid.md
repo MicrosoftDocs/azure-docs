@@ -13,13 +13,13 @@ ms.date: 04/22/2024
 
 # Tutorial: Configure MQTT bridge between Azure IoT MQ Preview and Azure Event Grid
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
 
 In this tutorial, you learn how to configure IoT MQ for bi-directional MQTT bridge with Azure Event Grid MQTT broker PaaS. You can use this feature to process your IoT data at the edge and in the cloud. For example, you can use IoT MQ to process telemetry data at the edge, and then bridge the data to Azure Event Grid for further processing in the cloud.
 
 ## Prerequisites
 
-* [Deploy Azure IoT Operations Preview](../deploy-end-to-end-sample/quickstart-deploy.md)
+* [Deploy Azure IoT Operations Preview](../../deploy-end-to-end-sample/quickstart-deploy.md)
 
 ## Set environment variables
 
@@ -54,7 +54,7 @@ export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
 
 ## Create Event Grid namespace with MQTT broker enabled
 
-[Create Event Grid namespace](../../event-grid/create-view-manage-namespaces.md) with Azure CLI. The location should be the same as the one you used to deploy Azure IoT Operations.
+[Create Event Grid namespace](../../../event-grid/create-view-manage-namespaces.md) with Azure CLI. The location should be the same as the one you used to deploy Azure IoT Operations.
 
 ```azurecli
 az eventgrid namespace create \
@@ -69,7 +69,7 @@ By setting the `topic-spaces-configuration`, this command creates a namespace wi
 * MQTT broker **enabled**
 * Maximum client sessions per authentication name as **3**.
 
-The max client sessions option allows IoT MQ to spawn multiple instances and still connect. To learn more, see [multi-session support](../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
+The max client sessions option allows IoT MQ to spawn multiple instances and still connect. To learn more, see [multi-session support](../../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
 
 ## Create a topic space
 
@@ -353,12 +353,12 @@ You can also check the Event Grid metrics to verify the messages are delivered t
 
 In this tutorial, you learned how to configure IoT MQ for bi-directional MQTT bridge with Azure Event Grid MQTT broker. As next steps, explore the following scenarios:
 
-* To use an MQTT client to publish messages directly to the Event Grid MQTT broker, see [Publish MQTT messages to Event Grid MQTT broker](../../event-grid/mqtt-publish-and-subscribe-cli.md). Give the client a [publisher permission binding](../../event-grid/mqtt-access-control.md) to the topic space you created, and you can publish messages to any topic under the `telemetry`, like `telemetry/temperature` or `telemetry/humidity`. All of these messages are bridged to the `tutorial/cloud` topic on the local IoT MQ broker.
-* To set up routing rules for the Event Grid MQTT broker, see [Configure routing rules for Event Grid MQTT broker](../../event-grid/mqtt-routing.md). You can use routing rules to route messages to different topics based on the topic name, or to filter messages based on the message content.
+* To use an MQTT client to publish messages directly to the Event Grid MQTT broker, see [Publish MQTT messages to Event Grid MQTT broker](../../../event-grid/mqtt-publish-and-subscribe-cli.md). Give the client a [publisher permission binding](../../../event-grid/mqtt-access-control.md) to the topic space you created, and you can publish messages to any topic under the `telemetry`, like `telemetry/temperature` or `telemetry/humidity`. All of these messages are bridged to the `tutorial/cloud` topic on the local IoT MQ broker.
+* To set up routing rules for the Event Grid MQTT broker, see [Configure routing rules for Event Grid MQTT broker](../../../event-grid/mqtt-routing.md). You can use routing rules to route messages to different topics based on the topic name, or to filter messages based on the message content.
 
 ## Related content
 
-* About [BrokerListener resource](../manage-mqtt-broker/howto-configure-brokerlistener.md)
-* [Configure authorization for a BrokerListener](../manage-mqtt-broker/howto-configure-authorization.md)
-* [Configure authentication for a BrokerListener](../manage-mqtt-broker/howto-configure-authentication.md)
-* [Configure TLS with automatic certificate management](../manage-mqtt-broker/howto-configure-tls-auto.md)
+* About [BrokerListener resource](../howto-configure-brokerlistener.md)
+* [Configure authorization for a BrokerListener](../howto-configure-authorization.md)
+* [Configure authentication for a BrokerListener](../howto-configure-authentication.md)
+* [Configure TLS with automatic certificate management](../howto-configure-tls-auto.md)
