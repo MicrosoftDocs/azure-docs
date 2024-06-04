@@ -12,13 +12,15 @@ zone_pivot_groups: app-spaces-add-component
 
 # Add App Spaces components
 
+[!include [preview note](./includes/preview-note.md)]
+
 [App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This guide shows you how to add components to an existing App Spaces app. Components can be a back-end app (Azure Container App), a front-end app (Static Web App), or a database (MariaDB, PostgreSQL, Qdrant).
 
 [!include [component types](./includes/component-types-table.md)]
 
 ## Add components
 
-To add a component to your App Space, select **+ Add component** on the _App Space_ page.
+To add a component to your App Space, on the _App Space_ page, select **+ Add component**.
 
 ::: zone pivot="custom"  
 
