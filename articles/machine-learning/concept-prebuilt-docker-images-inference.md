@@ -43,6 +43,8 @@ NA | GPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu20.04-py38-cuda11.6.2-g
 NA | CPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu22.04-py39-cpu-inference:latest`
 NA | GPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu22.04-py39-cuda11.8-gpu-inference:latest`
 
+> [!NOTE]
+> Azure Machine Learning supports [Curated environments](resource-curated-environments.md). You can [browse curated environments](how-to-manage-environments-in-studio.md#browse-curated-environments) and add filter for `Tags: Inferencing`.
 
 ## Related content
 
