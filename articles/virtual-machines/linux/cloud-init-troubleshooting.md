@@ -62,7 +62,7 @@ While the VM is running, you will need the logs from the VM to understand why pr
 
 - [Serial Console](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode)
 
-- [Run AZ VM Repair](/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands) to attach and mount the OS disk using [chroot](/troubleshoot/azure/virtual-machines/chroot-environment-linux), which will allow you to collect these logs:
+- [Run AZ VM Repair](/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands) to attach and mount the OS disk which will allow you to collect these logs:
 
 ```bash
 sudo cat /rescue/var/log/cloud-init*
