@@ -59,7 +59,7 @@ For more information about the application routing addon, see [Managed NGINX ing
 
 ## Client source IP preservation
 
-Configure your ingress controller to preserve the client source IP on requests to containers in your AKS cluster. When your ingress controller routes a client's request to a container in your AKS cluster, the original source IP of that request is unavailable to the target container. When you enable _client source IP preservation_, the source IP for the client is available in the request header under _X-Forwarded-For*.
+Configure your ingress controller to preserve the client source IP on requests to containers in your AKS cluster. When your ingress controller routes a client's request to a container in your AKS cluster, the original source IP of that request is unavailable to the target container. When you enable _client source IP preservation_, the source IP for the client is available in the request header under _X-Forwarded-For_.
 
 If you're using client source IP preservation on your ingress controller, you can't use TLS pass-through. Client source IP preservation and TLS pass-through can be used with other services, such as the _LoadBalancer_ type.
 
