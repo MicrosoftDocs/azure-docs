@@ -18,18 +18,3 @@ Once you select the **next** button, it will automatically validate your setup t
 
 Once you have fixed the setup, select **next** again to validate and proceed. API users can also [configure authentication](../references/azure-search.md#api-key-authentication-options) with assigned managed identity and API keys.
 
-
- 
-<!--
-If you want to use *System assigned managed identity*, make sure:
-
-1. Azure AI Search has role-based access control enabled in the keys tab.
-
-    :::image type="content" source="../media/use-your-data/managed-identity-ai-search.png" alt-text="A screenshot showing the managed identity option for Azure AI search in the Azure portal." lightbox="../media/use-your-data/managed-identity-ai-search.png":::
-
-1. System assigned managed identity is enabled for your Azure OpenAI resource.
-
-    :::image type="content" source="../media/use-your-data/openai-managed-identity.png" alt-text="A screenshot showing the system assigned managed identity option in the Azure portal." lightbox="../media/use-your-data/openai-managed-identity.png":::
-
-1. You've added [role assignments](../how-to/use-your-data-securely.md#role-assignments) correctly using Azure portal or Azure CLI
--->
