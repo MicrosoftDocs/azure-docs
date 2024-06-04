@@ -16,9 +16,9 @@ ms.custom:
 
 # Connect to Azure Storage using a managed identity (Azure AI Search)
 
-This article explains how to connect to an Azure Storage account using a managed identity instead of providing credentials in the connection string.
+This article explains how to configure a search service connection to an Azure Storage account using a managed identity instead of providing credentials in the connection string.
 
-You can use a system-assigned managed identity or a user-assigned managed identity. Managed identities are Microsoft Entra logins and require role assignments on Azure Storage. 
+You can use a system-assigned managed identity or a user-assigned managed identity. Managed identities are Microsoft Entra logins and require role assignments for access to Azure Storage. 
 
 ## Prerequisites
 
@@ -52,11 +52,16 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 
 ## Specify a managed identity in a connection string
 
-Indexers use a data source object to provide connection details. This section explains how to specify a system-assigned managed identity or a user-assigned managed identity on the connection string. 
+Indexers use a data source object to provide connection details. This section explains how to specify a system-assigned managed identity or a user-assigned managed identity on the connection string.
+
+This section shows you several examples. You can find more [connection string examples](search-howto-managed-identities-data-sources.md#connection-string-examples) in the managed identity article.
+
+> [!TIP]
+> You can create a data source connection to Azure Storage in the Azure portal, specifying either a system or user-assigned managed identity, and then view the JSON definition to see how the connection string is formulated.
 
 ### System-assigned managed identity
 
-When you're connecting with a system-assigned managed identity, the only change to the [data source definition](/rest/api/searchservice/create-data-source) is the format of the `credentials` property. 
+For connections made using a system-assigned managed identity, the only change to the [data source definition](/rest/api/searchservice/create-data-source) is the format of the `credentials` property. 
 
 Provide a `ResourceId` that has no account key or password. The `ResourceId` must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name.
 
