@@ -50,12 +50,12 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Connect to MQTT or Event Grid
-            url: connect-to-cloud/howto-configure-mqtt-bridge.md
+            url: manage-mqtt-broker/connect-to-cloud/howto-configure-mqtt-bridge.md
           - text: Send data to a data lake
-            url: connect-to-cloud/howto-configure-data-lake.md
+            url: manage-mqtt-broker/connect-to-cloud/howto-configure-data-lake.md
           - text: Send data to Kafka or Azure Event Hubs
-            url: connect-to-cloud/howto-configure-kafka.md
+            url: manage-mqtt-broker/connect-to-cloud/howto-configure-kafka.md
           - text: Send data to Azure Data Explorer from a pipeline
-            url: connect-to-cloud/howto-configure-destination-data-explorer.md
+            url: manage-mqtt-broker/connect-to-cloud/howto-configure-destination-data-explorer.md
           - text: Send data to Microsoft Fabric from a pipeline
-            url: connect-to-cloud/howto-configure-destination-fabric.md
+            url: manage-mqtt-broker/connect-to-cloud/howto-configure-destination-fabric.md

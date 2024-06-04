@@ -57,7 +57,7 @@ The `keyVault` field is available wherever Kubernetes secrets (`secretName`) are
 | vaultCaChainSecret | Yes, when using certificate chain | Specifies the certificate chain in the Azure Key Vault. |
 | vaultCaChainSecret.name | Yes | Specifies the name of the certificate chain. |
 | vaultCaChainSecret.version | No | Specifies the version of the certificate chain. |
-| username | No | Used only for Event Hubs Kafka connector, see [Send and receive messages between Azure IoT MQ and Event Hubs or Kafka](../connect-to-cloud/howto-configure-kafka.md). |
+| username | No | Used only for Event Hubs Kafka connector, see [Send and receive messages between Azure IoT MQ and Event Hubs or Kafka](connect-to-cloud/howto-configure-kafka.md). |
 
 The type of secret you're using determines which of the following fields you can use:
 

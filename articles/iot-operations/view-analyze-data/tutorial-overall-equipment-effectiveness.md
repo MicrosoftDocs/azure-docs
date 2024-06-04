@@ -864,7 +864,7 @@ To share your dashboard with your coworkers, select **Publish** in the top nav
 ## Related content
 
 - [Tutorial: Detect anomalies in real time](tutorial-anomaly-detection.md)
-- [Tutorial: Configure MQTT bridge between Azure IoT MQ Preview and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+- [Tutorial: Configure MQTT bridge between Azure IoT MQ Preview and Azure Event Grid](../manage-mqtt-broker/connect-to-cloud/tutorial-connect-event-grid.md)
 - [Build event-driven apps with Dapr](../develop/tutorial-event-driven-with-dapr.md)
 - [Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
 - [Build a real-time dashboard in Microsoft Fabric with MQTT data](tutorial-real-time-dashboard-fabric.md)

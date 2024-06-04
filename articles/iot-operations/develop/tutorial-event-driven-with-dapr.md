@@ -299,4 +299,4 @@ kubectl logs dapr-workload daprd
 
 ## Next steps
 
-* [Bridge MQTT data between IoT MQ and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+* [Bridge MQTT data between IoT MQ and Azure Event Grid](../manage-mqtt-broker/connect-to-cloud/tutorial-connect-event-grid.md)

@@ -94,8 +94,8 @@ The following JSON shows an example definition for an HTTP destination stage:
 
 ## Related content
 
-- [Send data to Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md)
-- [Send data to Microsoft Fabric](../connect-to-cloud/howto-configure-destination-fabric.md)
-- [Send data to Azure Blob Storage](../connect-to-cloud/howto-configure-destination-blob.md)
+- [Send data to Azure Data Explorer](../manage-mqtt-broker/connect-to-cloud/howto-configure-destination-data-explorer.md)
+- [Send data to Microsoft Fabric](../manage-mqtt-broker/connect-to-cloud/howto-configure-destination-fabric.md)
+- [Send data to Azure Blob Storage](../manage-mqtt-broker/connect-to-cloud/howto-configure-destination-blob.md)
 - [Publish data to an MQTT broker](howto-configure-destination-mq-broker.md)
 - [Send data to the reference data store](howto-configure-destination-reference-store.md)

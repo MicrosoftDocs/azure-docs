@@ -184,6 +184,41 @@
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-authentication.md",
             "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-authentication",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/tutorial-connect-event-grid.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/connect-to-cloud/tutorial-connect-event-grid",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-mqtt-bridge.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/connect-to-cloud/howto-configure-mqtt-bridge",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-kafka.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/connect-to-cloud/howto-configure-kafka",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-fabric.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/connect-to-cloud/howto-configure-destination-fabric",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-data-explorer.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/connect-to-cloud/howto-configure-destination-data-explorer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-blob.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/connect-to-cloud/howto-configure-destination-blob",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-data-lake.md",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/connect-to-cloud/howto-configure-data-lake",
+            "redirect_document_id": true
         }
     ]
 }
