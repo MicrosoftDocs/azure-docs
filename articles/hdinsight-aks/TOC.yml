@@ -22,7 +22,7 @@ items:
       href: quickstart-create-cluster.md
     - name: Create a HDInsight on AKS cluster pool and cluster - Azure CLI
       href: quickstart-create-cli.md
-    - name: Create a HDInsight on AKS cluster pool and cluster - Azure PowerShell
+    - name: Create an HDInsight on AKS cluster pool and cluster - Azure PowerShell
       href: quickstart-create-powershell.md
 - name: Concepts
   items:

@@ -1,14 +1,14 @@
 ---
 title: Quickstart - Create HDInsight on AKS cluster with Azure CLI
-description: Learn how to use Azure CLI to create a HDInsight on AKS cluster pool.
+description: Learn how to use Azure CLI to create an HDInsight on AKS cluster pool.
 ms.service: hdinsight-aks
 ms.topic: quickstart
 ms.date: 06/04/2024
 ---
 
-# Quickstart: Create a HDInsight on AKS Cluster Pool with the Azure CLI on Azure
+# Quickstart: Create an HDInsight on AKS Cluster Pool with the Azure CLI on Azure
 
-This quickstart shows you how to use the PowerShell to deploy a HDInsight on AKS Cluster Pool in Azure.
+This quickstart shows you how to use the PowerShell to deploy an HDInsight on AKS Cluster Pool in Azure.
 
 ## Prerequisites
 Ensure that you completed the [subscription prerequisites](./quickstart-prerequisites-subscription.md) and [resource prerequisites](./quickstart-prerequisites-resources.md) before creating a cluster pool.
@@ -31,7 +31,7 @@ New-AzResourceGroup -Name 'HDIonAKSPowershell' -Location 'West US 3'
 
 ## Create the HDInsight on AKS Cluster Pool
 
-To create a HDInsight on AKS Cluster Pool in this resource group, use the `New-AzHdInsightOnAksClusterPool` command:
+To create an HDInsight on AKS Cluster Pool in this resource group, use the `New-AzHdInsightOnAksClusterPool` command:
 ```PowerShell
 New-AzHdInsightOnAksClusterPool
    -Name <String>
@@ -79,10 +79,8 @@ Results:
 ```
 AkClusterProfileAkClusterAgentPoolIdentityProfileMsiClientId   : a75ec1ff-3f7f-4f44-820c-6eaa5c8191af
 AkClusterProfileAkClusterAgentPoolIdentityProfileMsiObjectId   : 13990b78-4140-4d10-b333-69bb78524375
-AkClusterProfileAkClusterAgentPoolIdentityProfileMsiResourceId : /subscriptions/0b130652-e15b-417e-885a-050c9a3024a2/resourcegroups/MC_hdi-44640a235566423490b9fb694d6c05a3_HDIClusterP
-                                                                 oolSample_westus3/providers/Microsoft.ManagedIdentity/userAssignedIdentities/HDIClusterPoolSample-agentpool
-AkClusterProfileAksClusterResourceId                           : /subscriptions/0b130652-e15b-417e-885a-050c9a3024a2/resourceGroups/hdi-44640a235566423490b9fb694d6c05a3/providers/Micr
-                                                                 osoft.ContainerService/managedClusters/HDIClusterPoolSample
+AkClusterProfileAkClusterAgentPoolIdentityProfileMsiResourceId : /subscriptions/12345-abcde-12345-abcde
+AkClusterProfileAksClusterResourceId                           : /subscriptions/subscriptions/12345-abcde-12345-abcde
 AkClusterProfileAksVersion                                     : 1.27.9
 AksManagedResourceGroupName                                    : MC_hdi-44640a235566423490b9fb694d6c05a3_HDIClusterPoolSample_westus3
 ComputeProfileCount                                            : 3
@@ -93,8 +91,8 @@ Id                                                             : /subscriptions/
 Location                                                       : West US 3
 LogAnalyticProfileEnabled                                      : False
 LogAnalyticProfileWorkspaceId                                  : 
-ManagedResourceGroupName                                       : hdi-44640a235566423490b9fb694d6c05a3
-Name                                                           : HDIClusterPoolSample
+ManagedResourceGroupName                                       : hdi-12345
+Name                                                           : Contosopool
 NetworkProfileApiServerAuthorizedIPRange                       : 
 NetworkProfileEnablePrivateApiServer                           : 
 NetworkProfileOutboundType                                     : 
@@ -104,17 +102,17 @@ ProvisioningState                                              : Succeeded
 ResourceGroupName                                              : HDIonAKSPowershell
 Status                                                         : Running
 SystemDataCreatedAt                                            : 6/2/2024 11:53:01 AM
-SystemDataCreatedBy                                            : guodongwang@microsoft.com
+SystemDataCreatedBy                                            : john@contoso.com
 SystemDataCreatedByType                                        : User
 SystemDataLastModifiedAt                                       : 6/2/2024 11:53:01 AM
-SystemDataLastModifiedBy                                       : guodongwang@microsoft.com
+SystemDataLastModifiedBy                                       : john@contoso.com
 SystemDataLastModifiedByType                                   : User
 Tag                                                            : {
                                                                  }
-Type                                                           : microsoft.hdinsight/clusterpools
+Type                                                           : contoso.hdinsight/contosopools
 ```
 
-## Next Steps
+## Next steps
 
 * [New-AzHdInsightOnAksClusterPool](/powershell/module/az.hdinsightonaks/new-azhdinsightonaksclusterpool)
 * [Create cluster pool and cluster](./quickstart-create-cluster.md)

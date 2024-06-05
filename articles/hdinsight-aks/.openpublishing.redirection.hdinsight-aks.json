@@ -17,7 +17,7 @@
         },
         {
             "source_path_from_root": "/articles/hdinsight-aks/prerequisites-resources.md",
-            "redirect_url": "/azure/hdinsight-aks/spark/quickstart-prerequisites-resources",
+            "redirect_url": "/azure/hdinsight-aks/quickstart-prerequisites-resources",
             "redirect_document_id": false
         },    
         {
