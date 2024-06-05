@@ -45,6 +45,7 @@ Some models in the **Curated by Azure AI** and **Open models from the Hugging Fa
 ## Model deployment: Managed compute and serverless API (pay-as-you-go)  
 
 Model Catalog offers two distinct ways to deploy models from the catalog for your use: managed compute and serverless APIs. The deployment options available for each model vary; learn more about the features of the deployment options, and the options available for specific models, in the following tables. Learn more about [data processing]( concept-data-privacy.md) with the deployment options. 
+<!-- docutune:disable -->
 
 Features | Managed compute | serverless API (pay-as-you-go) 
 --|--|-- 
@@ -63,6 +64,7 @@ Phi3 family models | Phi-3-small-128k-Instruct <br> Phi-3-small-8k-Instruct <br>
 Nixtla | Not available | TimeGEN-1
 Other models | Available | Not available
 
+<!-- docutune:enable -->
 
 :::image type="content" source="../media/explore/platform-service-cycle.png" alt-text="A diagram showing models as a service and Real time end points service cycle." lightbox="../media/explore/platform-service-cycle.png":::
 
@@ -87,16 +89,16 @@ Models available for deployment to a Managed compute can be deployed to Azure Ma
 * [Deploy Meta Llama models](deploy-models-llama.md) 
 * [Deploy Open models Created by Azure AI](deploy-models-open.md)
 
-### Build Generative AI Apps with Managed computes
+### Build Generative AI Apps with Managed compute
 
 Prompt flow offers a great experience for prototyping. You can use models deployed with Managed computes in Prompt Flow with the [Open Model LLM tool](../../machine-learning/prompt-flow/tools-reference/open-model-llm-tool.md).  You can also use the REST API exposed by managed compute in popular LLM tools like LangChain with the [Azure Machine Learning extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
 
 
-### Content safety for models deployed as Managed Computes 
+### Content safety for models deployed as Managed compute
 
 [Azure AI Content Safety (AACS)](../../ai-services/content-safety/overview.md) service is available for use with Managed computes to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the Content Safety (Text) tool in Prompt Flow to pass responses from the model to AACS for screening. You are billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. 
 
-### Serverless APIs with Pay-as-you-go billing
+## Serverless APIs with Pay-as-you-go billing
 
 Certain models in the Model Catalog can be deployed as serverless APIs with pay-as-you-go billing; this method of deployment is called Models-as-a Service (MaaS), providing a way to consume them as an API without hosting them on your subscription. Models available through MaaS are hosted in infrastructure managed by Microsoft, which enables API-based access to the model provider's model. API based access can dramatically reduce the cost of accessing a model and significantly simplify the provisioning experience. Most MaaS models come with token-based pricing.   
 
@@ -126,6 +128,8 @@ Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmen
 
 Pay-as-you-go billing is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see "offer availability region" in the table in the next section). If the offer is available in the relevant region, the user then must have a Hub/Project in the Azure region where the model is available for deployment or fine-tuning, as applicable (see "hub/project region" columns in the table below). 
 
+<!-- docutune:disable -->
+
 Model | Offer availability region  | Hub/Project Region for Deployment | Hub/Project Region for Fine-tuning
 --|--|--|--
 Llama-3-70B-Instruct <br> Llama-3-8B-Instruct | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
@@ -134,6 +138,7 @@ Llama-2-7b-chat <br> Llama-2-13b-chat <br> Llama-2-70b-chat | [Microsoft Managed
 Mistral-Large <br> Mistral Small | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
 Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Japan | East US 2, Sweden Central | Not available
 
+<!-- docutune:enable -->
 
 ### Content safety for models deployed via Serverless API
 

@@ -87,7 +87,8 @@ You can configure your AKS clusters with API Server VNet Integration in managed 
         --resource-group <resource-group> \
         --location <location> \
         --network-plugin azure \
-        --enable-apiserver-vnet-integration
+        --enable-apiserver-vnet-integration \
+        --generate-ssh-keys
     ```
 
 ### Deploy a private cluster
@@ -100,7 +101,8 @@ You can configure your AKS clusters with API Server VNet Integration in managed 
         --location <location> \
         --network-plugin azure \
         --enable-private-cluster \
-        --enable-apiserver-vnet-integration
+        --enable-apiserver-vnet-integration \
+        --generate-ssh-keys
     ```
 
 ## Create a private AKS cluster with API Server VNet Integration using bring-your-own VNet
@@ -180,13 +182,14 @@ az group create --location <location> --name <resource-group>
 
     ```azurecli-interactive
     az aks create --name <cluster-name> \
-    --resource-group <resource-group> \
-    --location <location> \
-    --network-plugin azure \
-    --enable-apiserver-vnet-integration \
-    --vnet-subnet-id <cluster-subnet-resource-id> \
-    --apiserver-subnet-id <apiserver-subnet-resource-id> \
-    --assign-identity <managed-identity-resource-id>
+        --resource-group <resource-group> \
+        --location <location> \
+        --network-plugin azure \
+        --enable-apiserver-vnet-integration \
+        --vnet-subnet-id <cluster-subnet-resource-id> \
+        --apiserver-subnet-id <apiserver-subnet-resource-id> \
+        --assign-identity <managed-identity-resource-id> \
+        --generate-ssh-keys
     ```
 
 ### Deploy a private cluster
@@ -202,7 +205,8 @@ az group create --location <location> --name <resource-group>
     --enable-apiserver-vnet-integration \
     --vnet-subnet-id <cluster-subnet-resource-id> \
     --apiserver-subnet-id <apiserver-subnet-resource-id> \
-    --assign-identity <managed-identity-resource-id>
+    --assign-identity <managed-identity-resource-id> \
+    --generate-ssh-keys
     ```
 
 ## Convert an existing AKS cluster to API Server VNet Integration
