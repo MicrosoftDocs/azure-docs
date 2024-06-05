@@ -37,13 +37,15 @@ After a secondary region is added, all of the data held in the primary namespace
 ## Promote secondary
 You can promote your configured secondary region to being the primary region. When you promote a secondary region to primary, the current primary region will become the secondary region. This can be planned or forced. Planned promotions ensure both regions are caught up before accepting new traffic. Forced promotions take effect as quickly as possible and doesn't wait for things to be caught up.
 To initiate a promotion of your secondary region to primary, clicking on the failover icon which is shown below.  
+ [promotion start](../media/use-geo-replication/promotion-a.png)
+When in the promotion flow, you can select planned or forced.  You can also choose to select forced after starting a planned promotion. Enter the word "promote" in the prompt to be able to start the promotion.
  [promotion](../media/use-geo-replication/promotion.png)
  
 If doing a planned promotion, then once the promotion process is initiated, the new primary will reject any new events until failover is completed. The promotion process will repoint the FQDN for your namespace to the selected region, complete data replication between the two regions and configure the new primary region to be active.  This means that there is no change needed to clients and that they will continue to work after the promotion event.
 In the case where your primary region goes down completely, you can still perform a forced promotion. 
 
 ## Remove a secondary
-To remove a Geo replication pairing with a secondary, go into 'Geo-replication', select the secondary region, and then select remove.   
+To remove a Geo replication pairing with a secondary, go into 'Geo-replication', select the secondary region, and then select remove. At the prompt, enter the word "delete" and then you can delete the secondary.   
 [remove secondary](../media/use-geo-replication/remove-secondary.png) 
 
 When a secondary region is removed, all of the data that it held is also removed.  If you wish to re-enable Geo replication with that region and cluster, it will have to replicate the primary region data all over again.  
