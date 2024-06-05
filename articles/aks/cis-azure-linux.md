@@ -195,4 +195,3 @@ For more information about Azure Linux Container Host security, see the followin
 [cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
 [linux-security-baseline]: ../governance/policy/samples/guest-configuration-baseline-linux.md
 [linux-container-host-aks]: ../azure-linux/intro-azure-linux.md
-

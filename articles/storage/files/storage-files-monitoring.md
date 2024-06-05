@@ -1,7 +1,7 @@
 ---
-title: Monitor Azure Files
-description: Start here to learn how to monitor Azure Files.
-ms.date: 02/13/2024
+title: Monitor Azure Files using Azure Monitor
+description: Learn how to monitor Azure Files and analyze metrics and logs using Azure Monitor. 
+ms.date: 05/10/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: khdownie

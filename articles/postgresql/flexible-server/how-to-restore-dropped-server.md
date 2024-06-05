@@ -4,7 +4,7 @@ description: This article describes how to restore a dropped server in Azure Dat
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 04/29/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to

@@ -40,8 +40,8 @@
         href: migrate-container-instances.md
       - name: Azure Container Registry
         href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
-      - name: Azure Cosmos DB
-        href: /azure/cosmos-db/high-availability?toc=/azure/reliability
+      - name: Azure Cosmos DB for NoSQL
+        href: migrate-cosmos-nosql.md
       - name: Azure Database for MySQL - Flexible Server
         href: migrate-database-mysql-flex.md
       - name: Azure Database for PostgreSQL
@@ -92,12 +92,12 @@
     href: overview-reliability-guidance.md
   - name: Foundational services
     items:
-      - name: Azure Cosmos DB
+      - name: Azure Cosmos DB for NoSQL
         items:
-        - name: Availability zones
-          href:  ../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Disaster recovery
-          href: ../cosmos-db/how-to-multi-master.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        - name: Proactive resiliency
+          href: resiliency-recommendations/recommend-cosmos-db-nosql.md
+        - name: Reliability guide
+          href: reliability-cosmos-db-nosql.md
       - name: Azure Event Hubs
         href: ../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure ExpressRoute
@@ -300,6 +300,8 @@
       href: ../active-directory-domain-services/tutorial-create-replica-set.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Strategic services
     items:
+    - name: Azure API Center
+      href: reliability-api-center.md
     - name: Azure Application Gateway for Containers
       href: reliability-app-gateway-containers.md
     - name: Azure Chaos Studio

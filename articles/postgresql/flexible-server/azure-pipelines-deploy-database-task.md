@@ -4,7 +4,7 @@ description: Enable Azure Database for PostgreSQL - Flexible Server CLI task for
 author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 04/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -35,6 +35,7 @@ The following example illustrates how to pass database arguments and run `execut
   displayName: Azure CLI
   inputs:
     azureSubscription: <Name of the Azure Resource Manager service connection>
+    scriptType: 'pscore'
     scriptLocation: inlineScript
     arguments:
       -SERVERNAME mydemoserver `
@@ -57,6 +58,7 @@ The following example illustrates how to run an inline SQL script using `execute
   displayName: Azure CLI
   inputs:
     azureSubscription: <Name of the Azure Resource Manager service connection>
+    scriptType: 'pscore'
     scriptLocation: inlineScript
     arguments:
       -SERVERNAME mydemoserver `

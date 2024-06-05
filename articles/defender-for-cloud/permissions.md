@@ -2,7 +2,7 @@
 title: User roles and permissions
 description: This article explains how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
 ms.topic: limits-and-quotas
-ms.date: 10/09/2023
+ms.date: 05/12/2024
 ---
 
 # User roles and permissions
@@ -32,6 +32,7 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md)) | - | - | ✔ | ✔ | ✔ |
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Exempt security recommendations | - |✔|-|-| ✔ |
+| Configure email notifications | - | ✔ | ✔| ✔ | ✔ |
 
 The specific role required to deploy monitoring components depends on the extension you're deploying. Learn more about [monitoring components](monitoring-components.md).
 

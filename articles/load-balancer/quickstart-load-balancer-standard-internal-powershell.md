@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 
 Get started with Azure Load Balancer by using Azure PowerShell to create an internal load balancer and two virtual machines.Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
-:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
+:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer." lightbox="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png":::
 
 ## Prerequisites
 

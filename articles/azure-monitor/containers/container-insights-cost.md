@@ -71,7 +71,7 @@ If the majority of your data comes from one of these following tables:
 
 You can adjust your ingestion using the [cost optimization settings](../containers/container-insights-cost-config.md) and/or migrating to the [Prometheus metrics addon](container-insights-prometheus.md)
 
-Otherwise, the majority of your data belongs to the ContainerLog table. and you can follow the steps below to reduce your ContainerLog costs.
+Otherwise, the majority of your data belongs to the ContainerLog table and you can follow the steps below to reduce your ContainerLog costs.
 
 ### Reducing your ContainerLog costs
 
@@ -122,7 +122,7 @@ After you apply one or more of these changes to your ConfigMaps, apply it to you
 
 You can save on data ingestion costs on ContainerLog in your Log Analytics workspace that you primarily use for debugging, troubleshooting, and auditing as Basic Logs. For more information, including the limitations of Basic Logs, see [Configure Basic Logs in Azure Monitor](../logs/basic-logs-configure.md). ContainerLogV2 is the configured version of Basic Logs that Container Insights uses. ContainerLogV2 includes verbose text-based log records.
 
-You must be on the ContainerLogV2 schema to configure Basic Logs. For more information, see [Enable the ContainerLogV2 schema (preview)](container-insights-logs-schema.md).
+You must be on the ContainerLogV2 schema to configure Basic Logs. For more information, see [Enable the ContainerLogV2 schema](container-insights-logs-schema.md).
 
 ### Prometheus metrics scraping
 

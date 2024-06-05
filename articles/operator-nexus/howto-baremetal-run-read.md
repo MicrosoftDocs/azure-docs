@@ -20,7 +20,7 @@ The command execution produces an output file containing the results that can be
 1. Install the latest version of the
   [appropriate CLI extensions](./howto-install-cli-extensions.md)
 1. Ensure that the target BMM must have its `poweredState` set to `On` and have its `readyState` set to `True`
-1. Get the Resource group name that you created for `Cluster` resource
+1. Get the Managed Resource group name (cluster_MRG) that you created for `Cluster` resource
 
 ## Executing a run-read command
 
@@ -207,10 +207,10 @@ The list below shows the commands you can use. Commands in `*italics*` cannot ha
 
 The command syntax is:
 ```azurecli
-az networkcloud baremetalmachine run-read-command --name <machine-name>
-    --limit-time-seconds <timeout> \
+az networkcloud baremetalmachine run-read-command --name "<machine-name>"
+    --limit-time-seconds "<timeout>" \
     --commands '[{"command":"<command1>"},{"command":"<command2>","arguments":["<arg1>","<arg2>"]}]' \
-    --resource-group "<resourceGroupName>" \
+    --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 
@@ -230,7 +230,7 @@ When an optional argument `--output-directory` is provided, the output result is
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
     --limit-time-seconds 60 \
     --commands '[{"command":"hostname"},{"command":"ping","arguments":["198.51.102.1","-c","3"]}]' \
-    --resource-group "<resourceGroupName>" \
+    --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 
@@ -240,7 +240,7 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
     --limit-time-seconds 60 \
     --commands '[{"command":"nc-toolbox nc-toolbox-runread racadm getsysinfo","arguments":["-c"]}]' \
-    --resource-group "<resourceGroupName>" \
+    --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 

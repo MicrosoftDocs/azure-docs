@@ -95,8 +95,8 @@ To enable HTTPS on a custom domain, follow these steps:
 # [Option 2: Enable HTTPS with your own certificate](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> This option is available only with **Azure CDN from Microsoft** and **Azure CDN from Edgio** profiles.
->
+> * This option is available only with **Azure CDN from Microsoft** and **Azure CDN from Edgio** profiles.
+> * The option to use your own certificate with Azure CDN from Edgio will undergo maintenance on June 20, 2024. This feature will be unavailable during this time and will be restored in early 2025.
 
 You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected. If a certificate without complete chain is presented, requests, which involve that certificate aren't guaranteed to work as expected. For Azure CDN from Edgio, any valid CA is accepted.
 
@@ -331,20 +331,6 @@ The following table shows the operation progress that occurs when you disable HT
 | 1 Submitting request | Submitting your request |
 | 2 Certificate deprovisioning | Deleting certificate |
 | 3 Complete | Certificate deleted |
-
-#### Certificate auto rotation with Azure CDN from Edgio
-
-Managed certificates from Azure Key Vault can utilize the certificate autorotate feature, allowing Azure CDN from Edgio to automatically retrieve updated certificates and propagate them to the Edgio CDN platform. To enable this feature:
-
-1. Register Azure CDN as an application within your Microsoft Entra ID.
-
-1. Authorize the Azure CDN service to access the secrets in your Key Vault. Navigate to "Access policies" within your Key Vault to add a new policy, then grant the **Microsoft.AzureFrontDoor-Cdn** service principal a **Get secrets** permission.
-
-1. Set the certificate version to **Latest** under the **Certificate management type** within the **Custom domain** menu. If a specific version of the certificate is selected, manual updates are required.
-
-> [!NOTE] 
-> * Be aware that it can take up to 24 hours for the certificate auto-rotate to fully complete the propagation of the new certificate.
-> * If a certificate is utilized to cover multiple custom domains, it is imperative to enable certificate auto-rotate on all the custom domains sharing this certificate to ensure correct operation. Failure to do so may result in the Edgio platform serving an incorrect version of the certificate for the custom domain that does not have this feature enabled."
 
 ## Frequently asked questions
 
