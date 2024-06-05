@@ -244,11 +244,12 @@ Create an AKS cluster using a system-assigned managed identity with the CNI netw
 
 ```azurecli-interactive
 az aks create --resource-group $RG --name $AKSNAME --location $LOC \
-  --node-count 3 \
-  --network-plugin azure \
-  --outbound-type userDefinedRouting \
-  --vnet-subnet-id $SUBNETID \
-  --api-server-authorized-ip-ranges $FWPUBLIC_IP
+    --node-count 3 \
+    --network-plugin azure \
+    --outbound-type userDefinedRouting \
+    --vnet-subnet-id $SUBNETID \
+    --api-server-authorized-ip-ranges $FWPUBLIC_IP \
+    --generate-ssh-keys
 ```
 
 ### [Create an AKS cluster with user-assigned identities](#tab/aks-with-user-assigned-identities)
@@ -312,14 +313,15 @@ Create an AKS cluster with your existing identities in the subnet using the [`az
 
 ```azurecli-interactive
 az aks create --resource-group $RG --name $AKSNAME --location $LOC \
-  --node-count 3 \
-  --network-plugin kubenet \
-  --outbound-type userDefinedRouting \
-  --vnet-subnet-id $SUBNETID \
-  --api-server-authorized-ip-ranges $FWPUBLIC_IP
-  --enable-managed-identity \
-  --assign-identity <identity-resource-id> \
-  --assign-kubelet-identity <kubelet-identity-resource-id>
+    --node-count 3 \
+    --network-plugin kubenet \
+    --outbound-type userDefinedRouting \
+    --vnet-subnet-id $SUBNETID \
+    --api-server-authorized-ip-ranges $FWPUBLIC_IP
+    --enable-managed-identity \
+    --assign-identity <identity-resource-id> \
+    --assign-kubelet-identity <kubelet-identity-resource-id> \
+    --generate-ssh-keys    
 ```
 
 ---

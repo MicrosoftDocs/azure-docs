@@ -45,6 +45,7 @@ Some models in the **Curated by Azure AI** and **Open models from the Hugging Fa
 ## Model deployment: Managed compute and serverless API (pay-as-you-go)  
 
 Model Catalog offers two distinct ways to deploy models from the catalog for your use: managed compute and serverless APIs. The deployment options available for each model vary; learn more about the features of the deployment options, and the options available for specific models, in the following tables. Learn more about [data processing]( concept-data-privacy.md) with the deployment options. 
+<!-- docutune:disable -->
 
 Features | Managed compute | serverless API (pay-as-you-go) 
 --|--|-- 
@@ -63,6 +64,7 @@ Phi3 family models | Phi-3-small-128k-Instruct <br> Phi-3-small-8k-Instruct <br>
 Nixtla | Not available | TimeGEN-1
 Other models | Available | Not available
 
+<!-- docutune:enable -->
 
 :::image type="content" source="../media/explore/platform-service-cycle.png" alt-text="A diagram showing models as a service and Real time end points service cycle." lightbox="../media/explore/platform-service-cycle.png":::
 
@@ -126,6 +128,8 @@ Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmen
 
 Pay-as-you-go billing is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see "offer availability region" in the table in the next section). If the offer is available in the relevant region, the user then must have a Hub/Project in the Azure region where the model is available for deployment or fine-tuning, as applicable (see "hub/project region" columns in the table below). 
 
+<!-- docutune:disable -->
+
 Model | Offer availability region  | Hub/Project Region for Deployment | Hub/Project Region for Fine-tuning
 --|--|--|--
 Llama-3-70B-Instruct <br> Llama-3-8B-Instruct | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
@@ -134,6 +138,7 @@ Llama-2-7b-chat <br> Llama-2-13b-chat <br> Llama-2-70b-chat | [Microsoft Managed
 Mistral-Large <br> Mistral Small | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
 Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Japan | East US 2, Sweden Central | Not available
 
+<!-- docutune:enable -->
 
 ### Content safety for models deployed via Serverless API
 

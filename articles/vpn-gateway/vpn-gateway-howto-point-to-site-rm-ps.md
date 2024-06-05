@@ -36,7 +36,7 @@ You can either use Azure Cloud Shell, or you can run PowerShell locally. For mor
 
 ## <a name="signin"></a>Sign in
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [sign in](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## <a name="ConfigureVNet"></a>Create a VNet
 
@@ -198,7 +198,7 @@ Verify that your VPN gateway has finished creating. Once it has completed, you c
 
 The following steps help you install on a Windows client. For additional clients and more information, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-[!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
+[!INCLUDE [Install on Windows](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
 Make sure the client certificate was exported as a .pfx along with the entire certificate chain (which is the default). Otherwise, the root certificate information isn't present on the client computer and the client won't be able to authenticate properly.
 

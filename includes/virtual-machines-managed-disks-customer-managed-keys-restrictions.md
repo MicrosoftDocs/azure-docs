@@ -4,7 +4,7 @@
  author: roygara
  ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 02/28/2024
+ ms.date: 06/04/2024
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -15,6 +15,7 @@
 - For Ultra Disks and Premium SSD v2 disks only:
     - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
     - User-assigned managed identities aren't supported for Ultra Disks and Premium SSD v2 disks encrypted with customer-managed keys.
+    - Not currently supported in Azure Government or Azure China.
 - Most resources related to your customer-managed keys (disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
     - Azure Key Vaults may be used from a different subscription but must be in the same region as your disk encryption set. As a preview, you can use Azure Key Vaults from [different Microsoft Entra tenants](../articles/virtual-machines/disks-cross-tenant-customer-managed-keys.md).
 - Disks encrypted with customer-managed keys can only move to another resource group if the VM they are attached to is deallocated.
