@@ -3,7 +3,7 @@ title: Zone resiliency considerations for Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn about the various considerations for zone resiliency in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/30/2024
+ms.date: 06/05/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
@@ -22,7 +22,8 @@ In this article, you learn about the various considerations for zone resiliency 
 
 AZ resiliency is a key part of running production-grade Kubernetes clusters. With scalability at its core, Kubernetes takes full advantage of independent infrastructure in data centers without incurring additional costs by provisioning new nodes only when necessary.
 
-Simply scaling up or down the number of nodes in a cluster isn't enough to ensure application resiliency. You must gain a deeper understanding of your application and its dependencies to better plan for resiliency. AKS allows you to set up availability zones (AZs) for your clusters and node pools to ensure that your applications are resilient to failures and can continue to serve traffic even if an entire zone goes down.
+>[!IMPORTANT]
+> Simply scaling up or down the number of nodes in a cluster isn't enough to ensure application resiliency. You must gain a deeper understanding of your application and its dependencies to better plan for resiliency. AKS allows you to set up availability zones (AZs) for your clusters and node pools to ensure that your applications are resilient to failures and can continue to serve traffic even if an entire zone goes down.
 
 ## Make your AKS cluster components zone resilient
 
@@ -131,7 +132,9 @@ When designing a stateless application with AKS, you should use managed Azure se
 
 ### Choose the right disk type based on application needs
 
-Azure offers two types of disks for persistent storage: locally redundant storage (LRS) and zone redundant storage (ZRS). LRS replicates your data within a single AZ. ZRS replicates your data across multiple AZs within a region.
+Azure offers two types of disks for persistent storage: locally redundant storage (LRS) and zone redundant storage (ZRS). LRS replicates your data within a single AZ. ZRS replicates your data across multiple AZs within a region. Starting from AKS version 1.29, the default storage class uses ZRS disks for persistent storage. For more information, see [AKS built-in storage classes](./azure-csi-disk-storage-provision.md#built-in-storage-classes).
+
+The way your application replicates data can influence your choice of disk. If your application is located in multiple zones and replicates the data from within the application, you can achieve resiliency with an LRS disk in each AZ because if one AZ goes down, the other AZs would have the latest data available to them. If your application layer doesn't handle such replication, ZRS disks are a better choice, as Azure handles the replication in the storage layer.
 
 The following table outlines pros and cons of each disk type:
 
