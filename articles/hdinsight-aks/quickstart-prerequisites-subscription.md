@@ -1,14 +1,13 @@
 ---
 title: Subscription prerequisites for Azure HDInsight on AKS.
 description: Prerequisite steps to complete on your subscription before working with Azure HDInsight on AKS.
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: hdinsight-aks
-ms.date: 10/13/2023
+ms.date: 05/06/2024
 ---
 
 # Subscription prerequisites
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 If you're using Azure subscription first time for HDInsight on AKS, the following features might need to be enabled.
 
@@ -48,7 +47,7 @@ At the next command prompt, enter each of the following commands:
     ```
 
     **Output:** All requests for this feature should be automatically approved. The state in the response should show as **Registered**. 
-                <br>If you receive a response that the registration is still on-going (state in the response shows as "Registering"), wait for a few minutes. <br>Run the command again in few minutes and the state changes to "Registered" once feature registration is completed.
+                <br>If you receive a response that the registration is still ongoing (state in the response shows as "Registering"), wait for a few minutes. <br>Run the command again in few minutes and the state changes to "Registered" once feature registration is completed.
 
 1. **Register your subscription for 'EnablePodIdentityPreview' feature.** 
 
@@ -85,7 +84,9 @@ At the next command prompt, enter each of the following commands:
     Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerService
     ```
     
-    **Output:** No response means the feature registration propagated and you can proceed. If you receive a response that the registration is still on-going, wait for a few minutes, and run the command again until you receive no response.
+    **Output:** No response means the feature registration propagated and you can proceed. If you receive a response that the registration is still ongoing, wait for a few minutes, and run the command again until you receive no response.
 
 ## Next steps
-* [One-click deployment](./get-started.md)
+* [One-click deployment](./quickstart-get-started.md)
+
+

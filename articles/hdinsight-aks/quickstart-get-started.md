@@ -1,21 +1,20 @@
 ---
-title: One-click deployment for Azure HDInsight on AKS (Preview)
+title: One-click deployment for Azure HDInsight on AKS 
 description: How to create cluster pool and cluster with one-click deployment on Azure HDInsight on AKS.
 ms.service: hdinsight-aks
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 08/29/2023
 ---
 
-# Get started with one-click deployment (Preview)
+# Get started with one-click deployment 
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 One-click deployments are designed for users to experience zero touch creation of HDInsight on AKS. It eliminates the need to manually perform certain steps. 
 This article describes how to use readily available ARM templates to create a cluster pool and cluster in few clicks. 
 
 > [!NOTE]
 > - These ARM templates cover the basic requirements to create a cluster pool and cluster along with prerequisite resources. To explore advanced options, see [Create cluster pool and clusters](quickstart-create-cluster.md).
-> - Necessary resources are created as part of the ARM template deployment in your resource group. For more information, see [Resource prerequisites](prerequisites-resources.md).  
+> - Necessary resources are created as part of the ARM template deployment in your resource group. For more information, see [Resource prerequisites](quickstart-prerequisites-resources.md).  
 > - The user must have permission to create new resources and assign roles to the resources in the subscription to deploy these ARM templates. 
 > - Before you begin with ARM templates, please keep [object ID ready](#find-object-id-of-an-identity) for the identity you are going to use for deployment.
 
