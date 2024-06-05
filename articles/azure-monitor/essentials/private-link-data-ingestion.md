@@ -28,7 +28,8 @@ The page displays all of the DCEs that are associated with the Azure Monitor wor
 
 Once this is done, navigate to the DCR resource which was created during managed prometheus enablement from the Azure portal and choose 'Resources' under Configuration menu.
 In the Data collection endpoint dropdown, pick a DCE in the same region as the AKS cluster. If the Azure Monitor Workspace is in the same region as the AKS cluster, you can reuse the DCE created during managed prometheus enablement. If not, create a DCE in the same region as the AKS cluster and pick that in the dropdown. 
-![image](https://github.com/braieralves/azure-docs/assets/38931377/5e953e63-9464-45c9-9647-604c5698e742)
+
+:::image type="content" source="/media/private-link-data-ingestion/azure-monitor-workspace-data-collection-rule.png" alt-text="A screenshot show the data collection rules page for an Azure Monitor workspace." lightbox="/media/private-link-data-ingestion/azure-monitor-workspace-data-collection-rule.png" :::
 
 
 
