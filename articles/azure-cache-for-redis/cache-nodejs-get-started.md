@@ -5,7 +5,7 @@ author: flang-msft
 ms.service: cache
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 02/16/2023
+ms.date: 06/04/2024
 ms.author: franlanglois
 ms.custom: mvc, devx-track-js, mode-api, engagement-fy23
 #Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
@@ -29,7 +29,7 @@ For examples of using other Node.js clients, see the individual documentation fo
 
 Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.
 
-```powershell
+```console
 set AZURE_CACHE_FOR_REDIS_HOST_NAME=contosoCache
 set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
