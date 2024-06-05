@@ -203,10 +203,10 @@ Vector indexing and search in Azure Cosmos DB for NoSQL has some limitations whi
 - Ingestion rate should be limited while using an early preview of DiskANN.
 
 ## Next step
-- [.NET - How-to Index and query vector data](how-to-python-vector-index-query.md)
+- [.NET - How-to Index and query vector data](how-to-dotnet-vector-index-query.md)
 - [Python - How-to Index and query vector data](how-to-python-vector-index-query.md)
-- [JavaScript - How-to Index and query vector data](how-to-python-vector-index-query.md)
-- [Java - How-to Index and query vector data](how-to-python-vector-index-query.md)
+- [JavaScript - How-to Index and query vector data](how-to-javascript-vector-index-query.md)
+- [Java - How-to Index and query vector data](how-to-java-vector-index-query.md)
 - [VectorDistance system function](query/vectordistance.md)
 - [Vector index overview](../index-overview.md#vector-indexes)
 - [Vector index policies](../index-policy.md#vector-indexes)

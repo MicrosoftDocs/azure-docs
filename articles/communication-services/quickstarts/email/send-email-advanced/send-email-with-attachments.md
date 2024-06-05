@@ -59,7 +59,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-In this quick start, you learned how to manually poll for status when sending email using Azure Communication Services.
+In this quick start, you learned how to send an email with attachments using Azure Communication Services.
 
 You may also want to:
 

@@ -169,7 +169,8 @@ az aks create \
     --windows-admin-password 'Password1234$' \
     --windows-admin-username azure \
     --network-plugin azure
-    --enable-ahub
+    --enable-ahub \
+    --generate-ssh-keys
 ```
 
 To use Azure Hybrid Benefit on an existing AKS cluster, run the `az aks update` command and use the update the cluster by using the `--enable-ahub` argument.
