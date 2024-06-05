@@ -12,7 +12,7 @@ ms.date: 04/30/2024
 At this time, a test or preview build is not available for the next release.
 -->
 
-May, 2024 preview release is now available.
+June, 2024 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
