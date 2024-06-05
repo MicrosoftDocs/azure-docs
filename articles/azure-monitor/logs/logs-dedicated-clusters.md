@@ -491,7 +491,7 @@ Authorization: Bearer <token>
 
 From the **Log Analytics dedicated clusters** menu in the Azure portal, select the **Subscription** filter.
 
-:::image type="content" source="./media/logs-dedicated-cluster/subscription-group-clusters.png" alt-text="Screenshot for viewing all dedicated clusters in a subscription in the Azure portal." lightbox="./media/logs-dedicated-cluster/subscription-group-clusters.png":::
+:::image type="content" source="./media/logs-dedicated-cluster/subscription-clusters.png" alt-text="Screenshot for viewing all dedicated clusters in a subscription in the Azure portal." lightbox="./media/logs-dedicated-cluster/subscription-clusters.png":::
 
 
 
