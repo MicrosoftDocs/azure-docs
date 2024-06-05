@@ -86,35 +86,39 @@ If you're an existing customer looking for information about these models, see [
 
 | Model | Deprecation date | Retirement date | Suggested replacement |
 | --------- | --------------------- | ------------------- | -------------------- | 
-| ada | July 6, 2023 | July 5, 2024 | babbage-002 |
-| babbage | July 6, 2023 | July 5, 2024 | babbage-002 |
-| curie | July 6, 2023 | July 5, 2024 | davinci-002 |
-| davinci | July 6, 2023 | July 5, 2024 | davinci-002 |
-| text-ada-001 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| text-babbage-001 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| text-curie-001 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| text-davinci-002 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| text-davinci-003 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| code-cushman-001 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| code-davinci-002 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| text-similarity-ada-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-similarity-babbage-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-similarity-curie-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-similarity-davinci-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-ada-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-ada-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-babbage-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-babbage-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-curie-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-curie-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-davinci-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-davinci-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-ada-code-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-ada-text-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-babbage-code-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-babbage-text-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| ada | June 14, 2023 | June 14, 2024 | babbage-002 |
+| babbage | June 14, 2023 | June 14, 2024 | babbage-002 |
+| curie | June 14, 2023 | June 14, 2024 | davinci-002 |
+| davinci | June 14, 2023 | June 14, 2024 | davinci-002 |
+| text-ada-001 | June 14, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| text-babbage-001 | June 14, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| text-curie-001 | June 14, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| text-davinci-002 | June 14, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| text-davinci-003 | June 14, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| code-cushman-001 | June 14, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| code-davinci-002 | June 14, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| text-similarity-ada-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-similarity-babbage-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-similarity-curie-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-similarity-davinci-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-ada-doc-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-ada-query-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-babbage-doc-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-babbage-query-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-curie-doc-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-curie-query-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-davinci-doc-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-davinci-query-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| code-search-ada-code-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| code-search-ada-text-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| code-search-babbage-code-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
+| code-search-babbage-text-001 | June 14, 2023 | June 14, 2024 | text-embedding-3-small |
 
 ## Retirement and deprecation history
+
+### June 5, 2024
+
+Deprecated gpt-3 models must be retired immediately, due to updated security considerations. The new retirement date is 14 June 2024.
 
 ### April 24, 2024
 
