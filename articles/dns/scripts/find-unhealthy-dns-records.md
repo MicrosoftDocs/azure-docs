@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 The following Azure PowerShell script finds unhealthy DNS records in Azure DNS public zones.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 <#

@@ -1,24 +1,21 @@
 ---
-title: Manage VNet flow logs - Azure portal
+title: Manage virtual network flow logs - Azure portal
 titleSuffix: Azure Network Watcher
-description: Learn how to create, change, enable, disable, or delete Azure Network Watcher VNet flow logs using the Azure portal.
+description: Learn how to create, change, enable, disable, or delete Azure Network Watcher virtual network flow logs using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/03/2024
+ms.date: 04/24/2024
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
 ---
 
-# Create, change, enable, disable, or delete VNet flow logs using the Azure portal
+# Create, change, enable, disable, or delete virtual network flow logs using the Azure portal
 
-Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [VNet flow logs overview](vnet-flow-logs-overview.md).
+Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [Virtual network flow logs overview](vnet-flow-logs-overview.md).
 
-In this article, you learn how to create, change, enable, disable, or delete a VNet flow log using the Azure portal. You can also learn how to manage a VNet flow log using [PowerShell](vnet-flow-logs-powershell.md) or [Azure CLI](vnet-flow-logs-cli.md).
-
-> [!IMPORTANT]
-> The VNet flow logs feature is currently in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In this article, you learn how to create, change, enable, disable, or delete a virtual network flow log using the Azure portal. You can also learn how to manage a virtual network flow log using [PowerShell](vnet-flow-logs-powershell.md) or [Azure CLI](vnet-flow-logs-cli.md).
 
 ## Prerequisites
 
@@ -73,7 +70,7 @@ Create a flow log for your virtual network, subnet, or network interface. This f
     | Storage Accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
     | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts). Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/create-vnet-flow-log-basics.png" alt-text="Screenshot that shows the Basics tab of creating a VNet flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/create-vnet-flow-log-basics.png":::
+    :::image type="content" source="./media/vnet-flow-logs-portal/create-vnet-flow-log-basics.png" alt-text="Screenshot that shows the Basics tab of creating a virtual network flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/create-vnet-flow-log-basics.png":::
 
     > [!NOTE]
     > If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
@@ -146,7 +143,7 @@ You can configure and change a flow log after you create it. For example, you ca
     - **Traffic analytics processing interval**: Change the processing interval of traffic analytics (if traffic analytics is enabled). Available options are: one hour and 10 minutes. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md).
     - **Log Analytics Workspace**: Change the Log Analytics workspace that you want to save the flow logs to (if traffic analytics is enabled). For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md). You can also choose a Log Analytics Workspace from a different subscription.
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/change-flow-log.png" alt-text="Screenshot that shows how to edit flow log's settings in the Azure portal where you can change some VNet flow log settings." lightbox="./media/vnet-flow-logs-portal/change-flow-log.png":::
+    :::image type="content" source="./media/vnet-flow-logs-portal/change-flow-log.png" alt-text="Screenshot that shows how to edit flow log's settings in the Azure portal where you can change some virtual network flow log settings." lightbox="./media/vnet-flow-logs-portal/change-flow-log.png":::
 
 1. Select **Save** to apply the changes.
 
@@ -190,7 +187,7 @@ You can download the flow logs data from the storage account that you saved the 
 
 1. Select the **insights-logs-flowlogflowevent** container.
 
-1. In **insights-logs-flowlogflowevent**, navigate the folder hierarchy until you get to the `PT1H.json` file that you want to download. VNet flow log files follow the following path:
+1. In **insights-logs-flowlogflowevent**, navigate the folder hierarchy until you get to the `PT1H.json` file that you want to download. Virtual network flow log files follow the following path:
 
     ```
     https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogflowevent/flowLogResourceID=/{subscriptionID}_NETWORKWATCHERRG/NETWORKWATCHER_{Region}_{ResourceName}-{ResourceGroupName}-FLOWLOGS/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
@@ -198,16 +195,16 @@ You can download the flow logs data from the storage account that you saved the 
 
 1. Select the ellipsis **...** to the right of the `PT1H.json` file, then select **Download**.
 
-   :::image type="content" source="./media/vnet-flow-logs-portal/flow-log-file-download.png" alt-text="Screenshot shows how to download a VNet flow log data file from the storage account container in the Azure portal." lightbox="./media/vnet-flow-logs-portal/flow-log-file-download.png":::
+   :::image type="content" source="./media/vnet-flow-logs-portal/flow-log-file-download.png" alt-text="Screenshot shows how to download a virtual network flow log data file from the storage account container in the Azure portal." lightbox="./media/vnet-flow-logs-portal/flow-log-file-download.png":::
 
 > [!NOTE]
 > As an alternative way to access and download flow logs from your storage account, you can use Azure Storage Explorer. For more information, see [Get started with Storage Explorer](../storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-For information about the structure of a flow log, see [Log format of VNet flow logs](vnet-flow-logs-overview.md#log-format).
+For information about the structure of a flow log, see [Log format of virtual network flow logs](vnet-flow-logs-overview.md#log-format).
 
 ## Disable a flow log
 
-You can temporarily disable a VNet flow log without deleting it. Disabling a flow log stops flow logging for the associated virtual network. However, the flow log resource remains with all its settings and associations. You can re-enable it at any time to resume flow logging for the configured virtual network.
+You can temporarily disable a virtual network flow log without deleting it. Disabling a flow log stops flow logging for the associated virtual network. However, the flow log resource remains with all its settings and associations. You can re-enable it at any time to resume flow logging for the configured virtual network.
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
@@ -224,7 +221,7 @@ You can temporarily disable a VNet flow log without deleting it. Disabling a flo
 
 ## Enable a flow log
 
-You can enable a VNet flow log that you previously disabled to resume flow logging with the same settings you previously selected. 
+You can enable a virtual network flow log that you previously disabled to resume flow logging with the same settings you previously selected. 
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
@@ -238,7 +235,7 @@ You can enable a VNet flow log that you previously disabled to resume flow loggi
 
 ## Delete a flow log
 
-You can permanently delete a VNet flow log. Deleting a flow log deletes all its settings and associations. To begin flow logging again for the same virtual network, you must create a new flow log for it.
+You can permanently delete a virtual network flow log. Deleting a flow log deletes all its settings and associations. To begin flow logging again for the same virtual network, you must create a new flow log for it.
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 

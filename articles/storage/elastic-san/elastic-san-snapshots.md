@@ -107,7 +107,7 @@ You can use snapshots of managed disks to create new elastic SAN volumes using t
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzElasticSanVolume -ElasticSanName $esname -ResourceGroupName $rgname -VolumeGroupName $vgname -Name $volname2 -CreationDataSourceId $snapshot.Id -SizeGiB 1
+New-AzElasticSanVolume -ElasticSanName $esname -ResourceGroupName $rgname -VolumeGroupName $vgname -Name $volname2 -CreationDataSourceId $snapshot.Id -CreationDataCreateSource DiskSnapshot -SizeGiB 1
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -197,12 +197,3 @@ az snapshot create -g $rgName --name $diskSnapName --elastic-san-id $snapID --lo
 
 
 ---
-
-## Create volumes from disk snapshots
-
-Currently, you can only use the Azure portal to create Elastic SAN volumes from managed disks snapshots. The Azure PowerShell module and the Azure CLI can't be used to create Elastic SAN volumes from managed disk snapshots. Managed disk snapshots must be in the same region as your elastic SAN to create volumes with them.
-
-1. Navigate to your SAN and select **volumes**.
-1. Select **Create volume**.
-1. For **Source type** select **Disk snapshot** and fill out the rest of the values.
-1. Select **Create**.

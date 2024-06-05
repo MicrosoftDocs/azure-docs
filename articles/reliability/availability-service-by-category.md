@@ -19,7 +19,7 @@ Availability of services across Azure regions depends on a region's type. There 
 
 ## Service categories across region types
  
-[!INCLUDE [Service categories across region types](../../includes/service-categories/service-category-definitions.md)]
+[!INCLUDE [Service categories across region types](~/reusable-content/ce-skilling/azure/includes/service-categories/service-category-definitions.md)]
 
 ## Available services by region category
 
@@ -32,7 +32,7 @@ Azure services are presented in the following tables by category. Note that some
 > |----------------------------------------|---------------------------------------------------|
 > | Azure Application Gateway              | Azure API Management                              |
 > | Azure Backup                           | Azure App Configuration                           |
-> | Azure Cosmos DB                        | Azure App Service                                 |
+> | Azure Cosmos DB for NoSQL              | Azure App Service                                 |
 > | Azure Event Hubs                       | Microsoft Entra Domain Services            |
 > | Azure ExpressRoute                     | Azure Bastion                                     |
 > | Azure Key Vault                        | Azure Batch                                       |
@@ -83,6 +83,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure AI services                            |
 > | Azure Automation                                     |
 > | Azure AI services                             |
+> | Azure Container Apps                                 |
 > | Azure Data Share                                     |
 > | Azure Databricks                                     |
 > | Azure Database for MariaDB                           |

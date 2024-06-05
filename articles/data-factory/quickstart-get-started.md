@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: bicep
 ms.topic: quickstart
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ms.author: xupzhou
 ms.custom: subject-armqs
 ---

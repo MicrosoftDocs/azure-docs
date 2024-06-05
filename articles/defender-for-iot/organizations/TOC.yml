@@ -201,7 +201,7 @@
     - name: Integration catalog
       href: integrate-overview.md
     - name: Stream cloud alerts to a partner SIEM
-      href: integrations/send-cloud-data-to-partners.md
+      href: integrations/send-cloud-data-to-partners.yml
       displayName: Splunk
     - name: Aruba ClearPass
       href: tutorial-clearpass.md
@@ -249,6 +249,9 @@
         displayName: users, user
       - name: Audit user activity
         href: track-user-activity.md
+      - name: SSO for sensor console login
+        href: set-up-sso.md
+        displayName: users, user
     - name: Maintain OT on-premises resources
       items:
       - name: Enhance device data and detection
@@ -364,6 +367,8 @@
           href: appliance-catalog/hpe-proliant-dl360.md
       - name: Large enterprises
         items:
+        - name: HPE ProLiant DL20 Gen11 (4SFF)
+          href: appliance-catalog/hpe-proliant-dl20-gen-11.md
         - name: HPE ProLiant DL20 Gen10 Plus (4SFF)
           href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
         - name: Dell Edge 5200 (Rugged MIL-STD-810G)
@@ -372,6 +377,8 @@
           href: appliance-catalog/dell-poweredge-r350-e1800.md
       - name: Production line
         items:
+        - name: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
+          href: appliance-catalog/hpe-proliant-dl20-gen-11-nhp-2lff.md
         - name: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
           href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
         - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)

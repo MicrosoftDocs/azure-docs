@@ -1,10 +1,11 @@
 ---
 title: Microsoft Defender for Kubernetes - the benefits and features
-description: Learn about the benefits and features of Microsoft Defender for Kubernetes.
-ms.date: 07/11/2022
+description: Learn about the benefits and features of Microsoft Defender for Kubernetes and how it provides real-time threat protection for your Azure Kubernetes Service (AKS) containerized environments.
+ms.date: 05/16/2024
 author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
+#customer intent: As a reader, I want to learn about the benefits and features of Microsoft Defender for Kubernetes so that I can understand its capabilities.
 ---
 
 # Introduction to Microsoft Defender for Kubernetes (deprecated)

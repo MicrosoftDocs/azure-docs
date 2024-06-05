@@ -133,7 +133,7 @@ To access the dashboard, in your Azure Managed Grafana workspace, go to **Home**
 
 ## Troubleshoot
 
-For troubleshooting information, see [Azure Monitor managed service for Prometheus remote write](../azure-monitor/containers/prometheus-remote-write.md#hitting-your-ingestion-quota-limit).
+For troubleshooting information, see [Azure Monitor managed service for Prometheus remote write](../azure-monitor/containers/prometheus-remote-write-troubleshooting.md#ingestion-quotas-and-limits).
 
 ## Related content
 

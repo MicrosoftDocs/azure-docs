@@ -1,7 +1,7 @@
 ---
 title: Azure deployment templates with Azure CLI – Azure Resource Manager | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to create and deploy resource groups to Azure. The resources are defined in an Azure deployment template.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/10/2023
 ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template
 keywords: azure cli deploy arm template, create resource group azure, azure deployment template, deployment resources, arm template, azure arm template
@@ -13,7 +13,7 @@ This article explains how to use Azure CLI with Azure Resource Manager templates
 
 The deployment commands changed in Azure CLI version 2.2.0. The examples in this article require [Azure CLI version 2.20.0 or later](/cli/azure/install-azure-cli).
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](~/reusable-content/ce-skilling/azure/includes/sample-cli-install.md)]
 
 If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy ARM templates from Azure Cloud Shell](deploy-cloud-shell.md).
 

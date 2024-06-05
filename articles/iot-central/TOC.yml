@@ -106,8 +106,6 @@
       href: core/concepts-faq-scalability-availability.md
     - name: What are IoT Central's scale limits?
       href: core/concepts-quotas-limits.md
-    - name: Industrial IoT patterns
-      href: core/concepts-iiot-architecture.md
 
 - name: How-to guides
   items:
@@ -169,8 +167,6 @@
               href: core/howto-export-to-webhook.md
             - name: Transform data internally for export
               href: core/howto-transform-data-internally.md
-        - name: Export data and visualize with Databricks
-          href: core/howto-create-custom-analytics.md
         - name: Transform data internally on ingress
           href: core/howto-map-data.md
         - name: Transform data externally

@@ -25,8 +25,7 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 
 * Assign the **Cosmos DB Account Reader** role to the search service managed identity. This role grants the ability to read Azure Cosmos DB account data. For more information about role assignments in Cosmos DB, see [Configure role-based access control to data](search-howto-managed-identities-data-sources.md#assign-a-role).
 
-* Data Plane Role assignment: Follow [Data plane Role assignment](../cosmos-db/how-to-setup-rbac.md)
-to know more.
+* Data Plane Role assignment: Follow [Data plane Role assignment](../cosmos-db/how-to-setup-rbac.md) to know more.
 
 * Example for a read-only data plane role assignment:
 ```azurepowershell
@@ -149,7 +148,7 @@ api-key: [admin key]
 
 An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create and run the indexer. If the indexer is successful, the connection syntax and role assignments are valid.
 
-Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call with an Azure Cosmos DB indexer definition. The indexer runs when you submit the request.
+Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call with an Azure Cosmos DB for NoSQL indexer definition. The indexer runs when you submit the request.
 
 ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30

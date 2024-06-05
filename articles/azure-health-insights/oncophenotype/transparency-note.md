@@ -5,7 +5,7 @@ services: azure-health-insights
 author: psanapathi
 ms.service: azure-health-insights
 ms.topic: overview
-ms.date: 04/11/2023
+ms.date: 05/05/2024
 ms.author: prsanapa
 ---
 

@@ -14,9 +14,9 @@ When a vulnerability is identified in a container image stored in a container re
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure DevOps](quickstart-onboard-devops.md) or [GitHub](quickstart-onboard-github.md) environment onboarded to Microsoft Defender for Cloud.
-  - When an Azure DevOps environment is onboarded to Microsoft Defender for Cloud, the Microsoft Defender for DevOps Container Mapping will be automatically shared and installed in all connected Azure DevOps organizations. This will automatically inject tasks into all Azure Pipelines to collect data for container mapping.
-
-- For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.md) installed on the Azure DevOps organization.
+  - When an Azure DevOps environment is onboarded to Microsoft Defender for Cloud, the Microsoft Defender for DevOps Container Mapping will be automatically shared and installed in all connected Azure DevOps organizations. This will automatically inject tasks into all Azure Pipelines to collect data for container mapping. 
+    
+- For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.yml) installed on the Azure DevOps organization. 
 
 - For GitHub, [Microsoft Security DevOps (MSDO) Action](github-action.md) configured in your GitHub repositories. Additionally, the GitHub Workflow must have "**id-token: write"** permissions for federation with Defender for Cloud. For an example, see [this YAML](https://github.com/microsoft/security-devops-action/blob/7e3060ae1e6a9347dd7de6b28195099f39852fe2/.github/workflows/on-push-verification.yml).
 - [Defender CSPM](tutorial-enable-cspm-plan.md) enabled.

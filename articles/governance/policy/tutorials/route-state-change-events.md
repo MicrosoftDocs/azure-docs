@@ -25,7 +25,7 @@ send the events to a web app that collects and displays the messages.
   `az --version`. If you need to install or upgrade, see
   [Install Azure CLI](/cli/azure/install-azure-cli).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 

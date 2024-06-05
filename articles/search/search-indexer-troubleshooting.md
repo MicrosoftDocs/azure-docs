@@ -80,7 +80,7 @@ If the database is paused, the first sign in from your search service is expecte
 
 ## Microsoft Entra Conditional Access policies
 
-When you create a SharePoint indexer, there's a step requiring you to sign in to your Microsoft Entra app after providing a device code. If you receive a message that says `"Your sign-in was successful but your admin requires the device requesting access to be managed"`, the indexer is probably blocked from the SharePoint document library by a [Conditional Access](../active-directory/conditional-access/overview.md) policy.
+When you create a SharePoint Online indexer, there's a step requiring you to sign in to your Microsoft Entra app after providing a device code. If you receive a message that says `"Your sign-in was successful but your admin requires the device requesting access to be managed"`, the indexer is probably blocked from the SharePoint document library by a [Conditional Access](../active-directory/conditional-access/overview.md) policy.
 
 To update the policy and allow indexer access to the document library:
 
@@ -88,7 +88,7 @@ To update the policy and allow indexer access to the document library:
 
 1. Select **Policies** on the left menu. If you don't have access to view this page, you need to either find someone who has access or get access.
 
-1. Determine which policy is blocking the SharePoint indexer from accessing the document library. The policy that might be blocking the indexer includes the user account that you used to authenticate during the indexer creation step in the **Users and groups** section. The policy also might have **Conditions** that:
+1. Determine which policy is blocking the SharePoint Online indexer from accessing the document library. The policy that might be blocking the indexer includes the user account that you used to authenticate during the indexer creation step in the **Users and groups** section. The policy also might have **Conditions** that:
 
     * Restrict **Windows** platforms.
     * Restrict **Mobile apps and desktop clients**.

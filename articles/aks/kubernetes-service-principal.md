@@ -1,12 +1,12 @@
 ---
 title: Use a service principal with Azure Kubernetes Services (AKS)
 description: Learn how to create and manage a Microsoft Entra service principal with a cluster in Azure Kubernetes Service (AKS).
+author: tamram
+
 ms.topic: conceptual
 ms.subservice: aks-security
 ms.date: 06/27/2023
-author: schaffererin
-ms.author: schaffererin
-
+ms.author: tamram
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 #Customer intent: As a cluster operator, I want to understand how to create a service principal and delegate permissions for AKS to access required resources. In large enterprise environments, the user that deploys the cluster (or CI/CD system), may not have permissions to create this service principal automatically when the cluster is created.
@@ -98,7 +98,8 @@ If you're using a service principal from a different Microsoft Entra tenant, the
         --resource-group myResourceGroup \
         --name myAKSCluster \
         --service-principal <appId> \
-        --client-secret <password>
+        --client-secret <password> \
+        --generate-ssh-keys
     ```
 
     > [!NOTE]
@@ -239,7 +240,7 @@ The default expiration time for the service principal credentials is one year. I
 
 **General Azure CLI troubleshooting**
 
-[!INCLUDE [azure-cli-troubleshooting.md](../../includes/azure-cli-troubleshooting.md)]
+[!INCLUDE [azure-cli-troubleshooting.md](~/reusable-content/ce-skilling/azure/includes/azure-cli-troubleshooting.md)]
 
 ### [Azure PowerShell](#tab/azure-powershell)
 

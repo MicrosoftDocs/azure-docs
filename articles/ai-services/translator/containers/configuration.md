@@ -46,7 +46,7 @@ This setting can be found in the following place:
 
 ## ApplicationInsights setting
 
-[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## Billing configuration setting
 
@@ -62,11 +62,11 @@ This setting can be found in the following place:
 
 ## EULA setting
 
-[!INCLUDE [Container shared configuration eula settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
+[!INCLUDE [Container shared configuration eula settings](../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
 ## Fluentd settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+[!INCLUDE [Container shared configuration fluentd settings](../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## HTTP/HTTPS proxy credentials settings
 
@@ -74,7 +74,7 @@ If you need to configure an HTTP proxy for making outbound requests, use these t
 
 | Name | Data type | Description |
 |--|--|--|
-|HTTPS_PROXY|string|The proxy to use, for example, `https://proxy:8888`<br>`<proxy-url>`|
+|HTTPS_PROXY|string|The proxy URL, for example, `https://proxy:8888`|
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -84,7 +84,7 @@ docker run --rm -it -p 5000:5000 \
 Eula=accept \
 Billing=<endpoint> \
 ApiKey=<api-key> \
-HTTPS_PROXY=<proxy-url> \
+HTTPS_PROXY=<proxy-url>
 ```
 
 ## Logging settings

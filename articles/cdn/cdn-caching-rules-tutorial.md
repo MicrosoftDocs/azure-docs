@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > - Create a global caching rule.
 > - Create a custom caching rule.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

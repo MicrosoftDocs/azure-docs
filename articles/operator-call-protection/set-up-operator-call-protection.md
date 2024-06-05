@@ -41,7 +41,7 @@ If Call Protection is **Disabled**, update it to **Enabled** and notify your Mic
 
 ## Provision subscribers
 
-Provisioning subscribers requires creating an account for each group of subscribers and then adding the details of each number to the account. 
+Provisioning subscribers requires creating an account for each group of subscribers and then adding the details of each number to the account.
 
 [!INCLUDE [communications-gateway-provisioning-permissions](../communications-gateway/includes/communications-gateway-provisioning-permissions.md)]
 

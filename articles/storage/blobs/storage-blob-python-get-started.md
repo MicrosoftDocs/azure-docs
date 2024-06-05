@@ -5,11 +5,11 @@ description: Get started developing a Python application that works with Azure B
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 11/14/2023
 ms.custom: devx-track-python, devguide-python
+ai-usage: ai-assisted
 ---
 
 # Get started with Azure Blob Storage and Python

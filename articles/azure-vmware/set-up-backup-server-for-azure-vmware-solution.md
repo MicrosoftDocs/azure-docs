@@ -89,7 +89,7 @@ Azure Backup Server requires disks for installation.
 | Azure Backup Server installation                | Installation location: 3 GB<br />Database files drive: 900 MB<br />System drive: 1 GB for SQL Server installation<br /><br />You need space for Azure Backup Server to copy the file catalog to a temporary installation location when you archive.      |
 | Disk for storage pool<br />(Uses basic volumes, can't be on a dynamic disk) | Two to three times the protected data size.<br />For detailed storage calculation, see [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301).   |
 
-To learn how to attach a new managed data disk to an existing Azure VM, see [Attach a managed data disk to a Windows VM by using the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md).
+To learn how to attach a new managed data disk to an existing Azure VM, see [Attach a managed data disk to a Windows VM by using the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.yml).
 
 > [!NOTE]
 > A single Azure Backup Server has a soft limit of 120 TB for the storage pool.

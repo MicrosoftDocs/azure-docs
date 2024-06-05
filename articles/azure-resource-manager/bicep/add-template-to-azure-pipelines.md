@@ -63,7 +63,9 @@ You can use Azure Resource Group Deployment task or Azure CLI task to deploy a B
     name: Deploy Bicep files
 
     parameters:
-      azureServiceConnection: '<your-connection-name>'
+    - name: azureServiceConnection
+      type: string
+      default: '<your-connection-name>'
 
     variables:
       vmImageName: 'ubuntu-latest'

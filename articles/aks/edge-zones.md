@@ -254,17 +254,22 @@ az login
 az account set --subscription $SUBSCRIPTION 
 
 # Create the resource group
-az group create -n $RG_NAME -l $LOCATION
+az group create --name $RG_NAME --location $LOCATION
 
 # Deploy the cluster in your designated Edge Zone
-az aks create -g $RG_NAME -n $CLUSTER_NAME --edge-zone $EDGE_ZONE_NAME --location $LOCATION
+az aks create \
+    --resource-group $RG_NAME \
+    --name $CLUSTER_NAME \
+    --edge-zone $EDGE_ZONE_NAME \
+    --location $LOCATION \
+    --generate-ssh-keys
 ```
 
 ### [Azure portal](#tab/azure-portal)
 
 In this section you'll learn how to deploy a Kubernetes cluster in the Edge Zone.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
