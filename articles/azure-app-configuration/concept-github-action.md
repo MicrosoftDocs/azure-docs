@@ -19,7 +19,7 @@ A GitHub Actions [workflow](https://docs.github.com/en/actions/learn-github-acti
 
 You can create a custom Azure CLI script to trigger updates to an App Configuration instance when changes are made to the source repository. This script can be included in a YAML (.yml) file found in the `/.github/workflows/` path of your repository to define the steps and parameters. You can trigger configuration updates when pushing, reviewing, or branching app configuration files just as you do with app code.
 
-For more information about Azure App Configuration CLI commands, see the [Azure AppConfifguration CLI documentation.](https://learn.microsoft.com/cli/azure/appconfig)
+For more information about Azure App Configuration CLI commands, see the [Azure AppConfifguration CLI documentation.](/cli/azure/appconfig)
 
 The GitHub [documentation](https://docs.github.com/actions/learn-github-actions/introduction-to-github-actions) provides in-depth view of GitHub workflows and actions. 
 
@@ -35,7 +35,7 @@ To start using this GitHub Action, go to your repository and select the **Action
 To import configurations to your Azure App Configuration you can authenticate using one of the following methods:
 
 ### 1. Using Azure login.
-The recommended way to authenticate is by using the [Azure login](https://learn.microsoft.com/azure/developer/github/connect-from-azure) Github action.
+The recommended way to authenticate is by using the [Azure login](/azure/developer/github/connect-from-azure) Github action.
 
 ### 2. Using a Connection String. 
 Alternatively, you can authenticate by passing the connection string directly to the Azure CLI command.
@@ -366,7 +366,7 @@ Given a depth of 2, the example above now returns the following key-value pair:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure CLI import commands](https://learn.microsoft.com/cli/azure/appconfig/kv?#az-appconfig-kv-import)
+> [Azure CLI import commands](/cli/azure/appconfig/kv#az-appconfig-kv-import)
 
 > [!div class="nextstepaction"]
 > [Concept Config File](./concept-config-file.md)
