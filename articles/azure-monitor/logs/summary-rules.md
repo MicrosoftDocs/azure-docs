@@ -93,13 +93,13 @@ Use this template to create a summary rule. For more information about Azure Res
     "workspaceName": {
       "type": "String",
       "metadata": {
-        "description": "The workspace name where Summary rule is deployed."
+        "description": "The workspace name where summary rule is deployed."
       }
     },
     "summaryRuleName": {
       "type": "String",
       "metadata": {
-        "description": "The Summary rule name."
+        "description": "The summary rule name."
       }
     },
     "description": {
@@ -112,7 +112,7 @@ Use this template to create a summary rule. For more information about Azure Res
       "defaultValue": "[resourceGroup().location]",
       "type": "String",
       "metadata": {
-        "description": "The Location of the workspace Summary rule is deployed."
+        "description": "The Location of the workspace summary rule is deployed."
       }
     },
     "ruleType": {
@@ -122,13 +122,13 @@ Use this template to create a summary rule. For more information about Azure Res
       ],
       "type": "String",
       "metadata": {
-        "description": "The Summary rule type (User,System). Should be 'User' for and rule with query that you define."
+        "description": "The summary rule type (User,System). Should be 'User' for and rule with query that you define."
       }
     },
     "query": {
       "type": "String",
       "metadata": {
-      "description": "The query used in Summary rules."
+      "description": "The query used in summary rules."
       }
     },
     "binSize": {
@@ -151,7 +151,7 @@ Use this template to create a summary rule. For more information about Azure Res
     "destinationTable": {
       "type": "String",
       "metadata": {
-        "description": "The name of the custom-log table Summary results sent to. Name must end with '_CL'."
+        "description": "The name of the custom log table that the summary results are sent to. Name must end with '_CL'."
       }
     }
     // ----- optional -----
@@ -168,7 +168,7 @@ Use this template to create a summary rule. For more information about Azure Res
     //   ],
     //   "type": "String",  
     //   "metadata": {
-    //     "description": "Optional - The time field to be used by the Summary rule. Must be 'TimeGenerated'."
+    //     "description": "Optional - The time field to be used by the summary rule. Must be 'TimeGenerated'."
     //   }
     // },
     // "binStartTime": {
@@ -332,7 +332,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 Authorization: {credential}
 ```
 
-If a Summary rule is deliberately stopped, or stopped due to bin execution exhaustion, you can restart the rule. Processing starts from the next whole hour, or per the defined `binStartTime` (optional) hour.
+If a summary rule is deliberately stopped, or stopped due to bin execution exhaustion, you can restart the rule. Processing starts from the next whole hour, or per the defined `binStartTime` (optional) hour.
 
 The following example demonstrates how to start a rule:
 
@@ -343,7 +343,7 @@ Authorization: {credential}
 
 ## Delete a summary rule
 
-You can have up to 10 active Summary rules in your Log Analytics workspace. If you want to create a new rule, but you already have 10 active rules, you must stop or delete an active Summary rule. 
+You can have up to 10 active summary rules in your Log Analytics workspace. If you want to create a new rule, but you already have 10 active rules, you must stop or delete an active summary rule. 
 
 The following example demonstrates how to delete an active rule:
 
@@ -356,7 +356,7 @@ Authorization: {credential}
 
 Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](../service-limits.md#log-analytics-workspaces). The retry mechanism includes 10 attempts within 8 hours and skips a bin, if exhausted. The rule is set to `isActive: false` and put on hold after eight consecutive bins with retries. If diagnostic settings are enabled in your workspace, an event is sent to the LASummaryLogs table in your workspace.
 
-Failed bins can`t be run again, but they can be detected by using the following query in your workspace. If the query reveals missing bins, see the [Monitor Summary rules](#monitor-summary-rules) section for rule remediation options and proactive alerts.
+Failed bins can`t be run again, but they can be detected by using the following query in your workspace. If the query reveals missing bins, see the [Monitor summary rules](#monitor-summary-rules) section for rule remediation options and proactive alerts.
 
 In the following query, the `step` value is equal to the bin size defined in the rule.
 
@@ -372,13 +372,13 @@ LASummaryLogs
 | render timechart
 ```
 
-The following graph charts the query results for failed bins in Summary rules:
+The following graph charts the query results for failed bins in summary rules:
 
-:::image type="content" source="media/summary-rules/data-completeness.png" alt-text="Screenshot that shows a graph that charts the query results for failed bins in Summary rules." lightbox="media/summary-rules/data-completeness.png":::
+:::image type="content" source="media/summary-rules/data-completeness.png" alt-text="Screenshot that shows a graph that charts the query results for failed bins in summary rules." lightbox="media/summary-rules/data-completeness.png":::
 
-## Monitor Summary rules
+## Monitor summary rules
 
-To receive diagnostics data in the LASummaryLogs table, enable Diagnostics settings for the **Summary Logs** category in your Log Analytics workspace. The data indicates the Summary rule run Start, Succeeded, and Failed information.
+To receive diagnostics data in the LASummaryLogs table, enable Diagnostics settings for the **Summary Logs** category in your Log Analytics workspace. The data indicates the summary rule run Start, Succeeded, and Failed information.
 
 Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](../service-limits.md#log-analytics-workspaces). After eight consecutive bins with failures, the rule operation is suspended. The rule configuration is updated to `isActive: false`, and the diagnostic event is sent to the LASummaryLogs table, if Diagnostic settings are enabled in your workspace.
 
@@ -402,15 +402,15 @@ The following query searches rule data in the LASummaryLogs table for entries wh
 LASummaryLogs | where QueryDurationMs > 0.9 * 600000
 ```
 
-## Troubleshoot Summary rules
+## Troubleshoot summary rules
 
-Review the following troubleshooting tips for working with Summary rules:
+Review the following troubleshooting tips for working with summary rules:
 
-- **Destination table accidental delete**: If a table was deleted from the UI or by using an API while a Summary rule is active, the rule remains active although no data returned. The diagnostics logs to the LASummaryLogs table show the run as successful. 
+- **Destination table accidental delete**: If a table was deleted from the UI or by using an API while a summary rule is active, the rule remains active although no data returned. The diagnostics logs to the LASummaryLogs table show the run as successful. 
 
    - If you don't need the summary results in the destination table, delete the rule.
 
-   - If you need the summary results, see the instructions for a previously defined query in the [Create or update Summary rules](#create-or-update-a-summary-rule) section. The results table restores, including the data ingested before the delete, depending on the retention policy in the table.
+   - If you need the summary results, see the instructions for a previously defined query in the [Create or update summary rules](#create-or-update-a-summary-rule) section. The results table restores, including the data ingested before the delete, depending on the retention policy in the table.
 
 - **Query operators allow output schema expansion**: If the query in the rule includes operators that allow output schema expansion per incoming data, such as `arg_max(expression, *)`, `bag_unpack()`, and so on, new fields can be generated in the output per the incoming data. New fields generated after rule creation or updates aren't added to the destination table and dropped. You can add the new fields to the destination table when you perform a [rule update](#create-or-update-a-summary-rule), or add fields manually in [Table management](manage-logs-tables.md#view-table-properties).
 
@@ -418,7 +418,7 @@ Review the following troubleshooting tips for working with Summary rules:
 
 ## Pricing model
 
-The cost of Summary rules includes the cost of queries and ingested results to the Analytics table, depending on the tier of tables you query.
+The cost of summary rules includes the cost of queries and ingested results to the Analytics table, depending on the tier of tables you query.
 
 | Plan of table used in query | Query cost | Results ingestion cost |
 | --- | --- | --- |
