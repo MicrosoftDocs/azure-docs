@@ -1,7 +1,7 @@
 ---
-title: How to deploy Jamba models with Azure AI Studio
+title: How to deploy Jamba-Instruct models with Azure AI Studio
 titleSuffix: Azure Machine Learning Studio
-description: How to deploy Jamba models with Azure AI Studio
+description: How to deploy Jamba-Instruct models with Azure AI Studio
 manager: scottpolly
 ms.service: machine-learning
 ms.topic: how-to
@@ -10,41 +10,38 @@ ms.reviewer: haelhamm
 ms.custom: references_regions
 ---
 
-# How to deploy Jamba models with Azure AI Studio
+# How to deploy Jamba-Instruct models with Azure AI Studio
 
-In this article, you learn about the Jamba models (LLMs). You also learn how to use Azure Machine Learning studio to deploy models from this set either to serverless APIs with pay-as you go billing or to managed compute.
+In this article, you will learn how to deploy AI21's Jamba-Instruct model through Models-as-a-Service (MaaS), through serverless APIs with pay-as you go billing.
 
 > [!IMPORTANT]
-> Read more about the announcement of Jamba models available now on Azure AI Model Catalog: [Microsoft Tech Community Blog](https://aka.ms/Llama3Announcement) and from [Meta Announcement Blog](https://aka.ms/meta-llama3-announcement-blog).
+> See our announcements of AI21's Jamba-Instruct model available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog]([https://aka.ms/ai21-jamba-instruct-announcement]).
 
-Jamba models and tools are a collection of pretrained and fine-tuned generative text models ranging in scale from 8 billion to 70 billion parameters. The Jamba model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF), called Meta-Llama-3-8B-Instruct and Meta-Llama-3-70B-Instruct. See the following GitHub samples to explore integrations with [LangChain](https://aka.ms/meta-llama3-langchain-sample), [LiteLLM](https://aka.ms/meta-llama3-litellm-sample), [OpenAI](https://aka.ms/meta-llama3-openai-sample) and the [Azure API](https://aka.ms/meta-llama3-azure-api-sample).
+Jamba-Instruct model is AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It is an instruction-tuned version of AI21's hybrid SSM-Transformer Jamba model, and is built for reliable commercial use with respect to quality and performance.
+
+To get started with Jamba-Instruct on MaaS, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-instruct-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-instruct-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-instruct-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-instruct-azure-api-sample).
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-## Deploy Jamba models as a serverless API
+## Deploy the Jamba-Instruct model as a serverless API
 
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing, providing a way to consume them as an API without hosting them on your subscription while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-Jamba models are deployed as a serverless API with pay-as-you-go billing are offered by AI21 through Microsoft Azure Marketplace, and they might add more terms of use and pricing.
+The Jamba-Instruct model is deployed as a serverless API with pay-as-you-go billing are offered by AI21 through Microsoft Azure Marketplace. AI21 may add more terms of use and pricing.
 
 ### Azure Marketplace model offerings
 
-The following models are available in Azure Marketplace for Jamba models when deployed as a serverless API with pay-as-you-go billing:
+On the Azure Marketplace, you'll be able to find:
 
-
-* [Jamba-3-8B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-base)
-* [Jamba-3-70B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-base)
-
-If you need to deploy a different model, [deploy it to managed compute](#deploy-meta-llama-models-to-managed-compute) instead.
-
+* [AI21-Jamba-Instruct (preview)](https://aka.ms/azure-marketplace-offer-ai21-jamba-instruct)
 
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
+- An Azure Machine Learning workspace. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
 
     > [!IMPORTANT]
-    > Pay-as-you-go model deployment offering is only available in workspaces created in **East US 2** and **Sweden Central** regions for Jamba models.
+    > The Jamba-Instruct PAYGO model deployment offering is only available in workspaces created in **East US 2** and **Sweden Central**. More regions are coming soon.
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
@@ -72,46 +69,40 @@ To create a deployment:
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
 1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
-1. Choose the model you want to deploy from the [model catalog](https://ml.azure.com/model/catalog).
+1. Choose **AI21-Jamba-Instruct** as the model to deploy from the [model catalog](https://aka.ms/aistudio/landing/ai21-labs-jamba-instruct).
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
 
 1. On the model's overview page, select **Deploy** and then **Serverless API with Azure AI Content Safety**.
 
-1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering (for example, Meta-Llama-3-70B) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
+1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for Jamba-Instruct.
+1. If this is your first time deploying Jamba-Instruct in the workspace, you have to subscribe your workspace for Jamba-Instruct from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
 
     > [!NOTE]
-    > Subscribing a workspace to a particular Azure Marketplace offering (in this case, Llama-3-70B) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
+    > Subscribing a workspace to Jamba-Instruct requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
 
 1. Once you sign up the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent deployments. If this scenario applies to you, select **Continue to deploy**.
 
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
-
 1. Select **Deploy**. Wait until the deployment is finished and you're redirected to the serverless endpoints page.
 1. Select the endpoint to open its Details page.
 1. Select the **Test** tab to start interacting with the model.
 1. You can also take note of the **Target** URL and the **Secret Key** to call the deployment and generate completions.   
 1. You can always find the endpoint's details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
 
+To learn about billing for Jamba-Instruct deployed as a serverless API, see [Cost and quota considerations for Jamba models deployed as a serverless API](#cost-and-quota-considerations-for-jamba-models-deployed-as-a-serverless-api).
 
-To learn about billing for Jamba models deployed as a serverless API, see [Cost and quota considerations for Jamba models deployed as a serverless API](#cost-and-quota-considerations-for-jamba-models-deployed-as-a-serverless-api).
-
-### Consume Jamba models as a service
-
-Models deployed as a service can be consumed using either the chat or the completions API, depending on the type of model you deployed.
+### Consume Jamba-Instruct as a serverless API
 
 1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
 1. Find and select the deployment you created.
 1. Copy the **Target** URL and the **Key** token values.
-1. Make an API request based on the type of model you deployed. 
+1. Make an API request: 
 
-    - For completions models, such as `Llama-3-8B`, use the [`<target_url>/v1/completions`](#completions-api) API.
-    - For chat models, such as `Llama-3-8B-Instruct`, use the [`<target_url>/v1/chat/completions`](#chat-api) API.
+    - For chat completion, use the [`<target_url>/v1/completions`](#completions-api) API.
+    - For chat, use the [`<target_url>/v1/chat/completions`](#chat-api) API.
 
-   For more information on using the APIs, see the [reference](#reference-for-jamba-models-deployed-a-serverless-api) section.
-
-
+For more information on using the APIs, see the [reference](#reference-for-jamba-models-deployed-a-serverless-api) section.
 
 ### Reference for Jamba models deployed a serverless API
 
