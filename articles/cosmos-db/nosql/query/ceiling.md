@@ -39,7 +39,7 @@ Returns a numeric expression.
 
 The following example shows positive numeric, negative, and zero values evaluated with this function.  
 
-:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/query.sql" highlight="2-7":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/query.sql" highlight="2-4":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/result.json":::
 
