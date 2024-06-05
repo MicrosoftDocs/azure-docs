@@ -41,7 +41,6 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     pip install featuremanagement
     ```
 
-
 1. Create a new python file called `app.py` and add the following code:
 
     ```python
