@@ -4,7 +4,7 @@ author: Elazark
 ms.author: elkrieger
 description: Learn how to remediate code with Copilot in Microsoft Defender for Cloud and improve your security posture.
 ms.topic: how-to
-ms.date: 06/04/2024
+ms.date: 06/05/2024
 #customer intent: As a security professional, I want to understand how to use Copilot to remediate code in Defender for Cloud so that I can improve my security posture.
 ---
 
@@ -35,7 +35,7 @@ With Copilot for Security in Defender for Cloud you can remediate recommendation
 
     :::image type="content" source="media/remediate-code-with-copilot/search-recommendation.png" alt-text="Screenshot that shows the searched for recommendation." lightbox="media/remediate-code-with-copilot/search-recommendation.png":::
 
-1. Select **Summarize with Copilot**.
+1. Select **Reduce risk with Copilot**.
 
     :::image type="content" source="media/remediate-code-with-copilot/copilot-summarize.png" alt-text="Screenshot that shows where teh summarize with copilot button is located." lightbox="media/remediate-code-with-copilot/copilot-summarize.png":::
 
@@ -46,6 +46,8 @@ With Copilot for Security in Defender for Cloud you can remediate recommendation
 1. Select the appropriate description.
  
 1. Select **Select**.
+
+    :::image type="content" source="media/remediate-code-with-copilot/select-select.png" alt-text="Screenshot that shows where the select button is located." lightbox="media/remediate-code-with-copilot/select-select.png":::
 
 1. Review the summary of the code fix.
 
