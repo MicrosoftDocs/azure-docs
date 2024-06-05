@@ -109,7 +109,7 @@ Each type of resource is represented by one or more associated JavaScript client
 
 The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object is the top object in the SDK. This client allows you to manipulate the service, containers and blobs.
 
-## [Passwordless](#tab/azure-ad)
+## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 Once your Azure storage account identity roles and your local environment are set up, create a TypeScript file which includes the [``@azure/identity``](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to Blob Storage. Use that credential to authenticate with a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object.
 
@@ -128,6 +128,9 @@ Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storag
 The `dotenv` package is used to read your storage account name and key from a `.env` file. This file should not be checked into source control.
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
 
 ## [SAS token](#tab/sas-token)
 
@@ -172,6 +175,9 @@ Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient
 
 :::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-container-client-from-account-name-and-key.ts" :::
 
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
 
 #### [SAS token](#tab/sas-token)
 
@@ -207,6 +213,9 @@ List of Blob clients:
 #### [Account key](#tab/account-key)
 
 :::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-blob-client-from-account-name-and-key.ts" :::
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
 
 #### [SAS token](#tab/sas-token)
 

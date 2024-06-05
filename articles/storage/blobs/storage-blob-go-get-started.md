@@ -67,7 +67,7 @@ You can authorize a client object using a Microsoft Entra authorization token (r
 
 <a name='azure-ad'></a>
 
-## [Microsoft Entra ID](#tab/azure-ad)
+## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 To authorize with Microsoft Entra ID, you need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). The following articles provide guidance on different authentication scenarios:
 

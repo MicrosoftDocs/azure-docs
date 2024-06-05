@@ -93,7 +93,7 @@ You can authorize a `BlobServiceClient` object by using a Microsoft Entra author
 
 <a name='azure-ad'></a>
 
-## [Microsoft Entra ID](#tab/azure-ad)
+## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 To authorize with Microsoft Entra ID, you need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
 

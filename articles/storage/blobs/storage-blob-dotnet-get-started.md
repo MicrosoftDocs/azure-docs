@@ -64,7 +64,7 @@ To learn more about each of these authorization mechanisms, see [Authorize acces
 
 <a name='azure-ad'></a>
 
-## [Microsoft Entra ID](#tab/azure-ad)
+## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 To authorize with Microsoft Entra ID, you'll need to use a security principal. The type of security principal you need depends on where your application runs. Use this table as a guide.
 
