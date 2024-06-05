@@ -3,13 +3,12 @@ title: |
   Tutorial: Develop a .NET console application with Azure Cosmos DB for NoSQL
 description:  |
   .NET tutorial to create a console application that adds data to Azure Cosmos DB for NoSQL.
-author: seesharprun
-ms.author: sidandrews
-ms.reviewer: esarroyo
+author: StefArroyo
+ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: tutorial
-ms.date: 11/02/2022
+ms.date: 06/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-dotnet, cosmos-dev-refresh, cosmos-dev-dotnet-path
 ---
@@ -371,12 +370,12 @@ Now that you've created your first item in the container, you can use the same S
     1. Create a new string named `sql` with a SQL query to retrieve items where a filter (`@id`) matches.
 
         ```csharp
-        string sql = """
+        string sql = @"
         SELECT
             *
         FROM customers c
         WHERE c.id = @id
-        """;
+        ";
         ```
 
     1. Create a new `QueryDefinition` variable named `query` passing in the `sql` string as the only query parameter. Also, use the `WithParameter` fluid method to apply the value of the variable `id` to the `@id` parameter.
