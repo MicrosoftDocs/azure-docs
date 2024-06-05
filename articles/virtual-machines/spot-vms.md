@@ -83,11 +83,11 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 **Chart**:
 
-:::image type="content" source="./media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
 
 **Table**:
 
-:::image type="content" source="./media/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
 
 ### Azure Resource Graph
 

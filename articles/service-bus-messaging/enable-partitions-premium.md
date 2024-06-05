@@ -20,20 +20,7 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - When using the Service Bus [Geo-disaster recovery](service-bus-geo-dr.md) feature, ensure not to pair a partitioned namespace with a non-partitioned namespace.
 > - It is not possible to [migrate](service-bus-migrate-standard-premium.md) a standard SKU namespace to a Premium SKU partitioned namespace.
 > - JMS is currently not supported on partitioned namespaces.
-> - The feature is currently available in the regions noted below. New regions will be added regularly, we will keep this article updated with the latest regions as they become available.
-> 
-> | Regions  | Regions  | Regions | Regions |Regions  |
-> |---------------------|----------------------|------------------|-------------------|-----------------|
-> | Australia Central   | East Asia            | JioIndiaCentral  | South Central US  | UAE North       |
-> | Australia East      | East US              | JioIndiaWest     | South India       | UAECentral      |
-> | Australia Southeast | East US 2 EUAP       | KoreaSouth       | SouthAfricaNorth  | UK South        |
-> | AustraliaCentral2   | France Central       | Malaysia South   | SouthAfricaWest   | UK West         |
-> | Brazil Southeast    | FranceSouth          | Mexico Central   | SouthEastAsia     | West Central US |
-> | Canada Central      | Germany West Central | North Central US | Spain Central     | West Europe     |
-> | Canada East         | GermanyNorth         | North Europe     | SwedenCentral     | West US         |
-> | Central India       | Israel Central       | Norway East      | SwedenSouth       | West US 3       |
-> | Central US          | Italy North          | NorwayWest       | Switzerland North |                 |
-> | CentralUsEuap       | Japan West           | Poland Central   | Switzerland West  |                 |
+> - The feature is currently available in all regions except West India.
 
 ## Use Azure portal
 When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions, as shown in the following image. 

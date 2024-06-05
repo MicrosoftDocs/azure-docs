@@ -45,7 +45,7 @@ Visual Studio provides access to a subset of the app management functions and co
    >
    >
 
-    For more information about connecting to Azure resources from Visual Studio, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    For more information about connecting to Azure resources from Visual Studio, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 2. In **Server Explorer**, expand **Azure** and expand **App Service**.
 3. Expand the resource group that includes the app that you created in [Create an ASP.NET app in Azure App Service](./quickstart-dotnetcore.md?tabs=netframework48), and then right-click the app node and click **View Settings**.
 

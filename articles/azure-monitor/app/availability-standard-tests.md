@@ -3,6 +3,7 @@ title: Availability Standard test - Azure Monitor Application Insights
 description: Set up Standard tests in Application Insights to check for availability of a website with a single request test. 
 ms.topic: conceptual
 ms.date: 09/12/2023
+ms.reviewer: cogoodson
 ---
 
 # Standard test
@@ -33,7 +34,7 @@ To create a Standard test:
     | **SSL certificate validation test** | You can verify the SSL certificate on your website to make sure it's correctly installed, valid, trusted, and doesn't give any errors to any of your users. |
     | **Proactive lifetime check** | This setting enables you to define a set time period before your SSL certificate expires. After it expires, your test will fail. |
     |**Test frequency**| Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.|
-    |**Test locations**|  The places from where our servers send web requests to your URL. *Our minimum number of recommended test locations is five* to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.|
+    |**Test locations**|  Our servers send web requests to your URL from these locations. *Our minimum number of recommended test locations is five* to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.|
     | **Custom headers** | Key value pairs that define the operating parameters. |
     | **HTTP request verb** | Indicate what action you want to take with your request. |
     | **Request body** | Custom data associated with your HTTP request. You can upload your own files, enter your content, or disable this feature. |

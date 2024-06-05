@@ -55,7 +55,12 @@ The following limits are default limits that can’t be increased through a quot
 | Container group creates per hour |300<sup>1</sup> | 
 | Container group creates per 5 minutes | 100<sup>1</sup> | 
 | Container group deletes per hour | 300<sup>1</sup> | 
-| Container group deletes per 5 minutes | 100<sup>1</sup> | 
+| Container group deletes per 5 minutes | 100<sup>1</sup> |
+
+> [!NOTE]
+> 1: Indicates that the feature maximum is configurable and may be increased through a support request. For more information on how to request a quota increase, please see the [How to request a quota increase section of Increase VM-family vCPU quotes](../quotas/per-vm-quota-requests.md).
+>
+> You can also create a support ticket if you'd like to discuss your specific needs with the support team.
 
 ## Standard Container Resources 
 

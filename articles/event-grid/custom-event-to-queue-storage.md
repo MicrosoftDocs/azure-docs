@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, mode-api
 1. Send sample events to the custom topic.
 1. Verify that those events are delivered to Azure Queue storage.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create a resource group
 

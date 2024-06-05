@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 02/15/2024
 ms.topic: how-to
-ms.custom: mlflow, devx-track-azurecli, cliv2, devplatv2
+ms.custom: mlflow, devx-track-azurecli, cliv2, devplatv2, update-code
 ms.devlang: azurecli
 ---
 

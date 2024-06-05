@@ -94,13 +94,13 @@ az keyvault secret set \
 
 #Add Azure Log ws ID
 az keyvault secret set \
-  --name <SID>-LOG_WS_ID \
+  --name <SID>-LOGWSID \
   --value "<logwsod>" \
   --description SECRET_AZURE_LOG_WS_ID --vault-name $kvname
 
 #Add Azure Log ws public key
 az keyvault secret set \
-  --name <SID>-LOG_WS_PUBLICKEY \
+  --name <SID>-LOGWSPUBLICKEY \
   --value "<loswspubkey>" \
   --description SECRET_AZURE_LOG_WS_PUBLIC_KEY --vault-name $kvname
 ```

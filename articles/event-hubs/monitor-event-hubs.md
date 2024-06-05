@@ -74,12 +74,10 @@ For metrics that support dimensions, you can apply filters using a dimension val
 :::image type="content" source="./media/monitor-event-hubs/metrics-filter-split.png" alt-text="Screenshot showing the Metrics Explorer for an Event Hubs namespace with a filter." lightbox="./media/monitor-event-hubs/metrics-filter-split.png":::
 
 ## Analyze logs
-Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Event Hubs stores data in the following tables: **AzureDiagnostics** and **AzureMetrics**.
+Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Event Hubs has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or Resource specific tables in Log Analytics.For a detailed reference of the logs and metrics, see [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md).
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Event Hubs menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
-
-For a detailed reference of the logs and metrics, see [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md).
 
 ### Sample Kusto queries
 

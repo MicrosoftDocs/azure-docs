@@ -2,12 +2,12 @@
 title: Overview of the MedTech service device data processing stages - Azure Health Data Services
 description: Learn about the MedTech service device data processing stages.
 services: healthcare-apis
-author: msjasteppe
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
 ms.date: 07/19/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Overview of the MedTech service device data processing stages 

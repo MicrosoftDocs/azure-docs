@@ -52,7 +52,7 @@ In previous versions, there was a parameter called "textExtractionAlgorithm" to 
 
 | Input name      | Description                                          |
 |---------------|------------------------------------------------------|
-| `image`         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to a value other than ```none```. |
+| `image`         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure blob indexer when ```imageAction``` is set to a value other than ```none```. |
 
 ## Skill outputs
 

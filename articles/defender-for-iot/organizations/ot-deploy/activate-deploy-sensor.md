@@ -64,7 +64,7 @@ This procedure describes how to sign into the OT sensor console for the first ti
 1. Enter the following credentials and select **Login**:
 
     - **Username**: `admin`
-    - **Password**: `admin` <!--is this correct?-->
+    - **Password**: `admin`
 
     You're asked to define a new password for the *admin* user.
 
@@ -171,7 +171,7 @@ Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS ce
 1. At the `D4Iot login` prompt, sign in with the following default credentials:
 
     - **Username**: `admin`
-    - **Password**: `admin` <!--is this correct?-->
+    - **Password**: `admin`
 
     When you enter your password, the password characters don't display on the screen. Make sure you enter them carefully.
 

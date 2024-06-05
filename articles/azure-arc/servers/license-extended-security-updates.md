@@ -14,7 +14,7 @@ When provisioning WS2012 ESU licenses, you need to specify:
 * Either virtual core or physical core license
 * Standard or Datacenter license
 
-You'll also need to attest to the number of associated cores (broken down by the number of 2-core and 16-core packs).
+You also need to attest to the number of associated cores (broken down by the number of 2-core and 16-core packs).
 
 To assist with the license provisioning process, this article provides general guidance and sample customer scenarios for planning your deployment of WS2012 ESUs through Azure Arc.
 
@@ -32,18 +32,24 @@ If you choose to license based on virtual cores, the licensing requires a minimu
 
 1. The Windows Server operating system was licensed on a virtualization basis.
 
-An additional scenario (scenario 1, below) is a candidate for VM/Virtual core licensing when the WS2012 VMs are running on a newer Windows Server host (that is, Windows Server 2016 or later).
+Another scenario (scenario 1, below) is a candidate for VM/Virtual core licensing when the WS2012 VMs are running on a newer Windows Server host (that is, Windows Server 2016 or later).
 
 > [!IMPORTANT]
 > Virtual core licensing can't be used on physical servers. When creating a license with virtual cores, always select the standard edition instead of datacenter, even if the operating system is datacenter edition.
 
 ### License limits
 
-Each WS2012 ESU license can cover up to and including 10,000 cores. If you need ESUs for more than 10,000 cores, split the total number of cores across multiple licenses. Additionally, only 800 licenses can be created in a single resource group. Use additional resource groups if you need to create more than 800 license resources.
+Each WS2012 ESU license can cover up to and including 10,000 cores. If you need ESUs for more than 10,000 cores, split the total number of cores across multiple licenses. Additionally, only 800 licenses can be created in a single resource group. Use more resource groups if you need to create more than 800 license resources.
 
 ### SA/SPLA conformance
 
-In all cases, you're required to attest to conformance with SA or SPLA. There is no exception for these requirements. Software Assurance or an equivalent Server Subscription is required for you to purchase Extended Security Updates on-premises and in hosted environments. You will be able to purchase Extended Security Updates from Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), a Server & Cloud Enrollment (SCE), and Enrollment for Education Solutions (EES). On Azure, you do not need Software Assurance to get free Extended Security Updates, but Software Assurance or Server Subscription is required to take advantage of the Azure Hybrid Benefit.
+In all cases, you're required to attest to conformance with SA or SPLA. There is no exception for these requirements. Software Assurance or an equivalent Server Subscription is required for you to purchase Extended Security Updates on-premises and in hosted environments. You are able to purchase Extended Security Updates from Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), a Server & Cloud Enrollment (SCE), and Enrollment for Education Solutions (EES). On Azure, you do not need Software Assurance to get free Extended Security Updates, but Software Assurance or Server Subscription is required to take advantage of the Azure Hybrid Benefit.
+
+### Visual Studio subscription benefit for dev/test scenarios
+
+Visual Studio subscriptions [allow developers to get product keys](/visualstudio/subscriptions/product-keys) for Windows Server at no extra cost to help them develop and test their software. If a Windows Server 2012 server's operating system is licensed through a product key obtained from a Visual Studio subscription, you can also get extended security updates for these servers at no extra cost. To configure ESU licenses for these servers using Azure Arc, you must have at least one server with paid ESU usage. You can't create an ESU license where all associated servers are entitled to the Visual Studio subscription benefit. See [additional scenarios](deliver-extended-security-updates.md#additional-scenarios) in the deployment article for more information on how to provision an ESU license correctly for this scenario.
+
+Development, test, and other non-production servers that have a paid operating system license (from your organization's volume licensing key, for example) **must** use a paid ESU license. The only dev/test servers entitled to ESU licenses at no extra cost are those whose operating system licenses came from a Visual Studio subscription.
 
 ## Cost savings with migration and modernization of workloads
 

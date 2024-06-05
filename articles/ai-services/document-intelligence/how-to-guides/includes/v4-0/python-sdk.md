@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/28/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 ms.custom:
   - devx-track-csharp
@@ -98,11 +98,11 @@ def analyze_read():
     # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png"
 
-    document_intelligence_client = DocumentIntelligenceClient(
+    client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_intelligence_client.begin_analyze_document(
+    poller = client.begin_analyze_document(
         "prebuilt-read", formUrl
     )
     result = poller.result()
@@ -148,6 +148,9 @@ if __name__ == "__main__":
 
 ```
 
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Read_model/sample_analyze_read.py)  [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Read_model) 
+
 Visit the Azure samples repository on GitHub and view the [`read` model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/read-model-output.md).
 
 ## Use the Layout model
@@ -174,11 +177,11 @@ def analyze_layout():
     # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png"
 
-    document_intelligence_client = DocumentIntelligenceClient(
+    client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_intelligence_client.begin_analyze_document(
+    poller = client.begin_analyze_document(
         "prebuilt-layout", formUrl
     )
     result = poller.result()
@@ -263,6 +266,9 @@ if __name__ == "__main__":
 
 ```
 
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model)
+
 Visit the Azure samples repository on GitHub and view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/layout-model-output.md).
 
 ## Use the General document model
@@ -295,9 +301,9 @@ def analyze_general_documents():
     docUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
     # create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
-    document_intelligence_client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+   client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
-    poller = document_intelligence_client.begin_analyze_document(
+    poller = client.begin_analyze_document(
             "prebuilt-document", docUrl)
     result = poller.result()
 
@@ -416,11 +422,11 @@ def analyze_tax_us_w2():
     # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png"
 
-    document_intelligence_client = DocumentIntelligenceClient(
+    client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_intelligence_client.begin_analyze_document(
+    poller = client.begin_analyze_document(
         "prebuilt-tax.us.w2", formUrl
     )
     w2s = poller.result()
@@ -716,6 +722,9 @@ if __name__ == "__main__":
 
 ```
 
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_tax_us_w2.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model)
+
 Visit the Azure samples repository on GitHub and view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
 ## Use the Invoice model
@@ -747,11 +756,11 @@ def analyze_invoice():
 
     invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
-    document_intelligence_client = DocumentIntelligenceClient(
+    client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_intelligence_client.begin_analyze_document(
+    poller = client.begin_analyze_document(
             "prebuilt-invoice", invoiceUrl)
     invoices = poller.result()
 
@@ -1009,6 +1018,9 @@ if __name__ == "__main__":
 
 ```
 
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_invoices.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model)
+
 Visit the Azure samples repository on GitHub and view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/invoice-model-output.md).
 
 ## Use the Receipt model
@@ -1027,10 +1039,10 @@ def analyze_receipts():
     # sample document
     receiptUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png"
 
-    document_intelligence_client = DocumentIntelligenceClient(
+   client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
-    poller = document_intelligence_client.begin_analyze_document(
+    poller = client.begin_analyze_document(
         "prebuilt-receipt", receiptUrl, locale="en-US"
     )
     receipts = poller.result()
@@ -1107,6 +1119,9 @@ if __name__ == "__main__":
 
 ```
 
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_receipts.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model)
+
 Visit the Azure samples repository on GitHub and view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/receipt-model-output.md).
 
 ## Use the ID document model
@@ -1125,11 +1140,11 @@ def analyze_identity_documents():
 # sample document
     identityUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png"
 
-    document_intelligence_client = DocumentIntelligenceClient(
+   client = DocumentIntelligenceClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_intelligence_client.begin_analyze_document(
+    poller =client.begin_analyze_document(
             "prebuilt-idDocument", identityUrl
         )
     id_documents = poller.result()
@@ -1198,5 +1213,8 @@ if __name__ == "__main__":
     analyze_identity_documents()
 
 ```
+
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_identity_documents.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model)
 
 Visit the Azure samples repository on GitHub and view the [ID document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/id-document-output.md).

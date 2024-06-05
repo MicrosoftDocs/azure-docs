@@ -4,17 +4,17 @@ description: Integrate Azure AI capabilities into Azure Database for PostgreSQL 
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: maghan, carols
-ms.date: 01/19/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.topic: how-to
 ---
 
 # Integrate Azure AI capabilities into Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 The `azure_ai` extension adds the ability to use [large language models](/training/modules/fundamentals-generative-ai/3-language%20models) (LLMs) and build [generative AI](/training/paths/introduction-generative-ai/) applications within an Azure Database for PostgreSQL flexible server database by integrating the power of [Azure AI services](/azure/ai-services/what-are-ai-services). Generative AI is a form of artificial intelligence in which LLMs are trained to generate original content based on natural language input. Using the `azure_ai` extension allows you to use generative AI's natural language query processing capabilities directly from the database.
 

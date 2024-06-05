@@ -87,7 +87,7 @@ This table lists the methods that you can use to create an IP address.
 
 After you create a public IP address, you can associate it with a VM by assigning it to a NIC.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Virtual network and subnets
 
@@ -107,6 +107,27 @@ This table lists the methods that you can use to create a virtual network and su
 | [Azure PowerShell](../virtual-network/quick-create-powershell.md) | You use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworkSubnetConfig) and [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a subnet and a virtual network. You can also use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/Az.Network/Add-AzVirtualNetworkSubnetConfig) to add a subnet to an existing virtual network. |
 | [Azure CLI](../virtual-network/quick-create-cli.md) | The subnet and the virtual network are created at the same time. Provide a **`--subnet-name`** parameter to [az network vnet create](/cli/azure/network/vnet) with the subnet name. |
 | [Template](../virtual-network/template-samples.md) | For more information on using a template to create a virtual network and subnets, see [Virtual Network with two subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-two-subnets). |
+
+### Multiple address prefixes on a subnet
+
+Multiple address prefixes on a subnet is a feature that offers the ability to modify IP address spaces on a subnet. With this solution, customers using virtual machines and virtual machine scale sets can add and remove IP address prefixes to meet their scaling requirements.
+
+**Limitations**: 
+
+- Customers can only use a single customer address (CA) configuration per NIC.
+
+- Customers can only use on VM and Virtual Machine Scale Sets subnets. Delegated subnets aren't supported.
+
+**Pricing**: Multiple address prefixes on a subnet is offered free of charge.
+
+We welcome you to share your feedback about this feature in this [quick survey](https://aka.ms/multiple-prefixes-feedback).  
+
+> [!IMPORTANT]
+> Multiple prefix support for Azure Virtual Network subnets is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+For more information about how-to configure multiple address prefixes on a subnet, see [Create multiple prefixes for a subnet](how-to-multiple-prefixes-subnet.md). 
 
 ## Network security groups
 
@@ -228,7 +249,7 @@ This table lists the methods that you can use to create a NAT gateway resource.
 
 Azure Bastion is deployed to provide secure management connectivity to virtual machines in a virtual network. Azure Bastion Service enables you to securely and seamlessly RDP & SSH to the VMs in your virtual network. Azure bastion enables connections without exposing a public IP on the VM. Connections are made directly from the Azure portal, without the need of an extra client/agent or piece of software. Azure Bastion supports standard SKU public IP addresses.
 
- [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+ [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md).
 

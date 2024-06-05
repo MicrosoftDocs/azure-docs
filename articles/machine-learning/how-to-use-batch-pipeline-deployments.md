@@ -16,7 +16,7 @@ ms.custom:
   - devplatv2
   - event-tier1-build-2023
   - ignite-2023
-  - update-code
+  - update-code1
 ---
 
 # How to deploy pipelines with batch endpoints

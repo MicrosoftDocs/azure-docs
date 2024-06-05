@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Migration service in Azure Database for PostgreSQL
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 The migration service in Azure Database for PostgreSQL simplifies the process of moving your PostgreSQL databases to Azure, offering migration options from an Azure Database for PostgreSQL single server, AWS RDS for PostgreSQL, on-premises servers, and Azure virtual machines (VMs). The migration service is designed to help you move to Azure Database for PostgreSQL - Flexible Server with ease and confidence.
 
@@ -70,7 +70,7 @@ The following table gives an overview of offline and online options.
 | Option | PROs | CONs | Recommended For
 |------|------|------|------|
 | Offline | - Simple, easy, and less complex to execute.<br />- Very fewer chances of failure.<br />- No restrictions regarding database objects it can handle | Downtime to applications. | - Best for scenarios where simplicity and a high success rate are essential.<br>- Ideal for scenarios where the database can be taken offline without significant impact on business operations.<br>- Suitable for  databases when the migration process can be completed within a planned maintenance window. |
-| Online | - Very minimal downtime to application. <br /> - Ideal for large databases and customers having limited downtime requirements. | - Replication used in online migration has multiple [restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html) (for example, Primary Keys needed in all tables). <br /> - Tough and more complex to execute than offline migration. <br /> - Greater chances of failure due to the complexity of migration. <br /> - There's an impact on the source instance's storage and computing if the migration runs for a long time. The impact needs to be monitored closely during migration. | - Best suited for businesses where continuity is critical and downtime must be kept to an absolute minimum.<br>- Recommended for databases when the migration process needs to occur without interrupting ongoing operations. |
+| Online | - Very minimal downtime to application. <br /> - Ideal for large databases and customers having limited downtime requirements. | - Replication used in online migration has a few [restrictions](https://pgcopydb.readthedocs.io/en/latest/ref/pgcopydb_follow.html#pgcopydb-follow) (for example, Primary Keys needed in all tables). <br /> - Tough and more complex to execute than offline migration. <br /> - Greater chances of failure due to the complexity of migration. <br /> - There's an impact on the source instance's storage and computing if the migration runs for a long time. The impact needs to be monitored closely during migration. | - Best suited for businesses where continuity is critical and downtime must be kept to an absolute minimum.<br>- Recommended for databases when the migration process needs to occur without interrupting ongoing operations. |
 
 The following table lists the various sources supported by the migration service.
 

@@ -15,7 +15,7 @@ Microsoft Defender for Cloud's integration with ServiceNow allows customers to c
 
 ## Prerequisites
 
-- Have an [application registry in ServiceNow](https://docs.servicenow.com/bundle/utah-employee-service-management/page/product/meeting-extensibility/task/create-app-registry-meeting-extensibility.html).
+- Have an [application registry in ServiceNow](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector).
 
 - Enable [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) on your Azure subscription.
 
@@ -40,7 +40,7 @@ To connect a ServiceNow account to a Defender for Cloud account:
 
 1. Enter a name and select the scope.
 
-1. In the ServiceNow connection details, enter the instance URL, name, password, client ID, and client secret that you [created for the application registry](https://docs.servicenow.com/bundle/utah-employee-service-management/page/product/meeting-extensibility/task/create-app-registry-meeting-extensibility.html) in the ServiceNow portal.
+1. In the ServiceNow connection details, enter the instance URL, name, password, client ID, and client secret that you [created for the application registry](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector) in the ServiceNow portal.
 
 1. Select **Next**.
 

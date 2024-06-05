@@ -20,7 +20,7 @@ In the support table, **NA** indicates that the feature isn't available.
 |--- | --- | --- | --- |
 |**GENERAL FEATURES** | | ||
 |[Continuous data export](continuous-export.md) | GA | GA | GA|
-|[Response automation with Azure Logic Apps](./workflow-automation.md) | GA | GA | GA|
+|[Response automation with Azure Logic Apps](./workflow-automation.yml) | GA | GA | GA|
 |[Security alerts](alerts-overview.md)<br/> Generated when one or more Defender for Cloud plans is enabled. | GA | GA | GA|
 |[Alert email notifications](configure-email-notifications.md) | GA | GA | GA|
 |[Alert suppression rules](alerts-suppression-rules.md) | GA | GA | GA|

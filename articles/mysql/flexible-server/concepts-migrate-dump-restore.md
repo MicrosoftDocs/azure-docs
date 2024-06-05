@@ -14,7 +14,7 @@ ms.date: 05/03/2023
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article explains two common ways to back up and restore databases in Azure Database for MySQL flexible server.
 
