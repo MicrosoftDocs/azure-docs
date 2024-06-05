@@ -19,6 +19,8 @@ Get started with network security perimeter by creating a network security perim
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
+
 - The latest version of the Azure PowerShell module with tools for network security perimeter.
 ```azurepowershell
 Install-Module -Name Az.Tools.Installer -Repository PSGallery
@@ -32,9 +34,12 @@ Install-Module -Name Az.Tools.Installer -Repository PSGallery
     Install-AzModule -Path https://azposhpreview.blob.core.windows.net/public/Az.Network.5.6.1-preview.nupkg
     ```
 
-[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
-
-[!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+* If you choose to use Azure PowerShell locally:
+  * [Install the latest version of the Az PowerShell module](/powershell/azure/install-azure-powershell).
+  * Connect to your Azure account using the
+    [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+* If you choose to use Azure Cloud Shell:
+  * See [Overview of Azure Cloud Shell](/azure/cloud-shell/overview) for more information.
 
 ## Sign in to your Azure account and select your subscription
 
