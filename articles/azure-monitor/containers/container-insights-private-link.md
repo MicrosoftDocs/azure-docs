@@ -16,7 +16,7 @@ This article describes how to configure Container insights to use Azure Private 
 ### [CLI](#tab/cli)
 
 
-### Pre-requisites
+### Prerequisites
  - Azure CLI version 2.61.0 or higher.
  - Azure Monitor Private Link Scope (AMPLS)
 
@@ -47,7 +47,7 @@ Example:
 az aks enable-addons --addon monitoring --name "my-cluster" --resource-group "my-resource-group" --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace" --ampls-resource-id "/subscriptions/my-subscription /resourceGroups/ my-resource-group/providers/microsoft.insights/privatelinkscopes/my-ampls-resource"
 ```
 
-## New AKS cluster
+### New AKS cluster
 
 ```azurecli
 az aks create --resource-group rgName --name clusterName --enable-addons monitoring --workspace-resource-id "workspaceResourceId" --ampls-resource-id "azure-monitor-private-link-scope-resource-id"
@@ -74,10 +74,13 @@ Edit the values in the parameter file and deploy the template using any valid me
 
 ### AKS cluster
 
- - Template file: https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file
- - Parameter file: https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file
+**Template file:**
+https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file
 
-The following table describes each of the the parameters in the parameter file for AKS.
+
+**Parameter file:**
+https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file
+
 
 | Parameter | Description |
 |:---|:---|
@@ -91,8 +94,12 @@ The following table describes each of the the parameters in the parameter file f
 
 ### Arc-enabled Kubernetes cluster
 
-- Template file: https://aka.ms/arc-k8s-azmon-extension-msi-arm-template
-- Parameter file: https://aka.ms/arc-k8s-azmon-extension-msi-arm-template-params
+**Template file:**
+https://aka.ms/arc-k8s-azmon-extension-msi-arm-template
+
+
+**Parameter file:**
+https://aka.ms/arc-k8s-azmon-extension-msi-arm-template-params
 
 | Parameter | Description |
 |:---|:---|
@@ -105,6 +112,7 @@ The following table describes each of the the parameters in the parameter file f
 | `useAzureMonitorPrivateLinkScope` | Boolean flag to indicate whether Azure Monitor link scope is used or not. |
 | `azureMonitorPrivateLinkScopeResourceId` | Resource ID of the Azure Monitor Private link scope.   This only used if `useAzureMonitorPrivateLinkScope` is set to **true**. |
 
+---
 
 ## Cluster using legacy authentication
 Use the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace using [Azure Private Link](../logs/private-link-security.md) if your cluster is not using managed identity authentication. This requires a [private AKS cluster](../../aks/private-clusters.md).
@@ -133,7 +141,7 @@ Use the following procedures to enable network isolation by connecting your clus
     az aks enable-addons -a monitoring --resource-group <AKSClusterResourceGorup> --name <AKSClusterName> --workspace-resource-id <workspace-resource-id>
     ```
 
----
+
 
 ## Next steps
 
