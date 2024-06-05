@@ -154,11 +154,11 @@ For more information about conditions, see [What is Azure attribute-based access
 > Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, Microsoft Entra Privileged Identity Management is integrated into role assignment steps. You can make users eligible for role assignments so that they must perform one or more actions to use roles. Eligible role assignments provide just-in-time access to a role for a limited period of time. 
+If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) is integrated into role assignment steps. You can make users eligible for role assignments so that they must perform one or more actions to use roles. Eligible role assignments provide just-in-time access to a role for a limited period of time. 
 
 :::image type="content" source="./media/shared/assignment-type-eligible.png" alt-text="Screenshot of Add role assignment with Assignment type options displayed." lightbox="./media/shared/assignment-type-eligible.png":::
 
-To better understand Privileged Identity Management, you should review the following terms.
+To better understand Privileged Identity Management, you should review the following terms. For more information, see [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure).
 
 | Term or concept | Role assignment category | Description |
 | --- | --- | --- |

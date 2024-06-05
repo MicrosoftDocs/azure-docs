@@ -102,17 +102,28 @@ procedureSection:
 
         The tabs you see depend on your license. If you have a Microsoft Entra ID Free or Microsoft Entra ID P1 license, you will see a **Role assignments** tab. If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, you will see **Active assignments** and **Eligible assignments** tabs.
       - |
-        If you have a Microsoft Entra ID Free or Microsoft Entra ID P1 license, click the **Role assignments** tab to view the role assignments at this scope.
+        Click the **Role assignments** tab to view the role assignments at this scope.
+
+        If you have a Microsoft Entra ID Free or Microsoft Entra ID P1 license, your **Role assignments** tab is similar to the following screenshot.
 
         :::image type="content" source="./media/role-assignments-list-portal/rg-access-control-role-assignments.png" alt-text="Screenshot of Access control and Role assignments tab." lightbox="./media/role-assignments-list-portal/rg-access-control-role-assignments.png":::
 
-      - |
-        If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, click the **Active assignments** tab to view the active role assignments at this scope. Active assignments indicate principal can use role at any time.
+        If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, your **Role assignments** tab is similar to the following screenshot.
 
-        :::image type="content" source="./media/role-assignments-list-portal/rg-access-control-active-assignments.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/role-assignments-list-portal/rg-access-control-active-assignments.png":::
+        :::image type="content" source="./media/role-assignments-list-portal/sub-access-control-role-assignments-pim.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/role-assignments-list-portal/sub-access-control-role-assignments-pim.png":::
 
-      - |
-        Click the **Eligible assignments** tab to view the eligible role assignments at this scope. Eligible assignments provide just-in-time access to a role. Principal must activate to use this role for a limited period of time. For more information, see [Integration with Privileged Identity Management (Preview)](./role-assignments.md#integration-with-privileged-identity-management-preview).
+        You see a **State** column with one of the following states:
+
+        | State | Description |
+        | --- | --- | 
+        | Active permanent | A role assignment where a user can always use the role without performing any actions. |
+        | Eligible time-bound | A role assignment where a user is currently eligible to activate the role only within start and end dates. |
+        | Future active time-bound | A role assignment where a user can use the role without performing any actions in the future only within start and end dates. |
+        | Future eligible time-bound | A role assignment where a user is eligible to activate the role in the future only within start and end dates. |
+
+        If you want to list the start time and end time for role assignments, click **Edit columns** and then select **Start time** and **End time**.
+
+        :::image type="content" source="./media/role-assignments-list-portal/role-assignments-list-edit-columns.png" alt-text="Screenshot of Columns pane showing Start time and End time check boxes." lightbox="./media/role-assignments-list-portal/role-assignments-list-edit-columns.png":::
 
         Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to this resource or inherited from an assignment to the parent scope.
 

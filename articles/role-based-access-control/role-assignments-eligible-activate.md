@@ -15,7 +15,7 @@ ms.author: rolyon
 > Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Eligible Azure role assignments provide just-in-time access to a role for a limited period of time. If you have made eligible for an Azure role, you can activate that role using the Azure portal. Microsoft Entra Privileged Identity Management role activation has been integrated into the Access control (IAM) page in the Azure portal.
+Eligible Azure role assignments provide just-in-time access to a role for a limited period of time. Microsoft Entra Privileged Identity Management role activation has been integrated into the Access control (IAM) page in the Azure portal. If you have made eligible for an Azure role, you can activate that role using the Azure portal.
 
 ## Prerequisites
 
@@ -23,6 +23,8 @@ Eligible Azure role assignments provide just-in-time access to a role for a limi
 - Eligible role assignment
 
 ## Activate using the Azure portal
+
+These steps describe how to activate an eligible role assignment using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -42,9 +44,15 @@ Eligible Azure role assignments provide just-in-time access to a role for a limi
 
     The **Activate** pane appears with activate settings.
 
-    :::image type="content" source="./media/role-assignments-eligible-activate/activate-role-settings.png" alt-text="Screenshot of Activate pane that shows start time, duration, and reason settings." lightbox="./media/role-assignments-eligible-activate/activate-role-settings.png":::
+1. On the **Activate** tab, specify the start time, duration, and reason. If you want to customize the activation start time, check the **Custom activation start time** box.
 
-1. On the **Activate** tab, specify the start time, duration, and reason.
+    :::image type="content" source="./media/role-assignments-eligible-activate/activate-role-settings.png" alt-text="Screenshot of Activate pane and Activate tab that shows start time, duration, and reason settings." lightbox="./media/role-assignments-eligible-activate/activate-role-settings.png":::
+
+1. (Optional) Click the **Scope** tab to specify the scope for the role assignment.
+
+    If your eligible role assignment was defined at a higher scope, you can select a lower scope to narrow your access. For example, if you have an eligible role assignment at subscription scope, you can choose resource groups in the subscription to narrow your scope.
+
+    :::image type="content" source="./media/role-assignments-eligible-activate/activate-role-scope.png" alt-text="Screenshot of Activate pane and Scope tab that shows scope settings." lightbox="./media/role-assignments-eligible-activate/activate-role-scope.png":::
 
 1. When finished, click the **Activate** button to activate the role with the selected settings.
 
@@ -57,3 +65,4 @@ Eligible Azure role assignments provide just-in-time access to a role for a limi
 ## Next steps
 
 - [Integration with Privileged Identity Management (Preview)](./role-assignments.md#integration-with-privileged-identity-management-preview)
+- [Activate my Azure resource roles in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-activate-your-roles)
