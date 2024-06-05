@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Virtual endpoints for read replicas in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Virtual Endpoints are read-write and read-only listener endpoints, that remain consistent irrespective of the current role of the Azure Database for PostgreSQL flexible server instance. This means you don't have to update your application's connection string after performing the **promote to primary server** action, as the endpoints will automatically point to the correct instance following a role change.
 
