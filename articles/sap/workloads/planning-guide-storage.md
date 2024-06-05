@@ -310,7 +310,7 @@ The capability matrix for SAP workload looks like:
 | Latency | Very low | Typically less than 1 ms |
 | IOPS SLA | Yes | - |
 | IOPS linear to capacity | Linear with auto QoS; independent with Manual QoS | Three [service levels](../../azure-netapp-files/azure-netapp-files-service-levels.md) available |
-| Throughput SLA | Yes | - |Sizing recommendations are available in the SAP on Azure NetApp FIles TCO Esti
+| Throughput SLA | Yes | Sizing recommendations are available in the SAP on Azure NetApp FIles TCO Esti |
 | Throughput linear to capacity | Linear with auto QoS; independent with Manual QoS | Three [service levels](../../azure-netapp-files/azure-netapp-files-service-levels.md) available |
 | HANA certified | Yes | - |
 | Disk snapshots possible | Yes | - |

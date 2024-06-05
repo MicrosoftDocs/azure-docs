@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 02/12/2024
+ms.date: 05/15/2024
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp
@@ -322,15 +322,13 @@ gradle init --type basic
 
 #### Locating  the `id` value
 
-* You find the job `id`  in the POST method response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**:
+* You can find the job `id`  in the POST `start-batch-translation` method response Header `Operation-Location`  URL value. The alphanumeric string following the `/document/` parameter is the operation's job **`id`**:
 
-|**Response header**|**Result URL**|
+|**Response header**|**Response URL**|
 |-----------------------|----------------|
-Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
+|Operation-Location   | {document-translation-endpoint}/translator/document/`9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec`?api-version=2024-05-01|
 
-* You can also use a **GET Jobs** request to retrieve a Document Translation  job `id` .
-
->
+* You can also use a [get-translations-status](../reference/get-translations-status.md) request to retrieve a list of translation _**jobs**_ and their `id`s.
 
 ## Translate documents
 

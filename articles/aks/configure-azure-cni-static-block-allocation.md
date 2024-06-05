@@ -160,14 +160,19 @@ Create the cluster, referencing the node subnet using `--vnet-subnet-id`, the po
 clusterName="myAKSCluster"
 subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
 
-az aks create --name $clusterName --resource-group $resourceGroup --location $location \
+az aks create \
+    --name $clusterName \
+    --resource-group $resourceGroup \
+    --location $location \
     --max-pods 250 \
     --node-count 2 \
     --network-plugin azure \
     --pod-ip-allocation-mode StaticBlock \
     --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
     --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet \
-    --enable-addons monitoring
+    --enable-addons monitoring \
+    --generate-ssh-keys
+
 ```
 
 ### Adding node pool

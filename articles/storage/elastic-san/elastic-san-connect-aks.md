@@ -1,10 +1,10 @@
 ---
 title: Connect Azure Elastic SAN to Azure Kubernetes over iSCSI
-description: Use the Kubernetes iSCSI CSI driver to use Azure Elastic SAN as backing storage for Azure Kubernetes Service clusters.
+description: Use the Kubernetes iSCSI CSI driver to configure Azure Elastic SAN as backing storage for Azure Kubernetes Service clusters.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 05/31/2024
 ms.author: rogarana
 ---
 

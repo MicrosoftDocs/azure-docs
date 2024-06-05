@@ -98,7 +98,8 @@ If you're using a service principal from a different Microsoft Entra tenant, the
         --resource-group myResourceGroup \
         --name myAKSCluster \
         --service-principal <appId> \
-        --client-secret <password>
+        --client-secret <password> \
+        --generate-ssh-keys
     ```
 
     > [!NOTE]
