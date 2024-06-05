@@ -24,6 +24,9 @@ There are two methods to implement this task.
 * Option 1 HDInsight utility and  API usage to fetch access token.
 * Option 2 HDInsight utility, TokenCredential Implementation to fetch Access Token.
 
+> [!NOTE]
+> By default, the Scope is “.default”. We will provide a mechanism in the utility API to pass the user supplied scope argument, in future.
+
 ## Option 1 - HDInsight utility and  API usage to fetch access token
 
 Implemented a convenient utility class to fetch MSI access token by providing target resource URI, which can be EH, KV, Kusto, SqlDB, Cosmos DB etc.
@@ -68,7 +71,7 @@ public class AccessToken {
 
 Provided `HdiIdentityTokenCredential` feature class, which is the standard implementation of `com.azure.core.credential.TokenCredential` interface.
 Make sure, Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/<hdi-version>/hadoop/client/*
-, azure-core-1.49.0.jar and its transitive deps jars` in classpath.
+, azure-core-1.49.0.jar, okhttp3-4.9.3 and its transitive deps jars into the classpath.
 
 ### Prerequisites
 
@@ -101,4 +104,4 @@ KeyVaultSecret secret = secretClient.getSecret("<your-secret-name>");
 ```
 
 > [!NOTE]
-> This is a standard token credential interface, the Azure resource clients which supported `TokenCredential` is the recommended approach.
+> HdiIdentityTokenCredential class can be used in combination with various Azure SDK client libraries to authenticate requests and access Azure services without the need to manage access tokens manually.
