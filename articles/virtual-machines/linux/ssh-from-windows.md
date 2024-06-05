@@ -21,7 +21,7 @@ This article is for Windows users who want to [create](#create-an-ssh-key-pair) 
 To use SSH keys from a Linux or macOS client, see the [quick steps](mac-create-ssh-keys.md). For a more detailed overview of SSH, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](create-ssh-keys-detailed.md).
 
 > [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview across Azure public cloud regions, with plans to expand to sovereign clouds shortly.
+> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds. However, Azure portal support for ED25519 is limited to Azure public cloud regions only.
 
 ## Overview of SSH and keys
 
@@ -42,7 +42,7 @@ Your public key can be shared with anyone, but only you (or your local security 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 > [!NOTE]
-> During preview, Ed25519 keys can only be used with Linux VMs, we intend to extend the ED25519 support to Windows VMs soon.
+> During preview, ED25519 keys can only be used with Linux VMs.
 
 ## SSH clients
 

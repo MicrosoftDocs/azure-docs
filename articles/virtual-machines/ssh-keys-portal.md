@@ -26,7 +26,7 @@ You can reuse your stored keys in various of applications to fit your organizati
 For more detailed information about creating and using SSH keys with Linux VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
 
 > [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview across Azure public cloud regions, with plans to expand to sovereign clouds shortly.
+> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds. However, Azure portal support for ED25519 is limited to Azure public cloud regions only.
 
 ## Generate new keys
 
@@ -36,7 +36,7 @@ For more detailed information about creating and using SSH keys with Linux VMs, 
 
 1. On the **SSH Key** page, select **Create**.
 
-   :::image type="content" source="./media/ssh-keys/portal_ed25519_key.png" alt-text="Create a new resource group and generate an SSH key pair":::
+   :::image type="content" source="./media/ssh-keys/portal-ed25519-key.png" alt-text="Create a new resource group and generate an SSH key pair":::
 
 1. In **Resource group** select **Create new** to create a new resource group to store your keys. Type a name for your resource group and select **OK**.
 

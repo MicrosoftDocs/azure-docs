@@ -17,7 +17,7 @@ When hosting a Linux virtual machine on Azure, the most common method for access
 This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP, see [Azure Bastion Service](../bastion/bastion-overview.md).
 
 > [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview across Azure public cloud regions, with plans to expand to sovereign clouds shortly.
+> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds. However, Azure portal support for ED25519 is limited to Azure public cloud regions only.
 
 ## Prerequisites
 

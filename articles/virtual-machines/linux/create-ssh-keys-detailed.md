@@ -17,12 +17,12 @@ ms.custom: GGAL-freshness822, linux-related-content
 
 With a secure shell (SSH) key pair, you can create a Linux virtual machine that uses SSH keys for authentication. This article shows you how to create and use an SSH RSA public-private key file pair for SSH client connections.
 
-If you want quick commands rather than a more in-depth explaination of SSH keys, see [How to create an SSH public-private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
+If you want quick commands rather than a more in-depth explanation of SSH keys, see [How to create an SSH public-private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
 
 To create SSH keys and use them to connect to a Linux VM from a **Windows** computer, see [How to use SSH keys with Windows on Azure](ssh-from-windows.md). You can also use the [Azure portal](../ssh-keys-portal.md) to create and manage SSH keys for creating VMs in the portal.
 
 > [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview across Azure public cloud regions, with plans to expand to sovereign clouds shortly.
+> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds. However, Azure portal support for ED25519 is limited to Azure public cloud regions only.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -209,7 +209,7 @@ If you copy and paste the contents of the public key file into the Azure portal 
 
 If you prefer to use a public key that is in a multiline format, you can generate an RFC4716 formatted key in a 'pem' container from the public key you previously created.
 
-To create a RFC4716 formatted key from an existing SSH public key:
+To create an RFC4716 formatted key from an existing SSH public key:
 
 ```bash
 ssh-keygen \
