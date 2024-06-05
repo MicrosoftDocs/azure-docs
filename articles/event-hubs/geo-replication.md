@@ -51,14 +51,14 @@ There are some current limitations worth noting:
 There are two replication consistency configurations, synchronous and asynchronous. It's important to know the differences between the two configurations as they have an impact on your applications and your data consistency.
 
 **Asynchronous replication**
-With asynchronous replication enabled, all messages are committed in the primary and then sent onwards to the secondary. Users can configure an acceptable amount of lag time that the secondary has to catch-up. If the lag for an active secondary grows beyond user configuration, the primary region throttles incoming publish requests. 
+With asynchronous replication enabled, all messages are committed in the primary and then sent to the secondary. Users can configure an acceptable amount of lag time that the secondary has to catch-up. When the lag for an active secondary is greater than user lag configuration, the primary region throttles incoming publish requests. 
 
 **Synchronous replication**
-When synchronous replication is enabled, published events are replicated to the secondary, which must confirm the message before it's committed in the primary. With synchronous replication, your application publishes at the rate it takes to publish, replicate, acknowledge and commit. It also means that your application is tied to the availability of both regions. If the secondary region goes down, messages can't be acknowledged and committed. 
+When synchronous replication is enabled, published events are replicated to the secondary, which must confirm the message before it's committed in the primary. With synchronous replication, your application publishes at the rate it takes to publish, replicate, acknowledge and commit. It also means that your application is tied to the availability of both regions. If the secondary region goes down, messages can't be acknowledged or committed. 
 
 **Replication consistency comparison**
 With synchronous replication:
--	Latency is longer due to the distributed commit and is affected by large distances between your selected regions.
+-	Latency is longer due to the distributed commit
 - Availability is tied to the availability of two regions. If one region goes down, your namespace is unavailable.
 - Received data always resides in at least two regions (only two regions supported in the initial public preview)
 
