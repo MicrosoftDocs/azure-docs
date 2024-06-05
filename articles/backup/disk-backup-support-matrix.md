@@ -61,7 +61,7 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 - You can stop backup and retain backup data. This allows you to *retain backup data* forever or as per the backup policy. You can also delete a backup instance, which stops the backup and deletes all backup data. 
 
-- Backup Vault does not support Azure Lighthouse. Thus, cross tenant management experiences can not be enabled by Lighthouse for Azure Disk Backup and you cannot backup/restore Azure Disks across tenant.
+- Backup Vault does not support Azure Lighthouse. Thus, cross tenant management experiences cannot be enabled by Lighthouse for Azure Disk Backup and you cannot backup/restore Azure Disks across tenant.
 
 - Azure Disk Backup limits are:
     
