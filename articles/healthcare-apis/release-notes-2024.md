@@ -23,7 +23,7 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 
 #### Scaling enhancement to the Import operation
 
-The scaling logic for import operations was improved, enabling multiple jobs to be executed in parallel. This change impacts audit logs for the import operation. Audit logs for individual import jobs have multiple rows, with each row corresponding to an internal processing job. 
+The scaling logic for import operations is improved, enabling multiple jobs to be executed in parallel. This change impacts audit logs for the import operation. Audit logs for individual import jobs have multiple rows, with each row corresponding to an internal processing job. 
 
 #### Bug fixes
 - **Fixed: HTTP status code for long-running requests**. FHIR requests that take longer than 100 seconds to execute return an HTTP 408 status code instead of HTTP 500. 
@@ -84,7 +84,7 @@ Learn more:
 - [Manage medical imaging data with the DICOM service and Azure Data Lake Storage](./dicom/dicom-data-lake.md)
 - [Deploy the DICOM service with Azure Data Lake Storage](./dicom/deploy-dicom-services-in-azure-data-lake.md)
 
-### FHIR Service 
+### FHIR service 
 
 #### Bundle parallelization (GA)
 Bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we enabled parallel processing.
@@ -96,13 +96,13 @@ Learn more:
 
 Import operation allowed to have resource type per input file in the request parameters. With this enhance capability, you can pass multiple resource types in single file.
 
-#### Bug Fixes
+#### Bug fixes
 
-- **Fixed: Import operation ingests resources with the same resource type and lastUpdated field value**. Before this change, resources executed in a batch with the same type and `lastUpdated` field value weren't ingested into the FHIR service. This bug fix addresses the issue. See [PR#3768](https://github.com/microsoft/fhir-server/pull/3768).
+- **Fixed: Import operation ingests resources with the same resource type and lastUpdated field value**. Before this change, resources executed in a batch with the same type and `lastUpdated` field value wasn't ingested into the FHIR service. This bug fix addresses the issue. See [PR#3768](https://github.com/microsoft/fhir-server/pull/3768).
 
-- **Fixed: FHIR search with 3 or more custom search parameters**. Before this fix, FHIR search query at the root with three or more custom search parameters resulted in HTTP status code 504. See [PR#3701](https://github.com/microsoft/fhir-server/pull/3701).
+- **Fixed: FHIR search with 3 or more custom search parameters**. Before this fix, a FHIR search query at the root with three or more custom search parameters resulted in HTTP status code 504. See [PR#3701](https://github.com/microsoft/fhir-server/pull/3701).
 
-- **Fixed: Improve performance for bundle processing**. Updates are made to the task execution method, leading to bundle processing performance improvement. See [PR#3727](https://github.com/microsoft/fhir-server/pull/3727).
+- **Fixed: Improve performance for bundle processing**. Updates to the task execution method, enabling bundle processing performance improvement. See [PR#3727](https://github.com/microsoft/fhir-server/pull/3727).
 
 ## February 2024
 
