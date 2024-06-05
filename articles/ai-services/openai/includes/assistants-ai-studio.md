@@ -12,7 +12,7 @@ ms.author: mbullwin
 author: mrbullwinkle
 ---
 
-[!INCLUDE [Feature preview](../../../ai-studio/includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 ## Prerequisites
 
