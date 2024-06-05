@@ -343,7 +343,7 @@ The queue storage account uses the `accountName` property to identify the storag
 
 Container Apps allow you to specify [init containers](containers.md#init-containers) and main containers. By default, both main and init containers in a consumption workload profile environment can use managed identity to access other Azure services. Managed identity access tokens are available for every managed identity configured on the container app. However, in some situations where only the init container or the main container require access tokens for a managed identity. Other times, you may use a managed identity only to access your Azure Container Registry to pull the container image, and your application itself doesn't need to have access to your Azure Container Registry. 
 
-Starting in API version `2024-02-02-preview`, You can control which managed identities are available to your container app during the init and main phases to follow the security principle of least privilege. The following options are available:
+Starting in API version `2024-02-02-preview`, you can control which managed identities are available to your container app during the init and main phases to follow the security principle of least privilege. The following options are available:
 
 - `Init`: available only to init containers. Use this when you want to perform some intilization work that requires a managed identity, but you no longer need the managed identity in the main container. This option is currently not supported in [Consumption-only environments](environment.md#types)
 - `Main`: available only to main containers. Use this if your init container does not need managed identity.
