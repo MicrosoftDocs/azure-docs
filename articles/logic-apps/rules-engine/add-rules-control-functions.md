@@ -14,7 +14,7 @@ ms.date: 06/10/2024
 
 # Add control functions to optimize rules execution (Preview)
 
-[!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
 
 > [!IMPORTANT]
 > This capability is in preview and is subject to the 
