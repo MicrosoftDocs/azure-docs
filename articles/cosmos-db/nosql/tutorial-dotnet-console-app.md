@@ -227,7 +227,7 @@ Next, you'll use individual operations to add items into the API for NoSQL conta
 1. Back within the static **CosmosHandler** class, create a new asynchronous method named `GetContainerAsync` that returns an `Container`.
 
     ```csharp
-    private static async Task<Container> GetContainer()
+    private static async Task<Container> GetContainerAsync()
     { }
     ```
 
