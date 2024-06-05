@@ -107,6 +107,8 @@ The following image shows the results for the example request:
 The next sections provide more examples for working with Summary rules.
 
 
+## Configure the intial aggregation run
+
 ### Use basic rule configuration
 
 The first rule run is at the next whole hour after rule provisioning plus delay, which can be from 3.5 minutes to 10% of the `binSize` value. In this scenario, execution adds a delay of 4 minutes.
@@ -161,7 +163,7 @@ For this example, the rule includes the following configuration:
 The initial rule execution is after the bin range plus an 8-minute delay. The typical delay can be between 4 minutes and up to 10% of the `binSize` value. For example, a rule with a 12-hours bin size can execute bin 02:00 to 14:00 at 15:12. 
 
 
-### Get specific rule
+## View summary rules
 
 The following example shows how to view the configuration for a specific Summary rule:
 
@@ -170,7 +172,6 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 Authorization: {credential}
 ```
 
-### Get all rules
 
 The following example shows how to view the configuration for all Summary rules in your Log Analytics workspace:
 
@@ -179,7 +180,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 Authorization: {credential}
 ```
 
-### Stop rule
+## Stop and restart a summary rule
 
 You can stop a rule for a time, such as when test data is ingested to a table and you don't want to affect the summarized table and reports. Starting the rule later starts processing data from the next whole hour or per the defined `binStartTime` (optional) hour.
 
@@ -190,8 +191,6 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 Authorization: {credential}
 ```
 
-### Start rule
-
 If a Summary rule is deliberately stopped, or stopped due to bin execution exhaustion, you can start the rule. Processing starts from the next whole hour, or per the defined `binStartTime` (optional) hour.
 
 The following example demonstrates how to start a rule:
@@ -201,7 +200,7 @@ POST https://management.azure.com/subscriptions/{su	bscriptionId}/resourceGroups
 Authorization: {credential}
 ```
 
-### Delete rule
+## Delete a summary rule
 
 You can have up to 10 active Summary rules in your Log Analytics workspace. If you want to create a new rule, but you already have 10 active rules, you must stop or delete an active Summary rule. 
 
