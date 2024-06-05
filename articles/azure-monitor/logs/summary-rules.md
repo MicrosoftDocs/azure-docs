@@ -1,6 +1,6 @@
 ---
-title: Aggregate data in a Log Analytics workspace with Summary rules
-description: Aggregate data in Log Analytics workspace with Summary rules feature in Azure Monitor, including creating, starting, stopping, and troubleshooting rules. 
+title: Aggregate data in a Log Analytics workspace with summary rules
+description: Aggregate data in Log Analytics workspace with summary rules feature in Azure Monitor, including creating, starting, stopping, and troubleshooting rules. 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.date: 04/23/2024
 # Customer intent: As a Log Analytics workspace administrator or developer, I want to optimize my cost-effectiveness, query performance, and analysis capabilities by using summary rules to aggregate data I ingest to specific tables.
 ---
 
-# Aggregate data in a Log Analytics workspace with Summary rules
+# Aggregate data in a Log Analytics workspace with summary rules
 
 A summary rule lets you aggregate log data at a regular cadence and send the aggregated results to a custom log table in your Log Analytics workspace. This lets you optimize your data for:
 
@@ -277,7 +277,7 @@ The next sections provide examples of the default aggregation timing and the mor
 
 In this example, the summary rule is created at on 2023-06-07 at 14:44, and Azure Monitor adds a default delay of **four minutes**.
 
-| binSize (minutes) | Rule first run time | First bin time | Second bin time |
+| binSize (minutes) | Intial rule run | First aggregation | Second aggregation |
 | --- | --- | --- | --- |
 | 1440  | 2023-06-07 15:04 | 2023-06-06 15:00 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-08 15:00 |
 |  720  | 2023-06-07 15:04 | 2023-06-07 03:00 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-08 03:00 |
@@ -294,7 +294,7 @@ In this example, the summary rule is created at on 2023-06-07 at 14:44, and the 
 - `binStartTime`: 2023-06-08 07:00
 - `binDelay`: **8 minutes**
 
-| binSize (minutes) | Rule first run time | First bin time | Second bin time |
+| binSize (minutes) | Intial rule run | First aggregation | Second aggregation |
 | --- | --- | --- | --- |
 | 1440 | 2023-06-09 07:08 | 2023-06-08 07:00 -- 2023-06-09 07:00 | 2023-06-09 07:00 -- 2023-06-10 07:00 |
 |  720 | 2023-06-08 19:08 | 2023-06-08 07:00 -- 2023-06-08 19:00 | 2023-06-08 19:00 -- 2023-06-09 07:00 |
