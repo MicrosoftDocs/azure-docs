@@ -131,7 +131,7 @@ To facilitate connectivity from an Azure Database for PostgreSQL Single Server w
     :::image type="content" source="media/how-to-network-setup-migration-service/vnet-details-single-server.png" alt-text="Screenshot showing virtual network and subnet details of single server's private endpoint." lightbox="media/how-to-network-setup-migration-service/vnet-details-single-server.png":::
 
 **Assess VNet Peering Requirements**
-- If both are in different VNets, you need to enable virtual network peering to connect one virtual network to another. Peering is optional if they are in the same virtual network but in different subnets. Ensure that no network security groups(NSG) blocks the traffic from flexible server to single server.
+- If both are in different VNets, you need to enable virtual network peering to connect one virtual network to another. Peering is optional if they are in the same virtual network but in different subnets. Ensure that no network security groups (NSGs) block the traffic from flexible server to single server.
 
 **Private DNS Zone Configuration**
 - Go to the **Networking** page on the flexible server and check if a private DNS zone is being used. If used, open this private DNS zone in the portal. In the left pane, select on the **Virtual network links** and check if the virtual network of single server and flexible server is added to this list.
