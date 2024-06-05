@@ -1,13 +1,13 @@
 ---
-title: Send receive messages between Azure IoT MQ and Event Hubs or Kafka
-description: Learn how to send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka.
+title: Send and receive messages between Azure IoT MQ and Event Hubs or Kafka
+description: Learn how to send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka using the Kafka connector.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 04/22/2024
+ms.date: 06/05/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ to send and receive messages between Azure IoT MQ and Kafka.
 ---
@@ -115,7 +115,9 @@ az deployment group create \
 
 The *KafkaConnector* custom resource (CR) allows you to configure a Kafka connector that can communicate a Kafka host and Event Hubs. The Kafka connector can transfer data between MQTT topics and Kafka topics, using the Event Hubs as a Kafka-compatible endpoint.
 
-The following example shows a *KafkaConnector* CR that connects to an Event Hubs endpoint using IoT MQ's Azure identity, it assumes other MQ resources were installed using the quickstart:
+The following example shows a *KafkaConnector* CR that connects to an Event Hubs endpoint using different authentication types. It assumes other MQ resources were installed using the quickstart:
+
+### [Managed identity](#tab/managed-identity)
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -151,7 +153,63 @@ spec:
       kubernetes: {}
 ```
 
-The following table describes the fields in the KafkaConnector CR:
+### [SASL](#tab/sasl)
+
+```yaml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: KafkaConnector
+metadata:
+  name: my-eh-connector
+  namespace: azure-iot-operations # same as one used for other MQ resources
+spec:
+  image:
+    pullPolicy: IfNotPresent
+    repository: mcr.microsoft.com/azureiotoperations/kafka
+    tag: 0.4.0-preview
+  instances: 2
+  clientIdPrefix: my-prefix
+  kafkaConnection:
+    # Port 9093 is Event Hubs' Kakfa endpoint
+    # Plug in your Event Hubs namespace name
+    endpoint: <NAMESPACE>.servicebus.windows.net:9093
+    tls:
+      tlsEnabled: true
+    authentication:
+      enabled: true
+      authType:
+
+```
+
+### [X.509](#tab/x509)
+
+```yaml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: KafkaConnector
+metadata:
+  name: my-eh-connector
+  namespace: azure-iot-operations # same as one used for other MQ resources
+spec:
+  image:
+    pullPolicy: IfNotPresent
+    repository: mcr.microsoft.com/azureiotoperations/kafka
+    tag: 0.4.0-preview
+  instances: 2
+  clientIdPrefix: my-prefix
+  kafkaConnection:
+    # Port 9093 is Event Hubs' Kakfa endpoint
+    # Plug in your Event Hubs namespace name
+    endpoint: <NAMESPACE>.servicebus.windows.net:9093
+    tls:
+      tlsEnabled: true
+    authentication:
+      enabled: true
+      authType:
+
+```
+
+---
+
+The following table describes the fields in the KafkaConnector custom resource:
 
 | Field | Description | Required |
 | ----- | ----------- | -------- |
@@ -194,7 +252,7 @@ The authentication field supports different types of authentication methods, suc
 | Field | Description | Required |
 | ----- | ----------- | -------- |
 | enabled | A boolean value that indicates whether authentication is enabled or not. | Yes |
-| authType | A field containing the authentication type used. See [Authentication Type](#authentication-type)
+| authType | A field containing the authentication type used. See [Authentication Type](#authentication-type) | Yes |
 
 ##### Authentication Type
 
@@ -326,7 +384,7 @@ metadata:
   namespace: <SAME NAMESPACE AS BROKER> # For example "default"
 spec:
   kafkaConnectorRef: my-eh-connector
-  compression: snappy
+  compression: none
   batching:
     enabled: true
     latencyMs: 1000
@@ -374,9 +432,11 @@ The compression field enables compression for the messages sent to Kafka topics.
 | Value | Description |
 | ----- | ----------- |
 | none | No compression or batching is applied. *none* is the default value if no compression is specified. |
-| gzip | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. |
-| snappy | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
-| lz4 | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
+| gzip | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. [Event Hubs Premium](../../event-hubs/event-hubs-premium-overview.md) pricing tier is required for GZIP compression. |
+
+> [!TIP]
+> Currently, Snappy and LZ4 compression types are not supported for the Kafka connector. Use [Apache Kafka](https://kafka.apache.org) for Snappy and LZ4 compression types.
+
 
 ### Batching
 
