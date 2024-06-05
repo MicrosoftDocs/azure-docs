@@ -32,20 +32,20 @@ In addition to issuing queries using the API for NoSQL in Azure Cosmos DB, the [
 
 When included inside predicate and/or selector functions, the following JavaScript constructs get automatically optimized to run directly on Azure Cosmos DB indices:
 
-- Simple operators: `=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!` `~`
-- Literals, including the object literal: {}
+- Simple operators: `=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!==` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>` `~`
+- Literals, including the object literal: `{}`
 - var, return
 
 The following JavaScript constructs do not get optimized for Azure Cosmos DB indices:
 
-- Control flow (for example, if, for, while)
+- Control flow: `if` `for` `while`
 - Function calls
 
 For more information, see the [Azure Cosmos DB Server Side JavaScript Documentation](https://github.com/Azure/azure-cosmosdb-js-server/).
 
 ## SQL to JavaScript cheat sheet
 
-The following table presents various SQL queries and the corresponding JavaScript queries. As with SQL queries, properties (for example, item.id) are case-sensitive.
+The following table presents various SQL queries and the corresponding JavaScript queries. As with SQL queries, properties (for example, `item.id`) are case-sensitive.
 
 > [!NOTE]
 > `__` (double-underscore) is an alias to `getContext().getCollection()` when using the JavaScript query API.

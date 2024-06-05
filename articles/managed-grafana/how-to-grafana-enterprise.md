@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
-ms.date: 10/06/2023
+ms.date: 03/22/2024
 ---
 
 # Enable Grafana Enterprise
@@ -71,7 +71,7 @@ When [creating a new Azure Managed Grafana workspace](quickstart-managed-grafana
 
     > [!CAUTION]
     > Each Azure subscription can benefit from one and only one free Grafana Enterprise trial. The free trial lets you try the Grafana Enterprise plan for one month.
-    > - If you select a free trial and enable recurring billing, you will start getting charged after the end of your first month. Disable recurring billing if you just want to test Grafana Enterprise.
+    > - Grafana Enterprise plugins will be disabled once the free trial expires. Enterprise-plugin based data sources and dashboards created during the free trial period will no longer work after the expiration of the free trial. To use those data sources and dashboards, you will need to purchase a paid plan.
     > - If you delete a Grafana Enterprise free trial resource, you will not be able to create another Grafana Enterprise free trial. Free trial is for one-time use only.
 
 1. Select **Review + create** and review the information about your new instance, including the costs that may be associated with the Grafana Enterprise plan and potential other paid options.
@@ -89,7 +89,7 @@ To enable Grafana Enterprise on an existing Azure Managed Grafana instance, foll
   1. Select **Free Trial - Azure Managed Grafana Enterprise Upgrade** to test Grafana Enterprise for free or select the monthly plan. Review the associated costs to make sure that you selected a plan that suits you. Recurring billing is disabled by default.
         > [!CAUTION]
         > Each Azure subscription can benefit from one and only one free Grafana Enterprise trial. The free trial lets you try the Grafana Enterprise plan for one month.
-        > - If you select a free trial and enable recurring billing, you will start getting charged after the end of your first month. Disable recurring billing if you just want to test Grafana Enterprise.
+        > - Grafana Enterprise plugins will be disabled once the free trial expires. Enterprise-plugin based data sources and dashboards created during the free trial period will no longer work after the expiration of the free trial. To use those data sources and dashboards, you will need to purchase a paid plan.
         > - If you delete a Grafana Enterprise free trial resource, you will not be able to create another Grafana Enterprise free trial. Free trial is for one-time use only.
 
   1. Read and check the box at the bottom of the page to state that you agree with the terms displayed, and select **Update** to finalize the creation of your new Azure Managed Grafana instance.

@@ -21,7 +21,7 @@ Message routing enables you to send messages from your devices to cloud services
 
 The IoT Hub defines a common format for all device-to-cloud messaging for interoperability across protocols. For more information, see [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
 
 ## Routing endpoints
 
@@ -34,7 +34,7 @@ IoT Hub currently supports the following endpoints for message routing:
 * Service Bus queues
 * Service Bus topics
 * Event Hubs
-* Cosmos DB (preview)
+* Cosmos DB
 
 For more information about each of these endpoints, see [IoT Hub endpoints](./iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
 
@@ -78,7 +78,7 @@ For more information, see [IoT Hub message routing query syntax](./iot-hub-devgu
 
 Use the following articles to learn how to read messages from an endpoint.
 
-* Read from a [built-in endpoint](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json)
+* Read from a [built-in endpoint](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json)
 
 * Read from [Blob storage](../storage/blobs/storage-blob-event-quickstart.md)
 

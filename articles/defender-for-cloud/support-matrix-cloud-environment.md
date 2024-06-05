@@ -1,6 +1,8 @@
 ---
 title: Support across Azure clouds
-description: Review Defender for Cloud features and plans supported across different clouds.
+author: Elazark
+ms.author: elkrieger
+description: This article provides an overview of the supported features and plans for Defender for Cloud in Azure commercial cloud and government clouds.
 ms.topic: limits-and-quotas
 ms.date: 03/10/2024
 ---
@@ -13,11 +15,12 @@ This article indicates which Defender for Cloud features are supported in Azure 
 
 In the support table, **NA** indicates that the feature isn't available.
 
+
 |**Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**|
 |--- | --- | --- | --- |
 |**GENERAL FEATURES** | | ||
 |[Continuous data export](continuous-export.md) | GA | GA | GA|
-|[Response automation with Azure Logic Apps](./workflow-automation.md) | GA | GA | GA|
+|[Response automation with Azure Logic Apps](./workflow-automation.yml) | GA | GA | GA|
 |[Security alerts](alerts-overview.md)<br/> Generated when one or more Defender for Cloud plans is enabled. | GA | GA | GA|
 |[Alert email notifications](configure-email-notifications.md) | GA | GA | GA|
 |[Alert suppression rules](alerts-suppression-rules.md) | GA | GA | GA|
@@ -32,6 +35,7 @@ In the support table, **NA** indicates that the feature isn't available.
 |[DevOps security posture](concept-devops-environment-posture-management-overview.md) | Preview | NA | NA|
 | **DEFENDER CSPM FEATURES** | | | |
 | [Data security dashboard](data-aware-security-dashboard-overview.md) | GA | NA | NA |
+| [Attack path](concept-attack-path.md) | GA | NA | NA |
 |**DEFENDER FOR CLOUD PLANS** | | ||
 |[Defender CSPM](concept-cloud-security-posture-management.md)| GA | NA | NA|
 |[Defender for APIs](defender-for-apis-introduction.md).  | GA | NA | NA|

@@ -123,7 +123,7 @@ When a metric value exhibits large fluctuations, dynamic thresholds may build a 
 If you want to alert on a specific metric but you can't see it when you create an alert rule, check to determine:
 
 - If you can't see any metrics for the resource, [check if the resource type is supported for metric alerts](./alerts-metric-near-real-time.md).
-- If you can see some metrics for the resource but can't find a specific metric, [check if that metric is available](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index). If so, see the metric description to check if it's only available in specific versions or editions of the resource.
+- If you can see some metrics for the resource but can't find a specific metric, [check if that metric is available](/azure/azure-monitor/reference/supported-metrics/metrics-index). If so, see the metric description to check if it's only available in specific versions or editions of the resource.
 - If the metric isn't available for the resource, it might be available in the resource logs and can be monitored by using log alerts. For more information, see how to [collect and analyze resource logs from an Azure resource](../essentials/tutorial-resource-logs.md).
 
 ### Can't find the metric to alert on: Virtual machines guest metrics
@@ -186,7 +186,7 @@ Refer to [Metrics not supported by dynamic thresholds](alerts-dynamic-thresholds
 
 #### The metric isn't available for the selected scope. This might happen if the metric only applies to a specific version or SKU error
 
-Review the metric description in [Supported metrics with Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index) to check if it's only available in specific versions or editions of the resource or this specific type.
+Review the metric description in [Supported metrics with Azure Monitor](/azure/azure-monitor/reference/supported-metrics/metrics-index) to check if it's only available in specific versions or editions of the resource or this specific type.
 
 For example, in SQL Database resources or Storage file services, there are specific metrics only supported on specific versions of the resource.
 

@@ -113,7 +113,7 @@ For more information, see [Using cloud-init on Azure Linux virtual machines](lin
 ## Storage
 * [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
 * [Add a disk to a Linux virtual machine using the azure-cli](linux/add-disk.md)
-* [How to attach a data disk to a Linux virtual machine in the Azure portal](linux/attach-disk-portal.md)
+* [How to attach a data disk to a Linux virtual machine in the Azure portal](linux/attach-disk-portal.yml)
 
 ## Networking
 * [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)

@@ -20,7 +20,7 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://aka.ms/trycosmosdb).
-- An Azure Cosmos DB for MongoDB account. [Create an API for MongoDB account](quickstart-nodejs.md#create-an-azure-cosmos-db-account).
+- An Azure Cosmos DB for MongoDB account. [Create an API for MongoDB account](/azure/cosmos-db/how-to-manage-database-account).
 - [Azure CLI](/cli/azure/) or Azure portal access. Changing capabilities via Azure Resource Manager isn't supported.
 
 ## Available capabilities
@@ -32,13 +32,13 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 | `EnableMongoRetryableWrites`        | Enables support for retryable writes on the account.                                                                                          | Yes       |
 | `EnableMongo16MBDocumentSupport`    | Enables support for inserting documents up to 16 MB in size.                                                                                   | No        |
 | `EnableUniqueCompoundNestedDocs`    | Enables support for compound and unique indexes on nested fields if the nested field isn't an array.                               | No        |
-| `EnableTtlOnCustomPath`             | Provides the ability to set a custom Time to Live (TTL) on any one field in a collection. Setting TTL on partial unique index property is not supported. ¹                                                                    | No        |
+| `EnableTtlOnCustomPath`             | Provides the ability to set a custom Time to Live (TTL) on any one field in a collection. Setting TTL on partial unique index property is not supported. <sup>1</sup>                                                                    | No        |
 | `EnablePartialUniqueIndex`          | Enables support for a unique partial index, so you have more flexibility to specify exactly which fields in documents you'd like to index. | No        |
-| `EnableUniqueIndexReIndex` | Enables support for unique index re-indexing for Cosmos DB for MongoDB RU. ¹  | No |
+| `EnableUniqueIndexReIndex` | Enables support for unique index re-indexing for Cosmos DB for MongoDB RU. <sup>1</sup>  | No |
 
 > [!NOTE]
 >
-> ¹ This capability cannot be enabled on an Azure Cosmos DB for MongoDB accounts with continuous backup.
+> <sup>1</sup> This capability cannot be enabled on an Azure Cosmos DB for MongoDB accounts with continuous backup.
 >
 
 ## Enable a capability

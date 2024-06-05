@@ -17,7 +17,7 @@ This article shows you how to quickly deploy Red Hat Quarkus on Azure Kubernetes
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If you're running the commands in this guide locally (instead of using Azure Cloud Shell), complete the following steps:
   - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
@@ -28,7 +28,7 @@ This article shows you how to quickly deploy Red Hat Quarkus on Azure Kubernetes
   - Install [cURL](https://curl.se/download.html).
   - Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling).
 - Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
-  - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
+  - [!INCLUDE [azure-cli-login](~/reusable-content/ce-skilling/azure/includes/azure-cli-login.md)]
   - This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create the app project
@@ -60,7 +60,7 @@ Instead of `quarkus dev`, you can accomplish the same thing with Maven by using 
 
 You may be asked if you want to send telemetry of your usage of Quarkus dev mode. If so, answer as you like.
 
-Quarkus dev mode enables live reload with background compilation. If you modify any aspect of your app source code and refresh your browser, you can see the changes. If there are any issues with compilation or deployment, an error page lets you know. Quarkus dev mode listens for a debugger on port 5005. If you want to wait for the debugger to attach before running, pass `-Dsuspend` on the command line. If you don’t want the debugger at all, you can use `-Ddebug=false`.
+Quarkus dev mode enables live reload with background compilation. If you modify any aspect of your app source code and refresh your browser, you can see the changes. If there are any issues with compilation or deployment, an error page lets you know. Quarkus dev mode listens for a debugger on port 5005. If you want to wait for the debugger to attach before running, pass `-Dsuspend` on the command line. If you don't want the debugger at all, you can use `-Ddebug=false`.
 
 The output should look like the following example:
 
@@ -623,3 +623,4 @@ You may also want to use `docker rmi` to delete the container images `postgres` 
 - [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus)
 - [Quarkus](https://quarkus.io/)
 - [Jakarta EE on Azure](/azure/developer/java/ee)
+

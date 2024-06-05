@@ -33,7 +33,7 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 
 ## Set up and register
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To begin:
 
@@ -618,7 +618,7 @@ Cross-zonal restore is supported only in scenarios where:
 To replace the disks and configuration information, perform the following steps:
 
 * Step 1: [Restore the disks](backup-azure-vms-automation.md#restore-the-disks)
-* Step 2: [Detach data disk using PowerShell](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-powershell)
+* Step 2: [Detach data disk using PowerShell](../virtual-machines/windows/detach-disk.yml#detach-a-data-disk-using-powershell)
 * Step 3: [Attach data disk to Windows VM with PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 
 ## Create a VM from restored disks

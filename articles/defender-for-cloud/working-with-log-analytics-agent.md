@@ -37,7 +37,7 @@ To configure integration with the Log Analytics agent:
         > - [Where is the default Log Analytics workspace created?](./faq-data-collection-agents.yml#where-is-the-default-log-analytics-workspace-created-)
         > - [Can I delete the default workspaces created by Defender for Cloud?](./faq-data-collection-agents.yml#can-i-delete-the-default-workspaces-created-by-defender-for-cloud-)
 
-    - **Connect Azure VMs to a different workspace** - From the dropdown list, select the workspace to store collected data. The dropdown list includes all workspaces across all of your subscriptions. You can use this option to collect data from virtual machines running in different subscriptions and store it all in your selected workspace.  
+    - **Connect Azure VMs to a different workspace** - From the dropdown list, select the workspace to store collected data. The dropdown list includes all workspaces across all of your subscriptions. You can use this option to collect data from virtual machines running in different subscriptions and store it all in your selected workspace.
 
         If you already have an existing Log Analytics workspace, you might want to use the same workspace (requires read and write permissions on the workspace). This option is useful if you're using a centralized workspace in your organization and want to use it for security data collection. Learn more in [Manage access to log data and workspaces in Azure Monitor](../azure-monitor/logs/manage-access.md).
 

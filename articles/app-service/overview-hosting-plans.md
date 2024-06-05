@@ -12,6 +12,8 @@ ms.custom: UpdateFrequency3
 ---
 # Azure App Service plan overview
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 An app service always runs in an _App Service plan_. In addition, [Azure Functions](../azure-functions/dedicated-plan.md) also has the option of running in an _App Service plan_. An App Service plan defines a set of compute resources for a web app to run. 
 
 When you create an App Service plan in a certain region (for example, West Europe), a set of compute resources is created for that plan in that region. Whatever apps you put into this App Service plan run on these compute resources as defined by your App Service plan. Each App Service plan defines:
@@ -85,7 +87,7 @@ You don't get charged for using the App Service features that are available to y
 
 Want to optimize and save on your cloud spending?
 
-[!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
+[!INCLUDE [cost-management-horizontal](~/reusable-content/ce-skilling/azure/includes/cost-management-horizontal.md)]
 
 ## What if my app needs more capabilities or features?
 

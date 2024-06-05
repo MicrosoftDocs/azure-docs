@@ -31,6 +31,8 @@ The following table highlights each method so that you can determine which works
 
 Be sure to review the basic [prerequisites](prerequisites.md) and [network configuration requirements](network-requirements.md) before deploying the agent, as well as any specific requirements listed in the steps for the onboarding method you choose. To learn more about what changes the agent will make to your system, see [Overview of the Azure Connected Machine Agent](agent-overview.md).
 
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
+
 ## Next steps
 
 * Learn about the Azure Connected Machine agent [prerequisites](prerequisites.md) and [network requirements](network-requirements.md).

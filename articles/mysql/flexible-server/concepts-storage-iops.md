@@ -3,8 +3,10 @@ title: Storage iops
 description: This article describes the storage IOPS in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom:
+  - build-2024
 ms.topic: conceptual
-author: code-sidd 
+author: code-sidd
 ms.author: sisawant
 ms.date: 07/20/2023
 ---
@@ -135,7 +137,4 @@ By navigating to Monitoring under the Overview section, or navigate to [IO count
 
 ## Next steps
 - Learn more about [service limitations](./concepts-limitations.md).
-- Learn more about [Pricing](./concepts-service-tiers-storage.md#pricing) information.
-
-
-
+- Learn more about [Pricing](./concepts-service-tiers-storage.md#price) information.

@@ -69,7 +69,7 @@ For a table of service limits, quotas, and constraints in each tier, see [Web Pu
 
 
 ## Enhanced large instance support with Premium_P2 SKU
-The new Premium_P2 SKU (currently in Preview) is designed to facilitate extensive scalability for high-demand scenarios.  This SKU allows scaling among 100, 200, 300, 400, 500, 600. 700, 800, 900, 1000 units for a single Web PubSub Service instance. This enhancement enables the handling of up to **one million** concurrent connections, catering to large-scale, real-time communication needs.
+The new Premium_P2 SKU is designed to facilitate extensive scalability for high-demand scenarios.  This SKU allows scaling among 100, 200, 300, 400, 500, 600. 700, 800, 900, 1000 units for a single Web PubSub Service instance. This enhancement enables the handling of up to **one million** concurrent connections, catering to large-scale, real-time communication needs.
 
 You can scale up the SKU to Premium_P2 using Azure portal or Azure CLI.
 

@@ -36,8 +36,8 @@ MongoDB connection strings supports the “appName” parameter, which is a mean
 The appName parameter can be in one of the following formats​:
 
 ```powershell
-appName=<user-workload-name>​
-appName=<user-workload-name>@<preferred-write-region>​
+appName=<user-workload-name>
+appName=<user-workload-name>@<preferred-write-region>
 appName=<user-workload-name>@<cosmosdb-account-name>@<preferred-write-region>
 ```
 

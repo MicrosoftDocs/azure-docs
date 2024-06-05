@@ -160,7 +160,10 @@ Create the cluster, referencing the node subnet using `--vnet-subnet-id`, the po
 clusterName="myAKSCluster"
 subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
 
-az aks create --name $clusterName --resource-group $resourceGroup --location $location \
+az aks create \
+    --name $clusterName \
+    --resource-group $resourceGroup \
+    --location $location \
     --max-pods 250 \
     --node-count 2 \
     --network-plugin azure \
@@ -168,7 +171,8 @@ az aks create --name $clusterName --resource-group $resourceGroup --location $lo
     --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
     --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet \
     --enable-addons monitoring \
-    --kubernetes-version 1.28
+    --kubernetes-version 1.28 \
+    --generate-ssh-keys
 ```
 
 ### Adding node pool
@@ -217,3 +221,4 @@ Learn more about networking in AKS in the following articles:
 [azure-cni-prereq]: ./configure-azure-cni.md#prerequisites
 [azure-cni-deployment-parameters]: ./azure-cni-overview.md#deployment-parameters
 [az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
+

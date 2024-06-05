@@ -1,11 +1,10 @@
 ---
-title: include file
 ms.topic: include
 ms.custom: include file
 ms.date: 01/19/2024
 ---
 
-Learn [concepts](../concepts/utterances.md#utterance-normalization) of normalization and how to use [version](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) APIs to update these settings or use the LUIS portal's **Manage** section, **Settings** page.
+Learn [concepts](../concepts/utterances.md#utterance-normalization) of normalization and how to use [version](/rest/api/cognitiveservices-luis/authoring/versions?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true) APIs to update these settings or use the LUIS portal's **Manage** section, **Settings** page.
 
 
 |UI setting|API setting|Information|

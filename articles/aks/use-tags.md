@@ -4,6 +4,9 @@ description: Learn how to use Azure provider tags to track resources in Azure Ku
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 06/16/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Use Azure tags in Azure Kubernetes Service (AKS)
@@ -73,7 +76,7 @@ When you create or update an AKS cluster with the `--tags` parameter, the follow
 2. Verify the tags have been applied to the cluster and its related resources using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show -g myResourceGroup -n myAKSCluster --query '[tags]'
+    az aks show --resource-group myResourceGroup --name myAKSCluster --query '[tags]'
     ```
 
     The following example output shows the tags applied to the cluster:
@@ -104,7 +107,7 @@ When you create or update an AKS cluster with the `--tags` parameter, the follow
 2. Verify the tags have been applied to the cluster and its related resources using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show -g myResourceGroup -n myAKSCluster --query '[tags]'
+    az aks show --resource-group myResourceGroup --name myAKSCluster --query '[tags]'
     ```
 
     The following example output shows the tags applied to the cluster:
@@ -144,7 +147,7 @@ When you create or update a node pool with the `--tags` parameter, the tags you 
 2. Verify that the tags have been applied to the node pool using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show -g myResourceGroup -n myAKSCluster --query 'agentPoolProfiles[].{nodepoolName:name,tags:tags}'
+    az aks show --resource-group myResourceGroup --name myAKSCluster --query 'agentPoolProfiles[].{nodepoolName:name,tags:tags}'
     ```
 
     The following example output shows the tags applied to the node pool:
@@ -184,7 +187,7 @@ When you create or update a node pool with the `--tags` parameter, the tags you 
 2. Verify the tags have been applied to the node pool using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show -g myResourceGroup -n myAKSCluster --query 'agentPoolProfiles[].{nodepoolName:name,tags:tags}'
+    az aks show --resource-group myResourceGroup --name myAKSCluster --query 'agentPoolProfiles[].{nodepoolName:name,tags:tags}'
     ```
 
     The following example output shows the tags applied to the node pool:
@@ -250,3 +253,4 @@ Learn more about [using labels in an AKS cluster][use-labels-aks].
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
 [az-aks-update]: /cli/azure/aks#az-aks-update
+

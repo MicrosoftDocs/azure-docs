@@ -19,25 +19,30 @@ The Short Code service requires provisioning a short code through the Azure port
 
 ## Short Codes Pricing
 
-### Provisioning Fee
-There are 2 types of fees for short code provisioning.
+### Setup Fee
+When applying for a short code, there are two charges to consider:
 
-**Setup fee:**
+- Pre-paid Monthly Fee: This fee covers the period from the day of application until the short code is delivered. Currently, this fee is temporarily waived and will not be charged.
+- Setup Fee: This is a one-time charge applied at the time the short code is delivered.
+
+#### Pre-paid fee
+
+|Country|Fee type   | Description |Fee|
+|---------|-----------|-------------|---|
+|Canada| Short Code Fee |Charged before short code delivery.|$1000/mo|
+|United Kingdom| Short Code Fee |Charged before short code delivery.|$1600/mo|
+|United States|Random Short Code Fee |Charged before short code delivery.|$1000/mo*|
+
+*Extra $500/mo would be charged for Vanity short codes"
+>[!Note] 
+>The pre-paid monthly fee is currently waived and will not be charged. Please be aware that this is a temporary measure and subject to change.
+
+#### Setup fee
 
 |Country|Fee type   | Description |Fee|
 |---------|-----------|-------------|---|
 |Canada|Setup Fee |Charged at the time the Short Code is delivered |$3000|
 |United States|Setup Fee |Charged at the time the Short Code is delivered |$650|
-
-**Short code fee:**
-
-|Country|Fee type   | Description |Fee|
-|---------|-----------|-------------|---|
-|Canada| Short Code Fee |Charged before short code delivery. Waived for a limited period|$1000/mo|
-|United Kingdom| Short Code Fee |Charged before short code delivery. Waived for a limited period|$1600/mo|
-|United States|Random Short Code Fee |Charged before short code delivery. Waived for a limited period|$1000/mo*|
-
-*Extra $500/mo would be charged for Vanity short codes
 
 >[!Note] 
 >Short Codes provisioning typically takes on average 8-12 weeks.
@@ -64,11 +69,10 @@ The following prices are exclusive of the required communications taxes and fees
 |United Kingdom| $0.04 | $0.0075|
 |United States| $0.0075 | $0.0075|
 
-
 *See our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
 
-## Carrier surcharge
-A standard carrier surcharge is applicable to messages exchanged via toll-free numbers. A carrier surcharge is a per-message segment* charge and is subject to change. Carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages.  See our guide on [Carrier surcharges]
+### Carrier surcharge
+A standard carrier surcharge is applicable to messages exchanged via short-codes. A carrier surcharge is a per-message segment* charge and is subject to change. Carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages.  See our guide on [Carrier surcharges]
 
 |Country| Send Message | Receive Message|
 |-----------|---------|--------------|

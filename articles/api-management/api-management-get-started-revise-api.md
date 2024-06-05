@@ -13,6 +13,9 @@ ms.author: danlep
 ---
 
 # Tutorial: Use revisions to make non-breaking API changes safely
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 When your API is ready to go and is used by developers, you eventually need to make changes to that API and at the same time not disrupt callers of your API. It's also useful to let developers know about the changes you made.
 
 In Azure API Management, use *revisions* to make non-breaking API changes so you can model and test changes safely. When ready, you can make a revision current and replace your current API.

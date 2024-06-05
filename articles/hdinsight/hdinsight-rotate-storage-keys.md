@@ -3,7 +3,7 @@ title: Update Azure Storage account access key in Azure HDInsight
 description: Learn how to update Azure Storage account access key in Azure HDInsight cluster.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 05/23/2024
 ---
 
 # Update Azure storage account access keys in HDInsight cluster

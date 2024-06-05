@@ -59,7 +59,7 @@ In this section, you'll create a virtual network, subnet, Azure Bastion host, an
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 
@@ -326,7 +326,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | **Zone 2** |
     | Network security group | Select the existing **myNSG** |
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 

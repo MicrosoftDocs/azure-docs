@@ -1,6 +1,4 @@
 ---
-title: include file
-description: include file
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include
@@ -14,4 +12,5 @@ ms.custom: include file
 # see also azure-netapp-files-quickstart-set-up-account-create-volumes.md
 ---
 
-If you need to delete a resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription will not delete the backups. You can remove backups by [disabling backups](../backup-disable.md) or [manually deleting the backups](../backup-delete.md).
+If you need to delete a resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription doesn't delete the backups. You can remove backups by [manually deleting the backups](../backup-delete.md).
+

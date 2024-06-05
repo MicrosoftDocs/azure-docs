@@ -1,5 +1,5 @@
 ---
-title: Configure Container insights data collection using data collection rule
+title: Configure data collection and cost optimization in Container insights using data collection rule
 description: Describes how you can configure cost optimization and other data collection for Container insights using a data collection rule.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
@@ -7,9 +7,9 @@ ms.date: 12/19/2023
 ms.reviewer: aul
 ---
 
-# Configure data collection in Container insights using data collection rule
+# Configure data collection and cost optimization in Container insights using data collection rule
 
-This article describes how to configure data collection in Container insights using the [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) for the cluster. A DCR is created when you onboard a cluster to Container insights. This DCR is used by the containerized agent to define data collection for the cluster.
+This article describes how to configure data collection in Container insights using the [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) for your Kubernetes cluster. This includes preset configurations for optimizing your costs. A DCR is created when you onboard a cluster to Container insights. This DCR is used by the containerized agent to define data collection for the cluster.
 
 The DCR is primarily used to configure data collection of performance and inventory data and to configure cost optimization.
 

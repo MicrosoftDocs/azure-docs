@@ -15,6 +15,9 @@ zone_pivot_groups: qnamaker-quickstart
 
 # Quickstart: QnA Maker client library
 
+> [!NOTE]
+> [Azure Open AI On Your Data](../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to QnA Maker. If you wish to migrate your QnA Maker project to Azure Open AI On Your Data, please check out our [guide](../How-To/migrate-to-openai.md).
+
 Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]

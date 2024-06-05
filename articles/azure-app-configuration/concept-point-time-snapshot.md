@@ -8,7 +8,7 @@ ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 05/24/2023
+ms.date: 04/13/2024
 ---
 
 # Point-in-time key-values

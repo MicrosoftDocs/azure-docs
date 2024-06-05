@@ -8,7 +8,7 @@ ms.date: 03/11/2024
 ---
 # File Integrity Monitoring in Microsoft Defender for Cloud
 
-File Integrity Monitoring (FIM) examines operating system files, Windows registries, application software, and Linux system files for changes that might indicate an attack.  
+File Integrity Monitoring (FIM) examines operating system files, Windows registries, application software, and Linux system files for changes that might indicate an attack.
 
 FIM (file integrity monitoring) uses the Azure Change Tracking solution to track and identify changes in your environment. When FIM is enabled, you have a **Change Tracking** resource of type **Solution**. If you remove the **Change Tracking** resource, you'll also disable the File Integrity Monitoring feature in Defender for Cloud. FIM lets you take advantage of [Change Tracking](../automation/change-tracking/overview.md) directly in Defender for Cloud. For data collection frequency details, see [Change tracking data collection details](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 

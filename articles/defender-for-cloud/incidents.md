@@ -4,19 +4,19 @@ description: This document helps you to use Microsoft Defender for Cloud to mana
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/09/2021
+ms.date: 05/30/2024
 ---
 # Manage security incidents in Microsoft Defender for Cloud
 
 Triaging and investigating security alerts can be time consuming for even the most skilled security analysts. For many, it's hard to know where to begin.
 
-Defender for Cloud uses [analytics](./alerts-overview.md) to connect the information between distinct [security alerts](managing-and-responding-alerts.md). Using these connections, Defender for Cloud can provide a single view of an attack campaign and its related alerts to help you understand the attacker's actions and the affected resources.
+Defender for Cloud uses [analytics](./alerts-overview.md) to connect the information between distinct [security alerts](managing-and-responding-alerts.yml). Using these connections, Defender for Cloud can provide a single view of an attack campaign and its related alerts to help you understand the attacker's actions and the affected resources.
 
 This page provides an overview of incidents in Defender for Cloud.
 
 ## What is a security incident?
 
-In Defender for Cloud, a security incident is an aggregation of all alerts for a resource that align with [kill chain](alerts-reference.md#mitre-attck-tactics) patterns. Incidents appear in the [Security alerts](managing-and-responding-alerts.md) page. Select an incident to view the related alerts and get more information.
+In Defender for Cloud, a security incident is an aggregation of all alerts for a resource that align with [kill chain](alerts-reference.md#mitre-attck-tactics) patterns. Incidents appear in the [Security alerts](managing-and-responding-alerts.yml) page. Select an incident to view the related alerts and get more information.
 
 ## Managing security incidents
 
@@ -61,4 +61,4 @@ In Defender for Cloud, a security incident is an aggregation of all alerts for a
 This page explained the security incident capabilities of Defender for Cloud. For related information, see the following pages:
 
 - [Security alerts in Defender for Cloud](alerts-overview.md)
-- [Manage and respond to security alerts](managing-and-responding-alerts.md)
+- [Manage and respond to security alerts](managing-and-responding-alerts.yml)

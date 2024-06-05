@@ -16,9 +16,9 @@ When a vulnerability is identified in a container image stored in a container re
 - [Azure DevOps](quickstart-onboard-devops.md) or [GitHub](quickstart-onboard-github.md) environment onboarded to Microsoft Defender for Cloud.
   - When an Azure DevOps environment is onboarded to Microsoft Defender for Cloud, the Microsoft Defender for DevOps Container Mapping will be automatically shared and installed in all connected Azure DevOps organizations. This will automatically inject tasks into all Azure Pipelines to collect data for container mapping. 
     
-- For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.md) installed on the Azure DevOps organization. 
+- For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.yml) installed on the Azure DevOps organization. 
 
-- For GitHub, [Microsoft Security DevOps (MSDO) Action](github-action.md) configured in your GitHub repositories. Additionally, the GitHub Workflow must have "**id-token: write"** permissions for federation with Defender for Cloud. For an example, see [this YAML](https://github.com/microsoft/security-devops-action/blob/7e3060ae1e6a9347dd7de6b28195099f39852fe2/.github/workflows/on-push-verification.yml). 
+- For GitHub, [Microsoft Security DevOps (MSDO) Action](github-action.md) configured in your GitHub repositories. Additionally, the GitHub Workflow must have "**id-token: write"** permissions for federation with Defender for Cloud. For an example, see [this YAML](https://github.com/microsoft/security-devops-action/blob/7e3060ae1e6a9347dd7de6b28195099f39852fe2/.github/workflows/on-push-verification.yml).
 - [Defender CSPM](tutorial-enable-cspm-plan.md) enabled.
 - The container images must be built using [Docker](https://www.docker.com/) and the Docker client must be able to access the Docker server during the build.
 
@@ -111,4 +111,3 @@ The following is an example of an advanced query that utilizes container image m
 ## Next steps
 
 - Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md).
-

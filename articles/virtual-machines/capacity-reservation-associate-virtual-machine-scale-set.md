@@ -122,8 +122,6 @@ An [ARM template](../azure-resource-manager/templates/overview.md) is a Java
 
 ARM templates let you deploy groups of related resources. In a single template, you can create Capacity Reservation group and Capacity Reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration/continuous delivery (CI/CD) pipelines. 
 
-If your environment meets the prerequisites and you are familiar with using ARM templates, use this [Create Virtual Machine Scale Sets with Capacity Reservation](https://github.com/Azure/on-demand-capacity-reservation/blob/main/VirtualMachineScaleSetWithReservation.json) template. 
-
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 

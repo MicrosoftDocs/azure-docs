@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: micahvivion
 ms.date: 03/20/2024
-ms.topic: include
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 

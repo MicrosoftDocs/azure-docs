@@ -77,7 +77,7 @@ The processing of cutting-over or connecting your application allows you to swit
 4. Use the connection information in your application's configuration (or other relevant places) to reflect the Azure Cosmos DB's API for MongoDB connection in your app.
 :::image type="content" source="./media/post-migration-optimization/connection-string.png" alt-text="Screenshot shows the settings for a Connection String.":::
 
-For more details, please see the [Connect a MongoDB application to Azure Cosmos DB](connect-account.md) page.
+For more details, please see the [Connect a MongoDB application to Azure Cosmos DB](connect-account.yml) page.
 
 ## Tune for optimal performance
 
@@ -88,7 +88,7 @@ One convenient fact about [indexing](#optimize-the-indexing-policy), [global dis
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
-* [Connect a MongoDB application to Azure Cosmos DB](connect-account.md)
+* [Connect a MongoDB application to Azure Cosmos DB](connect-account.yml)
 * [Connect to Azure Cosmos DB account using Studio 3T](connect-using-mongochef.md)
 * [How to globally distribute reads using Azure Cosmos DB's API for MongoDB](readpreference-global-distribution.md)
 * [Expire data with Azure Cosmos DB's API for MongoDB](time-to-live.md)

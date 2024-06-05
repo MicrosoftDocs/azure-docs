@@ -1,11 +1,11 @@
 ---
-ms.author: enricohuang
+ms.author: micahvivion
 title: Quickstart - Set video constraints in your web calling app
 titleSuffix: An Azure Communication Services document
 description: In this quickstart, you learn how to set video constraints in your existing web calling app using Azure Communication Services.
 author: sloanster
 services: azure-communication-services
-ms.date: 02/15/2024
+ms.date: 03/29/2024
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -15,6 +15,12 @@ You can set video constraints in your calls to control the video quality based o
 
 ## Send video constraints
 Azure Communication Services Web Calling SDK supports setting the maximum video resolution, framerate, or bitrate that a client sends. The sender video constraints are supported on Desktop browsers (Chrome, Edge, Firefox) and when using iOS Safari mobile browser or Android Chrome mobile browser.
+
+
+
+| Supported Constraints | 
+| ----------- |
+| **Incoming video**: resolution<br />**Outgoing video**: resolution, framerate, bitrate |
 
 ### Setting video constraints at the start of a call - outgoing (send) video
 The video constraints setting is implemented on the `Call` interface. To use the Video Constraints, you can specify the constraints from within `CallOptions` when you make a call, accept a call, or join a call. You must specify `localVideoStreams` in `videoOptions`. <br/>

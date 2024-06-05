@@ -1,26 +1,27 @@
 ---
-title: Schemas for the Microsoft Defender for Cloud alerts
+title: Alerts schema
 description: This article describes the different schemas used by Microsoft Defender for Cloud for security alerts.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/09/2021
+ms.date: 03/25/2024
+#customer intent: As a reader, I want to understand the different schemas used by Microsoft Defender for Cloud for security alerts so that I can effectively work with the alerts.
 ---
 
-# Security alerts schemas
+# Alerts schemas
 
-If your subscription has Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads) enabled, you receive security alerts when Defender for Cloud detects threats to their resources.
+Defender for Cloud provides alerts that help you identify, understand, and respond to security threats. Alerts are generated when Defender for Cloud detects suspicious activity or a security-related issue in your environment. You can view these alerts in the Defender for Cloud portal, or you can export them to external tools for further analysis and response.
 
-You can view these security alerts in Microsoft Defender for Cloud's pages - [overview dashboard](overview-page.md), [alerts](managing-and-responding-alerts.md), [resource health pages](investigate-resource-health.md), or [workload protections dashboard](workload-protections-dashboard.md) - and through external tools such as:
+You can view these security alerts in Microsoft Defender for Cloud's pages - [overview dashboard](overview-page.md), [alerts](managing-and-responding-alerts.yml), [resource health pages](investigate-resource-health.md), or [workload protections dashboard](workload-protections-dashboard.md) - and through external tools such as:
 
 - [Microsoft Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM. The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends them to the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) for Microsoft Sentinel.
 - Third-party SIEMs - Send data to [Azure Event Hubs](../event-hubs/index.yml). Then integrate your Event Hubs data with a third-party SIEM. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 - [The REST API](/rest/api/defenderforcloud/operation-groups?view=rest-defenderforcloud-2020-01-01&preserve-view=true) - If you're using the REST API to access alerts, see the [online Alerts API documentation](/rest/api/defenderforcloud/alerts).
 
-If you're using any programmatic methods to consume the alerts, you need the correct schema to find the fields that are relevant to you. Also, if you're exporting to an Event Hubs or trying to trigger Workflow Automation with generic HTTP connectors, use the schemas to properly parse the JSON objects.
+If you're using any programmatic methods to consume the alerts, you need the correct schema to find the fields that are relevant to you. Also, if you're exporting to an Event Hubs or trying to trigger Workflow Automation with generic HTTP connectors, schemas should be utilized to properly parse the JSON objects.
 
 >[!IMPORTANT]
-> The schema is slightly different for each of these scenarios, so make sure you select the relevant tab.
+> Since the schema is different for each of these scenarios, ensure you select the relevant tab.
 
 ## The schemas
 
@@ -148,13 +149,13 @@ The schema and a JSON representation for security alerts sent to MS Graph, are a
 
 ---
 
-## Next steps
+## Related articles
 
-This article described the schemas that Microsoft Defenders for Cloud's threat protection tools use when sending security alert information.
-
-For more information on the ways to access security alerts from outside Defender for Cloud, see:
-
+- [Log Analytics workspaces](../azure-monitor/logs/quick-create-workspace.md) - Azure Monitor stores log data in a Log Analytics workspace, a container that includes data and configuration information
 - [Microsoft Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM
 - [Azure Event Hubs](../event-hubs/index.yml) - Microsoft's fully managed, real-time data ingestion service
-- [Continuously export Defender for Cloud data](continuous-export.md)
-- [Log Analytics workspaces](../azure-monitor/logs/quick-create-workspace.md) - Azure Monitor stores log data in a Log Analytics workspace, a container that includes data and configuration information
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Continuously export Defender for Cloud data](continuous-export.md)

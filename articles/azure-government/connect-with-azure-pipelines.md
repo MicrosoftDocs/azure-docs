@@ -17,7 +17,7 @@ This how-to guide helps you use Azure Pipelines to set up continuous integration
 
 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is used by development teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](/azure/devops/pipelines/library/service-endpoints) for Azure Government.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

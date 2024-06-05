@@ -15,7 +15,7 @@ See [Monitoring Azure Event Hubs](monitor-event-hubs.md) for details on collecti
 
 
 ## Metrics
-This section lists all the automatically collected platform metrics collected for Azure Event Hubs. The resource provider for these metrics is **Microsoft.EventHub/clusters** or **Microsoft.EventHub/namespaces**.
+This section lists all the automatically collected platform metrics collected for Azure Event Hubs. The resource provider for these metrics is `Microsoft.EventHub/clusters` or `Microsoft.EventHub/namespaces`.
 
 ### Request metrics
 Counts the number of data and management operations requests.
@@ -99,26 +99,24 @@ Runtime audit logs capture aggregated diagnostic information for all data plane 
 Runtime audit logs include the elements listed in the following table:
 
 
-Name | Description | Supported in Azure Diagnostics | Supported in Resource Specific table
-------- | -------| -----| -----|
-`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes 
-`ActivityName` | Runtime operation name.| Yes | Yes 
-`ResourceId` | Resource associated with the activity. | Yes | Yes
-`Timestamp` | Aggregation time. | Yes | No
- `TimeGenerated [UTC]`|Time of executed operation (in UTC)| No | Yes
-`Status` | Status of the activity (success or failure). | Yes | Yes 
-`Protocol` | Type of the protocol associated with the operation. | Yes | Yes 
-`AuthType` | Type of authentication (Azure Active Directory or SAS Policy). | Yes | Yes 
-`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes 
-`NetworkType` | Type of the network access: `Public` or `Private`. | Yes | Yes
-`ClientIP` | IP address of the client application. | Yes | Yes 
-`Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes 
-`Properties` | Metadata that are specific to the data plane operation. | Yes | Yes 
-`Category` | Log category | Yes | NO
- `Provider`|Name of Service emitting the logs e.g., Eventhub | No | Yes 
- `Type`  | Type of logs emitted | No | Yes
-
-
+| Name | Description | Supported in Azure Diagnostics | Supported in Resource Specific table |
+| ------- | -------| -----| -----|
+| `ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes  |
+| `ActivityName` | Runtime operation name.| Yes | Yes  |
+| `ResourceId` | Resource associated with the activity. | Yes | Yes |
+| `Timestamp` | Aggregation time. | Yes | No |
+|  `TimeGenerated [UTC]`|Time of executed operation (in UTC)| No | Yes |
+| `Status` | Status of the activity (success or failure). | Yes | Yes  |
+| `Protocol` | Type of the protocol associated with the operation. | Yes | Yes  |
+| `AuthType` | Type of authentication (Azure Active Directory or SAS Policy). | Yes | Yes  |
+| `AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes  |
+| `NetworkType` | Type of the network access: `Public` or `Private`. | Yes | Yes |
+| `ClientIP` | IP address of the client application. | Yes | Yes  |
+| `Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes  |
+| `Properties` | Metadata that are specific to the data plane operation. | Yes | Yes  |
+| `Category` | Log category | Yes | NO |
+| `Provider`|Name of Service emitting the logs, such as Eventhub | No | Yes  |
+| `Type`  | Type of logs emitted | No | Yes |
 
 Here's an example of a runtime audit log entry:
 
@@ -166,19 +164,76 @@ Application metrics logs capture the aggregated information on certain metrics r
 > [!NOTE] 
 > Application metrics logs are available only in **premium** and **dedicated** tiers. 
 
-Name | Description
-------- | -------
-`ConsumerLag` | Indicate the lag between consumers and producers. 
-`NamespaceActiveConnections` | Details of active connections established from a client to the event hub. 
-`GetRuntimeInfo` | Obtain run time information from Event Hubs. 
-`GetPartitionRuntimeInfo` | Obtain the approximate runtime information for a logical partition of an event hub. 
-`IncomingMessages` | Details of number of messages published to Event Hubs. 
-`IncomingBytes` | Details of Publisher throughput sent to Event Hubs
-`OutgoinMessages` | Details of number of messages consumed from Event Hubs. 
-`OutgoingBytes` | Details of Consumer throughput from Event Hubs.
-`OffsetCommit` | Number of offset commit calls made to the event hub 
-`OffsetFetch` | Number of offset fetch calls made to the event hub.
+| Name | Description |
+| ------- | ------- |
+| `ConsumerLag` | Indicate the lag between consumers and producers.  |
+| `NamespaceActiveConnections` | Details of active connections established from a client to the event hub.  |
+| `GetRuntimeInfo` | Obtain run time information from Event Hubs.  |
+| `GetPartitionRuntimeInfo` | Obtain the approximate runtime information for a logical partition of an event hub.  |
+| `IncomingMessages` | Details of number of messages published to Event Hubs.  |
+| `IncomingBytes` | Details of Publisher throughput sent to Event Hubs |
+| `OutgoingMessages` | Details of number of messages consumed from Event Hubs.  |
+| `OutgoingBytes` | Details of Consumer throughput from Event Hubs. |
+| `OffsetCommit` | Number of offset commit calls made to the event hub  |
+| `OffsetFetch` | Number of offset fetch calls made to the event hub. |
 
+## Diagnostic Error Logs
+Diagnostic error logs capture error messages for any client side, throttling and Quota exceeded errors. They provide detailed diagnostics for error identification.
+
+Diagnostic Error Logs include elements listed in below table:
+
+| Name | Description | Supported in Azure Diagnostics | Supported in AZMSDiagnosticErrorLogs (Resource specific table) |
+| ---|---|---|--- |
+| `ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes |
+| `ActivityName` | Operation name  | Yes | Yes |
+| `NamespaceName` | Name of Namespace | Yes | yes |
+| `EntityType` | Type of Entity | Yes | Yes  |
+| `EntityName` | Name of Entity | Yes | Yes   |
+| `OperationResult` | Type of error in Operation (`clienterror` or `serverbusy` or `quotaexceeded`) | Yes | Yes |
+| `ErrorCount` | Count of identical errors during the aggregation period of 1 minute. | Yes | Yes  |
+| `ErrorMessage` | Detailed Error Message | Yes | Yes  |
+| `ResourceProvider` | Name of Service emitting the logs. Possible values: `Microsoft.EventHub` and `Microsoft.ServiceBus` | Yes | Yes  |
+| `Time Generated (UTC)` | Operation time | No | Yes |
+| `EventTimestamp` | Operation Time | Yes | No |
+| `Category` | Log category | Yes | No |
+| `Type`  | Type of Logs emitted | No | Yes |
+
+Here's an example of Diagnostic error log entry:
+
+```json
+{
+    "ActivityId": "0000000000-0000-0000-0000-00000000000000",
+    "SubscriptionId": "<Azure Subscription Id",
+    "NamespaceName": "Name of Event Hubs Namespace",
+    "EntityType": "EventHub",
+    "EntityName": "Name of Event Hub",
+    "ActivityName": "SendMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event hub namespace name>",,
+    "OperationResult": "ServerBusy",
+    "ErrorCount": 1,
+    "EventTimestamp": "3/27/2024 1:02:29.126 PM +00:00",
+    "ErrorMessage": "the request was terminated because the entity is being throttled by the application group with application group name <application group name> and policy name <throttling policy name>.error code: 50013.",
+    "category": "DiagnosticErrorLogs"
+ }
+
+```
+Resource specific table entry:
+```json
+{
+    "ActivityId": "0000000000-0000-0000-0000-00000000000000",
+    "NamespaceName": "Name of Event Hubs Namespace",
+    "EntityType": "Event Hub",
+    "EntityName": "Name of Event Hub",
+    "ActivityName": "SendMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event hub namespace name>",,
+    "OperationResult": "ServerBusy",
+    "ErrorCount": 1,
+    "TimeGenerated [UTC]": "1/27/2024 4:02:29.126 PM +00:00",
+    "ErrorMessage": "The request was terminated because the entity is being throttled by the application group with application group name <application group name> and policy name <throttling policy name>.error code: 50013.",
+    "Type": "AZMSDiagnosticErrorLogs"
+ }
+
+```
 
 ## Azure Monitor Logs tables
 Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).

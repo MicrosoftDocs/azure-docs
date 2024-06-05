@@ -154,7 +154,7 @@ The following Azure Cosmos DB configuration choices can't be modified or undone 
 
   * **Query patterns**: The complexity of a query affects how many request units the query consumes.
 
-* The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-account.md) using the `getLastRequestStastistics` command to get the request charge, which outputs the number of RUs consumed:
+* The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-account.yml) using the `getLastRequestStastistics` command to get the request charge, which outputs the number of RUs consumed:
 
   ```bash
   db.runCommand({getLastRequestStatistics: 1})
