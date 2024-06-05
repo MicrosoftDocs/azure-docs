@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, niding, azla
 ms.topic: reference
 ms.custom: engagement-fy23
-ms.date: 04/07/2023
+ms.date: 12/13/2023
 ---
 
 # Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
@@ -102,7 +102,7 @@ To work with strings, you can use these string functions and also some [collecti
 | [formatNumber](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Return a number as a string based on the specified format |
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generate a globally unique identifier (GUID) as a string. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. |
-| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is a floating-point number. |
+| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isFloat) | Return a boolean that indicates whether a string is a floating-point number. |
 | [isInt](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is an integer. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
@@ -157,6 +157,8 @@ To work with conditions, compare values and expression results, or evaluate vari
 | [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Check whether the first value is greater than the second value. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Check whether the first value is greater than or equal to the second value. |
 | [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Check whether an expression is true or false. Based on the result, return a specified value. |
+| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isFloat) | Return a boolean that indicates whether a string is a floating-point number. |
+| [isInt](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is an integer. |
 | [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Check whether the first value is less than the second value. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Check whether the first value is less than or equal to the second value. |
 | [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Check whether an expression is false. |
@@ -5385,15 +5387,15 @@ Suppose that you have this `'items'` XML string:
 </produce>
 ```
 
-This example passes in the XPath expression, `'/produce/item/name'`, to find the nodes that match the `<name></name>` node in the `'items'` XML string, and returns an array with those node values:
+This example passes in the XPath expression, `'/produce/item/name/text()'`, to find the nodes that match the `<name></name>` node in the `'items'` XML string, and returns an array with those node values:
 
-`xpath(xml(parameters('items')), '/produce/item/name')`
+`xpath(xml(parameters('items')), '/produce/item/name/text()')`
 
 The example also uses the [parameters()](#parameters) function to get the XML string from `'items'` and convert the string to XML format by using the [xml()](#xml) function.
 
-Here's the result array with the nodes that match `<name></name`:
+Here's the result array populated with values of the nodes that match `<name></name>`:
 
-`[ <name>Gala</name>, <name>Honeycrisp</name> ]`
+`[ Gala, Honeycrisp ]`
 
 *Example 2*
 

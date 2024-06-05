@@ -2,12 +2,11 @@
 title: Modeling relationships in Azure Table storage design
 description: Understand the modeling process when designing your Azure Table storage solution. Read about one-to-many, one-to-one, and inheritance relationships.
 services: storage
-ms.service: storage
-author: tamram
-ms.author: tamram
+ms.service: azure-table-storage
+author: akashdubey-ms
+ms.author: akashdubey
 ms.topic: article
 ms.date: 04/23/2018
-ms.subservice: tables
 ---
 # Modeling relationships
 This article discusses the modeling process to help you design your Azure Table storage solutions.
@@ -114,7 +113,7 @@ You can persist instances of the two concrete classes in the Table service using
 
 ![Person table](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-For more information about working with multiple entity types in the same table in client code, see the section Working with heterogeneous entity types later in this guide. This provides examples of how to recognize the entity type in client code.  
+For more information about working with multiple entity types in the same table in client code, see the section [Working with heterogeneous entity types](table-storage-design-patterns.md#working-with-heterogeneous-entity-types) later in this guide. This provides examples of how to recognize the entity type in client code.  
 
 
 ## Next steps

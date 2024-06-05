@@ -4,47 +4,72 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Price Sheet API.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2023
+ms.date: 04/23/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Migrate from EA Price Sheet API
 
-EA customers who were previously using the Enterprise Reporting consumption.azure.com API to get their price sheet need to migrate to a replacement Azure Resource Manager API. Instructions to do this are outlined below along with any contract differences between the old API and the new API.
+EA customers who were previously using the Enterprise Reporting consumption.azure.com API to get their price sheet need to migrate to a replacement Azure Resource Manager API. The following instructions help you  migrate and they also describe any contract differences between the old API and the new API.
 
-## Assign permissions to an SPN to call the API
+> [!NOTE]
+> All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
 
-Before calling the API, you need to configure a Service Principal with the correct permission. You use the service principal to call the API. For more information, see [Assign permissions to ACM APIs](cost-management-api-permissions.md).
+## Assign permissions to a service principal to call the API
+
+Before calling the API, you need to configure a service principal (SPN) with the correct permission. You use the service principal to call the API. For more information, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
 
 ### Call the Price Sheet API
 
-Use the following request URIs when calling the new Price Sheet API.
+The Price Sheet API generates the price sheet asynchronously and produces a file that you download.
+
+Use the following request URIs when calling the new Price Sheet API:
 
 #### Supported requests
 
-You can call the API using the following scopes:
+You can call the API using the following scope:
 
-- Enrollment: `providers/Microsoft.Billing/billingAccounts/{billingAccountId}`
-- Subscription: `subscriptions/{subscriptionId}`
+Enrollment: `providers/Microsoft.Billing/billingAccounts/{billingAccountId}`
 
-[Get for current Billing Period](/rest/api/consumption/pricesheet/get)
+[Download by billing account for the specified billing period](/rest/api/cost-management/price-sheet/download-by-billing-account)
 
-```http
-https://management.azure.com/{scope}/providers/Microsoft.Consumption/pricesheets/default?api-version=2019-10-01 
+```HTTP
+POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingPeriods/{billingPeriodName}/providers/Microsoft.CostManagement/pricesheets/default/download?api-version=2023-11-01
 ```
 
-[Get for specified Billing Period](/rest/api/consumption/pricesheet/getbybillingperiod)
+The POST request returns a location to poll the report generation status as outlined in the following response:
+
+### Sample response
+
+Status code: 202
 
 ```http
-https://management.azure.com/{scope}/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default?api-version=2019-10-01 
+Location: https://management.azure.com/providers/Microsoft.Billing/billingAccounts/0000000/providers/Microsoft.CostManagement/operationResults/00000000-0000-0000-0000-000000000000?api-version=2023-09-01
+Retry-After: 60
 ```
 
-#### Response body changes
+Status code: 200
 
-Old response:
+```json
+{
+  "status": "Completed",
+  "properties": {
+    "downloadUrl": "https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&spr=https&sig=G%2TEST%4B",
+    "validTill": "2023-09-30T17:32:28Z"
+  }
+}
+```
+
+### Sample request to poll report generation status
+
+```HTTP
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/0000000/providers/Microsoft.CostManagement/operationResults/00000000-0000-0000-0000-000000000000?api-version=2023-09-01
+```
+
+### Response body changes
 
 ```json
 [
@@ -71,44 +96,38 @@ Old response:
               "currencyCode": "USD"
         },
         ...
-    ]
+]
 ```
 
-New response:
+### New response changes
 
-Old data is now in the `pricesheets` field of the new API response. Meter details information is also provided.
+The price sheet properties are as follows:
 
-```json
-{
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/pricesheets/default",
-  "name": "default",
-  "type": "Microsoft.Consumption/pricesheets",
-  "properties": {
-    "nextLink": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.consumption/pricesheets/default?api-version=2018-01-31&$skiptoken=AQAAAA%3D%3D&$expand=properties/pricesheets/meterDetails",
-    "pricesheets": [
-      {
-        "billingPeriodId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702",
-        "meterId": "00000000-0000-0000-0000-000000000000",
-        "unitOfMeasure": "100 Hours",
-        "includedQuantity": 100,
-        "partNumber": "XX-11110",
-        "unitPrice": 0.00000,
-        "currencyCode": "EUR",
-        "offerId": "OfferId 1",
-        "meterDetails": {
-          "meterName": "Data Transfer Out (GB)",
-          "meterCategory": "Networking",
-          "unit": "GB",
-          "meterLocation": "Zone 2",
-          "totalIncludedQuantity": 0,
-          "pretaxStandardRate": 0.000
-        }
-      }
-    ]
-  }
-}
-```
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| basePrice | string | The unit price at the time the customer signs on or the unit price at the time of service meter GA launch if it is after sign-on.<br><br>It applies to Enterprise Agreement users |
+| currencyCode | string | Currency in which the Enterprise Agreement was signed |
+| effectiveEndDate | string | Effective end date of the Price Sheet billing period |
+| effectiveStartDate | string | Effective start date of the Price Sheet billing period |
+| enrollmentNumber | string | Unique identifier for the EA billing account. |
+| includedQuantity | string | Quantities of a specific service to which an EA customer is entitled to consume without incremental charges. |
+| marketPrice | string | The current list price for a given product or service. This price is without any negotiations and is based on your Microsoft Agreement type.<br><br>For PriceType Consumption, market price is reflected as the pay-as-you-go price.<br><br>For PriceType Savings Plan, market price reflects the Savings plan benefit on top of pay-as-you-go price for the corresponding commitment term.<br><br>For PriceType ReservedInstance, market price reflects the total price of the one or three-year commitment.<br><br>Note: For EA customers with no negotiations, market price might appear rounded to a different decimal precision than unit price. |
+| meterCategory | string | Name of the classification category for the meter. For example, Cloud services, Networking, etc. |
+| meterId | string | Unique identifier of the meter |
+| meterName | string | Name of the meter. The meter represents the deployable resource of an Azure service. |
+| meterRegion | string | Name of the Azure region where the meter for the service is available. |
+| meterSubCategory | string | Name of the meter subclassification category. |
+| meterType | string | Name of the meter type |
+| partNumber | string | Part number associated with the meter |
+| priceType | string | Price type for a product. For example, an Azure resource with a pay-as-you-go rate with priceType as Consumption. Other price types include ReservedInstance and Savings Plan. |
+| product | string | Name of the product accruing the charges. |
+| productId | string | Unique identifier for the product whose meter is consumed. |
+| serviceFamily | number | Type of Azure service. For example, Compute, Analytics, and Security. |
+| skuId | string | Unique identifier of the SKU |
+| term | string | Term length for Azure Savings Plan or Reservation term – one year or three years (P1Y or P3Y) |
+| unitOfMeasure | string | How usage is measured for the service |
+| unitPrice | string | The per-unit price at the time of billing for a given product or service, inclusive of any negotiated discounts on top of the market price.<br><br>For PriceType ReservedInstance, unit price reflects the total cost of the one or three-year commitment including discounts.<br><br>Note: The unit price isn't the same as the effective price in usage details downloads when services have differential prices across tiers.<br><br>If services are multi-tiered pricing, the effective price is a blended rate across the tiers and doesn't show a tier-specific unit price. The blended price or effective price is the net price for the consumed quantity spanning across the multiple tiers (where each tier has a specific unit price). |
 
-## Next steps
+## Related content
 
 - Read the [Migrate from EA Reporting to ARM APIs overview](migrate-ea-reporting-arm-apis-overview.md) article.

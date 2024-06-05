@@ -3,8 +3,9 @@ title: Enable a customer-managed key
 description: In this tutorial, learn how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault.
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 08/5/2022
+ms.date: 10/31/2023
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Enable a customer-managed key
@@ -248,7 +249,7 @@ The first option is to configure the access policy for the key vault and set key
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="Screenshot of options for creating a key vault access policy.":::
 
-The other option is to assign the `Key Vault Crypto Service Encryption User` RBAC role to the user-assigned managed identity at the key vault scope. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The other option is to assign the `Key Vault Crypto Service Encryption User` RBAC role to the user-assigned managed identity at the key vault scope. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ### Create a key 
 

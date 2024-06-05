@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Prepare to deploy your IoT Edge solution in production
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
@@ -175,7 +175,7 @@ In some cases, for example when dependencies exist between modules, it may be de
 
 ### Use tags to manage versions
 
-A tag is a docker concept that you can use to distinguish between versions of docker containers. Tags are suffixes like **1.1** that go on the end of a container repository. For example, **mcr.microsoft.com/azureiotedge-agent:1.1**. Tags are mutable and can be changed to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward.
+A tag is a docker concept that you can use to distinguish between versions of docker containers. Tags are suffixes like **1.5** that go on the end of a container repository. For example, **mcr.microsoft.com/azureiotedge-agent:1.5**. Tags are mutable and can be changed to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward.
 
 Tags also help you to enforce updates on your IoT Edge devices. When you push an updated version of a module to your container registry, increment the tag. Then, push a new deployment to your devices with the tag incremented. The container engine will recognize the incremented tag as a new version and will pull the latest module version down to your device.
 
@@ -183,9 +183,9 @@ Tags also help you to enforce updates on your IoT Edge devices. When you push an
 
 The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version that they are associated with. There are two different ways to use tags with the runtime images:
 
-* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.1 is updated whenever there's a new release to point to the latest 1.1.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. *This approach is suggested for development purposes.*
+* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.5 is updated whenever there's a new release to point to the latest 1.5.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. *This approach is suggested for development purposes.*
 
-* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.1.0 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. *This approach is suggested for production purposes.*
+* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.5.0 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. *This approach is suggested for production purposes.*
 
 ### Manage volumes
 IoT Edge does not remove volumes attached to module containers. This behavior is by design, as it allows persisting the data across container instances such as upgrade scenarios. However, if these volumes are left unused, then it may lead to disk space exhaustion and subsequent system errors. If you use docker volumes in your scenario, then we encourage you to use docker tools such as [docker volume prune](https://docs.docker.com/engine/reference/commandline/volume_prune/) and [docker volume rm](https://docs.docker.com/engine/reference/commandline/volume_rm/) to remove the unused volumes, especially for production scenarios.
@@ -200,10 +200,10 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
 
    ```bash
    # Pull edgeAgent image
-   docker pull mcr.microsoft.com/azureiotedge-agent:1.4
+   docker pull mcr.microsoft.com/azureiotedge-agent:1.5
 
    # Pull edgeHub image
-   docker pull mcr.microsoft.com/azureiotedge-hub:1.4
+   docker pull mcr.microsoft.com/azureiotedge-hub:1.5
    ```
 
 1. List all your Docker images, find the **edgeAgent** and **edgeHub** images, then copy their image IDs.
@@ -216,20 +216,20 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
 
    ```bash
    # Retag your edgeAgent image
-   docker tag <my-image-id> <registry-name/server>/azureiotedge-agent:1.4
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-agent:1.5
 
    # Retag your edgeHub image
-   docker tag <my-image-id> <registry-name/server>/azureiotedge-hub:1.4
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-hub:1.5
    ```
 
 1. Push your **edgeAgent** and **edgeHub** images to your private registry. Replace the value in brackets with your own.
 
    ```bash
    # Push your edgeAgent image to your private registry
-   docker push <registry-name/server>/azureiotedge-agent:1.4
+   docker push <registry-name/server>/azureiotedge-agent:1.5
 
    # Push your edgeHub image to your private registry
-   docker push <registry-name/server>/azureiotedge-hub:1.4
+   docker push <registry-name/server>/azureiotedge-hub:1.5
    ```
 
 1. Update the image references in the *deployment.template.json* file for the **edgeAgent** and **edgeHub** system modules, by replacing `mcr.microsoft.com` with your own "registry-name/server" for both modules.
@@ -244,7 +244,7 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
 
    ```toml
    [agent.config]
-   image = "<registry-name/server>/azureiotedge-agent:1.4"
+   image = "<registry-name/server>/azureiotedge-agent:1.5"
    ```
 
 1. If your private registry requires authentication, set the authentication parameters in `[agent.config.auth]`.
@@ -303,6 +303,7 @@ The following table describes image garbage collection parameters. All parameter
   * Review outbound/inbound configuration
   * Allow connections from IoT Edge devices
   * Configure communication through a proxy
+  * Set DNS server in container engine settings
 
 ### Review outbound/inbound configuration
 
@@ -318,7 +319,9 @@ If your networking setup requires that you explicitly permit connections made fr
 
 In all three cases, the fully qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
 
-Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
+#### Container registries
+
+The **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
 
 This checklist is a starting point for firewall rules:
 
@@ -343,13 +346,35 @@ You can enable dedicated data endpoints in your Azure Container registry to avoi
 
 > [!NOTE]
 > To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
-> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
+> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md)
 
 If you don't want to configure your firewall to allow access to public container registries, you can store images in your private container registry, as described in [Store runtime containers in your private registry](#store-runtime-containers-in-your-private-registry).
+
+#### Azure IoT Identity Service
+
+The [IoT Identity Service](https://azure.github.io/iot-identity-service/) provides provisioning and cryptographic services for Azure IoT devices. The identity service checks if the installed version is the latest version. The check uses the following FQDNs to verify the version.
+
+| FQDN | Outbound TCP Ports | Usage |
+| ---- | ------------------ | ----- |
+| `aka.ms` | 443 | Vanity URL that provides redirection to the version file |
+| `raw.githubusercontent.com` | 443 | The identity service version file hosted in GitHub |
 
 ### Configure communication through a proxy
 
 If your devices are going to be deployed on a network that uses a proxy server, they need to be able to communicate through the proxy to reach IoT Hub and container registries. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
+
+### Set DNS server in container engine settings
+
+Specify the DNS server for your environment in the container engine settings. The DNS server setting applies to all container modules started by the engine.
+
+1. In the `/etc/docker` directory on your device, edit the `daemon.json` file. Create the file if it doesn't exists. 
+1. Add the **dns** key and set the DNS server address to a publicly accessible DNS service. If your edge device can't access a public DNS server, use an accessible DNS server address in your network. For example:
+
+    ```json
+    {
+        "dns": ["1.1.1.1"]
+    }
+    ```
 
 ## Solution management
 

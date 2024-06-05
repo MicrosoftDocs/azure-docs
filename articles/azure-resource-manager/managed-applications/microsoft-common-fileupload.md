@@ -1,7 +1,7 @@
 ---
 title: FileUpload UI element
 description: Describes the Microsoft.Common.FileUpload UI element for Azure portal. Enables users need to upload files when deploying a managed application.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/05/2018
 ---
 
@@ -11,7 +11,7 @@ A control that allows a user to specify one or more files to upload.
 
 ## UI sample
 
-![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft-common-fileupload.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-fileupload.png" alt-text="Screenshot of Microsoft.Common.FileUpload UI element in Azure portal.":::
 
 ## Schema
 

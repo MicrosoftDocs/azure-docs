@@ -1,10 +1,9 @@
 ---
 title: Authentication and authorization in Azure Container Apps
-description: Use built-in authentication in Azure Container Apps.
+description: Use built-in authentication in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 04/20/2022
 ms.author: cshoe
@@ -16,22 +15,24 @@ Azure Container Apps provides built-in authentication and authorization features
 
 For details surrounding authentication and authorization, refer to the following guides for your choice of provider.
 
-* [Azure Active Directory](authentication-azure-active-directory.md)
+* [Microsoft Entra ID](authentication-azure-active-directory.md)
 * [Facebook](authentication-facebook.md)
 * [GitHub](authentication-github.md)
-* [Google](authentication-google.md)
+* [Google](authentication-google.yml)
 * [Twitter](authentication-twitter.md)
 * [Custom OpenID Connect](authentication-openid.md)
 
 ## Why use the built-in authentication?
 
-You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) can take significant effort. You must make sure to follow industry best practices and standards, and keep your implementation up to date.
+You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) can take significant effort. You must make sure to follow industry best practices and standards and keep your implementation up to date.
 
-The built-in authentication feature for Container Apps can save you time and effort by providing out-of-the-box authentication with federated identity providers, allowing you to focus on the rest of your application.
+The built-in authentication feature for Container Apps saves you time and effort by providing out-of-the-box authentication with federated identity providers. These features allow you to focus more time developing your application, and less time on building security systems. 
+
+The benefits include:
 
 * Azure Container Apps provides access to various built-in authentication providers.
 * The built-in auth features don’t require any particular language, SDK, security expertise, or even any code that you have to write.
-* You can integrate with multiple providers including Azure Active Directory, Facebook, Google, and Twitter.
+* You can integrate with multiple providers including Microsoft Entra ID, Facebook, Google, and Twitter.
 
 ## Identity providers
 
@@ -39,10 +40,10 @@ Container Apps uses [federated identity](https://en.wikipedia.org/wiki/Federated
 
 | Provider | Sign-in endpoint | How-To guidance |
 | - | - | - |
-| [Microsoft Identity Platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Microsoft Identity Platform](authentication-azure-active-directory.md) |
+| [Microsoft identity platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Microsoft identity platform](authentication-azure-active-directory.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [Facebook](authentication-facebook.md) |
 | [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps) | `/.auth/login/github` | [GitHub](authentication-github.md) |
-| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Google](authentication-google.md) |
+| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Google](authentication-google.yml) |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [Twitter](authentication-twitter.md) |
 | Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [OpenID Connect](authentication-openid.md) |
 
@@ -54,21 +55,21 @@ This feature should be used with HTTPS only. Ensure `allowInsecure` is disabled 
 
 You can configure your container app for authentication with or without restricting access to your site content and APIs. To restrict app access only to authenticated users, set its *Restrict access* setting to **Require authentication**. To authenticate but not restrict access, set its *Restrict access* setting to **Allow unauthenticated access**.
 
-Each container app issues its own unique cookie or token for authentication. A client cannot use the same cookie or token provided by one container app to authenticate with another container app, even within the same container app environment.
+By default, each container app issues its own unique cookie or token for authentication. You can also provide your own signing and encryption keys.
 
 ## Feature architecture
  
-The authentication and authorization middleware component is a feature of the platform that runs as a sidecar container on each replica in your application. When enabled, every incoming HTTP request passes through the security layer before being handled by your application.
+The authentication and authorization middleware component is a feature of the platform that runs as a sidecar container on each replica in your application. When enabled, your application handles each incoming HTTP request after it passes through the security layer.
 
 :::image type="content" source="media/authentication/architecture.png" alt-text="An architecture diagram showing requests being intercepted by a sidecar container which interacts with identity providers before allowing traffic to the app container" lightbox="media/authentication/architecture.png":::
 
 The platform middleware handles several things for your app:
 
-* Authenticates users and clients with the specified identity provider(s)
+* Authenticates users and clients with the specified identity providers
 * Manages the authenticated session
 * Injects identity information into HTTP request headers
 
-The authentication and authorization module runs in a separate container, isolated from your application code. As the security container doesn't run in-process, no direct integration with specific language frameworks is possible. However, relevant information your app needs is provided in request headers as explained below.
+The authentication and authorization module runs in a separate container, isolated from your application code. As the security container doesn't run in-process, no direct integration with specific language frameworks is possible. However, relevant information your app needs is provided in request headers as explained in this article.
 
 ### Authentication flow
 
@@ -78,9 +79,9 @@ The authentication flow is the same for all providers, but differs depending on 
 
 * **With provider SDK** (_client-directed flow_ or _client flow_): The application signs users in to the provider manually and then submits the authentication token to Container Apps for validation. This approach is typical for browser-less apps that don't present the provider's sign-in page to the user. An example is a native mobile app that signs users in using the provider's SDK.
 
-Calls from a trusted browser app in Container Apps to another REST API in Container Apps can be authenticated using the server-directed flow. For more information, see [Customize sign-ins and sign-outs](#customize-sign-in-and-sign-out).
+Calls from a trusted browser app in Container Apps to another REST API in Container Apps can be authenticated using the server-directed flow. For more information, see [Customize sign in and sign out](#customize-sign-in-and-sign-out).
 
-The table below shows the steps of the authentication flow.
+The table shows the steps of the authentication flow.
 
 | Step | Without provider SDK | With provider SDK |
 | - | - | - |
@@ -107,11 +108,11 @@ In the [Azure portal](https://portal.azure.com), you can edit your container app
   > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
 
   > [!NOTE]
-  > By default, any user in your Azure AD tenant can request a token for your application from Azure AD. You can [configure the application in Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
+  > By default, any user in your Microsoft Entra tenant can request a token for your application from Microsoft Entra ID. You can [configure the application in Microsoft Entra ID](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
 
-## Customize sign-in and sign-out
+## Customize sign-in and sign out
 
-Container Apps Authentication provides built-in endpoints for sign-in and sign-out. When the feature is enabled, these endpoints are available under the `/.auth` route prefix on your container app.
+Container Apps Authentication provides built-in endpoints for sign in and sign out. When the feature is enabled, these endpoints are available under the `/.auth` route prefix on your container app.
 
 ### Use multiple sign-in providers
 
@@ -157,7 +158,7 @@ The token format varies slightly according to the provider. See the following ta
 |-|-|-|
 | `aad` | `{"access_token":"<ACCESS_TOKEN>"}` | The `id_token`, `refresh_token`, and `expires_in` properties are optional. |
 | `microsoftaccount` | `{"access_token":"<ACCESS_TOKEN>"}` or `{"authentication_token": "<TOKEN>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When requesting the token from Live services, always request the `wl.basic` scope. |
-| `google` | `{"id_token":"<ID_TOKEN>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value will add an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
+| `google` | `{"id_token":"<ID_TOKEN>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value adds an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<USER_ACCESS_TOKEN>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
 | `twitter` | `{"access_token":"<ACCESS_TOKEN>", "access_token_secret":"<ACCES_TOKEN_SECRET>"}` | |
 | | | |
@@ -182,25 +183,25 @@ X-ZUMO-AUTH: <authenticationToken_value>
 
 ### Sign out of a session
 
-Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/logout` endpoint. The `GET` request conducts the following actions:
+Users can sign out by sending a `GET` request to the app's `/.auth/logout` endpoint. The `GET` request conducts the following actions:
 
 * Clears authentication cookies from the current session.
 * Deletes the current user's tokens from the token store.
-* For Azure Active Directory and Google, performs a server-side sign-out on the identity provider.
+* Performs a server-side sign out on the identity provider for Microsoft Entra ID and Google.
 
-Here's a simple sign-out link in a webpage:
+Here's a simple sign out link in a webpage:
 
 ```html
 <a href="/.auth/logout">Sign out</a>
 ```
 
-By default, a successful sign-out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
+By default, a successful sign out redirects the client to the URL `/.auth/logout/done`. You can change the post-sign-out redirect page by adding the `post_logout_redirect_uri` query parameter. For example:
 
 ```console
 GET /.auth/logout?post_logout_redirect_uri=/index.html
 ```
 
-It's recommended that you [encode](https://wikipedia.org/wiki/Percent-encoding) the value of `post_logout_redirect_uri`.
+Make sure to [encode](https://wikipedia.org/wiki/Percent-encoding) the value of `post_logout_redirect_uri`.
 
 URL must be hosted in the same domain when using fully qualified URLs.
 
@@ -220,9 +221,9 @@ Code that is written in any language or framework can get the information that i
 
 Refer to the following articles for details on securing your container app.
 
-* [Azure Active Directory](authentication-azure-active-directory.md)
+* [Microsoft Entra ID](authentication-azure-active-directory.md)
 * [Facebook](authentication-facebook.md)
 * [GitHub](authentication-github.md)
-* [Google](authentication-google.md)
+* [Google](authentication-google.yml)
 * [Twitter](authentication-twitter.md)
 * [Custom OpenID Connect](authentication-openid.md)

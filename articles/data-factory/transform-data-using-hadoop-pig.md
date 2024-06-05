@@ -8,14 +8,11 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Transform data using Hadoop Pig activity in Azure Data Factory or Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-pig-activity.md)
-> * [Current version](transform-data-using-hadoop-pig.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -78,7 +75,7 @@ To use an HDInsight Pig activity to a pipeline, complete the following steps:
 | arguments           | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines             | Specify parameters as key/value pairs for referencing within the Pig script. | No       |
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

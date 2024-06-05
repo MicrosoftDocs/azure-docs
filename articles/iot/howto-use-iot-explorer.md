@@ -3,7 +3,7 @@ title: Install and use Azure IoT explorer | Microsoft Docs
 description: Install the Azure IoT explorer tool and use it to interact with IoT Plug and Play devices connected to IoT hub. Although this article focuses on working with IoT Plug and Play devices, you can use the tool with any device connected to your hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2022
+ms.date: 09/29/2023
 ms.topic: how-to
 ms.service: iot-develop
 services: iot-develop
@@ -29,14 +29,14 @@ To use the Azure IoT explorer tool, you need:
 
 ## Install Azure IoT explorer
 
-Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application.
+Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application. The installation package configures a way for you to launch the application on your platform. For example, in Windows you can launch the application from the Start menu.
 
 >[!Important]
 > Update to version 0.13.x or greater to resolve models from any repository based on [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models)
 
 ## Use Azure IoT explorer
 
-For a device, you can either connect your own device, or use one of the sample simulated devices. For some example simulated devices written in different languages, see the [Connect a sample IoT Plug and Play device application to IoT Hub](../iot-develop/tutorial-connect-device.md) tutorial.
+For a device, you can either connect your own device, or use one of the sample simulated devices. For some example simulated devices written in different languages, see the [Connect a sample IoT Plug and Play device application to IoT Hub](./tutorial-connect-device.md) tutorial.
 
 ### Connect to your hub
 
@@ -100,7 +100,7 @@ On the **Component** page, you can view the read-only properties, update writabl
 You can view the read-only properties defined in an interface on the **Properties (read-only)** tab. You can update the writable properties defined in an interface on the **Properties (writable)** tab:
 
 1. Go to the **Properties (writable)** tab.
-1. Click the property you'd like to update.
+1. Select the property you'd like to update.
 1. Enter the new value for the property.
 1. Preview the payload to be sent to the device.
 1. Submit the change.
@@ -126,4 +126,4 @@ For a list of the IoT features supported by the latest version of the tool, see 
 
 ## Next steps
 
-In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Manage IoT Plug and Play digital twins](../iot-develop/howto-manage-digital-twin.md).
+In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Manage IoT Plug and Play digital twins](./howto-manage-digital-twin.md).

@@ -1,15 +1,16 @@
 ---
 title: Overview of indexing
 titleSuffix: Azure Cosmos DB
-description: Understand how indexing works in Azure Cosmos DB. Also explore how different types of indexes such as range, spatial, and composite are supported. 
+description: Understand how indexing works in Azure Cosmos DB. Also explore how different types of indexes such as range, spatial, and composite are supported.
 author: seesharprun
 ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.reviewer: jacodel
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 04/03/2023
-ms.custom: ignite-2022
 ---
 
 # Overview of indexing in Azure Cosmos DB
@@ -69,7 +70,7 @@ Azure Cosmos DB currently supports three types of indexes. You can configure the
 
 ### Range Index
 
-**Range** index is based on an ordered tree-like structure. The range index type is used for:
+**Range** indexes are based on an ordered tree-like structure. The range index type is used for:
 
 - Equality queries:
 
@@ -169,7 +170,7 @@ Spatial indexes can be used on correctly formatted [GeoJSON](./sql-query-geospat
     SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
     ```
 
-- Queries with a filter on two or more properties were at least one property is an equality filter
+- Queries with a filter on two or more properties where at least one property is an equality filter
 
     ```sql
     SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
@@ -177,11 +178,45 @@ Spatial indexes can be used on correctly formatted [GeoJSON](./sql-query-geospat
 
 As long as one filter predicate uses one of the index type, the query engine evaluates that first before scanning the rest. For example, if you have a SQL query such as `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
-- The above query will first filter for entries where firstName = "Andrew" by using the index. It then pass all of the firstName = "Andrew" entries through a subsequent pipeline to evaluate the CONTAINS filter predicate.
+- The above query will first filter for entries where firstName = "Andrew" by using the index. It then passes all of the firstName = "Andrew" entries through a subsequent pipeline to evaluate the CONTAINS filter predicate.
 
 - You can speed up queries and avoid full container scans when using functions that perform a full scan like CONTAINS. You can add more filter predicates that use the index to speed up these queries. The order of filter clauses isn't important. The query engine figures out which predicates are more selective and run the query accordingly.
 
 To learn how to configure composite indexes, see [Composite indexing policy examples](how-to-manage-indexing-policy.md#composite-index)
+
+### Vector indexes
+**Vector** indexes increase the efficiency when performing vector searches using the `VectorDistance` system function. Vectors searches will have significantly lower latency, higher throughput, and less RU consumption when leveraging a vector index. 
+To learn how to configure vector indexes, see [vector indexing policy examples](nosql/how-to-manage-indexing-policy.md#vector-indexing-policy-examples)
+
+- `ORDER BY` vector search queries:
+
+    ```sql
+    SELECT c.name
+    FROM c
+    ORDER BY VectorDistance(c.vector1, c.vector2)
+    ```
+
+  
+-  Projection of the similarity score in vector search queries:
+   
+    ```sql
+    SELECT c.name, VectorDistance(c.vector1, c.vector2) AS SimilarityScore
+    FROM c
+    ORDER BY VectorDistance(c.vector1, c.vector2)
+    ```
+
+- Range filters on the similarity score.
+    ```sql
+    SELECT c.name
+    FROM c
+    WHERE VectorDistance(c.vector1, c.vector2) > 0.8
+    ORDER BY VectorDistance(c.vector1, c.vector2)
+    ```
+
+  > [!IMPORTANT]
+  > Vector indexes must be defined at the time of container creation and cannot be modified once created. In a future release, vector indexes will be modifiable.
+
+
 
 ## Index usage
 
@@ -205,7 +240,7 @@ Here's a table that summarizes the different ways indexes are used in Azure Cosm
 | Full index scan    | Read distinct set of indexed values and load only matching items from the transactional data store                                              | Contains, EndsWith, RegexMatch, LIKE                                    | Increases linearly based on the cardinality of indexed properties | Increases based on number of items in query results |
 | Full scan          | Load all items from the transactional data store                                          | Upper, Lower                                    | N/A                                                          | Increases based on number of items in container |
 
-When writing queries, you should use filter predicate that uses the index as efficiently as possible. For example, if either `StartsWith` or `Contains` would work for your use case, you should opt for `StartsWith` since it does a precise index scan instead of a full index scan.
+When writing queries, you should use filter predicates that use the index as efficiently as possible. For example, if either `StartsWith` or `Contains` would work for your use case, you should opt for `StartsWith` since it does a precise index scan instead of a full index scan.
 
 ## Index usage details
 
@@ -338,6 +373,9 @@ WHERE CONTAINS(c.country, "States", false)
 
 In some cases, the query engine may not be able to evaluate a query filter using the index. In this case, the query engine needs to load all items from the transactional store in order to evaluate the query filter. Full scans don't use the index and have an RU charge that increases linearly with the total data size. Luckily, operations that require full scans are rare.
 
+#### Vector search queries without a defined vector index
+If you do not define a vector index policy and use the `VectorDistance` system function in an `ORDER BY` clause, then this will result in a Full scan and have an RU charge higher than if you defined a vector index policy. Similarity, if you use VectorDistance with the brute force boolean value set to `true`, and do not have a `flat` index defined for the vector path, then a full scan will occur. 
+
 ### Queries with complex filter expressions
 
 In the earlier examples, we only considered queries that had simple filter expressions (for example, queries with just a single equality or range filter). In reality, most queries have much more complex filter expressions.
@@ -356,9 +394,9 @@ To execute this query, the query engine must do an index seek on `headquarters/e
 
 Queries with aggregate functions must rely exclusively on the index in order to use it.
 
-In some cases, the index can return false positives. For example, when evaluating `Contains` on the index, the number of matches in the index may exceed the number of query results. The query engine loads all index matches, evaluate the filter on the loaded items, and return only the correct results.
+In some cases, the index can return false positives. For example, when evaluating `Contains` on the index, the number of matches in the index may exceed the number of query results. The query engine loads all index matches, evaluates the filter on the loaded items, and returns only the correct results.
 
-For most queries, loading false positive index matches don't have any noticeable effect on index utilization.
+For most queries, loading false positive index matches doesn't have any noticeable effect on index utilization.
 
 For example, consider the following query:
 

@@ -3,7 +3,6 @@ title: Use R for Apache Spark
 description: Learn about using R and Apache Spark to do data preparation and machine learning in Azure Synapse Analytics notebooks.
 author: midesa
 ms.author: midesa
-services: synapse-analytics 
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
@@ -12,9 +11,9 @@ ms.date: 09/27/2022
 
 # Use R for Apache Spark with Azure Synapse Analytics (Preview)
 
-Azure Synapse Analytics provides built-in R support for Apache Spark. As part of this, data scientists can leverage Azure Synapse Analytics notebooks to write and run their R code. This also includes support for [SparkR](https://spark.apache.org/docs/latest/sparkr.html) and [SparklyR](https://spark.rstudio.com/), which allows users to interact with Spark using familiar Spark or R interfaces.
+Azure Synapse Analytics provides built-in R support for Apache Spark. As part of this, data scientists can use Azure Synapse Analytics notebooks to write and run their R code. This also includes support for [SparkR](https://spark.apache.org/docs/latest/sparkr.html) and [SparklyR](https://spark.rstudio.com/), which allows users to interact with Spark using familiar Spark or R interfaces.
 
-In this article, you will learn how to use R for Apache Spark with Azure Synapse Analytics.
+In this article, you'll learn how to use R for Apache Spark with Azure Synapse Analytics.
 
 ## R Runtime
 
@@ -46,7 +45,7 @@ Libraries provide reusable code that you might want to include in your programs 
 
 ### Manage R workspace packages
 
-In Synapse, workspace packages can be custom or private **R tar.gz** files. You can upload these packages to your workspace and later assign them to a specific serverless Apache Spark pool. Once assigned, these workspace packages are installed automatically on all Spark pool sessions started on the corresponding pool.
+In Synapse, workspace packages can be public or custom/private **<R_Package>.tar.gz** files. **Any dependencies must also be installed.** You can upload these packages to your workspace and later assign them to a specific serverless Apache Spark pool. Once assigned, these workspace packages are installed automatically on all Spark pool sessions started on the corresponding pool.
 
 To learn more about how to manage workspace libraries, see the following article:
     - [Manage workspace packages](./apache-spark-manage-workspace-packages.md)
@@ -56,10 +55,10 @@ To learn more about how to manage workspace libraries, see the following article
 When doing interactive data analysis or machine learning, you might try newer packages or you might need packages that are currently unavailable on your Apache Spark pool. Instead of updating the pool configuration, users can now use session-scoped packages to add, manage, and update session dependencies.
 
   - When you install session-scoped libraries, only the current notebook has access to the specified libraries.
-  - These libraries will not impact other sessions or jobs using the same Spark pool.
+  - These libraries won't impact other sessions or jobs using the same Spark pool.
   - These libraries are installed on top of the base runtime and pool level libraries.
-  - Notebook libraries will take the highest precedence.
-  - Session-scoped R libraries do not persist across sessions. These libraries will be installed at the start of each session when the related installation commands are executed
+  - Notebook libraries take the highest precedence.
+  - Session-scoped R libraries don't persist across sessions. These libraries are installed at the start of each session when the related installation commands are executed
   - Session-scoped R libraries are automatically installed across both the driver and worker nodes
 
 For example, users can install an R library from CRAN and CRAN snapshots. In the example below, *Highcharter* is a popular package for R visualizations. I can install this package on all nodes within my Apache Spark pool using the following command:
@@ -103,7 +102,7 @@ head(df)
 
 ### Create a SparkR dataframe using the Spark data source API
 
-SparkR supports operating on a variety of data sources through the SparkDataFrame interface. The general method for creating a DataFrame from a data source is ```read.df```. This method takes the path for the file to load and the type of data source. SparkR supports reading CSV, JSON, text, and Parquet files natively.
+SparkR supports operating on various data sources through the SparkDataFrame interface. The general method for creating a DataFrame from a data source is ```read.df```. This method takes the path for the file to load and the type of data source. SparkR supports reading CSV, JSON, text, and Parquet files natively.
 
 ```r
 # Read a csv from ADLSg2
@@ -149,7 +148,7 @@ To establish a ```sparklyr``` connection, you can use the following connection m
 ```r
 spark_version <- "<enter Spark version>"
 config <- spark_config()
-sc <- spark_connect(master = "yarn", version = spark_version, spark_home = "/opt/spark", config = config)
+sc <- spark_connect(master = "yarn", version = spark_version, spark_home = "/opt/spark", config = config, method='synapse')
 ```
 
 ## Next steps

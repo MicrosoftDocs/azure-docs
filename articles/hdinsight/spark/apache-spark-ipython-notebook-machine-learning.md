@@ -4,7 +4,7 @@ description: Tutorial - Step-by-step instructions on how to build Apache Spark m
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
-ms.date: 08/28/2022
+ms.date: 09/14/2023
 
 # Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a simple machine learning Spark application.
 ---
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 The application uses the sample **HVAC.csv** data that is available on all clusters by default. The file is located at `\HdiSamples\HdiSamples\SensorSampleData\hvac`. The data shows the target temperature and the actual temperature of some buildings that have HVAC systems installed. The **System** column represents the system ID and the **SystemAge** column represents the number of years the HVAC system has been in place at the building. You can predict whether a building will be hotter or colder based on the target temperature, given system ID, and system age.
 
-:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png " alt-text="Snapshot of data used for Spark machine learning example" border="true":::
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png " alt-text="Snapshot of data used for Spark machine learning example." border="true":::
 
 ## Develop a Spark machine learning application using Spark MLlib
 
@@ -49,7 +49,7 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
     import sys
     from pyspark.sql.types import *
 
-    from pyspark.mllib.classification import LogisticRegressionWithSGD
+    from pyspark.mllib.classification import LogisticRegressionWithLBFGS
     from pyspark.mllib.regression import LabeledPoint
     from numpy import array
     ```
@@ -81,7 +81,7 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
 
     In the code snippet, you define a function that compares the actual temperature with the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. Otherwise the building is cold, denoted by the value **0.0**.
 
-1. Configure the Spark machine learning pipeline that consists of three stages: tokenizer, hashingTF, and lr.
+1. Configure the Spark machine learning pipeline that consists of three stages: `tokenizer`, `hashingTF`, and `lr`.
 
     ```PySpark
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -135,7 +135,7 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
 
     Comparing the output against the raw CSV file. For example, the first row the CSV file has this data:
 
-    :::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png " alt-text="Output data snapshot for Spark machine learning example" border="true":::
+    :::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png " alt-text="Output data snapshot for Spark machine learning example." border="true":::
 
     Notice how the actual temperature is less than the target temperature suggesting the building is cold. The value for **label** in the first row is **0.0**, which means the building isn't hot.
 
@@ -144,12 +144,12 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
     ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
     Document = Row("id", "SystemInfo")
-    test = sc.parallelize([(1L, "20 25"),
-                    (2L, "4 15"),
-                    (3L, "16 9"),
-                    (4L, "9 22"),
-                    (5L, "17 10"),
-                    (6L, "7 22")]) \
+    test = sc.parallelize([("1L", "20 25"),
+                    ("2L", "4 15"),
+                    ("3L", "16 9"),
+                    ("4L", "9 22"),
+                    ("5L", "17 10"),
+                    ("6L", "7 22")]) \
         .map(lambda x: Document(*x)).toDF()
     ```
 
@@ -160,7 +160,7 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
     prediction = model.transform(test)
     selected = prediction.select("SystemInfo", "prediction", "probability")
     for row in selected.collect():
-        print row
+        print (row)
     ```
 
     The output is similar to:
@@ -196,7 +196,7 @@ If you're not going to continue to use this application, delete the cluster that
 
 1. Select **Delete**. Select **Yes**.
 
-:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure portal deletes an HDInsight cluster" border="true":::
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure portal deletes an HDInsight cluster." border="true":::
 
 ## Next steps
 

@@ -1,13 +1,14 @@
 ---
 title: Tutorial - Create a metric alert for an Azure resource
 description: Learn how to create a metric chart with Azure metrics explorer.
-author: bwren
-ms.author: bwren
+ms.author: abbyweisberg
+ms.reviewer: nolavime
 ms.topic: tutorial
-ms.date: 11/08/2021
+ms.date: 11/28/2023
 ---
 
 # Tutorial: Create a metric alert for an Azure resource
+
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. Metric alert rules create an alert when a metric value from an Azure resource exceeds a threshold.
 
 In this tutorial, you learn how to:
@@ -31,7 +32,7 @@ From metrics explorer, click **New alert rule**. The rule will be preconfigured 
 ## Configure alert logic
 The resource will already be selected. You need to modify the signal logic to specify the threshold value and any other details for the alert rule. 
 
-Click on the **Condition name** to view these settings. 
+To view these settings, select the **Condition** tab. 
 
 :::image type="content" source="./media/tutorial-metric-alert/configuration.png" lightbox="./media/tutorial-metric-alert/configuration.png" alt-text="Alert rule configuration":::
 
@@ -43,9 +44,11 @@ The **Alert logic** is defined by the condition and the evaluation time. The ale
 
 :::image type="content" source="./media/tutorial-metric-alert/alert-logic.png" lightbox="./media/tutorial-metric-alert/alert-logic.png" alt-text="Alert rule alert logic":::
 
-You can accept the default time granularity or modify it to your requirements. **Frequency of evaluation** defines how often the alert logic is evaluated. **Aggregation granularity** defines the time interval over which the collected values are aggregated.
+You can accept the default time granularity or modify it to your requirements. **Check every** defines how often the alert rule will check if the condition is met. **Lookback period** defines the time interval over which the collected values are aggregated. For example, every 5 minutes, you’ll be looking at the past 5 minutes.
 
-Click **Done** when you're done configuring the signal logic.
+:::image type="content" source="./media/tutorial-metric-alert/when-to-evaluate.png" lightbox="./media/tutorial-metric-alert/when-to-evaluate.png" alt-text="Screenshot that shows the When to evaluate options for the alert rule.":::
+
+When you're done configuring the signal logic, click **Next: Actions >** or the **Actions** tab to configure actions.
 
 ## Configure actions
 [!INCLUDE [Action groups](../../../includes/azure-monitor-tutorial-action-group.md)]
@@ -56,7 +59,7 @@ Click **Done** when you're done configuring the signal logic.
 :::image type="content" source="./media/tutorial-metric-alert/alert-details.png" lightbox="./media/tutorial-metric-alert/alert-details.png" alt-text="Alert rule details":::
 
 
-Click **Create alert rule** to create the alert rule.
+Click **Review + create** and then **Create** to create the alert rule.
 
 
 ## View the alert

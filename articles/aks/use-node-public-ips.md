@@ -3,7 +3,7 @@ title: Use instance-level public IPs in Azure Kubernetes Service (AKS)
 description: Learn how to manage instance-level public IPs Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 1/12/2023
+ms.date: 04/29/2024
 ms.author: pahealy
 author: phealy
 ---
@@ -21,13 +21,13 @@ az group create --name myResourceGroup2 --location eastus
 Create a new AKS cluster and attach a public IP for your nodes. Each of the nodes in the node pool receives a unique public IP. You can verify this by looking at the Virtual Machine Scale Set instances.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+az aks create --resource-group MyResourceGroup2 --name MyManagedCluster --location eastus  --enable-node-public-ip
 ```
 
 For existing AKS clusters, you can also add a new node pool, and attach a public IP for your nodes.
 
 ```azurecli-interactive
-az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+az aks nodepool add --resource-group MyResourceGroup2 --cluster-name MyManagedCluster --name nodepool2 --enable-node-public-ip
 ```
 
 ## Use a public IP prefix
@@ -53,7 +53,7 @@ View the output, and take note of the `id` for the prefix:
 Finally, when creating a new cluster or adding a new node pool, use the flag `node-public-ip-prefix` and pass in the prefix's resource ID:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
+az aks create --resource-group MyResourceGroup3 --name MyManagedCluster --location eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
 ```
 
 ## Locate public IPs for nodes
@@ -68,58 +68,21 @@ You can locate the public IPs for your nodes in various ways:
 > The [node resource group][node-resource-group] contains the nodes and their public IPs. Use the node resource group when executing commands to find the public IPs for your nodes.
 
 ```azurecli
-az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+az vmss list-instance-public-ips --resource-group MC_MyResourceGroup2_MyManagedCluster_eastus --name YourVirtualMachineScaleSetName
 ```
 
-## Use public IP tags on node public IPs (PREVIEW)
+## Use public IP tags on node public IPs
 
 Public IP tags can be utilized on node public IPs to utilize the [Azure Routing Preference](../virtual-network/ip-services/routing-preference-overview.md) feature.
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
 ### Requirements
 
 * AKS version 1.24 or greater is required.
-* Version 0.5.115 of the aks-preview extension is required.
-
-### Install the aks-preview Azure CLI extension
-
-To install the aks-preview extension, run the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### Register the 'NodePublicIPTagsPreview' feature flag
-
-Register the `NodePublicIPTagsPreview` feature flag by using the [`az feature register`][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "NodePublicIPTagsPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [`az feature show`][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "NodePublicIPTagsPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [`az provider register`][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### Create a new cluster using routing preference internet
 
 ```azurecli-interactive
-az aks create -n <clusterName> -l <location> -g <resourceGroup> \
+az aks create --name <clusterName> --location <location> --resource-group <resourceGroup> \
   --enable-node-public-ip \
   --node-public-ip-tags RoutingPreference=Internet
 ```
@@ -127,12 +90,12 @@ az aks create -n <clusterName> -l <location> -g <resourceGroup> \
 ### Add a node pool with routing preference internet
 
 ```azurecli-interactive
-az aks nodepool add --cluster-name <clusterName> -n <nodepoolName> -l <location> -g <resourceGroup> \
+az aks nodepool add --cluster-name <clusterName> --name <nodepoolName> --location <location> --resource-group <resourceGroup> \
   --enable-node-public-ip \
   --node-public-ip-tags RoutingPreference=Internet
 ```
 
-## Allow host port connections and add node pools to application security groups (PREVIEW)
+## Allow host port connections and add node pools to application security groups
 
 AKS nodes utilizing node public IPs that host services on their host address need to have an NSG rule added to allow the traffic. Adding the desired ports in the node pool configuration will create the appropriate allow rules in the cluster network security group.
 
@@ -149,46 +112,9 @@ Examples:
 - 53/udp,80/tcp
 - 50000-60000/tcp
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
 ### Requirements
 
 * AKS version 1.24 or greater is required.
-* Version 0.5.110 of the aks-preview extension is required.
-
-### Install the aks-preview Azure CLI extension
-
-To install the aks-preview extension, run the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### Register the 'NodePublicIPNSGControlPreview' feature flag
-
-Register the `NodePublicIPNSGControlPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "NodePublicIPNSGControlPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "NodePublicIPNSGControlPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### Create a new cluster with allowed ports and application security groups
 
@@ -203,24 +129,22 @@ az aks create \
 
 ### Add a new node pool with allowed ports and application security groups
 
-```azurecli-interactive
-az aks nodepool add \
+```az aks nodepool add \
   --resource-group <resourceGroup> \
   --cluster-name <clusterName> \
   --name <nodepoolName> \
-  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
-  --nodepool-asg-ids "<asgId>,<asgId>"
+  --allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp \
+  --asg-ids "<asgId>,<asgId>"
 ```
 
 ### Update the allowed ports and application security groups for a node pool
 
-```azurecli-interactive
-az aks nodepool update \
+```az aks nodepool update \
   --resource-group <resourceGroup> \
   --cluster-name <clusterName> \
   --name <nodepoolName> \
-  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
-  --nodepool-asg-ids "<asgId>,<asgId>"
+  --allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp \
+  --asg-ids "<asgId>,<asgId>"
 ```
 
 ## Automatically assign host ports for pod workloads (PREVIEW)
@@ -319,7 +243,7 @@ Containers:
 
 ## Next steps
 
-* Learn about [using multiple node pools in AKS](use-multiple-node-pools.md).
+* Learn about [using multiple node pools in AKS](create-node-pools.md).
 
 * Learn about [using standard load balancers in AKS](load-balancer-standard.md)
 
@@ -380,3 +304,4 @@ Containers:
 [cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
 [internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet
 [drain-nodes]: resize-node-pool.md#drain-the-existing-nodes
+

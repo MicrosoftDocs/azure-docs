@@ -1,19 +1,19 @@
 ---
-title: Azure Files monitoring data reference
-description: Log and metrics reference for monitoring data from Azure Files.
-author: khdownie
-services: storage
-ms.service: storage
+title: Monitoring data reference for Azure Files
+description: This article contains important reference material you need when you monitor Azure Files.
+ms.date: 02/13/2024
+ms.custom: horz-monitor
 ms.topic: reference
-ms.date: 03/29/2023
+author: khdownie
 ms.author: kendownie
-ms.subservice: files
-ms.custom: monitoring
+ms.service: azure-file-storage
 ---
 
 # Azure Files monitoring data reference
 
-See [Monitoring Azure Files](storage-files-monitoring.md) for details on collecting and analyzing monitoring data for Azure Files.
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+
+See [Monitor Azure Files](storage-files-monitoring.md) for details on the data you can collect for Azure Files and how to use it.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -22,59 +22,43 @@ See [Monitoring Azure Files](storage-files-monitoring.md) for details on collect
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-## Metrics
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-The following tables list the platform metrics collected for Azure Files. 
+### Supported metrics for Microsoft.Storage/storageAccounts
+The following table lists the metrics available for the Microsoft.Storage/storageAccounts resource type.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Storage/storageAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-storage-storageaccounts-metrics-include.md)]
 
-### Capacity metrics
+### Supported metrics for Microsoft.Storage/storageAccounts/fileServices
+The following table lists the metrics available for the Microsoft.Storage/storageAccounts/fileServices resource type.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Storage/storageAccounts/blobServices](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-storage-storageaccounts-fileservices-metrics-include.md)]
 
-Capacity metrics values are refreshed daily (up to 24 hours). The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
+<a name="metrics-dimensions"></a>
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-Azure Files provides the following capacity metrics in Azure Monitor.
-
-#### Account Level
-
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
-
-#### Azure Files
-
-This table shows [Azure Files metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
-
-| Metric | Description |
-| ------------------- | ----------------- |
-| FileCapacity | The amount of File storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Dimensions: FileShare, Tier <br/> Value example: 1024 |
-| FileCount   | The number of files in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimensions: FileShare, Tier <br/> Value example: 1024 |
-| FileShareCapacityQuota | The upper limit on the amount of storage that can be used by Azure Files Service in bytes. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024|
-| FileShareCount | The number of file shares in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| FileShareProvisionedIOPS | The number of provisioned IOPS on a file share. This metric is applicable to premium file storage only. <br/><br/> Unit: CountPerSecond <br/> Aggregation Type: Average |
-| FileShareSnapshotCount | The number of snapshots present on the share in storage account's Azure Files service. <br/><br/> Unit:Count <br/> Aggregation Type: Average | 
-|FileShareSnapshotSize|The amount of storage used by the snapshots in storage account's Azure Files service. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average|
-
-### Transaction metrics
-
-Transaction metrics are emitted on every request to a storage account from Azure Storage to Azure Monitor. In the case of no activity on your storage account, there will be no data on transaction metrics in the period. All transaction metrics are available at both account and Azure Files service level. The time grain defines the time interval that metric values are presented. The supported time grains for all transaction metrics are PT1H and PT1M.
-
-[!INCLUDE [Transaction metrics](../../../includes/azure-storage-account-transaction-metrics.md)]
-
-<a id="metrics-dimensions"></a>
-
-## Metrics dimensions
-
-Azure Files supports following dimensions for metrics in Azure Monitor.
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 > [!NOTE] 
 > The File Share dimension is not available for standard file shares (only premium file shares). When using standard file shares, the metrics provided are for all files shares in the storage account. To get per-share metrics for standard file shares, create one file share per storage account.
 
 [!INCLUDE [Metrics dimensions](../../../includes/azure-storage-account-metrics-dimensions.md)]
 
-<a id="resource-logs-preview"></a>
+<a name="resource-logs-preview"></a>
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-## Resource logs
+### Supported resource logs for Microsoft.Storage/storageAccounts/fileServices
+[!INCLUDE [Microsoft.Storage/storageAccounts/blobServices](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-storage-storageaccounts-fileservices-logs-include.md)]
 
-The following table lists the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics)
+- [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs)
+
+The following tables list the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
 
 ### Fields that describe the operation
-
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-operation.md)]
 
@@ -86,7 +70,10 @@ The following table lists the properties for Azure Storage resource logs when th
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## See also
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+- [Microsoft.Storage resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftstorage)
 
-- See [Monitoring Azure Files](storage-files-monitoring-reference.md) for a description of monitoring Azure Storage.
-- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+## Related content
+
+- See [Monitor Azure Files](storage-files-monitoring.md) for a description of monitoring Azure Files.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

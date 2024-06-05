@@ -1,11 +1,11 @@
 ---
-title: 'Quickstart: Connect using PHP - Azure Database for MySQL - Flexible Server'
+title: 'Quickstart: Connect using PHP'
 description: This quickstart provides several PHP code samples you can use to connect and query data from Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: shreyaaithal 
-ms.author: shaithal 
+author: shreyaaithal
+ms.author: shaithal
 ms.custom: mvc, mode-other
 ms.date: 05/03/2023
 ---
@@ -13,20 +13,20 @@ ms.date: 05/03/2023
 # Use PHP with Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-This quickstart demonstrates how to connect to an Azure Database for MySQL - Flexible Server using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes that you are familiar with development using PHP and that you are new to working with Azure Database for MySQL - Flexible Server.
+This quickstart demonstrates how to connect to Azure Database for MySQL flexible server using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes that you are familiar with development using PHP and that you are new to working with Azure Database for MySQL flexible server.
 
 ## Prerequisites
 
 This quickstart uses the resources created in either of these guides as a starting point:
 
-- [Create an Azure Database for MySQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md)
-- [Create an Azure Database for MySQL - Flexible Server using Azure CLI](./quickstart-create-server-cli.md)
+- [Create an Azure Database for MySQL flexible server instance using Azure portal](./quickstart-create-server-portal.md)
+- [Create an Azure Database for MySQL flexible server instance using Azure CLI](./quickstart-create-server-cli.md)
 
 ## Preparing your client workstation
 
-1. If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
+1. If you created your flexible server with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your flexible server. Refer to [Create and manage an Azure Database for MySQL flexible server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
 
-2. If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure CLI](./how-to-manage-firewall-cli.md).
+2. If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for MySQL flexible server firewall rules using the Azure CLI](./how-to-manage-firewall-cli.md).
 
 ### Install PHP
 
@@ -51,13 +51,13 @@ Install PHP on your own server, or create an Azure [web app](../../app-service/o
 
 ## Get connection information
 
-Get the connection information needed to connect to the Azure Database for MySQL - Flexible Server. You need the fully qualified server name and sign in credentials.
+Get the connection information needed to connect to the Azure Database for MySQL flexible server instance. You need the fully qualified server name and sign in credentials.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- <!---:::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL - Flexible Server name":::--->
+ <!---:::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL flexible server instance name":::--->
 
 ## Connecting to flexible server using TLS/SSL in PHP
 
@@ -258,7 +258,7 @@ mysqli_close($conn);
 
 ## Next steps
 
-- [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-tls-ssl.md).
-- Learn more about [Networking in Azure Database for MySQL - Flexible Server](./concepts-networking.md).
-- [Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
-- [Create and manage Azure Database for MySQL - Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
+- [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL flexible server](./how-to-connect-tls-ssl.md).
+- Learn more about [Networking in Azure Database for MySQL flexible server](./concepts-networking.md).
+- [Create and manage Azure Database for MySQL flexible server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
+- [Create and manage Azure Database for MySQL flexible server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).

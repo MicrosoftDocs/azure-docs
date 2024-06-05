@@ -1,9 +1,8 @@
 ---
 title: host.json reference for Azure Functions 2.x
-description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
-ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 11/16/2022
+description: Describes the various available settings for the Azure Functions host that can be set in the host.json file for the Functions v4 runtime.
+ms.topic: reference
+ms.date: 05/16/2024
 ---
 
 # host.json reference for Azure Functions 2.x and later 
@@ -53,7 +52,7 @@ The following sample *host.json* file for version 2.x+ has all possible options 
     },
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
+        "version": "[4.0.0, 5.0.0)"
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
@@ -131,6 +130,7 @@ The following sample *host.json* file for version 2.x+ has all possible options 
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
+    "telemetryMode": "OpenTelemetry",
     "watchDirectories": [ "Shared", "Test" ],
     "watchFiles": [ "myFile.txt" ]
 }
@@ -214,13 +214,13 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 | maximumCollectionPlanSize | 50 | The maximum number of problems that we can track at any time in a range from one to 9999. |
 | maximumSnapshotsRequired | 3 | The maximum number of snapshots collected for a single problem, in a range from one to 999. A problem may be thought of as an individual throw statement in your application. Once the number of snapshots collected for a problem reaches this value, no more snapshots will be collected for that problem until problem counters are reset (see `problemCounterResetInterval`) and the `thresholdForSnapshotting` limit is reached again. |
 | problemCounterResetInterval | 24:00:00 | How often to reset the problem counters in a range from one minute to seven days. When this interval is reached, all problem counts are reset to zero. Existing problems that have already reached the threshold for doing snapshots, but haven't yet generated the number of snapshots in `maximumSnapshotsRequired`, remain active. |
-| provideAnonymousTelemetry | true | Determines whether to send anonymous usage and error telemetry to Microsoft. This telemetry may be used if you contact Microsoft to help troubleshoot problems with the Snapshot Debugger. It is also used to monitor usage patterns. |
+| provideAnonymousTelemetry | true | Determines whether to send anonymous usage and error telemetry to Microsoft. This telemetry may be used if you contact Microsoft to help troubleshoot problems with the Snapshot Debugger. It's also used to monitor usage patterns. |
 | reconnectInterval | 00:15:00 | How often we reconnect to the Snapshot Debugger endpoint. Allowable range is one minute to one day. |
 | shadowCopyFolder | null | Specifies the folder to use for shadow copying binaries. If not set, the folders specified by the following environment variables are tried in order: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
 | shareUploaderProcess | true | If true, only one instance of SnapshotUploader will collect and upload snapshots for multiple apps that share the InstrumentationKey. If set to false, the SnapshotUploader will be unique for each (ProcessName, InstrumentationKey) tuple. |
 | snapshotInLowPriorityThread | true | Determines whether or not to process snapshots in a low IO priority thread. Creating a snapshot is a fast operation but, in order to upload a snapshot to the Snapshot Debugger service, it must first be written to disk as a minidump. That happens in the SnapshotUploader process. Setting this value to true uses low-priority IO to write the minidump, which won't compete with your application for resources. Setting this value to false speeds up minidump creation at the expense of slowing down your application. |
 | snapshotsPerDayLimit | 30 | The maximum number of snapshots allowed in one day (24 hours). This limit is also enforced on the Application Insights service side. Uploads are rate limited to 50 per day per application (that is, per instrumentation key). This value helps prevent creating additional snapshots that will eventually be rejected during upload. A value of zero removes the limit entirely, which isn't recommended. |
-| snapshotsPerTenMinutesLimit | 1 | The maximum number of snapshots allowed in 10 minutes. Although there is no upper bound on this value, exercise caution increasing it on production workloads because it could impact the performance of your application. Creating a snapshot is fast, but creating a minidump of the snapshot and uploading it to the Snapshot Debugger service is a much slower operation that will compete with your application for resources (both CPU and I/O). |
+| snapshotsPerTenMinutesLimit | 1 | The maximum number of snapshots allowed in 10 minutes. Although there's no upper bound on this value, exercise caution increasing it on production workloads because it could impact the performance of your application. Creating a snapshot is fast, but creating a minidump of the snapshot and uploading it to the Snapshot Debugger service is a much slower operation that will compete with your application for resources (both CPU and I/O). |
 | tempFolder | null | Specifies the folder to write minidumps and uploader log files. If not set, then *%TEMP%\Dumps* is used. |
 | thresholdForSnapshotting | 1 | How many times Application Insights needs to see an exception before it asks for snapshots. |
 | uploaderProxy | null | Overrides the proxy server used in the Snapshot Uploader process. You may need to use this setting if your application connects to the internet via a proxy server. The Snapshot Collector runs within your application's process and will use the same proxy settings. However, the Snapshot Uploader runs as a separate process and you may need to configure the proxy server manually. If this value is null, then Snapshot Collector will attempt to autodetect the proxy's address by examining `System.Net.WebRequest.DefaultWebProxy` and passing on the value to the Snapshot Uploader. If this value isn't null, then autodetection isn't used and the proxy server specified here will be used in the Snapshot Uploader. |
@@ -248,7 +248,7 @@ This setting is a child of [logging](#logging). It controls the console logging 
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|DisableColors|false| Suppresses log formatting in the container logs on Linux. Set to true if you are seeing unwanted ANSI control characters in the container logs when running on Linux. |
+|DisableColors|false| Suppresses log formatting in the container logs on Linux. Set to true if you're seeing unwanted ANSI control characters in the container logs when running on Linux. |
 |isEnabled|false|Enables or disables console logging.| 
 
 ## Azure Cosmos DB
@@ -272,8 +272,8 @@ Configuration settings for a custom handler. For more information, see [Azure Fu
 
 |Property | Default | Description |
 | --------- | --------- | --------- |
-| defaultExecutablePath | n/a | The executable to start as the custom handler process. It is a required setting when using custom handlers and its value is relative to the function app root. |
-| workingDirectory | *function app root* | The working directory in which to start the custom handler process. It is an optional setting and its value is relative to the function app root. |
+| defaultExecutablePath | n/a | The executable to start as the custom handler process. It's a required setting when using custom handlers and its value is relative to the function app root. |
+| workingDirectory | *function app root* | The working directory in which to start the custom handler process. It's an optional setting and its value is relative to the function app root. |
 | arguments | n/a | An array of command line arguments to pass to the custom handler process. |
 | enableForwardingHttpRequest | false | If set, all functions that consist of only an HTTP trigger and HTTP output is forwarded the original HTTP request instead of the custom handler [request payload](functions-custom-handlers.md#request-payload). |
 
@@ -346,7 +346,7 @@ Indicates the timeout duration for all function executions. It follows the times
 
 Configuration settings for [Host health monitor](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
-```
+```json
 {
     "healthMonitor": {
         "enabled": true,
@@ -392,7 +392,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|fileLoggingMode|debugOnly|Defines what level of file logging is enabled.  Options are `never`, `always`, `debugOnly`. |
+|fileLoggingMode|debugOnly|Determines the file logging behavior when running in Azure. Options are `never`, `always`, and `debugOnly`. This setting isn't used when running locally. When possible, you should use Application Insights when debugging your functions in Azure. Using `always` negatively impacts your app's cold start behavior and data throughput. The default `debugOnly` setting generates log files when you're debugging using the Azure portal. |
 |logLevel|n/a|Object that defines the log category filtering for functions in the app. This setting lets you filter logging for specific functions. For more information, see [Configure log levels](configure-monitoring.md#configure-log-levels). |
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
@@ -445,6 +445,12 @@ Configuration settings for Singleton lock behavior. For more information, see [G
 |lockAcquisitionTimeout|00:01:00|The maximum amount of time the runtime will try to acquire a lock.| 
 |lockAcquisitionPollingInterval|n/a|The interval between lock acquisition attempts.| 
 
+## telemetryMode
+
+ _This feature is currently in preview._
+
+Used to enable output of logs and traces in an OpenTelemetry output format to one or more endpoints that support OpenTelemetry. When this setting is set to `OpenTelemetry`, OpenTelemetry output is used. By default without this setting, all logs, traces, and events are sent to Application Insights using the standard outputs. For more information, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md).
+
 ## version
 
 This value indicates the schema version of host.json. The version string `"version": "2.0"` is required for a function app that targets the v2 runtime, or a later version. There are no host.json schema changes between v2 and v3.
@@ -461,7 +467,7 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 
 ## watchFiles
 
-An array of one or more names of files that are monitored for changes that require your app to restart.  This guarantees that when code in these files are changed, the updates are picked up by your functions.
+An array of one or more names of files that are monitored for changes that require your app to restart.  This guarantees that when code in these files is changed, the updates are picked up by your functions.
 
 ```json
 {

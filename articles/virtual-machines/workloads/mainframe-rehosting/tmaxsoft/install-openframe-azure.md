@@ -2,16 +2,19 @@
 title: Install TmaxSoft OpenFrame on Azure Virtual Machines
 description: Learn how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads.
 services: virtual-machines
-documentationcenter:
-author: njray
-ms.author: larryme
+author: johnjrayborn
+ms.author: johnray
 ms.date: 04/19/2023
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
+ms.custom: linux-related-content
 ---
 
 # Install TmaxSoft OpenFrame on Azure
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Learn how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads. This tutorial walks you through each step.
 
@@ -97,7 +100,7 @@ Plan on spending a few days to assemble all the required software and complete a
 
 Before getting started, do the following:
 
-- Get the OpenFrame installation media from TmaxSoft. If you are an existing TmaxSoft customer, contact your TmaxSoft representative for a licensed copy. Otherwise, request a trial version from [TmaxSoft](https://www.tmaxsoft.com/contact/).
+- Get the OpenFrame installation media from TmaxSoft. If you are an existing TmaxSoft customer, contact your TmaxSoft representative for a licensed copy. Otherwise, request a trial version from [TmaxSoft](https://www.tmaxsoft.com/en/counsel-buying).
 - Request the OpenFrame documentation by sending email to <support@tmaxsoft.com>.
 - Get an Azure subscription if you don't already have one. You can also create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Optional. Set up a site-to-site VPN tunnel or a jumpbox that restricts access to the Azure VM to the permitted users in your organization. This step is not required, but it is a best practice.
@@ -182,23 +185,23 @@ Now that the VM is created and you are logged on, you must perform a few setup s
 1. Map the name **ofdemo** to the local IP address, modify `/etc/hosts` using any text editor. Assuming our IP is `192.168.96.148`, this is before the change:
 
     ```config
-    127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
-    ::1              localhost localhost.localdomain localhost6 localhost6.localdomain 
+    127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+    ::1              localhost localhost.localdomain localhost6 localhost6.localdomain
     <IP Address>    <your hostname>
     ```
 
     - This is after the change:
 
     ```config
-    127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
-    ::1              localhost localhost.localdomain localhost6 localhost6.localdomain 
+    127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+    ::1              localhost localhost.localdomain localhost6 localhost6.localdomain
     192.168.96.148   ofdemo
     ```
 
 2. Create groups and users:
 
     ```bash
-    sudo adduser -d /home/oframe7 oframe7 
+    sudo adduser -d /home/oframe7 oframe7
     ```
 
 3. Change the password for user oframe7:
@@ -208,15 +211,15 @@ Now that the VM is created and you are logged on, you must perform a few setup s
     ```
 
     ```output
-    New password: 
-    Retype new password: 
+    New password:
+    Retype new password:
     passwd: all authentication tokens updated successfully.
     ```
 
 4. Update the kernel parameters in `/etc/sysctl.conf` using any text editor:
 
     ```text
-    kernel.shmall = 7294967296 
+    kernel.shmall = 7294967296
     kernel.sem = 10000 32000 10000 10000
     ```
 
@@ -302,7 +305,7 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
 2. Copy the Tibero software to the Tibero user account (oframe). For example:
 
     ```bash
-    tar -xzvf tibero6-bin-6_rel_FS04-linux64-121793-opt-tested.tar.gz 
+    tar -xzvf tibero6-bin-6_rel_FS04-linux64-121793-opt-tested.tar.gz
     mv license.xml /opt/tmaxdb/tibero6/license/
     ```
 
@@ -310,9 +313,9 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
 
     ```text
     # Tibero6 ENV
-    export TB_HOME=/opt/tmaxdb/tibero6 
-    export TB_SID=TVSAM export TB_PROF_DIR=$TB_HOME/bin/prof 
-    export LD_LIBRARY_PATH=$TB_HOME/lib:$TB_HOME/client/lib:$LD_LIBRARY_PATH 
+    export TB_HOME=/opt/tmaxdb/tibero6
+    export TB_SID=TVSAM export TB_PROF_DIR=$TB_HOME/bin/prof
+    export LD_LIBRARY_PATH=$TB_HOME/lib:$TB_HOME/client/lib:$LD_LIBRARY_PATH
     export PATH=$TB_HOME/bin:$TB_HOME/client/bin:$PATH
     ```
 
@@ -332,7 +335,7 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
 6. Modify `\$TB_HOME/client/config/tbdsn.tbr` using any text editor and put 127.0.0.1 instead of localhost as shown:
 
     ```text
-    TVSAM=( 
+    TVSAM=(
     (INSTANCE=(HOST=127.0.0.1)
         (PT=8629)
     (DB_NAME=TVSAM)
@@ -362,7 +365,7 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
     Creating agent table...
     Done.
     For details, check /opt/tmaxdb/tibero6/instance/TVSAM/log/system_init.log.
-    ************************************************** 
+    **************************************************
     * Tibero Database TVSAM is created successfully on Fri Aug 12 19:10:43 UTC 2016.
     *     Tibero home directory ($TB_HOME) =
     *         /opt/tmaxdb/tibero6
@@ -371,7 +374,7 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
     *         /opt/tmaxdb/tibero6/bin:/opt/tmaxdb/tibero6/client/bin
     *     Initialization parameter file =
     *         /opt/tmaxdb/tibero6/config/TVSAM.tip
-    * 
+    *
     * Make sure that you always set up environment variables $TB_HOME and
     * $TB_SID properly before you run Tibero.
      ******************************************************************************
@@ -380,7 +383,7 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
 8. To recycle Tibero, first shut it down using the `tbdown` command. For example:
 
     ```bash
-    tbdown 
+    tbdown
     ```
 
     ```output
@@ -396,7 +399,7 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
     ```output
     Change core dump dir to /opt/tmaxdb/tibero6/bin/prof. Listener port = 8629
 
-    Tibero 6  
+    Tibero 6
     TmaxData Corporation Copyright (c) 2008-. All rights reserved.
     Tibero instance started up (NORMAL mode).
     ```
@@ -408,7 +411,7 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
     ```
 
     ```output
-    tbSQL 6  
+    tbSQL 6
     TmaxData Corporation Copyright (c) 2008-. All rights reserved.
     Connected to Tibero.
     ```
@@ -426,7 +429,7 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
 12. Boot Tibero and verify that the Tibero processes are running:
 
     ```bash
-    tbboot 
+    tbboot
     ps -ef | egrep tbsvr
     ```
 
@@ -470,11 +473,11 @@ To install ODBC:
 6. Edit the bash profile `~/.bash_profile` using any text editor and add the following:
 
      ```text
-     # UNIX ODBC ENV 
-     export ODBC_HOME=$HOME/unixODBC 
-     export PATH=$ODBC_HOME/bin:$PATH 
-     export LD_LIBRARY_PATH=$ODBC_HOME/lib:$LD_LIBRARY_PATH 
-     export ODBCINI=$HOME/unixODBC/etc/odbc.ini 
+     # UNIX ODBC ENV
+     export ODBC_HOME=$HOME/unixODBC
+     export PATH=$ODBC_HOME/bin:$PATH
+     export LD_LIBRARY_PATH=$ODBC_HOME/lib:$LD_LIBRARY_PATH
+     export ODBCINI=$HOME/unixODBC/etc/odbc.ini
      export ODBCSYSINI=$HOME
      ```
 
@@ -502,17 +505,17 @@ To install ODBC:
      [Tibero]
      Description = Tibero ODBC driver for Tibero6
      Driver = /opt/tmaxdb/tibero6/client/lib/libtbodbc.so
-     Setup = 
-     FileUsage = 
-     CPTimeout = 
-     CPReuse = 
+     Setup =
+     FileUsage =
+     CPTimeout =
+     CPReuse =
      Driver Logging = 7
 
      [ODBC]
-     Trace = NO 
-     TraceFile = /home/oframe7/odbc.log 
-     ForceTrace = Yes 
-     Pooling = No 
+     Trace = NO
+     TraceFile = /home/oframe7/odbc.log
+     ForceTrace = Yes
+     Pooling = No
      DEBUG = 1
      ```
 
@@ -520,18 +523,18 @@ To install ODBC:
 
      ```config
      [TVSAM]
-     Description = Tibero ODBC driver for Tibero6 
-     Driver = Tibero 
-     DSN = TVSAM 
-     SID = TVSAM 
-     User = tibero 
+     Description = Tibero ODBC driver for Tibero6
+     Driver = Tibero
+     DSN = TVSAM
+     SID = TVSAM
+     User = tibero
      password = tmax
      ```
 
 8. Create a symbolic link and validate the Tibero database connection:
 
      ```bash
-     ln $ODBC_HOME/lib/libodbc.so $ODBC_HOME/lib/libodbc.so.1 
+     ln $ODBC_HOME/lib/libodbc.so $ODBC_HOME/lib/libodbc.so.1
      ln $ODBC_HOME/lib/libodbcinst.so $ODBC_HOME/lib/libodbcinst.so.1
      isql TVSAM tibero tmax
      ```
@@ -572,7 +575,7 @@ The Base application server is installed before the individual services that Ope
      > [!IMPORTANT]
      > Make sure you start Tibero before installation.
 
-5. Generate license at [technet.tmaxsoft.com](https://technet.tmaxsoft.com/en/front/main/main.do) and PUT the OpenFrame Base, Batch, TACF, OSC licenses in the appropriate folder:
+5. Generate license at `technet.tmaxsoft.com` and PUT the OpenFrame Base, Batch, TACF, OSC licenses in the appropriate folder:
 
      ```bash
      cp license.dat /opt/tmaxapp/OpenFrame/core/license/
@@ -584,31 +587,31 @@ The Base application server is installed before the individual services that Ope
     - Modify the `base.properties` file accordingly, using any text editor:
 
      ```config
-     OPENFRAME_HOME= <appropriate location for installation> ex. /opt/tmaxapp/OpenFrame TP_HOST_NAME=<your IP Hostname> ex. ofdemo 
-     TP_HOST_IP=<your IP Address> ex. 192.168.96.148 
-     TP_SHMKEY=63481 
-     TP_TPORTNO=6623 
-     TP_UNBLOCK_PORT=6291 
-     TP_NODE_NAME=NODE1 
-     TP_NODE_LIST=NODE1 
-     MASCAT_NAME=SYS1.MASTER.ICFCAT 
-     MASCAT_CREATE=YES 
-     DEFAULT_VOLSER=DEFVOL 
-     VOLADD_DEFINE=YES TSAM_USERNAME=tibero 
-     TSAM_PASSWORD=tmax 
-     TSAM_DATABASE=oframe 
-     DATASET_SHMKEY=63211 
-     DSLOCK_DATA=SYS1.DSLOCK.DATA 
-     DSLOCK_LOG=SYS1.DSLOCK.LOG 
-     DSLOCK_SEQ=dslock_seq.dat 
-     DSLOCK_CREATE=YES 
+     OPENFRAME_HOME= <appropriate location for installation> ex. /opt/tmaxapp/OpenFrame TP_HOST_NAME=<your IP Hostname> ex. ofdemo
+     TP_HOST_IP=<your IP Address> ex. 192.168.96.148
+     TP_SHMKEY=63481
+     TP_TPORTNO=6623
+     TP_UNBLOCK_PORT=6291
+     TP_NODE_NAME=NODE1
+     TP_NODE_LIST=NODE1
+     MASCAT_NAME=SYS1.MASTER.ICFCAT
+     MASCAT_CREATE=YES
+     DEFAULT_VOLSER=DEFVOL
+     VOLADD_DEFINE=YES TSAM_USERNAME=tibero
+     TSAM_PASSWORD=tmax
+     TSAM_DATABASE=oframe
+     DATASET_SHMKEY=63211
+     DSLOCK_DATA=SYS1.DSLOCK.DATA
+     DSLOCK_LOG=SYS1.DSLOCK.LOG
+     DSLOCK_SEQ=dslock_seq.dat
+     DSLOCK_CREATE=YES
      OPENFRAME_LICENSE_PATH=/opt/tmaxapp/license/OPENFRAME TMAX_LICENSE_PATH=/opt/tmaxapp/license/TMAX
      ```
 
 7. Execute the installer using the `base.properties file`. For example:
 
     ```bash
-    chmod a+x OpenFrame_Base7_0_Linux_x86_64.bin 
+    chmod a+x OpenFrame_Base7_0_Linux_x86_64.bin
     ./OpenFrame_Base7_0_Linux_x86_64.bin -f base.properties
     ```
 
@@ -623,21 +626,21 @@ The Base application server is installed before the individual services that Ope
      ```output
      total 44
 
-     drwxrwxr-x. 4 oframe7 oframe7 61 Nov 30 16:57 UninstallerData 
-     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 bin 
-     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 cpm drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 data 
-     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 include 
-     drwxrwxr-x. 2 oframe7 oframe7 8192 Nov 30 16:57 lib 
-     drwxrwxr-x. 6 oframe7 oframe7 48 Nov 30 16:57 log 
-     drwxrwxr-x. 2 oframe7 oframe7 6 Nov 30 16:57 profile 
-     drwxrwxr-x. 7 oframe7 oframe7 62 Nov 30 16:57 sample 
-     drwxrwxr-x. 2 oframe7 oframe7 6 Nov 30 16:57 schema 
-     drwxrwxr-x. 2 oframe7 oframe7 6 Nov 30 16:57 temp 
-     drwxrwxr-x. 3 oframe7 oframe7 16 Nov 30 16:57 shared 
-     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:58 license 
-     drwxrwxr-x. 23 oframe7 oframe7 4096 Nov 30 16:58 core 
-     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:58 config 
-     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:58 scripts 
+     drwxrwxr-x. 4 oframe7 oframe7 61 Nov 30 16:57 UninstallerData
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 bin
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 cpm drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 data
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 include
+     drwxrwxr-x. 2 oframe7 oframe7 8192 Nov 30 16:57 lib
+     drwxrwxr-x. 6 oframe7 oframe7 48 Nov 30 16:57 log
+     drwxrwxr-x. 2 oframe7 oframe7 6 Nov 30 16:57 profile
+     drwxrwxr-x. 7 oframe7 oframe7 62 Nov 30 16:57 sample
+     drwxrwxr-x. 2 oframe7 oframe7 6 Nov 30 16:57 schema
+     drwxrwxr-x. 2 oframe7 oframe7 6 Nov 30 16:57 temp
+     drwxrwxr-x. 3 oframe7 oframe7 16 Nov 30 16:57 shared
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:58 license
+     drwxrwxr-x. 23 oframe7 oframe7 4096 Nov 30 16:58 core
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:58 config
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:58 scripts
      drwxrwxr-x. 2 oframe7 oframe7 25 Nov 30 16:58 volume_default
      ```
 
@@ -662,25 +665,25 @@ The Base application server is installed before the individual services that Ope
 11. Shut down OpenFrame Base:
 
      ```bash
-     tmdown 
+     tmdown
      ```
 
      ```output
      Do you really want to down whole Tmax? (y : n): y
 
-     TMDOWN for node(NODE1) is starting: 
-     TMDOWN: SERVER(ofrsasvr:36) downed: Wed Sep  7 15:37:21 2016 
-     TMDOWN: SERVER(ofrdsedt:39) downed: Wed Sep  7 15:37:21 2016 
-     TMDOWN: SERVER(vtammgr:43) downed: Wed Sep  7 15:37:21 2016 
-     TMDOWN: SERVER(ofrcmsvr:40) downed: Wed Sep  7 15:37:21 2016 
-     TMDOWN: SERVER(ofrdmsvr:38) downed: Wed Sep  7 15:37:21 2016 
-     TMDOWN: SERVER(ofrlhsvr:37) downed: Wed Sep  7 15:37:21 2016 
-     TMDOWN: SERVER(ofruisvr:41) downed: Wed Sep  7 15:37:21 2016 
-     TMDOWN: SERVER(ofrsmlog:42) downed: Wed Sep  7 15:37:21 2016 
-     TMDOWN: CLH downed: Wed Sep  7 15:37:21 2016 
-     TMDOWN: CLL downed: Wed Sep  7 15:37:21 2016 
-     TMDOWN: TLM downed: Wed Sep  7 15:37:21 2016 
-     TMDOWN: TMM downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN for node(NODE1) is starting:
+     TMDOWN: SERVER(ofrsasvr:36) downed: Wed Sep  7 15:37:21 2016
+     TMDOWN: SERVER(ofrdsedt:39) downed: Wed Sep  7 15:37:21 2016
+     TMDOWN: SERVER(vtammgr:43) downed: Wed Sep  7 15:37:21 2016
+     TMDOWN: SERVER(ofrcmsvr:40) downed: Wed Sep  7 15:37:21 2016
+     TMDOWN: SERVER(ofrdmsvr:38) downed: Wed Sep  7 15:37:21 2016
+     TMDOWN: SERVER(ofrlhsvr:37) downed: Wed Sep  7 15:37:21 2016
+     TMDOWN: SERVER(ofruisvr:41) downed: Wed Sep  7 15:37:21 2016
+     TMDOWN: SERVER(ofrsmlog:42) downed: Wed Sep  7 15:37:21 2016
+     TMDOWN: CLH downed: Wed Sep  7 15:37:21 2016
+     TMDOWN: CLL downed: Wed Sep  7 15:37:21 2016
+     TMDOWN: TLM downed: Wed Sep  7 15:37:21 2016
+     TMDOWN: TMM downed: Wed Sep  7 15:37:21 2016
      TMDOWN: TMAX is down
      ```
 
@@ -697,18 +700,18 @@ OpenFrame Batch consists of several components that simulate mainframe batch env
 
      ```config
      OPENFRAME_HOME = /opt/tmaxapp/OpenFrame
-     DEFAULT_VOLSER=DEFVOL 
-     TP_NODE_NAME=NODE1 
-     TP_NODE_LIST=NODE1 
-     RESOURCE_SHMKEY=66991 
-     #JOBQ_DATASET_CREATE=YES 
-     #OUTPUTQ_DATASET_CREATE=YES 
-     DEFAULT_JCLLIB_CREATE=YES 
-     DEFAULT_PROCLIB_CREATE=YES 
-     DEFAULT_USERLIB_CREATE=YES 
-     TJES_USERNAME=tibero 
-     TJES_PASSWORD=tmax 
-     TJES_DATABASE=oframe 
+     DEFAULT_VOLSER=DEFVOL
+     TP_NODE_NAME=NODE1
+     TP_NODE_LIST=NODE1
+     RESOURCE_SHMKEY=66991
+     #JOBQ_DATASET_CREATE=YES
+     #OUTPUTQ_DATASET_CREATE=YES
+     DEFAULT_JCLLIB_CREATE=YES
+     DEFAULT_PROCLIB_CREATE=YES
+     DEFAULT_USERLIB_CREATE=YES
+     TJES_USERNAME=tibero
+     TJES_PASSWORD=tmax
+     TJES_DATABASE=oframe
      BATCH_TABLE_CREATE=YES
      ```
 
@@ -729,7 +732,7 @@ OpenFrame Batch consists of several components that simulate mainframe batch env
 7. Execute the following commands:
 
      ```bash
-     $$2 NODE1 (tmadm): quit 
+     $$2 NODE1 (tmadm): quit
      ADM quit for node (NODE1)
      ```
 
@@ -742,35 +745,35 @@ OpenFrame Batch consists of several components that simulate mainframe batch env
      ```output
      Do you really want to down whole Tmax? (y : n): y
 
-     TMDOWN for node(NODE1) is starting: 
-     TMDOWN: SERVER(ofrsasvr:36) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN for node(NODE1) is starting:
+     TMDOWN: SERVER(ofrsasvr:36) downed: Wed Sep  7 16:01:46 2016
      TMDOWN: SERVER(obmjmsvr:44) downed: Wed Sep  7 16:01:46 2016
-     TMDOWN: SERVER(vtammgr: 43) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(ofrcmsvr:40) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjmsvr:45) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjmsvr:46) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(ofrdmsvr:38) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjmsvr:47) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(ofrdsedt:39) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjschd:54) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjinit:55) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjmsvr:48) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjspbk:57) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjmsvr:49) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjmsvr:50) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjmsvr:51) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(ofrlhsvr:37) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjmsvr:52) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjmsvr:53) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmjhist:56) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(ofruisvr:41) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(obmtsmgr:59) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(ofrpmsvr:58) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: SERVER(ofrsmlog:42) downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: CLL downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: TLM downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: CLH downed: Wed Sep  7 16:01:46 2016 
-     TMDOWN: TMM downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(vtammgr: 43) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(ofrcmsvr:40) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjmsvr:45) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjmsvr:46) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(ofrdmsvr:38) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjmsvr:47) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(ofrdsedt:39) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjschd:54) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjinit:55) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjmsvr:48) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjspbk:57) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjmsvr:49) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjmsvr:50) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjmsvr:51) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(ofrlhsvr:37) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjmsvr:52) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjmsvr:53) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmjhist:56) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(ofruisvr:41) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(obmtsmgr:59) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(ofrpmsvr:58) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(ofrsmlog:42) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: CLL downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: TLM downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: CLH downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: TMM downed: Wed Sep  7 16:01:46 2016
      TMDOWN: TMAX is down
      ```
 
@@ -785,12 +788,12 @@ TACF Manager is an OpenFrame service module that controls user access to systems
 3. Modify the TACF parameters:
 
      ```config
-     OPENFRAME_HOME=/opt/tmaxapp/OpenFrame 
-     USE_OS_AUTH=NO 
-     TACF_USERNAME=tibero 
-     TACF_PASSWORD=tmax 
-     TACF_DATABASE=oframe 
-     TACF_TABLESPACE=TACF00 
+     OPENFRAME_HOME=/opt/tmaxapp/OpenFrame
+     USE_OS_AUTH=NO
+     TACF_USERNAME=tibero
+     TACF_PASSWORD=tmax
+     TACF_DATABASE=oframe
+     TACF_TABLESPACE=TACF00
      TACF_TABLE_CREATE=YES
      ```
 
@@ -810,57 +813,57 @@ TACF Manager is an OpenFrame service module that controls user access to systems
 
      ```output
      Wed Dec 07 17:36:42 EDT 2016
-     Free Memory: 18703 kB 
+     Free Memory: 18703 kB
      Total Memory: 28800 kB
 
-     4 Command Line Args: 
-     0:  -f 1:  tacf.properties 
-     2:  -m 
-     3:  SILENT 
-     java.class.path: 
-     /tmp/install.dir.41422/InstallerData 
-     /tmp/install.dir.41422/InstallerData/installer.zip 
-     ZGUtil.CLASS_PATH: 
-     /tmp/install.dir.41422/InstallerData 
-     tmp/install.dir.41422/InstallerData/installer.zip 
-     sun.boot.class.path: 
+     4 Command Line Args:
+     0:  -f 1:  tacf.properties
+     2:  -m
+     3:  SILENT
+     java.class.path:
+     /tmp/install.dir.41422/InstallerData
+     /tmp/install.dir.41422/InstallerData/installer.zip
+     ZGUtil.CLASS_PATH:
+     /tmp/install.dir.41422/InstallerData
+     tmp/install.dir.41422/InstallerData/installer.zip
+     sun.boot.class.path:
      /tmp/install.dir.41422/Linux/resource/jre/lib/resources.jar /tmp/install.dir.41422/Linux/resource/jre/lib/rt.jar /tmp/install.dir.41422/Linux/resource/jre/lib/sunrsasign.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jsse.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jce.jar /tmp/install.dir.41422/Linux/resource/jre/lib/charsets.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jfr.jar /tmp/install.dir.41422/Linux/resource/jre/classes
      ```
 
 6. At the command prompt, type `tmboot` to restart OpenFrame. The output looks something like this:
 
      ```output
-     TMBOOT for node(NODE1) is starting: 
-     Welcome to Tmax demo system: it will expire 2016/11/4 
-     Today: 2016/9/7 
-     TMBOOT: TMM is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: CLL is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: CLH is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: TLM(tlm) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(ofrsasvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(ofrlhsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(ofrdmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(ofrdsedt) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(ofrcmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(ofruisvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(ofrsmlog) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(vtammgr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjschd) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjinit) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjhist) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmjspbk) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(ofrpmsvr) is starting: Wed Sep  7 17:48:53 2016 
-     TMBOOT: SVR(obmtsmgr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT for node(NODE1) is starting:
+     Welcome to Tmax demo system: it will expire 2016/11/4
+     Today: 2016/9/7
+     TMBOOT: TMM is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: CLL is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: CLH is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: TLM(tlm) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(ofrsasvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(ofrlhsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(ofrdmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(ofrdsedt) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(ofrcmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(ofruisvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(ofrsmlog) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(vtammgr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjschd) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjinit) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjhist) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmjspbk) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(ofrpmsvr) is starting: Wed Sep  7 17:48:53 2016
+     TMBOOT: SVR(obmtsmgr) is starting: Wed Sep  7 17:48:53 2016
      TMBOOT: SVR(tmsvr) is starting: Wed Sep  7 17:48:53 2016
      ```
 
@@ -877,7 +880,7 @@ TACF Manager is an OpenFrame service module that controls user access to systems
 8. Execute the following commands in the bash terminal:
 
      ```bash
-     $$2 NODE1 (tmadm): quit 
+     $$2 NODE1 (tmadm): quit
      ```
 
      ```output
@@ -886,8 +889,8 @@ TACF Manager is an OpenFrame service module that controls user access to systems
      ```bash
      tacfmgr
 
-     ```output 
-     Input USERNAME  : ROOT 
+     ```output
+     Input USERNAME  : ROOT
      Input PASSWORD  : SYS1
 
      TACFMGR: TACF MANAGER START!!!
@@ -901,31 +904,31 @@ TACF Manager is an OpenFrame service module that controls user access to systems
 9. Shut the server down using the `tmdown` command. The output looks something like this:
 
      ```bash
-     tmdown 
+     tmdown
      ```
 
      ```output
      Do you really want to down whole Tmax? (y : n): y
 
-     TMDOWN for node(NODE1) is starting: 
-     TMDOWN: SERVER(ofrlhsvr:37) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(ofrdsedt:39) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(obmjschd:54) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(obmjmsvr:47) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(obmjmsvr:48) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(ofrdmsvr:38) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(obmjmsvr:50) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(obmjhist:56) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(ofrsasvr:36) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(ofrcmsvr:40) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(obmjspbk:57) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(tmsvr:60) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(ofrpmsvr:58) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: SERVER(obmtsmgr:59) downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: CLL downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: CLH downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: TLM downed: Wed Sep  7 17:50:50 2016 
-     TMDOWN: TMM downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN for node(NODE1) is starting:
+     TMDOWN: SERVER(ofrlhsvr:37) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(ofrdsedt:39) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(obmjschd:54) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(obmjmsvr:47) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(obmjmsvr:48) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(ofrdmsvr:38) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(obmjmsvr:50) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(obmjhist:56) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(ofrsasvr:36) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(ofrcmsvr:40) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(obmjspbk:57) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(tmsvr:60) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(ofrpmsvr:58) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: SERVER(obmtsmgr:59) downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: CLL downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: CLH downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: TLM downed: Wed Sep  7 17:50:50 2016
+     TMDOWN: TMM downed: Wed Sep  7 17:50:50 2016
      TMDOWN: TMAX is down
      ```
 
@@ -951,8 +954,8 @@ ProSort is a utility used in batch transactions for sorting data.
 4. Create a license subdirectory and copy the license file there. For example:
 
      ```bash
-     cd /opt/tmaxapp/prosort 
-     mkdir license 
+     cd /opt/tmaxapp/prosort
+     mkdir license
      cp /opt/tmaxsw/oflicense/prosort/license.xml /opt/tmaxapp/prosort/license
      ```
 
@@ -961,12 +964,12 @@ ProSort is a utility used in batch transactions for sorting data.
      ```text
      #       PROSORT
 
-     PROSORT_HOME=/opt/tmaxapp/prosort 
-     PROSORT_SID=gbg 
-     PATH=$PATH:$PROSORT_HOME/bin LD_LIBRARY_PATH=$PROSORT_HOME/lib:$LD_LIBRARY_PATH LIBPATH$PROSORT_HOME/lib:$LIBPATH 
-     export PROSORT_HOME PROSORT_SID 
-     PATH LD_LIBRARY_PATH LIBPATH 
-     PATH=$PATH:$OPENFRAME_HOME/shbin 
+     PROSORT_HOME=/opt/tmaxapp/prosort
+     PROSORT_SID=gbg
+     PATH=$PATH:$PROSORT_HOME/bin LD_LIBRARY_PATH=$PROSORT_HOME/lib:$LD_LIBRARY_PATH LIBPATH$PROSORT_HOME/lib:$LIBPATH
+     export PROSORT_HOME PROSORT_SID
+     PATH LD_LIBRARY_PATH LIBPATH
+     PATH=$PATH:$OPENFRAME_HOME/shbin
      export PATH
      ```
 
@@ -975,8 +978,8 @@ ProSort is a utility used in batch transactions for sorting data.
 7. Create the configuration file. For example:
 
      ```bash
-     cd /opt/tmaxapp/prosort/config 
-     ./gen_tip.sh 
+     cd /opt/tmaxapp/prosort/config
+     ./gen_tip.sh
      ```
 
      ```output
@@ -987,7 +990,7 @@ ProSort is a utility used in batch transactions for sorting data.
 8. Create the symbolic link. For example:
 
      ```bash
-     cd /opt/tmaxapp/OpenFrame/util/ 
+     cd /opt/tmaxapp/OpenFrame/util/
      ln -s DFSORT SORT
      ```
 
@@ -1000,10 +1003,10 @@ ProSort is a utility used in batch transactions for sorting data.
      ```output
      Usage: prosort [options] [sort script files]
      options ------
-     -h             Display this information 
-     -v             Display version information 
-     -s             Display state information 
-     -j             Display profile information 
+     -h             Display this information
+     -v             Display version information
+     -s             Display state information
+     -j             Display profile information
      -x             Use SyncSort compatible mode
      ```
 
@@ -1024,22 +1027,22 @@ OFCOBOL is the OpenFrame compiler that interprets the mainframe's COBOL programs
 4. Accept the licensing agreement. When the installation is complete, the following appears:
 
      ```output
-     Choose Install Folder 
+     Choose Install Folder
      --------------------
      Where would you like to install?
      Default Install Folder: /home/oframe7/OFCOBOL
 
      ENTER AN ABSOLUTE PATH, OR PRESS <ENTER> TO ACCEPT THE DEFAULT : /opt/tmaxapp/OFCOBOL
 
-     INSTALL FOLDER IS: /opt/tmaxapp/OFCOBOL 
+     INSTALL FOLDER IS: /opt/tmaxapp/OFCOBOL
      IS THIS CORRECT? (Y/N): Y[oframe7@ofdemo ~]$ vi .bash_profile
 
-     ============================================================================ Installing... 
+     ============================================================================ Installing...
      ------------
-     [==================|==================|==================|==================] 
+     [==================|==================|==================|==================]
      [------------------|------------------|------------------|------------------]
 
-     =============================================================================== Installation Complete 
+     =============================================================================== Installation Complete
      --------------------
      Congratulations. OpenFrame_COBOL has been successfully installed
      PRESS <ENTER> TO EXIT THE INSTALLER
@@ -1069,35 +1072,35 @@ OFCOBOL is the OpenFrame compiler that interprets the mainframe's COBOL programs
     - Here's the SYSLIB section after the change:
 
      ```config
-     [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib :${ODBC_HOME}/lib 
+     [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib :${ODBC_HOME}/lib
      :${OFCOB_HOME}/lib
      ```
 
 9. Review the `OpenFrame_COBOL_InstallLog.log` file in vi and verify that there are no errors. For example:
 
      ```bash
-     cat $OFCOB_HOME/UninstallerData/log/OpenFrame_COBOL_InstallLog.log 
+     cat $OFCOB_HOME/UninstallerData/log/OpenFrame_COBOL_InstallLog.log
      ```
 
      ```output
-     …….. 
-     Summary 
+     ……..
+     Summary
      ------
-     Installation: Successful. 
-     131 Successes 
-     0 Warnings 
-     0 NonFatalErrors 
+     Installation: Successful.
+     131 Successes
+     0 Warnings
+     0 NonFatalErrors
      0 FatalError
      ```
 
 10. Use the `ofcob --version` command and review the version number to verify the installation. For example:
 
      ```bash
-     ofcob --version 
+     ofcob --version
      ```
 
      ```output
-     OpenFrame COBOL Compiler 3.0.54 
+     OpenFrame COBOL Compiler 3.0.54
      CommitTag:: 645f3f6bf7fbe1c366a6557c55b96c48454f4bf
      ```
 
@@ -1123,11 +1126,11 @@ OFASM is the OpenFrame compiler that interprets the mainframe's assembler progra
 
      ```bash
      source .bash_profile
-     ofasm --version 
+     ofasm --version
      ```
 
      ```output
-     # TmaxSoft OpenFrameAssembler v3 r328 
+     # TmaxSoft OpenFrameAssembler v3 r328
      (3ff35168d34f6e2046b96415bbe374160fcb3a34)
      ```
 
@@ -1136,10 +1139,10 @@ OFASM is the OpenFrame compiler that interprets the mainframe's assembler progra
      ```
 
      ```output
-     # OFASM ENV 
-     export OFASM_HOME=/opt/tmaxapp/OFASM 
-     export OFASM_MACLIB=$OFASM_HOME/maclib/free_macro 
-     export PATH="${PATH}:$OFASM_HOME/bin:" 
+     # OFASM ENV
+     export OFASM_HOME=/opt/tmaxapp/OFASM
+     export OFASM_MACLIB=$OFASM_HOME/maclib/free_macro
+     export PATH="${PATH}:$OFASM_HOME/bin:"
      export LD_LIBRARY_PATH="./:$OFASM_HOME/lib:$LD_LIBRARY_PATH"
      ```
 
@@ -1160,19 +1163,19 @@ OFASM is the OpenFrame compiler that interprets the mainframe's assembler progra
 7. Validate the `OpenFrame_ASM_InstallLog.log` file, and verify that there are no errors. For example:
 
      ```bash
-     cat $OFASM_HOME/UninstallerData/log/OpenFrame_ASM_InstallLog.log 
+     cat $OFASM_HOME/UninstallerData/log/OpenFrame_ASM_InstallLog.log
      ```
 
      ```output
-     …….. 
-     Summary 
+     ……..
+     Summary
      ------
 
      Installation: Successful.
 
-     55 Successes 
-     0 Warnings 
-     0 NonFatalErrors 
+     55 Successes
+     0 Warnings
+     0 NonFatalErrors
      0 FatalErrors
      ```
 
@@ -1204,7 +1207,7 @@ OSC is the OpenFrame environment similar to IBM CICS that supports high-speed OL
 3. Execute the installer using the properties file as shown:
 
      ```bash
-     chmod a+x OpenFrame_OSC7_0_Fix2_Linux_x86_64.bin 
+     chmod a+x OpenFrame_OSC7_0_Fix2_Linux_x86_64.bin
      ./OpenFrame_OSC7_0_Fix2_Linux_x86_64.bin -f osc.properties
      ```
 
@@ -1214,8 +1217,8 @@ OSC is the OpenFrame environment similar to IBM CICS that supports high-speed OL
 5. Review the `OpenFrame_OSC7_0_Fix2_InstallLog.log` file. It should look something like this:
 
      ```output
-     Summary 
-     ------ 
+     Summary
+     ------
      Installation: Successful.
 
      233 Successes
@@ -1239,7 +1242,7 @@ OSC is the OpenFrame environment similar to IBM CICS that supports high-speed OL
      vtammgr
      TPFMAGENT
 
-     #BATCH 
+     #BATCH
      #BATCH#obmtsmgr
      #BATCH#ofrpmsvr
      #BATCH#obmjmsvr
@@ -1250,7 +1253,7 @@ OSC is the OpenFrame environment similar to IBM CICS that supports high-speed OL
      #TACF #TACF#tmsvr
 
      After changes 	#BATCH
-     #BASE          obmtsmgr 
+     #BASE          obmtsmgr
      ofrsasvr       ofrpmsvr
      ofrlhsvr       obmjmsvr
      ofrdmsvr       obmjschd
@@ -1266,13 +1269,13 @@ OSC is the OpenFrame environment similar to IBM CICS that supports high-speed OL
 
      ```bash
      cp /home/oframe7/oflicense/ofonline/licosc.dat $OPENFRAME_HOME/license
-     cd $OPENFRAME_HOME/license 
-     ls -l 
+     cd $OPENFRAME_HOME/license
+     ls -l
      ```
 
      ```output
-     -rwxr-xr-x. 1 oframe mqm 80 Sep 12 01:37 licosc.dat 
-     -rwxr-xr-x. 1 oframe mqm 80 Sep  8 09:40 lictacf.dat 
+     -rwxr-xr-x. 1 oframe mqm 80 Sep 12 01:37 licosc.dat
+     -rwxr-xr-x. 1 oframe mqm 80 Sep  8 09:40 lictacf.dat
      -rwxrwxr-x. 1 oframe mqm 80 Sep  3 11:54 lictjes.da
      ```
 
@@ -1282,13 +1285,13 @@ OSC is the OpenFrame environment similar to IBM CICS that supports high-speed OL
      ```output
      OSCBOOT : pre-processing       [ OK ]
 
-     TMBOOT for node(NODE1) is starting: 
-     Welcome to Tmax demo system: it will expire 2016/11/4 
-     Today: 2016/9/12 
-          TMBOOT: TMM is starting: Mon Sep 12 01:40:25 2016 
-          TMBOOT: CLL is starting: Mon Sep 12 01:40:25 2016 
-          TMBOOT: CLH is starting: Mon Sep 12 01:40:25 2016 
-          TMBOOT: TLM(tlm) is starting: Mon Sep 12 01:40:25 2016 
+     TMBOOT for node(NODE1) is starting:
+     Welcome to Tmax demo system: it will expire 2016/11/4
+     Today: 2016/9/12
+          TMBOOT: TMM is starting: Mon Sep 12 01:40:25 2016
+          TMBOOT: CLL is starting: Mon Sep 12 01:40:25 2016
+          TMBOOT: CLH is starting: Mon Sep 12 01:40:25 2016
+          TMBOOT: TLM(tlm) is starting: Mon Sep 12 01:40:25 2016
      ```
 
 11. To verify that the process status is ready, use the `tmadmin` command in si. All the processes should display RDY in the **status** column.
@@ -1327,7 +1330,7 @@ Before installing JEUS, install the Apache Ant package, which provides the libra
 
      ```text
      # Ant ENV
-     export ANT_HOME=$HOME/ant 
+     export ANT_HOME=$HOME/ant
      export PATH=$HOME/ant/bin:$PATH
      ```
 
@@ -1378,8 +1381,8 @@ Before installing JEUS, install the Apache Ant package, which provides the libra
 9.  Update the `~/.bash_profile` file with the JEUS variables as shown:
 
      ```text
-     # JEUS ENV 
-     export JEUS_HOME=/opt/tmaxui/jeus7 PATH="/opt/tmaxui/jeus7/bin:/opt/tmaxui/jeus7/lib/system:/opt/tmaxui/jeus7/webserver/bin:$ {PATH}" 
+     # JEUS ENV
+     export JEUS_HOME=/opt/tmaxui/jeus7 PATH="/opt/tmaxui/jeus7/bin:/opt/tmaxui/jeus7/lib/system:/opt/tmaxui/jeus7/webserver/bin:$ {PATH}"
      export PATH
      ```
 
@@ -1391,12 +1394,12 @@ Before installing JEUS, install the Apache Ant package, which provides the libra
 
 11. *Optional*. Create an alias for easy shutdown and boot of JEUS components, using the following commands:
 
-     ```bash   
+     ```bash
      # JEUS alias
 
      alias dsboot='startDomainAdminServer -domain jeus_domain -u administrator -p jeusadmin'
-     alias msboot='startManagedServer -domain jeus_domain -server server1 -u administrator -p jeusadmin' 
-     alias msdown=`jeusadmin -u administrator -p tmax1234 "stop-server server1"' 
+     alias msboot='startManagedServer -domain jeus_domain -server server1 -u administrator -p jeusadmin'
+     alias msdown=`jeusadmin -u administrator -p tmax1234 "stop-server server1"'
      alias dsdown=`jeusadmin -domain jeus_domain -u administrator -p tmax1234 "local-shutdown"'
      ```
 
@@ -1413,7 +1416,7 @@ Before installing JEUS, install the Apache Ant package, which provides the libra
      ```
 
      For example, `http://192.168.92.133:9736/webadmin/login`. The logon screen appears:
-    
+
      ![JEUS WebAdmin logon screen](media/jeus-01.png)
 
      > [!NOTE]
@@ -1463,7 +1466,7 @@ OFGW Is the OpenFrame gateway that supports communication between the 3270 termi
 5. Verify that the URL for OFGW is working as expected:
 
      ```text
-     Type URL 
+     Type URL
      http://192.168.92.133:8088/webterminal/ and press enter
       < IP >               :8088/webterminal/
      ```
@@ -1493,7 +1496,7 @@ OFManager provides operation and management functions for OpenFrame in the web e
 8. Verify that the URL for OFManager is working as expected:
 
      ```text
-     Type URL http://192.168.92.133:8088/ofmanager and press enter <  IP >  : < PORT >  ofmanager Enter ID:   ROOT 
+     Type URL http://192.168.92.133:8088/ofmanager and press enter <  IP >  : < PORT >  ofmanager Enter ID:   ROOT
      Password: SYS1
      ```
 

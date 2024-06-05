@@ -1,34 +1,29 @@
 ---
 title: Restore Azure Blobs via Azure CLI
 description: Learn how to restore Azure Blobs to any point-in-time using Azure CLI.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 06/18/2021
-author: jyothisuri
-ms.author: jsuri
+ms.date: 05/30/2024
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
-# Restore Azure Blobs to point-in-time using Azure CLI
+# Restore Azure Blobs using Azure CLI
 
-This article describes how to restore [blobs](blob-backup-overview.md) to any point-in-time using Azure Backup.
+This article describes how to restore [blobs](blob-backup-overview.md) using Azure Backup.
 
-> [!IMPORTANT]
-> Support for Azure Blobs backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension is automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
+You can restore Azure Blobs to point-in-time using *operational backups* and *vaulted backups (preview)* for Azure Blobs via Azure CLI. Here, let's use an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG` in the examples.
 
 > [!IMPORTANT]
 > Before you restore Azure Blobs using Azure Backup, see [important points](blob-restore.md#before-you-start).
 
-In this article, you'll learn how to:
+## Fetch details to restore a blob backup
 
-- Restore Azure Blobs to point-in-time
+To restore a blob backup, you need to *fetch the valid time range for *operational backup* and *fetch the list of recovery points* for *vaulted backup (preview)*.
 
-- Track the restore operation status
+**Choose a backup tier**:
 
-We'll refer to an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
-
-## Restoring Azure Blobs within a storage account
-
-### Fetching the valid time range for restore
+# [Operational backup](#tab/operational-backup)
 
 As the operational backup for blobs is continuous, there are no distinct points to restore from. Instead, we need to fetch the valid time-range under which blobs can be restored to any point-in-time. In this example, let's check for valid time-ranges to restore within the last 30 days.
 
@@ -125,13 +120,291 @@ az dataprotection restorable-time-range find --start-time 2021-05-30T00:00:00 --
 }
 ```
 
-### Preparing the restore request
+# [Vaulted backup (preview)](#tab/vaulted-backup)
 
-Once the point-in-time to restore is fixed, there are multiple options to restore.
+To fetch the list of recovery points available to restore vaulted backup (preview), use the `az dataprotection recovery-point list` command.
 
-#### Restoring all the blobs to a point-in-time
+To fetch the name of the backup instance corresponding to your backed-up storage account, use the `az dataprotection backup-instance list` command.
 
-Using this option, you can restore all block blobs in the storage account by rolling them back to the selected point in time. Storage accounts containing large amounts of data or witnessing a high churn may take longer times to restore. To restore all block blobs, use the [az dataprotection backup-instance restore initialize-for-data-recovery](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-initialize-for-data-recovery) command. The restore location and the target resource ID will be the same as the protected storage account.
+```azurecli-interactive
+az dataprotection recovery-point list --backup-instance-name "contosoaccounting-contosoaccounting-xxxxxxxxxx " --resource-group StorageRG  --vault-name TestBkpvault
+[
+  {
+    "id": "/subscriptions/c3d3eb0c-9ba7-4d4c-828e-cb6874714034/resourceGroups/StorageRG/providers/Microsoft.DataProtection/backupVaults/contosobackupvault/backupInstances/contosoaccounting-contosoaccounting-e69dfa84-16d1-40de-9c8b-f8c0a36c602a/recoveryPoints/ce0cc687b23049f298324e732996c052",
+    "name": "ce0cc687b23049f298324e732996c052",
+    "properties": {
+      "friendlyName": "ce0cc687b23049f298324e732996c052",
+      "objectType": "AzureBackupDiscreteRecoveryPoint",
+      "policyName": "testingpolicy890",
+      "recoveryPointDataStoresDetails": [
+        {
+          "creationTime": "2024-05-12T19:32:31.3330061Z",
+          "id": "c506fa1f-4a94-48a5-8fc1-eab1e9f7dabd",
+          "state": "COMMITTED",
+          "type": "VaultStore",
+          "visible": true
+        }
+      ],
+      "recoveryPointId": "ce0cc687b23049f298324e732996c052",
+      "recoveryPointState": "Completed",
+      "recoveryPointTime": "2024-05-12T19:32:31.3303086Z",
+      "recoveryPointType": "Full",
+      "retentionTagName": "Default",
+      "retentionTagVersion": "638350187371578530"
+    },
+    "resourceGroup": "StorageRG",
+    "type": "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints"
+  },
+  {
+    "id": "/subscriptions/c3d3eb0c-9ba7-4d4c-828e-cb6874714034/resourceGroups/StorageRG/providers/Microsoft.DataProtection/backupVaults/contosobackupvault/backupInstances/contosoaccounting-contosoaccounting-e69dfa84-16d1-40de-9c8b-f8c0a36c602a/recoveryPoints/abfdaf7bd9364ed394cd8a299f74af36",
+    "name": "abfdaf7bd9364ed394cd8a299f74af36",
+    "properties": {
+      "friendlyName": "abfdaf7bd9364ed394cd8a299f74af36",
+      "objectType": "AzureBackupDiscreteRecoveryPoint",
+      "policyName": "testingpolicy890",
+      "recoveryPointDataStoresDetails": [
+        {
+          "creationTime": "2024-05-11T19:31:07.7202941Z",
+          "id": "c506fa1f-4a94-48a5-8fc1-eab1e9f7dabd",
+          "state": "COMMITTED",
+          "type": "VaultStore",
+          "visible": true
+        }
+      ],
+      "recoveryPointId": "abfdaf7bd9364ed394cd8a299f74af36",
+      "recoveryPointState": "Completed",
+      "recoveryPointTime": "2024-05-11T19:31:07.7039530Z",
+      "recoveryPointType": "Full",
+      "retentionTagName": "Default",
+      "retentionTagVersion": "638350187371578530"
+    },
+    "resourceGroup": "StorageRG",
+    "type": "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints"
+  },
+  {
+    "id": "/subscriptions/c3d3eb0c-9ba7-4d4c-828e-cb6874714034/resourceGroups/StorageRG/providers/Microsoft.DataProtection/backupVaults/contosobackupvault/backupInstances/contosoaccounting-contosoaccounting-e69dfa84-16d1-40de-9c8b-f8c0a36c602a/recoveryPoints/b1cc8fea90cd438ea1a3a7cd37be120e",
+    "name": "b1cc8fea90cd438ea1a3a7cd37be120e",
+    "properties": {
+      "friendlyName": "b1cc8fea90cd438ea1a3a7cd37be120e",
+      "objectType": "AzureBackupDiscreteRecoveryPoint",
+      "policyName": "testingpolicy890",
+      "recoveryPointDataStoresDetails": [
+        {
+          "creationTime": "2024-05-10T19:31:09.4791885Z",
+          "id": "c506fa1f-4a94-48a5-8fc1-eab1e9f7dabd",
+          "state": "COMMITTED",
+          "type": "VaultStore",
+          "visible": true
+        }
+      ],
+      "recoveryPointId": "b1cc8fea90cd438ea1a3a7cd37be120e",
+      "recoveryPointState": "Completed",
+      "recoveryPointTime": "2024-05-10T19:31:09.4863074Z",
+      "recoveryPointType": "Full",
+      "retentionTagName": "Default",
+      "retentionTagVersion": "638350187371578530"
+    },
+    "resourceGroup": "StorageRG",
+    "type": "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints"
+  },
+  {
+    "id": "/subscriptions/c3d3eb0c-9ba7-4d4c-828e-cb6874714034/resourceGroups/StorageRG/providers/Microsoft.DataProtection/backupVaults/contosobackupvault/backupInstances/contosoaccounting-contosoaccounting-e69dfa84-16d1-40de-9c8b-f8c0a36c602a/recoveryPoints/5f799518096f4197a9fca2d764e4f1e1",
+    "name": "5f799518096f4197a9fca2d764e4f1e1",
+    "properties": {
+      "friendlyName": "5f799518096f4197a9fca2d764e4f1e1",
+      "objectType": "AzureBackupDiscreteRecoveryPoint",
+      "policyName": "testingpolicy890",
+      "recoveryPointDataStoresDetails": [
+        {
+          "creationTime": "2024-05-09T19:31:52.4857818Z",
+          "id": "c506fa1f-4a94-48a5-8fc1-eab1e9f7dabd",
+          "state": "COMMITTED",
+          "type": "VaultStore",
+          "visible": true
+        }
+      ],
+      "recoveryPointId": "5f799518096f4197a9fca2d764e4f1e1",
+      "recoveryPointState": "Completed",
+      "recoveryPointTime": "2024-05-09T19:31:52.4782110Z",
+      "recoveryPointType": "Full",
+      "retentionTagName": "Default",
+      "retentionTagVersion": "638350187371578530"
+    },
+    "resourceGroup": "StorageRG",
+    "type": "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints"
+  },
+  {
+    "id": "/subscriptions/c3d3eb0c-9ba7-4d4c-828e-cb6874714034/resourceGroups/StorageRG/providers/Microsoft.DataProtection/backupVaults/contosobackupvault/backupInstances/contosoaccounting-contosoaccounting-e69dfa84-16d1-40de-9c8b-f8c0a36c602a/recoveryPoints/07f1e4db5e344d169880a1a43c270eb4",
+    "name": "07f1e4db5e344d169880a1a43c270eb4",
+    "properties": {
+      "friendlyName": "07f1e4db5e344d169880a1a43c270eb4",
+      "objectType": "AzureBackupDiscreteRecoveryPoint",
+      "policyName": "testingpolicy890",
+      "recoveryPointDataStoresDetails": [
+        {
+          "creationTime": "2024-05-08T19:31:18.8136397Z",
+          "id": "c506fa1f-4a94-48a5-8fc1-eab1e9f7dabd",
+          "state": "COMMITTED",
+          "type": "VaultStore",
+          "visible": true
+        }
+      ],
+      "recoveryPointId": "07f1e4db5e344d169880a1a43c270eb4",
+      "recoveryPointState": "Completed",
+      "recoveryPointTime": "2024-05-08T19:31:18.8020266Z",
+      "recoveryPointType": "Full",
+      "retentionTagName": "Default",
+      "retentionTagVersion": "638350187371578530"
+    },
+    "resourceGroup": "StorageRG",
+    "type": "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints"
+  },
+  {
+    "id": "/subscriptions/c3d3eb0c-9ba7-4d4c-828e-cb6874714034/resourceGroups/StorageRG/providers/Microsoft.DataProtection/backupVaults/contosobackupvault/backupInstances/contosoaccounting-contosoaccounting-e69dfa84-16d1-40de-9c8b-f8c0a36c602a/recoveryPoints/0a41f6c71e614022a44843b0c34e9c64",
+    "name": "0a41f6c71e614022a44843b0c34e9c64",
+    "properties": {
+      "friendlyName": "0a41f6c71e614022a44843b0c34e9c64",
+      "objectType": "AzureBackupDiscreteRecoveryPoint",
+      "policyName": "testingpolicy890",
+      "recoveryPointDataStoresDetails": [
+        {
+          "creationTime": "2024-05-07T19:31:07.2551426Z",
+          "id": "c506fa1f-4a94-48a5-8fc1-eab1e9f7dabd",
+          "state": "COMMITTED",
+          "type": "VaultStore",
+          "visible": true
+        }
+      ],
+      "recoveryPointId": "0a41f6c71e614022a44843b0c34e9c64",
+      "recoveryPointState": "Completed",
+      "recoveryPointTime": "2024-05-07T19:31:07.2540319Z",
+      "recoveryPointType": "Full",
+      "retentionTagName": "Default",
+      "retentionTagVersion": "638350187371578530"
+    },
+    "resourceGroup": "StorageRG",
+    "type": "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints"
+  },
+  {
+    "id": "/subscriptions/c3d3eb0c-9ba7-4d4c-828e-cb6874714034/resourceGroups/StorageRG/providers/Microsoft.DataProtection/backupVaults/contosobackupvault/backupInstances/contosoaccounting-contosoaccounting-e69dfa84-16d1-40de-9c8b-f8c0a36c602a/recoveryPoints/1d67915bc70b42989123e3ede0734e21",
+    "name": "1d67915bc70b42989123e3ede0734e21",
+    "properties": {
+      "friendlyName": "1d67915bc70b42989123e3ede0734e21",
+      "objectType": "AzureBackupDiscreteRecoveryPoint",
+      "policyName": "testingpolicy890",
+      "recoveryPointDataStoresDetails": [
+        {
+          "creationTime": "2024-05-06T19:31:30.1398339Z",
+          "id": "c506fa1f-4a94-48a5-8fc1-eab1e9f7dabd",
+          "state": "COMMITTED",
+          "type": "VaultStore",
+          "visible": true
+        }
+      ],
+      "recoveryPointId": "1d67915bc70b42989123e3ede0734e21",
+      "recoveryPointState": "Completed",
+      "recoveryPointTime": "2024-05-06T19:31:30.1370319Z",
+      "recoveryPointType": "Full",
+      "retentionTagName": "Default",
+      "retentionTagVersion": "638350187371578530"
+    },
+    "resourceGroup": "StorageRG",
+    "type": "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints"
+  },
+  {
+    "id": "/subscriptions/c3d3eb0c-9ba7-4d4c-828e-cb6874714034/resourceGroups/StorageRG/providers/Microsoft.DataProtection/backupVaults/contosobackupvault/backupInstances/contosoaccounting-contosoaccounting-e69dfa84-16d1-40de-9c8b-f8c0a36c602a/recoveryPoints/86ea58e94b264814b9c48fec21a6bee9",
+    "name": "86ea58e94b264814b9c48fec21a6bee9",
+    "properties": {
+      "friendlyName": "86ea58e94b264814b9c48fec21a6bee9",
+      "objectType": "AzureBackupDiscreteRecoveryPoint",
+      "policyName": "testingpolicy890",
+      "recoveryPointDataStoresDetails": [
+        {
+          "creationTime": "2024-05-05T19:31:49.6877893Z",
+          "id": "c506fa1f-4a94-48a5-8fc1-eab1e9f7dabd",
+          "state": "COMMITTED",
+          "type": "VaultStore",
+          "visible": true
+        }
+      ],
+      "recoveryPointId": "86ea58e94b264814b9c48fec21a6bee9",
+      "recoveryPointState": "Completed",
+      "recoveryPointTime": "2024-05-05T19:31:49.6674807Z",
+      "recoveryPointType": "Full",
+      "retentionTagName": "Default",
+      "retentionTagVersion": "638350187371578530"
+    },
+    "resourceGroup": "StorageRG",
+    "type": "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints"
+  },
+  {
+    "id": "/subscriptions/c3d3eb0c-9ba7-4d4c-828e-cb6874714034/resourceGroups/StorageRG/providers/Microsoft.DataProtection/backupVaults/contosobackupvault/backupInstances/contosoaccounting-contosoaccounting-e69dfa84-16d1-40de-9c8b-f8c0a36c602a/recoveryPoints/3d5031df19e84f2b80446950448738d0",
+    "name": "3d5031df19e84f2b80446950448738d0",
+    "properties": {
+      "friendlyName": "3d5031df19e84f2b80446950448738d0",
+      "objectType": "AzureBackupDiscreteRecoveryPoint",
+      "policyName": "testingpolicy890",
+      "recoveryPointDataStoresDetails": [
+        {
+          "creationTime": "2024-05-04T19:31:07.0919607Z",
+          "id": "c506fa1f-4a94-48a5-8fc1-eab1e9f7dabd",
+          "state": "COMMITTED",
+          "type": "VaultStore",
+          "visible": true
+        }
+      ],
+      "recoveryPointId": "3d5031df19e84f2b80446950448738d0",
+      "recoveryPointState": "Completed",
+      "recoveryPointTime": "2024-05-04T19:31:07.0923263Z",
+      "recoveryPointType": "Full",
+      "retentionTagName": "Default",
+      "retentionTagVersion": "638350187371578530"
+    },
+    "resourceGroup": "StorageRG",
+    "type": "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints"
+  },
+  {
+    "id": "/subscriptions/c3d3eb0c-9ba7-4d4c-828e-cb6874714034/resourceGroups/StorageRG/providers/Microsoft.DataProtection/backupVaults/contosobackupvault/backupInstances/contosoaccounting-contosoaccounting-e69dfa84-16d1-40de-9c8b-f8c0a36c602a/recoveryPoints/31e7ab6b0db94c1eacacf8a5a4ddbf19",
+    "name": "31e7ab6b0db94c1eacacf8a5a4ddbf19",
+    "properties": {
+      "friendlyName": "31e7ab6b0db94c1eacacf8a5a4ddbf19",
+      "objectType": "AzureBackupDiscreteRecoveryPoint",
+      "policyName": "testingpolicy890",
+      "recoveryPointDataStoresDetails": [
+        {
+          "creationTime": "2024-05-03T19:30:51.2920289Z",
+          "id": "c506fa1f-4a94-48a5-8fc1-eab1e9f7dabd",
+          "state": "COMMITTED",
+          "type": "VaultStore",
+          "visible": true
+        }
+      ],
+      "recoveryPointId": "31e7ab6b0db94c1eacacf8a5a4ddbf19",
+      "recoveryPointState": "Completed",
+      "recoveryPointTime": "2024-05-03T19:30:51.3135771Z",
+      "recoveryPointType": "Full",
+      "retentionTagName": "Default",
+      "retentionTagVersion": "638350187371578530"
+    },
+    "resourceGroup": "StorageRG",
+    "type": "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints"
+  }
+]
+
+```
+
+---
+
+## Prepare the restore request
+
+**Choose a backup tier**:
+
+# [Operational backup](#tab/operational-backup)
+Once you fix the point-in-time to restore, there are multiple options to restore.
+
+### Restore all the blobs to a point-in-time
+
+You can restore all block blobs in the storage account by rolling them back to the selected point in time. Storage accounts containing large amounts of data or witnessing a high churn may take longer times to restore. To restore all block blobs, use the [az dataprotection backup-instance restore initialize-for-data-recovery](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-initialize-for-data-recovery) command. The restore location and the target resource ID will be the same as the protected storage account.
 
 ```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --target-resource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" --point-in-time 2021-06-02T18:53:44.4465407Z
@@ -163,9 +436,9 @@ az dataprotection backup-instance restore initialize-for-data-recovery --datasou
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --target-resource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" --point-in-time 2021-06-02T18:53:44.4465407Z > restore.json
 ```
 
-#### Restoring selected containers
+### Restore selected containers
 
-Using this option, you can browse and select up to 10 containers to restore. To restore selected containers, use the [az dataprotection backup-instance restore initialize-for-item-recovery](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-initialize-for-item-recovery) command.
+You can browse and select up to 10 containers to restore. To restore selected containers, use the [az dataprotection backup-instance restore initialize-for-item-recovery](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-initialize-for-item-recovery) command.
 
 ```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --container-list container1 container2
@@ -209,9 +482,9 @@ az dataprotection backup-instance restore initialize-for-item-recovery --datasou
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --container-list container1 container2 > restore.json
 ```
 
-#### Restoring containers using a prefix match
+### Restore containers using a prefix match
 
-This option lets you restore a subset of blobs using a prefix match. You can specify up to 10 lexicographical ranges of blobs within a single container or across multiple containers to return those blobs to their previous state at a given point-in-time. Here are a few things to keep in mind:
+You can restore a subset of blobs using a prefix match. You can specify up to 10 lexicographical ranges of blobs within a single container or across multiple containers to return those blobs to their previous state at a given point-in-time. Here are a few things to keep in mind:
 
 - You can use a forward slash (/) to delineate the container name from the blob prefix.
 - The start of the range specified is inclusive, however the specified range is exclusive.
@@ -262,7 +535,49 @@ az dataprotection backup-instance restore initialize-for-item-recovery --datasou
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --from-prefix-pattern container1/text1 container2/text4 --to-prefix-pattern container1/text4 container2/text41 > restore.json
 ```
 
-### Trigger the restore
+# [Vaulted backup (preview)](#tab/vaulted-backup)
+
+Prepare the request body for the following restore scenarios supported by Azure Blobs vaulted backup (preview).
+
+### Restore all containers
+
+To restore all the containers of a recovery point, use the `az dataprotection backup-instance restore initialize-for-data-recovery` command.
+
+```azurecli-interactive
+az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureBlob --restore-location EastUS --source-datastore VaultStore --target-resource-id /subscriptions/xxxxxxxx /resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/contosohr --recovery-point-id 31e7ab6b0db94c1eacacf8a5a4ddbf19
+```
+
+### Restore specific containers
+
+To restore specific containers from a recovery point, use the `az dataprotection backup-instance restore initialize-for-item-recovery` command.
+
+```azurecli-interactive
+az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location EastUS --source-datastore VaultStore --target-resource-id /subscriptions/xxxxxxxx /resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/contosohr --recovery-point-id 31e7ab6b0db94c1eacacf8a5a4ddbf19 –container-list container1 container2 container3
+```
+
+### Restore specific blobs within a container
+
+Prepare a JSON file with the details of the containers and the prefixes you want to restore within each container.
+
+```azurecli-interactive
+
+{
+  "containers": [
+    {"name": "container1", "prefixmatch": ["aa", "bb", "cc""]},
+    {"name": "container2", "prefixmatch": ["dd", "ee", "ff"]}
+  ]
+}
+```
+
+Run the `az dataprotection backup-instance restore initialize-for-item-recovery` command with the JSON (container_prefix.json) you created previously.
+
+```azurecli-interactive
+az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location EastUS --source-datastore VaultStore --target-resource-id /subscriptions/xxxxxxxx /resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/contosohr --recovery-point-id 31e7ab6b0db94c1eacacf8a5a4ddbf19 --vaulted-blob-prefix-pattern .\container_prefix.json
+```
+
+---
+
+## Trigger the restore
 
 Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-trigger) command to trigger the restore with the request prepared above.
 
@@ -270,9 +585,9 @@ Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprote
 az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036 --restore-request-object restore.json
 ```
 
-## Tracking job
+## Track a job
 
-Track all the jobs using the [az dataprotection job list](/cli/azure/dataprotection/job#az-dataprotection-job-list) command. You can list all jobs and fetch a particular job detail.
+You can track all the jobs using the [az dataprotection job list](/cli/azure/dataprotection/job#az-dataprotection-job-list) command. You can list all jobs and fetch a particular job detail.
 
 You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job#az-dataprotection-job-list-from-resourcegraph) command to get the relevant job which can be across any Backup vault.
 

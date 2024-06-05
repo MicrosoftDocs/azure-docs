@@ -2,11 +2,11 @@
 title: What is Azure Private Link?
 description: Overview of Azure Private Link features, architecture, and implementation. Learn how Azure Private Endpoints and Azure Private Link service works and how to use them.
 services: private-link
-author: asudbring
+author: abell
 ms.service: private-link
 ms.topic: overview
-ms.date: 01/17/2023
-ms.author: allensu
+ms.date: 03/18/2024
+ms.author: abell
 ms.custom: template-overview, fasttrack-edit, references_regions, FY23 content-maintenance
 ---
 
@@ -33,7 +33,7 @@ Azure Private Link provides the following benefits:
  
 - **Global reach**: Connect privately to services running in other regions. The consumer's virtual network could be in region A and it can connect to services behind Private Link in region B.  
  
-- **Extend to your own services**: Enable the same experience and functionality to render your service privately to consumers in Azure. By placing your service behind a standard Azure Load Balancer, you can enable it for Private Link. The consumer can then connect directly to your service using a private endpoint in their own virtual network. You can manage the connection requests using an approval call flow. Azure Private Link works for consumers and services belonging to different Azure Active Directory tenants. 
+- **Extend to your own services**: Enable the same experience and functionality to render your service privately to consumers in Azure. By placing your service behind a standard Azure Load Balancer, you can enable it for Private Link. The consumer can then connect directly to your service using a private endpoint in their own virtual network. You can manage the connection requests using an approval call flow. Azure Private Link works for consumers and services belonging to different Microsoft Entra tenants. 
 
 > [!NOTE]
 > Azure Private Link, along with Azure Virtual Network, span across [Azure Availability Zones](../availability-zones/az-overview.md) and are therefore zone resilient. To provide high availability for the Azure resource using a private endpoint, ensure that resource is zone resilient.

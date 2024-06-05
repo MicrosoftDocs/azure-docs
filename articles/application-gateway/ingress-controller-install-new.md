@@ -1,11 +1,12 @@
 ---
-title: Creating an ingress controller with a new Application Gateway 
-description: This article provides information on how to deploy an Application Gateway Ingress Controller with a new Application Gateway. 
+title: Creating an ingress controller with a new Application Gateway
+description: This article provides information on how to deploy an Application Gateway Ingress Controller with a new Application Gateway.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom:
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 07/28/2023
 ms.author: greglin
 ---
 
@@ -14,11 +15,14 @@ ms.author: greglin
 The instructions below assume Application Gateway Ingress Controller (AGIC) will be
 installed in an environment with no pre-existing components.
 
+> [!TIP]
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+
 ## Required Command Line Tools
 
 We recommend the use of [Azure Cloud Shell](https://shell.azure.com/) for all command-line operations below. Launch your shell from shell.azure.com or by clicking the link:
 
-[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 Alternatively, launch Cloud Shell from Azure portal using the following icon:
 
@@ -35,7 +39,7 @@ choose to use another environment, ensure the following command-line tools are i
 
 ## Create an Identity
 
-Follow the steps below to create an Azure Active Directory (Azure AD) [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Record the `appId`, `password`, and `objectId` values - these values will be used in the following steps.
+Follow the steps below to create a Microsoft Entra [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Record the `appId`, `password`, and `objectId` values - these values will be used in the following steps.
 
 1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
@@ -72,7 +76,7 @@ This step will add the following components to your subscription:
 - [Application Gateway](./overview.md) v2
 - [Virtual Network](../virtual-network/virtual-networks-overview.md) with two [subnets](../virtual-network/virtual-networks-overview.md)
 - [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
-- [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
+- [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
 
 1. Download the Azure Resource Manager template and modify the template as needed.
     ```bash
@@ -106,7 +110,7 @@ This step will add the following components to your subscription:
 
 With the instructions in the previous section, we created and configured a new AKS cluster and an Application Gateway. We're now ready to deploy a sample app and an ingress controller to our new Kubernetes infrastructure.
 
-### Setup Kubernetes Credentials
+### Set up Kubernetes Credentials
 For the following steps, we need setup [kubectl](https://kubectl.docs.kubernetes.io/) command,
 which we'll use to connect to our new Kubernetes cluster. [Cloud Shell](https://shell.azure.com/) has `kubectl` already installed. We'll use `az` CLI to obtain credentials for Kubernetes.
 
@@ -120,16 +124,18 @@ resourceGroupName=$(jq -r ".resourceGroupName.value" deployment-outputs.json)
 az aks get-credentials --resource-group $resourceGroupName --name $aksClusterName
 ```
 
-### Install Azure AD Pod Identity
-  Azure Active Directory Pod Identity provides token-based access to
+<a name='install-azure-ad-pod-identity'></a>
+
+### Install Microsoft Entra Pod Identity
+  Microsoft Entra Pod Identity provides token-based access to
   [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md).
 
-  [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) will add the following components to your Kubernetes cluster:
+  [Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity) will add the following components to your Kubernetes cluster:
    * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
    * [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
    * [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
 
-To install Azure AD Pod Identity to your cluster:
+To install Microsoft Entra Pod Identity to your cluster:
 
    - *Kubernetes RBAC enabled* AKS cluster
 
@@ -144,8 +150,10 @@ To install Azure AD Pod Identity to your cluster:
      ```
 
 ### Install Helm
-[Helm](../aks/kubernetes-helm.md) is a package manager for
-Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress` package:
+[Helm](../aks/kubernetes-helm.md) is a package manager for Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress` package.
+
+> [!NOTE]
+> If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3. Skip the first step and just add the AGIC Helm repository.
 
 1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
 
@@ -163,7 +171,7 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
         helm init
         ```
 
-1. Add the AGIC Helm repository:
+2. Add the AGIC Helm repository:
     ```bash
     helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     helm repo update
@@ -183,14 +191,14 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
-    Or copy the YAML file below: 
-    
+    Or copy the YAML file below:
+
     ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
     # Verbosity level of the App Gateway Ingress Controller
     verbosityLevel: 3
-    
+
     ################################################################################
     # Specify which application gateway the ingress controller will manage
     #
@@ -198,12 +206,12 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
         subscriptionId: <subscriptionId>
         resourceGroup: <resourceGroupName>
         name: <applicationGatewayName>
-    
+
         # Setting appgw.shared to "true" will create an AzureIngressProhibitedTarget CRD.
         # This prohibits AGIC from applying config for any host/path.
         # Use "kubectl get AzureIngressProhibitedTargets" to view and change this.
         shared: false
-    
+
     ################################################################################
     # Specify which kubernetes namespace the ingress controller will watch
     # Default value is "default"
@@ -212,7 +220,7 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
     #
     # kubernetes:
     #   watchNamespace: <namespace>
-    
+
     ################################################################################
     # Specify the authentication with Azure Resource Manager
     #
@@ -222,17 +230,17 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
         type: aadPodIdentity
         identityResourceID: <identityResourceId>
         identityClientID:  <identityClientId>
-    
+
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --role Contributor --sdk-auth | base64 -w0" >>
-    
+
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
-    
+
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
@@ -246,7 +254,7 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
     sed -i "s|<identityResourceId>|${identityResourceId}|g" helm-config.yaml
     sed -i "s|<identityClientId>|${identityClientId}|g" helm-config.yaml
     ```
-    
+
 
    > [!NOTE]
    > **For deploying to Sovereign Clouds (e.g., Azure Government)**, the `appgw.environment` configuration parameter must be added and set to the appropriate value as documented below.
@@ -262,8 +270,8 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
      - `kubernetes.watchNamespace`: Specify the namespace that AGIC should watch. The namespace value can be a single string value, or a comma-separated list of namespaces.
     - `armAuth.type`: could be `aadPodIdentity` or `servicePrincipal`
     - `armAuth.identityResourceID`: Resource ID of the Azure Managed Identity
-    - `armAuth.identityClientID`: The Client ID of the Identity. More information about **identityClientID** is provided below. 
-    - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`) 
+    - `armAuth.identityClientID`: The Client ID of the Identity. More information about **identityClientID** is provided below.
+    - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`)
 
 
    > [!NOTE]
@@ -297,7 +305,7 @@ spec:
   - image: "mcr.microsoft.com/dotnet/samples:aspnetapp"
     name: aspnetapp-image
     ports:
-    - containerPort: 80
+    - containerPort: 8080
       protocol: TCP
 
 ---
@@ -312,7 +320,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 80
+    targetPort: 8080
 
 ---
 
@@ -327,6 +335,7 @@ spec:
   - http:
       paths:
       - path: /
+        pathType: Exact
         backend:
           service:
             name: aspnetapp

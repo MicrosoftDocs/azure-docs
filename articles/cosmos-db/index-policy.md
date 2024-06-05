@@ -4,11 +4,12 @@ description:  Learn how to configure and change the default indexing policy for 
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 12/07/2021
 ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.reviewer: jacodel
 ---
 
 # Indexing policies in Azure Cosmos DB
@@ -29,7 +30,7 @@ Azure Cosmos DB supports two indexing modes:
 - **None**: Indexing is disabled on the container. This mode is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also be used to improve the performance of bulk operations. After the bulk operations are complete, the index mode can be set to Consistent and then monitored using the [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) until complete.
 
 > [!NOTE]
-> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query an Azure Cosmos DB container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting cosmosdblazyindexing@microsoft.com (except if you are using an Azure Cosmos DB account in [serverless](serverless.md) mode which doesn't support lazy indexing).
+> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query an Azure Cosmos DB container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting cosmosdbindexing@microsoft.com (except if you are using an Azure Cosmos DB account in [serverless](serverless.md) mode which doesn't support lazy indexing).
 
 By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure Cosmos DB to automatically index items as they're written.
 
@@ -113,6 +114,57 @@ Here are some rules for included and excluded paths precedence in Azure Cosmos D
 
 - The path `/*` must be either an included path or excluded path.
 
+## Vector indexes
+
+**Vector** indexes increase the efficiency when performing vector searches using the `VectorDistance` system function. Vectors searches will have significantly lower latency, higher throughput, and less RU consumption when leveraging a vector index.  You can specify the following types of vector index policies:
+
+| Type | Description | Max dimensions |
+| --- | --- |
+| **`flat`** | Stores vectors on the same index as other indexed properties. | 505 |
+| **`quantizedFlat`** | Quantizes (compresses) vectors before storing on the index. This can improve latency and throughput at the cost of a small amount of accuracy. | 4096 |
+| **`diskANN`** | Creates an index based on DiskANN for fast and efficient approximate search. | 4096 |
+
+A few points to note:
+  - The `flat` and `quantizedFlat` index types leverage Azure Cosmos DB's index to store and read each vector when performing a vector search. Vector searches with a `flat` index are brute-force searches and produce 100% accuracy or recall. That is, it is guaranteed to find the most similar vectors in the dataset. However, there is a limitation of `505` dimensions for vectors on a flat index.
+
+  - The `quantizedFlat` index stores quantized (compressed) vectors on then index. Vector searches with `quantizedFlat` index are also brute-force searches, however their accuracy might be slightly less than 100% since the vectors are quantized before adding to the index. However, vector searches with `quantized flat` should have lower latency, higher throughput, and lower RU cost than vector searches on a `flat` index. This is a good option for scenarios where you are using query filters to narrow down the vector search to a relatively small set of vectors, and extremely high accuracy is required.
+
+  - The `diskANN` index is a separate index defined specifically for vectors leveraging [DiskANN](https://www.microsoft.com/research/publication/diskann-fast-accurate-billion-point-nearest-neighbor-search-on-a-single-node/), a suite of high performance vector indexing algorithms developed by Microsoft Research. DiskANN indexes can offer some of the lowest latency, highest throughput, and lowest RU cost queries, while still maintaining high accuracy. However, since DiskANN is an approximate nearest neighbors (ANN) index, the accuracy may be lower than `quantizedFlat` or `flat`.
+
+Here's an example of an indexing policy with a vector index:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/_etag/?"
+        }
+    ],
+    "vectorIndexes": [
+        {
+            "path": "/vector",
+            "type": "DiskANN"
+        }
+    ]
+}
+```
+
+> [!NOTE]
+>  You must enroll in the [Azure Cosmos DB NoSQL Vector Index preview feature](nosql/vector-search.md#enroll-in-the-vector-search-preview-feature) to specify a vector indexing policy.> 
+
+> [!IMPORTANT]
+> A vector indexing policy must be on the path defined in the container's vector policy. [Learn more about container vector policies](nosql/vector-search.md#container-vector-policies).
+> Vector indexes must also be defined at the time of Container creation and cannot be modified once created. In a future release, vector indexes will be modifiable.
+
+
+
 ## Spatial indexes
 
 When you define a spatial path in the indexing policy, you should define which index ```type``` should be applied to that path. Possible types for spatial indexes include:
@@ -131,7 +183,7 @@ Azure Cosmos DB, by default, won't create any spatial indexes. If you would like
 
 Queries that have an `ORDER BY` clause with two or more properties require a composite index. You can also define a composite index to improve the performance of many equality and range queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-index) as needed.
 
-Unlike with included or excluded paths, you can't create a path with the `/*` wildcard. Every composite path has an implicit `/?` at the end of the path that you don't need to specify. Composite paths lead to a scalar value that is the only value included in the composite index. If a path in a composite index doesn't exist in an item, a value will be added to the index to indicate that the path is undefined.
+Unlike with included or excluded paths, you can't create a path with the `/*` wildcard. Every composite path has an implicit `/?` at the end of the path that you don't need to specify. Composite paths lead to a scalar value that is the only value included in the composite index. If a path in a composite index doesn't exist in an item or leads to a non-scalar value, a value will be added to the index to indicate that the path is undefined.
 
 When defining a composite index, you specify:
 
@@ -317,7 +369,7 @@ The following considerations apply when creating composite indexes to optimize a
 
 ## <a id=index-transformation></a>Modifying the indexing policy
 
-A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in-place (so no additional storage space is consumed during the operation). The old indexing policy is efficiently transformed to the new policy without affecting the write availability, read availability, or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
+A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in-place (so no additional storage space is consumed during the operation). The old indexing policy is efficiently transformed to the new policy without affecting the write availability, read availability, or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size. If multiple indexing policy updates have to be made, it is recommended to do all the changes as a single operation in order to have the index transformation complete as quickly as possible.
 
 > [!IMPORTANT]
 > Index transformation is an operation that consumes [Request Units](request-units.md). Request Units consumed by an index transformation aren't currently billed if you are using [serverless](serverless.md) containers. These Request Units will get billed once serverless becomes generally available.
@@ -334,7 +386,10 @@ When removing indexed paths, you should group all your changes into one indexing
 When you drop an indexed path, the query engine will immediately stop using it, and will do a full scan instead.
 
 > [!NOTE]
-> Where possible, you should always try to group multiple indexing changes into one single indexing policy modification
+> Where possible, you should always try to group multiple index removals into one single indexing policy modification.
+
+> [!IMPORTANT]
+> Removing an index takes effect immediately, whereas adding a new index takes some time as it requires an indexing transformation. When replacing one index with another (for example, replacing a single property index with a composite-index) make sure to add the new index first and then wait for the index transformation to complete **before** you remove the previous index from the indexing policy. Otherwise this will negatively affect your ability to query the previous index and may break any active workloads that reference the previous index. 
 
 ## Indexing policies and TTL
 

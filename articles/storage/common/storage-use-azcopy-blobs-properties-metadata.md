@@ -1,29 +1,25 @@
 ---
-title: Replace Azure Blob Storage properties & metadata with AzCopy (preview)
+title: Replace Azure Blob Storage properties & metadata with AzCopy
 description: This article contains a collection of AzCopy example commands that help you set properties and metadata. 
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 07/21/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 
 ---
 
-# Replace blob properties and metadata by using AzCopy v10 (preview)
+# Replace blob properties and metadata by using AzCopy v10
 
 You can use AzCopy to change the [access tier](../blobs/access-tiers-overview.md) of one or more blobs and replace (_overwrite_) the metadata, and index tags of one or more blobs. 
-
-> [!IMPORTANT]
-> This capability is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Get started
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
+> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID.
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 

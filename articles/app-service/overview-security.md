@@ -5,6 +5,8 @@ keywords: azure app service, web app, mobile app, api app, function app, securit
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: UpdateFrequency3
+author: cephalin
+ms.author: cephalin
 
 ---
 # Security in Azure App Service
@@ -44,14 +46,14 @@ For App Service on Windows, you can also restrict IP addresses dynamically by co
 
 Azure App Service provides turn-key authentication and authorization of users or client apps. When enabled, it can sign in users and client apps with little or no application code. You may implement your own authentication and authorization solution, or allow App Service to handle it for you instead. The authentication and authorization module handles web requests before handing them off to your application code, and it denies unauthorized requests before they reach your code.
 
-App Service authentication and authorization support multiple authentication providers, including Azure Active Directory, Microsoft accounts, Facebook, Google, and Twitter. For more information, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md).
+App Service authentication and authorization support multiple authentication providers, including Microsoft Entra ID, Microsoft accounts, Facebook, Google, and Twitter. For more information, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md).
 
 ## Service-to-service authentication
 
 When authenticating against a back-end service, App Service provides two different mechanisms depending on your need:
 
 - **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed identity](overview-managed-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](../key-vault/index.yml). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using a managed identity](tutorial-connect-msi-sql-database.md).
-- **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Azure Active Directory as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Microsoft Graph](/graph/overview) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md).
+- **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Microsoft Entra ID as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Microsoft Graph](/graph/overview) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md).
 
 ## Connectivity to remote resources
 

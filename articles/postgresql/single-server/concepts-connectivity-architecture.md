@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.author: gennadyk 
 author: code-sidd
 ms.date: 03/09/2023
+ms.custom: references_regions
 ---
 
 # Connectivity architecture in Azure Database for PostgreSQL
@@ -35,63 +36,70 @@ The gateway service is hosted on group of stateless compute nodes located behind
 * You don't update the newer gateway IP addresses in the client-side firewall to allow outbound traffic to be able to reach our new gateway rings. 
 
 > [!IMPORTANT]
-> We strongly encourage customers to use the Gateway IP address **subnets** in order to not be impacted by this activity in a region.
+> If customer connectivity stack needs to connect directly to gateway instead of **recommended DNS name approach**, or allow-list gateway in the firewall rules for connections to\from customer infrastructure, we **strongly encourage** customers to use Gateway IP address **subnets** versus hardcoding static IP in order to not be impacted by this activity in a region that may cause IP to change within the subnet range. 
 
-The following table lists the gateway IP addresses of the Azure Database for PostgreSQL gateway for all data regions. The most up-to-date information of the gateway IP addresses for each region is maintained in the table below. In the table below, the columns represent following:
+The following table lists the gateway IP address subnets of the Azure Database for PostgreSQL gateway for all data regions. The most up-to-date information of the gateway IP addresses for each region is maintained in the table below. In the table below, the columns represent following:
 
-* **Gateway IP addresses:** This column lists the current IP addresses of the gateways. As hardware is refreshed we'll remove these and  recommend that  you open the client-side firewall to allow outbound traffic for the IP address subnets listed in the next column.
+* **Region Name:** This column lists the name of Azure region where Azure Database for PostgreSQL - Single Server is offered. 
 * **Gateway IP address subnets:** This column lists the IP address subnets of the gateway rings located in the particular region. As we retire older gateway hardware, we recommend that you open the client-side firewall to allow outbound traffic for the IP address subnets in the region you are operating.
 
-| **Region name** | **Gateway IP addresses**  | **Gateway IP address subnets** |
-|:----------------|:-------------------------|:------------------------------------------|
-| Australia Central|   | 20.36.105.32/29 |
-| Australia Central2     | | 20.36.113.32/29 |
-| Australia East |     |  13.70.112.32/29, 40.79.160.32/29, 40.79.168.32/29 |
-| Australia South East |  |13.77.49.32/29  |
-| Brazil South |191.233.201.8, 191.233.200.16     | 191.233.200.32/29, 191.234.144.32/29|
-| Canada Central |40.85.224.249, 52.228.35.221     | 	13.71.168.32/29, 20.38.144.32/29, 52.246.152.32/29|
-| Canada East |   | 40.69.105.32/29 |
-| Central US | 23.99.160.139, 52.182.136.37, 52.182.136.38 | 104.208.21.192/29, 13.89.168.192/29, 52.182.136.192/29|
-| China East            |  139.219.130.35            |      52.130.112.136/29  |
-| China East 2          |  40.73.82.1, 52.130.120.89     | 52.130.120.88/29|
-| China East 3          |  52.131.155.192        | 52.130.128.88/29|
-| China North | 139.219.15.17     | 52.130.128.88/29 |
-| China North 2 | 40.73.50.0     | 	52.130.40.64/29|
-| China North 3 | 52.131.27.192     | 13.75.32.192/29, 13.75.33.192/29 |
-| East Asia | 13.75.33.20, 52.175.33.150, 13.75.33.20, 13.75.33.21     | 13.75.32.192/29, 13.75.33.192/29|
-| East US |40.71.8.203, 40.71.83.113 |20.42.65.64/29, 20.42.73.0/29, 52.168.116.64/29|
-| East US 2 | 40.70.144.38, 52.167.105.38  |104.208.150.192/29, 40.70.144.192/29, 52.167.104.192/29|
-| France Central | 40.79.137.0, 40.79.129.1     | 40.79.136.32/29, 40.79.144.32/29 |
-| France South | 40.79.177.0     | 	40.79.176.40/29, 40.79.177.32/29|
-| Germany West Central | 51.116.152.0 | 51.116.152.32/29, 51.116.240.32/29, 51.116.248.32/29|
-| India Central || 104.211.86.32/29, 20.192.96.32/29|
-| India South |    | 40.78.192.32/29, 40.78.193.32/29|
-| India West | 104.211.160.80     | 	104.211.144.32/29, 104.211.145.32/29 |
-| Japan East | 40.79.192.23, 40.79.184.8 | 13.78.104.32/29, 40.79.184.32/29, 40.79.192.32/29 |
-| Japan West |  | 40.74.96.32/29 |
-| Korea Central | 52.231.17.13     | 20.194.64.32/29,20.44.24.32/29, 52.231.16.32/29 |
-| Korea South | 52.231.145.3     |  |
-| North Central US | 52.162.104.35, 52.162.104.36     | 52.162.105.192/29|
-| North Europe | 52.138.224.6, 52.138.224.7    |13.69.233.136/29, 13.74.105.192/29, 52.138.229.72/29 |
-| South Africa North  | 102.133.152.0     | 102.133.120.32/29, 102.133.152.32/29, 102.133.248.32/29 |
-| South Africa West    | 102.133.24.0     | 102.133.25.32/29|
-| South Central US |104.214.16.39, 20.45.120.0  |20.45.121.32/29, 20.49.88.32/29, 20.49.89.32/29, 40.124.64.136/29|
-| South East Asia | 40.78.233.2, 23.98.80.12     | 13.67.16.192/29, 23.98.80.192/29, 40.78.232.192/29 |
-| Switzerland North | 51.107.56.0 |51.107.56.32/29, 51.103.203.192/29, 20.208.19.192/29, 51.107.242.32/27|
-| Switzerland West | 51.107.152.0| 51.107.153.32/29|
-| UAE Central | 20.37.72.64     | 20.37.72.96/29, 20.37.73.96/29 |
-| UAE North | 65.52.248.0     | 40.120.72.32/29, 65.52.248.32/29 |
-| UK South | 51.140.184.11, 51.140.144.32, 51.105.64.0     |51.105.64.32/29, 51.105.72.32/29, 51.140.144.32/29 |
-| UK West |  | 51.140.208.96/29, 51.140.209.32/29 |
-| West Central US |    | 13.71.193.32/29 |
-| West Europe |13.69.105.208, 104.40.169.187 | 104.40.169.32/29, 13.69.112.168/29, 52.236.184.32/29|
-| West US |13.86.216.212, 13.86.217.212 |13.86.217.224/29|
-| West US 2 | 13.66.226.202, 13.66.136.192,13.66.136.195     | 13.66.136.192/29, 40.78.240.192/29, 40.78.248.192/29|
-| West US 3 | 20.150.184.2     | 20.150.168.32/29, 20.150.176.32/29, 20.150.184.32/29 |
+| **Region name** |**Current Gateway IP address**|  **Gateway IP address subnets** |
+|:----------------|:-----------------------------|:--------------------------------|
+| Australia Central  |  20.36.105.32     | 20.36.105.32/29, 20.53.48.96/27 | 
+| Australia Central2  | 20.36.113.32   | 20.36.113.32/29, 20.53.56.32/27 |
+| Australia East     | 13.70.112.32    | 13.70.112.32/29, 40.79.160.32/29, 40.79.168.32/29, 40.79.160.32/29, 20.53.46.128/27 |
+| Australia South East  |13.77.49.33 |3.77.49.32/29, 104.46.179.160/27|
+| Brazil South | 191.233.201.8, 191.233.200.16 | 191.234.153.32/27, 191.234.152.32/27, 191.234.157.136/29, 191.233.200.32/29, 191.234.144.32/29, 191.234.142.160/27|
+|Brazil Southeast|191.233.48.2|191.233.48.32/29, 191.233.15.160/27|
+| Canada Central  | 13.71.168.32|	13.71.168.32/29, 20.38.144.32/29, 52.246.152.32/29, 20.48.196.32/27|
+| Canada East   |40.69.105.32 | 40.69.105.32/29, 52.139.106.192/27 |
+| Central US  | 52.182.136.37, 52.182.136.38 | 104.208.21.192/29, 13.89.168.192/29, 52.182.136.192/29, 20.40.228.128/27|
+| China East  |     52.130.112.139          |  52.130.112.136/29, 52.130.13.96/27|
+| China East 2   |   40.73.82.1, 52.130.120.89       | 52.130.120.88/29, 52.130.7.0/27|
+| China North   | 52.130.128.89| 52.130.128.88/29, 40.72.77.128/27 |
+| China North 2  |40.73.50.0 |	52.130.40.64/29, 52.130.21.160/27|
+| East Asia  |13.75.33.20, 13.75.33.21  | 20.205.77.176/29, 20.205.83.224/29, 20.205.77.200/29, 13.75.32.192/29, 13.75.33.192/29, 20.195.72.32/27|
+| East US  | 40.71.8.203, 40.71.83.113|20.42.65.64/29, 20.42.73.0/29, 52.168.116.64/29, 20.62.132.160/27|
+| East US 2  |52.167.105.38, 40.70.144.38| 104.208.150.192/29, 40.70.144.192/29, 52.167.104.192/29, 20.62.58.128/27|
+| France Central |40.79.129.1  | 40.79.128.32/29, 40.79.136.32/29, 40.79.144.32/29, 20.43.47.192/27 |
+| France South  |40.79.176.40 |	40.79.176.40/29, 40.79.177.32/29, 52.136.185.0/27|
+| Germany North| 51.116.56.0| 51.116.57.32/29, 51.116.54.96/27|
+| Germany West Central  | 51.116.152.0 | 51.116.152.32/29, 51.116.240.32/29, 51.116.248.32/29, 51.116.149.32/27|
+| India Central |20.192.96.33 | 40.80.48.32/29, 104.211.86.32/29, 20.192.96.32/29, 20.192.43.160/27|
+| India South   | 40.78.192.32| 40.78.192.32/29, 40.78.193.32/29, 52.172.113.96/27|
+| India West     | 104.211.144.32|	104.211.144.32/29, 104.211.145.32/29, 52.136.53.160/27|
+| Japan East  | 40.79.184.8, 40.79.192.23| 13.78.104.32/29, 40.79.184.32/29, 40.79.192.32/29, 20.191.165.160/27 |
+| Japan West  |40.74.96.6| 20.18.179.192/29, 40.74.96.32/29, 20.189.225.160/27 |
+| Jio India Central| 20.192.233.32|20.192.233.32/29, 20.192.48.32/27|
+| Jio India West|20.193.200.32|20.193.200.32/29, 20.192.167.224/27|
+| Korea Central  | 52.231.17.13  | 20.194.64.32/29, 20.44.24.32/29, 52.231.16.32/29, 20.194.73.64/27|
+| Korea South   |52.231.145.3| 52.231.151.96/27, 52.231.151.88/29, 52.231.145.0/29, 52.147.112.160/27 |
+| North Central US | 52.162.104.35, 52.162.104.36 | 52.162.105.200/29, 20.125.171.192/29, 52.162.105.192/29, 20.49.119.32/27|
+| North Europe  |52.138.224.6, 52.138.224.7 |13.69.233.136/29, 13.74.105.192/29, 52.138.229.72/29, 52.146.133.128/27 |
+|Norway East|51.120.96.0|51.120.208.32/29, 51.120.104.32/29, 51.120.96.32/29, 51.120.232.192/27|
+|Norway West|51.120.216.0|51.120.217.32/29, 51.13.136.224/27|
+| South Africa North    | 102.133.152.0 | 102.133.120.32/29, 102.133.152.32/29, 102.133.248.32/29, 102.133.221.224/27 |
+| South Africa West     |102.133.24.0 | 102.133.25.32/29, 102.37.80.96/27|
+| South Central US  | 20.45.120.0 |20.45.121.32/29, 20.49.88.32/29, 20.49.89.32/29, 40.124.64.136/29, 20.65.132.160/27|
+| South East Asia | 23.98.80.12, 40.78.233.2|13.67.16.192/29, 23.98.80.192/29, 40.78.232.192/29, 20.195.65.32/27 |
+| Sweden Central|51.12.96.32|51.12.96.32/29, 51.12.232.32/29, 51.12.224.32/29, 51.12.46.32/27|
+| Sweden South|51.12.200.32|51.12.201.32/29, 51.12.200.32/29, 51.12.198.32/27|
+| Switzerland North  |51.107.56.0 |51.107.56.32/29, 51.103.203.192/29, 20.208.19.192/29, 51.107.242.32/27|
+| Switzerland West  | 51.107.152.0| 51.107.153.32/29, 51.107.250.64/27|
+| UAE Central     | 20.37.72.64| 20.37.72.96/29, 20.37.73.96/29, 20.37.71.64/27 |
+| UAE North    |65.52.248.0 |20.38.152.24/29, 40.120.72.32/29, 65.52.248.32/29, 20.38.143.64/27 |
+| UK South  | 51.105.64.0|51.105.64.32/29, 51.105.72.32/29, 51.140.144.32/29, 51.143.209.224/27|
+| UK West |51.140.208.98 |51.140.208.96/29, 51.140.209.32/29, 20.58.66.128/27 |
+| West Central US   |13.71.193.34 | 13.71.193.32/29, 20.69.0.32/27 |
+| West Europe  | 13.69.105.208,104.40.169.187|104.40.169.32/29, 13.69.112.168/29, 52.236.184.32/29, 20.61.99.192/27|
+| West US |13.86.216.212, 13.86.217.212 |20.168.163.192/29, 13.86.217.224/29, 20.66.3.64/27|
+| West US 2  | 13.66.136.192 | 13.66.136.192/29, 40.78.240.192/29, 40.78.248.192/29, 20.51.9.128/27|
+| West US 3  |20.150.184.2   | 20.150.168.32/29, 20.150.176.32/29, 20.150.184.32/29, 20.150.241.128/27 |
+
 
 ## Frequently asked questions
 
-### What you need to know about this planned maintenance?
+### What you need to know about this planned maintenance
 
 This is a DNS change only,  which makes it transparent to clients. While the IP address for FQDN is changed in the DNS server, the local DNS cache is refreshed within 5 minutes, and it is automatically done by the operating systems. After the local DNS refresh, all the new connections will connect to the new IP address, all existing connections will remain connected to the old IP address with no interruption until the old IP addresses are fully decommissioned. The old IP address takes roughly three to four weeks before getting decommissioned; therefore, it should have no effect on the client applications.
 

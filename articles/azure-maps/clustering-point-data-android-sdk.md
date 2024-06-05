@@ -1,8 +1,8 @@
 ---
 title: Clustering point data in the Android SDK | Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps Android SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -15,13 +15,19 @@ zone_pivot_groups: azure-maps-android
 
 When visualizing many data points on the map, data points may overlap over each other. The overlap may cause the map may become unreadable and difficult to use. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. When you work with large number of data points, use the clustering processes to improve your user experience.
 
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
 </br>
 
 >[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny]
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document. Code blocks in this article can be inserted into the maps `onReady` event handler.
+Be sure to complete the steps in the [Quickstart: Create an Android app] document. Code blocks in this article can be inserted into the maps `onReady` event handler.
 
 ## Enabling clustering on a data source
 
@@ -1109,7 +1115,7 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
 
 ::: zone-end
 
-The popup follows the steps outlined in the [display a popup](display-feature-information-android.md?#display-a-popup) document.
+The popup follows the steps outlined in the [display a popup] document.
 
 The following image shows the above code displays a popup with aggregated counts of each entity value type for all points in the clicked clustered point.
 
@@ -1120,10 +1126,16 @@ The following image shows the above code displays a popup with aggregated counts
 To add more data to your map:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-android-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer-android.md)
+> [Add a bubble layer]
+
+[Add a bubble layer]: map-add-bubble-layer-android.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Create a data source]: create-data-source-android-sdk.md
+[display a popup]: display-feature-information-android.md?#display-a-popup
+[Quickstart: Create an Android app]: quick-android-map.md

@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Create an NFS Azure file share and mount it on a Linux VM using the Azure portal
-description: This tutorial covers how to use the Azure portal to deploy a Linux virtual machine, create an Azure file share using the NFS protocol, and mount the file share so that it's ready to store files.
+title: Create an NFS Azure file share and mount it on a Linux VM
+description: This tutorial covers how to use the Azure portal to deploy a Linux virtual machine (VM), create an Azure file share using the NFS protocol, and mount the file share.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
+ms.custom: linux-related-content
 ms.topic: tutorial
-ms.date: 10/21/2022
+ms.date: 05/10/2024
 ms.author: kendownie
-ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
 
@@ -24,6 +24,7 @@ In this tutorial, you will:
 > * Mount the file share to your VM
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -76,7 +77,7 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" alt-text="Screenshot showing how to configure the inbound port rules for a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" border="true":::
 
    > [!IMPORTANT]
-   > Setting SSH port(s) open to the internet is only recommended for testing. If you want to change this setting later, go back to the **Basics** tab.  
+   > Setting SSH port(s) open to the internet is only recommended for testing. If you want to change this setting later, go back to the **Basics** tab.
 
 1. Select the **Review + create** button at the bottom of the page.
 
@@ -104,9 +105,9 @@ Now you're ready to create an NFS file share and provide network-level security 
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-nfs-share.png" alt-text="Screenshot showing how to name the file share and provision capacity to create a new N F S file share." lightbox="media/storage-files-quick-create-use-linux/create-nfs-share.png" border="true":::
 
-### Set up a private endpoint
+### Set up a private endpoint or service endpoint
 
-Next, you'll need to set up a private endpoint for your storage account. This gives your storage account a private IP address from within the address space of your virtual network.
+Next, set up a private endpoint for your storage account. This gives your storage account a private IP address from within the address space of your virtual network. Standard [data processing rates](https://azure.microsoft.com/pricing/details/private-link/) for private endpoints apply. If you don't require a static IP address, you can use a service endpoint instead. There's no extra charge for using service endpoints.
 
 1. Select the file share *qsfileshare*. You should see a dialog that says *Connect to this NFS share from Linux*. Under **Network configuration**, select **Review options**
 
@@ -187,13 +188,13 @@ If you encounter a warning that the authenticity of the host can't be establishe
 
 Now that you've created an NFS share, to use it you have to mount it on your Linux client.
 
-1. Select **Home** and then **Storage accounts**. 
+1. Select **Home** and then **Storage accounts**.
 
 1. Select the storage account you created.
 
 1. Select **File shares** from the storage account pane and select the NFS file share you created.
 
-1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a provided mounting script.
+1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a mounting script that contains the required mount options. For other recommended mount options, see [Mount NFS Azure file share on Linux](storage-files-how-to-mount-nfs-shares.md#mount-options).
 
    > [!IMPORTANT]
    > The provided mounting script will mount the NFS share only until the Linux machine is rebooted. To automatically mount the share every time the machine reboots, see [Mount an NFS share using /etc/fstab](storage-files-how-to-mount-nfs-shares.md#mount-an-nfs-share-using-etcfstab).

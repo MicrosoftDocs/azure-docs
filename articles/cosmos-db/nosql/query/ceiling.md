@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the smallest integer value greater than or equal to the specified numeri
   
 ## Syntax
   
-```sql
+```nosql
 CEILING(<numeric_expr>)  
 ```
 
@@ -38,32 +39,15 @@ Returns a numeric expression.
 
 The following example shows positive numeric, negative, and zero values evaluated with this function.  
 
-```sql
-SELECT VALUE {
-    ceilingPostiveNumber: CEILING(62.6),
-    ceilingNegativeNumber: CEILING(-145.12),
-    ceilingSmallNumber: CEILING(0.2989),
-    ceilingZero: CEILING(0.0),
-    ceilingNull: CEILING(null)
-}
-```
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/query.sql" highlight="2-7":::
 
-```json
-[
-  {
-    "ceilingPostiveNumber": 63,
-    "ceilingNegativeNumber": -145,
-    "ceilingSmallNumber": 1,
-    "ceilingZero": 0
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/result.json":::
 
 ## Remarks
 
 - This system function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`FLOOR`](floor.md)

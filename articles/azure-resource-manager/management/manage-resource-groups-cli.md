@@ -3,7 +3,7 @@ title: Manage resource groups - Azure CLI
 description: Use Azure CLI to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 author: mumian
 ms.topic: conceptual
-ms.date: 03/31/2023
+ms.date: 03/19/2024
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
@@ -15,7 +15,7 @@ Learn how to use Azure CLI with [Azure Resource Manager](overview.md) to manage 
 
 * Azure CLI. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* After installing, sign in for the first time. For more information, see [How to sign into the Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli).
+* After installing, sign in for the first time. For more information, see [How to sign in to the Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli).
 
 ## What is a resource group
 

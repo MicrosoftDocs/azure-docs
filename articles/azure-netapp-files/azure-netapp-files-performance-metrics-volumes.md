@@ -4,7 +4,6 @@ description: Learn about benchmark testing recommendations for volume performanc
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 05/08/2023
 ---
@@ -31,7 +30,7 @@ Ensure that you choose the correct service level and volume quota size for the e
 
 You should perform the benchmark testing in the same VNet as Azure NetApp Files. The example below demonstrates the recommendation:
 
-![VNet recommendations](../media/azure-netapp-files/azure-netapp-files-benchmark-testing-vnet.png)
+![VNet recommendations](./media/azure-netapp-files-performance-metrics-volumes/azure-netapp-files-benchmark-testing-vnet.png)
 
 ## Performance benchmarking tools
 
@@ -110,11 +109,11 @@ You can view historical data for the following information:
 
 You can access Azure NetApp Files counters on a per-volume basis from the Metrics page, as shown below:
 
-![Azure Monitor metrics](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-metrics.png)
+![Azure Monitor metrics](./media/azure-netapp-files-performance-metrics-volumes/azure-netapp-files-benchmark-monitor-metrics.png)
 
 You can also create a dashboard in Azure Monitor for Azure NetApp Files by going to the Metrics page, filtering for NetApp, and specifying the volume counters of interest: 
 
-![Azure Monitor dashboard](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-dashboard.png)
+![Azure Monitor dashboard](./media/azure-netapp-files-performance-metrics-volumes/azure-netapp-files-benchmark-monitor-dashboard.png)
 
 ### Azure Monitor API access
 

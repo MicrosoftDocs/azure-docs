@@ -1,15 +1,13 @@
 ---
-title: Tutorial - Manage Windows virtual machine configuration in Azure 
+title: Tutorial - Manage Windows virtual machine configuration in Azure
 description: In this tutorial, you learn how to identify changes and manage package updates on a Windows virtual machine
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: tutorial
-ms.workload: infrastructure
 ms.date: 12/05/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc, devx-track-azurepowershell
-
 #Customer intent: As an IT administrator, I want to learn about tracking configuration changes and performing software updates, so I can review changes made and install updates on Windows virtual machines.
 ---
 
@@ -122,7 +120,7 @@ To schedule a new update deployment for the VM, select **Schedule update deploym
 
 After you have finished configuring the schedule, click **Create** to return to the status dashboard. The **Scheduled** table shows the deployment schedule you created.
 
-You can also create update deployments programmatically. To learn how to create an update deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There's also a sample runbook that you can use to create a weekly update deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+You can also create update deployments programmatically. To learn how to create an update deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There's also a sample runbook that you can use to create a weekly update deployment.
 
 ### View results of an update deployment
 

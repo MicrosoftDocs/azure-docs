@@ -1,0 +1,43 @@
+### YamlMime:Landing
+
+title: Radiology Insights documentation
+summary: Radiology Insights is offered within the context of the broader Azure AI Health Insights. It augments traditional clinical natural language processing tools by adding inferences positively impacting the radiology documentation workflow and enabling analysis and quality follow-up.
+
+metadata:
+  title: Radiology Insights documentation
+  titleSuffix: Azure AI Health Insights
+  description: enable healthcare organizations to ...
+  ms.service: Azure AI Health Insights
+  ms.topic: landing-page 
+  author: JanSchietse
+  ms.author: JanSchietse
+  ms.date: 12/12/2023
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new 
+
+landingContent:
+  - title: About Radiology Insights
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the RI model?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Model configuration
+            url: model-configuration.md
+          - text: Inference information
+            url: inferences.md
+  - title: Use the Radiology Insights model
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the Portal
+            url: get-started.md   
+  - title: Help and feedback
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Support and help options
+            url: support-and-help.md

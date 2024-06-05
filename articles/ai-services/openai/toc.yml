@@ -1,0 +1,315 @@
+items:
+- name: Azure OpenAI Service Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+    - name: What is Azure OpenAI?
+      href: overview.md
+    - name: Quotas and limits
+      href: quotas-limits.md
+    - name: Deployment types
+      href: ./how-to/deployment-types.md
+      displayName: global, Global, globalstandard, global-standard, Global-Standard, standard, provisioned 
+    - name: Models
+      href: ./concepts/models.md
+    - name: Model retirements
+      href: ./concepts/model-retirements.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
+    - name: What's new
+      href: whats-new.md
+    - name: Programming languages/SDKs
+      href: ./supported-languages.md
+    - name: Azure OpenAI FAQ
+      href: faq.yml
+- name: Quickstarts
+  items:
+    - name: Assistants (preview)
+      href: assistants-quickstart.md
+    - name: Completions
+      href: quickstart.md
+    - name: Chat
+      href: chatgpt-quickstart.md  
+      displayName: ChatGPT, chatgpt
+    - name: GPT-4 Turbo with Vision
+      href: gpt-v-quickstart.md
+    - name: DALL-E
+      href: dall-e-quickstart.md
+    - name: Use your data
+      href: use-your-data-quickstart.md
+    - name: Whisper 
+      href: whisper-quickstart.md
+    - name: Text to speech (preview)
+      href: text-to-speech-quickstart.md
+- name: Concepts
+  items:
+    - name: Assistants
+      href: ./concepts/assistants.md
+    - name: Abuse monitoring
+      href: ./concepts/abuse-monitoring.md
+    - name: Content filtering
+      href: ./concepts/content-filter.md
+    - name: Customizing Large Language Models (LLMs)
+      href: ./concepts/customizing-llms.md
+    - name: Embeddings
+      href: ./concepts/understand-embeddings.md
+    - name: Fine-tuning
+      href: ./concepts/fine-tuning-considerations.md
+    - name: GPT-4 Turbo with Vision
+      href: ./concepts/gpt-with-vision.md
+    - name: Red teaming large language models (LLMs)
+      href: ./concepts/red-teaming.md
+    - name: Content credentials
+      href: ./concepts/content-credentials.md
+    - name: Intro to prompt engineering
+      href: ./concepts/prompt-engineering.md
+    - name: Prompt engineering techniques
+      href: ./concepts/advanced-prompt-engineering.md
+    - name: Prompt engineering for GPT-4 Turbo with Vision
+      href: ./concepts/gpt-4-v-prompt-engineering.md
+    - name: Model versions
+      href: ./concepts/model-versions.md
+    - name: Provisioned throughput units (PTU)
+      href: ./concepts/provisioned-throughput.md
+      displayName: PTU, provisioned, provisioned throughput units
+    - name: System message templates
+      href: ./concepts/system-message.md
+    - name: Legacy models
+      href: ./concepts/legacy-models.md
+- name: How-to 
+  items:
+  - name: API version lifecycle
+    href: ./api-version-deprecation.md
+  - name: Assistants (preview)
+    items:
+    - name: Getting started with Assistants
+      href: ./how-to/assistant.md
+    - name: Tools
+      items:
+      - name: Code Interpreter
+        href: ./how-to/code-interpreter.md
+      - name: Function calling
+        items:
+        - name: Assistants function calling
+          href: ./how-to/assistant-functions.md
+        - name: Function calling with Azure Logic Apps
+          href: ./how-to/assistants-logic-apps.md
+      - name: File search
+        href: ./how-to/file-search.md
+  - name: Completions & chat completions
+    items:
+    - name: GPT-35-Turbo & GPT-4 
+      href: ./how-to/chatgpt.md
+      displayName: ChatGPT, chatgpt
+    - name: GPT-4 Turbo with Vision
+      href: ./how-to/gpt-with-vision.md
+    - name: DALL-E
+      href: ./how-to/dall-e.md
+    - name: Function calling
+      href: ./how-to/function-calling.md
+    - name: Completions
+      href: ./how-to/completions.md
+    - name: JSON mode
+      href: ./how-to/json-mode.md
+    - name: Reproducible output
+      href: ./how-to/reproducible-output.md
+    - name: Work with code
+      href: ./how-to/work-with-code.md
+    - name: Use with large datasets
+      href: ./how-to/integrate-synapseml.md
+    - name: Deploy and use web apps
+      href: ./how-to/use-web-app.md
+    - name: Legacy
+      items:
+      - name: Chat Markup Language (ChatML)
+        href: ./how-to/chat-markup-language.md 
+  - name: Content filtering
+    href: ./how-to/content-filters.md
+  - name: Use blocklists
+    href: ./how-to/use-blocklists.md
+  - name: Risks & Safety Monitoring
+    href: ./how-to/risks-safety-monitor.md
+  - name: Embeddings
+    items:
+    - name: Embeddings basics
+      href: ./how-to/embeddings.md
+    - name: Getting started with embeddings
+      href: ./tutorials/embeddings.md
+  - name: Fine-tuning
+    items:
+      - name: Fine-tuning your model
+        href: ./how-to/fine-tuning.md
+        displayName: finetuning 
+      - name: Function calling
+        href: ./how-to/fine-tuning-functions.md
+        displayName: fine-tuning, finetuning
+  - name: Use your data
+    items:
+      - name: Text data
+        href: ./concepts/use-your-data.md
+      - name: Image data (preview)
+        href: ./concepts/use-your-image-data.md
+      - name: Use Azure OpenAI On Your Data securely
+        href: ./how-to/use-your-data-securely.md
+      - name: Deploy and use web apps
+        href: ./how-to/use-web-app.md
+      - name: Use the Azure Developer CLI
+        href: ./how-to/azure-developer-cli.md
+      - name: Troubleshooting and best practices
+        href: ./how-to/on-your-data-best-practices.md
+  - name: Migrate to OpenAI Python v1.x
+    href: ./how-to/migration.md
+  - name: Models
+    items:
+      - name: Manage models
+        href: ./how-to/working-with-models.md
+  - name: Networking and security
+    items:
+      - name: Use virtual networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
+      - name: Encryption of data at rest
+        href: encrypt-data-at-rest.md
+      - name: Managed identity
+        href: ./how-to/managed-identity.md
+      - name: Use Azure OpenAI on your data securely
+        href: ./how-to/use-your-data-securely.md
+  - name: Service management
+    items:
+      - name: Resource creation & model deployment
+        href: ./how-to/create-resource.md
+      - name: OpenAI vs Azure OpenAI (Python)
+        href: ./how-to/switching-endpoints.yml
+      - name: Manage quota
+        href: ./how-to/quota.md
+      - name: Dynamic quota
+        href: ./how-to/dynamic-quota.md
+      - name: Monitor Azure OpenAI
+        href: ./how-to/monitoring.md
+      - name: Onboarding to Provisioned Throughput Units (PTU)
+        href: ./how-to/provisioned-throughput-onboarding.md
+        displayName: PTU, provisioned, provisioned throughput units
+      - name: Get started with Provisioned Deployments
+        href: ./how-to/provisioned-get-started.md
+        displayName: PTU, provisioned, provisioned throughput units
+      - name: Plan and manage costs
+        href: ./how-to/manage-costs.md
+      - name: Performance & latency
+        href: ./how-to/latency.md
+      - name: Role-based access control (Azure RBAC)
+        href: ./how-to/role-based-access-control.md
+      - name: Business continuity & disaster recovery (BCDR)
+        href: ./how-to/business-continuity-disaster-recovery.md
+- name: Tutorials
+  items:
+    - name: Embeddings
+      href: ./tutorials/embeddings.md
+    - name: Fine-tuning GPT-3.5-Turbo
+      href: ./tutorials/fine-tune.md
+    - name: Speech to speech chat
+      href: ../speech-service/openai-speech.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext
+- name: Responsible AI
+  items:
+    - name: Overview
+      href: /legal/cognitive-services/openai/overview?context=/azure/ai-services/openai/context/context
+    - name : Transparency note
+      href: /legal/cognitive-services/openai/transparency-note?context=/azure/ai-services/openai/context/context
+    - name: Limited access
+      href: /legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context
+    - name: Code of conduct
+      href: /legal/cognitive-services/openai/code-of-conduct?context=/azure/ai-services/openai/context/context
+    - name: Data, privacy, and security
+      href: /legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context
+    - name: Customer Copyright Commitment
+      href: /legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context
+- name: Reference
+  items:
+    - name: Assistants API Reference
+      items:
+        - name: Python/REST
+          items:
+          - name: Assistants
+            href: ./assistants-reference.md
+          - name: Threads
+            href: ./assistants-reference-threads.md
+          - name: Messages
+            href: ./assistants-reference-messages.md
+          - name: Runs
+            href: ./assistants-reference-runs.md 
+        - name: SDK 
+          items:
+          - name: C#
+            href: /dotnet/api/overview/azure/ai.openai.assistants-readme?context=/azure/ai-services/openai/context/context
+          - name: Go
+            href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai
+          - name: Java
+            href: /java/api/overview/azure/ai-openai-assistants-readme?context=/azure/ai-services/openai/context/context
+          - name: JavaScript
+            href: /javascript/api/overview/azure/openai-assistants-readme?context=/azure/ai-services/openai/context/context
+          
+    - name: Azure OpenAI On Your Data API Reference
+      items:
+        - name: Azure OpenAI On Your Data
+          href: ./references/on-your-data.md
+        - name: Data source - Azure AI Search
+          href: ./references/azure-search.md
+        - name: Data source - Azure Cosmos DB for MongoDB vCore
+          href: ./references/cosmos-db.md
+        - name: Data source - Azure Machine Learning index (preview)
+          href: ./references/azure-machine-learning.md
+        - name: Data source - Elasticsearch (preview)
+          href: ./references/elasticsearch.md
+        - name: Data source - Pinecone (preview)
+          href: ./references/pinecone.md
+        - name: Ingestion API (preview)
+          href: /rest/api/azureopenai/ingestion-jobs?context=/azure/ai-services/openai/context/context
+    - name: Azure Resource Manager/Bicep/Terraform
+      href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
+      displayName: ARM, ARM template, template 
+    - name: Azure CLI
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest&preserve-view=true
+    - name: Go
+      href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai
+    - name: Java
+      href: /java/api/com.azure.ai.openai?view=azure-java-preview&preserve-view=true
+    - name: JavaScript
+      href: /javascript/api/@azure/openai/?view=azure-node-preview&preserve-view=true
+    - name: .NET 
+      href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview&preserve-view=true
+    - name: REST API (completions & embeddings)
+      href: reference.md
+    - name: REST API (fine-tuning)
+      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2024-03-01-preview&preserve-view=true 
+    - name: REST API (resource creation & deployment)
+      href: /rest/api/aiservices/accountmanagement/deployments/create-or-update?tabs=HTTP
+    - name: Templates
+      items: 
+        - name: Retrieval Augmented Generation (RAG) enterprise chat
+          displayName: RAG, rag
+          items:
+            - name: C#
+              href: /dotnet/ai/get-started-app-chat-template
+              displayName: RAG, rag
+            - name: Java
+              href: /azure/developer/java/quickstarts/get-started-app-chat-template
+              displayName: RAG, rag
+            - name: JavaScript
+              href: /azure/developer/javascript/get-started-app-chat-template
+              displayName: RAG, rag
+            - name: Python
+              href: /azure/developer/python/get-started-app-chat-template
+              displayName: RAG, rag
+- name: Resources
+  items: 
+    - name: Support and help options
+      href: ../cognitive-services-support-options.md?context=/azure/ai-services/openai/context/context
+    - name: Intro to Azure OpenAI training
+      href: /training/modules/explore-azure-openai/
+    - name: Azure OpenAI Samples
+      href: https://aka.ms/AOAICodeSamples
+    - name: Region support
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Terms of use
+      href: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA#ServiceSpecificTerms
+    - name: Azure compliance offerings
+      href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/

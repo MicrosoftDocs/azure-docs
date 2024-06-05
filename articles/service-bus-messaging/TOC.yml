@@ -126,6 +126,8 @@
       href: service-bus-throttling.md
     - name: Enforce minimum required TLS version
       href: transport-layer-security-enforce-minimum-version.md
+    - name: Delete messages in Service Bus
+      href: batch-delete.md
   - name: Federation
     items:
       - name: Message replication and cross-region federation
@@ -151,7 +153,7 @@
       items:
       - name: Authentication with Shared Access Signatures
         href: service-bus-sas.md
-      - name: Use Azure Active Directory
+      - name: Use Microsoft Entra ID
         items:
         - name: Authenticate with managed identities for Azure resources
           href: service-bus-managed-service-identity.md
@@ -170,10 +172,6 @@
   items:
   - name: Develop
     items:
-    - name: Send and receive messages using PHP
-      href: service-bus-php-how-to-use-queues.md
-    - name: Publish and subscribe for messages using PHP
-      href: service-bus-php-how-to-use-topics-subscriptions.md
     - name: Set subscription filters and actions
       href: service-bus-filter-examples.md
     - name: Message handling
@@ -256,6 +254,8 @@
       href: entity-suspend.md
     - name: Use Service Bus Explorer
       href: explorer.md
+    - name: Prepare for planned maintenance
+      href: prepare-for-planned-maintenance.md
     - name: Use ARM templates
       href: service-bus-resource-manager-overview.md
       items:
@@ -287,10 +287,14 @@
     items:
     - name: Troubleshooting guide
       href: service-bus-troubleshooting-guide.md
-    - name: Messaging exceptions
-      href: service-bus-messaging-exceptions.md
+    - name: SDK troubleshooting guide
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/TROUBLESHOOTING.md
     - name: Resource Manager exceptions
       href: service-bus-resource-manager-exceptions.md
+    - name: Service Bus exceptions 
+      href: service-bus-messaging-exceptions-latest.md
+    - name: Service Bus exceptions (deprecated)
+      href: service-bus-messaging-exceptions.md
 - name: Reference
   items:
   - name: Monitor data reference
@@ -299,11 +303,13 @@
     items:
     - name: Migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus
       href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md
+    - name: Migrate from WindowsAzure.ServiceBus to Azure.Messaging.ServiceBus
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide_WindowsAzureServiceBus.md
     - name: Azure.Messaging.ServiceBus (.NET Standard - latest)
       href: /dotnet/api/azure.messaging.servicebus
-    - name: Microsoft.Azure.ServiceBus (.NET Standard)
+    - name: Microsoft.Azure.ServiceBus (.NET Standard - legacy)
       href: /dotnet/api/microsoft.azure.servicebus
-    - name: Microsoft.ServiceBus.Messaging (.NET Framework)
+    - name: Microsoft.ServiceBus.Messaging (.NET Framework - legacy)
       href: /dotnet/api/microsoft.servicebus.messaging
   - name: Java
     items:
@@ -311,7 +317,7 @@
       href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md
     - name: azure-messaging-servicebus (latest)
       href: /java/api/com.azure.messaging.servicebus
-    - name: azure-servicebus
+    - name: azure-servicebus (legacy)
       href: /java/api/com.microsoft.azure.servicebus
   - name: Spring
     items:
@@ -367,13 +373,11 @@
   - name: Blog
     href: /archive/blogs/servicebus/
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-service-bus.html
+    href: /answers/tags/73/azure-service-bus
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-bus/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Serverless360
-    href: https://www.serverless360.com/
   - name: Service Bus Explorer
     href: https://github.com/paolosalvatori/ServiceBusExplorer
   - name: Service updates

@@ -7,7 +7,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: merae
 ms.service: cosmos-db
-ms.custom: ignite-2022, references_regions
+ms.custom: references_regions
 ms.topic: overview
 ms.date: 11/07/2022
 ---
@@ -21,6 +21,8 @@ ms.date: 11/07/2022
 If you're using the API for NoSQL or PostgreSQL, you can also migrate your Try Azure Cosmos DB data to your upgraded account before the trial ends.
 
 This article walks you through how to create your account, limits, and upgrading your account. This article also walks through how to migrate your data from your Try Azure Cosmos DB sandbox to your own account using the API for NoSQL.
+
+If you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
 
 ## Limits to free account
 
@@ -40,7 +42,7 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 ² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
 
 > [!NOTE]
-> Try Azure Cosmos DB supports global distribution in only the **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+> Try Azure Cosmos DB supports global distribution in only the **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans. If the account exceeds the maximum resource limits, it's automatically deleted.
 
 ### [MongoDB](#tab/mongodb)
 
@@ -58,7 +60,7 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 ² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
 
 > [!NOTE]
-> Try Azure Cosmos DB supports global distribution in only the **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+> Try Azure Cosmos DB supports global distribution in only the **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans. If the account exceeds the maximum resource limits, it's automatically deleted.
 
 ### [PostgreSQL](#tab/postgresql)
 
@@ -73,7 +75,7 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 | Maximum storage size (GiB) | 128 |
 
 ¹ A new trial can be requested after expiration.
-² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
+² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored. If the account exceeds the maximum resource limits, it's automatically deleted.
 
 ---
 
@@ -94,7 +96,7 @@ Launch the Quickstart in Data Explorer in Azure portal to start using Azure Cosm
 * [API for PostgreSQL](postgresql/quickstart-create-portal.md)
 * [API for MongoDB](mongodb/quickstart-python.md#object-model)
 * [API for Apache Cassandra](cassandra/adoption.md)
-* [API for Apache Gremlin](gremlin/quickstart-console.md#add-a-graph)
+* [API for Apache Gremlin](gremlin/quickstart-console.md)
 * [API for Table](table/quickstart-dotnet.md)
 
 You can also get started with one of the learning resources in the Data Explorer.
@@ -192,7 +194,7 @@ After you create a Try Azure Cosmos DB sandbox account, you can start building a
   * [Get started with Azure Cosmos DB for PostgreSQL](postgresql/quickstart-create-portal.md)
   * [Get started with Azure Cosmos DB for MongoDB](mongodb/quickstart-python.md#object-model)
   * [Get started with Azure Cosmos DB for Cassandra](cassandra/adoption.md)
-  * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-console.md#add-a-graph)
+  * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-console.md)
   * [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for [capacity planning](sql/estimate-ru-with-capacity-planner.md).
 * If all you know is the number of vCores and servers in your existing database cluster, see [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).

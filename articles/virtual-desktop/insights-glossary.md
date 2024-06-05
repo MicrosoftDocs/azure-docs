@@ -1,14 +1,10 @@
 ---
 title: Azure Virtual Desktop Insights glossary - Azure
 description: A glossary of terms and concepts related to Azure Virtual Desktop Insights.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/14/2022
+ms.date: 09/12/2023
 ms.author: helohr
-manager: femila
 ---
 # Azure Virtual Desktop Insights glossary
 
@@ -71,6 +67,59 @@ When an error or alert appears in Azure Virtual Desktop Insights, it's categoriz
      - Client: software running on the end-user machine that provides the interface to the Azure Virtual Desktop service. It displays the list of published resources and hosts the Remote Desktop connection once you've made a selection.
 
 Each diagnostics issue or error includes a message that explains what went wrong. To learn more about troubleshooting errors, see [Identify and diagnose Azure Virtual Desktop issues](./troubleshoot-set-up-overview.md).
+
+## Gateway region codes
+
+Some metrics in Azure Virtual Desktop Insights list the gateway region a user connects through. The gateway region is represented by a three or four-letter code that corresponds to the Azure region where the gateway is located. The following table lists the gateway region codes and their corresponding Azure regions:
+
+| Gateway region code | Azure region |
+|--|--|
+| AUC | Australia Central |
+| AUC2 | Australia Central 2 |
+| AUE | Australia East |
+| AUSE | Australia Southeast |
+| BRS | Brazil South |
+| CAC | Canada Central |
+| CAE | Canada East |
+| CHNO | Switzerland North |
+| CIN | Central India |
+| CUS | Central US |
+| EAS | East Asia |
+| EEU | East Europe |
+| EUS | East US |
+| EUS2 | East US 2 |
+| FRAS | France South |
+| FRC | France Central |
+| GEC | Germany Central |
+| GEN | Germany North |
+| GENE | Germany Northeast |
+| GWC | Germany West Central |
+| JPE | Japan East |
+| JPW | Japan West |
+| KRC | Korea Central |
+| KRS | Korea South |
+| KRS2 | Korea South 2 |
+| NCUS | North Central US |
+| NEU | North Europe |
+| NOE | Norway East |
+| NOW | Norway West |
+| SAN | South Africa North |
+| SAW | South Africa West |
+| SCUS | South Central US |
+| SEA2 | Southeast Asia 2 |
+| SEAS | Southeast Asia |
+| SIN | South India |
+| SWW | Switzerland West |
+| UAEC | UAE Central |
+| UAEN | UAE North |
+| UKN | UK North |
+| UKS | UK South |
+| UKS2 | UK South 2 |
+| UKW | UK West |
+| WCUS | West Central US |
+| WEU | West Europe |
+| WIN | West India |
+| WUS | West US |
 
 ## Input delay
 
@@ -148,7 +197,7 @@ The most urgent items that you need to take care of right away. If you don't add
 
 ## Time to connect
 
-Time to connect is the time between when a user opens a resource to start their session and when their desktop has loaded and is ready to use. For example, for RemoteApps, this is the time it takes to launch the application.
+Time to connect is the time between when a user opens a resource to start their session and when their desktop has loaded and is ready to use. For example, for a RemoteApp, this is the time it takes to launch the application.
 
 Time to connect has two stages:
 
@@ -157,16 +206,16 @@ Time to connect has two stages:
 
 When monitoring time to connect, keep in mind the following things:
 
-- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service diagnostics data. The checkpoints Insights uses to determine when the connection is established are different for a desktop versus a remote application scenario.
+- Time to connect is measured with the following checkpoints from Azure Virtual Desktop service diagnostics data. The checkpoints Insights uses to determine when the connection is established are different for a desktop versus a RemoteApp scenario.
 
   - Begins: [WVDConnection](/azure/azure-monitor/reference/tables/wvdconnections) state = started
 
   - Ends: [WVDCheckpoints](/azure/azure-monitor/reference/tables/wvdcheckpoints) Name = ShellReady (desktops); Name = RdpShellAppExecuted (RemoteApp. For timing, consider the first app launch only)
 
-For example, Insights measures the time for a desktop experience to launch based on how long it takes to launch Windows Explorer. Insights also measures the time for a remote application to launch based on the time taken to launch the first instance of the shell app for a connection.
+For example, Insights measures the time for a desktop experience to launch based on how long it takes to launch Windows Explorer. Insights also measures the time for a RemoteApp to launch based on the time taken to launch the first instance of the shell app for a connection.
   
 >[!NOTE]
->If a user launches more than one remote application, sometimes the shell app can execute multiple times during a single connection. For an accurate measurement of time to connect, you should only use the first execution checkpoint for each connection.
+>If a user launches more than one RemoteApp, sometimes the shell app can execute multiple times during a single connection. For an accurate measurement of time to connect, you should only use the first execution checkpoint for each connection.
 
 - Establishing new sessions usually takes longer than reestablishing connections to existing sessions due to differences in the "logon" process for new and established connections. 
 
@@ -214,11 +263,7 @@ core. Knowing how many users are active will help you efficiently resource and s
 
 ## Windows Event Logs
 
-> [!IMPORTANT]
-> Azure Virtual Desktops Insights support for the Azure Monitor Agent is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Windows Event Logs are data sources collected by either the Log Analytics agents or the Azure Monitor Agent (preview) on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
+Windows Event Logs are data sources collected by either the Azure Monitor Agent or the Log Analytics agent on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
 The following table lists the required Windows Event Logs for Azure Virtual Desktop Insights:
 

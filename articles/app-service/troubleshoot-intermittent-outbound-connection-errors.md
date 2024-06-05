@@ -5,6 +5,8 @@ description: Troubleshoot intermittent connection errors and related performance
 ms.topic: troubleshooting
 ms.date: 06/28/2023
 ms.custom: security-recommendations,fasttrack-edit
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 
@@ -96,7 +98,7 @@ Although PHP doesn't support connection pooling, you can try using persistent da
 
 * Other data Sources
 
-   * [PHP Connection Management](https://www.php.net/manual/en/pdo.connections.php)
+   * [PHP Connection Management](https://www.php.net/manual/pdo.connections.php)
 
 #### Python
 

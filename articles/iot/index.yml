@@ -9,9 +9,9 @@ metadata:
   description: The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud and edge services that connect, monitor, and control billions of IoT assets.
   ms.service: iot
   ms.topic: hub-page
-  author: philmea
-  ms.author: philmea
-  ms.date: 04/18/2023
+  author: dominicbetts
+  ms.author: dobett
+  ms.date: 02/28/2024
 
 highlightedContent:
   items:
@@ -22,15 +22,11 @@ highlightedContent:
     # Card
     - title: Get started with device development on Azure IoT
       itemType: get-started
-      url: ../iot-develop/index.yml
+      url: ../iot/concepts-iot-device-development.md
     # Card
     - title: Browse Azure IoT code samples
       itemType: sample
       url: /samples/browse/?term=iot
-    # Card
-    - title: Azure IoT explorer
-      itemType: how-to-guide
-      url: ./howto-use-iot-explorer.md
     # Card
     - title: Azure IoT training
       itemType: learn
@@ -47,6 +43,10 @@ highlightedContent:
     - title: Digital twin definition language (DTDL) models
       itemType: concept
       url: ../digital-twins/concepts-models.md
+    # Card
+    - title: Azure IoT Operations (Preview)
+      itemType: overview
+      url: ../iot-operations/get-started/overview-iot-operations.md
 
 # conceptualContent section
 conceptualContent:
@@ -59,18 +59,15 @@ conceptualContent:
         - url: ./iot-overview-device-development.md
           itemType: overview
           text: Introduction to IoT device development
-        - url: ../iot-develop/about-iot-develop.md
+        - url: ./concepts-iot-device-development.md
           itemType: concept
           text: Tools, SDKs, and hardware
-        - url: ../iot-develop/quickstart-send-telemetry-iot-hub.md
-          itemType: quickstart
+        - url: ./tutorial-send-telemetry-iot-hub.md
+          itemType: tutorial
           text: Send telemetry from a device to an Azure IoT hub
         - url: ./iot-sdks.md#device-sdks
           itemType: reference
           text: Device SDKs reference
-        - url: https://devicecatalog.azure.com/
-          itemType: get-started
-          text: Buy IoT devices
     # Card
     - title: Device connectivity
       links:
@@ -116,12 +113,12 @@ conceptualContent:
         - url: ./iot-overview-solution-extensibility.md
           itemType: overview
           text: Introduction to Azure IoT extensibility options
-        - url: ../industrial-iot/overview-what-is-industrial-iot.md
-          itemType: overview
-          text: Industrial IoT
         - url: ../iot/iot-sdks.md#iot-hub-service-sdks
           itemType: reference
           text: Service SDKs
+        - url: /azure/architecture/browse/?azure_categories=iot
+          itemType: architecture
+          text: Azure IoT architectures
     # Card
     - title: Analyze and visualize IoT data
       links:

@@ -2,17 +2,18 @@
 title: How to mount Azure Blob Storage as a file system on Linux with BlobFuse v1
 titleSuffix: Azure Storage
 description: Learn how to mount an Azure Blob Storage container with BlobFuse v1, a virtual file system driver on Linux.
-author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+author: akashdubey-ms
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
-ms.author: jammart
-ms.reviewer: tamram
-ms.custom: engagement-fy23
+ms.author: akashdubey
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # How to mount Azure Blob Storage as a file system with BlobFuse v1
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 > [!IMPORTANT]
 > [BlobFuse2](blobfuse2-what-is.md) is the latest version of BlobFuse and has many significant improvements over the version discussed in this article, BlobFuse v1. To learn about the improvements made in BlobFuse2, see [the list of BlobFuse2 enhancements](blobfuse2-what-is.md#blobfuse2-enhancements-from-blobfuse-v1).
@@ -40,7 +41,7 @@ cat /etc/*-release
 Configure the [Linux Package Repository for Microsoft Products](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
 
-# [RHEL](#tab/RHEL) 
+# [RHEL](#tab/RHEL)
 
 As an example, on a Redhat Enterprise Linux 8 distribution:
 
@@ -51,7 +52,7 @@ sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-pr
 Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
 
 # [CentOS](#tab/CentOS)
- 
+
 As an example, on a CentOS 8 distribution:
 
 ```bash
@@ -72,16 +73,16 @@ sudo apt-get update
 
 Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to reference another Ubuntu version.
 
-# [SLES](#tab/SLES) 
+# [SLES](#tab/SLES)
 
 ```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-prod.rpm
 ```
---- 
+---
 
 ### Install BlobFuse v1
 
-# [RHEL](#tab/RHEL) 
+# [RHEL](#tab/RHEL)
 
 ```bash
 sudo yum install blobfuse
@@ -97,7 +98,7 @@ sudo yum install blobfuse
 ```bash
 sudo apt-get install blobfuse
 ```
-# [SLES](#tab/SLES)  
+# [SLES](#tab/SLES)
 
 ```bash
 sudo zypper install blobfuse
@@ -144,9 +145,10 @@ For example, suppose you are authorizing with the account access keys and storin
 accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
+authType Key
 ```
 
-The `accountName` is the name of your storage account, and not the full URL.
+The `accountName` is the name of your storage account, and not the full URL. You need to update `myaccount`, `storageaccesskey`, and `mycontainer` with your storage information.
 
 Create this file using:
 

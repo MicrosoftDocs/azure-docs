@@ -1,7 +1,7 @@
 ---
 title: Quickstart to create an Azure Recovery Services vault using an Azure Resource Manager template.
 description: In this quickstart, you learn how to create an Azure Recovery Services vault using an Azure Resource Manager template (ARM template).
-ms.date: 09/21/2022
+ms.date: 05/23/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: ankitadutta
@@ -23,7 +23,7 @@ To protect VMware or physical server, see [Modernized architecture](./physical-s
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.recoveryservices%2Frecovery-services-vault-create%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.recoveryservices%2Frecovery-services-vault-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Two Azure resources are defined in the template:
 - [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backup-resource-storage-configs): configures the vault's backup redundancy settings.
 
 The template includes optional parameters for the vault's backup configuration. The storage
-redundancy settings are locally-redundant storage (LRS) or geo-redundant storage (GRS). For more
+redundancy settings are locally redundant storage (LRS) or geo-redundant storage (GRS). For more
 information, see [Set storage redundancy](../backup/backup-create-rs-vault.md#set-storage-redundancy).
 
 For more Azure Recovery Services templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
@@ -54,7 +54,7 @@ To deploy the template, the **Subscription**, **Resource group**, and **Vault na
 
 1. To sign in to Azure and open the template, select the **Deploy to Azure** image.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.recoveryservices%2Frecovery-services-vault-create%2Fazuredeploy.json)
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.recoveryservices%2Frecovery-services-vault-create%2Fazuredeploy.json":::
 
 1. Select or enter the following values:
 
@@ -167,7 +167,4 @@ Write-Host "Press [ENTER] to continue..."
 ## Next steps
 
 In this quickstart, you created a Recovery Services vault. To learn more about disaster recovery,
-continue to the next quickstart article.
-
-> [!div class="nextstepaction"]
-> [Set up disaster recovery](azure-to-azure-quickstart.md)
+continue to the next quickstart article - [Set up disaster recovery](azure-to-azure-quickstart.md).

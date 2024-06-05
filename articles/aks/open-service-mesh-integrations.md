@@ -2,12 +2,15 @@
 title: Integrations with Open Service Mesh on Azure Kubernetes Service (AKS)
 description: Integrations with Open Service Mesh on Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 03/23/2022
+ms.date: 12/26/2023
 ---
 
 # Integrations with Open Service Mesh on Azure Kubernetes Service (AKS)
 
 The Open Service Mesh (OSM) add-on integrates with features provided by Azure and some open source projects.
+
+> [!NOTE]
+> With the retirement of [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) by the Cloud Native Computing Foundation (CNCF), we recommend identifying your OSM configurations and migrating them to an equivalent Istio configuration. For information about migrating from OSM to Istio, see [Migration guidance for Open Service Mesh (OSM) configurations to Istio](open-service-mesh-istio-migration-guidance.md).
 
 > [!IMPORTANT]
 > Integrations with open source projects aren't covered by the [AKS support policy][aks-support-policy].
@@ -16,7 +19,7 @@ The Open Service Mesh (OSM) add-on integrates with features provided by Azure an
 
 Ingress allows for traffic external to the mesh to be routed to services within the mesh. With OSM, you can configure most ingress solutions to work with your mesh, but OSM works best with one of the following solutions:
 
-* [Web Application Routing][web-app-routing]
+* [Application Routing][app-routing]
 * [NGINX ingress][osm-nginx]
 * [Contour ingress][osm-contour]
 
@@ -197,13 +200,13 @@ Before you can enable metrics on your mesh to integrate with Azure Monitor, make
 
 4. Navigate to the Azure portal and select your AKS cluster.
 5. Under **Monitoring**, select **Logs**.
-6. In the **Monitoring** section, query the `InsightsMetrics` table to view metrics in the enabled namespaces. For example, the following query shows the *envoy* metrics for the *myappnamespace* namespace:
+6. In the **Monitoring** section, query the `InsightsMetrics` table to view metrics in the enabled namespaces. For example, the following query shows the *envoy* metrics for the *default* namespace:
 
     ```sh
     InsightsMetrics
     |     where Name contains "envoy"
     |     extend t=parse_json(Tags)
-    |     where t.app == "myappnamespace"
+    |     where t.namespace == "default"
     ```
 
 ## Automation and developer tools
@@ -235,5 +238,5 @@ This article covered the Open Service Mesh (OSM) add-on integrations with featur
 [osm-hashi-vault]: https://release-v1-0.docs.openservicemesh.io/docs/guides/certificates/#using-hashicorp-vault
 [osm-cert-manager]: https://release-v1-0.docs.openservicemesh.io/docs/guides/certificates/#using-cert-manager
 [osm-tresor]: https://release-v1-0.docs.openservicemesh.io/docs/guides/certificates/#using-osms-tresor-certificate-issuer
-[web-app-routing]: web-app-routing.md
+[app-routing]: app-routing.md
 [about-osm-in-aks]: open-service-mesh-about.md

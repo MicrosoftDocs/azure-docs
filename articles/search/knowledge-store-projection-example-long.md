@@ -1,14 +1,16 @@
 ---
 title: Projection examples
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Explore a detailed example that projects the output of a rich skillset into complex shapes that inform the structure and composition of content in a knowledge store.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 03/08/2024
 ---
 
 # Detailed example of shapes and projections in a knowledge store
@@ -17,19 +19,15 @@ This article provides a detailed example that supplements [high-level concepts](
 
 If your application requirements call for multiple skills and projections, this example can give you a better idea of how shapes and projections intersect.
 
-## Download sample definitions
-
-This example uses [Postman app](https://www.postman.com/downloads/) and the [Search REST APIs](/rest/api/searchservice/).
-
-Clone or download [azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) on GitHub and import the [**Projections collection**](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) to step through this example yourself.
-
 ## Set up sample data
 
-Sample documents aren't included with the Projections collection, but the [AI enrichment demo data files](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) from the [azure-search-sample-data repo](https://github.com/Azure-Samples/azure-search-sample-data) contain text and images, and will work with the projections described in this example.
+Sample documents aren't included with the Projections collection, but the [AI enrichment demo data files](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media) contain text and images that work with the projections described in this example.
 
 Create a blob container in Azure Storage and upload all 14 items.
 
-While in Azure Storage, copy a connection string so that you can specify it in the Postman collection.
+While in Azure Storage, copy a connection string.
+
+You can use the [`projections.rest`](https://github.com/Azure-Samples/azure-search-rest-samples/blob/main/projections/) file to run the examples in this article.
 
 ## Example skillset
 
@@ -182,8 +180,8 @@ Pay close attention to skill outputs (targetNames). Outputs written to the enric
     ],
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "A Cognitive Services resource in the same region as Search.",
-        "key": "<COGNITIVE SERVICES All-in-ONE KEY>"
+        "description": "An Azure AI services resource in the same region as Search.",
+        "key": "<Azure AI services All-in-ONE KEY>"
     },
     "knowledgeStore": null
 }
@@ -271,6 +269,7 @@ The example skillset introduced at the start of this article didn't include the 
 Within a skillset, a Shaper skill might look like this:
 
 ```json
+{
     "name": "projections-demo-ss",
     "skills": [
         {
@@ -379,7 +378,7 @@ The following example projects individual hotel documents, one hotel document pe
 }
 ```
 
-The source is the output of a Shaper skill, named "objectprojection". Each blob will have a JSON representation of each field input.
+The source is the output of a Shaper skill, named `"objectprojection"`. Each blob will have a JSON representation of each field input.
 
 ```json
     {

@@ -18,6 +18,8 @@
   - name: Create a private endpoint - ARM template
     displayName: Azure Resource Manager
     href: create-private-endpoint-template.md
+  - name: Create a private endpoint - Terraform
+    href: create-private-endpoint-terraform.md
   - name: Create a Private Link service - Azure portal
     href: create-private-link-service-portal.md
   - name: Create a Private Link service - PowerShell
@@ -33,14 +35,14 @@
   expanded: true
 - name: Tutorials
   items: 
+  - name: Inspect private endpoint traffic with Azure Firewall
+    href: tutorial-inspect-traffic-azure-firewall.md
   - name: Deploy a private endpoint with a private resolver
     href: tutorial-dns-on-premises-private-resolver.md
   - name: Connect to a storage account
     href: tutorial-private-endpoint-storage-portal.md
   - name: Connect to an Azure Cosmos DB account
-    href: tutorial-private-endpoint-cosmosdb-portal.md
-  - name: Connect to a web app
-    href: tutorial-private-endpoint-webapp-portal.md
+    href: /azure/cosmos-db/how-to-configure-private-endpoints?toc=/azure/private-link/toc.json
   - name: SQL
     items:
     - name: Connect to a SQL server - Azure portal
@@ -57,18 +59,26 @@
     href: private-endpoint-overview.md
   - name: Private Link service
     href: private-link-service-overview.md    
-  - name: Private endpoint DNS integration
-    href: private-endpoint-dns.md   
+  - name: DNS
+    items:  
+    - name: Private DNS zone values
+      href: private-endpoint-dns.md
+    - name: Private endpoint DNS integration
+      href: private-endpoint-dns-integration.md   
   - name: RBAC permissions
     href: rbac-permissions.md 
   - name: Private Link and DNS in Azure Virtual WAN
     href: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide?toc=/azure/private-link/toc.json
+  - name: Azure Firewall traffic inspection
+    href: inspect-traffic-with-azure-firewall.md
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
+      href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: How-to
   items:
+  - name: Approve private link connections across subscriptions
+    href: how-to-approve-private-link-cross-subscription.md
   - name: Configure an application security group
     href: configure-asg-private-endpoint.md
   - name: Export private endpoint DNS records
@@ -79,8 +89,8 @@
     href: disable-private-link-service-network-policy.md
   - name: Manage private endpoints
     href: manage-private-endpoint.md
-  - name: Inspect traffic with Azure Firewall
-    href: inspect-traffic-with-azure-firewall.md
+  - name: Relocate Private Link Service to another region
+    href: ../operational-excellence/relocation-private-link.md?toc=/azure/private-link/toc.json
   - name: Troubleshoot
     items:
     - name: Troubleshoot private endpoint connectivity problems

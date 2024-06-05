@@ -6,16 +6,17 @@ author: normesta
 
 ms.topic: how-to
 ms.author: normesta
-ms.date: 03/09/2023
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.date: 03/11/2024
+ms.service: azure-data-lake-storage
 ---
 
 # Azure Data Lake Storage migration guidelines and patterns
 
 You can migrate your data, workloads, and applications from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2. This article explains the recommended migration approach and covers the different migration patterns and when to use each. For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
 
-On **Feb 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date. This article shows you how to do that.
+> [!NOTE]
+> Azure Data Lake Storage Gen1 is now retired. See the retirement announcement [here](https://aka.ms/data-lake-storage-gen1-retirement-announcement). Data Lake Storage Gen1 resources are no longer accessible. If you require special assistance, please [contact us](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
 
 Azure Data Lake Storage Gen2 is built on [Azure Blob storage](storage-blobs-introduction.md) and provides a set of capabilities dedicated to big data analytics. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) combines features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), such as file system semantics, directory, and file level security and scale with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
 
@@ -116,7 +117,7 @@ This table compares the capabilities of Gen1 to that of Gen2.
 |---|---|---|
 |Data organization|[Hierarchical namespace](data-lake-storage-namespace.md)<br>File and folder support|[Hierarchical namespace](data-lake-storage-namespace.md)<br>Container, file and folder support |
 |Geo-redundancy| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
-|Authentication|[Azure Active Directory (Azure AD) managed identity](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Service principals](../../active-directory/develop/app-objects-and-service-principals.md)|[Azure AD managed identity](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Service principals](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Shared Access Key](/rest/api/storageservices/authorize-with-shared-key)|
+|Authentication|[Microsoft Entra managed identity](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Service principals](../../active-directory/develop/app-objects-and-service-principals.md)|[Microsoft Entra managed identity](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Service principals](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Shared Access Key](/rest/api/storageservices/authorize-with-shared-key)|
 |Authorization|Management - [Azure RBAC](../../role-based-access-control/overview.md)<br>Data - [ACLs](data-lake-storage-access-control.md)|Management - [Azure RBAC](../../role-based-access-control/overview.md)<br>Data -  [ACLs](data-lake-storage-access-control.md), [Azure RBAC](../../role-based-access-control/overview.md) |
 |Encryption - Data at rest|Server side - with [Microsoft-managed](../common/storage-service-encryption.md?toc=/azure/storage/blobs/toc.json) or [customer-managed](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) keys|Server side - with [Microsoft-managed](../common/storage-service-encryption.md?toc=/azure/storage/blobs/toc.json) or [customer-managed](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) keys|
 |VNET Support|[VNET Integration](../../data-lake-store/data-lake-store-network-security.md)|[Service Endpoints](../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json), [Private Endpoints](../common/storage-private-endpoints.md)|
@@ -154,7 +155,7 @@ This is the simplest pattern.
 Check out our sample code for the lift and shift pattern in our [Lift and Shift migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Lift%20and%20Shift).
 
 > [!div class="mx-imgBorder"]
-> ![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
+> ![Diagram of the lift and shift pattern.](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
 
 #### Considerations for using the lift and shift pattern
 
@@ -180,9 +181,9 @@ Check out our sample code for the lift and shift pattern in our [Lift and Shift 
 Check out our sample code for the incremental copy pattern in our [Incremental copy migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Incremental).
 
 > [!div class="mx-imgBorder"]
-> ![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
+> ![Diagram of the incremental copy pattern.](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
-#### Considerations for using the incremental copy pattern:
+#### Considerations for using the incremental copy pattern
 
 - Cutover from Gen1 to Gen2 for all workloads at the same time.
 
@@ -203,9 +204,9 @@ Check out our sample code for the incremental copy pattern in our [Incremental c
 Check out our sample code for the dual pipeline pattern in our [Dual Pipeline migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Dual%20pipeline).
 
 > [!div class="mx-imgBorder"]
-> ![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
+> ![Diagram of the dual pipeline pattern.](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
-#### Considerations for using the dual pipeline pattern:
+#### Considerations for using the dual pipeline pattern
 
 - Gen1 and Gen2 pipelines run side-by-side.
 
@@ -224,9 +225,9 @@ Check out our sample code for the dual pipeline pattern in our [Dual Pipeline mi
 Check out our sample code for the bidirectional sync pattern in our [Bidirectional Sync migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Bi-directional).
 
 > [!div class="mx-imgBorder"]
-> ![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
+> ![Diagram of the bidirectional pattern.](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
-#### Considerations for using the bi-directional sync pattern:
+#### Considerations for using the bi-directional sync pattern
 
 - Ideal for complex scenarios that involve a large number of pipelines and dependencies where a phased approach might make more sense.
 

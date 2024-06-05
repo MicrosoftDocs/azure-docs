@@ -2,9 +2,9 @@
 title: About Azure VM backup
 description: In this article, learn how the Azure Backup service backs up Azure Virtual machines, and how to follow best practices.
 ms.topic: conceptual
-ms.date: 02/27/2023
-author: jyothisuri
-ms.author: jsuri
+ms.date: 03/14/2024
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # An overview of Azure VM backup
@@ -13,7 +13,7 @@ This article describes how the [Azure Backup service](./backup-overview.md) back
 
 Azure Backup provides independent and isolated backups to guard against unintended destruction of the data on your VMs. Backups are stored in a Recovery Services vault with built-in management of recovery points. Configuration and scaling are simple, backups are optimized, and you can easily restore as needed.
 
-As part of the backup process, a [snapshot is taken](#snapshot-creation), and the data is transferred to the Recovery Services vault with no impact on production workloads. The snapshot provides different levels of consistency, as described [here](#snapshot-consistency).
+As part of the backup process, a [snapshot is taken](#snapshot-creation), and the data is transferred to the Recovery Services vault with no impact on production workloads. The snapshot provides different levels of consistency, as described [here](#snapshot-consistency). You can opt for an agent-based application-consistent/file-consistent backup or an agentless crash-consistent backup in the backup policy.
 
 Azure Backup also has specialized offerings for database workloads like [SQL Server](backup-azure-sql-database.md) and [SAP HANA](sap-hana-db-about.md) that are workload-aware, offer 15 minute RPO (recovery point objective), and allow backup and restore of individual databases.
 
@@ -42,6 +42,8 @@ BEKs are also backed up. So, if the BEKs are lost, authorized users can restore 
 
 Azure Backup takes snapshots according to the backup schedule.
 
+If you have opted for application or file-system-consistent backups, the VM needs to have a backup extension installed to coordinate for the snapshot process. For [*agentless multi-disk crash-consistent* backups](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md), the VM agent is not required for snapshots.
+
 - **Windows VMs:** For Windows VMs, the Backup service coordinates with VSS to take an app-consistent snapshot of the VM disks.  By default, Azure Backup takes a full VSS backup (it truncates the logs of application such as SQL Server at the time of backup to get application level consistent backup).  If you're using a SQL Server database on Azure VM backup, then you can modify the setting to take a VSS Copy backup (to preserve logs). For more information, see [this article](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues).
 
 - **Linux VMs:** To take app-consistent snapshots of Linux VMs, use the Linux pre-script and post-script framework to write your own custom scripts to ensure consistency.
@@ -56,9 +58,10 @@ The following table explains the different types of snapshot consistency:
 
 **Snapshot** | **Details** | **Recovery** | **Consideration**
 --- | --- | --- | ---
-**Application-consistent** | App-consistent backups capture memory content and pending I/O operations. App-consistent snapshots use a VSS writer (or pre/post scripts for Linux) to ensure the consistency of the app data before a backup occurs. | When you're recovering a VM with an app-consistent snapshot, the VM boots up. There's no data corruption or loss. The apps start in a consistent state. | Windows: All VSS writers succeeded<br/><br/> Linux: Pre/post scripts are configured and succeeded
-**File-system consistent** | File-system consistent backups provide consistency by taking a snapshot of all files at the same time.<br/><br/> | When you're recovering a VM with a file-system consistent snapshot, the VM boots up. There's no data corruption or loss. Apps need to implement their own "fix-up" mechanism to make sure that restored data is consistent. | Windows: Some VSS writers failed <br/><br/> Linux: Default (if pre/post scripts aren't configured or failed)
-**Crash-consistent** | Crash-consistent snapshots typically occur if an Azure VM shuts down at the time of backup. Only the data that already exists on the disk at the time of backup is captured and backed up. | Starts with the VM boot process followed by a disk check to fix corruption errors. Any in-memory data or write operations that weren't transferred to disk before the crash are lost. Apps implement their own data verification. For example, a database app can use its transaction log for verification. If the transaction log has entries that aren't in the database, the database software rolls transactions back until the data is consistent. | VM is in shutdown (stopped/ deallocated) state.
+**Application-consistent** | This is the default setting in the VM backup policy. App-consistent backups capture memory content and pending I/O operations. App-consistent snapshots use a VSS writer (or pre/post scripts for Linux) to ensure the consistency of the app data before a backup occurs. | When you're recovering a VM with an app-consistent snapshot, the VM boots up. There's no data corruption or loss. The apps start in a consistent state. | Windows: All VSS writers succeeded<br/><br/> Linux: Pre/post scripts are configured and succeeded
+**File-system consistent** | This is the default setting in the VM backup policy. File-system consistent backups provide consistency by taking a snapshot of all files at the same time.<br/><br/> | When you're recovering a VM with a file-system consistent snapshot, the VM boots up. There's no data corruption or loss. Apps need to implement their own "fix-up" mechanism to make sure that restored data is consistent. | Windows: Some VSS writers failed <br/><br/> Linux: Default (if pre/post scripts aren't configured or failed)
+**Crash-consistent** | Crash-consistent snapshot is an opt-in setting in the VM backup policy. Azure Backup also takes crash-consistent backups if the VM is not running during backup and when application/file-consistent backups fail.   <br><br>   Only the data that already exists on the disk at the time of the backup operation is captured and backed up; data in read/write host cache isn't captured. | Starts with the VM boot process followed by a disk check to fix corruption errors. Any in-memory data or write operations that weren't transferred to disk before the crash are lost. Apps implement their own data verification. For example, a database app can use its transaction log for verification. If the transaction log has entries that aren't in the database, the database software rolls transactions back until the data is consistent. | When you have opted for application/file-system backup and VM is in shutdown (stopped/ deallocated) state and when the snapshot is retried. <br><br> You have opted for agentless crash consistent backups
+
 
 >[!NOTE]
 > If the provisioning state is **succeeded**, Azure Backup takes file-system consistent backups. If the provisioning state is **unavailable** or **failed**, crash-consistent backups are taken. If the provisioning state is **creating** or **deleting**, that means Azure Backup is retrying the operations.
@@ -69,9 +72,9 @@ The following table explains the different types of snapshot consistency:
 --- | ---
 **Disk** | Backup of VM disks is parallel. For example, if a VM has four disks, the Backup service attempts to back up all four disks in parallel. Backup is incremental (only changed data).
 **Scheduling** |  To reduce backup traffic, back up different VMs at different times of the day and make sure the times don't overlap. Backing up VMs at the same time causes traffic jams.
-**Preparing backups** | Keep in mind the time needed to prepare the backup. The preparation time includes installing or updating the backup extension and triggering a snapshot according to the backup schedule.
-**Data transfer** | Consider the time needed for Azure Backup to identify the incremental changes from the previous backup.<br/><br/> In an incremental backup, Azure Backup determines the changes by calculating the checksum of the block. If a block is changed, it's marked for transfer to the vault. The service analyzes the identified blocks to attempt to further minimize the amount of data to transfer. After evaluating all the changed blocks, Azure Backup transfers the changes to the vault.<br/><br/> There might be a lag between taking the snapshot and copying it to vault. At peak times, it can take up to eight hours for the snapshots to be transferred to the vault. The backup time for a VM will be less than 24 hours for the daily backup.
-**Initial backup** | Although the total backup time for incremental backups is less than 24 hours, that might not be the case for the first backup. The time needed for the initial backup will depend on the size of the data and when the backup is processed.
+**Preparing backups** | Keep in mind the time needed to prepare the backup. The preparation time might include installing or updating the backup extension and triggering a snapshot according to the backup schedule.
+**Data transfer** | Consider the time needed for Azure Backup to identify the incremental changes from the previous backup.<br/><br/> In an incremental backup, Azure Backup determines the changes by calculating the checksum of the block. If a block is changed, it's marked for transfer to the vault. The service analyzes the identified blocks to attempt to further minimize the amount of data to transfer. After the evaluation of all changed blocks is complete, Azure Backup transfers the changes to the vault.<br/><br/> There might be a lag between taking the snapshot and copying it to vault. At peak times, it can take up to eight hours for the snapshots to be transferred to the vault. The backup time for a VM will be less than 24 hours for the daily backup.
+**Initial backup** | The total backup time for incremental backups is less than 24 hours, which might not be the case for the first backup. The time needed for the initial backup will depend on the size of the data and when the backup is processed.
 **Restore queue** | Azure Backup processes restore jobs from multiple storage accounts at the same time, and it puts restore requests in a queue.
 **Restore copy** | During the restore process, data is copied from the vault to the storage account.<br/><br/> The total restore time depends on the I/O operations per second (IOPS) and the throughput of the storage account.<br/><br/> To reduce the copy time, select a storage account that isn't loaded with other application writes and reads.
 
@@ -112,7 +115,10 @@ Billing doesn't start until the first successful backup finishes. At this point,
 
 Billing for a specified VM stops only if the protection is stopped and all backup data is deleted. When protection stops and there are no active backup jobs, the size of the last successful VM backup becomes the protected instance size used for the monthly bill.
 
-The protected-instance size calculation is based on the *actual* size of the VM. The VM's size is the sum of all the data in the VM, excluding the temporary storage. Pricing is based on the actual data that's stored on the data disks, not on the maximum supported size for each data disk that's attached to the VM.
+If you have opted for agent-based application consistent or file-system consistent backups, the protected-instance size calculation is based on the *actual* size of the VM. The VM's size is the sum of all the data in the VM, excluding the temporary storage. Pricing is based on the actual data that's stored on the data disks, not on the maximum supported size for each data disk that's attached to the VM.
+
+>[!Note]
+>For [agentless crash-consistent backups](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md), you're currently charged for 0.5 protected instance (PI) per VM during preview.
 
 Similarly, the backup storage bill is based on the amount of data that's stored in Azure Backup, which is the sum of the actual data in each recovery point.
 

@@ -4,7 +4,8 @@ description: Introduction to multi-step tasks, a feature of ACR Tasks in Azure C
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Run multi-step build, test, and patch tasks in ACR Tasks

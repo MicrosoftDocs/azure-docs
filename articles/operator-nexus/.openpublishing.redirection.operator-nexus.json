@@ -1,34 +1,48 @@
-
 {
-    "redirections": [    
+    "redirections": [
         {
             "source_path": "howto-monitoring-aks-h-cluster.md",
-            "redirect_url": "howto-monitor-aks-h-cluster.md",
+            "redirect_url": "howto-monitor-naks-cluster",
             "redirect_document_id": false
         },
         {
             "source_path": "howto-monitoring-virtualized-network-functions-virtual-machines.md",
-            "redirect_url": "howto-monitor-virtualized-network-functions-virtual-machines.md",
+            "redirect_url": "howto-monitor-virtualized-network-functions-virtual-machines",
             "redirect_document_id": false
         },
         {
             "source_path": "quickstart-network-fabric-controller-cluster-manager-create.md",
-            "redirect_url": "howto-azure-operator-nexus-prerequisites.md",
+            "redirect_url": "howto-azure-operator-nexus-prerequisites",
             "redirect_document_id": false
         },
         {
             "source_path": "quickstarts-platform-deployment.md",
-            "redirect_url": "howto-configure-cluster.md",
+            "redirect_url": "howto-configure-cluster",
             "redirect_document_id": false
         },
         {
             "source_path": "quickstarts-platform-prerequisites.md",
-            "redirect_url": "howto-platform-prerequisites.md",
+            "redirect_url": "howto-platform-prerequisites",
             "redirect_document_id": false
         },
         {
             "source_path": "howto-baremetal-review-read-output.md",
-            "redirect_url": "howto-baremetal-run-read.md",
+            "redirect_url": "howto-baremetal-run-read",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "troubleshoot-aks-hybrid-cluster.md",
+            "redirect_url": "troubleshoot-isolation-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "how-to-apply-access-control-list-to-network-to-network-interconnects.md",
+            "redirect_url": "howto-apply-access-control-list-to-network-to-network-interconnects",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "howto-use-azure-policy-for-aks-cluster-security.md",
+            "redirect_url": "howto-use-azure-policy",
             "redirect_document_id": false
         }
     ]

@@ -1,10 +1,10 @@
 ---
-title: Use Azure Monitor logs to monitor Azure HDInsight clusters 
+title: Use Azure Monitor logs to monitor Azure HDInsight clusters
 description: Learn how to use Azure Monitor logs to monitor jobs running in an HDInsight cluster.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurepowershell, references_regions, devx-track-azurecli
-ms.date: 04/14/2023
+ms.custom: devx-track-azurepowershell, references_regions, devx-track-azurecli
+ms.date: 05/10/2024
 ---
 
 # Use Azure Monitor logs to monitor HDInsight clusters
@@ -59,7 +59,7 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
 5. Select **Save**. It takes a few moments to save the setting. 
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-azure-monitor.png" alt-text="Enable monitoring for HDInsight clusters":::
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-azure-monitor.png" alt-text="Enable monitoring for HDInsight clusters.":::
 
 If you want to disable Azure Monitor, you can do the same in this portal. 
 
@@ -139,7 +139,7 @@ Available HDInsight workbooks:
 - HDInsight Hive/LLAP Workbook
 
 Screenshot of Spark Workbook
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-spark-workbook.png" alt-text="Spark workbook screenshot":::
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-spark-workbook.png" alt-text="Spark workbook screenshot.":::
 
 
 ## Configuring performance counters
@@ -194,7 +194,7 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
 1. Select **Save**.  It takes a few moments to save the setting.
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png" alt-text="Enable monitoring for HDInsight clusters":::
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png" alt-text="Enable monitoring for HDInsight clusters.":::
 
 ## Enable Azure Monitor using Azure PowerShell
 
@@ -292,7 +292,7 @@ Available HDInsight solutions:
 
 For management solution instructions, see [Management solutions in Azure](/previous-versions/azure/azure-monitor/insights/solutions#install-a-monitoring-solution). To experiment, install a HDInsight Hadoop Monitoring solution. When it's done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
 
-:::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png" alt-text="HDInsight monitoring solution view":::
+:::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png" alt-text="HDInsight monitoring solution view.":::
 
 Because the cluster is a brand new cluster, the report doesn't show any activities.
 

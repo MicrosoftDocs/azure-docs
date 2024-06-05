@@ -4,7 +4,7 @@ description: Learn how to set up HBase replication from one HDInsight version to
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 04/29/2024
 ---
 
 # Set up Apache HBase cluster replication in Azure virtual networks
@@ -366,7 +366,7 @@ The following list shows you some general usage cases and their parameter settin
 > 1. Copy head node, worker node and ZooKeeper nodes host and IP mapping from /etc/hosts file of destination(sink) cluster.
 > 1. Add copied entries source cluster /etc/hosts file. These entries should be added to head nodes, worker nodes and ZooKeeper nodes.
 
-**Step: 1**
+**Step 1:**
 Create keytab file for the user using `ktutil`.
 `$ ktutil`
 1. `addent -password -p admin@ABC.EXAMPLE.COM -k 1 -e RC4-HMAC`
@@ -374,9 +374,9 @@ Create keytab file for the user using `ktutil`.
 1. `wkt /etc/security/keytabs/admin.keytab`
 
 > [!NOTE] 
-> Make sure the keytab file is stored in `/etc/security.keytabs/` folder in the `<username>.keytab` format.
+> Make sure the keytab file is stored in `/etc/security/keytabs/` folder in the `<username>.keytab` format.
 
-**Step 2** 
+**Step 2:** 
 Run script action with `-ku` option 
 1. Provide `-ku <username>` on ESP clusters.
 	

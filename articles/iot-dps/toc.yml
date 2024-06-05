@@ -40,10 +40,10 @@ items:
   items:
   - name: Provision sets of devices with enrollment groups
     items:
+     - name: Provision devices with X.509
+       href: tutorial-custom-hsm-enrollment-group-x509.md
      - name: Provision devices with symmetric keys
        href: how-to-legacy-device-symm-key.md
-     - name: Provision multiple X.509 devices
-       href: tutorial-custom-hsm-enrollment-group-x509.md
   - name: Provision devices to multiple hubs
     items:
      - name: Use custom allocation policies
@@ -70,7 +70,7 @@ items:
       href: concepts-control-access-dps.md
     - name: Control access to DPS with SAS
       href: how-to-control-access.md
-    - name: Control access to DPS with Azure AD (preview)
+    - name: Control access to DPS with Microsoft Entra ID (preview)
       href: concepts-control-access-dps-azure-ad.md
   - name: Roles and operations
     href: concepts-roles-operations.md
@@ -226,8 +226,6 @@ items:
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
-  - name: IoT device developer
-    href: ../iot-develop/index.yml
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
@@ -257,12 +255,8 @@ items:
     - name: DPS shared access policy data source
       displayName: Terraform
       href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub_dps_shared_access_policy
-  - name: Azure Certified for IoT device catalog
-    href: https://devicecatalog.azure.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
-  - name: Customer data requests
-    href: iot-dps-customer-data-requests.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Azure IoT Explorer tool
@@ -276,6 +270,6 @@ items:
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=iot-hub
   - name: Technical case studies
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+    href: https://microsoft.github.io/generative-ai-for-beginners/#/
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub

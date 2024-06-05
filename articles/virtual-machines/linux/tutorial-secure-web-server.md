@@ -7,15 +7,14 @@ ms.collection: linux
 ms.topic: tutorial
 ms.date: 04/09/2023
 ms.author: mattmcinnes
-ms.custom: mvc, devx-track-azurecli, GGAL-freshness822
-
+ms.custom: mvc, devx-track-azurecli, GGAL-freshness822, linux-related-content
 #Customer intent: As an IT administrator or developer, I want to learn how to secure a web server with TLS/SSL certificates so that I can protect my customer data on web applications that I build and run.
 ---
 
 # Tutorial: Use TLS/SSL certificates to secure a web server
 
 
-**Applies to:** :heavy_check_mark: Linux VMs 
+**Applies to:** :heavy_check_mark: Linux VMs
 
 To secure web servers, a Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), certificate can be used to encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Linux virtual machines (VMs) in Azure. In this tutorial you learn how to:
 
@@ -39,13 +38,13 @@ Rather than using a custom VM image that includes certificates baked-in, you inj
 ## Create an Azure Key Vault
 Before you can create a Key Vault and certificates, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroupSecureWeb* in the *eastus* location:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
 Next, create a Key Vault with [az keyvault create](/cli/azure/keyvault) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lowercase. Replace *\<mykeyvault>* in the following example with your own unique Key Vault name:
 
-```azurecli-interactive 
+```azurecli-interactive
 keyvault_name=<mykeyvault>
 az keyvault create \
     --resource-group myResourceGroupSecureWeb \
@@ -56,7 +55,7 @@ az keyvault create \
 ## Generate a certificate and store in Key Vault
 For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](/cli/azure/keyvault/certificate). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](/cli/azure/keyvault/certificate) that uses the default certificate policy:
 
-```azurecli-interactive 
+```azurecli-interactive
 az keyvault certificate create \
     --vault-name $keyvault_name \
     --name mycert \
@@ -66,7 +65,7 @@ az keyvault certificate create \
 ### Prepare a certificate for use with a VM
 To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret). Convert the certificate with [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
-```azurecli-interactive 
+```azurecli-interactive
 secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
@@ -77,7 +76,7 @@ vm_secret=$(az vm secret format --secrets "$secret" -g myResourceGroupSecureWeb 
 ### Create a cloud-init config to secure NGINX
 [Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no extra steps or required agents to apply your configuration.
 
-When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring the web server, use cloud-init. In this example, you install and configure the NGINX web server. You can use the same process to install and configure Apache. 
+When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring the web server, use cloud-init. In this example, you install and configure the NGINX web server. You can use the same process to install and configure Apache.
 
 Create a file named *cloud-init-web-server.txt* and paste the following configuration:
 
@@ -106,11 +105,11 @@ runcmd:
 ### Create a secure VM
 Now create a VM with [az vm create](/cli/azure/vm). The certificate data is injected from Key Vault with the `--secrets` parameter. You pass in the cloud-init config with the `--custom-data` parameter:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupSecureWeb \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init-web-server.txt \
@@ -121,7 +120,7 @@ It takes a few minutes for the VM to be created, the packages to install, and th
 
 To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](/cli/azure/vm):
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm open-port \
     --resource-group myResourceGroupSecureWeb \
     --name myVM \

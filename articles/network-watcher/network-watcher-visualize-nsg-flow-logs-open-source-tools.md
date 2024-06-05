@@ -6,10 +6,8 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 05/03/2023
+ms.date: 05/31/2024
 ms.author: halkazwini
-ms.custom: engagement-fy23
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
@@ -28,7 +26,7 @@ In this article, we set up a solution that allows you to visualize Network Secur
 
 ### Enable Network Security Group flow logging
 
-For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, see the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
+For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, see the following article [Introduction to flow logging for Network Security Groups](nsg-flow-logs-overview.md).
 
 ### Set up the Elastic Stack
 
@@ -36,7 +34,7 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 
 #### Install Elasticsearch
 
-The following instructions are used to install Elasticsearch in Ubuntu Azure VMs. For instructions about how to install elastic search in RHEL/CentOS distributions, see [Install Elasticsearch with RPM](https://www.elastic.co/guide/en/elasticsearch/reference/8.6/rpm.html).
+The following instructions are used to install Elasticsearch in Ubuntu Azure VMs. For instructions on how to install elastic search in Red Hat Enterprise Linux, see [Install Elasticsearch with RPM](https://www.elastic.co/guide/en/elasticsearch/reference/8.6/rpm.html).
 
 1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you don't have Java installed, see the documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
 2. Download the correct binary package for your system:
@@ -76,7 +74,7 @@ For further instructions on installing Elastic search, see [Installation instruc
 
 ### Install Logstash
 
-The following instructions are used to install Logstash in Ubuntu. For instructions about how to install this package in RHEL/CentOS, see the [Installing from Package Repositories - yum](https://www.elastic.co/guide/en/logstash/8.7/installing-logstash.html#_yum) article.
+The following instructions are used to install Logstash in Ubuntu. For instructions on how to install this package in Red Hat Enterprise Linux, see the [Installing from Package Repositories - yum](https://www.elastic.co/guide/en/logstash/8.7/installing-logstash.html#_yum) article.
 
 1. To install Logstash run the following commands:
 
@@ -143,7 +141,7 @@ The following instructions are used to install Logstash in Ubuntu. For instructi
                    }
       convert => {"unixtimestamp" => "integer"}
       convert => {"srcPort" => "integer"}
-      convert => {"destPort" => "integer"}        
+      convert => {"destPort" => "integer"}
      }
 
      date{
@@ -156,7 +154,7 @@ The following instructions are used to install Logstash in Ubuntu. For instructi
        hosts => "localhost"
        index => "nsg-flow-logs"
      }
-   }  
+   }
    ```
 
 For further instructions on installing Logstash, see the [official documentation](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
@@ -179,7 +177,7 @@ For more information about this plugin, see the [documentation](https://github.c
 
 ### Install Kibana
 
-For instructions about how to install Kibana in RHEL/CentOS systems, see [Install Kibana with RPM](https://www.elastic.co/guide/en/kibana/current/rpm.html).
+For instructions on how to install Kibana in Red Hat Enterprise Linux, see [Install Kibana with RPM](https://www.elastic.co/guide/en/kibana/current/rpm.html).
 For instructions about how to install Kibana in Ubuntu/Debian systems using a repository package, see [Install Kibana from APT repository](https://www.elastic.co/guide/en/kibana/current/deb.html).
 
 Then following instructions were tested in Ubuntu and could be used in different Linux distributions as they aren't Ubuntu specific.

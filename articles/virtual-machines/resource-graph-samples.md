@@ -3,17 +3,14 @@ title: Azure Resource Graph sample queries for Azure Virtual Machines
 description: Sample Azure Resource Graph queries for Azure Virtual Machines showing use of resource types and tables to access Azure Virtual Machines related resources and properties.
 ms.date: 07/07/2022
 ms.topic: sample
-author: cynthn
-ms.author: cynthn
-ms.service: virtual-machines 
-ms.custom: subject-resourcegraph-sample, devx-track-azurepowershell
+author: ju-shim
+ms.author: jushiman
+ms.service: virtual-machines
+ms.custom: subject-resourcegraph-sample, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Azure Resource Graph sample queries for Azure Virtual Machines
 
-This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md)
-sample queries for Azure Virtual Machines. For a complete list of Azure Resource Graph samples, see
-[Resource Graph samples by Category](../governance/resource-graph/samples/samples-by-category.md)
-and [Resource Graph samples by Table](../governance/resource-graph/samples/samples-by-table.md).
+This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md) sample queries for Azure Virtual Machines. For a complete list of Azure Resource Graph samples, see [Resource Graph samples by Category](../governance/resource-graph/samples/samples-by-category.md) and [Resource Graph samples by Table](../governance/resource-graph/samples/samples-by-table.md).
 
 ## Sample queries
 

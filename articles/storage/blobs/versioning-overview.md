@@ -5,11 +5,10 @@ description: Blob storage versioning automatically maintains previous versions o
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 02/14/2023
 ms.author: normesta
-ms.subservice: blobs 
 ms.custom: engagement-fy23
 ---
 
@@ -108,7 +107,7 @@ Writing new data to the blob creates a new current version of the blob. Any exis
 
 ### Access tiers
 
-You can move any version of a block blob, including the current version, to a different blob access tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation. You can take advantage of lower capacity pricing by moving older versions of a blob to the cool or archive tier. For more information, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+You can move any version of a block blob, including the current version, to a different blob access tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation. You can take advantage of lower capacity pricing by moving older versions of a blob to the cool or archive tier. For more information, see [Hot, Cool, Cold, and Archive access tiers for blob data](access-tiers-overview.md).
 
 To automate the process of moving block blobs to the appropriate tier, use blob life cycle management. For more information on life cycle management, see [Manage the Azure Blob storage life cycle](./lifecycle-management-overview.md).
 
@@ -181,7 +180,7 @@ The following diagram shows what happens when you take a snapshot of a versioned
 
 You can authorize access to blob versions using one of the following approaches:
 
-- By using Azure role-based access control (Azure RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Microsoft recommends using Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
+- By using Azure role-based access control (Azure RBAC) to grant permissions to a Microsoft Entra security principal. Microsoft recommends using Microsoft Entra ID for superior security and ease of use. For more information about using Microsoft Entra ID with blob operations, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 - By using a shared access signature (SAS) to delegate access to blob versions. Specify the version ID for the signed resource type `bv`, representing a blob version, to create a SAS token for operations on a specific version. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 - By using the account access keys to authorize operations against blob versions with Shared Key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 
@@ -210,7 +209,7 @@ The following table shows the permission required on a SAS to delete a blob vers
 
 Enabling blob versioning can result in additional data storage charges to your account. When designing your application, it's important to be aware of how these charges might accrue so that you can minimize costs.
 
-Blob versions, like blob snapshots, are billed at the same rate as active data. How versions are billed depends on whether you have explicitly set the tier for the current or previous versions of a blob (or snapshots). For more information about blob tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+Blob versions, like blob snapshots, are billed at the same rate as active data. How versions are billed depends on whether you have explicitly set the tier for the current or previous versions of a blob (or snapshots). For more information about blob tiers, see [Hot, Cool, Cold, and Archive access tiers for blob data](access-tiers-overview.md).
 
 If you haven't changed a blob or version's tier, then you're billed for unique blocks of data across that blob, its versions, and any snapshots it may have. For more information, see [Billing when the blob tier has not been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 
@@ -291,7 +290,9 @@ When blob soft delete is enabled, all soft-deleted entities are billed at full c
 
 ## Feature support
 
-[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)] 
+
+Versioning is not supported for blobs that are uploaded by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## See also
 
@@ -299,3 +300,4 @@ When blob soft delete is enabled, all soft-deleted entities are billed at full c
 - [Creating a snapshot of a blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Soft delete for blobs](./soft-delete-blob-overview.md)
 - [Soft delete for containers](soft-delete-container-overview.md)
+

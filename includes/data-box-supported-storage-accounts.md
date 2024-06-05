@@ -1,10 +1,10 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
 ms.date: 10/21/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Here's a list of the supported storage accounts and storage types for a Data Box device. For a complete list of all capabilities for all types of storage accounts, see [Types of storage accounts](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).

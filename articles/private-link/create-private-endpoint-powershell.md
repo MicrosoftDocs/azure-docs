@@ -2,11 +2,11 @@
 title: 'Quickstart: Create a private endpoint - Azure PowerShell'
 description: In this quickstart, you learn how to create a private endpoint using Azure PowerShell.
 services: private-link
-author: asudbring
+author: abell
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 06/14/2023
-ms.author: allensu
+ms.date: 02/26/2024
+ms.author: abell
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using Azure PowerShell.
 ---
@@ -19,7 +19,7 @@ In this quickstart, create a private endpoint for an Azure App Services web app 
 
 You can create private endpoints for various Azure services, such as Azure SQL and Azure Storage.
 
-:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart." lightbox="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png":::
 
 ## Prerequisites
 
@@ -223,7 +223,7 @@ $pe = @{
 New-AzPrivateEndpoint @pe
 
 ```
-
+- When creating a private endpoint for storage, the connection name shown in a private endpoint tab is auto generated and is not editable.
 ---
 
 ## Configure the private DNS zone

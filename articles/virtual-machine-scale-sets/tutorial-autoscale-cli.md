@@ -8,10 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 12/16/2022
 ms.reviewer: mimckitt
-ms.custom: avverma, devx-track-azurecli
-
+ms.custom: avverma, devx-track-azurecli, linux-related-content
 ---
 # Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -22,7 +25,7 @@ When you create a scale set, you define the number of VM instances that you wish
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0.32 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -93,14 +96,14 @@ To connect to an individual instance, see [Tutorial: Connect to Virtual Machine 
 
 Once logged in, install the **stress** or **stress-ng** utility. Start *10* **stress** workers that generate CPU load. These workers run for *420* seconds, which is enough to cause the autoscale rules to implement the desired action.
 
-# [Ubuntu, Debian](#tab/Ubuntu) 
+# [Ubuntu, Debian](#tab/Ubuntu)
 
 ```bash
 sudo apt-get update
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
-# [RHEL, CentOS](#tab/redhat) 
+# [RHEL, CentOS](#tab/redhat)
 
 ```bash
 sudo dnf install stress-ng
@@ -137,14 +140,14 @@ ssh azureuser@13.92.224.66 -p 50003
 
 Install and run **stress** or **stress-ng**, then start ten workers on this second VM instance.
 
-# [Ubuntu, Debian](#tab/Ubuntu) 
+# [Ubuntu, Debian](#tab/Ubuntu)
 
 ```bash
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-# [RHEL, CentOS](#tab/redhat) 
+# [RHEL, CentOS](#tab/redhat)
 
 ```bash
 sudo dnf install stress-ng

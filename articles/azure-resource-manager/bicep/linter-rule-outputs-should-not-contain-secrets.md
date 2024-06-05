@@ -1,9 +1,9 @@
 ---
 title: Linter rule - outputs should not contain secrets
 description: Linter rule - outputs should not contain secrets
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/10/2023
+ms.date: 03/20/2024
 ---
 
 # Linter rule - outputs should not contain secrets
@@ -27,7 +27,7 @@ The following example fails because it includes a secure parameter in an output 
 ```bicep
 @secure()
 param secureParam string
-​
+
 output badResult string = 'this is the value ${secureParam}'
 ```
 
@@ -38,7 +38,7 @@ param storageName string
 resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
   name: storageName
 }
-​
+
 output badResult object = {
   value: stg.listKeys().keys[0].value
 }

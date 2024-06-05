@@ -6,10 +6,9 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 05/28/2023
+ms.date: 02/22/2024
 ms.author: allensu
-#customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This will allow me to design connectivity correctly, understand future scalability options, and limitations.
+# Customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This will allow me to design connectivity correctly, understand future scalability options, and limitations.
 ---
 
 # Virtual network peering
@@ -28,7 +27,7 @@ The benefits of using virtual network peering, whether local or global, include:
 
 * The ability for resources in one virtual network to communicate with resources in a different virtual network.
 
-* The ability to transfer data between virtual networks across Azure subscriptions, Azure Active Directory tenants, deployment models, and Azure regions.
+* The ability to transfer data between virtual networks across Azure subscriptions, Microsoft Entra tenants, deployment models, and Azure regions.
 
 * The ability to peer virtual networks created through the Azure Resource Manager.
 
@@ -63,12 +62,11 @@ Addresses can be resized in the following ways:
 
 - Resizing of address space is supported cross-tenant
 
-Synching of virtual network peers can be performed through the Azure portal or with Azure PowerShell. We recommend that you run sync after every resize address space operation instead of performing multiple resizing operations and then running the sync operation. To learn how to update the address space for a peered virtual network, see [Updating the address space for a peered virtual network](./update-virtual-network-peering-address-space.md).
+Syncing of virtual network peers can be performed through the Azure portal or with Azure PowerShell. We recommend that you run sync after every resize address space operation instead of performing multiple resizing operations and then running the sync operation. To learn how to update the address space for a peered virtual network, see [Updating the address space for a peered virtual network](./update-virtual-network-peering-address-space.yml).
 
 > [!IMPORTANT]
 > This feature doesn't support scenarios where the virtual network to be updated is peered with: 
 > * A classic virtual network
-> * A managed virtual network such as the Azure VWAN hub
 
 ## Service chaining
 
@@ -106,11 +104,13 @@ You can also try the [Troubleshoot virtual network peering issues](virtual-netwo
 
 ## Constraints for peered virtual networks<a name="requirements-and-constraints"></a>
 
-The following constraints apply only when virtual networks are globally peered:
+**The following constraints apply only when virtual networks are globally peered:**
 
-* Resources in one virtual network can't communicate with the front-end IP address of a Basic Load Balancer (internal or public)  in a globally peered virtual network.
+* Resources in one virtual network can't communicate with the front-end IP address of a basic load balancer (internal or public) in a globally peered virtual network.
 
-* Some services that use a Basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+* Some services that use a basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
+
+**You can't perform virtual network peerings as part of the `PUT` virtual network operation.**
 
 For more information, see [Requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn more about the supported number of peerings, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
@@ -142,4 +142,4 @@ Gateway Transit is a peering property that enables a virtual network to utilize 
 
 * To learn about all virtual network peering settings, see [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md).
 
-* For answers to common virtual network peering and global virtual network peering questions, see [VNet Peering](virtual-networks-faq.md#vnet-peering).
+* For answers to common virtual network peering and global virtual network peering questions, see [VNet Peering](virtual-networks-faq.md#virtual-network-peering).

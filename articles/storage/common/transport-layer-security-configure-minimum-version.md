@@ -3,14 +3,14 @@ title: Enforce a minimum required version of Transport Layer Security (TLS) for 
 titleSuffix: Azure Storage
 description: Configure a storage account to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Storage.
 services: storage
-author: jimmart-dev
+author: normesta
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/30/2022
-ms.author: jammart
+ms.date: 03/22/2024
+ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
@@ -20,6 +20,9 @@ ms.devlang: azurecli
 Communication between a client application and an Azure Storage account is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security).
 
 Azure Storage currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. Azure Storage uses TLS 1.2 on public HTTPS endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
+
+> [!TIP]
+> Azure Storage relies on Windows implementation of SSL that is not based on OpenSSL and therefore is not exposed to OpenSSL related vulnerabilities.
 
 Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS. If a storage account requires a minimum version of TLS, then any requests made with an older version will fail.
 
@@ -88,7 +91,7 @@ StorageBlobLogs
 When you are confident that traffic from clients using older versions of TLS is minimal, or that it's acceptable to fail requests made with an older version of TLS, then you can begin enforcement of a minimum TLS version on your storage account. Requiring that clients use a minimum version of TLS to make requests against a storage account is part of a strategy to minimize security risks to your data.
 
 > [!IMPORTANT]
-> If you are using a service that connects to Azure Storage, make sure that that service is using the appropriate version of TLS to send requests to Azure Storage before you set the required minimum version for a storage account.
+> If you are using a service that connects to Azure Storage, make sure that service is using the appropriate version of TLS to send requests to Azure Storage before you set the required minimum version for a storage account.
 
 ### Configure the minimum TLS version for a storage account
 
@@ -126,6 +129,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
+    -AllowBlobPublicAccess $false `
     -MinimumTlsVersion TLS1_1
 
 # Read the MinimumTlsVersion property.
@@ -152,6 +156,7 @@ az storage account create \
     --resource-group <resource-group> \
     --kind StorageV2 \
     --location <location> \
+    --allow-blob-public-access false \
     --min-tls-version TLS1_1
 
 az storage account show \
@@ -372,14 +377,14 @@ To set the **MinimumTlsVersion** property for the storage account, a user must h
 - The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
 - The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
 
-These roles do not provide access to data in a storage account via Azure Active Directory (Azure AD). However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
+These roles do not provide access to data in a storage account via Microsoft Entra ID. However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
 
 Role assignments must be scoped to the level of the storage account or higher to permit a user to require a minimum version of TLS for the storage account. For more information about role scope, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
 
 Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## Network considerations
 

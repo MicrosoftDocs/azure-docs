@@ -9,6 +9,236 @@
             "source_path_from_root": "/articles/azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md",
             "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/migrate-sql-server-always-on-cluster.md",
+            "redirect_url": "/azure/azure-vmware/migrate-sql-server-always-on-availability-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/enable-public-internet-access.md",
+            "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
+            "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vmware-hcx.md",
+            "redirect_url": "/azure/azure-vmware/configure-vmware-hcx",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/production-ready-deployment-steps.md",
+            "redirect_url": "/azure/azure-vmware/plan-private-cloud-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/reset-vsphere-credentials.md",
+            "redirect_url": "/azure/azure-vmware/rotate-cloudadmin-credentials",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/disaster-recovery-for-virtual-machines.md",
+            "redirect_url": "/azure/azure-vmware/deploy-disaster-recovery-using-vmware-hcx",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/lifecycle-management-of-azure-vmware-solution-vms.md",
+            "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/fix-deployment-provisioning-failures.md",
+            "redirect_url": "/azure/azure-vmware/fix-deployment-failures",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/windows-server-failover-cluster.md",
+            "redirect_url": "/azure/azure-vmware/configure-windows-server-failover-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/create-ipsec-tunnel.md",
+            "redirect_url": "/azure/azure-vmware/configure-site-to-site-vpn-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
+            "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/github-enterprise-server.md",
+            "redirect_url": "/azure/azure-vmware/configure-github-enterprise-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-monitor-repair-private-cloud.md",
+            "redirect_url": "/azure/azure-vmware/concepts-private-clouds-clusters",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-upgrades.md",
+            "redirect_url": "/azure/azure-vmware/concepts-private-clouds-clusters",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/azure-vmware-solution-on-premises.md",
+            "redirect_url": "/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/net-app-files-with-azure-vmware-solution.md",
+            "redirect_url": "/azure/azure-vmware/netapp-files-with-azure-vmware-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/backup-avs-vms-with-mabs.md",
+            "redirect_url": "/azure/azure-vmware/backup-azure-vmware-solution-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-avs-hub-and-spoke-integration.md",
+            "redirect_url": "/azure/azure-vmware/concepts-hub-and-spoke",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-rbac.md",
+            "redirect_url": "/azure/azure-vmware/concepts-role-based-access-control",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-role-based-access-control.md",
+            "redirect_url": "/azure/azure-vmware/concepts-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/deploy-traffic-manager-to-balance-avs-workloads.md",
+            "redirect_url": "/azure/azure-vmware/deploy-traffic-manager-balance-workloads",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vm-content-library.md",
+            "redirect_url": "/azure/azure-vmware/deploy-vm-content-library",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/disaster-recovery.md",
+            "redirect_url": "/azure/azure-vmware/disaster-recovery-for-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/ecosystem-backup-vms.md",
+            "redirect_url": "/azure/azure-vmware/ecosystem-back-up-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/net-app-files.md",
+            "redirect_url": "/azure/azure-vmware/introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/pre-deployment-checklist.md",
+            "redirect_url": "/azure/azure-vmware/production-ready-deployment-steps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/protect-avs-web-apps-with-app-gateway.md",
+            "redirect_url": "/azure/azure-vmware/protect-azure-vmware-solution-with-application-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/set-up-mabs-for-avs.md",
+            "redirect_url": "/azure/azure-vmware/set-up-backup-server-for-azure-vmware-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/enable-azure-vmware-solution.md",
+            "redirect_url": "/azure/azure-vmware/request-host-quota-azure-vmware-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/manage-dhcp.md",
+            "redirect_url": "/azure/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks.md",
+            "redirect_url": "/azure/azure-vmware/configure-dhcp-azure-vmware-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/hybrid-cloud-extension-installation.md",
+            "redirect_url": "/azure/azure-vmware/tutorial-deploy-vmware-hcx",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/vrealize-operations-for-avs.md",
+            "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-api-management.md",
+            "redirect_url": "/azure/azure-vmware/architecture-api-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-design-public-internet-access.md",
+            "redirect_url": "/azure/azure-vmware/architecture-design-public-internet-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-hub-and-spoke.md",
+            "redirect_url": "/azure/azure-vmware/architecture-hub-and-spoke",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-identity.md",
+            "redirect_url": "/azure/azure-vmware/architecture-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-migrate.md",
+            "redirect_url": "/azure/azure-vmware/architecture-migrate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-network-design-considerations.md",
+            "redirect_url": "/azure/azure-vmware/architecture-network-design-considerations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-networking.md",
+            "redirect_url": "/azure/azure-vmware/architecture-networking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-private-clouds-clusters.md",
+            "redirect_url": "/azure/azure-vmware/architecture-private-clouds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-run-command.md",
+            "redirect_url": "/azure/azure-vmware/using-run-command",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-security-recommendations.md",
+            "redirect_url": "/azure/azure-vmware/security-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-storage.md",
+            "redirect_url": "/azure/azure-vmware/architecture-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-vulnerability-management.md",
+            "redirect_url": "/azure/azure-vmware/vulnerability-management",
+            "redirect_document_id": false
         }
     ]
 }

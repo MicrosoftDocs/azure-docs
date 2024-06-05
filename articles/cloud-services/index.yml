@@ -7,7 +7,6 @@ metadata:
   title: Azure Cloud Services (classic) documentation
   description: Describes how to use Cloud Services to host and run highly available and scalable cloud applications and APIs.
   ms.service: cloud-services
-  service: cloud-services
   ms.topic: landing-page
   author: tgore03
   ms.author: tagore
@@ -45,7 +44,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create PHP web and worker roles
-            url: ../cloud-services-php-create-web-role.md
+            url: cloud-services-php-create-web-role.md
           - text: Build and deploy a Node.js application
             url: cloud-services-nodejs-develop-deploy-app.md
           - text: Build and deploy a Node.js web application using Express

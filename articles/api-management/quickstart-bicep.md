@@ -1,25 +1,38 @@
 ---
-title: Quickstart - Create Azure API Management instance by using Bicep
-description: Learn how to create an Azure API Management instance in the Developer tier by using Bicep.
+title: Quickstart - Create Azure API Management instance - Bicep
+description: Use this quickstart to create an Azure API Management instance in the Developer tier by using Bicep.
 services: azure-resource-manager
 author: mumian
 ms.service: api-management
 tags: azure-resource-manager, bicep
-ms.custom: devx-track-bicep
-ms.topic: quickstart
+ms.custom: devx-track-bicep, subject-bicepqs, devx-track-azurecli, devx-track-azurepowershell
+ms.topic: quickstart-bicep
 ms.author: jgao
-ms.date: 03/10/2022
+ms.date: 03/25/2024
 ---
 
 # Quickstart: Create a new Azure API Management service instance using Bicep
 
-This quickstart describes how to use a Bicep file to create an Azure API Management (APIM) service instance. APIM helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md).
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+This quickstart describes how to use a Bicep file to create an Azure API Management instance. You can also use Bicep for common management tasks such as importing APIs in your API Management instance.
+
+[!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+- For Azure CLI:
+
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- For Azure PowerShell:
+
+
+    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
 
 ## Review the Bicep file
 
@@ -31,7 +44,7 @@ The following resource is defined in the Bicep file:
 
 - **[Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service)**
 
-In this example, the Bicep file configures the API Management instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use.
+In this example, the Bicep file by default configures the API Management instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use.
 
 More Azure API Management Bicep samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Apimanagement&pageNumber=1&sort=Popular).
 
@@ -63,6 +76,9 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file.  For more in
     Replace **\<publisher-name\>** and **\<publisher-email\>** with the name of the API publisher's organization and the email address to receive notifications.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
+
+    > [!TIP]
+    >  It can take between 30 and 40 minutes to create and activate an API Management service in the Developer tier. Times vary by tier.
 
 ## Review deployed resources
 

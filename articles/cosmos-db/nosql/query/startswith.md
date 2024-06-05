@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,17 +21,17 @@ Returns a boolean value indicating whether the first string expression starts wi
   
 ## Syntax
   
-```sql
-ENDSWITH(<str_expr_1>, <str_expr_2> [, <bool_expr>])
+```nosql
+STARTSWITH(<string_expr_1>, <string_expr_2> [, <bool_expr>])
 ```  
   
 ## Arguments
   
 | | Description |
 | --- | --- |
-| **`str_expr_1`** | A string expression. |
-| **`str_expr_2`** | A string expression to be compared to the beginning of `str_expr_1`. |
-| **`bool_expr`** *(Optional)* | Optional value for ignoring case. When set to `true`, `ENDSWITH` does a case-insensitive search. When unspecified, this default value is `false`. |
+| **`string_expr_1`** | A string expression. |
+| **`string_expr_2`** | A string expression to be compared to the beginning of `string_expr_1`. |
+| **`bool_expr`** *(Optional)* | Optional value for ignoring case. When set to `true`, `STARTSWITH` does a case-insensitive search. When unspecified, this default value is `false`. |
 
 ## Return types
   
@@ -40,31 +41,15 @@ Returns a boolean expression.
   
 The following example checks if the string `abc` starts with `b` or `ab`.  
   
-```sql
-SELECT VALUE {
-    endsWithWrongPrefix: STARTSWITH("abc", "b"),
-    endsWithCorrectPrefix: STARTSWITH("abc", "ab"),
-    endsWithPrefixWrongCase: STARTSWITH("abc", "Ab"),
-    endsWithPrefixCaseInsensitive: STARTSWITH("abc", "Ab", true)
-}
-```  
-  
-```json
-[
-  {
-    "endsWithWrongPrefix": false,
-    "endsWithCorrectPrefix": true,
-    "endsWithPrefixWrongCase": false,
-    "endsWithPrefixCaseInsensitive": true
-  }
-]
-```  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/startswith/query.sql" highlight="2-5":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/startswith/result.json":::
 
 ## Remarks
 
 - This function performs a precise index scan.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`ENDSWITH`](endswith.md)

@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: larryfr
-ms.date: 03/21/2023
+ms.date: 04/09/2024
 ms.topic: how-to
 ms.custom: devx-track-azurecli, sdkv2, build-2023
 ---
@@ -21,7 +21,7 @@ Azure Machine Learning registry enables you to collaborate across workspaces wit
 * Share an existing data asset from workspace to registry
 * Use the data asset from registry as input to a model training job in a workspace.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ### Key scenario addressed by data sharing using Azure Machine Learning registry 
 

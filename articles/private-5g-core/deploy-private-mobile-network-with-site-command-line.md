@@ -3,7 +3,7 @@ title: Deploy a private mobile network and site - Azure CLI
 titleSuffix: Azure Private 5G Core
 description: Learn how to deploy a private mobile network and site using Azure Command-Line Interface (Azure CLI).
 author: James-Green-Microsoft
-ms.author: jamesgreen
+ms.author: jagre
 ms.service: private-5g-core
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
@@ -19,7 +19,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 - The default service and allow-all SIM policy (as described in [Default service and allow-all SIM policy](default-service-sim-policy.md)).
 - Optionally, one or more SIMs, and a SIM group.
 
-[!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Prerequisite: Prepare to deploy a private mobile network and site
 
@@ -233,7 +233,7 @@ az mobile-network sim policy create -g <RESOURCEGROUP> -n <SIMPOLICY> --mobile-n
 
 ### Create a SIM
 
-Use `` to create a new **SIM**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
+Use `az mobile-network sim create` to create a new **SIM**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
 
 |Placeholder|Value|
 |-|-|

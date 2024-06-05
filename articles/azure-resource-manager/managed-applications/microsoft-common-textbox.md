@@ -1,7 +1,7 @@
 ---
 title: TextBox UI element
 description: Describes the Microsoft.Common.TextBox UI element for Azure portal that's used for adding unformatted text.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/23/2022
 ---
 
@@ -15,11 +15,11 @@ The `TextBox` element uses a single-line or multi-line text box.
 
 Example of single-line text box.
 
-:::image type="content" source="media/managed-application-elements/microsoft-common-textbox.png" alt-text="Screenshot of the Microsoft.Common.TextBox element's single-line text box.":::
+:::image type="content" source="media/managed-application-elements/microsoft-common-textbox.png" alt-text="Screenshot of a single-line text box using the Microsoft.Common.TextBox UI element.":::
 
 Example of multi-line text box.
 
-:::image type="content" source="media/managed-application-elements/microsoft-common-textbox-multi-line.png" alt-text="Screenshot of the Microsoft.Common.TextBox element's multi-line text box.":::
+:::image type="content" source="media/managed-application-elements/microsoft-common-textbox-multi-line.png" alt-text="Screenshot of a multi-line text box using the Microsoft.Common.TextBox UI element.":::
 
 ## Schema
 

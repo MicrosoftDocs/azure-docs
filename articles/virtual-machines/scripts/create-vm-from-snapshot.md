@@ -2,19 +2,13 @@
 title: Create a VM from a snapshot - CLI Sample
 description: Azure CLI Script Sample - Create a VM from a snapshot
 services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: ramankumarlive
 manager: kavithag
 editor: ramankum
-tags: azure-service-management
-
-ms.assetid:
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 02/23/2022
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurecli
@@ -26,7 +20,7 @@ This script creates a virtual machine from a snapshot of an OS disk.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

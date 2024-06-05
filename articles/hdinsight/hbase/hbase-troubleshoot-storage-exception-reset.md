@@ -3,7 +3,7 @@ title: Storage exception after connection reset in Azure HDInsight
 description: Storage exception after connection reset in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 12/31/2022
+ms.date: 01/04/2024
 ---
 
 # Scenario: Storage exception after connection reset in Azure HDInsight
@@ -18,11 +18,11 @@ Unable to create new Apache HBase table.
 
 During a table truncation process, there was a storage connection issue. The table entry was deleted in HBase metadata table. All but one blob file was deleted.
 
-Although there was no folder blob called `/hbase/data/default/ThatTable` sitting in the storage. The WASB driver found the existence of the above the blob file and would not allow to create any blob called `/hbase/data/default/ThatTable` because it assumed the parent folders existed, thus creating table will fail.
+Although there was no folder blob called `/hbase/data/default/ThatTable` sitting in the storage. The WASB driver found the existence of the above the blob file and would not allow it to create any blob called `/hbase/data/default/ThatTable` because it assumed the parent folders existed, thus creating table fails.
 
 ## Resolution
 
-1. From Apache Ambari UI, restart the active HMaster. This will let one of the two standby HMaster becoming the active one and the new active HMaster will reload the metadata table info. Thus you will not see the `already-deleted` table in HMaster UI.
+1. From Apache Ambari UI, restart the active HMaster. This lets one of the two standby HMaster becoming the active one and the new active HMaster will reload the metadata table info. Thus you don't see the `already-deleted` table in HMaster UI.
 
 1. You can find the orphan blob file from UI tools like Cloud Explorer or running command like `hdfs dfs -ls /xxxxxx/yyyyy`. Run `hdfs dfs -rmr /xxxxx/yyyy` to delete that blob. For example, `hdfs dfs -rmr /hbase/data/default/ThatTable/ThatFile`.
 

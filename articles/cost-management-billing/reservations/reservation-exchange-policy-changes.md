@@ -3,26 +3,31 @@ title: Changes to the Azure reservation exchange policy
 description: Learn how changes to the Azure reservation exchange policy might affect you.
 author: bandersmsft
 ms.author: banders
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 04/14/2023
+ms.date: 05/14/2024
 ---
 
 # Changes to the Azure reservation exchange policy
 
-Exchanges will be unavailable for all compute reservations - Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations - purchased on or after **January 1, 2024**. Compute reservations purchased **prior to January 1, 2024** will reserve the right to **exchange one more time** after the policy change goes into effect.
+Initially planned to end on January 1, 2024, the availability of Azure compute reservation exchanges for Azure Virtual Machine, Azure Dedicated Host and Azure App Service is extended **until further notice**.
 
-Microsoft launched Azure savings plan for compute and it's designed to help you save broadly on predictable compute usage. The savings plan provides more flexibility needed to accommodate changes such as virtual machine series and regions. With savings plans providing the flexibility automatically, we’re adjusting our reservations exchange policy.
+The [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) was launched in October 2022 and it aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we updated our reservations exchange policy. While [instance size flexibility for VMs](../../virtual-machines/reserved-vm-instance-size-flexibility.md) remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
 
-You can continue to use instance size flexibility for VM sizes, but Microsoft is ending exchanges for regions and instance series for these Azure compute reservations.
+You can continue exchanging your compute reservations for different instance series and regions until we notify you again, **which will be at least six months in advance**. In addition, any compute reservations purchased during this extended grace period will retain the right to one more exchange after the grace period ends. The extended grace period allows you to better assess your cost savings commitment needs and plan effectively.
 
-The current cancellation policy for reserved instances isn't changing. The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment.
+For more information, see [Azure savings plan for compute and how it works with reservations](../savings-plan/decide-between-savings-plan-reservation.md).
 
-A compute reservation exchange for another compute reservation exchange is similar to, but not the same as a reservation [trade-in](../savings-plan/reservation-trade-in.md) for a savings plan. The difference is that you can always trade in your Azure reserved instances for compute for a savings plan. There's no time limit for trade-ins.
+>[!NOTE]
+> Exchanges are changing only for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations. The policy change does not affect any other types of reservations. For example, if you have a reservation for Azure VMware Solution, then the policy change doesn't affect it. Any Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservation acquired after the grace period ends (either through a new reservation purchase or reservation exchange), will have a no-exchange policy.
 
-You can continue to use and purchase reservations for those predictable, stable workloads where you know the specific configuration and need or want more savings.
+The reserved instance cancellation policy isn't changing - the total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment.
+
+A compute reservation exchange converts existing reservations to new compute reservations. A reservation [trade-in](../savings-plan/reservation-trade-in.md) converts existing reservations to a new savings plan. While exchanges You can always trade in your Azure reserved instances for compute for a savings plan. There's no time limit for trade-ins.
+
+You can [trade-in](../savings-plan/reservation-trade-in.md) your Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations that are used to cover dynamic/evolving workloads for a savings plan. Or, you can continue to use and purchase reservations for stable workloads where the specific configuration needs are known.
 
 Learn more about [Azure savings plan for compute](../savings-plan/index.yml) and how it works with reservations.
 
@@ -30,33 +35,29 @@ Learn more about [Azure savings plan for compute](../savings-plan/index.yml) and
 
 ## Example scenarios
 
-The following examples describe scenarios that might represent your situation.
+The following examples describe scenarios that might represent your situation with the grace period.
 
 ### Scenario 1
 
-You purchase a one-year compute reservation sometime between the month of October 2022 and the end of December 2023. You can exchange the compute reservation one more time through the end of its term, even after December 2023. Before January 2024, you can exchange it under current policy. However, if the reservation is exchanged after the end of December 2023, the reservation is no longer exchangeable because exchanges are processed as a cancellation, refund, and a new purchase.
-
-You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
+You purchase a one-year compute reservation sometime between the month of October 2022 and the end of grace period. Before the end of grace period, you can exchange it as many times as you like. After the grace period, you can exchange the compute reservation one more time through the end of its term. However, if the reservation is exchanged after the grace period, the reservation is no longer exchangeable because exchanges are processed as a cancellation, refund, and a new purchase. You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
 
 ### Scenario 2
 
-You purchase a three-year compute reservation before January 2024. You exchange the compute reservation on or after January 1, 2024. Because an exchange is processed as a cancellation, refund, and new purchase, the reservation is no longer exchangeable.
-
-You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
+You purchase a three-year compute reservation during grace period. Before the end of grace period, you can exchange it as many times as you like. You exchange the compute reservation after the grace period. Because an exchange is processed as a cancellation, refund, and new purchase, the reservation is no longer exchangeable. You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
 
 ### Scenario 3
 
-You purchase a one-year compute reservation on or after January 1, 2024. It can’t be exchanged.
-
-You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
+You purchase a one-year compute reservation after the grace period. It can’t be exchanged. You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
 
 ### Scenario 4
 
-You purchase a three-year compute reservation after on or after January 1, 2024. It can’t be exchanged. 
+You purchase a three-year compute reservation after the grace period. It can’t be exchanged. You can always trade in the reservation for a savings plan. There's no time limit for trade-ins
 
-You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
+### Scenario 5
 
-## Next steps
+You purchase a three-year compute reservation of 10 quantities before the grace period. You exchange 2 quantities of the compute reservation after the grace period. You can still exchange eight leftover quantities on the original reservation after the grace period. You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
+
+## Related content
 
 - Learn more about [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 - Learn more about [Self-service trade-in for Azure savings plans](../savings-plan/reservation-trade-in.md).

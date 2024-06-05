@@ -3,10 +3,10 @@ title: Manage Backups with Azure role-based access control
 description: Use Azure role-based access control to manage access to backup management operations in Recovery Services vault.
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 01/24/2024
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Use Azure role-based access control to manage Azure Backup recovery points
@@ -80,6 +80,7 @@ The following table captures the Backup management actions and corresponding min
 | Delete backup policy of Azure VM backup | Backup Contributor | Recovery Services vault |
 | Stop backup (with retain data or delete data) on VM backup | Backup Contributor | Recovery Services vault |
 |             | Virtual Machine Contributor | Source VM that got backed-up | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write |
+| Cross region restore | Backup Operator | Subscription of the Recovery Services vault | This is in addition to the restore permissions mentioned above. In case of cross region restore, instead of a built-in role, you can use a custom role that has the following permissions: <br><br> - Microsoft.RecoveryServices/locations/backupAadProperties/read <br><br> - Microsoft.RecoveryServices/locations/backupCrrJobs/action <br><br> - Microsoft.RecoveryServices/locations/backupCrrJob/action <br><br> - Microsoft.RecoveryServices/locations/backupCrossRegionRestore/action <br><br> - Microsoft.RecoveryServices/locations/backupCrrOperationResults/read <br><br> - Microsoft.RecoveryServices/locations/backupCrrOperationsStatus/read |
 
 ### Minimum role requirements for the Azure File share backup
 
@@ -148,7 +149,7 @@ The following table captures the Backup management actions and corresponding Azu
 
 ## Next steps
 
-* [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Get started with Azure RBAC in the Azure portal.
+* [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml): Get started with Azure RBAC in the Azure portal.
 * Learn how to manage access with:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)

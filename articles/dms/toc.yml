@@ -48,8 +48,16 @@
       href: resource-custom-roles-sql-database-ads.md
   - name: Migration to Azure Database for MySQL
     items: 
-    - name: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup 
+    - name: MySQL Consistent Snapshot 
       href: migrate-azure-mysql-consistent-backup.md
+    - name: MySQL Custom roles
+      href: resource-custom-roles-mysql-database-migration-service.md
+    - name: MySQL Schema Migration 
+      href: concepts-migrate-azure-mysql-schema-migration.md
+    - name: MySQL Login Migration 
+      href: concepts-migrate-azure-mysql-login-migration.md
+    - name: MySQL Replicate Changes
+      href: concepts-migrate-azure-mysql-replicate-changes.md
   - name: Security
     items: 
     - name: Security baseline
@@ -71,8 +79,8 @@
   - name: Migrate SQL Server
     expanded: true
     items:
-    - name: to Azure SQL Database (offline) in Azure Data Studio
-      href: tutorial-sql-server-azure-sql-database-offline-ads.md
+    - name: to Azure SQL Database (offline)
+      href: tutorial-sql-server-azure-sql-database-offline.md
     - name: to Azure SQL Managed Instance (online) in Azure Data Studio
       href: tutorial-sql-server-managed-instance-online-ads.md
     - name: to Azure SQL Managed Instance (offline) in Azure Data Studio
@@ -98,7 +106,11 @@
   - name: Migrate MySQL
     items: 
     - name: to Azure Database for MySQL (offline)
-      href: tutorial-mysql-azure-mysql-offline-portal.md  
+      href: tutorial-mysql-azure-mysql-offline-portal.md
+    - name: to Azure Database for MySQL (online)
+      href: tutorial-mysql-azure-external-to-flex-online-portal.md 
+    - name: to Azure Database for MySQL (Replicate Changes)
+      href: tutorial-mysql-azure-external-replicate-changes-portal.md       
   - name: Migrate Azure DB for MySQL - Single Server
     items:
     - name: to Azure DB for MySQL Flexible Server (online)
@@ -179,15 +191,15 @@
     - name: Azure Database Migration Guide
       href: /data-migration/
     - name: Azure SQL Migration extension for Azure Data Studio
-      href: /sql/azure-data-studio/extensions/azure-sql-migration-extension
+      href: /azure-data-studio/extensions/azure-sql-migration-extension
     - name: Azure Migrate
       href: ../migrate/migrate-services-overview.md
     - name: SQL Database Projects
-      href: /sql/azure-data-studio/extensions/sql-database-project-extension
+      href: /azure-data-studio/extensions/sql-database-project-extension
     - name: Database Schema Conversion Toolkit (Oracle to Microsoft SQL)
-      href: /sql/azure-data-studio/extensions/dsct/database-schema-conversion-toolkit
+      href: /azure-data-studio/extensions/dsct/database-schema-conversion-toolkit
     - name: Database Migration Assessment for Oracle
-      href: /sql/azure-data-studio/extensions/database-migration-assessment-for-oracle-extension
+      href: /azure-data-studio/extensions/database-migration-assessment-for-oracle-extension
     - name: SQL Server Migration Assistant
       href: /sql/ssma/sql-server-migration-assistant
     - name: Older tools

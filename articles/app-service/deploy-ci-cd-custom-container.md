@@ -8,9 +8,8 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.topic: article
 ms.date: 11/18/2022
 ms.author: msangapu
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
-
 ---
 # Continuous deployment with custom containers in Azure App Service
 
@@ -43,6 +42,9 @@ Once you authorize your Azure account with GitHub, **select** the **Organization
 ::: zone-end  
 ::: zone pivot="container-linux"
 ## 3. Configure registry settings
+
+> [!NOTE]
+> Sidecar containers (preview) will succeed multi-container (Docker Compose) apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
 
 To deploy a multi-container (Docker Compose) app, **select** **Docker Compose** in **Container Type**.
 
@@ -137,6 +139,14 @@ App Service supports CI/CD integration with Azure Container Registry and Docker 
 
 When you enable this option, App Service adds a webhook to your repository in Azure Container Registry or Docker Hub. Your repository posts to this webhook whenever your selected image is updated with `docker push`. The webhook causes your App Service app to restart and run `docker pull` to get the updated image.
 
+> [!NOTE]
+> 
+> To ensure the proper functioning of the webhook, it's essential to enable the **Basic Auth Publishing Credentials** option within your Web App. Failure to do so may result in a 401 unauthorized error for the webhook.
+>To verify whether **Basic Auth Publishing Credentials** is enabled, follow these steps:
+> 
+> - Navigate to your Web App's **Configuration > General Settings**.
+> - Look for the **Platform Setting** section, where you will find the **Basic Auth Publishing Credentials** option.
+
 **For other private registries**, your can post to the webhook manually or as a step in a CI/CD pipeline. In **Webhook URL**, **click** the **Copy** button to get the webhook URL.
 
 ::: zone pivot="container-linux"
@@ -170,7 +180,7 @@ You can customize the GitHub Actions build provider in the following ways:
 
 - Customize the workflow file after it's generated in your GitHub repository. For more information, see [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions). Just make sure that the workflow ends with the [Azure/webapps-deploy](https://github.com/Azure/webapps-deploy) action to trigger an app restart.
 - If the selected branch is protected, you can still preview the workflow file without saving the configuration, then add it and the required GitHub secrets into your repository manually. This method doesn't give you the log integration with the Azure portal.
-- Instead of a publishing profile, deploy using a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Azure Active Directory.
+- Instead of a publishing profile, deploy using a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) in Microsoft Entra ID.
 
 #### Authenticate with a service principal
 
@@ -181,7 +191,7 @@ This optional configuration replaces the default authentication with publishing 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
                             --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
-                            --sdk-auth
+                            --json-auth
 ```
 
 > [!IMPORTANT]

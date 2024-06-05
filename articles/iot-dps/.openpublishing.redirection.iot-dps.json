@@ -41,6 +41,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-dps/tutorial-group-enrollments.md",
+            "redirect_url": "/azure/iot-dps/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-dps/iot-dps-customer-managed-keys.md",
+            "redirect_url": "/azure/iot-dps/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-dps/iot-dps-customer-data-requests.md",
+            "redirect_url": "/azure/iot-dps/",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/iot-dps/tutorial-provision-device-to-hub.md",
             "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
             "redirect_document_id": false
@@ -57,7 +72,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-dps/how-to-connect-mxchip-iot-devkit.md",
-            "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166",
+            "redirect_url": "/azure/iot/tutorial-devkit-mxchip-az3166-iot-hub",
             "redirect_document_id": false
         },
         {
@@ -182,4 +197,3 @@
         }
     ]
 }
-  

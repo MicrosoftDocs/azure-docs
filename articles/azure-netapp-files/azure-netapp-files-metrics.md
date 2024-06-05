@@ -2,27 +2,28 @@
 title: Metrics for Azure NetApp Files | Microsoft Docs
 description: Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. Use these metrics to understand usage and performance.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/30/2022
+ms.date: 07/19/2023
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
 
-You can find metrics for a capacity pool or volume by selecting the **capacity pool** or **volume**. Then select **Metric** to view the available metrics: 
+## Ways to access metrics 
 
-[ ![Snapshot that shows how to navigate to the Metric pull-down.](../media/azure-netapp-files/metrics-navigate-volume.png) ](../media/azure-netapp-files/metrics-navigate-volume.png#lightbox)
+Azure NetApp Files metrics are natively integrated into Azure monitor. From within the Azure portal, you can find metrics for Azure NetApp Files capacity pools and volumes from two locations:
 
+- From Azure monitor, select **Metrics**, select a capacity pool or volume. Then select **Metric** to view the available metrics:
+   
+    :::image type="content" source="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png" alt-text="Screenshot that shows how to access Azure NetApp Files metrics for capacity pools or volumes." lightbox="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png":::
+  	
+- From the Azure NetApp Files capacity pool or volume, select **Metrics**. Then select **Metric** to view the available metrics:
+   
+    :::image type="content" source="./media/azure-netapp-files-metrics/metrics-navigate-volume.png" alt-text="Snapshot that shows how to navigate to the Metric pull-down." lightbox="./media/azure-netapp-files-metrics/metrics-navigate-volume.png":::
+    
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
 - *Pool Allocated Size*   
@@ -42,7 +43,7 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 
 - *Percentage Volume Consumed Size*    
     The percentage of the volume consumed, including snapshots.  
-    Aggregation metrics (for example, min, max) are not supported for percentage volume consumed size.
+    Aggregation metrics (for example, min, max) aren't supported for percentage volume consumed size.
 - *Volume Allocated Size*   
     The provisioned size of a volume
 - *Volume Quota Size*    
@@ -52,6 +53,27 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
     This size includes logical space used by active file systems and snapshots.  
 - *Volume Snapshot Size*   
    The size of all snapshots in a volume.  
+- *Throughput limit reached*
+    
+    Throughput limit reached is a boolean metric that denotes the volume is hitting its QoS limits. The value 1 means that the volume has reached its maximum throughput, and throughput for this volume will be throttled. The value 0 means this limit hasn't yet been reached.
+
+     > [!NOTE] 
+     > The Throughput limit reached metrics is collected every 5 minutes and is displayed as a hit if it has been collected in the last 5 minutes.
+    
+    If the volume is hitting the throughput limit, it's not sized appropriately for the application's demands. To resolve throughput issues:
+
+    - Resize the volume: 
+
+        Increase the volume size to allocate more throughput to the volume so it's not throttled.
+    - Modify the service level:
+    
+        The Premium and Ultra service levels in Azure NetApp Files cater to workloads with higher throughput requirements. [Moving the volume to a capacity pool in a higher service level](dynamic-change-volume-service-level.md) automatically increases these limits for the volume. 
+    - Change the workloads/application:
+
+        Consider repurposing the volume and delegating a different volume with a larger size and/or in a higher service level to meet your application requirements. If it's an NFS volume, consider changing mount options to reduce data flow if your application supports those changes.
+
+    :::image type="content" source="./media/azure-netapp-files-metrics/throughput-limit-reached.png" alt-text="Screenshot that shows Azure NetApp Files metrics a line graph demonstrating throughput limit reached." lightbox="./media/azure-netapp-files-metrics/throughput-limit-reached.png":::
+
 
 ## Performance metrics for volumes
 
@@ -137,6 +159,23 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 * *Volume Backup Last Transferred Bytes*   
     The total bytes transferred for the last backup or restore operation.  
 
+* *Volume Backup Operation Last Transferred Bytes*   
+    Total bytes transferred for last backup operation.
+
+* *Volume Backup Restore Operation Last Transferred Bytes*   
+    Total bytes transferred for last backup restore operation.
+
+## Cool access metrics
+
+* *Volume cool tier size*   
+    Volume footprint for the cool tier.
+
+* *Volume cool tier data read size*   
+    Data read in using `GET` per volume.
+
+* *Volume cool tier data write size*   
+    Data tiered out using `PUT` per volume. 
+ 
 ## Next steps
 
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

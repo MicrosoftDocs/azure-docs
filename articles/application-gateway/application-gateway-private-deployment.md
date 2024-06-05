@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 05/22/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 ---
@@ -28,7 +28,7 @@ Application Gateway v2 can now address each of these items to further eliminate 
 2. Elimination of inbound traffic from GatewayManager service tag via Network Security Group
 3. Ability to define a **Deny All** outbound Network Security Group (NSG) rule to restrict egress traffic to the Internet
 4. Ability to override the default route to the Internet (0.0.0.0/0)
-5. DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.md#change-dns-servers), including private link private DNS zones.
+5. DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.yml#change-dns-servers), including private link private DNS zones.
 
 Each of these features can be configured independently. For example, a public IP address can be used to allow traffic inbound from the Internet and you can define a **_Deny All_** outbound rule in the network security group configuration to prevent data exfiltration.
 
@@ -36,7 +36,7 @@ Each of these features can be configured independently. For example, a public IP
 
 The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are currently in public preview.  To join the public preview, you can opt in to the experience using the Azure portal, PowerShell, CLI, or REST API.
 
-When you join the preview, all new Application Gateways will provision with the ability to define any combination of the NSG, Route Table, or private IP configuration features.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can do so by [unregistering from the preview](#unregister-from-the-preview).
+When you join the preview, all new Application Gateways provision with the ability to define any combination of the NSG, Route Table, or private IP configuration features.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can do so by [unregistering from the preview](#unregister-from-the-preview).
 
 For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
@@ -186,9 +186,13 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 > [!TIP]
 > The **EnhancedNetworkControl** tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.	
 
+## Application Gateway Subnet 
+
+Application Gateway Subnet is the subnet within the Virtual Network where the Application Gateway Resources will be deployed. In the Frontend Private Ip configuration, is important that this subnet can reach privately the resources that want to connect to your exposed app or site.
+
 ## Outbound Internet connectivity
 
-Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) are not able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
+Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) aren't able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
 
 To enable outbound connectivity from your Application Gateway to an Internet facing backend target, you can utilize [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or forward traffic to a virtual appliance that has access to the Internet.
 
@@ -325,7 +329,7 @@ In the following example, we create a route table and associate it to the Applic
 
 To create a route table and associate it to the Application Gateway subnet:
 
-1.	[Create a route table](../virtual-network/manage-route-table.md#create-a-route-table):
+1.	[Create a route table](../virtual-network/manage-route-table.yml#create-a-route-table):
 
  ![View the newly created route table](./media/application-gateway-private-deployment/route-table-create.png)
 
@@ -347,6 +351,10 @@ While in public preview, the following limitations are known.
 
 [Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with private only gateway.
 
+### WAF Rate Limiting
+
+[Rate limiting custom rules](../web-application-firewall/ag/rate-limiting-configure.md) for Application Gateway WAF v2 are not currently supported.
+
 ### Private IP frontend configuration only with AGIC
 
 AGIC v1.7 must be used to introduce support for private frontend IP only.
@@ -357,7 +365,7 @@ If Application Gateway has a backend target or key vault reference to a private 
 
 ### Network Watcher integration
 
-Connection troubleshoot and NSG diagnostics will return an error when running check and diagnostic tests.
+Connection troubleshoots and NSG diagnostics return an error when running check and diagnostic tests.
 
 ### Coexisting v2 Application Gateways created prior to enablement of enhanced network control
 
@@ -369,7 +377,7 @@ If a subnet shares Application Gateway v2 deployments that were created both pri
 ### Unknown Backend Health status
 
 If backend health is _Unknown_, you may see the following error:
-   + The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 in case of v1 SKU, and ports 65200-65535 in case of the v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
+   + The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 if there is v1 SKU, and ports 65200-65535 if there is v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
 
 This error can be ignored and will be clarified in a future release.
 

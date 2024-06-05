@@ -2,17 +2,19 @@
 title: How to mount an Azure Blob Storage container on Linux with BlobFuse2
 titleSuffix: Azure Storage
 description: Learn how to mount an Azure Blob Storage container on Linux with BlobFuse2.
-author: jimmart-dev
-ms.author: jammart
-ms.reviewer: tamram
-ms.service: storage
-ms.subservice: blobs
+author: akashdubey-ms
+ms.author: akashdubey
+
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/26/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # How to mount an Azure Blob Storage container on Linux with BlobFuse2
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
 
@@ -55,7 +57,7 @@ To install BlobFuse2 from the repositories:
 
 Configure the [Linux Package Repository for Microsoft Products](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
-# [RHEL](#tab/RHEL) 
+# [RHEL](#tab/RHEL)
 
 As an example, on a Redhat Enterprise Linux 8 distribution:
 
@@ -66,7 +68,7 @@ sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-pr
 Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
 
 # [CentOS](#tab/CentOS)
- 
+
 As an example, on a CentOS 8 distribution:
 
 ```bash
@@ -83,22 +85,22 @@ Another example on an Ubuntu 20.04 distribution:
 sudo wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
-sudo apt-get install libfuse3-dev fuse3 
+sudo apt-get install libfuse3-dev fuse3
 ```
 
 Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to reference another Ubuntu version.
 
-# [SLES](#tab/SLES) 
+# [SLES](#tab/SLES)
 
 ```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-prod.rpm
 ```
 
---- 
+---
 
 #### Install BlobFuse2
 
-# [RHEL](#tab/RHEL) 
+# [RHEL](#tab/RHEL)
 
 ```bash
 sudo yum install blobfuse2
@@ -114,7 +116,7 @@ sudo yum install blobfuse2
 ```bash
 sudo apt-get install blobfuse2
 ```
-# [SLES](#tab/SLES)  
+# [SLES](#tab/SLES)
 
 ```bash
 sudo zypper install blobfuse2

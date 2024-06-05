@@ -1,10 +1,10 @@
 ---
 title: Show real-time traffic on an Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
-description: In this article, you will learn how to show real-time traffic on an Azure Maps Power BI visual.
+description: This article demonstrates how to show real-time traffic on an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 11/29/2021
+ms.date: 07/18/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ services: azure-maps
 
 # Show real-time traffic
 
-The traffic layer feature overlays real-time traffic data on top of the map. To enable this feature, move the **Traffic layer** slider in the **Format** pane to the **On** position. This will overlay traffic flow data as color coded roads.
+The traffic layer feature overlays real-time traffic data on top of the map. To enable this feature, move the **Traffic layer** slider in the **Format** pane to the **On** position. This overlays traffic flow data as color coded roads.
 
 :::image type="content" source="media/power-bi-visual/traffic-layer.png" alt-text="A map displaying real-time traffic data.":::
 

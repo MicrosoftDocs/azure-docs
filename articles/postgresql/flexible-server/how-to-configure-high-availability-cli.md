@@ -1,21 +1,23 @@
 ---
-title: Manage high availability - Azure CLI - Azure Database for PostgreSQL Flexible Server
-description: This article describes how to configure high availability in Azure Database for PostgreSQL flexible Server with the Azure CLI.
+title: Manage high availability - Azure CLI
+description: This article describes how to configure high availability in Azure Database for PostgreSQL - Flexible Server with the Azure CLI.
+author: gbowerman
+ms.author: guybo
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
 ms.topic: how-to
-ms.date: 6/16/2022
-ms.custom: references_regions, devx-track-azurecli
+ms.custom:
+  - references_regions
+  - devx-track-azurecli
 ---
 
-# Manage high availability in Azure Database for PostgreSQL Flexible Server with Azure CLI
+# Manage high availability in Azure Database for PostgreSQL - Flexible Server with Azure CLI
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The article describes how you can enable or disable high availability configuration at the time of server creation in your flexible server. You can disable high availability after server creation too. 
+The article describes how you can enable or disable high availability configuration at the time of server creation in Azure Database for PostgreSQL flexible server. You can disable high availability after server creation too. 
 
 High availability feature provisions physically separate primary and standby replica in different zones. For more information, see [high availability concepts documentation](./concepts/../concepts-high-availability.md). Enabling or disabling high availability doesn't change your other settings including VNET configuration, firewall settings, and backup retention. Disabling of high availability doesn't impact your application connectivity and operations.
 

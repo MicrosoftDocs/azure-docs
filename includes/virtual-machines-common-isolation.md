@@ -48,6 +48,10 @@ Isolated VM sizes have a hardware limited lifespan. Azure issues reminders 12 mo
 | Standard_GS5      | February 15, 2022 |
 | Standard_E64i_v3  | February 15, 2022 |
 | Standard_E64is_v3 | February 15, 2022 |
+| Standard_M192is_v2| March 31, 2027    |
+| Standard_M192ims_v2| March 31, 2027   |
+| Standard_M192ids_v2| March 31, 2027   |
+| Standard_M192idms_v2| March 31, 2027  |
 
 
 ## FAQ

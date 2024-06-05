@@ -4,8 +4,8 @@ description: Introduces design considerations that a developer should follow whe
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
@@ -22,7 +22,7 @@ This article discusses design considerations that a developer should follow when
 
 ## Language and platform
 There are code samples available for various programming languages and platforms. You can find links to the code samples at: 
-[Connectivity libraries used to connect to Azure Database for MySQL](concepts-connection-libraries.md)
+[Connectivity libraries used to connect to Azure Database for MySQL](../flexible-server/concepts-connection-libraries.md)
 
 ## Tools
 Azure Database for MySQL uses the MySQL community version, compatible with MySQL common management tools such as Workbench or MySQL utilities such as mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql), [dbForge Studio for MySQL](https://www.devart.com/dbforge/mysql/studio/) and others. You can also use the Azure portal, Azure CLI, and REST APIs to interact with the database service.
@@ -41,7 +41,7 @@ Azure Database for MySQL supports server authentication of users and logins.
 ## Resiliency
 When a transient error occurs while connecting to a MySQL database, your code should retry the call. We recommend that the retry logic use back off logic so that it does not overwhelm the SQL database with multiple clients retrying simultaneously.
 
-- Code samples: For code samples that illustrate retry logic, see samples for the language of your choice at: [Connectivity libraries used to connect to Azure Database for MySQL](concepts-connection-libraries.md)
+- Code samples: For code samples that illustrate retry logic, see samples for the language of your choice at: [Connectivity libraries used to connect to Azure Database for MySQL](../flexible-server/concepts-connection-libraries.md)
 
 ## Managing connections
 Database connections are a limited resource, so we recommend sensible use of connections when accessing your MySQL database to achieve better performance.

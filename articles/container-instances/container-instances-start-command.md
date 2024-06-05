@@ -32,7 +32,7 @@ Like setting [environment variables](container-instances-environment-variables.m
 
 * Depending on the container configuration, you might need to set a full path to the command line executable or arguments.
 
-* Set an appropriate [restart policy](container-instances-restart-policy.md) for the container instance, depending on whether the command-line specifies a long-running task or a run-once task. For example, a restart policy of `Never` or `OnFailure` is recommended for a run-once task. 
+* Set an appropriate [restart policy](container-instances-restart-policy.md) for the container instance, depending on whether the command-line specifies a long-running task or a run-once task. For example, a restart policy of `Never` or `OnFailure` is recommended for a run-once task.
 
 * If you need information about the default entrypoint set in a container image, use the [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/) command.
 
@@ -44,15 +44,15 @@ The command line syntax varies depending on the Azure API or tool used to create
 
 * [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell cmdlet: Pass a string with the `-Command` parameter. Example: `-Command "echo hello"`.
 
-* Azure portal: In the **Command override** property of the container configuration, provide a comma-separated list of strings, without quotes. Example: `python, myscript.py, arg1, arg2`). 
+* Azure portal: In the **Command override** property of the container configuration, provide a comma-separated list of strings, without quotes. Example: `python, myscript.py, arg1, arg2`).
 
-* Resource Manager template or YAML file, or one of the Azure SDKs: Specify the command line property as an array of strings. Example: the JSON array `["python", "myscript.py", "arg1", "arg2"]` in a Resource Manager template. 
+* Resource Manager template or YAML file, or one of the Azure SDKs: Specify the command line property as an array of strings. Example: the JSON array `["python", "myscript.py", "arg1", "arg2"]` in a Resource Manager template.
 
   If you're familiar with [Dockerfile](https://docs.docker.com/engine/reference/builder/) syntax, this format is similar to the *exec* form of the CMD instruction.
 
 ### Examples
 
-|    |  Azure CLI   | Portal | Template | 
+|    |  Azure CLI   | Portal | Template |
 | ---- | ---- | --- | --- |
 | **Single command** | `--command-line "python myscript.py arg1 arg2"` | **Command override**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | **Multiple commands** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Command override**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
@@ -118,4 +118,3 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[portal]: https://portal.azure.com

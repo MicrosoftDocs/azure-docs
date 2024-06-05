@@ -4,10 +4,9 @@ description: Learn how to use Azure DNS to host the reverse DNS lookup zones for
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 04/27/2023
-ms.author: greglin 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.author: greglin
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -123,9 +122,9 @@ The following example explains the process of creating a PTR record for a revers
 
     :::image type="content" source="./media/dns-reverse-dns-hosting/create-record-set-ipv4.png" alt-text="Screenshot of create IPv4 pointer record set.":::
 
-1. The name of the record set for a PTR record is the rest of the IPv4 address in reverse order. 
+1. The name of the record set for a PTR record is the rest of the IPv4 address in reverse order.
 
-    In this example, the first three octets are already populated as part of the zone name `.2.0.192`. That's why only the last octet is needed in the **Name** box. For example, give your record set the name of **15** for a resource whose IP address is `192.0.2.15`.  
+    In this example, the first three octets are already populated as part of the zone name `.2.0.192`. That's why only the last octet is needed in the **Name** box. For example, give your record set the name of **15** for a resource whose IP address is `192.0.2.15`.
 
     :::image type="content" source="./media/dns-reverse-dns-hosting/create-ipv4-ptr.png" alt-text="Screenshot of create IPv4 pointer record.":::
 
@@ -145,7 +144,7 @@ New-AzDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -Reso
 #### Azure classic CLI
 
 ```azurecli
-azure network dns record-set add-record mydnsresourcegroup 2.0.192.in-addr.arpa 15 PTR --ptrdname dc1.contoso.com  
+azure network dns record-set add-record mydnsresourcegroup 2.0.192.in-addr.arpa 15 PTR --ptrdname dc1.contoso.com
 ```
 
 #### Azure CLI
@@ -162,13 +161,13 @@ The following example explains the process of creating new PTR record for IPv6. 
 
    :::image type="content" source="./media/dns-reverse-dns-hosting/create-record-set-ipv6.png" alt-text="Screenshot of create IPv6 pointer record set.":::
 
-1. The name of the record set for a PTR record is the rest of the IPv6 address in reverse order. It must not include any zero compression. 
+1. The name of the record set for a PTR record is the rest of the IPv6 address in reverse order. It must not include any zero compression.
 
     In this example, the first 64 bits of the IPv6 gets populated as part of the zone name (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). That's why only the last 64 bits are supplied in the **Name** box. The last 64 bits of the IP address gets entered in reverse order, with a period as the delimiter between each hexadecimal number. Name your record set **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** if you have a resource whose IP address is 2001:0db8:abdc:0000:f524:10bc:1af9:405e.
 
     :::image type="content" source="./media/dns-reverse-dns-hosting/create-ipv6-ptr.png" alt-text="Screenshot of create IPv6 pointer record.":::
 
-1. For *Type*, select **PTR**.  
+1. For *Type*, select **PTR**.
 
 1. For *DOMAIN NAME*, enter the FQDN of the resource that uses the IP.
 
@@ -185,9 +184,9 @@ New-AzDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -Zone
 #### Azure classic CLI
 
 ```azurecli
-azure network dns record-set add-record mydnsresourcegroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f PTR --ptrdname dc2.contoso.com 
+azure network dns record-set add-record mydnsresourcegroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f PTR --ptrdname dc2.contoso.com
 ```
- 
+
 #### Azure CLI
 
 ```azurecli-interactive
@@ -196,7 +195,7 @@ az network dns record-set ptr add-record -g mydnsresourcegroup -z 0.0.0.0.c.d.b.
 
 ## View records
 
-To view the records that you created, browse to your DNS zone in the Azure portal. In the lower part of the **DNS zone** pane, you can see the records for the DNS zone. You should see the default NS and SOA records, plus any new records that you've created. The NS and SOA records are created in every zone. 
+To view the records that you created, browse to your DNS zone in the Azure portal. In the lower part of the **DNS zone** pane, you can see the records for the DNS zone. You should see the default NS and SOA records, plus any new records that you've created. The NS and SOA records are created in every zone.
 
 ### IPv4
 

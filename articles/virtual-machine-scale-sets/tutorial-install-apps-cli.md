@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 11/22/2022
+ms.date: 12/19/2023
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 
@@ -21,7 +21,7 @@ To run applications on virtual machine (VM) instances in a scale set, you first 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
@@ -47,8 +47,11 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 > [!NOTE]
 > You may need to invert the use of the single (') and double quotes (") within the JSON block if you decide to reference the JSON directly (instead of referencing the *customConfig.json* file) in the *--settings* parameter below. 
 
-
 ## Create a scale set
+
+> [!IMPORTANT]
+> Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
@@ -61,7 +64,7 @@ Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss#az-
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --orchestration-mode Flexible \
   --admin-username azureuser \
   --generate-ssh-keys
@@ -83,6 +86,9 @@ az vmss extension set \
 ```
 
 Each VM instance in the scale set downloads and runs the script from GitHub. In a more complex example, multiple application components and files could be installed. If the scale set is scaled up, the new VM instances automatically apply the same Custom Script Extension definition and install the required application.
+
+> [!CAUTION]
+> File names are case sensitive. Use the exact file name stated in these instructions to avoid failure.
 
 ## Test your scale set
 To allow traffic to reach the web server, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule). The following example creates a rule named *myLoadBalancerRuleWeb*:
@@ -116,7 +122,7 @@ Enter the public IP address of the load balancer in to a web browser. The load b
 Leave the web browser open so that you can see an updated version in the next step.
 
 ## Update app deployment
-Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the `--upgrade-policy-mode` was set to *automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
+Throughout the lifecycle of a scale set, you might need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the `--upgrade-policy-mode` was set to *automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
 
 In your current shell, create a file named *customConfigv2.json* and paste the following configuration. This definition runs an updated *v2* version of the application install script:
 

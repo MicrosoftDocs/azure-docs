@@ -3,12 +3,12 @@ title: Azure VM Image Builder networking options
 description: Understand the networking options available to you when you deploy the Azure VM Image Builder service.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 08/10/2020
+ms.reviewer: jushiman
+ms.date: 07/25/2023
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-
+ms.custom: linux-related-content
 ---
 
 # Azure VM Image Builder networking options
@@ -46,6 +46,9 @@ If you use an existing virtual network, VM Image Builder deploys an additional V
 > The virtual network must be in the same region as the VM Image Builder service region.
 > 
 
+> [!IMPORTANT]
+> The Azure VM Image Builder service modifies the WinRM connection configuration on all Windows builds to use HTTPS on port 5986 instead of the default HTTP port on 5985. This configuration change can impact workflows that rely on WinRM communication.
+
 ### Why deploy a proxy VM?
 
 When a VM without a public IP is behind an internal load balancer, it doesn't have internet access. The load balancer used for the virtual network is internal. The proxy VM allows internet access for the build VM during builds. You can use the associated network security groups to restrict the build VM access.
@@ -55,18 +58,14 @@ The deployed proxy VM size is *Standard A1_v2*, in addition to the build VM. The
 ### Image template parameters to support the virtual network
 
 ```json
-"VirtualNetworkConfig": {
-        "name": "",
-        "subnetName": "",
-        "resourceGroupName": ""
+"vnetConfig": {
+        "subnetId": ""
         },
 ```
 
 | Setting | Description |
 |---------|---------|
-| `name` | (Optional) The name of a pre-existing virtual network. |
-| `subnetName` | The name of the subnet within the specified virtual network. You must specify this setting if, and only if, the `name` setting is specified. |
-| `resourceGroupName` | The name of the resource group containing the specified virtual network. You must specify this setting if, and only if, the `name` setting is specified. |
+| `subnetId` | Resource ID of a pre-existing subnet on which the build VM and validation VM is deployed. |
 
 Private Link requires an IP from the specified virtual network and subnet. Currently, Azure doesn’t support network policies on these IPs. Hence, you must disable network policies on the subnet. For more information, see the [Private Link documentation](../../private-link/index.yml).
 

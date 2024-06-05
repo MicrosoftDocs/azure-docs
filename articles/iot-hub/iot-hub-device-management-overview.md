@@ -94,7 +94,7 @@ IoT Hub enables the following set of device management patterns. The [device man
 
 [Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md)  is a comprehensive platform that customers can use to publish, distribute, and manage over-the-air updates for everything from tiny sensors to gateway-level devices. Device Update for IoT Hub allows customers to rapidly respond to security threats and deploy features to meet business objectives without incurring more development and maintenance costs of building custom update platforms.
 
-Device Update for IoT Hub offers optimized update deployment and streamlined operations through integration with Azure IoT Hub. With extended reach through Azure IoT Edge, it provides a cloud-hosted solution that connects virtually any device. It supports a broad range of IoT operating systems—including Linux and Azure RTOS (real-time operating system)—and is extensible via open source. Some features include:
+Device Update for IoT Hub offers optimized update deployment and streamlined operations through integration with Azure IoT Hub. With extended reach through Azure IoT Edge, it provides a cloud-hosted solution that connects virtually any device. It supports a broad range of IoT operating systems—including Linux and Eclipse ThreadX (real-time operating system)—and is extensible via open source. Some features include:
 
 * Support for updating edge devices, including the host-level components of Azure IoT Edge
 * Update management UX integrated with Azure IoT Hub
@@ -103,7 +103,7 @@ Device Update for IoT Hub offers optimized update deployment and streamlined ope
 * At-a-glance update compliance and status views across heterogenous device fleets
 * Support for resilient device updates (A/B) to deliver seamless rollback
 * Content caching and disconnected device support, including those devices that are in nested configurations, through built-in Microsoft Connected Cache and integration with Azure IoT Edge
-* Subscription and role-based access controls available through the Azure.com portal
+* Subscription and role-based access controls available via the [Azure portal](https://portal.azure.com)
 * Comprehensive cloud-to-edge security features and privacy controls
 
 For more information, see [Device Update for IoT Hub](../iot-hub-device-update/index.yml).

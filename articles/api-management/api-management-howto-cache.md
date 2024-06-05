@@ -1,29 +1,24 @@
 ---
 title: Add caching to improve performance in Azure API Management | Microsoft Docs
 description: Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls.
-services: api-management
-documentationcenter: ''
 author: dlepow
 manager: erikre
-editor: ''
-
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 03/20/2024
 ms.author: danlep
-
 ---
 
 # Add caching to improve performance in Azure API Management
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 APIs and operations in API Management can be configured with response caching. Response caching can significantly reduce latency for API callers and backend load for API providers.
 
 > [!IMPORTANT]
-> Built-in cache is volatile and is shared by all units in the same region in the same API Management service. Regardless of the cache type being used (internal or external), if the cache-related operations fail to connect to the cache due to the volatility of the cache or any other reason, the API call that uses the cache related operation doesn't raise an error, and the cache operation completes successfully. In the case of a read operation, a null value is returned to the calling policy expression. Your policy code should be designed to ensure that that there's a "fallback" mechanism to retrieve data not found in the cache.
-For more detailed information about caching, see [API Management caching policies](api-management-caching-policies.md) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
+> Built-in cache is volatile and is shared by all units in the same region in the same API Management service. Regardless of the cache type being used (internal or external), if the cache-related operations fail to connect to the cache due to the volatility of the cache or any other reason, the API call that uses the cache related operation doesn't raise an error, and the cache operation completes successfully. In the case of a read operation, a null value is returned to the calling policy expression. Your policy code should be designed to ensure that there's a "fallback" mechanism to retrieve data not found in the cache.
+For more detailed information about caching, see [API Management caching policies](api-management-policies.md#caching) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 ![cache policies](media/api-management-howto-cache/cache-policies.png)
 
@@ -33,10 +28,12 @@ What you'll learn:
 > * Add response caching for your API
 > * Verify caching in action
 
-## Availability
 
 > [!NOTE]
-> Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead.
+> Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead. You can also configure an external cache in other API Management service tiers.
+> 
+
+
 
 ## Prerequisites
 
@@ -49,7 +46,7 @@ To complete this tutorial:
 
 With caching policies shown in this example, the first request to the **GetSpeakers** operation returns a response from the backend service. This response is cached, keyed by the specified headers and query string parameters. Subsequent calls to the operation, with matching parameters, will have the cached response returned, until the cache duration interval has expired.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Browse to your APIM instance.
 3. Select the **API** tab.
 4. Click **Demo Conference API** from your API list.
@@ -78,7 +75,7 @@ With caching policies shown in this example, the first request to the **GetSpeak
     **Duration** specifies the expiration interval of the cached responses. In this example, the interval is **20** seconds.
 
 > [!TIP]
-> If you are using an external cache, as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md), you may want to specify the `caching-type` attribute of the caching policies. See [API Management caching policies](api-management-caching-policies.md) for more details.
+> If you are using an external cache, as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md), you may want to specify the `caching-type` attribute of the caching policies. See [API Management caching policies](api-management-policies.md#caching) for more details.
 
 ## <a name="test-operation"> </a>Call an operation and test the caching
 To see the caching in action, call the operation from the developer portal.
@@ -115,7 +112,7 @@ To see the caching in action, call the operation from the developer portal.
 [Get started with Azure API Management]: get-started-create-service-instance.md
 
 [API Management policy reference]: ./api-management-policies.md
-[Caching policies]: ./api-management-caching-policies.md
+[Caching policies]: ./api-management-policies.md#caching
 
 [Create an API Management service instance]: get-started-create-service-instance.md
 

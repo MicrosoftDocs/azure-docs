@@ -2,20 +2,20 @@
 title: Use software environments CLI v1
 titleSuffix: Azure Machine Learning
 description: Create and manage environments for model training and deployment with CLI v1. Manage Python packages and other settings for the environment.
-author: ositanachi  
-ms.author: osiotugo 
+author: ositanachi
+ms.author: osiotugo
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/19/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, cliv1
 ms.devlang: azurecli
 ---
 
 # Create & use software environments in Azure Machine Learning with CLI v1
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 
 In this article, learn how to create and manage Azure Machine Learning [environments](/python/api/azureml-core/azureml.core.environment.environment) using CLI v1. Use the environments to track and reproduce your projects' software dependencies as they evolve. The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) v1 mirrors most of the functionality of the Python SDK v1. You can use it to create and manage environments.
@@ -28,7 +28,7 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 
 * An [Azure Machine Learning workspace](../quickstart-create-resources.md)
 
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Scaffold an environment
 

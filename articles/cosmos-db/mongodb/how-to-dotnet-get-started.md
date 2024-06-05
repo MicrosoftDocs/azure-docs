@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 10/17/2022
-ms.custom: devx-track-dotnet, ignite-2022, devguide-csharp, cosmos-db-dev-journey
+ms.custom: devx-track-dotnet, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Get started with Azure Cosmos DB for MongoDB using .NET
@@ -27,7 +27,7 @@ This article shows you how to connect to Azure Cosmos DB for MongoDB using .NET 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - [.NET 6.0](https://dotnet.microsoft.com/download)
 - [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
-- [Azure Cosmos DB for MongoDB resource](quickstart-dotnet.md#create-an-azure-cosmos-db-account)
+- [Azure Cosmos DB for MongoDB resource](../nosql/how-to-dotnet-create-database.md)
 
 ## Create a new .NET Core app
 
@@ -57,11 +57,11 @@ To connect to Azure Cosmos DB with the MongoDB native driver, create an instance
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - get resource name](<./includes/azure-cli-get-resource-name.md>)]
+[!INCLUDE [Azure CLI - get resource name](./includes/azure-cli-get-resource-name.md)]
 
 ### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - set resource name](<./includes/powershell-set-resource-name.md>)]
+[!INCLUDE [Powershell - set resource name](./includes/powershell-set-resource-name.md)]
 
 ### [Portal](#tab/azure-portal)
 
@@ -73,24 +73,24 @@ Skip this step and use the information for the portal in the next step.
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - get connection string](<./includes/azure-cli-get-connection-string.md>)]
+[!INCLUDE [Azure CLI - get connection string](./includes/azure-cli-get-connection-string.md)]
 
 ### [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
+[!INCLUDE [Powershell - get connection string](./includes/powershell-get-connection-string.md)]
 
 ### [Portal](#tab/azure-portal)
 
 > [!TIP]
 > For this guide, we recommend using the resource group name ``msdocs-cosmos``.
 
-[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-sign-in.md>)]
+[!INCLUDE [Portal - get connection string](./includes/portal-get-connection-string-from-sign-in.md)]
 
 ---
 
 ## Configure environment variables
 
-[!INCLUDE [Multitab - store connection string in environment variable](<./includes/environment-variables-connection-string.md>)]
+[!INCLUDE [Multitab - store connection string in environment variable](./includes/environment-variables-connection-string.md)]
 
 ## Create MongoClient with connection string
 
@@ -100,7 +100,7 @@ Define a new instance of the ``MongoClient`` class using the constructor and the
 
 ## Use the MongoDB client classes with Azure Cosmos DB for API for MongoDB
 
-[!INCLUDE [Conceptual object model](<./includes/conceptual-object-model.md>)]
+[!INCLUDE [Conceptual object model](./includes/conceptual-object-model.md)]
 
 Each type of resource is represented by one or more associated C# classes. Here's a list of the most common classes:
 

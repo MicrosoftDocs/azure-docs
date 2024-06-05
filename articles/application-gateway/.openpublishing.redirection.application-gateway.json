@@ -1,0 +1,310 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-webapplicationfirewall-overview.md",
+            "redirect_url": "/azure/web-application-firewall/ag/ag-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/waf-overview.md",
+            "redirect_url": "/azure/web-application-firewall/ag/ag-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-crs-rulegroups-rules.md",
+            "redirect_url": "/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-customize-waf-rules-cli.md",
+            "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-customize-waf-rules-portal.md",
+            "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-customize-waf-rules-powershell.md",
+            "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-waf-configuration.md",
+            "redirect_url": "/azure/web-application-firewall/ag/application-gateway-waf-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-web-application-firewall-portal.md",
+            "redirect_url": "/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/configure-waf-custom-rules.md",
+            "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/create-custom-waf-rules.md",
+            "redirect_url": "/azure/web-application-firewall/ag/create-custom-waf-rules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/custom-waf-rules-overview.md",
+            "redirect_url": "/azure/web-application-firewall/ag/custom-waf-rules-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-restrict-web-traffic-cli.md",
+            "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-restrict-web-traffic-powershell.md",
+            "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/web-application-firewall-troubleshoot.md",
+            "redirect_url": "/azure/web-application-firewall/ag/web-application-firewall-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/configuration-front-end-ip.md",
+            "redirect_url": "/azure/application-gateway/configuration-frontend-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-protect-application-gateway.md",
+            "redirect_url": "/azure/application-gateway/tutorial-protect-application-gateway-ddos",
+            "redirect_document_id": false
+        },
+        
+        {
+            "source_path_from_root": "/articles/application-gateway/rewrite-http-headers.md",
+            "redirect_url": "/azure/application-gateway/rewrite-http-headers-url",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-ilb.md",
+            "redirect_url": "/azure/application-gateway/application-gateway-ilb-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/create-waf-portal.md",
+            "redirect_url": "/azure/application-gateway/application-gateway-web-application-firewall-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-create-multisite-portal.md",
+            "redirect_url": "/azure/application-gateway/create-multiple-sites-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-ssl-portal.md",
+            "redirect_url": "/azure/application-gateway/create-ssl-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-create-url-route-portal.md",
+            "redirect_url": "/azure/application-gateway/create-url-route-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-web-app-powershell.md",
+            "redirect_url": "/azure/application-gateway/create-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-covid-guidelines.md",
+            "redirect_url": "/azure/application-gateway/high-traffic-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-multi-site-overview.md",
+            "redirect_url": "/azure/application-gateway/multiple-site-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-introduction.md",
+            "redirect_url": "/azure/application-gateway/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/whats-new.md",
+            "redirect_url": "/azure/application-gateway/overview#whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-create-gateway-cli.md",
+            "redirect_url": "/azure/application-gateway/quick-create-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-create-gateway-cli-nodejs.md",
+            "redirect_url": "/azure/application-gateway/quick-create-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-create-gateway-portal.md",
+            "redirect_url": "/azure/application-gateway/quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-create-gateway.md",
+            "redirect_url": "/azure/application-gateway/quick-create-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-create-gateway-arm.md",
+            "redirect_url": "/azure/application-gateway/quick-create-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-external-site-redirect-cli.md",
+            "redirect_url": "/azure/application-gateway/redirect-external-site-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-external-site-redirect-powershell.md",
+            "redirect_url": "/azure/application-gateway/redirect-external-site-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-http-redirect-cli.md",
+            "redirect_url": "/azure/application-gateway/redirect-http-to-https-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-http-redirect-powershell.md",
+            "redirect_url": "/azure/application-gateway/redirect-http-to-https-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-internal-site-redirect-cli.md",
+            "redirect_url": "/azure/application-gateway/redirect-internal-site-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-internal-site-redirect-powershell.md",
+            "redirect_url": "/azure/application-gateway/redirect-internal-site-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-redirect-overview.md",
+            "redirect_url": "/azure/application-gateway/redirect-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-create-gateway-arm-template.md",
+            "redirect_url": "/azure/application-gateway/resource-manager-template-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/create-vmss-template.md",
+            "redirect_url": "/azure/application-gateway/resource-manager-template-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-backend-ssl.md",
+            "redirect_url": "/azure/application-gateway/ssl-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/create-zone-redundant.md",
+            "redirect_url": "/azure/application-gateway/tutorial-autoscale-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-ingress-controller-add-on.md",
+            "redirect_url": "/azure/application-gateway/tutorial-ingress-controller-add-on-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-create-vmss-powershell.md",
+            "redirect_url": "/azure/application-gateway/tutorial-manage-web-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-multisite-cli.md",
+            "redirect_url": "/azure/application-gateway/tutorial-multiple-sites-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-create-multisite-azureresourcemanager-powershell.md",
+            "redirect_url": "/azure/application-gateway/tutorial-multiple-sites-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-web-application-firewall-cli.md",
+            "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-web-application-firewall-powershell.md",
+            "redirect_url": "/azure/application-gateway/tutorial-restrict-web-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-ssl-cli.md",
+            "redirect_url": "/azure/application-gateway/tutorial-ssl-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-ssl.md",
+            "redirect_url": "/azure/application-gateway/tutorial-ssl-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-ssl-arm.md",
+            "redirect_url": "/azure/application-gateway/tutorial-ssl-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/tutorial-create-vmss-cli.md",
+            "redirect_url": "/azure/application-gateway/tutorial-url-redirect-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-configure-redirect-powershell.md",
+            "redirect_url": "/azure/application-gateway/tutorial-url-redirect-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-create-url-route-cli.md",
+            "redirect_url": "/azure/application-gateway/tutorial-url-route-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-create-url-route-arm-ps.md",
+            "redirect_url": "/azure/application-gateway/tutorial-url-route-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-url-route-overview.md",
+            "redirect_url": "/azure/application-gateway/url-route-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-web-application-firewall-overview.md",
+            "redirect_url": "/azure/application-gateway/waf-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/create-web-app.md",
+            "redirect_url": "/azure/application-gateway/configure-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/configure-web-app-portal.md",
+            "redirect_url": "/azure/application-gateway/configure-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-web-app-overview.md",
+            "redirect_url": "/azure/application-gateway/configure-web-app",
+            "redirect_document_id": false
+        }
+    ]
+}

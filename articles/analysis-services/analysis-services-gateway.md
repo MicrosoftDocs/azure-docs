@@ -1,11 +1,11 @@
 ---
 title: Learn about the On-premises data gateway for Azure Analysis Services | Microsoft Docs
 description: An On-premises gateway is necessary if your Analysis Services server in Azure will connect to on-premises data sources.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 01/27/2023
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: minewiskan
 ---
 # Connecting to on-premises data sources with On-premises data gateway
@@ -16,7 +16,7 @@ Information provided here is specific to how Azure Analysis Services works with 
 
 For Azure Analysis Services, getting setup with the gateway the first time is a four-part process:
 
-- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD. Azure B2B (guest) accounts are not supported.
+- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Microsoft Entra ID. Azure B2B (guest) accounts are not supported.
 
 - **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but it's recommended it be in the same region as your Analysis Services servers. 
 

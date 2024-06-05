@@ -8,7 +8,7 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: rosouz
 ms.reviewer: sngun, wiassaf, sidandrews
-ms.custom: cosmos-db, mode-other, event-tier1-build-2022, ignite-2022
+ms.custom: cosmos-db, mode-other
 ---
 
 # Copy data from Azure Cosmos DB into a dedicated SQL pool using Apache Spark

@@ -2,13 +2,11 @@
 title: "Tutorial: Use dynamic configuration in an ASP.NET Core app"
 titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET Core apps.
-services: azure-app-configuration
-documentationcenter: ""
 author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/30/2022
+ms.date: 02/20/2024
 ms.author: zhenlwa
 ms.custom: devx-track-csharp
 ---
@@ -39,7 +37,6 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 1. Open *Program.cs*, and update the `AddAzureAppConfiguration` method you added previously during the quickstart.
 
-    #### [.NET 6.x](#tab/core6x)
     ```csharp
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
@@ -53,35 +50,6 @@ A *sentinel key* is a key that you update after you complete the change of all o
     });
     ```
 
-    #### [.NET Core 3.x](#tab/core3x)
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.ConfigureAppConfiguration(config =>
-                {
-                    //Retrieve the Connection String from the secrets manager
-                    IConfiguration settings = config.Build();
-                    string connectionString = settings.GetConnectionString("AppConfig");
-
-                    // Load configuration from Azure App Configuration
-                    config.AddAzureAppConfiguration(options =>
-                    {
-                        options.Connect(connectionString)
-                               // Load all keys that start with `TestApp:` and have no label
-                               .Select("TestApp:*", LabelFilter.Null)
-                               // Configure to reload configuration if the registered sentinel key is modified
-                               .ConfigureRefresh(refreshOptions =>
-                                    refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
-                    });
-                });
-
-                webBuilder.UseStartup<Startup>();
-            });
-    ```
-    ---
-
     The `Select` method is used to load all key-values whose key name starts with *TestApp:* and that have *no label*. You can call the `Select` method more than once to load configurations with different prefixes or labels. If you share one App Configuration store with multiple apps, this approach helps load configuration only relevant to your current app instead of loading everything from your store.
 
     In the `ConfigureRefresh` method, you register keys you want to monitor for changes in your App Configuration store. The `refreshAll` parameter to the `Register` method indicates that all configurations you specified by the `Select` method will be reloaded if the registered key changes.
@@ -91,7 +59,6 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 1. Add Azure App Configuration middleware to the service collection of your app.
 
-    #### [.NET 6.x](#tab/core6x)
     Update *Program.cs* with the following code. 
 
     ```csharp
@@ -112,26 +79,8 @@ A *sentinel key* is a key that you update after you complete the change of all o
     // ... ...
     ```
 
-    #### [.NET Core 3.x](#tab/core3x)
-    Open *Startup.cs*, and update the `ConfigureServices` method.
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddRazorPages();
-
-        // Add Azure App Configuration middleware to the container of services.
-        services.AddAzureAppConfiguration();
-
-        // Bind configuration "TestApp:Settings" section to the Settings object
-        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-    }   
-    ```
-    ---
-
 1. Call the `UseAzureAppConfiguration` method. It enables your app to use the App Configuration middleware to update the configuration for you automatically.
 
-    #### [.NET 6.x](#tab/core6x)
     Update *Program.cs* withe the following code. 
 
     ```csharp
@@ -153,40 +102,6 @@ A *sentinel key* is a key that you update after you complete the change of all o
     // ... ...
     ```
 
-    #### [.NET Core 3.x](#tab/core3x)
-    Update the `Configure` method in *Startup.cs*.
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-        if (env.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
-        else
-        {
-            app.UseExceptionHandler("/Error");
-            app.UseHsts();
-        }
-
-        // Use Azure App Configuration middleware for dynamic configuration refresh.
-        app.UseAzureAppConfiguration();
-
-        app.UseHttpsRedirection();
-        app.UseStaticFiles();
-
-        app.UseRouting();
-
-        app.UseAuthorization();
-
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapRazorPages();
-        });
-    }
-    ```
-    ---
-
 You've set up your app to use the [options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) during the quickstart. When the underlying configuration of your app is updated from App Configuration, your strongly typed `Settings` object obtained via `IOptionsSnapshot<T>` is updated automatically. Note that you shouldn't use the `IOptions<T>` if dynamic configuration update is desired because it doesn't read configuration data after the app has started.
     
 ## Request-driven configuration refresh
@@ -199,7 +114,7 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
 ## Build and run the app locally
 
-1. To build the app by using the .NET Core CLI, run the following command in the command shell:
+1. To build the app by using the .NET CLI, run the following command in the command shell:
 
     ```console
         dotnet build

@@ -1,8 +1,8 @@
 ---
 title: Add a line layer to Android maps | Microsoft Azure Maps
 description: Learn how to add lines to maps. See examples that use the Azure Maps Android SDK to add line layers to maps and to customize lines with symbols and color gradients.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -13,6 +13,12 @@ zone_pivot_groups: azure-maps-android
 
 # Add a line layer to the map (Android SDK)
 
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
 A line layer can be used to render `LineString` and `MultiLineString` features as paths or routes on the map. A line layer can also be used to render the outline of `Polygon` and `MultiPolygon` features. A data source is connected to a line layer to provide it with data to render.
 
 > [!TIP]
@@ -20,7 +26,7 @@ A line layer can be used to render `LineString` and `MultiLineString` features a
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document. Code blocks in this article can be inserted into the maps `onReady` event handler.
+Be sure to complete the steps in the [Quickstart: Create an Android app] document. Code blocks in this article can be inserted into the maps `onReady` event handler.
 
 ## Add a line layer
 
@@ -461,10 +467,15 @@ The following screenshot shows the above code displaying a line with arrow icons
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-android-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-android-sdk.md)
+> [Use data-driven style expressions]
 
 > [!div class="nextstepaction"]
-> [Add a polygon layer](how-to-add-shapes-to-android-map.md)
+> [Add a polygon layer]
+
+[Add a polygon layer]: how-to-add-shapes-to-android-map.md
+[Create a data source]: create-data-source-android-sdk.md
+[Quickstart: Create an Android app]: quick-android-map.md
+[Use data-driven style expressions]: data-driven-style-expressions-android-sdk.md

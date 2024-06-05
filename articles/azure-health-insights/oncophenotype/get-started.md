@@ -1,32 +1,32 @@
 ---
-title: Use Onco Phenotype 
-titleSuffix: Project Health Insights
-description: This article describes how to use the Onco Phenotype
+title: Use Onco-Phenotype 
+titleSuffix: Azure AI Health Insights
+description: This article describes how to use the Onco-Phenotype
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: quickstart
-ms.date: 01/26/2023
+ms.date: 05/05/2024
 ms.author: behoorne
 ---
 
 
-# Quickstart: Use the Onco Phenotype model
+# Quickstart: Use the Onco-Phenotype model
 
-This quickstart provides an overview on how to use the Onco Phenotype.
+This quickstart provides an overview on how to use the Onco-Phenotype.
 
 ## Prerequisites
-To use the Onco Phenotype model, you must have a Cognitive Services account created. If you haven't already created a Cognitive Services account, see [Deploy Project Health Insights using the Azure portal.](../deploy-portal.md)
+To use the Onco-Phenotype model, you must have an Azure AI services account created. If you haven't already created an Azure AI services account, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
 
-Once deployment is complete, you use the Azure portal to navigate to the newly created Cognitive Services account to see the details, including your Service URL. The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
+Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI services account to see the details, including your Service URL. The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
 
 
 ## Example request and results
 
-To send an API request, you need your Cognitive Services account endpoint and key. You can also find a full view on the [request parameters here](../request-info.md)
+To send an API request, you need your Azure AI services account endpoint and key. You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/onco-phenotype/create-job). 
 
-![Screenshot of the Keys and Endpoints for the Onco Phenotype.](../media/keys-and-endpoints.png) 
+![[Screenshot of the Keys and Endpoints for the Onco-Phenotype.](../media/keys-and-endpoints.png)](../media/keys-and-endpoints.png#lightbox)
 
 > [!IMPORTANT]
 > Prediction is performed upon receipt of the API request and the results will be returned asynchronously. The API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
@@ -35,7 +35,7 @@ To send an API request, you need your Cognitive Services account endpoint and ke
 
 ### Starting with a request that contains a case
 
-You can use the data from this example, to test your first request to the Onco Phenotype model.
+You can use the data from this example, to test your first request to the Onco-Phenotype model.
 
 ```url
 POST http://{cognitive-services-account-endpoint}/healthinsights/oncophenotype/jobs?api-version=2023-03-01-preview
@@ -70,7 +70,7 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 ```
 ### Evaluating a response that contains a case
 
-You get the status of the job by sending a request to the Onco Phenotype model and adding the job ID from the initial request in the URL, as seen in the code snippet:
+You get the status of the job by sending a request to the Onco-Phenotype model and adding the job ID from the initial request in the URL, as seen in the code snippet:
 
 ```url 
 GET http://{cognitive-services-account-endpoint}/healthinsights/oncophenotype/jobs/385903b2-ab21-4f9e-a011-43b01f78f04e?api-version=2023-03-01-preview
@@ -137,11 +137,12 @@ GET http://{cognitive-services-account-endpoint}/healthinsights/oncophenotype/jo
 }
 ```
 
-More information on the [response information can be found here](../response-info.md)
+You can also find a full view of the [response parameters here](/rest/api/cognitiveservices/healthinsights/onco-phenotype/get-job)
+
 
 ## Request validation
 
-Every request has required and optional fields that should be provided to the Onco Phenotype model.
+Every request has required and optional fields that should be provided to the Onco-Phenotype model.
 When you're sending data to the model, make sure that you take the following properties into account:
 
 Within a request:

@@ -1,17 +1,21 @@
 ---
 title: Policy keys overview - Azure Active Directory B2C
 description: Learn about the types of encryption policy keys that can be used in Azure Active Directory B2C for signing and validating tokens, client secrets, certificates, and passwords.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/20/2021
+
+ms.topic: concept-article
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to understand how to manage policy keys, so that I can establish trust with external identity providers, REST API services, and configure encryption and signing for token validation.
+
 ---
 
 # Overview of policy keys in Azure Active Directory B2C
@@ -79,8 +83,7 @@ To get the current active key within a key container, use the Microsoft Graph AP
 To add or delete signing and encryption keys:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. On the overview page, under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy Keys** 

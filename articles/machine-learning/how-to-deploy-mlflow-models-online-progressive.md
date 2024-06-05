@@ -10,13 +10,13 @@ ms.author: fasantia
 ms.reviewer: mopeakande
 ms.date: 03/31/2022
 ms.topic: how-to
-ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2, event-tier1-build-2022
+ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2
 ms.devlang: azurecli
 ---
 
 # Progressive rollout of MLflow models to Online Endpoints
 
-In this article, you'll learn how you can progressively update and deploy MLflow models to Online Endpoints without causing service disruption. You'll use blue-green deployment, also known as a safe rollout strategy, to introduce a new version of a web service to production. This strategy will allow you to roll out your new version of the web service to a small subset of users or requests before rolling it out completely.
+In this article, you learn how you can progressively update and deploy MLflow models to Online Endpoints without causing service disruption. You use blue-green deployment, also known as a safe rollout strategy, to introduce a new version of a web service to production. This strategy will allow you to roll out your new version of the web service to a small subset of users or requests before rolling it out completely.
 
 ## About this example
 
@@ -59,7 +59,7 @@ Additionally, you will need to:
     pip install mlflow azureml-mlflow
     ```
 
-- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md) for more details.
+- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. Learn how to [configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md).
 
 ---
 
@@ -109,9 +109,10 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
     from mlflow.deployments import get_deploy_client
     ```
 
-1. Configure the deployment client
+1. Configure the MLflow client and the deployment client:
 
     ```python
+    mlflow_client = mlflow.MLflowClient()
     deployment_client = get_deploy_client(mlflow.get_tracking_uri())    
     ```
 
@@ -220,7 +221,7 @@ We are going to exploit this functionality by deploying multiple versions of the
     
     # [Python (MLflow SDK)](#tab/mlflow)
 
-    We can configure the properties of this endpoint using a configuration file. In this case, we are configuring the authentication mode of the endpoint to be "key".
+    We can configure the properties of this endpoint using a configuration file. We configure the authentication mode of the endpoint to be "key" in the following example:
     
     ```python
     endpoint_config = {
@@ -280,11 +281,11 @@ We are going to exploit this functionality by deploying multiple versions of the
     
     # [Python (MLflow SDK)](#tab/mlflow)
 
-    This functionality is not available in the MLflow SDK. Go to [Azure Machine Learning studio](https://ml.azure.com), navigate to the endpoint and retrieve the secret key from there.
+    This functionality is not available in the MLflow SDK. Go to [Azure Machine Learning studio](https://ml.azure.com), navigate to the endpoint, and retrieve the secret key from there.
 
 ### Create a blue deployment
 
-So far, the endpoint is empty. There are no deployments on it. Let's create the first one by deploying the same model we were working on before. We will call this deployment "default" and it will represent our "blue deployment".
+So far, the endpoint is empty. There are no deployments on it. Let's create the first one by deploying the same model we were working on before. We will call this deployment "default", representing our "blue deployment".
 
 1. Configure the deployment
 
@@ -316,6 +317,19 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
         model=model,
         instance_type="Standard_DS2_v2",
         instance_count=1,
+    )
+    ```
+
+    If your endpoint doesn't have egress connectivity, use [model packaging (preview)](how-to-package-models.md) by including the argument `with_package=True`:
+
+    ```python
+    blue_deployment = ManagedOnlineDeployment(
+        name=blue_deployment_name,
+        endpoint_name=endpoint_name,
+        model=model,
+        instance_type="Standard_DS2_v2",
+        instance_count=1,
+        with_package=True,
     )
     ```
     
@@ -351,6 +365,12 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     
     ```azurecli
     az ml online-deployment create --endpoint-name $ENDPOINT_NAME -f blue-deployment.yml --all-traffic
+    ```
+
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `--with-package`:
+
+    ```azurecli
+    az ml online-deployment create --with-package --endpoint-name $ENDPOINT_NAME -f blue-deployment.yml --all-traffic
     ```
     
     > [!TIP]
@@ -593,6 +613,19 @@ Let's imagine that there is a new version of the model created by the developmen
         instance_count=1,
     )
     ```
+
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the argument `with_package=True`:
+
+    ```python
+    green_deployment = ManagedOnlineDeployment(
+        name=green_deployment_name,
+        endpoint_name=endpoint_name,
+        model=model,
+        instance_type="Standard_DS2_v2",
+        instance_count=1,
+        with_package=True,
+    )
+    ```
     
     # [Python (MLflow SDK)](#tab/mlflow)
 
@@ -626,6 +659,12 @@ Let's imagine that there is a new version of the model created by the developmen
     
     ```azurecli
     az ml online-deployment create -n $GREEN_DEPLOYMENT_NAME --endpoint-name $ENDPOINT_NAME -f green-deployment.yml
+    ```
+
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `--with-package`:
+
+    ```azurecli
+    az ml online-deployment create --with-package -n $GREEN_DEPLOYMENT_NAME --endpoint-name $ENDPOINT_NAME -f green-deployment.yml
     ```
     
     # [Python (Azure Machine Learning SDK)](#tab/sdk)

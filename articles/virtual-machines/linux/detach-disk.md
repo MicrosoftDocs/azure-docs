@@ -2,32 +2,30 @@
 title: Detach a data disk from a Linux VM - Azure
 description: Learn to detach a data disk from a virtual machine in Azure using Azure CLI or the Azure portal.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 08/09/2023
 ms.author: rogarana
-ms.subservice: disks 
-ms.custom: devx-track-azurecli
-
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 # How to detach a data disk from a Linux virtual machine
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. In this article, we are working with an Ubuntu LTS 16.04 distribution. If you are using a different distribution, the instructions for unmounting the disk might be different.
 
 > [!WARNING]
 > If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
-If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.  
+If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
 
 
 ## Connect to the VM to unmount the disk
 
 Before you can detach the disk using either CLI or the portal, you need to unmount the disk and removed references to if from your fstab file.
 
-Connect to the VM. In this example, the public IP address of the VM is *10.0.1.4* with the username *azureuser*: 
+Connect to the VM. In this example, the public IP address of the VM is *10.0.1.4* with the username *azureuser*:
 
 ```bash
 ssh azureuser@10.0.1.4
@@ -64,7 +62,7 @@ The output looks similar to the following example:
 ```
 
 
-Edit the */etc/fstab* file to remove references to the disk. 
+Edit the */etc/fstab* file to remove references to the disk.
 
 > [!NOTE]
 > Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
@@ -84,7 +82,7 @@ sudo umount /dev/sdc1 /datadrive
 ```
 
 
-## Detach a data disk using Azure CLI 
+## Detach a data disk using Azure CLI
 
 This example detaches the *myDataDisk* disk from VM named *myVM* in *myResourceGroup*.
 
@@ -105,7 +103,7 @@ In select regions, the disk detach latency has been reduced, so you'll see an im
 
 1. In the left menu, select **Virtual Machines**.
 1. In the virtual machine blade, select **Disks**.
-1. In the **Disks** blade, to the far right of the data disk that you would like to detach, select the **X** button, to detach the disk.
+1. In the **Disks** blade, to the far right of the data disk that you would like to detach, select the detach button, to detach the disk.
 1. After the disk has been removed, select **Save** on the top of the blade.
 
 The disk stays in storage but is no longer attached to a virtual machine. The disk is not deleted.
@@ -113,4 +111,4 @@ The disk stays in storage but is no longer attached to a virtual machine. The di
 ## Next steps
 If you want to reuse the data disk, you can just [attach it to another VM](add-disk.md).
 
-If you want to delete the disk, so that you no longer incur storage costs, see [Find and delete unattached Azure managed and unmanaged disks - Azure portal](../disks-find-unattached-portal.md).
+If you want to delete the disk, so that you no longer incur storage costs, see [Find and delete unattached Azure managed and unmanaged disks - Azure portal](../disks-find-unattached-portal.yml).

@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 03/28/2023
+ms.date: 02/20/2024
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -20,12 +20,13 @@ The feature management support extends the dynamic configuration feature in App 
 ## Prerequisites
 
 Follow the documents to create an ASP.NET Core app with dynamic configuration.
+
 - [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md)
 - [Tutorial: Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
 
 ## Create a feature flag
 
-Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
@@ -40,7 +41,6 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call.
 
-    #### [.NET 6.x](#tab/core6x)
     ```csharp
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
@@ -57,40 +57,8 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     });
     ```
 
-    #### [.NET Core 3.x](#tab/core3x)
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.ConfigureAppConfiguration(config =>
-                {
-                    //Retrieve the Connection String from the secrets manager
-                    IConfiguration settings = config.Build();
-                    string connectionString = settings.GetConnectionString("AppConfig");
-
-                    // Load configuration from Azure App Configuration
-                    config.AddAzureAppConfiguration(options =>
-                    {
-                        options.Connect(connectionString)
-                               // Load all keys that start with `TestApp:` and have no label
-                               .Select("TestApp:*", LabelFilter.Null)
-                               // Configure to reload configuration if the registered sentinel key is modified
-                               .ConfigureRefresh(refreshOptions =>
-                                    refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
-
-                        // Load all feature flags with no label
-                        options.UseFeatureFlags();
-                    });
-                });
-
-                webBuilder.UseStartup<Startup>();
-            });
-    ```
-    ---
-
     > [!TIP]
-    > When no parameter is passed to the `UseFeatureFlags` method, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh expiration of feature flags is 30 seconds. You can customize this behavior via the `FeatureFlagOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh expiration time to 5 minutes. Note that this refresh expiration time is separate from that for regular key-values.
+    > When no parameter is passed to the `UseFeatureFlags` method, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh interval of feature flags is 30 seconds. You can customize this behavior via the `FeatureFlagOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh interval time to 5 minutes. Note that this refresh interval time is separate from that for regular key-values.
     >
     > ```csharp
     > options.UseFeatureFlags(featureFlagOptions =>
@@ -102,7 +70,6 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Add feature management to the service collection of your app by calling `AddFeatureManagement`.
 
-    #### [.NET 6.x](#tab/core6x)
     Update *Program.cs* with the following code. 
 
     ```csharp
@@ -126,27 +93,10 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     // ... ...
     ```
 
-    #### [.NET Core 3.x](#tab/core3x)
-    Open *Startup.cs*, and update the `ConfigureServices` method.
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddRazorPages();
-
-        // Add Azure App Configuration middleware to the container of services.
-        services.AddAzureAppConfiguration();
-
-        // Add feature management to the container of services.
-        services.AddFeatureManagement();
-
-        // Bind configuration "TestApp:Settings" section to the Settings object
-        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-    }   
-    ```
-    ---
-
     Add `using Microsoft.FeatureManagement;` at the top of the file if it's not present.
+
+    > [!NOTE]
+    > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
 
 1. Add a new empty Razor page named **Beta** under the *Pages* directory. It includes two files *Beta.cshtml* and *Beta.cshtml.cs*.
 
@@ -162,7 +112,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     <h1>This is the beta website.</h1>
     ```
 
-    Open *Beta.cshtml.cs*, and add `FeatureGate` attribute to the `BetaModel` class. The `FeatureGate` attribute ensures the *Beta* page is accessible only when the *Beta* feature flag is enabled. If the *Beta* feature flag isn't enabled, the page will return 404 Not Found.
+    Open *Beta.cshtml.cs*, and add `FeatureGate` attribute to the `BetaModel` class. The `FeatureGate` attribute ensures the **Beta** page is accessible only when the *Beta* feature flag is enabled. If the *Beta* feature flag isn't enabled, the page will return 404 Not Found.
 
     ```csharp
     using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -180,7 +130,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     }   
     ```
 
-1. Open *Pages/_ViewImports.cshtml*, and register the feature manager Tag Helper using an `@addTagHelper` directive:
+1. Open *Pages/_ViewImports.cshtml*, and register the feature manager Tag Helper using an `@addTagHelper` directive.
 
     ```cshtml
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
@@ -188,11 +138,11 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
     The preceding code allows the `<feature>` Tag Helper to be used in the project's *.cshtml* files.
 
-1. Open *_Layout.cshtml* in the *Pages*\\*Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
+1. Open *_Layout.cshtml* in the *Pages/Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
     :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
-    The `<feature>` tag ensures the *Beta* menu item is shown only when the *Beta* feature flag is enabled.
+    The `<feature>` tag ensures the **Beta** menu item is shown only when the *Beta* feature flag is enabled.
 
 ## Build and run the app locally
 
@@ -214,13 +164,13 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created previously. 
 
-1. Select **Feature manager** and locate the **Beta** feature flag. Enable the flag by selecting the checkbox under **Enabled**.
+1. Select **Feature manager** and locate the *Beta* feature flag. Enable the flag by selecting the checkbox under **Enabled**.
 
-1. Refresh the browser a few times. When the cache expires after 30 seconds, the page shows with updated content.
+1. Refresh the browser a few times. When the refresh interval time window passes, the page will show with updated content.
 
     ![Feature flag after enabled](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
-1. Select the *Beta* menu. It will bring you to the beta website that you enabled dynamically.
+1. Select the **Beta** menu. It will bring you to the beta website that you enabled dynamically.
 
     ![Feature flag beta page](./media/quickstarts/aspnet-core-feature-flag-local-beta.png)
 

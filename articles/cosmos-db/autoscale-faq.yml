@@ -1,11 +1,10 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about autoscale provisioned throughput in Azure Cosmos DB 
+  title: Frequently asked questions about autoscale provisioned throughput in Azure Cosmos DB
   description: Frequently asked questions about autoscale provisioned throughput for Azure Cosmos DB databases and containers.
   author: deborahc
   ms.author: dech
   ms.service: cosmos-db
-  ms.custom: ignite-2022
   ms.topic: faq
   ms.date: 04/01/2022
 title: Frequently asked questions about autoscale provisioned throughput in Azure Cosmos DB
@@ -16,7 +15,7 @@ summary: |
 
 sections:
   - name: General
-    questions:        
+    questions:
       - question: |
           What's the difference between autoscale and autopilot in Azure Cosmos DB?
         answer: |
@@ -98,7 +97,7 @@ sections:
           
           For a container, use the following formula to estimate the initial autoscale maximum RU/s:
           
-          `MAX(1,000, current manual provisioned RU/s, maximum RU/s ever provisioned / 10, storage in GB × 100)` rounded to the nearest 1,000 RU/s.
+          `MAX(1,000, current manual provisioned RU/s, maximum RU/s ever provisioned / 10, storage in GB × 10)` rounded to the nearest 1,000 RU/s.
           
           The actual initial autoscale maximum RU/s might vary depending on your account configuration.
           

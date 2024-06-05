@@ -2,10 +2,11 @@
 title: Data model for Azure Backup diagnostics events
 description: This data model is in reference to the Resource Specific Mode of sending diagnostic events to Log Analytics (LA). 
 ms.topic: conceptual
-ms.date: 04/18/2023
+ms.date: 05/13/2024
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 # Data Model for Azure Backup Diagnostics Events
 
@@ -16,7 +17,7 @@ ms.author: jsuri
 
 Recovery Services vaults and Backup vaults send data to a common set of tables that are listed in this article. However, there are slight differences in the schema for Recovery Services vaults and Backup vaults. 
 
-- One of the main reasons for this difference is that for Backup vaults, Azure Backup service does a 'flattening' of schemas to reduce the number of joins needed in queries, hence improving query performance. For example, if you are looking to write a query that lists all Backup vault jobs along with the friendly name of the datasource, and friendly name of the vault, you can get all of this information fro the AddonAzureBackupJobs table (without needing to do a join with CoreAzureBackup to get the datasource and vault names). Flattened schemas are currently supported only for Backup vaults and not yet for Recovery Services vaults.
+- One of the main reasons for this difference is that for Backup vaults, Azure Backup service does a 'flattening' of schemas to reduce the number of joins needed in queries, hence improving query performance. For example, if you are looking to write a query that lists all Backup vault jobs along with the friendly name of the datasource, and friendly name of the vault, you can get all of this information for the AddonAzureBackupJobs table (without needing to do a join with CoreAzureBackup to get the datasource and vault names). Flattened schemas are currently supported only for Backup vaults and not yet for Recovery Services vaults.
 - Apart from the above, there are also certain scenarios that are currently applicable for Recovery Services vaults only (for example, fields related to DPM workloads). This also leads to some differences in the schema between Backup vaults and Recovery Services vaults.
 
 To understand which fields are specific to a particular vault type, and which fields are common across vault types, refer to the **Applicable Resource Types** column provided in the below sections. For more information on how to write queries on these tables for Recovery Services vaults and Backup vaults, see the [sample queries](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries).
@@ -52,7 +53,7 @@ This table provides information about core backup entities, such as vaults and b
 | OldestRecoveryPointTime           | DateTime      | Recovery Services vault | Date time of the latest recovery point for the backup item   |
 | PolicyUniqueId                    | Text          | Recovery Services vault, Backup vault | Unique ID to identify the policy                             |
 | ProtectedContainerFriendlyName    | Text          | Recovery Services vault | Friendly name of the protected server                        |
-| ProtectedContainerLocation        | Text          | Recovery Services vault | Whether the Protected  Container is located On-premises or in Azure |
+| ProtectedContainerLocation        | Text          | Recovery Services vault | Whether the Protected  Container is located on-premises or in Azure |
 | ProtectedContainerName            | Text          | Recovery Services vault | Name of the Protected   Container                            |
 | ProtectedContainerOSType          | Text          | Recovery Services vault | OS Type of the  Protected Container                          |
 | ProtectedContainerOSVersion       | Text          | Recovery Services vault | OS Version of the Protected Container                        |
@@ -191,7 +192,7 @@ This table provides details about job-related fields.
 | DatasourceResourceId           | Text          | Backup vault | Azure Resource Manager (ARM) ID of the datasource being backed up                    |
 | DatasourceType                 | Text          | Backup vault | Type of the datasource being backed up, for example, Microsoft.DBforPostgreSQL/servers/databases                    |
 | DatasourceFriendlyName         | Text          | Backup vault | Friendly name of the datasource being backed up                    |
-| SubscriptionId                 | Text          | Backup vault | Subscription id of the vault                   |
+| SubscriptionId                 | Text          | Backup vault | Subscription ID of the vault                   |
 | ResourceGroupName              | Text          | Backup vault | Resource Group of the vault                    |
 | VaultName                      | Text          | Backup vault | Name of the vault                    |
 | VaultTags                      | Text          | Backup vault | Tags of the vault                    |
@@ -253,11 +254,11 @@ This table provides details about policy-related fields.
 | ScheduleWindowDuration          | Integer        | Recovery Services vault | Duration of the daily window in which backups can be run. Applicable for enhanced policy for Azure VM backup | 
 | ScheduleWindowStartTime         | DateTime       | Recovery Services vault | Start time of the daily window in which backups can be run. Applicable for enhanced policy for Azure VM backup        |
 | FullBackupDaysOfTheWeek         | String         | Backup vault	| Days of the week when full backup runs. Currently applicable for Azure PostgreSQL backup                    |
-| FullBackupFrequency             | String           | Backup vault | Frequency of full backup. Currently applicable for Azure PostgreSQL backup                    |                     |
-| FullBackupTimes                 | String           | Backup vault | Time of the day at which full backup is taken. Currently applicable for Azure PostgreSQL backup                    |                   |
+| FullBackupFrequency             | String           | Backup vault | Frequency of full backup. Currently applicable for Azure PostgreSQL backup                    |                     
+| FullBackupTimes                 | String           | Backup vault | Time of the day at which full backup is taken. Currently applicable for Azure PostgreSQL backup                    |                  
 | IncrementalBackupDaysOfTheWeek  | String           | Backup vault | Days of the week when incremental backup runs. Currently applicable for Azure Disk backup                     |
 | IncrementalBackupFrequency      | String           | Backup vault | Frequency of incremental backup. Currently applicable for Azure Disk backup                     |
-| IncrementalBackupTimes          | String           | Backup vault | Time of the day at which incremental backup is taken. Currently applicable for Azure Disk backup                     |                   |
+| IncrementalBackupTimes          | String           | Backup vault | Time of the day at which incremental backup is taken. Currently applicable for Azure Disk backup                     |                  
 | PolicyId                    	  | String           | Backup vault | Azure Resource Manager (ARM) ID of the backup policy                    |
 | SnapshotTierDailyRetentionDuration    | Integer    | Backup vault | Retention duration in days for daily snapshots. Applicable for Azure Blob and Azure Disk backup                     |
 | SnapshotTierWeeklyRetentionDuration   | Integer    | Backup vault | Retention duration in weeks for weekly snapshots. Applicable for Azure Blob and Azure Disk backup                    |
@@ -300,6 +301,26 @@ This table provides details about storage-related fields.
 | VolumeFriendlyName             | Text          | Recovery Services vault | Friendly name of the storage volume                          |
 | SourceSystem                   | Text          | Recovery Services vault | Source system of the current data - Azure                    |
 
+## AzureBackupOperations
+
+This table lists operations such as adhoc backup/restore of on-premises machine, modification of backup policy, stopping protection with retain/delete data, and changing passphrase in on-premises scenario where audit logs are not available when being performed from the on-premises agent.
+
+| **Field**     | **Data Type**   |	**Applicable Resource Types** | **Description**      |
+| ------------------------------- | ------------- | -------------|---------------------- |
+| TimeGenerated  | DateTime       | Recovery Services vault | The timestamp (UTC) when the log was generated.          |
+| Category       | Text           | Recovery Services vault | Category of the log, for example, AzureBackupOperations. |
+| OperationName  | Text           | Recovery Services vault | High-level name of the action that is logged to this table, for example, DataOperations.  |
+| OperationStartTime   | DateTime  | Recovery Services vault | The start time of the operation. |
+| ExtendedProperties   | Dynamic   | Recovery Services vault | Additional properties applicable to the operation, for example, the associated backup item or server.  |
+| BackupManagementType | Text      | Recovery Services vault | Type of workload associated with the operation, for example, DPM, Azure Backup Server, Azure Backup Agent (MAB). |
+| OperationType | Text | Recovery Services vault |Type of the azure Backup operation being executed, for example, changing passphrase.     |
+| SchemaVersion | Text | Recovery Services vault | Version of the schema. For example, **V2**. |
+| SourceSystem  | Text | Recovery Services vault | Source system of the current data - Azure.  |
+| Type          | Text | Recovery Services vault | The name of the table.                      |
+| ResourceId    | Text   | Recovery Services vault | A unique identifier for the resource that the record is associated with.     |
+| SubscriptionId  | Text | Recovery Services vault | A unique identifier for the subscription that the record is associated with. |
+
+
 ## Valid Operation Names for each table
 
 Each record in the above tables has an associated **Operation Name**. An Operation Name describes the type of record (and also indicates which fields in the table are populated for that record). Each table (category) supports one or more distinct Operation Names. Below is a summary of the supported Operation Names for each of the above tables.
@@ -323,7 +344,8 @@ Each record in the above tables has an associated **Operation Name**. An Operati
 | AddonAzureBackupStorage | StorageAssociation | Represents a mapping between a backup item and the total cloud storage consumed by the backup item. |
 | AddonAzureBackupProtectedInstance | ProtectedInstance | Represents a record containing the protected instance count for each container or backup item. For Azure VM backup, the protected instance count is available at the backup item level, for other workloads it is available at the protected container level. |
 | AddonAzureBackupPolicy | Policy |  Represents a record containing all details of a backup and retention policy. For example, ID, name, retention settings, etc. |
-| AddonAzureBackupPolicy | PolicyAssociation | Represents a mapping between a backup item and the backup policy applied to it. |   
+| AddonAzureBackupPolicy | PolicyAssociation | Represents a mapping between a backup item and the backup policy applied to it. | 
+| AzureBackupOperations | Job | Represents a record containing operations like adhoc backup/restore of on-prem machine, modification of backup policy, stopping protection with retain/delete data, and changing passphrase in on-premises scenario where audit logs are not available when being performed from the on-premises agent. |
 
 # [Backup vaults](#tab/backup-vaults)
 

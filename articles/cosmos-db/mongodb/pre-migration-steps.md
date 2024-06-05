@@ -6,7 +6,6 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 04/20/2023
 ---
@@ -58,11 +57,11 @@ There are 3 ways to complete the pre-migration assessment, we recommend you to u
 
 ### Azure Cosmos DB Migration for MongoDB extension
 
-The [Azure Cosmos DB Migration for MongoDB extension](/sql/azure-data-studio/extensions/database-migration-for-mongo-extension) in Azure Data Studio helps you assess a MongoDB workload for migrating to Azure Cosmos DB for MongoDB. You can use this extension to run an end-to-end assessment on your workload and find out the actions that you may need to take to seamlessly migrate your workloads on Azure Cosmos DB. During  the assessment of a MongoDB endpoint, the extension reports all the discovered resources.
+The [Azure Cosmos DB Migration for MongoDB extension](/azure-data-studio/extensions/database-migration-for-mongo-extension) in Azure Data Studio helps you assess a MongoDB workload for migrating to Azure Cosmos DB for MongoDB. You can use this extension to run an end-to-end assessment on your workload and find out the actions that you may need to take to seamlessly migrate your workloads on Azure Cosmos DB. During  the assessment of a MongoDB endpoint, the extension reports all the discovered resources.
 
 
 > [!NOTE]
-> Azure Cosmos DB Migration for MongoDB extension does not perform an end-to-end assessment. We recommend you to go through [the supported features and syntax](./feature-support-42.md), [Azure Cosmos DB limits and quotas](../concepts-limits.md#per-account-limits) in detail, as well as perform a proof-of-concept prior to the actual migration.
+> We recommend you to go through [the supported features and syntax](./feature-support-42.md), [Azure Cosmos DB limits and quotas](../concepts-limits.md#per-account-limits) in detail, as well as perform a proof-of-concept prior to the actual migration.
 
 ### Manual discovery (legacy) 
 
@@ -155,7 +154,7 @@ The following Azure Cosmos DB configuration choices can't be modified or undone 
 
   * **Query patterns**: The complexity of a query affects how many request units the query consumes.
 
-* The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-account.md) using the `getLastRequestStastistics` command to get the request charge, which outputs the number of RUs consumed:
+* The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-account.yml) using the `getLastRequestStastistics` command to get the request charge, which outputs the number of RUs consumed:
 
   ```bash
   db.runCommand({getLastRequestStatistics: 1})

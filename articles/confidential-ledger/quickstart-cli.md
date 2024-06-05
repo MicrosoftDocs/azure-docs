@@ -3,7 +3,7 @@ title: Quickstart – Microsoft Azure confidential ledger with the Azure CLI
 description: Learn to use the Microsoft Azure confidential ledger through the Azure CLI
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/22/2022
+ms.date: 01/30/2024
 ms.service: confidential-ledger
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
@@ -11,13 +11,15 @@ ms.topic: quickstart
 
 # Quickstart: Create a confidential ledger using the Azure CLI
 
-Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that must be kept intact. In this quickstart you will use the [Azure CLI](/cli/azure/) to create a confidential ledger, view and update its properties, and delete it.
+Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that must be kept intact. In this quickstart, you use the [Azure CLI](/cli/azure/) to create a confidential ledger, view and update its properties, and delete it.
 
-For more information on Azure confidential ledger, and for examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
+For more information on Azure confidential ledger and examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+
+[!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)]
 
 ## Create a resource group
 
@@ -25,13 +27,13 @@ For more information on Azure confidential ledger, and for examples of what can 
 
 ## Get your principal ID
 
-To create a confidential ledger, you'll need your Azure Active Directory principal ID (also called your object ID).  To obtain your principal ID, use the Azure CLI [az ad signed-in-user](/cli/azure/ad/signed-in-user) command, and filter the results by `objectId`:
+To create a confidential ledger, you need your Microsoft Entra principal ID (also called your object ID). To obtain your principal ID, use the Azure CLI [az ad signed-in-user](/cli/azure/ad/signed-in-user) command, and filter the results by `objectId`:
 
 ```azurecli
 az ad signed-in-user show --query objectId
 ```
 
-Your result will be in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+Your result is in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ## Create a confidential ledger
 
@@ -41,9 +43,9 @@ Use the Azure CLI [az confidentialledger create](/cli/azure/confidentialledger#a
 az confidentialledger create --name "myLedger" --resource-group "myResourceGroup" --location "EastUS" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Administrator" principal-id="<your-principal-id>"
 ```
 
-A successful operation will return the properties of the newly created ledger. Take note of the **ledgerUri**. In the example above, this URI is "https://myledger.confidential-ledger.azure.com".
+A successful operation returns the properties of the newly created ledger. Take note of the **ledgerUri**. In our example, this URI is "https://myledger.confidential-ledger.azure.com".
 
-You'll need this URI to transact with the confidential ledger from the data plane.
+You need this URI to transact with the confidential ledger from the data plane.
 
 ## View and update your confidential ledger properties
 
@@ -65,7 +67,7 @@ To update the properties of a confidential ledger, use do so, use the Azure CLI 
 az confidentialledger update --name "myLedger" --resource-group "myResourceGroup" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Reader" principal-id="<your-principal-id>" 
 ```
 
-If you again run [az confidentialledger show](/cli/azure/confidentialledger#az-confidentialledger-show), you'll see that the role has been updated.
+If you again run [az confidentialledger show](/cli/azure/confidentialledger#az-confidentialledger-show), you see that the role is updated.
 
 ```json
 "ledgerRoleName": "Reader",
@@ -77,6 +79,6 @@ If you again run [az confidentialledger show](/cli/azure/confidentialledger#az-c
 
 ## Next steps
 
-In this quickstart, you created a confidential ledger by using the Azure CLI. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a confidential ledger by using the Azure CLI. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to these articles.
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)

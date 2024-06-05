@@ -1,10 +1,8 @@
 ---
 title: Tutorial - add template functions
 description: Add template functions to your Azure Resource Manager template (ARM template) to construct values.
-author: mumian
-ms.date: 06/17/2022
+ms.date: 07/28/2023
 ms.topic: tutorial
-ms.author: jgao
 ms.custom: devx-track-arm-template
 ---
 
@@ -24,7 +22,7 @@ At the end of the previous tutorial, your template had the following JSON file:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json":::
 
-Suppose you hard-coded the location of the [Azure storage account](../../storage/common/storage-account-create.md) to **eastus**, but you need to deploy it to another region. You need to add a parameter to add flexibility to your template and allow it to have a different location. 
+Suppose you hard-coded the location of the [Azure storage account](../../storage/common/storage-account-create.md) to **eastus**, but you need to deploy it to another region. You need to add a parameter to add flexibility to your template and allow it to have a different location.
 
 ## Use function
 
@@ -32,7 +30,7 @@ If you completed the [parameters tutorial](./template-tutorial-add-parameters.md
 
 Functions add flexibility to your template by dynamically getting values during deployment. In this tutorial, you use a function to get the resource group deployment location.
 
-The following example highlights the changes to add a parameter called `location`. The parameter default value calls the [resourceGroup](template-functions-resource.md#resourcegroup) function. This function returns an object with information about the deployed resource group. One of the object properties is a location property. When you use the default value, the storage account and the resource group have the same location. The resources inside a group have different locations. 
+The following example highlights the changes to add a parameter called `location`. The parameter default value calls the [resourceGroup](template-functions-resource.md#resourcegroup) function. This function returns an object with information about the deployed resource group. One of the object properties is a location property. When you use the default value, the storage account and the resource group have the same location. The resources inside a group have different locations.
 
 Copy the whole file and replace your template with its contents.
 
@@ -78,7 +76,7 @@ You can verify the deployment by exploring the resource group from the Azure por
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. From the left menu, select **Resource groups**.
 1. Check the box to the left of **myResourceGroup** and select **myResourceGroup**.
-1. Select the resource group you created. The default name is **myResourceGroup**. 
+1. Select the resource group you created. The default name is **myResourceGroup**.
 1. Notice your deployed storage account and your resource group have the same location.
 
 

@@ -1,23 +1,24 @@
 ---
-title: Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
-description: How to configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
+title: Configure a point-to-site VPN on Linux for Azure Files
+description: Learn how to configure a point-to-site (P2S) virtual private network (VPN) on Linux to mount your Azure file shares directly on premises.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/07/2023
+ms.date: 05/09/2024
 ms.author: kendownie
-ms.subservice: files
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
-# Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
-You can use a Point-to-Site (P2S) VPN connection to mount your Azure file shares from outside of Azure, without sending data over the open internet. A Point-to-Site VPN connection is a VPN connection between Azure and an individual client. To use a P2S VPN connection with Azure Files, a P2S VPN connection will need to be configured for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a Site-to-Site (S2S) VPN connection instead of a Point-to-Site connection for each client. To learn more, see [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
+# Configure a point-to-site (P2S) VPN on Linux for use with Azure Files
 
-We strongly recommend that you read [Azure Files networking overview](storage-files-networking-overview.md) before continuing with this how to article for a complete discussion of the networking options available for Azure Files.
+You can use a point-to-site (P2S) virtual private network (VPN) connection to mount your Azure file shares from outside of Azure, without sending data over the open internet. A point-to-site VPN connection is a VPN connection between Azure and an individual client. To use a P2S VPN connection with Azure Files, you'll need to configure a P2S VPN connection for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a site-to-site (S2S) VPN connection instead of a point-to-site connection for each client. To learn more, see [Configure a site-to-site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
 
-The article details the steps to configure a Point-to-Site VPN on Linux to mount Azure file shares directly on-premises.
+We strongly recommend that you read [Azure Files networking overview](storage-files-networking-overview.md) before continuing with this article for a complete discussion of the networking options available for Azure Files.
+
+The article details the steps to configure a point-to-site VPN on Linux to mount Azure file shares directly on-premises.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -25,6 +26,7 @@ The article details the steps to configure a Point-to-Site VPN on Linux to mount
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Prerequisites
+
 - The most recent version of the Azure CLI. For information on how to install the Azure CLI, see [Install the Azure PowerShell CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module on Linux, you may. However, the instructions below are for Azure CLI.
 
 - An Azure file share you'd like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
@@ -32,6 +34,7 @@ The article details the steps to configure a Point-to-Site VPN on Linux to mount
 - A private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-cli). 
 
 ## Install required software
+
 The Azure virtual network gateway can provide VPN connections using several VPN protocols, including IPsec and OpenVPN. This article shows how to use IPsec and uses the strongSwan package to provide the support on Linux.
 
 > Verified with Ubuntu 18.10.
@@ -49,8 +52,9 @@ If the installation fails or you get an error such as **EAP_IDENTITY not support
 sudo apt install -y libcharon-extra-plugins
 ```
 
-### Deploy a virtual network 
-To access your Azure file share and other Azure resources from on-premises via a Point-to-Site VPN, you must create a virtual network, or VNet. The P2S VPN connection you will automatically create is a bridge between your on-premises Linux machine and this Azure virtual network.
+### Deploy a virtual network
+
+To access your Azure file share and other Azure resources from on-premises via a Point-to-Site VPN, you must create a virtual network, or VNet. The P2S VPN connection you'll automatically create is a bridge between your on-premises Linux machine and this Azure virtual network.
 
 The following script will create an Azure virtual network with three subnets: one for your storage account's service endpoint, one for your storage account's private endpoint, which is required to access the storage account on-premises without creating custom routing for the public IP of the storage account that may change, and one for your virtual network gateway that provides the VPN service. 
 
@@ -92,7 +96,13 @@ GATEWAY_SUBNET=$(az network vnet subnet create \
 ```
 
 ## Create certificates for VPN authentication
-In order for VPN connections from your on-premises Linux machines to be authenticated to access your virtual network, you must create two certificates: a root certificate, which will be provided to the virtual machine gateway, and a client certificate, which will be signed with the root certificate. The following script creates the required certificates.
+
+In order for VPN connections from your on-premises Linux machines to be authenticated to access your virtual network, you must create two certificates: 
+
+- A root certificate, which will be provided to the virtual machine gateway
+- A client certificate, which will be signed with the root certificate
+
+The following script creates the required certificates.
 
 ```bash
 ROOT_CERT_NAME="P2SRootCert"
@@ -122,14 +132,18 @@ openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pe
 ```
 
 ## Deploy virtual network gateway
-The Azure virtual network gateway is the service that your on-premises Linux machines will connect to. Deploying this service requires two basic components: a public IP that will identify the gateway to your clients wherever they are in the world and a root certificate you created earlier that will be used to authenticate your clients.
+
+The Azure virtual network gateway is the service that your on-premises Linux machines will connect to. Deploying this service requires two basic components:
+
+- A public IP address that will identify the gateway to your clients wherever they are in the world
+- The root certificate you created earlier that will be used to authenticate your clients
 
 Remember to replace `<desired-vpn-name-here>` with the name you would like for these resources.
 
-> [!Note]  
-> Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this bash script script will block for the deployment to be completed.
+> [!NOTE]
+> Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this bash script will block the deployment from being completed.
 >
-> P2S IKEv2/OpenVPN connections are not supported with the **Basic** SKU. This script uses the **VpnGw1** SKU for the virtual network gateway, accordingly.
+> P2S IKEv2/OpenVPN connections aren't supported with the **Basic** SKU. This script uses the **VpnGw1** SKU for the virtual network gateway.
 
 ```azurecli
 VPN_NAME="<desired-vpn-name-here>"
@@ -164,6 +178,7 @@ az network vnet-gateway root-cert create \
 ```
 
 ## Configure the VPN client
+
 The Azure virtual network gateway will create a downloadable package with configuration files required to initialize the VPN connection on your on-premises Linux machine. The following script will place the certificates you created in the correct spot and configure the `ipsec.conf` file with the correct values from the configuration file in the downloadable package.
 
 ```azurecli
@@ -205,9 +220,11 @@ sudo ipsec up $VIRTUAL_NETWORK_NAME
 ```
 
 ## Mount Azure file share
+
 Now that you've set up your Point-to-Site VPN, you can mount your Azure file share. See [Mount SMB file shares to Linux](storage-how-to-use-files-linux.md) or [Mount NFS file share to Linux](storage-files-how-to-mount-nfs-shares.md). 
 
 ## See also
+
 - [Azure Files networking overview](storage-files-networking-overview.md)
 - [Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Configure a Site-to-Site (S2S) VPN for use with Azure Files](storage-files-configure-s2s-vpn.md)

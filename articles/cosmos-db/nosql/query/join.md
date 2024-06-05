@@ -2,14 +2,15 @@
 title: Self-joins
 titleSuffix: Azure Cosmos DB for NoSQL
 description: Use the JOIN keyword to perform a self-join in Azure Cosmos DB for NoSQL.
-author: seesharprun
-ms.author: sidandrews
-ms.reviewer: jucocchi
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 11/30/2022
+ms.topic: reference
+ms.devlang: nosql
+ms.date: 02/27/2024
+ms.custom: query-reference
 ---
 
 # Self-joins in Azure Cosmos DB for NoSQL
@@ -55,7 +56,7 @@ Let's look at an example of a self-join within an item. Consider a container wit
 
 What if you need to find the **color group** of this product? Typically, you would need to write a query that has a filter checking every potential index in the `tags` array for a value with a prefix of `color-group-`.
 
-```sql
+```nosql
 SELECT
   * 
 FROM
@@ -66,11 +67,11 @@ WHERE
   STARTSWITH(p.tags[2].slug, "color-group-")
 ```
 
-This technique can become untenable quickly. The complexity or length of the query syntax is increased by the number of potential items in the array. Also, this query isn't flexible enough to handle future products, which may have more than three tags.
+This technique can become untenable quickly. The complexity or length of the query syntax increases the number of potential items in the array. Also, this query isn't flexible enough to handle future products, which may have more than three tags.
 
 In a traditional relational database, the tags would be separated into a separate table and a cross-table join is performed with a filter applied to the results. In the API for NoSQL, we can perform a self-join operation within the item using the `JOIN` keyword.
 
-```sql
+```nosql
 SELECT
   p.id,
   p.sku,
@@ -105,7 +106,7 @@ This query returns a simple array with an item for each value in the tags array.
 
 Let's break down the query. The query now has two aliases: `p` for each product item in the result set, and `t` for the self-joined `tags` array. The `*` keyword is only valid to project all fields if it can infer the input set, but now there are two input sets (`p` and `t`). Because of this constraint, we must explicitly define our returned fields as `id` and `sku` from the product along with `slug` from the tags. To make this query easier to read and understand, we can drop the `id` field and use an alias for the tag's `name` field to rename it to `tag`.
 
-```sql
+```nosql
 SELECT
   p.sku,
   t.name AS tag
@@ -134,7 +135,7 @@ JOIN
 
 Finally, we can use a filter to find the tag `color-group-purple`. Because we used the `JOIN` keyword, our filter is flexible enough to handle any variable number of tags.
 
-```sql
+```nosql
 SELECT
   p.sku,
   t.name AS tag
@@ -215,7 +216,7 @@ What if you needed to find every item with a **mummy** bag shape? You could sear
 
 Here, the `JOIN` keyword is a great tool to create a cross product of the items and tags. Joins create a complete cross product of the sets participating in the join. The result is a set of tuples with every permutation of the item and the values within the targeted array.
 
-A join operation on our sample sleeping bag products and tags will create the following items:
+A join operation on our sample sleeping bag products and tags creates the following items:
 
 | Item | Tag |
 | --- | --- |
@@ -227,7 +228,7 @@ A join operation on our sample sleeping bag products and tags will create the fo
 
 Here's the SQL query and JSON result set for a join that includes multiple items in the container.
 
-```sql
+```nosql
 SELECT
   p.sku,
   t.name AS tag
@@ -266,7 +267,7 @@ WHERE
 
 Just like with the single item, you can apply a filter here to find only items that match a specific tag. For example, this query finds all items with a tag named `bag-shape-mummy` to meet the initial requirement mentioned earlier in this section.
 
-```sql
+```nosql
 SELECT
   p.sku,
   t.name AS tag
@@ -294,7 +295,7 @@ WHERE
 
 You can also change the filter to get a different result set. For example, this query finds all items that have a tag named `bag-insulation-synthetic-fill`.
 
-```sql
+```nosql
 SELECT
   p.sku,
   t.name AS tag
@@ -316,7 +317,8 @@ WHERE
 ]
 ```
 
-## Next steps
+## Related content
 
-- [Getting started with queries](getting-started.md)
+- [`SELECT` clause](select.md)
+- [`FROM` clause](from.md)
 - [Subqueries](subquery.md)

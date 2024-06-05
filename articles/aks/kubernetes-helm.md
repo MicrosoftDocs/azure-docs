@@ -1,10 +1,11 @@
 ---
 title: Install existing applications with Helm in Azure Kubernetes Service (AKS)
 description: Learn how to use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
-author: zr-msft
+author: nickomang
+ms.subservice: aks-developer
 ms.topic: article
 ms.date: 05/09/2023
-ms.author: zarhoads
+ms.author: nickoman
 
 #Customer intent: As a cluster operator or developer, I want to learn how to deploy Helm into an AKS cluster and then install and manage applications using Helm charts.
 ---
@@ -225,8 +226,9 @@ For more information about managing Kubernetes application deployments with Helm
 
 <!-- LINKS - internal -->
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
-[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
+[aks-integrated-acr]: cluster-container-registry-integration.md#create-a-new-acr
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [taints]: operator-best-practices-advanced-scheduler.md
+

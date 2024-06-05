@@ -1,18 +1,22 @@
 ---
-title: How to connect on-premises Defender for IoT resources to Microsoft Sentinel
-description: Learn how to stream data into Microsoft Sentinel from an on-premises and locally-managed Microsoft Defender for IoT OT network sensor or an on-premises management console.
+title: Connect Defender for IoT on-premises resources to Microsoft Sentinel (legacy)
+description: This article describes the legacy method for connecting your OT sensor or on-premises management console to Microsoft Sentinel.
 ms.topic: how-to
-ms.date: 12/26/2022
+ms.date: 08/17/2023
 ms.custom: template-how-to-pattern
+#CustomerIntent: As an admin user for my locally-managed OT sensor, I want to learn how to connect my sensor to Microsoft Sentinel so that I can view alerts generated together with other Microsoft Sentinel data.
 ---
 
-# Connect on-premises OT network sensors to Microsoft Sentinel
+# Connect OT network sensors or on-premises management consoles to Microsoft Sentinel (legacy)
 
-You can [stream Microsoft Defender for IoT data into Microsoft Sentinel](../iot-solution.md) via the Azure portal, for any data coming from cloud-connected OT network sensors.
+This article describes the legacy method for connecting your OT sensor or on-premises management console to Microsoft Sentinel. Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network.
 
-However, if you're working either in a hybrid environment, or completely on-premises, you might want to stream data in from your locally-managed sensors to Microsoft Sentinel. To do this, create forwarding rules on either your OT network sensor, or for multiple sensors from an on-premises management console.
-
-Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network. For more information, see [Microsoft Sentinel documentation](../../../sentinel/index.yml).
+> [!IMPORTANT]
+> If you're using a cloud connected sensor, we recommend that you connect Defender for IoT data using the Microsoft Sentinel solution instead of the legacy integration method. For more information, see:
+>
+> - [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)
+> - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
+> - [Tutorial: Investigate and detect threats for IoT devices](../iot-advanced-threat-monitoring.md)
 
 ## Prerequisites
 

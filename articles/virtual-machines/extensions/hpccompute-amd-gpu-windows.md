@@ -1,5 +1,5 @@
 ---
-title: AMD GPU Driver Extension - Azure Windows VMs 
+title: AMD GPU Driver Extension - Azure Windows VMs
 description: Microsoft Azure extension for installing AMD GPU drivers on NVv4-series VMs running Windows.
 services: virtual-machines-windows
 author: vikancha-MSFT
@@ -9,30 +9,16 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.collection: windows
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 10/14/2021
-ms.author: vikancha 
+ms.author: vikancha
 ---
 # AMD GPU Driver Extension for Windows
 
-This article provides an overview of the virtual machine (VM) extension to deploy AMD GPU drivers on Windows [NVv4-series](../nvv4-series.md) VMs. When you install AMD drivers by using this extension, you're accepting and agreeing to the terms of the [AMD End-User License Agreement](https://amd.com/radeonsoftwarems). During the installation process, the VM might reboot to complete the driver setup.
+This article provides an overview of the virtual machine (VM) extension to deploy AMD GPU drivers on Windows N-series VMs. When you install AMD drivers by using this extension, you're accepting and agreeing to the terms of the [AMD End-User License Agreement](https://www.amd.com/en/legal/eula/amd-software-eula.html). During the installation process, the VM might reboot to complete the driver setup.
 
 Instructions on manual installation of the drivers and the current supported versions are available. For more information, see [Azure N-series AMD GPU driver setup for Windows](../windows/n-series-amd-driver-setup.md).
 
 ## Prerequisites
-
-### Operating system
-
-This extension supports the following OSs:
-
-| Distribution | Version |
-|---|---|
-| Windows 11 EMS | 21H2 |
-| Windows 11  | 21H2 |
-| Windows 10 EMS | 21H1 |
-|Windows 10  | 20H2, 21H2, 21H1 |
-| Windows Server 2016 | Core |
-| Windows Server 2019 | Core |
 
 ### Internet connectivity
 

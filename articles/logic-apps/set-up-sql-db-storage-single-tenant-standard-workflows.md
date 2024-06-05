@@ -5,8 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
-ms.custom: ignite-fall-2021
+ms.date: 01/04/2024
 ---
 
 # Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps (preview)
@@ -101,7 +100,7 @@ The following table describes some reasons why you might want to use SQL:
 
 1. Set up permissions for your SQL server.
 
-   Currently, the SQL Storage Provider supports SQL authentication in connection strings. You can also use Windows Authentication for local development and testing. At this time, support for Azure Active Directory (Azure AD) and managed identities is not available.
+   Currently, the SQL Storage Provider supports SQL authentication in connection strings. You can also use Windows Authentication for local development and testing. At this time, support for Microsoft Entra ID and managed identities is not available.
 
    You must use an identity that has permissions to create and manage workflow-related artifacts in the target SQL database. For example, an administrator has all the required permissions to create and manage these artifacts. The following list describes the artifacts that the single-tenant Azure Logic Apps runtime tries to create using the SQL connection string that you provide. Make sure that the identity used in the SQL connection string has the necessary permissions to create the following artifacts:
 

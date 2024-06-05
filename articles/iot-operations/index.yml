@@ -1,0 +1,61 @@
+### YamlMime:Landing
+
+title: Azure IoT Operations Preview – enabled by Azure Arc # < 60 chars
+summary: A unified data plane for the edge # < 160 chars
+
+metadata:
+  title: Azure IoT Operations Preview – enabled by Azure Arc # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: A unified data plane for the edge # Required; article description that is displayed in search results. < 160 chars.
+  ms.topic: landing-page # Required
+  ms.custom:
+    - ignite-2023
+  author: dominicbetts
+  ms.author: dobett
+  ms.date: 09/08/2023
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Azure IoT Operations?
+            url: get-started/overview-iot-operations.md
+          - text: Deploy
+            url: get-started/quickstart-deploy.md
+  # Card
+  - title: Common scenarios
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Azure IoT Operations
+            url: deploy-iot-ops/howto-deploy-iot-operations.md
+          - text: Manage assets
+            url: manage-devices-assets/overview-manage-assets.md
+          - text: Manage MQTT connectivity
+            url: manage-mqtt-connectivity/overview-iot-mq.md
+          - text: Process data
+            url: process-data/overview-data-processor.md
+          - text: Manage layered network
+            url: manage-layered-network/overview-layered-network.md
+          - text: Monitor service and asset health
+            url: monitor/howto-configure-observability.md
+
+  # Card
+  - title: Connect to the cloud
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to MQTT or Event Grid
+            url: connect-to-cloud/howto-configure-mqtt-bridge.md
+          - text: Send data to a data lake
+            url: connect-to-cloud/howto-configure-data-lake.md
+          - text: Send data to Kafka or Azure Event Hubs
+            url: connect-to-cloud/howto-configure-kafka.md
+          - text: Send data to Azure Data Explorer from a pipeline
+            url: connect-to-cloud/howto-configure-destination-data-explorer.md
+          - text: Send data to Microsoft Fabric from a pipeline
+            url: connect-to-cloud/howto-configure-destination-fabric.md

@@ -2,10 +2,11 @@
 title: 'Tutorial: Deploy a connected registry to an IoT Edge hierarchy'
 description: In this tutorial, use Azure CLI commands to create a two-layer hierarchy of Azure IoT Edge devices and deploy a connected registry as a module at each layer.
 ms.topic: tutorial
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.author: memladen
 author: toddysm
-ms.custom: [ignite-fall-2021, mode-other, devx-track-azurecli, kr2b-contr-experiment]
+ms.custom: mode-other, devx-track-azurecli, kr2b-contr-experiment
+ms.service: container-registry
 ---
 
 # Tutorial: Deploy a connected registry to a nested IoT Edge hierarchy
@@ -14,7 +15,7 @@ In this tutorial, you use Azure CLI commands to create a two-layer hierarchy of 
 
 For an overview of using a connected registry with IoT Edge, see [Using connected registry with Azure IoT Edge](overview-connected-registry-and-iot-edge.md).
 
-[!INCLUDE [Prepare Azure CLI environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare Azure CLI environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * Azure IoT Hub. For deployment steps, see [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md).
 * Two connected registry resources in Azure. For deployment steps, see quickstarts using the [Azure CLI][quickstart-connected-registry-cli] or [Azure portal][quickstart-connected-registry-portal].
@@ -203,13 +204,13 @@ Use the `iotedge-config` tool to create and configure your hierarchy by followin
 1. Download the configuration tool.
 
    ```bash
-    mkdir nestedIotEdgeTutorial
-    cd ~/nestedIotEdgeTutorial
+    mkdir nested_iot_edge_tutorial
+    cd ~/nested_iot_edge_tutorial
     wget -O iotedge_config.tar "https://github.com/Azure-Samples/iotedge_config_cli/releases/download/latest/iotedge_config_cli.tar.gz"
     tar -xvf iotedge_config.tar
     ```
 
-    This step creates the `iotedge_config_cli_release` folder in your tutorial directory. The template file used to create your device hierarchy is the `iotedge_config.yaml` file found in `~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial`. In the same directory, there are two deployment manifests for top and lower layers: `deploymentTopLayer.json` and `deploymentLowerLayer.json` files. 
+    This step creates the `iotedge_config_cli_release` folder in your tutorial directory. The template file used to create your device hierarchy is the `iotedge_config.yaml` file found in `~/nested_iot_edge_tutorial/iotedge_config_cli_release/templates/tutorial`. In the same directory, there are two deployment manifests for top and lower layers: `deploymentTopLayer.json` and `deploymentLowerLayer.json` files. 
 
 1. Edit `iotedge_config.yaml` with your information. Edit the `iothub_hostname`, `iot_name`, deployment manifest filenames for the top layer and lower layer, and the client token credentials you created to pull images from upstream from each layer. The following example is a sample configuration file:
 

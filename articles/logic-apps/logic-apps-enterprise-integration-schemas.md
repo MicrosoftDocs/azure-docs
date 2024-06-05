@@ -7,10 +7,12 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/30/2022 
+ms.date: 01/04/2024
 ---
 
 # Add schemas to use with workflows with Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Workflow actions such as **Flat File** and **XML Validation** require a schema to perform their tasks. For example, the **XML Validation** action requires an XML schema to check that documents use valid XML and have the expected data in the predefined format. This schema is an XML document that uses [XML Schema Definition (XSD)](https://www.w3.org/TR/xmlschema11-1/) language and has the .xsd file name extension. The **Flat File** actions use a schema to encode and decode XML content.
 
@@ -78,9 +80,7 @@ This article shows how to add a schema to your integration account. If you're wo
 
   To resolve this error, you need to use the element `xsd:import` or `xsd:include` instead of `xsd:redefine`, or use a URI.
 
-<a name="add-schema"></a>
-
-## Add schemas
+## Considerations for adding schemas
 
 * If you're working with a Consumption workflow, you must add your schema to a linked integration account.
 
@@ -92,7 +92,7 @@ This article shows how to add a schema to your integration account. If you're wo
 
 <a name="add-schema-integration-account"></a>
 
-### Add schema to integration account
+## Add schema to integration account
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
@@ -104,7 +104,13 @@ This article shows how to add a schema to your integration account. If you're wo
 
 1. On the **Schemas** pane toolbar, select **Add**.
 
-For Consumption workflows, based on your schema's file size, now follow the steps for uploading a schema that's either [up to 2 MB](#smaller-schema) or [more than 2 MB, up to 8 MB](#larger-schema).
+<a name="add-schema"></a>
+
+## Add schemas to logic app
+
+### [Consumption](#tab/consumption)
+
+For Consumption workflows, based on your schema's file size, follow the steps for uploading a schema that's either [up to 2 MB](#smaller-schema) or [more than 2 MB, up to 8 MB](#larger-schema).
 
 <a name="smaller-schema"></a>
 
@@ -172,11 +178,9 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 After your schema finishes uploading, the schema appears in the **Schemas** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded schema appears.
 
----
+### [Standard](#tab/standard)
 
-### Add schema to Standard logic app resource
-
-The following steps apply only if you want to add a schema directly to your Standard logic app resource. Otherwise, [add the schema to your integration account](#add-schema-integration-account).
+For a Standard logic app resource, the following steps apply only if you want to add a schema directly to your resource. Otherwise, [add the schema to your integration account](#add-schema-integration-account).
 
 #### Azure portal
 
@@ -198,9 +202,9 @@ The following steps apply only if you want to add a schema directly to your Stan
 
 1. In the **Schemas** folder, add your schema.
 
-<a name="edit-schema"></a>
-
 ---
+
+<a name="edit-schema"></a>
 
 ## Edit a schema
 

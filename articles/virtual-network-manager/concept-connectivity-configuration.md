@@ -5,20 +5,15 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 3/22/2023
-ms.custom: template-concept, ignite-fall-2021
+ms.date: 03/22/2024
+ms.custom: template-concept
 ---
 
 # Connectivity configuration in Azure Virtual Network Manager
 
 In this article, you learn about the different types of configurations you can create and deploy using Azure Virtual Network Manager. There are two types of configurations currently available: *Connectivity* and *Security Admins*. 
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
->
-> Mesh connectivity configurations and security admin rules remain in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Connectivity configuration
 
@@ -26,13 +21,18 @@ In this article, you learn about the different types of configurations you can c
 
 ## Mesh network topology
 
-A mesh network is a topology in which all the virtual networks in the [network group](concept-network-groups.md) are connected to each other. All virtual networks are connected and can pass traffic bi-directionally to one another. By default, the mesh is a regional mesh, therefore only virtual networks in the same region can communicate with each other. **Global mesh** can be enabled to establish connectivity of virtual networks across all Azure regions. A virtual network can be part of up to two connected groups. Virtual network address spaces can overlap in a mesh configuration, unlike in virtual network peerings. However, traffic to the specific overlapping subnets is dropped, since routing is non-deterministic.
+A mesh network is a topology in which all the virtual networks in the [network group](concept-network-groups.md) are connected to each other. All virtual networks are connected and can pass traffic bi-directionally to one another. 
+
+A common use case of a mesh network topology is to allow some spoke virtual networks in a hub and spoke topology to directly communicate to each other without the traffic going through the hub virtual network. This approach reduces latency that might otherwise result from routing traffic through a router in the hub. Additionally, you can maintain security and oversight over the direct connections between spoke networks by implementing Network Security Groups rules or security administrative rules in Azure Virtual Network Manager. Traffic can also be monitored and recorded using virtual network flow logs.
+
+
+By default, the mesh is a regional mesh, therefore only virtual networks in the same region can communicate with each other. **Global mesh** can be enabled to establish connectivity of virtual networks across all Azure regions. A virtual network can be part of up to two connected groups. Virtual network address spaces can overlap in a mesh configuration, unlike in virtual network peerings. However, traffic to the specific overlapping subnets is dropped, since routing is non-deterministic.
 
 :::image type="content" source="./media/concept-configuration-types/mesh-topology.png" alt-text="Diagram of a mesh network topology.":::
 
-### <a name="connectedgroup"></a> Connected group
+### Connected group
 
-When you create a mesh topology, a new connectivity construct is created called *Connected group*. Virtual networks in a connected group can communicate to each other just like if you were to connect virtual networks together manually. When you look at the effective routes for a network interface, you'll see a next hop type of **ConnectedGroup**. Virtual networks connected together in a connected group don't have a peering configuration listed under *Peerings* for the virtual network.
+When you create a mesh topology or direct connectivity in the hub and spoke topology, a new connectivity construct is created called *Connected group*. Virtual networks in a connected group can communicate to each other just like if you were to connect virtual networks together manually. When you look at the effective routes for a network interface, you'll see a next hop type of **ConnectedGroup**. Virtual networks connected together in a connected group don't have a peering configuration listed under *Peerings* for the virtual network.
 
 > [!NOTE]
 > * If you have conflicting subnets in two or more virtual networks, resources in those subnets *won't* be able to communicate to each other even if they're part of the same mesh network.
@@ -48,7 +48,7 @@ In this configuration, you have settings you can enable such as *direct connecti
 
 ### Direct connectivity
 
-Enabling *Direct connectivity* creates an overlay of a [*connected group*](#connectedgroup) on top of your hub and spoke topology, which contains spoke virtual networks of a given group. Direct connectivity allows a spoke VNet to talk directly to other VNets in its spoke group, but not to VNets in other spokes.
+Enabling *Direct connectivity* creates an overlay of a [*connected group*](#connected-group) on top of your hub and spoke topology, which contains spoke virtual networks of a given group. Direct connectivity allows a spoke VNet to talk directly to other VNets in its spoke group, but not to VNets in other spokes.
 
 
 For example, you create two network groups. You enable direct connectivity for the *Production* network group but not for the *Test* network group. This set up only allows virtual networks in the *Production* network group to communicate with one another but not the ones in the *Test* network group. 
@@ -75,7 +75,7 @@ Enabling direct connectivity between spokes virtual networks can be helpful when
 
 #### Global mesh
 
-Like mesh, these spoke connected groups can be configured as regional or global. Global mesh is required when you want your spoke virtual networks to communicate with each other across regions. This connectivity is limited to virtual network in the same network group. To enable connectivity for virtual networks across regions, you need to **Enable mesh connectivity across regions** for the network group. Connections created between spokes virtual networks are in a [*Connected group*](#connectedgroup). 
+Like mesh, these spoke connected groups can be configured as regional or global. Global mesh is required when you want your spoke virtual networks to communicate with each other across regions. This connectivity is limited to virtual network in the same network group. To enable connectivity for virtual networks across regions, you need to **Enable mesh connectivity across regions** for the network group. Connections created between spokes virtual networks are in a [*Connected group*](#connected-group). 
 
 #### Use hub as a gateway
 

@@ -3,11 +3,11 @@ title: Plan and manage costs for Azure Blob Storage
 description: Learn how to plan for and manage costs for Azure Blob Storage by using cost analysis in Azure portal.
 services: storage
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 04/03/2023
+ms.date: 11/27/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization
 ---
 
@@ -35,12 +35,17 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 4. Modify the remaining options to see their effect on your estimate.
 
-   > [!TIP]
-   > - To view an Excel template which can help you to itemize the amount of storage and number of operations required by your workloads, see [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/). 
-   > 
-   >   You can use that information as input to the Azure pricing calculator.
-   >
-   > - For more information about how to estimate the cost of archiving data that is rarely used, see [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md).
+### Supportive tools and guides
+
+The following resources can also help you forecast the cost of using Azure Blob Storage:
+
+- [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
+
+- [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
+
+- [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+
+- [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md)
 
 ## Understand the full billing model for Azure Blob Storage
 
@@ -69,6 +74,17 @@ Data traffic might also incur networking costs. See the [Bandwidth pricing](http
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
 
 Data storage and metadata are billed per GB on a monthly basis. For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. You can use a similar approach to estimating the cost of encryption scopes that are in use for less than a month. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
+
+#### Storage units
+
+Azure Blob Storage uses the following base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, TiB, PiB. Line items on your bill that contain GB as a unit of measurement (For example, per GB / per month) are calculated by Azure Blob Storage as binary GB (GiB). For example, a line item on your bill that shows **1** for **Data Stored (GB/month)** corresponds to 1 GiB per month of usage. The following table describes each base-2 unit:
+
+| Acronym | Unit | Definition |
+|---|---|--|
+| KiB | kibibyte | 1,024 bytes |
+| MiB | mebibyte | 1,024 KiB (1,048,576 bytes) |
+| GiB | gibibyte | 1024 MiB (1,073,741,824 bytes) |
+| TiB | tebibyte | 1024 GiB (1,099,511,627,776 bytes) |
 
 ### Finding the unit price for each meter
 
@@ -110,6 +126,12 @@ The correct pricing page for these requests is the [Azure Data Lake Storage Gen2
 
 If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
 
+#### Find the price of each operation
+
+Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. 
+
+To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. To see how each operation maps to an operation type, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
+
 ### Using Azure Prepayment with Azure Blob Storage
 
 You can pay for Azure Blob Storage charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
@@ -138,7 +160,7 @@ See any of these articles to itemize and analyze your existing containers and bl
 
 - [Tutorial: Calculate container statistics by using Databricks](../blobs/storage-blob-calculate-container-statistics-databricks.md)
 
-- [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.md)
+- [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.yml)
 
 #### Reserve storage capacity
 
@@ -175,11 +197,11 @@ As you use Azure resources with Azure Storage, you incur costs. Resource usage u
 When you use cost analysis, you can view Azure Storage costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You can also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends and see where overspending might have occurred. If you've created budgets, you can also easily see where they exceeded.
 
 > [!NOTE]
-> Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for your Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+> Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for your Azure account. For information about assigning access to Microsoft Cost Management data, see [Assign access to data](../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 To view Azure Storage costs in cost analysis:
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
 
@@ -211,11 +233,9 @@ Some actions, such as changing the default access tier of your account, can lead
 | Monitoring | Enabling Storage Analytics logs (classic logs)| Storage analytics logs can accumulate in your account over time if the retention policy is not set. Make sure to set the retention policy to avoid log buildup which can lead to unexpected capacity charges.<br><br>For more information, see [Modify log data retention period](manage-storage-analytics-logs.md#modify-log-data-retention-period) |
 | Protocols | Enabling SSH File Transfer Protocol (SFTP) support| Enabling the SFTP endpoint incurs an hourly cost. To avoid passive charges, consider enabling SFTP only when you are actively using it to transfer data.<br><br> For guidance about how to enable and then disable SFTP support, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support-how-to.md). |
 
-## FAQ
+## Frequently asked questions (FAQ)
 
-**If I use Azure Storage for only a few days a month, is the cost prorated?**
-
-Storage capacity is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
+See [Managing costs FAQ](../blobs/storage-blob-faq.yml#managing-costs).
 
 ## Next steps
 

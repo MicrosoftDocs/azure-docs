@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the trigonometric arctangent of the specified numeric value. The arcsine
 
 ## Syntax
 
-```sql
+```nosql
 ATAN(<numeric_expr>)  
 ```  
 
@@ -28,7 +29,7 @@ ATAN(<numeric_expr>)
 
 | | Description |
 | --- | --- |
-| **`numeric_expr`** | A numeric expression. | 
+| **`numeric_expr`** | A numeric expression. |
 
 ## Return types
 
@@ -38,25 +39,16 @@ Returns a numeric expression.
 
 The following example calculates the arctangent of the specified angle using the function.
 
-```sql
-SELECT VALUE {
-  arctangent: ATAN(-45.01)
-}
-``` 
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/atan/query.sql" highlight="2":::  
 
-```json
-[
-  {
-    "arctangent": -1.5485826962062663
-  }
-]
-```  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/atan/result.json":::
 
 ## Remarks
 
 - This system function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`TAN`](tan.md)
+- [`ATN2`](atn2.md)

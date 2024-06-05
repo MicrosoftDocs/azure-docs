@@ -3,46 +3,72 @@ title: Work with near-real-time (NRT) detection analytics rules in Microsoft Sen
 description: This article explains how to view and create near-real-time (NRT) detection analytics rules in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/02/2022
+ms.date: 03/28/2024
 ms.author: yelevin
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 # Work with near-real-time (NRT) detection analytics rules in Microsoft Sentinel
-
-> [!IMPORTANT]
->
-> - Near-real-time (NRT) rules are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Microsoft Sentinel’s [near-real-time analytics rules](near-real-time-rules.md) provide up-to-the-minute threat detection out-of-the-box. This type of rule was designed to be highly responsive by running its query at intervals just one minute apart.
 
 For the time being, these templates have limited application as outlined below, but the technology is rapidly evolving and growing.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## View near-real-time (NRT) rules
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+# [Azure portal](#tab/azure-portal)
 
-1. In the **Active rules** tab of the **Analytics** blade, filter the list for **NRT** templates:
+1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
 
-    1. Click the **Rule type** filter, then the drop-down list that appears below.
+1. On the **Analytics** screen, with the **Active rules** tab selected, filter the list for **NRT** templates:
 
-    1. Unmark **Select all**, then mark **NRT**.
+    1. Select **Add filter** and choose **Rule type** from the list of filters.
 
-    1. If necessary, click the top of the drop-down list to retract it, then click **OK**.
+    1. From the resulting list, select **NRT**. Then select **Apply**.
+
+# [Defender portal](#tab/defender-portal)
+
+1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+1. On the **Analytics** screen, with the **Active rules** tab selected, filter the list for **NRT** templates:
+
+    1. Select **Add filter** and choose **Rule type** from the list of filters.
+
+    1. From the resulting list, select **NRT**. Then select **Apply**.
+
+---
 
 ## Create NRT rules
 
 You create NRT rules the same way you create regular [scheduled-query analytics rules](detect-threats-custom.md):
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+# [Azure portal](#tab/azure-portal)
 
-1. Select **Create** from the button bar, then **NRT query rule (preview)** from the drop-down list.
+1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+
+1. In the action bar at the top, select **+Create** and select **NRT query rule**. This opens the **Analytics rule wizard**.
 
     :::image type="content" source="media/create-nrt-rules/create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule." lightbox="media/create-nrt-rules/create-nrt-rule.png":::
 
-1. Follow the instructions of the [**analytics rule wizard**](detect-threats-custom.md).
+# [Defender portal](#tab/defender-portal)
+
+1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+1. In the action bar at the top of the grid, select **+Create** and select **NRT query rule**. This opens the **Analytics rule wizard**.
+
+    :::image type="content" source="media/create-nrt-rules/defender-create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule." lightbox="media/create-nrt-rules/create-nrt-rule.png":::
+
+---
+
+3. Follow the instructions of the [**analytics rule wizard**](detect-threats-custom.md).
 
     The configuration of NRT rules is in most ways the same as that of scheduled analytics rules. 
 
-    - You can refer to [**watchlists**](watchlists.md) in your query logic.
+    - You can refer to multiple tables and [**watchlists**](watchlists.md) in your query logic.
 
     - You can use all of the alert enrichment methods: [**entity mapping**](map-data-fields-to-entities.md), [**custom details**](surface-custom-details-in-alerts.md), and [**alert details**](customize-alert-details.md).
 
@@ -57,8 +83,6 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
     - **Event grouping** configuration is now available to a limited degree. You can choose to have an NRT rule generate an alert for each event for up to 30 events. If you choose this option and the rule results in more than 30 events, single-event alerts will be generated for the first 29 events, and a 30th alert will summarize all the events in the result set.
 
     In addition, the query itself has the following requirements:
-
-    - The query itself can refer to only one table, and cannot contain unions or joins.
 
     - You can't run the query across workspaces.
 

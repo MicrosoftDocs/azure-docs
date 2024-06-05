@@ -4,7 +4,7 @@ description: Guidance for getting started with Storage on Azure Government
 ms.service: azure-government
 ms.topic: article
 author: yujhongmicrosoft
-ms.author: stevevi
+ms.author: eliotgra
 ms.date: 10/01/2021
 ---
 
@@ -55,25 +55,27 @@ These endpoint differences must be taken into account when you connect to storag
 1. Open Visual Studio and create a new project. Add a reference to the [Azure Tables client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables). This package contains classes for connecting to your Storage Table account.
 
 2. Add these two lines of C# code to connect:
+
     ```cs
     var credentials = new TableSharedKeyCredential(storageAccountName, Environment.GetEnvironmentVariable("STORAGE_ACCOUNT_KEY"));
     var storageTableUri = Environment.GetEnvironmentVariable("STORAGE_TABLE_URI");
     var tableServiceClient = new TableServiceClient(new Uri(storageTableUri), credentials);   
     ```
 
-
 3. At this point, we can interact with Storage as we normally would. For example, if we want to retrieve a specific entity from our Table Storage, we could do it like this:
 
    ```cs
-    var tableClient = tableServiceClient.GetTableClient("Contacts");
-    ContactEntity contact = tableClient.GetEntity<ContactEntity>("gov-partition1", "0fb52a6c-3784-4dc5-aa6d-ecda4426dbda");
-    Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
-    ```
+   var tableClient = tableServiceClient.GetTableClient("Contacts");
+   ContactEntity contact = tableClient.GetEntity<ContactEntity>("gov-partition1", "0fb52a6c-3784-4dc5-aa6d-ecda4426dbda");
+   Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
+   ```
 
 #### Java
 1. Download the [Azure Tables client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables) and configure your project correctly.
-2. Create a "test" class where we'll access Azure Table Storage using the Azure Tables client library.  
- Copy and paste the code below, and **paste** your Storage Account connection string into the `AZURE_STORAGE_CONNECTION_STRING` environment variable. 
+2. Create a "test" class where we'll access Azure Table Storage using the Azure Tables client library.
+
+    Copy and paste the code below, and **paste** your Storage Account connection string into the `AZURE_STORAGE_CONNECTION_STRING` environment variable. 
+
     ```java
     import com.azure.data.tables.implementation.ModelHelper;
     import com.azure.data.tables.models.*;
@@ -104,8 +106,8 @@ These endpoint differences must be taken into account when you connect to storag
             // Output the stack trace.
             e.printStackTrace();
         }
-      }    
-    }   
+      }
+    }
     ```
 
 #### Node.js

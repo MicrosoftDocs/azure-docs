@@ -6,9 +6,8 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/11/2023
-ms.service: storage
-ms.subservice: blobs
+ms.date: 08/02/2023
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
@@ -16,22 +15,33 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 # Delete and restore a blob with Java
 
+[!INCLUDE [storage-dev-guide-selector-delete-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-blob.md)]
+
 This article shows how to delete blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).  If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to delete a blob, or to restore a soft-deleted blob. To learn more, see the authorization guidance for the following REST API operations:
+    - [Delete Blob](/rest/api/storageservices/delete-blob#authorization)
+    - [Undelete Blob](/rest/api/storageservices/undelete-blob#authorization)
 
 ## Delete a blob
 
 To delete a blob, call one of these methods:
 
-- [delete](/java/api/com.azure.storage.blob.specialized.blobclientbase)
-- [deleteIfExists](/java/api/com.azure.storage.blob.specialized.blobclientbase)
+- [delete](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
+- [deleteIfExists](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
 
 The following example deletes a blob:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDelete.java" id="Snippet_DeleteBlob":::
 
-The following example deletes a blob and its snapshots with a response:
+If the blob has any associated snapshots, you must delete all of its snapshots to delete the blob. The following example deletes a blob and its snapshots with a response:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDelete.java" id="Snippet_DeleteBlobSnapshots":::
+
+To delete *only* the snapshots and not the blob itself, you can pass the parameter `DeleteSnapshotsOptionType.ONLY`.
 
 ## Restore a deleted blob
 
@@ -48,7 +58,7 @@ How you restore a soft-deleted blob depends on whether or not your storage accou
 
 To restore deleted blobs, call the following method:
 
-- [undelete](/java/api/com.azure.storage.blob.specialized.blobclientbase)
+- [undelete](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
 
 This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect.
 
@@ -56,9 +66,9 @@ This method restores the content and metadata of a soft-deleted blob and any ass
 
 #### Restore soft-deleted objects when versioning is enabled
 
-To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use the following method:
+If a storage account is configured to enable blob versioning, deleting a blob causes the current version of the blob to become the previous version. To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob. You can use the following method:
 
-- [copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase)
+- [copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
 
 This method restores the content and metadata of a soft-deleted blob and any associated soft-deleted snapshots. Calling this method for a blob that hasn't been deleted has no effect.
 
@@ -87,7 +97,7 @@ This method restores the content and metadata of a soft-deleted blob and any ass
 
 3. The following snippet restores a soft-deleted file named `my-file`.
 
-   This method assumes that you've created a **DataLakeServiceClient** instance. To learn how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-java.md#connect-to-the-account).
+   This method assumes that you've created a **DataLakeServiceClient** instance. To learn how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-java.md#authorize-access-and-connect-to-data-resources).
 
    ```java
 

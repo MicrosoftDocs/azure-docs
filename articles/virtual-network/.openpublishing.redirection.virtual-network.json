@@ -1,0 +1,1084 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/virtual-network/container-networking.md",
+            "redirect_url": "/azure/aks/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-dmz-nsg-asm.md",
+            "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-dmz-nsg-fw-asm.md",
+            "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md",
+            "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ddos-protection-overview.md",
+            "redirect_url": "/azure/ddos-protection/ddos-protection-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ddos-protection-partner-onboarding.md",
+            "redirect_url": "/azure/ddos-protection/ddos-protection-partner-onboarding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ddos-protection-manage-portal.md",
+            "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ddos-protection-manage-ps.md",
+            "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/manage-ddos-protection.md",
+            "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/resource-groups-networking.md",
+            "redirect_url": "/azure/networking/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
+            "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-routes-troubleshoot-portal.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-routing-problem",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-nsg-troubleshoot-portal.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-traffic-filter-problem",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-manage-nsg-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-manage-nsg-arm-portal.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-manage-nsg-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-manage-network.md",
+            "redirect_url": "/azure/virtual-network/manage-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/security-overview.md",
+            "redirect_url": "/azure/virtual-network/network-security-groups-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/policy-samples.md",
+            "redirect_url": "/azure/virtual-network/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-ip-addresses-overview-arm.md",
+            "redirect_url": "/azure/virtual-network/public-ip-addresses",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/quick-create-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-get-started-vnet-subnet.md",
+            "redirect_url": "/azure/virtual-network/quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md",
+            "redirect_url": "/azure/virtual-network/quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md",
+            "redirect_url": "/azure/virtual-network/quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/quick-create-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-create-udr-arm-template.md",
+            "redirect_url": "/azure/virtual-network/template-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-arm-template.md",
+            "redirect_url": "/azure/virtual-network/template-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-template.md",
+            "redirect_url": "/azure/virtual-network/template-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-multiple-ip-addresses-template.md",
+            "redirect_url": "/azure/virtual-network/template-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-nsg-arm-template.md",
+            "redirect_url": "/azure/virtual-network/template-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-create-peering.md",
+            "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-create-udr-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-user-defined-route-portal.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-create-udr-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-network-security-group-preview.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-nsg-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-nsg-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoints-configure.md",
+            "redirect_url": "/azure/virtual-network/tutorial-restrict-network-access-to-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnetpeering-arm-portal.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-create-peering",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnetpeering-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-create-peering",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-create-peering",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-create-udr-arm-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-create-udr-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-accelerated-networking-portal.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-create-vm-accelerated-networking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-accelerated-networking-powershell.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-create-vm-accelerated-networking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-multiple-nics.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-public-ip-within-vnet.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-manage-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-manage-nsg-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-manage-nsg-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-multiple-ip-addresses-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-network-interface-overview.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-network-interface",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-public-ip-availability-zone-cli.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-public-ip-availability-zone-portal.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-public-ip-availability-zone-powershell.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-nsg-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-create-nsg-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-nsg-arm-portal.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-create-nsg-arm-pportal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-create-vnet-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-classic-portal.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-create-vnet-classic-pportal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-static-private-ip-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-manage-dns-in-vnet.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-using-network-configuration-file",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-nsg.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-vnet-plan-design-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-virtual-network-classic.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/create-virtual-network-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-create-udr-classic-cli.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-create-udr-classic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-create-udr-classic-ps.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-create-udr-classic-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-classic-cli.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-classic-ps.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-ip-addresses-overview-classic.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-acl.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-acl",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-acl-powershell.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-acl-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-nsg-classic-cli.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-nsg-classic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-nsg-classic-ps.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-nsg-classic-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-classic-cli.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-instance-level-public-ip.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-migrate-to-regional-vnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-move-vm-role-to-subnet.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-move-vm-role-to-subnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-reserved-private-ip.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-reserved-public-ip.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-sample-app.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-sample-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-dns-settings-in-a-service-configuration-file",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-classic-cli.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-static-private-ip-classic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-using-network-configuration-file.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quickstart-create-nat-gateway-portal.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quickstart-create-nat-gateway-powershell.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-create-validate-nat-gateway-powershell.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quickstart-create-nat-gateway-cli.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-create-validate-nat-gateway-cli.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway-resource.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/nat-gateway-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-metrics.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/nat-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-overview.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/nat-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quickstart-create-nat-gateway-template.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/troubleshoot-nat.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/troubleshoot-nat",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-create-nat-gateway-cli.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-create-nat-gateway-portal.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-create-nat-gateway-powershell.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ipv6-public-ip-address-prefix.md",
+            "redirect_url": "/azure/virtual-network/public-ip-address-prefix",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-public-ip-address-upgrade.md",
+            "redirect_url": "/azure/virtual-network/public-ip-upgrade-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/configure-public-ip-load-balancer.md",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/configure-public-ip-nat-gateway.md",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-nat-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/configure-public-ip-vm.yml",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/configure-public-ip-firewall.md",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/configure-public-ip-vpn-gateway.md",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-vpn-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/configure-public-ip-application-gateway.md",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-application-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/configure-public-ip-bastion.md",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-bastion",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/public-ip-addresses.md",
+            "redirect_url": "/azure/virtual-network/ip-services/public-ip-addresses",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/private-ip-addresses.md",
+            "redirect_url": "/azure/virtual-network/ip-services/private-ip-addresses",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/public-ip-address-prefix.md",
+            "redirect_url": "/azure/virtual-network/ip-services/public-ip-address-prefix",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-public-ip-address.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-public-ip-address",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/manage-public-ip-address-prefix.md",
+            "redirect_url": "/azure/virtual-network/ip-services/manage-public-ip-address-prefix",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ipv6-overview.md",
+            "redirect_url": "/azure/virtual-network/ip-services/ipv6-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/default-outbound-access.md",
+            "redirect_url": "/azure/virtual-network/ip-services/default-outbound-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/routing-preference-overview.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/routing-preference-unmetered.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-unmetered",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/public-ip-upgrade-portal.md",
+            "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/public-ip-upgrade-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/public-ip-upgrade-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/public-ip-upgrade-classic.md",
+            "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/routing-preference-portal.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/routing-preference-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/routing-preference-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-public-ip-portal.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-public-ip-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-public-ip-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-public-ip-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-public-ip-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-public-ip-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-public-ip-template.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-public-ip-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-public-ip-prefix-portal.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-public-ip-prefix-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-public-ip-prefix-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-public-ip-prefix-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-public-ip-prefix-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-public-ip-prefix-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-routing-preference-virtual-machine-portal.md",
+            "redirect_url": "/azure/virtual-network/ip-services/tutorial-routing-preference-virtual-machine-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/configure-routing-preference-virtual-machine-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/configure-routing-preference-virtual-machine-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/routing-preference-mixed-network-adapter-portal.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-mixed-network-adapter-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/routing-preference-azure-kubernetes-service-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-azure-kubernetes-service-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ipv6-configure-standard-load-balancer-template-json.md",
+            "redirect_url": "/azure/load-balancer/ipv6-configure-standard-load-balancer-template-json",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ipv6-dual-stack-standard-internal-load-balancer-powershell.md",
+            "redirect_url": "/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ipv6-add-to-existing-vnet-powershell.md",
+            "redirect_url": "/azure/load-balancer/ipv6-add-to-existing-vnet-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ipv6-add-to-existing-vnet-cli.md",
+            "redirect_url": "/azure/load-balancer/ipv6-add-to-existing-vnet-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-ipv4-ipv6-dual-stack-powershell.md",
+            "redirect_url": "/azure/load-balancer/gateway-deploy-dual-stack-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-ipv4-ipv6-dual-stack-cli.md",
+            "redirect_url": "/azure/load-balancer/gateway-deploy-dual-stack-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ipv6-configure-template-json.md",
+            "redirect_url": "/azure/load-balancer/gateway-deploy-dual-stack-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/associate-public-ip-address-vm.md",
+            "redirect_url": "/azure/virtual-network/ip-services/associate-public-ip-address-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/remove-public-ip-address-vm.md",
+            "redirect_url": "/azure/virtual-network/ip-services/remove-public-ip-address-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-multiple-ip-addresses-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ipv6-virtual-machine-scale-set.md",
+            "redirect_url": "/azure/virtual-network/ip-services/ipv6-virtual-machine-scale-set",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-network-interface-addresses.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-network-interface-addresses",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "redirect_document_id": false,
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos"
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/faq.yml",
+            "redirect_url": "/azure/nat-gateway/faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/index.yml",
+            "redirect_url": "/azure/nat-gateway/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/manage-nat-gateway.md",
+            "redirect_url": "/azure/nat-gateway/manage-nat-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/nat-availability-zones.md",
+            "redirect_url": "/azure/nat-gateway/nat-availability-zones",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/nat-gateway-resource.md",
+            "redirect_url": "/azure/nat-gateway/nat-gateway-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/nat-metrics.md",
+            "redirect_url": "/azure/nat-gateway/nat-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/nat-overview.md",
+            "redirect_url": "/azure/nat-gateway/nat-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/quickstart-create-nat-gateway-bicep.md",
+            "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway-bicep",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli.md",
+            "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md",
+            "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/quickstart-create-nat-gateway-powershell.md",
+            "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/quickstart-create-nat-gateway-template.md",
+            "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/region-move-nat-gateway.md",
+            "redirect_url": "/azure/nat-gateway/region-move-nat-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/resource-health.md",
+            "redirect_url": "/azure/nat-gateway/resource-health",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/troubleshoot-nat-and-azure-services.md",
+            "redirect_url": "/azure/nat-gateway/troubleshoot-nat-and-azure-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/troubleshoot-nat-connectivity.md",
+            "redirect_url": "/azure/nat-gateway/troubleshoot-nat-connectivity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/troubleshoot-nat.md",
+            "redirect_url": "/azure/nat-gateway/troubleshoot-nat",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-hub-spoke-nat-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-hub-spoke-route-nat.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-hub-spoke-route-nat",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-migrate-ilip-nat",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-migrate-outbound-nat.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-migrate-outbound-nat",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos.md",
+            "redirect_url": "/azure/nat-gateway/tutorial-protect-nat-gateway-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-filter-network-traffic.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/powershell-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/cli-samples.md",
+            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-ipv6-dual-stack-standard-load-balancer.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-ipv6-dual-stack.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-ipv6-dual-stack.md",
+            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-filter-network-traffic.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-multi-tier-application.md",
+            "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-nsg-portal.md",
+            "redirect_url": "/azure/operational-excellence/relocation-virtual-network-nsg",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-nsg-powershell.md",
+            "redirect_url": "/azure/operational-excellence/relocation-virtual-network-nsg",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-vnet-portal.md",
+            "redirect_url": "/azure/operational-excellence/relocation-virtual-network",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-vnet-powershell.md",
+            "redirect_url": "/azure/operational-excellence/relocation-virtual-network",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-portal.md",
+            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-powershell.md",
+            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_document_id": false 
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-multi-tier-application.md",
+            "redirect_url": "/azure/app-service/tutorial-secure-ntier-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-classic-pportal.md",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-classic-ps.md",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-routes-troubleshoot-powershell.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-routing-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-nsg-troubleshoot-powershell.md",
+            "redirect_url": "/azure/virtual-network/diagnose-network-traffic-filter-problem",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ipv6-reserve-public-ip-address-prefix.md",
+            "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-powershell.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md",
+            "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
+            "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/multiple-nics-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md",
+            "redirect_url": "/azure/virtual-machines/windows/multiple-nics",
+            "redirect_document_id": false
+        }
+    ]
+}

@@ -2,7 +2,10 @@
 title: Enable Ultra Disk support on Azure Kubernetes Service (AKS)
 description: Learn how to enable and configure Ultra Disks in an Azure Kubernetes Service (AKS) cluster
 ms.topic: article
-ms.date: 04/10/2023
+ms.date: 07/26/2023
+author: tamram
+ms.author: tamram
+
 
 ---
 
@@ -19,15 +22,14 @@ This feature can only be set at cluster creation or when creating a node pool.
 ### Limitations
 
 - Azure ultra disks require node pools deployed in availability zones and regions that support these disks, and are only supported by specific VM series. Review the corresponding table under the  [Ultra disk limitations][ultra-disk-limitations] section for more information.
-- Ultra disks can't be used with some features and functionality, such as availability sets or Azure Disk Encryption. Review the [Ultra disk limitations][ultra-disk-limitations] for the latest information.  
-- The supported size range for ultra disks is between *100* and *1500*.
+- Ultra disks can't be used with some features and functionality, such as availability sets or Azure Disk Encryption. Review the [Ultra disk limitations][ultra-disk-limitations] for the latest information.
 
 ## Create a cluster that can use ultra disks
 
 Create an AKS cluster that is able to leverage Azure ultra Disks by using the following CLI commands. Use the `--enable-ultra-ssd` parameter to set the `EnableUltraSSD` feature.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n myAKSCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
+az aks create --resource-group MyResourceGroup --name myAKSCluster --location westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
 ```
 
 If you want to create a cluster without ultra disk support, you can do so by omitting the `--enable-ultra-ssd` parameter.
@@ -197,5 +199,5 @@ Once the persistent volume claim has been created and the disk successfully prov
 [ultra-disk-limitations]: ../virtual-machines/disks-types.md#ultra-disk-limitations
 [azure-disk-volume]: azure-disk-csi.md
 [operator-best-practices-storage]: operator-best-practices-storage.md
-[use-tags]: use-tags.md
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+

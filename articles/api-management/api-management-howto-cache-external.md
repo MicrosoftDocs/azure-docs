@@ -2,7 +2,6 @@
 title: Use an external cache in Azure API Management | Microsoft Docs
 description: Learn how to configure and use an external Redis-compatible cache in Azure API Management. Using an external cache gives you more control and flexibility than the built-in cache.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -14,6 +13,8 @@ ms.author: danlep
 
 # Use an external Redis-compatible cache in Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In addition to utilizing the built-in cache, Azure API Management allows for caching responses in an external Redis-compatible cache, such as Azure Cache for Redis.
 
 Using an external cache allows you to overcome a few limitations of the built-in cache:
@@ -24,7 +25,7 @@ Using an external cache allows you to overcome a few limitations of the built-in
 * Use caching with the Consumption tier of API Management
 * Enable caching in the [API Management self-hosted gateway](self-hosted-gateway-overview.md)
 
-For more detailed information about caching, see [API Management caching policies](api-management-caching-policies.md) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
+For more detailed information about caching, see [API Management caching policies](api-management-policies.md#caching) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 ![Bring your own cache to APIM](media/api-management-howto-cache-external/overview.png)
 
@@ -104,7 +105,7 @@ The **Use from** setting in the configuration specifies the location of your API
 
 ## Use the external cache
 
-After adding a Redis-compatible cache, configure [caching policies](api-management-caching-policies.md) to enable response caching, or caching of values by key, in the external cache.
+After adding a Redis-compatible cache, configure [caching policies](api-management-policies.md#caching) to enable response caching, or caching of values by key, in the external cache.
 
 For a detailed example, see [Add caching to improve performance in Azure API Management](api-management-howto-cache.md).
 
@@ -114,4 +115,4 @@ For a detailed example, see [Add caching to improve performance in Azure API Man
 * To cache items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 [API Management policy reference]: ./api-management-policies.md
-[Caching policies]: ./api-management-caching-policies.md
+[Caching policies]: ./api-management-policies.md#caching

@@ -20,6 +20,32 @@ Azure Machine Learning checks and validates any machine learning packages that m
 
 Main updates provided with each image version are described in the below sections.
 
+## Feb 16, 2024
+Version: `24.01.30`
+
+Main changes:
+
+- Enable Tensorflow in GPU compute to detect GPU device.
+
+Main environment specific updates:
+
+- N/A
+
+## June 30, 2023
+Version: `23.06.30` 
+
+Main changes:
+
+- `Azure Machine Learning SDK` to version `1.51.0`
+- Purged vulnerable packages
+- Fixed `libtinfo` error
+- Fixed 'conda command not found' error
+
+Main environment specific updates:
+
+- `tensorflow` updated to `2.11.1` in `azureml_py38_PT_TF`
+- `azure-keyvault-keys` updated to `4.8.0` in `azureml_py38`
+
 ## April 7, 2023
 Version: `23.04.07`
 

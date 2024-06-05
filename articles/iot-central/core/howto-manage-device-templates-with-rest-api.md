@@ -26,7 +26,7 @@ To learn how to manage device templates by using the IoT Central UI, see [How to
 
 A device template contains a device model and view definitions. The REST API lets you manage the device model including cloud property definitions. You must use the UI to create and manage views.
 
-The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
+The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
 
 > [!NOTE]
 > IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
@@ -457,27 +457,11 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
->[!NOTE]
->`{deviceTemplateId}` should be the same as the `@id` in the payload.
-
-The sample request body looks like the following example that adds a `LastMaintenanceDate` cloud property to the device template:
+The sample request body looks like the following example that adds a `LastMaintenanceDate` cloud property to the `capabilityModel` in the device template:
 
 ```json
 {
-    "displayName": "Thermostat",
-
-    "@id": "dtmi:contoso:mythermostattemplate",
-    "@type": [
-        "ModelDefinition",
-        "DeviceModel"
-    ],
-    "@context": [
-        "dtmi:iotcentral:context;2",
-        "dtmi:dtdl:context;2"
-    ],
     "capabilityModel": {
-        "@id": "dtmi:contoso:Thermostat;1",
-        "@type": "Interface",
         "contents": [
             {
                 "@type": [

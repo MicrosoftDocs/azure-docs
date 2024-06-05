@@ -5,8 +5,8 @@ ms.topic: tutorial
 ms.date: 10/28/2022
 ms.custom: mvc, devx-track-azurecli
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore a VM with Azure CLI
@@ -23,7 +23,7 @@ For information on using PowerShell to restore a disk and create a recovered VM,
 
 Now, you can also use CLI to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using CLI](#restore-data-to-virtual-machine-using-cli).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -212,7 +212,7 @@ When the *Status* of the restore job reports *Completed*, the necessary informat
 
 Azure Backup also allows you to use managed identity (MSI) during restore operation to access storage accounts where disks have to be restored to. This option is currently supported only for managed disk restore.
 
-If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***--mi-system-assigned*** to the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command. If you wish to use a user-assigned managed identity, pass a parameter ***--mi-user-assigned*** with the Azure Resource Manager ID of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
+If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***--mi-system-assigned*** to the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command. If you wish to use a user-assigned managed identity, pass a parameter ***--mi-user-assigned*** with the Azure Resource Manager ID of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-a-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
 
 ## Create a VM from the restored disk
 

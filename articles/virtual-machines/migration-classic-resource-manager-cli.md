@@ -1,14 +1,13 @@
 ---
-title: Migrate VMs to Resource Manager using Azure CLI 
+title: Migrate VMs to Resource Manager using Azure CLI
 description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager by using Azure CLI.
 author: oriwolman
 manager: vashan
 ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/12/2023
-ms.author: oriwolman 
+ms.author: oriwolman
 ms.custom: devx-track-azurecli compute-evergreen, devx-track-arm-template
 ---
 
@@ -17,7 +16,7 @@ ms.custom: devx-track-azurecli compute-evergreen, devx-track-arm-template
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
 These steps show you how to use CLI commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure classic CLI](/cli/azure/install-classic-cli). Since Azure CLI only applies to Azure Resource Manager resources, it cannot be used for this migration.
 
@@ -39,7 +38,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
 > [!IMPORTANT]
-> Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with an Application gateway, remove the gateway before running a Prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager. 
+> Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with an Application gateway, remove the gateway before running a Prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager.
 >
 >ExpressRoute gateways connecting to ExpressRoute circuits in another subscription cannot be migrated automatically. In such cases, remove the ExpressRoute gateway, migrate the virtual network and recreate the gateway. Please see [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../expressroute/expressroute-migration-classic-resource-manager.md) for more information.
 >
@@ -61,11 +60,11 @@ azure account set "<azure-subscription-name>"
 ```
 
 > [!NOTE]
-> Registration is a one time step but it needs to be done once before attempting migration. Without registering you'll see the following error message 
-> 
-> *BadRequest : Subscription is not registered for migration.* 
-> 
-> 
+> Registration is a one time step but it needs to be done once before attempting migration. Without registering you'll see the following error message
+>
+> *BadRequest : Subscription is not registered for migration.*
+>
+>
 
 Register with the migration resource provider by using the following command. Note that in some cases, this command times out. However, the registration will be successful.
 

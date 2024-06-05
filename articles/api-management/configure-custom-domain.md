@@ -3,7 +3,6 @@ title: Configure custom domain name for Azure API Management instance
 titleSuffix: Azure API Management
 description: How to configure a custom domain name and choose certificates for the endpoints of your Azure API Management instance.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -14,6 +13,8 @@ ms.custom: engagement-fy23
 ---
 
 # Configure a custom domain name for your Azure API Management instance
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 When you create an Azure API Management service instance in the Azure cloud, Azure assigns it a `azure-api.net` subdomain (for example, `apim-service-name.azure-api.net`). You can also expose your API Management endpoints using your own custom domain name, such as **`contoso.com`**. This article shows you how to map an existing custom DNS name to endpoints exposed by an API Management instance.
 
@@ -42,7 +43,6 @@ There are several API Management endpoints to which you can assign a custom doma
 | Endpoint | Default |
 | -------- | ----------- |
 | **Gateway** | Default is: `<apim-service-name>.azure-api.net`. Gateway is the only endpoint available for configuration in the Consumption tier.<br/><br/>The default Gateway endpoint configuration remains available after a custom Gateway domain is added. |
-| **Developer portal (legacy)** | Default is: `<apim-service-name>.portal.azure-api.net` |
 | **Developer portal** | Default is: `<apim-service-name>.developer.azure-api.net` |
 | **Management** | Default is: `<apim-service-name>.management.azure-api.net` |
 | **Configuration API (v2)** | Default is: `<apim-service-name>.configuration.azure-api.net` |
@@ -51,7 +51,7 @@ There are several API Management endpoints to which you can assign a custom doma
 ### Considerations
 
 * You can update any of the endpoints supported in your service tier. Typically, customers update **Gateway** (this URL is used to call the APIs exposed through API Management) and **Developer portal** (the developer portal URL).
-* The default **Gateway** endpoint also is available after you configure a custom Gateway domain name. For other API Management endpoints (such as **Developer portal**) that you configure with a custom domain name, the default endpoint is no longer available.
+* The default **Gateway** endpoint remains available after you configure a custom Gateway domain name and cannot be deleted. For other API Management endpoints (such as **Developer portal**) that you configure with a custom domain name, the default endpoint is no longer available.
 * Only API Management instance owners can use **Management** and **SCM** endpoints internally. These endpoints are less frequently assigned a custom domain name.
 * The **Premium** and **Developer** tiers support setting multiple hostnames for the **Gateway** endpoint.
 * Wildcard domain names, like `*.contoso.com`, are supported in all tiers except the Consumption tier. A specific subdomain certificate (for example, api.contoso.com) would take precedence over a wildcard certificate (*.contoso.com) for requests to api.contoso.com.
@@ -75,7 +75,10 @@ If you already have a private certificate from a third-party provider, you can u
 
 We recommend using Azure Key Vault to [manage your certificates](../key-vault/certificates/about-certificates.md) and setting them to `autorenew`.
 
-If you use Azure Key Vault to manage a custom domain TLS certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](/rest/api/keyvault/certificates/create-certificate/create-certificate), not a _secret_.
+If you use Azure Key Vault to manage a custom domain TLS certificate, make sure the certificate is inserted into Key Vault [as a ](/rest/api/keyvault/certificates/create-certificate/create-certificate)_[certificate](/rest/api/keyvault/certificates/create-certificate/create-certificate)_, not a _secret_.
+
+> [!CAUTION]
+> When using a key vault certificate in API Management, be careful not to delete the certificate, key vault, or managed identity used to access the key vault.
 
 To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. 
 * When you use the Azure portal to import the certificate, all the necessary configuration steps are completed automatically. 
@@ -95,7 +98,7 @@ For more information, see [Use managed identities in Azure API Management](api-m
 API Management offers a free, managed TLS certificate for your domain, if you don't wish to purchase and manage your own certificate. The certificate is autorenewed automatically.
 
 > [!NOTE]
-> The free, managed TLS certificate is available for all API Management service tiers. It is currently in preview.
+> The free, managed TLS certificate is in preview. Currently, it's unavailable in the v2 service tiers. 
 
 #### Limitations
 
@@ -104,7 +107,10 @@ API Management offers a free, managed TLS certificate for your domain, if you do
 * Not supported in the following Azure regions: France South and South Africa West
 * Currently available only in the Azure cloud
 * Does not support root domain names (for example, `contoso.com`). Requires a fully qualified name such as `api.contoso.com`.
+* Supports only public domain names
 * Can only be configured when updating an existing API Management instance, not when creating an instance
+
+
 
 ---
 ## Set a custom domain name - portal
@@ -162,6 +168,8 @@ Choose the steps according to the [domain certificate](#domain-certificate-optio
 > [!NOTE]
 > The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer tier has downtime, while Basic and higher tiers do not.
 
+
+
 ---
 
 ## DNS configuration
@@ -198,4 +206,5 @@ You can also get a domain ownership identifier by calling the [Get Domain Owners
 ## Next steps
 
 [Upgrade and scale your service](upgrade-and-scale.md)
+
 

@@ -1,31 +1,36 @@
 ---
-title: Back up Azure file shares in the Azure portal
-description: Learn how to use the Azure portal to back up Azure file shares in the Recovery Services vault
+title: Back up Azure File shares in the Azure portal
+description: Learn how to use the Azure portal to back up Azure File shares in the Recovery Services vault
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 04/05/2024
 ms.service: backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
-# Back up Azure file shares
+# Back up Azure File shares
 
-This article describes how to  back up [Azure file shares](../storage/files/storage-files-introduction.md) from the Azure portal.
+This article describes how to back up [Azure File shares](../storage/files/storage-files-introduction.md) from the Azure portal.
 
-Azure file share backup is a native, cloud based backup solution that protects your data in the cloud and eliminates additional maintenance overheads involved in on-premises backup solutions. The Azure Backup service smoothly integrates with Azure File Sync, and allows you to centralize your file share data as well as your backups. This simple, reliable, and secure solution enables you to configure protection for your enterprise file shares in a few simple steps with an assurance that you can recover your data in case of any accidental deletion.
+Azure File share backup is a native, cloud based backup solution that protects your data in the cloud and eliminates additional maintenance overheads involved in on-premises backup solutions. The Azure Backup service smoothly integrates with Azure File Sync, and allows you to centralize your file share data as well as your backups. This simple, reliable, and secure solution enables you to configure protection for your enterprise file shares by using [snapshot backup](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted backup (preview)](azure-file-share-backup-overview.md?tabs=vault-standard) in a few simple steps with an assurance that you can recover your data in case of any accidental or malicious deletion.
 
-[Learn about](azure-file-share-backup-overview.md) the Azure file share snapshot-based backup solution.
+[Learn about](azure-file-share-backup-overview.md) the Azure File share snapshot-based backup solution.
+
+>[!Note]
+>Vaulted backup for Azure File share is currently in preview and available in limited regions mentioned [here](azure-file-share-support-matrix.md?tabs=vault-tier#supported-regions).
 
 ## Prerequisites
 
-* Ensure that the file share is present in one of the [supported storage account types](azure-file-share-support-matrix.md).
+* Ensure that the file share is present in one of the supported storage account types. Review the [support matrix](azure-file-share-support-matrix.md).
 * Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 * In case you have restricted access to your storage account, check the firewall settings of the account to ensure that the exception "Allow Azure services on the trusted services list to access this storage account" is granted. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Configure the backup
+
+You can configure *snapshot backup* and *vaulted backup (preview)* for Azure File share from *Backup center* or *File share blade*.
 
 **Choose an entry point**
 
@@ -37,111 +42,119 @@ To configure backup for multiple file shares from the Backup center, follow thes
 
    :::image type="content" source="./media/backup-afs/backup-center-configure-inline.png" alt-text="Screenshot showing to configure Backup for Azure File." lightbox="./media/backup-afs/backup-center-configure-expanded.png":::
 
-1. Select **Azure Files (Azure Storage)** as the datasource type, select the vault that you wish to protect the file shares with, and then select **Continue**.
+1. On the **Start: Configure Backup** blade, select **Azure Files (Azure Storage)** as the datasource type, select the vault that you want to protect the file shares with, and then select **Continue**.
 
    :::image type="content" source="./media/backup-afs/azure-file-share-select-vault.png" alt-text="Screenshot showing to select Azure Files.":::
 
 1. Click **Select** to select the storage account that contains the file shares to be backed-up.
 
-   The **Select Storage Account Pane** opens on the right, listing a set of discovered supported storage accounts. They're either associated with this vault or present in the same region as the vault, but not yet associated to any Recovery Services vault.
+   The **Select storage account** blade opens on the right, which lists a set of discovered supported storage accounts. They're either associated with this vault or present in the same region as the vault, but not yet associated to any Recovery Services vault.
 
    :::image type="content" source="./media/backup-afs/azure-file-share-select-storage-account-inline.png" alt-text="Screenshot showing to select a storage account." lightbox="./media/backup-afs/azure-file-share-select-storage-account-expanded.png":::
 
-1. From the list of discovered storage accounts, select an account, and select **OK**.
+1. On the **Select storage account** blade, from the list of discovered storage accounts, select an account, and select **OK**.
 
    :::image type="content" source="./media/backup-afs/azure-file-share-confirm-storage-account-inline.png" alt-text="Screenshot showing to select one of the discovered storage accounts." lightbox="./media/backup-afs/azure-file-share-confirm-storage-account-expanded.png":::
    
    >[!NOTE]
    >If a storage account is present in a different region than the vault, it won't be present in the list of discovered storage accounts.
 
-1. The next step is to select the file shares you want to back up. Select the **Add** button in the **FileShares to Backup** section.
+1. On the **Configure Backup** blade, under the **FileShares to Backup** section, select the *file shares type* you want to back up, and then select **Add**.
 
    :::image type="content" source="./media/backup-afs/azure-select-file-share-inline.png" alt-text="Screenshot showing to select the file shares to back up." lightbox="./media/backup-afs/azure-select-file-share-expanded.png":::
 
-1. The **Select File Shares** context pane opens on the right. Azure searches the storage account for file shares that can be backed up. If you recently added your file shares and don't see them in the list, allow some time for the file shares to appear.
+1. The **Select file shares** context blade opens on the right. Azure searches the storage account for file shares that can be backed up. If you recently added your file shares and don't see them in the list, allow some time for the file shares to appear.
 
-1. From the **Select File Shares** list, select one or more of the file shares you want to back up. Select **OK**.
+1. On the **Select file shares** blade, from the *file shares* list, select one or more file shares you want to back up, and then select **OK**.
 
-1. To choose a backup policy for your file share, you have three options:
+1. On the **Configure Backup** blade, under **Policy Details**, choose an existing *backup policy* from the list for your file share protection or create a new policy.
 
-   * Choose the default policy.<br>
-   This option allows you to enable daily backup that will be retained for 30 days. If you don’t have an existing backup policy in the vault, the backup pane opens with the default policy settings. If you want to choose the default settings, you can directly select **Enable backup**.
+   To create a new backup policy, you can configure the following attributes in the backup policy:
 
-   * Create a new policy <br>
+   1. On the **Configure Backup** blade, select **Create new** under **Policy Details**.
 
-      1. To create a new backup policy for your file share, select the link text below the drop-down list in the **Backup Policy** section.<br>
+   1. On the **Create policy** blade, provide the *policy name*.
 
-         :::image type="content" source="./media/backup-afs/azure-file-share-edit-policy-inline.png" alt-text="Screenshot showing to create new policy." lightbox="./media/backup-afs/azure-file-share-edit-policy-expanded.png":::
+   1. On **Backup tier**, select one of the following tiers:
 
-      1. Follow the steps 3-7 in the [Create a new policy](manage-afs-backup.md#create-a-new-policy) section.
+      - **Snapshot**: Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletions.
+      - **Vault-Standard (Preview)**: Provides comprehensive data protection.
 
-      1. After defining all attributes of the policy, select **OK**.
+   1. Configure the *backup schedule* as per the requirement. You can configure up to *six backups* a day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day is transferred to the vault.
 
-         :::image type="content" source="./media/backup-afs/azure-file-share-policy-parameters-inline.png" alt-text="Screenshot showing to provide policy name and retention values." lightbox="./media/backup-afs/azure-file-share-policy-parameters-expanded.png":::
+   1. Configure the *Snapshot retention* and *Vault retention (preview)* duration to determine the expiry date of the recovery points.
 
-   * Choose one of the existing backup policies <br>
+      >[!Note]
+      >The *vault tier (preview)* provides longer retention than the *snapshot tier*. 
+   1. Select **OK** to create the backup policy.
 
-      To choose one of the existing backup policies for configuring protection, select the desired policy from the **Backup policy** drop-down list.<br>
+      :::image type="content" source="./media/backup-afs/create-backup-policy-for-azure-file-share.png" alt-text="Screenshot shows how to create a new backup policy for Azure File share." lightbox="./media/backup-afs/create-backup-policy-for-azure-file-share.png":::
 
-      ![Screenshot shows how to choose an existing policy.](./media/backup-afs/choose-existing-policy.png)
-
-1. Select **Enable Backup** to start protecting the file share.
+1. On the **Configure Backup** blade, select **Enable Backup** to start protecting the file share.
 
    ![Screenshot shows how to enable backup.](./media/backup-afs/enable-backup.png)
 
-After you set a backup policy, a snapshot of the file shares is taken at the scheduled time. The recovery point is also retained for the chosen period.
 
 
-# [File share pane](#tab/file-share-pane)
+# [File share blade](#tab/file-share-pane)
 
-The following steps explain how you can configure backup for individual file shares from the respective file share pane:
+The following steps explain how you can configure backup for individual file shares from the respective file share blade:
 
 1. In the [Azure portal](https://portal.azure.com/), open the storage account hosting the file share you want to back up.
 
-1. Once in the storage account, select the tile labeled **File shares**. You can also navigate to **File shares** via the table of contents for the storage account.
+1. On the *storage account*, select the **File shares** tile.
+
+   Alternatively, you can go to **File shares** from the table of contents for the storage account.
 
    ![Storage account](./media/backup-afs/storage-account.png)
 
-1. In the file share listing, you should see all the file shares present in the storage account. Select the file share you want to back up.
+1. On the **File share settings** blade, all the file shares present in the storage account appear. Select the file share you want to back up.
 
    ![Screenshot shows the File shares list.](./media/backup-afs/file-shares-list.png)
 
-1. Select **Backup** under the **Operations** section of the file share pane. The **Configure backup** pane will load on the right.
+1. On the *file share* blade, under the **Operations** section, select **Backup**.
 
-   ![Screenshot shows how to open the Configure backup pane.](./media/backup-afs/configure-backup.png)
+   The *Azure Backup configuration* blade appears on the right.
 
-1. For the Recovery Services vault selection, do one of the following:
+   ![Screenshot shows how to open the Configure backup blade.](./media/backup-afs/configure-backup.png)
 
-    * If you already have a vault, select the **Select existing** Recovery Services vault radio button, and choose one of the existing vaults from **Vault Name** drop down menu.
+1. To select the Recovery Services vault, do one of the following:
+
+    * If you already have a vault, click **Select existing** under **Recovery Services vault**, and choose one of the existing vaults from **Vault Name** drop down menu.
 
        ![Screenshot shows how to select an existing vault.](./media/backup-afs/select-existing-vault.png)
 
-    * If you don't have a vault, select the **Create new** Recovery Services vault radio button. Specify a name for the vault. It's created in the same region as the file share. By default, the vault is created in the same resource group as the file share. If you want to choose a different resource group, select **Create New** link below the **Resource Type** drop down and specify a name for the resource group. Select **OK** to continue.
+    * If you don't have a vault, select **Create new** under **Recovery Services vault**, and then specify a name for the vault. It's created in the same region as the file share. By default, the vault is created in the same resource group as the file share. If you want to choose a different resource group, under the **Resource Type** dropdown, select **Create new**, and then specify a name for the resource group. Select **OK** to continue.
 
        ![Screenshot shows how to create a new vault.](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
       >If the storage account is registered with a vault, or there are few protected shares within the storage account hosting the file share you're trying to protect, the Recovery Services vault name will be pre-populated and you won’t be allowed to edit it [Learn more here](backup-azure-files-faq.yml#why-can-t-i-change-the-vault-to-configure-backup-for-the-file-share-).
 
-1. For the **Backup Policy** selection, do one of the following:
+1. Under **Choose backup policy**, select an existing *backup policy* from the list or create a new *backup policy* for Azure File share.
 
-    * Leave the default policy. It will schedule daily backups with a retention of 30 days.
+   ![Screenshot shows how to choose a backup policy.](./media/backup-afs/choose-backup-policy.png)
 
-    * Select an existing backup policy, if you have one, from the **Backup Policy** drop-down menu.
+   To create a new backup policy, follow these steps:
 
-       ![Screenshow shows how to choose a backup policy.](./media/backup-afs/choose-backup-policy.png)
+   1. Select **Create a new policy**.
 
-    * Create a new policy with daily/weekly/monthly/yearly retention according to your requirement.  
+   1. On the **Create policy** blade, provide the *policy name*.
+   1. On **Backup tier**, select one of the following tiers:
+      - **Snapshot**: Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletions.
+      - **Vault-Standard (Preview)**: Provides comprehensive data protection.
 
-         1. Select the **Create a new policy** link text.
+   1. Configure the *backup schedule* as per the requirement. You can configure up to *six backups* a day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day is transferred to the vault.
 
-         2. Follow the steps 3-7 in the [Create a new policy](manage-afs-backup.md#create-a-new-policy) section.
+   1. Configure the *Snapshot retention* and *Vault retention (preview)* duration to determine the expiry date of the recovery points.
 
-         3. After defining all attributes of the policy, select **OK**.
+      >[!Note]
+      >The *vault tier* provides longer retention than the *snapshot tier*. 
+   1. Select **OK** to create the backup policy.
 
-            ![Screenshot shows how to create a new backup policy.](./media/backup-afs/create-new-backup-policy.png)
+      :::image type="content" source="./media/backup-afs/create-backup-policy-for-azure-file-share.png" alt-text="Screenshot shows the creation of a new backup policy for Azure File share." lightbox="./media/backup-afs/create-backup-policy-for-azure-file-share.png":::
 
-1. Select **Enable backup** to start protecting the file share.
+1. On the *Azure Files* datasource blade, select **Enable Backup** to start protecting the file share.
 
    ![Select Enable backup](./media/backup-afs/select-enable-backup.png)
 
@@ -149,7 +162,9 @@ The following steps explain how you can configure backup for individual file sha
 
    ![Screenshot shows the Azure portal notifications.](./media/backup-afs/portal-notifications.png)
 
-1. After the completion of the configure backup operation, select **Backup** under the **Operations** section of the file share pane. The context pane listing **Vault Essentials** will load on the right. From there, you can trigger on-demand backup and restore operations.
+1. After the configuration of backup is complete, select **Backup** under the **Operations** section of the *file share* blade.
+
+   The context blade opens on the right. From the list of *Vault Essentials*, you can trigger on-demand backup and restore operations.
 
    ![Screenshot shows the list of Vault Essentials.](./media/backup-afs/vault-essentials.png)
 
@@ -177,7 +192,7 @@ To run an on-demand backup, follow these steps:
 
    :::image type="content" source="./media/backup-afs/azure-file-share-backup-now-inline.png" alt-text="Screenshot showing to select Backup now." lightbox="./media/backup-afs/azure-file-share-backup-now-expanded.png":::
 
-1. The **Backup Now** pane opens. Specify the last day you want to retain the recovery point. You can have a maximum retention of 10 years for an on-demand backup.
+1. The **Backup Now** blade opens. Specify the last day you want to retain the recovery point. You can have a maximum retention of 10 years for an on-demand backup.
 
    :::image type="content" source="./media/backup-afs/azure-file-share-on-demand-backup-retention.png" alt-text="Screenshot showing to choose retention date.":::
 
@@ -187,17 +202,19 @@ To run an on-demand backup, follow these steps:
 
    To monitor the job progress in the **Backup center** dashboard, select **Backup center** -> **Backup Jobs** -> **In progress**.
 
-# [File share pane](#tab/file-share-pane)
+# [File share blade](#tab/file-share-pane)
 
 To run an on-demamd backup, follow these steps:
 
-1. Open the file share’s **Overview** pane for which you want to take an on-demand backup.
+1. Open the file share’s **Overview** blade for which you want to take an on-demand backup.
 
-1. Select **Backup** under the **Operation** section. The context pane listing **Vault Essentials** will load on the right. Select **Backup Now** to take an on-demand backup.
+1. Under the **Operation** section, select **Backup**. 
+
+   The context blade appears on the right that lists **Vault Essentials**. Select **Backup Now** to take an on-demand backup.
 
    ![Screenshot shows how to select Backup Now.](./media/backup-afs/select-backup-now.png)
 
-1. The **Backup Now** pane opens. Specify the retention for the recovery point. You can have a maximum retention of 10 years for an on-demand backup.
+1. The **Backup Now** blade opens. Specify the retention for the recovery point. You can have a maximum retention of 10 years for an on-demand backup.
 
    ![Screenshot shows the option how to retain backup date.](./media/backup-afs/retain-backup-date.png)
 
@@ -212,11 +229,11 @@ To run an on-demamd backup, follow these steps:
 
 * Don't delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
 
-* Don't remove the lock taken on the storage account by Azure Backup. If you delete the lock, your storage account will be prone to accidental deletion and if it's deleted, you'll lose your snapshots or backups.
+* Don't remove the lock taken on the storage account by Azure Backup. Deletion of the lock can make your storage account prone to accidental deletion.
 
 ## Next steps
 
 Learn how to:
 
-* [Restore Azure file shares](restore-afs.md)
-* [Manage Azure file share backups](manage-afs-backup.md)
+* [Restore Azure File shares](restore-afs.md).
+* [Manage Azure File share backups](manage-afs-backup.md).

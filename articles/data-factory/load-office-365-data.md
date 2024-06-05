@@ -5,7 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -125,7 +125,7 @@ Once the consent is provided, data extraction will continue and, after some time
 
 Now go to the destination Azure Blob Storage and verify that Microsoft 365 (Office 365) data has been extracted in Binary format.
 
-## Next steps
+## Related content
 
 Advance to the following article to learn about Azure Synapse Analytics support: 
 

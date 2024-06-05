@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the trigonometric cosine of the specified angle in radians.
   
 ## Syntax
   
-```sql
+```nosql
 COS(<numeric_expr>)  
 ```  
 
@@ -38,25 +39,15 @@ Returns a numeric expression.
   
 The following example calculates the cosine of the specified angle using the function.
   
-```sql
-SELECT VALUE {
-    cosine: COS(14.78)
-}
-```  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/cos/query.sql" highlight="2":::
 
-```json
-[
-  {
-    "cosine": -0.5994654261946543
-  }
-]
-```  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/cos/result.json":::
 
 ## Remarks
 
 - This system function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`SIN`](sin.md)

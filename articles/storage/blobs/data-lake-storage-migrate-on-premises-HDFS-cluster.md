@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
 author: normesta
 
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.date: 03/09/2023
 ms.author: normesta
 ms.topic: how-to
-ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ---
 
@@ -201,7 +200,7 @@ You already have the data into your Azure Storage account. Now you apply access 
 
 ### Create a service principal for your Azure Data Lake Storage Gen2 enabled account
 
-To create a service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
+To create a service principal, see [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 - When performing the steps in the [Assign the application to a role](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
@@ -221,7 +220,9 @@ This command generates a list of copied files with their permissions.
 > [!NOTE]
 > Depending on the number of files in the HDFS, this command can take a long time to run.
 
-### Generate a list of identities and map them to Azure Active Directory identities
+<a name='generate-a-list-of-identities-and-map-them-to-azure-active-directory-identities'></a>
+
+### Generate a list of identities and map them to Microsoft Entra identities
 
 1. Download the `copy-acls.py` script. See the [Download helper scripts and set up your edge node to run them](#download-helper-scripts) section of this article.
 
@@ -236,7 +237,7 @@ This command generates a list of copied files with their permissions.
 
 3. Open the `id_map.json` file in a text editor.
 
-4. For each JSON object that appears in the file, update the `target` attribute of either an Azure AD User Principal Name (UPN) or ObjectId (OID), with the appropriate mapped identity. After you're done, save the file. You'll need this file in the next step.
+4. For each JSON object that appears in the file, update the `target` attribute of either a Microsoft Entra user Principal Name (UPN) or ObjectId (OID), with the appropriate mapped identity. After you're done, save the file. You'll need this file in the next step.
 
 ### Apply permissions to copied files and apply identity mappings
 

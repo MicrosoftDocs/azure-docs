@@ -6,11 +6,14 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 03/31/2023
-ms.custom: engagement-fy23
+ms.date: 04/02/2024
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Prepare source machine for push installation of mobility agent
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 When you set up disaster recovery for VMware VMs and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the [Site Recovery Mobility service](vmware-physical-mobility-service-overview.md) on each on-premises VMware VM and physical server.  The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server.
 
@@ -62,6 +65,11 @@ On each Linux machine that you want to protect, do the following:
 13. Enter the credentials you use when you enable replication for a computer.
 1. Additional step for updating or protecting SUSE Linux Enterprise Server 11 SP3 OR RHEL 5 or CentOS 5 or Debian 7 machines. [Ensure the latest version is available in the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server).
 
+> [!NOTE]
+> Ensure the following ports are opened in appliance:
+> - **SMB share port**: `445`
+> - **WMI port**: `135`, `5985`, and `5986`.
+
 ## Anti-virus on replicated machines
 
 If machines you want to replicate have active anti-virus software running, make sure you exclude the Mobility service installation folder from anti-virus operations (*C:\ProgramData\ASR\agent*). This ensures that replication works as expected.
@@ -69,5 +77,3 @@ If machines you want to replicate have active anti-virus software running, make 
 ## Next steps
 
 After the Mobility Service is installed, in the Azure portal, select **+ Replicate** to start protecting these VMs. Learn more about enabling replication for [VMware VMs](vmware-azure-enable-replication.md) and [physical servers](physical-azure-disaster-recovery.md#enable-replication).
-
-

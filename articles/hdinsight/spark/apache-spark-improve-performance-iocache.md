@@ -3,7 +3,7 @@ title: Apache Spark performance - Azure HDInsight IO Cache (Preview)
 description: Learn about Azure HDInsight IO Cache and how to use it to improve Apache Spark performance.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 12/05/2023
 ---
 
 # Improve performance of Apache Spark workloads using Azure HDInsight IO Cache
@@ -35,7 +35,7 @@ Azure HDInsight IO Cache is deactivated by default in preview. IO Cache is avail
 
 1. Select **Actions** (**Service Actions** in HDI 3.6) and **Activate**.
 
-    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Enabling the IO Cache service in Ambari" border="true":::
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Enabling the IO Cache service in Ambari." border="true":::
 
 1. Confirm restart of all the affected services on the cluster.
 
@@ -50,7 +50,7 @@ You may get disk space errors running Spark jobs after enabling IO Cache. These 
 
 1. Select the **Configs** and **Advanced** tabs.
 
-    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="Edit HDFS Advanced Configuration" border="true":::
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="Edit HDFS Advanced Configuration." border="true":::
 
 1. Scroll down and expand the **Custom core-site** area.
 
@@ -58,13 +58,13 @@ You may get disk space errors running Spark jobs after enabling IO Cache. These 
 
 1. Change the value in the box.
 
-    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="Edit IO Cache Fullness Percentage" border="true":::
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="Edit IO Cache Fullness Percentage." border="true":::
 
 1. Select **Save** on the upper right.
 
 1. Select **Restart** > **Restart All Affected**.
 
-    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="Apache Ambari restarts all affected" border="true":::
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="Apache Ambari restarts all affected." border="true":::
 
 1. Select **Confirm Restart All**.
 

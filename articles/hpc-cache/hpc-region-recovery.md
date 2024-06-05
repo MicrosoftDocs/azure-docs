@@ -38,7 +38,7 @@ To set up a cache that is prepared for possible failover, follow these steps:
    1. Details about client machines, if they are located in the same region as the cache
    1. Mount command for use by cache clients
 
-   > [NOTE]
+   > [!NOTE]
    > Azure HPC Cache can be created programmatically, either through an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or by directly accessing its API. Contact the Azure HPC Cache team for details.
 
 ## Failover example

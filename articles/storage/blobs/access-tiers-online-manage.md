@@ -3,15 +3,14 @@ title: Set a blob's access tier
 titleSuffix: Azure Storage
 description: Learn how to specify a blob's access tier when you upload it, or how to change the access tier for an existing blob.
 author: normesta
-
 ms.author: normesta
-ms.date: 06/22/2023
-ms.service: storage
-ms.subservice: blobs
+ms.date: 05/01/2024
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.reviewer: fryu
-ms.devlang: powershell, azurecli
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: powershell
+# ms.devlang: powershell, azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Set a blob's access tier
@@ -26,11 +25,6 @@ You can set a blob's access tier in any of the following ways:
 This article describes how to manage a blob in an online access tier. For more information about how to move a blob to the archive tier, see [Archive a blob](archive-blob.md). For more information about how to rehydrate a blob from the archive tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
 
 For more information about access tiers for blobs, see [Access tiers for blob data](access-tiers-overview.md).
-
-> [!IMPORTANT]
-> The cold tier is currently in PREVIEW and is available in the all public regions.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To enroll, see [Cold tier (preview)](access-tiers-overview.md#cold-tier-preview).
 
 ## Set the default access tier for a storage account
 
@@ -119,9 +113,6 @@ To upload a blob or set of blobs to a specific tier from the Azure portal, follo
 
 4. Expand the **Advanced** section, and set the **Access tier** to *Hot* or *Cool*.
 
-   > [!NOTE]
-   > The cold tier is in preview and appears as an option if the storage account is in a region that supports the preview.
-
 5. Select the **Upload** button.
 
     :::image type="content" source="media/access-tiers-online-manage/upload-blob-to-online-tier-portal.png" alt-text="Screenshot showing how to upload blobs to an online tier in the Azure portal.":::
@@ -185,10 +176,13 @@ az storage blob upload-batch \
 ### [AzCopy](#tab/azcopy)
 
 
+
+
+
 To upload a blob to a specific tier by using AzCopy, use the [azcopy copy](../common/storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to `hot`, `cool`, or `archive`.
 
 > [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Microsoft Entra ID.  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
 
 ```azcopy
 azcopy copy '<local-file-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier <blob-tier>
@@ -207,6 +201,8 @@ azcopy copy '<local-directory-path>' 'https://<storage-account-name>.blob.core.w
 ```azcopy
 azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier <blob-tier> --recursive=true
 ```
+
+
 
 ---
 
@@ -282,6 +278,9 @@ Use PowerShell, Azure CLI, AzCopy v10, or one of the Azure Storage client librar
 
 When you change a blob's tier, you move that blob and all of its data to the target tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation (either directly or via a [lifecycle management](access-tiers-overview.md#blob-lifecycle-management) policy), or by using the [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md) command with AzCopy. This option is typically the best when you're changing a blob's tier from a hotter tier to a cooler one.
 
+> [!TIP]
+> You can use a _storage task_ to change the access tier of blobs at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
+
 #### [Portal](#tab/azure-portal)
 
 To change a blob's tier to a cooler tier in the Azure portal, follow these steps:
@@ -330,27 +329,26 @@ az storage blob set-tier \
 
 #### [AzCopy](#tab/azcopy)
 
-To change a blob's tier to a cooler tier, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter. 
+To change a blob's tier to a cooler tier, use the [azcopy set-properties](..\common\storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter.
 
 > [!IMPORTANT]
 > Using AzCopy to change a blob's access tier is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Microsoft Entra ID.  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
 
 ```azcopy
 azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=<tier>
 ```
-
-> [!NOTE]
-> Setting the `--block-blob-tier` parameter to `cold` is not yet supported. If you want to change a blob's tier to the `cold` tier, [enroll](https://forms.office.com/r/788B1gr3Nq) in the cold tier preview, and then change the blob's tier to cold by using the Azure portal, PowerShell, or the Azure CLI.
 
 To change the access tier for all blobs in a virtual directory, refer to the virtual directory name instead of the blob name, and then append `--recursive=true` to the command.
 
 ```azcopy
 azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/myvirtualdirectory' --block-blob-tier=<tier> --recursive=true
 ```
+
+
 
 ---
 
@@ -409,7 +407,11 @@ az storage blob copy start \
 To copy a blob from cool to hot with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to `hot`.
 
 > [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br><br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Microsoft Entra ID.  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
+> <br><br>AzCopy doesn't support copy from a source blob in archive tier.
+
+
+
 
 
 ```azcopy
@@ -420,8 +422,84 @@ The copy operation is synchronous so when the command returns, all files are cop
 
 ---
 
+### Bulk tiering
+
+To move blobs to another tier in a container or a folder, enumerate blobs and call the Set Blob Tier operation on each one. The following example shows how to perform this operation:
+
+#### [Portal](#tab/azure-portal)
+
+N/A
+
+#### [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+# Initialize these variables with your values.
+    $rgName = "<resource-group>"
+    $accountName = "<storage-account>"
+    $containerName = "<container>"
+    $folderName = "<folder>/"
+
+    $ctx = (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).Context
+
+    $blobCount = 0
+    $Token = $Null
+    $MaxReturn = 5000
+
+    do {
+        $Blobs = Get-AzStorageBlob -Context $ctx -Container $containerName -Prefix $folderName -MaxCount $MaxReturn -ContinuationToken $Token
+        if($Blobs -eq $Null) { break }
+
+        #Set-StrictMode will cause Get-AzureStorageBlob returns result in different data types when there is only one blob
+        if($Blobs.GetType().Name -eq "AzureStorageBlob")
+        {
+            $Token = $Null
+        }
+        else
+        {
+            $Token = $Blobs[$Blobs.Count - 1].ContinuationToken;
+        }
+
+        $Blobs | ForEach-Object {
+                if($_.BlobType -eq "BlockBlob") {
+                    $_.BlobClient.SetAccessTier("Cold", $null)
+                }
+            }
+    }
+    While ($Token -ne $Null)
+    
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az storage blob list --account-name $accountName --account-key $key \
+    --container-name $containerName --prefix $folderName \
+    --query "[?properties.blobTier == 'Cool'].name" --output tsv \
+    | xargs -I {} -P 10 \
+    az storage blob set-tier --account-name $accountName --account-key $key \
+    --container-name $containerName --tier Cold --name "{}" 
+```
+
+#### [AzCopy](#tab/azcopy)
+
+N/A
+
+---
+
+When moving a large number of blobs to another tier, use a batch operation for optimal performance. A batch operation sends multiple API calls to the service with a single request. The suboperations supported by the [Blob Batch](/rest/api/storageservices/blob-batch) operation include [Delete Blob](/rest/api/storageservices/delete-blob) and [Set Blob Tier](/rest/api/storageservices/set-blob-tier).
+
+> [!NOTE]
+> The [Set Blob Tier](/rest/api/storageservices/set-blob-tier) suboperation of the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchical namespace.
+
+To change access tier of blobs with a batch operation, use one of the Azure Storage client libraries. The following code example shows how to perform a basic batch operation with the .NET client library:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/AccessTiers.cs" id="Snippet_BulkArchiveContainerContents":::
+
+For an in-depth sample application that shows how to change tiers with a batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
+
 ## Next steps
 
 - [Access tiers for blob data](access-tiers-overview.md)
 - [Archive a blob](archive-blob.md)
 - [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)
+

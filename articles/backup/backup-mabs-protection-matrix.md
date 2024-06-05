@@ -1,26 +1,26 @@
 ---
 title: MABS (Azure Backup Server) V4 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server v4 protects.
-ms.date: 04/20/2023
+ms.date: 04/30/2024
 ms.topic: conceptual
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+ms.custom: linux-related-content, engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # MABS (Azure Backup Server) V4 (and later) protection matrix
 
 This article lists the various servers and workloads that you can protect with Azure Backup Server. The following matrix lists what can be protected with Azure Backup Server.
 
-Use the following matrix for MABS v4 (and later):
+The following table lists the support matrix for MABS v4 (and later):
 
-* Workloads – The workload type of technology.
-
-* Version – Supported MABS version for the workloads.
-
-* MABS installation – The computer/location where you wish to install MABS.
-
-* Protection and recovery – List the detailed information about the workloads such as supported storage container or supported deployment.
+| Scenario | Description |
+| --- | --- |
+| **Workloads** | The workload type of technology. |
+| **Version** | Supported MABS version for the workloads. |
+| **MABS installation** | The computer/location where you wish to install MABS. |
+| **Protection and recovery** | List the detailed information about the workloads such as supported storage container or supported deployment. |
 
 >[!NOTE]
 >Support for the 32-bit protection agent isn't supported with MABS v4 (and later). See [32-Bit protection agent deprecation](backup-mabs-whats-new-mabs.md#32-bit-protection-agent-deprecation).

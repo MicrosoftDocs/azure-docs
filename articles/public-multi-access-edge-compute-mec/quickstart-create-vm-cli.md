@@ -19,7 +19,7 @@ In this quickstart, you learn how to use Azure CLI to deploy a Linux virtual mac
 
 - Add an allowlisted subscription to your Azure account, which allows you to deploy resources in Azure public MEC. If you don't have an active allowed subscription, contact the [Azure public MEC product team](https://aka.ms/azurepublicmec).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
    > [!NOTE]
    > Azure public MEC deployments are supported in Azure CLI versions 2.26 and later.
@@ -56,7 +56,7 @@ In this quickstart, you learn how to use Azure CLI to deploy a Linux virtual mac
    The following example creates a VM named myVMEdge and adds a user account named azureuser at Azure public MEC:
 
    ```azurecli
-   az vm create \--resource-group myResourceGroup \--name myVMEdge \--image UbuntuLTS \--admin-username azureuser \--admin-password <password> \--edge-zone <edgezone ID> \--public-ip-sku Standard
+   az vm create \--resource-group myResourceGroup \--name myVMEdge \--image Ubuntu2204 \--admin-username azureuser \--admin-password <password> \--edge-zone <edgezone ID> \--public-ip-sku Standard
    ```
 
    The `--edge-zone` parameter determines the Azure public MEC location where the VM and its associated resources are created. Because Azure public MEC supports only standard SKU for a public IP, you must specify `Standard` for the `--public-ip-sku` parameter.
@@ -98,7 +98,7 @@ To use SSH to connect to the VM in Azure public MEC, the best method is to deplo
    The following example creates a VM named myVMRegion in the region:
 
     ```azurecli
-    az vm create --resource-group myResourceGroup --name myVMRegion --image UbuntuLTS --admin-username azureuser --admin-password <password> --vnet-name MyVnetRegion --subnet MySubnetRegion --public-ip-sku Standard
+    az vm create --resource-group myResourceGroup --name myVMRegion --image Ubuntu2204 --admin-username azureuser --admin-password <password> --vnet-name MyVnetRegion --subnet MySubnetRegion --public-ip-sku Standard
     ```
 
 1. Note your `publicIpAddress` value in the output from the myVMregion VM. Use this address to access the VM in the next sections.

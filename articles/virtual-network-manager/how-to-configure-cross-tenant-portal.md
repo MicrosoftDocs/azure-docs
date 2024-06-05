@@ -5,9 +5,9 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to 
-ms.date: 03/22/2023
+ms.date: 05/07/2024
 ms.custom: template-how-to 
-#customerintent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
+# Customer intent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
 ---
 
 # Configure a cross-tenant connection in Azure Virtual Network Manager Preview - portal
@@ -16,12 +16,7 @@ In this article, you'll learn how to create [cross-tenant connections](concept-c
 
 First, you'll create the scope connection on the central network manager. Then, you'll create the network manager connection on the connecting tenant and verify the connection. Last, you'll add virtual networks from different tenants to your network group and verify. After you complete all the tasks, you can centrally manage the resources of other tenants from a single network manager.
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
->
-> Mesh connectivity configurations and security admin rules remain in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
 
@@ -33,7 +28,7 @@ First, you'll create the scope connection on the central network manager. Then, 
   - The administrator of the central management tenant has a guest account in the target managed tenant.
   - The administrator guest account has *Network Contributor* permissions applied at the appropriate scope level (management group, subscription, or virtual network).  
 
-Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md) and how to [assign user roles to resources in the Azure portal](../role-based-access-control/role-assignments-portal.md).
+Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md) and how to [assign user roles to resources in the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ## Create a scope connection within a network manager
 
@@ -42,7 +37,7 @@ Creation of the scope connection begins on the central management tenant with a 
 In this task, you set up a scope connection to add a subscription from a target tenant:
 
 1. Log in to the Azure portal on the central management tenant.
-1. Search for **Virtual network managers" and select your network manager from the list.
+1. Search for **Virtual network managers** and select your network manager from the list.
 1. Under **Settings**, select **Cross-tenant connections**, and then select **Create cross-tenant connection**.
 
    :::image type="content" source="media/how-to-configure-cross-tenant-portal/create-cross-tenant-connection.png" alt-text="Screenshot of cross-tenant connections in a network manager.":::

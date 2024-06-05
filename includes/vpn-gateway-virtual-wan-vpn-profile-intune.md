@@ -11,7 +11,7 @@
 You can deploy profiles for Azure VPN clients (Windows 10 or later) by using Microsoft Intune. This article helps you create an Intune profile using custom settings.
 
 > [!NOTE]
->* This article applies to deploying profiles that use Azure Active Directory for authentication only.
+>* This article applies to deploying profiles that use Microsoft Entra ID for authentication only.
 
 
 ## Prerequisites
@@ -34,22 +34,20 @@ For other supported options, see the [VPNv2 CSP](/windows/client-management/mdm/
 
    ```xml-interactive
     <VPNProfile>
-      <!--<EdpModeId>corp.contoso.com</EdpModeId>-->
       <RememberCredentials>true</RememberCredentials>
       <AlwaysOn>true</AlwaysOn>
       <TrustedNetworkDetection>contoso.com,test.corp.contoso.com</TrustedNetworkDetection>
-      <DeviceTunnel>false</DeviceTunnel>
-      <RegisterDNS>false</RegisterDNS>
       <PluginProfile>
-        <ServerUrlList>azuregateway-7cee0077-d553-4323-87df-069c331f58cb-053dd0f6af02.vpn.azure.com</ServerUrlList> 
+        <ServerUrlList>azuregateway-7cee0077-d553-4323-87df-069c331f58cb-053dd0f6af02.vpn.azure.com;FriendlyName</ServerUrlList> 
         <CustomConfiguration>
 
         </CustomConfiguration>
         <PluginPackageFamilyName>Microsoft.AzureVpn_8wekyb3d8bbwe</PluginPackageFamilyName>
       </PluginProfile>
+      <RegisterDNS>false</RegisterDNS>
     </VPNProfile>
    ```
-1. Modify the entry between ```<ServerUrlList>``` and ```</ServerUrlList>``` with the entry from your downloaded profile (azurevpnconfig.xml). Change the "TrustedNetworkDetection" FQDN to fit your environment.
+1. Modify the entry between ```<ServerUrlList>``` and ```;``` with the entry from your downloaded profile (azurevpnconfig.xml) and choose a "FriendlyName" of your choice (like *myVpn*) to insert after the semicolon. Change the "TrustedNetworkDetection" FQDN to fit your environment.
 1. Open the Azure downloaded profile (azurevpnconfig.xml) and copy the entire contents to the clipboard by highlighting the text and pressing (ctrl) + C. 
 1. Paste the copied text from the previous step into the file you created in step 2 between the ```<CustomConfiguration>  </CustomConfiguration>``` tags. Save the file with an xml extension.
 1. Write down the value in the ```<name>  </name>``` tags. This is the name of the profile. You can also modify this value to something more meaningful, as it will be visible to the end users. You will need this name when you create the profile in Intune. Close the file and remember the location where it is saved.

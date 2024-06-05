@@ -1,18 +1,16 @@
 ---
 title: Create multiple resource instances
 description: Learn how to create an Azure Resource Manager template (ARM template) to create multiple Azure resource instances.
-author: mumian
-ms.date: 09/28/2022
+ms.date: 03/20/2024
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
-ms.author: jgao
 ---
 
 # Tutorial: Create multiple resource instances with ARM templates
 
 Learn how to iterate in your Azure Resource Manager template (ARM template) to create multiple instances of an Azure resource. In this tutorial, you modify a template to create three storage account instances.
 
-![Azure Resource Manager creates multiple instances diagram](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
+:::image type="content" source="./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png" alt-text="Diagram showing Azure Resource Manager creating multiple instances.":::
 
 This tutorial covers the following tasks:
 
@@ -52,7 +50,7 @@ The existing template creates one storage account. You customize the template to
 
 From Visual Studio Code, make the following four changes:
 
-![Azure Resource Manager creates multiple instances](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
+:::image type="content" source="./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png" alt-text="Screenshot of Visual Studio Code with Azure Resource Manager creating multiple instances.":::
 
 1. Add a `copy` element to the storage account resource definition. In the `copy` element, you specify the number of iterations and a variable for this loop. The count value must be a positive integer and can't exceed 800.
 

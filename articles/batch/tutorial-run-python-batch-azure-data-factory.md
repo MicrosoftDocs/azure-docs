@@ -3,7 +3,7 @@ title: 'Tutorial: Run a Batch job through Azure Data Factory'
 description: Learn how to use Batch Explorer, Azure Storage Explorer, and a Python script to run a Batch workload through an Azure Data Factory pipeline.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 04/20/2023
+ms.date: 03/01/2024
 ms.custom: mvc, devx-track-python
 ---
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 - A Data Factory instance. To create the data factory, follow the instructions in [Create a data factory](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
 - [Batch Explorer](https://azure.github.io/BatchExplorer) downloaded and installed.
 - [Storage Explorer](https://azure.microsoft.com/products/storage/storage-explorer) downloaded and installed.
-- [Python 3.7 or above](https://www.python.org/downloads), with the [azure-storage-blob](https://pypi.org/project/azure-storage-blob) package installed by using `pip`.
+- [Python 3.8 or above](https://www.python.org/downloads), with the [azure-storage-blob](https://pypi.org/project/azure-storage-blob) package installed by using `pip`.
 - The [iris.csv input dataset](https://github.com/Azure-Samples/batch-adf-pipeline-tutorial/blob/master/iris.csv) downloaded from GitHub.
 
 ## Use Batch Explorer to create a Batch pool and nodes

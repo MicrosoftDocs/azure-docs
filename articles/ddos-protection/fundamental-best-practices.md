@@ -5,9 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.workload: infrastructure-services
-ms.date: 02/08/2023
+ms.date: 10/06/2023
 ms.author: abell
 ---
 # Azure DDoS Protection fundamental best practices
@@ -21,16 +19,16 @@ Ensure that security is a priority throughout the entire lifecycle of an applica
 To help protect a service running on Microsoft Azure, you should have a good understanding of your application architecture and focus on the [five pillars of software quality](/azure/architecture/guide/pillars).
 You should know typical traffic volumes, the connectivity model between the application and other applications, and the service endpoints that are exposed to the public internet.
 
-Ensuring that an application is resilient enough to handle a denial of service that's targeted at the application itself is most important. Security and privacy are built into the Azure platform, beginning with the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). The SDL addresses security at every development phase and ensures that Azure is continually updated to make it even more secure.
+Ensuring that an application is resilient enough to handle a denial of service that's targeted at the application itself is most important. Security and privacy are built into the Azure platform, beginning with the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). The SDL addresses security at every development phase and ensures that Azure is continually updated to make it even more secure. To learn more about maximizing your effectiveness using DDoS Protection, see [Maximizing Effectiveness: Best Practices for Azure DDoS Protection and Application Resilience](https://techcommunity.microsoft.com/t5/azure-network-security-blog/maximizing-effectiveness-best-practices-for-azure-ddos/ba-p/3914324).
+
+
 
 ## Design for scalability
 
 Scalability is how well a system can handle increased load. Design your applications to [scale horizontally](/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.
 
 For [Azure App Service](../app-service/overview.md), select an [App Service plan](../app-service/overview-hosting-plans.md) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](../cloud-services/cloud-services-choose-me.md). 
-For [Azure Virtual Machines](../virtual-machines/index.yml), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is
-included in an [availability set](../virtual-machines/windows/tutorial-availability-sets.md). We recommend using [virtual machine scale sets](../virtual-machine-scale-sets/overview.md)
-for autoscaling capabilities.
+For [Azure Virtual Machines](../virtual-machines/index.yml), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is included in an [availability set](../virtual-machines/windows/tutorial-availability-sets.md). We recommend using [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) for autoscaling capabilities.
 
 ## Defense in depth
 

@@ -4,8 +4,9 @@ description: Set up a dedicated compute pool (agent pool) in your registry to ru
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.custom: references_regions, devx-track-azurecli
+ms.service: container-registry
 ---
 
 # Run an ACR task on a dedicated agent pool
@@ -28,7 +29,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 ## Preview limitations
 
 - Task agent pools currently support Linux nodes. Windows nodes aren't currently supported.
-- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, West Europe, North Europe, Canada Central, East Asia, USGov Arizona, USGov Texas, and USGov Virginia.
+- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, West Europe, North Europe, Canada Central, East Asia, Switzerland North, USGov Arizona, USGov Texas, and USGov Virginia.
 - For each registry, the default total vCPU (core) quota is 16 for all standard agent pools and is 0 for isolated agent pools. Open a [support request][open-support-ticket] for additional allocation.
 - You can't currently cancel a task run on an agent pool.
 
@@ -102,6 +103,8 @@ Task agent pools require access to the following Azure services. The following f
 
 > [!NOTE]
 > If your tasks require additional resources from the public internet, add the corresponding rules. For example, additional rules are needed to run a docker build task that pulls the base images from Docker Hub, or restores a NuGet package.
+
+Customers basing their deployments with MCR can refer to [MCR/MAR firewall rules.](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md)
 
 ### Create pool in VNet
 

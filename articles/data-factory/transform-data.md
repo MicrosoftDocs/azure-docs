@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Transform data in Azure Data Factory and Azure Synapse Analytics
@@ -115,5 +115,5 @@ You create a linked service for the compute environment and then use the linked 
 
 See [Compute Linked Services](compute-linked-services.md) article to learn about supported compute services. 
 
-## Next steps
+## Related content
 See the following tutorial for an example of using a transformation activity: [Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md)

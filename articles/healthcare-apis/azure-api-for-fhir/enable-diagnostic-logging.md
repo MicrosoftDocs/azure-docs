@@ -12,11 +12,15 @@ ms.date: 06/03/2022
 
 # Enable Diagnostic Logging in Azure API for FHIR
 
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
 In this article, you'll learn how to enable diagnostic logging in Azure API for FHIR and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements (such as HIPAA) is a must. The feature in Azure API for FHIR that enables diagnostic logs is the [**Diagnostic settings**](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
 ## View and Download FHIR Metrics Data
 
-You can view the metrics under Monitoring | Metrics from the portal. The metrics include Number of Requests, Average Latency, Number of Errors, Data Size, RUs Used, Number of requests that exceeded capacity, and Availability (in %). The screenshot below shows RUs used for a sample environment with few activities in the last seven days. You can download the data in Json format.
+You can view the metrics under Monitoring | Metrics from the portal. The metrics include Number of Requests, Average Latency, Number of Errors, Data Size, RUs Used, Number of requests that exceeded capacity, and Availability (in %). The Total Request Metrics will provide the number of requests reaching the FHIR service. This means for requests such as FHIR bundles, it will be considered as single request for logging. 
+
+The screenshot below shows RUs used for a sample environment with few activities in the last seven days. You can download the data in Json format.
 
    :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="Azure API for FHIR Metrics from the portal" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
 
@@ -61,7 +65,7 @@ At this time, the Azure API for FHIR service returns the following fields in the
 |FhirResourceType|String|The resource type for which the operation was executed
 |LogCategory|String|The log category (we're currently returning ‘AuditLogs’ LogCategory)
 |Location|String|The location of the server that processed the request (for example, South Central US)
-|OperationDuration|Int|The time it took to complete this request in seconds
+|OperationDuration|Int|The time it took to complete this request in seconds. Note : This value is always set to 0, due to a known issue
 |OperationName|String| Describes the type of operation (for example, update, search-type)
 |RequestUri|String|The request URI 
 |ResultType|String|The available values currently are **Started**, **Succeeded**, or **Failed**

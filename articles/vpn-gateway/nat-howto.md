@@ -20,7 +20,7 @@ NAT defines the mechanisms to translate one IP address to another in an IP packe
 For more information about NAT support for Azure VPN Gateway, see [About NAT and Azure VPN Gateway](nat-overview.md).
 
 > [!IMPORTANT]
-> * NAT is supported on the the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
+> * NAT is supported on the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
 
 ## Getting started
 

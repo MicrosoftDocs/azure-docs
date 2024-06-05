@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: how-to
-ms.custom: devplatv2, event-tier1-build-2022
+ms.custom: devplatv2
 author: amibp
 ms.author: amipatel
-ms.date: 11/04/2022
+ms.date: 02/04/2024
 ms.reviewer: ssalgado
 ---
 
-# Submit a training job in Studio (preview)
+# Submit a training job in studio
 
-There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs)](how-to-train-model.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with a guided experience for submitting training jobs in Azure Machine Learning studio.
+There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs)](how-to-train-model.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you learn how to use your own data and code to train a machine learning model with a guided experience for submitting training jobs in Azure Machine Learning studio.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 * An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
-* Understanding of what a job is in Azure Machine Learning. See [how to train models]how-to-train-model.md).
+* Understanding of what a job is in Azure Machine Learning. See [how to train models](how-to-train-model.md).
 
 ## Get started
 
@@ -33,31 +33,28 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 1. Select your subscription and workspace.
 
-* Navigate to the Azure Machine Learning Studio and enable the feature by clicking open the preview panel.
-[![Azure Machine Learning studio preview panel allowing users to enable preview features.](media/how-to-train-with-ui/preview-panel.png)](media/how-to-train-with-ui/preview-panel.png)
-
  
-* You may enter the job creation UI from the homepage. Click **Create new** and select **Job**. 
-[![Azure Machine Learning studio homepage](media/how-to-train-with-ui/home-entry.png)](media/how-to-train-with-ui/home-entry.png)
+* You may enter the job creation UI from the homepage. Select **Create new** and select **Job**.
+[![Azure Machine Learning studio homepage](media/how-to-train-with-ui/unified-job-submission-home.png)](media/how-to-train-with-ui/unified-job-submission-home.png)
 
-In this wizard, you can select your method of training, complete the rest of the submission wizard based on your selection, and submit the training job. Below we will walk through the wizard for running a custom script (command job). 
+In this step, you can select your method of training, complete the rest of the submission form based on your selection, and submit the training job. Below we walk through the form with the steps for running a custom script (command job). 
 
-[![Azure Machine Learning studio wizard landing page for users to choose method of training.](media/how-to-train-with-ui/training-method.png)](media/how-to-train-with-ui/training-method.png)
+[![Azure Machine Learning studio training form landing page for users to choose method of training.](media/how-to-train-with-ui/training-method.png)](media/how-to-train-with-ui/training-method.png)
 
 ## Configure basic settings
 
-The first step is configuring basic information about your training job. You can proceed next if you're satisfied with the defaults we have chosen for you or make changes to your desired preference. 
+The first step is configuring basic information about your training job. You can proceed next if you're satisfied with the defaults we chose for you, or make changes to your desired preference. 
 
-[![Azure Machine Learning studio job submission wizard for users to configure their basic settings.](media/how-to-train-with-ui/basic-settings.png)](media/how-to-train-with-ui/basic-settings.png)
+[![Azure Machine Learning studio job submission form for users to configure their basic settings.](media/how-to-train-with-ui/basic-settings.png)](media/how-to-train-with-ui/basic-settings.png)
 
 These are the fields available:
 
 |Field| Description|
 |------| ------|
 |Job name| The job name field is used to uniquely identify your job. It's also used as the display name for your job.|
-|Experiment name| This helps organize the job in Azure Machine Learning studio. Each job's run record will be organized under the corresponding experiment in the studio's "Experiment" tab. By default, Azure will put the job in the **Default** experiment.|
+|Experiment name| This helps organize the job in Azure Machine Learning studio. Each job's run record is organized under the corresponding experiment in the studio's "Experiment" tab. By default, Azure puts the job in the **Default** experiment.|
 |Description| Add some text describing your job, if desired.|
-|Timeout| Specify number of hours the entire training job is allowed to run. Once this limit is reached the system will cancel the job including any child jobs.|
+|Timeout| Specify number of hours the entire training job is allowed to run. Once this limit is reached the system cancels the job including any child jobs.|
 |Tags| Add tags to your job to help with organization.|
 
 ## Training script
@@ -89,13 +86,13 @@ If the code isn't in the root directory, you should use the relative path. For e
 ```
 Here, the source code is in the `src` subdirectory. The command would be `python ./src/main.py` (plus other command-line arguments).
 
-[![Image of referencing your code in the command in the training job submission wizard.](media/how-to-train-with-ui/training-script-code.png)](media/how-to-train-with-ui/training-script-code.png)
+[![Image of referencing your code in the command in the training job submission form.](media/how-to-train-with-ui/training-script-code.png)](media/how-to-train-with-ui/training-script-code.png)
 
 ### Inputs
 
 When you use an input in the command, you need to specify the input name. To indicate an input variable, use the form `${{inputs.input_name}}`. For instance, `${{inputs.wiki}}`. You can then refer to it in the command, for instance, `--data ${{inputs.wiki}}`.
 
-[![Image of referencing your inputs in the command in the training job submission wizard.](media/how-to-train-with-ui/training-script-inputs.png)](media/how-to-train-with-ui/training-script-inputs.png)
+[![Image of referencing your inputs in the command in the training job submission form.](media/how-to-train-with-ui/training-script-inputs.png)](media/how-to-train-with-ui/training-script-inputs.png)
 
 ## Select compute resources
 
@@ -113,11 +110,11 @@ Next step is to select the compute target on which you'd like your job to run. T
 1. When you're satisfied with your choices, choose **Next**. 
  [![Select a compute cluster dropdown selector image.](media/how-to-train-with-ui/compute.png)](media/how-to-train-with-ui/compute.png)
 
-If you're using Azure Machine Learning for the first time, you'll see an empty list and a link to create a new compute. For more information on creating the various types, see:
+If you're using Azure Machine Learning for the first time, you see an empty list and a link to create a new compute. For more information on creating the various types, see:
 
 | Compute Type | How to | 
 | --- | --- | 
-| Compute instance | [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) | 
+| Compute instance | [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md) | 
 | Compute cluster | [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md) | 
 | Attached Kubernetes cluster | [Attach an Azure Arc-enabled Kubernetes cluster](how-to-attach-kubernetes-anywhere.md) | 
 
@@ -137,7 +134,7 @@ Curated environments are Azure-defined collections of Python packages used in co
 
 ### Custom environments
 
-Custom environments are environments you've specified yourself. You can specify an environment or reuse an environment that you've already created. To learn more, see [Manage software environments in Azure Machine Learning studio (preview)](how-to-manage-environments-in-studio.md#create-an-environment). 
+Custom environments are environments you specified yourself. You can specify an environment or reuse an environment that you  already created. To learn more, see [Manage software environments in Azure Machine Learning studio (preview)](how-to-manage-environments-in-studio.md#create-an-environment). 
 
 ### Container registry image
 
@@ -146,12 +143,12 @@ If you don't want to use the Azure Machine Learning curated environments or spec
 
 ## Review and Create 
 
-Once you've configured your job, choose **Next** to go to the **Review** page. To modify a setting, choose the pencil icon and make the change. 
+Once you configured the job, choose **Next** to go to the **Review** page. To modify a setting, choose the pencil icon and make the change. 
  [![Azure Machine Learning studio job submission review pane image to validate selections before submission.](media/how-to-train-with-ui/review.png)](media/how-to-train-with-ui/review.png)
 
-To launch the job, choose **Submit training job**. Once the job is created, Azure will show you the job details page, where you can monitor and manage your training job. 
+To launch the job, choose **Submit training job**. Once the job is created, Azure shows you the job details page, where you can monitor and manage your training job. 
 
-  [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
+  [!INCLUDE [Email Notification Include](includes/machine-learning-email-notifications.md)]
 
 ## Next steps
 

@@ -2,13 +2,11 @@
 title: Swap between OS disks using the Azure CLI '
 description: Change the operating system disk used by an Azure virtual machine using the Azure CLI.
 author: roygara
-ms.service: storage
-ms.subservice: disks
-ms.workload: infrastructure-services
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: rogarana
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 # Change the OS disk used by an Azure VM using the Azure CLI
 
@@ -18,7 +16,7 @@ If you have an existing VM, but you want to swap the disk for a backup disk or a
 
 The VM does not need to be stopped\deallocated. The resource ID of the managed disk can be replaced with the resource ID of a different managed disk. 
 
-Make sure that the VM size and storage type are compatible with the disk you want to attach. For example, if the disk you want to use is in Premium Storage, then the VM needs to be capable of Premium Storage (like a DS-series size).
+Make sure that the VM size and storage type are compatible with the disk you want to attach. For example, if the disk you want to use is in Premium Storage, then the VM needs to be capable of Premium Storage (like a DS-series size). Both disks must also be the same size. And ensure that you're not mixing an un-encrypted VM with an encrypted OS disk, this is not supported. If the VM doesn't use Azure Disk Encryption, then the OS disk being swapped in shouldn't be using Azure Disk Encryption. If disks are using Disk Encryption Sets, both disks should belong to same Disk Encryption set.
 
 This article requires Azure CLI version 2.0.25 or greater. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 

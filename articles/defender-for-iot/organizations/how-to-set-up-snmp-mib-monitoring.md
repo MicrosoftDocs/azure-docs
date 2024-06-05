@@ -7,11 +7,9 @@ ms.topic: how-to
 
 # Set up SNMP MIB health monitoring on an OT sensor
 
-This article describes show to configure your OT sensors for health monitoring via an authorized SNMP monitoring server. SNMP queries are sent up to 50 times a second, using UDP over port 161.
+This article describes how to configure your OT sensors for health monitoring via an authorized SNMP monitoring server. SNMP queries are polled up to 50 times a second, using UDP over port 161.
 
-Setup for SNMP monitoring includes configuring settings on your OT sensor and on your SNMP server. To define Defender for IoT sensors on your SNMP server, either define your settings manually or use a pre-defined SNMP MIB file downloaded from the Azure portal.
-
-SNMP queries are sent up to 50 times a second, using UDP over port 161.
+Setup for SNMP monitoring includes configuring settings on your OT sensor and on your SNMP server. To define Defender for IoT sensors on your SNMP server, either define your settings manually or use a predefined SNMP MIB file downloaded from the Azure portal.
 
 ## Prerequisites
 
@@ -34,7 +32,7 @@ Before you perform the procedures in this article, make sure that you have the f
 
 - **An OT sensor** [installed](ot-deploy/install-software-ot-sensor.md) and [activated](ot-deploy/activate-deploy-sensor.md), with access as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-To download a pre-defined SNMP MIB file from the Azure portal, you'll need access to the Azure portal as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user. For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
+To download a predefined SNMP MIB file from the Azure portal, you need access to the Azure portal as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user. For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
 
 ## Configure SNMP monitoring settings on your OT sensor
 
@@ -59,11 +57,9 @@ To download a pre-defined SNMP MIB file from the Azure portal, you'll need acces
 
 ## Download Defender for IoT's SNMP MIB file
 
-Defender for IoT in the Azure portal provides a downloadable MIB file for you to load into your SNMP monitoring system to pre-define Defender for IoT sensors.
+Defender for IoT in the Azure portal provides a downloadable MIB file for you to load into your SNMP monitoring system to predefine Defender for IoT sensors.
 
-**To download the SNMP MIB file** from [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **More actions** > **Download SNMP MIB file**.
-
-[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+**To download the SNMP MIB file** from [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **More actions** > **Download SNMP MIB file**.
 
 ## OT sensor OIDs for manual SNMP configurations
 
@@ -71,23 +67,35 @@ If you're configuring Defender for IoT sensors on your SNMP monitoring system ma
 
 | Management console and sensor | OID | Format | Description |
 |--|--|--|--|
+| **sysDescr**   | 1.3.6.1.2.1.1.1   | DISPLAYSTRING  | Returns ```Microsoft Defender for IoT``` |
+| **Platform** |   1.3.6.1.2.1.1.1.0 | STRING | Sensor or on-premises management console |
+| **sysObjectID** | 1.3.6.1.2.1.1.2   | DISPLAYSTRING | Returns the private MIB allocation, for example ```1.3.6.1.4.1.53313.1.1``` is the private OID root for 1.3.6.1.4.1.53313  |
+| **sysUpTime** |   1.3.6.1.2.1.1.3  | DISPLAYSTRING  | Returns the sensor uptime in hundredths of a second |
+| **sysContact**  | 1.3.6.1.2.1.1.4   | DISPLAYSTRING  | Returns the textual name of the admin user for this sensor   |
+| **Vendor** |      1.3.6.1.2.1.1.4.0 | STRING | Microsoft Support (support.microsoft.com) |
+| **sysName**   | 1.3.6.1.2.1.1.5   | DISPLAYSTRING  | Returns the appliance name  |
 | **Appliance name** | 1.3.6.1.2.1.1.5.0 | STRING | Appliance name for the on-premises management console |
-| **Vendor** | 1.3.6.1.2.1.1.4.0 | STRING | Microsoft Support (support.microsoft.com) |
-| **Platform** | 1.3.6.1.2.1.1.1.0 | STRING | Sensor or on-premises management console |
+| **sysLocation** | 1.3.6.1.2.1.1.6  | DISPLAYSTRING | Returns the default location Portal.azure.com  |
+| **sysServices** | 1.3.6.1.2.1.1.7   | INTEGER   | Returns a value indicating the service this entity offers, for example, ```7``` signifies “applications” |
+| **ifIndex** |     1.3.6.1.2.1.2.2.1.1  | GAUGE32  | Returns the sequential ID numbers for each network card |
+| **ifDescription**  | 1.3.6.1.2.1.2.2.1.2  | DISPLAYSTRING | Returns a string of the hardware description for each network interface card |
+| **ifType**  | 1.3.6.1.2.1.2.2.1.3  | INTEGER | Returns the type of network adapter, for example ```1.3.6.1.2.1.2.2.1.3.117``` signifies Gigabit Ethernet |
+| **ifMtu**  | 1.3.6.1.2.1.2.2.1.4 | GAUGE32  | Returns the MTU value for this network adapter. **Note** monitoring interfaces don't show an MTU value  |
+| **ifspeed** | 1.3.6.1.2.1.2.2.1.5  | GAUGE32 | Returns the interface speed for this network adapter   |
 | **Serial number** | 1.3.6.1.4.1.53313.1 |STRING | String that the license uses |
 | **Software version** | 1.3.6.1.4.1.53313.2 | STRING | Xsense full-version string and management full-version string |
 | **CPU usage** | 1.3.6.1.4.1.53313.3.1 | GAUGE32 | Indication for zero to 100 |
 | **CPU temperature** | 1.3.6.1.4.1.53313.3.2 | STRING | Celsius indication for zero to 100 based on Linux input. <br><br>  Any machine that has no actual physical temperature sensor (for example VMs) returns "No sensors found" |
 | **Memory usage** | 1.3.6.1.4.1.53313.3.3 | GAUGE32 | Indication for zero to 100 |
 | **Disk Usage** | 1.3.6.1.4.1.53313.3.4 | GAUGE32 | Indication for zero to 100 |
-| **Service Status** | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components is down |
+| **Service Status** | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components has failed |
 | **Locally/cloud connected** | 1.3.6.1.4.1.53313.6   |STRING | Activation mode of this appliance: Cloud Connected / Locally Connected |
 | **License status** | 1.3.6.1.4.1.53313.7  |STRING | Activation period of this appliance: Active / Expiration Date / Expired |
 
 Note that:
 
 - Nonexisting keys respond with null, HTTP 200.
-- Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be not applicable.
+- Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be non applicable.
 
 ## Next steps
 

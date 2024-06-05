@@ -1,0 +1,130 @@
+### YamlMime:Landing
+
+title: Azure Spring Apps Enterprise plan documentation # < 60 chars
+summary: "Azure Spring Apps is a managed service for hosting Spring apps. The Enterprise plan provides Tanzu components and feature parity with the Standard plan." #< 160 chars
+
+metadata:
+  title: Azure Spring Apps Enterprise plan
+  description: The Enterprise plan provides commercially supported Tanzu components, unlocking Spring's full potential while including feature parity with the Standard plan.
+  services: spring-cloud
+  ms.service: spring-apps
+  ms.custom: devx-track-java
+  ms.topic: landing-page
+  author: KarlErickson
+  ms.author: karler
+  ms.date: 12/14/2023
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card (optional)
+  - title: Documentation for other plans
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Basic/Standard plan
+            url: ../basic-standard/index.yml
+          - text: Consumption and dedicated plan
+            url: ../consumption-dedicated/index.yml
+  
+  # Card (optional)
+  - title: About Azure Spring Apps
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Spring Apps?
+            url: overview.md
+          - text: Version support for Java, Spring Boot, and more
+            url: concept-app-customer-responsibilities.md
+          - text: What's new in Azure Spring Apps?
+            url: whats-new.md
+          - text: Manage costs
+            url: cost-management.md
+          - text: Compare Java hosting options
+            url: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+          - text: Landing zone accelerator
+            url: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Launch your first app
+            url: quickstart.md?pivots=sc-enterprise
+          - text: Launch your first web app
+            url: quickstart-deploy-web-app.md?pivots=sc-enterprise
+          - text: Launch your first RESTful API app
+            url: quickstart-deploy-restful-api-app.md?pivots=sc-enterprise
+          - text: Launch your first Spring Batch app
+            url: quickstart-deploy-spring-batch-app.md
+          - text: Launch your first microservice apps
+            url: quickstart-deploy-microservice-apps.md?pivots=sc-enterprise
+          - text: Launch your first event-driven app
+            url: quickstart-deploy-event-driven-app.md?pivots=sc-enterprise
+          - text: Launch your first Java Native Image app
+            url: quickstart-deploy-java-native-image-app.md
+      - linkListType: tutorial
+        links:
+          - text: Run polyglot apps
+            url: quickstart-sample-app-acme-fitness-store-introduction.md
+      - linkListType: concept
+        links:
+          - text: VMware Tanzu components
+            url: vmware-tanzu-components.md
+          - text: Enterprise plan in Azure Marketplace
+            url: how-to-enterprise-marketplace-offer.md
+
+  # Card (optional)
+  - title: Develop and deploy apps
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Deploy apps using IntelliJ
+        url: how-to-intellij-deploy-apps.md
+      - text: Deploy apps using VS Code
+        url: https://code.visualstudio.com/docs/java/java-spring-apps
+      - text: CI/CD with Azure DevOps
+        url: how-to-cicd.md?pivots=programming-language-java
+      - text: CI/CD with GitHub Actions
+        url: how-to-github-actions.md?pivots=programming-language-java
+      - text: Deploy in a virtual network
+        url: how-to-deploy-in-azure-virtual-network.md
+      - text: Deploy polyglot apps
+        url: how-to-enterprise-deploy-polyglot-apps.md
+    - linkListType: concept
+      links:
+      - text: Blue-green deployment strategies
+        url: concepts-blue-green-deployment-strategies.md
+
+  # Card (optional)
+  - title: Manage and monitor apps
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Start or stop a service
+        url: how-to-start-stop-service.md
+      - text: Use custom DNS names
+        url: how-to-custom-domain.md
+      - text: Use structured application logs
+        url: structured-app-log.md
+      - text: Analyze logs and metrics
+        url: diagnostic-services.md
+    - linkListType: concept
+      links:
+      - text: Java memory management
+        url: concepts-for-java-memory-management.md
+
+  # Card (optional)
+  - title: Secure apps
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Deploy Spring app with passwordless connections
+        url: how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise
+      - text: Use passwordless connections to Azure SQL DB
+        url: connect-managed-identity-to-azure-sql.md
+      - text: Secure communications for Spring Boot apps
+        url: access-app-virtual-network.md

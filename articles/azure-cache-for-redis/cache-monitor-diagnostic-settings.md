@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to 
-ms.date: 03/23/2023
+ms.date: 12/18/2023
 ms.custom: template-how-to, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -23,7 +23,7 @@ Diagnostic settings in Azure are used to collect resource logs. An Azure resourc
 |Tier     | Basic, Standard, and Premium  | Enterprise and Enterprise Flash  |
 |---------|---------|---------|
 |Cache Metrics  | Yes         | Yes  |
-|Connection Logs | Yes | Yes (preview) |
+|Connection Logs | Yes | Yes |
 
 ## Cache Metrics
 
@@ -90,7 +90,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 ### [Portal with Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your Azure Cache for Redis account. Open the **Diagnostic settings** pane under the **Monitoring section** on the left. Then, select **Add diagnostic setting**.
 
@@ -104,9 +104,9 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
     :::image type="content" source="media/cache-monitor-diagnostic-settings/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
 
-### [Portal with Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
+### [Portal with Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your Azure Cache for Redis account. Open the **Diagnostic Settings - Auditing** pane under the **Monitoring** section on the left. Then, select **Add diagnostic setting**.
    :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-enterprise-auditing.png" alt-text="Screenshot of Diagnostic settings - Auditing selected in the Resource menu.":::
@@ -118,7 +118,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 1. Once you select **Connection events**, send your logs to your preferred destination. Select the information in the working pane.
    :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-enterprise-connection-events.png" alt-text="Screenshot showing Connection events being checked in working pane.":::
 
-    
+
 ---
 
 ## Enable connection logging using the REST API
@@ -165,7 +165,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 }
 ```
 
-### [REST API with Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
+### [REST API with Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
 
 Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update?tabs=HTTP).
 
@@ -229,7 +229,7 @@ az monitor diagnostic-settings create
     --marketplace-partner-id/subscriptions/{subscriptionID}/resourceGroups{resourceGroupname}/proviers/Microsoft.Datadog/monitors/mydatadog
 ```
 
-### [Azure CLI with Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
+### [Azure CLI with Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
 
 Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on command and parameter descriptions, see [Create diagnostic settings to send platform logs and metrics to different destinations](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). This example shows how to use the Azure CLI to stream data to four different endpoints:
 
@@ -296,7 +296,7 @@ If you send your logs to a storage account, the contents of the logs look like t
 }
 ```
 
-### [Connection Log Contents for Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
+### [Connection Log Contents for Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
 
 These fields and properties appear in the `ConnectionEvents` log category. In **Azure Monitor**, logs are collected in the `REDConnectionEvents` table under the resource provider name of `MICROSOFT.CACHE`.
 
@@ -404,7 +404,7 @@ ACRConnectedClientList
 | summarize count() by ClientIp
 ```
 
-### [Queries for Enterprise and Enterprise Flash tiers (preview)](#tab/enterprise-enterprise-flash)
+### [Queries for Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
 
 - Azure Cache for Redis connections per hour within the specified IP address range:
 

@@ -76,22 +76,32 @@ landingContent:
             url: how-to-convert-segy-to-zgy.md
           - text: How to Upload large files using file service
             url: how-to-upload-large-files-using-file-service.md
+          - text: How to enable External Data Sources (EDS)
+            url: how-to-enable-external-data-sources.md
+          - text: How to register External Data Sources (EDS)
+            url: how-to-register-external-data-sources.md
   - title: Administration
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: How to manage users
             url: how-to-manage-users.md
+          - text: How to manage ACLs
+            url: how-to-manage-acls.md  
           - text: How to manage legal tags
             url: how-to-manage-legal-tags.md
           - text: How to add more data partitions
             url: how-to-add-more-data-partitions.md
-          - text: How to generate a refresh token
-            url: how-to-generate-refresh-token.md
+          - text: How to generate auth token
+            url: how-to-generate-auth-token.md
+          - text: How to deploy OSDU Admin UI
+            url: how-to-deploy-osdu-admin-ui.md
       - linkListType: concept
         links:
           - text: Entitlement concepts
             url: concepts-entitlements.md
+          - text: Authentication concepts
+            url: concepts-authentication.md
   - title: Monitoring
     linkLists:
       - linkListType: how-to-guide
@@ -118,3 +128,5 @@ landingContent:
             url: how-to-enable-cors.md
           - text: Set up audit logs
             url: how-to-manage-audit-logs.md
+          - text: Publish Microsoft Azure Data Manager for Energy APIs to a secured API gateway
+            url: how-to-secure-apis.md

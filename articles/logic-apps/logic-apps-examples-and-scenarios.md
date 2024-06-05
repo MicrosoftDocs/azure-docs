@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 01/10/2024
 ---
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps
 
-[Azure Logic Apps](logic-apps-overview.md) helps you orchestrate and integrate different services by providing hundreds of prebuilt and ready-to-use connectors, ranging from SQL Server and SAP to Azure Cognitive Services. Azure Logic Apps is "serverless", so you don't have to worry about scale or instances. All you have to do is define a workflow with a trigger and the actions that the workflow performs. The underlying platform handles scale, availability, and performance. Azure Logic Apps is especially useful for use cases and scenarios where you need to coordinate actions across multiple systems and services.
+[Azure Logic Apps](logic-apps-overview.md) helps you orchestrate and integrate different services by providing hundreds of prebuilt and ready-to-use connectors, ranging from SQL Server and SAP to Azure AI services. Azure Logic Apps is "serverless", so you don't have to worry about scale or instances. All you have to do is define a workflow with a trigger and the actions that the workflow performs. The underlying platform handles scale, availability, and performance. Azure Logic Apps is especially useful for use cases and scenarios where you need to coordinate actions across multiple systems and services.
 
 To help you learn about the capabilities and patterns that Azure Logic Apps supports, this guide describes common starting points, examples, and scenarios.
 
@@ -52,8 +52,7 @@ The following how-to guides help you build a Standard logic app workflow that ru
 
 Azure Logic Apps includes rich capabilities for advanced control flow, such as conditions, switches, loops, and scopes. To ensure resilient solutions, you can also implement error and exception handling in your workflows.
 
-* Perform different actions based on [conditional statements](logic-apps-control-flow-conditional-statement.md)
-and [switch statements](logic-apps-control-flow-switch-statement.md)
+* Perform different actions based on [conditional statements](logic-apps-control-flow-conditional-statement.md) and [switch statements](logic-apps-control-flow-switch-statement.md)
 * [Repeat steps or process items in arrays and collections with loops](logic-apps-control-flow-loops.md)
 * [Group actions together with scopes](logic-apps-control-flow-run-steps-group-scopes.md)
 * [Add error and exception handling to a workflow](logic-apps-exception-handling.md)
@@ -141,7 +140,7 @@ Azure Logic Apps integrates with many services, such as Azure Functions, Azure A
 * [Call Azure Functions from Azure Logic Apps](../logic-apps/logic-apps-azure-functions.md)
 * [Tutorial: Call or trigger logic app workflows by using Azure Functions and Azure Service Bus](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Tutorial: Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions](../logic-apps/logic-apps-scenario-social-serverless.md)
-* [Tutorial: Create a function that integrates with Azure Logic Apps and Azure Cognitive Services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md)
+* [Tutorial: Create a function that integrates with Azure Logic Apps and Azure AI services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md)
 * [Tutorial: Build an AI-powered social dashboard by using Power BI and Azure Logic Apps](/shows/)
 * [Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps](../event-grid/monitor-virtual-machine-changes-logic-app.md)
 * [Tutorial: IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)

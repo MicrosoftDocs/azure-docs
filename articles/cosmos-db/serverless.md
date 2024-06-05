@@ -5,7 +5,7 @@ description: Learn how to use Azure Cosmos DB based on consumption by choosing t
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: event-tier1-build-2022, ignite-2022, build-2023
+ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 03/16/2023
 ms.reviewer: thweiss
@@ -63,6 +63,11 @@ You can monitor consumption by viewing a chart in your Azure Cosmos DB account i
 :::image type="content" source="./media/serverless/request-units-consumed.png" alt-text="Screenshot that shows a chart of the consumed request units.":::
 
 You can use the same [chart in Azure Monitor](monitor-request-unit-usage.md). When you use Azure Monitor, you can set up [alerts](../azure-monitor/alerts/alerts-metric-overview.md) so that you're notified when your RU consumption passes a threshold that you set.
+
+## High availability
+
+Azure Cosmos DB serverless extends high availability support with availability zones in [designated regions](../../articles/reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support). The associated Service Level Agreements (SLAs) are aligned with the [Single-region writes with availability zone](../../articles/cosmos-db/high-availability.md#slas) configuration, ensuring reliability for your deployments.
+
 
 ## Next steps
 

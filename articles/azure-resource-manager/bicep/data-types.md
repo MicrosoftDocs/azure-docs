@@ -1,14 +1,14 @@
 ---
 title: Data types in Bicep
 description: Describes the data types that are available in Bicep
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 01/10/2023
+ms.date: 11/03/2023
 ---
 
 # Data types in Bicep
 
-This article describes the data types supported in [Bicep](./overview.md). [User-defined data types](./user-defined-data-types.md) are currently in preview. 
+This article describes the data types supported in [Bicep](./overview.md). To define custom data types, see [User-defined data types](./user-defined-data-types.md).
 
 ## Supported types
 
@@ -24,7 +24,7 @@ Within a Bicep, you can use these data types:
 
 ## Arrays
 
-Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bicep, an array can be declared in single line or multiple lines. Commas (`,`) are used between values in single-line declarations, but not used in multiple-line declarations,  You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires **Bicep version 0.7.4 or later**.
+Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bicep, an array can be declared in single line or multiple lines. Commas (`,`) are used between values in single-line declarations, but not used in multiple-line declarations,  You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI version 0.7.X or higher](./install.md).
 
 ```bicep
 var multiLineArray = [
@@ -108,7 +108,7 @@ Floating point, decimal or binary formats aren't currently supported.
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object can be declared in single line or multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but not used between properties for multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires **Bicep version 0.7.4 or later**.
+Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object can be declared in single line or multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but not used between properties for multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI version 0.7.X or higher](./install.md).
 
 ```bicep
 param singleLineObject object = {name: 'test name', id: '123-abc', isCurrent: true, tier: 1}
@@ -231,7 +231,9 @@ In Bicep, multi-line strings are defined between three single quote characters (
 
 > [!NOTE]
 > Because the Bicep parser reads all characters as is, depending on the line endings of your Bicep file, newlines can be interpreted as either `\r\n` or `\n`.
-> Interpolation is not currently supported in multi-line strings.
+>
+> Interpolation is not currently supported in multi-line strings. Due to this limitation, you may need to use the [`concat`](./bicep-functions-string.md#concat) function instead of use [interpolation](#strings).
+>
 > Multi-line strings containing `'''` are not supported.
 
 ```bicep
@@ -262,7 +264,7 @@ comments // are included
 
 // evaluates to "interpolation\nis ${blocked}"
 // note ${blocked} is part of the string, and is not evaluated as an expression
-myVar6 = '''interpolation
+var myVar6 = '''interpolation
 is ${blocked}'''
 ```
 

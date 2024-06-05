@@ -4,7 +4,7 @@ description: Learn how to configure a virtual network for express injection of A
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 10/20/2023
 author: chugugrace
 ms.author: chugu 
 ---
@@ -79,7 +79,7 @@ For more information, see the [DNS server name resolution](../virtual-network/vi
 
 At present, for Azure-SSIS IR to use your own DNS server, you need to configure it with a standard custom setup following these steps:
 
-1. Download a custom setup script ([main.cmd](https://expressvnet.blob.core.windows.net/customsetup/main.cmd?sp=r&st=2022-10-24T07:34:04Z&se=2042-10-24T15:34:04Z&spr=https&sv=2021-06-08&sr=b&sig=dfU16IBua6T%2FB2splQS6rZIXmgkSABaFUZd6%2BWF7fnc%3D)) + its associated file ([setupdnsserver.ps1](https://expressvnet.blob.core.windows.net/customsetup/setupdnsserver.ps1?sp=r&st=2022-10-24T07:36:00Z&se=2042-10-24T15:36:00Z&spr=https&sv=2021-06-08&sr=b&sig=TbspnXbFQv3NPnsRkNe7Q84EdLQT2f1KL%2FxqczFtaw0%3D)).
+1. Download a custom setup script main.cmd + its associated file setupdnsserver.ps1.
 
 1. Replace “your-dns-server-ip” in main.cmd with the IP address of your own DNS server.
 
@@ -121,7 +121,7 @@ Following our guidance in the [Configure an NSG](#nsg) section above, you must i
     |-------------------|------|
     | <b>Azure Public</b> | _\*.frontend.clouddatahub.net_ |
     | <b>Azure Government</b> | _\*.frontend.datamovement.azure.us_ |
-    | <b>Azure China 21Vianet</b> | _\*.frontend.datamovement.azure.cn_ |
+    | <b>Microsoft Azure operated by 21Vianet</b> | _\*.frontend.datamovement.azure.cn_ |
 
   - If you use Azure SQL Database server/Managed Instance to host SSISDB, you must open ports *1433, 11000-11999* for outbound TCP traffic with *0.0.0.0/0* or your Azure SQL Database server/Managed Instance FQDN as destination.
 
@@ -129,7 +129,7 @@ Following our guidance in the [Configure an NSG](#nsg) section above, you must i
 
   - If you need to access Azure Files, you must open port *445* for outbound TCP traffic with *0.0.0.0/0* or your Azure Files FQDN as destination.
 
-## Next steps
+## Related content
 
 - [Join Azure-SSIS IR to a virtual network via ADF UI](join-azure-ssis-integration-runtime-virtual-network-ui.md)
 - [Join Azure-SSIS IR to a virtual network via Azure PowerShell](join-azure-ssis-integration-runtime-virtual-network-powershell.md)

@@ -3,17 +3,17 @@ title: Assign multiple IP addresses to VMs - Azure CLI
 titleSuffix: Azure Virtual Network
 description: Learn how to create a virtual machine with multiple IP addresses using the Azure CLI.
 services: virtual-network
-author: asudbring
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 04/19/2023
-ms.author: allensu
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, linux-related-content
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
 
-An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it. 
+An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it.
 
 Assigning multiple IP addresses to a VM enables the following capabilities:
 
@@ -30,13 +30,13 @@ Every NIC attached to a VM has one or more IP configurations associated to it. E
 
 There's a limit to how many private IP addresses can be assigned to a NIC. There's also a limit to how many public IP addresses that can be used in an Azure subscription. See [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details.
 
-This article explains how to add multiple IP addresses to a virtual machine using the Azure CLI. 
+This article explains how to add multiple IP addresses to a virtual machine using the Azure CLI.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -187,7 +187,7 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
     --resource-group myResourceGroup \
     --name myVM \
     --nics myNIC1 \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --authentication-type ssh \
     --generate-ssh-keys

@@ -3,8 +3,8 @@ title: Tutorial - Use Apache HBase in Azure HDInsight
 description: Follow this Apache HBase tutorial to start using hadoop on HDInsight. Create tables from the HBase shell and query them using Hive.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/26/2023
+ms.custom: hdinsightactive, linux-related-content
+ms.date: 05/10/2024
 ---
 
 # Tutorial: Use Apache HBase in Azure HDInsight
@@ -59,11 +59,11 @@ You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](h
 
 For most people, data appears in the tabular format:
 
-:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png" alt-text="HDInsight Apache HBase tabular data" border="false":::
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png" alt-text="HDInsight Apache HBase tabular data." border="false":::
 
 In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtable/)), the same data looks like:
 
-:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png" alt-text="HDInsight Apache HBase BigTable data" border="false":::
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png" alt-text="HDInsight Apache HBase BigTable data." border="false":::
 
 **To use the HBase shell**
 
@@ -106,7 +106,7 @@ In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtabl
     scan 'Contacts'
     ```
 
-    :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png" alt-text="HDInsight Apache Hadoop HBase shell" border="false":::
+    :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png" alt-text="HDInsight Apache Hadoop HBase shell." border="false":::
 
 1. Use `get` command to fetch contents of a row. Enter the following command:
 
@@ -222,28 +222,27 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
 
 1. To enable the HBase REST API in the HDInsight cluster, add the following custom startup script to the **Script Action** section. You can add the startup script when you create the cluster or after the cluster has been created. For **Node Type**, select **Region Servers** to ensure that the script executes only in HBase Region Servers.
 
+    ```bash
+    #! /bin/bash
 
-	```bash
-	#! /bin/bash
+    THIS_MACHINE=`hostname`
 
-	THIS_MACHINE=`hostname`
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
 
-	if [[ $THIS_MACHINE != wn* ]]
-	then
-		printf 'Script to be executed only on worker nodes'
-		exit 0
-	fi
-
-	RESULT=`pgrep -f RESTServer`
-	if [[ -z $RESULT ]]
-	then
-		echo "Applying mitigation; starting REST Server"
-		sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
-	else
-		echo "REST server already running"
-		exit 0
-	fi
-	```
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "REST server already running"
+        exit 0
+    fi
+    ```
 
 1. Set environment variable for ease of use. Edit the commands below by replacing `MYPASSWORD` with the cluster login password. Replace `MYCLUSTERNAME` with the name of your HBase cluster. Then enter the commands.
 
@@ -326,7 +325,7 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
 
 1. Select **Quick links** on the top of the page, point to the active Zookeeper node link, and then select **HBase Master UI**.  The UI is opened in another browser tab:
 
-   :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png" alt-text="HDInsight Apache HBase HMaster UI" border="false":::
+   :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png" alt-text="HDInsight Apache HBase HMaster UI." border="false":::
 
    The HBase Master UI contains the following sections:
 

@@ -1,8 +1,7 @@
 ---
 title: Azure DB for MySQL (preview)
-titleSuffix: Azure Cognitive Search
-description: Learn how to set up a search indexer to index data stored in Azure Database for MySQL for full text search in Azure Cognitive Search.
-
+titleSuffix: Azure AI Search
+description: Learn how to set up a search indexer to index data stored in Azure Database for MySQL for full text search in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
@@ -10,40 +9,34 @@ manager: nitinme
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: how-to
-ms.custom: kr2b-contr-experiment
-ms.date: 06/10/2022
+ms.custom:
+  - kr2b-contr-experiment
+  - ignite-2023
+ms.date: 03/08/2024
 ---
 
-# Index data from Azure Database for MySQL
+# Index data from Azure Database for MySQL flexible server
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > MySQL support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API](search-api-preview.md) (2020-06-30-preview or later) to index your content. There is currently no portal support.
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Database for MySQL and makes it searchable in Azure Cognitive Search.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Database for MySQL and makes it searchable in Azure AI Search. Inputs to the indexer are your row, in a single table or view. Output is a search index with searchable content in individual fields.
 
-This article supplements [Creating indexers in Azure Cognitive Search](search-howto-create-indexers.md) with information that's specific to indexing files in Azure Database for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers:
-
-- Create a data source
-- Create an index
-- Create an indexer
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to indexing from Azure Database for MySQL flexible server. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 When configured to include a high water mark and soft deletion, the indexer takes all changes, uploads, and deletes for your MySQL database. It reflects these changes in your search index. Data extraction occurs when you submit the Create Indexer request.
 
 ## Prerequisites
 
-- [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
+- [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide scenario feedback. You can access the feature automatically after form submission.
 
-- [Azure Database for MySQL flexible server](../mysql/flexible-server/overview.md).
-
-- A table or view that provides the content. A primary key is required. If you're using a view, it must have a [high water mark column](#DataChangeDetectionPolicy).
+- [Azure Database for MySQL flexible server](../mysql/flexible-server/overview.md) and sample data. Data must reside in a table or view. A primary key is required. If you're using a view, it must have a [high water mark column](#DataChangeDetectionPolicy). 
 
 - Read permissions. A *full access* connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Reader** permissions on MySQL.
 
-- A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer.
+- A [REST client](search-get-started-rest.md) to create the data source, index, and indexer.
 
   You can also use the [Azure SDK for .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql). You can't use the portal for indexer creation, but you can manage indexers and data sources once they're created.
-
-For more information, see [Azure Database for MySQL](../mysql/flexible-server/overview.md).
 
 ## Preview limitations
 
@@ -57,46 +50,42 @@ As noted, there’s no portal support for indexer creation, but a MySQL indexer 
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. The data source is defined as an independent resource so that it can be used by multiple indexers.
 
-1. [Create or Update Data Source](/rest/api/searchservice/create-data-source) specifies the definition. Be sure to use a preview REST API version (2020-06-30-Preview or later) when creating the data source.
+[Create or Update Data Source](/rest/api/searchservice/create-data-source) specifies the definition. Be sure to use a preview REST API version (2020-06-30-Preview or later) when creating the data source.
 
-    ```http
-    POST https://[search service name].search.windows.net/datasources?api-version=2020-06-30-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-    
-    {   
-        "name" : "hotel-mysql-ds",
-        "description" : "[Description of MySQL data source]",
-        "type" : "mysql",
-        "credentials" : { 
-            "connectionString" : 
-                "Server=[MySQLServerName].MySQL.database.azure.com; Port=3306; Database=[DatabaseName]; Uid=[UserName]; Pwd=[Password]; SslMode=Preferred;" 
-        },
-        "container" : { 
-            "name" : "[TableName]" 
-        },
-        "dataChangeDetectionPolicy" : { 
-            "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-            "highWaterMarkColumnName": "[HighWaterMarkColumn]"
-        }
+```http
+{   
+    "name" : "hotel-mysql-ds",
+    "description" : "[Description of MySQL data source]",
+    "type" : "mysql",
+    "credentials" : { 
+        "connectionString" : 
+            "Server=[MySQLServerName].MySQL.database.azure.com; Port=3306; Database=[DatabaseName]; Uid=[UserName]; Pwd=[Password]; SslMode=Preferred;" 
+    },
+    "container" : { 
+        "name" : "[TableName]" 
+    },
+    "dataChangeDetectionPolicy" : { 
+        "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+        "highWaterMarkColumnName": "[HighWaterMarkColumn]"
     }
-    ```
+}
+```
 
-1. Set `type` to `"mysql"` (required).
+**Key points**:
 
-1. Set `credentials` to an ADO.NET connection string. You can find connection strings in Azure portal, on the **Connection strings** page for MySQL.
+- Set `type` to `"mysql"` (required).
 
-1. Set `container` to the name of the table.
+- Set `credentials` to an ADO.NET connection string. You can find connection strings in Azure portal, on the **Connection strings** page for MySQL.
 
-1. Set [`dataChangeDetectionPolicy`](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs.
+- Set `container` to the name of the table.
 
-1. Set [`dataDeletionDetectionPolicy`](#DataDeletionDetectionPolicy) if you want to remove search documents from a search index when the source item is deleted.
+- Set [`dataChangeDetectionPolicy`](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs.
 
-## Add search fields to an index
+- Set [`dataDeletionDetectionPolicy`](#DataDeletionDetectionPolicy) if you want to remove search documents from a search index when the source item is deleted.
 
-In a [search index](search-what-is-an-index.md), add search index fields that correspond to the fields in your table.
+## Create an index
 
-[Create or Update Index](/rest/api/searchservice/create-index) specifies the fields:
+[Create or Update Index](/rest/api/searchservice/create-index) specifies the index schema:
 
 ```http
 {
@@ -108,6 +97,7 @@ In a [search index](search-what-is-an-index.md), add search index fields that co
         { "name": "City", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },
         { "name": "Description", "type": "Edm.String", "searchable": false, "filterable": false, "sortable": false  }     
     ]
+}
 ```
 
 If the primary key in the source table matches the document key (in this case, "ID"), the indexer imports the primary key as the document key.
@@ -116,12 +106,12 @@ If the primary key in the source table matches the document key (in this case, "
 
 ### Mapping data types
 
-The following table maps the MySQL database to Cognitive Search equivalents. For more information, see [Supported data types (Azure Cognitive Search)](/rest/api/searchservice/supported-data-types).
+The following table maps the MySQL database to Azure AI Search equivalents. For more information, see [Supported data types (Azure AI Search)](/rest/api/searchservice/supported-data-types).
 
 > [!NOTE]
 > The preview does not support geometry types and blobs. 
 
-| MySQL data types |  Cognitive Search field types |
+| MySQL data types |  Azure AI Search field types |
 | --------------- | -------------------------------- |
 | `bool`, `boolean` | Edm.Boolean, Edm.String |
 | `tinyint`, `smallint`, `mediumint`, `int`, `integer`, `year` | Edm.Int32, Edm.Int64, Edm.String |
@@ -135,39 +125,39 @@ The following table maps the MySQL database to Cognitive Search equivalents. For
 
 Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
+[Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
-    ```http
-    POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30
-    
-    {
-        "name" : "hotels-mysql-idxr",
-        "dataSourceName" : "hotels-mysql-ds",
-        "targetIndexName" : "hotels-mysql-ix",
-        "disabled": null,
-        "schedule": null,
-        "parameters": {
-            "batchSize": null,
-            "maxFailedItems": null,
-            "maxFailedItemsPerBatch": null,
-            "base64EncodeKeys": null,
-            "configuration": { }
-            },
-        "fieldMappings" : [ ],
-        "encryptionKey": null
-    }
-    ```
+```http
+{
+    "name" : "hotels-mysql-idxr",
+    "dataSourceName" : "hotels-mysql-ds",
+    "targetIndexName" : "hotels-mysql-ix",
+    "disabled": null,
+    "schedule": null,
+    "parameters": {
+        "batchSize": null,
+        "maxFailedItems": null,
+        "maxFailedItemsPerBatch": null,
+        "base64EncodeKeys": null,
+        "configuration": { }
+        },
+    "fieldMappings" : [ ],
+    "encryptionKey": null
+}
+```
 
-1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
+**Key points**:
 
-An indexer runs automatically when it's created. You can prevent it from running by setting `disabled` to `true`. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
+- [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
+
+- An indexer runs automatically when it's created. You can prevent it from running by setting `disabled` to `true`. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
 
 ## Check indexer status
 
-To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
+Send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request to monitor indexer execution:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2023-11-01
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -175,35 +165,35 @@ GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2
 The response includes status and the number of items processed. It should look similar to the following example:
 
 ```json
-    {
-        "status":"running",
-        "lastResult": {
+{
+    "status":"running",
+    "lastResult": {
+        "status":"success",
+        "errorMessage":null,
+        "startTime":"2024-02-21T00:23:24.957Z",
+        "endTime":"2024-02-21T00:36:47.752Z",
+        "errors":[],
+        "itemsProcessed":1599501,
+        "itemsFailed":0,
+        "initialTrackingState":null,
+        "finalTrackingState":null
+    },
+    "executionHistory":
+    [
+        {
             "status":"success",
             "errorMessage":null,
-            "startTime":"2022-02-21T00:23:24.957Z",
-            "endTime":"2022-02-21T00:36:47.752Z",
+            "startTime":"2024-02-21T00:23:24.957Z",
+            "endTime":"2024-02-21T00:36:47.752Z",
             "errors":[],
             "itemsProcessed":1599501,
             "itemsFailed":0,
             "initialTrackingState":null,
             "finalTrackingState":null
         },
-        "executionHistory":
-        [
-            {
-                "status":"success",
-                "errorMessage":null,
-                "startTime":"2022-02-21T00:23:24.957Z",
-                "endTime":"2022-02-21T00:36:47.752Z",
-                "errors":[],
-                "itemsProcessed":1599501,
-                "itemsFailed":0,
-                "initialTrackingState":null,
-                "finalTrackingState":null
-            },
-            ... earlier history items
-        ]
-    }
+        ... earlier history items
+    ]
+}
 ```
 
 Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order so that the latest execution comes first.
@@ -230,19 +220,16 @@ In your MySQL database, the high water mark column must meet the following requi
 The following example shows a [data source definition](#define-the-data-source) with a change detection policy:
 
 ```http
-POST https://[search service name].search.windows.net/datasources?api-version=2020-06-30-Preview
-Content-Type: application/json
-api-key: [admin key]
-    {
-        "name" : "[Data source name]",
-        "type" : "mysql",
-        "credentials" : { "connectionString" : "[connection string]" },
-        "container" : { "name" : "[table or view name]" },
-        "dataChangeDetectionPolicy" : {
-            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-            "highWaterMarkColumnName" : "[last_updated column name]"
-        }
+{
+    "name" : "[Data source name]",
+    "type" : "mysql",
+    "credentials" : { "connectionString" : "[connection string]" },
+    "container" : { "name" : "[table or view name]" },
+    "dataChangeDetectionPolicy" : {
+        "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+        "highWaterMarkColumnName" : "[last_updated column name]"
     }
+}
 ```
 
 > [!IMPORTANT]

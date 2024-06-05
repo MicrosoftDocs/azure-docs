@@ -1,12 +1,11 @@
 ---
 title: What is a rule set?
 titleSuffix: Azure Front Door
-description: This article provides an overview of the Azure Front Door Rule sets feature. 
+description: This article provides an overview of the Azure Front Door Rule sets feature.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.custom: devx-track-arm-template
 ms.date: 05/15/2023
 ms.author: duau
@@ -37,7 +36,7 @@ A rule set is a customized rules engine that groups a combination of rules into 
 
 ## Architecture
 
-Rule sets handle requests at the Front Door edge. When a request arrives at your Front Door endpoint, WAF is processed first, followed by the settings configured in route. Those settings include the rule set associated to the route. Rule sets are processed in the order the appear under the routing configuration. Rules in a rule set also get process in the order they appear. In order for all the actions in each rule to run, all the match conditions within a rule has to be met. If a request doesn't match any of the conditions in your rule set configuration, then only the default route settings get applied.
+Rule sets handle requests at the Front Door edge. When a request arrives at your Front Door endpoint, WAF is processed first, followed by the settings configured in route. Those settings include the rule set associated to the route. Rule sets are processed in the order they appear under the routing configuration. Rules in a rule set also get processed in the order they appear. In order for all the actions in each rule to run, all the match conditions within a rule have to be met. If a request doesn't match any of the conditions in your rule set configuration, then only the default route settings get applied.
 
 If the **Stop evaluating remaining rules** is selected, then any remaining rule sets associated with the route don't get ran.  
 
@@ -75,6 +74,8 @@ For information about quota limits, refer to [Front Door limits, quotas and cons
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 A Rules engine configuration allows you to customize how HTTP requests get handled at the Front Door edge and provides controlled behavior to your web application. Rules Engine for Azure Front Door (classic) has several key features, including:
 

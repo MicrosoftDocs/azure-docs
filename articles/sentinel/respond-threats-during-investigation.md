@@ -12,11 +12,11 @@ ms.date: 01/17/2023
 This article shows you how to take response actions against threat actors on the spot, during the course of an incident investigation or threat hunt, without pivoting or context switching out of the investigation or hunt. You accomplish this using playbooks based on the new entity trigger.
 
 The entity trigger currently supports the following entity types:
-- [Account](entities-reference.md#user-account)
+- [Account](entities-reference.md#account)
 - [Host](entities-reference.md#host)
-- [IP](entities-reference.md#ip-address)
+- [IP](entities-reference.md#ip)
 - [URL](entities-reference.md#url)
-- [DNS](entities-reference.md#domain-name)
+- [DNS](entities-reference.md#dns-resolution)
 - [FileHash](entities-reference.md#file-hash)
 
 > [!IMPORTANT]
@@ -56,8 +56,11 @@ When you're investigating an incident, and you determine that a given entity - a
 
 1. In the **Playbooks** tab, you'll see a list of all the playbooks that you have access to and that use the **Microsoft Sentinel Entity** trigger for that entity type (in this case, user accounts). Select the **Run** button for the playbook you want to run it immediately.
 
-   > [!NOTE]
-   > If you don't see the playbook you want to run in the list, it means Microsoft Sentinel doesn't have permissions to run playbooks in that resource group ([learn more](tutorial-respond-threats-playbook.md#explicit-permissions)). To grant those permissions, select **Settings** from the main menu, choose the **Settings** tab, expand the **Playbook permissions** expander, and select **Configure permissions**. In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and select **Apply**.
+    If you don't see the playbook you want to run in the list, it means Microsoft Sentinel doesn't have permissions to run playbooks in that resource group.
+
+    To grant those permissions, select **Settings > Settings > Playbooks permissions > Configure permissions**. In the **Manage permissions** panel, mark the check boxes of the resource groups containing the playbooks you want to run, and select **Apply**.
+
+    For more information, see [Extra permissions required for Microsoft Sentinel to run playbooks](automation/automate-responses-with-playbooks.md#extra-permissions-required-for-microsoft-sentinel-to-run-playbooks).
 
 1. You can audit the activity of your entity-trigger playbooks in the **Runs** tab. You'll see a list of all the times any playbook has been run on the entity you selected. It might take a few seconds for any just-completed run to appear in this list. Selecting a specific run will open the full run log in Azure Logic Apps.
 

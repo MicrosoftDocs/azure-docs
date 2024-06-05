@@ -3,7 +3,6 @@ title: Log compaction in Azure Event Hubs
 description: This article describes how the log compaction feature works in Event Hubs.
 ms.topic: article
 ms.date: 05/18/2023
-ms.custom: ignite-2022
 ---
 
 # Log compaction in Azure Event Hubs
@@ -16,7 +15,7 @@ Log compaction is a way of retaining data in Event Hubs using event key based re
 
 As shown in the following image, an event log (of an event hub partition) may have multiple events with the same key. If you're using a compacted event hub, then Event Hubs service takes care of purging old events and only keeping the latest events of a given event key. 
 
-:::image type="content" source="./media/event-hubs-log-compaction/log-compaction.png" alt-text="Diagram showing how a topic gets compacted." lightbox="./media/event-hubs-resource-governance-overview/app-groups.png":::
+:::image type="content" source="./media/event-hubs-log-compaction/log-compaction.png" alt-text="Diagram showing how a topic gets compacted." lightbox="./media/event-hubs-log-compaction/log-compaction.png":::
 
 ### Compaction key
 The partition key that you set with each event is used as the compaction key. 

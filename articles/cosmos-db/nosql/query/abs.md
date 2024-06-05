@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the absolute (positive) value of the specified numeric expression.
   
 ## Syntax
   
-```sql
+```nosql
 ABS(<numeric_expr>)  
 ```  
   
@@ -37,30 +38,16 @@ Returns a numeric expression.
 ## Examples
   
 The following example shows the results of using this function on three different numbers.  
-  
-```sql
-SELECT VALUE {
-    absoluteNegativeOne: ABS(-1),
-    absoluteZero: ABS(0),
-    absoluteOne: ABS(1)
-} 
-```  
-  
-```json
-[
-  {
-    "absoluteNegativeOne": 1,
-    "absoluteZero": 0,
-    "absoluteOne": 1
-  }
-]
-```
+
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/absolute-value/query.sql" highlight="2-4":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/absolute-value/result.json":::
 
 ## Remarks
 
 - This function benefits from the use of a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`IS_NUMBER`](is-number.md)

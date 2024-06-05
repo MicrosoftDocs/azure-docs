@@ -91,8 +91,9 @@
       href: azure-stack-edge-gpu-deploy-configure-certificates.md
     - name: 7 - Activate
       href: azure-stack-edge-gpu-deploy-activate.md 
- 
-      
+    - name: 8 - Configure compute
+      href: azure-stack-edge-gpu-deploy-configure-compute.md
+
   - name: Concepts
     items:
     - name: Review requirements
@@ -235,7 +236,7 @@
       - name: Set Azure Resource Manager password
         href: azure-stack-edge-gpu-set-azure-resource-manager-password.md 
       - name: Configure client TLS settings
-        href: azure-stack-edge-gpu-configure-tls-settings.md 
+        href: azure-stack-edge-gpu-configure-tls-settings.yml 
       - name: Troubleshoot Azure Resource Manager issues 
         href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
 
@@ -263,7 +264,9 @@
       - name: What are VMs?
         href: azure-stack-edge-gpu-virtual-machine-overview.md
       - name: View supported VMs
-        href: azure-stack-edge-gpu-virtual-machine-sizes.md              
+        href: azure-stack-edge-gpu-virtual-machine-sizes.md
+      - name: Create a VM with custom VM size
+        href: azure-stack-edge-create-vm-with-custom-size.md
       - name: View supported API profiles
         href: azure-stack-edge-profiles-azure-resource-manager-versions.md
       - name: What are GPU VMs?
@@ -278,8 +281,10 @@
           href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
         - name: Use specialized image
           href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
-        - name: Use Azure Marketplace image
-          href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md 
+        - name: Using Azure Marketplace image via portal
+          href: azure-stack-edge-create-a-vm-from-azure-marketplace.md 
+        - name: Using Azure Marketplace image via Azure CLI
+          href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md
       - name: Deploy
         items:
         - name: VMs - Azure portal (preview)
@@ -401,22 +406,6 @@
             href: azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md
           - name: Nvidia DeepStream module
             href: azure-stack-edge-deploy-nvidia-deepstream-module.md
-      - name: Deploy IoT Edge samples (Managed)
-        items:
-          - name: Module from Nvidia gallery
-            href: azure-stack-edge-gpu-configure-gpu-modules.md 
-          - name: GPU module from Git repo
-            href: azure-stack-edge-gpu-deploy-sample-module.md 
-          - name: GPU module via Marketplace
-            href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md 
-          - name: Modules from FPGA devices
-            href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
-          - name: Module via Azure portal 
-            href: azure-stack-edge-gpu-deploy-compute-module-simple.md
-          - name: Sync data from local share
-            href: https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/Scripts/IotEdgeScript/README.md
-          - name: Move to Linux VMs
-            href: azure-stack-edge-move-to-self-service-iot-edge.md
       - name: Troubleshoot IoT Edge issues
         href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
         
@@ -483,7 +472,7 @@
       - name: Apply updates
         href: azure-stack-edge-gpu-install-update.md 
       - name: Reset, reactivate device
-        href: azure-stack-edge-reset-reactivate-device.md
+        href: azure-stack-edge-reset-reactivate-device.yml
       - name: Return device
         href: azure-stack-edge-return-device.md     
       - name: Replace device
@@ -522,7 +511,15 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2303 - Current
+    - name: 2403 - Current
+      href: azure-stack-edge-gpu-2403-release-notes.md
+    - name: 2312
+      href: azure-stack-edge-gpu-2312-release-notes.md
+    - name: 2309
+      href: azure-stack-edge-gpu-2309-release-notes.md
+    - name: 2304
+      href: azure-stack-edge-gpu-2304-release-notes.md
+    - name: 2303
       href: azure-stack-edge-gpu-2303-release-notes.md
     - name: 2301
       href: azure-stack-edge-gpu-2301-release-notes.md
@@ -661,7 +658,7 @@
 - name: Resources
   items:
   - name: Azure Stack Edge Pro C# module samples (.NET)
-    href: https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/
+    href: https://github.com/Azure-Samples/data-box-edge-csharp-modules
   - name: Azure Stack Edge product  
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing

@@ -5,13 +5,11 @@ author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 03/23/2023
 ms.author: saraic
 ms.reviewer: cynthn, mattmcinnes
-ms.custom: template-how-to, devx-track-azurecli 
+ms.custom: template-how-to, devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 
 # Create a gallery for storing and sharing resources
@@ -41,7 +39,7 @@ Allowed characters for gallery name are uppercase (A-Z) and lowercase (a-z) lett
 
 
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, select **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.
@@ -119,7 +117,7 @@ To start sharing a direct shared gallery with a subscription or tenant, see [Sha
 
 ### [Portal](#tab/portaldirect)
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, select **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.
@@ -188,14 +186,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 <a name=community></a>
 ## Create a community gallery
 
-A [community gallery](azure-compute-gallery.md#community) is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of public instance of your gallery is the prefix you provide, plus a unique GUID.
-
-During the preview, make sure that you create your gallery, image definitions, and image versions in the same region in order to share your gallery publicly.
-
-> [!IMPORTANT]
-> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> To publish a community gallery, you'll need to [set up preview features in your Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal). Creating VMs from community gallery images is open to all Azure users.
+A [community gallery](azure-compute-gallery.md#community) is shared publicly with everyone. To create a community gallery, you create the gallery first, then enable it for sharing. The name of public instance of your gallery is the prefix you provide, plus a unique GUID. Make sure that you create your gallery, image definitions, and image versions in the same region in order to share your gallery publicly.
 
 When creating an image to share with the community, you need to provide contact information. This information is shown **publicly**, so be careful when providing:
 - Community gallery prefix
@@ -271,7 +262,7 @@ To start sharing the gallery to all Azure users, see [Share images using a commu
 
 Making a community gallery available to all Azure users is a two-step process. First you create the gallery with community sharing enabled, when you're ready to make it public, you share the gallery.
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, click **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.
@@ -310,5 +301,3 @@ To start sharing the gallery to all Azure users, see [Share images using a commu
 - Create an [image definition and an image version](image-version.md).
 - Create a VM from a [generalized](vm-generalized-image-version.md#direct-shared-gallery) or [specialized](vm-specialized-image-version.md#direct-shared-gallery) image in a gallery.
 - [Create a VM application](vm-applications-how-to.md) in your gallery.
-
-

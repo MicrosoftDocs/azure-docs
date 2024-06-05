@@ -1,18 +1,19 @@
 ---
-title: Support for wildcard domains 
+title: Support for wildcard domains
 titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door supports mapping and managing wildcard domains in the list of custom domains.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 02/07/2023
+ms.date: 03/31/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
 # Wildcard domains in Azure Front Door
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Wildcard domains allow Azure Front Door to receive traffic for any subdomain of a top-level domain. An example wildcard domain is `*.contoso.com`.
 
@@ -20,8 +21,8 @@ By using wildcard domains, you can simplify the configuration of your Azure Fron
 
 Wildcard domains give you several advantages, including:
 
-- You don't need to onboard each subdomain in your Azure Front Door profile. For example, suppose you create new subdomains every customer, and route all customers' requests to a single origin group. Whenever you add a new customer, Azure Front Door understands how to route traffic to your origin group even though the subdomain hasn't been explicitly configured.
-- You don't need to generate a new TLS certificate, or manage any subdomain-specific HTTPS settings, to bind a certificate for each subdomain.
+- You don't need to onboard each subdomain in your Azure Front Door profile. For example, suppose you create new subdomains every customer, and route all customers' requests to a single origin group. Whenever you add a new customer, Azure Front Door understands how to route traffic to your origin group even though the subdomain isn't explicitly configured.
+- You don't need to generate a new Transport Layer Security (TLS) certificate, or manage any subdomain-specific HTTPS settings, to bind a certificate for each subdomain.
 - You can use a single web application firewall (WAF) policy for all of your subdomains.
 
 Commonly, wildcard domains are used to support software as a service (SaaS) solutions, and other multitenant applications. When you build these application types, you need to give special consideration to how you route traffic to your origin servers. For more information, see [Use Azure Front Door in a multitenant solution](/azure/architecture/guide/multitenant/service/front-door).
@@ -33,7 +34,7 @@ Commonly, wildcard domains are used to support software as a service (SaaS) solu
 
 ## Add a wildcard domain and certificate binding
 
-You can add a wildcard domain following similar steps to those for subdomains. For more information about adding a subdomain to Azure Front Door, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
+You can add a wildcard domain following steps similar for subdomains. For more information about adding a subdomain to Azure Front Door, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
 
 > [!NOTE]
 > * Azure DNS supports wildcard records.
@@ -64,7 +65,7 @@ Subdomains like `www.image.contoso.com` aren't a single-level subdomain of `*.co
 
 ## Adding wildcard domains
 
-You can add a wildcard domain under the section for front-end hosts or domains. Similar to subdomains, Azure Front Door (classic) validates that there's CNAME record mapping for your wildcard domain. This DNS mapping can be a direct CNAME record mapping like `*.contoso.com` mapped to `endpoint.azurefd.net`. Or you can use afdverify temporary mapping. For example, `afdverify.contoso.com` mapped to `afdverify.endpoint.azurefd.net` validates the CNAME record map for the wildcard.
+You can add a wildcard domain under the section for front-end hosts or domains. Similar to subdomains, Azure Front Door (classic) validates that there's CNAME record mapping for your wildcard domain. This Domain Name System (DNS) mapping can be a direct CNAME record mapping like `*.contoso.com` mapped to `endpoint.azurefd.net`. Or you can use afdverify temporary mapping. For example, `afdverify.contoso.com` mapped to `afdverify.endpoint.azurefd.net` validates the CNAME record map for the wildcard.
 
 > [!NOTE]
 > Azure DNS supports wildcard records.
@@ -73,7 +74,7 @@ You can add as many single-level subdomains of the wildcard domain in front-end 
 
 - Defining a different route for a subdomain than the rest of the domains (from the wildcard domain).
 
-- Having a different WAF policy for a specific subdomain. For example, `*.contoso.com` allows adding `foo.contoso.com` without having to again prove domain ownership. But it doesn't allow `foo.bar.contoso.com` because it isn't a single level subdomain of `*.contoso.com`. To add `foo.bar.contoso.com` without extra domain ownership validation, `*.bar.contosonews.com` needs to be added.
+- Having a different WAF policy for a specific subdomain. For example, `*.contoso.com` allows adding `foo.contoso.com` without having to again prove domain ownership. But it doesn't allow `foo.bar.contoso.com` because it isn't a single level subdomain of `*.contoso.com`. To add `foo.bar.contoso.com` without extra domain ownership validation, `*.bar.contoso.com` needs to be added.
 
 You can add wildcard domains and their subdomains with certain limitations:
 
@@ -100,7 +101,7 @@ If a subdomain is added for a wildcard domain that already has a certificate ass
 
 ::: zone pivot="front-door-standard-premium"
 
-WAF policies can be attached to wildcard domains, similar to other domains. A different WAF policy can be applied to a subdomain of a wildcard domain. Subdomains will automatically inherit the WAF policy from the wildcard domain if there is no explicit WAF policy associated to the subdomain. However, if the subdomain is added to a different profile from the wildcard domain profile, the subdomain cannot inherit the WAF policy associated with the wildcard domain.
+WAF policies can be attached to wildcard domains, similar to other domains. A different WAF policy can be applied to a subdomain of a wildcard domain. Subdomains automatically inherit the WAF policy from the wildcard domain if there's no explicit WAF policy associated to the subdomain. However, if the subdomain is added to a different profile from the wildcard domain profile, the subdomain can't inherit the WAF policy associated with the wildcard domain.
 
 ::: zone-end
 

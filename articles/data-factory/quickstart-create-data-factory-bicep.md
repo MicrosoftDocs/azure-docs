@@ -8,7 +8,7 @@ author: jonburchel
 ms.author: jburchel 
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 08/19/2022
+ms.date: 05/15/2024
 ---
 
 # Quickstart: Create an Azure Data Factory using Bicep
@@ -190,7 +190,7 @@ You can also use the Azure portal to delete the resource group.
 1. Select **Delete resource group**.
 1. A tab will appear. Enter the resource group name and select **Delete**.
 
-## Next steps
+## Related content
 
 In this quickstart, you created an Azure Data Factory using Bicep and validated the deployment. To learn more about Azure Data Factory and Bicep, continue on to the articles below.
 

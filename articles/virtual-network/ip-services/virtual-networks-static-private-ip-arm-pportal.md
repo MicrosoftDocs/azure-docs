@@ -1,12 +1,12 @@
 ---
 title: 'Create a VM with a static private IP address - Azure portal'
 description: Learn how to create a virtual machine with a static private IP address using the Azure portal.
-author: asudbring
-ms.author: allensu
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 03/17/2023
 ms.custom: template-how-to, engagement-fy23
 ---
 

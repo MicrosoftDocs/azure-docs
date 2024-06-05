@@ -2,11 +2,11 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 10/21/2022
-ms.custom: references_regions 
+ms.date: 05/30/2024
+ms.custom: references_regions, linux-related-content
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for Azure Backup
@@ -61,23 +61,23 @@ Here's what's supported if you want to back up on-premises machines:
 
 ### Azure VM backup options
 
-Here's what's supported if you want to back up Azure VMs:
+The following table lists the supported scenarios for backup of Azure VMs:
 
 **Machine** | **What's backed up** | **Location** | **Features**
 --- | --- | --- | ---
-**Azure VM backup by using VM extension** | Entire VM | Back up to vault. | Extension installed when you enable backup for a VM.<br/><br/> Back up once a day.<br/><br/> App-aware backup for Windows VMs; file-consistent backup for Linux VMs. You can configure app-consistency for Linux machines by using custom scripts.<br/><br/> Restore VM or disk.<br/><br/>[Backup and restore of Active Directory domain controllers](active-directory-backup-restore.md) is supported.<br><br> Can't back up an Azure VM to an on-premises location.
+**Azure VM backup by using VM extension** <br > or **by using agentless crash-consistent backup** | Entire VM | Back up to vault. | Supports both agent-based and agentless backups.  <br/><br/> Back up multiple times a day.<br/><br/> App-aware backup for Windows VMs; file-consistent backup for Linux VMs. You can configure app-consistency for Linux machines by using custom scripts.   <br><br> You can also opt for agentless crash-consistent backups for Windows or Linux. [Learn more](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).     <br/><br/> Restore VM or disk.<br/><br/>[Backup and restore of Active Directory domain controllers](active-directory-backup-restore.md) is supported.<br><br> Can't back up an Azure VM to an on-premises location.
 **Azure VM backup by using MARS agent** | - Files, folders <br><br> - System state | Back up to vault. | - Back up three times a day. <br><br> - Back up once a day. <br/><br/> If you want to back up specific files or folders rather than the entire VM, the MARS agent can run alongside the VM extension.
 **Azure VM with DPM** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running DPM. DPM then backs up to vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
 **Azure VM with MABS** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running MABS. MABS then backs up to the vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
 
 ## Linux backup support
 
-Here's what's supported if you want to back up Linux machines:
+The following table lists the supported scenarios for backup of Linux machines:
 
 **Backup type** | **Linux (Azure endorsed)**
 --- | ---
 **Direct backup of on-premises machine that's running Linux** | Not supported. The MARS agent can be installed only on Windows machines.
-**Using agent extension to back up Azure VM that's running Linux** | App-consistent backup by using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> File-level recovery.<br/><br/> Restore by creating a VM from a recovery point or disk.
+**Using agent extension to back up Azure VM that's running Linux** or **agentless crash-consistent backup** | Supports file-system, app-consistent backup (using [custom scripts](backup-azure-linux-app-consistent.md)) via an extension. Also supports [crash-consistent agentless backups](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).  <br/><br/> File-level recovery.<br/><br/> Restore by creating a VM from a recovery point or disk.
 **Using DPM to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMware.<br/><br/> VM restoration of Hyper-V and VMware Linux Guest VMs.
 **Using MABS to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMware.<br/><br/> VM restoration of Hyper-V and VMware Linux guest VMs.
 **Using MABS or DPM to back up Linux Azure VMs** | Not supported.
@@ -140,20 +140,21 @@ Backup supports the compression of backup traffic, as summarized in the followin
 **Maximum recovery points per protected instance (machine or workload)** | 9,999
 **Maximum expiry time for a recovery point** | No limit
 **Maximum backup frequency to DPM/MABS** | Every 15 minutes for SQL Server<br/><br/> Once an hour for other workloads
-**Maximum backup frequency to vault** | **On-premises Windows machines or Azure VMs running MARS:** Three per day<br/><br/> **DPM/MABS:** Two per day<br/><br/> **Azure VM backup:** One per day
+**Maximum backup frequency to vault** | **On-premises Windows machines or Azure VMs running MARS:** Three per day. A maximum of 22 TB of data change is supported between backups.<br/><br/> **DPM/MABS:** Two per day<br/><br/> **Azure VM backup:** One per day
 **Recovery point retention** | Daily, weekly, monthly, yearly
 **Maximum retention period** | Depends on backup frequency
 **Recovery points on DPM/MABS disk** | 64 for file servers; 448 for app servers <br/><br/>Unlimited tape recovery points for on-premises DPM
 
 ## Cross Region Restore
 
-Azure Backup has added the Cross Region Restore feature to strengthen data availability and resiliency capability, giving you full control to restore data to a secondary region. To configure this feature, visit [the Set Cross Region Restore article.](backup-create-rs-vault.md#set-cross-region-restore). This feature is supported for the following management types:
+Azure Backup has added the Cross Region Restore feature to strengthen data availability and resiliency capability, giving you full control to restore data to a secondary region. To configure this feature, see [Set Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore). This feature is supported for the following management types:
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA. |
 | SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central and UG IOWA. |
-| MARS Agent/On premises  | No                                                           | N/A               |
+| MARS Agent (Preview)  | Available in preview. <br><br> Not supported for vaults with Private Endpoint enabled.       | Available in all Azure public regions.   |
+| DPM/MABS | No                        |                      N/A                   |
 | AFS (Azure file shares)                 | No                                                           | N/A               |
 
 ## Resource health
@@ -174,7 +175,7 @@ Azure Backup now supports zone-redundant storage (ZRS).
 
 - Azure Backup currently supports ZRS for all workloads, except Azure Disk, in the following regions: UK South, South East Asia, Australia East, North Europe, Central US, East US 2, Brazil South, South Central US, Korea Central, Norway East, France Central, West Europe, East Asia, Sweden Central, Canada Central, India Central, South Africa North, West US 2, Japan East, East US, US Gov Virginia, Switzerland North, Qatar, UAE North, and West US 3.
 
-- ZRS support for Azure Disk is generally available in the following regions: UK South, Southeast Asia, Australia East, North Europe, Central US, South Central US, West Europe, West US 2, Japan East, East US, US Gov Virginia, Qatar, and West US 3.
+- ZRS support for Azure Disk is generally available in the following regions: South Africa North, East Asia, Southeast Asia, Australia East, US Gov Virginia, Brazil South, Canada Central, China North 3, North Europe, West Europe, France Central, Germany West Central, Central India, Israel Central, Italy North, Japan East, Korea Central,Norway East, Poland Central, Qatar Central, Sweden Central, Switzerland North, UAE North, UK South, East US, East US 2, South Central US, West US 2, West US 3.
 
 ### Supported scenarios
 

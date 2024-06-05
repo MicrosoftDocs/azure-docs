@@ -44,7 +44,7 @@ This tutorial describes how to create a payment HSM with static host and managem
   You can continue with this quick start if all four of these commands return "Registered".
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
 
-[!INCLUDE [Azure CLI prepare your environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure CLI prepare your environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Review the template
 
@@ -411,37 +411,16 @@ $mgmtSubnetPrefix = "10.1.0.0/24"
 Finally, use the Azure PowerShell [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet to deploy your ARM template.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $templateParametersPath -resourceName $resourceName -skuName $skuName -stampId $stampId -vnetName $hostVnetName -vnetAddressPrefix $hostVnetAddressPrefix -hsmSubnetName $hostSubnetName -hsmSubnetPrefix $hostSubnetPrefix -managementVnetName $mgmtVnetName -managementVnetAddressPrefix $mgmtVnetAddressPrefix -managementHsmSubnetName $mgmtSubnetName  -managementHsmSubnetPrefix $mgmtSubnetPrefix
+New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $templateParametersPath -resourceName $resourceName -skuName $skuName -stampId $stampId -vnetName $hostVnetName -vnetAddressPrefix $hostVnetAddressPrefix -hsmSubnetName $hostSubnetName -hsmSubnetPrefix $hostSubnetPrefix -managementVnetName $mgmtVnetName -managementVnetAddressPrefix $mgmtVnetAddressPrefix -managementHsmSubnetName $mgmtSubnetName  -managementHsmSubnetPrefix $mgmtSubnetPrefix
 ```
 
 ---
-
-## Validate the deployment
-
-# [Azure CLI](#tab/azure-cli)
-
-You can verify that the payment HSM was created with the Azure CLI [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command. You will find the output easier to read if you format the results as a table:
-
-```azurecli-interactive
-az dedicated-hsm list -o table
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-You can verify that the payment HSM was created with the Azure PowerShell [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet.
-
-```azurepowershell-interactive
-Get-AzDedicatedHsm
-```
----
-
-You should see the name of your newly created payment HSM.
 
 ## Next steps
 
-Advance to the next article to learn how to access the payShield manager for your payment HSM
+Advance to the next article to learn how to view your payment HSM.
 > [!div class="nextstepaction"]
-> [Access the payShield manager](access-payshield-manager.md)
+> [View your payment HSMs](view-payment-hsms.md)
 
 More resources:
 

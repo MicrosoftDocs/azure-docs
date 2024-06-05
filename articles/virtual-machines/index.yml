@@ -6,13 +6,11 @@ summary: Documentation for creating and managing virtual machines in Azure. # < 
 metadata:
   title: Virtual machines in Azure
   description: Documentation for creating and managing Linux virtual machines in Azure.
-  services: virtual-machines
   ms.service: virtual-machines
   ms.topic: landing-page
-  author: cynthn
-  ms.author: cynthn
+  author: ju-shim
+  ms.author: jushiman
   ms.date: 12/13/2021
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -23,14 +21,15 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Boost
+            url: ../azure-boost/overview.md
+          - text: Hibernation
+            url: hibernate-resume.md
           - text: Flexible Virtual Machine Scale Sets Orchestration
             url: flexible-virtual-machine-scale-sets.md
-          - text: Trusted Launch
-            url: trusted-launch.md
-          - text: VM applications in Azure Compute Gallery 
-            url: vm-applications.md
-          - text: VM restore points 
-            url: virtual-machines-create-restore-points.md
+          - text: Community Gallery
+            url: share-gallery-community.md
+
 
   # Card (optional)
   - title: Linux quickstarts

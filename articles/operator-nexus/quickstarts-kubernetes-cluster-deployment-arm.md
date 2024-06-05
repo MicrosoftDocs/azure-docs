@@ -5,7 +5,7 @@ ms.service: azure-operator-nexus
 author: dramasamy
 ms.author: dramasamy
 ms.topic: quickstart-arm
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli
 ms.date: 05/14/2023
 ---
 
@@ -45,6 +45,11 @@ Once you have reviewed and saved the template file named ```kubernetes-deploy.js
       --parameters @kubernetes-deploy-parameters.json
 ```
 
+If there isn't enough capacity to deploy requested cluster nodes, an error message appears. However, this message doesn't provide any details about the available capacity. It states that the cluster creation can't proceed due to insufficient capacity.
+
+> [!NOTE]
+> The capacity calculation takes into account the entire platform cluster, rather than being limited to individual racks. Therefore, if an agent pool is created in a zone (where a rack equals a zone) with insufficient capacity, but another zone has enough capacity, the cluster creation continues but will eventually time out. This approach to capacity checking only makes sense if a specific zone isn't specified during the creation of the cluster or agent pool.
+
 ## Review deployed resources
 
 [!INCLUDE [quickstart-review-deployment-cli](./includes/kubernetes-cluster/quickstart-review-deployment-cli.md)]
@@ -54,7 +59,7 @@ Once you have reviewed and saved the template file named ```kubernetes-deploy.js
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect.md)]
 
 ## Add an agent pool
-The cluster created in the previous step has a single node pool. Let's add a second agent pool using the ARM template. The following example creates an agent pool named ```myNexusAKSCluster-nodepool-2```:
+The cluster created in the previous step has a single node pool. Let's add a second agent pool using the ARM template. The following example creates an agent pool named ```myNexusK8sCluster-nodepool-2```:
 
 1. Review the template.
 
@@ -86,4 +91,3 @@ Once you have reviewed and saved the template file named ```kubernetes-add-agent
 ## Next steps
 
 [!INCLUDE [quickstart-nextsteps](./includes/kubernetes-cluster/quickstart-nextsteps.md)]
-

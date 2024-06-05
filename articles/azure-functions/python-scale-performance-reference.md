@@ -101,9 +101,6 @@ I/O-bound apps may also benefit from increasing the number of worker processes b
 
 The `FUNCTIONS_WORKER_PROCESS_COUNT` applies to each host that Azure Functions creates when scaling out your application to meet demand.
 
-> [!NOTE]
-> Multiple Python workers are not supported by the Python v2 programming model at this time. This means that enabling intelligent concurrency and setting `FUNCTIONS_WORKER_PROCESS_COUNT` greater than 1 is not supported for functions developed using the v2 model. 
-
 #### Set up max workers within a language worker process
 
 As mentioned in the async [section](#understanding-async-in-python-worker), the Python language worker treats functions and [coroutines](https://docs.python.org/3/library/asyncio-task.html#coroutines) differently. A coroutine is run within the same event loop that the language worker runs on. On the other hand, a function invocation is run within a [ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor), which is maintained by the language worker as a thread.

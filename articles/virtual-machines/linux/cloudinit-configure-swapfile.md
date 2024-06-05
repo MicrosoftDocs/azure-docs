@@ -1,5 +1,5 @@
 ---
-title: Use cloud-init to configure a swap partition on a Linux VM 
+title: Use cloud-init to configure a swap partition on a Linux VM
 description: How to use cloud-init to configure a swap partition in a Linux VM during creation with the Azure CLI
 author: mattmcinnes
 ms.service: virtual-machines
@@ -8,11 +8,14 @@ ms.topic: how-to
 ms.date: 03/29/2023
 ms.author: mattmcinnes
 ms.subservice: cloud-init
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 # Use cloud-init to configure a swap partition on a Linux VM
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to configure the swap partition on various Linux distributions. The swap partition was traditionally configured by the Linux Agent (WALA) based on which distributions required one.  This document outlines the process for building the swap partition on demand during provisioning time using cloud-init.  For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
 
@@ -22,7 +25,7 @@ By default on Azure, Ubuntu gallery images do not create swap partitions. To ena
 
 ## Create swap partition for Red Hat and CentOS based images
 
-Create a file in your current shell named *cloud_init_swappart.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
+Create a file in your current shell named *cloud_init_swappart.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.
 
 ```yaml
 #cloud-config
@@ -41,7 +44,7 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
 ```
 
-The mount is created with the `nofail` option to ensure that the boot will continue even if the mount is not completed successfully.
+The mount is created with the `nofail` option to ensure that the boot process continues even if the mount is not completed successfully.
 
 Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -57,11 +60,46 @@ az vm create \
   --name vmName \
   --image imageCIURN \
   --custom-data cloud_init_swappart.txt \
-  --generate-ssh-keys 
+  --generate-ssh-keys
 ```
 
 > [!NOTE]
 > Replace **myResourceGroup**, **vmName**, and **imageCIURN** values accordingly. Make sure an image with Cloud-init is chosen.
+
+## Modify an already running machine
+
+If you already provisioned your server and wish to modify the mount point of the ephemeral storage and want to configure a part of the disk as swap space, use the following steps.
+
+Create cloud-init configuration file named `00-azure-swap.cfg` in the `/etc/cloud/cloud.cfg.d` directory with the following content:
+
+```yaml
+#cloud-config
+disk_setup:
+  ephemeral0:
+    table_type: gpt
+    layout: [66, [33,82]]
+    overwrite: true
+fs_setup:
+  - device: ephemeral0.1
+    filesystem: ext4
+  - device: ephemeral0.2
+    filesystem: swap
+mounts:
+  - ["ephemeral0.1", "/mnt"]
+  - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
+```
+
+Next, append a line to the `/etc/systemd/system.conf` file with following content:
+
+```config
+DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"
+```
+
+> [!NOTE]
+> The name of the file is totally arbitrary, it can be replaced with any particular name of your preference, it just needs the .cfg suffix and make sure to reflect the changes in the CLOUD_CFG parameter line as well.
+
+After the changes are done, the machine needs to be deallocated or re-deployed for the changes to take effect.
+
 
 ## Verify swap partition was created
 
@@ -89,9 +127,9 @@ Filename                Type        Size    Used    Priority
 
 ## Next steps
 
-For additional cloud-init examples of configuration changes, see the following:
+For more cloud-init examples of configuration changes, see the following:
 
 - [Add an additional Linux user to a VM](cloudinit-add-user.md)
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
-- [Change VM local hostname](cloudinit-update-vm-hostname.md) 
+- [Change VM local hostname](cloudinit-update-vm-hostname.md)
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)

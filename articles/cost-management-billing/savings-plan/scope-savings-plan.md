@@ -8,7 +8,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: conceptual
-ms.date: 02/03/2023
+ms.date: 11/17/2023
 ---
 
 # Savings plan scopes
@@ -19,24 +19,24 @@ You have the following options to scope a savings plan, depending on your needs:
 
 ## Scope options
 
-- **Single resource group scope** - Applies the savings plan benefit to the eligible resources in the selected resource group only.
-- **Single subscription scope** - Applies the savings plan benefit to the eligible resources in the selected subscription.
-- **Shared scope** - Applies the savings plan benefit to eligible resources within subscriptions that are in the billing context. If a subscription was moved to different billing context, the benefit will no longer be applied to this subscription and will continue to apply to other subscriptions in the billing context.
-  - For Enterprise Agreement customers, the billing context is the enrollment.
-  - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
-- **Management group** - Applies the savings plan benefit to eligible resources in the list of subscriptions that are a part of both the management group and billing scope. To buy a savings plan for a management group, you must have at least read permission on the management group and be a savings plan owner on the billing subscription.
+- **Resource group scope** - Applies benefits to eligible resources in the selected resource group.
+- **Subscription scope** - Applies benefits to eligible resources in the selected subscription.
+- **Management group** - Applies benefits to eligible resources from all subscriptions in both the management group and billing scope.
+- **Shared scope** - Applies benefits to eligible resources within subscriptions that are in the EA enrollment or MCA billing profile.
+  - If a subscription is moved to different enrollment/billing profile, benefits will no longer be applied to the subscription.
+  - For EA customers, shared scope can include multiple Microsoft Entra tenants in the enrollment.
+
+
 
 ## Scope processing order
-
 While applying savings plan benefits to your usage, Azure processes savings plans in the following order:
-
-1. Savings plans with a single resource group scope.
-2. Savings plans with a single subscription scope.
-3. Savings plans scoped to a management group.
-4. Savings plans with a shared scope (multiple subscriptions), described previously.
+1. Savings plans with resource group scope.
+2. Savings plans with subscription scope.
+3. Savings plans with management group scope.
+4. Savings plans shared scope.
 
 You can always update the scope after you buy a savings plan. To do so, go to the savings plan, select **Configuration**, and rescope the savings plan. Rescoping a savings plan isn't a commercial transaction, so your savings plan term isn't changed. For more information about updating the scope, see [Update the scope](manage-savings-plan.md#change-the-savings-plan-scope) after you purchase a savings plan.
 
-## Next steps
+## Related content
 
 - [Change the savings plan scope](manage-savings-plan.md#change-the-savings-plan-scope).

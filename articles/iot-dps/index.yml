@@ -8,7 +8,6 @@ metadata:
   description: Azure IoT Hub Device Provisioning Service (DPS) - Tutorials, Quickstarts, HowTos, and API Reference
   author: kgremban
   ms.service: iot-dps
-  services: iot-dps
   ms.topic: landing-page
   ms.date: 04/26/2022
   ms.author: kgremban

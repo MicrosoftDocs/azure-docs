@@ -2,10 +2,10 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 03/03/2023
+ms.date: 04/17/2024
 ---
 
-### Licensing
+#### Licensing
 
 To ensure your session hosts have licenses applied correctly, you'll need to do the following tasks:
 
@@ -13,12 +13,16 @@ To ensure your session hosts have licenses applied correctly, you'll need to do 
 
 - If your session hosts are running a Windows Server OS, you'll also need to issue them a Remote Desktop Services (RDS) Client Access License (CAL) from a Remote Desktop Licensing Server. For more information, see [License your RDS deployment with client access licenses (CALs)](/windows-server/remote/remote-desktop-services/rds-client-access-license).
 
-### Azure AD-joined session hosts
+- For session hosts on Azure Stack HCI, you must license and activate the virtual machines you use before you use them with Azure Virtual Desktop. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
 
-If your users are going to connect to session hosts joined to Azure Active Directory, you'll need to do the following tasks:
+> [!NOTE]
+> To ensure continued functionality with the latest security update, update your VMs on Azure Stack HCI to the latest cumulative update by June 17, 2024. This update is essential for VMs to continue using Azure benefits. For more information, see [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification?tabs=wac#benefits-available-on-azure-stack-hci).
 
-- If your users are going to connect to session hosts joined to Azure Active Directory, you must assign them the [*Virtual Machine User Login*](../../role-based-access-control/built-in-roles.md#virtual-machine-user-login) or [*Virtual Machine Administrator Login*](../../role-based-access-control/built-in-roles.md#virtual-machine-administrator-login) RBAC role either on each virtual machine, the resource group containing the virtual machines, or the subscription. We recommend you assign the *Virtual Machine User Login* RBAC role on the resource group containing your session hosts to the same user group as you assign to the application group. For more information, see [Log in to a Windows virtual machine in Azure by using Azure AD](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#configure-role-assignments-for-the-vm).
 
-- For users connecting from Windows devices that aren't joined to Azure AD or non-Windows devices, add the custom RDP property `targetisaadjoined:i:1` to the host pool's RDP properties. These connections are restricted to entering user name and password credentials when signing in to a session host. For more information, see [Customize RDP properties for a host pool](../customize-rdp-properties.md).
+<a name='azure-ad-joined-session-hosts'></a>
 
-For more information about using session hosts joined to Azure AD, see [Azure AD-joined session hosts](../azure-ad-joined-session-hosts.md).
+#### Microsoft Entra joined session hosts
+
+For session hosts on Azure that are joined to Microsoft Entra ID, you'll also need to enable single sign-on or legacy authentication protocols, assign an RBAC role to users, and review your multifactor authentication policies so they can sign in to the VMs. 
+
+For more information about using Microsoft Entra joined session hosts, see [Microsoft Entra joined session hosts](../azure-ad-joined-session-hosts.md).

@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/11/2023
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Limit call rate by subscription
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `rate-limit` policy prevents API usage spikes on a per subscription basis by limiting the call rate to a specified number per a specified time period. When the call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
@@ -29,7 +31,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
         remaining-calls-header-name="header name"  
         remaining-calls-variable-name="policy expression variable name"
         total-calls-header-name="header name">
-    <api name="API name" id="API id" calls="number" renewal-period="seconds" />
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" >
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
     </api>
 </rate-limit>
@@ -40,7 +42,6 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. Policy expressions aren't allowed.| Yes      | N/A     |
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds. Policy expressions aren't allowed.                                           | Yes      | N/A     |
-| total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. Policy expressions aren't allowed. |  No | N/A  |
 | retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. Policy expressions aren't allowed. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. Policy expressions aren't allowed. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. Policy expressions aren't allowed.|  No | N/A  |
@@ -79,7 +80,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
@@ -107,6 +108,6 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 
 ## Related policies
 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Rate limiting and quotas](api-management-policies.md#rate-limiting-and-quotas)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

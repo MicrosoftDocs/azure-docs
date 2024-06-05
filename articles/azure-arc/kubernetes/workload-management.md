@@ -34,7 +34,7 @@ To deploy the sample, run the following script:
 mkdir kalypso && cd kalypso
 curl -fsSL -o deploy.sh https://raw.githubusercontent.com/microsoft/kalypso/main/deploy/deploy.sh
 chmod 700 deploy.sh
-./deploy.sh -c -p <prefix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
+./deploy.sh -c -p <prefix. e.g. kalypso> -o <GitHub org. e.g. eedorenko> -t <GitHub token> -l <azure-location. e.g. westus2> 
 ```
 
 This script may take 10-15 minutes to complete. After it's done, it reports the execution result in the output like this:
@@ -59,7 +59,7 @@ Created AKS clusters in kalypso-rg resource group:
 > If something goes wrong with the deployment, you can delete the created resources with the following command:
 > 
 > ```bash
-> ./deploy.sh -d -p <preix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
+> ./deploy.sh -d -p <preix. e.g. kalypso> -o <GitHub org. e.g. eedorenko> -t <GitHub token> -l <azure-location. e.g. westus2> 
 > ```
 
 ### Sample overview
@@ -163,7 +163,7 @@ With this file, Application Team requests Kubernetes compute resources from the 
 To register the application, open a terminal and use the following script: 
 
 ```bash
-export org=<github org>
+export org=<GitHub org>
 export prefix=<prefix>
 
 # clone the control-plane repo
@@ -270,7 +270,7 @@ However, only the `drone` and `large` cluster types were selected by the schedul
 
 ### Understand deployment target assignment manifests
 
-Before you continue, take a closer look at the generated assignment manifests for the `functional-test` deployment target. There are `namespace.yaml`, `config.yaml` and `reconciler.yaml` manifest files.
+Before you continue, take a closer look at the generated assignment manifests for the `functional-test` deployment target. There are `namespace.yaml`, `platform-config.yaml` and `reconciler.yaml` manifest files.
 
 `namespace.yaml` defines a namespace that will be created on any `drone` cluster where the `hello-world` application runs.
  
@@ -278,23 +278,23 @@ Before you continue, take a closer look at the generated assignment manifests fo
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: "dev-drone-hello-world-app-functional-test" 
   labels:
-    deploymentTarget: hello-world-app-functional-test
-    environment: dev
+    environment: "dev"
+    workspace: "kaizen-app-team"
+    workload: "hello-world-app"
+    deploymentTarget: "hello-world-app-functional-test"
     someLabel: some-value
-    workload: hello-world-app
-    workspace: kaizen-app-team
-  name: dev-kaizen-app-team-hello-world-app-functional-test
 ```
 
-`config.yaml` contains all platform configuration values available on any `drone` cluster that the application can use in the `Dev` environment.
+`platform-config.yaml` contains all platform configuration values available on any `drone` cluster that the application can use in the `Dev` environment.
  
 ```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: platform-config
-  namespace: dev-kaizen-app-team-hello-world-app-functional-test
+  namespace: dev-drone-hello-world-app-functional-test
 data:
   CLUSTER_NAME: Drone
   DATABASE_URL: mysql://restricted-host:3306/mysqlrty123
@@ -309,29 +309,29 @@ data:
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: hello-world-app-functional-test
+  name: "hello-world-app-functional-test"
   namespace: flux-system
 spec:
-  interval: 30s
+  interval: 15s
+  url: "https://github.com/eedorenko/kalypso-tut-test-app-gitops"
   ref:
-    branch: dev
+    branch: "dev"
   secretRef:
-    name: repo-secret
-  url: https://github.com/<github org>/<prefix>-app-gitops
+      name: repo-secret    
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: hello-world-app-functional-test
+  name: "hello-world-app-functional-test"
   namespace: flux-system
 spec:
   interval: 30s
-  path: ./functional-test
-  prune: true
+  targetNamespace: "dev-drone-hello-world-app-functional-test"
   sourceRef:
     kind: GitRepository
-    name: hello-world-app-functional-test
-  targetNamespace: dev-kaizen-app-team-hello-world-app-functional-test
+    name: "hello-world-app-functional-test"
+  path: "./functional-test" 
+  prune: true
 ```
 
 > [!NOTE]
@@ -419,7 +419,7 @@ The generated manifests are added to a pull request to the `stage` branch waitin
 To test the application manually on the `Dev` environment before approving the PR to the `Stage` environment, first verify how the `functional-test` application instance works on the `drone` cluster:
 
 ```bash
-kubectl port-forward svc/hello-world-service -n dev-kaizen-app-team-hello-world-app-functional-test 9090:9090 --context=drone
+kubectl port-forward svc/hello-world-service -n dev-drone-hello-world-app-functional-test 9090:9090 --context=drone
 
 # output:
 # Forwarding from 127.0.0.1:9090 -> 9090
@@ -434,7 +434,7 @@ While this command is running, open `localhost:9090` in your browser. You'll see
 The next step is to check how the `performance-test` instance works on the `large` cluster:
 
 ```bash
-kubectl port-forward svc/hello-world-service -n dev-kaizen-app-team-hello-world-app-performance-test 8080:8080 --context=large
+kubectl port-forward svc/hello-world-service -n dev-large-hello-world-app-performance-test 8080:8080 --context=large
 
 # output:
 # Forwarding from 127.0.0.1:8080 -> 8080
@@ -449,13 +449,13 @@ Once you're satisfied with the `Dev` environment, approve and merge the PR to th
 Run the following command for the `drone` cluster and open `localhost:8001` in your browser:
  
 ```bash
-kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8001:8000 --context=drone
+kubectl port-forward svc/hello-world-service -n stage-drone-hello-world-app-uat-test 8001:8000 --context=drone
 ```
 
 Run the following command for the `large` cluster and open `localhost:8002` in your browser:
 
- ```bash
-kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8002:8000 --context=large
+```bash
+kubectl port-forward svc/hello-world-service -n stage-large-hello-world-app-uat-test 8002:8000 --context=large
 ```
 
 The application instance on the `large` cluster shows the following greeting page:
@@ -503,8 +503,8 @@ Once the new configuration has arrived to the `large` cluster, check the `uat-te
 running the following commands:
 
 ```bash
-kubectl rollout restart deployment hello-world-deployment -n stage-kaizen-app-team-hello-world-app-uat-test --context=large
-kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8002:8000 --context=large
+kubectl rollout restart deployment hello-world-deployment -n stage-large-hello-world-app-uat-test --context=large
+kubectl port-forward svc/hello-world-service -n stage-large-hello-world-app-uat-test 8002:8000 --context=large
 ```
 
 You'll see the updated database url:
@@ -532,6 +532,7 @@ metadata:
 spec:
   reconciler: arc-flux
   namespaceService: default
+  configType: configmap
 EOF
 
 git add .
@@ -550,7 +551,7 @@ When no longer needed, delete the resources that you created. To do so, run the 
 
 ```bash
 # In kalypso folder
-./deploy.sh -d -p <preix. e.g. kalypso> -o <github org. e.g. eedorenko> -t <github token> -l <azure-location. e.g. westus2> 
+./deploy.sh -d -p <preix. e.g. kalypso> -o <GitHub org. e.g. eedorenko> -t <GitHub token> -l <azure-location. e.g. westus2> 
 ```
 
 ## Next steps
@@ -562,4 +563,6 @@ To understand the underlying concepts and mechanics deeper, refer to the followi
 > [!div class="nextstepaction"]
 > - [Concept: Workload Management in Multi-cluster environment with GitOps](conceptual-workload-management.md)
 > - [Sample implementation: Workload Management in Multi-cluster environment with GitOps](https://github.com/microsoft/kalypso)
+> - [Concept: CD process with GitOps](https://github.com/microsoft/kalypso/blob/main/docs/cd-concept.md)
+> - [Sample implementation: Explore CI/CD flow with GitOps](https://github.com/microsoft/kalypso/blob/main/cicd/tutorial/cicd-tutorial.md)
 

@@ -1,0 +1,347 @@
+items:
+- name: Azure AI Studio documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure AI Studio?
+    href: what-is-ai-studio.md
+  - name: Azure AI Studio architecture
+    href: concepts/architecture.md
+  - name: Region support
+    href: reference/region-support.md
+  - name: What's new in Azure AI Studio?
+    href: whats-new.md
+  - name: Azure AI FAQ
+    href: faq.yml
+- name: Quickstarts
+  items:
+  - name: Create a project and use the chat playground
+    href: quickstarts/get-started-playground.md
+  - name: Get started building a chat app using the prompt flow SDK
+    href: quickstarts/get-started-code.md
+  - name: Get started with Assistants and code interpreter in the playground
+    href: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
+  - name: Hear and speak with chat in the playground
+    href: quickstarts/hear-speak-playground.md
+  - name: Moderate text and images with Content Safety
+    href: quickstarts/content-safety.md
+  - name: Use Azure AI Studio with a screen reader
+    href: tutorials/screen-reader.md
+- name: Tutorials
+  items:
+  - name: Deploy an enterprise chat web app
+    href: tutorials/deploy-chat-web-app.md
+  - name: Build your own copilot using prompt flow
+    href: tutorials/deploy-copilot-ai-studio.md
+- name: How-to
+  expanded: true
+  items:
+  - name: Select and deploy AI models
+    items:
+    - name: Model catalog
+      href: how-to/model-catalog-overview.md
+    - name: Data, privacy, and security for Model Catalog
+      href: how-to/concept-data-privacy.md
+    - name: Model benchmarks
+      href: how-to/model-benchmarks.md
+    - name: Deployments overview
+      href: concepts/deployments-overview.md
+      displayName: endpoint
+    - name: Fine-tune models
+      href: concepts/fine-tuning-overview.md
+    - name: Serverless API models
+      items:
+      - name: Deploy models as serverless API
+        href: how-to/deploy-models-serverless.md
+        displayName: maas, paygo, models-as-a-service
+      - name: Consume serverless API models from a different project or hub
+        href: how-to/deploy-models-serverless-connect.md
+        displayName: maas, paygo, models-as-a-service
+      - name: Model and region availability for Serverless API deployments
+        href: how-to/deploy-models-serverless-availability.md
+    - name: Azure OpenAI models
+      items:
+      - name: Deploy Azure OpenAI models
+        href: how-to/deploy-models-openai.md
+      - name: Fine-tune Azure OpenAI models
+        href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
+    - name: Cohere models
+      items:
+      - name: Deploy Cohere Command models
+        href: how-to/deploy-models-cohere-command.md
+      - name: Deploy Cohere Embed models
+        href: how-to/deploy-models-cohere-embed.md
+    - name: Meta Llama models
+      items:
+      - name: Deploy Meta Llama family models
+        href: how-to/deploy-models-llama.md
+      - name: Fine-tune Meta Llama family models
+        href: how-to/fine-tune-model-llama.md
+    - name: Deploy JAIS models
+      href: how-to/deploy-jais-models.md
+    - name: Deploy Mistral family models
+      href: how-to/deploy-models-mistral.md
+      displayName: maas
+    - name: Deploy Phi-3 models
+      href: how-to/deploy-models-phi-3.md
+    - name: Deploy TimeGEN-1 model
+      href: how-to/deploy-models-timegen-1.md
+    - name: Deploy open models
+      href: how-to/deploy-models-open.md
+      displayName: oss, open source
+  - name: Create AI Studio projects and resources
+    items:
+    - name: AI Studio hubs and projects overview
+      href: concepts/ai-resources.md
+    - name: Create a project
+      href: how-to/create-projects.md
+    - name: Create and manage a hub
+      href: how-to/create-azure-ai-resource.md
+    - name: Create a secure hub
+      href: how-to/create-secure-ai-hub.md
+    - name: Create a hub and project using the AzureML SDK
+      href: how-to/develop/create-hub-project-sdk.md
+    - name: Create a hub from template
+      href: how-to/create-azure-ai-hub-template.md
+    - name: Create and manage compute
+      href: how-to/create-manage-compute.md
+    - name: Connections
+      items:
+      - name: Connections overview
+        href: concepts/connections.md
+      - name: Create a connection
+        href: how-to/connections-add.md
+      - name: Create a connection using the AzureML SDK
+        href: how-to/develop/connections-add-sdk.md
+  - name: Data for your generative AI app
+    items:
+    - name: Overview of retrieval augmented generation (RAG)
+      href: concepts/retrieval-augmented-generation.md
+      displayName: RAG
+    - name: Add data to your project
+      href: how-to/data-add.md
+      displayName: index
+    - name: Build and consume vector indexes
+      href: how-to/index-add.md
+    - name: Build and consume indexes using code
+      href: how-to/develop/index-build-consume-sdk.md
+  - name: Develop generative AI apps
+    items:
+    - name: Develop generative AI apps in AI Studio
+      items:
+      - name: Build apps with prompt flow in AI Studio
+        items:
+        - name: Prompt flow overview
+          href: how-to/prompt-flow.md
+        - name: Develop flows
+          items:
+          - name: Create and manage compute session
+            href: how-to/create-manage-compute-session.md
+          - name: Create a flow
+            href: how-to/flow-develop.md
+          - name: Tune prompts using variants
+            href: how-to/flow-tune-prompts-using-variants.md
+          - name: Process images in a flow
+            href: how-to/flow-process-image.md
+          - name: Use prompt flow tools in AI Studio
+            items:
+            - name: Prompt flow tools overview
+              href: how-to/prompt-flow-tools/prompt-flow-tools-overview.md
+            - name: LLM tool
+              href: how-to/prompt-flow-tools/llm-tool.md
+            - name: Prompt tool
+              href: how-to/prompt-flow-tools/prompt-tool.md
+            - name: Python tool
+              href: how-to/prompt-flow-tools/python-tool.md
+            - name: Azure OpenAI GPT-4 Turbo with Vision tool
+              href: how-to/prompt-flow-tools/azure-open-ai-gpt-4v-tool.md
+            - name: Index Lookup tool
+              href: how-to/prompt-flow-tools/index-lookup-tool.md
+            - name: Content Safety tool
+              href: how-to/prompt-flow-tools/content-safety-tool.md
+            - name: Embedding tool
+              href: how-to/prompt-flow-tools/embedding-tool.md
+            - name: Serp API tool
+              href: how-to/prompt-flow-tools/serp-api-tool.md
+    - name: Develop generative AI apps using code
+      items:
+      - name: Overview of SDKs
+        href: how-to/develop/sdk-overview.md
+      - name: Work with AI Studio projects in VS Code
+        href: how-to/develop/vscode.md
+      - name: Start with an AI template
+        href: how-to/develop/ai-template-get-started.md
+      - name: Trace your application with prompt flow
+        href: how-to/develop/trace-local-sdk.md
+  - name: Evaluate generative AI apps
+    items:
+    - name: Evaluations concepts
+      items:
+      - name: Approach to generative AI evaluations
+        href: concepts/evaluation-approach-gen-ai.md
+      - name: Evaluation and monitoring metrics for generative AI
+        href: concepts/evaluation-metrics-built-in.md
+      - name: Harms mitigation strategies with Azure AI
+        href: concepts/evaluation-improvement-strategies.md
+    - name: Manually evaluate prompts in Azure AI Studio playground
+      href: how-to/evaluate-prompts-playground.md
+    - name: Generate adversarial simulations for safety evaluation
+      href: how-to/develop/simulator-interaction-data.md
+    - name: Evaluate with the prompt flow SDK
+      href: how-to/develop/flow-evaluate-sdk.md
+    - name: Evaluate with Azure AI Studio
+      href: how-to/evaluate-generative-ai-app.md
+    - name: View evaluation results in Azure AI Studio
+      href: how-to/evaluate-flow-results.md
+    - name: Evaluate flows in AI Studio
+      items:
+        - name: Submit batch run and evaluate a flow
+          href: how-to/flow-bulk-test-evaluation.md
+        - name: Develop an evaluation flow in Prompt flow
+          href: how-to/flow-develop-evaluation.md
+  - name: Deploy and monitor generative AI apps
+    items:
+    - name: Deploy a flow for real-time inference
+      href: how-to/flow-deploy.md
+      displayName: endpoint
+    - name: Enable tracing and collect feedback for a flow deployment
+      href: how-to/develop/trace-production-sdk.md
+    - name: Monitor prompt flow deployments
+      href: how-to/monitor-quality-safety.md
+    - name: Troubleshoot deployments and monitoring
+      href: how-to/troubleshoot-deploy-and-monitor.md
+  - name: Get started with Azure AI services
+    items:
+    - name: What are AI services?
+      href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
+      displayName: cognitive
+    - name: Get started with AI services in AI Studio
+      href: ai-services/get-started.md
+    - name: Connect AI services in AI Studio
+      href: ai-services/connect-ai-services.md
+    - name: Azure OpenAI
+      items:
+      - name: Get started with Assistants and code interpreter in the playground
+        href: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
+      - name: Analyze images and video with GPT-4 for Vision in the playground
+        href: quickstarts/multimodal-vision.md
+      - name: Use your image data with Azure OpenAI
+        href: how-to/data-image-add.md
+        displayName: vision, gpt, turbo
+    - name: Azure AI Content Safety
+      items:
+      - name: Content filtering
+        href: concepts/content-filtering.md
+      - name: Prevent input attacks with Prompt Shields
+        href: how-to/prompt-shields.md
+      - name: Detect groundedness in chat responses
+        href: how-to/groundedness.md
+    - name: Speech
+      items:
+      - name: Real-time speech to text
+        href: ../ai-services/speech-service/get-started-speech-to-text.md?context=/azure/ai-studio/context/context
+      - name: Pronunciation assessment
+        href: ../ai-services/speech-service/pronunciation-assessment-tool.md?context=/azure/ai-studio/context/context
+      - name: Hear and speak with chat in the playground
+        href: quickstarts/hear-speak-playground.md
+  - name: Costs and quotas
+    items:
+    - name: Plan and manage costs
+      href: how-to/costs-plan-manage.md
+      displayName: pricing, budget, estimate
+    - name: Manage quotas
+      href: how-to/quota.md
+    - name: Increase rate limit
+      href: how-to/autoscale.md
+    - name: Use commitment tier pricing
+      href: how-to/commitment-tier.md
+  - name: Infrastructure & security
+    items:
+    - name: Identity & access management
+      items:
+      - name: Role-based access control in Azure AI Studio
+        href: concepts/rbac-ai-studio.md
+    - name: Network security
+      items:
+      - name: Configure managed network
+        href: how-to/configure-managed-network.md
+      - name: Configure private link
+        href: how-to/configure-private-link.md
+      - name: Troubleshoot secure project connectivity
+        href: how-to/troubleshoot-secure-connection-project.md
+    - name: Data protection & encryption
+      items:
+      - name: Rotate keys
+        href: ../ai-services/rotate-keys.md?context=/azure/ai-studio/context/context
+      - name: Configure customer-managed keys
+        href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context
+    - name: Vulnerability management
+      href: concepts/vulnerability-management.md
+    - name: Disaster recovery
+      href: how-to/disaster-recovery.md
+- name: Responsible AI
+  items:
+  - name: Overview
+    href: ../ai-services/responsible-use-of-ai-overview.md?context=/azure/ai-studio/context/context
+  - name: Limited Access features
+    href: ../ai-services/cognitive-services-limited-access.md?context=/azure/ai-studio/context/context
+  - name: System message templates
+    href: ../ai-services/openai/concepts/system-message.md?context=/azure/ai-studio/context/context
+  - name: Transparency Note for safety evaluations
+    href: ./concepts/safety-evaluations-transparency-note.md
+- name: Reference
+  items:
+  - name: Azure Machine Learning Python SDK
+    href: /python/api/overview/azure/ai-ml-readme
+  - name: Azure Machine Learning REST API
+    href: /rest/api/azureml
+  - name: Azure AI services SDKs
+    displayName: client library libraries development kit
+    href: ../ai-services/reference/sdk-package-resources.md?context=/azure/ai-studio/context/context
+  - name: Azure AI services REST APIs
+    displayName: swagger http
+    href: ../ai-services/reference/rest-api-resources.md?context=/azure/ai-studio/context/context
+  - name: Prompt flow Python SDK
+    href: https://microsoft.github.io/promptflow/reference/index.html#
+  - name: Azure AI Model Inference API
+    items:
+      - name: What's the Azure AI Model Inference API?
+        href: reference/reference-model-inference-api.md
+      - name: Reference
+        items:
+        - name: Get Info
+          href: reference/reference-model-inference-info.md
+        - name: Embeddings
+          href: reference/reference-model-inference-embeddings.md
+        - name: Completions
+          href: reference/reference-model-inference-completions.md
+        - name: Chat Completions
+          href: reference/reference-model-inference-chat-completions.md
+        - name: Images Embeddings
+          href: reference/reference-model-inference-images-embeddings.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../ai-services/policy-reference.md?context=/azure/ai-studio/context/context
+- name: Resources
+  items:
+  - name: Support & help options
+    href: ../ai-services/cognitive-services-support-options.md?context=/azure/ai-studio/context/context
+  - name: Region support
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?query=cognitive%20services
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Service Level Agreement (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/
+  - name: Azure Government
+    href: ../azure-government/compare-azure-government-global-azure.md
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
+  - name: Azure Blog
+    href: https://azure.microsoft.com/blog/
+  - name: Artificial Intelligence and Machine Learning Blog
+    href: https://techcommunity.microsoft.com/t5/artificial-intelligence-and/ct-p/AI

@@ -4,7 +4,8 @@ description: Practices and workflows in Azure Container Registry to manage depen
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.service: container-registry
+ms.date: 10/31/2023
 ---
 
 # Manage public content with Azure Container Registry
@@ -58,6 +59,12 @@ For details, see [Docker Hub authenticated pulls on App Service](https://azure.g
 * **Image registry user name**: \<Docker Hub username>
 * **Image registry password**: \<Docker Hub token>
 * **Image**: docker.io/\<repo name\>:\<tag>
+
+
+## Configure Artifact Cache to consume public content
+
+The best practice for consuming public content is to combine registry authentication and the Artifact Cache feature. You can use Artifact Cache to cache your container artifacts into your Azure Container Registry even in private networks. Using Artifact Cache not only protects you from registry rate limits, but dramatically increases pull reliability when combined with Geo-replicated ACR to pull artifacts from whichever region is closest to your Azure resource. In addition, you can also use all the security features ACR has to offer, including private networks, firewall configuration, Service Principals, and more. For complete information on using public content with ACR Artifact Cache, check out the [Artifact Cache](container-registry-artifact-cache.md) tutorial.
+
 
 ## Import images to an Azure container registry
  
@@ -114,7 +121,7 @@ Developers of application images should ensure that their code references local 
 
 ## Automate application image updates
 
-Expanding on image import, set up an [Azure Container Registry task](container-registry-tasks-overview.md) to automate application image builds when base images are updated. An automated build task can track both [base image updates](container-registry-tasks-base-images.md) and [source code updates](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
+Expanding on image import, set up an [Azure Container Registry task](container-registry-tasks-overview.md) to automate application image builds when base images are updated. An automated build task can track both [base image updates](container-registry-tasks-base-images.md) and [source code updates](container-registry-tasks-overview.md#trigger-a-task-on-a-source-code-update).
 
 For a detailed example, see [How to consume and maintain public content with Azure Container Registry Tasks](tasks-consume-public-content.md). 
 

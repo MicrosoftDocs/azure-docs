@@ -2,8 +2,7 @@
 title: Design a Log Analytics workspace architecture
 description: The article describes the considerations and recommendations for customers preparing to deploy a workspace in Azure Monitor.
 ms.topic: conceptual
-ms.date: 04/05/2023
-
+ms.date: 05/30/2024
 ---
 
 # Design a Log Analytics workspace architecture
@@ -12,6 +11,10 @@ A single [Log Analytics workspace](log-analytics-workspace-overview.md) might be
 
 > [!NOTE]
 > This article discusses Azure Monitor and Microsoft Sentinel because many customers need to consider both in their design. Most of the decision criteria apply to both services. If you use only one of these services, you can ignore the other in your evaluation.
+
+Here's a video about the fundamentals of Azure Monitor Logs and best practices and design considerations for designing your Azure Monitor Logs deployment:
+
+> [!VIDEO https://www.youtube.com/embed/7RBp9j0P_Ao?cc_load_policy=1&cc_lang_pref=auto]
 
 ## Design strategy
 Your design should always start with a single workspace to reduce the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace. Multiple services and data sources can send data to the same workspace. As you identify criteria to create more workspaces, your design should use the fewest number that will match your requirements.
@@ -28,10 +31,11 @@ The following table presents criteria to consider when you design your workspace
 | [Azure regions](#azure-regions) | Each workspace resides in a particular Azure region. You might have regulatory or compliance requirements to store data in specific locations. |
 | [Data ownership](#data-ownership) | You might choose to create separate workspaces to define data ownership. For example, you might create workspaces by subsidiaries or affiliated companies. | 
 | [Split billing](#split-billing) | By placing workspaces in separate subscriptions, they can be billed to different parties. |
-| [Data retention and archive](#data-retention-and-archive) | You can set different retention settings for each table in a workspace. You need a separate workspace if you require different retention settings for different resources that send data to the same tables. |
+| [Data retention and archive](#data-retention-and-archive) | You can set different retention settings for each workspace and each table in a workspace. You need a separate workspace if you require different retention settings for different resources that send data to the same tables. |
 | [Commitment tiers](#commitment-tiers) | Commitment tiers allow you to reduce your ingestion cost by committing to a minimum amount of daily data in a single workspace. |
 | [Legacy agent limitations](#legacy-agent-limitations) | Legacy virtual machine agents have limitations on the number of workspaces they can connect to. |
 | [Data access control](#data-access-control) | Configure access to the workspace and to different tables and data from different resources. |
+|[Resilience](#resilience)| To ensure that data in your workspace is available in the event of a region failure, you can ingest data into multiple workspaces in different regions.|
 
 ### Operational and security data
 The decision whether to combine your operational data from Azure Monitor in the same workspace as security data from Microsoft Sentinel or separate each into their own workspace depends on your security requirements and the potential cost implications for your environment.
@@ -43,9 +47,9 @@ A workspace with Microsoft Sentinel gets three months of free data retention ins
 
 
 **Combined workspace**
-Combing your data from Azure Monitor and Microsoft Sentinel in the same workspace gives you better visibility across all of your data allowing you to easily combine both in queries and workbooks. If access to the security data should be limited to a particular team, you can use [table level RBAC](../logs/manage-access.md#set-table-level-read-access) to block particular users from tables with security data or limit users to accessing the workspace using [resource-context](../logs/manage-access.md#access-mode).
+Combining your data from Azure Monitor and Microsoft Sentinel in the same workspace gives you better visibility across all of your data allowing you to easily combine both in queries and workbooks. If access to the security data should be limited to a particular team, you can use [table level RBAC](../logs/manage-access.md#set-table-level-read-access) to block particular users from tables with security data or limit users to accessing the workspace using [resource-context](../logs/manage-access.md#access-mode).
 
-This configuration may result in cost savings if helps you reach a [commitment tier](#commitment-tiers), which provides a discount to your ingestion charges. For example, consider an organization that has operational data and security data each ingesting about 50 GB per day. Combining the data in the same workspace would allow a commitment tier at 100 GB per day. That scenario would provide a 15% discount for Azure Monitor and a 50% discount for Microsoft Sentinel.
+This configuration may result in cost savings if it helps you reach a [commitment tier](#commitment-tiers), which provides a discount to your ingestion charges. For example, consider an organization that has operational data and security data each ingesting about 50 GB per day. Combining the data in the same workspace would allow a commitment tier at 100 GB per day. That scenario would provide a 15% discount for Azure Monitor and a 50% discount for Microsoft Sentinel.
 
 If you create separate workspaces for other criteria, you'll usually create more workspace pairs. For example, if you have two Azure tenants, you might create four workspaces with an operational and security workspace in each tenant.
 
@@ -64,7 +68,7 @@ Each Log Analytics workspace resides in a [particular Azure region](https://azur
 - **If you have requirements for keeping data in a particular geography:** Create a separate workspace for each region with such requirements.
 - **If you don't have requirements for keeping data in a particular geography:** Use a single workspace for all regions.
 
-Also consider potential [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that might apply when you're sending data to a workspace from a resource in another region. These charges are usually minor relative to data ingestion costs for most customers. These charges typically result from sending data to the workspace from a virtual machine. Monitoring data from other Azure resources by using [diagnostic settings](../essentials/diagnostic-settings.md) doesn't [incur egress charges](../usage-estimated-costs.md#data-transfer-charges).
+Also consider potential [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that might apply when you're sending data to a workspace from a resource in another region. These charges are usually minor relative to data ingestion costs for most customers. These charges typically result from sending data to the workspace from a virtual machine. Monitoring data from other Azure resources by using [diagnostic settings](../essentials/diagnostic-settings.md) doesn't [incur egress charges](../cost-usage.md#data-transfer-charges).
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost and determine which regions you need. Consider workspaces in multiple regions if bandwidth charges are significant.
 
@@ -78,13 +82,13 @@ You might have a requirement to segregate data or define boundaries based on own
 - **If you don't require data segregation:** Use a single workspace for all data owners.
 
 ### Split billing
-You might need to split billing between different parties or perform charge back to a customer or internal business unit. You can use [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) to view charges by workspace. You can also use a log query to view [billable data volume by Azure resource, resource group, or subscription](analyze-usage.md#data-volume-by-azure-resource-resource-group-or-subscription). This approach might be sufficient for your billing requirements.
+You might need to split billing between different parties or perform charge back to a customer or internal business unit. You can use [Azure Cost Management + Billing](../cost-usage.md#azure-cost-management--billing) to view charges by workspace. You can also use a log query to view [billable data volume by Azure resource, resource group, or subscription](analyze-usage.md#data-volume-by-azure-resource-resource-group-or-subscription). This approach might be sufficient for your billing requirements.
 
 - **If you don't need to split billing or perform charge back:** Use a single workspace for all cost owners.
-- **If you need to split billing or perform charge back:** Consider whether [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) or a log query provides cost reporting that's granular enough for your requirements. If not, use a separate workspace for each cost owner.
+- **If you need to split billing or perform charge back:** Consider whether [Azure Cost Management + Billing](../cost-usage.md#azure-cost-management--billing) or a log query provides cost reporting that's granular enough for your requirements. If not, use a separate workspace for each cost owner.
 
 ### Data retention and archive
-You can configure default [data retention and archive settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#set-retention-and-archive-policy-by-table). You might require different settings for different sets of data in a particular table. If so, you need to separate that data into different workspaces, each with unique retention settings.
+You can configure default [data retention and archive settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#configure-retention-and-archive-at-the-table-level). You might require different settings for different sets of data in a particular table. If so, you need to separate that data into different workspaces, each with unique retention settings.
 
 - **If you can use the same retention and archive settings for all data in each table:** Use a single workspace for all resources.
 - **If you require different retention and archive settings for different resources in the same table:** Use a separate workspace for different resources.
@@ -92,9 +96,9 @@ You can configure default [data retention and archive settings](data-retention-a
 ### Commitment tiers
 [Commitment tiers](../logs/cost-logs.md#commitment-tiers) provide a discount to your workspace ingestion costs when you commit to a specific amount of daily data. You might choose to consolidate data in a single workspace to reach the level of a particular tier. This same volume of data spread across multiple workspaces wouldn't be eligible for the same tier, unless you have a dedicated cluster.
 
-If you can commit to daily ingestion of at least 500 GB per day, you should implement a [dedicated cluster](../logs/cost-logs.md#dedicated-clusters) that provides extra functionality and performance. Dedicated clusters also allow you to combine the data from multiple workspaces in the cluster to reach the level of a commitment tier.
+If you can commit to daily ingestion of at least 100 GB per day, you should implement a [dedicated cluster](../logs/cost-logs.md#dedicated-clusters) that provides extra functionality and performance. Dedicated clusters also allow you to combine the data from multiple workspaces in the cluster to reach the level of a commitment tier.
 
-- **If you'll ingest at least 500 GB per day across all resources:** Create a dedicated cluster and set the appropriate commitment tier.
+- **If you'll ingest at least 100 GB per day across all resources:** Create a dedicated cluster and set the appropriate commitment tier.
 - **If you'll ingest at least 100 GB per day across resources:** Consider combining them into a single workspace to take advantage of a commitment tier.
 
 ### Legacy agent limitations
@@ -119,6 +123,12 @@ For example, you might grant access to only specific tables collected by Microso
 - **If you don't require granular access control by table:** Grant the operations and security team access to their resources and allow resource owners to use resource-context RBAC for their resources.
 - **If you require granular access control by table:** Grant or deny access to specific tables by using table-level RBAC.
 
+### Resilience
+
+To ensure that critical data in your workspace is available in the event of a region failure, you can ingest some or all of your data into multiple workspaces in different regions.
+
+This option requires managing integration with other services and products separately for each workspace. Even though the data will be available in the alternate workspace in case of failure, resources that rely on the data, such as alerts and workbooks, won't know to switch over to the alternate workspace. Consider storing ARM templates for critical resources with configuration for the alternate workspace in Azure DevOps, or as disabled policies that can quickly be enabled in a failover scenario.
+
 ## Work with multiple workspaces
 Many designs will include multiple workspaces, so Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For more information, see:
 
@@ -138,8 +148,8 @@ In a distributed architecture, a Log Analytics workspace is created in each Azur
 
 There are two options to allow service provider administrators to access the workspaces in the customer tenants:
 
-- Use [Azure Lighthouse](../../lighthouse/overview.md) to access each customer tenant. The service provider administrators are included in an Azure Active Directory (Azure AD) user group in the service provider's tenant. This group is granted access during the onboarding process for each customer. The administrators can then access each customer's workspaces from within their own service provider tenant instead of having to sign in to each customer's tenant individually. For more information, see [Monitor customer resources at scale](../../lighthouse/how-to/monitor-at-scale.md).
-- Add individual users from the service provider as [Azure AD guest users (B2B)](../../active-directory/external-identities/what-is-b2b.md). The customer tenant administrators manage individual access for each service provider administrator. The service provider administrators must sign in to the directory for each tenant in the Azure portal to access these workspaces.
+- Use [Azure Lighthouse](../../lighthouse/overview.md) to access each customer tenant. The service provider administrators are included in a Microsoft Entra user group in the service provider's tenant. This group is granted access during the onboarding process for each customer. The administrators can then access each customer's workspaces from within their own service provider tenant instead of having to sign in to each customer's tenant individually. For more information, see [Monitor customer resources at scale](../../lighthouse/how-to/monitor-at-scale.md).
+- Add individual users from the service provider as [Microsoft Entra guest users (B2B)](../../active-directory/external-identities/what-is-b2b.md). The customer tenant administrators manage individual access for each service provider administrator. The service provider administrators must sign in to the directory for each tenant in the Azure portal to access these workspaces.
 
 Advantages to this strategy:
 
@@ -181,3 +191,4 @@ There are two options to implement logs in a central location:
 
 - Learn more about [designing and configuring data access in a workspace](manage-access.md).
 - Get [sample workspace architectures for Microsoft Sentinel](../../sentinel/sample-workspace-designs.md).
+- Here's a video on designing the proper structure for your Log Analytics workspace: [ITOps Talk:Log Analytics workspace design deep dive](/shows/it-ops-talk/ops115-log-analytics-workspace-design-deep-dive)

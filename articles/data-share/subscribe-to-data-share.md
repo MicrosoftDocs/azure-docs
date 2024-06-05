@@ -6,7 +6,7 @@ ms.author: sidontha
 ms.service: data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 11/30/2022
+ms.date: 12/19/2023
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
@@ -19,6 +19,7 @@ In this tutorial, you'll learn how to accept a data share invitation using Azure
 > * Create a subscription to your data share for scheduled refresh
 
 ## Prerequisites
+
 Before you can accept a data share invitation, you must create some Azure resources, which are listed below. 
 
 Ensure that all prerequisites are complete before accepting a data share invitation. 
@@ -30,17 +31,18 @@ Ensure that all prerequisites are complete before accepting a data share invitat
 ### Receive data into a storage account
 
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](../storage/common/storage-account-create.md). 
-* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the **Storage Blob Data Contributor** role. 
+* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the **Storage Account Contributor** role. 
 * Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role.  
 
 ### Receive data into a SQL-based target
+
 If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, below is the list of prerequisites. 
 
 #### Prerequisites for receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
 
 * An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW).
 * Permission to write to databases on the SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role. 
-* **Azure Active Directory Admin** of the SQL server
+* **Microsoft Entra Admin** of the SQL server
 * SQL Server Firewall access. This can be done through the following steps: 
     1. In SQL server in Azure portal, navigate to *Firewalls and virtual networks*
     1. Select **Yes** for *Allow Azure services and resources to access this server*.
@@ -52,7 +54,7 @@ If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, 
 * An Azure Synapse Analytics (workspace) dedicated SQL pool. Receiving data into serverless SQL pool isn't currently supported.
 * Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
 * Permission for the Data Share resource's managed identity to access the Synapse workspace SQL pool. This can be done through the following steps: 
-    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Azure Active Directory admin**.
+    1. In Azure portal, navigate to Synapse workspace. Select Microsoft Entra admin from left navigation and set yourself as the **Microsoft Entra admin**.
     1. Open Synapse Studio, select *Manage* from the left navigation. Select *Access control* under Security. Assign yourself **SQL admin** or **Workspace admin** role.
     1. In Synapse Studio, select *Develop* from the left navigation. Execute the following script in SQL pool to add the Data Share resource Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. 
     
@@ -62,7 +64,7 @@ If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, 
         exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
         exec sp_addrolemember db_ddladmin, "<share_acc_name>";
         ```                   
-       The *<share_acc_name>* is the name of your Data Share resource. If you haven't created a Data Share resource as yet, you can come back to this pre-requisite later.  
+       The *<share_acc_name>* is the name of your Data Share resource. If you haven't created a Data Share resource as yet, you can come back to this prerequisite later.  
 
 * Synapse workspace Firewall access. This can be done through the following steps: 
     1. In Azure portal, navigate to Synapse workspace. Select *Firewalls* from left navigation.
@@ -101,7 +103,7 @@ Prepare your Azure CLI environment and then view your invitations.
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Run the [az datashare consumer-invitation list-invitation](/cli/azure/datashare/consumer-invitation) command to see your current invitations:
 
@@ -117,7 +119,7 @@ Start by preparing your environment for PowerShell. You can either run PowerShel
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
-   [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+   :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 1. Use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command to connect to your Azure account.
 
@@ -153,7 +155,7 @@ Copy your invitation ID for use in the next section.
 
    For the **Data Share Account** field, select **Create new** if you don't have an existing Data Share account. Otherwise, select an existing Data Share account that you'd like to accept your data share into. 
 
-   For the **Received Share Name** field, you may leave the default specified by the data provide, or specify a new name for the received share. 
+   For the **Received Share Name** field, you can leave the default specified by the data provide, or specify a new name for the received share. 
 
    Once you've agreed to the terms of use and specified a Data Share account to manage your received share, Select **Accept and configure**. A share subscription will be created. 
 
@@ -295,7 +297,7 @@ Use these commands to configure where you want to receive data.
    Get-AzDataShareSourceDataSet -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String>
    ```
 
-1. If you don't already have a location where you would like to store the shared data, you can follow these steps to create a storage account. If you already have storage, you may skip to the next steps.
+1. If you don't already have a location where you would like to store the shared data, you can follow these steps to create a storage account. If you already have storage, you can skip to the next steps.
 
     1. Run the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command to create an Azure Storage account:
 

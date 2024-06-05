@@ -1,9 +1,9 @@
 ---
-author: cynthn
+author: jushiman
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
-ms.author: cynthn
+ms.author: jushiman
 ---
 
 | Resource | Limit |

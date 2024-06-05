@@ -2,15 +2,16 @@
 title: Back up Azure Stack HCI virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 05/15/2022
+ms.date: 05/06/2024
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+ms.custom: engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure Stack HCI virtual machines with Azure Backup Server
 
-This article describes how to back up virtual machines on Azure Stack HCI using Microsoft Azure Backup Server (MABS).
+This article describes how to back up virtual machines running on Azure Stack HCI, versions *23 H2* and *22 H2*, using Microsoft Azure Backup Server (MABS).
  
 ## Supported scenarios
 
@@ -26,7 +27,20 @@ MABS can back up Azure Stack HCI virtual machines in the following scenarios:
 
 - **VM Move to a different stretched/normal cluster**: VM Move to a different stretched/normal cluster is not supported.
 
-Learn more about the [supported scenarios for MABS V3 UR2 and later](backup-mabs-protection-matrix.md#vm-backup).
+
+
+- **Arc VMs**: [Arc VMs](../azure-arc/servers/overview.md) add fabric management capabilities in addition to [Arc-enabled servers](../azure-arc/servers/overview.md). These allow *IT admins* to create, modify, delete, and assign permissions and roles to *app owners*, thereby enabling *self-service VM management*. Recovery of Arc VMs is supported in a limited capacity in Azure Stack HCI, version 23H2.
+
+   The following table lists the various levels of backup and restore capabilities for Azure Arc VMs:
+
+  | Protection level | Recovery location | Description |
+  | --- | --- | --- |
+  | **Guest-level backups and recovery** (which require an agent in the guest OS) |      | Work as expected. |
+  | **Host-level backups** |        | Work as expected. |
+  | **Host-level recovery** |   Recovery to the original VM instance |   Recovery to the original VMs works as expected. |
+  |              | Alternate location recovery (ALR)  | Recovery to the ALR is supported in a limited way as the ALR recovers to a Hyper-V VM. Currently, conversion of Hyper-V VM to an Arc VM isn't supported. |
+
+ Learn more about the [supported scenarios for MABS V3 UR2 and later](backup-mabs-protection-matrix.md#vm-backup).
 
 ## Host versus guest backup
 
@@ -38,6 +52,9 @@ Both methods have pros and cons:
 
 - Guest-level backup is useful if you want to protect specific workloads running on a virtual machine. At host-level you can recover an entire VM or specific files, but it won't provide recovery in the context of a specific application. For example, to recover specific SharePoint items from a backed-up VM, you should do guest-level backup of that VM. Use guest-level backup if you want to protect data stored on passthrough disks. Passthrough allows the virtual machine to directly access the storage device and doesn't store virtual volume data in a VHD file.
 
+  >[!Note]
+  >*Passthrough disks* aren't supported in Azure Stack HCI.
+
 ## Backup prerequisites
 
 These are the prerequisites for backing up virtual machines with MABS:
@@ -45,7 +62,7 @@ These are the prerequisites for backing up virtual machines with MABS:
 | Prerequisite | Details |
 | ------------ | ------- |
 | MABS prerequisites | <ul> <li>If you want to perform item-level recovery for virtual machines (recover files, folders, volumes), then you'll need to install the  Hyper-V role on the MABS server. If you only want to recover the virtual machine and not item-level, then the role isn't required.</li> <li>You can protect up to 800 virtual machines of 100 GB each on one MABS server and allow multiple MABS servers that support larger clusters.</li> <li>MABS excludes the page file from incremental backups to improve virtual machine backup performance.</li> <li>MABS can back up a  server or cluster in the same domain as the MABS server, or in a child or trusted domain. If you want to back up VMs in a workgroup or an untrusted domain, you'll need to set up authentication. For a single  server, you can use NTLM or certificate authentication. For a cluster, you can use certificate authentication only.</li> <li>Using host-level backup to back up virtual machine data on passthrough disks isn't supported. In this scenario, we recommend you use host-level backup to back up VHD files and guest-level backup to back up the other data that isn't visible on the host.</li> <li>You can back up VMs stored on deduplicated volumes.</li> </ul> |
-| VM | <ul> <li> The version of Integration Components that's running on the virtual machine should be the same as the version of the Azure Stack HCI host. </li> <li> For each virtual machine backup you'll need free space on the volume hosting the virtual hard disk files to allow  enough room for differencing disks (AVHD's) during backup. The space must be at least equal to the calculation Initial disk size*Churn rate*Backup window time. If you're running multiple backups on a cluster, you'll need enough storage capacity to accommodate the AVHDs for each of the virtual machines using this calculation. </li> </ul> |
+| VM | <ul> <li> The version of Integration Components that's running on the virtual machine should be the same as the version of the Azure Stack HCI host. </li> <li> For each virtual machine backup you'll need free space on the volume hosting the virtual hard disk files to allow  enough room for differencing disks (AVHDs) during backup. The space must be at least equal to the calculation Initial disk size*Churn rate*Backup window time. If you're running multiple backups on a cluster, you'll need enough storage capacity to accommodate the AVHDs for each of the virtual machines using this calculation. </li> </ul> |
 | Linux prerequisites | <ul><li> You can back up Linux virtual machines using MABS. Only file-consistent snapshots are supported.</li></ul> |
 
 ## Back up virtual machines
@@ -59,24 +76,55 @@ These are the prerequisites for backing up virtual machines with MABS:
 
 2. Set up the MABS protection agent on the server or each cluster node.
 
-3. On  the MABS Administrator console, select **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
+3. To deploy the agent, choose one of the following methods:
 
-4. On the **Select Group Members** page, select the VMs you want to protect from the host servers on which they're located. We recommend you put all VMs that will have the same protection policy into one protection group. To make efficient use of space, enable colocation. Colocation allows you to locate data from different protection groups on the same disk or tape storage, so that multiple data sources have a single replica and recovery point volume.
+   - **Attach agents**: Select an agent that's already installed.
+   - **Install agent**: If you don't have the agent installed:
+     1. To install the agent on each cluster node, run the following command:
+     
+        ```
+        Install DPMAgentInstaller.exe`
+        ```
+    
+     2. After the installation is complete, run the following command to configure the agent on the node:
 
-5. On the **Select Data Protection Method** page, specify a protection group name. Select **I want short-term protection using Disk** and select **I want online protection** if you want to back up data to Azure using the Azure Backup service.
+        ```
+        .\SetDpmServer.exe -dpmServerName winvm01
+        ```
 
-6. On **Specify Short-Term Goals** > **Retention range**, specify how long you want to retain disk data. In **Synchronization frequency**, specify how often incremental backups of the data should run. Alternatively, instead of selecting an interval for incremental backups you can enable **Just before a recovery point**. With this setting enabled, MABS will run an express full backup just before each scheduled recovery point.
+     3. To add the agent to the MABS server, select **Attach agent**.
+
+        :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/attach-agent.png" alt-text="Screenshot shows how to attach an agent." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/attach-agent.png":::
+
+4. On  the MABS Administrator console, select **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
+
+5. On the **Select Group Members** page, select the VMs you want to protect from the host servers on which they're located. We recommend that you put all VMs that will have the same protection policy into one protection group. To make efficient use of space, enable colocation. Colocation allows you to locate data from different protection groups on the same disk or tape storage, so that multiple data sources have a single replica and recovery point volume.
+
+   During VM selection, you can choose one of the following VM type:
+
+   - **Hyper-v VMs**: Select this VM type from the individual node.
+
+     :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-hyper-v-vm.png" alt-text="Screenshot shows the selection of Hyper-V VMs." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-hyper-v-vm.png":::
+
+   - **Clustered HA VMs**: Select this VM type from the cluster.
+
+     :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png" alt-text="Screenshot shows the selection of Clustered VMs." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png":::
+
+
+6. On the **Select Data Protection Method** page, specify a protection group name. Select **I want short-term protection using Disk** and select **I want online protection** if you want to back up data to Azure using the Azure Backup service.
+
+7. On **Specify Short-Term Goals** > **Retention range**, specify how long you want to retain disk data. In **Synchronization frequency**, specify how often incremental backups of the data should run. Alternatively, instead of selecting an interval for incremental backups you can enable **Just before a recovery point**. With this setting enabled, MABS will run an express full backup just before each scheduled recovery point.
 
     > [!NOTE]
     >If you're protecting application workloads, recovery points are created in accordance with Synchronization frequency, provided the application supports incremental backups. If it doesn't, then MABS runs an express full backup, instead of an incremental backup, and creates recovery points in accordance with the express backup schedule.<br></br>The backup process doesn't back up the checkpoints associated with VMs.
 
-7. In the **Review disk allocation** page, review the storage pool disk space allocated for the protection group.
+8. In the **Review disk allocation** page, review the storage pool disk space allocated for the protection group.
 
    **Total Data size** is the size of the data you want to back up, and **Disk space to be provisioned on MABS** is the space that MABS recommends for the protection group. MABS chooses the ideal backup volume, based on the settings. However, you can edit the backup volume choices in the **Disk allocation details**. For the workloads, select the preferred storage in the dropdown menu. Your edits change the values for **Total Storage** and **Free Storage** in the **Available Disk Storage** pane. Underprovisioned space is the amount of storage MABS suggests you add to the volume, to continue with backups smoothly in the future.
 
-8. On the **Choose Replica Creation Method** page, specify how the initial replication of data in the protection group will be performed. If you select to **Automatically replicate over the network**, we recommended you choose an off-peak time. For large amounts of data or less than optimal network conditions, consider selecting **Manually**, which requires replicating the data offline using removable media.
+9. On the **Choose Replica Creation Method** page, specify how the initial replication of data in the protection group will be performed. If you select to **Automatically replicate over the network**, we recommended you choose an off-peak time. For large amounts of data or less than optimal network conditions, consider selecting **Manually**, which requires replicating the data offline using removable media.
 
-9. On the **Consistency Check Options** page, select how you want to automate consistency checks. You can enable a check to run only when replica data becomes inconsistent, or according to a schedule. If you don't want to configure automatic consistency checking, you can run a manual check at any time by right-clicking the protection group and selecting **Perform Consistency Check**.
+10. On the **Consistency Check Options** page, select how you want to automate consistency checks. You can enable a check to run only when replica data becomes inconsistent, or according to a schedule. If you don't want to configure automatic consistency checking, you can run a manual check at any time by right-clicking the protection group and selecting **Perform Consistency Check**.
 
     After you create the protection group, initial replication of the data occurs in accordance with the method you selected. After initial replication, each backup takes place in line with the protection group settings. If you need to recover backed up data, note the following:
 
@@ -84,7 +132,7 @@ These are the prerequisites for backing up virtual machines with MABS:
 
 If MABS is running on Windows Server 2012 R2 or later, then you can back up replica virtual machines. This is useful for several reasons:
 
-**Reduces the impact of backups on the running workload** - Taking a backup of a virtual machine incurs some overhead as a snapshot is created. By offloading the backup process to a secondary remote site, the running workload is no longer affected by the backup operation. This is applicable only to deployments where the backup copy is stored on a remote site. For example, you might take daily backups and store data locally to ensure quick restore times, but take monthly or quarterly backups from replica virtual machines stored remotely for long-term retention.
+**Reduces the impact of backups on the running workload** - Taking a backup of a virtual machine incurs some overhead as a snapshot is created. When you offload the backup process to a secondary remote site, the running workload is no longer affected by the backup operation. This is applicable only to deployments where the backup copy is stored on a remote site. For example, you might take daily backups and store data locally to ensure quick restore times, but take monthly or quarterly backups from replica virtual machines stored remotely for long-term retention.
 
 **Saves bandwidth** - In a typical remote branch office/headquarters deployment you need an appropriate amount of provisioned bandwidth to transfer backup data between sites. If you create a replication and failover strategy, in addition to your data backup strategy, you can reduce the amount of redundant data sent over the network. By backing up the replica virtual machine data rather than the primary, you save the overhead of sending the backed-up data over the network.
 
@@ -108,6 +156,10 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
 1. In the MABS Administrator console, type the name of the VM, or expand the list of protected items, navigate to **All Protected HyperV Data**, and select the VM you want to recover.
 
+   >[!Note]
+   >- All the Clustered HA VMs are recoverd by selecting these Virtual machines under the cluster.
+   >- Both Hyper-V and Clustered VMs are restored as Hyper-V Virtual Machines.
+
 2. In the **Recovery points for** pane, on the calendar, select any date to see the recovery points available. Then in the **Path** pane, select the recovery point you want to use in the Recovery wizard.
 
 3. From the **Actions** menu, select **Recover** to open the Recovery Wizard.
@@ -122,7 +174,8 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
     - **Recover as virtual machine to any host**: MABS supports alternate location recovery (ALR), which provides a seamless recovery of a protected Azure Stack HCI virtual machine to a different host within the same cluster,  independent of processor architecture. Azure Stack HCI virtual machines that are recovered to a cluster node won't be highly available. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
     
         >[!NOTE]
-        >If you select the original host, the behavior is the same as **Recover to original instance**. The original VHD and all associated checkpoints will be deleted.
+        >- There's limited support for Alternate location recovery (ALR) for Arc VMs. The VM is recovered as a Hyper-V VM, instead of an Arc VM. Currently, conversion of Hyper-V VMs to Arc VMs isn't supported once you create them.
+        >- If you select the original host, the behavior is the same as **Recover to original instance**. The original VHD and all associated checkpoints will be deleted.
 
     - **Copy to a network folder**: MABS supports item-level recovery (ILR), which allows you to do item-level recovery of files, folders, volumes, and virtual hard disks (VHDs) from a host-level backup of  Azure Stack HCI virtual machines to a network share or a volume on a MABS protected server. The MABS protection agent doesn't have to be installed inside the guest to perform item-level recovery. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
 

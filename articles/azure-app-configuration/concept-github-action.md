@@ -29,7 +29,7 @@ To start using this GitHub Action, go to your repository and select the **Action
 > ![Select the Action tab](media/find-github-action.png)
 
 > [!div class="mx-imgBorder"]
-> ![Select the app configuration sync Action](media/app-configuration-sync-action.png)
+> ![Select the app configuration sync Action](media/azure-cli-github-action.png)
 
 ## Authentication
 To import configurations to your Azure App Configuration you can authenticate using one of the following methods:

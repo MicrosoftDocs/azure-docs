@@ -3,9 +3,9 @@ title: 'Quickstart: Create an Azure DNS Private Resolver - Bicep'
 titleSuffix: Azure DNS Private resolver
 description: Learn how to create Azure DNS Private Resolver. This article is a step-by-step quickstart to create and manage your first Azure DNS Private Resolver using Bicep.
 services: dns
-author: aarunraaj
-ms.author: arselvar
-ms.date: 10/07/2022
+author: greg-lindsay
+ms.author: greglin
+ms.date: 02/28/2024
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-azurecli, devx-track-bicep
@@ -17,6 +17,10 @@ ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-azure
 This quickstart describes how to use Bicep to create Azure DNS Private Resolver.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+
+The following figure summarizes the general setup used. Subnet address ranges used in templates are slightly different than those shown in the figure.
+
+:::image type="content" source="./media/dns-resolver-getstarted-portal/resolver-components.png" alt-text="Conceptual figure displaying components of the private resolver." lightbox="./media/dns-resolver-getstarted-portal/resolver-components.png":::
 
 ## Prerequisites
 
@@ -35,7 +39,7 @@ This Bicep file is configured to create a:
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/azure-dns-private-resolver/main.bicep":::
 
-Seven resources have been defined in this template:
+Seven resources are defined in this template:
 
 - [**Microsoft.Network/virtualnetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Network/dnsResolvers**](/azure/templates/microsoft.network/dnsresolvers)
@@ -145,5 +149,5 @@ Remove-AzDnsResolver -Name mydnsresolver -ResourceGroupName myresourcegroup
 
 ## Next steps
 
-In this quickstart, you created a virtual network and DNS private resolver. Now configure name resolution for Azure and on-premises domains
+In this quickstart, you created a virtual network and DNS private resolver. Now configure name resolution for Azure and on-premises domains.
 - [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md)

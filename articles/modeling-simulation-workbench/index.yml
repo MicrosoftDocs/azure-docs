@@ -1,0 +1,76 @@
+### YamlMime:Landing
+
+title: Azure Modeling and Simulation Workbench (preview) documentation
+summary: Documentation for creating and managing Azure Modeling and Simulation Workbench (preview).
+
+metadata:
+  title: Azure Modeling and Simulation Workbench (preview) documentation
+  description: Documentation for creating and managing Azure Modeling and Simulation Workbench (preview).
+  ms.author: lynnar
+  ms.reviewer: yochu
+  ms.service: modeling-simulation-workbench
+  ms.topic: index
+  ms.date: 01/01/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card: Overview
+  - title: About Azure Modeling and Simulation Workbench
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Modeling and Simulation Workbench?
+            url: ./modeling-simulation-workbench-overview.md
+      - linkListType: concept
+        links:
+          - text: Workbench
+            url: ./concept-workbench.md
+          - text: User Personas
+            url: ./concept-user-personas.md
+          - text: Chambers
+            url: ./concept-chamber.md
+          - text: Connectors
+            url: ./concept-connector.md
+          - text: Data Pipeline
+            url: ./concept-data-pipeline.md
+          - text: License service
+            url: ./concept-license-service.md
+  # Card: Get started
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure Modeling and Simulation Workbench
+            url: ./quickstart-create-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage users
+            url: ./how-to-guide-manage-users.md
+          - text: Set up networking
+            url: ./how-to-guide-set-up-networking.md
+          - text: Manage license service
+            url: ./how-to-guide-licenses.md
+          - text: Import data
+            url: ./how-to-guide-upload-data.md
+          - text: Export data
+            url: ./how-to-guide-download-data.md
+          - text: Manage chamber storage
+            url: ./how-to-guide-manage-storage.md
+#          - name: Disaster Recovery
+#            href: ./how-to-guide-disaster-recovery.md
+  # Card: Reference
+#  - title: Reference
+#    linkLists:
+#      - linkListType: reference
+#        links:
+#          - text: Azure CLI
+#            url: /cli/azure/ModSimWorkbench
+#          - text: Azure PowerShell
+#            url: /powershell/module/az.MModSimWorkbench        
+#          - text: REST
+#            url: /rest/api/ModSimWorkbench
+#          - text: Resource Manager template
+#            url: /azure/templates/microsoft.ModSimWorkbench/allversions

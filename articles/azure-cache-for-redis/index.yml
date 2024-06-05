@@ -97,7 +97,7 @@ landingContent:
           - text: REST API
             url: /rest/api/redis/
           - text: Redis Client
-            url: https://redis.io/clients
+            url: https://redis.io/docs/connect/clients/
           - text: Redis commands
             url: https://redis.io/commands
       - linkListType: reference

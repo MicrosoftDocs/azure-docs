@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.devlang: csharp, java, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript
 ms.custom: devx-track-js, devx-track-csharp
 ---
 
@@ -88,7 +89,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # [Sync Java V2 SDK](#tab/sync)
 
-[Sync Java V2 SDK](sdk-java-v2.md) (Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+(Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection lwwCollection = new DocumentCollection();
@@ -273,7 +274,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # [Sync Java V2 SDK](#tab/sync)
 
-[Sync Java V2 SDK](sdk-java-v2.md) (Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+(Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection udpCollection = new DocumentCollection();
@@ -383,7 +384,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # [Sync Java V2 SDK](#tab/sync)
 
-[Sync Java V2 SDK](sdk-java-v2.md) (Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+(Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection manualCollection = new DocumentCollection();
@@ -456,9 +457,15 @@ while (conflictFeed.HasMoreResults)
 ```
 ---
 
-### <a id="read-from-conflict-feed-javav2"></a>Java V2 SDKs
+### <a id="read-from-conflict-feed-javav2"></a>Java SDKs
 
-# [Async Java V2 SDK](#tab/async)
+# [Java V4 SDK](#tab/v4async)
+
+[Java V4 SDK](sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos))
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/conflictfeed/async/SampleConflictFeedAsync.java?name=ReadConflictFeed)]
+
+# [Async Java V2 SDK](#tab/v2async)
 
 [Async Java V2 SDK](sdk-java-async-v2.md) (Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
@@ -469,9 +476,9 @@ for (Conflict conflict : response.getResults()) {
     /* Do something with conflict */
 }
 ```
-# [Sync Java V2 SDK](#tab/sync)
+# [Sync Java V2 SDK](#tab/v2sync)
 
-[Sync Java V2 SDK](sdk-java-v2.md) (Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+(Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 Iterator<Conflict> conflictsIterator = client.readConflicts(this.collectionLink, null).getQueryIterator();
@@ -508,8 +515,8 @@ Learn about the following Azure Cosmos DB concepts:
 
 - [Global distribution - under the hood](../global-dist-under-the-hood.md)
 - [How to configure multi-region writes in your applications](how-to-multi-master.md)
-- [Configure clients for multihoming](../how-to-manage-database-account.md#configure-multiple-write-regions)
-- [Add or remove regions from your Azure Cosmos DB account](../how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [Configure clients for multihoming](../how-to-manage-database-account.yml#configure-multiple-write-regions)
+- [Add or remove regions from your Azure Cosmos DB account](../how-to-manage-database-account.yml#add-remove-regions-from-your-database-account)
 - [How to configuremulti-region writes in your applications](how-to-multi-master.md).
 - [Partitioning and data distribution](../partitioning-overview.md)
 - [Indexing in Azure Cosmos DB](../index-policy.md)

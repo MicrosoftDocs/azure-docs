@@ -7,7 +7,6 @@ ms.service: network-function-manager
 ms.topic: tutorial
 ms.date: 05/10/2022
 ms.author: sushrao
-ms.custom: 
 ---
 # Tutorial: Delete network functions on Azure Stack Edge
 

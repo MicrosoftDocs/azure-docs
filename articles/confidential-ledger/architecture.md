@@ -5,13 +5,13 @@ services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---
 # Architecture
 
-The Azure confidential ledger, a REST API service, allows users to interact with the ledger through administrative and functional API calls.  When data is recorded to the ledger, it is sent to the permissioned blockchain nodes that are secure enclaved backed replicas. The replicas follow a consensus concept. A user can also retrieve receipts for the data that has been committed to the ledger.
+The Azure confidential ledger, a REST API service, allows users to interact with the ledger through administrative and functional API calls.  When data is recorded to the ledger, it is sent to the permissioned blockchain nodes that are secure enclaved backed replicas. The replicas follow a consensus concept. A user can also retrieve receipts for the data that was committed to the ledger.
 
 There is also an optional consortium notion that will support multi-party collaboration in the future.
 

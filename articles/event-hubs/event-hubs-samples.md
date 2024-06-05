@@ -44,7 +44,7 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 
 
 ## Go samples
-You can find Go samples for Azure Event Hubs in the [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub repository.
+You can find Go samples for Azure Event Hubs in the [azeventhubs](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs) folder in the [azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go/) GitHub repository.
 
 ## Azure CLI samples
 You can find Azure CLI samples for Azure Event Hubs in the [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI) GitHub repository.
@@ -54,20 +54,6 @@ You can find Azure PowerShell samples for Azure Event Hubs in the [azure-event-h
  
 ## Apache Kafka samples
 You can find samples for the Event Hubs for Apache Kafka feature in the [azure-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) GitHub repository.
-
-## Legacy samples
-
-| Programming language | Version | Samples location |
-| -------- | ------- | ---------------- | 
-| .NET | Microsoft.Azure.EventHubs version 4 (legacy) | [GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/) |
-| | Samples in the Azure Samples repository | [GitHub location](https://github.com/orgs/Azure-Samples/repositories?q=event-hubs&type=all&language=c%23) |
-| Java | azure-eventhubs version 3 (legacy) | [GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/) |
-| | Samples in the Azure Samples repository | [GitHub location](https://github.com/orgs/Azure-Samples/repositories?q=event-hubs&type=all&language=java) |
-| Python | azure-eventhub version 1 (legacy) | [GitHub location](https://github.com/Azure/azure-sdk-for-python/tree/release/eventhub-v1/sdk/eventhub/azure-eventhubs/examples) |
-| JavaScript | azure/event-hubs version 2 (legacy) | [GitHub location](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/event-hubs_2.1.0/sdk/eventhub/event-hubs/samples) |
-
-
-
 
 ## Next steps
 You can learn more about Event Hubs in the following articles:

@@ -3,8 +3,8 @@ title: Use Spark to read and write HBase data - Azure HDInsight
 description: Use the Spark HBase Connector to read and write data from a Spark cluster to an HBase cluster.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 12/09/2022
+ms.custom: hdinsightactive
+ms.date: 02/27/2024
 ---
 
 # Use Apache Spark to read and write Apache HBase data
@@ -85,26 +85,31 @@ __NOTE__: Before proceeding, make sure you've added the Spark cluster’s storag
 
     |Property | Value |
     |---|---|
-    |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-hbase.sh`|
+    |Bash script URI|`https://hdiconfigactions2.blob.core.windows.net/hbasesparkconnect/connector-hbase.sh`|
     |Node type(s)|Region|
-    |Parameters|`-s SECONDARYS_STORAGE_URL`|
+    |Parameters|`-s SECONDARYS_STORAGE_URL -d "DOMAIN_NAME`|
     |Persisted|yes|
 
-    * `SECONDARYS_STORAGE_URL` is the url of the Spark side default storage. Parameter Example: `-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
+    * `SECONDARYS_STORAGE_URL` is the url of the Spark side default storage. Parameter Example: `-s
+wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net
+-d "securehadooprc"`
 
 
 2.	Use Script Action on your Spark cluster to apply the changes with the following considerations:
 
     |Property | Value |
     |---|---|
-    |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
+    |Bash script URI|`https://hdiconfigactions2.blob.core.windows.net/hbasesparkconnect/connector-spark.sh`|
     |Node type(s)|Head, Worker, Zookeeper|
-    |Parameters|`-s "SPARK-CRON-SCHEDULE"` (optional) `-h "HBASE-CRON-SCHEDULE"` (optional)|
+    |Parameters|`-s "SPARK-CRON-SCHEDULE" (optional) -h "HBASE-CRON-SCHEDULE" (optional) -d "DOMAIN_NAME" (mandatory)`|
     |Persisted|yes|
 
 
     * You can specify how often you want this cluster to automatically check if update. Default: -s “*/1 * * * *” -h 0 (In this example, the Spark cron runs every minute, while the HBase cron doesn't run)
-    * Since HBase cron isn't set up by default, you need to rerun this script when perform scaling to your HBase cluster. If your HBase cluster scales often, you may choose to set up HBase cron job automatically. For example: `-h "*/30 * * * *"` configures the script to perform checks every 30 minutes. This will run HBase cron schedule periodically to automate downloading of new HBase information on the common storage account to local node.
+    * Since HBase cron isn't set up by default, you need to rerun this script when perform scaling to your HBase cluster. If your HBase cluster scales often, you may choose to set up HBase cron job automatically. For example: `-s '*/1 * * * *' -h '*/30 * * * *' -d "securehadooprc"` configures the script to perform checks every 30 minutes. This will run HBase cron schedule periodically to automate downloading of new HBase information on the common storage account to local node.
+  
+>[!NOTE]
+>These scripts works only on HDI 5.0 and HDI 5.1 clusters.
     
     
 

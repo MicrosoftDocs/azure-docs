@@ -4,7 +4,9 @@ description: Describes how to partition Service Bus queues and topics by using m
 ms.topic: article
 ms.date: 10/12/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
 # Partitioned queues and topics
@@ -26,7 +28,7 @@ Each partitioned queue or topic consists of multiple partitions. Each partition 
 
 When a client wants to receive a message from a partitioned queue, or from a subscription to a partitioned topic, Service Bus queries all partitions for messages, then returns the first message that is obtained from any of the messaging stores to the receiver. Service Bus caches the other messages and returns them when it receives more receive requests. A receiving client isn't aware of the partitioning; the client-facing behavior of a partitioned queue or topic (for example, read, complete, defer, deadletter, prefetching) is identical to the behavior of a regular entity.
 
-The peek operation on a non-partitioned entity always returns the oldest message, but not on a partitioned entity. Instead, it returns the oldest message in one of the partitions whose message broker responded first. There's no guarantee that the returned message is the oldest one across all partitions. 
+The peek operation on a nonpartitioned entity always returns the oldest message, but not on a partitioned entity. Instead, it returns the oldest message in one of the partitions whose message broker responded first. There's no guarantee that the returned message is the oldest one across all partitions. 
 
 There's no extra cost when sending a message to, or receiving a message from, a partitioned queue or topic.
 
@@ -45,7 +47,7 @@ Depending on the scenario, different message properties are used as a partition 
 
 **SessionId**: If a message has the session ID property set, then Service Bus uses it as the partition key. This way, all messages that belong to the same session are handled by the same message broker. Sessions enable Service Bus to guarantee message ordering as well as the consistency of session states.
 
-**PartitionKey**: If a message has the partition key property but not the session ID property set, then Service Bus uses the partition key property value as the partition key. If the message has both the session ID and the partition key properties set, both properties must be identical. If the partition key property is set to a different value than the session ID property, Service Bus returns an invalid operation exception. The partition key property should be used if a sender sends non-session aware transactional messages. The partition key ensures that all messages that are sent within a transaction are handled by the same messaging broker.
+**PartitionKey**: If a message has the partition key property but not the session ID property set, then Service Bus uses the partition key property value as the partition key. If the message has both the session ID and the partition key properties set, both properties must be identical. If the partition key property is set to a different value than the session ID property, Service Bus returns an invalid operation exception. The partition key property should be used if a sender sends nonsession aware transactional messages. The partition key ensures that all messages that are sent within a transaction are handled by the same messaging broker.
 
 **MessageId**: If the queue or topic was created with the [duplicate detection feature](duplicate-detection.md) and the session ID or partition key properties aren't set, then the message ID property value serves as the partition key. (The Microsoft client libraries automatically assign a message ID if the sending application doesn't.) In this case, all copies of the same message are handled by the same message broker. This ID enables Service Bus to detect and eliminate duplicate messages. If the duplicate detection feature isn't enabled, Service Bus doesn't consider the message ID property as a partition key.
 
@@ -83,7 +85,7 @@ If any of the properties that serve as a partition key are set, Service Bus pins
 
 To send a transactional message to a session-aware topic or queue, the message must have the session ID property set. If the partition key property is specified as well, it must be identical to the session ID property. If they differ, Service Bus returns an invalid operation exception.
 
-Unlike regular (non-partitioned) queues or topics, it isn't possible to use a single transaction to send multiple messages to different sessions. If attempted, Service Bus returns an invalid operation exception. For example:
+Unlike regular (nonpartitioned) queues or topics, it isn't possible to use a single transaction to send multiple messages to different sessions. If attempted, Service Bus returns an invalid operation exception. For example:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -102,21 +104,19 @@ committableTransaction.Commit();
 Service Bus supports automatic message forwarding from, to, or between partitioned entities. You can enable this feature either when creating or updating queues and subscriptions. For more information, see [Enable message forwarding](enable-auto-forward.md). If the message specifies a partition key (session ID, partition key or message ID), that partition key is used for the destination entity.
 
 ## Considerations and guidelines
-* **High consistency features**: If an entity uses features such as sessions, duplicate detection, or explicit control of partitioning key, then the messaging operations are always routed to specific partition. If any of the partitions experience high traffic or the underlying store is unhealthy, those operations fail and availability is reduced. Overall, the consistency is still much higher than non-partitioned entities; only a subset of traffic is experiencing issues, as opposed to all the traffic. For more information, see this [discussion of availability and consistency](../event-hubs/event-hubs-availability-and-consistency.md).
+* **High consistency features**: If an entity uses features such as sessions, duplicate detection, or explicit control of partitioning key, then the messaging operations are always routed to specific partition. If any of the partitions experience high traffic or the underlying store is unhealthy, those operations fail and availability is reduced. Overall, the consistency is still much higher than nonpartitioned entities; only a subset of traffic is experiencing issues, as opposed to all the traffic. For more information, see this [discussion of availability and consistency](../event-hubs/event-hubs-availability-and-consistency.md).
 * **Management**: Operations such as Create, Update, and Delete must be performed on all the partitions of the entity. If any partition is unhealthy, it could result in failures for these operations. For the Get operation, information such as message counts must be aggregated from all partitions. If any partition is unhealthy, the entity availability status is reported as limited.
-* **Low volume message scenarios**: For such scenarios, especially when using the HTTP protocol, you may have to perform multiple receive operations in order to obtain all the messages. For receive requests, the front end performs a receive on all the partitions and caches all the responses received. A subsequent receive request on the same connection would benefit from this caching and receive latencies will be lower. However, if you have multiple connections or use HTTP, a new connection is established for each request. As such, there's no guarantee that it would land on the same node. If all existing messages are locked and cached in another front end, the receive operation returns **null**. Messages eventually expire and you can receive them again. HTTP keep-alive is recommended. When using partitioning in low-volume scenarios, receive operations may take longer than expected. Hence, we recommend that you don't use partitioning in these scenarios. Delete any existing partitioned entities and recreate them with partitioning disabled to improve performance.
+* **Low volume message scenarios**: For such scenarios, especially when using the HTTP protocol, you might have to perform multiple receive operations in order to obtain all the messages. For receive requests, the front end performs a receive on all the partitions and caches all the responses received. A subsequent receive request on the same connection would benefit from this caching and receive latencies are lower. However, if you have multiple connections or use HTTP, a new connection is established for each request. As such, there's no guarantee that it would land on the same node. If all existing messages are locked and cached in another front end, the receive operation returns **null**. Messages eventually expire and you can receive them again. HTTP keep-alive is recommended. When using partitioning in low-volume scenarios, receive operations might take longer than expected. Hence, we recommend that you don't use partitioning in these scenarios. Delete any existing partitioned entities and recreate them with partitioning disabled to improve performance.
 * **Browse/Peek messages**: The peek operation doesn't always return the number of messages asked for. There are two common reasons for this behavior. One reason is that the aggregated size of the collection of messages exceeds the maximum size. Another reason is that in partitioned queues or topics, a partition may not have enough messages to return the requested number of messages. In general, if an application wants to peek/browse a specific number of messages, it should call the peek operation repeatedly until it gets that number of messages, or there are no more messages to peek. For more information, including code samples, see [Message browsing](message-browsing.md).
 
 ## Partitioned entities limitations
 Currently Service Bus imposes the following limitations on partitioned queues and topics:
 
-* Partitioned queues and topics don't support sending messages that belong to different sessions in a single transaction.
-* Service Bus currently allows up to 100 partitioned queues or topics per namespace for the Basic and Standard SKU. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace.
+- For partitioned premium namespaces, the message size is limited to 1 MB when the messages are sent individually, and the batch size is limited to 1 MB when the messages are sent in a batch.
+- Partitioned queues and topics don't support sending messages that belong to different sessions in a single transaction.
+- Service Bus currently allows up to 100 partitioned queues or topics per namespace for the Basic and Standard SKU. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace.
 
 ## Next steps
 You can enable partitioning by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable partitioning (Basic / Standard)](enable-partitions-basic-standard.md).
 
-Read about the core concepts of the AMQP 1.0 messaging specification in the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md).
-
-[Azure portal]: https://portal.azure.com
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md
+Read about the core concepts of the Advanced Message Queueing Protocol (AMQP) 1.0 messaging specification in the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md).

@@ -154,31 +154,6 @@ The event samples given on this page represent an event notification.
   }
 ````
 
- 6. **Event type: Microsoft.AgFoodPlatform.BoundaryChangedV2**
-
-````json
-  {
-    "data": {
-      "parentType": "Field",
-      "partyId": "amparty",
-      "actionType": "Created",
-      "modifiedDateTime": "2022-11-01T10:48:14Z",
-      "eTag": "af005dfc-0000-0700-0000-6360f96e0000",
-      "id": "amb",
-      "name": "string",
-      "description": "string",
-      "createdDateTime": "2022-11-01T10:48:14Z"
-    },
-    "id": "v2-25fd01cf-72d4-401d-92ee-146de348e815",
-    "topic": "/subscriptions/{SUBSCRIPTION-ID}/resourceGroups/{RESOURCE-GROUP-NAME}/providers/Microsoft.AgFoodPlatform/farmBeats/{YOUR-RESOURCE-NAME}",
-    "subject": "/parties/amparty/boundaries/amb",
-    "eventType": "Microsoft.AgFoodPlatform.BoundaryChangedV2",
-    "dataVersion": "1.0",
-    "metadataVersion": "1",
-    "eventTime": "2022-11-01T10:48:14.2385557Z"
-  }
-  ````
-
  7. **Event type: Microsoft.AgFoodPlatform.SeasonChanged**
 ````json
   {
@@ -210,7 +185,7 @@ The event samples given on this page represent an event notification.
   {
     "data": {
       "partyId": "contoso-partyId",
-      "message": "Created job 'sat-ingestion-job-1' to fetch satellite data for boundary 'contoso-boundary' from startDate '08/07/2022' to endDate '10/07/2022' (both inclusive).",
+      "message": "Created job 'sat-ingestion-job-1' to fetch satellite data for resource 'contoso-field' from startDate '08/07/2022' to endDate '10/07/2022' (both inclusive).",
       "status": "Running",
       "lastActionDateTime": "2022-11-07T09:35:23.3141004Z",
       "isCancellationRequested": false,
@@ -312,7 +287,7 @@ The event samples given on this page represent an event notification.
 {
     "data": {
       "partyId": "party1",
-      "message": "Created job 'job-biomass-13sdqwd' to calculate biomass values for boundary 'boundary1' from plantingStartDate '05/03/2020' to inferenceEndDate '10/11/2020' (both inclusive).",
+      "message": "Created job 'job-biomass-13sdqwd' to calculate biomass values for resource 'field1' from plantingStartDate '05/03/2020' to inferenceEndDate '10/11/2020' (both inclusive).",
       "status": "Waiting",
       "lastActionDateTime": "0001-01-01T00:00:00Z",
       "isCancellationRequested": false,
@@ -340,7 +315,7 @@ The event samples given on this page represent an event notification.
  {
     "data": {
       "partyId": "party",
-      "message": "Created job 'job-soilmoisture-sf332q' to calculate soil moisture values for boundary 'boundary' from inferenceStartDate '05/01/2022' to inferenceEndDate '05/20/2022' (both inclusive).",
+      "message": "Created job 'job-soilmoisture-sf332q' to calculate soil moisture values for resource 'field1' from inferenceStartDate '05/01/2022' to inferenceEndDate '05/20/2022' (both inclusive).",
       "status": "Waiting",
       "lastActionDateTime": "0001-01-01T00:00:00Z",
       "isCancellationRequested": false,
@@ -629,8 +604,8 @@ The event samples given on this page represent an event notification.
  {
     "data": {
       "modelId": "Microsoft.SoilMoisture",
-      "resourceType": "Boundary",
-      "resourceId": "boundary",
+      "resourceType": "Field",
+      "resourceId": "fieldId",
       "modelVersion": "1.0",
       "partyId": "party",
       "actionType": "Updated",
@@ -664,8 +639,8 @@ The event samples given on this page represent an event notification.
     "data": {
       "insightId": "f5c2071c-c7ce-05f3-be4d-952a26f2490a",
       "modelId": "Microsoft.SoilMoisture",
-      "resourceType": "Boundary",
-      "resourceId": "boundary",
+      "resourceType": "Field",
+      "resourceId": "fieldId",
       "partyId": "party",
       "actionType": "Updated",
       "modifiedDateTime": "2022-11-03T18:21:26Z",
@@ -932,7 +907,6 @@ The event samples given on this page represent an event notification.
     "data": {
       "sensorId": "sensor",
       "partyId": "ContosopartyId",
-      "boundaryId": "ContosoBoundary",
       "sensorPartnerId": "sensorpartner",
       "actionType": "Created",
       "status": "string",

@@ -8,8 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-
+ms.custom: mimckitt, linux-related-content
 ---
 
 # Use Azure Disk Encryption with Virtual Machine Scale Set extension sequencing

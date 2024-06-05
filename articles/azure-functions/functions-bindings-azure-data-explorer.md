@@ -25,17 +25,7 @@ This set of articles explains how to work with [Azure Data Explorer](/azure/data
 
 The extension NuGet package you install depends on the C# mode you're using in your function app.
 
-# [In-process](#tab/in-process)
-
-Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
-Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kusto).
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Kusto --prerelease
-```
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions run in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
@@ -45,13 +35,17 @@ Add the extension to your project by installing [this NuGet package](https://www
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Kusto --prerelease
 ```
 
-<!-- awaiting bundle support
-# [C# script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 4.x, or a later version.
--->
+Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+
+Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kusto).
+
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Kusto --prerelease
+```
 
 ---
 
@@ -90,7 +84,7 @@ Azure Data Explorer bindings for Azure Functions aren't available for the v3 ver
 ## Functions runtime
 
 > [!NOTE]
-> Python language support for the Azure Data Explorer bindings extension is available starting with v4.6.0 or later of the [Functions runtime](set-runtime-version.md#view-and-update-the-current-runtime-version). You might need to update your installation of Azure Functions [Core Tools](functions-run-local.md) for local development.
+> Python language support for the Azure Data Explorer bindings extension is available starting with v4.6.0 or later of the [Functions runtime](set-runtime-version.md#manual-version-updates-on-linux). You might need to update your installation of Azure Functions [Core Tools](functions-run-local.md) for local development.
 
 ## Install the bundle
 

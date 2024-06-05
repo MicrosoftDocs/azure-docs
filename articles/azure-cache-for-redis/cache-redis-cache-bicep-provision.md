@@ -1,12 +1,12 @@
 ---
 title: Deploy Azure Cache for Redis using Bicep
 description: Learn how to use Bicep to deploy an Azure Cache for Redis resource.
-author: barbkess
-ms.author: barbkess
+author: flang-msft
+ms.author: franlanglois 
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs, devx-track-bicep
-ms.date: 05/24/2022
+ms.date: 04/10/2024
 ---
 
 # Quickstart: Create an Azure Cache for Redis using Bicep
@@ -22,9 +22,9 @@ Learn how to use Bicep to deploy a cache using Azure Cache for Redis. After you 
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/redis-cache/).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates//).
 
-:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cache/redis-cache/main.bicep":::
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cache/redis-cache-microsoft-entra-authentication/main.bicep":::
 
 The following resources are defined in the Bicep file:
 

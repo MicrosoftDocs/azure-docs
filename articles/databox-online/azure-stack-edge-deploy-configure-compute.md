@@ -7,12 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/06/2021
+ms.date: 02/27/2024
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro FPGA so I can use it to transform the data before sending it to Azure.
 ---
 
 # Tutorial: Transform the data with Azure Stack Edge Pro FPGA
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This tutorial describes how to configure a compute role on your Azure Stack Edge Pro FPGA device. After you configure the compute role, Azure Stack Edge Pro FPGA can transform data before sending it to Azure.
 

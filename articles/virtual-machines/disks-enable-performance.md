@@ -2,11 +2,10 @@
 title: Preview - Increase performance of Premium SSDs and Standard SSD/HDDs
 description: Increase the performance of Azure Premium SSDs and Standard SSD/HDDs using performance plus.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 03/14/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -44,7 +43,7 @@ region=desiredRegion
 sku=desiredSKU
 #Size must be 513 or larger
 size=513
-az disk create -g $myRG -n $myDisk --size-gb $size --sku $sku -l $region –performance-plus true 
+az disk create -g $myRG -n $myDisk --size-gb $size --sku $sku -l $region --performance-plus true 
 
 az vm disk attach --vm-name $myVM --name $myDisk --resource-group $myRG 
 ```
@@ -78,12 +77,15 @@ $region=desiredRegion
 $sku=desiredSKU
 #Size must be 513 or larger
 $size=513
+$lun=desiredLun
 
 Set-AzContext -SubscriptionName <yourSubscriptionName> 
 
 $diskConfig = New-AzDiskConfig -Location $region -CreateOption Empty -DiskSizeGB $size -SkuName $sku -PerformancePlus $true 
 
-$dataDisk = New-AzDisk -ResourceGroupName $myRG -DiskName $myDisk -Disk $diskConfig 
+$dataDisk = New-AzDisk -ResourceGroupName $myRG -DiskName $myDisk -Disk $diskConfig
+
+Add-AzVMDataDisk -VMName $myVM -ResourceGroupName $myRG -DiskName $myDisk -Lun $lun -CreateOption Empty -ManagedDiskId $dataDisk.Id
 ```
 
 To migrate data from an existing disk or snapshot to a new disk with performance plus enabled, use the following script:
@@ -97,12 +99,14 @@ $sku=desiredSKU
 #Size must be 513 or larger
 $size=513
 $sourceURI=diskOrSnapshotURI
+$lun=desiredLun
 
 Set-AzContext -SubscriptionName <<yourSubscriptionName>> 
 
 $diskConfig = New-AzDiskConfig -Location $region -CreateOption Copy -DiskSizeGB $size -SkuName $sku -PerformancePlus $true -SourceResourceID $sourceURI
 
 $dataDisk = New-AzDisk -ResourceGroupName $myRG  -DiskName $myDisk -Disk $diskconfig
+Add-AzVMDataDisk -VMName $myVM -ResourceGroupName $myRG -DiskName $myDisk -Lun $lun -CreateOption Empty -ManagedDiskId $dataDisk.Id
 ```
 ---
 

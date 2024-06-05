@@ -3,10 +3,10 @@ title: Create a Linux VM in Azure from a template
 description: How to use the Azure CLI to create a Linux VM from a Resource Manager template
 author: mattmcinnes
 ms.service: virtual-machines
-ms.custom: devx-track-azurecli, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-arm-template, linux-related-content
 ms.collection: linux
 ms.topic: how-to
-ms.date: 03/22/2019
+ms.date: 02/01/2023
 ms.author: mattmcinnes
 ms.reviewer: jamesser
 ---
@@ -18,24 +18,43 @@ Learn how to create a Linux virtual machine (VM) by using an Azure Resource Mana
 
 An alternative is to deploy the template from the Azure portal. To open the template in the portal, select the **Deploy to Azure** button.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-sshkey%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-sshkey%2Fazuredeploy.json":::
 
 ## Templates overview
 
 Azure Resource Manager templates are JSON files that define the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. To learn more about the format of the template and how you construct it, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). To view the JSON syntax for resources types, see [Define resources in Azure Resource Manager templates](/azure/templates/microsoft.compute/allversions).
 
-## Create a virtual machine
+## Quickstart template
 
-Creating an Azure virtual machine usually includes two steps:
+>[!NOTE] 
+> The provided template creates an [Azure Generation 2 VM](../generation-2.md) by default.
 
-1. Create a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine.
-1. Create a virtual machine.
+>[!NOTE]
+> Only SSH authentication is enabled by default when using the quickstart template. When prompted, provide the value of your own SSH public key, such as the contents of *~/.ssh/id_rsa.pub*.
+>
+> If you don't have an SSH key pair, [create and use an SSH key pair for Linux VMs in Azure](mac-create-ssh-keys.md). 
 
-The following example creates a VM from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json). This template creates an Azure Generation 2 VM by default. See [Support for generation 2 VMs on Azure](../generation-2.md) to learn more about Azure Generation 2 VMs. Only SSH authentication is allowed for this deployment. When prompted, provide the value of your own SSH public key, such as the contents of *~/.ssh/id_rsa.pub*. If you need to create an SSH key pair, see [How to create and use an SSH key pair for Linux VMs in Azure](mac-create-ssh-keys.md). Here is a copy of the template:
+Click **Copy** to add the quickstart template to your clipboard:
+
 
 [!code-json[create-linux-vm](~/quickstart-templates/quickstarts/microsoft.compute/vm-sshkey/azuredeploy.json)]
 
-To run the CLI script, Select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
+You can also download or create a template and specify the local path with the `--template-file` parameter.
+
+## Create a quickstart template VM with Azure CLI
+
+After acquiring or creating a quickstart template, create a VM with it using the Azure CLI. 
+
+The following command requests several pieces of input from the user. These include:
+- Name of the Resource Group (resourceGroupName)
+- Location of the Azure datacenter that hosts the VM (location)
+- A name for resources related to the VM (projectName)
+- Username for the administrator user (username)
+- A public SSH key for accessing the VM's terminal (key)
+
+Creating an Azure virtual machine requires a [resource group](./../../azure-resource-manager/management/manage-resource-groups-portal.md). Quickstart templates include resource group creation as part of the process. 
+
+To run the CLI script, click **Open Cloudshell**. Once you have access to the Azure Cloudshell, click **Copy** to copy the command, right-click the shell, then select **Paste**.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -53,27 +72,19 @@ az deployment group create --resource-group $resourceGroupName --template-uri ht
 az vm show --resource-group $resourceGroupName --name "$projectName-vm" --show-details --query publicIps --output tsv
 ```
 
-The last Azure CLI command shows the public IP address of the newly created VM. You need the public IP address to connect to the virtual machine. See the next section of this article.
-
-In the previous example, you specified a template stored in GitHub. You can also download or create a template and specify the local path with the `--template-file` parameter.
-
-Here are some additional resources:
-
-- To learn how to develop Resource Manager templates, see [Azure Resource Manager documentation](../../azure-resource-manager/index.yml).
-- To see the Azure virtual machine schemas, see [Azure template reference](/azure/templates/microsoft.compute/allversions).
-- To see more virtual machine template samples, see [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+The last line in the command shows the public IP address of the newly created VM. You need the public IP address to connect to the virtual machine. 
 
 ## Connect to virtual machine
 
-You can then SSH to your VM as normal. Provide you own public IP address from the preceding command:
+You can then SSH to your VM as normal. Provide your own public IP address from the preceding command:
 
 ```bash
 ssh <adminUsername>@<ipAddress>
 ```
 
-## Next steps
+## Other templates
 
-In this example, you created a basic Linux VM. For more Resource Manager templates that include application frameworks or create more complex environments, browse the [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+In this example, you created a basic Linux VM. For more Resource Manager templates that include application frameworks or create more complex environments, browse the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 To learn more about creating templates, view the JSON syntax and properties for the resources types you deployed:
 
@@ -82,3 +93,9 @@ To learn more about creating templates, view the JSON syntax and properties for 
 - [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 - [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+
+## Next steps
+
+- To learn how to develop Resource Manager templates, see [Azure Resource Manager documentation](../../azure-resource-manager/index.yml).
+- To see the Azure virtual machine schemas, see [Azure template reference](/azure/templates/microsoft.compute/allversions).
+- To see more virtual machine template samples, see [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).

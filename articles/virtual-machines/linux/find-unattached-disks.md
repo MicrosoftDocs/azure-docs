@@ -2,12 +2,11 @@
 title: Azure CLI - Find and delete unattached managed and unmanaged disks
 description: How to find and delete unattached Azure managed and unmanaged (VHDs/page blobs) disks by using Azure CLI.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
-ms.subservice: disks
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Find and delete unattached Azure managed and unmanaged disks using the Azure CLI
@@ -15,6 +14,9 @@ ms.custom: devx-track-azurecli
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 When you delete a virtual machine (VM) in Azure, by default, any disks that are attached to the VM aren't deleted. This feature helps to prevent data loss due to the unintentional deletion of VMs. After a VM is deleted, you will continue to pay for unattached disks. This article shows you how to find and delete any unattached disks and reduce unnecessary costs. 
+
+> [!NOTE]
+> You can use the [az disk show](/cli/azure/disk) command to get the LastOwnershipUpdateTime for any disk. This property represents when the disk’s state was last updated. For an unattached disk, this shows the time when the disk was unattached. This property is blank for newly created disks, until their state changes.
 
 
 ## Managed disks: Find and delete unattached disks 

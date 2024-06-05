@@ -2,25 +2,25 @@
 title: Create an Azure virtual machine with a dual-stack network - Azure CLI
 titleSuffix: Azure Virtual Network
 description: In this article, learn how to use the Azure CLI to create a virtual machine with a dual-stack virtual network in Azure.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 04/19/2023
-ms.custom: template-how-to, devx-track-azurecli 
+ms.date: 08/24/2023
+ms.custom: template-how-to, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
 # Create an Azure Virtual Machine with a dual-stack network using the Azure CLI
 
-In this article, you create a virtual machine in Azure with the Azure CLI. The virtual machine is created along with the dual-stack network as part of the procedures.  When completed, the virtual machine supports IPv4 and IPv6 communication.  
+In this article, you create a virtual machine in Azure with the Azure CLI. The virtual machine is created along with the dual-stack network as part of the procedures.  When completed, the virtual machine supports IPv4 and IPv6 communication.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -54,7 +54,7 @@ Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to 
 
 ## Create public IP addresses
 
-You create two public IP addresses in this section, IPv4 and IPv6. 
+You create two public IP addresses in this section, IPv4 and IPv6.
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create the public IP addresses.
 
@@ -162,7 +162,7 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
     --resource-group myResourceGroup \
     --name myVM \
     --nics myNIC1 \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --authentication-type ssh \
     --generate-ssh-keys
@@ -230,5 +230,3 @@ For more information about IPv6 and IP addresses in Azure, see:
 - [Overview of IPv6 for Azure Virtual Network.](ipv6-overview.md)
 
 - [What is Azure Virtual Network IP Services?](ip-services-overview.md)
-
-

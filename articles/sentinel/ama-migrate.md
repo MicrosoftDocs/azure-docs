@@ -3,7 +3,7 @@ title: Migrate to the Azure Monitor agent (AMA) from the Log Analytics agent (MM
 description: Learn about migrating from the Log Analytics agent (MMA/OMS) to the Azure Monitor agent (AMA), when working with Microsoft Sentinel.
 author: yelevin
 ms.topic: reference
-ms.date: 07/04/2022
+ms.date: 04/03/2024
 ms.author: yelevin
 ---
 
@@ -20,38 +20,17 @@ This article provides specific details and differences for Microsoft Sentinel.
 
 
 ## Gap analysis between agents
-The following tables show gap analyses for the log types that currently rely on agent-based data collection for Microsoft Sentinel. This will be updated as support for AMA grows towards parity with the Log Analytics agent. 
 
-### Windows logs
+The Azure Monitor agent provides extra functionality and a throughput that is 25% better than legacy Log Analytics agents. Migrate to the new AMA connectors to get higher performance, especially if you are using your servers as log forwarders for Windows security events or forwarded events.
 
-|Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
-|---------|---------|---------|
-|**Security Events**     |  [Windows Security Events data connector](data-connectors/windows-security-events-via-ama.md)  (Public preview)     |  [Windows Security Events data connector (Legacy)](data-connectors/security-events-via-legacy-agent.md)       |
-|**Filtering by security event ID**     |   [Windows Security Events data connector (AMA)](data-connectors/windows-security-events-via-ama.md)  (Public preview)    |     -     |
-|**Filtering by event ID**     | Collection only        |   -       |
-|**Windows Event Forwarding**     |  [Windows Forwarded Events](data-connectors/windows-forwarded-events.md) (Public Preview)       |     -     |
-|**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors/windows-firewall.md)       |
-|**Performance counters**     |   Collection only      |  Collection only       |
-|**Windows Event Logs**     |  Collection only       | Collection only        |
-|**Custom logs (text)**     |   Collection only       |    Collection only     |
-|**IIS logs**     |    Collection only      |    Collection only     |
-|**Multi-homing**     |  Collection only       |   Collection only      |
-|**Application and service logs**     |    -      |    Collection only     |
-|**Sysmon**     |    Collection only      |      Collection only   |
-|**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors/dns.md) (Public preview)        |
+The Azure Monitor agent provides the following extra functionality, which is not supported by legacy Log Analytics agents:
 
-> [!IMPORTANT]
-> The Azure Monitor agent provides a throughput that is 25% better than legacy Log Analytics agents. Migrate to the new AMA connectors to get higher performance, especially if you are using your servers as log forwarders for Windows security events or forwarded events.
+| Log type | Functionality |
+| --- |---|
+| **Windows logs** | Filtering by security event ID <br>Windows event forwarding |
+| **Linux logs** | Multi-homing | 
 
-### Linux logs
-
-|Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
-|---------|---------|---------|
-|**Syslog**     |  Collection only      |   [Syslog data connector](connect-syslog.md)      |
-|**Common Event Format (CEF)**     |  [CEF via AMA data connector](connect-cef-ama.md)       |  [CEF data connector](connect-common-event-format.md)       |
-|**Sysmon**     |   Collection only    |  Collection only      |
-|**Custom logs (text)**     |   Collection only       |  Collection only       |
-|**Multi-homing**     |   Collection only      |     -     |
+The only logs supported only by the legacy Log Analytics agent are Windows Firewall logs.
 
 ## Recommended migration plan
 
@@ -100,12 +79,12 @@ Each organization will have different metrics of success and internal migration 
 6. Uninstall the legacy agent. For more information, see [Manage the Azure Log Analytics agent ](../azure-monitor/agents/agent-manage.md#uninstall-agent).
 
 ## FAQs
-The following FAQs address issues specific to AMA migration with Microsoft Sentinel. For more information, see also the [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent) in the Azure Monitor documentation.
+The following FAQs address issues specific to AMA migration with Microsoft Sentinel. For more information, see also the [Frequently asked questions for AMA migration](../azure-monitor/agents/azure-monitor-agent-migration.md#frequently-asked-questions) and [Frequently asked questions for Azure Monitor Agent](../azure-monitor/agents/agents-overview.md#frequently-asked-questions) in the Azure Monitor documentation.
 
 ## What happens if I run both MMA/OMS and AMA in parallel in my Microsoft Sentinel deployment?
 Both the AMA and MMA/OMS agents can co-exist on the same machine. If they both send data, from the same data source to a Microsoft Sentinel workspace, at the same time, from a single host, duplicate events and double ingestion charges will occur.
 
-For your production rollout, we recommend that you configure either an MMA/OMS agent or the AMA for each data source. To address any issues for duplication, see the relevant FAQs in the [Azure Monitor documentation](/azure/azure-monitor/faq#azure-monitor-agent).
+For your production rollout, we recommend that you configure either an MMA/OMS agent or the AMA for each data source. To address any issues for duplication, see the relevant FAQs in the [Azure Monitor documentation](../azure-monitor/agents/agents-overview.md#frequently-asked-questions).
 
 ## The AMA doesn’t yet have the features my Microsoft Sentinel deployment needs to work. Should I migrate yet?
 The legacy Log Analytics agent will be retired on 31 August 2024.
@@ -120,7 +99,7 @@ While you can run the MMA and AMA simultaneously, you may want to migrate each c
 
 For more information, see:
 
-- [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent)
+- [Frequently asked questions for AMA migration](../azure-monitor/agents/azure-monitor-agent-migration.md#frequently-asked-questions)
 - [Overview of the Azure Monitor agents](../azure-monitor/agents/agents-overview.md)
 - [Migrate from Log Analytics agents](../azure-monitor/agents/azure-monitor-agent-migration.md)
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)

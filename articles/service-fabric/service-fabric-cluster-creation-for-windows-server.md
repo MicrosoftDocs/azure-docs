@@ -170,9 +170,9 @@ This script can be run on any machine that has administrator access to all the m
 <a id="telemetry"></a>
 
 ## Telemetry data collected and how to opt out of it
-As a default, the product collects telemetry on the Service Fabric usage to improve the product. The Best Practice Analyzer that runs as a part of the setup checks for connectivity to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). If it is not reachable, the setup fails unless you opt out of telemetry.
+As a default, the product collects telemetry on the Service Fabric usage to improve the product. If it is not reachable, the setup fails unless you opt out of telemetry.
 
-1. The telemetry pipeline tries to upload the following data to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) once every day. It is a best-effort upload and has no impact on the cluster functionality. The telemetry is only sent from the node that runs the failover manager primary. No other nodes send out telemetry.
+1. It is a best-effort upload and has no impact on the cluster functionality. The telemetry is only sent from the node that runs the failover manager primary. No other nodes send out telemetry.
 2. The telemetry consists of the following:
 
 * Number of services

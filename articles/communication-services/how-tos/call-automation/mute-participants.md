@@ -21,7 +21,7 @@ zone_pivot_groups: acs-csharp-java
 
 With Azure Communication Services Call Automation SDK, developers can now mute participants through server based API requests. This feature can be useful when you want your application to mute participants after they've joined the meeting to avoid any interruptions or distractions to ongoing meetings.   
 
-If you’re interested in abilities to allow participants to mute/unmute themselves on the call when they’ve joined with ACS Client Libraries, you can use our [mute/unmute function](../../../communication-services/how-tos/calling-sdk/manage-calls.md) provided through our Calling Library.
+If you’re interested in abilities to allow participants to mute/unmute themselves on the call when they’ve joined with Azure Communication Services Client Libraries, you can use our [mute/unmute function](../../../communication-services/how-tos/calling-sdk/manage-calls.md) provided through our Calling Library.
 
 ## Common use cases
 

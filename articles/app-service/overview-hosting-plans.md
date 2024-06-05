@@ -6,10 +6,13 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 05/26/2023
 ms.author: msangapu
+author: msangapu-msft
 ms.custom: UpdateFrequency3
 
 ---
 # Azure App Service plan overview
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 An app service always runs in an _App Service plan_. In addition, [Azure Functions](../azure-functions/dedicated-plan.md) also has the option of running in an _App Service plan_. An App Service plan defines a set of compute resources for a web app to run. 
 

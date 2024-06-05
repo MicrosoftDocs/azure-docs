@@ -4,7 +4,7 @@ description: Create a data collection rule to collect guest logs and metrics fro
 ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 12/03/2022
+ms.date: 09/28/2023
 ms.reviewer: Xema Pathak
 ---
 
@@ -85,7 +85,7 @@ In the empty query window, enter either **Event** or **Syslog** depending on whe
 
 :::image type="content" source="media/tutorial-monitor-vm/log-analytics-query.png" lightbox="media/tutorial-monitor-vm/log-analytics-query.png" alt-text="Screenshot that shows Log Analytics with query results.":::
 
-For a tutorial on using Log Analytics to analyze log data, see [Log Analytics tutorial](../logs/log-analytics-tutorial.md). For a tutorial on creating alert rules from log data, see [Tutorial: Create a log query alert for an Azure resource](../alerts/tutorial-log-alert.md).
+For a tutorial on using Log Analytics to analyze log data, see [Log Analytics tutorial](../logs/log-analytics-tutorial.md). For a tutorial on creating alert rules from log data, see [Tutorial: Create a log search alert for an Azure resource](../alerts/tutorial-log-alert.md).
 
 ## View guest metrics
 You can view metrics for your host virtual machine with metrics explorer without a DCR like [any other Azure resource](../essentials/tutorial-metrics.md). With the DCR, you can use metrics explorer to view guest metrics and host metrics.

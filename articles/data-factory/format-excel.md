@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -155,7 +155,7 @@ The Excel connector does not support streaming read for the Copy activity and mu
 - Use a dataflow activity to move the large Excel file into another data store. Dataflow supports streaming read for Excel and can move/transfer large files quickly.
 - Manually convert the large Excel file to CSV format, then use a Copy activity to move the file.
 
-## Next steps
+## Related content
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)

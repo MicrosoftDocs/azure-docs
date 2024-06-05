@@ -8,13 +8,10 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Process data by running U-SQL scripts on Azure Data Lake Analytics with Azure Data Factory and Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-usql-activity.md)
-> * [Current version](transform-data-using-data-lake-analytics.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -50,7 +47,7 @@ The following table provides descriptions for the generic properties used in the
 | **resourceGroupName**    | Azure resource group name                | No                                       |
 
 ### Service principal authentication
-The Azure Data Lake Analytics linked service requires a service principal authentication to connect to the Azure Data Lake Analytics service. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the access to both the Data Lake Analytics and the Data Lake Store it uses. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
+The Azure Data Lake Analytics linked service requires a service principal authentication to connect to the Azure Data Lake Analytics service. To use service principal authentication, register an application entity in Microsoft Entra ID and grant it the access to both the Data Lake Analytics and the Data Lake Store it uses. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
 
 * Application ID
 * Application key 
@@ -194,7 +191,7 @@ It is possible to use dynamic parameters instead. For example:
 
 In this case, input files are still picked up from the /datalake/input folder and output files are generated in the /datalake/output folder. The file names are dynamic based on the window start time being passed in when pipeline gets triggered.  
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [Hive activity](transform-data-using-hadoop-hive.md)

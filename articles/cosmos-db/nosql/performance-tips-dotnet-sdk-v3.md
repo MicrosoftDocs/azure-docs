@@ -5,10 +5,10 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 07/12/2023
 ms.author: sidandrews
 ms.devlang: csharp
-ms.custom: devx-track-dotnet, contperf-fy21q2, ignite-2022
+ms.custom: devx-track-dotnet
 ---
 
 # Performance tips for Azure Cosmos DB and .NET
@@ -20,6 +20,7 @@ ms.custom: devx-track-dotnet, contperf-fy21q2, ignite-2022
 > * [Java SDK v4](performance-tips-java-sdk-v4.md)
 > * [Async Java SDK v2](performance-tips-async-java.md)
 > * [Sync Java SDK v2](performance-tips-java.md)
+> * [Python SDK](performance-tips-python-sdk.md)
 
 Azure Cosmos DB is a fast, flexible distributed database that scales seamlessly with guaranteed latency and throughput levels. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [provision container throughput](how-to-provision-container-throughput.md) or [provision database throughput](how-to-provision-database-throughput.md). 
 
@@ -109,7 +110,7 @@ When it's running on the TCP protocol, the client optimizes for latency by using
 In scenarios where you have sparse access, and if you notice a higher connection count when compared to Gateway mode access, you can:
 
 * Configure the [CosmosClientOptions.PortReuseMode](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) property to `PrivatePortPool` (effective with framework versions 4.6.1 and later and .NET Core versions 2.0 and later). This property allows the SDK to use a small pool of ephemeral ports for various Azure Cosmos DB destination endpoints.
-* Configure the [CosmosClientOptions.IdleConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) property as greater than or equal to 10 minutes. The recommended values are from 20 minutes to 24 hours.
+* Configure the [CosmosClientOptions.IdleTcpConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) property as greater than or equal to 10 minutes. The recommended values are from 20 minutes to 24 hours.
 
 <a id="same-region"></a>
 
@@ -127,9 +128,15 @@ You can get the lowest possible latency by ensuring that the calling application
 
 Because calls to Azure Cosmos DB are made over the network, you might need to vary the degree of concurrency of your requests so that the client application spends minimal time waiting between requests. For example, if you're using the .NET [Task Parallel Library](/dotnet/standard/parallel-programming/task-parallel-library-tpl), create on the order of hundreds of tasks that read from or write to Azure Cosmos DB.
 
-**Enable accelerated networking**
- 
-To reduce latency and CPU jitter, we recommend that you enable accelerated networking on your client virtual machines. For more information, see [Create a Windows virtual machine with accelerated networking](../../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
+**Enable accelerated networking to reduce latency and CPU jitter**
+
+It is recommended that you follow the instructions to enable [Accelerated Networking](../../virtual-network/accelerated-networking-overview.md) in your [Windows (click for instructions)](../../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux (click for instructions)](../../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM, in order to maximize performance.
+
+Without accelerated networking, IO that transits between your Azure VM and other Azure resources may be unnecessarily routed through a host and virtual switch situated between the VM and its network card. Having the host and virtual switch inline in the datapath not only increases latency and jitter in the communication channel, it also steals CPU cycles from the VM. With accelerated networking, the VM interfaces directly with the NIC without intermediaries; any network policy details which were being handled by the host and virtual switch are now handled in hardware at the NIC; the host and virtual switch are bypassed. Generally you can expect lower latency and higher throughput, as well as more *consistent* latency and decreased CPU utilization when you enable accelerated networking.
+
+Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM cannot be deployed with Azure Resource Manager. [App Service](../../app-service/overview.md) has no accelerated network enabled.
+
+Please see the [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md) and [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md) instructions for more details.
 
 ## <a id="sdk-usage"></a> SDK usage
 
@@ -145,7 +152,9 @@ Middle-tier applications that don't consume responses directly from the SDK but 
 
 **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
-Each `CosmosClient` instance is thread-safe and performs efficient connection management and address caching when it operates in Direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application.
+Each `CosmosClient` instance is thread-safe and performs efficient connection management and address caching when it operates in Direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application for each account your application interacts with.
+
+For multitenant applications handling multiple accounts, see the [related best practices](best-practice-dotnet.md#best-practices-for-multi-tenant-applications).
 
 When you're working on Azure Functions, instances should also follow the existing [guidelines](../../azure-functions/manage-connections.md#static-clients) and maintain a single instance.
 
@@ -243,7 +252,7 @@ while (queryable.HasMoreResults)
     }
 ```             
 
-The request charge that's returned in this header is a fraction of your provisioned throughput (that is, 2,000 RU/s). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before it rate-limits later requests. For more information, see [Request Units](../request-units.md) and the [Request Unit calculator](https://www.documentdb.com/capacityplanner).
+The request charge that's returned in this header is a fraction of your provisioned throughput (that is, 2,000 RU/s). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before it rate-limits later requests. For more information, see [Request Units](../request-units.md) and the [Request Unit calculator](https://cosmos.azure.com/capacitycalculator).
 <a id="429"></a>
 
 **Handle rate limiting/request rate too large**

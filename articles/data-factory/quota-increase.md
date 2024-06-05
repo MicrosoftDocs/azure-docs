@@ -4,7 +4,7 @@ description: How to create a support request in the Azure portal for Azure Data 
 ms.service: data-factory
 ms.topic: conceptual
 ms.subservice: troubleshooting
-ms.date: 08/18/2022
+ms.date: 05/15/2024
 author: jonburchel
 ms.author: jburchel
 ---
@@ -32,7 +32,7 @@ Use the following steps to create a new support request from the Azure portal fo
    * **Break-fix** support is provided through [Developer](https://azure.microsoft.com/support/plans/developer/), [Standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/), or [Premier](https://azure.microsoft.com/support/plans/premier/) support. Break-fix issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
    * **Developer mentoring** and **advisory services** are available at the [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/) and [Premier](https://azure.microsoft.com/support/plans/premier/) support levels.
 
-   If you have a Premier support plan, you can also report Azure Data Factory issues on the [Microsoft Premier online portal](https://premier.microsoft.com/). See [Azure support plans](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs](https://azure.microsoft.com/support/faq/).
+   If you have a Premier support plan, you can also report Azure Data Factory issues on the [Microsoft Premier online portal](https://www.microsoft.com/unifiedsupport/premier). See [Azure support plans](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs](https://azure.microsoft.com/support/faq/).
 
 1. For **Issue type**, select the appropriate issue type. For break-fix problems, select **Technical**. For quota increase requests, select **Service and subscription limits (quotas)**.
 

@@ -4,18 +4,19 @@ description: Configure autoscale for a Virtual Machine Scale Set using PowerShel
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: how-to
-ms.date: 01/05/2023
+ms.date: 04/15/2024
 ms.subservice: autoscale
 ms.custom: devx-track-azurepowershell
 ms.reviewer: akkumari
-# Customer intent: As a user or dev ops administrator, I want to use powershell to set up autoscale so I can scale my VMSS.
+
+# Customer intent: As a user or dev ops administrator, I want to use powershell to set up autoscale so I can scale my Virtual Machine Scale Set.
 ---
 
 # Configure autoscale with PowerShell
 
-Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale using the Azure portal, Azure CLI, PowerShell or ARM or Bicep templates.  
+Autoscale ensures that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale using the Azure portal, Azure CLI, PowerShell or ARM or Bicep templates.  
 
-This article shows you how to configure autoscale for a Virtual Machine Scale Set with PowerShell, using the following steps:
+This article shows you how to configure autoscale for a Virtual Machine Scale Set with PowerShell. The configurations use the following steps:
 
 + Create a scale set that you can autoscale
 + Create rules to scale in and scale out
@@ -45,8 +46,8 @@ Create a scale set using the following cmdlets. Set the `$resourceGroupName` and
 New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location "EastUS"
 
 # Create login credentials for the VMSS
-$vmPassword = ConvertTo-SecureString "ChangeThisPassword1" -AsPlainText -Force
-$vmCred = New-Object System.Management.Automation.PSCredential('azureuser', $vmPassword)
+$Cred = Get-Credential
+$vmCred = New-Object System.Management.Automation.PSCredential($Cred.UserName, $Cred.Password)
 
 
 New-AzVmss `
@@ -74,7 +75,7 @@ To create autoscale setting using PowerShell, follow the sequence below:
 ### Create rules
 
 Create scale in and scale out rules then associated them with a profile.
-Rules are created using the [`New-AzAutoscaleScaleRuleObject`](https://learn.microsoft.com/powershell/module/az.monitor/new-azautoscalescaleruleobject).
+Rules are created using the [`New-AzAutoscaleScaleRuleObject`](/powershell/module/az.monitor/new-azautoscalescaleruleobject).
 
 The following PowerShell script creates two rules.
 
@@ -134,7 +135,7 @@ The table below describes the parameters used in the `New-AzAutoscaleScaleRuleOb
 
 ### Create a default autoscale profile and associate the rules
 
-After defining the scale rules, create a profile. The profile specifies the default, upper, and lower instance count limits, and the times that the associated rules can be applied. Use the [`New-AzAutoscaleProfileObject`](https://learn.microsoft.com/powershell/module/az.monitor/new-azautoscaleprofileobject) cmdlet to create a new autoscale profile. As this is a default profile, it doesn't have any schedule parameters. The default profile is active at times that no other profiles are active
+After defining the scale rules, create a profile. The profile specifies the default, upper, and lower instance count limits, and the times that the associated rules can be applied. Use the [`New-AzAutoscaleProfileObject`](/powershell/module/az.monitor/new-azautoscaleprofileobject) cmdlet to create a new autoscale profile. As this is a default profile, it doesn't have any schedule parameters. The default profile is active at times that no other profiles are active
 
 ```azurepowershell
 $defaultProfile=New-AzAutoscaleProfileObject `
@@ -163,7 +164,7 @@ The table below describes the parameters used in the `New-AzAutoscaleProfileObje
 
 ### Apply the autoscale settings
 
-After fining the rules and profile, apply the autoscale settings using  [`New-AzAutoscaleSetting`](https://learn.microsoft.com/powershell/module/az.monitor/new-azautoscalesetting). To update existing autoscale setting use [`Update-AzAutoscaleSetting`](https://learn.microsoft.com/powershell/module/az.monitor/add-azautoscalesetting)
+After fining the rules and profile, apply the autoscale settings using  [`New-AzAutoscaleSetting`](/powershell/module/az.monitor/new-azautoscalesetting). To update existing autoscale setting use [`Update-AzAutoscaleSetting`](/powershell/module/az.monitor/add-azautoscalesetting)
 
 ```azurepowershell
 New-AzAutoscaleSetting `
@@ -179,7 +180,7 @@ New-AzAutoscaleSetting `
 ### Add notifications to your autoscale settings  
 
 Add notifications to your sale setting to trigger a webhook or send email notifications when a scale event occurs.
-For more information on webhook notifications, see [`New-AzAutoscaleWebhookNotificationObject`](https://learn.microsoft.com/powershell/module/az.monitor/new-azautoscalewebhooknotificationobject)
+For more information on webhook notifications, see [`New-AzAutoscaleWebhookNotificationObject`](/powershell/module/az.monitor/new-azautoscalewebhooknotificationobject)
 
 Set a webhook using the following cmdlet;
 ```azurepowershell
@@ -187,7 +188,7 @@ Set a webhook using the following cmdlet;
   $webhook1=New-AzAutoscaleWebhookNotificationObject -Property @{} -ServiceUri "http://contoso.com/webhook1"
 ```
 
-Configure the notification using the webhook and set up email notification using the [`New-AzAutoscaleNotificationObject`](https://learn.microsoft.com/powershell/module/az.monitor/new-azautoscalenotificationobject) cmdlet:
+Configure the notification using the webhook and set up email notification using the [`New-AzAutoscaleNotificationObject`](/powershell/module/az.monitor/new-azautoscalenotificationobject) cmdlet:
 
 ```azurepowershell
 
@@ -302,7 +303,7 @@ For more information on scheduled profiles, see [Autoscale with multiple profile
 
 ## Other autoscale commands
 
-For a complete list of PowerShell cmdlets for autoscale, see the [PowerShell Module Browser](https://learn.microsoft.com/powershell/module/?term=azautoscale)
+For a complete list of PowerShell cmdlets for autoscale, see the [PowerShell Module Browser](/powershell/module/?term=azautoscale)
 
 ## Clean up resources
 

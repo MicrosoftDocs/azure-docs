@@ -1,21 +1,21 @@
 ---
 title: Map enrichments in indexers
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Export the enriched content created by a skillset by mapping its output fields to fields in a search index.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 01/18/2024
 ---
 
-# Map enriched output to fields in a search index in Azure Cognitive Search
+# Map enriched output to fields in a search index in Azure AI Search
 
 ![Indexer Stages](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "indexer stages")
 
-This article explains how to set up *output field mappings* that determine a data path between in-memory data structures created during skill processing, and target fields in a search index. An output field mapping is defined in an [indexer](search-indexer-overview.md) and has the following elements:
+This article explains how to set up *output field mappings*, defining a data path between in-memory data structures created during [skillset processing](cognitive-search-concept-intro.md), and target fields in a search index. An output field mapping is defined in an [indexer](search-indexer-overview.md) and has the following elements:
 
 ```json
 "outputFieldMappings": [
@@ -27,7 +27,7 @@ This article explains how to set up *output field mappings* that determine a dat
 ],
 ```
 
-In contrast with a [`fieldMappings`](search-indexer-field-mappings.md) definition that maps a path between two physical data structures, an `outputFieldMappings` definition maps in-memory data to fields in a search index.
+In contrast with a [`fieldMappings`](search-indexer-field-mappings.md) definition that maps a path between two physical data structures, an `outputFieldMappings` definition maps in-memory enrichments to fields in a search index.
 
 Output field mappings are required if your indexer has an attached [skillset](cognitive-search-working-with-skillsets.md) that creates new information, such as text translation or key phrase extraction. During indexer execution, AI-generated information exists in memory only. To persist this information in a search index, you'll need to tell the indexer where to send the data.
 
@@ -37,7 +37,7 @@ Output field mappings apply to:
 
 + In-memory content that's created by skills or extracted by an indexer. The source field is a node in an enriched document tree.
 
-+ Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
++ Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration. If you're populating vector fields, output field mappings aren't used.
 
 Output field mappings are applied after [skillset execution](cognitive-search-working-with-skillsets.md) or after document cracking if there's no associated skillset. 
 
@@ -58,9 +58,9 @@ Output field mappings are added to the `outputFieldMappings` array in an indexer
 
 | Property | Description |
 |----------|-------------|
-| sourceFieldName | Required. Specifies a path to enriched content. An example might be `/document/content`. See [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md) for path syntax and examples. |
+| sourceFieldName | Required. Specifies a path to enriched content. An example might be `/document/content`. See [Reference enrichments in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md) for path syntax and examples. |
 | targetFieldName | Optional. Specifies the search field that receives the enriched content. Target fields must be top-level simple fields or collections. It can't be a path to a subfield in a complex type. If you want to retrieve specific nodes in a complex structure, you can [flatten individual nodes](#flattening-information-from-complex-types) in memory, and then send the output to a string collection in your index. |
-| mappingFunction | Optional. Adds extra processing provided by [mapping functions](search-indexer-field-mappings.md#mappingFunctions) supported by indexers. In the case of enrichment nodes, encoding and decoding are the most commonly used functions. |
+| mappingFunction | Optional. Adds extra processing provided by [mapping functions](search-indexer-field-mappings.md#mappingFunctions) supported by indexers. For enrichment nodes, encoding and decoding are the most commonly used functions. |
 
 You can use the REST API or an Azure SDK to define output field mappings.
 
@@ -103,7 +103,7 @@ api-key: [admin key]
 }
 ```
 
-For each output field mapping, set the location of the data in the enriched document tree (sourceFieldName), and the name of the field as referenced in the index (targetFieldName). Assign any [mapping functions](search-indexer-field-mappings.md#mappingFunctions) that you require to transform the content of a field before it's stored in the index.
+For each output field mapping, set the location of the data in the enriched document tree (sourceFieldName), and the name of the field as referenced in the index (targetFieldName). Assign any [mapping functions](search-indexer-field-mappings.md#mappingFunctions) needed to transform the content of a field before it's stored in the index.
 
 ### [**.NET SDK (C#)**](#tab/csharp)
 
@@ -129,7 +129,6 @@ SearchIndexer indexer = new SearchIndexer(
 
 await indexerClient.CreateIndexerAsync(indexer);
 ```
- -->
 
 ---
 
@@ -258,9 +257,9 @@ The result is the following sample search document, similar to the original in A
 
 An alternative rendering in a search index is to flatten individual nodes in the source's nested structure into a string collection in a search index.
 
-To accomplish this task, you'll need an `outputFieldMapping` that maps an in-memory node to a string collection in the index. Although output field mappings primarily apply to skill outputs, you can also use them to address nodes after ["document cracking"](search-indexer-overview.md#stage-1-document-cracking) where the indexer opens a source document and reads it into memory.
+To accomplish this task, you'll need an `outputFieldMappings` that maps an in-memory node to a string collection in the index. Although output field mappings primarily apply to skill outputs, you can also use them to address nodes after ["document cracking"](search-indexer-overview.md#stage-1-document-cracking) where the indexer opens a source document and reads it into memory.
 
-Below is a sample index definition in Cognitive Search, using string collections to receive flattened output:
+Below is a sample index definition, using string collections to receive flattened output:
 
 ```json
 {

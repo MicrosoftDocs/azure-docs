@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 manager: rochakm
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/10/2020
 ms.author: ankitadutta 
 ms.tool: azure-powershell

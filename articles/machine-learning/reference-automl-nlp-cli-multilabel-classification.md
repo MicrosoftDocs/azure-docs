@@ -4,9 +4,8 @@ titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) automated ML NLP text classification multilabel job YAML schema.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: 
 ms.topic: reference
-ms.custom: cliv2, event-tier1-ignite-2022
+ms.custom: cliv2
 
 ms.author: xiaoxiaoli
 author: xiaoxiaoli
@@ -16,9 +15,9 @@ ms.reviewer: ssalgado
 
 # CLI (v2) Automated ML text classification multilabel job YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 Every Azure Machine Learning entity has a schematized YAML representation. You can create a new entity from a YAML configuration file with a `.yml` or `.yaml` extension.
 

@@ -7,15 +7,11 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 05/27/2024
 ms.author: jianleishen
 ---
 
 # Copy data from and to Oracle by using Azure Data Factory or Azure Synapse Analytics
-
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-onprem-oracle-connector.md)
-> * [Current version](connector-oracle.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -31,7 +27,7 @@ This Oracle connector is supported for the following capabilities:
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 |[Script activity](transform-data-using-script.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -113,43 +109,43 @@ To enable encryption on Oracle connection, you have two options:
 
 -	To use **Triple-DES Encryption (3DES) and Advanced Encryption Standard (AES)**, on the Oracle server side, go to Oracle Advanced Security (OAS) and configure the encryption settings. For details, see this [Oracle documentation](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). The Oracle Application Development Framework (ADF) connector automatically negotiates the encryption method to use the one you configure in OAS when establishing a connection to Oracle.
 
--	To use **TLS**:
+-	To use **TLS**, set up `truststore` for SSL server authentication by applying one of the following three methods:
 
-    1.	Get the TLS/SSL certificate info. Get the Distinguished Encoding Rules (DER)-encoded certificate information of your TLS/SSL cert, and save the output (----- Begin Certificate … End Certificate -----) as a text file.
+    - **Method 1 (recommended)**:
 
-        ```
-        openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
-        ```
+        1.	Install the TLS/SSL certificate by importing it into the local certificate store. The built-in Oracle driver is able to load the needed certificate from the certificate store. 
 
-        **Example:** Extract cert info from DERcert.cer, and then save the output to cert.txt.
+        2.	In the service, configure the Oracle connection string with `EncryptionMethod=1`.
 
-        ```
-        openssl x509 -inform DER -in DERcert.cer -text
-        Output:
-        -----BEGIN CERTIFICATE-----
-        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        XXXXXXXXX
-        -----END CERTIFICATE-----
-        ```
+    - **Method 2**:
+
+        1. Get the TLS/SSL certificate information. Get the Distinguished Encoding Rules (DER)-encoded or Privacy Enhanced Mail (PEM)-encoded certificate information of your TLS/SSL cert.
+
+            ```
+            openssl x509 -inform (DER|PEM) -in [Full Path to the DER/PEM Certificate including the name of the DER/PEM Certificate] -text
+            ```
+
+        2.	In the service, configure the Oracle connection string with `EncryptionMethod=1` and the corresponding `TrustStore` value. For example, `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore= data:// -----BEGIN CERTIFICATE-----<certificate content>-----END CERTIFICATE-----`
+
+            >[!Note]
+            >- The value of the `TrustStore` field should be prefixed with `data://`.
+            >- When specifying content for multiple certificates, specify the content of each certificate between `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`. The number of dashes (`-----`) should be the same before and after both `BEGIN CERTIFICATE` and `END CERTIFICATE`. For example:<br>
+            >`-----BEGIN CERTIFICATE-----<certificate content 1>-----END CERTIFICATE-----`<br>
+            >`-----BEGIN CERTIFICATE-----<certificate content 2>-----END CERTIFICATE-----`<br>
+            >`-----BEGIN CERTIFICATE-----<certificate content 3>-----END CERTIFICATE-----`
+            > - The `TrustStore` field supports content up to 8192 characters in length.
+
+    - **Method 3**:
+        1. Create the `truststore` file with strong ciphers like AES256.
+        
+            ```
+            openssl pkcs12 -in [Full Path to the DER/PEM Certificate including the name of the DER/PEM Certificate] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -keypbe AES-256-CBC -certpbe AES-256-CBC -nokeys -export
+            ```
+        2.	Place the `truststore` file on the self-hosted integration runtime machine. For example, place the file at `C:\MyTrustStoreFile`. 
+        
+        3.	In the service, configure the Oracle connection string with `EncryptionMethod=1` and the corresponding `TrustStore`/`TrustStorePassword` value. For example, `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
     
-    2.	Build the `keystore` or `truststore`. The following command creates the `truststore` file, with or without a password, in PKCS-12 format.
-
-        ```
-        openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
-        ```
-
-        **Example:** Create a PKCS12 `truststore` file, named MyTrustStoreFile, with a password.
-
-        ```
-        openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
-        ```
-
-    3.	Place the `truststore` file on the self-hosted IR machine. For example, place the file at C:\MyTrustStoreFile.
-    4.	In the service, configure the Oracle connection string with `EncryptionMethod=1` and the corresponding `TrustStore`/`TrustStorePassword`value. For example, `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
-
+    
 **Example:**
 
 ```json
@@ -413,5 +409,5 @@ When you copy data from and to Oracle, the following interim data type mappings 
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

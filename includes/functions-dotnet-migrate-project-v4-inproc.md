@@ -8,9 +8,9 @@ ms.author: glenga
 
 The following changes are required in the .csproj XML project file: 
 
-1. Change the value of `PropertyGroup`.`TargetFramework` to `net6.0`.
+1. Set the value of `PropertyGroup`.`TargetFramework` to `net6.0`.
 
-1. Change the value of `PropertyGroup`.`AzureFunctionsVersion` to `v4`.
+1. Set the value of `PropertyGroup`.`AzureFunctionsVersion` to `v4`.
 
 1. Replace the existing `ItemGroup`.`PackageReference` list with the following `ItemGroup`:
 
@@ -19,7 +19,6 @@ The following changes are required in the .csproj XML project file:
 After you make these changes, your updated project should look like the following example:
 
 ```xml
-
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>

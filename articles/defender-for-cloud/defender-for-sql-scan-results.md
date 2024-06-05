@@ -1,7 +1,7 @@
 ---
 title: How to consume and export scan results
 description: Learn how to consume and export Defender for SQL's scan results.
-titleSuffix: Defender for Cloud
+
 ms.topic: how-to
 ms.date: 06/04/2023
 ---
@@ -18,14 +18,14 @@ This article describes several ways to consume and export your scan results.
 
 **To query and export your findings with ARG with Defender for Cloud**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
 1. Search for and select either:
 
     - For Azure SQL databases - `SQL databases should have vulnerability findings resolved`.
-    
+
     - For SQL on machines - `SQL servers on machines should have vulnerability findings resolved`.
 
 1. Select **Open Query**.
@@ -45,7 +45,7 @@ These queries are editable and can be customized to a specific resource, set of 
 
 **To query and export your findings with ARG**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Resource Graph Explorer**.
 
@@ -85,7 +85,7 @@ This query is editable and can be customized to a specific resource, set of find
 
 **To open a query from your SQL database**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to `Your SQL database` > **Microsoft Defender for Cloud**.
 
@@ -121,7 +121,7 @@ Sample email SQL VM:
 
 ## Other options
 
-You can use [workflow automations](workflow-automation.md) to trigger actions based on changes to the recommendation's status.
+You can use [workflow automations](workflow-automation.yml) to trigger actions based on changes to the recommendation's status.
 
 You can also use the [Vulnerability Assessments workbook](defender-for-sql-on-machines-vulnerability-assessment.md#view-vulnerabilities-in-graphical-interactive-reports) to view an interactive report of your findings. The data from the workbook can be exported, and a copy of the workbook can be customized and stored. Learn how to [create rich, interactive reports of Defender for Cloud data](custom-dashboards-azure-workbooks.md)
 

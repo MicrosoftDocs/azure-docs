@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Add VOIP calling to an Android app using Azure Communication Services
 description: In this tutorial, you learn how to use the Azure Communication Services Calling SDK for Android
-author: chpalm
+author: tophpalmer
 ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: include
@@ -36,7 +36,7 @@ From Android Studio, select Start a new Android Studio project.
 
 :::image type="content" source="../../media/android/studio-new-project.png" alt-text="Screenshot showing the 'Start a new Android Studio Project' button selected in Android Studio.":::
 
-Select "Empty Activity" project template under "Phone and Tablet".
+Select "Empty Views Activity" project template under "Phone and Tablet".
 
 :::image type="content" source="../../media/android/studio-blank-activity.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen.":::
 
@@ -48,23 +48,21 @@ Select Minimum SDK of "API 26: Android 8.0 (Oreo)" or greater.
 ### Install the package
 
 <!-- TODO: update with instructions on how to download, install and add package to project -->
-Locate your project level build.gradle and make sure to add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`
+Locate your project `settings.gradle.kts` and make sure to see `mavenCentral()` at the list of repositories under `pluginManagement` and `dependencyResolutionManagement`
 ```groovy
-buildscript {
+pluginManagement {
     repositories {
     ...
         mavenCentral()
     ...
     }
 }
-```
 
-```groovy
-allprojects {
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
     ...
         mavenCentral()
-    ...
     }
 }
 ```
@@ -73,9 +71,7 @@ Then, in your module level build.gradle add the following lines to the dependenc
 ```groovy
 android {
     ...
-    packagingOptions {
-        pickFirst  'META-INF/*'
-    }
+    
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -84,7 +80,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.8'
+    implementation ("com.azure.android:azure-communication-calling:2.6.0")
     ...
 }
 ```
@@ -160,6 +156,7 @@ Two inputs are needed: a text input for the callee ID, and a button for placing 
         android:ems="10"
         android:hint="Callee Id"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/call_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -195,6 +192,7 @@ import com.azure.android.communication.calling.StartCallOptions;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     
@@ -248,13 +246,16 @@ For Android 6.0 and higher (API level 23) and `targetSdkVersion` 23 or higher, p
  * Request each required permission if the app doesn't already have it.
  */
 private void getAllPermissions() {
-    String[] requiredPermissions = new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE};
+    String[] requiredPermissions = new String[]{android.Manifest.permission.RECORD_AUDIO, android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE};
+
     ArrayList<String> permissionsToAskFor = new ArrayList<>();
+
     for (String permission : requiredPermissions) {
         if (ActivityCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
             permissionsToAskFor.add(permission);
         }
     }
+
     if (!permissionsToAskFor.isEmpty()) {
         ActivityCompat.requestPermissions(this, permissionsToAskFor.toArray(new String[0]), 1);
     }
@@ -290,8 +291,8 @@ private void createAgent() {
     String userToken = "<User_Access_Token>";
 
     try {
-        CommunicationTokenCredential credential = new CommunicationTokenCredential(userToken);
-        callAgent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
+            CommunicationTokenCredential credential = new CommunicationTokenCredential(userToken);
+            callAgent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create call agent.", Toast.LENGTH_SHORT).show();
     }
@@ -309,14 +310,15 @@ Placing the call can be done via the call agent, and just requires providing a l
  */
 private void startCall() {
     EditText calleeIdView = findViewById(R.id.callee_id);
-    String calleeId = calleeIdView.getText().toString();
     
+    String calleeId = calleeIdView.getText().toString();
+
     StartCallOptions options = new StartCallOptions();
 
     callAgent.startCall(
-        getApplicationContext(),
-        new CommunicationUserIdentifier[] {new CommunicationUserIdentifier(calleeId)},
-        options);
+            getApplicationContext(),
+            Arrays.asList(new CommunicationUserIdentifier[]{new CommunicationUserIdentifier(calleeId)}),
+            options);
 }
 ```
 

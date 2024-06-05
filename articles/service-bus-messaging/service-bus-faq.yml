@@ -4,8 +4,7 @@ metadata:
   description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
   ms.topic: faq
   ms.service: service-bus-messaging
-  ms.custom: ignite-2022
-  ms.date: 02/16/2022
+  ms.date: 12/13/2023
 title: Azure Service Bus - Frequently asked questions (FAQ)
 summary: |
   This article discusses some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing and support information.
@@ -64,12 +63,20 @@ sections:
           | AMQP | 5671, 5672 | AMQP with TLS. See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
           | HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets |
           
-          The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
+          The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Microsoft Entra ID (when used) run over HTTPS. 
           
           The official Azure SDKs generally use the AMQP protocol for sending and receiving messages from Service Bus. 
           
           [!INCLUDE [service-bus-websockets-options](./includes/service-bus-websockets-options.md)]          
-         
+
+      - question: |
+          Does Azure Service Bus support Java Message Service (JMS)?
+        answer: |
+          Yes. It does. See the following articles:
+
+          - [Use JMS 2.0 API with Azure Service Bus Premium](how-to-use-java-message-service-20.md)
+          - [JMS developer guide](jms-developer-guide.md)
+
       - question: |
           What IP addresses do I need to add to allowlist?
         answer: |
@@ -82,7 +89,7 @@ sections:
               ```
           2. Note down the IP address returned in `Non-authoritative answer`. 
           
-          If you use the **zone redundancy** for your namespace, you need to do a few additional steps: 
+          If you use the **zone redundancy** for your namespace, you need to do a few extra steps: 
           
           1. First, you run nslookup on the namespace.
           
@@ -99,7 +106,7 @@ sections:
           3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
           
               > [!NOTE]
-              > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
+              > The IP address returned by the `nslookup` command isn't a static IP address. It remains constant until the underlying deployment is deleted or moved to a different cluster, however using IN addresses is not recommended or supported, and you will need to keep track of changes to the IP addresses.
           
       - question: |
           Where can I find the IP address of the client sending/receiving messages to/from a namespace? 
@@ -118,7 +125,7 @@ sections:
       - question: |
           What should I know before creating entities?
         answer: |
-          The following properties of a queue and topic are immutable. Consider this limitation when you provision your entities, as these properties can't be modified without creating a new replacement entity.
+          The following properties of a queue and topic are immutable. Consider this limitation when you create your entities, as these properties can't be modified without creating a new replacement entity.
           
           * Partitioning
           * Sessions
@@ -149,13 +156,13 @@ sections:
           No. Service Bus doesn't charge for storage. However, there's a quota limiting the maximum amount of data that can be persisted per queue/topic. See the next FAQ.
 
       - question: |
-          I have a Service Bus Standard namespace. Why do I see charges under resource group '$system'?
+          I have a Service Bus Standard namespace. Why do I see charges under resource group `$system`?
         answer: |
-          Azure Service Bus recently upgraded the billing components. Because of this change, if you have a Service Bus Standard namespace, you may see line items for the resource '/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' under resource group '$system'.
+          Azure Service Bus recently upgraded the billing components. Because of this change, if you have a Service Bus Standard namespace, you might see line items for the resource `/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system` under resource group `$system`.
           
           These charges represent the base charge per Azure subscription that has provisioned a Service Bus Standard namespace. 
           
-          It's important to note that these charges aren't new, that is, they existed in the previous billing model too. The only change is that they're now listed under '$system'. It's done because of constraints in the new billing system that groups subscription level charges, not tied to a specific resource, under the '$system' resource ID.
+          It's important to note that these charges aren't new, that is, they existed in the previous billing model too. The only change is that they're now listed under `$system`. It's done because of constraints in the new billing system that groups subscription level charges, not tied to a specific resource, under the `$system` resource ID.
           
           ## Quotas
 
@@ -171,7 +178,7 @@ sections:
       - question: |
           Why am I not able to create a namespace after deleting it from another subscription? 
         answer: |
-          When you delete a namespace from a subscription, wait for 4 hours before recreating it with the same name in another subscription. Otherwise, you may receive the following error message: `Namespace already exists`. 
+          When you delete a namespace from a subscription, wait for 4 hours before recreating it with the same name in another subscription. Otherwise, you might receive the following error message: `Namespace already exists`. 
           
       - question: |
           What are some of the exceptions generated by Azure Service Bus APIs and their suggested actions?

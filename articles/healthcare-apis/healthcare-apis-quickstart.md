@@ -1,18 +1,18 @@
 ---
 title: Deploy workspace in the Azure portal - Azure Health Data Services
 description: This document teaches users how to deploy a workspace in the Azure portal.
-author: mikaelweave
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 06/06/2022
-ms.author: mikaelw
+ms.author: chrupa
 ms.custom: mode-api
 ---
 
 # Deploy Azure Health Data Services workspace using Azure portal
 
-In this article, you’ll learn how to create a workspace by deploying Azure Health Data Services through the Azure portal. The workspace is a centralized logical container for all your Azure Health Data services such as FHIR services, DICOM® services, and MedTech services. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
+In this article, you’ll learn how to create a workspace by deploying Azure Health Data Services through the Azure portal. The workspace is a centralized logical container for all your Azure Health Data services such as FHIR&reg; services, DICOM&reg; services, and MedTech services. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
 
 
 ## Prerequisite
@@ -66,28 +66,17 @@ Select **Create** to create a new Azure Health Data Services account.
 
     You now can create a FHIR service, DICOM service, and MedTech service from the newly deployed Azure Health Data Services workspace.
 
-[ ![Screenshot of the newly deployed Azure Health Data Services workspace.](media/deploy-health-data-services-workspace.png) ](media/deploy-health-data-services-workspace.png#lightbox)
+   [ ![Screenshot of the newly deployed Azure Health Data Services workspace.](media/deploy-health-data-services-workspace.png) ](media/deploy-health-data-services-workspace.png#lightbox)
 
 
 ## Next steps
 
-Now that the workspace is created, you can do the following:
+[Deploy the FHIR service](./../healthcare-apis/fhir/fhir-portal-quickstart.md)
 
->[!div class="nextstepaction"]
->[Deploy FHIR service](./../healthcare-apis/fhir/fhir-portal-quickstart.md)
+[Deploy the DICOM service](./../healthcare-apis/dicom/deploy-dicom-services-in-azure.md)
 
->[!div class="nextstepaction"]
->[Deploy DICOM service](./../healthcare-apis/dicom/deploy-dicom-services-in-azure.md)
+[Deploy a MedTech service and ingest data to your FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md)
 
->[!div class="nextstepaction"]
->[Deploy a MedTech service and ingest data to your FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md)
+[Convert data to FHIR](./../healthcare-apis/fhir/convert-data-overview.md)
 
->[!div class="nextstepaction"]
->[Convert your data to FHIR](./../healthcare-apis/fhir/convert-data.md)
-
-For more information about Azure Health Data Services workspace, see
-
->[!div class="nextstepaction"]
->[Workspace overview](workspace-overview.md)
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR and DICOM trademark statement](./includes/healthcare-apis-fhir-dicom-trademark.md)]

@@ -5,8 +5,7 @@ author: kromerm
 ms.author: aamerril
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.custom: seo-lt-2021
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # AdventureWorks template documentation
@@ -50,11 +49,11 @@ With the databases created, ensure the dataflows are pointing to the correct tab
 ## Troubleshoot the pipelines
 If the pipeline fails to run successfully, there's a few main things to check for errors.
 
-* Dataset schema. Make sure the data settings for the CSV files are accurate. If you included row headers, make sure the how headers option is checked on the database table.
+* Dataset schema. Make sure the data settings for the CSV files are accurate. If you included row headers, make sure the row headers option is checked on the database table.
 * Data flow sources. If you used different column or table names than what were provided in the example schema, you'll need to step through the data flows to verify that the columns are mapped correctly.
 * Data flow sink. The schema and data format configurations on the target database will need to match the data flow template. Like above, if any changes were made you those items will need to be aligned.
 
-## Next steps
+## Related content
 
 * Learn more about [mapping data flows](concepts-data-flow-overview.md).
 * Learn more about [pipeline templates](solution-templates-introduction.md)

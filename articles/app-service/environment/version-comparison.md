@@ -2,7 +2,7 @@
 title: 'App Service Environment version comparison'
 description: This article provides an overview of the App Service Environment versions and feature differences between them.
 author: seligj95
-ms.date: 3/30/2023
+ms.date: 4/22/2024
 ms.author: jordanselig
 ms.topic: article
 ---
@@ -12,7 +12,12 @@ ms.topic: article
 App Service Environment has three versions. App Service Environment v3 is the latest version and provides advantages and feature differences over earlier versions.
 
 > [!IMPORTANT]
-> App Service Environment v1 and v2 [will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024/). After that date, those versions will no longer be supported and any remaining App Service Environment v1 and v2s and the applications running on them will be deleted.
+> App Service Environment v1 and v2 [will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). After that date, those versions will no longer be supported and any remaining App Service Environment v1 and v2s and the applications running on them will be deleted. 
+
+There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1 or v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+>
+> As of 29 January 2024, you can no longer create new App Service Environment v1 or v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
+>
 
 ## Comparison between versions
 
@@ -27,6 +32,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 |Dedicated host group     |No         |No         |[Yes](creation.md#deployment-considerations) (not compatible with zone redundancy)         |
 |Upgrade preference for planned maintenance    |No         |No         |[Yes](how-to-upgrade-preference.md)         |
 |FTPS     |Yes         |Yes         |Yes, [must be explicitly enabled](configure-network-settings.md#ftp-access). Access to FTPS endpoint using custom domain suffix isn't supported.         |
+|FTPS endpoint structure     |ftps://APP-NAME.ASE-NAME.appserviceenvironment.net        |ftps://APP-NAME.ASE-NAME.appserviceenvironment.net - Custom domain suffix is supported if you have one configured by replacing the App Service Environment name and the default domain suffix with your custom domain suffix.        |ftps://ASE-NAME.ftp.appserviceenvironment.net/site/wwwroot - Custom domain suffix isn't supported. Each app on the same App Service Environment v3 uses the same FTPS endpoint but has its own unique application scope credentials for authentication.        |
 |Remote debugging     |Yes         |Yes         |Yes, [must be explicitly enabled](configure-network-settings.md#remote-debugging-access)         |
 |[Azure virtual network (classic)](../../virtual-network/create-virtual-network-classic.md) support    |Yes         |No         |No         |
 
@@ -35,14 +41,14 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
-|Networking dependencies     |Must [manage all inbound and outbound traffic](app-service-app-service-environment-network-architecture-overview.md). Network security groups must allow management traffic.         |Must [manage all inbound and outbound traffic](network-info.md). Network security groups must allow management traffic.         |No [networking dependencies](networking.md) on the customer's virtual network         |
+|Networking dependencies     |Must [manage all inbound and outbound traffic](app-service-app-service-environment-network-architecture-overview.md). Network security groups must allow management traffic.         |Must [manage all inbound and outbound traffic](network-info.md). Network security groups must allow management traffic. Ensure that [Azure Load Balancer is able to connect to the subnet on port 16001](network-info.md#inbound-dependencies).        |No [networking dependencies](networking.md) on the customer's virtual network. Ensure that [Azure Load Balancer is able to connect to the subnet on port 80](networking.md#ports-and-network-restrictions).         |
 |Private endpoint support     |No         |No         |Yes, [must be explicitly enabled](networking.md#private-endpoint)         |
 |Reach apps in an internal-VIP App Service Environment across global peering     |No         |No         |Yes         |
 |SMTP traffic     |Yes         |Yes         |Yes         |
 |Network watcher or NSG flow logs to monitor traffic    |Yes         |Yes         |Yes         |
 |Subnet delegation   |Not required         |Not required         |[Must be delegated to `Microsoft.Web/hostingEnvironments`](networking.md#subnet-requirements)       |
 |Subnet size|An App Service Environment v1 with no App Service plans uses 12 addresses before you create an app. If you use an ILB App Service Environment v1, then it uses 13 addresses before you create an app. As you scale out, infrastructure roles are added at every multiple of 15 and 20 of your App Service plan instances.  |An App Service Environment v2 with no App Service plans uses 12 addresses before you create an app. If you use an ILB App Service Environment v2, then it uses 13 addresses before you create an app. As you scale out, infrastructure roles are added at every multiple of 15 and 20 of your App Service plan instances.  |Any particular subnet has five addresses reserved for management purposes. In addition to the management addresses, App Service Environment v3 dynamically scales the supporting infrastructure, and uses between 4 and 27 addresses, depending on the configuration and load. You can use the remaining addresses for instances in the App Service plan. The minimal size of your subnet can be a /27 address space (32 addresses).  |
-|DNS fallback |Azure DNS |Azure DNS |[Ensure that you have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers](migrate.md#migration-feature-limitations) |
+|DNS fallback |Azure DNS |Azure DNS |[Ensure that you have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers](migrate.md#in-place-migration-feature-limitations) |
 
 ### Scaling
 
@@ -58,7 +64,8 @@ App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](../..
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
 |IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps     |Yes         |Yes         |No         |
-|Custom domain suffix    |Yes         |Yes (only supported with certain API versions)         |[Yes](how-to-custom-domain-suffix.md)         |
+|Custom domain suffix    |Yes (requires SNI based TLS connection)        |Yes (only supported with certain API versions)         |[Yes](how-to-custom-domain-suffix.md)         |
+|Default host name|If you have a custom domain suffix, the default host name includes your custom domain suffix and is in the form *APP-NAME.internal.contoso.com*. |If you have a custom domain suffix, the default host name includes your custom domain suffix and is in the form *APP-NAME.internal.contoso.com*. |The default host name always uses the App Service Environment default domain suffix and is in the form *APP-NAME.ASE-NAME.appserviceenvironment.net*. App Service Environment v3 keeps the default domain suffix when you add a custom domain suffix. If you add a custom domain suffix, the custom domain suffix configuration is under the `customDnsSuffixConfiguration` property. |
 |Support for App Service Managed Certificates   |No         |No         |No        |
 
 ### Backup and restore
@@ -159,7 +166,7 @@ This limitation is a result of the underlying infrastructure change that was imp
 
 The custom domain suffix is for the App Service Environment. It's available on App Service Environment v1 and v3, but was removed from App Service Environment v2. 
 
-It's different from a custom domain binding on App Service. The custom domain suffix defines a root domain that can be used by the App Service Environment. In the public variation of Azure App Service, the default root domain for all web apps is azurewebsites.net. For ILB App Service Environments, the default root domain is appserviceenvironment.net. However, since an ILB App Service Environment is internal to a customer's virtual network, customers can use a root domain in addition to the default one that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of internal-contoso.com for apps that are intended to only be resolvable and accessible within Contoso's virtual network. An app in this virtual network could be reached by accessing APP-NAME.internal-contoso.com.
+It's different from a custom domain binding on App Service. The custom domain suffix defines a root domain that can be used by the App Service Environment. In the public variation of Azure App Service, the default root domain for all web apps is azurewebsites.net. For ILB App Service Environments, the default root domain is appserviceenvironment.net. However, since an ILB App Service Environment is internal to a customer's virtual network, customers can use a root domain in addition to the default one that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of internal.contoso.com for apps that are intended to only be resolvable and accessible within Contoso's virtual network. An app in this virtual network could be reached by accessing APP-NAME.internal.contoso.com.
 
 For more information on custom domain suffix, see [Custom domain suffix for App Service Environments](how-to-custom-domain-suffix.md).
 
@@ -180,5 +187,3 @@ Due to hardware changes between the versions, there are some regions where App S
 
 > [!div class="nextstepaction"]
 > [Using an App Service Environment v3](using.md)
-
-

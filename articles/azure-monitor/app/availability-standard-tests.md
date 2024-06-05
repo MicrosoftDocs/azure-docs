@@ -2,14 +2,15 @@
 title: Availability Standard test - Azure Monitor Application Insights
 description: Set up Standard tests in Application Insights to check for availability of a website with a single request test. 
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 09/12/2023
+ms.reviewer: cogoodson
 ---
 
 # Standard test
 
 A Standard test is a type of availability test that checks the availability of a website by sending a single request. In addition to validating whether an endpoint is responding and measuring the performance, Standard tests also include SSL certificate validity, proactive lifetime check, HTTP request verb (for example, `GET`,`HEAD`, and `POST`), custom headers, and custom data associated with your HTTP request.
 
-To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
+To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-workspace-resource.md).
 
 > [!TIP]
 > If you're currently using other availability tests, like URL ping tests, you might add Standard tests alongside the others. If you want to use Standard tests instead of one of your other tests, add a Standard test and delete your old test.
@@ -28,12 +29,12 @@ To create a Standard test:
     |Setting | Description |
     |--------|-------------|
     |**URL** |  The URL can be any webpage you want to test, but it must be visible from the public internet. The URL can include a query string. So, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.|
-    |**Parse dependent requests**| Test requests images, scripts, style files, and other files that are part of the webpage under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources can't be successfully downloaded within the timeout for the whole test. If the option isn't selected, the test only requests the file at the URL you specified. Enabling this option results in a stricter check. The test could fail for cases, which might not be noticeable when you manually browse the site. |
+    |**Parse dependent requests**| Test requests images, scripts, style files, and other files that are part of the webpage under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources can't be successfully downloaded within the timeout for the whole test. If the option isn't selected, the test only requests the file at the URL you specified. Enabling this option results in a stricter check. The test could fail for cases, which might not be noticeable when you manually browse the site. Please note, we parse only up to 15 dependent requests. |
     |**Enable retries**| When the test fails, it's retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. *We recommend this option*. On average, about 80% of failures disappear on retry.|
     | **SSL certificate validation test** | You can verify the SSL certificate on your website to make sure it's correctly installed, valid, trusted, and doesn't give any errors to any of your users. |
     | **Proactive lifetime check** | This setting enables you to define a set time period before your SSL certificate expires. After it expires, your test will fail. |
     |**Test frequency**| Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.|
-    |**Test locations**|  The places from where our servers send web requests to your URL. *Our minimum number of recommended test locations is five* to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.|
+    |**Test locations**|  Our servers send web requests to your URL from these locations. *Our minimum number of recommended test locations is five* to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.|
     | **Custom headers** | Key value pairs that define the operating parameters. |
     | **HTTP request verb** | Indicate what action you want to take with your request. |
     | **Request body** | Custom data associated with your HTTP request. You can upload your own files, enter your content, or disable this feature. |
@@ -67,7 +68,7 @@ You can use the following population tags for the geo-location attribute when yo
 | USDoD East     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
 
-### Azure China
+### Microsoft Azure operated by 21Vianet
 
 | Display name   | Population name     |
 |----------------|---------------------|
@@ -133,7 +134,7 @@ From an availability test result, you can see the transaction details across all
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
-To learn more about the end-to-end transaction diagnostics experience, see the [transaction diagnostics documentation](./transaction-diagnostics.md).
+To learn more about the end-to-end transaction diagnostics experience, see the [transaction diagnostics documentation](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics).
 
 Select the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code-level diagnostics.
 

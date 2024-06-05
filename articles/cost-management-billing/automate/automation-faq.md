@@ -3,11 +3,11 @@ title: Microsoft Cost Management automation FAQ
 description: This FAQ is a list of frequently asked questions and answers about Cost Management automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 11/17/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Cost Management automation FAQ
@@ -60,10 +60,6 @@ These APIs provide a different view of the same data:
 
 See [Migrate from EA to MCA APIs](../costs/migrate-cost-management-api.md).
 
-### When will the [Enterprise Reporting APIs](../manage/enterprise-api.md) get turned off?
-
-The Enterprise Reporting APIs are deprecated. The date that the API will be turned off is still being determined. We recommend that you migrate away from the APIs as soon as possible. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
-
 ### When will the [Consumption Usage Details API](/rest/api/consumption/usage-details/list) get turned off?
 
 The Consumption Usage Details API is deprecated. The date that the API will bet turned off is still being determined. We recommend that you migrate away from the API as soon as possible. For more information, see [Migrate from Consumption Usage Details API](migrate-consumption-usage-details-api.md).
@@ -76,6 +72,6 @@ The Marketplaces API is deprecated. The date that the API will be turned off is 
 
 The Forecasts API is deprecated. The date that the API will be turned off is still being determined. Data from the API is available in the [Cost Management Forecast API](/rest/api/cost-management/forecast). We recommend that you migrate to it as soon as possible.
 
-## Next steps
+## Related content
 
 - Learn more about Cost Management + Billing automation at [Cost Management automation overview](automation-overview.md).

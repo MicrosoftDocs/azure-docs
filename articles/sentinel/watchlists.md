@@ -1,13 +1,18 @@
 ---
-title: What is a watchlist - Microsoft Sentinel
-description: Learn what watchlists are in Microsoft and when to use them.
+title: Watchlists in Microsoft Sentinel
+titleSuffix: Microsoft Sentinel
+description: Learn how watchlists allow you to correlate data with events and when to use them in Microsoft Sentinel.
 author: cwatson-cat
 ms.author: cwatson
-ms.topic: conceptual
-ms.date: 01/05/2023
+ms.topic: concept-article
+ms.date: 3/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
-# Use watchlists in Microsoft Sentinel
+# Watchlists in Microsoft Sentinel
 
 Watchlists in Microsoft Sentinel allow you to correlate data from a data source you provide with the events in your Microsoft Sentinel environment. For example, you might create a watchlist with a list of high-value assets, terminated employees, or service accounts in your environment.
 
@@ -35,11 +40,14 @@ Use watchlists to help you with following scenarios:
 
 Before you create a watchlist, be aware of the following limitations:
 
+- When you create a watchlist, the watchlist name and alias must each be between 3 and 64 characters. The first and last characters must be alphanumeric. But you can include whitespaces, hyphens, and underscores in between the first and last characters.
 - The use of watchlists should be limited to reference data, as they aren't designed for large data volumes.
 - The **total number of active watchlist items** across all watchlists in a single workspace is currently limited to **10 million**. Deleted watchlist items don't count against this total. If you require the ability to reference large data volumes, consider ingesting them using [custom logs](../azure-monitor/agents/data-sources-custom-logs.md) instead.
-- Watchlists can only be referenced from within the same workspace. Cross-workspace and/or Lighthouse scenarios are currently not supported.
+- Watchlists are refreshed in your workspace every 12 days, updating the `TimeGenerated` field.
+- Using Lighthouse to manage watchlists across different workspaces is not supported at this time.
 - Local file uploads are currently limited to files of up to 3.8 MB in size.
 - File uploads from an Azure Storage account (in preview) are currently limited to files up to 500 MB in size.
+- Watchlists must adhere to the same column and table restrictions as KQL entities. For more information, see [KQL entity names](/azure/data-explorer/kusto/query/schema-entities/entity-names).
 
 ## Options to create watchlists
 
@@ -57,9 +65,9 @@ For more information, see the following articles:
 
 ## Watchlists in queries for searches and detection rules
 
-Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country names and their respective two-letter country codes. You expect to use the country codes often for search or joins. So you use the country code column as the search key.
+Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
 
-The following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named mywatchlist.
+The following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named `mywatchlist`.
 
   ```kusto
      Heartbeat
@@ -69,14 +77,14 @@ The following example query joins the `RemoteIPCountry` column in the `Heartbeat
 
 Let's look some other example queries. 
 
-Suppose you want to use a watchlist in an analytics rule. You create a watchlist called “ipwatchlist” that includes columns for "IPAddress" and "Location". You define "IPAddress" as the search key.
+Suppose you want to use a watchlist in an analytics rule. You create a watchlist called `ipwatchlist` that includes columns for `IPAddress` and `Location`. You define `IPAddress` as the **SearchKey**.
 
-   |IPAddress,Location   |
+   |`IPAddress,Location`   |
    |---------|
-   | 10.0.100.11,Home     |
-   |172.16.107.23,Work     |
-   |10.0.150.39,Home     |
-   |172.20.32.117,Work   |
+   |`10.0.100.11,Home`     |
+   |`172.16.107.23,Work`   |
+   |`10.0.150.39,Home`     |
+   |`172.20.32.117,Work`   |
 
 To only include events from IP addresses in the watchlist, you might use a query where watchlist is used as a variable or where the watchlist is used inline. 
 

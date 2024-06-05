@@ -2,21 +2,22 @@
 title: Azure API Management policy reference - validate-jwt | Microsoft Docs
 description: Reference for the validate-jwt policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Validate JWT
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `validate-jwt` policy enforces existence and validity of a supported JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
 
 > [!NOTE]
->  To validate a JWT that was provided by the Azure Active Directory service, API Management also provides the [`validate-azure-ad-token`](validate-azure-ad-token-policy.md) policy. 
+>  To validate a JWT that was provided by the Microsoft Entra service, API Management also provides the [`validate-azure-ad-token`](validate-azure-ad-token-policy.md) policy. 
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
@@ -83,9 +84,9 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 | Element             | Description                                                                                                                                                                                                                                                                                                                                           | Required |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| openid-config       |Add one or more of these elements to specify a compliant OpenID configuration endpoint URL from which signing keys and issuer can be obtained.<br/><br/>Configuration including the JSON Web Key Set (JWKS) is pulled from the endpoint every 1 hour and cached. If the token being validated references a validation key (using `kid` claim) that is missing in cached configuration, or if retrieval fails, API Management pulls from the endpoint at most once per 5 min. These intervals are subject to change without notice.                                                                                                                                              <br/><br/>The response should be according to specs as defined at URL: `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. <br/><br/>For Azure Active Directory use the OpenID Connect [metadata endpoint](../active-directory/develop/v2-protocols-oidc.md#find-your-apps-openid-configuration-document-uri) configured in your app registration such as:<br/>- (v2) `https://login.microsoftonline.com/{tenant-name}/v2.0/.well-known/openid-configuration`<br/> - (v2 multitenant) ` https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration`<br/>- (v1) `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` <br/><br/> substituting your directory tenant name or ID, for example `contoso.onmicrosoft.com`, for `{tenant-name}`.                                                                                                                                                                                            | No       |
-| issuer-signing-keys | A list of Base64-encoded security keys, in [`key`](#key-attributes) subelements, used to validate signed tokens. If multiple security keys are present, then each key is tried until either all are exhausted (in which case validation fails) or one succeeds (useful for token rollover). <br/><br/>Optionally specify a key by using the `id` attribute to match a `kid` claim. To validate an RS256 signed token, optionally specify the public key using a `certificate-id` attribute with value the identifier of a certificate uploaded to API Management, or the RSA modulus `n` and exponent `e` pair of the RS256 signing key-in Base64url-encoded format.               | No       |
-| decryption-keys     | A list of Base64-encoded keys, in [`key`](#key-attributes) subelements, used to decrypt the tokens. If multiple security keys are present, then each key is tried until either all keys are exhausted (in which case validation fails) or a key succeeds.<br/><br/>Optionally specify a key by using the `id` attribute to match a `kid` claim. To decrypt an RS256 signed token, optionally specify the public key using a `certificate-id` attribute with value the identifier of a certificate uploaded to API Management.         | No       |
+| openid-config       |Add one or more of these elements to specify a compliant OpenID configuration endpoint URL from which signing keys and issuer can be obtained.<br/><br/>Configuration including the JSON Web Key Set (JWKS) is pulled from the endpoint every 1 hour and cached. If the token being validated references a validation key (using `kid` claim) that is missing in cached configuration, or if retrieval fails, API Management pulls from the endpoint at most once per 5 min. These intervals are subject to change without notice.                                                                                                                                              <br/><br/>The response should be according to specs as defined at URL: `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. <br/><br/>For Microsoft Entra ID use the OpenID Connect [metadata endpoint](../active-directory/develop/v2-protocols-oidc.md#find-your-apps-openid-configuration-document-uri) configured in your app registration such as:<br/>- v2 `https://login.microsoftonline.com/{tenant-name}/v2.0/.well-known/openid-configuration`<br/>- v2 Multi-Tenant ` https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration`<br/>- v1 `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` <br/>- Customer tenant (preview) `https://{tenant-name}.ciamlogin.com/{tenant-id}/v2.0/.well-known/openid-configuration` <br/><br/> Substituting your directory tenant name or ID, for example `contoso.onmicrosoft.com`, for `{tenant-name}`.                                                                                                                                                                                            | No       |
+| issuer-signing-keys | A list of Base64-encoded security keys, in [`key`](#key-attributes) subelements, used to validate signed tokens. If multiple security keys are present, then each key is tried until either all are exhausted (in which case validation fails) or one succeeds (useful for token rollover). <br/><br/>Optionally specify a key by using the `id` attribute to match a `kid` claim. To validate an token signed with an asymmetric key, optionally specify the public key using a `certificate-id` attribute with value the identifier of a certificate uploaded to API Management, or the RSA modulus `n` and exponent `e` pair of the signing key in Base64url-encoded format.               | No       |
+| decryption-keys     | A list of Base64-encoded keys, in [`key`](#key-attributes) subelements, used to decrypt the tokens. If multiple security keys are present, then each key is tried until either all keys are exhausted (in which case validation fails) or a key succeeds.<br/><br/>Optionally specify a key by using the `id` attribute to match a `kid` claim. To decrypt a token encrypted with an asymmetric key, optionally specify the public key using a `certificate-id` attribute with value the identifier of a certificate uploaded to API Management, or the RSA modulus `n` and exponent `e` pair of the key in Base64url-encoded format.         | No       |
 | audiences           | A list of acceptable audience claims, in `audience` subelements, that can be present on the token. If multiple audience values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. At least one audience must be specified.                                                                     | No       |
 | issuers             | A list of acceptable principals, in `issuer` subelements, that issued the token. If multiple issuer values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds.                                                                                                                                         | No       |
 | required-claims     | A list of claims, in [`claim`](#claim-attributes) subelements, expected to be present on the token for it to be considered valid. When multiple claims are present, the token must match claim values according to the value of the `match` attribute. | No       |
@@ -94,9 +95,9 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 | Attribute                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required                                                                         | Default                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | id  | String. Identifier used to match `kid` claim presented in JWT.  | No | N/A |
-| certificate-id  | Identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management, used to specify the public key to verify an RS256 signed token.    | No | N/A |
-| n | Modulus of the public key used to verify the issuer of an RS256 signed token. Must be specified with the value of the exponent `e`.| No | N/A|
-| e | Exponent of the public key used to verify the issuer an RS256 signed token. Must be specified with the value of the modulus `n`. | No | N/A|
+| certificate-id  | Identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management, used to specify the public key to verify a token signed with an asymmetric key.   | No | N/A |
+| n | Modulus of the public key used to verify the issuer of a token signed with an asymmetric key. Must be specified with the value of the exponent `e`. Policy expressions aren't allowed. | No | N/A|
+| e | Exponent of the public key used to verify the issuer of a token signed with an asymmetric key. Must be specified with the value of the modulus `n`. Policy expressions aren't allowed. | No | N/A|
 
 
 
@@ -110,18 +111,19 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
 * The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
-* The policy supports HS256 and RS256 signing algorithms: 
-    * **HS256** - the key must be provided inline within the policy in the Base64-encoded form. 
-    * **RS256** - the key may be provided either via an OpenID configuration endpoint, or by providing the ID of an uploaded certificate (in PFX format) that contains the public key, or the modulus-exponent pair of the public key.
-* The policy supports tokens encrypted with symmetric keys using the following encryption algorithms: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+* The policy supports both symmetric and asymmetric signing algorithms: 
+    * **Symmetric** - The following encryption algorithms are supported: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+    	* If used in the policy, the key must be provided inline within the policy in the Base64-encoded form.
+    * **Asymmetric** - The following encryption algortithms are supported: PS256, RS256, RS512. 
+    	* If used in the policy, the key may be provided either via an OpenID configuration endpoint, or by providing the ID of an uploaded certificate (in PFX format) that contains the public key, or the modulus-exponent pair of the public key.
 * To configure the policy with one or more OpenID configuration endpoints for use with a self-hosted gateway, the OpenID configuration endpoints URLs must also be reachable by the cloud gateway.
-* You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Azure AD authentication by applying the `validate-jwt` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
-
+* You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Microsoft Entra authentication by applying the `validate-jwt` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
+* When using a custom header (`header-name`), the configured required scheme (`require-scheme`) will be ignored. To use a required scheme, JWT tokens must be provided in the `Authorization` header.
 
 ## Examples
 
@@ -157,19 +159,34 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 </validate-jwt>
 ```
 
-### Azure Active Directory token validation
+<a name='azure-active-directory-token-validation'></a>
+
+### Microsoft Entra ID single tenant token validation
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
     <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration" />
     <audiences>
-        <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
+        <audience>00001111-aaaa-2222-bbbb-3333cccc4444</audience>
     </audiences>
     <required-claims>
         <claim name="id" match="all">
             <value>insert claim here</value>
         </claim>
     </required-claims>
+</validate-jwt>
+```
+
+### Microsoft Entra ID customer tenant token validation
+
+```xml
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
+	<openid-config url="https://<tenant-name>.ciamlogin.com/<tenant-id>/v2.0/.well-known/openid-configuration" />
+	<required-claims>
+		<claim name="azp" match="all">
+			<value>insert claim here</value>
+		</claim>
+	</required-claims>
 </validate-jwt>
 ```
 
@@ -179,7 +196,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
     <openid-config url="https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/b2c_1_signin/v2.0/.well-known/openid-configuration" />
     <audiences>
-        <audience>d313c4e4-de5f-4197-9470-e509a2f0b806</audience>
+        <audience>11112222-bbbb-3333-cccc-4444dddd5555</audience>
     </audiences>
     <required-claims>
         <claim name="id" match="all">
@@ -188,6 +205,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
     </required-claims>
 </validate-jwt>
 ```
+
 
 ### Authorize access to operations based on token claims
 
@@ -221,7 +239,7 @@ This example shows how to use the `validate-jwt` policy to authorize access to o
 ```
 
 ## Related policies 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 
 

@@ -3,8 +3,8 @@ title: Apache Spark and Apache Kafka with Azure Cosmos DB - Azure HDInsight
 description: Learn how to use Apache Spark Structured Streaming to read data from Apache Kafka and then store it into Azure Cosmos DB. In this example, you stream data using a Jupyter Notebook from Spark on HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli, ignite-2022
-ms.date: 11/16/2022
+ms.custom: hdinsightactive, devx-track-azurecli
+ms.date: 12/05/2023
 ---
 
 # Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB
@@ -26,7 +26,7 @@ Spark structured streaming is a stream processing engine built on Spark SQL. It 
 
 Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka and Spark clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
 
-:::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network" border="false":::
+:::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network." border="false":::
 
 > [!NOTE]  
 > The Kafka service is limited to communication within the virtual network. Other services on the cluster, such as SSH and Ambari, can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -68,7 +68,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     |Ssh User Name|The SSH user to create for the Spark and Kafka clusters.|
     |Ssh Password|The password for the SSH user for the Spark and Kafka clusters.|
 
-    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters-40.png" alt-text="HDInsight version 4.0 custom deployment values":::
+    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters-40.png" alt-text="HDInsight version 4.0 custom deployment values.":::
 
 1. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 

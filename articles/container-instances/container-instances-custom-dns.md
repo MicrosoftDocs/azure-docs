@@ -12,9 +12,9 @@ ms.date: 05/25/2022
 
 # Deploy a container group with custom DNS settings
 
-In [Azure Virtual Network](../virtual-network/virtual-networks-overview.md), you can deploy container groups using the `az container create` command in the Azure CLI. You can also provide advanced configuration settings to the `az container create` command using a YAML configuration file.  
+In [Azure Virtual Network](../virtual-network/virtual-networks-overview.md), you can deploy container groups using the `az container create` command in the Azure CLI. You can also provide advanced configuration settings to the `az container create` command using a YAML configuration file.
 
-This article demonstrates how to deploy a container group with custom DNS settings using a YAML configuration file.  
+This article demonstrates how to deploy a container group with custom DNS settings using a YAML configuration file.
 
 For more information on deploying container groups to a virtual network, see the [Deploy in a virtual network article](container-instances-vnet.md).
 
@@ -84,9 +84,9 @@ If you have an existing virtual network that meets these criteria, you can skip 
 1. Link the DNS zone to your virtual network using the [az network private-dns link vnet create][az-network-private-dns-link-vnet-create] command. The DNS server is only required to test name resolution. The `-e` flag enables automatic hostname registration, which is unneeded, so we set it to `false`.
 
    ```azurecli-interactive
-   az network private-dns link vnet create \ 
+   az network private-dns link vnet create \
      -g ACIResourceGroup \
-     -n aciDNSLink \ 
+     -n aciDNSLink \
      -z private.contoso.com \
      -v aci-vnet \
      -e false

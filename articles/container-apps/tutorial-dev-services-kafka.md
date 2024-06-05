@@ -4,6 +4,7 @@ description: Create and use an Apache Kafka service for development
 services: container-apps
 author: ahmelsayed
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/16/2023
 ms.author: ahmels
@@ -378,10 +379,10 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
     # [Bash](#tab/bash)
 
     ```bash
-        az rest \
-        --method PUT \
-        --url "/subscriptions/$(az account show --output tsv --query id)/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/containerApps/$KAFKA_SVC?api-version=2023-04-01-preview" \
-        --body "{\"location\": \"$LOCATION\", \"properties\": {\"environmentId\": \"$ENVIRONMENT_ID\", \"configuration\": {\"service\": {\"type\": \"kafka\"}}}}"
+        az containerapp add-on kafka create \
+        --name "$KAFKA_SVC" \
+        --resource-group "$RESOURCE_GROUP" \
+        --environment "$ENVIRONMENT"
     ```
 
     # [Bicep](#tab/bicep)
@@ -393,7 +394,7 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
     ```
 
     > [!TIP]
-    > The output `kafkaLogs` outputs a CLI command to help you view the logs of postgres after deployment is complete. You can run the command to view the initialization logs of the new Postgres service.
+    > The output `kafkaLogs` outputs a CLI command to help you view the logs of kafka after deployment is complete. You can run the command to view the initialization logs of the new Kafka service.
 
     # [azd](#tab/azd)
 
@@ -456,7 +457,7 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
 
 When you create the app, you'll set it up to use `./kafka-topics.sh`, `./kafka-console-producer.sh`, and `kafka-console-consumer.sh` to connect to the Kafka instance.
 
-1. Create a `kafka-cli-app` app that binds to the PostgreSQL service.
+1. Create a `kafka-cli-app` app that binds to the Kafka service.
 
     # [Bash](#tab/bash)
 
@@ -464,22 +465,17 @@ When you create the app, you'll set it up to use `./kafka-topics.sh`, `./kafka-c
     az containerapp create \
         --name "$KAFKA_CLI_APP" \
         --image mcr.microsoft.com/k8se/services/kafka:3.4 \
+        --bind "$KAFKA_SVC" \
         --environment "$ENVIRONMENT" \
         --resource-group "$RESOURCE_GROUP" \
         --min-replicas 1 \
         --max-replicas 1 \
         --command "/bin/sleep" "infinity"
-    
-    az rest \
-        --method PATCH \
-        --headers "Content-Type=application/json" \
-        --url "/subscriptions/$(az account show --output tsv --query id)/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/containerApps/$KAFKA_CLI_APP?api-version=2023-04-01-preview" \
-        --body "{\"properties\": {\"template\": {\"serviceBinds\": [{\"serviceId\": \"/subscriptions/$(az account show --output tsv --query id)/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/containerApps/$KAFKA_SVC\"}]}}}"
     ```
 
     # [Bicep](#tab/bicep)
 
-    Add the following to values `postgres-dev.bicep`.
+    Add the following to values `kafka-dev.bicep`.
 
     ```bicep
     resource kafkaCli 'Microsoft.App/containerApps@2023-04-01-preview' = {
@@ -841,7 +837,7 @@ azd up
 
 ---
 
-:::image type="content" source="media/tutorial-dev-services-kafka/azure-container-apps-kafka-ui-data.png" alt-text="Screenshot of pgweb Container App connecting to PostgreSQL service.":::
+:::image type="content" source="media/tutorial-dev-services-kafka/azure-container-apps-kafka-ui-data.png" alt-text="Screenshot of pgweb Container App connecting to Kafka service.":::
 
 ## Deploy all resources
 
@@ -851,7 +847,7 @@ Use the following examples to if you want to deploy all resources at once.
 
 The following Bicep template contains all the resources in this tutorial.
 
-You can create a `postgres-dev.bicep` file with this content.
+You can create a `kafka-dev.bicep` file with this content.
 
 ```bicep
 targetScope = 'resourceGroup'

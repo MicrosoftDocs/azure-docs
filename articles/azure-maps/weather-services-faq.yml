@@ -3,7 +3,7 @@ metadata:
   title: Microsoft Azure Maps Weather services frequently asked questions (FAQ) 
   description: Find answer to common questions about Azure Maps Weather services data and features.
   author: stevemunk
-  ms.author: v-stharr
+  ms.author: eriklind
   ms.date: 06/23/2021
   ms.topic: faq
   ms.service: azure-maps
@@ -83,8 +83,8 @@ sections:
         answer: |
           The Azure Maps Android SDKs supports Mercator tile layers, which can have x/y/zoom notation, quad key notation, or EPSG 3857 bounding box notation.
           
-          We plan to create a services module for Java/Android similar to the web SDK module. The Android services module will make it easy to access all Azure Maps services in a Java or Android app.  
-          
+          The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
   - name: Data visualizations  
     questions:
       - question: |
@@ -100,12 +100,12 @@ sections:
       - question: |
           Can I create radar and satellite tile animations? 
         answer: |
-          Yes. In addition to real-time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. Customers can call the [Get Map Tile v2 API](/rest/api/maps/render-v2/get-map-tile) or request tiles via Azure Maps web SDK. Radar tiles are available for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the open-source Weather Tile Animation [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer).  
+          Yes. In addition to real-time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. Customers can call the Get Map Tile v2 API or request tiles via Azure Maps web SDK. Radar tiles are available for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the [Show weather overlays on a map](https://samples.azuremaps.com/?search=Show%20weather%20overlays%20on%20a%20map&sample=) sample.  
           
       - question: |
           Do you offer icons for different weather conditions? 
         answer: |
-          Yes. You can find icons and their respective codes [here](./weather-services-concepts.md#weather-icons). Notice that only some of the Weather service (Preview) APIs, such as  [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions), return the *iconCode* in the response. For more information, see the Current WeatherConditions open-source [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location).
+          Yes. You can find icons and their respective codes [here](./weather-services-concepts.md#weather-icons). Notice that only some of the Weather service (Preview) APIs, such as  [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions), return the *iconCode* in the response. For more information, see the [Get current weather at a location](https://samples.azuremaps.com/?search=Get%20current%20weather%20at%20a%20location) sample.
           
 additionalContent: |
 

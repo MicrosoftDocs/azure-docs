@@ -1,131 +1,77 @@
 ---
-title: Understanding security policies, initiatives, and recommendations in Microsoft Defender for Cloud
-description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
+title: Security policies in Microsoft Defender for Cloud 
+description: Learn about security policies, standards, and recommendations in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 01/24/2023
+ms.date: 11/27/2023
 ---
 
-# What are security policies, initiatives, and recommendations?
+# Security policies in Defender for Cloud
 
-Microsoft Defender for Cloud applies security initiatives to your subscriptions. These initiatives contain one or more security policies. Each of those policies results in a security recommendation for improving your security posture. This page explains each of these ideas in detail.
+Security policies in Microsoft Defender for Cloud consist of security standards and recommendations that help to improve your cloud security posture.
 
-## What is a security policy?
+Security standards define rules, compliance conditions for those rules, and actions (effects) to be taken if conditions aren't met. Defender for Cloud assesses resources and workloads against the security standards enabled in your Azure subscriptions, Amazon Web Services (AWS) accounts, and Google Cloud Platform (GCP) projects. Based on those assessments, security recommendations provide practical steps to help you remediate security issues.
 
-An Azure Policy definition, created in Azure Policy, is a rule about specific security conditions that you want controlled. Built in definitions include things like controlling what type of resources can be deployed or enforcing the use of tags on all resources. You can also create your own custom policy definitions.
+## Security standards
 
-To implement these policy definitions (whether built-in or custom), you'll need to assign them. You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. Policies can be disabled or enabled from Azure Policy.
+Security standards in Defender for Cloud come from these sources:
 
-There are different types of policies in Azure Policy. Defender for Cloud mainly uses 'Audit' policies that check specific conditions and configurations then report on compliance. There are also "Enforce' policies that can be used to apply secure settings.
+- **Microsoft cloud security benchmark (MCSB)**: The MCSB standard is applied by default when you onboard cloud accounts to Defender. Your [secure score](secure-score-security-controls.md) is based on assessment against some MCSB recommendations.
 
-## What is a security initiative?
+- **Regulatory compliance standards**: When you enable one or more [Defender for Cloud plans](defender-for-cloud-introduction.md), you can add standards from a wide range of predefined regulatory compliance programs.
 
-A security initiative is a collection of Azure Policy definitions, or rules, are grouped together towards a specific goal or purpose. Security initiatives simplify management of your policies by grouping a set of policies together, logically, as a single item.
+- **Custom standards**: You can create custom security standards in Defender for Cloud, and then add built-in and custom recommendations to those custom standards as needed.
 
-A security initiative defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators.
+Security standards in Defender for Cloud are based on [Azure Policy](../governance/policy/overview.md) [initiatives](../governance/policy/concepts/initiative-definition-structure.md) or on the Defender for Cloud native platform. Currently, Azure standards are based on Azure Policy. AWS and GCP standards are based on Defender for Cloud.
 
-Like security policies, Defender for Cloud initiatives are also created in Azure Policy. You can use [Azure Policy](../governance/policy/overview.md) to manage your policies, build initiatives, and assign initiatives to multiple subscriptions or for entire management groups.
+### Working with security standards
 
-The default initiative automatically assigned to every subscription in Microsoft Defender for Cloud is Microsoft cloud security benchmark. This benchmark is the Microsoft-authored set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security. Learn more about [Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
+Here's what you can do with security standards in Defender for Cloud:
 
-Defender for Cloud offers the following options for working with security initiatives and policies:
+- **Modify the built-in MCSB for the subscription**: When you enable Defender for Cloud, the MCSB is automatically assigned to all Defender for Cloud registered subscriptions. [Learn more about managing the MCSB standard](manage-mcsb.md).
 
-- **View and edit the built-in default initiative** - When you enable Defender for Cloud, the initiative named 'Microsoft cloud security benchmark' is automatically assigned to all Defender for Cloud registered subscriptions. To customize this initiative, you can enable or disable individual policies within it by editing a policy's parameters. See the list of [built-in security policies](./policy-reference.md) to understand the options available out-of-the-box.
+- **Add regulatory compliance standards**: If you have one or more paid plans enabled, you can assign built-in compliance standards against which to assess your Azure, AWS, and GCP resources. [Learn more about assigning regulatory standards](update-regulatory-compliance-packages.yml).
 
-- **Add your own custom initiatives** - If you want to customize the security initiatives applied to your subscription, you can do so within Defender for Cloud. You'll then receive recommendations if your machines don't follow the policies you create. For instructions on building and assigning custom policies, see [Using custom security initiatives and policies](custom-security-policies.md).
+- **Add custom standards**: If you have at least one paid Defender plan enabled, you can define new [custom standards](custom-security-policies.md) and [custom recommendations](create-custom-recommendations.md) in the Defender for Cloud portal. You can then add recommendations to those standards.
 
-- **Add regulatory compliance standards as initiatives** - Defender for Cloud's regulatory compliance dashboard shows the status of all the assessments within your environment in the context of a particular standard or regulation (such as Azure CIS, NIST SP 800-53 R4, SWIFT CSP CSCF-v2020). For more information, see [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
+### Custom standards
 
-## What is a security recommendation?
+Custom standards appear alongside built-in standards in the **Regulatory compliance** dashboard.
 
-Using the policies, Defender for Cloud periodically analyzes the compliance status of your resources to identify potential security misconfigurations and weaknesses. It then provides you with recommendations on how to remediate those issues. Recommendations are the result of assessing your resources against the relevant policies and identifying resources that aren't meeting your defined requirements.
+Recommendations derived from assessments against custom standards appear together with recommendations from built-in standards. Custom standards can contain built-in and custom recommendations.
 
-Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant, it's presented as a recommendation in Defender for Cloud.
+### Custom recommendations
 
-Recommendations are actions for you to take to secure and harden your resources. Each recommendation provides you with the following information:
+All customers with Azure subscriptions can create custom recommendations based on Azure Policy. With Azure Policy, you create a policy definition, assign it to a policy initiative, and merge that initiative and policy into Defender for Cloud.
+
+Custom recommendations based on Kusto Query Language (KQL) are available for all clouds, but require enabling the [Defender CSPM plan](concept-cloud-security-posture-management.md). With these recommendations, you specify a unique name, a description, steps for remediation, severity, and which standards the recommendation should be assigned to. You add recommendation logic with KQL. A query editor provides a built-in query template that you can tweak as needed, or you can write your KQL query from scratch.
+
+For more information, see [Create custom security standards and recommendations in Microsoft Defender for Cloud](create-custom-recommendations.md).
+
+## Security recommendations
+
+Defender for Cloud periodically and continuously analyzes and assesses the security state of protected resources against  defined security standards, to identify potential security misconfigurations and weaknesses. Defender for Cloud then provides recommendations based on assessment findings.
+
+Each recommendation provides the following information:
 
 - A short description of the issue
-- The remediation steps to carry out in order to implement the recommendation
-- The affected resources
+- Remediation steps for implementing the recommendation
+- Affected resources
+- Risk level
+- Risk factors
+- Attack paths
 
-In practice, it works like this:
+Every recommendation in Defender for Cloud has an associated risk level that represents how exploitable and impactful the security issue is in your environment. The risk assessment engine takes into account factors such as internet exposure, sensitivity of data, lateral movement possibilities, and attack path remediation. You can prioritize recommendations based on their risk levels.
 
-1. Microsoft cloud security benchmark is an ***initiative*** that contains requirements.
+> [!IMPORTANT]
+> [Risk prioritization](risk-prioritization.md) doesn't affect the secure score.
 
-    For example, Azure Storage accounts must restrict network access to reduce their attack surface.
+### Example
 
-1. The initiative includes multiple ***policies***, each with a requirement of a specific resource type. These policies enforce the requirements in the initiative.
+The MCSB standard is an Azure Policy initiative that includes multiple compliance controls. One of these controls is "Storage accounts should restrict network access using virtual network rules."
 
-    To continue the example, the storage requirement is enforced with the policy "Storage accounts should restrict network access using virtual network rules".
-
-1. Microsoft Defender for Cloud continually assesses your connected subscriptions. If it finds a resource that doesn't satisfy a policy, it displays a ***recommendation*** to fix that situation and harden the security of resources that aren't meeting your security requirements.
-
-    So, for example, if an Azure Storage account on any of your protected subscriptions isn't protected with virtual network rules, you'll see the recommendation to harden those resources.
-
-So, (1) an initiative includes (2) policies that generate (3) environment-specific recommendations.
-
-### Security recommendation details
-
-Security recommendations contain details that help you understand its significance and how to handle it.
-
-:::image type="content" source="./media/security-policy-concept/recommendation-details-page.png" alt-text="Screenshot of the recommendation details page with labels for each element." lightbox="./media/security-policy-concept/recommendation-details-page.png":::
-
-The recommendation details shown are:
-
-1. For supported recommendations, the top toolbar shows any or all of the following buttons:
-    - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
-    - **View policy definition** to go directly to the Azure Policy entry for the underlying policy.
-    - **Open query** - You can view the detailed information about the affected resources using Azure Resource Graph Explorer.
-1. **Severity indicator**
-1. **Freshness interval**
-1. **Count of exempted resources** if exemptions exist for a recommendation, this shows the number of resources that have been exempted with a link to view the specific resources.
-1. **Mapping to MITRE ATT&CK ® tactics and techniques** if a recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. This applies only to Azure scored recommendations.
-
-    :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
-
-1. **Description** - A short description of the security issue.
-1. When relevant, the details page also includes a table of **related recommendations**:
-
-    The relationship types are:
-
-    - **Prerequisite** - A recommendation that must be completed before the selected recommendation
-    - **Alternative** - A different recommendation, which provides another way of achieving the goals of the selected recommendation
-    - **Dependent** - A recommendation for which the selected recommendation is a prerequisite
-
-    For each related recommendation, the number of unhealthy resources is shown in the "Affected resources" column.
-
-    > [!TIP]
-    > If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
-
-1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option, you can select**View remediation logic** before applying the suggested fix to your resources.
-
-1. **Affected resources** - Your resources are grouped into tabs:
-    - **Healthy resources** – Relevant resources, which either aren't impacted or on which you've already  remediated the issue.
-    - **Unhealthy resources** – Resources that are still impacted by the identified issue.
-    - **Not applicable resources** – Resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
-
-    :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Screenshot of resources for which the recommendation can't give a definitive answer.":::
-
-1. Action buttons to remediate the recommendation or trigger a logic app.
-
-## Viewing the relationship between a recommendation and a policy
-
-As mentioned above, Defender for Cloud's built in recommendations are based on the Microsoft cloud security benchmark. Almost every recommendation has an underlying policy that is derived from a requirement in the benchmark.
-
-When you're reviewing the details of a recommendation, it's often helpful to be able to see the underlying policy. For every recommendation supported by a policy, use the **View policy definition** link from the recommendation details page to go directly to the Azure Policy entry for the relevant policy:
-
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link to Azure Policy page for the specific policy supporting a recommendation.":::
-
-Use this link to view the policy definition and review the evaluation logic.
-
-If you're reviewing the list of recommendations on our [Security recommendations reference guide](recommendations-reference.md), you'll also see links to the policy definition pages:
-
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accessing the Azure Policy page for a specific policy directly from the Microsoft Defender for Cloud recommendations reference page.":::
+Defender for Cloud continuously assesses resources. If it finds any that don’t satisfy this control, it marks them as noncompliant and triggers a recommendation. In this case, guidance is to harden Azure Storage accounts that aren't protected with virtual network rules.
 
 ## Next steps
 
-This page explained, at a high level, the basic concepts and relationships between policies, initiatives, and recommendations. For related information, see:
-
-- [Create custom initiatives](custom-security-policies.md)
-- [Disable security recommendations](tutorial-security-policy.md#disable-a-security-recommendation)
-- [Learn how to edit a security policy in Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- Learn more about [regulatory compliance standards](concept-regulatory-compliance-standards.md), [MCSB](concept-regulatory-compliance.md), and [improving regulatory compliance](regulatory-compliance-dashboard.md).
+- Learn more about [security recommendations](review-security-recommendations.md).

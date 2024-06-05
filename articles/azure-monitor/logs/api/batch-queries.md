@@ -8,7 +8,7 @@ ms.author: guywild
 ---
 # Batch queries
 
-The Azure Monitor Log Analytics API supports batching queries together. Batch queries currently require Azure AD authentication.
+The Azure Monitor Log Analytics API supports batching queries together. Batch queries currently require Microsoft Entra authentication.
 
 ## Request format
 To batch queries, use the API endpoint, adding $batch at the end of the URL: `https://api.loganalytics.azure.com/v1/$batch`.
@@ -162,7 +162,7 @@ This list is a non-exhaustive list of examples of possible errors and their mean
     }
 ```
 
--  403 - Forbidden. The token provided does not have access to the resource you are trying to access. Make sure that your token request has the correct resource, and you have granted permissions for your Azure AD application.
+-  403 - Forbidden. The token provided does not have access to the resource you are trying to access. Make sure that your token request has the correct resource, and you have granted permissions for your Microsoft Entra application.
 
 ```
     {

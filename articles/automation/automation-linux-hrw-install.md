@@ -3,14 +3,18 @@ title: Deploy an agent-based Linux Hybrid Runbook Worker in Automation
 description: This article tells how to install an agent-based  Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/12/2023
-ms.topic: conceptual 
+ms.custom: linux-related-content
+ms.date: 04/21/2024
+ms.topic: conceptual
 ---
 
 # Deploy an agent-based Linux Hybrid Runbook Worker in Automation
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 > [!IMPORTANT]
->  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 October 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+>  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly it and against resources in the environment to manage those local resources.
 
@@ -44,18 +48,23 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 * Oracle Linux 6, 7, and 8
 * Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
-* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14) 
+* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14)
 * Ubuntu
 
    **Linux OS** | **Name** |
   ---|--- |
-  20.04 LTS | Focal Fossa 
-  18.04 LTS | Bionic Beaver 
-  16.04 LTS | Xenial Xerus   
-  14.04 LTS | Trusty Tahr  
+  20.04 LTS | Focal Fossa
+  18.04 LTS | Bionic Beaver
+  16.04 LTS | Xenial Xerus
+  14.04 LTS | Trusty Tahr
+
+> [!NOTE]
+> Hybrid Worker would follow support timelines of the OS vendor.
 
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
+
+
 
 ### Minimum requirements
 
@@ -236,7 +245,7 @@ Run the following commands as root on the agent-based Linux Hybrid Worker:
 
 
    > [!NOTE]
-   > - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. 
+   > - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role.
    > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
    > - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
@@ -264,7 +273,7 @@ To check the version of agent-based Linux Hybrid Runbook Worker, go to the follo
 ```bash
    sudo cat /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION
 ```
-The file *VERSION* has the version number of Hybrid Runbook Worker. 
+The file *VERSION* has the version number of Hybrid Runbook Worker.
 
 ## Next steps
 

@@ -330,7 +330,7 @@ For more details about using Azure services from your web and worker roles, such
 
 * [Blob Service][Blob Service]
 * [Table Service][Table Service]
-* [Queue Service][Queue Service]
+* [Queue Service](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 * [Service Bus Queues][Service Bus Queues]
 * [Service Bus Topics][Service Bus Topics]
 

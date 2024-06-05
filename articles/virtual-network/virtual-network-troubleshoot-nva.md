@@ -4,10 +4,8 @@ description: Troubleshoot Network Virtual Appliance (NVA) issues in Azure and va
 services: virtual-network
 author: asudbring
 manager: dcscontentpm
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: troubleshooting
-ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: allensu
 ---
@@ -74,7 +72,7 @@ Use PowerShell
    NetworkSecurityGroup : null
    ```
 
-**Check for NSG when using Standard SKU Pubilc IP**
+**Check for NSG when using Standard SKU Public IP**
 When using a Standard SKU and Public IPs, there must be an NSG created and an explicit rule to allow the traffic to the NVA.
 
 **Check whether the traffic can be routed to the NVA**

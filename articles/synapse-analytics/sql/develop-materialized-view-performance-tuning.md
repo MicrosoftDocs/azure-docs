@@ -1,14 +1,13 @@
 ---
 title: Performance tuning with materialized views
-description: Recommendations and considerations for materialized views to improve your query performance. 
+description: Recommendations and considerations for materialized views to improve your query performance.
 author: XiaoyuMSFT
-manager: craigg 
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql
-ms.date: 03/01/2023
 ms.author: xiaoyul
 ms.reviewer: nibruno; wiassaf
+ms.date: 03/01/2023
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: conceptual
 ---
 
 # Performance tuning with materialized views using dedicated SQL pool in Azure Synapse Analytics

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to save and share a customized view with others.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/28/2023
+ms.date: 08/07/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -56,7 +56,7 @@ Use the following table for each property in the URL.
 | URL property | Description|
 | --- | --- |
 | **portal-domain** | Primary domain for the Azure portal. For example, `portal.azure.com` or `portal.azure.us`). |
-| **directory-domain** | Domain used by your Azure Active Directory. You can also use the tenant ID. If it's omitted, the portal tries to use the default directory for the user that selected the link - it might  differ from the scope. |
+| **directory-domain** | Domain used by your Microsoft Entra ID. You can also use the tenant ID. If it's omitted, the portal tries to use the default directory for the user that selected the link - it might  differ from the scope. |
 | **scope-id** | Full Resource Manager ID for the resource group, subscription, management group, or billing account you want to view cost for. If not specified, Cost Management uses the last view the user used in the Azure portal. The value must be URL encoded. |
 | **view-config** | Encoded view configuration. See the following details. If not specified, cost analysis uses the `view-id` parameter. If neither are specified, cost analysis uses the built-in Accumulated cost view. |
 | **view-id** | Full Resource Manager ID for the private or shared view to load. This value must be URL encoded. If not specified, cost analysis uses the `view` parameter. If neither are specified, cost analysis uses the built-in Accumulated cost view. |
@@ -103,7 +103,7 @@ When you want to share information with others that don't have access to the sco
 
 :::image type="content" source="./media/save-share-views/download.png" alt-text="Screen shot showing the Download page." lightbox="./media/save-share-views/download.png" :::
 
-When you download data, cost analysis includes summarized data as it's shown in the table. The cost by resource view includes all resource meters in addition to the resource details. If you want a download of only resources and not the nested meters, use the cost analysis preview. You can access the preview from the **Cost by resource** menu at the top of the page, where you can select the Resources, Resource groups, Subscriptions, Services, or Reservations view.
+When you download data, cost analysis includes summarized data as it's shown in the table. The cost by resource view includes all resource meters in addition to the resource details. If you want a download of only resources and not the nested meters, use the Resources smart view. You can access the Resources view from the **Cost by resource** menu at the top of the page, where you can select the Resources, Resource groups, Subscriptions, Services, or Reservations view.
 
 If you need more advanced summaries or you're interested in raw data that hasn't been summarized, schedule an export to publish raw data to a storage account on a recurring basis.
 

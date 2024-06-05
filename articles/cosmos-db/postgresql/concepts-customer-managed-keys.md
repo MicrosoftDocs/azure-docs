@@ -1,6 +1,6 @@
 ---
-title: Concepts of customer managed keys in Azure Cosmos DB for PostgreSQL.
-description: Concepts of customer managed keys.
+title: Concepts of customer-managed keys in Azure Cosmos DB for PostgreSQL.
+description: Concepts of customer-managed keys.
 ms.author: akashrao
 author: akashraokm
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 04/06/2023
 ---
-# Data Encryption with Customer Managed Keys Preview
+# Data encryption with customer-managed keys
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -18,11 +18,11 @@ Data stored in your Azure Cosmos DB for PostgreSQL cluster is automatically and 
 
 ## Service-managed keys
 
-The Azure Cosmos DB for PostgreSQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. All Data including backups and temporary files created while running queries are encrypted on disk. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system-managed. Storage encryption is always on and cannot be disabled.
+The Azure Cosmos DB for PostgreSQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. All Data including backups and temporary files created while running queries are encrypted on disk. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system-managed. Storage encryption is always on and can't be disabled.
 
 ## Customer-managed keys
 
-Many organizations require full control of access to data using a customer-managed key. Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL enables you to bring your own key for protecting data at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you're responsible for, and in full control of, a key's lifecycle, usage permissions, and auditing of operations.
+Many organizations require full control of access to data using a customer-managed key (CMK). Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL enables you to bring your own key for protecting data at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you're responsible for, and in full control of, a key's lifecycle, usage permissions, and auditing of operations.
 
 Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL is set at the server level. Data, including backups, are encrypted on disk. This encryption includes the temporary files created while running queries. For a given cluster, a customer-managed key, called the key encryption key (**KEK**), is used to encrypt the service's data encryption key (**DEK**). The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](../../key-vault/index.yml) instance.
 
@@ -32,7 +32,7 @@ Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL is
 | **Key encryption key (KEK)** | A key encryption key is an encryption key used to encrypt the DEKs. A KEK that never leaves a key vault allows the DEKs themselves to be encrypted and controlled. The entity that has access to the KEK might be different than the entity that requires the DEK. Since the KEK is required to decrypt the DEKs, the KEK is effectively a single point and deletion of the KEK effectively deletes the DEKs. |
 
 > [!NOTE]
-> Azure Key Vault is a cloud-based key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (**HSM**s). A key vault doesn't allow direct access to a stored key but provides encryption and decryption services to authorized entities. A key vault can generate the key, import it, or have it transferred from an on-premises HSM device.
+> Azure Key Vault is a cloud-based key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance) hardware security modules (**HSM**s). A key vault doesn't allow direct access to a stored key but provides encryption and decryption services to authorized entities. A key vault can generate the key, import it, or have it transferred from an on-premises HSM device.
 
 The DEKs, encrypted with the KEKs, are stored separately. Only an entity with access to the KEK can decrypt these DEKs. For more information, see [Security in encryption at rest.](../../security/fundamentals/encryption-atrest.md).
 
@@ -49,7 +49,7 @@ For a cluster to use customer-managed keys stored in Key Vault for encryption of
 The key vault administrator can also enable logging of Key Vault audit events, so they can be audited later.
 When the Azure Cosmos DB for PostgreSQL cluster is configured to use the customer-managed key stored in the key vault, the cluster sends the DEK to the key vault for encryptions. Key Vault returns the encrypted DEK, which is stored in the user database. Similarly, when needed, the server sends the protected DEK to the key vault for decryption. Auditors can use  [Azure Monitor](../../azure-monitor/index.yml) to review Key Vault audit event logs, if logging is enabled.
 
-[ ![Screenshot of architecture of Data Enrcryption with Customer Managed Keys.](media/concepts-customer-managed-keys/architecture-customer-managed-keys.png)](media/concepts-customer-managed-keys/architecture-customer-managed-keys.png#lightbox)
+[ ![Screenshot of architecture of data enrcryption with customer-managed keys.](media/concepts-customer-managed-keys/architecture-customer-managed-keys.png)](media/concepts-customer-managed-keys/architecture-customer-managed-keys.png#lightbox)
 
 ## Benefits
 
@@ -64,4 +64,4 @@ Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL pr
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Enable encryption with customer managed keys](how-to-customer-managed-keys.md)
+>[Enable encryption with customer-managed keys](how-to-customer-managed-keys.md)

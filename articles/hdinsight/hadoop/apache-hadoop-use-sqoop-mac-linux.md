@@ -1,10 +1,10 @@
 ---
-title: Apache Sqoop with Apache Hadoop - Azure HDInsight 
+title: Apache Sqoop with Apache Hadoop - Azure HDInsight
 description: Learn how to use Apache Sqoop to import and export between Apache Hadoop on HDInsight and Azure SQL Database.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 07/18/2022
+ms.custom: hdinsightactive, linux-related-content
+ms.date: 08/21/2023
 ---
 
 # Use Apache Sqoop to import and export data between Apache Hadoop on HDInsight and Azure SQL Database
@@ -144,7 +144,7 @@ From SQL to Azure storage.
 
 * SQL Server must be configured to allow SQL authentication. For more information, see the [Choose an Authentication Mode](/sql/relational-databases/security/choose-an-authentication-mode) document.
 
-* You may have to configure SQL Server to accept remote connections. For more information, see the [How to troubleshoot connecting to the SQL Server database engine](https://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) document.
+* You may have to configure SQL Server to accept remote connections. For more information, see the [How to troubleshoot connecting to the SQL Server database engine](https://fleet-maintenance.com/public_downloads/How%20to%20Troubleshoot%20Connecting%20to%20the%20SQL%20Server%20Database%20Engine.pdf) document.
 
 ## Next steps
 

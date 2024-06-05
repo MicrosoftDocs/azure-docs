@@ -2,11 +2,10 @@
 title: Back up VMware VMs with Azure Backup Server
 description: In this article, learn how to use Azure Backup Server to back up VMware VMs running on a VMware vCenter/ESXi server.
 ms.topic: how-to
-ms.date: 03/03/2023
-author: jyothisuri
-ms.author: jsuri
+ms.date: 11/07/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ms.service: backup
-ms.custom: engagement-fy23
 ---
 # Back up VMware VMs with Azure Backup Server
 
@@ -428,8 +427,10 @@ With earlier versions of MABS, parallel backups were performed only across prote
 
 You can modify the number of jobs by using the registry key as shown below (not present by default, you need to add it):
 
-**Key Path**: `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMware`<BR>
-**Key Type**: DWORD (32-bit) value.
+**Key Path**: `HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs`<BR>
+**Key Type**: DWORD (32-bit) VMware.
+**Data**: number
+The value should be the number (decimal) of virtual machines that you select for parallel backup.
 
 > [!NOTE]
 > You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
@@ -580,6 +581,23 @@ To remove the disk from exclusion, run the following command:
 
 ```powershell
 C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
+```
+
+## ApplicationQuiesceFault
+
+### Fall back to crash consistent backups for VMware VMs
+
+Application consistent backups for VMware VMs running Windows can fail with the *ApplicationQuiesceFault* error if:
+
+- The VSS providers in the VM aren't in a stable state.
+- The VM is under heavy load.
+
+To resolve this quiescing error and retry the failed application consistent backup with a crash consistent backup, use the following registry key on the MABS server running V4 UR1 or above:
+
+```azurepowershell
+Name - FailbackToCrashConsistentBackup DWORD = 1
+Path- SOFTWARE\\MICROSOFT\\MICROSOFT DATA PROTECTION MANAGER\\VMWare
+
 ```
 
 ## Next steps

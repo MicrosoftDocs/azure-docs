@@ -1,178 +1,150 @@
 ---
-title: 'Quickstart: Your first portal query'
-description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
-author: davidsmatlak
-ms.author: davidsmatlak
-ms.date: 10/12/2022
+title: 'Quickstart: Run Resource Graph query using Azure portal'
+description: In this quickstart, you run an Azure Resource Graph query in Azure portal using Azure Resource Graph Explorer.
+ms.date: 04/23/2024
 ms.topic: quickstart
-ms.custom: mode-ui
 ---
-# Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
 
-The power of Azure Resource Graph is available directly in the Azure portal through Azure Resource
-Graph Explorer. Resource Graph Explorer provides browsable information about the Azure Resource
-Manager resource types and properties that you can query. Resource Graph Explorer also provides a
-clean interface for working with multiple queries, evaluating the results, and even converting the
-results of some queries into a chart that can be pinned to an Azure dashboard.
+# Quickstart: Run Resource Graph query using Azure portal
 
-At the end of this quickstart, you'll have used Azure portal and Resource Graph Explorer to run your
-first Resource Graph query and pinned the results to a dashboard.
+This quickstart describes how to run an Azure Resource Graph query in the Azure portal using Azure Resource Graph Explorer. Resource Graph Explorer allows you to query information about the Azure Resource Manager resource types and properties. Resource Graph Explorer also provides an interface for working with multiple queries, evaluating the results, and even converting the results of some queries into a chart that can be pinned to an Azure dashboard.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
-before you begin.
+If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Run your first Resource Graph query
+## Run a query
 
-Open the [Azure portal](https://portal.azure.com) to find and use the Resource Graph Explorer
-following these steps to run your first Resource Graph query:
+Run a query from the Azure portal using Azure Resource Graph Explorer.
 
-1. Select **All services** in the left pane. Search for and select **Resource Graph Explorer**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for _resource graph_ and select **Resource Graph Explorer**.
 
-1. In the **Query 1** portion of the window, enter the query
-   `Resources | project name, type | limit 5` and select **Run query**.
+   :::image type="content" source="./media/first-query-portal/search-resource-graph.png" alt-text="Screenshot of the Azure portal to search for resource graph." lightbox="./media/first-query-portal/search-resource-graph.png":::
 
-   > [!NOTE]
-   > As this query example doesn't provide a sort modifier such as `order by`, running this query
-   > multiple times is likely to yield a different set of resources per request.
+1. If you need to change the scope, select **Directory**. Then select the directory, management group, or subscription for the resources you want to query.
 
-1. Review the query response in the **Results** tab. Select the **Messages** tab to see details
-   about the query, including the count of results and duration of the query. Errors, if any, are
-   displayed under this tab.
+   :::image type="content" source="./media/first-query-portal/query-scope.png" alt-text="Screenshot of the Azure Resource Graph Explorer to change the scope for directory, management group, or subscription." lightbox="./media/first-query-portal/query-scope.png":::
 
-1. Update the query to `order by` the **Name** property:
-   `Resources | project name, type | limit 5 | order by name asc`. Then, select **Run query**.
+1. In the **Query 1** portion of the window, copy and paste the following query. Then select **Run query**.
 
-   > [!NOTE]
-   > Just as with the first query, running this query multiple times is likely to yield a different
-   > set of resources per request. The order of the query commands is important. In this example,
-   > the `order by` comes after the `limit`. This command order first limits the query results and
-   > then orders them.
+   ```kusto
+   resources
+   | project name, type
+   | limit 5
+   ```
 
-1. Update the query to first `order by` the **Name** property and then `limit` to the top five
-   results: `Resources | project name, type | order by name asc | limit 5`. Then, select **Run
-   query**.
+   :::image type="content" source="./media/first-query-portal/run-query.png" alt-text="Screenshot of Azure Resource Graph Explorer that highlights run query, results, and messages." lightbox="./media/first-query-portal/run-query.png":::
 
-When the final query is run several times, assuming that nothing in your environment is changing,
-the results returned are consistent and ordered by the **Name** property, but still limited to the
-top five results.
+   This query example doesn't provide a sort modifier like `order by`. If you run the query multiple times, it might yield a different set of resources for each request.
+
+1. Review the query response in the **Results** tab and select the **Messages** tab to see details about the query, including the count of results and duration of the query. Errors, if any, are displayed in **Messages**.
+
+1. Update the query to `order by` the `name` property. Then, select **Run query**
+
+   ```kusto
+   resources
+   | project name, type
+   | limit 5
+   | order by name asc
+   ```
+
+   Like the previous query, running this query multiple times might yield a different set of resources for each request. The order of the query commands is important. In this example, the `order by` comes after the `limit`. The query limits the results to five resources and then orders those results by name.
+
+1. Update the query to `order by` the `name` property and then `limit` to the top five results. Then, select **Run query**.
+
+   ```kusto
+   resources
+   | project name, type
+   | order by name asc
+   | limit 5
+   ```
+
+   If this query is run several times with no changes to your environment, the results are consistent and ordered by the `name` property, but still limited to five results. The query orders the results by name and then limits the output to five resources.
 
 ### Schema browser
 
-The schema browser is located in the left pane of Resource Graph Explorer. This list of resources
-shows all the _resource types_ of Azure resources that are both supported by Azure Resource Graph
-and that exist in a tenant that you have access to. Expanding a resource type or subproperties show
-child properties that can be used to create a Resource Graph query.
+The schema browser is located in the left pane of Resource Graph Explorer. This list of resources shows all the _resource types_ of Azure resources supported by Azure Resource Graph and that exist in your tenant. Select a resource type or property to show child properties that can be used to create a Resource Graph query.
 
-Selecting the resource type places `where type =="<resource type>"` into the query box. Selecting
-one of the child properties adds `where <propertyName> == "INSERT_VALUE_HERE"` into the query box.
-The schema browser is a great way to discover properties for use in queries. Be sure to replace
-_INSERT\_VALUE\_HERE_ with your own value, adjust the query with conditions, operators, and
-functions to achieve your intended results.
+Select a table name from the schema browser and it gets added to the query. When you select a resource type it gets added to the query, like `where type =="<resource type>"`. If you select a property it gets added to the next line in the query, like `where <propertyName> == "INSERT_VALUE_HERE"`. You can use the schema browser to find properties that you can use in queries. Be sure to replace `INSERT_VALUE_HERE` with your own value, and adjust the query with conditions, operators, and functions.
+
+This example shows a query that was built from the schema browser by selecting the table `authorizationresources` with resource type `microsoft.authorization/roledefinitions` and the property `roleName`.
+
+```kusto
+authorizationresources
+| where type == "microsoft.authorization/roledefinitions"
+| where properties['roleName'] == "INSERT_VALUE_HERE"
+```
+
+:::image type="content" source="./media/first-query-portal/schema-browser.png" alt-text="Screenshot of Azure Resource Graph Explorer schema browser that highlights resource type and properties." lightbox="./media/first-query-portal/schema-browser.png":::
 
 ## Download query results as a CSV file
 
-To download CSV results from the Azure portal, browse to the Azure Resource Graph Explorer and run a
-query. On the toolbar, click **Download as CSV** as shown in the following screenshot:
+To download comma-separated values (CSV) results from the Azure portal, browse to the Azure Resource Graph Explorer and run a query. On the toolbar, select **Download as CSV** as shown in the following screenshot:
 
-:::image type="content" source="./arg-export-csv.png" alt-text="Screenshot of Azure Resource Graph Explorer in Azure portal with Download as CSV button highlighted.":::
+:::image type="content" source="./media/first-query-portal/download-csv.png" alt-text="Screenshot of Azure Resource Graph Explorer with Download as CSV highlighted." lightbox="./media/first-query-portal/download-csv.png":::
 
-> [!NOTE]
-> When using the comma-separated value (CSV) export functionality of Azure Resource Graph Explorer, the result set is limited to 55,000 records. This is a platform limit that cannot be overridden by filing an Azure support ticket.
+When you use the **Download as CSV** export functionality of Azure Resource Graph Explorer, the result set is limited to 55,000 records. This limitation is a platform limit that can't be overridden by filing an Azure support ticket.
 
-## Create a chart from the Resource Graph query
+## Create a chart from query results
 
-After running the previous query, if you select the **Charts** tab, you get a message that "the
-result set isn't compatible with a pie chart visualization." Queries that list results can't be made
-into a chart, but queries that provide counts of resources can. Using the
-[Sample query - Count virtual machines by OS type](./samples/starter.md#count-os), let's create a
-visualization from the Resource Graph query.
+You can create charts from queries that output a count for the number of resources. Queries that output lists can't be made into a chart. If you try to create a chart from a list, a message like _the result set isn't compatible with a donut chart visualization_ is displayed in the **Charts** tab.
+
+To create a chart from query results, do the following steps:
 
 1. In the **Query 1** portion of the window, enter the following query and select **Run query**.
 
    ```kusto
-   Resources
-   | where type =~ 'Microsoft.Compute/virtualMachines'
+   resources
+   | where type == "microsoft.compute/virtualmachines"
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 
 1. Select the **Results** tab and note that the response for this query provides counts.
 
-1. Select the **Charts** tab. Now, the query results in visualizations. Change the type from _Select
-   chart type..._ to either _Bar chart_ or _Donut chart_ to experiment with the available
-   visualization options.
+1. Select the **Charts** tab. Change the type from _Select chart type..._ to either _Bar chart_ or _Donut chart_.
 
-## Pin the query visualization to a dashboard
+   :::image type="content" source="./media/first-query-portal/query-chart.png" alt-text="Screenshot of Azure Resource Graph Explorer with charts drop-down menu highlighted." lightbox="./media/first-query-portal/query-chart.png":::
 
-When you have results from a query that can be visualized, that data visualization can then be
-pinned to one of your dashboards. After running the previous query, follow these steps:
+## Pin query visualization to dashboard
 
-1. Select **Save** and provide the name "VMs by OS Type". Then select **Save** at the bottom of the
-   right pane.
+When you have results from a query that can be visualized, that data visualization can be pinned to your Azure portal dashboard. After running the previous query, follow these steps:
 
-1. Select **Run query** to rerun the query now that it's been saved.
-
+1. Select **Save** and use the name _Virtual machine by OS type_ and type as _Private queries_. Then select **Save** at the bottom of the right pane.
+1. Select **Run query** to rerun the query you saved.
 1. On the **Charts** tab, select a data visualization. Then select **Pin to dashboard**.
+1. From **Pin to Dashboard** select the existing dashboard where you want the chart to appear.
+1. Select **Dashboard** from the _hamburger menu_ (three horizontal lines) on the top, left side of any portal page.
 
-1. Either select the portal notification that appears or select **Dashboard** from the left pane.
+The query is now available on your dashboard with the title **Virtual machine by OS type**. If the query wasn't saved before it was pinned, the name is _Query 1_ instead.
 
-The query is now available on your dashboard with the title of the tile matching the query name. If
-the query was unsaved when it was pinned, it's named 'Query 1' instead.
+The query and resulting data visualization run and update each time the dashboard loads, providing real time and dynamic insights to your Azure environment directly in your workflow.
 
-The query and resulting data visualization run and update each time the dashboard loads, providing
-real-time and dynamic insights to your Azure environment directly in your workflow.
+Queries that result in a list can also be pinned to the dashboard. The feature isn't limited to data visualizations of queries.
 
-> [!NOTE]
-> Queries that result in a list can also be pinned to the dashboard. The feature isn't limited to
-> data visualizations of queries.
+When a query is run from the portal, you can select **Directory** to change the query's scope for the directory, management group, or subscription of the resources you want to query. When **Pin to dashboard** is selected, the results are added to your Azure dashboard with the scope used when the query was run.
 
-## Import example Resource Graph Explorer dashboards
-
-To provide examples of Resource Graph queries and how Resource Graph Explorer can be used to enhance
-your Azure portal workflow, try out these example dashboards.
-
-- [Resource Graph Explorer - Sample Dashboard #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
-
-  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Example image for Sample Dashboard #1" lightbox="./media/arge-sample1-large.png":::
-
-- [Resource Graph Explorer - Sample Dashboard #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
-
-  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Example image for Sample Dashboard #2" lightbox="./media/arge-sample2-large.png":::
-
-> [!NOTE]
-> Counts and charts in the above example dashboard screenshots vary depending on your Azure
-> environment.
-
-1. Select and download the sample dashboard you want to evaluate.
-
-1. In the Azure portal, select **Dashboard** from the left pane.
-
-1. Select **Upload**, then locate and select the downloaded sample dashboard file. Then select
-   **Open**.
-
-The imported dashboard is automatically displayed. Since it now exists in your Azure portal, you may
-explore and make changes as needed or create new dashboards from the example to share with your
-teams. For more information about working with dashboards, see
-[Create and share dashboards in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
+For more information about working with dashboards, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
 
 ## Clean up resources
 
-If you wish to remove the sample Resource Graph dashboards from your Azure portal environment, you
-can do so with the following steps:
+If you want to remove the sample Resource Graph dashboards from your Azure portal environment, do the following steps:
 
-1. Select **Dashboard** from the left pane.
+1. Select **Dashboard** from the _hamburger menu_ (three horizontal lines) on the top, left side of any portal page.
+1. On your dashboard, find the **Virtual machine by OS type** chart and select the ellipsis (`...`) to display the menu.
+1. Select **Remove from dashboard** select **Save** to confirm.
 
-1. From the dashboard dropdown list, select the sample Resource Graph dashboard you wish to delete.
+If you want to delete saved queries, like _Virtual machine by OS type_, do the following steps:
 
-1. Select **Delete** from the dashboard menu at the top of the dashboard and select **Ok** to
-   confirm.
+1. Go to Azure Resource Graph Explorer.
+1. Select **Open a query**.
+1. Select **Type** _Private queries_.
+1. From **Query name** select the rubbish bin icon to **Delete this query**.
+1. Select **Yes** to confirm the deletion.
 
 ## Next steps
 
-In this quickstart, you've used Azure Resource Graph Explorer to run your first query and looked at
-dashboard examples powered by Resource Graph. To learn more about the Resource Graph language,
-continue to the query language details page.
+In this quickstart, you used Azure Resource Graph Explorer to run a query and reviewed how to use charts and dashboards. To learn more, go to the query language details article.
 
 > [!div class="nextstepaction"]
-> [Get more information about the query language](./concepts/query-language.md)
+> [Understanding the Azure Resource Graph query language](./concepts/query-language.md)
