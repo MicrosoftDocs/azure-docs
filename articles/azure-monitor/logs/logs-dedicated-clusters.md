@@ -331,6 +331,7 @@ When a cluster is configured with customer-managed keys, data ingested to the wo
 
 On the **Overview** page for your dedicated cluster, select **JSON View**. The `associatedWorkspaces` section lists the workspaces linked to the cluster.
 
+:::image type="content" source="./media/logs-dedicated-cluster/associated-workspaces.png" alt-text="Screenshot for viewing associated workspaces for a dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/associated-workspaces.png":::
 
 
 #### [CLI](#tab/cli)
