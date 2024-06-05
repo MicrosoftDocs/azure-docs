@@ -16,7 +16,7 @@ This article describes how to configure Container insights to use Azure Private 
 ### [CLI](#tab/cli)
 
 
-### Pre-requisite
+### Pre-requisites
  - Azure CLI version 2.61.0 or higher.
  - Azure Monitor Private Link Scope (AMPLS)
 
@@ -35,7 +35,7 @@ Example:
 az aks enable-addons --addon monitoring --name "my-cluster" --resource-group "my-resource-group" --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace" --ampls-resource-id "/subscriptions/my-subscription /resourceGroups/ my-resource-group/providers/microsoft.insights/privatelinkscopes/my-ampls-resource"
 ```
 
-**Existing Log Analytics workspace**
+**Use existing Log Analytics workspace**
 
 ```azurecli
 az aks enable-addons --addon monitoring --name <cluster-name> --resource-group <cluster-resource-group-name> --workspace-resource-id <workspace-resource-id> --ampls-resource-id "<azure-monitor-private-link-scope-resource-id>"
@@ -56,46 +56,57 @@ az aks create --resource-group rgName --name clusterName --enable-addons monitor
 Example:
 
 ```azurecli
-az aks create --resource-group “my-resource-group”  --name "my-cluster"  --enable-addons monitoring --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace" --ampls-resource-id "/subscriptions/my-subscription /resourceGroups/ my-resource-group/providers/microsoft.insights/privatelinkscopes/my-ampls-resource"
+az aks create --resource-group "my-resource-group"  --name "my-cluster"  --enable-addons monitoring --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace" --ampls-resource-id "/subscriptions/my-subscription /resourceGroups/ my-resource-group/providers/microsoft.insights/privatelinkscopes/my-ampls-resource"
 ```
 
 
 ### [ARM](#tab/arm)
 
+The following sections provide links to the template and parameter files for enabling private link with Container insights on an AKS and Arc-enabled clusters. 
+
+Edit the values in the parameter file and deploy the template using any valid method for deploying ARM templates. Retrieve the **resource ID** of the resources from the **JSON** View of their **Overview** page.
+
+ Based on your requirements, you can configure other parameters such `streams`, `enableContainerLogV2`, `enableSyslog`, `syslogLevels`, `syslogFacilities`, `dataCollectionInterval`, `namespaceFilteringModeForDataCollection` and `namespacesForDataCollection`. 
+
 ### Prerequisites
 - Azure Monitor Private Link Scope (AMPLS)
 - The template must be deployed in the same resource group as the cluster.
 
-### Download and install template
+### AKS cluster
 
-1. Download ARM template and parameter file:
- 
-   **AKS cluster**
-   - Template file: https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file
-   - Parameter file: https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file
+ - Template file: https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file
+ - Parameter file: https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file
 
-    **Arc-enabled Kubernetes cluster**
-    - Template file: https://aka.ms/arc-k8s-azmon-extension-msi-arm-template
-    - Parameter file: https://aka.ms/arc-k8s-azmon-extension-msi-arm-template-params
+The following table describes each of the the parameters in the parameter file for AKS.
 
-2.	Edit the following values in the parameter file.  Retrieve the **resource ID** of the resources from the **JSON** View of their **Overview** page.
+| Parameter | Description |
+|:---|:---|
+| `aksResourceId`| Resource ID of the cluster. |
+| `aksResourceLocation` | Azure Region of the cluster. |
+| `workspaceResourceId`| Resource ID of the  Log Analytics workspace. |
+| `workspaceRegion`	| Region of the Log Analytics workspace. |
+| `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-\<clusterName\>-\<clusterRegion\>, and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
+| `useAzureMonitorPrivateLinkScope` | Boolean flag to indicate whether Azure Monitor link scope is used or not. |
+| `azureMonitorPrivateLinkScopeResourceId` | Resource ID of the Azure Monitor Private link scope.   This only used if `useAzureMonitorPrivateLinkScope` is set to **true**. |
 
-    | Parameter | Description |
-    |:---|:---|
-    | AKS: `aksResourceId`<br>Arc: `clusterResourceId` | Resource ID of the cluster. |
-    | AKS: `aksResourceLocation`<br>Arc: `clusterRegion` | Azure Region of the cluster. |
-    | AKS: `workspaceResourceId`<br>Arc: `workspaceResourceId` | Resource ID of the  Log Analytics workspace. |
-    | AKS: `workspaceRegion`<br>Arc: `workspaceRegion` | Region of the Log Analytics workspace. |
-    |  Arc: `workspaceDomain`	| Domain of the Log Analytics workspace:<br>`opinsights.azure.com` for Azure public cloud<br>`opinsights.azure.us` for Azure US Government<br>`opinsights.azure.cn` for Azure China Cloud |
-    | AKS: `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-\<clusterName\>-\<clusterRegion\>, and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
-    | AKS: `useAzureMonitorPrivateLinkScope`<br>Arc: `useAzureMonitorPrivateLinkScope` | Boolean flag to indicate whether Azure Monitor link scope is used or not. |
-    | AKS: `azureMonitorPrivateLinkScopeResourceId`<br>Arc: `azureMonitorPrivateLinkScopeResourceId` | Resource ID of the Azure Monitor Private link scope.   This only used if `useAzureMonitorPrivateLinkScope` is set to **true**. |
+### Arc-enabled Kubernetes cluster
 
-  Based on your requirements, you can configure other parameters such `streams`, `enableContainerLogV2`, `enableSyslog`, `syslogLevels`, `syslogFacilities`, `dataCollectionInterval`, `namespaceFilteringModeForDataCollection` and `namespacesForDataCollection`. 
+- Template file: https://aka.ms/arc-k8s-azmon-extension-msi-arm-template
+- Parameter file: https://aka.ms/arc-k8s-azmon-extension-msi-arm-template-params
 
-3. Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
+| Parameter | Description |
+|:---|:---|
+| `clusterResourceId` | Resource ID of the cluster. |
+| `clusterRegion` | Azure Region of the cluster. |
+| `workspaceResourceId` | Resource ID of the  Log Analytics workspace. |
+| `workspaceRegion` | Region of the Log Analytics workspace. |
+| `workspaceDomain`	| Domain of the Log Analytics workspace:<br>`opinsights.azure.com` for Azure public cloud<br>`opinsights.azure.us` for Azure US Government<br>`opinsights.azure.cn` for Azure China Cloud |
+| `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-\<clusterName\>-\<clusterRegion\>, and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
+| `useAzureMonitorPrivateLinkScope` | Boolean flag to indicate whether Azure Monitor link scope is used or not. |
+| `azureMonitorPrivateLinkScopeResourceId` | Resource ID of the Azure Monitor Private link scope.   This only used if `useAzureMonitorPrivateLinkScope` is set to **true**. |
 
-### Cluster using legacy authentication
+
+## Cluster using legacy authentication
 Use the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace using [Azure Private Link](../logs/private-link-security.md) if your cluster is not using managed identity authentication. This requires a [private AKS cluster](../../aks/private-clusters.md).
 
 1. Create a private AKS cluster following the guidance in [Create a private Azure Kubernetes Service cluster](../../aks/private-clusters.md).
