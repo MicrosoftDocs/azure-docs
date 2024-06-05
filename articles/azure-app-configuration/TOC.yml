@@ -128,12 +128,16 @@
               href: use-feature-flags-dotnet-core.md
             - name: Spring Boot
               href: use-feature-flags-spring-boot.md
+            - name: Python
+              href: use-feature-flags-python.md
         - name: Enable conditional features with feature filters
           items:
             - name: Overview
               href: howto-feature-filters.md
             - name: ASP.NET Core
               href: howto-feature-filters-aspnet-core.md
+            - name: Python
+              href: howto-feature-filters-python.md
         - name: Enable features on a schedule
           items:
             - name: Overview

@@ -152,6 +152,8 @@ landingContent:
           url: use-feature-flags-dotnet-core.md
         - text: Use feature flags in Spring Boot
           url: use-feature-flags-spring-boot.md
+        - text: Use feature flags in Python
+          url: use-feature-flags-python.md
         - text: Enable conditional features with feature filters
           url: howto-feature-filters.md
         - text: Enable features on a schedule
