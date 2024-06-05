@@ -86,7 +86,7 @@ JOIN
     (SELECT VALUE s FROM s IN p.warehouseStock WHERE NOT s.backstock)
 ```
 
-Assume that only one item in the tags array matches the filter, and there are five items for both nutrients and servings arrays. The ``JOIN`` expressions then expand to ``1 x 1 x 5 x 5`` (**25**) items, as opposed to **1,000** items in the first query.
+Assume that only one item in the tags array matches the filter, and there are five items for both quantity and stock arrays. The ``JOIN`` expressions then expand to ``1 x 1 x 5 x 5`` (**25**) items, as opposed to **1,000** items in the first query.
 
 ## Evaluate once and reference many times
 
