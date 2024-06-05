@@ -20,7 +20,7 @@ See [Monitor Azure AI Search](monitor-azure-cognitive-search.md) for details on 
 ### Supported metrics for Microsoft.Search/searchServices
 The following table lists the metrics available for the Microsoft.Search/searchServices resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Search/searchServices](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-search-searchservices-metrics-include.md)]
+[!INCLUDE [microsoft-search-searchservices-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-search-searchservices-metrics-include.md)]
 
 #### Search queries per second
 
@@ -96,7 +96,7 @@ Azure AI Search has dimensions associated with the following metrics that captur
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Search/searchServices
-[!INCLUDE [Microsoft.Search/searchServices](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-search-searchservices-logs-include.md)]
+[!INCLUDE [microsoft-search-searchservices-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-search-searchservices-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
