@@ -260,7 +260,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 
 The data is read as a data frame:
 
-    :::image type="content" source="./media/vm-do-ten-things/IPNB_data_readin.png" alt-text="Screenshot showing the first 10 rows of data." lightbox= "./media/vm-do-ten-things/IPNB_data_readin.png":::
+:::image type="content" source="./media/vm-do-ten-things/IPNB_data_readin.png" alt-text="Screenshot showing the first 10 rows of data." lightbox= "./media/vm-do-ten-things/IPNB_data_readin.png":::
 
 ### Azure Synapse Analytics and databases
 
