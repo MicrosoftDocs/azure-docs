@@ -197,7 +197,7 @@ resource privateDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-
 }
 ```
 
-The ACI downloads container images from the Microsoft Container Registry. If you use a firewall, whitelist the URL [mcr.microsoft.com](http://mcr.microsoft.com) to download the image. Failure to download the container image will result in the ACI entering a `waiting` state, eventually leading to a timeout error.
+The ACI downloads container images from the Microsoft Container Registry. If you use a firewall, allowlist the URL [mcr.microsoft.com](https://mcr.microsoft.com) to download the image. Failure to download the container image results in the ACI entering a `waiting` state, eventually leading to a timeout error.
 
 ## Next steps
 
