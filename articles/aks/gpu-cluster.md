@@ -51,7 +51,7 @@ Using NVIDIA GPUs involves the installation of various NVIDIA software component
 
 AKS has automatic GPU driver installation enabled by default. In some cases, such as installing your own drivers or using the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html), you may want to skip GPU driver installation.
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 1. Register or update the aks-preview extension using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
 
@@ -234,7 +234,7 @@ The NVIDIA GPU Operator automates the management of all NVIDIA software componen
 
 AKS provides a fully configured AKS image containing the [NVIDIA device plugin for Kubernetes][nvidia-github]. The AKS GPU image is currently only supported for Ubuntu 18.04.
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 1. Install the `aks-preview` Azure CLI extension using the [`az extension add`][az-extension-add] command.
 
