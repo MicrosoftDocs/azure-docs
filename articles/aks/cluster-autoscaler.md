@@ -43,7 +43,8 @@ This article requires Azure CLI version 2.0.76 or later. Run `az --version` to f
     --load-balancer-sku standard \
     --enable-cluster-autoscaler \
     --min-count 1 \
-    --max-count 3
+    --max-count 3 \
+    --generate-ssh-keys
     ```
 
     It takes a few minutes to create the cluster and configure the cluster autoscaler settings.
@@ -178,13 +179,14 @@ The following table lists the available settings for the cluster autoscaler prof
 
     ```azurecli-interactive
     az aks create \
-      --resource-group myResourceGroup \
-      --name myAKSCluster \
-      --node-count 1 \
-      --enable-cluster-autoscaler \
-      --min-count 1 \
-      --max-count 3 \
-      --cluster-autoscaler-profile scan-interval=30s
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --node-count 1 \
+        --enable-cluster-autoscaler \
+        --min-count 1 \
+        --max-count 3 \
+        --cluster-autoscaler-profile scan-interval=30s \
+        --generate-ssh-keys
     ```
 
 ### Set the cluster autoscaler profile on an existing cluster

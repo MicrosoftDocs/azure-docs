@@ -257,7 +257,12 @@ az account set --subscription $SUBSCRIPTION
 az group create --name $RG_NAME --location $LOCATION
 
 # Deploy the cluster in your designated Edge Zone
-az aks create --resource-group $RG_NAME --name $CLUSTER_NAME --edge-zone $EDGE_ZONE_NAME --location $LOCATION
+az aks create \
+    --resource-group $RG_NAME \
+    --name $CLUSTER_NAME \
+    --edge-zone $EDGE_ZONE_NAME \
+    --location $LOCATION \
+    --generate-ssh-keys
 ```
 
 ### [Azure portal](#tab/azure-portal)

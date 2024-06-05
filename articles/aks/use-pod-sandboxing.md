@@ -107,7 +107,14 @@ Perform the following steps to deploy an Azure Linux AKS cluster using the Azure
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli-interactive
-    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku AzureLinux --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --node-count 1
+    az aks create 
+        --name myAKSCluster \
+        --resource-group myResourceGroup \
+        --os-sku AzureLinux \
+        --workload-runtime KataMshvVmIsolation \
+        --node-vm-size Standard_D4s_v3 \
+        --node-count 1 \
+        --generate-ssh-keys
     ```
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
