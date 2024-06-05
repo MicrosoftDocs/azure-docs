@@ -54,7 +54,7 @@ After you add rules to a ruleset version, you can create a new empty ruleset ver
 
 1. Open the new ruleset version's shortcut menu, and select **Save**.
 
-You can now copy rules from other rulest versions versions and paste them into the new version.
+You can now copy rules from other rulset versions, and paste them into the new version.
 
 ## Pass fact types to a ruleset
 

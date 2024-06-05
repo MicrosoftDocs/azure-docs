@@ -167,7 +167,7 @@ When the **Fact1** fact, which has a value of 1, is asserted into the engine, bo
 
 ### Priority
 
-By default, all rules are set to 0 as the priority for execution. However, you can change this priority on each individual rule. The priority can range to either side of 0 with larger numbers having higher priority. Tjhe engine executes actions from highest priority to lowest priority.
+By default, all rules are set to 0 as the priority for execution. However, you can change this priority on each individual rule. The priority can range to either side of 0 with larger numbers having higher priority. The engine executes actions from highest priority to lowest priority.
 
 The following example shows how priority affects the order execution for rules:
 
@@ -251,7 +251,7 @@ The following list provides possible workarounds for this problem:
 
 - Develop a helper component that performs the **OR** operations and returns a Boolean value, and then use the component in the rule.
 
-- Split the rule into multiple rules and have the rules check for a flag set by a previously executed rule, or use an object that is asserted by a previously executed rule, for example:
+- Split the rule into multiple rules and have the rules check for a flag set by a previously executed rule, or use an object that a previously executed rule asserted, for example:
 
   - **Rule 1**: `IF (a == 1 OR a == 3) THEN b = true`
 

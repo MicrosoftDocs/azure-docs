@@ -112,7 +112,7 @@ After you add definitions to a vocabulary version, you can create a new empty vo
 
 1. Open the new vocabulary version's shortcut menu, and select **Save**.
 
-You can now copy vocabulary definitions from other vocabulary versions and paste them into the new version.
+You can now copy vocabulary definitions from other vocabulary versions, and paste them into the new version.
 
 ## Rename a vocabulary
 

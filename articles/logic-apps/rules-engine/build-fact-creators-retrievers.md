@@ -68,7 +68,7 @@ You can design your fact retriever with the required application-specific logic 
 
 1. Specify the logic to refresh or assert new long-term fact instances into the engine.
 
-   The engine uses the initially asserted and consequently cached values on subsequent execution cycles until those values are updated.
+   The engine uses the initially asserted and cached values on subsequent execution cycles until those values are updated.
 
 The fact retriever implementation returns an object that is analogous to a token that the retriever can use with the **factsHandleIn** object to determine whether to update existing facts or assert new facts. When a ruleset version calls the fact retriever for the first time, the **factsHandleIn** object is always set to null, but takes on the return object's value after the fact retriever completes execution.
 
@@ -121,11 +121,11 @@ To include the following capabilities, write your own code implementation:
 
 - Determine when to update the long-term facts.
 
-- Track which rules engine instance uses which long-term facts.
+- Track whichever rules engine instance uses whichever long-term facts.
 
 ## Specify a fact retriever for a ruleset
 
-To set up fact retriever for your rulet version, you can either [set the Fact Retriever property in the Microsoft Rules Composer](perform-advanced-ruleset-tasks.md#set-up-fact-retriever), or write your own code as shown in the following example, which uses a class named "MyFactRetriever" in the assembly named "MyAssembly":
+To set up fact retriever for your ruleset version, you can either [set the Fact Retriever property in the Microsoft Rules Composer](perform-advanced-ruleset-tasks.md#set-up-fact-retriever), or write your own code as shown in the following example, which uses a class named "MyFactRetriever" in the assembly named "MyAssembly":
 
 ```csharp
 RuleEngineComponentConfiguration fr = new RuleEngineComponentConfiguration("MyAssembly", "MyFactRetriever");

@@ -98,7 +98,7 @@ The following table describes the information in this entry:
 |------|-------------|
 | **Rule Engine Instance Identifier** | A unique identifier for the **RuleEngine** instance that provides the execution environment for the rule firing. |
 | **Ruleset Name** | The name of the ruleset. |
-| **Operation** | There following operation types can occur in a fact activity: <br><br>- **Assert**: A fact is addeded to working memory. **Note**: If the type for an asserted fact doesn't match any of the types used in the ruleset, the Assert operation shows the error "**Assert – Fact Unrecognized**". <br><br>- **Update**: A fact is updated by a rule and then must be reasserted into the engine for reevaluation, based on the new data and state. <br><br>- **Retract**: A fact is removed from working memory. |
+| **Operation** | The following operation types can occur in a fact activity: <br><br>- **Assert**: A fact is added to working memory. **Note**: If the type for an asserted fact doesn't match any of the types used in the ruleset, the **Assert** function shows the error "**Assert – Fact Unrecognized**". <br><br>- **Update**: A rule updates a fact, which must then be reasserted into the engine for reevaluation, based on the new data and state. <br><br>- **Retract**: A fact is removed from working memory. |
 | **Object Type** | The fact type for a particular activity: - **TypedXmlDocument** <br><br>Assertions are shown for both parent and child **TypedXmlDocument** instances. |
 | **Object Instance Identifier** | The unique instance ID for the fact reference. |
 
@@ -160,7 +160,7 @@ Conflict Resolution Criteria: 10
 
 ## Update function
 
-This example shows a sample "InventoryCheck" rule and a "Ship" rule in a sample ruleset named "Order". When the rule is first checked, the condition associated with the "Ship" rule evaluates to **False**. However, when the "InventoryCheck" rule fires, the **InventoryAvailable** field on the **Order** is changed, and the **Update** command is issued to the engine for the "Order object", causing reevaluation for the "Ship" rule. This time, the condition evaluates to **True**, and the "Ship" rule fires.
+This example shows a sample "InventoryCheck" rule and a "Ship" rule in a sample ruleset named "Order." When the rule is first checked, the condition associated with the "Ship" rule evaluates to **False**. However, when the "InventoryCheck" rule fires, the **InventoryAvailable** field on the **Order** is changed, and the **Update** command is issued to the engine for the "Order object", causing reevaluation for the "Ship" rule. This time, the condition evaluates to **True**, and the "Ship" rule fires.
 
 > [!NOTE]
 >
