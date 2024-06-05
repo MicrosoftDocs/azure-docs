@@ -34,7 +34,7 @@ This article assumes that you've already performed the following prerequisites:
 To connect to Azure using the Azure VPN Client and certificate authentication, each connecting client requires the following items:
 
 * The Azure VPN Client software must be installed and configured on each client.
-* The client must have the correct certifcates installed locally.
+* The client must have the correct certificates installed locally.
 
 ### Workflow
 
