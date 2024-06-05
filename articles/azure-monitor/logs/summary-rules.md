@@ -257,17 +257,22 @@ This table describes the summary rule properties:
 
 ## Configure the aggregation timing
 
-The summary rule creates the first aggregation a short time after the next whole hour, or based on the `binStartTime` value (optional). 
+By default, the summary rule creates the first aggregation a shortly after the next whole hour. 
 
-For example, if you create a summary rule with a bin size of 30 minutes at 14:44, the rule begins the aggregation shortly after 15:00, and aggregates data for 14:30-15:00. 
+The short delay Azure Monitor adds is to account for [ingestion latency](data-ingestion-time.md) - or the time between when the data is created in the monitored system and the time that it becomes available for analysis in Azure Monitor. By default, this delay is between three and a half minutes to 10% of the `binSize` value before aggregating each chunk of data. In most cases, this delay ensures that Azure Monitor aggregates all data logged within each bin period and doesn't miss "late arriving data".
 
-The next sections provide more detailed examples of the default rule configuration and the more advanced configuration, using the optional `binStartTime` and `binDelay` parameters.
+For example: 
 
-### Use default bin timing configuration
+- You create a summary rule with a bin size of 30 minutes at 14:44. The rule creates the first aggregation shortly after 15:00 - for example, at 15:04 - for data logged between 14:30 and 15:00. 
+- You create a summary rule with a bin size of 720 minutes (12 hours) at 14:44. The rule creates the first aggregation at 16:12 - 72 minutes (10% of the 720 bin size) after 13:00 - for data logged between 03:00 and 15:00. 
 
-When you create a summary rule, by default, the rule begins agreggating data shortly after the next whole hour. This short delay ranges between three and a half minutes to 10% of the `binSize` value. 
+Use the `binStartTime` and `binDelay` parameters to change the timing of the first aggregation and the delay Azure Monitor adds before each aggregation.
 
-In this example, the rule adds a delay of four minutes.
+The next sections provide examples of the default aggregation timing and the more advanced aggregation timing options.
+
+### Use default aggregation timing 
+
+In this example, the summary rule is created at on 2023-06-07 at 14:44, and Azure Monitor adds a default delay of **four minutes**.
 
 | binSize (minutes) | Rule first run time | First bin time | Second bin time |
 | --- | --- | --- | --- |
@@ -280,22 +285,11 @@ In this example, the rule adds a delay of four minutes.
 |   30  | 2023-06-07 15:04 | 2023-06-07 14:30 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 15:30 |
 |   20  | 2023-06-07 15:04 | 2023-06-07 14:40 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 15:20 |
 
-### Set optional bin timing parameters
+### Set optional aggregation timing parameters
 
-The first rule run is at the next whole hour after rule provisioning plus a delay, which can be from 3.5 minutes to 10% of the binSize. If you want to control the execution hour for daily rules, or add a specified delay before bin is processed, include the `binStartTime`, `binDelay` value in the rule configuration. 
-
-> [!NOTE]
-> The `binStartTime` value starts at rule creation datetime minus the `binSize` value, or later in whole hours.
-
-For this example, the rule includes the following configuration:
+In this example, the summary rule is created at on 2023-06-07 at 14:44, and the rule includes these advanced configuration settings:
 - `binStartTime`: 2023-06-08 07:00
-- `binDelay`: 8 minutes
-
-<!-- Questions:
-
-- The document uses **bold** for the 8 in the second column, and also for the first full value in the third column. Is bold necessary?
-    
--->
+- `binDelay`: **8 minutes**
 
 | binSize (minutes) | Rule first run time | First bin time | Second bin time |
 | --- | --- | --- | --- |
@@ -307,9 +301,6 @@ For this example, the rule includes the following configuration:
 |   60 | 2023-06-08 08:08 | 2023-06-08 07:00 -- 2023-06-08 08:00 | 2023-06-08 08:00 -- 2023-06-08 09:00 |
 |   30 | 2023-06-08 07:38 | 2023-06-08 07:00 -- 2023-06-08 07:30 | 2023-06-08 07:30 -- 2023-06-08 08:00 |
 |   20 | 2023-06-08 07:28 | 2023-06-08 07:00 -- 2023-06-08 07:20 | 2023-06-08 07:20 -- 2023-06-08 07:40 |
-
-The initial rule execution is after the bin range plus an 8-minute delay. The typical delay can be between 4 minutes and up to 10% of the `binSize` value. For example, a rule with a 12-hours bin size can execute bin 02:00 to 14:00 at 15:12. 
-
 
 ## View summary rules
 
