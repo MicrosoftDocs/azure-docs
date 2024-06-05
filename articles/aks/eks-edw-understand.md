@@ -17,7 +17,7 @@ This article walks through some of the key concepts that are especially useful t
 
 The AWS EDW workload uses AWS resource policies that assign AWS Identity and Access Management (IAM) roles to code running in Kubernetes pods on EKS. These roles allow those pods to access external resources such as queues or databases.
 
-Azure doesn't have the concept of IAM roles. Instead, Azure uses [Role-based access control (RBAC)](/azure/role-based-access-control/overview) to control permissions to a resource at a given level of scope, such as a subscription, resource group, or individual resource type. These Azure RBAC role assignments allow you to grant access to specific Azure resources for a security principal (user, group, managed identity, or service principal).
+Azure implements [role-based access control (RBAC)](/azure/role-based-access-control/overview) differently that AWS. Both AWS and Azure allow you to control permissions on resources at a given level of scope, but they achieve this in different ways. In Azure, role assignments are associated with a security principal (user, group, managed identity, or service principal) and that security principal is associated with a resource.
 
 ## Authentication between services
 
