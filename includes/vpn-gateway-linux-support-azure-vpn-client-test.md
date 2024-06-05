@@ -6,7 +6,7 @@ ms.service: vpn-gateway
 ms.topic: include
 ---
 
-While it's possible that the Azure VPN Client may work on other Linux distributions and releases, the Azure VPN Client is only supported on the following:
+While it's possible that the Azure VPN Client might work on other Linux distributions and releases, the Azure VPN Client is only supported on the following releases:
 
 * Ubuntu 20.04
 * Ubuntu 22.04
