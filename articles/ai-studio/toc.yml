@@ -45,13 +45,13 @@ items:
       href: how-to/create-azure-ai-resource.md
     - name: Create a hub with custom security
       items:
-      - name: Create a hub in Azure Portal
+      - name: Create a hub in the Azure portal
         href: how-to/create-secure-ai-hub.md
       - name: Create a hub from template
         href: how-to/create-azure-ai-hub-template.md      
     - name: Create a project
       href: how-to/create-projects.md
-    - name: Create a hub and project using AzureML SDK
+    - name: Create a hub and project using the Azure Machine Learning SDK
       href: how-to/develop/create-hub-project-sdk.md
     - name: Create and manage compute
       href: how-to/create-manage-compute.md
@@ -61,7 +61,7 @@ items:
         href: concepts/connections.md
       - name: Create a connection
         href: how-to/connections-add.md
-      - name: Create a connection using the AzureML SDK
+      - name: Create a connection using the Azure Machine Learning SDK
         href: how-to/develop/connections-add-sdk.md
   - name: Select and deploy AI models
     items:
