@@ -17,7 +17,7 @@ This article helps you connect to your Azure virtual network (VNet) from the Azu
 [!INCLUDE [Supported versions](../../includes/vpn-gateway-linux-support-azure-vpn-client.md)]
 
 > [!NOTE]
-> [!INCLUDE [Supported versions](../../includes/vpn-gateway-linux-support-azure-vpn-client.md)]
+> [!INCLUDE [Supported versions](../../includes/vpn-gateway-linux-support-azure-vpn-client-test.md)]
 >
 
 ## Before you begin
