@@ -54,7 +54,12 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 To enable application routing on a new cluster, use the [`az aks create`][az-aks-create] command, specifying the `--enable-app-routing` flag.
 
 ```azurecli-interactive
-az aks create --resource-group <ResourceGroupName> --name <ClusterName> --location <Location> --enable-app-routing
+az aks create \
+    --resource-group <ResourceGroupName> \
+    --name <ClusterName> \
+    --location <Location> \
+    --enable-app-routing \
+    --generate-ssh-keys
 ```
 
 ### Enable on an existing cluster
@@ -79,7 +84,13 @@ The following add-ons are required to support this configuration:
 Enable application routing on a new AKS cluster using the [`az aks create`][az-aks-create] command specifying the `--enable-app-routing` flag and the `--enable-addons` parameter with the `open-service-mesh` add-on:
 
 ```azurecli-interactive
-az aks create --resource-group <ResourceGroupName> --name <ClusterName> --location <Location> --enable-app-routing --enable-addons open-service-mesh 
+az aks create \
+    --resource-group <ResourceGroupName> \
+    --name <ClusterName> \
+    --location <Location> \
+    --enable-app-routing \
+    --enable-addons open-service-mesh \
+    --generate-ssh-keys 
 ```
 
 ### Enable on an existing cluster
@@ -104,7 +115,12 @@ az aks enable-addons --resource-group <ResourceGroupName> --name <ClusterName> -
 To enable application routing on a new cluster, use the [`az aks create`][az-aks-create] command, specifying `--enable-app-routing` flag.
 
 ```azurecli-interactive
-az aks create --resource-group <ResourceGroupName> --name <ClusterName> --location <Location> --enable-app-routing
+az aks create \
+    --resource-group <ResourceGroupName> \
+    --name <ClusterName> \
+    --location <Location> \
+    --enable-app-routing \
+    --generate-ssh-keys
 ```
 
 ### Enable on an existing cluster
