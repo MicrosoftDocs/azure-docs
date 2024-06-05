@@ -59,7 +59,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - For successful backup and restore operations, the Backup vault's managed identity requires role assignments. If you don't have the required permissions, permission problems might happen during backup configuration or restore operations soon after you assign roles because the role assignments take a few minutes to take effect. [Learn about role definitions](azure-kubernetes-service-cluster-backup-concept.md#required-roles-and-permissions).
 
-- Backup vault does not support Azure Lighthouse. Thus, cross tenant management can not be enabled by Lighthouse for Azure Backup for AKS and you cannot backup/restore AKS Clusters across tenant.
+- Backup vault does not support Azure Lighthouse. Thus, cross tenant management cannot be enabled by Lighthouse for Azure Backup for AKS and you cannot backup/restore AKS Clusters across tenant.
 
 - Here are the AKS backup limits:
 
