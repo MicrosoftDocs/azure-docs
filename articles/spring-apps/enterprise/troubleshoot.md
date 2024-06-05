@@ -276,7 +276,7 @@ When you visit the SaaS offer [Azure Spring Apps Enterprise](https://aka.ms/ascm
 
 The Azure Spring Apps Enterprise plan needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
 
-[Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
+[Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See the [Supported geographic locations](/partner-center/marketplace/marketplace-geo-availability-currencies#supported-geographic-locations) section of [Geographic availability and currency support for the commercial marketplace](/partner-center/marketplace/marketplace-geo-availability-currencies).
 
 You can view the billing account for your subscription if you have admin access. See [view billing accounts](../../cost-management-billing/manage/view-all-accounts.md#check-the-type-of-your-account).
 

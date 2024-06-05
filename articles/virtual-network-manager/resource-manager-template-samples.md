@@ -7,7 +7,7 @@ author: mbender-ms
 ms.service: virtual-network-manager
 ms.custom: devx-track-arm-template
 ms.topic: sample
-ms.date: 03/28/2023
+ms.date: 03/28/2024
 ms.author: mbender
 ---
 

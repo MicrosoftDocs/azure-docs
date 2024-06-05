@@ -16,7 +16,7 @@
 | P2S connections                         | Limit depends on the gateway SKU. See the [Limits by gateway SKU](#limits-by-gateway-sku) table.|
 | P2S route limit - IKEv2                 | 256 for non-Windows **/** 25 for Windows           |
 | P2S route limit - OpenVPN               | 1000                         |
-| Max. flows                              | 100K for VpnGw1/AZ  **/**  512K for VpnGw2-4/AZ|
+| Max. flows                              | 500K inbound and 500K outbound for VpnGw1-5/AZ|
 | Traffic Selector Policies               | 100  |
 | Custom APIPA BGP addresses              | 32   |
 | Supported number of VMs in the virtual network | Limit depends on the gateway SKU. See the [Limits by gateway SKU](#limits-by-gateway-sku) table.|

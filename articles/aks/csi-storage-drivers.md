@@ -50,7 +50,7 @@ To enable CSI storage drivers on a new cluster, include one of the following par
 * `--enable-snapshot-controller` allows you to enable the [snapshot controller][snapshot-controller].
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --enable-disk-driver --enable-file-driver --enable-blob-driver --enable-snapshot-controller
+az aks update --name myAKSCluster --resource-group myResourceGroup --enable-disk-driver --enable-file-driver --enable-blob-driver --enable-snapshot-controller
 ```
 
 It may take several minutes to complete this action. Once it's complete, you should see in the output the status of enabling the driver on your cluster. The following example resembles the section indicating the results when enabling the Blob storage CSI driver:
@@ -72,13 +72,13 @@ To disable CSI storage drivers on a new cluster, include one of the following pa
 * `--disable-snapshot-controller` allows you to disable the [snapshot controller][snapshot-controller].
 
 ```azurecli
-az aks create -n myAKSCluster -g myResourceGroup --disable-disk-driver --disable-file-driver --disable-blob-driver --disable-snapshot-controller 
+az aks create --name myAKSCluster --resource-group myResourceGroup --disable-disk-driver --disable-file-driver --disable-blob-driver --disable-snapshot-controller 
 ```
 
 To disable CSI storage drivers on an existing cluster, use one of the parameters listed earlier depending on the storage system:
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --disable-disk-driver --disable-file-driver --disable-blob-driver --disable-snapshot-controller 
+az aks update --name myAKSCluster --resource-group myResourceGroup --disable-disk-driver --disable-file-driver --disable-blob-driver --disable-snapshot-controller 
 ```
 
 ## Migrate custom in-tree storage classes to CSI

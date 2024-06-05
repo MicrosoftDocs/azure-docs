@@ -2,8 +2,8 @@
 title: Threat intelligence integration in Microsoft Sentinel
 description: Learn about the different ways threat intelligence feeds are integrated with and used by Microsoft Sentinel.
 author: austinmccollum
-ms.topic: concept
-ms.date: 3/14/2024
+ms.topic: concept-article
+ms.date: 03/14/2024
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Azure portal

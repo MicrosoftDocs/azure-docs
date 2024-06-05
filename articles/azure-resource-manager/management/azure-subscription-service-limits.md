@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 04/08/2024
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -61,7 +61,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [entra-service-limits](../../../includes/entra-service-limits-include.md)]
 
-## API Center (preview) limits
+## API Center limits
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
 
@@ -84,7 +84,6 @@ This section provides information about limits that apply to Azure API Managemen
 ### Limits - Developer portal in API Management v2 tiers
 
 [!INCLUDE [api-management-developer-portal-limits-v2](../../../includes/api-management-developer-portal-limits-v2.md)]
-
 
 ## App Service limits
 

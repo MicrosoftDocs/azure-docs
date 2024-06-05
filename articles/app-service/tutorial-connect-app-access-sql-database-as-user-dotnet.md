@@ -130,7 +130,7 @@ Currently, your Azure app connects to SQL Database uses SQL authentication (user
 
 The app registration in Microsoft Entra ID now has the required permissions to connect to SQL Database by impersonating the signed-in user. Next, you configure your App Service app to give you a usable access token.
 
-In the Cloud Shell, run the following commands on the app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`.
+In the Cloud Shell, run the following commands on the app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`. It uses [jq] for JSON processing, which is installed already in the Cloud Shell.
 
 ```azurecli-interactive
 authSettings=$(az webapp auth show --resource-group <group-name> --name <app-name>)

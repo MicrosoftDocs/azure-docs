@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Improved exports experience - Preview
 description: This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format.
-author: bandersmsft
-ms.author: banders
-ms.date: 03/21/2024
+author: jojohpm
+ms.author: jojoh
+ms.date: 04/29/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: banders
 ---
 
 # Tutorial: Improved exports experience - Preview
@@ -138,6 +138,8 @@ All types of data support various schedule frequency options, as described in th
 | Cost and usage details (actual)<br> Cost and usage details (amortized) <br> Cost and usage details (FOCUS)<br> Cost and usage details (usage only) | • One-time export <br>• Daily export of month-to-date costs<br>•  Monthly export of last month's costs <br>• Monthly export of last billing month's costs |
 
 ## Understand data types
+
+For a comprehensive reference of all available datasets, including the schema for current and historical versions, please visit [Cost Management dataset schema index](/azure/cost-management-billing/dataset-schema/schema-index). 
 
 - Cost and usage details (actual) - Select this option to export standard usage and purchase charges.
 - Cost and usage details (amortized) - Select this option to export amortized costs for purchases like Azure reservations and Azure savings plan for compute.

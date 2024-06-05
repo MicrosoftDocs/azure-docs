@@ -4,7 +4,7 @@ description: Learn how to use MirrorMaker 2 to migrate Kafka clusters between di
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/25/2023
+ms.date: 05/09/2024
 ---
 
 # Use MirrorMaker 2 to migrate Kafka clusters between different Azure HDInsight versions

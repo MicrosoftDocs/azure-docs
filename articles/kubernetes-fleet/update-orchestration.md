@@ -9,6 +9,7 @@ ms.service: kubernetes-fleet
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
+  - build-2024
 ---
 
 # Orchestrate updates across multiple clusters by using Azure Kubernetes Fleet Manager
@@ -43,6 +44,9 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
   ```azurecli-interactive
   az extension update --name fleet
   ```
+
+> [!NOTE]
+> Update runs honor [planned maintenance windows](../aks/planned-maintenance.md) that you set at the AKS cluster level. For more information about how update runs handle member clusters that have been configured with planned maintenance windows, see [Planned maintenance across multiple member clusters](./concepts-update-orchestration.md#planned-maintenance).
 
 ## Update all clusters one by one
 

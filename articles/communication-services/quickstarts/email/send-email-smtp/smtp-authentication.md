@@ -79,8 +79,6 @@ username: <Azure Communication Services Resource name>.<Entra Application ID>.<E
 ```
 **Pipe-delimited Format:**
 ```
-username: <Azure Communication Services Resource name>.<Entra Application ID>.<Entra Tenant ID>
-OR
 username: <Azure Communication Services Resource name>|<Entra Application ID>|<Entra Tenant ID>
 ```
 
