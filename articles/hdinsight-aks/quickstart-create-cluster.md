@@ -3,12 +3,12 @@ title: Create cluster pool and cluster
 description: Creating a cluster pool and cluster in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: quickstart
-ms.date: 12/11/2023
+ms.date: 06/03/2024
 ---
 
 # Create cluster pool and cluster
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 
 HDInsight on AKS has the concept of cluster pools and clusters.
 
@@ -22,7 +22,7 @@ For creating Apache Spark, Apache Flink, or Trino clusters, you need to first cr
 
 ## Prerequisites
 
-Ensure that you have completed the [subscription prerequisites](prerequisites-subscription.md) and [resource prerequisites](prerequisites-resources.md) before creating a cluster pool.
+Ensure that you have completed the [subscription prerequisites](quickstart-prerequisites-subscription.md) and [resource prerequisites](quickstart-prerequisites-resources.md) before creating a cluster pool.
 
 ## Create a cluster pool
 
@@ -45,7 +45,7 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
      |Subscription| From the drop-down list, select the Azure subscription under which you want to create HDInsight on AKS cluster pool.|
      |Resource group|From the drop-down list, select an existing resource group, or select **Create new.**|
      |Pool name| Enter the name of the cluster pool to be created. Cluster pool name length can't be more than 26 characters. It must start with an alphabet, end with an alphanumeric character, and must only contain alphanumeric characters and hyphens.|
-     |Region|From the drop-down list, select the region for the cluster pool. Check [region availability](./overview.md#region-availability-public-preview). For cluster pools in a virtual network, the region for the virtual network and the cluster pool must be same. |
+     |Region|From the drop-down list, select the region for the cluster pool. Check [region availability](./overview.md#region-availability). For cluster pools in a virtual network, the region for the virtual network and the cluster pool must be same. |
      |Cluster pool version|From the drop-down list, select the HDInsight on AKS cluster pool version. |
      |Virtual machine|From the drop-down list, select the virtual machine size for the cluster pool based on your requirement.|
      |Managed resource group|(Optional) Provide a name for managed resource group. It holds ancillary resources created by HDInsight on AKS.|
@@ -204,3 +204,5 @@ For a quickstart, refer to the following steps.
 
    > [!TIP]
    > For troubleshooting any deployment errors, you can refer to this [page](./create-cluster-error-dictionary.md).
+
+

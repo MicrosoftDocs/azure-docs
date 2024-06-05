@@ -1,14 +1,13 @@
 ---
 title: Subscription prerequisites for Azure HDInsight on AKS.
 description: Prerequisite steps to complete on your subscription before working with Azure HDInsight on AKS.
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: hdinsight-aks
 ms.date: 10/13/2023
 ---
 
 # Subscription prerequisites
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 If you're using Azure subscription first time for HDInsight on AKS, the following features might need to be enabled.
 
@@ -88,4 +87,6 @@ At the next command prompt, enter each of the following commands:
     **Output:** No response means the feature registration propagated and you can proceed. If you receive a response that the registration is still on-going, wait for a few minutes, and run the command again until you receive no response.
 
 ## Next steps
-* [One-click deployment](./get-started.md)
+* [One-click deployment](./quickstart-get-started.md)
+
+

@@ -1,14 +1,12 @@
 ---
 title: Resource prerequisites for Azure HDInsight on AKS
 description: Prerequisite steps to complete for Azure resources before working with HDInsight on AKS.
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: hdinsight-aks
 ms.date: 04/08/2024
 ---
 
 # Resource prerequisites
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This article details the resources required for getting started with HDInsight on AKS. It covers the necessary and the optional resources and how to create them.
 
@@ -110,3 +108,5 @@ For example, if you provide resource prefix as “demo” then, following resour
    > [!NOTE]
    > * Make sure to note the secret name, as this is required during cluster creation.
    > * You need to have a “Key Vault Administrator” role assigned to your identity or account to add a secret in the Key Vault using Azure portal. Navigate to the Key Vault and follow the steps on [how to assign the role](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
+
+
