@@ -10,7 +10,7 @@ ms.date: 01/04/2024
 
 # Access and manage IBM DB2 resources by using Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
 [IBM DB2 connector](/connectors/db2/), you can create automated 

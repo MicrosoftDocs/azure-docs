@@ -103,7 +103,7 @@ To use an event hub for the logs, follow these steps:
 
 The following example shows how to enable diagnostic logs via the Azure PowerShell Cmdlets.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ### Enable diagnostic logs in a storage account
 
