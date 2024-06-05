@@ -11,7 +11,7 @@ The Service Bus Geo-Replication feature is one of the options to [insulate Azure
 
 The Geo-Replication feature ensures that the metadata and data of a namespace are continuously replicated from a primary region to one or more secondary regions.
 - Queues, topics, subscriptions, filters.
-- Data which reside in the entities.
+- Data, which resides in the entities.
 - All state changes and property changes executed against the messages within a namespace.
 - Namespace configuration.
 
@@ -40,13 +40,13 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 > - This feature can't be used in combination with the [Azure Service Bus Geo-Disaster Recovery](service-bus-geo-dr.md) feature.
 
 ## Scenarios
-The Geo-replication feature can be used to implement different scenarios, as described below.
+The Geo-replication feature can be used to implement different scenarios, as described here.
 
 ### Disaster recovery
-Data and metadata are continuously synchronized between the primary and secondary regions. In the event that a region lags or is unavailable, it is possible to promote a secondary region as the primary. This allows for the uninterrupted operation of workloads in the newly promoted region. Such a promotion may be necessitated by degradation of Service Bus or other services within your workload, particularly if you aim to run the various components together. Depending on the severity and impacted services, the promotion could either be planned, where any in-flight messages are replicated before finalizing the promotion, or forced, where the promotion is immediatly executed.
+Data and metadata are continuously synchronized between the primary and secondary regions. If a region lags or is unavailable, it is possible to promote a secondary region as the primary. This promotion allows for the uninterrupted operation of workloads in the newly promoted region. Such a promotion may be necessitated by degradation of Service Bus or other services within your workload, particularly if you aim to run the various components together. Depending on the severity and impacted services, the promotion could either be planned or forced. In case of planned promotion in-flight messages are replicated before finalizing the promotion, while with forced promotion this is immediately executed.
 
 ### Region migration
-There are times when you will want to migrate your Service Bus workloads to run in a different region. For example, when Azure adds a new region that is geographically closer to your location, users, or other services. Alternatively, you might want to migrate when the regions where most of your workloads run is shifted. The Geo-Replication feature also provides a good solution in these cases. In this case, you would set up Geo-Replication on your existing namespace with the desired new region as secondary region and wait for the synchronisation to complete. At this point, you would start a planned promotion, allowing any in-flight messages to be replicated. Once the promotion is completed you can now optionally remove the old region, which is now the secondary region, and continue running your workloads in the desired region.
+There are times when you want to migrate your Service Bus workloads to run in a different region. For example, when Azure adds a new region that is geographically closer to your location, users, or other services. Alternatively, you might want to migrate when the regions where most of your workloads run is shifted. The Geo-Replication feature also provides a good solution in these cases. In this case, you would set up Geo-Replication on your existing namespace with the desired new region as secondary region and wait for the synchronization to complete. At this point, you would start a planned promotion, allowing any in-flight messages to be replicated. Once the promotion is completed you can now optionally remove the old region, which is now the secondary region, and continue running your workloads in the desired region.
 
 ## Basic concepts
 
@@ -58,7 +58,7 @@ Some of the key aspects of Geo-Replication feature are:
 - When a customer initiates a promotion, the hostname points to the region selected to be the new primary region. The old primary becomes a secondary region.
 - It is not possible to read or write on the secondary regions.
 - Synchronous and asynchronous replication modes, further described [here](#replication-modes).
-- Customer-managed promotion from primary to secondary region, providing full ownership and visibility for outage resolution. Metrics are available which can help to automate the promotion from customer side.
+- Customer-managed promotion from primary to secondary region, providing full ownership and visibility for outage resolution. Metrics are available, which can help to automate the promotion from customer side.
 - Secondary regions can be added or removed at the customer's discretion.
 
 ## Replication modes
@@ -67,7 +67,7 @@ There are two replication modes, synchronous and asynchronous. It's important to
 
 ### Asynchronous replication
 
-Using asynchronous replication, all requests are committed on the primary, after which an acknowledgment is sent to the client. Replication to the secondary regions happens asynchronously. Users can configure the maximum acceptable amount of lag time. The lag time is the service side offset between the latest action on the primary and the secondary regions. If the lag for an active secondary grows beyond user configuration, the primary will throttle incoming requests.
+Using asynchronous replication, all requests are committed on the primary, after which an acknowledgment is sent to the client. Replication to the secondary regions happens asynchronously. Users can configure the maximum acceptable amount of lag time. The lag time is the service side offset between the latest action on the primary and the secondary regions. If the lag for an active secondary grows beyond user configuration, the primary starts throttling incoming requests.
 
 ### Synchronous replication
 
@@ -83,16 +83,16 @@ On the other hand, synchronous replication provides the greatest assurance that 
 
 With **asynchronous** replication:
 - Latency is impacted minimally.
-- The loss of a secondary region doesn't immediately impacted availability. However, availability gets impacted once the configured maximum replication lag is reached.
+- The loss of a secondary region doesn't immediately impact availability. However, availability gets impacted once the configured maximum replication lag is reached.
 
 As such, it doesn’t have the absolute guarantee that all regions have the data before we commit it like synchronous replication does, and data loss or duplication may occur. However, as you're no longer immediately impacted when a single region lags or is unavailable, application availability improves, in addition to having a lower latency.
 
-|                  | Synchronous replication                                      | Asynchronous replication                                              |
-|------------------|--------------------------------------------------------------|-----------------------------------------------------------------------|
-| Latency          | Longer due to distributed commit operations                  | Minimally impacted                                                    |
-| Availability     | Tied to availability of secondary regions                    | Loss of a secondary region doesn't immediately impacted availability  |
-| Data consistency | Data always committed in both regions before acknowledgement | Data only committed in primary before acknowledgement                 |
-| RPO              | RPO 0, no data loss on promotion                             | RPO > 0, possible data loss on promotion                              |
+|                                | Synchronous replication                                      | Asynchronous replication                                           |
+|--------------------------------|--------------------------------------------------------------|--------------------------------------------------------------------|
+| Latency                        | Longer due to distributed commit operations                  | Minimally impacted                                                 |
+| Availability                   | Tied to availability of secondary regions                    | Loss of a secondary region doesn't immediately impact availability |
+| Data consistency               | Data always committed in both regions before acknowledgment  | Data only committed in primary before acknowledgment               |
+| RPO (Recovery Point Objective) | RPO 0, no data loss on promotion                             | RPO > 0, possible data loss on promotion                           |
 
 The replication mode can be changed after configuring Geo-Replication. You can go from synchronous to asynchronous or from asynchronous to synchronous. If you go from asynchronous to synchronous, your secondary will be configured as synchronous after lag reaches zero. If you're running with a continual lag for whatever reason, then you may need to pause your publishers in order for lag to reach zero and your mode to be able to switch to synchronous. The reasons to have synchronous replication enabled, instead of asynchronous replication, are tied to the importance of the data, specific business needs, or compliance reasons, rather than availability of your application.
 
