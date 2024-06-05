@@ -90,7 +90,7 @@ Currently, Azure HDInsight on AKS only has one standard service offering and clu
 
 Azure HDInsight on AKS and its customers operate under the Shared responsibility model, which means that the customer must address disaster recovery requirements for the service they deploy and control. To ensure that recovery is proactive, customers should always predeploy secondaries because there's no guarantee of capacity at time of impact for those who haven't preallocated.
 
-Unlike HDInsight, the Virtual Machines used in HDInsight on AKS clusters requires the same Quota as Azure VMs. For more information, see [Capacity planning](../hdinsight-aks/virtual-machine-recommendation-capacity-planning.md#capacity-planning).
+Unlike HDInsight, the Virtual Machines used in HDInsight on AKS clusters require the same Quota as Azure VMs. For more information, see [Capacity planning](../hdinsight-aks/virtual-machine-recommendation-capacity-planning.md#capacity-planning).
 
 ## Related content
 
