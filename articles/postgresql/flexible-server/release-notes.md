@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 5/29/2024
+ms.date: 6/5/2024
 #customer intent: As a reader, I want the title and description to meet the required length and include the relevant information about the release notes for Azure DB for PostgreSQL - Flexible Server.
 ---
 
@@ -16,6 +16,9 @@ ms.date: 5/29/2024
 [!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Azure Database for PostgreSQL flexible server.
+
+## Release: June 2024
+* General availability of [IOPS scaling](./concepts-storage.md#iops-scaling) on Azure Database for PostgreSQL flexible server.
 
 ## Release: May 2024
 * General availability of Postgres [azure_ai](generative-ai-azure-overview.md) extension.

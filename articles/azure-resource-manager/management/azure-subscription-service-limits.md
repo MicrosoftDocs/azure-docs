@@ -564,6 +564,10 @@ The maximum number of allowed Managed Run Commands is currently limited to 25.
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
+## Virtual Network Manager limits
+
+[!INCLUDE [virtual-network-manager-limits](../../../includes/azure-virtual-network-manager-limits.md)]
+
 ## Dev tunnels limits
 
 [!INCLUDE [dev-tunnels-service-limits](../../../includes/dev-tunnels/dev-tunnels-service-limits.md)]
