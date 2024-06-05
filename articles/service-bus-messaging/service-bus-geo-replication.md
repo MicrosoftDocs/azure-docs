@@ -23,11 +23,13 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 > [!IMPORTANT]
 > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
 > - Only the below regions are currently supported, with more regions being enabled in the upcoming months.
+>
 > | US               | Europe | Asia             |
 > |------------------|--------|------------------|
 > | West Central US  | Italy  | East Asia        |
 > | West US 3        | Spain  | Taiwan Northwest |
 > | North Central US | Norway | Taiwan North     |
+>
 > - This feature is currently only available on new namespaces. If a namespace had this feature enabled before, it can be disabled (by removing the secondary regions), and re-enabled.
 > - The following features currently aren't supported. We're continuously working on bringing more features to the public preview, and will update this list with the latest status.
 >     - Large message support.
