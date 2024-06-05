@@ -16,7 +16,7 @@ author: PatrickFarley
 
 # Content filtering in Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Azure AI Studio includes a content filtering system that works alongside core models and DALL-E image generation models.
 
