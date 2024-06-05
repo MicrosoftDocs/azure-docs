@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-azure-functions.md",
+            "redirect_url": "/azure/logic-apps/call-azure-functions-from-workflows",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/target-based-scaling-standard.md",
             "redirect_url": "/azure/logic-apps/logic-apps-limits-and-config?tabs=standard#scale-for-high-throughput",
             "redirect_document_id": true

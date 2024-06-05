@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 05/27/2024
 ms.author: anfdocs
 ---
 # Configure policy-based backups for Azure NetApp Files 
@@ -66,7 +66,7 @@ The following example configuration has a backup policy configured for daily bac
 
 ## Assign backup vault and backup policy to a volume
 
-Every Azure NetApp Files volume must have a backup vault assigned before any backups (policy-based or manual) can be taken. 
+Every Azure NetApp Files volume must have a [backup vault](backup-vault-manage.md) assigned before any backups (policy-based or manual) can be taken. 
 
 After you assign a backup vault to the volume, you need to assign a backup policy to the volume for policy-based backups to take effects. (For manual backups, a backup policy is optional.)
 
@@ -77,7 +77,7 @@ To configure backups for a volume:
 
 1. Navigate to **Volumes** then select the volume for which you want to configure backups.
 2. From the selected volume, select **Backup** then **Configure**.
-3. In the Configure Backups page, select the backup vault from the **Backup vaults** drop-down.
+3. In the Configure Backups page, select the backup vault from the **Backup vaults** drop-down. For information about creating a backup vault, see [Create a backup vault](backup-vault-manage.md).
 4. In the **Backup Policy** drop-down menu, assign the backup policy to use for the volume. Select **OK**.
 
     The Vault information is prepopulated.  

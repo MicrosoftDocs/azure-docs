@@ -32,11 +32,11 @@ In this tutorial, you learn to:
 
 ## Prerequisites
 
-In the [code to cloud quickstart](./quickstart-code-to-cloud.md), a back end web API is deployed to return a list of music albums. If you haven't deployed the album API microservice, return to [Quickstart: Deploy your code to Azure Container Apps](quickstart-code-to-cloud.md) to continue.
+In the [code to cloud quickstart](./quickstart-code-to-cloud.md), a back end web API is deployed to return a list of music albums. If you didn't deploy the album API microservice, return to [Quickstart: Deploy your code to Azure Container Apps](quickstart-code-to-cloud.md) to continue.
 
 ## Setup
 
-If you're still authenticated to Azure and still have the environment variables defined from the quickstart, you can skip the following steps and go directly to the [Prepare the GitHub repository](#prepare-the-github-repository) section.
+If you're currently authenticated to Azure and have the environment variables that are defined from the quickstart, then skip the following steps and go directly to [Prepare the GitHub repository](#prepare-the-github-repository).
 
 [!INCLUDE [container-apps-code-to-cloud-setup.md](../../includes/container-apps-code-to-cloud-setup.md)]
 
@@ -217,7 +217,7 @@ $APIBaseURL = (Get-AzContainerApp -Name $APIName -ResourceGroupName $ResourceGro
 
 ---
 
-Now that you have set the `API_BASE_URL` variable with the FQDN of the album API, you can provide it as an environment variable to the frontend container app.
+Now that you set the `API_BASE_URL` variable with the FQDN of the album API, you can provide it as an environment variable to the frontend container app.
 
 ## Deploy front end application
 
@@ -245,7 +245,7 @@ The output from the `az containerapp create` command shows the URL of the front 
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To create the container app, create template objects that you'll pass in as arguments to the `New-AzContainerApp` command.
+To create the container app, create template objects that you pass in as arguments to the `New-AzContainerApp` command.
 
 Create a template object to define your container image parameters.  The environment variable named `API_BASE_URL` is set to the API's FQDN.
 
@@ -261,13 +261,13 @@ $ContainerArgs = @{
 $ContainerObj = New-AzContainerAppTemplateObject @ContainerArgs
 ```
 
-You'll need run the following command to get your registry credentials.
+Run the following command to get your registry credentials.
 
 ```azurepowershell
 $RegistryCredentials = Get-AzContainerRegistryCredential -Name $ACRName -ResourceGroupName $ResourceGroup
 ```
 
-Create a registry credential object to define your registry information, and a secret object to define your registry password.  The `PasswordSecretRef` in `$RegistryObj` refers to the `Name` in `$SecretObj`.  
+Create a registry credential object to define your registry information, and a secret object to define your registry password. The `PasswordSecretRef` in `$RegistryObj` refers to the `Name` in `$SecretObj`.  
 
 ```azurepowershell
 $RegistryArgs = @{
@@ -311,7 +311,7 @@ $FrontEndApp.IngressFqdn
 
 ## View website
 
-Use the container app's FQDN to view the website.  The page will resemble the following screenshot.
+Use the container app's FQDN to view the website.  The page resembles the following screenshot.
 
 :::image type="content" source="media/communicate-between-microservices/azure-container-apps-album-ui.png" alt-text="Screenshot of album list UI microservice.":::
 

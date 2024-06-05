@@ -177,7 +177,9 @@ Now, you need to create an `AudioConfig` object that points to your input device
         var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
 ```
 
-## Initialize a IntentRecognizer
+<a name='initialize-a-intentrecognizer'></a>
+
+## Initialize an IntentRecognizer
 
 Now, let's create the `IntentRecognizer` object using the `SpeechConfig` and `AudioConfig` objects created earlier. Insert this code in the `startIntentRecognizeAsyncButton.addEventListener()` method.
 
