@@ -5,9 +5,12 @@ ms.topic: article
 ms.date: 04/29/2024
 ---
 
-# Azure Service Bus Geo-Replication (Public Preview)
+# Azure Service Bus Geo-Replication (Preview)
 
-The Service Bus Geo-Replication feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), providing replication of both metadata (entities, configuration, properties) and data (message data and message property / state changes). The feature is in public preview for the Service Bus Premium tier. 
+The Service Bus Geo-Replication feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), providing replication of both metadata (entities, configuration, properties) and data (message data and message property / state changes).
+
+> [!NOTE]
+> This feature is available for the Premium tier of Azure Service Bus.
 
 The Geo-Replication feature ensures that the metadata and data of a namespace are continuously replicated from a primary region to one or more secondary regions.
 - Queues, topics, subscriptions, filters.

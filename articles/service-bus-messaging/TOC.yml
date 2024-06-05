@@ -118,7 +118,7 @@
       href: service-bus-performance-improvements.md
     - name: Geo-Disaster Recovery
       href: service-bus-geo-dr.md
-    - name: Geo-Replication (Public Preview)
+    - name: Geo-Replication
       href: service-bus-geo-replication.md
     - name: Asynchronous messaging and high availability
       href: service-bus-async-messaging.md

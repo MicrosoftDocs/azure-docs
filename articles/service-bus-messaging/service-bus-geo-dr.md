@@ -7,7 +7,10 @@ ms.date: 04/29/2024
 
 # Azure Service Bus Geo-Disaster Recovery
 
-The Service Bus Geo-Disaster Recovery feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), and primarily aims at helping to preserve the integrity of the composite application configuration. The feature is globally available for the Service Bus Premium tier. 
+The Service Bus Geo-Disaster Recovery feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), and primarily aims at helping to preserve the integrity of the composite application configuration. 
+
+> [!NOTE]
+> This feature is available for the Premium tier of Azure Service Bus.
 
 The Geo-Disaster Recovery feature ensures that the entire configuration of a namespace (entities, configuration, properties) is continuously replicated from a primary namespace to a secondary namespace with which it is paired, and it allows you to initiate a once-only failover move from the primary to the secondary at any time. The failover move re-points the chosen alias name for the namespace to the secondary namespace and then breaks the pairing. The failover is nearly instantaneous once initiated. 
 
