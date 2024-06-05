@@ -118,7 +118,7 @@ In this section, you create a cluster with Windows node pools and Azure Network 
 
 #### Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 To install the `aks-preview` extension, run the following command:
 

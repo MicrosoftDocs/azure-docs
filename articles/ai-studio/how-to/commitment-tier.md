@@ -16,7 +16,7 @@ author: Blackmist
 
 # Commitment tier pricing for Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Azure AI Studio offers commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the Azure AI Studio hubs and features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
 
