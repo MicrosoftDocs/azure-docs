@@ -18,7 +18,7 @@ In this quickstart, an Azure Resource Manager template is used to deploy Azure V
 
 [!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 

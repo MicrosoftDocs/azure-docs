@@ -82,7 +82,7 @@ The current alert rule wizard is different from the earlier experience:
 
 ## Manage log search alerts using PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Use the following PowerShell cmdlets to manage rules with the [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules):
 

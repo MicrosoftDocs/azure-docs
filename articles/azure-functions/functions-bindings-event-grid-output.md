@@ -44,7 +44,7 @@ The following example shows how the custom type is used in both the trigger and 
 
 # [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
 
 The following example shows a C# function that publishes a `CloudEvent` using version 3.x of the extension:
 
@@ -149,7 +149,7 @@ Starting in version 3.3.0, it's possible to use Microsoft Entra ID when authenti
 [FunctionName("EventGridAsyncOutput")]
 public static async Task Run(
     [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
-    [EventGrid(Connection = "MyEventGridConnection"]IAsyncCollector<CloudEvent> outputEvents,
+    [EventGrid(Connection = "MyEventGridConnection")]IAsyncCollector<CloudEvent> outputEvents,
     ILogger log)
 {
     for (var i = 0; i < 3; i++)
@@ -165,7 +165,7 @@ When you use the `Connection` property, the `topicEndpointUri` must be specified
 ```json
 {
   "Values": {
-    "myConnection__topicEndpointUri": "{topicEndpointUri}"
+    "MyEventGridConnection__topicEndpointUri": "{topicEndpointUri}"
   }
 }
 ```

@@ -19,6 +19,16 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 
 ### Azure Health Data Services
 
+### FHIR service
+
+#### Scaling enhancement to Import operation
+
+The scaling logic for import operations has been improved enabling multiple jobs to be executed in parallel. This change has an impact on audit logs for import operation. Audit logs for individual import jobs will now have multiple rows, with each row corresponding to an internal processing job. 
+
+#### Bug Fixes
+- **Fixed: HTTP Status Code for Long-Running Requests** FHIR requests that take longer than 100 seconds to execute will now return an HTTP 408 status code instead of HTTP 500. 
+- **Fixed: History request in bundle** Prior to the fix, history request in a bundle returned HTTP status code 404.
+
 #### Stand-alone FHIR converter (preview)
 
 The stand-alone FHIR converter API available for preview is decoupled from the FHIR service and packaged as a container (Docker) image. In addition to enabling you to convert data from the source of record to FHIR R4 bundles, the FHIR converter offers:

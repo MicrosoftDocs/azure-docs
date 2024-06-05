@@ -21,7 +21,12 @@ az group create --name myResourceGroup2 --location eastus
 Create a new AKS cluster and attach a public IP for your nodes. Each of the nodes in the node pool receives a unique public IP. You can verify this by looking at the Virtual Machine Scale Set instances.
 
 ```azurecli-interactive
-az aks create --resource-group MyResourceGroup2 --name MyManagedCluster --location eastus  --enable-node-public-ip
+az aks create \
+    --resource-group MyResourceGroup2 \
+    --name MyManagedCluster \
+    --location eastus \
+    --enable-node-public-ip \
+    --generate-ssh-keys
 ```
 
 For existing AKS clusters, you can also add a new node pool, and attach a public IP for your nodes.
@@ -53,7 +58,13 @@ View the output, and take note of the `id` for the prefix:
 Finally, when creating a new cluster or adding a new node pool, use the flag `node-public-ip-prefix` and pass in the prefix's resource ID:
 
 ```azurecli-interactive
-az aks create --resource-group MyResourceGroup3 --name MyManagedCluster --location eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
+az aks create \
+    --resource-group MyResourceGroup3 \
+    --name MyManagedCluster \
+    --location eastus \
+    --enable-node-public-ip \
+    --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix \
+    --generate-ssh-keys
 ```
 
 ## Locate public IPs for nodes
@@ -82,9 +93,13 @@ Public IP tags can be utilized on node public IPs to utilize the [Azure Routing 
 ### Create a new cluster using routing preference internet
 
 ```azurecli-interactive
-az aks create --name <clusterName> --location <location> --resource-group <resourceGroup> \
-  --enable-node-public-ip \
-  --node-public-ip-tags RoutingPreference=Internet
+az aks create \
+    --name <clusterName> \
+    --location <location> \
+    --resource-group <resourceGroup> \
+    --enable-node-public-ip \
+    --node-public-ip-tags RoutingPreference=Internet \
+    --generate-ssh-keys
 ```
 
 ### Add a node pool with routing preference internet
@@ -120,11 +135,12 @@ Examples:
 
 ```azurecli-interactive
 az aks create \
-  --resource-group <resourceGroup> \
-  --name <clusterName> \
-  --nodepool-name <nodepoolName> \
-  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
-  --nodepool-asg-ids "<asgId>,<asgId>"
+    --resource-group <resourceGroup> \
+    --name <clusterName> \
+    --nodepool-name <nodepoolName> \
+    --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
+    --nodepool-asg-ids "<asgId>,<asgId>" \
+    --generate-ssh-keys
 ```
 
 ### Add a new node pool with allowed ports and application security groups

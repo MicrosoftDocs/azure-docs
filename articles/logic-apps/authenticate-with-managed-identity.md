@@ -13,7 +13,7 @@ ms.custom: subject-rbac-steps, devx-track-arm-template
 
 # Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
 
 If you want to avoid providing, storing, and managing credentials, secrets, or Microsoft Entra tokens, you can use a managed identity to authenticate access or connections from your logic app workflow to Microsoft Entra protected resources. In Azure Logic Apps, some connector operations support using a managed identity when you must authenticate access to resources protected by Microsoft Entra ID. Azure manages this identity and helps keep authentication information secure so that you don't have to manage this sensitive information. For more information, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)?
 
