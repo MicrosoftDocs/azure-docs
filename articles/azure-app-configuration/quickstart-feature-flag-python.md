@@ -181,7 +181,7 @@ Update your template `index.html` to use the new feature flags.
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Enable feature flag beta enabled](media/beta-enabled.png)
+> ![Enable feature flag beta enabled](media/mange-feature-flags/beta-enabled.png)
 
 You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-flask-webapp-sample).
 
@@ -234,7 +234,7 @@ Update your template `index.html` to use the new configuration values.
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Enable feature flag beta enabled](media/beta-enabled.png)
+> ![Enable feature flag beta enabled](media/mange-feature-flags/beta-enabled.png)
 
 You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-django-webapp-sample).
 
