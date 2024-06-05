@@ -82,6 +82,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.5}) //TTL val
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(2147483649)}) //TTL value is greater than Int32.MaxValue (2,147,483,648). 
 ``` 
 
-## Next steps
-* [Expire data in Azure Cosmos DB automatically with time to live](../mongodb/time-to-live.md)
-* [Indexing your Azure Cosmos DB database configured with Azure Cosmos DB's API for MongoDB](../mongodb/indexing.md)
+## Next step
+
+> [!div class="nextstepaction"]
+> [Indexing your Azure Cosmos DB database configured with Azure Cosmos DB's API for MongoDB](../mongodb/indexing.md)
