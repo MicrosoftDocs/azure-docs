@@ -92,7 +92,14 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 - Enable node autoprovisioning on a new cluster using the `az aks create` command and set `--node-provisioning-mode` to `Auto`. You also need to set the `--network-plugin` to `azure`, `--network-plugin-mode` to `overlay`, and `--network-dataplane` to `cilium`.
 
     ```azurecli-interactive
-    az aks create --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --node-provisioning-mode Auto --network-plugin azure --network-plugin-mode overlay --network-dataplane cilium
+    az aks create \
+        --name $CLUSTER_NAME \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --node-provisioning-mode Auto \
+        --network-plugin azure \
+        --network-plugin-mode overlay \
+        --network-dataplane cilium \
+        --generate-ssh-keys
     ```
 
 ### [ARM template](#tab/arm)

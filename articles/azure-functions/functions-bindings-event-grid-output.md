@@ -149,7 +149,7 @@ Starting in version 3.3.0, it's possible to use Microsoft Entra ID when authenti
 [FunctionName("EventGridAsyncOutput")]
 public static async Task Run(
     [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
-    [EventGrid(Connection = "MyEventGridConnection"]IAsyncCollector<CloudEvent> outputEvents,
+    [EventGrid(Connection = "MyEventGridConnection")]IAsyncCollector<CloudEvent> outputEvents,
     ILogger log)
 {
     for (var i = 0; i < 3; i++)
@@ -165,7 +165,7 @@ When you use the `Connection` property, the `topicEndpointUri` must be specified
 ```json
 {
   "Values": {
-    "myConnection__topicEndpointUri": "{topicEndpointUri}"
+    "MyEventGridConnection__topicEndpointUri": "{topicEndpointUri}"
   }
 }
 ```
