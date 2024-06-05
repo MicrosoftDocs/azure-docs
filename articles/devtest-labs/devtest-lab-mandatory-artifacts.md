@@ -27,7 +27,7 @@ When you create a VM, you can't rearrange, change, or delete the mandatory artif
 
 You can select mandatory artifacts for Windows and Linux lab machines separately by following these steps:
 
-1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), go to your DevTest Labs lab resource where you want to define the mandatory artifacts.
+1. In the [Azure portal](https://portal.azure.com), go to your DevTest Labs lab resource where you want to define the mandatory artifacts.
 
 1. On your lab **Overview** page, expand the **Settings** section in the left menu, and select **Configuration and policies**.
 

@@ -65,7 +65,7 @@ After DevTest Labs is configured to provide the lab-specific information for Mic
 
 For a quick view of costs per lab, following these steps: 
 
-1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), go to your lab, and select a resource group that has tags.
+1. In the [Azure portal](https://portal.azure.com), go to your lab, and select a resource group that has tags.
 
 1. On the left menu, expand **Cost Management**, and select **Cost analysis**.
 

@@ -21,7 +21,7 @@ A claimable VM is added to a lab in a similar manner to how you [add a standard 
 
 Use the following steps to add a claimable VM to a lab in DevTest Labs:
 
-1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), go to your DevTest Labs lab resource where you want to create the claimable VM.
+1. In the [Azure portal](https://portal.azure.com), go to your DevTest Labs lab resource where you want to create the claimable VM.
 
 1. On the lab **Overview** page, select **Add** to create a new virtual machine:
 
@@ -143,4 +143,4 @@ When a VM is claimed by a user, the attached data disk is added to the new user'
 
 ## Related content
 
-- Explore the [DevTest Labs Azure Resource Manager quickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)
+- Explore the [DevTest Labs ARM template QuickStart gallery](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)
