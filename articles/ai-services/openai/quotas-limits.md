@@ -49,7 +49,7 @@ The following sections provide you with a quick guide to the default quotas and 
 
 ## Regional quota limits
 
-[!INCLUDE [Quota](~/reusable-content/ce-skilling/azure/includes/ai-services/openai/includes/model-matrix/quota.md)]
+[!INCLUDE [Quota](./includes/model-matrix/quota.md)]
 
 ## gpt-4o rate limits
 
