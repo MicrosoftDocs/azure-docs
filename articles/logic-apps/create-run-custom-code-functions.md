@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
 ms.custom: devx-track-dotnet
-ms.date: 10/16/2023
+ms.date: 06/10/2024
 # Customer intent: As a logic app workflow developer, I want to write and run my own .NET Framework code to perform custom integration tasks.
 ---
 
@@ -46,7 +46,12 @@ For more information about limitations in Azure Logic Apps, see [Limits and conf
 
   - The custom functions capability is currently available only in Visual Studio Code, running on a Windows operating system.
 
-  - The custom functions capability currently supports calling only .NET Framework 4.7.2 assemblies. 
+  - The custom functions capability currently supports calling the following assemblies:
+  
+    - Azure-hosted logic app workflows: .NET Framework and .NET 8
+    - Linux-hosted containers: Netcore and .NET 8
+
+    To use .NET 8, make sure that you have the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet). For more information, see [Overview for .NET 8](/dotnet/core/whats-new/dotnet-8/overview).
 
 - A local folder to use for creating your code project
 
@@ -68,6 +73,8 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
    :::image type="content" source="media/create-run-custom-code-functions/create-workspace.png" alt-text="Screenshot shows Visual Studio Code, Azure window, Workspace section toolbar, and selected option for Create new logic app workspace.":::
 
+1. From the 
+
 1. In the **Select folder** box, browse to and select the local folder that you created for your project.
 
 1. When the **Create new logic app workspace** prompt box appears, provide a name for your workspace:
@@ -80,12 +87,14 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 
    :::image type="content" source="media/create-run-custom-code-functions/project-template.png" alt-text="Screenshot shows Visual Studio Code with prompt to select project template for logic app workspace.":::
 
+1. For Azure-hosted Standard logic app workflows, follow the prompt to select either **.NET Framework** or **.NET 8**.
+
 1. Follow the subsequent prompts to provide the following example values:
 
    | Item | Example value |
    |------|---------------|
-   | Function name for functions project | **WeatherForecast** |
-   | Namespace name for functions project | **Contoso.Enterprise** |
+   | Function name for your functions project | **WeatherForecast** |
+   | Namespace name for your functions project | **Contoso.Enterprise** |
    | Workflow template: <br>- **Stateful Workflow** <br>- **Stateless Workflow** | **Stateful Workflow** |
    | Workflow name | **MyWorkflow** |
 
@@ -232,7 +241,7 @@ This example continues with the sample code without any changes.
 
 ## Compile and build your code
 
-After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks, which compile and then add your code to the **lib\custom** folder in your logic app project where workflows look for custom functions to run. These tasks put the assemblies in the **lib\custom\net472** folder.
+After you finish writing your code, compile to make sure that no build errors exist. Your function project automatically includes build tasks, which compile and then add your code to the **lib\custom** folder in your logic app project where workflows look for custom functions to run. These tasks put the assemblies in the **lib\custom\net472** or **lib\custom\net8** folder, based on your .NET version.
 
 1. In Visual Studio Code, from the **Terminal** menu, select **New Terminal**.
 
@@ -254,7 +263,7 @@ After you finish writing your code, compile to make sure that no build errors ex
 
 1. Confirm that the following items exist in your logic app project:
 
-   - In your workspace, expand the following folders: **LogicApp** > **lib\custom** > **net472**. Confirm that the subfolder named **net472** contains the multiple assembly (DLL) files required to run your code, including a file named **<*function-name*>.dll**.
+   - In your workspace, expand the following folders: **LogicApp** > **lib\custom** > **net472** or **net8**, based on your .NET version. Confirm that the subfolder named **net472** or **net8**, respectively, contains the assembly (DLL) files required to run your code, including a file named **<*function-name*>.dll**.
 
    - In your workspace, expand the following folders: **LogicApp** > **lib\custom** > **<*function-name*>**. Confirm that the subfolder named **<*function-name*>** contains a **function.json** file, which includes the metadata about the function code that you wrote. The workflow designer uses this file to determine the necessary inputs and outputs when calling your code.
 
@@ -344,7 +353,13 @@ After you confirm that your code compiles and that your logic app project contai
 
 ## Deploy your code
 
-You can deploy your custom functions in the same way that you deploy your logic app project. Whether you deploy from Visual Studio Code or use a CI/CD DevOps process, make sure that you build your code and that all dependent assemblies exist in the logic app project's **lib/custom/net472** folder before you deploy. For more information, see [Deploy Standard workflows from Visual Studio Code to Azure](create-single-tenant-workflows-visual-studio-code.md#deploy-azure).
+You can deploy your custom functions in the same way that you deploy your logic app project. Whether you deploy from Visual Studio Code or use a CI/CD DevOps process, make sure that you build your code and that all dependent assemblies exist in the following logic app project folder before you deploy:
+
+- .NET 4.7.2: **lib/custom/net472** folder
+
+- .NET 8: **lib/custom/net8** folder
+
+For more information, see [Deploy Standard workflows from Visual Studio Code to Azure](create-single-tenant-workflows-visual-studio-code.md#deploy-azure).
 
 ## Troubleshoot problems
 
@@ -364,7 +379,7 @@ To fix this problem, from the **Run and Debug** list, select **Attach to logic a
 
 ### Package not imported correctly
 
-If the Output window shows an error similar to the following message, make sure that you have .NET 6.0 installed. If you have this version installed, try uninstalling and then reinstalling.
+If the Output window shows an error similar to the following message, make sure that you have at least .NET 6.0 installed. If you have this version installed, try uninstalling and then reinstalling.
 
 `C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.targets(83,5): warning : The ExtensionsMetadataGenerator package was not imported correctly. Are you missing 'C:\Users\yourUserName\.nuget\packages\microsoft.azure.webjobs.script.extensionsmetadatagenerator\4.0.1\build\Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator.targets' or 'C:\Users\yourUserName\.nuget\packages\microsoft.azure.webjobs.script.extensionsmetadatagenerator\4.0.1\build\Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator.props'? [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj] WeatherForecast -> C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\\bin\Debug\net472\WeatherForecast.dll C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.Build.targets(32,5): error : It was not possible to find any compatible framework version [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj] C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.Build.targets(32,5): error : The specified framework 'Microsoft.NETCore.App', version '6.0.0' was not found. [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj] C:\Users\yourUserName\.nuget\packages\microsoft.net.sdk.functions\4.2.0\build\Microsoft.NET.Sdk.Functions.Build.targets(32,5): error : - Check application dependencies and target a framework version installed at: [C:\Desktop\...\custom-code-project\MyLogicAppWorkspace\Function\WeatherForecast.csproj]`
 
