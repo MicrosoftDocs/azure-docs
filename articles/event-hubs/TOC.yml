@@ -150,7 +150,7 @@
       items:
         - name: Geo replication
           href: geo-replication.md
-        - name: Metadata only geo-disaster recover
+        - name: Metadata only geo-disaster recovery
           href: event-hubs-geo-dr.md
     - name: Security
       items:
