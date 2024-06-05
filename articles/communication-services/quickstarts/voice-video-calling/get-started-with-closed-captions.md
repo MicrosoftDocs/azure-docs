@@ -3,7 +3,7 @@ title: Quickstart - Add closed captions to your app
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add closed captions to your existing calling app using Azure Communication Services.
 author: Kunaal
-ms.author: valindrae
+ms.author: kpunjabi
 ms.date: 04/15/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
