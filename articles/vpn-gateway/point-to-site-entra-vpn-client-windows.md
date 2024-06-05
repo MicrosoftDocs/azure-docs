@@ -4,8 +4,8 @@ description: Learn how to configure the Azure VPN Client to connect to a VNet us
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: howto
-ms.date: 05/28/2024
+ms.topic: how-to
+ms.date: 06/05/2024
 ms.author: cherylmc
 
 ---
@@ -13,8 +13,6 @@ ms.author: cherylmc
 # Configure Azure VPN Client – Microsoft Entra ID authentication – Windows
 
 This article helps you configure the Azure VPN Client on a Windows computer to connect to a virtual network using a VPN Gateway point-to-site (P2S) VPN and Microsoft Entra ID authentication. For more information about point-to-site connections, see [About point-to-site connections](point-to-site-about.md). The Azure VPN Client is supported with Windows FIPS mode by using the [KB4577063](https://support.microsoft.com/help/4577063/windows-10-update-kb4577063) hotfix.
-
-[!INCLUDE [Note - applies to Microsoft-registered App ID](../../includes/vpn-gateway-entra-registered-app-openvpn-note.md)]
 
 ## Prerequisites
 
