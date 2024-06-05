@@ -24,7 +24,7 @@ Deployment safeguards offer two levels of configuration:
 
 After you configure deployment safeguards for 'Warning' or 'Enforcement', Deployment safeguards programmatically assess your clusters at creation or update time for compliance. Deployment safeguards also display aggregated compliance information across your workloads at a per resource level via Azure Policy's compliance dashboard in the [Azure portal][Azure-Policy-compliance-portal] or in your CLI or terminal. Running a noncompliant workload indicates that your cluster isn't following best practices and that workloads on your cluster are at risk of experiencing issues caused by your cluster configuration.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
