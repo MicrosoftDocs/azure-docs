@@ -244,12 +244,12 @@ Create an AKS cluster using a system-assigned managed identity with the CNI netw
 
 ```azurecli-interactive
 az aks create --resource-group $RG --name $AKSNAME --location $LOC \
-    --node-count 3 \
-    --network-plugin azure \
-    --outbound-type userDefinedRouting \
-    --vnet-subnet-id $SUBNETID \
-    --api-server-authorized-ip-ranges $FWPUBLIC_IP \
-    --generate-ssh-keys
+      --node-count 3 \
+      --network-plugin azure \
+      --outbound-type userDefinedRouting \
+      --vnet-subnet-id $SUBNETID \
+      --api-server-authorized-ip-ranges $FWPUBLIC_IP \
+      --generate-ssh-keys
 ```
 
 ### [Create an AKS cluster with user-assigned identities](#tab/aks-with-user-assigned-identities)
