@@ -30,8 +30,8 @@ Some of the key aspects of Geo Data Replication public preview are:
 -	User-managed promotion of a secondary to being the new primary.
 
 Changing a secondary to being a new primary can be done two ways:
-- as a failover where the secondary becomes primary as fast as possible
-- as a promotion where the secondary becomes primary and the system re
+- Planned: a promotion of the secondary to primary where traffic isn't processed until the new primary catches up with all of the data held by the former primary instance
+- Forced: as a failover where the secondary becomes primary as fast as possible
 The Geo replication feature replicates all data and metadata from the primary region to the selected secondary regions.  The namespace FQDN always points to the primary region.  
 
 [img](../media/geo-replication/primary.png)
