@@ -25,7 +25,7 @@ A *disaster* is defined as the permanent, or longer-term loss of a Service Bus c
 
 ## Protection against outages and disasters
 
-There are two features that provide Geo-Disaster Recovery in Azure Service Bus for the Premium tier. First, there is Geo-Disaster Recovery (Metadata DR) that just provides replication of metadata. Second, Geo-Replication, which is currently in public preview, provides replication of both metadata and the data itself. Neither Geo-Disaster Recovery feature should be confused with Availability Zones. Regardless of if it is Metadata DR or Geo replication, both geo-graphic recovery features provide resilience between Azure regions such as East US and West US.
+There are two features that provide Geo-Disaster Recovery in Azure Service Bus for the Premium tier. First, there is Geo-Disaster Recovery (Metadata DR) providing replication of metadata (entities, configuration, properties). Second, there is Geo-Replication, which is currently in public preview, providing replication of both metadata and data (message data and message property / state changes) itself. Neither Geo-Disaster Recovery feature should be confused with Availability Zones. Regardless of if it is Metadata DR or Geo replication, both geo-graphic recovery features provide resilience between Azure regions such as East US and West US.
 
 Availability Zones are available on all Service Bus tiers, and support provides resilience within a specific geographic region, such as East US. For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
@@ -39,13 +39,13 @@ Service Bus **premium** tier supports Geo-Disaster Recovery, at the namespace le
 
 ### Geo-Replication
 
-Service Bus **premium** tier also supports Geo-Replication, at the namespace level. For more information, see [Azure Service Bus Geo-Replication](service-bus-geo-replication.md). The Geo-Replication feature, available for the [Premium tier](service-bus-premium-messaging.md) only and currently in public preview, implements metadata and data disaster recovery, and relies on primary and secondary regions. With Geo-Replication, **both metadata and data** for entities are replicated between primary and secondary **regions**.
+Service Bus **premium** tier also supports Geo-Replication, at the namespace level. For more information, see [Azure Service Bus Geo-Replication (Public Preview)](service-bus-geo-replication.md). The Geo-Replication feature, available for the [Premium tier](service-bus-premium-messaging.md) only and currently in public preview, implements metadata and data disaster recovery, and relies on primary and secondary regions. With Geo-Replication, **both metadata and data** for entities are replicated between primary and secondary **regions**.
 
 ### High level feature differences
 
-The **Geo-Disaster Recovery (Metadata DR)** feature replicates configuration information for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken.  No data is replicated other than configuration information nor are RBAC assignments replicated.
+The **Geo-Disaster Recovery (Metadata DR)** feature replicates metadata for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken.  No data is replicated other than metadata nor are RBAC assignments replicated.
 
-The **Geo-Replication** feature replicates configuration information and all of the data from a primary region to one or more secondary regions. When a failover is performed by the customer, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired.
+The **Geo-Replication** feature replicates metadata and all of the data from a primary region to one or more secondary regions. When a failover is performed by the customer, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired.
 
 ### Availability zones
 
@@ -98,5 +98,6 @@ The [Azure Messaging Replication Tasks with .NET Core][https://github.com/Azure-
 To learn more about disaster recovery, see these articles:
 
 * [Azure Service Bus Geo-Disaster Recovery](service-bus-geo-dr.md)
+* [Azure Service Bus Geo-Replication (Public Preview)](service-bus-geo-replication.md)
 * [Azure SQL Database Business Continuity][/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview]
 * [Designing resilient applications for Azure][/azure/architecture/framework/resiliency/app-design]
