@@ -7,12 +7,12 @@ ms.date: 06/10/2024
  
 # Geo replication (Public Preview)
  
-There are two features that provide Geo-disaster recovery in Azure Event Hubs. There's ***Geo-disaster recovery*** (Metadata DR) that just provides replication of metadata and then a second feature, in public preview, ***Geo replication*** that provides replication of both metadata and the data itself. Neither geo-disaster recovery feature should be confused with Availability Zones. Both geographic recovery features provide resilience between Azure regions such as East US and West US. Availability Zone support provides resilience within a specific geographic region, such as East US. For more details on Availability Zones, read the documentation here: [Event Hubs Availability Zone support](https://learn.microsoft.com/azure/event-hubs/event-hubs-availability-and-consistency).
+There are two features that provide Geo-disaster recovery in Azure Event Hubs. There's ***Geo-disaster recovery*** (Metadata DR) that just provides replication of metadata and then a second feature, in public preview, ***Geo replication*** that provides replication of both metadata and the data itself. Neither geo-disaster recovery feature should be confused with Availability Zones. Both geographic recovery features provide resilience between Azure regions such as East US and West US. Availability Zone support provides resilience within a specific geographic region, such as East US. For more details on Availability Zones, read the documentation here: [Event Hubs Availability Zone support](./event-hubs-availability-and-consistency.md).
 
 **High level feature differences**
 The Metadata DR feature replicates configuration information for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken. No data is replicated other than configuration information nor are permission assignments replicated. 
 The Geo replication feature replicates configuration information and all of the data from a primary namespace to one, or more secondary namespaces. When a failover is performed, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired. 
-This rest of this document is focused on the Geo replication feature. For details on the metadata DR feature, read [Event Hubs Geo-disater recovery for metadata](https://learn.microsoft.com/azure/event-hubs/event-hubs-geo-dr).
+This rest of this document is focused on the Geo replication feature. For details on the metadata DR feature, read [Event Hubs Geo-disater recovery for metadata](./event-hubs-geo-dr.md).
 
 ## Geo replication 
 For public preview, Geo replication is initially only enabled in a small subset of regions. The public preview of the Geo replication feature is supported for namespaces in Event Hubs self-serve scaling Dedicated clusters. You can use the feature with new, or existing namespaces in dedicated self-serve clusters. The following features aren't supported with Geo replication:
@@ -69,7 +69,7 @@ The general reasons to have synchronous replication enabled are tied to the impo
 
 ## Secondary region selection
 To enable the Geo replication feature, you need to use a primary and secondary region where the Geo replication feature is enabled. You also need to have Event Hubs cluster already existing in both the primary and secondary regions. 
-The Geo replication feature depends on being able to replicate published events from the primary to the secondary region. If the secondary region is on another continent, it has a major impact on replication lag from the primary to the secondary region. If using Geo replication for availability and reliability reasons, you're best off with secondary regions being at least on the same continent where possible. To get a better understanding of the latency induced by geographic distance, you can learn more from [Azure network round-trip latency statistics | Microsoft Learn](https://learn.microsoft.com/azure/networking/azure-network-latency). 
+The Geo replication feature depends on being able to replicate published events from the primary to the secondary region. If the secondary region is on another continent, it has a major impact on replication lag from the primary to the secondary region. If using Geo replication for availability and reliability reasons, you're best off with secondary regions being at least on the same continent where possible. To get a better understanding of the latency induced by geographic distance, you can learn more from [Azure network round-trip latency statistics | Microsoft Learn](../../networking/azure-network-latency.md). 
 
 ## Geo replication management
 The Geo replication feature enables customers to configure a secondary region to replicate configuration and data to. Customers can:
@@ -80,7 +80,7 @@ The Geo replication feature enables customers to configure a secondary region to
  
 ## Monitoring data replication
 Users can monitor the progress of the replication job by monitoring the replication lag metric in Application Metrics logs.
--	Enable Application Metrics logs in your Event Hubs namespace following [Monitoring Azure Event Hubs - Azure Event Hubs | Microsoft Learn](https://learn.microsoft.com/azure/event-hubs/monitor-event-hubs). 
+-	Enable Application Metrics logs in your Event Hubs namespace following [Monitoring Azure Event Hubs - Azure Event Hubs | Microsoft Learn](./monitor-event-hubs.md). 
 -	Once Application Metrics logs are enabled, you need to produce and consume data from namespace for a few minutes before you start to see the logs. 
 -	To view Application Metrics logs, navigate to Monitoring section of Event Hubs and click on the ‘Logs’ blade. You can use the following query to find the replication lag (in seconds) between the primary and secondary namespaces. 
 ```
