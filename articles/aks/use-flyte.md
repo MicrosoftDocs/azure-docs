@@ -11,19 +11,19 @@ ms.service: azure-kubernetes-service
 
 # Build and deploy data and machine learning pipelines with Flyte on Azure Kubernetes Service (AKS)
 
-This article shows you how to use Flyte on Azure Kubernetes Service (AKS). Flyte is an open-source workflow orchestrator that unifies machine learning, data engineering, and data analytics stacks to help you build robust and reliable applications. When using Flyte as a Kubernetes-native workflow automation tool, you can focus on experimentation and providing business value without increasing your scope to infrastructure and resource management.
+This article shows you how to use Flyte on Azure Kubernetes Service (AKS). Flyte is an open-source workflow orchestrator that unifies machine learning, data engineering, and data analytics stacks to help you build robust and reliable applications. When using Flyte as a Kubernetes-native workflow automation tool, you can focus on experimentation and providing business value without increasing your scope to infrastructure and resource management. Keep in mind that Flyte isn't officially supported by Microsoft, so use it at your own discretion.
 
-For more information, see [Introduction to Flyte](https://docs.flyte.org/en/latest/introduction.html).
+For more information, see [Introduction to Flyte][flyte].
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
+* An Azure subscription. If you don't have an Azure subscription, you can create a [free account][azure-free].
   * If you have multiple subscriptions, make sure you select the correct one using the `az account set --subscription <subscription-id>` command.
-* The Azure CLI installed and configured. Check your version using the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-* The Helm CLI installed and updated. Check your version using the `helm version` command. If you need to install or upgrade, see [Install Helm](https://helm.sh/docs/intro/install/).
-* The `kubectl` CLI installed and updated. Install it locally using the `az aks install-cli` command or using [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-* A local Docker development environment. For more information, see [Get Docker](https://docs.docker.com/get-docker/).
-* `flytekit` and `flytectl` installed. For more information, see [Flyte installation](https://flyte-next.readthedocs.io/en/latest/introduction.html#installation).
+* The Azure CLI installed and configured. Check your version using the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI][install-azure-cli].
+* The Helm CLI installed and updated. Check your version using the `helm version` command. If you need to install or upgrade, see [Install Helm][install-helm].
+* The `kubectl` CLI installed and updated. Install it locally using the `az aks install-cli` command or using [Install kubectl][install-kubectl].
+* A local Docker development environment. For more information, see [Get Docker][get-docker].
+* `flytekit` and `flytectl` installed. For more information, see [Flyte installation][flyte-install].
 
 > [!NOTE]
 > If you're using the Azure Cloud Shell, the Azure CLI, Helm, and kubectl are already installed.
@@ -97,6 +97,8 @@ For more information, see [Introduction to Flyte](https://docs.flyte.org/en/late
 
 ## Deploy a Flyte chart on AKS
 
+In this section, you deploy the flyte-binary Helm chart so you can begin building and deploying data and machine learning pipelines with Flyte on AKS. The flyte-binary chart is a basic single Flyte executable deployment.
+
 1. Create a namespace for your Flyte deployment using the `kubectl create namespace` command.
 
     ```bash
@@ -126,12 +128,21 @@ For more information, see [Introduction to Flyte](https://docs.flyte.org/en/late
 
 ## Next steps
 
-In this article, you learned how to deploy a Flyte chart on AKS. To learn more about deployments on AKS, see the following articles:
+In this article, you learned how to deploy a Flyte chart on AKS. To start building and deploying data and machine learning pipelines, see the following articles:
 
-* [Install existing applications with Helm on Azure Kubernetes Service (AKS)](./kubernetes-helm.md)
-* [Deploy a containerized application to Azure Kubernetes Service (AKS)](./tutorial-kubernetes-deploy-application.md)
+* [Perform exploratory data analysis (EDA) with Flyte and Jupyter notebooks][flyte-eda]
+* [Orchestrate an ML pipeline with Flyte to predict housing prices across regions][flyte-pipelines]
 
 <!-- LINKS -->
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[flyte]: https://docs.flyte.org/en/latest/introduction.html
+[azure-free]: https://azure.microsoft.com/free
+[install-azure-cli]: /cli/azure/install-azure-cli
+[install-helm]: https://helm.sh/docs/intro/install/
+[install-kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[get-docker]: https://docs.docker.com/get-docker/
+[flyte-install]: https://flyte-next.readthedocs.io/en/latest/introduction.html#installation
+[flyte-eda]: https://docs.flyte.org/en/latest/flytesnacks/examples/exploratory_data_analysis/index.html
+[flyte-pipelines]: https://docs.flyte.org/en/latest/flytesnacks/examples/house_price_prediction/index.html
