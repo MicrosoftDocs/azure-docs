@@ -254,6 +254,9 @@ This table describes the summary rule properties:
 | `binStartTime` (optional) | | Specifies the date and time for the initial bin execution. The value can start at rule creation datetime minus the `binSize` value, or later and in whole hours. For example, if the datetime is `2023-12-03T12:13Z` and `binSize` is 1,440, the minimum `binStartTime` value can be `2023-12-02T13:00Z`, and execution of the first bin 02T13:00 to 03T13:00 is at 03T13:00 plus a specified delay. <br><br> The `binStartTime` property is useful in daily summary scenarios and helps specify the time of a bin. Suppose datetime is `2023-12-03T12:13Z` and you're located in the UTC-8 time zone, and you want a daily rule to complete before you start your day at 8:00 (00:00 UTC). Set the `binStartTime` property to `2023-12-02T22:00Z`. The first bin occurs at 02T:06:00 to 03T:06:00 local time and recurs daily. <br><br> When you update rules, you have several options: <br> - Use the existing `binStartTime` value: Execution continues per the initial definition. <br> - Remove the `binStartTime` property: Execution continues per the initial definition. <br> - Update the rule with a new `binStartTime` value: Executions adhere to the new datetime value. |
 | `timeSelector` (optional) | `TimeGenerated` | Provides the datetime field for use by the query. |
 
+
+## Configure the intial aggregation run
+
 After a rule configuration, the initial execution is at the next whole hour or per the `binStartTime` value (optional), plus a specified delay. Execution recurs per the value specified in the `binSize` property. 
 
 The following sections provide example executions for a rule defined at `2023-06-07 14:44`.
@@ -270,9 +273,6 @@ The following image shows the results for the example request:
 :::image type="content" source="media/summary-rules/example-request.png" alt-text="Screenshot that shows the results for the example Summary rules request." lightbox="media/summary-rules/example-request.png":::
 
 The next sections provide more examples for working with Summary rules.
-
-
-## Configure the intial aggregation run
 
 ### Use basic rule configuration
 
