@@ -36,8 +36,14 @@ VECTORDISTANCE(<vector_expr1>, <vector_expr2>, [<bool_expr>], [<obj_expr>])
 | **`spatial_expr_2`** | An array of `float32` or smaller.|
 | **`bool_expr`** | A boolean specifying how the computed value is used in an ORDER BY expression. If `true`, then brute force is used. A value of `false` will leverage any index defined on the vector property, if it exists. Default value is `false`.|
 |**`obj_expr`**| A JSON formatted object literal used to specify options for the vector distance calculation. Valid items include `distanceFunction` and `dataType`.|
-| **`distanceFunction`** | The metric used to compute distance/similarity. Supported metrics are: [cosine](https://en.wikipedia.org/wiki/Cosine_similarity), [dotproduct](https://en.wikipedia.org/wiki/Dot_product), and [euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) (default cosine).|
+| **`distanceFunction`** | The metric used to compute distance/similarity.
 | **`dataType`** | The data type of the vectors. `float32`, `float16`, `int8`, `uint8` values. Default value is `float32`. |
+
+
+Supported metrics for `distanceFunction` are: 
+   *  [cosine](https://en.wikipedia.org/wiki/Cosine_similarity) which has values from -1 (least similar) to +1 (most similar).  
+   *  [dotproduct](https://en.wikipedia.org/wiki/Dot_product) which has values from -inf (least simialr) to +inf (most similar).
+   *  [euclidean](https://en.wikipedia.org/wiki/Euclidean_distance), which has values from 0 (most similar) to +inf) (least similar).
 
 ## Return types
 
