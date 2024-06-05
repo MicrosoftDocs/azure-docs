@@ -1,18 +1,21 @@
 ---
 title: Certificate Rotation in Azure Kubernetes Service (AKS)
-description: Learn certificate rotation in an Azure Kubernetes Service (AKS) cluster.
+description: Learn about certificate rotation in an Azure Kubernetes Service (AKS) cluster.
+author: tamram
+
+ms.author: tamram
 ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 01/19/2023
+ms.date: 06/05/2024
 ---
 
 # Certificate rotation in Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) uses certificates for authentication with many of its components. RBAC-enabled clusters created after March 2022 are enabled with certificate auto-rotation. You may need to periodically rotate those certificates for security or policy reasons. For example, you may have a policy to rotate all your certificates every 90 days.
+Azure Kubernetes Service (AKS) uses certificates for authentication with many of its components. Clusters with Azure role-based access control (Azure RBAC) that were created after March 2022 are enabled with certificate auto-rotation. You may need to periodically rotate those certificates for security or policy reasons. For example, you may have a policy to rotate all your certificates every 90 days.
 
 > [!NOTE]
-> Certificate auto-rotation is *only* enabled by default for RBAC enabled AKS clusters.
+> Certificate auto-rotation is enabled by default only for RBAC-enabled AKS clusters.
 
 This article shows you how certificate rotation works in your AKS cluster.
 
@@ -66,15 +69,15 @@ Microsoft maintains all certificates mentioned in this section, except for the c
     az vm run-command invoke --resource-group MC_rg_myAKSCluster_region --name vm-name --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
     ```
 
-### Check Virtual Machine Scale Set agent node certificate expiration date
+### Check certificate expiration for the virtual machine scale set agent node
 
-* Check the expiration date of the Virtual Machine Scale Set agent node certificate using the `az vm run-command invoke` command.
+* Check the expiration date of the virtual machine scale set agent node certificate using the `az vm run-command invoke` command.
 
     ```azurecli-interactive
     az vmss run-command invoke --resource-group "MC_rg_myAKSCluster_region" --name "vmss-name" --command-id RunShellScript --instance-id 1 --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate" --query "value[0].message"
     ```
 
-## Certificate Auto Rotation
+## Certificate auto-rotation
 
 For AKS to automatically rotate non-CA certificates, the cluster must have [TLS Bootstrapping](https://kubernetes.io/docs/reference/access-authn-authz/kubelet-tls-bootstrapping/), which is enabled by default in all Azure regions.
 
@@ -103,7 +106,7 @@ For any AKS clusters created or upgraded after March 2022, Azure Kubernetes Serv
 ## Manually rotate your cluster certificates
 
 > [!WARNING]
-> Rotating your certificates using `az aks rotate-certs` recreates all of your nodes, Virtual Machine Scale Sets and Disks and can cause up to *30 minutes of downtime* for your AKS cluster.
+> Rotating your certificates using `az aks rotate-certs` recreates all of your nodes, virtual machine scale sets, and disks and can cause up to *30 minutes of downtime* for your AKS cluster.
 
 1. Connect to your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
@@ -149,7 +152,7 @@ For any AKS clusters created or upgraded after March 2022, Azure Kubernetes Serv
 
 ## Next steps
 
-This article showed you how to automatically rotate your cluster certificates, CAs, and SAs. For more information, see [Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades].
+This article showed you how to manually and automatically rotate your cluster certificates, CAs, and SAs. For more information, see [Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades].
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
