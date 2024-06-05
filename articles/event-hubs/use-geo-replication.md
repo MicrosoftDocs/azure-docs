@@ -1,4 +1,9 @@
- 
+---
+title: 'How to use Azure Event Hubs geo-replication'
+description: 'This article describes how to use the Azure Event Hubs geo-replication feature'
+ms.topic: article
+ms.date: 06/10/2024
+--- 
 # How to use Geo replication (Public Preview)
  
 ## In this article
