@@ -268,6 +268,8 @@ items:
         href: how-to/configure-managed-network.md
       - name: Configure private link
         href: how-to/configure-private-link.md
+      - name: Configure custom DNS
+        href: ../machine-learning/how-to-custom-dns.md?context=/azure/ai-studio/context/context
       - name: Troubleshoot secure project connectivity
         href: how-to/troubleshoot-secure-connection-project.md
     - name: Data protection & encryption
