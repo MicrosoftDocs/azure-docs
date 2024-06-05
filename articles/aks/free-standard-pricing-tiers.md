@@ -57,17 +57,29 @@ Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The c
 ```azurecli-interactive
 # Create a new AKS cluster in the Free tier
 
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier free
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --tier free \
+    --generate-ssh-keys
 
 # Create a new AKS cluster in the Standard tier
 
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier standard
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --tier standard \
+    --generate-ssh-keys
 
 # Create a new AKS cluster in the Premium tier
 # LongTermSupport and Premium tier should be enabled/disabled together
 
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support-plan AKSLongTermSupport
-
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --tier premium \
+    --k8s-support-plan AKSLongTermSupport \
+    --generate-ssh-keys
 ```
 
 Once the deployment completes, it returns JSON-formatted information about your cluster:

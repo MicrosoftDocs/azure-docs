@@ -250,9 +250,7 @@ The following attributes are provided to support dual-stack clusters:
         --network-plugin-mode overlay \
         --ip-families ipv4,ipv6 \
         --generate-ssh-keys
-      ```
-
----
+    ```
 
 ## Create an example workload
 
@@ -383,4 +381,3 @@ To learn how to utilize AKS with your own Container Network Interface (CNI) plug
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-

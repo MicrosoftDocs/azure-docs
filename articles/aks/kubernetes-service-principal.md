@@ -99,7 +99,8 @@ Create a service principal before you create your cluster.
         --resource-group myResourceGroup \
         --name myAKSCluster \
         --service-principal <appId> \
-        --client-secret <password>
+        --client-secret <password> \
+        --generate-ssh-keys
     ```
 
     > [!NOTE]
@@ -259,7 +260,7 @@ The default expiration time for the service principal credentials is one year. I
 
 **General Azure CLI troubleshooting**
 
-[!INCLUDE [azure-cli-troubleshooting.md](../../includes/azure-cli-troubleshooting.md)]
+[!INCLUDE [azure-cli-troubleshooting.md](~/reusable-content/ce-skilling/azure/includes/azure-cli-troubleshooting.md)]
 
 ### [Azure PowerShell](#tab/azure-powershell)
 

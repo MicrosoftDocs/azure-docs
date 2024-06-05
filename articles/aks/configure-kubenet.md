@@ -142,7 +142,8 @@ For more information to help you decide which network model to use, see [Compare
         --service-cidr 10.0.0.0/16 \
         --dns-service-ip 10.0.0.10 \
         --pod-cidr 10.244.0.0/16 \
-        --vnet-subnet-id $SUBNET_ID    
+        --vnet-subnet-id $SUBNET_ID \
+        --generate-ssh-keys 
     ```
 
   Deployment parameters:
@@ -214,7 +215,8 @@ If you're using the Azure CLI, the role is automatically added and you can skip 
         --node-count 3 \
         --network-plugin kubenet \
         --vnet-subnet-id $SUBNET_ID \
-        --assign-identity <identity-resource-id>
+        --assign-identity <identity-resource-id> \
+        --generate-ssh-keys
     ```
 
 When you create an AKS cluster, a network security group and route table are automatically created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables are automatically updated as you create and expose services.
@@ -255,7 +257,13 @@ You need to use the subnet ID for where you plan to deploy your AKS cluster. Thi
 2. Create an AKS cluster with a custom subnet pre-configured with a route table using the [`az aks create`][az-aks-create] command and providing your values for the `--vnet-subnet-id`, `--enable-managed-identity`, and `--assign-identity` parameters.
 
     ```azurecli-interactive
-    az aks create -g myResourceGroup -n myManagedCluster --vnet-subnet-id mySubnetIDResourceID --enable-managed-identity --assign-identity controlPlaneIdentityResourceID
+    az aks create \
+        --resource-group myResourceGroup \
+        --name myManagedCluster \
+        --vnet-subnet-id mySubnetIDResourceID \
+        --enable-managed-identity \
+        --assign-identity controlPlaneIdentityResourceID \
+        --generate-ssh-keys
     ```
 
 ## Next steps

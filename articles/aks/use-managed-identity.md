@@ -349,7 +349,6 @@ az aks create \
     --vnet-subnet-id <subnet-id> \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 \
-    --enable-managed-identity \
     --assign-identity <identity-resource-id> \
     --assign-kubelet-identity <kubelet-identity-resource-id> \
     --generate-ssh-keys

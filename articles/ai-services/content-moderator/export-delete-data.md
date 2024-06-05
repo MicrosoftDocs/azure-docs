@@ -17,7 +17,7 @@ ms.author: pafarley
 
 Content Moderator collects user data to operate the service, but customers have full control to view, export, and delete their data using the [Moderation APIs](./api-reference.md).
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 For more information on how to export and delete user data in Content Moderator, see the following table.
 
