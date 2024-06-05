@@ -1318,7 +1318,7 @@ Use [`mocha`](https://www.npmjs.com/package/mocha) to test your Node.js applicat
           - name: Checkout (GitHub)
             uses: actions/checkout@v3
           - name: Start Azure Cosmos DB emulator
-            run: >-
+            run: |
               Write-Host "Launching Cosmos DB Emulator"
               Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
               Start-CosmosDbEmulator
