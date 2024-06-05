@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs geo-replication
-description: This article describes the Azure Event Hubs geo-replication feature
+title: 'Azure Event Hubs geo-replication'
+description: 'This article describes the Azure Event Hubs geo-replication feature'
 ms.topic: article
 ms.date: 06/10/2024
 ---
