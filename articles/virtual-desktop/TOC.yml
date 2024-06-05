@@ -681,8 +681,6 @@
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Microsoft Tech Community
     href: https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum
-  - name: Azure Virtual Desktop roadmap
-    href: https://aka.ms/avdroadmap
   - name: Azure Resource Manager templates
     displayName: arm
     href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates

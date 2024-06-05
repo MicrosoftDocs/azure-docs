@@ -42,7 +42,7 @@ This article uses the REST APIs to illustrate each step.
   + [Use data pipelines](/fabric/data-engineering/tutorial-lakehouse-data-ingestion) from [Microsoft Fabric](https://fabric.microsoft.com/)
   + [Add shortcuts](/fabric/onelake/create-onelake-shortcut) from external data sources like [Amazon S3](/fabric/onelake/create-s3-shortcut) or [Google Cloud Storage](/fabric/onelake/create-gcs-shortcut).  
 
-+ A search service configured for either a [system managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) or [user-assigned assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-user-assigned-managed-identity-preview). 
++ A search service configured for either a [system managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) or [user-assigned assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-user-assigned-managed-identity). 
 
 + A Contributor role assignment in the Microsoft Fabric workspace where the lakehouse is located. Steps are outlined in the [Grant permissions](#assign-service-permissions) section of this article.
 

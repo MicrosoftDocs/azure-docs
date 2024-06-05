@@ -105,7 +105,11 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 1. To enable VPA on a new cluster, use `--enable-vpa` parameter with the [az aks create][az-aks-create] command.
 
     ```azurecli-interactive
-    az aks create ---name myAKSCluster --resource-group myResourceGroup --enable-vpa
+    az aks create \
+        --name myAKSCluster \
+        --resource-group myResourceGroup \
+        --enable-vpa \
+        --generate-ssh-keys
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.

@@ -17,7 +17,7 @@ This article shows you how to quickly deploy Red Hat Quarkus on Azure Kubernetes
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If you're running the commands in this guide locally (instead of using Azure Cloud Shell), complete the following steps:
   - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
@@ -28,7 +28,7 @@ This article shows you how to quickly deploy Red Hat Quarkus on Azure Kubernetes
   - Install [cURL](https://curl.se/download.html).
   - Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling).
 - Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
-  - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
+  - [!INCLUDE [azure-cli-login](~/reusable-content/ce-skilling/azure/includes/azure-cli-login.md)]
   - This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create the app project
