@@ -18,7 +18,7 @@ By default attack paths are organized by their risk level. The risk level is det
 
 ## Prerequisites
 
-You must [enable Defender Cloud Security Posture Management (CSPM)](enable-enhanced-security.md) and have [agentless scanning](enable-vulnerability-assessment-agentless.md) enabled.
+- You must [enable Defender Cloud Security Posture Management (CSPM)](enable-enhanced-security.md) and have [agentless scanning](enable-vulnerability-assessment-agentless.md) enabled.
 
 - **Required roles and permissions**: Security Reader, Security Admin, Reader, Contributor or Owner.
 
