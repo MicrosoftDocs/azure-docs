@@ -640,6 +640,8 @@ Rotating the customer-managed key used by your Azure Cosmos DB account can be do
 
 The previous key or key version can be disabled after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that key or key version anymore. No more activity should take place on the previous key or key version after 24 hours of key rotation.
 
+[Key auto-rotation in Azure Key Vault](../key-vault/keys/how-to-configure-key-rotation.md) is supported as long as the previous key is not disabled or deleted. The internal systems need some time to catch up with the new version of the key after validating that the account is not in revoked state or in transition to enable customer-managed keys.  
+
 ## Error handling
 
 If there are any errors with customer-managed keys in Azure Cosmos DB, Azure Cosmos DB returns the error details along with an HTTP substatus code in the response. You can use the HTTP substatus code to debug the root cause of the issue. See the [HTTP Status Codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) article to get the list of supported HTTP substatus codes.
@@ -676,7 +678,7 @@ All the data stored in your Azure Cosmos DB account is encrypted with the custom
 
 ### Are customer-managed keys supported for existing Azure Cosmos DB accounts?
 
-This feature is currently available only for new accounts.
+Yes. You can refer to [How to setup customer-managed keys for your existing Azure Cosmos DB accounts](./how-to-setup-customer-managed-keys-existing-accounts.md)
 
 ### Is it possible to use customer-managed keys with the Azure Cosmos DB [analytical store](analytical-store-introduction.md)?
 

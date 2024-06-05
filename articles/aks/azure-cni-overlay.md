@@ -106,11 +106,14 @@ clusterName="myOverlayCluster"
 resourceGroup="myResourceGroup"
 location="westcentralus"
 
-az aks create -n $clusterName -g $resourceGroup \
-  --location $location \
-  --network-plugin azure \
-  --network-plugin-mode overlay \
-  --pod-cidr 192.168.0.0/16
+az aks create \
+    --name $clusterName \
+    --resource-group $resourceGroup \
+    --location $location \
+    --network-plugin azure \
+    --network-plugin-mode overlay \
+    --pod-cidr 192.168.0.0/16 \
+    --generate-ssh-keys
 ```
 
 ## Add a new nodepool to a dedicated subnet
@@ -239,10 +242,14 @@ The following attributes are provided to support dual-stack clusters:
 2. Create a dual-stack AKS cluster using the [`az aks create`][az-aks-create] command with the `--ip-families` parameter set to `ipv4,ipv6`.
 
     ```azurecli-interactive
-    az aks create --location <region> --resource-group <resourceGroupName> --name <clusterName> \
-      --network-plugin azure \
-      --network-plugin-mode overlay \
-      --ip-families ipv4,ipv6
+    az aks create \
+        --location <region> \
+        --resource-group <resourceGroupName> \
+        --name <clusterName> \
+        --network-plugin azure \
+        --network-plugin-mode overlay \
+        --ip-families ipv4,ipv6 \
+        --generate-ssh-keys
     ```
 
 ---
