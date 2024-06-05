@@ -255,36 +255,17 @@ This table describes the summary rule properties:
 | `timeSelector` (optional) | `TimeGenerated` | Provides the datetime field for use by the query. |
 
 
-## Configure the intial aggregation run
+## Configure the aggregation timing
 
-After a rule configuration, the initial execution is at the next whole hour or per the `binStartTime` value (optional), plus a specified delay. Execution recurs per the value specified in the `binSize` property. 
+The summary rule creates the first aggregation a short time after the next whole hour, or based on the `binStartTime` value (optional). 
 
-The following sections provide example executions for a rule defined at `2023-06-07 14:44`.
+For example, if you create a summary rule with a bin size of 30 minutes at 14:44, the rule begins the aggregation shortly after 15:00, and aggregates data for 14:30-15:00. 
 
-The destination table is created after initial rule execution, which is at the next whole hour after rule configuration plus a specified delay. The destination table is always appended with the following fields:
+The next sections provide more detailed examples of the basic rule configuration and the more advanced configuration, using the optional `binStartTime` and `binDelay` parameters.
 
-- `_BinStartTime`: The start time of each bin.
-- `_BinSize`: The interval query performed and query time range. The bin end time can be calculated as the `_BinStartTime` value plus the `_BinSize` value.
-- `_RuleLastModifiedTime`: The time that the rule was last modified. This value is helpful for rule change tracking.
-- `_RuleName`: The name of the rule. This value is helpful with rules mapping, especially when multiple rules send data to a table.
-
-The following image shows the results for the example request:
-
-:::image type="content" source="media/summary-rules/example-request.png" alt-text="Screenshot that shows the results for the example Summary rules request." lightbox="media/summary-rules/example-request.png":::
-
-The next sections provide more examples for working with Summary rules.
-
-### Use basic rule configuration
+### Use default bin time configuration
 
 The first rule run is at the next whole hour after rule provisioning plus delay, which can be from 3.5 minutes to 10% of the `binSize` value. In this scenario, execution adds a delay of 4 minutes.
-
-<!-- Questions:
-
-- The document uses **bold** for the 15 and 4 in the second column. Is bold necessary? 
-
-- If the rule is provisioned (defined) at 14:44 (see Markdown line 105 above), and the first run time is the next whole hour later plus a 4 minute delay (see Markdown line 109 above), why are the values in the second column not 15:48, rather than 15:04 ?
-    
--->
 
 | binSize (minutes) | Rule first run time | First bin time | Second bin time |
 | --- | --- | --- | --- |
@@ -297,7 +278,7 @@ The first rule run is at the next whole hour after rule provisioning plus delay,
 |   30  | 2023-06-07 15:04 | 2023-06-07 14:30 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 15:30 |
 |   20  | 2023-06-07 15:04 | 2023-06-07 14:40 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 15:20 |
 
-### Use advanced rule configuration
+### Set optional bin time parameters
 
 The first rule run is at the next whole hour after rule provisioning plus a delay, which can be from 3.5 minutes to 10% of the binSize. If you want to control the execution hour for daily rules, or add a specified delay before bin is processed, include the `binStartTime`, `binDelay` value in the rule configuration. 
 
