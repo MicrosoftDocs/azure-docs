@@ -11,6 +11,9 @@ ms.date: 01/17/2024
 
 # Migrate .NET apps from the in-process model to the isolated worker model
 
+> [!IMPORTANT]
+> [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model). We highly recommend that you migrate your apps to the isolated worker model by following the instructions in this article.
+
 This article walks you through the process of safely migrating your .NET function app from the [in-process model](./functions-dotnet-class-library.md) to the [isolated worker model][isolated-guide]. To learn about the high-level differences between these models, see the [execution mode comparison](./dotnet-isolated-in-process-differences.md).
 
 This guide assumes that your app is running on version 4.x of the Functions runtime. If not, you should instead follow the guides for upgrading your host version:
@@ -365,7 +368,7 @@ namespace Company.Function
 
 Upgrading your function app to the isolated model consists of two steps:
 
-1. Change the configuration of the function app to use the isolated model by setting the `FUNCTIONS_WORKER_RUNTIME` application setting to "dotnet-isolated". Make sure that any deployment automation is similarly updated.
+1. Change the configuration of the function app to use the isolated model by setting the `FUNCTIONS_WORKER_RUNTIME` application setting to `dotnet-isolated`. Make sure that any deployment automation is similarly updated.
 2. Publish your migrated project to the updated function app. 
 
 When you use Visual Studio to publish an isolated worker model project to an existing function app that uses the in-process model, you're prompted to let Visual Studio update the function app during deployment. This accomplishes both steps at once.

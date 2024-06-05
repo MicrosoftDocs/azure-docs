@@ -4,6 +4,9 @@ description: Learn how to resize node pools for a cluster in Azure Kubernetes Se
 ms.topic: how-to
 ms.custom:
 ms.date: 02/08/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.subservice: aks-nodes
 #Customer intent: As a cluster operator, I want to resize my node pools so that I can run more or larger workloads.
 ---
@@ -297,3 +300,4 @@ After resizing a node pool by cordoning and draining, learn more about [using mu
 [specify-disruption-budget]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 [disruptions]: https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
 [use-multiple-node-pools]: create-node-pools.md
+

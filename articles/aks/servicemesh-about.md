@@ -1,7 +1,7 @@
 ---
 title: About service meshes
 description: Obtain an overview of service meshes, supported scenarios, selection criteria, and next steps to explore.
-author: pgibson
+author: phillipgibson
 ms.topic: article
 ms.date: 04/18/2023
 ms.author: pgibson
@@ -68,3 +68,4 @@ For more details on service mesh standardization efforts, see:
 [osm-about]: ./open-service-mesh-about.md
 [istio-about]: ./istio-about.md
 [aks-support-policy]: support-policies.md
+

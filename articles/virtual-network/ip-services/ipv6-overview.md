@@ -107,7 +107,9 @@ The current IPv6 for Azure Virtual Network release has the following limitations
 
 - ICMPv6 isn't currently supported in Network Security Groups.
 
-- Azure Virtual WAN currently supports IPv4 traffic only.
+- Azure Virtual WAN currently supports IPv4 traffic only. 
+
+- Azure Route Server currently [supports IPv4 traffic only](../../route-server/route-server-faq.md#does-azure-route-server-support-ipv6).
 
 - Azure Firewall doesn't currently support IPv6. It can operate in a dual stack virtual network using only IPv4, but the firewall subnet must be IPv4-only.
 

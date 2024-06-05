@@ -154,7 +154,7 @@ The **Output** panel shows the status of the deployment operations. When the ope
 
 ## 8 - Clean up resources
 
-[!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
+[!INCLUDE [Clean-up Portal web app resources](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal-no-h.md)]
 
 ## Next steps
 
@@ -187,7 +187,7 @@ The App Service app pulls from the container registry every time it starts. If y
 > [Configure custom container](../../configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Multi-container app tutorial](../../tutorial-multi-container-app.md)
+> [Sidecar container tutorial](../../tutorial-custom-container-sidecar.md)
 
 
 Other Azure extensions:

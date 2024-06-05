@@ -110,19 +110,19 @@ Use the `az mysql flexible-server firewall-rule create` command to create new fi
 To allow access to a range of IP addresses, provide the IP address as the Start and End IP addresses, as in this example.
 
 ```azurecli-interactive
-az mysql flexible-server firewall-rule create --name mydemoserver --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
+az mysql flexible-server firewall-rule create --resource-group testGroup --name mydemoserver --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
 
 To allow access for a single IP address, provide the single IP address, as in this example.
 
 ```azurecli-interactive
-az mysql flexible-server firewall-rule create --name mydemoserver --start-ip-address 1.1.1.1
+az mysql flexible-server firewall-rule create --resource-group testGroup --name mydemoserver --start-ip-address 1.1.1.1
 ```
 
 To allow applications from Azure IP addresses to connect to your Azure Database for MySQL flexible server instance, provide the IP address 0.0.0.0 as the Start IP, as in this example.
 
 ```azurecli-interactive
-az mysql flexible-server firewall-rule create --name mydemoserver --start-ip-address 0.0.0.0
+az mysql flexible-server firewall-rule create --resource-group testGroup --name mydemoserver --start-ip-address 0.0.0.0
 ```
 
 > [!IMPORTANT]  

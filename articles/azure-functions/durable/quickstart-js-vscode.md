@@ -49,7 +49,7 @@ To complete this tutorial:
 * Make sure that you have version 18.x+ of [Node.js](https://nodejs.org/) installed.
 ::: zone-end
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project 
 
@@ -289,10 +289,10 @@ After you've verified that the function runs correctly on your local computer, i
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v3"
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `https://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 ::: zone-end
 ::: zone pivot="nodejs-model-v4"
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/helloOrchestrator`
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `https://<functionappname>.azurewebsites.net/api/orchestrators/helloOrchestrator`
 ::: zone-end
 
 2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.

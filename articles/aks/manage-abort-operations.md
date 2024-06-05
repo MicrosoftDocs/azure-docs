@@ -3,12 +3,32 @@ title: Abort an Azure Kubernetes Service (AKS) long running operation
 description: Learn how to terminate a long running operation on an Azure Kubernetes Service cluster at the node pool or cluster level.
 ms.topic: article
 ms.date: 3/23/2023
+author: tamram
+ms.author: tamram
+
 ms.subservice: aks-nodes
 ---
 
 # Terminate a long running operation on an Azure Kubernetes Service (AKS) cluster
 
-Sometimes deployment or other processes running within pods on nodes in a cluster can run for periods of time longer than expected due to various reasons. While it's important to allow those processes to gracefully terminate when they're no longer needed, there are circumstances where you need to release control of node pools and clusters with long running operations using an *abort* command.
+Sometimes deployment or other processes running within pods on nodes in a cluster can run for periods of time longer than expected due to various reasons. You can get insight into the progress of any ongoing operation, such as create, upgrade, and scale, using any preview API version after `2024-01-02-preview` using the following az rest command:
+
+```azurecli-interactive
+export ResourceID="You cluster ResourceID"
+az rest --method get --url "https://management.azure.com$ResourceID/operations/latest?api-version=2024-01-02-preview"
+```
+
+This command provides you with a percentage that indicates how close the operation is to completion. You can use this method to get these insights for up to 50 of the latest operations on your cluster. The "percentComplete" attribute denotes the extent of completion for the ongoing operation, as shown in the following example:
+
+```azurecli-interactive
+"id": "/subscriptions/26fe00f8-9173-4872-9134-bb1d2e00343a/resourcegroups/testStatus/providers/Microsoft.ContainerService/managedClusters/contoso/operations/fc10e97d-b7a8-4a54-84de-397c45f322e1",
+  "name": "fc10e97d-b7a8-4a54-84de-397c45f322e1",
+  "percentComplete": 10,
+  "startTime": "2024-04-08T18:21:31Z",
+  "status": "InProgress"
+```
+
+While it's important to allow operations to gracefully terminate when they're no longer needed, there are circumstances where you need to release control of node pools and clusters with long running operations using an *abort* command.
 
 AKS support for aborting long running operations is now generally available. This feature allows you to take back control and run another operation seamlessly. This design is supported using the [Azure REST API](/rest/api/azure/) or the [Azure CLI](/cli/azure/).
 
@@ -71,3 +91,4 @@ Learn more about [Container insights](../azure-monitor/containers/container-insi
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
+

@@ -3,7 +3,7 @@ title: Gathering user input
 description: Conceptual information about using Recognize action to gather user input with Call Automation.
 author: Kunaal
 ms.service: azure-communication-services
-ms.topic: include
+ms.topic: conceptual
 ms.date: 08/09/2023
 ms.author: kpunjabi
 ---

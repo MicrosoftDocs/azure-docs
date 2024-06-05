@@ -40,13 +40,13 @@ Verify that you've met the following criteria before beginning your configuratio
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="hub"></a>Configure virtual hub settings
 
 A virtual hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. For this tutorial, you begin by filling out the **Basics** tab for the virtual hub and then continue on to fill out the site-to-site tab in the next section. It's also possible to create an empty virtual hub (a virtual hub that doesn't contain any gateways) and then add gateways (S2S, P2S, ExpressRoute, etc.) later. Once a virtual hub is created, you're charged for the virtual hub, even if you don't attach any sites or create any gateways within the virtual hub.
 
-[!INCLUDE [Create a virtual hub](../../includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create a virtual hub](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
 
 **Don't create the virtual hub yet**. Continue on to the next section to configure more settings.
 
@@ -54,7 +54,7 @@ A virtual hub is a virtual network that can contain gateways for site-to-site, E
 
 In this section, you configure site-to-site connectivity settings, and then create the virtual hub and site-to-site VPN gateway. A virtual hub and gateway can take about 30 minutes to create.
 
-[!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
+[!INCLUDE [Create a gateway](~/reusable-content/ce-skilling/azure/includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
 [!INCLUDE [hub warning message](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
 
@@ -106,7 +106,7 @@ The device configuration file contains the settings to use when configuring your
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Address space** of the virutal networks that are connected to the virtual hub.<br>Example:
+    * **Address space** of the virtual networks that are connected to the virtual hub.<br>Example:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
@@ -242,9 +242,9 @@ If you need instructions to configure your device, you can use the instructions 
 
 ## <a name="gateway-config"></a>View or edit gateway settings
 
-You can view and edit your VPN gateway settings at any time. Go to your **Virtual HUB -> VPN (Site to site)** and select **View/Configure**.
+You can view and edit your VPN gateway settings at any time. Go to your **Virtual HUB -> VPN (Site to site)** and click on the **Gateway configuration**.
 
-:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Screenshot that shows the 'VPN (Site-to-site)' page with an arrow pointing to the 'View/Configure' action." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Screenshot that shows the 'VPN (Site-to-site)' page with red box around the Gateway configuration." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 On the **Edit VPN Gateway** page, you can see the following settings:
 

@@ -5,6 +5,9 @@ description: See the frequently asked questions when you run Windows Server node
 ms.topic: article
 ms.custom: build-2023, devx-track-azurecli, linux-related-content
 ms.date: 03/27/2024
+author: schaffererin
+ms.author: schaffererin
+
 #Customer intent: As a cluster operator, I want to see frequently asked questions when running Windows node pools and application workloads.
 ---
 
@@ -166,7 +169,8 @@ az aks create \
     --windows-admin-password 'Password1234$' \
     --windows-admin-username azure \
     --network-plugin azure
-    --enable-ahub
+    --enable-ahub \
+    --generate-ssh-keys
 ```
 
 To use Azure Hybrid Benefit on an existing AKS cluster, run the `az aks update` command and use the update the cluster by using the `--enable-ahub` argument.
@@ -244,7 +248,7 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limit]: quotas-skus-regions.md
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
-[maximum-number-of-pods]: azure-cni-overview.md#maximum-pods-per-node
+[maximum-number-of-pods]: concepts-network-ip-address-planning.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
 [client-source-ip]: concepts-network.md#ingress-controllers
 [upgrade-node-image]: node-image-upgrade.md
@@ -253,3 +257,4 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
+

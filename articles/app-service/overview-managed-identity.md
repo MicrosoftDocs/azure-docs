@@ -12,6 +12,8 @@ ai-usage: ai-assisted
 
 # How to use managed identities for App Service and Azure Functions
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This article shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. 
 
 > [!IMPORTANT] 
@@ -20,7 +22,7 @@ This article shows you how to create a managed identity for App Service and Azur
 > [!NOTE]
 > Managed identities are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
 
-[!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
+[!INCLUDE [app-service-managed-identities](~/reusable-content/ce-skilling/azure/includes/app-service-managed-identities.md)]
 
 The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, navigate to the slot first. To find the managed identity for your web app or deployment slot in your Microsoft Entra tenant from the Azure portal, search for it directly from the **Overview** page of your tenant. Usually, the slot name is similar to `<app-name>/slots/<slot-name>`.
 
@@ -33,7 +35,8 @@ The steps in the video are also described in the following sections.
 
 # [Azure portal](#tab/portal)
 
-1. In the left navigation of your app's page, scroll down to the **Settings** group.
+1. Access your app's settings in the [Azure portal](https://portal.azure.com) under the **Settings** group in the left navigation pane.
+
 
 1. Select **Identity**.
 
@@ -437,9 +440,9 @@ The **IDENTITY_ENDPOINT** is a local URL from which your app can request tokens.
 > | resource          | Query  | The Microsoft Entra resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
 > | api-version       | Query  | The version of the token API to be used. Use `2019-08-01`.                                                                                                                                                                                                                                                                 |
 > | X-IDENTITY-HEADER | Header | The value of the IDENTITY_HEADER environment variable. This header is used to help mitigate server-side request forgery (SSRF) attacks.                                                                                                                                                                                                    |
-> | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `msi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `msi_res_id`) are omitted, the system-assigned identity is used.                                             |
-> | principal_id      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that may be used instead. Cannot be used on a request that includes client_id, msi_res_id, or object_id. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `msi_res_id`)  are omitted, the system-assigned identity is used. |
-> | msi_res_id         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `msi_res_id`) are omitted, the system-assigned identity is used.                                      |
+> | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                             |
+> | principal_id      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that may be used instead. Cannot be used on a request that includes client_id, mi_res_id, or object_id. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
+> | mi_res_id         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                      |
 
 > [!IMPORTANT]
 > If you are attempting to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.

@@ -60,7 +60,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Runtime stack* &rarr; **.NET 7 (STS)**.
         1. *Add Azure Cache for Redis?* &rarr; **Yes**.
         1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. **SQLAzure** is selected by default as the database engine. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that's always running on the latest stable version of the SQL Server.
+        1. Select **SQLAzure** as the database engine. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that's always running on the latest stable version of the SQL Server.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::

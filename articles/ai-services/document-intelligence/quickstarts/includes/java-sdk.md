@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/25/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
@@ -21,7 +21,7 @@ ms.author: lajanuar
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
-[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)|[Supported REST API version](../../sdk-overview-v3-0.md)
+[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)|[Supported REST API version](../../sdk-overview-v3-0.md)
 :::moniker-end
 
 In this quickstart, use the following features to analyze and extract data and values from forms and documents:
@@ -284,18 +284,25 @@ public class DocIntelligence {
 
   public static void main(String[] args) {
 
-    // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+    // create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
     DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
       .credential(new AzureKeyCredential(key))
       .endpoint(endpoint)
       .buildClient();
 
     // sample document
-    String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
     String modelId = "prebuilt-layout";
+    String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
 
-    SyncPoller <AnalyzeResultOperation, AnalyzeResultOperation> analyzeLayoutResultPoller =
-      client.beginAnalyzeDocument(modelId, documentUrl);
+    SyncPoller <AnalyzeResultOperation, AnalyzeResultOperation> analyzeLayoutPoller =
+      client.beginAnalyzeDocument(modelId,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          new AnalyzeDocumentRequest().setUrlSource(documentUrl));
 
     AnalyzeResult analyzeLayoutResult = analyzeLayoutPoller.getFinalResult().getAnalyzeResult();
 
@@ -658,25 +665,27 @@ public class DocIntelligence {
 
   public static void main(String[] args) {
 
-    // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
-      .credential(new AzureKeyCredential(key))
-      .endpoint(endpoint)
-      .buildClient();
-
     // sample document
     String modelId = "prebuilt-invoice";
     String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
     public static void main(final String[] args) throws IOException {
+
       // Instantiate a client that will be used to call the service.
       DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
-        .credential(new AzureKeyCredential("{key}"))
-        .endpoint("https://{endpoint}.cognitiveservices.azure.com/")
+        .credential(new AzureKeyCredential(key))
+        .endpoint(endpoint)
         .buildClient();
 
-      SyncPoller < OperationResult, AnalyzeResult > analyzeLayoutResultPoller =
-        client.beginAnalyzeDocument(modelId, invoiceUrl);
+      SyncPoller<AnalyzeResultOperation, AnalyzeResultOperation > analyzeInvoicesPoller =
+        client.beginAnalyzeDocument(modelId, 
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            new AnalyzeDocumentRequest().setUrlSource(invoiceUrl));
 
       AnalyzeResult analyzeInvoiceResult = analyzeInvoicesPoller.getFinalResult().getAnalyzeResult();
 

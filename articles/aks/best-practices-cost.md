@@ -4,6 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Recommendations and best practices for optimizing costs in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 02/21/2024
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Optimize costs in Azure Kubernetes Service (AKS)
@@ -119,3 +122,4 @@ Cost optimization is an ongoing and iterative effort. Learn more by reviewing th
 * [Optimize Compute Costs on AKS](/training/modules/aks-optimize-compute-costs/)
 * [AKS Cost Optimization Techniques](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-kubernetes-service-aks-cost-optimization-techniques/ba-p/3652908)
 * [What is FinOps?](/azure/cost-management-billing/finops/)
+

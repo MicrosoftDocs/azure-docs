@@ -3,6 +3,9 @@ title: Azure Kubernetes Service (AKS) Free, Standard and Premium pricing tiers f
 description: Learn about the Azure Kubernetes Service (AKS) Free, Standard, and Premium pricing plans and what features, deployment patterns, and recommendations to consider between each plan.
 ms.topic: conceptual
 ms.date: 04/07/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -54,17 +57,29 @@ Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The c
 ```azurecli-interactive
 # Create a new AKS cluster in the Free tier
 
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier free
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --tier free \
+    --generate-ssh-keys
 
 # Create a new AKS cluster in the Standard tier
 
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier standard
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --tier standard \
+    --generate-ssh-keys
 
 # Create a new AKS cluster in the Premium tier
 # LongTermSupport and Premium tier should be enabled/disabled together
 
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support-plan AKSLongTermSupport
-
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --tier premium \
+    --k8s-support-plan AKSLongTermSupport \
+    --generate-ssh-keys
 ```
 
 Once the deployment completes, it returns JSON-formatted information about your cluster:
@@ -141,3 +156,4 @@ This process takes several minutes to complete. You shouldn't experience any dow
 [long-term-support]: long-term-support.md
 [long-term-support-update]: long-term-support.md#enable-lts-on-an-existing-cluster
 [install-azure-cli]: /cli/azure/install-azure-cli
+

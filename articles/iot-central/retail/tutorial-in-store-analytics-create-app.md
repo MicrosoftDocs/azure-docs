@@ -27,6 +27,14 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Prerequisites
+
+To complete this tutorial, you need to install the [dmr-client](https://www.nuget.org/packages/Microsoft.IoT.ModelsRepository.CommandLine) command-line tool on your local machine:
+
+```console
+dotnet tool install --global Microsoft.IoT.ModelsRepository.CommandLine --version 1.0.0-beta.9
+```
+
 ## Application architecture
 
 For many retailers, environmental conditions are a key way to differentiate their stores from their competitors' stores. The most successful retailers make every effort to maintain pleasant conditions within their stores for the comfort of their customers.
@@ -116,7 +124,7 @@ To update the application image that appears on the application tile on the **My
 
 ### Create the device templates
 
-Device templates let you configure and manage devices. You can build a custom template, import an existing template file, or import a template from the device catalog. After you create and customize a device template, use it to connect real devices to your application.
+Device templates let you configure and manage devices. You can build a custom template, import an existing template file, or import a template from the list of featured device templates. After you create and customize a device template, use it to connect real devices to your application.
 
 Optionally, you can use a device template to generate simulated devices for testing.
 
@@ -124,17 +132,27 @@ The _In-store analytics - checkout_ application template has several preinstalle
 
 In this section, you add a device template for RuuviTag sensors to your application. To do so:
 
+1. To download a copy of the RuuviTag device template from the model repository, run the following command:
+
+    ```bash
+    dmr-client export --dtmi "dtmi:rigado:RuuviTag;2" --repo https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main > ruuvitag.json
+    ```
+
 1. On the left pane, select **Device Templates**.
 
-1. Select **New** to create a new device template.
+1. Select **+ New** to create a new device template.
 
-1. Search for and then select the **RuuviTag Multisensor** device template in the device catalog.
+1. Select the **IoT device** tile and then select **Next: Customize**.
+
+1. On the **Customize** page, enter *RuuviTag* as the device template name.
 
 1. Select **Next: Review**.
 
 1. Select **Create**.
 
-    The application adds the RuuviTag device template.
+1. Select the **Import a model** tile. Then browse for and import the *ruuvitag.json* file that you downloaded previously.
+
+1. After the import completes, select **Publish** to publish the device template.
 
 1. On the left pane, select **Device templates**.
 

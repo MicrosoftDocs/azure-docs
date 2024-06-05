@@ -17,7 +17,7 @@ ms.date: 01/30/2024
 
 In Azure AI Search, *AI enrichment* refers to integration with [Azure AI services](/azure/ai-services/what-are-ai-services) to process content that isn't searchable in its raw form. Through enrichment, analysis and inference are used to create searchable content and structure where none previously existed. 
 
-Because Azure AI Search is a text and vector search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios. Source content must be textual (you can't enrich vectors), but the content created by an enrichment pipeline can be vectorized and indexed in a vector store using skills like [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) for encoding. 
+Because Azure AI Search is a text and vector search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios. Source content must be textual (you can't enrich vectors), but the content created by an enrichment pipeline can be vectorized and indexed in a vector index using skills like [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) for encoding. 
 
 AI enrichment is based on [*skills*](cognitive-search-working-with-skillsets.md).
 

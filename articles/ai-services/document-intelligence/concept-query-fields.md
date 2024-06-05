@@ -44,7 +44,8 @@ For query field extraction, specify the fields you want to extract and Document 
 
    :::image type="content" source="media/studio/query-field-select.png" alt-text="Screenshot of query fields selection window in Document Intelligence Studio.":::
 
-* In addition to the query fields, the response includes the model output. For a list of features or schema extracted by each model, see [model analysis features](concept-model-overview.md#analysis-features).
+* In addition to the query fields, the response includes the model output. For a list of features or schema extracted by each model, see [model analysis features](concept-model-overview.md#model-analysis-features).
+
 
 ## Query fields REST API request**
 

@@ -1,10 +1,10 @@
 ---
-title: Continuous integration and continuous deployment to Azure IoT Edge devices - Azure IoT Edge
+title: Continuous integration and continuous deployment to Azure IoT Edge devices
 description: Set up continuous integration and continuous deployment using YAML - Azure IoT Edge with Azure DevOps, Azure Pipelines
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/20/2019
+ms.date: 04/08/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -49,7 +49,7 @@ Unless otherwise specified, the procedures in this article do not explore all th
 * A container registry where you can push module images. You can use [Azure Container Registry](../container-registry/index.yml) or a third-party registry.
 * An active Azure [IoT hub](../iot-hub/iot-hub-create-through-portal.md) with at least two IoT Edge devices for testing the separate test and production deployment stages. You can follow the quickstart articles to create an IoT Edge device on [Linux](quickstart-linux.md) or [Windows](quickstart.md)
 
-For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](/azure/devops/repos/git/share-your-code-in-git-vs)
+For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](/azure/devops/repos/git/share-your-code-in-git-vs).
 
 ## Create a build pipeline for continuous integration
 
@@ -131,7 +131,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
 9. Select **Save** from the **Save and run** dropdown in the top right.
 
-10. The trigger for continuous integration is enabled by default for your YAML pipeline. If you wish to edit these settings, select your pipeline and click **Edit** in the top right. Select **More actions** next to the **Run** button in the top right and go to **Triggers**. **Continuous integration** shows as enabled under your pipeline's name. If you wish to see the details for the trigger, check the **Override the YAML continuous integration trigger from here** box.
+10. The trigger for continuous integration is enabled by default for your YAML pipeline. If you wish to edit these settings, select your pipeline and select **Edit** in the top right. Select **More actions** next to the **Run** button in the top right and go to **Triggers**. **Continuous integration** shows as enabled under your pipeline's name. If you wish to see the details for the trigger, check the **Override the YAML continuous integration trigger from here** box.
 
    :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment/check-trigger-settings.png" alt-text="Screenshot showing how to review your pipeline's trigger settings from the Triggers menu under More actions.":::
 

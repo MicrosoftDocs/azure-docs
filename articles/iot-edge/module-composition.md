@@ -298,7 +298,7 @@ Option 2, introduced in IoT Edge version 1.0.10 with IoT Edge hub schema version
 
 The **timeToLiveSecs** property inherits its value from IoT Edge hub's **storeAndForwardConfiguration** unless explicitly set. The value can be any positive integer.
 
-For detailed information about how priority queues are managed, see the reference page for [Route priority and time-to-live](https://github.com/Azure/iotedge/blob/master/doc/Route_priority_and_TTL.md).
+For detailed information about how priority queues are managed, see the reference page for [Route priority and time-to-live](https://github.com/Azure/iotedge/blob/main/doc/Route_priority_and_TTL.md).
 
 ## Define or update desired properties
 
@@ -336,7 +336,7 @@ The following example shows what a valid deployment manifest document may look l
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
               "createOptions": "{}"
             }
           },
@@ -346,20 +346,20 @@ The following example shows what a valid deployment manifest document may look l
             "restartPolicy": "always",
             "startupOrder": 0,
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }
         },
         "modules": {
           "SimulatedTemperatureSensor": {
-            "version": "1.0",
+            "version": "1.5",
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
             "startupOrder": 2,
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5",
               "createOptions": "{}"
             }
           },

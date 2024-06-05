@@ -140,6 +140,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 | - Are core services available on the HDInsight cluster?<br> - Can the HDInsight cluster access the key for BYOK encryption at rest?|
 
+## Microsoft.HealthcareApis/workspaces/dicomservices
+|Executed Checks|
+|---|
+| - Is the DICOM service up and running?<br> - Can the DICOM service access the customer-managed encryption key?<br> - Can the DICOM service access the connected data lake?|
+
 ## Microsoft.HybridCompute/machines
 |Executed Checks|
 |---|

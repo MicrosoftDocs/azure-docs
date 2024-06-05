@@ -1,16 +1,15 @@
 ---
 title: Azure IoT Edge for Linux on Windows networking
-description: Overview of Azure IoT Edge for Linux on Windows networking
+description: Overview of Azure IoT Edge for Linux on Windows networking between the Windows host OS and the IoT Edge for Linux on Windows (EFLOW) virtual machine.
 author: PatAltimore
 
-# this is the PM responsible
 ms.reviewer: fcabrera
 ms.service: iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
-ms.date: 11/15/2022
-ms.author: fcabrera
+ms.date: 06/04/2024
+ms.author: patricka
 ---
 
 # IoT Edge for Linux on Windows networking
@@ -22,7 +21,7 @@ ms.author: fcabrera
 ## Networking
 To establish a communication channel between the Windows host OS and the EFLOW virtual machine, we use Hyper-V networking stack. For more information about Hyper-V networking, see [Hyper-V networking basics](/windows-server/virtualization/hyper-v/plan/plan-hyper-v-networking-in-windows-server#hyper-v-networking-basics). Basic networking in EFLOW is simple; it uses two parts, a virtual switch and a virtual network. 
 
-The easiest way to establish basic networking on Windows client SKUs is by using the [**default switch**](/virtualization/community/team-blog/2017/20170726-hyper-v-virtual-machine-gallery-and-networking-improvements#details-about-the-default-switch) already created by the Hyper-V feature. During EFLOW deployment, if no specific virtual switch is specified using the `-vSwitchName` and `-vSwitchType` flags, the virtual machine will be created using the **default switch**.
+The easiest way to establish basic networking on Windows client SKUs is by using the [**default switch**](https://techcommunity.microsoft.com/t5/virtualization/hyper-v-virtual-machine-gallery-and-networking-improvements/ba-p/382375) already created by the Hyper-V feature. During EFLOW deployment, if no specific virtual switch is specified using the `-vSwitchName` and `-vSwitchType` flags, the virtual machine is created using the **default switch**.
 
 On Windows Server SKUs devices, networking is a bit more complicated as there's no **default switch** available. However, there's a comprehensive guide on [Azure IoT Edge for Linux on Windows virtual switch creation](./how-to-create-virtual-switch.md). 
 
@@ -82,7 +81,7 @@ By default, the EFLOW VM DNS configuration file contains the local stub *127.0.0
 
 It's possible to configure the EFLOW virtual machine to use a specific DNS server, or list of servers. To do so, you can use the `Set-EflowVmDnsServers` PowerShell cmdlet. For more information about DNS configuration, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvmdnsservers).
 
-To check the DNS servers assigned to the EFLOW VM, from inside the EFLOW VM, use the command: `resolvectl status`. The command's output will show a list of the DNS servers configured for each interface. In particular, it's important to check the *eth0* interface status, which will be the default interface for the EFLOW VM communication. Also, make sure to check the IP addresses of the **Current DNS Server**s and **DNS Servers** fields of the list. If there's no IP address, or the IP address isn't a valid DNS server IP address, then the DNS service won't work.
+To check the DNS servers assigned to the EFLOW VM, from inside the EFLOW VM, use the command: `resolvectl status`. The command's output shows a list of the DNS servers configured for each interface. In particular, it's important to check the *eth0* interface status, which is the default interface for the EFLOW VM communication. Also, make sure to check the IP addresses of the **Current DNS Server**s and **DNS Servers** fields of the list. If there's no IP address, or the IP address isn't a valid DNS server IP address, then the DNS service won't work.
 
 ![Screenshot of console showing sample output from resolvectl command.](./media/iot-edge-for-linux-on-windows-networking/resolvctl-status.png)
 
@@ -95,14 +94,14 @@ Get-EflowVmAddr
 
 
 ### Multiple Network Interface Cards (NICs)
-There are many network virtual appliances and scenarios that require multiple NICs. The EFLOW virtual machine supports attaching multiple NICs. With multiple NICs you can better manage your network traffic. You can also isolate traffic between the frontend NIC and backend NICs, or separating data plane traffic from the management plane communication. 
+There are many network virtual appliances and scenarios that require multiple NICs. The EFLOW virtual machine supports attaching multiple NICs. With multiple NICs, you can better manage your network traffic. You can also isolate traffic between the frontend NIC and backend NICs, or separating data plane traffic from the management plane communication. 
 
 For example, there are numerous of industrial IoT scenarios that require connecting the EFLOW virtual machine to a demilitarized zone (DMZ), and to the offline network where all the OPC UA compliant devices are connected. This is just one of the multiple scenarios that can be supported by attaching multiple NICs to the EFLOW VM. 
 
 For more information about multiple NICs, see [Multiple NICs support](https://github.com/Azure/iotedge-eflow/wiki/Multiple-NICs).
 
 >[!WARNING]
->When using EFLOW multiple NICs feature, you may want to set up the different routes priorities. By default, EFLOW will create one default route per _ehtX_ interface assigned to the VM and assign a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an offline network, you may want to prioritize the online NIC over the offline NIC to get the EFLOW VM connected to the internet. For more information about custom routing, see [EFLOW routing](https://github.com/Azure/iotedge-eflow/tree/main/samples/networking/routing).
+>When using EFLOW multiple NICs feature, you may want to set up the different routes priorities. By default, EFLOW will create one default route per *ehtX* interface assigned to the VM and assign a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an offline network, you may want to prioritize the online NIC over the offline NIC to get the EFLOW VM connected to the internet. For more information about custom routing, see [EFLOW routing](https://github.com/Azure/iotedge-eflow/tree/main/samples/networking/routing).
 
 ## Next steps
 

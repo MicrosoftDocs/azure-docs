@@ -4,7 +4,7 @@ description: Learn how to prepare an application for deployment to Azure Spring 
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 04/28/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java
 zone_pivot_groups: programming-languages-spring-apps
@@ -172,6 +172,7 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 For more information, see the following pages:
 
+* [Version support for Java, Spring Boot, and more](concept-app-customer-responsibilities.md#version-support-for-all-plans)
 * [Spring Boot support](https://spring.io/projects/spring-boot#support)
 * [Spring Cloud Config support](https://spring.io/projects/spring-cloud-config#support)
 * [Spring Cloud Netflix support](https://spring.io/projects/spring-cloud-netflix#support)

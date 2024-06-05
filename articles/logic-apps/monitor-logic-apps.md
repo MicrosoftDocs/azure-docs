@@ -10,7 +10,7 @@ ms.date: 02/13/2024
 
 # Monitor workflow run status, review trigger and workflow run history, and set up alerts in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
 
 After you create and run a logic app workflow, you can check that workflow's run status, trigger history, workflow run history, and performance.
 
