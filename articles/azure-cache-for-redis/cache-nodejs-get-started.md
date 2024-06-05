@@ -29,7 +29,7 @@ For examples of using other Node.js clients, see the individual documentation fo
 
 Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.
 
-```console
+```cmd
 set AZURE_CACHE_FOR_REDIS_HOST_NAME=contosoCache
 set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
@@ -40,15 +40,14 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
 
 ## Create a new Node.js app
 
-1. Create a new script file named *redistest.js*. 
+1. Create a new script file named *redistest.js*.
 1. Use the command to install a redis package.
 
     ```bash
     `npm install redis`
     ```
 
-1. Add the following example JavaScript to the file. 
-
+1. Add the following example JavaScript to the file.
 
     ```javascript
     const redis = require("redis");
@@ -101,9 +100,8 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
     
     testCache().then((result) => console.log(result)).catch(ex => console.log(ex));
     ```
-    
-    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [https://redis.js.org/](https://redis.js.org/).
 
+    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [https://redis.js.org/](https://redis.js.org/).
 
 1. Run the script with Node.js.
 
@@ -111,7 +109,7 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
     node redistest.js
     ```
 
-1. Example the output. 
+1. Example the output.
 
     ```console
     Cache command: PING
