@@ -352,9 +352,9 @@ Starting in API version `2024-02-02-preview`, you can control which managed iden
 
 The following example shows the following in a Workload Profile Consumption environment:
 
-- How to restrict the container app's system-assigned identity to main containers only.
-- How to restrict a specific user-assigned identity to init containers only.
-- How to use a specific user-assigned identity for Azure Container Registry image pull without allowing the code in the containers to use that managed identity to access the ACR. In this example, the containers themselves don't need to access the ACR, so this reduces the blast radius if a malicious actor gains unauthorized access to the containers.  
+- Restricts the container app's system-assigned identity to main containers only.
+- Restricts a specific user-assigned identity to init containers only.
+- Uses a specific user-assigned identity for Azure Container Registry image pull without allowing the code in the containers to use that managed identity to access the registry. In this example, the containers themselves don't need to access the registry. This approach reduces the access if a malicious actor were to gain unauthorized access to the containers.
 
 # [ARM template](#tab/arm)
 
