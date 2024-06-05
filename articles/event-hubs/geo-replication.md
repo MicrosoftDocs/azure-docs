@@ -32,13 +32,13 @@ Some of the key aspects of Geo Data Replication public preview are:
 Changing a secondary to being a new primary can be done two ways:
 - Planned: a promotion of the secondary to primary where traffic isn't processed until the new primary catches up with all of the data held by the former primary instance
 - Forced: as a failover where the secondary becomes primary as fast as possible
-The Geo replication feature replicates all data and metadata from the primary region to the selected secondary regions.  The namespace FQDN always points to the primary region.  
+The Geo replication feature replicates all data and metadata from the primary region to the selected secondary regions.  The namespace FQDN always points to the primary region
 
-[region A as primary](../media/geo-replication/a-as-primary.png)
+ :::image type="content" source="./media/geo-replication/a-as-primary.png" alt-text="Diagram showing when region A is primary, B is secondary"::: 
   
 When a customer initiates a promotion of a secondary, the FQDN points to the region selected to be the new primary.  The old primary then becomes a secondary. It is completely reasonable to promote your secondary to be the new primary for reasons other than a failover. They can include application upgrades, failover testing or any number of other things that after which you can switch back.
 
-[region B as primary](../media/geo-replication/b-as-primary.png)
+ :::image type="content" source="./media/geo-replication/b-as-primary.png" alt-text="Diagram showing when B is made the primary, that A becomes the new secondary"::: 
  
 Secondary regions can be added or removed at the customer's discretion. 
 There are some current limitations worth noting:
