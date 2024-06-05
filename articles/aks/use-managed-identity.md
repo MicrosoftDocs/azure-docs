@@ -96,7 +96,7 @@ az aks update \
     --enable-managed-identity
 ```
 
-After you update the cluster, the control plane and pods use the system-assigned managed identity for authorization when accessing other services in Azure. Kubelet continues using a service principal until you upgrade your agentpool. You can use the `az aks nodepool upgrade --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --node-image-only` command on your nodes to update to a managed identity. A node pool upgrade causes downtime for your AKS cluster as the nodes in the node pools are cordoned, drained, and re-imaged.
+After you update the cluster to use a system-assigned managed identity instead of a service principal, the control plane and pods use the system-assigned managed identity for authorization when accessing other services in Azure. Kubelet continues using a service principal until you also upgrade your agentpool. You can use the `az aks nodepool upgrade --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --node-image-only` command on your nodes to update to a managed identity. A node pool upgrade causes downtime for your AKS cluster as the nodes in the node pools are cordoned, drained, and re-imaged.
 
 > [!NOTE]
 >
@@ -381,6 +381,9 @@ A successful AKS cluster creation using a kubelet managed identity should resemb
 
 To update an existing cluster to use the kubelet managed identity, first get the current control plane managed identity for your AKS cluster.
 
+> [!WARNING]
+> Updating the kubelet managed identity upgrades your AKS cluster's node pools, which causes downtime for the cluster as the nodes in the node pools are cordoned/drained and reimaged.
+
 1. Confirm your AKS cluster is using the user-assigned managed identity using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
@@ -390,6 +393,7 @@ To update an existing cluster to use the kubelet managed identity, first get the
     If your cluster is using a managed identity, the output shows `clientId` with a value of **msi**. A cluster using a service principal shows an object ID. For example:
 
     ```output
+    # The cluster is using a managed identity.
     {
       "clientId": "msi"
     }
@@ -448,11 +452,19 @@ Your output for a successful cluster update using your own kubelet managed ident
   },
 ```
 
-> [!WARNING]
-> Updating the kubelet managed identity upgrades your AKS cluster's node pools, which causes downtime for the cluster as the nodes in the node pools are cordoned/drained and reimaged.
-
 > [!NOTE]
 > If your cluster was using `--attach-acr` to pull from images from Azure Container Registry, run the `az aks update --resource-group myResourceGroup --name myAKSCluster --attach-acr <ACR Resource ID>` command after updating your cluster to let the newly-created kubelet used for managed identity get the permission to pull from ACR. Otherwise, you won't be able to pull from ACR after the upgrade.
+
+### Get the properties of the kubelet identity
+
+To get the properties of the kubelet identity, call [az aks show][az-aks-show] and query on the `identityProfile.kubeletidentity` property.
+
+```azurecli-interactive
+az aks show \
+    --name myAKSCluster \
+    --resource-group myResourceGroup \
+    --query "identityProfile.kubeletidentity"
+```
 
 ### Pre-created kubelet identity limitations
 
