@@ -15,13 +15,13 @@ ms.custom: UpdateFrequency2
 
 This article describes how to specify _mandatory artifacts_ in Azure DevTest Labs to install on every lab virtual machine (VM). Artifacts are tools and applications that you can add to your VMs. Mandatory artifacts can include any software that every VM in your lab must have. By defining mandatory artifacts, you can ensure all your lab VMs are installed with standardized, up-to-date artifacts. Lab users don't have to spend time and effort to add needed artifacts individually.
 
-You can create a custom image from a VM that has mandatory artifacts applied to it. When you create new VMs from the custom image, the new VMs also have the mandatory artifacts. 
+## Explore mandatory artifacts
 
-Here are some other considerations:
+Mandatory artifacts can't have any configurable parameters. This restriction makes it easier for lab users to create VMs. Mandatory artifacts always install first on a VM before any extra or custom artifacts selected by the user.
 
-- Mandatory artifacts can't have configurable parameters. This restriction makes it easier for lab users to create VMs.
-- Mandatory artifacts always install first on a VM before any extra or custom artifacts selected by the user.
-- DevTest Labs always installs the most recent versions of the mandatory artifacts on a VM, even when the base is an "older" custom image.
+You can create a custom image from a VM that has mandatory artifacts applied to it. When you create new VMs from the custom image, the new VMs also have the mandatory artifacts. DevTest Labs always installs the most recent versions of the mandatory artifacts on a VM, even when the base is an "older" custom image.
+
+When you create a VM, you can't rearrange, change, or delete the mandatory artifacts. However, you can add extra artifacts or define custom artifacts. For more information, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
 
 ## Define mandatory artifacts
 
@@ -52,10 +52,7 @@ You can select mandatory artifacts for Windows and Linux lab machines separately
 
 After you add mandatory artifacts, DevTest Labs updates the **Mandatory artifacts** lists for your lab in the Azure portal. From these lists, you can access the artifacts to change the installation order. When you create a new VM, DevTest Labs installs the **top** artifact in the list first and the **bottom** artifact last.
 
-> [!NOTE]
-> When you create a VM, you can't rearrange or change mandatory artifacts, but you can add more artifacts. For more information, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
-
-To rearrange the order of installation for the mandatory artifacts:
+To change the order of installation for the mandatory artifacts:
 
 1. On the **External resources** > **Mandatory artifacts** screen for your lab, select the **Windows** or **Linux** tab.
 
@@ -69,16 +66,15 @@ To rearrange the order of installation for the mandatory artifacts:
 
 ## Delete mandatory artifacts
 
-You can also delete artifacts in the **Mandatory artifacts** lists.
-
-> [!NOTE]
-> When you create a VM, you can't delete mandatory artifacts. For more information, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
+You can also delete artifacts in the **Mandatory artifacts** lists:
 
 1. On the **External resources** > **Mandatory artifacts** screen for your lab, select the **Windows** or **Linux** tab.
 
 1. Select the checkbox next to the artifact in the list, and then select **Delete**:
 
    :::image type="content" source="./media/devtest-lab-mandatory-artifacts/remove-artifact.png" alt-text="Screenshot that shows how to select the Delete option to remove a mandatory artifact." lightbox="./media/devtest-lab-mandatory-artifacts/remove-artifact-large.png":::
+
+1. At the confirmation prompt, select **Yes**.
 
 ## View mandatory artifacts
 
@@ -96,13 +92,9 @@ To view the mandatory artifacts for a VM:
 
 1. To see details about the mandatory artifacts, select **Add or Remove Artifacts**.
 
-1. On the **Add artifacts** screen, the mandatory artifacts are listed above the available artifacts. The mandatory artifacts are listed in order of installation from top to bottom:
+1. On the **Add artifacts** screen, the mandatory artifacts are displayed above the **Available artifacts** list. The mandatory artifacts are listed in order of installation from top to bottom:
 
    :::image type="content" source="./media/devtest-lab-mandatory-artifacts/save-to-lab.png" alt-text="Screenshot that shows the Add artifacts screen with the list of mandatory artifacts that DevTest Labs plans to install." lightbox="./media/devtest-lab-mandatory-artifacts/save-to-lab-large.png":::
-
-   Extra artifacts selected by the user for the VM instance are shown next to the available list. These artifacts are also listed in order of installation from top to bottom. Extra artifacts are always installed after the mandatory artifacts.
-   
-   The user can also create new artifacts for their VMs. For more information, see [Create custom artifacts for DevTest Labs VMs](devtest-lab-artifact-author.md).
 
 ## Related content
 
