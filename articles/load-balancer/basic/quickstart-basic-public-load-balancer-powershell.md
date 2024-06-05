@@ -137,7 +137,7 @@ Create an Azure Bastion host to securely manage the virtual machines in the back
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 
@@ -341,7 +341,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 Ensure the **State** of the VM creation is **Completed** before moving on to the next steps.
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 

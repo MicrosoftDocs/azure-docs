@@ -12,7 +12,7 @@ ms.date: 10/16/2023
 
 # Create and run .NET Framework code from Standard workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
 
 For integration solutions where you have to author and run .NET Framework code from your Standard logic app workflow, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension. This extension provides the following capabilities and benefits:
 

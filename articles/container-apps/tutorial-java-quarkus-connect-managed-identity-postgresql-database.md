@@ -25,7 +25,7 @@ What you will learn:
 > * Create a PostgreSQL database in Azure.
 > * Connect to a PostgreSQL Database with managed identity using Service Connector.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## 1. Prerequisites
 
@@ -276,7 +276,7 @@ az containerapp list --resource-group $RESOURCE_GROUP
 
 When the new webpage shows your list of fruits, your app is connecting to the database using the managed identity. You should now be able to edit fruit list as before.
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
 
 ## Next steps
 
