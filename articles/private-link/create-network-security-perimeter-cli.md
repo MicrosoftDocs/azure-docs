@@ -152,7 +152,7 @@ In this step, you create and update network security perimeter access rules with
         --profile-name network-perimeter-profile \
         --perimeter-name network-security-perimeter \
         --resource-group test-rg \
-        --address-prefixes "[20.10.0.0/16]"
+        --address-prefixes "[10.10.0.0/16]"
 
     ```
 
@@ -166,7 +166,7 @@ In this step, you create and update network security perimeter access rules with
         --profile-name network-perimeter-profile \
         --perimeter-name network-security-perimeter \
         --resource-group test-rg \
-        --address-prefixes "['20.11.0.0/16', '20.10.0.0/16']"
+        --address-prefixes "['10.11.0.0/16', '10.10.0.0/16']"
 
     ```
 

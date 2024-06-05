@@ -12,15 +12,15 @@ ms.custom: references_regions
 
 # What is Azure Network Security Perimeter?
 
-Azure Network Security Perimeter is a service that provides a secure perimeter for communication of Platform as a Service (PaaS) services deployed outside the virtual network. These PaaS services can communicate with each other within the perimeter, and can also communicate with resources outside the perimeter using public inbound and outbound access rules. Network security perimeter is a feature of Azure Private Link.
+Azure Network Security Perimeter is a service that provides a secure perimeter for communication of Platform as a Service (PaaS) services deployed outside the virtual network. These PaaS services can communicate with each other within the perimeter, and can also communicate with resources outside the perimeter using public inbound and outbound access rules.
 
 Features of Azure Network Security Perimeter include:
 - All resources inside perimeter can communicate with any other resource within perimeter.
 - External access is available for the following controls:
   - Public inbound access can be approved using Network and Identity attributes of the client such as source IP addresses, subscriptions.
   - Public outbound can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations.
-- Diagnostic Logs is enabled for PaaS resources within perimeter for Audit and Compliance.
-- Resources in Private Endpoints can additionally accept communication from customer virtual networks, both network security perimeter and Private Endpoints are independent controls.
+- Diagnostic Settings can be enabled to view access logs of PaaS resources within the perimeter for Audit and Compliance.
+- Resources with Private Endpoints can additionally accept communication from customer virtual networks, both network security perimeter and Private Endpoints are independent controls.
 
 :::image type="content" source="media/network-security-perimeter-concepts/network-security-perimeter-overview.png" alt-text="Diagram of securing a service with network security perimeter." lightbox="media/network-security-perimeter-concepts/network-security-perimeter-overview.png":::
 
@@ -115,10 +115,6 @@ Network security perimeter is currently available in all public cloud regions. W
 
 > [!NOTE]
 > Refer to individual PaaS documentation for respective limitations.
-
-## Pricing
-
-Network security perimeter is a free offering available to all customers.
 
 ## Next steps
 

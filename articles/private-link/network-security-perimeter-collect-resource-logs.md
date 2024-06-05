@@ -49,7 +49,7 @@ You can store the resource logs in the following locations:
 
 You can enable resource logging for network security perimeter by using the Azure portal under **Diagnostic settings**. When adding a diagnostic setting, you can choose the log categories you want to collect and the destination where you want to store the logs.
 
-:::image type="content" source="media/network-security-perimeter-concepts/network-security-perimeter-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings options for network security perimeter.":::
+:::image type="content" source="media/network-security-perimeter-diagnostic-logs/network-security-perimeter-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings options for network security perimeter.":::
   
 > [!NOTE]
 > The Diagnostics settings page provides the settings for the resource logs. You can use Log Analytics, storage account and/or event hubs to save the resource logs. 

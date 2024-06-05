@@ -57,11 +57,11 @@ Both the `publicNetworkAccess` and `accessMode` properties can be set using the 
 
 4. From the dropdown menu, select **Configure public network access**, and then select the desired access mode from the three options available: **Enabled**, **Disabled**, or **SecuredByPerimeter**.
 
-    :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-settings.png" alt-text="Screenshot of association settings with access mode options.":::
+    :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-settings.png" alt-text="Screenshot of public network access settings with access mode options.":::
 
 5. To set the access mode, select **Configure access mode** from the dropdown menu, and then select the desired access mode from the two options available: **Learning** or **Enforced**.
 
-    :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-settings-access-mode.png" alt-text="Screenshot of association settings with access mode options.":::
+    :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-access-mode.png" alt-text="Screenshot of access mode settings with access mode options.":::
     
 ## Prevent connectivity disruptions while adopting network security perimeter 
 
@@ -123,6 +123,6 @@ The behavior of public network access on PaaS resources according to the associa
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md).
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md)
 
  
