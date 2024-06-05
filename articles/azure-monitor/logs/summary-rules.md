@@ -14,13 +14,13 @@ ms.date: 04/23/2024
 
 # Aggregate data in a Log Analytics workspace with summary rules
 
-A summary rule lets you aggregate log data at a regular cadence and send the aggregated results to a custom log table in your Log Analytics workspace. This lets you optimize your data for:
+A summary rule lets you aggregate log data at a regular cadence and send the aggregated results to a custom log table in your Log Analytics workspace. Use summary rules to optimize your data for:
 
-- **Analysis and reports**, especially those based on large data sets and time ranges required for security and incident analysis, month-over-month or annual business reports, and so on. Complex queries on large data sets often time out. It's easier and more efficient to analyze and report on summarized data that's _cleaned_ and _aggregated_. 
+- **Analysis and reports**, especially over large data sets and time ranges, as required for security and incident analysis, month-over-month or annual business reports, and so on. Complex queries on a large data set often time out. It's easier and more efficient to analyze and report on summarized data that's _cleaned_ and _aggregated_. 
 
 - **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a cheap Basic log table, and send summarized data to an Analytics table for analysis and reports. 
 
-- **Segregated, table-level access** for privacy and security by obfuscation of privacy details in summarized shareable data.
+- **Security and privacy** by removing or obfuscating privacy details in summarized shareable data.
 
 This article describes how summary rules work and how to define and view summary rules, and provides some examples of the use and benefits of summary rules.
 
@@ -53,7 +53,7 @@ You can also export summarized data from a custom log table to a Storage Account
 
 ## Create or update a summary rule
 
-For rules that you create and configure, the `ruleType` property is always `User` and the `destinationTable` name must end with `_CL`, which is prefixed to all custom log tables. If you update a query and remove output fields from the results set, Azure Monitor doesn't automarically remove the fields from the destination table. You can remove the fields by using the [Table API](/rest/api/loganalytics/tables/update?tabs=HTTP). 
+For rules that you create and configure, the `ruleType` property is always `User` and the `destinationTable` name must end with `_CL`, which is prefixed to all custom log tables. If you update a query and remove output fields from the results set, Azure Monitor doesn't automatically remove the fields from the destination table. You can remove the fields by using the [Table API](/rest/api/loganalytics/tables/update?tabs=HTTP). 
 
 > [!NOTE]
 > Before you create a rule configuration, first experiment with the intended query in Log Analytics Logs. Verify that the query doesn't hit or get close to the query limit. Confirm the query produces the intended schema shape and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
@@ -254,7 +254,7 @@ This table describes the summary rule properties:
 | `timeSelector` (optional) | `TimeGenerated` | Provides the datetime field for use by the query. |
 
 
-## Configure the aggregation timing
+### Configure the aggregation timing
 
 By default, the summary rule creates the first aggregation a shortly after the next whole hour. 
 
@@ -273,37 +273,37 @@ Use the `binStartTime` and `binDelay` parameters to change the timing of the fir
 
 The next sections provide examples of the default aggregation timing and the more advanced aggregation timing options.
 
-### Use default aggregation timing 
+#### Use default aggregation timing 
 
 In this example, the summary rule is created at on 2023-06-07 at 14:44, and Azure Monitor adds a default delay of **four minutes**.
 
-| binSize (minutes) | Intial rule run | First aggregation | Second aggregation |
+| binSize (minutes) | Initial rule run | First aggregation | Second aggregation |
 | --- | --- | --- | --- |
-| 1440  | 2023-06-07 15:04 | 2023-06-06 15:00 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-08 15:00 |
-|  720  | 2023-06-07 15:04 | 2023-06-07 03:00 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-08 03:00 |
-|  360  | 2023-06-07 15:04 | 2023-06-07 09:00 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 21:00 |
-|  180  | 2023-06-07 15:04 | 2023-06-07 12:00 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 18:00 |
-|  120  | 2023-06-07 15:04 | 2023-06-07 13:00 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 17:00 |
-|   60  | 2023-06-07 15:04 | 2023-06-07 14:00 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 16:00 |
-|   30  | 2023-06-07 15:04 | 2023-06-07 14:30 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 15:30 |
-|   20  | 2023-06-07 15:04 | 2023-06-07 14:40 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 15:20 |
+| 1440  | 2023-06-07 15:04 | 2023-06-06 15:00 - 2023-06-07 15:00 | 2023-06-07 15:00 - 2023-06-08 15:00 |
+|  720  | 2023-06-07 15:04 | 2023-06-07 03:00 - 2023-06-07 15:00 | 2023-06-07 15:00 - 2023-06-08 03:00 |
+|  360  | 2023-06-07 15:04 | 2023-06-07 09:00 - 2023-06-07 15:00 | 2023-06-07 15:00 - 2023-06-07 21:00 |
+|  180  | 2023-06-07 15:04 | 2023-06-07 12:00 - 2023-06-07 15:00 | 2023-06-07 15:00 - 2023-06-07 18:00 |
+|  120  | 2023-06-07 15:04 | 2023-06-07 13:00 - 2023-06-07 15:00 | 2023-06-07 15:00 - 2023-06-07 17:00 |
+|   60  | 2023-06-07 15:04 | 2023-06-07 14:00 - 2023-06-07 15:00 | 2023-06-07 15:00 - 2023-06-07 16:00 |
+|   30  | 2023-06-07 15:04 | 2023-06-07 14:30 - 2023-06-07 15:00 | 2023-06-07 15:00 - 2023-06-07 15:30 |
+|   20  | 2023-06-07 15:04 | 2023-06-07 14:40 - 2023-06-07 15:00 | 2023-06-07 15:00 - 2023-06-07 15:20 |
 
-### Set optional aggregation timing parameters
+#### Set optional aggregation timing parameters
 
 In this example, the summary rule is created at on 2023-06-07 at 14:44, and the rule includes these advanced configuration settings:
 - `binStartTime`: 2023-06-08 07:00
 - `binDelay`: **8 minutes**
 
-| binSize (minutes) | Intial rule run | First aggregation | Second aggregation |
+| binSize (minutes) | Initial rule run | First aggregation | Second aggregation |
 | --- | --- | --- | --- |
-| 1440 | 2023-06-09 07:08 | 2023-06-08 07:00 -- 2023-06-09 07:00 | 2023-06-09 07:00 -- 2023-06-10 07:00 |
-|  720 | 2023-06-08 19:08 | 2023-06-08 07:00 -- 2023-06-08 19:00 | 2023-06-08 19:00 -- 2023-06-09 07:00 |
-|  360 | 2023-06-08 13:08 | 2023-06-08 07:00 -- 2023-06-08 13:00 | 2023-06-08 13:00 -- 2023-06-08 19:00 |
-|  180 | 2023-06-08 10:08 | 2023-06-08 07:00 -- 2023-06-08 10:00 | 2023-06-08 10:00 -- 2023-06-08 13:00 |
-|  120 | 2023-06-08 09:08 | 2023-06-08 07:00 -- 2023-06-08 09:00 | 2023-06-08 09:00 -- 2023-06-08 11:00 |
-|   60 | 2023-06-08 08:08 | 2023-06-08 07:00 -- 2023-06-08 08:00 | 2023-06-08 08:00 -- 2023-06-08 09:00 |
-|   30 | 2023-06-08 07:38 | 2023-06-08 07:00 -- 2023-06-08 07:30 | 2023-06-08 07:30 -- 2023-06-08 08:00 |
-|   20 | 2023-06-08 07:28 | 2023-06-08 07:00 -- 2023-06-08 07:20 | 2023-06-08 07:20 -- 2023-06-08 07:40 |
+| 1440 | 2023-06-09 07:08 | 2023-06-08 07:00 - 2023-06-09 07:00 | 2023-06-09 07:00 - 2023-06-10 07:00 |
+|  720 | 2023-06-08 19:08 | 2023-06-08 07:00 - 2023-06-08 19:00 | 2023-06-08 19:00 - 2023-06-09 07:00 |
+|  360 | 2023-06-08 13:08 | 2023-06-08 07:00 - 2023-06-08 13:00 | 2023-06-08 13:00 - 2023-06-08 19:00 |
+|  180 | 2023-06-08 10:08 | 2023-06-08 07:00 - 2023-06-08 10:00 | 2023-06-08 10:00 - 2023-06-08 13:00 |
+|  120 | 2023-06-08 09:08 | 2023-06-08 07:00 - 2023-06-08 09:00 | 2023-06-08 09:00 - 2023-06-08 11:00 |
+|   60 | 2023-06-08 08:08 | 2023-06-08 07:00 - 2023-06-08 08:00 | 2023-06-08 08:00 - 2023-06-08 09:00 |
+|   30 | 2023-06-08 07:38 | 2023-06-08 07:00 - 2023-06-08 07:30 | 2023-06-08 07:30 - 2023-06-08 08:00 |
+|   20 | 2023-06-08 07:28 | 2023-06-08 07:00 - 2023-06-08 07:20 | 2023-06-08 07:20 - 2023-06-08 07:40 |
 
 ## View summary rules
 
@@ -424,7 +424,6 @@ The cost of summary rules includes the cost of queries and ingested results to t
 | --- | --- | --- |
 | Analytics |            | Analytics ingested GB | 
 | Basic     | Scanned GB | Analytics ingested GB | 
-| Auxiliary | Scanned GB | Analytics ingested GB | 
 
 Cost calculation for hourly rule returning 100 records per bin:
 
