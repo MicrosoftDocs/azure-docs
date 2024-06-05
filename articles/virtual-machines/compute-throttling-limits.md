@@ -1,6 +1,6 @@
 ---
-title: Compute Throttling Limits
-description: Compute Throttling Limits
+title: Compute throttling limits
+description: Compute throttling limits
 author: viveksingla
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.reviewer:
 
 ---
 
-# Compute Throttling Limits
+# Compute throttling limits
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -28,7 +28,7 @@ number of API requests made per resource and per subscription per region
 per minute. If the number of API requests exceeds these limits, the
 requests are throttled. Here's how these limits work:
 
-1.  **Per Resource Limit** – Each resource, such as a virtual machine
+- **Per Resource Limit** – Each resource, such as a virtual machine
     (VM), has a specific limit for API requests. For instance, let us
     assume that a user creates 10 VMs in a subscription. The user
     can invoke up to 12 update requests for each VM in one minute. If the
@@ -36,7 +36,7 @@ requests are throttled. Here's how these limits work:
     This limit ensures that a few resources don’t consume the
     subscription level limits and throttle other resources.
 
-2.  **Subscription Limit** – In addition to resource limits, there's
+ - **Subscription Limit** – In addition to resource limits, there's
     an overarching limit on the number of API requests across all
     resources within a subscription. Any API requests beyond this limit
     are throttled, regardless of whether the limit for an individual resource has been reached. For instance, let us assume that a user has 200 VMs in a subscription. Even though user is entitled to initiate up to 12
@@ -87,7 +87,7 @@ Sets](/azure/virtual-machine-scale-sets/overview)
 and [Virtual Machines Scale Set
 VMs](/rest/api/compute/virtual-machine-scale-set-vms/deallocate?tabs=HTTP).
 
-## Throttling limits for Virtual machines 
+## Throttling limits for Virtual Machines 
 
 API requests for Virtual Machines are categorized into seven distinct
 policies. Each policy has its own limits, depending upon how
@@ -159,14 +159,14 @@ Users don’t need to change anything in their configuration or workloads. All e
 ### What benefits do the throttling policies provide?
 The throttling policies offer several benefits:
 
-1.  All Compute resources have a uniform window of 1 min. Users
+ - All Compute resources have a uniform window of 1 min. Users
     can successfully invoke API calls, 1 min after getting
     throttled.
 
-2.  No single resource can use up all the limits under a subscription as
+ - No single resource can use up all the limits under a subscription as
     limits are defined at resource level.
 
-3.  Microsoft Compute is introducing a new algorithm, Token Bucket Algorithm, for determining the limits. The algorithm provides extra buffer to the customers, while making high number of API requests.
+ - Microsoft Compute is introducing a new algorithm, Token Bucket Algorithm, for determining the limits. The algorithm provides extra buffer to the customers, while making high number of API requests.
 
 ### Does the customer get an alert when they're about to reach their throttling limits?
 As part of every response, Microsoft Compute returns
