@@ -55,7 +55,7 @@ To add your Azure Cosmos DB cluster to MongoDB Shell, perform the following step
 
      ![Animation that shows how to connect by entering a password.](./media/how-to-connect-mongo-shell/mongo-shell-connect.gif)
 
-     After you provide the password and are successfully authenticated, this warning appears: "This server or service appears to be an emulation of MongoDB." You can ignore it. The shell is notifying you that you aren't connected to an emulation of MongoDB. For an Azure platform as a service (PaaS) offering, this warning is expected.
+     After you provide the password and are successfully authenticated, this warning appears: "This server or service appears to be an emulation of MongoDB." You can ignore it. This warning is generated because the connection string contains `cosmos.azure`. Azure Cosmos DB is a native Azure platform as a service (PaaS) offering.
 
    - Provide the password as a part of the connection string. The format looks something like this example:
 
