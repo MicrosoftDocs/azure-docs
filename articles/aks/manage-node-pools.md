@@ -276,9 +276,10 @@ As your workload demands change, you can associate existing capacity reservation
         --location $LOCATION \
         --node-vm-size $VM_SKU \
         --node-count $NODE_COUNT \
+        --enable-managed-identity \
         --assign-identity $IDENTITY_ID         
     ```
-    
+
 ### Associate an existing capacity reservation group with a node pool
 
 Associate an existing capacity reservation group with a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command and specify a capacity reservation group with the `--crg-id` flag. The following example assumes you have a CRG named "myCRG".
