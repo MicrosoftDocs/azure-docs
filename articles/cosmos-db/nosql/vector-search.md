@@ -70,7 +70,12 @@ Performing vector search with Azure Cosmos DB for NoSQL requires you to define a
    * “path”: the property containing the vector (required).
    * “datatype”: the data type of the vector property (default Float32).  
    * “dimensions”: The dimensionality or length of each vector in the path. All vectors in a path should have the same number of dimensions. (default 1536).
-   * “distanceFunction”: The metric used to compute distance/similarity. Supported metrics are: [cosine](https://en.wikipedia.org/wiki/Cosine_similarity), [dotproduct](https://en.wikipedia.org/wiki/Dot_product), and [euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) (default cosine). 
+   * “distanceFunction”: The metric used to compute distance/similarity. Supported metrics are:   
+     *  [cosine](https://en.wikipedia.org/wiki/Cosine_similarity), which has values from -1 (least similar) to +1 (most similar). 
+     *  [dotproduct](https://en.wikipedia.org/wiki/Dot_product), which has values from -inf (least simialr) to +inf (most similar).
+     *  [euclidean](https://en.wikipedia.org/wiki/Euclidean_distance), which has values from 0 (most similar) to +inf) (least similar). 
+
+
   
 > [!NOTE]
 > Each unique path can have at most one policy. However, multiple policies can be specified provided that they all target a different path.
