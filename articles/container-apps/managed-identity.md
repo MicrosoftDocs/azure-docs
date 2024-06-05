@@ -321,7 +321,7 @@ The following example shows how to use a managed identities with an Azure Queue 
 
 # [ARM template](#tab/arm)
 
-Note the additional properties `accountName`, which is the name of the Storage account that the queue is in, and `identity`, which specifies the managed identity to use. You do not need to use the `auth` property.
+The queue storage account uses the `accountName` property to identify the storage account, while the `identity` property specifies which managed identity to use. You do not need to use the `auth` property.
 
 ```json
 "scale": {
