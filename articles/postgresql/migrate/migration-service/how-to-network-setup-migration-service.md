@@ -225,9 +225,9 @@ This scenario addresses the networking challenge when migrating databases to Azu
 
 ## Resources for network setup
 
-- To establish an **ExpressRoute** connection, refer to the [What is Azure ExpressRoute?](..\..\..\expressroute\expressroute-introduction.md).
-- For setting up an **IPsec VPN**, consult the guide on [About Point-to-Site VPN](..\..\..\vpn-gateway\point-to-site-about.md).
-- For virtual network peering, [Virtual network peering](..\..\..\virtual-network\virtual-network-peering-overview.md)
+- To establish an **ExpressRoute** connection, refer to the [What is Azure ExpressRoute?](../../../expressroute/expressroute-introduction.md).
+- For setting up an **IPsec VPN**, consult the guide on [About Point-to-Site VPN](../../../vpn-gateway/point-to-site-about.md).
+- For virtual network peering, [Virtual network peering](../../../virtual-network/virtual-network-peering-overview.md)
 
 ## Related content
 

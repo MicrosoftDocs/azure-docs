@@ -17,9 +17,6 @@ The migration runtime server is helpful in scenarios where both the source Postg
 
 The migration runtime server is distinct from the target server and is configured to handle the data transfer process, ensuring a secure and efficient migration path.
 
-> [!NOTE]  
-> Migration runtime server using Azure portal experience is in preview mode.
-
 :::image type="content" source="media/concepts-migration-service-runtime-server/private-endpoint-scenario.png" alt-text="Screenshot of migration runtime server.":::
 
 ## Supported migration scenarios with the Migration Runtime Server
@@ -45,7 +42,7 @@ Choose your Azure subscription and resource group and the location of the VNet-i
 
 - **Minimal Configuration**—Despite being created from an Azure Database for PostgreSQL Flexible Server, the migration runtime server solely facilitates migration without the need for HA, backups, version specificity, or advanced storage features.
 - **Performance and Sizing**—The migration runtime server must be appropriately scaled to manage the workload, and it's recommended that you select an SKU equivalent to or greater than that of the target server.
-- **Networking** Ensure that the migration runtime server is appropriately integrated into the Virtual Network (virtual network) and that network security allows for secure communication with both the source and target servers. For more information, see the [documentation](concepts-network.md)
+- **Networking** Ensure that the migration runtime server is appropriately integrated into the Virtual Network (virtual network) and that network security allows for secure communication with both the source and target servers. For more information visit [Network guide for migration service](how-to-network-setup-migration-service.md).
 - **Cleanup Post-Migration**—After the migration is complete, the migration runtime server should be decommissioned to avoid unnecessary costs. Before deletion, ensure all data has been successfully migrated and that the server is no longer needed.
 
 ## Related content
