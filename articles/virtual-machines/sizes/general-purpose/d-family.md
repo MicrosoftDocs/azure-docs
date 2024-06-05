@@ -1,6 +1,6 @@
 ---
 title: D-family size series
-description: List of sizes in the D-family and sub families
+description: List of sizes in the D family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -9,7 +9,7 @@ ms.date: 04/16/2024
 ms.author: mattmcinnes
 ---
 
-# D-family general purpose VM size series
+# 'D' family general purpose VM size series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -154,3 +154,9 @@ ms.author: mattmcinnes
 [View the full Dv2 and Dsv2-series page](../../dv2-dsv2-series.md).
 
 [!INCLUDE [dv2-dsv2-series-specs](./includes/dv2-dsv2-series-specs.md)]
+
+
+### Previous-generation D family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#general-purpose-previous-gen-sizes).
+
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

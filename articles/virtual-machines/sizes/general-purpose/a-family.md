@@ -1,6 +1,6 @@
 ---
 title: A family VM size series 
-description: Overview of the 'A' family and sub families of virtual machine sizes
+description: List of size series in the A family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -27,5 +27,11 @@ ms.author: mattmcinnes
 [View the full Av2-series page](../../av2-series.md).
 
 [!INCLUDE [av2-series-specs](./includes/av2-series-specs.md)]
+
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
+
+
+### Previous-generation A family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#general-purpose-previous-gen-sizes).
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

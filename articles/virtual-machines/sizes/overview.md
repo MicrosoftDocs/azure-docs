@@ -16,14 +16,14 @@ ms.author: mattmcinnes
 
 Azure Virtual Machine (VM) sizes are designed to provide a wide range of options for various workloads and Workloadss for hosting your servers in the cloud. Sizes are categorized into different families and types, each optimized for specific purposes. Users can choose the most suitable VM size based on their requirements, such as CPU, memory, storage, and network bandwidth.
 
-This article describes what sizes are, gives and overview of the available sizes and shows different options for Azure virtual machines you can use to run your apps and workloads.
+This article describes what sizes are, gives an overview of the available sizes and shows different options for Azure virtual machine instances you can use to run your apps and workloads.
 
 > [!TIP]
 > Try the **[Virtual machines selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
 
 :::image type="content" source="./media/azurevmsthumb.jpg" alt-text="YouTube video for selecting the right size for your VM." link="https://youtu.be/zOSvnJFd3ZM":::
 
-## Size naming structure
+## VM size and series naming
 
 Azure VM sizes follow specific naming conventions to denote varying features and specifications. Each character in the name represents different aspects of the VM, such as the VM family, number of vCPUs, and additional features like memory-intensive or premium storage capable.
 
@@ -31,9 +31,9 @@ VM naming is further broken down into the 'Series' name and the 'Size' name. Siz
 
 | Category | Description | Links |
 |---| --- | --- |
-| **[Type](#list-of-size-families-by-type)** | 	Basic categorization by intended workload. | [General purpose](#general-purpose) <br>[Compute optimized](#compute-optimized) <br>[Memory optimized](#memory-optimized) <br>[Storage optimized](#storage-optimized) <br>[GPU acelerated](#gpu-accelerated) <br>[FPGA accelerated](#fpga-accelerated) |
-| **[Series](#sizes)** | Group of sizes with similar hardware and features.| [Enter the 'Series' tab here.](#name-structure-breakdown) |
-| **[Size](#series)** | Specific VM configuration, including vCPUs, memory, and accelerators. | [Enter the 'Size' tab here.](#name-structure-breakdown) |
+| **Type** | 	Basic categorization by intended workload. | [General purpose](#general-purpose) <br>[Compute optimized](#compute-optimized) <br>[Memory optimized](#memory-optimized) <br>[Storage optimized](#storage-optimized) <br>[GPU acelerated](#gpu-accelerated) <br>[FPGA accelerated](#fpga-accelerated) |
+| **Series** | Group of sizes with similar hardware and features.| [Click here and enter the 'Series' tab.](#name-structure-breakdown) |
+| **Size** | Specific VM configuration, including vCPUs, memory, and accelerators. | [Click here and enter the 'Size' tab.](#name-structure-breakdown) |
 
 ### Name structure breakdown
 
@@ -51,7 +51,7 @@ Here's a breakdown of a 'General purpose, **DCads_v5**-series' size series.
 > [!NOTE]
 > Not all sizes will have subfamilies, support accelerators, or specify the CPU vendor. For more details on VM size naming conventions, see **[Azure VM sizes naming conventions](../vm-naming-conventions.md)**.
 
-#### [Sizes](#tab/breakdowninstance)
+#### [Size](#tab/breakdownsize)
 
 Here's a breakdown of a 'Standard_**DC8ads_v5**' size in the 'DCadsv5-series'
 
@@ -68,7 +68,7 @@ Here's a breakdown of a 'Standard_**DC8ads_v5**' size in the 'DCadsv5-series'
 
 ---
 
-## List of size families by type
+## List of VM size families by type
 
 This section contains a list of all current generation size series with tabs dedicated to each size family. Each group has a 'Series List' column with a linked list of all available size series, These links will bring you to the family page for that series, where you can find detailed information on each size in that series or go to the series' page for a list of sizes in that series. 
 
@@ -100,7 +100,7 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 ##### B family
 [!INCLUDE [b-family-summary](./general-purpose/includes/b-family-summary.md)]
 
-[View the full B family page](./general-purpose/a-family.md)
+[View the full B family page](./general-purpose/b-family.md)
 [!INCLUDE [b-family-workloads](./general-purpose/includes/b-family-workloads.md)]
 
 
@@ -108,13 +108,13 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 ##### D family
 [!INCLUDE [d-family-summary](./general-purpose/includes/d-family-summary.md)]
 
-[View the full D family page](./general-purpose/a-family.md)
+[View the full D family page](./general-purpose/d-family.md)
 [!INCLUDE [d-family-workloads](./general-purpose/includes/d-family-workloads.md)]
 
 ##### DC family
 [!INCLUDE [dc-family-summary](./general-purpose/includes/dc-family-summary.md)]
 
-[View the full DC family page](./general-purpose/a-family.md)
+[View the full DC family page](./general-purpose/dc-family.md)
 [!INCLUDE [dc-family-workloads](./general-purpose/includes/dc-family-workloads.md)]
 
 ---
@@ -157,10 +157,10 @@ List of memory optimized VM sizes with links to each series' family page section
 
 | Family | Workloads | Series List |
 |----|---|---|
-| [E-family](./memory-optimized/e-family.md)  | Relational databases <br> Medium to large caches <br> In-memory analytics |  [Eav4 and Easv4-series](./memory-optimized/e-family.md#eav4-and-easv4-series)<br> [Easv6 and Eadsv6-series](./memory-optimized/e-family.md#easv6-and-eadsv6-series)<br> [Edv4 and Edsv4-series](./memory-optimized/e-family.md#edv4-and-edsv4-series)<br> [Ev4 and Esv4-series](./memory-optimized/e-family.md#ev4-and-esv4-series)<br> [Ev5 and Esv5-series](./memory-optimized/e-family.md#ev5-and-esv5-series)<br> [Edv5 and Edsv5-series](./memory-optimized/e-family.md#edv5-and-edsv5-series)<br> [Easv5 and Eadsv5-series](./memory-optimized/e-family.md#easv5-and-eadsv5-series)<br> [Epsv5 and Epdsv5-series](./memory-optimized/e-family.md#epsv5-and-epdsv5-series) |
+| [E-family](./memory-optimized/e-family.md)  | Relational databases <br> Medium to large caches <br> In-memory analytics |[Easv6 and Eadsv6-series](./memory-optimized/e-family.md#easv6-and-eadsv6-series)<br> [Ev5 and Esv5-series](./memory-optimized/e-family.md#ev5-and-esv5-series)<br> [Edv5 and Edsv5-series](./memory-optimized/e-family.md#edv5-and-edsv5-series)<br> [Easv5 and Eadsv5-series](./memory-optimized/e-family.md#easv5-and-eadsv5-series)<br> [Epsv5 and Epdsv5-series](./memory-optimized/e-family.md#epsv5-and-epdsv5-series)<br> [Previous-gen families](./previous-gen-sizes-list.md#memory-optimized-previous-gen-sizes) |
 | [Eb-family](./memory-optimized/eb-family.md)  | E-family with High remote storage performance | [Ebdsv5 and Ebsv5-series](./memory-optimized/e-family.md#ebdsv5-and-ebsv5-series) |
 | [EC-family](./memory-optimized/ec-family.md)  | E-family with confidential computing | [ECasv5 and ECadsv5-series](./memory-optimized/ec-family.md#ecasv5-and-ecadsv5-series)<br> [ECas_cc_v5 and ECads_cc_v5-series](./memory-optimized/ec-family.md#ecasccv5-and-ecadsccv5-series)<br> [ECesv5 and ECedsv5-series](./memory-optimized/ec-family.md#ecesv5-and-ecedsv5-series) |
-| [M-family](./memory-optimized/m-family.md)  | Extremely large databases <br> Large amounts of memory | [Mv2-series](./memory-optimized/m-family.md#mv2-series)<br> [Msv2 and Mdsv2-series](./memory-optimized/m-family.md#msv2-and-mdsv2-series)<br> [Msv3 and Mdsv3-series](./memory-optimized/m-family.md#msv3-and-mdsv3-series) |
+| [M-family](./memory-optimized/m-family.md)  | Extremely large databases <br> Large amounts of memory | [Msv3 and Mdsv3-series](./memory-optimized/m-family.md#msv3-and-mdsv3-series)<br> [Mv2-series](./memory-optimized/m-family.md#mv2-series)<br> [Msv2 and Mdsv2-series](./memory-optimized/m-family.md#msv2-and-mdsv2-series) |
 | Other families | Older generation memory optimized sizes | [Previous-gen families](./previous-gen-sizes-list.md#memory-optimized-previous-gen-sizes) |
 
 To learn more about a specific size family, sub-family, or specific series, click the tab for that group and scroll to find your desired size series. 

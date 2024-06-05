@@ -29,6 +29,7 @@ To learn more about previous-gen sizes, retirement, and the status states of pre
 | Basic A-series             | [Capacity limited](./retirement-overview.md#capacity-limited) | [Av1-series Retirement](./migration-guides/av1-series-retirement.md) |
 | Standard A-series          | [Capacity limited](./retirement-overview.md#capacity-limited) | [Av1-series Retirement](./migration-guides/av1-series-retirement.md) |
 | Compute-intensive A-series | [Capacity limited](./retirement-overview.md#capacity-limited) | [Av1-series Retirement](./migration-guides/av1-series-retirement.md) |
+| B-series (V1)              | [Capacity limited](./retirement-overview.md#capacity-limited) | 
 | Standard D-series          | [Capacity limited](./retirement-overview.md#capacity-limited) | 
 | Preview DC-series          | [Capacity limited](./retirement-overview.md#capacity-limited) |
 | DS-series                  | [Capacity limited](./retirement-overview.md#capacity-limited) |
@@ -48,6 +49,9 @@ For a list of compute optimized sizes listed as "retired" and "announced for ret
 
 |Series name                | Replacement series      |Migration guide |
 |---------------------------|-------------------------|----------------|
+| Ev4 and Esv4-series       | [Next-gen available](./retirement-overview.md#next-gen-available)  |                |
+| Eav4 and Easv4-series     | [Next-gen available](./retirement-overview.md#next-gen-available)  |                |
+| Edv4 and Edsv4-series     | [Next-gen available](./retirement-overview.md#next-gen-available)  |                |
 | GS-series                 | [Capacity limited](./retirement-overview.md#capacity-limited)  |                |
 | G-series                  | [Capacity limited](./retirement-overview.md#capacity-limited)  |                |
 | Memory-optimized D-series | [Capacity limited](./retirement-overview.md#capacity-limited)  |                |

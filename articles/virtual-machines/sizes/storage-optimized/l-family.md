@@ -1,6 +1,6 @@
 ---
 title: L family VM size series
-description: Overview of the 'L' family and sub families of virtual machine sizes
+description: List of sizes in the M family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -43,3 +43,9 @@ ms.author: mattmcinnes
 [Vew the full Lasv3-series page](../../lasv3-series.md).
 
 [!INCLUDE [lasv3-series-specs](./includes/lasv3-series-specs.md)]
+
+
+### Previous-generation L family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#storage-optimized-previous-gen-sizes).
+
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
