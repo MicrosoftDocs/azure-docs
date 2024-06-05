@@ -31,7 +31,7 @@ ms.date: 05/15/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
 ## Overview
 This article explains data transformation activities in Azure Data Factory and Synapse pipelines that you can use to transform and process your raw data into predictions and insights at scale. A transformation activity executes in a computing environment such as Azure Databricks or Azure HDInsight. It provides links to articles with detailed information on each transformation activity.
@@ -72,7 +72,7 @@ The HDInsight Spark activity in a pipeline executes Spark programs on your own H
 
 ### ML Studio (classic) activities
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
 The service enables you to easily create pipelines that use a published ML Studio (classic) web service for predictive analytics. Using the [Batch Execution activity](transform-data-using-machine-learning.md) in a pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.
 

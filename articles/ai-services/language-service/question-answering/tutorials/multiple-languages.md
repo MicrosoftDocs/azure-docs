@@ -25,7 +25,7 @@ This tutorial will walk through the process of creating projects in multiple lan
 To be able to create a project in more than one language, the multiple language setting must be set at the creation of the first project that is associated with the language resource.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of UI for create project with I want to select the language when I create a project in this resource selected.]( ../media/multiple-languages/multiple-languages.png) ](../media/multiple-languages/multiple-languages.png#lightbox)
+> [![Screenshot of UI for create project with I want to select the language when I create a project in this resource selected.](../media/multiple-languages/multiple-languages.png)](../media/multiple-languages/multiple-languages.png#lightbox)
 
 1. From the [Language Studio](https://aka.ms/languageStudio) home page, select open custom question answering. Select **Create new project** > **I want to select the language when I create a project in this resource** > **Next**.
 
@@ -39,7 +39,7 @@ To be able to create a project in more than one language, the multiple language 
     |Default answer | Default answer when no answer is returned |
 
     > [!div class="mx-imgBorder"]
-    > [ ![Screenshot of UI for create project with the german laungague selected.]( ../media/multiple-languages/choose-german.png) ](../media/multiple-languages/choose-german.png#lightbox)
+    > [![Screenshot of UI for create project with the German language selected.](../media/multiple-languages/choose-german.png)](../media/multiple-languages/choose-german.png#lightbox)
 
 3. **Add source** > **URLs** > **Add url** > **Add all**.
 
@@ -52,7 +52,7 @@ To be able to create a project in more than one language, the multiple language 
     Custom question answering reads the document and extracts question answer pairs from the source URL to create the project in the German language. If you select the link to the source, the project page opens where we can edit the contents.
     
     > [!div class="mx-imgBorder"]
-    > [ ![Screenshot of UI with German questions and answers](../media/multiple-languages/german-language.png) ]( ../media/multiple-languages/german-language.png#lightbox)
+    > [![Screenshot of UI with German questions and answers](../media/multiple-languages/german-language.png)](../media/multiple-languages/german-language.png#lightbox)
     
 ## Create project in English
 

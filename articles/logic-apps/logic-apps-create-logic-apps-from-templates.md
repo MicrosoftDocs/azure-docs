@@ -11,7 +11,7 @@ ms.date: 01/04/2024
 
 # Create a Consumption logic app workflow from a prebuilt template
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 To get you started creating workflows quickly, Azure Logic Apps provides prebuilt templates for logic app workflows that follow commonly used patterns.
 

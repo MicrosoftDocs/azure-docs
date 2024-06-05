@@ -96,7 +96,8 @@ The following sections describe how to create an AKS cluster with the AI toolcha
         --resource-group ${AZURE_RESOURCE_GROUP} \
         --name ${CLUSTER_NAME} \
         --enable-oidc-issuer \
-        --enable-ai-toolchain-operator
+        --enable-ai-toolchain-operator \
+        --generate-ssh-keys
     ```
 
     > [!NOTE]

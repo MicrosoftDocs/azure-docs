@@ -41,7 +41,7 @@ In this article, you'll learn how to use your DSVM to perform data science tasks
 * Instructions for provisioning a Data Science Virtual Machine on the Azure portal are available in [Creating a virtual machine](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 
 ## Use Jupyter Notebooks

@@ -104,7 +104,7 @@ After successfully downloading the security domain, your HSM will be in an activ
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/powershell-rg-delete.md)]
 
 > [!WARNING]
 > Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM will continue to be billed until it is purged. See [Managed HSM soft-delete and purge protection](recovery.md)
