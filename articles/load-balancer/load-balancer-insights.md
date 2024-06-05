@@ -27,7 +27,7 @@ You can access this view by visiting the Insights page of your Load Balancer res
 
 For Standard Load Balancers, your backend pool resources are color-coded with Health Probe status indicating the current availability of your backend pool to serve traffic. Alongside the above topology you're presented with a time-wise graph of health status, giving a snapshot view of the health of your application.
 
-    [!INCLUDE [Resource Graph](../../includes/network-watcher-resource-graph-topology.md)]
+[!INCLUDE [Resource Graph](../../includes/network-watcher-resource-graph-topology.md)]
 
 ## Metrics dashboard
 
