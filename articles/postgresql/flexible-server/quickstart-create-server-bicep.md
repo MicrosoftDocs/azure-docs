@@ -14,7 +14,7 @@ ms.custom:
 
 # Quickstart: Use a Bicep file to create an Azure Database for PostgreSQL - Flexible Server instance
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this quickstart, you learn how to use a Bicep file to create an Azure Database for PostgreSQL flexible server instance.
 

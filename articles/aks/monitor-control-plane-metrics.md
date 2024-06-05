@@ -27,7 +27,7 @@ This article helps you understand this new feature, how to implement it, and how
 
 ### Install or update the `aks-preview` Azure CLI extension
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 Install the `aks-preview` Azure CLI extension using the [`az extension add`][az-extension-add] command.
 

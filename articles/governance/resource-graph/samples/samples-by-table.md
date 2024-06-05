@@ -1,12 +1,14 @@
 ---
 title: List of sample Azure Resource Graph queries by table
 description: List sample queries for Azure Resource-Graph. Tables include Resources, ResourceContainers, PolicyResources, and more.
-ms.date: 03/20/2024
+ms.date: 06/05/2024
 ms.topic: sample
 ms.custom: generated
 ---
 
 # Azure Resource Graph sample queries by table
+
+[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/archive-samples.md)]
 
 This page is a collection of Azure Resource Graph sample queries grouped by table. To jump to a
 specific **table**, use the links on the top of the page. Otherwise, use
