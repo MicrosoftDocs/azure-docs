@@ -426,9 +426,7 @@ Then subscribe to mono, refer mono subscription snippet in insert operation. The
 
 ## Data Migration
 
-There are two ways to migrate data.
-
-* **Use Azure Data Factory:** This is the most recommended method to migrate the data. Configure the source as Couchbase and sink as Azure Cosmos DB for NoSQL, see the Azure [Azure Cosmos DB Data Factory connector](../../data-factory/connector-azure-cosmos-db.md) article for detailed steps.
+Use **Azure Data Factory** to migrate data. This is the most recommended method to migrate the data. Configure the source as Couchbase and sink as Azure Cosmos DB for NoSQL, see the Azure [Azure Cosmos DB Data Factory connector](../../data-factory/connector-azure-cosmos-db.md) article for detailed steps.
 
 ## Next Steps
 
