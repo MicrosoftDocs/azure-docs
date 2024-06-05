@@ -15,7 +15,7 @@ author: eric-urban
 
 # Overview of the Azure AI SDKs
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Microsoft offers a variety of packages that you can use for building generative AI applications in the cloud. In most applications, you need to use a combination of packages to manage and use various Azure services that provide AI functionality. We also offer integrations with open-source libraries like LangChain and mlflow for use with Azure. In this article we'll give an overview of the main services and SDKs you can use with Azure AI Studio.
 
