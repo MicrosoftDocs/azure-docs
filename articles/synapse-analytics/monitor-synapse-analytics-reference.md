@@ -20,7 +20,7 @@ See [Monitor Azure Synapse Analytics](monitor-synapse-analytics.md) for details 
 ### Supported metrics for Microsoft.Synapse/workspaces
 The following table lists the metrics available for the Microsoft.Synapse/workspaces resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Synapse/workspaces](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-synapse-workspaces-metrics-include.md)]
+[!INCLUDE [microsoft-synapse-workspaces-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-synapse-workspaces-metrics-include.md)]
 
 ### Azure Synapse Link metrics
 
@@ -37,22 +37,22 @@ Azure Synapse Link emits the following metrics to Azure Monitor:
 ### Supported metrics for Microsoft.Synapse/workspaces/bigDataPools
 The following table lists the metrics available for the Microsoft.Synapse/workspaces/bigDataPools resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Synapse/workspaces/bigDataPools](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-synapse-workspaces-bigdatapools-metrics-include.md)]
+[!INCLUDE [microsoft-synapse-workspaces-bigdatapools-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-synapse-workspaces-bigdatapools-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Synapse/workspaces/kustoPools
 The following table lists the metrics available for the Microsoft.Synapse/workspaces/kustoPools resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Synapse/workspaces/kustoPools](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-synapse-workspaces-kustopools-metrics-include.md)]
+[!INCLUDE [microsoft-synapse-workspaces-kustopools-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-synapse-workspaces-kustopools-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Synapse/workspaces/scopePools
 The following table lists the metrics available for the Microsoft.Synapse/workspaces/scopePools resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Synapse/workspaces/scopePools](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-synapse-workspaces-scopepools-metrics-include.md)]
+[!INCLUDE [microsoft-synapse-workspaces-scopepools-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-synapse-workspaces-scopepools-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Synapse/workspaces/sqlPools
 The following table lists the metrics available for the Microsoft.Synapse/workspaces/sqlPools resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Synapse/workspaces/sqlPools](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-synapse-workspaces-sqlpools-metrics-include.md)]
+[!INCLUDE [microsoft-synapse-workspaces-sqlpools-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-synapse-workspaces-sqlpools-metrics-include.md)]
 
 #### Details
 
@@ -93,22 +93,22 @@ Use the `Result` dimension of the `IntegrationActivityRunsEnded`, `IntegrationPi
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Synapse/workspaces
-[!INCLUDE [Microsoft.Synapse/workspaces](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-synapse-workspaces-logs-include.md)]
+[!INCLUDE [microsoft-synapse-workspaces-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-synapse-workspaces-logs-include.md)]
 
 > [!NOTE]  
 > The event **SynapseBuiltinSqlPoolRequestsEnded** is emitted only for queries that read data from storage. It's not emitted for queries that process only metadata.
 
 ### Supported resource logs for Microsoft.Synapse/workspaces/bigDataPools
-[!INCLUDE [Microsoft.Synapse/workspaces/bigDataPools](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-synapse-workspaces-bigdatapools-logs-include.md)]
+[!INCLUDE [microsoft-synapse-workspaces-bigdatapools-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-synapse-workspaces-bigdatapools-logs-include.md)]
 
 ### Supported resource logs for Microsoft.Synapse/workspaces/kustoPools
-[!INCLUDE [Microsoft.Synapse/workspaces/kustoPools](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-synapse-workspaces-kustopools-logs-include.md)]
+[!INCLUDE [microsoft-synapse-workspaces-kustopools-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-synapse-workspaces-kustopools-logs-include.md)]
 
 ### Supported resource logs for Microsoft.Synapse/workspaces/scopePools
-[!INCLUDE [Microsoft.Synapse/workspaces/scopePools](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-synapse-workspaces-scopepools-logs-include.md)]
+[!INCLUDE [microsoft-synapse-workspaces-scopepools-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-synapse-workspaces-scopepools-logs-include.md)]
 
 ### Supported resource logs for Microsoft.Synapse/workspaces/sqlPools
-[!INCLUDE [Microsoft.Synapse/workspaces/sqlPools](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-synapse-workspaces-sqlpools-logs-include.md)]
+[!INCLUDE [microsoft-synapse-workspaces-sqlpools-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-synapse-workspaces-sqlpools-logs-include.md)]
 
 ### Dynamic Management Views (DMVs)
 
