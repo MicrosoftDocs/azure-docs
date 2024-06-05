@@ -42,8 +42,8 @@ VECTORDISTANCE(<vector_expr1>, <vector_expr2>, [<bool_expr>], [<obj_expr>])
 
 Supported metrics for `distanceFunction` are: 
    *  [cosine](https://en.wikipedia.org/wiki/Cosine_similarity) which has values from -1 (least similar) to +1 (most similar).  
-   *  [dotproduct](https://en.wikipedia.org/wiki/Dot_product) which has values from -inf (least simialr) to +inf (most similar).
-   *  [euclidean](https://en.wikipedia.org/wiki/Euclidean_distance), which has values from 0 (most similar) to +inf) (least similar).
+   *  [dotproduct](https://en.wikipedia.org/wiki/Dot_product) which has values from -inf (least similar) to +inf (most similar).
+   *  [euclidean](https://en.wikipedia.org/wiki/Euclidean_distance), which has values from 0 (most similar) to +inf (least similar).
 
 ## Return types
 
