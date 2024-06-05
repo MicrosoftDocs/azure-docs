@@ -12,6 +12,6 @@ ms.author: anfdocs
 ---
 
 >[!IMPORTANT]
->To create a volume or write a volume resource, you must have the `Microsoft.Network/virtualNetworks/subnets/read` permission configured on the appropriate IAM role.
+>To create or update a volume, you must have the `Microsoft.Network/virtualNetworks/subnets/read` permission configured on the appropriate IAM role.
 >
 > For more information about permissions and to confirm what permissions are configured, see [Create or update Azure custom roles using the Azure portal](../../role-based-access-control/custom-roles-portal.md).
