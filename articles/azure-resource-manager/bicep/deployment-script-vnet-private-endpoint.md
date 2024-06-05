@@ -48,7 +48,7 @@ resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-
   location: location
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   kind: 'StorageV2'
   location: location
@@ -64,7 +64,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   }
 }
 
-resource privateEndpoint 'Microsoft.Network/privateEndpoints@2023-05-01' = {
+resource privateEndpoint 'Microsoft.Network/privateEndpoints@2023-11-01' = {
    name: storageAccount.name
    location: location
    properties: {
@@ -129,7 +129,7 @@ resource privateDnsZone 'Microsoft.Network/privateDnsZones@2020-06-01' = {
   }
 }
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-05-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: vnetName
   location: location
   properties:{
