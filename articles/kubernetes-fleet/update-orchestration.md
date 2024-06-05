@@ -52,7 +52,7 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
 Update run supports two options for the sequence in which the clusters are upgraded:
 
 - **One-by-one**: If you don't care about controlling the sequence in which the clusters are upgraded, `one-by-one` provides a simple approach to upgrade all member clusters of the fleet in sequence one-by-one
-- **Control sequence of clusters using update groups and stages** - If you want to control the sequence in which the clusters are upgraded, you can structure member clusters in update groups and update stages. Further,x this sequence can be stored as a template in the form of update strategy. Update runs can later be created from update strategies instead of defining the sequence every time one needs to create an update run based on stages.
+- **Control sequence of clusters using update groups and stages** - If you want to control the sequence in which the clusters are upgraded, you can structure member clusters in update groups and update stages. Further, this sequence can be stored as a template in the form of update strategy. Update runs can later be created from update strategies instead of defining the sequence every time one needs to create an update run based on stages.
 
 ## Update all clusters one by one
 
