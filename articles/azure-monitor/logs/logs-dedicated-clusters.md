@@ -164,7 +164,9 @@ The provisioning of the Log Analytics cluster takes a while to complete. Use one
 
 #### [Portal](#tab/azure-portal)
 
-The Azure portal will provide a message when the creating of the dedicated cluster is completed.
+The workspace link operation can take up to 90 minutes to complete. You can check the status on both the linked workspaces and the cluster. When completed, the workspace resource will include `clusterResourceId` property under `features`, and the cluster will include linked workspaces under `associatedWorkspaces` section.
+
+When a cluster is configured with a customer managed key, data ingested to the workspaces after the link operation is complete will be stored encrypted with your key.
 
 #### [CLI](#tab/cli)
 
