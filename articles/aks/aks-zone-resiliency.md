@@ -62,7 +62,7 @@ For more information, see [Use availability zones in Azure Kubernetes Service (A
 
 You can use pod topology spread constraints based on the `zone` and `hostname` labels to spread pods across AZs within a region and across nodes within AZs.
 
-For example, let's say you a have a four-node cluster where three pods labeled `foo:bar` are located in `node1`, `node2`, and `node3` respectively. If you want an incoming pod to be evenly distributed with existing pods across zones, you can use a manifest similar to the following example:
+For example, let's say you have a four-node cluster where three pods labeled `foo:bar` are located in `node1`, `node2`, and `node3` respectively. If you want an incoming pod to be evenly distributed with existing pods across zones, you can use a manifest similar to the following example:
 
 ```yml
 kind: Pod
