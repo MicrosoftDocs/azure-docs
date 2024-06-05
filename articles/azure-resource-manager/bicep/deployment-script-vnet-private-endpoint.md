@@ -1,6 +1,6 @@
 ---
-title: Access a private virtual network from a Bicep deployment script
-description: Learn how to run and test Bicep deployment scripts in private networks.
+title: Run Bicep deployment script privately over a private endpoint
+description: Learn how to run Bicep deployment script privately over a private endpoint.
 ms.custom: devx-track-bicep
 ms.topic: how-to
 ms.date: 06/04/2024
@@ -19,25 +19,29 @@ In this setup, the ACI created by deployment script runs within a virtual networ
 To run deployment scripts privately you need the following infrastructure as seen in the architecture diagram:
 
 - Create a virtual network with two subnets:
-  - A subnet for the private endpoint. 
+  - A subnet for the private endpoint.
   - A subnet for the ACI, this subnet needs a `Microsoft.ContainerInstance/containerGroups` delegation.
-- Create a storage account with public network access `disabled`
-- Create a private endpoint configured with the `file` sub-resource on the storage account
+- Create a storage account without public network access.
+- Create a private endpoint within the virtual network configured with the `file` sub-resource on the storage account.
 - Create a private DNS zone `privatelink.file.core.windows.net` and register the private endpoint IP address as an A record. Link the private DNS zone to the created virtual network.
 - Create a user-assigned managed identity with `Storage File Data Privileged Contributor` permissions on the storage account and specify it in the `identity` property in the deployment script resource. To assign the identity, see [Identity](/azure/azure-resource-manager/bicep/deployment-script-develop#identity).
-
-The ACI is deployed implicitly by the deployment script resource.
+- The ACI resource is created automatically by the deployment script resource.
 
 The following Bicep file configures the infrastructure required for running a deployment script privately:
 
 ```bicep
 @maxLength(10) // Required maximum length, because the storage account has a maximum of 26 characters
-param prefix string
+param namePrefix string
 param location string = resourceGroup().location
-param userAssignedIdentityName string = '${prefix}Identity'
-param storageAccountName string = '${prefix}stg${uniqueString(resourceGroup().id)}'
-param vnetName string = '${prefix}Vnet'
-param deploymentScriptName string = '${prefix}ds'
+param userAssignedIdentityName string = '${namePrefix}Identity'
+param storageAccountName string = '${namePrefix}stg${uniqueString(resourceGroup().id)}'
+param vnetName string = '${namePrefix}Vnet'
+param deploymentScriptName string = '${namePrefix}ds'
+
+var roleNameStorageFileDataPrivilegedContributor = '69566ab7-960f-475b-8e7c-b3118f30c6bd'
+var vnetAddressPrefix = '192.168.4.0/23'
+var subnetEndpointAddressPrefix = '192.168.4.0/24'
+var subnetACIAddressPrefix = '192.168.5.0/24'
 
 resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
   name: userAssignedIdentityName
@@ -83,7 +87,7 @@ resource privateEndpoint 'Microsoft.Network/privateEndpoints@2023-05-01' = {
 }
 
 resource storageFileDataPrivilegedContributorReference 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
-  name: '69566ab7-960f-475b-8e7c-b3118f30c6bd' // Storage File Data Privileged Contributor
+  name: roleNameStorageFileDataPrivilegedContributor
   scope: tenant()
 }
 
@@ -131,7 +135,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-05-01' = {
   properties:{
     addressSpace: {
       addressPrefixes: [
-        '192.168.4.0/23'
+        vnetAddressPrefix
       ]
     }
   }
@@ -140,7 +144,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-05-01' = {
     name: 'PrivateEndpointSubnet'
     properties: {
       addressPrefixes: [
-        '192.168.4.0/24'
+        subnetEndpointAddressPrefix
       ]
     }
   }
@@ -148,7 +152,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-05-01' = {
   resource containerInstanceSubnet 'subnets' = {
     name: 'ContainerInstanceSubnet'
     properties: {
-      addressPrefix: '192.168.5.0/24'
+      addressPrefix: subnetACIAddressPrefix
       delegations: [
         {
           name: 'containerDelegation'
