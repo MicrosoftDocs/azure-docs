@@ -443,7 +443,7 @@ curl -X POST https://{your-resource-name}.openai.azure.com/openai/deployments/{d
 
 #### Example response
 
-The operation returns a `202` status code and an `GenerateImagesResponse` JSON object containing the ID and status of the operation.
+The operation returns a `200` status code and an `GenerateImagesResponse` JSON object containing the created image(s).
 
 ```json
 { 
