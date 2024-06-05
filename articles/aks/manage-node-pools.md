@@ -258,9 +258,13 @@ As your workload demands change, you can associate existing capacity reservation
 * Create a new cluster and assign the newly created identity.
 
   ```azurecli-interactive
-    az aks create --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
+    az aks create \
+        --resource-group $RG_NAME \
+        --name $CLUSTER_NAME \
+        --location $LOCATION \
         --node-vm-size $VM_SKU --node-count $NODE_COUNT \
-        --assign-identity $IDENTITY_ID --enable-managed-identity         
+        --assign-identity $IDENTITY_ID \
+        --generate-ssh-keys 
   ```
 
 * You can also assign the user-managed identity on an existing managed cluster with update command.
@@ -296,7 +300,13 @@ NODEPOOL_NAME=myNodepool
 CRG_NAME=myCRG
 CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
 IDENTITY_ID=$(az identity show --name $IDENTITY_NAME --resource-group $RG_NAME --query identity.id -o tsv)
-az aks create --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --crg-id $CRG_ID --assign-identity $IDENTITY_ID --enable-managed-identity
+
+az aks create \
+    --resource-group $RG_NAME \
+    --cluster-name $CLUSTER_NAME \
+    --crg-id $CRG_ID \
+    --assign-identity $IDENTITY_ID \
+    --generate-ssh-keys
 ```
 
 > [!NOTE]

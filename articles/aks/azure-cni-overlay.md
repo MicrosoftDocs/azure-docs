@@ -250,7 +250,7 @@ The following attributes are provided to support dual-stack clusters:
         --network-plugin-mode overlay \
         --ip-families ipv4,ipv6 \
         --generate-ssh-keys
-      ```
+    ```
 
 ---
 
