@@ -106,7 +106,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 ```azurepowershell-interactive
     # Create a new profile
     
-    $nspprofile = @{ 
+    $nspProfile = @{ 
         Name = 'nsp-profile' 
         ResourceGroupName = $rgParams.name 
         SecurityPerimeterName = $nsp.name 
@@ -120,7 +120,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 ```azurepowershell-interactive
     # Associate the PaaS resource with the above created profile
     
-    $nspassociation = @{ 
+    $nspAssociation = @{ 
         AssociationName = 'nsp-association' 
         ResourceGroupName = $rgParams.name 
         SecurityPerimeterName = $nsp.name 
@@ -136,8 +136,14 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 
 ```azurepowershell-interactive
     # Update the association to enforce the access mode
-    Update-AzNetworkSecurityPerimeterAssociation -Name $nspassociation.AssociationName -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name -AccessMode 'Enforced' | format-list
-``` 
+    $updateAssociation = @{ 
+        AssociationName = $nspassociation.AssociationName 
+        ResourceGroupName = $rgParams.name 
+        SecurityPerimeterName = $nsp.name 
+        AccessMode = 'Enforced'
+        }
+    Update-AzNetworkSecurityPerimeterAssociation @updateAssociation | format-list
+```     
 
 ## Create and update network security perimeter access rules
 
@@ -145,7 +151,7 @@ In this step, you create and update network security perimeter access rules.
 
 ```azurepowershell-interactive
     # Create an inbound access rule for the profile created
-    $inboundrule = @{ 
+    $inboundRule = @{ 
         Name = 'nsp-inboundRule' 
         ProfileName = $nspprofile.Name  
         ResourceGroupName = $rgParams.Name  
@@ -157,7 +163,14 @@ In this step, you create and update network security perimeter access rules.
     New-AzNetworkSecurityPerimeterAccessRule @inboundrule | format-list
 
     # Update the inbound access rule to add more address prefixes
-    Update-AzNetworkSecurityPerimeterAccessRule -Name $inboundrule.Name -ProfileName $nspprofile.Name -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name -AddressPrefix @('10.1.0.0/24','10.2.0.0/24') | format-list
+    $updateInboundRule = @{ 
+        Name = $inboundrule.Name 
+        ProfileName = $nspprofile.Name  
+        ResourceGroupName = $rgParams.Name  
+        SecurityPerimeterName = $nsp.Name  
+        AddressPrefix = @('10.1.0.0/24','10.2.0.0/24')
+        }
+    Update-AzNetworkSecurityPerimeterAccessRule @updateInboundRule | format-list
 ```
 
 ## Delete a network security perimeter 
@@ -170,12 +183,17 @@ To delete a network security perimeter, use the following commands:
     $nsp= Get-AzNetworkSecurityPerimeter -Name demo-nsp -ResourceGroupName $rg.ResourceGroupName
 
     # Delete the network security perimeter and all associated resources
-    Remove-AzNetworkSecurityPerimeterAssociation -Name nsp-association -ResourceGroupName $rgParams.Name -SecurityPerimeterName $nsp.Name
+    $removeNsp = @{ 
+        Name = nsp-association
+        ResourceGroupName = $rgParams.Name
+        SecurityPerimeterName = $nsp.Name
+        }
+    Remove-AzNetworkSecurityPerimeterAssociation @removeNsp
     
     Remove-AzNetworkSecurityPerimeter -Name $nsp.Name -ResourceGroupName $rgParams.Name
     
     # Remove the resource group
-    Remove-AzResourceGroup -Name "test-rg" -Force
+    Remove-AzResourceGroup -Name $rgParams.Name -Force
 ```
  
 ## Next steps
