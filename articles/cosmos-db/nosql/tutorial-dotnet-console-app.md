@@ -19,7 +19,7 @@ ms.custom: devx-track-dotnet, cosmos-dev-refresh, cosmos-dev-dotnet-path
 
 [!INCLUDE[Console app language selector](includes/tutorial-console-app-selector.md)]
 
-The Azure SDK for .NET allows you to add data to an API for NoSQL container either [asynchronous individual operations](how-to-dotnet-create-item.md#create-an-item-asynchronously) or a [transactional batch](transactional-batch.md?tabs=dotnet). This tutorial will walk through the process of create a new .NET console application that adds multiple items to a container.
+The Azure SDK for .NET allows you to add data to an API for NoSQL container either [asynchronous individual operations](how-to-dotnet-create-item.md#create-an-item-asynchronously) or a [transactional batch](transactional-batch.md?tabs=dotnet). This tutorial walks through the process of create a new .NET console application that adds multiple items to a container.
 
 In this tutorial, you learn how to:
 
@@ -38,12 +38,12 @@ In this tutorial, you learn how to:
   - If you have an existing Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
   - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 - [Visual Studio Code](https://code.visualstudio.com)
-- [.NET 6 (LTS) or later](https://dotnet.microsoft.com/download/dotnet/6.0)
+- [.NET 8 or later](https://dotnet.microsoft.com/download/dotnet/8.0)
 - Experience writing C# applications.
 
 ## Create API for NoSQL resources
 
-First, create an empty database in the existing API for NoSQL account. You'll create a container using the Azure SDK for .NET later.
+First, create an empty database in the existing API for NoSQL account. You create a container using the Azure SDK for .NET later.
 
 1. Navigate to your existing API for NoSQL account in the [Azure portal](https://portal.azure.com/).
 
@@ -51,7 +51,7 @@ First, create an empty database in the existing API for NoSQL account. You'll cr
 
     :::image type="content" source="media/tutorial-dotnet-console-app/resource-menu-keys.png" lightbox="media/tutorial-dotnet-console-app/resource-menu-keys.png" alt-text="Screenshot of an API for NoSQL account page. The Keys option is highlighted in the resource menu.":::
 
-1. On the **Keys** page, observe and record the value of the **URI** and **PRIMARY KEY** fields. These values will be used throughout the tutorial.
+1. On the **Keys** page, observe and record the value of the **URI** and **PRIMARY KEY** fields. These values are used throughout the tutorial.
 
     :::image type="content" source="media/tutorial-dotnet-console-app/page-keys.png" alt-text="Screenshot of the Keys page with the URI and Primary Key fields highlighted.":::
 
@@ -77,7 +77,7 @@ First, create an empty database in the existing API for NoSQL account. You'll cr
 
 ## Create .NET console application
 
-Now, you'll create a new .NET console application and import the Azure SDK for .NET by using the `Microsoft.Azure.Cosmos` library from NuGet.
+Now, you create a new .NET console application and import the Azure SDK for .NET by using the `Microsoft.Azure.Cosmos` library from NuGet.
 
 1. Open a terminal in an empty directory.
 
@@ -155,7 +155,7 @@ Now, you'll create a new .NET console application and import the Azure SDK for .
 
 ## Add items to a container using the SDK
 
-Next, you'll use individual operations to add items into the API for NoSQL container. In this section, you'll define the  `CosmosHandler.ManageCustomerAsync` method.
+Next, you use individual operations to add items into the API for NoSQL container. In this section, you define the  `CosmosHandler.ManageCustomerAsync` method.
 
 1. Create a new **CosmosHandler.cs** file.
 
@@ -173,7 +173,7 @@ Next, you'll use individual operations to add items into the API for NoSQL conta
     { }
     ```
 
-1. Just to validate this app will work, create a short implementation of the static `ManageCustomerAsync` method to print the command-line input.
+1. Just to validate this app works, create a short implementation of the static `ManageCustomerAsync` method to print the command-line input.
 
     ```csharp
     public static async Task ManageCustomerAsync(string name, string email, string state, string country)
@@ -332,7 +332,7 @@ Next, you'll use individual operations to add items into the API for NoSQL conta
     dotnet run -- --name 'Mica Pereira' --state 'Washington' --country 'United States'
     ```
 
-1. This time, the program should crash. If you scroll through the error message, you'll see the crash occurred because of a conflict in the unique identifier for the items.
+1. This time, the program should crash. If you scroll through the error message, you see the crash occurred because of a conflict in the unique identifier for the items.
 
     ```output
     Unhandled exception: Microsoft.Azure.Cosmos.CosmosException : Response status code does not indicate success: Conflict (409);Reason: (
@@ -415,7 +415,7 @@ Now that you've created your first item in the container, you can use the same S
     dotnet run -- --name 'Mica Pereira' --state 'Washington' --country 'United States'
     ```
 
-1. The output of the command should indicate that the query required multiple RUs.
+1. The output of the command should indicate that the query required multiple request units (RUs).
 
     ```output
     [OK]    mica-pereira    2.82 RUs
@@ -474,7 +474,7 @@ Now that you've created your first item in the container, you can use the same S
 
 ## Create a transaction using the SDK
 
-Finally, you'll take the item you created, read that item, and create a different related item as part of a single transaction using the Azure SDK for .NET.
+Finally, you take the item you created, read that item, and create a different related item as part of a single transaction using the Azure SDK for .NET.
 
 1. Return to or open the **CosmosHandler.cs** file.
 
@@ -491,7 +491,7 @@ Finally, you'll take the item you created, read that item, and create a differen
 
 1. For the next steps, add this new code within the `ManageCustomerAsync` method.
 
-    1. Create a new anonymous typed item using the `name`, `state`, and `country` method parameters and the `id` variable. Store the item as a variable named `customerCart`. This item will represent a real-time shopping cart for the customer that is currently empty.
+    1. Create a new anonymous typed item using the `name`, `state`, and `country` method parameters and the `id` variable. Store the item as a variable named `customerCart`. This item represents a real-time shopping cart for the customer that is currently empty.
 
         ```csharp
         var customerCart = new {
@@ -505,7 +505,7 @@ Finally, you'll take the item you created, read that item, and create a differen
         };
         ```
 
-    1. Create another new anonymous typed item using the `name`, `state`, and `country` method parameters and the `id` variable. Store the item as a variable named `customerCart`. This item will represent shipping and contact information for the customer.
+    1. Create another new anonymous typed item using the `name`, `state`, and `country` method parameters and the `id` variable. Store the item as a variable named `customerCart`. This item represents shipping and contact information for the customer.
 
         ```csharp
         var customerContactInfo = new {
@@ -566,7 +566,7 @@ Finally, you'll take the item you created, read that item, and create a differen
 
 ## Validate the final data in the Data Explorer
 
-To wrap up things, you'll use the Data Explorer in the Azure portal to view the data, and container you created in this tutorial.
+To wrap up things, you use the Data Explorer in the Azure portal to view the data, and container you created in this tutorial.
 
 1. Navigate to your existing API for NoSQL account in the [Azure portal](https://portal.azure.com/).
 
@@ -590,7 +590,7 @@ To wrap up things, you'll use the Data Explorer in the Azure portal to view the 
 
 1. Select **Execute Query** to run the query and observe the results.
 
-    :::image type="content" source="media/tutorial-dotnet-console-app/page-data-explorer-execute-query.png" alt-text="Screenshot of the Execute Query option in the Data Explorer command bar.":::
+    :::image type="content" source="media/tutorial-dotnet-console-app/page-data-explorer-execute-query.png" alt-text="Screenshot of the 'Execute Query' option in the Data Explorer command bar.":::
 
 1. The results should include a JSON array with three items created in this tutorial. Observe that all of the items have the same hierarchical partition key value, but unique ID fields. The example output included is truncated for brevity.
 
