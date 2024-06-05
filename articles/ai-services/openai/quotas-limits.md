@@ -90,7 +90,7 @@ The Usage Limit determines the level of usage above which customers might see la
 
 ## Other offer types
 
-If your Azure subscription is linked to certain [offer types](https://azure.microsoft.com/en-us/support/legal/offer-details/) your max quota values may be lower than the values indicated in the above tables.
+If your Azure subscription is linked to certain [offer types](https://azure.microsoft.com/en-us/support/legal/offer-details/) your max quota values are lower than the values indicated in the above tables.
 
 
 |Tier| Quota Limit in tokens per minute (TPM) |
