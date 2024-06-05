@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This quickstart assumes you already have a dedicated SQL pool (formerly SQL DW). If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a dedicated SQL pool (formerly SQL DW) called `mySampleDataWarehouse`.
 
