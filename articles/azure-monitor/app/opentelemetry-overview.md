@@ -8,6 +8,8 @@ ms.reviewer: mmcc
 
 # Data Collection Basics of Azure Monitor Application Insights
 
+Before you can monitor your application, it needs to be instrumented.
+
 In the following sections, we cover some data collection basics of Azure Monitor Application Insights.
 
 ## Instrumentation Options
