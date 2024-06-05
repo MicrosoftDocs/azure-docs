@@ -1,10 +1,10 @@
 ---
 title: 'Collecting resource logs for Azure Network Security Perimeter'
-description: Learn the options for collecting resource logs for Network Security Perimeter and how to enable logging through the Azure portal.
+description: Learn the options for collecting resource logs for Azure Network Security Perimeter and how to enable logging through the Azure portal.
 author: mbender-ms
 ms.author: mbender
 ms.service: private-link
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 06/04/2024
 #CustomerIntent: As a network administrator, I want to collect resource logging for Azure Network Security Perimeter, so that I can monitor and analyze the network traffic to and from my resources.
 ---
@@ -61,4 +61,4 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md).
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md)

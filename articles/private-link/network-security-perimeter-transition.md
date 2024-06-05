@@ -1,5 +1,5 @@
 ---
-title: Transition to a network security perimeter in Azure?
+title: Transition to a network security perimeter in Azure
 description: Learn about the different access modes and how to transition to a network security perimeter in Azure.
 author: mbender-ms
 ms.author: mbender
@@ -51,18 +51,18 @@ The possible values of `accessMode` are currently Enforced and Learnin
 Both the `publicNetworkAccess` and `accessMode` properties can be set using the Azure portal by following these steps:
 
 1. Navigate to your network security perimeter resource in the Azure portal.
-2. Select **Settings** > **Associations** to view the list of resources associated with the perimeter.
+2. Select **Settings** > **Resources** to view the list of resources associated with the perimeter.
 3. Select *...* (ellipsis) next to the resource you want to configure.
-
     :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-resources-page-full-size.png" alt-text="Screenshot of resources page with management options selected for resource." lightbox="media/network-security-perimeter-transition/network-security-perimeter-association-settings-lightbox.png":::
 
-4. Select the desired access mode from the three options available: **Enabled**, **Disabled**, or **SecuredByPerimeter**.
+4. From the dropdown menu, select **Configure public network access**, and then select the desired access mode from the three options available: **Enabled**, **Disabled**, or **SecuredByPerimeter**.
 
     :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-settings.png" alt-text="Screenshot of association settings with access mode options.":::
 
+5. To set the access mode, select **Configure access mode** from the dropdown menu, and then select the desired access mode from the two options available: **Learning** or **Enforced**.
 
-
-
+    :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-settings-access-mode.png" alt-text="Screenshot of association settings with access mode options.":::
+    
 ## Prevent connectivity disruptions while adopting network security perimeter 
 
 In order to prevent undesired connectivity disruptions while adopting network security perimeter to exist PaaS resources and  ensure a smooth transition to secure configurations, administrators can add PaaS resources to network security perimeter in Learning access mode and leave publicNetworkAccess set to either Enabled or Disabled. While this step doesn't secure the PaaS resources, it: 
