@@ -2,7 +2,7 @@
 title: Enable private link with Container insights
 description: Learn how to enable private link on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
-ms.date: 10/18/2023
+ms.date: 06/05/2024
 ms.custom: devx-track-azurecli
 ms.reviewer: aul
 ---
@@ -13,7 +13,57 @@ This article describes how to configure Container insights to use Azure Private 
 
 ## Cluster using managed identity authentication
 
+### [CLI](#tab/cli)
+
+
+### Pre-requisite
+ - Azure CLI version 2.61.0 or higher.
+ - Azure Monitor Private Link Scope (AMPLS)
+
+
+### Existing AKS Cluster 
+
+**Use default Log Analytics workspace**
+
+```azurecli
+az aks enable-addons --addon monitoring --name <cluster-name> --resource-group <cluster-resource-group-name> --ampls-resource-id "<azure-monitor-private-link-scope-resource-id>"
+```
+
+Example:
+
+```azurecli
+az aks enable-addons --addon monitoring --name "my-cluster" --resource-group "my-resource-group" --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace" --ampls-resource-id "/subscriptions/my-subscription /resourceGroups/ my-resource-group/providers/microsoft.insights/privatelinkscopes/my-ampls-resource"
+```
+
+**Existing Log Analytics workspace**
+
+```azurecli
+az aks enable-addons --addon monitoring --name <cluster-name> --resource-group <cluster-resource-group-name> --workspace-resource-id <workspace-resource-id> --ampls-resource-id "<azure-monitor-private-link-scope-resource-id>"
+```
+
+Example:
+
+```azurecli
+az aks enable-addons --addon monitoring --name "my-cluster" --resource-group "my-resource-group" --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace" --ampls-resource-id "/subscriptions/my-subscription /resourceGroups/ my-resource-group/providers/microsoft.insights/privatelinkscopes/my-ampls-resource"
+```
+
+## New AKS cluster
+
+```azurecli
+az aks create --resource-group rgName --name clusterName --enable-addons monitoring --workspace-resource-id "workspaceResourceId" --ampls-resource-id "azure-monitor-private-link-scope-resource-id"
+```
+
+Example:
+
+```azurecli
+az aks create --resource-group “my-resource-group”  --name "my-cluster"  --enable-addons monitoring --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace" --ampls-resource-id "/subscriptions/my-subscription /resourceGroups/ my-resource-group/providers/microsoft.insights/privatelinkscopes/my-ampls-resource"
+```
+
+
+### [ARM](#tab/arm)
+
 ### Prerequisites
+- Azure Monitor Private Link Scope (AMPLS)
 - The template must be deployed in the same resource group as the cluster.
 
 ### Download and install template
@@ -71,6 +121,8 @@ Use the following procedures to enable network isolation by connecting your clus
     ```cli
     az aks enable-addons -a monitoring --resource-group <AKSClusterResourceGorup> --name <AKSClusterName> --workspace-resource-id <workspace-resource-id>
     ```
+
+---
 
 ## Next steps
 
