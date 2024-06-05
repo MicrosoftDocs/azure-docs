@@ -172,7 +172,6 @@ az aks create \
     --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet \
     --enable-addons monitoring \
     --generate-ssh-keys
-
 ```
 
 ### Adding node pool
