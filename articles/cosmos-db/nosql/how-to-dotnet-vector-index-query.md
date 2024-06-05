@@ -142,9 +142,9 @@ ORDER BY VectorDistance(c.contentVector, [1,2,3,4,5,6,7,8,9,10])  
 This query retrieves the book titles along with similarity scores with respect to your query. Here's an example in .NET:
 
 ```csharp 
-  float[] embedding = float[] {1f,2f,3f,4f,5f,6f,7f,8f,9f,10f}
+  float[] embedding = {1f,2f,3f,4f,5f,6f,7f,8f,9f,10f};
   var queryDef = new QueryDefinition(
-      query: $"SELECT c.title, VectorDistance(c.contentVector,@embedding) AS SimilarityScore  FROM cVectorDistance(c.contentVector,@embedding)"
+      query: $"SELECT c.title, VectorDistance(c.contentVector,@embedding) AS SimilarityScore FROM c ORDER BY VectorDistance(c.contentVector,@embedding)"
       ).WithParameter("@embedding", embedding);
   using FeedIterator<Object> feed = container.GetItemQueryIterator<Object>(
       queryDefinition: queryDef
