@@ -20,29 +20,20 @@ See [Supported RDP properties with Azure Virtual Desktop](rdp-properties.md) for
 
 RDP files have the following properties by default:
 
-|RDP property|For both Desktop and RemoteApp|
-|---|---|
-|Multi-monitor mode|Enabled|
-|Redirections enabled|Drives, clipboard, printers, COM ports, smart cards, devices, usbdevicestore, and WebAuthn|
-|Remote audio mode|Play locally|
-|VideoPlayback|Enabled|
-|EnableCredssp|Enabled|
-
-
 |Name  |RDP Property |Details  |
 |---------|---------|---------|
-|Audio output location   | audiomode:i:0         | Determines whether the local or remote machine plays audio.        |
-| Media Transfer Protocol (MTP) and Picture Transfer Protocol (PTP)   |devicestoredirect:s:*         | Determines which devices on the local computer will be redirected and available in the remote session.        |
-| Drive/storage redirection |drivestoredirect:s:*   |Determines which disk drives on the local computer will be redirected and available in the remote session.    |
-| Credential Security Support Provider  | enablecredsspsupport:i:1         |Determines whether the client will use the Credential Security Support Provider (CredSSP) for authentication if it's available.         |
-| Clipboard redirection  | redirectclipboard:i:1   | Determines whether clipboard redirection is enabled.         |
-| COM ports redirection   |  redirectcomports:i:1       | Determines whether COM (serial) ports on the local computer will be redirected and available in the remote session.        |
-|Printer redirection  |  redirectprinters:i:1        | Determines whether printers configured on the local computer will be redirected and available in the remote session.         |
-| Smart card redirection	 |  redirectsmartcards:i:1       | Determines whether smart card devices on the local computer will be redirected and available in the remote session.    |
-|WebAuthn redirection   | redirectwebauthn:i:1        | Determines whether WebAuthn requests on the remote computer will be redirected to the local computer allowing the use of local authenticators (such as Windows Hello for Business and security key).        |
-|USB device redirection   |  usbdevicestoredirect:s:*       | Determines which supported RemoteFX USB devices on the client computer will be redirected and available in the remote session when you connect to a remote session that supports RemoteFX USB redirection.        |
-|Multiple displays	   | use multimon:i:1         | Determines whether the remote session will use one or multiple displays from the local computer.        |
-|Video playback  |  videoplaybackmode:i:1        | Determines if the connection will use RDP-efficient multimedia streaming for video playback.        |
+|Audio output location   | `audiomode:i:0`         | Determines whether the local or remote machine plays audio.        |
+| Media Transfer Protocol (MTP) and Picture Transfer Protocol (PTP)   |`devicestoredirect:s:*`         | Determines which devices on the local computer will be redirected and available in the remote session.        |
+| Drive/storage redirection |`drivestoredirect:s:*`   |Determines which disk drives on the local computer will be redirected and available in the remote session.    |
+| Credential Security Support Provider  | `enablecredsspsupport:i:1`         |Determines whether the client will use the Credential Security Support Provider (CredSSP) for authentication if it's available.         |
+| Clipboard redirection  | `redirectclipboard:i:1`   | Determines whether clipboard redirection is enabled.         |
+| COM ports redirection   |  `redirectcomports:i:1`       | Determines whether COM (serial) ports on the local computer will be redirected and available in the remote session.        |
+|Printer redirection  |  `redirectprinters:i:1`        | Determines whether printers configured on the local computer will be redirected and available in the remote session.         |
+| Smart card redirection	 |  `redirectsmartcards:i:1`       | Determines whether smart card devices on the local computer will be redirected and available in the remote session.    |
+|WebAuthn redirection   | `redirectwebauthn:i:1`       | Determines whether WebAuthn requests on the remote computer will be redirected to the local computer allowing the use of local authenticators (such as Windows Hello for Business and security key).        |
+|USB device redirection   |  `usbdevicestoredirect:s:*`       | Determines which supported RemoteFX USB devices on the client computer will be redirected and available in the remote session when you connect to a remote session that supports RemoteFX USB redirection.        |
+|Multiple displays	   | `use multimon:i:1`         | Determines whether the remote session will use one or multiple displays from the local computer.        |
+|Video playback  |  `videoplaybackmode:i:1`        | Determines if the connection will use RDP-efficient multimedia streaming for video playback.        |
 
 
 >[!IMPORTANT]
@@ -65,13 +56,20 @@ Before you begin, follow the instructions in [Set up the Azure Virtual Desktop P
 To configure RDP properties in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 2. Enter **Azure Virtual Desktop** into the search bar.
+
 3. Under Services, select **Azure Virtual Desktop**.
+
 4. At the Azure Virtual Desktop page, select **host pools** in the menu on the left side of the screen.
+
 5. Select **the name of the host pool** you want to update.
+
 6. Select **RDP Properties** in the menu on the left side of the screen.
+
 7. Set the property you want.
    - Alternatively, you can open the **Advanced** tab and add your RDP properties in a semicolon-separated format like the PowerShell examples in the following sections.
+
 8. When you're done, select **Save** to save your changes.
 
 
@@ -112,6 +110,7 @@ Name              : 0301HP
 CustomRdpProperty : audiocapturemode:i:1;audiomode:i:0;
 ```
 
+
 ### Remove all RDP properties
 
 To remove all custom RDP properties: 
@@ -131,9 +130,49 @@ To remove all custom RDP properties:
     CustomRdpProperty : <CustomRDPpropertystring>
     ```
 
+
 ### [Azure CLI](#tab/cli)
 
 To edit custom RDP properties manually in Azure CLI:
+
+### Add or edit multiple custom RDP properties
+
+To add or edit multiple custom RDP properties in PowerShell: 
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Run the following cmdlets by providing the custom RDP properties as a string separated by spaces:
+
+    
+    ```azurecli
+    properties=property1 property2 property3
+    az desktopvirtualization hostpool update \
+        --resource-group $resourceGroupName \
+        --name $hostPoolName \
+        --custom-rdp-property $properties
+    ```
+    
+
+
+
+### Remove all RDP properties
+
+To remove all custom RDP properties: 
+
+1. You can remove all custom RDP properties for a host pool by running the following PowerShell cmdlet:
+
+    ```powershell
+    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty ""
+    ```
+
+2. To make sure you've successfully removed the setting, enter this cmdlet:
+
+    ```powershell
+    Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
+    
+    Name              : <hostpoolname>
+    CustomRdpProperty : <CustomRDPpropertystring>
+    ```
 
 
 ---
