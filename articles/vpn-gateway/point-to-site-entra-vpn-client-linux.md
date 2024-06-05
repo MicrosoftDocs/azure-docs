@@ -4,7 +4,7 @@ description: Learn how to configure the Linux Azure VPN Client for Microsoft Ent
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: howto
+ms.topic: how-to
 ms.date: 06/05/2024
 ms.author: cherylmc
 ---

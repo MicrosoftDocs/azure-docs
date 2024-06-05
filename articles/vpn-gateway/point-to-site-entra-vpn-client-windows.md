@@ -4,7 +4,7 @@ description: Learn how to configure the Azure VPN Client to connect to a VNet us
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: howto
+ms.topic: how-to
 ms.date: 06/05/2024
 ms.author: cherylmc
 
