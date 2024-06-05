@@ -69,7 +69,7 @@ Azure Government customers can’t request their invoice by email. They can only
 1. Select **Invoices** from the billing section.  
     :::image type="content" border="true" source="./media/download-azure-invoice/select-subscription-invoice.png" alt-text="Screenshot that shows a user selecting invoices option for a subscription." lightbox="./media/download-azure-invoice/select-subscription-invoice.png":::
 1. Select the invoice that you want to download and then select **Download invoices**.  
-    :::image type="content" border="true" source="./media/download-azure-invoice/downloadinvoice-subscription.png" alt-text="Screenshot that the download option for an M O S P invoice." lightbox="./media/download-azure-invoice/downloadinvoice-subscription.png":::
+    :::image type="content" border="true" source="./media/download-azure-invoice/downloadinvoice-subscription.png" alt-text="Screenshot that shows the download option for an M O S P invoice." lightbox="./media/download-azure-invoice/downloadinvoice-subscription.png":::
 1. You can also download a daily breakdown of consumed quantities and charges by selecting the download icon and then selecting **Prepare Azure usage file** button under the usage details section. It might take a few minutes to prepare the CSV file.  
     :::image type="content" border="true" source="./media/download-azure-invoice/usage-and-invoice-subscription.png" alt-text="Screenshot that shows the Download invoice and usage page." lightbox="./media/download-azure-invoice/usage-and-invoice-subscription.png" :::
 
@@ -101,7 +101,7 @@ To download an invoice:
 1. At the top of the page, select **Edit invoice details**, and then select **Allow others to download invoice**.  
     :::image type="content" border="true" source="./media/download-azure-invoice/cmb-select-access-to-invoice.png" lightbox="./media/download-azure-invoice/cmb-select-access-to-invoice.png" alt-text="Screenshot showing Allow others to download invoice.":::
 5.  Select the subscription to allow others to download invoices for and then select whether to allow users and groups with subscription-level access to download invoices and then select **Save**.  
-    :::image type="content" border="true" source="./media/download-azure-invoice/cmb-access-to-invoice.png" alt-text="Screenshot showing the Allow other to download invoice dialog." lightbox="./media/download-azure-invoice/cmb-access-to-invoice.png":::
+    :::image type="content" border="true" source="./media/download-azure-invoice/cmb-access-to-invoice.png" alt-text="Screenshot showing the Allow others to download invoice dialog." lightbox="./media/download-azure-invoice/cmb-access-to-invoice.png":::
     
 > [!NOTE]
 > Microsoft doesn’t recommend sharing any of your confidential or personally identifiable information with third parties. This recommendation applies to sharing your Azure bill or invoice with a third party for cost optimizations. For more information, see https://azure.microsoft.com/support/legal/ and https://www.microsoft.com/trust-center.
