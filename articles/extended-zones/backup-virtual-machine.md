@@ -31,7 +31,7 @@ A Recovery Services vault is a management entity that stores recovery points tha
 
 1. On the **Overview** page, select **+ Vault**.
 
-    :::image type="content" source="./media/backup-virtual-machine/backup-center.png" alt-text="Screenshot that shows the Backup center in the Azure portal." " lightbox="./media/backup-virtual-machine/backup-center.png":::
+    :::image type="content" source="./media/backup-virtual-machine/backup-center.png" alt-text="Screenshot that shows the Backup center in the Azure portal." lightbox="./media/backup-virtual-machine/backup-center.png":::
 
 1. On the **Start: Create Vault** page, select **Recovery Services vault** and then select **Continue**.
 
