@@ -25,13 +25,13 @@ Common use cases that require an increased number of IP configurations on NVA in
     * Allow SD-WAN or VPN tunnels from different sources to use different public IP addresses for tunnel termination on a single NVA instance.
     * Allow different applications to use different source IPs when communicating with the Internet.
 * Allocating extra Private IP addresses:
-    * Increasing the amount of ports available for [Destination Network Address Translation (DNAT)](how-to-network-virtual-appliance-inbound.md) use cases.
+    * Increasing the number of ports available for [Destination Network Address Translation (DNAT)](how-to-network-virtual-appliance-inbound.md) use cases.
 
 For a full-list of use-cases enabled with multiple IP addresses on NVA instances, reference your NVA provider documentation.
 
 ## Concepts
 
-IP configurations are logical representations of the IP addresses associated to each Network Interface Card (NIC) on a Virtual WAN NVA. Each NIC of a Virtual WAN NVA by default has one IP configuration. Therefore, exactly one IP (private or public/private pair) is assigned to each Virtual Machine (VM) instance's NICs. The default-assigned IP configuration and associated IP address is the **primary** IP configuration.
+IP configurations are logical representations of the IP addresses associated to each Network Interface Card (NIC) on a Virtual WAN NVA. Each NIC of a Virtual WAN NVA by default has one IP configuration. Therefore, exactly one IP (private or public/private pair) is assigned to each Virtual Machine (VM) instance's NICs. The default-assigned IP configuration is the **primary** IP configuration.
 
 You can allocate additional IP addresses to your NVA NICs by creating additional IP configurations and associating it to your NVAs NICs. These additional IP configurations are called **secondary** IP configurations.
 
@@ -43,12 +43,12 @@ The following table describes the types of Network Interfaces that are attached 
 |Internal/Private| Mandatory | one private IP| Yes|
 |Additional/Auxillary| Optional| one private IP or one \<private, public IP\> pair| No|
 
-The following example describes a NVA in Virtual WAN hub where multiple IP configurations are assigned to NICs:
+The following example describes an NVA in Virtual WAN hub where multiple IP configurations are assigned:
 
 |NIC|IP Configuration count| IP Configurations| IPs assigned |
-|--|--|--| --|
-| External/Public|3|publicnicipconfig, publicnicipconfig-2, publicnicipconfig-3|  3 \<private IP, public IP \> adddress pairs per NVA instance|
-| Internal/Private|2|privatenicipconfig, privatenicipconfig-2| 2 private IP address per NVA instance|
+|--|--|--|--|
+| External/Public|3|publicnicipconfig, publicnicipconfig-2, publicnicipconfig-3|  three \<private IP, public IP \> address pairs per NVA instance|
+| Internal/Private|2|privatenicipconfig, privatenicipconfig-2| two private IP address per NVA instance|
 
 :::image type="content" source="./media/network-virtual-appliance-address/sample-address-allocation.png"alt-text="Screenshot showing sample IP address allocation scheme."lightbox="./media/network-virtual-appliance-address/sample-address-allocation.png":::
 
@@ -60,7 +60,7 @@ The following section describes known limitations and considerations associated 
 
 * Each NVA NIC (External or Internal) can have at most three IP-configurations. This limit is to help ensure that there are sufficient IP addresses available in the Virtual WAN hub to allocate to NVA deployments.  
 * Additonal/Auxillary NICs must have exactly one IP-configuration. You can't add additional IP addresses to Additional/Auxillary NICs.
-* Azure Virtual WAN Hub routers initiates/accepts Border Gateway Protocol (BGP) sessions with the primary IP configuration of the internal/private NIC assigned to each NVA VM instance. Non-primary IP configurations assigned to the internal/private NIC of NVA instances can't be used to establish BGP.
+* Azure Virtual WAN Hub routers initiates/accepts Border Gateway Protocol (BGP) sessions with the primary IP configuration of the internal/private NIC assigned to each NVA VM instance. Secondary IP configurations assigned to the internal/private NIC of NVA instances can't be used to establish BGP.
 * IP configurations must adhere to the following naming convention:
     * IP configurations on the private/internal NIC must have *privatenicipconfig* prefix. For example, *privatenicipconfig-1* is a valid name while *myprivateipconfig* isn't a valid name for private/internal NIC IP configurations.
     * IP configurations on the public/external NIC must have *publicnicipconfig* prefix. For example, *publicnicipconfig-1* is a valid name while *mypublicipconfig* isn't a valid name for public/external NIC IP configurations.
@@ -69,7 +69,7 @@ The following section describes known limitations and considerations associated 
 
 ### Considerations
 
-* Reference your NVA provider's documentation for the full list of supported use cases and for instructions on hwo to properly configure NVA operating systems to use additional allocated IP addresses. Azure allocates and assigns additional IP addresses to your NVA Virtual Machine instances and does not modify any NVA opearating system internal configurations.
+* Reference your NVA provider's documentation for the full list of supported use cases and for instructions on how to properly configure NVA operating systems to use additional allocated IP addresses. Azure allocates and assigns additional IP addresses to your NVA Virtual Machine instances and doesn't modify any NVA operating system internal configurations.
 * Associating an additional IP configuration to your NVA allocates additional IP addresses to all NVA instances.
 * The primary IP configuration associated to each NIC can't be modified or deleted.
 * Azure automatically allocates IP addresses to each Network Virtual Appliance instance. You can't choose the IP addresses allocated to each NVA instance. Private IP addresses are allocated from the Virtual WAN hub address space that is reserved for Integrated NVAs in the hub. Public IP addresses are allocated from the set of available Azure-owned public IPs in the NVAs deployed Azure region.
