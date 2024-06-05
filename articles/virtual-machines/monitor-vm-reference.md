@@ -24,7 +24,7 @@ See [Monitor Azure Virtual Machines](monitor-vm.md) for details on the data you 
 The following table lists the metrics available for the Microsoft.Compute/virtualMachines resource type.
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Compute/virtualMachines](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-compute-virtualmachines-metrics-include.md)]
+[!INCLUDE [microsoft-compute-virtualmachines-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-compute-virtualmachines-metrics-include.md)]
 
 For an example that shows how to collect the *Percentage CPU* metric from a VM, see [Get virtual machine usage metrics using the REST API](linux/metrics-vm-usage-rest.md).
 
