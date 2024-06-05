@@ -155,8 +155,15 @@ sudo chmod -R 700 <blob-dir>
 
 ## Configure log files
 
-For information on configuring log files for your module, see these [production best practices](./production-checklist.md#set-up-logs-and-diagnostics).
+The default output log level is 'Info'.  To change the output log level, set the `LogLevel` environment variable for this module in the deployment manifest. `LogLevel` accepts the following values: 
 
+* Critical
+* Error
+* Warning
+* Info
+* Debug
+
+For information on configuring log files for your module, see these [production best practices](./production-checklist.md#set-up-logs-and-diagnostics).
 ## Connect to your blob storage module
 
 You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device.

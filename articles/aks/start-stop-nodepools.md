@@ -19,6 +19,7 @@ You might not need to continuously run your AKS workloads. For example, you migh
 * The cluster and node pool must be running.
 * You can't stop node pools from clusters which use the [Node Autoprovisioning (NAP)](node-autoprovision.md) feature.
 
+
 ## Before you begin
 
 This article assumes you have an existing AKS cluster. If you need an AKS cluster, create one using the [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
@@ -55,6 +56,10 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
 
     > [!NOTE]
     > If the `provisioningState` shows `Stopping`, your node pool is still in the process of stopping.
+
+
+    > [!NOTE]
+    > Stopping the node pool will stop its Cluster Autoscaler, and starts it back when starting the node pool. So if you manually modify the number of VMSS instances in the pool while it's stopped, Cluster Autoscaler might show inconsistencies. 
 
 ---
 
@@ -107,3 +112,4 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
 [az-aks-nodepool-stop]: /cli/azure/aks/nodepool#az_aks_nodepool_stop
 [az-aks-nodepool-start]:/cli/azure/aks/nodepool#az_aks_nodepool_start
 [az-aks-nodepool-show]: /cli/azure/aks/nodepool#az_aks_nodepool_show
+

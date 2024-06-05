@@ -35,11 +35,11 @@ Azure AI text to speech avatar feature capabilities include:
 With text to speech avatar's advanced neural network models, the feature empowers you to deliver lifelike and high-quality synthetic talking avatar videos for various applications while adhering to responsible AI practices.
 
 > [!TIP]
-> To convert text to speech with a no-code approach, try the [Text to speech avatar tool in Speech Studio](https://aka.ms/speechstudio/talkingavatar).
+> To convert text to speech with a no-code approach, try the [Text to speech avatar tool in Speech Studio](https://speech.microsoft.com/portal/talkingavatar).
 
 ## Avatar voice and language
 
-You can choose from a range of prebuilt voices for the avatar. The language support for text to speech avatar is the same as the language support for text to speech. For details, see [Language and voice support for the Speech service](../language-support.md?tabs=tts). Prebuilt text to speech avatars can be accessed through the [Speech Studio portal](https://aka.ms/speechstudio/talkingavatar) or via API. 
+You can choose from a range of prebuilt voices for the avatar. The language support for text to speech avatar is the same as the language support for text to speech. For details, see [Language and voice support for the Speech service](../language-support.md?tabs=tts). Prebuilt text to speech avatars can be accessed through the [Speech Studio portal](https://speech.microsoft.com/portal/talkingavatar) or via API. 
 
 The voice in the synthetic video could be a prebuilt neural voice available on Azure AI Speech or the [custom neural voice](../custom-neural-voice.md) of voice talent selected by you. 
 

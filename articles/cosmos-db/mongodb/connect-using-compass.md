@@ -21,13 +21,13 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 To connect to your Azure Cosmos DB account using MongoDB Compass, you must:
 
 * Download and install [Compass](https://www.mongodb.com/products/compass)
-* Have your Azure Cosmos DB [connection string](connect-account.md) information
+* Have your Azure Cosmos DB [connection string](connect-account.yml) information
 
 ## Connect to Azure Cosmos DB's API for MongoDB
 
 To connect your Azure Cosmos DB account to Compass, you can follow the below steps:
 
-1. Retrieve the connection information for your Azure Cosmos DB account configured with Azure Cosmos DB's API MongoDB using the instructions [here](connect-account.md).
+1. Retrieve the connection information for your Azure Cosmos DB account configured with Azure Cosmos DB's API MongoDB using the instructions [here](connect-account.yml).
 
     :::image type="content" source="./media/connect-using-compass/mongodb-compass-connection.png" alt-text="Screenshot of the connection string blade":::
 

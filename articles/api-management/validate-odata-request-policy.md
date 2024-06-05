@@ -5,17 +5,18 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
+ms.custom:
+  - build-2024
 ms.topic: article
-ms.date: 06/06/2023
+ms.date: 05/06/2024
 ms.author: danlep
 ---
 
 # Validate OData request
 
-The `validate-odata-request` policy validates the request URL, headers, and parameters of a request to an OData API to ensure conformance with the [OData specification](https://www.odata.org/documentation).
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-> [!NOTE]
-> This policy is currently in preview.
+The `validate-odata-request` policy validates the request URL, headers, and parameters of a request to an OData API to ensure conformance with the [OData specification](https://www.odata.org/documentation).
 
 ## Policy statement
 
@@ -38,7 +39,7 @@ The `validate-odata-request` policy validates the request URL, headers, and para
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
@@ -55,6 +56,6 @@ The following example validates a request to an OData API and assumes a default 
 
 ## Related policies
 
-* [Validation policies](api-management-policies.md#validation-policies)
+* [Content validation](api-management-policies.md#content-validation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

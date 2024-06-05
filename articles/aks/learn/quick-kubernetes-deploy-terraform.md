@@ -688,3 +688,4 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [azd-hooks]: /azure/developer/azure-developer-cli/reference#azd-hooks
 [azd-overview]: /azure/developer/azure-developer-cli
 [aks-home]: /azure/aks
+

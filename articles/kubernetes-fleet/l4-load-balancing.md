@@ -20,7 +20,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
 
 ## Prerequisites
 
-[!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [free trial note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Read the [conceptual overview of this feature](./concepts-l4-load-balancing.md), which provides an explanation of `ServiceExport` and `MultiClusterService` objects referenced in this document.
 
@@ -31,7 +31,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
   * These target clusters have to be [added as member clusters to the Fleet resource](./quickstart-create-fleet-and-members.md#join-member-clusters).
   * These target clusters should be using [Azure CNI (Container Networking Interface) networking](../aks/configure-azure-cni.md).
 
-* You must gain access to the Kubernetes API of the hub cluster by following the steps in [Access the Kubernetes API of the Fleet resource](./access-fleet-kubernetes-api.md).
+* You must gain access to the Kubernetes API of the hub cluster by following the steps in [Access the Kubernetes API of the Fleet resource](./quickstart-access-fleet-kubernetes-api.md).
 
 * Set the following environment variables and obtain the kubeconfigs for the fleet and all member clusters:
 
@@ -113,7 +113,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
     If successful, the output looks similar to the following example:
 
     ```console
-    clusterresourceplacement.fleet.azure.com/kuard-demo created
+    clusterresourceplacement.placement.kubernetes-fleet.io/kuard-demo created
     ```
 
 1. Check the status of the `ClusterResourcePlacement`:

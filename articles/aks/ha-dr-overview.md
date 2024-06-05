@@ -190,7 +190,7 @@ For more information, see the [**Recommended passive-cold failover solution over
 
 AKS sets default limits and quotas for resources and features, including usage restrictions for certain VM SKUs.
 
-[!INCLUDE [container-service-limits](../../includes/container-service-limits.md)]
+[!INCLUDE [container-service-limits](~/reusable-content/ce-skilling/azure/includes/container-service-limits.md)]
 
 For more information, see [AKS service quotas and limits](./quotas-skus-regions.md#service-quotas-and-limits).
 
@@ -202,3 +202,4 @@ For more information, see the following articles:
 
 - [About AKS backup using Azure Backup (preview)](../backup/azure-kubernetes-service-backup-overview.md)
 - [Back up AKS using Azure Backup (preview)](../backup/azure-kubernetes-service-cluster-backup.md)
+

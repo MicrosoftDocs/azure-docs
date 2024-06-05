@@ -3,9 +3,12 @@
   topicHref: /azure/index
   items:
   - name: Migrate
-    tocHref: /azure/
+    tocHref: /azure/migrate/
     topicHref: /azure/migrate/index
-
+    items:
+    - name: VMware
+      tocHref: /azure/migrate/vmware/
+      topicHref: /azure/migrate/vmware/start-here-vmware
 
 - name: Azure
   tocHref: /sql/

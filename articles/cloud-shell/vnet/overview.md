@@ -1,8 +1,8 @@
 ---
 description: This article describes a scenario for using Azure Cloud Shell in a private virtual network.
 ms.contributor: jahelmic
-ms.date: 06/21/2023
-ms.topic: article
+ms.date: 04/22/2024
+ms.topic: conceptual
 title: Use Cloud Shell in an Azure virtual network
 ---
 
@@ -56,9 +56,12 @@ The following diagram shows the resource architecture that you must build to ena
 
 ## Related links
 
-For more information, see the [pricing][02] guide.
+Cloud Shell requires a new or existing Azure Files share to be mounted to persist files across
+sessions. Storage incurs regular costs. If you have deployed Azure Cloud Shell in a private virtual
+network, you pay for network resources. For pricing information, see
+[Pricing of Azure Cloud Shell][02].
 
 <!-- link references -->
 [01]: /azure/azure-relay/relay-what-is-it
-[02]: https://azure.microsoft.com/pricing/details/service-bus/
+[02]: ../pricing.md
 [03]: media/overview/data-diagram.png

@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: tutorial
-ms.date: 11/07/2023
+ms.date: 04/11/2024
 ms.author: abell
 ---
 
@@ -22,9 +22,11 @@ Simulations help you:
 ## Azure DDoS simulation testing policy
 
 You can only simulate attacks using our approved testing partners:
-- [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): a self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations. 
+- [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): a self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations.
+- [MazeBolt](https://mazebolt.com):The RADAR™ platform continuously identifies and enables the elimination of DDoS vulnerabilities – proactively and with zero disruption to business operations.
 - [Red Button](https://www.red-button.net/): work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
-- [RedWolf](https://www.redwolfsecurity.com/services/#cloud-ddos) a self-service or guided DDoS testing provider with real-time control.
+- [RedWolf](https://www.redwolfsecurity.com/services/#cloud-ddos): a self-service or guided DDoS testing provider with real-time control.
+
 
 Our testing partners' simulation environments are built within Azure. You can only simulate against Azure-hosted public IP addresses that belong to an Azure subscription of your own, which will be validated by our partners before testing. Additionally, these target public IP addresses must be protected under Azure DDoS Protection. Simulation testing allows you to assess your current state of readiness, identify gaps in your incident response procedures, and guide you in developing a proper [DDoS response strategy](ddos-response-strategy.md). 
 
@@ -40,7 +42,7 @@ For this tutorial, you'll create a test environment that includes:
 
 You'll then configure diagnostic logs and alerts to monitor for attacks and traffic patterns. Finally, you'll configure a DDoS attack simulation using one of our approved testing partners.
 
-:::image type="content" source="./media/ddos-attack-simulation/ddos-protection-testing-architecture.png" alt-text="Diagram of the DDoS Protection test environment architecture.":::
+:::image type="content" source="./media/ddos-attack-simulation/ddos-protection-testing-architecture.png" alt-text="Diagram of the DDoS Protection test environment architecture." lightbox="./media/ddos-attack-simulation/ddos-protection-testing-architecture.png":::
 
 ## Prerequisites
 
@@ -198,15 +200,11 @@ Example attack values:
 
 ### Red Button
 
-Red Button’s [DDoS Testing](https://www.red-button.net/ddos-testing/) service suite includes three stages:
+Red Button’s [DDoS Testing](https://www.red-button.net/azure-ddos-testing/) service suite includes three stages:
 
 1. **Planning session**: Red Button experts meet with your team to understand your network architecture, assemble technical details, and define clear goals and testing schedules. This includes planning the DDoS test scope and targets, attack vectors, and attack rates. The joint planning effort is detailed in a test plan document.
 1. **Controlled DDoS attack**: Based on the defined goals, the Red Button team launches a combination of multi-vector DDoS attacks. The test typically lasts between three to six hours. Attacks are securely executed using dedicated servers and are controlled and monitored using Red Button’s management console.
 1. **Summary and recommendations**: The Red Button team provides you with a written DDoS Test Report outlining the effectiveness of DDoS mitigation. The report includes an executive summary of the test results, a complete log of the simulation, a list of vulnerabilities within your infrastructure, and recommendations on how to correct them.
-
-Here's an example of a [DDoS Test Report](https://www.red-button.net/wp-content/uploads/2021/06/DDoS-Test-Report-Example-with-Analysis.pdf) from Red Button:
-
-:::image type="content" source="./media/ddos-attack-simulation/red-button-test-report-example.png" alt-text="DDoS Test Report Example."::: 
 
 In addition, Red Button offers two other service suites, [DDoS 360](https://www.red-button.net/prevent-ddos-attacks-with-ddos360/) and [DDoS Incident Response](https://www.red-button.net/ddos-incident-response/), that can complement the DDoS Testing service suite.
 
@@ -220,6 +218,9 @@ RedWolf's [DDoS Testing](https://www.redwolfsecurity.com/services/) service suit
    - **Guided Service**: Leverage RedWolf's team to run tests. For more information about RedWolf's guided service, see [Guided Service](https://www.redwolfsecurity.com/managed-testing-explained/).
    - **Self Service**: Leverage RedWol to run tests yourself. For more information about RedWolf's self-service, see [Self Service](https://www.redwolfsecurity.com/self-serve-testing/).
 
+## MazeBolt
+
+The RADAR™ platform continuously identifies and enables the elimination of DDoS vulnerabilities – proactively and with zero disruption to business operations.
 
 ## Next steps
 

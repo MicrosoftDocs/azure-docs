@@ -11,7 +11,7 @@ The secure score in Microsoft Defender for Cloud can help you to improve your cl
 
 When you turn on Defender for Cloud in a subscription, the [Microsoft cloud security benchmark (MCSB)](/security/benchmark/azure/introduction) standard is applied by default in the subscription. Assessment of resources in scope against the MCSB standard begins.
 
-The MCSB issues recommendations based on assessment findings. Only built-in recommendations from the MCSB affect the secure score. Currently, [risk prioritization](how-to-manage-attack-path.md#features-of-the-attack-path-overview-page) doesn't affect the secure score.
+The MCSB issues recommendations based on assessment findings. Only built-in recommendations from the MCSB affect the secure score. Currently, [risk prioritization](risk-prioritization.md) doesn't affect the secure score.
 
 > [!NOTE]
 > Recommendations flagged as **Preview** aren't included in secure score calculations. You should still remediate these recommendations wherever possible, so that when the preview period ends, they'll contribute toward your score. Preview recommendations are marked with an icon: :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::.
@@ -86,7 +86,7 @@ The equation for determining the secure score for a single subscription or conne
 :::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-sub.png" alt-text="Screenshot of the equation for calculating a subscription's secure score." lightbox="media/secure-score-security-controls/secure-score-equation-single-sub.png":::
 
 In the following example, there's a single subscription or connector with all security controls available (a potential maximum score of 60 points).
-The score shows 28 points out of a possible 60. The remaining 32 points are reflected in the **Potential score increase** figures of the security controls.
+The score shows 29 points out of a possible 60. The remaining 31 points are reflected in the **Potential score increase** figures of the security controls.
 
 :::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub.png" alt-text="Screenshot of a single-subscription secure score with all controls enabled." lightbox="media/secure-score-security-controls/secure-score-example-single-sub.png":::
 

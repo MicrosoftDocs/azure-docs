@@ -70,7 +70,7 @@ Integration runtime is the compute infrastructure Data Factory uses to provide d
 - Azure integration runtime
 - Self-hosted integration runtime
 - Azure-SQL Server Integration Services (SSIS) integration runtime
-- Managed Airflow integration runtime
+- Apache Airflow integration runtime
 
 Azure Monitor collects metrics and diagnostics logs for all types of integration runtimes. For detailed instructions on monitoring integration runtimes, see the following articles:
 
@@ -79,7 +79,7 @@ Azure Monitor collects metrics and diagnostics logs for all types of integration
 - [Monitor self-hosted integration runtime in Azure](monitor-shir-in-azure.md)
 - [Configure self-hosted integration runtime for log analytics collection](how-to-configure-shir-for-log-analytics-collection.md)
 - [Monitor SSIS operations with Azure Monitor](monitor-ssis.md)
-- [Diagnostics logs and metrics for Managed Airflow](how-to-diagnostic-logs-and-metrics-for-managed-airflow.md)
+- [Diagnostics logs and metrics for Apache Airflow](diagnostic-logs-and-metrics-for-workflow-orchestration-manager.md)
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 

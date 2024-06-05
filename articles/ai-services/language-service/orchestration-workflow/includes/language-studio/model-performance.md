@@ -24,4 +24,3 @@ You can select the model name for more details about its performance.
      
     > [!NOTE] 
     > If you don't see any of the intents you have in your model displayed here, it is because they weren't in any of the utterances that were used for the test set.
-    

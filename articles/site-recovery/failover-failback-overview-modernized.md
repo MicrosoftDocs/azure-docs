@@ -37,6 +37,8 @@ Failover is a two-phase activity:
     - You can then commit the failover to the selected recovery point or select a different point for the commit.
     - After committing the failover, the recovery point can't be changed.
 
+>[!NOTE]
+> Use crash consistent recovery point on Windows Server 2012 or older versions, as the boot time of failed over VMs may be longer for these versions in case of application consistent recovery point.
 
 ## Connect to Azure after failover
 

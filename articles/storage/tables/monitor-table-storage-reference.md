@@ -11,12 +11,10 @@ ms.author: normesta
 
 # Azure Table Storage monitoring data reference
 
-<!-- Intro -->
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure Table Storage](monitor-table-storage.md) for details on the data you can collect for Azure Table Storage and how to use it.
 
-<!-- ## Metrics. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 ### Supported metrics for Microsoft.Storage/storageAccounts
@@ -40,7 +38,6 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 ### Supported resource logs for Microsoft.Storage/storageAccounts/tableServices
 [!INCLUDE [Microsoft.Storage/storageAccounts/tableServices](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-storage-storageaccounts-tableservices-logs-include.md)]
 
-<!-- ## Azure Monitor Logs tables. Required section. -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 - [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
@@ -61,7 +58,6 @@ The following tables list the properties for Azure Storage resource logs when th
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-<!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 - [Microsoft.Storage resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftstorage)
 

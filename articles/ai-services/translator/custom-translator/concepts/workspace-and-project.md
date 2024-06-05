@@ -6,7 +6,7 @@ description: This article will explain the differences between a workspace and a
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.date: 07/18/2023
+ms.date: 05/01/2024
 ms.author: lajanuar
 ms.topic: conceptual
 ms.custom: cogserv-non-critical-translator
@@ -30,8 +30,6 @@ that is used when querying the [V3 API](../../reference/v3-0-translate.md?tabs=c
 ## Project categories
 
 The category identifies the domain – the area of terminology and style you want to use – for your project. Choose the category most relevant to your documents. In some cases, your choice of the category directly influences the behavior of the Custom Translator.
-
-We have two sets of baseline models. They're General and Technology. If the category **Technology** is selected, the Technology baseline models will be used. For any other category selection, the General baseline models are used. The Technology baseline model does well in technology domain, but it shows lower quality, if the sentences used for translation don't fall within the technology domain. We suggest customers select category Technology only if sentences fall strictly within the technology domain.
 
 In the same workspace, you may create projects for the same language pair in
 different categories. Custom Translator prevents creation of a duplicate project

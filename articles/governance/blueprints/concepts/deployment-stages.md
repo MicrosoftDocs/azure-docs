@@ -39,7 +39,7 @@ principal varies by tenant. Use
 [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)
 and REST endpoint [servicePrincipals](/graph/api/resources/serviceprincipal) to get the service
 principal. Then, grant the Azure Blueprints the _Owner_ role through the
-[Portal](../../../role-based-access-control/role-assignments-portal.md),
+[Portal](../../../role-based-access-control/role-assignments-portal.yml),
 [Azure CLI](../../../role-based-access-control/role-assignments-cli.md),
 [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md),
 [REST API](../../../role-based-access-control/role-assignments-rest.md), or an

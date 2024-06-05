@@ -27,7 +27,7 @@ You can review and download the sample code for this quick start on [GitHub](htt
 
 ### Create a new Java application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `mvn` command below to create a new console app with the name `rooms-quickstart`. This command creates a simple "Hello World" Java project with a single source file: **App.java**.
+In a console window (such as cmd, PowerShell, or Bash), use the `mvn` command to create a new console app with the name `rooms-quickstart`. This command creates a simple "Hello World" Java project with a single source file: **App.java**.
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
@@ -35,7 +35,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 
 ### Include the package
 
-You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0/jar) or above.
+You need to use the Azure Communication Rooms client library for Java [version 1.1.0](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.1.0/jar) or above.
 
 #### Include the BOM file
 
@@ -123,7 +123,7 @@ RoomsClient roomsClient = new RoomsClientBuilder().connectionString(connectionSt
 ## Create a room
 
 ### Set up room participants
-In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-java) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+In order to set up who can join a room, you need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-java) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
 
 To use `CommunicationIdentityClient`, add the following package:
 
@@ -184,11 +184,9 @@ System.out.println("\nCreated a room with id: " + roomCreated.getRoomId());
 
 ```
 
-*setPstnDialOutEnabled is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
-
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
 
-### Enable PSTN Dial Out Capability for a Room (Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
+### Enable PSTN dial out capability for a room
 Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a `room` at creation, by defining the `pstnDialOutEnabled` parameter as true. This capability may also be modified for a `room` by issuing an update request for the `pstnDialOutEnabled` parameter.
 
 ```java
@@ -360,7 +358,7 @@ mvn package
 
 ```
 
-Execute the app
+Execute the app.
 
 ```console
 mvn exec:java -D"exec.mainClass"="com.communication.rooms.quickstart" -D"exec.cleanupDaemonThreads"="false"

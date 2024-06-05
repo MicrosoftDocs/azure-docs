@@ -14,7 +14,7 @@ recommendations: false
 ---
 # Learn how to generate embeddings with Azure OpenAI
 
-An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Each embedding is a vector of floating point numbers, such that the distance between two embeddings in the vector space is correlated with semantic similarity between two inputs in the original format. For example, if two texts are similar, then their vector representations should also be similar. Embeddings power vector similarity search in Azure Databases such as [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md) or [Azure Database for PostgreSQL - Flexible Server](../../../postgresql/flexible-server/how-to-use-pgvector.md).
+An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Each embedding is a vector of floating point numbers, such that the distance between two embeddings in the vector space is correlated with semantic similarity between two inputs in the original format. For example, if two texts are similar, then their vector representations should also be similar. Embeddings power vector similarity search in Azure Databases such as [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md) , [Azure SQL Database](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql&preserve-view=true#vector-search) or [Azure Database for PostgreSQL - Flexible Server](../../../postgresql/flexible-server/how-to-use-pgvector.md).
 
 
 ## How to get embeddings
@@ -23,7 +23,7 @@ To obtain an embedding vector for a piece of text, we make a request to the embe
 
 # [console](#tab/console)
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2024-02-01\
   -H 'Content-Type: application/json' \
   -H 'api-key: YOUR_API_KEY' \
   -d '{"input": "Sample Document goes here"}'
@@ -37,7 +37,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version = "2023-05-15",
+  api_version = "2024-02-01",
   azure_endpoint =os.getenv("AZURE_OPENAI_ENDPOINT") 
 )
 
@@ -59,7 +59,7 @@ import openai
 openai.api_type = "azure"
 openai.api_key = YOUR_API_KEY
 openai.api_base = "https://YOUR_RESOURCE_NAME.openai.azure.com"
-openai.api_version = "2023-05-15"
+openai.api_version = "2024-02-01"
 
 response = openai.Embedding.create(
     input="Your text string goes here",
@@ -101,7 +101,7 @@ foreach (float item in returnValue.Value.Data[0].Embedding.ToArray())
 $openai = @{
     api_key     = $Env:AZURE_OPENAI_API_KEY
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
-    api_version = '2023-05-15' # this may change in the future
+    api_version = '2024-02-01' # this may change in the future
     name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
 }
 

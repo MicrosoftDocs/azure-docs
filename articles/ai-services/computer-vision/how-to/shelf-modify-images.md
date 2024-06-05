@@ -6,12 +6,12 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 07/10/2023
-ms.author: ginle
+ms.date: 06/01/2024
+ms.author: pafarley
 ms.custom: references_regions, build-2023
 ---
 
-# Shelf Image Composition (preview)
+# Shelf image composition (preview)
 
 Part of the Product Recognition workflow involves fixing and modifying the input images so the service can perform correctly. 
 
@@ -43,7 +43,7 @@ To run the image stitching operation on a set of images, follow these steps:
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imagecomposition:stitch?api-version=2023-04-01-preview" --output <your_filename> -d "{
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/imagecomposition:stitch?api-version=2023-04-01-preview" --output <your_filename> -d "{
         'images': [
             '<your_url_string_>',
             '<your_url_string_2>',
@@ -59,7 +59,7 @@ To run the image stitching operation on a set of images, follow these steps:
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
 
-## Examine the stitching response
+### Examine the stitching response
 
 The API returns a `200` response, and the new file is downloaded to the location you specified.
 
@@ -78,7 +78,7 @@ To correct the perspective distortion in the composite image, follow these steps
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imagecomposition:rectify?api-version=2023-04-01-preview" --output <your_filename> -d "{
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/imagecomposition:rectify?api-version=2023-04-01-preview" --output <your_filename> -d "{
       'url': '<your_url_string>',
       'controlPoints': {
         'topLeft': {
@@ -108,15 +108,12 @@ To correct the perspective distortion in the composite image, follow these steps
     
        :::image type="content" source="../media/shelf/rectify.png" alt-text="Photo of a shelf with its four corners outlined.":::
 
-       > [!NOTE]
-       > The brands shown in the images are not affiliated with Microsoft and do not indicate any form of endorsement of Microsoft or Microsoft products by the brand owners, or an endorsement of the brand owners or their products by Microsoft.
-
     1. Replace `<your_filename>` with the name and extension of the file where you'd like to get the result (for example, `download.jpg`).
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
 
 
-## Examine the rectification response
+### Examine the rectification response
 
 The API returns a `200` response, and the new file is downloaded to the location you specified.
 

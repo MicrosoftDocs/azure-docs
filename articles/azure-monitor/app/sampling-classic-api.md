@@ -422,7 +422,7 @@ Insert a line like `samplingPercentage: 10,` before the instrumentation key:
     appInsights.trackPageView(); 
 </script>
 ```
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 For the sampling percentage, choose a percentage that is close to 100/N where N is an integer. Currently sampling doesn't support other values.
 
@@ -537,6 +537,11 @@ Use the [examples in the earlier section of this page](#configuring-adaptive-sam
 *What happens if I configure the sampling percentage to be too high?*
 
 * Configuring too high a sampling percentage (not aggressive enough) results in an insufficient reduction in the volume of the collected telemetry. You can still experience telemetry data loss related to throttling, and the cost of using Application Insights might be higher than you planned due to overage charges.
+
+*What happens if I configure both IncludedTypes and ExcludedTypes settings?*
+
+* It's best not to set both `ExcludedTypes` and `IncludedTypes` in your configuration to prevent any conflicts and ensure clear telemetry collection settings.
+* Telemetry types that are listed in `ExcludedTypes` are excluded even if they are also set in `IncludedTypes` settings. ExcludedTypes will take precedence over IncludedTypes.
 
 *On what platforms can I use sampling?*
 

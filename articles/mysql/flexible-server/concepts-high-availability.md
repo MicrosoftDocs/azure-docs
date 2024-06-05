@@ -134,6 +134,11 @@ Here are some considerations to keep in mind when you use high availability:
 >[!Note] 
 >If you are enabling same-zone HA post the server create, you need to make sure the server parameters enforce_gtid_consistency” and [“gtid_mode”](./concepts-read-replicas.md#global-transaction-identifier-gtid) is set to ON before enabling HA.
 
+> [!NOTE]
+>Storage autogrow is default enabled for a High-Availability configured server and can not to be disabled.
+
+
+
 ## Frequently asked questions (FAQ)
 
 - **What are the SLAs for same-zone vs zone-redundant HA enabled Flexible server?**

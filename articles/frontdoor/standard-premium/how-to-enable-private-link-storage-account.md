@@ -6,13 +6,13 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 03/18/2022
+ms.date: 03/31/2024
 ms.author: duau
 ---
 
 # Connect Azure Front Door Premium to a storage account origin with Private Link
 
-This article will guide you through how to configure Azure Front Door Premium tier to connect to your storage account origin privately using the Azure Private Link service.
+This article guides you through how to configure Azure Front Door Premium tier to connect to your storage account origin privately using the Azure Private Link service.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable Private Link to a storage account
  
-In this section, you'll map the Private Link service to a private endpoint created in Azure Front Door's private network. 
+In this section, you map the Private Link service to a private endpoint created in Azure Front Door's private network. 
 
 1. Within your Azure Front Door Premium profile, under *Settings*, select **Origin groups**.
 
@@ -35,7 +35,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
     :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-storage-account.png" alt-text="Screenshot of enabling private link to a storage account.":::
 
-1. The table below has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the storage blob you want Azure Front Door Premium to connect with privately.
+1. The following table has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the storage blob you want Azure Front Door Premium to connect with privately.
 
     | Setting | Value |
     | ------- | ----- |
@@ -48,7 +48,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | Priority | Different origin can have different priorities to provide primary, secondary, and backup origins. |
     | Weight | 1000 (default). Assign weights to your different origin when you want to distribute traffic.|
     | Region | Select the region that is the same or closest to your origin. |
-    | Target sub resource | The type of sub-resource for the resource selected above that your private endpoint will be able to access. You can select *blob* or *web*. |
+    | Target sub resource | The type of subresource for the resource selected previously that your private endpoint can access. You can select *blob* or *web*. |
     | Request message | Custom message to see while approving the Private Endpoint. |
 
 1. Then select **Add** to save your configuration. Then select **Update** to save the origin group settings.
@@ -69,9 +69,12 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
     :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-pending-approval.png" alt-text="Screenshot of pending storage private endpoint request.":::
 
-1. Once approved, it should look like the screenshot below. It will take a few minutes for the connection to fully establish. You can now access your storage account from Azure Front Door Premium.
+1. Once approved, it should look like the following screenshot. It takes a few minutes for the connection to fully establish. You can now access your storage account from Azure Front Door Premium.
 
     :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-approved.png" alt-text="Screenshot of approved storage endpoint request.":::
+
+> [!NOTE]
+> If the blob or container within the storage account doesn't permit anonymous access, requests made against the blob/container should be authorized. One option for authorizing a request is by using [shared access signatures](../../storage/common/storage-sas-overview.md).
 
 ## Next steps
 

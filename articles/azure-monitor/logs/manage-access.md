@@ -146,7 +146,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 ## Azure RBAC
 
-Access to a workspace is managed by using [Azure RBAC](../../role-based-access-control/role-assignments-portal.md). To grant access to the Log Analytics workspace by using Azure permissions, follow the steps in [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+Access to a workspace is managed by using [Azure RBAC](../../role-based-access-control/role-assignments-portal.yml). To grant access to the Log Analytics workspace by using Azure permissions, follow the steps in [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.yml).
 
 ### Workspace permissions
 

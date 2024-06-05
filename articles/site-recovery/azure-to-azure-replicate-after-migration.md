@@ -86,5 +86,5 @@ Install the [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) agen
 
 ## Next steps
 
-[Review troubleshooting](site-recovery-extension-troubleshoot.md) for the Site Recovery extension on the Azure VM agent.
-[Quickly replicate](azure-to-azure-quickstart.md) an Azure VM to a secondary region.
+- [Review troubleshooting](site-recovery-extension-troubleshoot.md) for the Site Recovery extension on the Azure VM agent.
+- [Quickly replicate](azure-to-azure-quickstart.md) an Azure VM to a secondary region.

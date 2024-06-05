@@ -16,7 +16,7 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 Also, IP Groups are used in the rules to define the **Source** IP addresses.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 For information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
 

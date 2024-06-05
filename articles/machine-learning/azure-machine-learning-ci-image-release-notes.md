@@ -20,6 +20,17 @@ Azure Machine Learning checks and validates any machine learning packages that m
 
 Main updates provided with each image version are described in the below sections.
 
+## Feb 16, 2024
+Version: `24.01.30`
+
+Main changes:
+
+- Enable Tensorflow in GPU compute to detect GPU device.
+
+Main environment specific updates:
+
+- N/A
+
 ## June 30, 2023
 Version: `23.06.30` 
 

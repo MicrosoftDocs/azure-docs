@@ -63,3 +63,4 @@ Once you've accepted the terms, you can deploy your ARM template. For instructio
 
 - Learn about [Kubernetes applications available through Marketplace](deploy-marketplace.md).
 - Learn about [cluster extensions](cluster-extensions.md).
+

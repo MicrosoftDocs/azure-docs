@@ -16,7 +16,7 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 To effectively create resources with Bicep, you'll need to set up a Bicep [development environment](../azure-resource-manager/bicep/install.md). The Bicep extension for [Visual Studio Code](https://code.visualstudio.com/) provides language support and resource autocompletion. The extension helps you create and validate Bicep files and is recommended for those developers that will create resources using Bicep after completing this quickstart.
 
@@ -109,7 +109,7 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 | **PHP**     | linuxFxVersion="PHP&#124;7.4"                        |
 | **Node.js** | linuxFxVersion="NODE&#124;10.15"                     |
 | **Java**    | linuxFxVersion="JAVA&#124;1.8 &#124;TOMCAT&#124;9.0" |
-| **Python**  | linuxFxVersion="PYTHON&#124;3.7"                     |
+| **Python**  | linuxFxVersion="PYTHON&#124;3.8"                     |
 
 ---
 

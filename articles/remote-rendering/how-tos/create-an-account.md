@@ -82,13 +82,13 @@ The steps in this paragraph have to be performed for each storage account that s
 
    If the **Add a role assignment** option is disabled, you probably don't have owner permissions to this storage account.
 
-4. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+4. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
    1. Select the **Storage Blob Data Contributor** role and click **Next**.
    1. Choose to assign access to a **Managed Identity**.
    1. Select **Select members**, select your subscription, select **Remote Rendering Account**, select your remote rendering account, and then click **Select**.
    1. Select **Review + assign** and select **Review + assign** again.
 
-    ![Screenshot showing Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot showing Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 > [!WARNING]
 > If your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).

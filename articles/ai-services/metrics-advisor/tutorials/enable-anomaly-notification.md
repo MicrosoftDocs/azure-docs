@@ -287,7 +287,7 @@ Go and select one of the data feeds that you have onboarded. Select a metric wit
 
 Select the '+' button and choose the hook that you created, fill in other fields and select 'Save'. Then you're set for applying a Teams hook to an alert configuration. Any new anomalies will be notified through the Teams channel.
 
-![Screenshot that applies an Teams hook to an alert configuration](../media/tutorial/teams-hook-in-alert.png)
+![Screenshot that applies a Teams hook to an alert configuration](../media/tutorial/teams-hook-in-alert.png)
 
 
 #### [SMTP E-mail](#tab/smtp)

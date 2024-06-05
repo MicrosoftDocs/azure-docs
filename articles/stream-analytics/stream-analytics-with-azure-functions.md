@@ -1,41 +1,38 @@
 ---
 title: Tutorial - Run Azure Functions in Azure Stream Analytics jobs
 description: "In this tutorial, you learn how to configure Azure Functions as an output sink to Stream Analytics jobs."
-author: enkrumah
-ms.author: ebnkruma
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 02/27/2023
+ms.date: 03/29/2024
 
 #Customer intent: As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs.
 ---
 
 # Tutorial: Run Azure Functions from Azure Stream Analytics jobs
+In this tutorial, you create an Azure Stream Analytics job that reads events from Azure Event Hubs, runs a query on the event data, and then invokes an Azure function, which writes to an Azure Cache for Redis instance.
 
-You can run Azure Functions from Azure Stream Analytics by configuring Functions as one of the sinks (outputs) to the Stream Analytics job. Functions are an event-driven, compute-on-demand experience that lets you implement code that is triggered by events occurring in Azure or third-party services. This ability of Functions to respond to triggers makes it a natural output to Stream Analytics jobs.
-
-Stream Analytics invokes Functions through HTTP triggers. The Functions output adapter allows users to connect Functions to Stream Analytics, such that the events can be triggered based on Stream Analytics queries.
+:::image type="content" source="./media/stream-analytics-with-azure-functions/image1.png" alt-text="Screenshot that shows relationship between Azure services in the solution.":::
 
 > [!NOTE]
-> Connection to Azure Functions inside a virtual network (VNet) from an Stream Analytics job that is running in a multi-tenant cluster is not supported.
+> - You can run Azure Functions from Azure Stream Analytics by configuring Functions as one of the sinks (outputs) to the Stream Analytics job. Functions are an event-driven, compute-on-demand experience that lets you implement code that is triggered by events occurring in Azure or third-party services. This ability of Functions to respond to triggers makes it a natural output to Stream Analytics jobs. 
+> - Stream Analytics invokes Functions through HTTP triggers. The Functions output adapter allows users to connect Functions to Stream Analytics, such that the events can be triggered based on Stream Analytics queries.
+> - Connection to Azure Functions inside a virtual network (VNet) from an Stream Analytics job that is running in a multi-tenant cluster is not supported.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create and run a Stream Analytics job
+> * Create an Azure Event Hubs instance
 > * Create an Azure Cache for Redis instance
 > * Create an Azure Function
+> * Create a Stream Analytics job
+> * Configure event hub as input and function as output
+> * Run the Stream Analytics job
 > * Check Azure Cache for Redis for results
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Configure a Stream Analytics job to run a function
-
-This section demonstrates how to configure a Stream Analytics job to run a function that writes data to Azure Cache for Redis. The Stream Analytics job reads events from Azure Event Hubs, and runs a query that invokes the function. This function reads data from the Stream Analytics job, and writes it to Azure Cache for Redis.
-
-![Diagram showing relationships among the Azure services](./media/stream-analytics-with-azure-functions/image1.png)
-
 
 ## Prerequisites
 
@@ -174,7 +171,7 @@ Before you start, make sure you've completed the following steps:
 4. Open your Stream Analytics job, and update the query to the following. 
 
     > [!IMPORTANT]
-    > If you didn't name your output sink **saop1**, remember to change it in the query.
+    > The following sample script assumes that you used **CallStream** for input name and **saop1** for the output name. If you used different names, DON'T forget to update the query. 
 
    ```sql
     SELECT
@@ -239,7 +236,7 @@ If a failure occurs while sending events to Azure Functions, Stream Analytics re
 > [!NOTE]
 > The timeout for HTTP requests from Stream Analytics to Azure Functions is set to 100 seconds. If your Azure Functions app takes more than 100 seconds to process a batch, Stream Analytics errors out and will rety for the batch.
 
-Retrying for timeouts may result in duplicate events written to the output sink. When Stream Analytics retries for a failed batch, it retries for all the events in the batch. For example, consider a batch of 20 events that are sent to Azure Functions from Stream Analytics. Assume that Azure Functions takes 100 seconds to process the first 10 events in that batch. After 100 seconds, Stream Analytics suspends the request since it hasn't received a positive response from Azure Functions, and another request is sent for the same batch. The first 10 events in the batch are processed again by Azure Functions, which causes a duplicate.
+Retrying for timeouts might result in duplicate events written to the output sink. When Stream Analytics retries for a failed batch, it retries for all the events in the batch. For example, consider a batch of 20 events that are sent to Azure Functions from Stream Analytics. Assume that Azure Functions takes 100 seconds to process the first 10 events in that batch. After 100 seconds, Stream Analytics suspends the request since it hasn't received a positive response from Azure Functions, and another request is sent for the same batch. The first 10 events in the batch are processed again by Azure Functions, which causes a duplicate.
 
 ## Known issues
 

@@ -18,7 +18,7 @@ You can set locks that prevent either deletions or modifications. In the portal,
 - **CanNotDelete** means authorized users can read and modify a resource, but they can't delete it.
 - **ReadOnly** means authorized users can read a resource, but they can't delete or update it. Applying this lock is similar to restricting all authorized users to the permissions that the **Reader** role provides.
 
-Unlike role-based access control (RBAC), you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure RBAC](../../role-based-access-control/role-assignments-portal.md).
+Unlike role-based access control (RBAC), you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure RBAC](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Lock inheritance
 
@@ -61,6 +61,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 - A read-only lock on a **storage account** protects RBAC assignments scoped for a storage account or a data container (blob container or queue).
 
 - A read-only lock on a **storage account** prevents the creation of a blob container.
+-  A read-only lock on a **storage account** prevents the creation of a blob container. However, create operations on a storage account can be done through both the control plane and data plane. Read-only locks only block control plane create requests, but a user can still perform a valid create operation on the resource through the data plane.
 
 - A read-only lock or cannot-delete lock on a **storage account** doesn't prevent its data from deletion or modification. It also doesn't protect the data in a blob, queue, table, or file.
 
