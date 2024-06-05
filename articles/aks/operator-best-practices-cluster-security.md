@@ -55,7 +55,7 @@ For more information about Microsoft Entra integration, Kubernetes RBAC, and Azu
 
 > [!NOTE]
 > To implement Network Policy, include the attribute `--network-policy azure` when creating the AKS cluster. Use the following command to create the cluster:
-> `az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity --network-plugin azure --network-policy azure`
+> `az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity --network-plugin azure --network-policy azure --generate-ssh-keys`
 
 ```yaml
 apiVersion: networking.k8s.io/v1

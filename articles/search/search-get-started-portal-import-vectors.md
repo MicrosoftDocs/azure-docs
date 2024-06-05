@@ -61,7 +61,7 @@ If you're starting with the free service, you're limited to three indexes, three
 
 We recommend role assignments for search service connections to other resources. 
 
-1. On Azure AI Search, [enable role-based access](search-security-rbac.md#enable-role-based-access-for-data-plane-operations).
+1. On Azure AI Search, [enable role-based access](search-security-enable-roles.md).
 
 1. Configure your search service to [use a system or user-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity). 
 
