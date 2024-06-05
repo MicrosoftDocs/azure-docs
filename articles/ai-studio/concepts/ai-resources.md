@@ -107,7 +107,7 @@ When you create a new hub, a set of dependent Azure resources are required to st
 
 ## Managing cost
 
-Azure AI costs accrue by [various Azure resources](#central-setup-and-management-concepts). 
+Azure AI costs accrue by [various Azure resources](#Azure-AI-dependencies). 
 
 In general, a hub and project don't have a fixed monthly cost, and you're only charged for usage in terms of compute hours and tokens used. Azure Key Vault, Storage, and Application Insights charge transaction and volume-based, dependent on the amount of data stored with your projects. 
 
