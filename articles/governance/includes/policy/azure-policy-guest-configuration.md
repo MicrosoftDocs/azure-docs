@@ -166,7 +166,7 @@ Search-AzGraph -Query "GuestConfigurationResources | where name in ('WindowsPend
 
 ### List machines that are not running and the last compliance status
 
-Provides a list of a machines that aren't powered on with their configuration assignments and the last reported compliance status.
+Provides a list of machines that aren't powered on with their configuration assignments and the last reported compliance status.
 
 ```kusto
 Resources
