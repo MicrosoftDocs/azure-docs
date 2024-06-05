@@ -70,6 +70,8 @@ The following architecture diagram illustrates the implementation.
 2. Create delegated administration policies.
 3. Assign users the delegated administrator role.
 
+[!NOTE] A user administrator role will be required for a Service Principal Name (SPN) to integrated with Saviynt EIC system. 
+
 ## Configure Azure AD B2C with Saviynt
 
 Use the following instructions to create an application, delete users, and more. 
