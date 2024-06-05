@@ -46,7 +46,7 @@ This action syncs Azure App Configuration files when a change is pushed to `apps
 The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *main* branch. The second section lists the jobs run once the action is triggered. The action checks out the relevant files and updates the App Configuration instance using the connection string stored as a secret in the repository.  For more information about using secrets in GitHub, see [GitHub's article](https://docs.github.com/en/actions/reference/encrypted-secrets) about creating and using encrypted secrets.
 
 ### Example using Connection string
-```json
+```yaml
 on: 
   push: 
     branches: 
@@ -72,7 +72,7 @@ jobs:
 ```
 
 ## Example using Azure login
-```json
+```yaml
 on: 
   push: 
     branches: 
@@ -108,7 +108,7 @@ jobs:
 ## Use strict sync
 By default the CLI does not enable strict mode, meaning that the sync will only add key-values from the configuration file to the App Configuration instance (no key-value pairs will be deleted). Enabling strict mode will mean key-value pairs that aren't in the configuration file are deleted from the App Configuration instance, so that it matches the configuration file. If you are syncing from multiple sources or using Azure Key Vault with App Configuration, you'll want to use different prefixes or labels with strict sync to avoid wiping out configuration settings from other files (see samples below). 
 
-```json
+```yaml
 on: 
   push: 
     branches: 
@@ -146,7 +146,7 @@ Specifying prefixes or labels in your custom CLI script the action will sync onl
 
 Sync by prefix: 
 
-```json
+```yaml
 on: 
   push: 
     branches: 
@@ -181,7 +181,7 @@ jobs:
 
 Sync by label: 
 
-```json
+```yaml
 on: 
   push: 
     branches: 
@@ -219,7 +219,7 @@ The following action inserts a dynamic label on each sync, ensuring that each sy
 
 The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *main* branch. The second section runs a job that creates a unique label for the config update based on the commit hash. The job then updates the App Configuration instance with the new values and the unique label for this update.
 
-```json
+```yaml
 on: 
   push: 
     branches: 
@@ -265,7 +265,7 @@ Developers using Azure Key Vault with AppConfiguration should use two separate f
 
 The GitHub Action can then be configured to do a strict sync on the appsettings.json, followed by a non-strict sync on secretreferences.json. The following sample will trigger a sync when either file is updated:
 
-```json
+```yaml
 on:
   push:
     branches:
@@ -322,8 +322,9 @@ The default behavior for nested JSON attributes is to flatten the entire object.
 }
 ```
 
-If the nested object is intended to be the value pushed to the Configuration instance, you can use the *depth* value to stop the flattening at the appropriate depth. 
-```json
+If the nested object is intended to be the value pushed to the Configuration instance, you can use the *depth* value to stop the flattening at the appropriate depth.
+
+```yaml
 on: 
   push: 
     branches: 
