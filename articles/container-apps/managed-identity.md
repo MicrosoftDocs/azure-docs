@@ -350,7 +350,7 @@ Starting in API version `2024-02-02-preview`, you can control which managed iden
 - `All`: available to all containers. This is the default setting.
 - `None`: not available to any containers. Use this when you have a managed identity that is only used for ACR image pull or scale rules, and does not need to be available to the code running in your containers.
 
-The following example shows the following in a Workload Profile Consumption environment:
+The following example shows how to configure a workload profile consumption environment that:
 
 - Restricts the container app's system-assigned identity to main containers only.
 - Restricts a specific user-assigned identity to init containers only.
