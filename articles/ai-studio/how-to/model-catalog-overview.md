@@ -16,7 +16,7 @@ author: ssalgadodev
 
 # Model Catalog and Collections in Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 The model catalog in Azure AI studio is the hub to discover and use a wide range of models that enable you to build Generative AI applications. The model catalog features hundreds of models across model providers such as Azure OpenAI service, Mistral, Meta, Cohere, Nvidia, Hugging Face, including models trained by Microsoft. Models from providers other than Microsoft are Non-Microsoft Products, as defined in [Microsoft's Product Terms](https://www.microsoft.com/licensing/terms/welcome/welcomepage), and subject to the terms provided with the model.   
 
@@ -142,7 +142,7 @@ Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Co
 
 ### Content safety for models deployed via Serverless API
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Azure AI Studio implements a default configuration of [Azure AI Content Safety](../../ai-services/content-safety/overview.md) text moderation filters for harmful content (hate, self-harm, sexual, and violence) in language models deployed with MaaS. To learn more about content filtering (preview), see [harm categories in Azure AI Content Safety](../../ai-services/content-safety/concepts/harm-categories.md). Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering for individual serverless endpoints when you first deploy a language model or in the deployment details page by clicking the content filtering toggle. You may be at higher risk of exposing users to harmful content if you turn off content filters. 
 

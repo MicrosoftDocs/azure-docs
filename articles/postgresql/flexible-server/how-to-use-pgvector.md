@@ -15,9 +15,9 @@ ms.custom:
 
 # How to enable and use `pgvector` on Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-[!INCLUDE [Introduction to `pgvector`](../../cosmos-db/postgresql/includes/pgvector-introduction.md)]
+[!INCLUDE [Introduction to `pgvector`](~/reusable-content/ce-skilling/azure/includes/cosmos-db/postgresql/includes/pgvector-introduction.md)]
 
 ## Enable extension
 
@@ -32,7 +32,7 @@ CREATE EXTENSION vector;
 > [!Note]
 > To remove the extension from the currently connected database use `DROP EXTENSION vector;`.
 
-[!INCLUDE [`pgvector`](../../cosmos-db/postgresql/includes/pgvector-basics.md)]
+[!INCLUDE [`pgvector`](~/reusable-content/ce-skilling/azure/includes/cosmos-db/postgresql/includes/pgvector-basics.md)]
 
 ## Next Steps
 
