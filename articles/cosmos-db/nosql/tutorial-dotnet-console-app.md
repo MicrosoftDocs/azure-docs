@@ -412,7 +412,7 @@ Now that you've created your first item in the container, you can use the same S
 1. Back in the terminal, run the application to read the single item using a SQL query.
 
     ```bash
-    dotnet run -- --name 'Mica Pereira'
+    dotnet run -- --name 'Mica Pereira' --state 'Washington' --country 'United States'
     ```
 
 1. The output of the command should indicate that the query required multiple RUs.
@@ -576,7 +576,7 @@ To wrap up things, you'll use the Data Explorer in the Azure portal to view the 
 
 1. On the **Data Explorer** page, expand the `cosmicworks` database, and then select the `customers` container.
 
-    :::image type="content" source="media/tutorial-dotnet-web-app/section-data-container.png" alt-text="Screenshot of the selected container node within the database node.":::
+    :::image type="content" source="media/tutorial-dotnet-console-app/data-explorer-container.png" alt-text="Screenshot of the selected container node within the database node.":::
 
 1. In the command bar, select **New SQL query**.
 
