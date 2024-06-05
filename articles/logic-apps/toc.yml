@@ -112,25 +112,25 @@ items:
     - name: Business rules integration
       items:
       - name: Overview
-        href: /rules-engine/rules-engine-overview.md
+        href: rules-engine/rules-engine-overview.md
       - name: Create business rules
-        href: /rules-engine/create-rules.md
+        href: rules-engine/create-rules.md
       - name: Add operators to rules
-        href: /rules-engine/add-rules-operators.md
+        href: rules-engine/add-rules-operators.md
       - name: Add control functions to rules
-        href: /rules-engine/add-rules-control-functions.md
+        href: rules-engine/add-rules-control-functions.md
       - name: Create and manage vocabularies
-        href: /rules-engine/create-manage-vocabularies.md
+        href: rules-engine/create-manage-vocabularies.md
       - name: Advanced ruleset tasks
-        href: /rules-engine/perform-advanced-ruleset-tasks.md
+        href: rules-engine/perform-advanced-ruleset-tasks.md
       - name: Rules engine optimization
-        href: /rules-engine/rules-engine-optimization.md
+        href: rules-engine/rules-engine-optimization.md
       - name: Build fact creators and retrievers
-        href: /rules-engine/build-fact-creators-retrievers.md
+        href: rules-engine/build-fact-creators-retrievers.md
       - name: Test your ruleset
-        href: /rules-engine/test-rulesets.md
+        href: rules-engine/test-rulesets.md
       - name: Create a rules engine project
-        href: /rules-engine/create-rules-engine-project.md
+        href: rules-engine/create-rules-engine-project.md
     - name: Set up deployment slots
       href: set-up-deployment-slots.md
     - name: DevOps deployment
