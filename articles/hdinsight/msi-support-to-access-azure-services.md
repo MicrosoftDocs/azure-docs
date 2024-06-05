@@ -71,7 +71,7 @@ public class AccessToken {
 
 Provided `HdiIdentityTokenCredential` feature class, which is the standard implementation of `com.azure.core.credential.TokenCredential` interface.
 Make sure, Hadoop's `core-site.xml` and all the client jars from this cluster location `/usr/hdp/<hdi-version>/hadoop/client/*
-, azure-core-1.49.0.jar, okhttp3-4.9.3 and its transitive deps jars into the classpath.
+, azure-core-1.49.0.jar, okhttp3-4.9.3` and its transitive deps jars into the classpath.
 
 ### Prerequisites
 
