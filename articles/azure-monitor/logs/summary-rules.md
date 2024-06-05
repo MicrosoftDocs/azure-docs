@@ -14,7 +14,7 @@ ms.date: 04/23/2024
 
 # Aggregate data in a Log Analytics workspace with Summary rules
 
-A summary rule lets you aggregate data in your Log Analytics workspace and send the aggregated results to a custom log table in your Log Analytics workspace. This lets you optimize your data for:
+A summary rule lets you aggregate log data at a regular cadence and send the aggregated results to a custom log table in your Log Analytics workspace. This lets you optimize your data for:
 
 - **Analysis and reports**, especially those based on large data sets and time ranges required for security and incident analysis, month-over-month or annual business reports, and so on. Complex queries on large data sets often time out. It's easier and more efficient to analyze and report on summarized data that's _cleaned_ and _aggregated_. 
 
@@ -22,8 +22,7 @@ A summary rule lets you aggregate data in your Log Analytics workspace and send 
 
 - **Segregated, table-level access** for privacy and security by obfuscation of privacy details in summarized shareable data.
 
-
-This article describes how summary rules work and how to define a summary rule, and provides some examples of the use and benefits of summary rules.
+This article describes how summary rules work and how to define and view summary rules, and provides some examples of the use and benefits of summary rules.
 
 ## Prerequisites
 
