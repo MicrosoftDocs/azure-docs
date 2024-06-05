@@ -1247,7 +1247,7 @@
       href: ./windows/proximity-placement-groups-portal.md
   - name: Understand VM reboots
     href: understand-vm-reboots.md
-  - name: Compute Throttling Limits
+  - name: Compute throttling limits
     href: compute-throttling-limits.md
   - name: Azure Regions
     href: regions.md
