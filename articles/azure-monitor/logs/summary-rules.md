@@ -61,6 +61,8 @@ For rules that you create and configure, the `ruleType` property is always `User
 
 ### [API](#tab/api)
 
+To create a summary role, make this `PUT` API call:
+
 ```kusto
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summarylogs/{ruleName}?api-version=2023-01-01-preview
 Authorization: {credential}
@@ -78,7 +80,9 @@ Authorization: {credential}
 }
 ```
 
-### [Resource Manager template](#tab/azure-resource-manager)
+### [Azure Resource Manager template](#tab/azure-resource-manager)
+
+Use this template to create a summary rule. For more information about Azure Resource Manager templates, see [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 #### Template file
 
