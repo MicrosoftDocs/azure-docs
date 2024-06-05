@@ -1111,6 +1111,7 @@ The Azure Machine Learning managed VNet feature is free. However, you're charged
 * Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
 * FQDN outbound rules only support ports 80 and 443.
 * If your compute instance is in a managed network and is configured for no public IP, use the `az ml compute connect-ssh` command to connect to it using SSH.
+* When using Managed Vnet, you can't deploy compute resources inside your custom Vnet. Compute resources can only be created inside the managed Vnet.
 
 ### Migration of compute resources
 
