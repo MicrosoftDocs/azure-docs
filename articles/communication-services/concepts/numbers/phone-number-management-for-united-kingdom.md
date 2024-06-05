@@ -30,7 +30,7 @@ Use the below tables to find all the relevant information on number availability
 
 \** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
- [!IMPORTANT]
+> [!IMPORTANT]
 > Effective **June 30, 2024**, unregistered alphanumeric sender IDs sending messages to UK phone numbers will have its traffic blocked. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status.
 
 ## Subscription eligibility
