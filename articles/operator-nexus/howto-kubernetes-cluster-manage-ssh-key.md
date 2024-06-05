@@ -128,17 +128,17 @@ To update the SSH keys, you can apply the same Bicep/ARM configuration used duri
 
 ### Limitations
 
-1. You can't remove SSH keys from the cluster nodes. You can only update them with new keys.
-2. If you try to update the cluster wide key with an empty array, the operation succeeds, but the existing keys remain unchanged.
-3. If you try to update the agent pool keys or control plane with an empty array, the operation succeeds, and the cluster wide keys are used instead.
-4. If you try to update the keys for a cluster that was created without any keys, the new key is added, but you can't remove it.
+- You can't remove SSH keys from the cluster nodes. You can only update them with new keys.
+- If you try to update the cluster wide key with an empty array, the operation succeeds, but the existing keys remain unchanged.
+- If you try to update the agent pool keys or control plane with an empty array, the operation succeeds, and the cluster wide keys are used instead.
+- If you try to update the keys for a cluster that was created without any keys, the new key is added, but you can't remove it.
 
 ### Before you begin
 
-1. Ensure that you have the required permissions to update the cluster configuration.
-2. You have the new SSH keys that you want to use for the cluster nodes.
-3. You have the parameters file used during the initial deployment or the variables used in the CLI command.
-4. To use this guide, you must have an existing Operator Nexus Kubernetes cluster that was created using the quickstart guide.
+- Ensure that you have the required permissions to update the cluster configuration.
+- You have the new SSH keys that you want to use for the cluster nodes.
+- You have the parameters file used during the initial deployment or the variables used in the CLI command.
+- To use this guide, you must have an existing Operator Nexus Kubernetes cluster that was created using the quickstart guide.
 
 ### Update cluster wide SSH keys
 
