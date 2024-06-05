@@ -16,7 +16,7 @@ author: lgayhardt
 
 # Deploy a flow for real-time inference
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 After you build a prompt flow and test it properly, you might want to deploy it as an online endpoint. Deployments are hosted within an endpoint, and can receive data from clients and send responses back in real-time.
 

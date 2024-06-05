@@ -18,7 +18,7 @@ ms.custom:
 
 # Region availability for models in serverless API endpoints | Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn about which regions are available for each of the models supporting serverless API endpoint deployments.
 
@@ -26,7 +26,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
 ## Region availability
 
-[!INCLUDE [region-availabilitity-serverless-api](../includes/region-availabilitity-serverless-api.md)]
+[!INCLUDE [region-availabilitity-serverless-api](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/region-availabilitity-serverless-api.md)]
 
 ## Alternatives to region availability
 
