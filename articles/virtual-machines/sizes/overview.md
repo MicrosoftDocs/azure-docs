@@ -127,7 +127,7 @@ List of compute optimized VM size families:
 | Family | Workloads | Series List |
 |----|---|---|
 | [F-family](./compute-optimized/f-family.md)  | Medium traffic web servers <br> Network appliances <br> Batch processes <br> Application servers | [Fasv6 and Falsv6-series](./compute-optimized/f-family.md#fasv6-and-falsv6-series) <br> [Fsv2-series](./compute-optimized/f-family.md#fsv2-series) <br> [Previous-gen F-family](./previous-gen-sizes-list.md)|
-| [FX-subfamily](./compute-optimized/fx-family.md)  | Electronic Design Automation (EDA) <br> Large memory relational databases <br> Medium to large caches <br> In-memory analytics | [FX-series](./compute-optimized/fx-family.md#fx-series) |
+| [FX-family](./compute-optimized/fx-family.md)  | Electronic Design Automation (EDA) <br> Large memory relational databases <br> Medium to large caches <br> In-memory analytics | [FX-series](./compute-optimized/fx-family.md#fx-series) |
 
 To learn more about a specific size family, sub-family, or specific series, click the tab for that group and scroll to find your desired size series. 
 
@@ -216,10 +216,10 @@ List of storage optimized VM size families:
 
 | Family | Workloads | Series List |
 |----|---|---|
-| [NC-subfamily](./gpu-accelerated/nc-family.md)  | Compute-intensive <br> Graphics-intensive <br> Visualization | [NC-series](./gpu-accelerated/nc-family.md#nc-series-v1) <br> [NCads_H100_v5-series](./gpu-accelerated/nc-family.md#ncads_-_h100_v5-series) <br> [NCv2-series](./gpu-accelerated/nc-family.md#ncv2-series) <br> [NCv3-series](./gpu-accelerated/nc-family.md#ncv3-series) <br> [NCasT4_v3-series](./gpu-accelerated/nc-family.md#ncast4_v3-series) <br> [NC_A100_v4-series](./gpu-accelerated/nc-family.md#nc_a100_v4-series)|
-| [ND-subfamily](./gpu-accelerated/nd-family.md)  |  Large memory compute-intensive <br> Large memory graphics-intensive <br> Large memory visualization | [ND_MI300X_v5-series](./gpu-accelerated/nd-family.md#nd_mi300x_v5-series) <br> [ND-H100-v5-series](./gpu-accelerated/nd-family.md#nd_h100_v5-series) <br> [NDm_A100_v4-series](./gpu-accelerated/nd-family.md#ndm_a100_v4-series) <br> [ND_A100_v4-series](./gpu-accelerated/nd-family.md#nd_a100_v4-series) |
-| [NG-subfamily](./gpu-accelerated/ng-family.md)  | Virtual Desktop (VDI) <br> Cloud gaming |  [NGads V620-series](./gpu-accelerated/ng-family.md#ngads-v620-series) |
-| [NV-subfamily](./gpu-accelerated/nv-family.md)  | Virtual desktop (VDI) <br> Single-precision compute <br> Video encoding and rendering |  [NV-series](./gpu-accelerated/nv-family.md#nv-series-v1) <br> [NVv3-series](./gpu-accelerated/nv-family.md#nvv3-series) <br> [NVv4-series](./gpu-accelerated/nv-family.md#nvv4-series) <br> [NVadsA10_v5-series](./gpu-accelerated/nv-family.md#nvads-a10-v5-series) <br> [Previous-gen NV-family](./previous-gen-sizes-list.md#gpu-accelerated-previous-gen-sizes) |
+| [NC-family](./gpu-accelerated/nc-family.md)  | Compute-intensive <br> Graphics-intensive <br> Visualization | [NC-series](./gpu-accelerated/nc-family.md#nc-series-v1) <br> [NCads_H100_v5-series](./gpu-accelerated/nc-family.md#ncads_-_h100_v5-series) <br> [NCv2-series](./gpu-accelerated/nc-family.md#ncv2-series) <br> [NCv3-series](./gpu-accelerated/nc-family.md#ncv3-series) <br> [NCasT4_v3-series](./gpu-accelerated/nc-family.md#ncast4_v3-series) <br> [NC_A100_v4-series](./gpu-accelerated/nc-family.md#nc_a100_v4-series)|
+| [ND-family](./gpu-accelerated/nd-family.md)  |  Large memory compute-intensive <br> Large memory graphics-intensive <br> Large memory visualization | [ND_MI300X_v5-series](./gpu-accelerated/nd-family.md#nd_mi300x_v5-series) <br> [ND-H100-v5-series](./gpu-accelerated/nd-family.md#nd_h100_v5-series) <br> [NDm_A100_v4-series](./gpu-accelerated/nd-family.md#ndm_a100_v4-series) <br> [ND_A100_v4-series](./gpu-accelerated/nd-family.md#nd_a100_v4-series) |
+| [NG-family](./gpu-accelerated/ng-family.md)  | Virtual Desktop (VDI) <br> Cloud gaming |  [NGads V620-series](./gpu-accelerated/ng-family.md#ngads-v620-series) |
+| [NV-family](./gpu-accelerated/nv-family.md)  | Virtual desktop (VDI) <br> Single-precision compute <br> Video encoding and rendering |  [NV-series](./gpu-accelerated/nv-family.md#nv-series-v1) <br> [NVv3-series](./gpu-accelerated/nv-family.md#nvv3-series) <br> [NVv4-series](./gpu-accelerated/nv-family.md#nvv4-series) <br> [NVadsA10_v5-series](./gpu-accelerated/nv-family.md#nvads-a10-v5-series) <br> [Previous-gen NV-family](./previous-gen-sizes-list.md#gpu-accelerated-previous-gen-sizes) |
 
 To learn more about a specific size family, sub-family, or specific series, click the tab for that group and scroll to find your desired size series. 
 
@@ -264,7 +264,7 @@ List of field programmable gate array accelerated VM size families:
 
 | Family | Workloads | Series List |
 |----|---|---|
-| [NP-subfamily](./fpga-accelerated/np-family.md)  | Machine learning inference <br> Video transcoding <br> Database search and analytics | [NP-series](./fpga-accelerated/np-family.md#np-series) |
+| [NP-family](./fpga-accelerated/np-family.md)  | Machine learning inference <br> Video transcoding <br> Database search and analytics | [NP-series](./fpga-accelerated/np-family.md#np-series) |
 
 To learn more about a specific size family, sub-family, or specific series, click the tab for that group and scroll to find your desired size series. 
 
@@ -285,9 +285,9 @@ List of high performance computing optimized VM size families:
 
 | Family | Workloads | Series List |
 |----|---|---|
-| [HB-subfamily](./high-performance-compute/hb-family.md) | High memory bandwidth <br> Fluid Dynamics <br> Weather modeling |  [HB-series](./high-performance-compute/hb-family.md#hb-series-v1) <br> [HBv2-series](./high-performance-compute/hb-family.md#hbv2-series) <br> [HBv3-series](./high-performance-compute/hb-family.md#hbv3-series) <br> [HBv4-series](./high-performance-compute/hb-family.md#hbv4-series) |
-| [HC-subfamily](./high-performance-compute/hc-family.md) | High density compute <br> Finite element analysis <br> Molecular dynamics <br> Computational chemistry | [HC-series](./high-performance-compute/hc-family.md#hc-series) |
-| [HX-subfamily](./high-performance-compute/hx-family.md) | Large memory capacity <br> Electronic Design Automation (EDA) | [HX-series](./high-performance-compute/hx-family.md#hx-series) |
+| [HB-family](./high-performance-compute/hb-family.md) | High memory bandwidth <br> Fluid Dynamics <br> Weather modeling |  [HB-series](./high-performance-compute/hb-family.md#hb-series-v1) <br> [HBv2-series](./high-performance-compute/hb-family.md#hbv2-series) <br> [HBv3-series](./high-performance-compute/hb-family.md#hbv3-series) <br> [HBv4-series](./high-performance-compute/hb-family.md#hbv4-series) |
+| [HC-family](./high-performance-compute/hc-family.md) | High density compute <br> Finite element analysis <br> Molecular dynamics <br> Computational chemistry | [HC-series](./high-performance-compute/hc-family.md#hc-series) |
+| [HX-family](./high-performance-compute/hx-family.md) | Large memory capacity <br> Electronic Design Automation (EDA) | [HX-series](./high-performance-compute/hx-family.md#hx-series) |
 
 To learn more about a specific size family, sub-family, or specific series, click the tab for that group and scroll to find your desired size series. 
 
