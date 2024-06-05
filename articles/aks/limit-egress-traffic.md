@@ -309,16 +309,18 @@ If you don't have user-assigned identities, follow the steps in this section. If
 
 #### Create an AKS cluster with your existing identities
 
-Create an AKS cluster with your existing identities in the subnet using the [`az aks create`][az-aks-create] command, provide the resource ID of the managed identity for the control plane by including the `assign-kubelet-identity` argument.
+Create an AKS cluster with your existing user-assigned managed identities in the subnet using the [`az aks create`][az-aks-create] command. Provide the resource ID of the managed identity for the control plane and the resource ID of the kubelet identity.
 
 ```azurecli-interactive
-az aks create --resource-group $RG --name $AKSNAME --location $LOC \
+az aks create \
+    --resource-group $RG \
+    --name $AKSNAME \
+    --location $LOC \
     --node-count 3 \
     --network-plugin kubenet \
     --outbound-type userDefinedRouting \
     --vnet-subnet-id $SUBNETID \
     --api-server-authorized-ip-ranges $FWPUBLIC_IP
-    --enable-managed-identity \
     --assign-identity <identity-resource-id> \
     --assign-kubelet-identity <kubelet-identity-resource-id> \
     --generate-ssh-keys    

@@ -254,14 +254,13 @@ You need to use the subnet ID for where you plan to deploy your AKS cluster. Thi
     az network vnet subnet list --resource-group myResourceGroup --vnet-name myAKSVnet [--subscription]
     ```
 
-2. Create an AKS cluster with a custom subnet pre-configured with a route table using the [`az aks create`][az-aks-create] command and providing your values for the `--vnet-subnet-id`, `--enable-managed-identity`, and `--assign-identity` parameters.
+2. Create an AKS cluster with a custom subnet pre-configured with a route table using the [`az aks create`][az-aks-create] command and providing your values for the `--vnet-subnet-id` and `--assign-identity` parameters.
 
     ```azurecli-interactive
     az aks create \
         --resource-group myResourceGroup \
         --name myManagedCluster \
         --vnet-subnet-id mySubnetIDResourceID \
-        --enable-managed-identity \
         --assign-identity controlPlaneIdentityResourceID \
         --generate-ssh-keys
     ```
