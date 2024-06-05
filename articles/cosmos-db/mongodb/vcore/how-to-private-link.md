@@ -59,6 +59,8 @@ Follow these steps to create a new Azure Cosmos DB for MongoDB vCore cluster wit
     | Name | Enter any name for your private endpoint. If this name is taken, create a unique one. |
     | Network Interface name | Enter any name for your Network Interface. If this name is taken, create a unique one. |
     | Location | Select the region where you want to deploy Private Link. Create the private endpoint in the same location where your virtual network exists.|
+    | Resource type | Select `Microsoft.DocumentDB/mongoClusters`. |
+    | Target resource | Select the Azure Cosmos DB for MongoDB vCore resource you created. |
     | Target subresource | Select the type of subresource for the resource selected previously that your private endpoint should have the ability to access. |
     | Virtual network | Select your virtual network. |
     | Subnet | Select your subnet. |
