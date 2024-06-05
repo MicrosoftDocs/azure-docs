@@ -58,7 +58,7 @@ In order to enable clients from **Forest 1** to access Azure Files domain resour
 > [!NOTE]
 > Only forest trusts are supported for Azure Files. Other trust types, such as external trusts, are not supported.
 >
-> If you already have a trust set up, you can check its type by logging on to a machine that's domain-joined to Forest 2, opening the **Active Directory Domains and Trusts** console, right-clicking on the local domain **onpremad2.com**, and then selecting the **Trusts** tab. If your existing trust is not a forest trust, and if a forest trust would meet your environment's requirements, you will need to remove the existing trust and re-create a forest trust in its place, using the instructions below.
+> If you already have a trust set up, you can check its type by logging on to a machine that's domain-joined to Forest 2, opening the **Active Directory Domains and Trusts** console, right-clicking on the local domain **onpremad2.com**, and then selecting the **Trusts** tab. If your existing trust isn't a forest trust, and if a forest trust would meet your environment's requirements, you'll need to remove the existing trust and re-create a forest trust in its place. To do so, follow these instructions.
 
 1. Log on to a machine that's domain-joined to **Forest 2** and open the **Active Directory Domains and Trusts** console.
 1. Right-click on the local domain **onpremad2.com**, and then select the **Trusts** tab.
