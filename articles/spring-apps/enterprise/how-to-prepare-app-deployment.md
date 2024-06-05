@@ -289,13 +289,13 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 ## See also
 
 * [Analyze application logs and metrics](./diagnostic-services.md)
-* [Set up your Config Server](../basic-standard/how-to-config-server.md)
+* [Set up your Config Server](../enterprise/how-to-enterprise-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
 * [Spring Quickstart Guide](https://spring.io/quickstart)
 * [Spring Boot documentation](https://spring.io/projects/spring-boot)
 
 ## Next steps
 
-In this article, you learned how to configure your Java Spring application for deployment to Azure Spring Apps. To learn how to set up a Config Server instance, see [Set up a Config Server instance](../basic-standard/how-to-config-server.md).
+In this article, you learned how to configure your Java Spring application for deployment to Azure Spring Apps. To learn how to set up a Config Server instance, see [Set up a Config Server instance](../enterprise/how-to-enterprise-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
 
 More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 ::: zone-end

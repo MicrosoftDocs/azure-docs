@@ -80,7 +80,7 @@ az spring config-server git set -n <service instance name> --uri https://github.
 ::: zone-end
 
 > [!TIP]
-> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](./how-to-config-server.md).
+> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](../enterprise/how-to-enterprise-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
 
 ## Troubleshooting of Azure Spring Apps Config Server
 
