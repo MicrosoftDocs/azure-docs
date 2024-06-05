@@ -34,7 +34,7 @@ This guide describes how to optimize code for your rules engine by using control
 
 To add object instances to the rules engine's working memory, use the **Assert** function in the Microsoft Rules Composer. The engine processes each object instance according to the conditions and actions that are written against the instance's type using the match-conflict resolution-action phases.
 
-The following table summarizes the **Assert** function behavior for the supported asserted entities and instance types, including the number of resulting instances created in the engine for each asserted entity and also the type that is applied to each instances to identify them.
+The following table summarizes the **Assert** function behavior for the supported asserted entities and instance types, including the number of resulting instances created in the engine for each asserted entity and the type applied to each instance for identification.
 
 | Entity | Number of instances asserted | Instance type |
 |--------|------------------------------|---------------|
@@ -266,7 +266,7 @@ You can either retract the **TypedXmlDocument** entity associated with an **orde
 
 For example, **product** is a **TypedXmlDocument** entity below the **orderline** object and is associated with the **TypedXmlDocument** entity for **order**, not the **TypedXmlDocument** entity for **orderline**. In most instances, this distinction isn't important. However, if you retract the **order** object, the **orderline** and **product** objects are also retracted. If you retract the **orderline** object, only that object is retracted, not the **product** object.
 
-The engine only works with and tracks the object instances, which are **TypedXmlDocument** instances, that the engine created when the **TypedXmlDocument** entity was initially asserted. If you create additional nodes, such as sibling nodes for a node that was selected through a selector in the ruleset, these nodes aren't evaluated in rules unless **TypedXmlDocument** entities are created and asserted for them. If you assert these new, lower-level **TypedXmlDocument** instances, they are evaluated them in rules, but the top-level **TypedXmlDocument** entity doesn't have knowledge about them. When the top-level **TypedXmlDocument** is retracted, the new, independently asserted **TypedXmlDocument** entities aren't automatically retracted. As a result, if new nodes are created, retract and reassert the full **XmlDocument** as the typical and most straightfoward step to take.
+The engine only works with and tracks the object instances, which are **TypedXmlDocument** instances, that the engine created when the **TypedXmlDocument** entity was initially asserted. If you create additional nodes, such as sibling nodes for a node that was selected through a selector in the ruleset, these nodes aren't evaluated in rules unless **TypedXmlDocument** entities are created and asserted for them. If you assert these new, lower-level **TypedXmlDocument** instances, they are evaluated them in rules, but the top-level **TypedXmlDocument** entity doesn't have knowledge about them. When the top-level **TypedXmlDocument** is retracted, the new, independently asserted **TypedXmlDocument** entities aren't automatically retracted. As a result, if new nodes are created, retract and reassert the full **XmlDocument** as the typical and most straightforward step to take.
 
 The **TypedXmlDocument** class provides useful methods that you can call within a custom .NET member as part of an action. These methods include the capability to get the **XmlNode** associated with the **TypedXmlDocument** or the parent **TypedXmlDocument**.
 
@@ -280,7 +280,7 @@ The **TypedXmlDocument** class provides useful methods that you can call within 
 
 1. From the **XML Schemas** tab, drag the top-level node for the schema into the argument for the **Retract** function.
 
-   This top node ends in the **.xsd** extension and represents the document root node, not the document element node. The node has a **/** selector that refers to the initial **TypedXmlDocument**. When you retract the parent **TypedXmlDocument**, all **TypedXmlDocument** child entities associated with the **TypedXmlDocument** are removed from working memory, which include all the **TypedXmlDocument** entities created by calling the **Assert** function, based on selectors used in the ruleset.
+   This top node ends in the **.xsd** extension and represents the document root node, not the document element node. The node has a **/** selector that refers to the initial **TypedXmlDocument**. When you retract the parent **TypedXmlDocument**, all **TypedXmlDocument** child entities associated with the **TypedXmlDocument** are removed from working memory, including all the **TypedXmlDocument** entities created by calling the **Assert** function, based on selectors used in the ruleset.
 
 #### Retract a child TypedXmlDocument entity
 
@@ -330,7 +330,7 @@ For example, if you use the **Reassert** function on a .NET object, the rules en
 
 1. Remove any actions on the agenda for rules that use the object in a predicate or action.
 
-1. Asssert the .NET object back into working memory and evaluate as a newly asserted object.
+1. Assert the .NET object back into working memory and evaluate as a newly asserted object.
 
 1. Reevaluate any rules that use the object in a predicate and add those rules' actions to the agenda as appropriate.
 
@@ -412,11 +412,11 @@ To reassert an object into the rules engine for reevaluation, based on the new d
 
 1. From the **.NET Classes** tab, drag the class into the argument for the **Update** function.
 
-Typically, you use **Assert** to place a new object in the rules engine's working memory, and use **Update** to update an already existing object in working memory. When you assert a new object as a fact, the engine reevaulates the conditions in all the rules. However, when you update an existing object, only conditions that use the updated fact are reevaluated, and actions are added to the agenda, if these conditions evaluate to true.
+Typically, you use **Assert** to place a new object in the rules engine's working memory, and use **Update** to update an already existing object in working memory. When you assert a new object as a fact, the engine reevaulates the conditions in all the rules. However, when you update an existing object, only conditions that use the updated fact are re-evaluated, and actions are added to the agenda, if these conditions evaluate to true.
 
 For example, suppose you have the following rules and that the objects named **ItemA** and **ItemB** already exist in working memory.
 
-- **Rule 1** evaluates the **Id** property in **ItemA**, sets the **Id** property on **ItemB**, and then reasserts **ItemB** after the change. When **ItemB** is reasserted, the engine treats **ItemB** as a new object, and the engine reevaluates all rules that use **ItemB** in the predicates or actions. This behavior makes sure that the engine reevaluates **Rule 2** against the new value in **ItemB.Id** as set in **Rule 1**.
+- **Rule 1** evaluates the **Id** property in **ItemA**, sets the **Id** property on **ItemB**, and then reasserts **ItemB** after the change. When **ItemB** is reasserted, the engine treats **ItemB** as a new object, and the engine re-evaluates all rules that use **ItemB** in the predicates or actions. This behavior makes sure that the engine re-evaluates **Rule 2** against the new value in **ItemB.Id** as set in **Rule 1**.
 
   **Rule 1**
 
@@ -435,7 +435,7 @@ For example, suppose you have the following rules and that the objects named **I
   THEN ItemB.Value = 100
   ```
 
-The capability to reassert objects into working memory gives you explicit control over the behavior in forward-chaining scenarios. However, this example reveals a side effect from reassertion where **Rule 1** is also reevaluated. With **ItemA.Id** unchanged, **Rule 1** again evaluates to **true**, and the **Assert(ItemB)** action fires again. As a result, the rule creates an endless loop situation.
+The capability to reassert objects into working memory gives you explicit control over the behavior in forward-chaining scenarios. However, this example reveals a side effect from reassertion where **Rule 1** is also re-evaluated. With **ItemA.Id** unchanged, **Rule 1** again evaluates to **true**, and the **Assert(ItemB)** action fires again. As a result, the rule creates an endless loop situation.
 
 #### Prevent endless loops
 
@@ -443,11 +443,11 @@ You must be able to reassert objects without creating endless loops. To avoid su
 
 - On the agenda, actions for rules where the instance type is only used in the actions, not the predicates, stay on the agenda.
 
-- Rules that only use the instance type in actions aren't reevaluated.
+- Rules that only use the instance type in actions aren't re-evaluated.
 
-As a result, rules that use the instance types in either only the predicates or both the predicates and actions are reevaluated. and their actions are added to the agenda as appropriate.
+As a result, rules that use the instance types, either in only the predicates or both the predicates and actions, are re-evaluated, and the rules' actions are added to the agenda as appropriate.
 
-By changing the preceding example to use the **Update** function, you can make sure that the engine reevaluates only **Rule 2** because the condition for **Rule 2** uses **ItemB**. The engine doesn't reevaluate **Rule 1** because **ItemB** is only used in the actions for **Rule 1***, eliminating the looping scenario.
+By changing the preceding example to use the **Update** function, you can make sure that the engine re-evaluates only **Rule 2** because the condition for **Rule 2** uses **ItemB**. The engine doesn't reevaluate **Rule 1** because **ItemB** is only used in the actions for **Rule 1***, eliminating the looping scenario.
 
 **Rule 1**
 
@@ -472,7 +472,7 @@ THEN ItemA.Value = 20
 Update(ItemA)
 ```
 
-The predicate uses **ItemA**, so the engine reevaluates the rule when **Update** is called on **ItemA**. If the value for **ItemA.Id** isn't changed elsewhere, **Rule 1** continues to evaluate as **true**, which causes calling **Update** again on **ItemA**.
+The predicate uses **ItemA**, so the engine re-evaluates the rule when **Update** is called on **ItemA**. If the value for **ItemA.Id** isn't changed elsewhere, **Rule 1** continues to evaluate as **true**, which causes calling **Update** again on **ItemA**.
 
 As the rule designer, you must make sure to avoid creating such looping scenarios. The appropriate approach to fix this problem differs based on the nature of the rules.
 

@@ -54,11 +54,11 @@ You can add an arithmetic operator to a condition or action in a rule. The follo
 
    - If the operands have different types, the rules engine performs automatic numeric promotion where the engine converts the smaller operand type to the larger operand type.
 
-     For example, if you use the **Add** operator with an operand that has **int** type and an operand that has **long** type, the engine converts **int** type to **long** before the engine performs the **Add** operation.
+     For example, suppose you use the **Add** operator on an operand that has **int** type and an operand that has **long** type. Before the engine performs the **Add** operation, the engine converts the **int** type to the **long** type.
 
    - If the engine can promote both operands to a common type, the engine supports double promotion.
 
-     For example, if you use the **Add** operator with an operand that has **int** type and an operand that has **uint** type, the engine converts both operand types to **long** before the engine performs the **Add** operation.
+     For example, suppose you use the **Add** operator on an operand that has **int** type and an operand that has **uint** type. Before the engine performs the **Add** operation, the engine converts both operand types to the **long** type.
 
 <a name="add-logical-operator"></a>
 
