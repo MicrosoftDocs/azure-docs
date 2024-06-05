@@ -315,7 +315,7 @@ To get a token for a resource, make an HTTP GET request to the endpoint, includi
 
 ## Use managed identity for scale rules
 
-Starting in API version `2024-02-02-preview`, you can use managed identities in your scale rules to authenticate with Azure services that support managed identities. To use a managed identity in your scale rule, use the `identity` property with the Azure resource ID of a user-assigned identity, or "system" to use a system-assigned identity, instead of the `auth` property in your scale rule.
+Starting in API version `2024-02-02-preview`, you can use managed identities in your scale rules to authenticate with Azure services that support managed identities. To use a managed identity in your scale rule, use the `identity` property instead of the `auth` property in your scale rule. Acceptable values for the `identity` property are either the Azure resource ID of a user-assigned identity, or `system` to use a system-assigned identity
 
 The following example shows how to use a managed identities with an Azure Queue scale rule:
 
