@@ -355,30 +355,39 @@ Once you select add your dataset, you can use the **System message** section in 
 
 **Define a role**
 
-You can define a role that you want your assistant. For example, if you are building a support bot, you can add *"You are an expert incident support assistant that helps users solve new issues."*.
+You can define a role that you want your assistant to play. For example, if you are building a support bot for incidents, you can add *"You are an expert incident support assistant that helps users solve new issues."*.
 
 **Define the type of data being retrieved**
 
 You can also add the nature of data you are providing to assistant.
-* Define the topic or scope of your dataset, like "financial report", "academic paper", or "incident report". For example, for technical support you might add *"You answer queries using information from similar incidents in the retrieved documents."*.
-* If your data has certain characteristics, you can add these details to the system message. For example, if your documents are in Japanese, you can add *"You retrieve Japanese documents and you should read them carefully in Japanese and answer in Japanese."*. 
-* If your documents include structured data like tables from a financial report, you can also add this fact into the system prompt. For example, if your data has tables, you might add *"You are given data in form of tables pertaining to financial results and you should read the table line by line to perform calculations to answer user questions."*.
+* Define the topic or scope of your dataset, like "financial report", "academic paper", or "incident report". For example, for technical support for incidents you might add *"You will be given historical incident reports. Please answer user queries using information from similar incidents in the retrieved documents."*.
+* If your data has certain characteristics, you can add these details to the system message. For example, if your documents include semi-structured data like tables in a financial report, your system message can be - *"You are given data in the form of tables pertaining to financial results and you should read the table line by line to perform calculations to answer user questions. You must pay special attention to numbers in the data."*.
 
 **Define the output style** 
 
-You can also change the model's output by defining a system message. For example, if you want to ensure that the assistant answers are in French, you can add a prompt like *"You are an AI assistant that helps users who understand French find information. The user questions can be in English or French. Please read the retrieved documents carefully and answer them in French. Please translate the knowledge from documents to French to ensure all answers are in French."*.
+You can also change the model's output by defining a system message. Here are some examples-
+*If you want to ensure that the assistant answers are concise, you can add a prompt like *"You are an AI assistant that helps users by providing concise and to-the-point answers. Your answers should not be more than 10 sentences."*.
+*You can specify your preference for the output language. eg. If you want to ensure that the output is in French, your system message can be- "You are an AI assistant that helps users who understand French find information. The user questions can be in English or French. Please read the retrieved documents carefully and answer them in French. Please translate the knowledge from documents to French to ensure all answers are in French.".
 
 **Reaffirm critical behavior**
 
-Azure OpenAI On Your Data works by sending instructions to a large language model in the form of prompts to answer user queries using your data. If there is a certain behavior that is critical to the application, you can repeat the behavior in system message to increase its accuracy. For example, to guide the model to only answer from documents, you can add "*Please answer using retrieved documents only, and without using your knowledge. Please generate citations to retrieved documents for every claim in your answer. If the user question cannot be answered using retrieved documents, please explain the reasoning behind why documents are relevant to user queries. In any case, don't answer using your own knowledge."*.
+Azure OpenAI On Your Data works by sending instructions to a large language model in the form of prompts to answer user queries using your data. If there is a certain behavior that is critical to the application, you can repeat the behavior in system message to increase its accuracy. For example, to guide the model to only answer from documents, you can add "*Please answer using retrieved documents only, and without using your own knowledge. Please generate citations to retrieved documents for every claim in your answer. If the user question cannot be answered using retrieved documents, please explain the reasoning behind why they are not relevant to the user question. In any case, do not answer using your own knowledge."*.
 
 **Prompt Engineering tricks**
 
-There are many tricks in prompt engineering that you can try to improve the output. One example is chain-of-thought prompting where you can add *"Let’s think step by step about information in retrieved documents to answer user queries. Extract relevant knowledge to user queries from documents step by step and form an answer bottom up from the extracted information from relevant documents."*.
+Since the system message is now part of a bigger prompt, you might need to create more detailed instructions to achieve your intended goal. Additionally, reaffirming your instructions in different ways or scenarios can help ensure the model captures your instructions along with the base prompt.
+There are many tricks in prompt engineering that you can try to improve the output. You can try things like:
+
+*Add bold formatting around your instructions like **<instructions>**.
+*Repeat instructions e.g. You are chatbot does X. Always follow X in your responses. User expects the response to follow X., where X is a behavior like translate to French.
+Start with simple instructions, ensure they work and then move on to more complex instructions.
+*It is also good to summarize the instructions at the end of your role information especially if you are providing multiple instructions.
+*Chain-of-thought prompting where you can add *"Let’s think step by step about information in retrieved documents to answer user queries. Extract relevant knowledge to user queries from documents step by step and form an answer bottom up from the extracted information from relevant documents."*.
 
 > [!NOTE]
 > The system message is used to modify how GPT assistant responds to a user question based on retrieved documentation. It doesn't affect the retrieval process. If you'd like to provide instructions for the retrieval process, it is better to include them in the questions.
-> The system message is only guidance. The model might not adhere to every instruction specified because it has been primed with certain behaviors such as objectivity, and avoiding controversial statements. Unexpected behavior might occur if the system message contradicts with these behaviors. 
+> The system message is only guidance. The model might not adhere to every instruction specified because it has been primed with certain behaviors such as objectivity, and avoiding controversial statements. Unexpected behavior might occur if the system message contradicts with these behaviors.
+> Different models have different behavior with respect to following the system message. We recommend using GPT-4 for better adherence to system message.
 
 
 
@@ -493,7 +502,6 @@ The above numbers are based on testing on a data set with:
 * 191 conversations 
 * 250 questions
 * 10 average tokens per question
-* 4 conversational turns per conversation on average 
 
 And the following [parameters](#runtime-parameters).
 
