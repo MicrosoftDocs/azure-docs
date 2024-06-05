@@ -14,7 +14,7 @@ zone_pivot_groups: azure-cosmos-db-quickstart-env
 
 # Quickstart: Azure Cosmos DB for MongoDB for .NET with the MongoDB driver
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Get started with MongoDB to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
