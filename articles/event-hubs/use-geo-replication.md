@@ -23,14 +23,17 @@ To enable Geo replication on a namespace during namespace creation:
 1.	Click on ‘Namespace’ to create a new Event Hubs namespace in an Event Hubs cluster in a region with Geo replication enabled. Provide a name for the namespace and check the Enable Geo-replication box
 
  :::image type="content" source="./media/use-geo-replication/namespace-create.png" alt-text="Dedicated namespace create UI with geo replication UI":::
-3.	Click on Add secondary region and select a secondary region and a corresponding Event Hubs Dedicated cluster running in that region. 
+ 
+2.	Click on Add secondary region and select a secondary region and a corresponding Event Hubs Dedicated cluster running in that region. 
 
  :::image type="content" source="./media/use-geo-replication/region-selection.png" alt-text="Secondary region and cluster selection in namespace create UI":::
-5.	Select asynchronous or synchronous replication mode as the replication consistency mode. If selecting asynchronous consistency, enter the allowable amount of time the secondary region can lag behind the primary region in minutes.
+ 
+3.	Select asynchronous or synchronous replication mode as the replication consistency mode. If selecting asynchronous consistency, enter the allowable amount of time the secondary region can lag behind the primary region in minutes.
  
  :::image type="content" source="./media/use-geo-replication/create-replication-consistency.png" alt-text="Replication consistency UI in dedicated namespace create UI"::: 
-6.	Then click on ‘Create’ to create the Geo Replicated Event Hubs namespace. The deployment takes a couple of minutes to complete. 
-7.	Once the namespace is created, you can navigate to it and click on "Geo-replication" tab to see your Geo replication configuration. 
+ 
+4.	Then click on ‘Create’ to create the Geo Replicated Event Hubs namespace. The deployment takes a couple of minutes to complete. 
+5.	Once the namespace is created, you can navigate to it and click on "Geo-replication" tab to see your Geo replication configuration. 
 
  :::image type="content" source="./media/use-geo-replication/geo-replication.png" alt-text="Geo replication UI that shows configuration and allows various actions"::: 
  
