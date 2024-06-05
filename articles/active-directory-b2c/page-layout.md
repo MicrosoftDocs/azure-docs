@@ -179,7 +179,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Added support for [display controls](display-controls.md) in custom policies.
 
 **1.2.0**
-- The username/email and password fields now use the `form` HTML element to allow Microsoft Edge and Internet Explorer (IE) to properly save this information.
+- The username/email and password fields now use the `form` HTML element to allow Microsoft Edge and Internet Explorer to properly save this information.
 - Added a configurable user input validation delay for improved user experience.
 - Accessibility fixes
 - Fix  an accessibility issue so that error messages are read by Narrator. 
@@ -273,7 +273,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - When the [sign-in option](sign-in-options.md) is set to Email, the sign-in header presents "Sign in with your sign-in name". The username field presents "Sign in name". For more information, see [localization](localization-string-ids.md#sign-up-or-sign-in-page-elements).
 
 **1.2.0**
-- The username/email and password fields now use the `form` HTML element to allow Microsoft Edge and Internet Explorer (IE) to properly save this information.
+- The username/email and password fields now use the `form` HTML element to allow Microsoft Edge and Internet Explorer to properly save this information.
 - Accessibility fixes
 - You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
@@ -313,7 +313,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **1.2.7**
 - Fixed accessibility issue on label for retries code.
-- Fixed issue caused by incompatibility of default parameter on IE 11.
+- Fixed issue caused by incompatibility of default parameter on Internet Explorer 11.
 - Set up `H1` heading and enable by default.
 - Updated HandlebarJS version to 4.7.7.
 
