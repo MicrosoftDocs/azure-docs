@@ -93,7 +93,7 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 5. Mount the volume on the host: 
 
-    `sudo mount -t nfs -o sec=krb5p,rw,hard,rsize=1048576,wsize=1048576,vers=4.1,tcp $ANFEXPORT $ANFMOUNTPOINT`
+    `sudo mount -t nfs -o sec=krb5p,rw,hard,rsize=256,wsize=256,vers=4.1,tcp $ANFEXPORT $ANFMOUNTPOINT`
 
     * The `$ANFEXPORT` variable is the `host:/export` path found in the mount instructions.
     * The `$ANFMOUNTPOINT` variable is the user-created folder on the Linux host.
