@@ -164,9 +164,7 @@ The provisioning of the Log Analytics cluster takes a while to complete. Use one
 
 #### [Portal](#tab/azure-portal)
 
-The workspace link operation can take up to 90 minutes to complete. You can check the status on both the linked workspaces and the cluster. When completed, the workspace resource will include `clusterResourceId` property under `features`, and the cluster will include linked workspaces under `associatedWorkspaces` section.
-
-When a cluster is configured with a customer managed key, data ingested to the workspaces after the link operation is complete will be stored encrypted with your key.
+The portal will provide a status as the cluster is being provisioned.
 
 #### [CLI](#tab/cli)
 
@@ -326,8 +324,10 @@ Content-type: application/json
 
 
 ### Check workspace link status
-  
-When a cluster is configured with customer-managed keys, data ingested to the workspaces after the link operation completion is stored encrypted with your managed key. The workspace link operation can take up to 90 minutes to complete and you can check the state by sending Get request to workspace and observe if *clusterResourceId* property is present in the response under *features*.
+The workspace link operation can take up to 90 minutes to complete. You can check the status on both the linked workspaces and the cluster. When completed, the workspace resources will include `clusterResourceId` property under `features`, and the cluster will include linked workspaces under `associatedWorkspaces` section.
+
+When a cluster is configured with a customer managed key, data ingested to the workspaces after the link operation is complete will be stored encrypted with your key.
+
 
 #### [Portal](#tab/azure-portal)
 
