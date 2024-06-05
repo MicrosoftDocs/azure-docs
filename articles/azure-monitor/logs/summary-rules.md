@@ -54,13 +54,13 @@ You can also export summarized data from a custom log table to a Storage Account
 
 ## Create or update a summary rule
 
-Azure services provide and manage two types of predefined Summary rules, `User` and `System`. For rules that you create and configure, the `ruleType` property is always `User` and the `destinationTable` name must end with `_CL`. When you update a query and output fields are omitted from the results set, existing fields aren't automatically removed from the destination table. You can remove the fields by using the [Table API](/rest/api/loganalytics/tables/update?tabs=HTTP). 
+For rules that you create and configure, the `ruleType` property is always `User` and the `destinationTable` name must end with `_CL`, which is prefixed to all custom log tables. If you update a query and remove output fields from the results set, Azure Monitor doesn't automarically remove the fields from the destination table. You can remove the fields by using the [Table API](/rest/api/loganalytics/tables/update?tabs=HTTP). 
 
 > [!NOTE]
 > Before you create a rule configuration, first experiment with the intended query in Log Analytics Logs. Verify that the query doesn't hit or get close to the query limit. Confirm the query produces the intended schema shape and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
 
 ```kusto
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summaryslogs/{ruleName}?api-version=2023-01-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summarylogs/{ruleName}?api-version=2023-01-01-preview
 Authorization: {credential}
 
 {
