@@ -8,13 +8,13 @@
     href: advisor-release-notes.md
 - name: Get started
   items:
-  - name: Get started with Advisor
+  - name: Advisor portal basics
     href: advisor-get-started.md
-  - name: Permissions and blocked actions
+  - name: Roles and permissions
     href: permissions.md
-  - name: Consume Advisor score 
+  - name: Use Advisor score 
     href: azure-advisor-score.md
-  - name: Configure recommendations
+  - name: Configure recommendations view
     href: view-recommendations.md
   - name: Configure alerts for new recommendations
     items:
@@ -26,7 +26,7 @@
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md
-- name: Recommendations details
+- name: Recommendations list
   items:
   - name: Cost
     href: advisor-reference-cost-recommendations.md
