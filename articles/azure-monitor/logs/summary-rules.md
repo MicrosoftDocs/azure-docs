@@ -262,8 +262,12 @@ The short delay Azure Monitor adds is to account for [ingestion latency](data-in
 
 For example: 
 
-- You create a summary rule with a bin size of 30 minutes at 14:44. The rule creates the first aggregation shortly after 15:00 - for example, at 15:04 - for data logged between 14:30 and 15:00. 
-- You create a summary rule with a bin size of 720 minutes (12 hours) at 14:44. The rule creates the first aggregation at 16:12 - 72 minutes (10% of the 720 bin size) after 13:00 - for data logged between 03:00 and 15:00. 
+- You create a summary rule with a bin size of 30 minutes at 14:44. 
+
+  The rule creates the first aggregation shortly after 15:00 - for example, at 15:04 - for data logged between 14:30 and 15:00. 
+- You create a summary rule with a bin size of 720 minutes (12 hours) at 14:44. 
+
+  The rule creates the first aggregation at 16:12 - 72 minutes (10% of the 720 bin size) after 13:00 - for data logged between 03:00 and 15:00. 
 
 Use the `binStartTime` and `binDelay` parameters to change the timing of the first aggregation and the delay Azure Monitor adds before each aggregation.
 
@@ -309,7 +313,6 @@ Use this `GET` API call to view the configuration for a specific summary rule:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summarylogs/{ruleName1}?api-version=2023-01-01-preview
 Authorization: {credential}
 ```
-
 
 Use this `GET` API call to view the configuration to view the configuration of all summary rules in your Log Analytics workspace:
 
