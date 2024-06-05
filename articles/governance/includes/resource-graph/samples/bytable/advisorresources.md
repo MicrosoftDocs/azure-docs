@@ -9,21 +9,21 @@ ms.custom: generated
 
 ### Get cost savings summary from Azure Advisor
 
-This query summarizes the cost savings of each [Azure Advisor](../../../../articles/advisor/advisor-overview.md) recommendation.
+This query summarizes the cost savings of each [Azure Advisor](../../../../../../articles/advisor/advisor-overview.md) recommendation.
 
 ```kusto
 AdvisorResources
 | where type == 'microsoft.advisor/recommendations'
 | where properties.category == 'Cost'
 | extend
-	resources = tostring(properties.resourceMetadata.resourceId),
-	savings = todouble(properties.extendedProperties.savingsAmount),
-	solution = tostring(properties.shortDescription.solution),
-	currency = tostring(properties.extendedProperties.savingsCurrency)
+  resources = tostring(properties.resourceMetadata.resourceId),
+  savings = todouble(properties.extendedProperties.savingsAmount),
+  solution = tostring(properties.shortDescription.solution),
+  currency = tostring(properties.extendedProperties.savingsCurrency)
 | summarize
-	dcount(resources),
-	bin(sum(savings), 0.01)
-	by solution, currency
+  dcount(resources),
+  bin(sum(savings), 0.01)
+  by solution, currency
 | project solution, dcount_resources, sum_savings, currency
 | order by sum_savings desc
 ```
@@ -60,18 +60,18 @@ AdvisorResources
 | where properties.category == 'HighAvailability'
 | where properties.shortDescription.solution == 'Upgrade to the latest version of the Azure Connected Machine agent'
 | project
-		id,
-		JoinId = toupper(properties.resourceMetadata.resourceId),
-		machineName = tostring(properties.impactedValue),
-		agentVersion = tostring(properties.extendedProperties.installedVersion),
-		expectedVersion = tostring(properties.extendedProperties.latestVersion)
+    id,
+    JoinId = toupper(properties.resourceMetadata.resourceId),
+    machineName = tostring(properties.impactedValue),
+    agentVersion = tostring(properties.extendedProperties.installedVersion),
+    expectedVersion = tostring(properties.extendedProperties.latestVersion)
 | join kind=leftouter(
-	Resources
-	| where type == 'microsoft.hybridcompute/machines'
-	| project
-		machineId = toupper(id),
-		status = tostring (properties.status)
-	) on $left.JoinId == $right.machineId
+  Resources
+  | where type == 'microsoft.hybridcompute/machines'
+  | project
+    machineId = toupper(id),
+    status = tostring (properties.status)
+  ) on $left.JoinId == $right.machineId
 | where status != 'Expired'
 | summarize by id, machineName, agentVersion, expectedVersion
 | order by tolower(machineName) asc
