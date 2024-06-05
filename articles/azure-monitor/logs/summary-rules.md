@@ -261,11 +261,13 @@ The summary rule creates the first aggregation a short time after the next whole
 
 For example, if you create a summary rule with a bin size of 30 minutes at 14:44, the rule begins the aggregation shortly after 15:00, and aggregates data for 14:30-15:00. 
 
-The next sections provide more detailed examples of the basic rule configuration and the more advanced configuration, using the optional `binStartTime` and `binDelay` parameters.
+The next sections provide more detailed examples of the default rule configuration and the more advanced configuration, using the optional `binStartTime` and `binDelay` parameters.
 
-### Use default bin time configuration
+### Use default bin timing configuration
 
-The first rule run is at the next whole hour after rule provisioning plus delay, which can be from 3.5 minutes to 10% of the `binSize` value. In this scenario, execution adds a delay of 4 minutes.
+When you create a summary rule, by default, the rule begins agreggating data shortly after the next whole hour. This short delay ranges between three and a half minutes to 10% of the `binSize` value. 
+
+In this example, the rule adds a delay of four minutes.
 
 | binSize (minutes) | Rule first run time | First bin time | Second bin time |
 | --- | --- | --- | --- |
@@ -278,7 +280,7 @@ The first rule run is at the next whole hour after rule provisioning plus delay,
 |   30  | 2023-06-07 15:04 | 2023-06-07 14:30 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 15:30 |
 |   20  | 2023-06-07 15:04 | 2023-06-07 14:40 -- 2023-06-07 15:00 | 2023-06-07 15:00 -- 2023-06-07 15:20 |
 
-### Set optional bin time parameters
+### Set optional bin timing parameters
 
 The first rule run is at the next whole hour after rule provisioning plus a delay, which can be from 3.5 minutes to 10% of the binSize. If you want to control the execution hour for daily rules, or add a specified delay before bin is processed, include the `binStartTime`, `binDelay` value in the rule configuration. 
 
