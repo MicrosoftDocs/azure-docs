@@ -20,7 +20,7 @@ Considerations and limitations:
 
 * The Azure VPN Client for Linux isn't backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. The Azure VPN Client for Linux does support Custom Audience values.
 
-* [!INCLUDE [Supported versions](../../includes/vpn-gateway-azure-vpn-client-linux-supported-releases.md)]
+* [!INCLUDE [Supported versions](vpn-gateway-azure-vpn-client-linux-supported-releases.md)]
 
 * The Azure VPN Client for macOS and Windows is backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. You can also use Custom Audience values with these clients.
 

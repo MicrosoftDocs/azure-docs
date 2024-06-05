@@ -16,7 +16,6 @@ This article helps you connect to your Azure virtual network (VNet) from the Azu
 
 [!INCLUDE [Supported versions](../../includes/vpn-gateway-azure-vpn-client-linux-supported-releases.md)]
 
-
 ## Before you begin
 
 Verify that you are on the correct article. The following table shows the configuration articles available for Azure VPN Gateway P2S VPN clients. Steps differ, depending on the authentication type, tunnel type, and the client OS.
