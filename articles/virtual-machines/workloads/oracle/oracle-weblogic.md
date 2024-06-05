@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 This page describes the solutions for running Oracle WebLogic Server (WLS) on Azure Virtual Machines. These solutions are jointly developed and supported by Oracle and Microsoft.
 
-You can also run WebLogic Server on the Azure Kubernetes Service. The solutions to do so are described in the article [Running Oracle WebLogic Server on the Azure Kubernetes Service](./weblogic-aks.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
+You can also run WebLogic Server on the Azure Kubernetes Service. The solutions to do so are described in the article [Running Oracle WebLogic Server on the Azure Kubernetes Service](/azure/virtual-machines/workloads/oracle/weblogic-aks).
 
 WebLogic Server is a leading Java application server running some of the most mission-critical enterprise Java applications across the globe. WebLogic Server forms the middleware foundation for the Oracle software suite. Oracle and Microsoft are committed to empowering WebLogic customers with choice and flexibility to run workloads on Azure as a leading cloud platform. 
 
@@ -60,9 +60,9 @@ The solution templates introduced above support a range of operating system, Jav
 
 The following articles provide more information on getting started with these technologies.
 
-* [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](./weblogic-server-azure-virtual-machine.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-* [Manually install Oracle WebLogic Server on Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-azure-vm-manually?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-* [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](./weblogic-aks.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+* [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](./weblogic-server-azure-virtual-machine.md)
+* [Manually install Oracle WebLogic Server on Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-azure-vm-manually?toc=/azure/virtual-machines/workloads/oracle/toc.json&bc=/azure/virtual-machines/workloads/oracle/breadcrumb/toc.json)
+* [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](./weblogic-aks.md)
 
 To find more about Oracle WebLogic offers, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
 

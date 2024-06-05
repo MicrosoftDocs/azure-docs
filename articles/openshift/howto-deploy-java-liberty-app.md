@@ -24,7 +24,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note-java.md)]
 - A local machine with a Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
 - The [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
@@ -420,4 +420,4 @@ az group delete --name $DB_RESOURCE_GROUP_NAME --yes --no-wait
 Learn more about deploying IBM WebSphere family on Azure by following these links:
 
 > [!div class="nextstepaction"]
-> [Explore the IBM WebSphere family of products on Azure](/azure/developer/java/ee/websphere-family)
+> [Explore the IBM WebSphere family of products on Azure](/azure/developer/java/ee/websphere-family?toc=/azure/openshift/toc.json&bc=/azure/openshift/breadcrumb/toc.json)

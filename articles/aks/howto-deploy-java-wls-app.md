@@ -723,7 +723,7 @@ az group delete --name <db-resource-group-name> --yes --no-wait
 
 Learn more about running WebLogic Server on AKS or virtual machines by following these links:
 
-* [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-* [WebLogic Server on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+* [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json)
+* [WebLogic Server on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json)
 
 To find more about Oracle WebLogic offers, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.

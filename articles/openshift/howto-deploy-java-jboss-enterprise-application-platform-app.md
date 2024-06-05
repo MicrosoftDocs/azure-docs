@@ -522,4 +522,4 @@ If you're not going to continue to use the OpenShift cluster, navigate back to y
 Learn more about deploying JBoss EAP on Azure by following these links:
 
 > [!div class="nextstepaction"]
-> [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure)
+> [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure?toc=/azure/openshift/toc.json&bc=/azure/openshift/breadcrumb/toc.json)

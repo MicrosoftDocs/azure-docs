@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-
 
 This article shows you how to quickly deploy JBoss Enterprise Application Platform (EAP) on an Azure Virtual Machine (VM) using the Azure portal.
 
-This article uses the Azure Marketplace offer for JBoss EAP standalone server to accelerate your journey to Azure Virtual Machine. This solution automates most boilerplate steps to provision a single JBoss EAP instance on an Azure Virtual Machine. Once initial provisioning is complete, you are completely free to customize deployments further. The solution is jointly developed by Red Hat and Microsoft. If you prefer manual step-by-step guidance for installing Red Hat JBoss EAP Cluster on Azure VMs that doesn't utilize the automation enabled by the offer, see [Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually](/Azure/developer/java/migration/migrate-jboss-eap-to-azure-vm-manually).
+This article uses the Azure Marketplace offer for JBoss EAP standalone server to accelerate your journey to Azure Virtual Machine. This solution automates most boilerplate steps to provision a single JBoss EAP instance on an Azure Virtual Machine. Once initial provisioning is complete, you are completely free to customize deployments further. The solution is jointly developed by Red Hat and Microsoft. If you prefer manual step-by-step guidance for installing Red Hat JBoss EAP Cluster on Azure VMs that doesn't utilize the automation enabled by the offer, see [Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually](/azure/developer/java/migration/migrate-jboss-eap-to-azure-vm-manually?toc=/azure/virtual-machines/workloads/redhat/toc.json&bc=/azure/virtual-machines/workloads/redhat/breadcrumb/toc.json)).
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
@@ -180,4 +180,4 @@ az group delete --name <resource-group-name> --yes --no-wait
 Learn more about options of deploying JBoss EAP on Azure:
 
 > [!div class="nextstepaction"]
-> [JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure)
+> [JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure?toc=/azure/virtual-machines/workloads/redhat/toc.json&bc=/azure/virtual-machines/workloads/redhat/breadcrumb/toc.json)
