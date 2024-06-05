@@ -269,12 +269,16 @@ As your workload demands change, you can associate existing capacity reservation
 
 * You can also assign the user-managed identity on an existing managed cluster with update command.
 
-  ```azurecli-interactive
-    az aks update --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
-            --node-vm-size $VM_SKU --node-count $NODE_COUNT \
-            --assign-identity $IDENTITY_ID --enable-managed-identity         
-  ```
-
+    ```azurecli-interactive
+    az aks update \
+        --resource-group $RG_NAME \
+        --name $CLUSTER_NAME \
+        --location $LOCATION \
+        --node-vm-size $VM_SKU \
+        --node-count $NODE_COUNT \
+        --assign-identity $IDENTITY_ID         
+    ```
+    
 ### Associate an existing capacity reservation group with a node pool
 
 Associate an existing capacity reservation group with a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command and specify a capacity reservation group with the `--crg-id` flag. The following example assumes you have a CRG named "myCRG".
