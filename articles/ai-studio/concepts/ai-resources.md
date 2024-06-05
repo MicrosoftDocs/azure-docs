@@ -16,7 +16,7 @@ author: Blackmist
 
 # Manage, collaborate, and organize with hubs
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Hubs are the primary top-level Azure resource for AI studio and provide a central way for a team to govern security, connectivity, and computing resources across playgrounds and projects. Once a hub is created, it is enables developers to self-service create projects and access shared company resources without needing an IT administrator's repeated help.
 

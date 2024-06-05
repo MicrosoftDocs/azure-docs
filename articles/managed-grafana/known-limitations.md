@@ -47,7 +47,7 @@ Some Azure Managed Grafana features aren't available in Azure Government and Mic
 
 The following quotas apply to the Essential (preview) and Standard plans.
 
-[!INCLUDE [Azure Managed Grafana limits](../../includes/azure-managed-grafana-limits.md)]
+[!INCLUDE [Azure Managed Grafana limits](~/reusable-content/ce-skilling/azure/includes/azure-managed-grafana-limits.md)]
 
 Each data source also has its own limits that can be reflected in Azure Managed Grafana dashboards, alerts and reports. We recommend that you research these limits in the documentation of each data source provider. For instance:
 

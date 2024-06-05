@@ -13,7 +13,7 @@ ms.custom: devx-track-js, devguide-js, cosmos-db-dev-journey
 
 # Manage a MongoDB database using JavaScript
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Your MongoDB server in Azure Cosmos DB is available from the common npm packages for MongoDB such as:
 

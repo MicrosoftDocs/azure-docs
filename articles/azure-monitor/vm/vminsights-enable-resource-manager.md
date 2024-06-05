@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 author: guywi-ms
 ms.author: guywild
-ms.date: 09/28/2023
+ms.date: 05/20/2024
 ---
 
 # Enable VM insights using Resource Manager templates
@@ -19,13 +19,12 @@ If you aren't familiar with how to deploy a Resource Manager template, see [Depl
 
 ## Prerequisites
 
-- [Log Analytics workspace](../logs/quick-create-workspace.md).
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or Virtual Machine Scale Set you're enabling is supported. 
 - See [Manage the Azure Monitor agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor agent.
 - To enable network isolation for Azure Monitor Agent, see [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
 
 ## Resource Manager templates
-Use the Azure Resource Manager templates provided in this article to onboard virtual machines and Virtual Machine Scale Sets using Azure Monitor agent and Log Analytics agent. The templates install the required agents and perform the configuration required to onboard to machine to VM insights.
+Use the Azure Resource Manager templates provided in this article to onboard virtual machines and Virtual Machine Scale Sets using Azure Monitor agent. The templates install the required agents and perform the configuration required to onboard to machine to VM insights.
 
 >[!NOTE]
 > Deploy the template in the same resource group as the virtual machine or virtual machine scale set being enabled.
@@ -45,7 +44,6 @@ This step installs a data collection rule, named `MSVMI-{WorkspaceName}`, in the
    | DeployDcr\\<br>PerfAndMapDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable both Performance and Map experience of VM Insights. |
    | DeployDcr\\<br>PerfOnlyDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable only Performance experience of VM Insights. |
 
-
 ### Deploy agents to machines
 
 After you create the data collection rule, deploy:
@@ -55,29 +53,6 @@ After you create the data collection rule, deploy:
   
 > [!NOTE]
 > If your virtual machines scale sets have an upgrade policy set to manual, VM insights will not be enabled for instances by default after installing the template. You must manually upgrade the instances.
-
-## Enable VM insights using Log Analytics agent
-Download the [Logs Analytics agent templates](https://aka.ms/VmInsightsARMTemplates). You must first configure the workspace and can then install agents to use that DCR.
-
-### Configure workspace
-You only need to perform this step once for each workspace that will use VM insights.
-
-
-| Folder | File | Description |
-|:---|:---|
-| ConfigureWorkspace | ConfigureWorkspaceTemplate.json<br>ConfigureWorkspaceParameters | Install *VMInsights* solution required for the workspace. |
-
-### Deploy agents to machines
-Once the workspace has been configured, deploy the agents using one of the templates in the following table. Templates are available that apply to an existing machine or create a new machine enabled for VM insights.
-
-
-| Folder | File | Description |
-|:---|:---|
-| NewVmOnboarding | NewVmOnboardingTemplate.json<br>NewVmOnboardingParameters.json | Creates a virtual machine and enables it to be monitored with VM insights. |
-| ExistingVmOnboarding | ExistingVmOnboarding.json<br>ExistingVmOnboarding.json | Enables VM insights on existing virtual machine. |
-| NewVmssOnboarding | NewVmssOnboarding.json<br>NewVmssOnboarding.json | Creates a Virtual Machine Scale Set and enables it to be monitored with VM insights. |
-| ExistingVmssOnboarding | ExistingVmssOnboarding.json<br>ExistingVmssOnboarding.json | Enables VM insights on existing Virtual Machine Scale Set. |
-| ExistingArcVmOnboarding | ExistingArcVmOnboarding.json<br>ExistingArcVmOnboarding.json | Enables VM insights on existing Arc-enabled server. |
 
 ## Deploy templates
 Each folder in the download has a template and a parameters file. Modify the parameters file with required details such as Virtual Machine Resource ID, Workspace resource ID, data collection rule resource ID, Location, and OS Type. Don't modify the template file unless you need to customize it for your particular scenario.
