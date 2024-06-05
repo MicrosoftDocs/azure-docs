@@ -88,6 +88,6 @@ For more information, see [Open-source projects](git-projects.md).
 
 ## Can I enable disaster recovery for the MedTech service?
 
-The MedTech service isn't designed to fail over to another region. If the MedTech service becomes unavailable, it stops reading data from the Event Hub. When the service becomes available again, it begins reading data from the Event Hub starting from the last successfully processed message. To reduce the chance of data loss, we recommend that you set the [Event Hub message retention period](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features#event-retention) to at least 24 hours.
+The MedTech service isn't designed to fail over to another region. If the MedTech service becomes unavailable, it stops reading data from the Event Hub. When the service becomes available again, it begins reading data from the Event Hub starting from the last successfully processed message. To reduce the chance of data loss, we recommend that you set the [Event Hub message retention period](../../event-hubs/event-hubs-features.md) to at least 24 hours.
 
 [!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
