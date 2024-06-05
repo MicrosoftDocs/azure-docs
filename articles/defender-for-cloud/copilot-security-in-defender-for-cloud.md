@@ -16,13 +16,13 @@ Microsoft Copilot for Security is a cloud-based AI platform that provides natura
 
 Microsoft Defender for Cloud's integration with Copilot for Security enables users to understand the security posture of connected environments and understand and assist with the remediation process of those recommendations.
 
-## How Copilot for Security works in Defender for Cloud
+## How Copilot works in Defender for Cloud
 
-Defender for Cloud is integrated with Copilot for Security directly in the Defender for Cloud experience. This integration allows you to analyze, summarize, remediate, and delegate your recommendations with natural language prompts
+Defender for Cloud has integrated Copilot directly in to the Defender for Cloud experience. This integration allows you to analyze, summarize, remediate, and delegate your recommendations with natural language prompts
 
 :::image type="content" source="media/copilot-security-in-defender-for-cloud/analyze-copilot.png" alt-text="Screenshot that shows where the Analyze with copilot button located on the recommendations page." lightbox="media/copilot-security-in-defender-for-cloud/analyze-copilot.png":::
 
-When you open Copilot for Security, you can use natural language prompts to ask questions about the recommendations. Copilot for Security provides you with a response in natural language that helps you understand the context of the recommendation, the effect of implementing the recommendation, and the steps to take to implement the recommendation.
+When you open Copilot, you can use natural language prompts to ask questions about the recommendations. Copilot provides you with a response in natural language that helps you understand the context of the recommendation, the effect of implementing the recommendation, and the steps to take to implement the recommendation.
 
 Some sample prompts include:
 
@@ -30,22 +30,23 @@ Some sample prompts include:
 - Show critical risks to sensitive data
 - Show resources with high severity vulnerabilities
 
-Copilot for Security is also available for each recommendation and gives you the ability to summarize, remediate, and delegate the recommendation.
+Copilot can also assist with each recommendation and can refine your recommendations, provide a summary of individual recommendations, remediation steps for recommendations, and allow you to delegate recommendations.
 
 :::image type="content" source="media/copilot-security-in-defender-for-cloud/summarize-copilot.png" alt-text="Screenshot of a recommendation that shows where the Summarize with Copilot button is located." lightbox="media/copilot-security-in-defender-for-cloud/summarize-copilot.png":::
 
-## Copilot for Securities capabilities in Defender for Cloud
+## Copilot's capabilities in Defender for Cloud
 
-Copilot for Security in Defender for Cloud isn't reliant on any of the available plans in Defender for Cloud and is available for all users when you: 
+Copilot for Security in Defender for Cloud isn't reliant on any of the available plans in Defender for Cloud and is available for all users when you:
+
 1. [Enable Defender for Cloud on your environment](connect-azure-subscription.md).
-1. [Access to Azure Copilot](../copilot/overview.md).
-1. Have [Security Compute Units assigned for Copilot for Security](/copilot/security/get-started-security-copilot).
+1. [Have access to Azure Copilot](../copilot/overview.md).
+1. [Have Security Compute Units assigned for Copilot for Security](/copilot/security/get-started-security-copilot).
 
 However, in order to enjoy the full range of Copilot for Security's capabilities in Defender for Cloud, we recommend enabling the [Defender for Cloud Security Posture Management (DCSPM) plan](concept-cloud-security-posture-management.md#cspm-features) on your environments. The DCSPM plan includes many extra security features such as [Attack path analysis](how-to-manage-attack-path.md), [Risk prioritization](risk-prioritization.md) and more, all of which can be navigated and managed using Copilot for Security. Without the DCSPM plan, you're still able to use Copilot for Security in Defender for Cloud, but in a limited capacity.
 
 ## Monitor your usage
 
-Copilot for Security comes with a usage limit. When the usage in your organization is nearing its limit, you're notified of it when you submit a prompt. To avoid a disruption of service, you can contact the Azure capacity owner or contributor to increase the Security Compute Units or limit the number of prompts.
+Copilot for Security has a usage limit. When the usage in your organization is nearing its limit, you're notified when you submit a prompt. To avoid a disruption of service, you need to contact the Azure capacity owner or contributor to increase the Security Compute Units (SCU) or limit the number of prompts.
 
 Learn more about [usage limits](/copilot/security/manage-usage). 
 

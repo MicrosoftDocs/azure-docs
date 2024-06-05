@@ -10,7 +10,7 @@ ms.date: 06/04/2024
 
 # Remediate code with Copilot for Security
 
-Microsoft Defender for Cloud's integration with Microsoft Copilot for Security allows you to remediate Infrastructure as Code (IaC) misconfigurations that are discovered in your code repositories. Remediating an IaC finding with Copilot for Security enables you to address security misconfigurations and vulnerabilities early in the development cycle by automatically generating Pull Requests (PRs) that correct the identified weaknesses. Remediating these misconfigurations and vulnerabilities ensure that security issues in code are addressed accurately and promptly.
+Microsoft Defender for Cloud's integration with Microsoft Copilot for Security allows you to remediate Infrastructure as Code (IaC) misconfigurations that are discovered in your code repositories. Remediating an IaC finding with Copilot allows you to address security misconfigurations and vulnerabilities early in the development cycle by automatically generating Pull Requests (PRs) that correct the identified weaknesses. Remediating these misconfigurations and vulnerabilities ensure that security issues in code are addressed accurately and promptly.
 
 ## Prerequisites
 
