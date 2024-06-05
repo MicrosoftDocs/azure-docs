@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: nosql
-ms.date: 02/27/2024
+ms.date: 06/05/2024
 ms.custom: query-reference
 ---
 
