@@ -558,6 +558,8 @@
         href: migrate/migration-service/concepts-premigration-migration-service.md
       - name: User roles and permissions
         href: migrate/migration-service/concepts-user-roles-migration-service.md
+      - name: Runtime Server
+        href: migrate/migration-service/concepts-migration-service-runtime-server.md
       - name: Best practices
         href: migrate/migration-service/best-practices-migration-service-postgresql.md
       - name: Known issues and limitations
