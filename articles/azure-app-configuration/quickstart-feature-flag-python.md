@@ -23,7 +23,7 @@ This library does **not** have a dependency on any Azure libraries. They seamles
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/).
+- Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/), otherwise see [python downloads](https://www.python.org/downloads/).
 - [azure-appconfiguration-provider library](https://pypi.org/project/azure-appconfiguration-provider/) 1.2.0 or later.
 
 ## Add a feature flag
@@ -53,6 +53,8 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     connection_string = os.environ["APP_CONFIGURATION_CONNECTION_STRING"]
     
     # Connecting to Azure App Configuration using a connection string
+    # feature_flag_enabled makes it so that the provider will load feature flags from Azure App Configuration
+    # feature_flag_refresh_enabled makes it so that the provider will refresh feature flags from Azure App Configuration, when the refresh operation is triggered
     config = load(connection_string=connection_string, feature_flag_enabled=True, feature_flag_refresh_enabled=True)
     
     feature_manager = FeatureManager(config)
@@ -178,6 +180,9 @@ Update your template `index.html` to use the new feature flags.
 </body>
 ```
 
+> [!div class="mx-imgBorder"]
+> ![Enable feature flag beta enabled](media/beta-enabled.png)
+
 You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-flask-webapp-sample).
 
 ### [Django](#tab/django)
@@ -227,6 +232,9 @@ Update your template `index.html` to use the new configuration values.
   </main>
 </body>
 ```
+
+> [!div class="mx-imgBorder"]
+> ![Enable feature flag beta enabled](media/beta-enabled.png)
 
 You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-django-webapp-sample).
 
