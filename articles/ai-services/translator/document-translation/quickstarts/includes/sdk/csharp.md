@@ -47,7 +47,7 @@ Build succeeded.
 Within the application directory, install the Document Translation client library for .NET:
 
 ```console
-dotnet add package Azure.AI.Translation.Document --version 1.0.0
+dotnet add package Azure.AI.Translation.Document --version 2.0.0-beta
 ```
 
 ### Translate a document or batch files
@@ -56,7 +56,7 @@ dotnet add package Azure.AI.Translation.Document --version 1.0.0
 
 1. From the project directory, open the **Program.cs** file in your preferred editor or IDE. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`.
 
-1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/asynchronous-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../how-to-guides/use-rest-api-programmatically.md#retrieve-your-key-and-custom-domain-endpoint).
 
     ```csharp
     private static readonly string endpoint = "<your-document-translation-endpoint>";
@@ -216,7 +216,7 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 1. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`.
 
-1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/asynchronous-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../how-to-guides/use-rest-api-programmatically.md#retrieve-your-key-and-custom-domain-endpoint).
 
   ```csharp
   private static readonly string endpoint = "<your-document-translation-endpoint>";

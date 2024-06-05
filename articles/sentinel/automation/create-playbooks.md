@@ -4,7 +4,7 @@ description: Learn how to create and manage Microsoft Sentinel playbooks to auto
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 04/17/2024
+ms.date: 05/30/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -90,11 +90,11 @@ Do the following to create your playbook:
 
 1. In the **Review and create** tab, review the configuration choices you made, and select **Create and continue to designer**.
 
-    Your playbook will take a few minutes to be created and deployed, after which you see the message "Your deployment is complete" and you're taken to your new playbook's [Logic App Designer](/azure/logic-apps/logic-apps-overview). The trigger you chose at the beginning is automatically been added as the first step, and you can continue designing the workflow from there.
+    Your playbook will take a few minutes to be created and deployed, after which you see the message "Your deployment is complete" and you're taken to your new playbook's [Logic App Designer](/azure/logic-apps/logic-apps-overview). The trigger you chose at the beginning is automatically added as the first step, and you can continue designing the workflow from there.
 
     :::image type="content" source="../media/tutorial-respond-threats-playbook/logic-app-blank.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="../media/tutorial-respond-threats-playbook/logic-app-blank.png":::
 
-1. If you chose the **Microsoft Sentinel entity (Preview)** trigger, select the type of entity you want this playbook to receive as an input.
+1. If you chose the **Microsoft Sentinel entity** trigger, select the type of entity you want this playbook to receive as an input.
 
     :::image type="content" source="../media/tutorial-respond-threats-playbook/entity-trigger-types.png" alt-text="Screenshot of drop-down list of entity types to choose from to set playbook schema.":::
 
@@ -211,23 +211,17 @@ Do the following steps:
 
 1. Before the first action that refers to the **Incident ARM ID** field, add a **Condition** step.
 
-1. Select the **Choose a value** field and enter the **Add dynamic content** dialog.
+1. On the side, select the **Choose a value** field to enter the **Add dynamic content** dialog.
 
-1. Select the **Expression** tab and the **length(collection)** function.
+1. Select **Incident ARM ID (Optional)**, and the **is not equal to** operator.
 
-1. Select the **Dynamic content** tab and the **Incident ARM ID** field.
+1. Select **Choose a value** again to enter the **Add dynamic content** dialog.
 
-1. Verify the resulting expression is `length(triggerBody()?['IncidentArmID'])` and select **OK**. For example:
+1. Select the **Expression** tab and **null** function.
 
-    :::image type="content" source="../media/playbook-triggers-actions/condition-incident-id.png" alt-text="Screenshot of dynamic content dialog to select fields for a playbook condition.":::
+For example:
 
-1. Set the **operator** and **value** in the condition to **is greater than** and **0**. For example:
-
-    :::image type="content" source="../media/playbook-triggers-actions/condition-length.png" alt-text="Screenshot of final definition of condition described in the previous screenshot.":::
-
-1. In the **True** frame, add the actions to be taken if the playbook is run from an incident context.
-
-    In the **False** frame, add the actions to be taken if the playbook is run from a nonincident context.
+:::image type="content" source="../media/create-playbooks/no-incident-id.png" alt-text="Screenshot of the extra condition to add before the Incident ARM ID field.":::
 
 ### Dynamic content: Work with custom details
 

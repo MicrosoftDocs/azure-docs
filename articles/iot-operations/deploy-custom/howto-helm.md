@@ -63,7 +63,7 @@ resource helmChart 'Microsoft.iotoperationsorchestrator/targets@2023-10-04-previ
         type: 'helm.v3'
         properties: {
           chart: {
-            repo: 'oci://azureiotoperations.azurecr.io/simple-chart',
+            repo: 'oci://azureiotoperations.azurecr.io/simple-chart'
             version: '0.1.0'
           }
           values: akriValues

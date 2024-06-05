@@ -275,6 +275,8 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 To import from an Azure container registry in a different Microsoft Entra tenant, specify the source registry by login server name, and provide credentials that enable pull access to the registry. 
 
+* Cross-tenant import over public access disabled registry is not supported.   
+
 ### Cross-tenant import with username and password
 
 For example, use a [repository-scoped token](container-registry-repository-scoped-permissions.md) and password, or the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry.

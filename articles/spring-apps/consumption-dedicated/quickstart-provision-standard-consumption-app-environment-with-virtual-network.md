@@ -48,8 +48,6 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 
 1. In the search box, search for *Azure Spring Apps*, and then select **Azure Spring Apps** in the results.
 
-   :::image type="content" source="media/quickstart-provision-standard-consumption-app-environment-with-virtual-network/azure-spring-apps-start.png" alt-text="Screenshot of the Azure portal showing Azure Spring Apps in search results, with Azure Spring Apps highlighted in the search bar and in the results." lightbox="media/quickstart-provision-standard-consumption-app-environment-with-virtual-network/azure-spring-apps-start.png":::
-
 1. On the Azure Spring Apps page, select **Create**.
 
    :::image type="content" source="media/quickstart-provision-standard-consumption-app-environment-with-virtual-network/azure-spring-apps-create.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps page with the Create button highlighted." lightbox="media/quickstart-provision-standard-consumption-app-environment-with-virtual-network/azure-spring-apps-create.png":::
@@ -185,7 +183,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 1. At this point, you've created an Azure Container Apps environment with a default standard consumption workload profile. You can also add a dedicated workload profile to the same Azure Container Apps environment with the following command:
 
    ```azurecli
-   az containerapp env workload-profile set \
+   az containerapp env workload-profile add \
        --resource-group $RESOURCE_GROUP \
        --name $AZURE_CONTAINER_APPS_ENVIRONMENT
        --workload-profile-name my-wlp \

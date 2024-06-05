@@ -27,7 +27,7 @@ Within a few minutes, you can deploy your App Space.
 
 ## Simplified management
 
-App Spaces only requires information that's needed during the development process, like environment management, environment variables, connection strings, and so on. So, developing and managing your app components is straightforward and simplified. For more information, see [Manage components](quickstart-deploy-web-app.md#manage-components).
+App Spaces only requires information that's needed during the development process, like environment management, environment variables, connection strings, and so on. So, developing and managing your app components is straightforward and simplified. For more information, see [Manage components](how-to-manage-components.md).
 
 ## Simplified pricing
 
@@ -35,10 +35,10 @@ App Spaces only requires information that's needed during the development proces
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy a web app with App Spaces](quickstart-deploy-web-app.md)
+> [Deploy a web app with App Spaces](quickstart-deploy-starter-app.md)
 
 ## Related articles
 
-- [Deploy an App Spaces template](deploy-app-spaces-template.md)
+- [Deploy an App Spaces starter app](quickstart-deploy-starter-app.md)
 - [Compare Container Apps with other Azure contain options](../container-apps/compare-options.md)
 - [About Azure Cosmos DB](../cosmos-db/introduction.md)

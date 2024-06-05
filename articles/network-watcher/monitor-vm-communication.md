@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Monitor communication between the two virtual machines
 > * Diagnose a communication problem between the two virtual machines
 
-:::image type="content" source="./media/monitor-vm-communication/monitor-vm-connection-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial.":::
+:::image type="content" source="./media/monitor-vm-communication/monitor-vm-connection-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial." lightbox="./media/monitor-vm-communication/monitor-vm-connection-tutorial-diagram.png":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

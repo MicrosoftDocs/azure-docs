@@ -32,10 +32,18 @@ You can deploy TimeGEN-1 as a serverless API with pay-as-you-go billing. Nixtla 
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions don't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An Azure Machine Learning workspace. If you don't have a workspace, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
+- An Azure Machine Learning workspace. If you don't have a workspace, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one. The serverless API model deployment offering for TimeGEN-1 is only available with workspaces created in these regions:
 
-    > [!IMPORTANT]
-    > The serverless API model deployment offering for TimeGEN-1 is only available with workspaces created in the **East US 2** or **Sweden Central** regions.
+    > [!div class="checklist"]
+    > * East US
+    > * East US 2
+    > * North Central US
+    > * South Central US
+    > * West US
+    > * West US 3
+    > * Sweden Central
+
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md).
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -45,7 +53,7 @@ You can deploy TimeGEN-1 as a serverless API with pay-as-you-go billing. Nixtla 
 These steps demonstrate the deployment of TimeGEN-1. To create a deployment:
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
-1. Select the workspace in which you want to deploy your models. To use the serverless API model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
+1. Select the workspace in which you want to deploy your models. To use the serverless API model deployment offering, your workspace must belong to one of the regions listed in the [Prerequisites](#prerequisites) section.
 1. Choose the model **TimeGEN-1**, from the [model catalog](https://ml.azure.com/model/catalog). 
 1. On the model's overview page in the model catalog, select **Deploy** to open up the serverless API deployment window.
 

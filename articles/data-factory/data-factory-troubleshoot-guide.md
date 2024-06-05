@@ -99,7 +99,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 <br/> 
 
-- **Message**: `User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not authorized to access cluster.`
+- **Message**: `User: 'SimpleUserContext{userId=..., name=user@company.com, orgId=...}' is not authorized to access cluster.`
 
 - **Cause**: The user who generated the access token isn't allowed to access the Databricks cluster specified in the linked service.
 
