@@ -11,8 +11,6 @@ ms.date: 03/29/2024
 
 # Automate build and deployment for Standard logic app workflows with Azure DevOps (preview)
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
 > [!NOTE]
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
