@@ -16,7 +16,7 @@ ms.custom: compute-evergreen
 
 Here are some common problems and solutions related to Azure Cloud Services roles that fail to start.
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Missing DLLs or dependencies
 Unresponsive roles and roles that are cycling between **Initializing**, **Busy**, and **Stopping** states can be caused by missing DLLs or assemblies.

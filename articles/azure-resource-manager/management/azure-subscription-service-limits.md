@@ -49,7 +49,7 @@ The following limits apply to [management groups](../../governance/management-gr
 
 The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### Resource group limits
 
@@ -79,11 +79,11 @@ This section provides information about limits that apply to Azure API Managemen
 
 ### Limits - API Management v2 tiers
 
-[!INCLUDE [api-management-service-limits-v2](../../../includes/api-management-service-limits-v2.md)]
+[!INCLUDE [api-management-service-limits-v2](~/reusable-content/ce-skilling/azure/includes/api-management-service-limits-v2.md)]
 
 ### Limits - Developer portal in API Management v2 tiers
 
-[!INCLUDE [api-management-developer-portal-limits-v2](../../../includes/api-management-developer-portal-limits-v2.md)]
+[!INCLUDE [api-management-developer-portal-limits-v2](~/reusable-content/ce-skilling/azure/includes/api-management-developer-portal-limits-v2.md)]
 
 ## App Service limits
 
@@ -116,11 +116,11 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 **Limits per subscription**
 
-[!INCLUDE [azure-search-limits-per-subscription](../../../includes/azure-search-limits-per-subscription.md)]
+[!INCLUDE [azure-search-limits-per-subscription](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-subscription.md)]
 
 **Limits per search service**
 
-[!INCLUDE [azure-search-limits-per-service](../../../includes/azure-search-limits-per-service.md)]
+[!INCLUDE [azure-search-limits-per-service](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-service.md)]
 
 To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](../../search/search-limits-quotas-capacity.md).
 
@@ -152,7 +152,7 @@ Azure Communications Gateway also has limits on the SIP signaling.
 
 For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
 
-[!INCLUDE [container-apps-limits](../../../includes/container-apps/container-apps-limits.md)]
+[!INCLUDE [container-apps-limits](~/reusable-content/ce-skilling/azure/includes/container-apps/container-apps-limits.md)]
 
 ## Azure Cosmos DB limits
 
@@ -180,7 +180,7 @@ To learn more about the limits for Azure Files and File Sync, see [Azure Files s
 
 ## Azure Functions limits
 
-[!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
+[!INCLUDE [functions-limits](~/reusable-content/ce-skilling/azure/includes/functions-limits.md)]
 
 For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md).
 
@@ -196,7 +196,7 @@ For more information, see [Functions Hosting plans comparison](../../azure-funct
 
 ## Azure Kubernetes Service limits
 
-[!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
+[!INCLUDE [container-service-limits](~/reusable-content/ce-skilling/azure/includes/container-service-limits.md)]
 
 ## Azure Lab Services
 
@@ -216,7 +216,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ## Azure Managed Grafana limits
 
-[!INCLUDE [Azure Managed Grafana limits](../../../includes/azure-managed-grafana-limits.md)]
+[!INCLUDE [Azure Managed Grafana limits](~/reusable-content/ce-skilling/azure/includes/azure-managed-grafana-limits.md)]
 
 ## Azure Monitor limits
 
@@ -265,23 +265,23 @@ This section lists the following limits for Azure Storage:
 ### Standard storage account limits
 
 <!--like # storage accts -->
-[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
+[!INCLUDE [azure-storage-account-limits-standard](~/reusable-content/ce-skilling/azure/includes/azure-storage-account-limits-standard.md)]
 
 ### Azure Storage resource provider limits
 
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-storage-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-azure-resource-manager.md)]
 
 ### Azure Blob Storage limits
 
-[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
+[!INCLUDE [storage-blob-scale-targets](~/reusable-content/ce-skilling/azure/includes/storage-blob-scale-targets.md)]
 
 ### Azure Queue storage limits
 
-[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
+[!INCLUDE [storage-queues-scale-targets](~/reusable-content/ce-skilling/azure/includes/storage-queues-scale-targets.md)]
 
 ### Azure Table storage limits
 
-[!INCLUDE [storage-tables-scale-targets](../../../includes/storage-tables-scale-targets.md)]
+[!INCLUDE [storage-tables-scale-targets](~/reusable-content/ce-skilling/azure/includes/storage-tables-scale-targets.md)]
 
 ## Azure subscription creation limits
 
@@ -305,7 +305,7 @@ To learn more about the creation limits for Azure subscriptions, see [Billing ac
 
 ## Batch limits
 
-[!INCLUDE [azure-batch-limits](../../../includes/azure-batch-limits.md)]
+[!INCLUDE [azure-batch-limits](~/reusable-content/ce-skilling/azure/includes/azure-batch-limits.md)]
 
 ## Classic deployment model limits
 
@@ -321,7 +321,7 @@ If you use classic deployment model instead of the Azure Resource Manager deploy
 
 The following table details the features and limits of the Basic, Standard, and Premium [service tiers](../../container-registry/container-registry-skus.md).
 
-[!INCLUDE [container-registry-limits](../../../includes/container-registry-limits.md)]
+[!INCLUDE [container-registry-limits](~/reusable-content/ce-skilling/azure/includes/container-registry-limits.md)]
 
 ## Content Delivery Network limits
 
@@ -350,14 +350,14 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Device Update for IoT Hub  limits
 
-[!INCLUDE [device-update-for-iot-hub-limits](../../../includes/device-update-for-iot-hub-limits.md)]
+[!INCLUDE [device-update-for-iot-hub-limits](~/reusable-content/ce-skilling/azure/includes/device-update-for-iot-hub-limits.md)]
 
 ## Digital Twins limits
 
 > [!NOTE]
 > Some areas of this service have adjustable limits, and others do not. This is represented in the following tables with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
 
-[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
+[!INCLUDE [digital-twins-limits](~/reusable-content/ce-skilling/azure/includes/digital-twins-limits.md)]
 
 ## Event Grid limits
 
@@ -375,11 +375,11 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## IoT Hub Device Provisioning Service limits
 
-[!INCLUDE [azure-iotdps-limits](../../../includes/iot-dps-limits.md)]
+[!INCLUDE [azure-iotdps-limits](~/reusable-content/ce-skilling/azure/includes/iot-dps-limits.md)]
 
 ## Key Vault limits
 
-[!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault-limits.md)]
 
 ## Managed identity limits
 
@@ -421,7 +421,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 ### Azure DNS limits
 
-[!INCLUDE [dns-limits](../../../includes/dns-limits.md)]
+[!INCLUDE [dns-limits](~/reusable-content/ce-skilling/azure/includes/dns-limits.md)]
 
 ### Azure Firewall limits
 
@@ -433,15 +433,15 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 ### Azure Network Watcher limits
 
-[!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
+[!INCLUDE [network-watcher-limits](~/reusable-content/ce-skilling/azure/includes/network-watcher-limits.md)]
 
 ### Azure Route Server limits
 
-[!INCLUDE [Azure Route Server Limits](../../../includes/route-server-limits.md)]
+[!INCLUDE [Azure Route Server Limits](~/reusable-content/ce-skilling/azure/includes/route-server-limits.md)]
 
 ### ExpressRoute limits
 
-[!INCLUDE [expressroute-limits](../../../includes/expressroute-limits.md)]
+[!INCLUDE [expressroute-limits](~/reusable-content/ce-skilling/azure/includes/expressroute-limits.md)]
 
 ### NAT Gateway limits
 
@@ -483,7 +483,7 @@ For Microsoft Sentinel limits, see [Service limits for Microsoft Sentinel](../..
 
 ## Service Bus limits
 
-[!INCLUDE [azure-servicebus-limits](../../../includes/service-bus-quotas-table.md)]
+[!INCLUDE [azure-servicebus-limits](~/reusable-content/ce-skilling/azure/includes/service-bus-quotas-table.md)]
 
 ## Site Recovery limits
 
@@ -502,7 +502,7 @@ The maximum number of private endpoints per Azure SQL Database logical server is
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ### Virtual machine disk limits
 
-[!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
+[!INCLUDE [azure-storage-limits-vm-disks](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks.md)]
 
 For more information, see [Virtual machine sizes](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -520,13 +520,13 @@ need to increase the quota, contact Azure support.
 
 ### Managed virtual machine disks
 
-[!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
+[!INCLUDE [azure-storage-limits-vm-disks-managed](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks-managed.md)]
 
 ### Unmanaged virtual machine disks
 
-[!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
+[!INCLUDE [azure-storage-limits-vm-disks-standard](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks-standard.md)]
 
-[!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
+[!INCLUDE [azure-storage-limits-vm-disks-premium](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks-premium.md)]
 
 ## StorSimple System limits
 

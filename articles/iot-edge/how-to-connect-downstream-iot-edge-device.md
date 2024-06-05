@@ -302,6 +302,10 @@ You should already have IoT Edge installed on your device. If not, follow the st
 01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.5. For example:
 
     ```toml
+    [agent]
+    name = "edgeAgent"
+    type = "docker"
+    
     [agent.config]
     image = "mcr.microsoft.com/azureiotedge-agent:1.5"
     ```
@@ -512,6 +516,10 @@ You should already have IoT Edge installed on your device. If not, follow the st
 01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.5. For example:
 
     ```toml
+    [agent]
+    name = "edgeAgent"
+    type = "docker"
+
     [agent.config]
     image: "mcr.microsoft.com/azureiotedge-agent:1.5"
     ```

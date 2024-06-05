@@ -6,8 +6,8 @@ ms.author: sunishvohra
 ms.manager: vijain
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 09/13/2023
-ms.custom: engagement-fy23
+ms.date: 03/18/2024
+ms.custom: engagement-fy24
 ---
 
 # Prepare on-premises machines for migration to Azure
