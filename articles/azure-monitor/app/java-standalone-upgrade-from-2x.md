@@ -152,3 +152,7 @@ The telemetry processors perform the following actions (in order):
   }
 }
 ```
+
+## Project example
+
+This [Java 2.x SDK project](https://github.com/Azure-Samples/ApplicationInsights-Java-Samples/tree/main/advanced/migration-2x) is migrated to [a new project using the 3.x Java agent](https://github.com/Azure-Samples/ApplicationInsights-Java-Samples/tree/main/advanced/migration-3x).

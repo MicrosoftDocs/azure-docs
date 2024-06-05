@@ -27,7 +27,7 @@ To achieve these goals, Contoso needs to:
 
 - Follow the steps in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations Preview on an Azure Arc-enabled Kubernetes cluster.
 
-- A Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
+- A Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric trial capacity](/fabric/get-started/fabric-trial). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
 
   - [Allow service principals to use Power BI APIs](/fabric/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
   - [Users can access data stored in OneLake with apps external to Fabric](/fabric/admin/service-admin-portal-onelake#users-can-access-data-stored-in-onelake-with-apps-external-to-fabric)
@@ -793,10 +793,13 @@ In [Microsoft Fabric](https://msit.powerbi.com/groups/me/list?experience=power-b
 1. Select **DirectQuery** as the connection setting and then select **OK**.
 
 You can now create measurements and tiles to display OEE for your production lines by using formulae such as:
-- `OEE = Availability\*performance\*Quality`
-- `Performance = TotalUnitsProduced/10 (StandardProductionOutput)`
+
+- `OEE = Availability*Performance*Quality`
+- `Performance = TotalUnitsProduced/10`
 - `Availability = TotalOperatingTime/PlannedProductionTime`
 - `Quality = TotalGoodUnitsProduced/TotalUnitsProduced`
+
+The performance calculation above uses a factor of 10 in the calculation. This factor is specific to Contoso bakery and uses an estimate of the ideal cycle time for the production line. To learn more, see [Overall equipment effectiveness](https://wikipedia.org/wiki/Overall_equipment_effectiveness).
 
 Follow these steps to create some measures and use them to build a visualization dashboard.
 

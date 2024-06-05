@@ -107,10 +107,10 @@ You can either [grant access to your key vault for the identity after cluster cr
         --network-plugin azure \
         --load-balancer-sku standard \
         --windows-admin-username $WINDOWS_USERNAME \
-        --enable-managed-identity \
         --enable-windows-gmsa \
         --gmsa-dns-server $DNS_SERVER \
-        --gmsa-root-domain-name $ROOT_DOMAIN_NAME
+        --gmsa-root-domain-name $ROOT_DOMAIN_NAME \
+        --generate-ssh-keys
     ```
 
     > [!NOTE]
