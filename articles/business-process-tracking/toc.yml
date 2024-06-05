@@ -1,10 +1,10 @@
 items:
-- name: Business Process Tracking documentation
+- name: Azure Business Process Tracking documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: About Business Process Tracking
+  - name: About Azure Business Process Tracking
     href: overview.md
 - name: How-to guides
   expanded: true

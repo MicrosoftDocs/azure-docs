@@ -56,7 +56,7 @@ To get started, see [Create an integration environment](create-integration-envir
 
 ## Business process tracking
 
-To help provide business scenario traceability for the Azure resources in your integration solution, you can optionally and separately create business processes that you link to your application group. A business process is a series of stages that represent the tasks that flow through a real-world business scenario. That way, you add business context about the resources in an application group that visually describe the relationships between your solution's business logic and implementation. To get started, see [Create a business process](../business-process-tracking/create-business-process.md) and [What is Business Process Tracking](../business-process-tracking/overview.md)?
+To help provide business scenario traceability for the Azure resources in your integration solution, you can optionally and separately use Azure Business Tracking to create business processes that you link to your application group. In Azure Business Process Tracking, a business process is a series of stages that represent the tasks that flow through a real-world business scenario. That way, you add business context about the resources in an application group that visually describe the relationships between your solution's business logic and implementation. To get started, see [Create a business process](../business-process-tracking/create-business-process.md) and [What is Business Process Tracking](../business-process-tracking/overview.md)?
 
 <a name="supported-resources"></a>
 

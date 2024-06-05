@@ -727,7 +727,7 @@ items:
   - name: Azure Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
-  - name: Business Process Tracking
+  - name: Azure Business Process Tracking
     tocHref: /azure/business-process-tracking/
     topicHref: /azure/business-process-tracking/
   - name: Machine Learning

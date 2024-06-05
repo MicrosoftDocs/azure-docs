@@ -8,14 +8,14 @@ ms.date: 06/07/2024
 # CustomerIntent: As a developer or business analyst with a solution that has multiple or different Azure resources that integrate various services and systems, I want a way to visualize my organization's business processes and map them to the actual Azure resources that implement those use cases. For our business, I also want to record key business data that moves through these resources to gain better insight about how our solutions perform.
 ---
 
-# What is Business Process Tracking? (Preview)
+# What is Azure Business Process Tracking? (Preview)
 
 > [!IMPORTANT]
 >
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-As a developer or business analyst working on solutions that integrate services and systems using various Azure resources, you might have difficulties visualizing the relationship between the technical components in your solution and your business scenario. To include business context about the Azure resources in your solution, you can build business processes that visually represent the business logic implemented by these resources. In Business Process Tracking, a business process is a series of stages that represent the tasks flowing through real-world business scenario.
+As a developer or business analyst working on solutions that integrate services and systems using various Azure resources, you might have difficulties visualizing the relationship between the technical components in your solution and your business scenario. To include business context about the Azure resources in your solution, you can build business processes that visually represent the business logic implemented by these resources. In Azure Business Process Tracking, a business process is a series of stages that represent the tasks flowing through real-world business scenario.
 
 For example, suppose you're a developer or business analyst at a power company, and you work on a team that creates integration solutions. Your team is updating a solution for a work order processor service that's implemented by multiple Standard logic apps and their workflows. Your company's customer service team uses the following business process to resolve a customer ticket for a power outage:
 
@@ -82,7 +82,7 @@ To help you organize and manage the deployed Azure resources that you use in you
 
 ## Pricing information
 
-Business Process Tracking doesn't incur charges during preview. However, when you create a business process, you're required to provide information for an existing or new [Azure Data Explorer cluster, database, and table](/azure/data-explorer/create-cluster-and-database). Your business process uses this database to store transactions and the business property values that you want to record for later evaluation. Azure Data Explorer incurs charges, based on the selected pricing option. For more information, see [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
+Azure Business Process Tracking doesn't incur charges during preview. However, when you create a business process, you're required to provide information for an existing or new [Azure Data Explorer cluster, database, and table](/azure/data-explorer/create-cluster-and-database). Your business process uses this database to store transactions and the business property values that you want to record for later evaluation. Azure Data Explorer incurs charges, based on the selected pricing option. For more information, see [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
 
 ## Related content
 
