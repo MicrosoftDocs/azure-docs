@@ -59,6 +59,8 @@ For rules that you create and configure, the `ruleType` property is always `User
 > [!NOTE]
 > Before you create a rule configuration, first experiment with the intended query in Log Analytics Logs. Verify that the query doesn't hit or get close to the query limit. Confirm the query produces the intended schema shape and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
 
+### [API](#tab/api)
+
 ```kusto
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summarylogs/{ruleName}?api-version=2023-01-01-preview
 Authorization: {credential}
@@ -75,6 +77,165 @@ Authorization: {credential}
   }
 }
 ```
+
+### [Resource Manager template](#tab/azure-resource-manager)
+
+#### Template file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "type": "String",
+      "metadata": {
+        "description": "The workspace name where Summary rule is deployed."
+      }
+    },
+    "summaryRuleName": {
+      "type": "String",
+      "metadata": {
+        "description": "The Summary rule name."
+      }
+    },
+    "description": {
+      "type": "String",
+      "metadata": {
+        "description": "A description of the rule."
+      }
+    },
+    "location": {
+      "defaultValue": "[resourceGroup().location]",
+      "type": "String",
+      "metadata": {
+        "description": "The Location of the workspace Summary rule is deployed."
+      }
+    },
+    "ruleType": {
+      "defaultValue": "User",
+      "allowedValues": [
+        "User"
+      ],
+      "type": "String",
+      "metadata": {
+        "description": "The Summary rule type (User,System). Should be 'User' for and rule with query that you define."
+      }
+    },
+    "query": {
+      "type": "String",
+      "metadata": {
+      "description": "The query used in Summary rules."
+      }
+    },
+    "binSize": {
+      "defaultValue": 60,
+      "allowedValues": [
+        20,
+        30,
+        60,
+        120,
+        180,
+        360,
+        720,
+        1440
+      ],
+      "type": "Int",
+      "metadata": {
+        "description": "The execution interval in minutes, and the lookback time range."
+      }
+    },
+    "destinationTable": {
+      "type": "String",
+      "metadata": {
+        "description": "The name of the custom-log table Summary results sent to. Name must end with '_CL'."
+      }
+    }
+    // ----- optional -----
+    // "binDelay": {
+    //   "type": "Int",
+    //   "metadata": {
+    //     "description": "Optional - The minimum wait time in minutes before bin execution. For example, value of '10' cause bin (01:00-02:00) to be executed after 02:10."
+    //   }
+    // },
+    // "timeSelector": {
+    //   "defaultValue": "TimeGenerated",
+    //   "allowedValues": [
+    //     "TimeGenerated"
+    //   ],
+    //   "type": "String",  
+    //   "metadata": {
+    //     "description": "Optional - The time field to be used by the Summary rule. Must be 'TimeGenerated'."
+    //   }
+    // },
+    // "binStartTime": {
+    //   "type": "String",
+    //   "metadata": {
+    //     "description": "Optional - The Time of initial bin. Can start at current time minus binSize, or future, and in whole hours. For example: '2024-01-01T08:00'."
+    //   }
+    // }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.OperationalInsights/workspaces/summaryLogs",
+      "apiVersion": "2023-01-01-preview",
+      //"name": "[format('{0}/{1}', parameters('workspaceName'), parameters('summaryRuleName'))]",
+      "name": "[concat(parameters('workspaceName'), '/', parameters('summaryRuleName'))]",
+      "properties": {
+        "ruleType": "[parameters('ruleType')]",
+        "description": "[parameters('description')]",
+        "ruleDefinition": {
+          "query": "[parameters('query')]",
+          "binSize": "[parameters('binSize')]",
+          "destinationTable": "[parameters('destinationTable')]"
+          // ----- optional -----
+          //"binDelay": "[parameters('binDelay')]",
+          //"timeSelector": "[parameters('timeSelector')]",
+          //"binStartTime": "[parameters('binStartTime')]"
+        }
+      }
+    }
+  ]
+}
+```
+
+
+#### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "value": "yossiy-eus"
+    },
+    "summaryRuleName": {
+      "value": "SummaryOfStorage"
+    },
+    "description": {
+      "value": "A test rule"
+    },
+    "location": {
+      "value": "eastus"
+    },
+    "ruleType": {
+      "value": "User"
+    },
+    "query": {
+      "value": "StorageBlobLogs | summarize Count = count(), DurationMs98 = percentile(DurationMs, 90) by StatusCode, CallerIpAddress, OperationName"
+    },
+    "binSize": {
+      "value": 20
+    },
+    "destinationTable": {
+      "value": "SummaryStorageBlobLogs_CL"
+    }
+  }
+}
+```
+---
 
 This table describes the summary rule properties:
 
