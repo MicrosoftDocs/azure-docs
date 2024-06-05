@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Known issues and limitations for the migration service in Azure Database for PostgreSQL
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes the known issues and limitations associated with the migrations service in Azure Database for PostgreSQL.
 
