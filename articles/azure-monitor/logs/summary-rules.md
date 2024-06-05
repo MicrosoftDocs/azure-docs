@@ -304,7 +304,7 @@ In this example, the summary rule is created at on 2023-06-07 at 14:44, and the 
 
 ## View summary rules
 
-The following example shows how to view the configuration for a specific Summary rule:
+Use this `GET` API call to view the configuration for a specific summary rule:
 
 ```kusto
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summarylogs/{ruleName1}?api-version=2023-01-01-preview
@@ -312,7 +312,7 @@ Authorization: {credential}
 ```
 
 
-The following example shows how to view the configuration for all Summary rules in your Log Analytics workspace:
+Use this `GET` API call to view the configuration to view the configuration of all summary rules in your Log Analytics workspace:
 
 ```kusto
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summarylogs?api-version=2023-01-01-preview
@@ -330,7 +330,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 Authorization: {credential}
 ```
 
-If a Summary rule is deliberately stopped, or stopped due to bin execution exhaustion, you can start the rule. Processing starts from the next whole hour, or per the defined `binStartTime` (optional) hour.
+If a Summary rule is deliberately stopped, or stopped due to bin execution exhaustion, you can restart the rule. Processing starts from the next whole hour, or per the defined `binStartTime` (optional) hour.
 
 The following example demonstrates how to start a rule:
 
