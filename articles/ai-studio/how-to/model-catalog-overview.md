@@ -87,16 +87,16 @@ Models available for deployment to a Managed compute can be deployed to Azure Ma
 * [Deploy Meta Llama models](deploy-models-llama.md) 
 * [Deploy Open models Created by Azure AI](deploy-models-open.md)
 
-### Build Generative AI Apps with Managed computes
+### Build Generative AI Apps with Managed compute
 
 Prompt flow offers a great experience for prototyping. You can use models deployed with Managed computes in Prompt Flow with the [Open Model LLM tool](../../machine-learning/prompt-flow/tools-reference/open-model-llm-tool.md).  You can also use the REST API exposed by managed compute in popular LLM tools like LangChain with the [Azure Machine Learning extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
 
 
-### Content safety for models deployed as Managed Computes 
+### Content safety for models deployed as Managed Compute
 
 [Azure AI Content Safety (AACS)](../../ai-services/content-safety/overview.md) service is available for use with Managed computes to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the Content Safety (Text) tool in Prompt Flow to pass responses from the model to AACS for screening. You are billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. 
 
-### Serverless APIs with Pay-as-you-go billing
+## Serverless APIs with Pay-as-you-go billing
 
 Certain models in the Model Catalog can be deployed as serverless APIs with pay-as-you-go billing; this method of deployment is called Models-as-a Service (MaaS), providing a way to consume them as an API without hosting them on your subscription. Models available through MaaS are hosted in infrastructure managed by Microsoft, which enables API-based access to the model provider's model. API based access can dramatically reduce the cost of accessing a model and significantly simplify the provisioning experience. Most MaaS models come with token-based pricing.   
 
