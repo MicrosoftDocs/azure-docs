@@ -6,7 +6,7 @@ ms.date: 06/05/2024
 author: HeidiSteen
 ms.author: heidist
 ms.reviewer: scaddie
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, build-2024-intelligent-apps
 #customer intent: As a developer, I want to use passwordless connections so that I don't leak secrets.
 ---
 
@@ -35,10 +35,6 @@ Authentication differs based on the environment in which the app is running:
 
 Select a tool for [authentication during local development](/dotnet/api/overview/azure/identity-readme#authenticate-the-client).
 
-#### [Go](#tab/go)
-
-Select a tool for [authentication during local development](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity#authenticating-during-local-development).
-
 #### [Java](#tab/java)
 
 Select a tool for [authentication during local development](/java/api/overview/azure/identity-readme#authenticate-the-client).
@@ -58,10 +54,6 @@ Select a tool for [authentication during local development](/python/api/overview
 #### [.NET](#tab/csharp)
 
 Learn about how to manage the [DefaultAzureCredential](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) for applications deployed to Azure.
-
-#### [Go](#tab/go)
-
-Learn about how to manage the [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-defaultazurecredential) for applications deployed to Azure.
 
 #### [Java](#tab/java)
 
@@ -228,7 +220,7 @@ To connect to Azure AI Search, your code needs to know your resource endpoint, a
 
 1. Create an environment variable for your Azure AI Search endpoint. 
 
-    * `AZURE_AISEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.
+    * `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.
     
 2. Create environment variables based on the location in which your app runs:
 
@@ -246,14 +238,6 @@ Install the .NET [Azure Identity client library](https://www.nuget.org/packages/
 
 ```dotnetcli
 dotnet add package Azure.Identity
-```
-
-### [Go](#tab/go)
-
-Install the Go [Azure Identity client library](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity):
-
-```bash
-go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
 ### [Java](#tab/java)
@@ -301,22 +285,65 @@ The Azure Identity library's `DefaultAzureCredential` allows the customer to run
 For more information on `DefaultAzureCredential` for .NET, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme#defaultazurecredential).
 
 ```csharp
+using Azure;
+using Azure.Search.Documents;
+using Azure.Search.Documents.Indexes;
+using Azure.Search.Documents.Indexes.Models;
+using Azure.Search.Documents.Models;
+using Azure.Identity;
+using System;
+using static System.Environment;
+
+string endpoint = GetEnvironmentVariable("AZURE_SEARCH_ENDPOINT");
+string indexName = "my-search-index";
+
+SearchClient client = new SearchClient(new Uri(endpoint), indexName, new DefaultAzureCredential());
+
+SearchIndexClient client = new SearchIndexClient(endpoint, new DefaultAzureCredential());
 ```
-
-### [Go](#tab/go)
-
-For more information on `DefaultAzureCredential` for Go, see [Azure Identity client library for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-defaultazurecredential).
-
-
-```go
-```
-
 
 ### [Java](#tab/java)
 
 For more information on `DefaultAzureCredential` for Java, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme#defaultazurecredential).
 
 ```java
+import com.azure.identity.DefaultAzureCredentialBuilder;
+import com.azure.search.documents.SearchAsyncClient;
+import com.azure.search.documents.SearchClientBuilder;
+import com.azure.search.documents.SearchDocument;
+import com.azure.search.documents.indexes.SearchIndexAsyncClient;
+import com.azure.search.documents.indexes.SearchIndexClientBuilder;
+
+String ENDPOINT = System.getenv("AZURE_SEARCH_ENDPOINT");
+String INDEX_NAME = "my-index";
+
+DefaultAzureCredential CREDENTIAL = new DefaultAzureCredentialBuilder().build();
+
+// Sync SearchClient
+SearchClient searchClient = new SearchClientBuilder()
+    .endpoint(ENDPOINT)
+    .credential(CREDENTIAL)
+    .indexName(INDEX_NAME)
+    .buildClient();
+
+// Sync IndexClient
+SearchIndexClient searchIndexClient = new SearchIndexClientBuilder()
+    .endpoint(ENDPOINT)
+    .credential(CREDENTIAL)
+    .buildClient();
+
+// Async SearchClient
+SearchAsyncClient searchAsyncClient = new SearchClientBuilder()
+    .endpoint(ENDPOINT)
+    .credential(CREDENTIAL)
+    .indexName(INDEX_NAME)
+    .buildAsyncClient();
+
+// Async IndexClient
+SearchIndexAsyncClient searchIndexAsyncClient = new SearchIndexClientBuilder()
+    .endpoint(ENDPOINT)
+    .credential(CREDENTIAL)
+    .buildAsyncClient();
 ```
 
 ### [JavaScript](#tab/javascript)
@@ -325,6 +352,24 @@ For more information on `DefaultAzureCredential` for JavaScript, see [Azure Iden
 
 
 ```javascript
+import { DefaultAzureCredential } from "@azure/identity";
+import { SearchClient,
+  SearchIndexClient } from "@azure/search-documents";
+
+const AZURE_SEARCH_ENDPOINT = process.env.AZURE_SEARCH_ENDPOINT;
+const index = "my-index";
+
+// To query and manipulate documents
+const searchClient = new SearchClient(
+  AZURE_SEARCH_ENDPOINT,
+  index,
+  new DefaultAzureCredential()
+);
+
+// To manage indexes and synonymmaps
+const indexClient = new SearchIndexClient(
+  AZURE_SEARCH_ENDPOINT, 
+  new DefaultAzureCredential());
 ```
 
 ### [Python](#tab/python)
@@ -332,6 +377,24 @@ For more information on `DefaultAzureCredential` for JavaScript, see [Azure Iden
 For more information on `DefaultAzureCredential` for Python, see [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#defaultazurecredential).
 
 ```python
+from azure.search.documents import SearchClient
+from azure.identity import DefaultAzureCredential, AzureAuthorityHosts
+
+service_endpoint = os.environ["AZURE_SEARCH_ENDPOINT"]
+index_name = os.environ["AZURE_SEARCH_INDEX_NAME"]
+credential = DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_CHINA)
+audience = "https://search.azure.cn"
+
+search_client = SearchClient(
+    endpoint=service_endpoint, 
+    index=index_name, 
+    credential=credential, 
+    audience=audience)
+
+search_index_client = SearchIndexClient(
+    endpoint=service_endpoint, 
+    credential=credential, 
+    audience=audience)
 ```
 
 ---
