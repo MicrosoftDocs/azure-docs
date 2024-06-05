@@ -223,9 +223,7 @@ Insider releases are made available in the Remote Desktop client once you've con
 
 1. Restart your local device.
 
-1. Open the Remote Desktop client. The title in the top left-hand corner should be **Remote Desktop (Insider)**:
-
-   :::image type="content" source="../media/remote-desktop-client-insider.png" alt-text="A screenshot of the Remote Desktop client with Insider features enabled. The title is highlighted in a red box.":::
+1. Open the Remote Desktop client. The title in the top left-hand corner should be **Remote Desktop (Insider)**
 
 If you already have configured the Remote Desktop client to use Insider releases, you can check for updates to ensure you have the latest Insider release by checking for updates in the normal way. For more information, see [Update the client](#update-the-client).
 
