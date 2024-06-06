@@ -550,10 +550,9 @@ items:
       - name: Troubleshoot remote-write
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-troubleshooting.md
-    - name: Private Link
-      items:
-      - name: Private link for Container Insights          
-        href: containers/container-insights-private-link.md    
+    - name: Private link
+      displayName: Private Link, container insights      
+      href: containers/container-insights-private-link.md    
     - name: Monitor
       items:
       - name: Monitor performance
