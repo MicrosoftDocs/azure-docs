@@ -97,7 +97,7 @@ This section provides answers to common questions.
 #### How can I collect Windows security events by using Azure Monitor Agent?
 
 There are two ways you can collect Security events using the new agent, when sending to a Log Analytics workspace:
-- You can use Azure Monitor Agent to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace. 
+- You can use Azure Monitor Agent to natively collect Security Events, same as other Windows Events. These flow to the [`Event`](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace. 
 - If you have Microsoft Sentinel enabled on the workspace, the security events flow via Azure Monitor Agent into the [`SecurityEvent`](/azure/azure-monitor/reference/tables/SecurityEvent) table instead (the same as using the Log Analytics agent). This scenario always requires the solution to be enabled first.
 
 ### Will I duplicate events if I use Azure Monitor Agent and the Log Analytics agent on the same machine? 

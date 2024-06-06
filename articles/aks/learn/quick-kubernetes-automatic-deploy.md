@@ -45,7 +45,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 ### Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
@@ -119,9 +119,10 @@ To create an AKS Automatic cluster, use the [az aks create][az-aks-create] comma
 
 ```azurecli
 az aks create \
-  --resource-group myResourceGroup \
-  --name myAKSAutomaticCluster \
-  --sku automatic
+    --resource-group myResourceGroup \
+    --name myAKSAutomaticCluster \
+    --sku automatic \
+    --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.

@@ -1,15 +1,15 @@
 ---
-title: "Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal"
+title: "Quickstart: Deploy WebLogic Server on Azure Virtual Machines (VMs)"
 description: Shows how to quickly stand up WebLogic Server on Azure Virtual Machine.
 author: KarlErickson
 ms.author: haiche
 ms.topic: quickstart
-ms.date: 01/24/2024
+ms.date: 05/29/2024
 ms.service: oracle-on-azure
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, devx-track-extended-java
 ---
 
-# Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal
+# Quickstart: Deploy WebLogic Server on Azure Virtual Machines (VMs)
 
 This article shows you how to quickly deploy WebLogic Application Server (WLS) on Azure Virtual Machines (VM) with the simplest possible set of configuration choices using the Azure portal. For a more full featured tutorial, including the use of Azure Application Gateway to make WLS cluster on VM securely visible on the public internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway?toc=/azure/virtual-machines/workloads/oracle/toc.json&bc=/azure/virtual-machines/workloads/oracle/breadcrumb/toc.json).
 
@@ -22,7 +22,7 @@ This quickstart assumes a basic understanding of WLS concepts. For more informat
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Deploy WLS with Administration Server on a VM
 
@@ -32,7 +32,7 @@ The steps in this section direct you to deploy WLS on VM in the simplest possibl
 
 The following steps show you how to find the WLS with Admin Server offer and fill out the **Basics** pane:
 
-1. In the search bar at the top of the portal, enter *weblogic*. In the auto-suggested search results, in the **Marketplace** section, select **Oracle WebLogic Server With Admin Server**.
+1. In the search bar at the top of the portal, enter *weblogic*. In the autosuggested search results, in the **Marketplace** section, select **Oracle WebLogic Server With Admin Server**.
 
    :::image type="content" source="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png" alt-text="Screenshot of the Azure portal that shows WebLogic Server in the search results." lightbox="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png":::
 
@@ -70,7 +70,7 @@ Depending on network conditions and other activity in your selected region, the 
 
 ## Examine the deployment output
 
-The steps in this section show you how to verify the deployment has successfully completed.
+The steps in this section show you how to verify the deployment successfully completed.
 
 If you navigated away from the **Deployment is in progress** page, the following steps show you how to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to step 5, after the screenshot.
 
@@ -123,9 +123,9 @@ Use the following steps to run a sample application in the WLS:
 
 ## Connect to the virtual machine
 
-If you want to manage the VM, you can connect to it with SSH command. Before accessing the machine, make sure you have enabled port 22 for SSH agent.
+If you want to manage the VM, you can connect to it with SSH command. Before accessing the machine, make sure you enabled port 22 for the SSH agent.
 
-Follow these steps to enable port 22:
+Use the following steps to enable port 22:
 
 1. Navigate back to your working resource group. In the overview page, you can find a network security group named **wls-nsg**. Select **wls-nsg**.
 1. In the left panel, select **Settings**, then **Inbound security rules**. If there's a rule to allow port `22`, then you can jump to step 4.

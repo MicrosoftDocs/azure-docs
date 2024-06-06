@@ -69,6 +69,6 @@ In some cases, the brand detector picks up both the logo image and the stylized 
 
 ## Use the API
 
-The brand detection feature is part of the [Analyze Image](/rest/api/computervision/analyze-image?view=rest-computervision-v3.1) API. You can call this API through a native SDK or through REST calls. Include `Brands` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"brands"` section.
+The brand detection feature is part of the [Analyze Image](/rest/api/computervision/analyze-image?view=rest-computervision-v3.2) API. You can call this API through a native SDK or through REST calls. Include `Brands` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"brands"` section.
 
 * [Quickstart: Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

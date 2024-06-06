@@ -20,7 +20,7 @@ To complete this QuickStart, you need the following prerequisites:
 
 - Microsoft Azure subscription. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-- Create Event Hubs namespace and an event hub. The first step is to use the Azure portal to create an Event Hubs namespace and an event hub in the namespace. To create a namespace and an event hub, see [QuickStart: Create an event hub using Azure portal. ](event-hubs-create.md)
+- Create Event Hubs namespace and an event hub. The first step is to use the Azure portal to create an Event Hubs namespace and an event hub in the namespace. To create a namespace and an event hub, see [QuickStart: Create an event hub using Azure portal](event-hubs-create.md).
 
 > [!NOTE]
 > Data Generator for Azure Event Hubs is in Public Preview.
@@ -51,9 +51,9 @@ You could follow these steps to send events to Azure Event Hubs Data Generator:
 
 You could send data until the permitted payload size with Data Generator. The following table talks about maximum message/payload size that you could send with Data Generator.
 
-Tier 				|	 Basic    | 	Standard | Premium | Dedicated
---------------------|-------------|--------------|---------|----------|
-Maximum Payload Size| 	256 Kb		| 	1 MB 	     | 1 MB     | 1 MB 
+| Tier | Basic | Standard | Premium | Dedicated |
+|--|--|--|--|--|
+| Maximum Payload Size| 256 Kb | 1 MB | 1 MB | 1 MB |
 
 ## View events using Event Hubs Data Generator
 

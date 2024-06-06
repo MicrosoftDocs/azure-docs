@@ -215,4 +215,3 @@ When the [Network Observability](/azure/aks/network-observability-overview) add-
 <!-- Add additional links. You can change the wording of these and add more if useful.   -->
 
 - See [Monitoring AKS data reference](monitor-aks-reference.md) for a reference of the metrics, logs, and other important values created by AKS.
-

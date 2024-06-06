@@ -7,7 +7,7 @@ author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 06/05/2024
 ---
 
 # Configure vector quantization and reduced storage for smaller vectors in Azure AI Search
@@ -25,7 +25,7 @@ We recommend scalar quantization because it compresses vector size in memory and
 
 | Approach | Why use this option |
 |----------|---------------------|
-| Assign smaller primitive data types to vector fields | Narrow data types, such as `Float16`, `Int16`, and `Int8`, consume less space in memory and on disk, but you must have an embedding model that outputs vectors in a narrow data format. Or, you must have custom quantization logic that outputs small data. A third use case that requires less effort is recasting native `Float32` embeddings produced by most models to `Float16`. |
+| Assign smaller primitive data types to vector fields | Narrow data types, such as `Float16`, `Int16`, `Int8`, and `byte` (binary) consume less space in memory and on disk, but you must have an embedding model that outputs vectors in a narrow data format. Or, you must have custom quantization logic that outputs small data. A third use case that requires less effort is recasting native `Float32` embeddings produced by most models to `Float16`. See [Index binary vectors](vector-search-how-to-index-binary-data.md) for details about binary vectors. |
 | Eliminate optional storage of retrievable vectors | Vectors returned in a query response are stored separately from vectors used during query execution. If you don't need to return vectors, you can turn off retrievable storage, reducing overall per-field disk storage by up to 50 percent. |
 | Add scalar quantization | Use built-in scalar quantization to compress native `Float32` embeddings to `Int8`. This option reduces storage in memory and on disk with no degradation of query performance. Smaller data types like `Int8` produce vector indexes that are less content-rich than those with `Float32` embeddings. To offset information loss, built-in compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are specific features of built-in scalar quantization of `Float32` or `Float16` fields and can't be used on embeddings that undergo custom quantization. |
 

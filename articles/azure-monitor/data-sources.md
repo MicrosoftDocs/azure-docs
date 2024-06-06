@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor data sources and data collection methods
 description: Describes the different types of data that can be collected in Azure Monitor and the method of data collection for each.
-ms.topic: concept
+ms.topic: concept-article
 author: bwren
 ms.author: bwren
 ms.date: 04/08/2024

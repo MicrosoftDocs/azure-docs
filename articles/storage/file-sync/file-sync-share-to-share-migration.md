@@ -1,9 +1,9 @@
 ---
-title: Migrate files from one SMB Azure file share to another when using Azure File Sync
+title: Migrate files between file shares when using Azure File Sync
 description: Learn how to migrate files from one SMB Azure file share to another when using Azure File Sync, even if the file shares are in different storage accounts.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/07/2023
+ms.date: 06/06/2024
 ms.author: kendownie
 author: khdownie
 ---
