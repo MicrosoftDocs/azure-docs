@@ -6,7 +6,7 @@ items:
   items:
   - name: What is HDInsight on AKS?
     href: overview.md
-    name: Preview information 
+  - name: Preview information 
     href: preview.md
   - name: What's new?
     href: whats-new.md 
