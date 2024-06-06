@@ -1,6 +1,6 @@
 ---
 title: M family VM size series
-description: Overview of the 'M' family and sub families of virtual machine sizes
+description: List of sizes in the M family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -52,5 +52,8 @@ ms.author: mattmcinnes
 
 [!INCLUDE [msv3-mdsv3-series-specs](./includes/msv3-mdsv3-series-specs.md)]
 
+
+### Previous-generation M family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#memory-optimized-previous-gen-sizes).
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

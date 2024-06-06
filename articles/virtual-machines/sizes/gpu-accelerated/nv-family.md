@@ -1,6 +1,6 @@
 ---
 title: NV sub-family VM size series
-description: Overview of the 'NV' sub-family of virtual machine sizes
+description: List of sizes in the NV family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -53,5 +53,8 @@ ms.author: mattmcinnes
 
 [!INCLUDE [nvads-a10-v5-series-specs](./includes/nvads-a10-v5-series-specs.md)]
 
+
+### Previous-generation NV family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#gpu-accelerated-previous-gen-sizes).
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

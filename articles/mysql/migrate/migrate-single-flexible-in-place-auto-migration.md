@@ -17,7 +17,7 @@ ms.custom:
 
 [!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-**In-place automigration** from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with **Basic, General Purpose or Memory Optimized SKU**, data storage used **<= 100 GiB** and **no complex features (CMK, Microsoft Entra ID, Read Replica) enabled**. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
+**In-place automigration** from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with **Basic, General Purpose or Memory Optimized SKU**, data storage used **<= 100 GiB** and **no complex features (CMK, Microsoft Entra ID, Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled**. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
 
 The in-place migration provides a highly resilient and self-healing offline migration experience during a planned maintenance window, with less than **5 mins** of downtime. It uses backup and restore technology for faster migration time. This migration removes the overhead to manually migrate your server and ensure you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows. Following described are the key phases of the migration:
 
@@ -30,7 +30,7 @@ The in-place migration provides a highly resilient and self-healing offline migr
 
 ## Eligibility
 
-If you own a Single Server workload with data storage used <= 100 GiB and no complex features (CMK, Microsoft Entra ID, Read Replica ) enabled, you can now nominate yourself (if not already scheduled by the service) for automigration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
+If you own a Single Server workload with data storage used <= 100 GiB and no complex features (CMK, Microsoft Entra ID, Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled, you can now nominate yourself (if not already scheduled by the service) for automigration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
 
 ## Configure migration alerts
 

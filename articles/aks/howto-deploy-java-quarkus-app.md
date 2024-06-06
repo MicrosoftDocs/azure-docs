@@ -273,8 +273,7 @@ az aks create \
     --name $CLUSTER_NAME \
     --attach-acr $REGISTRY_NAME \
     --node-count 1 \
-    --generate-ssh-keys \
-    --enable-managed-identity
+    --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster, including the following output:
