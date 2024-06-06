@@ -442,5 +442,6 @@ For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pr
 
 ## Related content
 
-- [Logs Ingestion API in Azure Monitor](logs-ingestion-api-overview.md)
-- [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](tutorial-logs-ingestion-portal.md)
+- Walk through a [tutorial on using KQL mode in Log Analytics](../logs/log-analytics-tutorial.md).
+- Access the complete [reference documentation for KQL](/azure/kusto/query/).
+
