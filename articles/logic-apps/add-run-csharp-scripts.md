@@ -39,23 +39,34 @@ This guide shows how to add the action in your workflow and add the C# script co
 
 ## Considerations
 
-- The Azure portal saves your script as a .csx file in the same folder as your **workflow.json** file, which stores the JSON definition for your workflow, and deploys the file to your logic app resource along with the workflow definition. Azure Logic Apps compiles this file to make the script ready for execution.
+- The Azure portal saves your script as a C# script file (.csx) in the same folder as your **workflow.json** file, which stores the JSON definition for your workflow, and deploys the file to your logic app resource along with the workflow definition. Azure Logic Apps compiles this file to make the script ready for execution.
 
-  You can rename the .csx file for easier management during deployment. However, each time you rename the script, the new version overwrites the previous version.
+  The .csx file format lets you write less "boilerplate" and focus just on writing a C# function. You can rename the .csx file for easier management during deployment. However, each time you rename the script, the new version overwrites the previous version.
 
-- The script is local to the workflow. To use the same script in other workflows, in the Kudo console, find the script file, open the shortcut menu, and then copy the script to reuse in other workflows.
+- The script is local to the workflow. To use the same script in other workflows, [view the script file in the **KuduPlus** console](#view-script-file), and then copy the script to reuse in other workflows.
+
+## Limitations
+
+| Name | Limit | Notes |
+|------|-------|-------|
+| Script run duration | 10 minutes | If you have scenarios that need longer durations, use the product feedback option to provide more information abour your needs. |
+| Output size | 100 MB | Output size depends on the output size limit for actions, which is generally 100 MB.
 
 ## Add the Execute CSharp Script Code action
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
 1. In the designer, [follow these general steps to add the **Inline Code Operations** action named **Execute CSharp Script Code action** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, enter your script, for example:
+1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopluated sample code with your own script code. Make sure to define the **Run** method and include any necessary assembly references and namespaces at the top of the file.
+
+   The **Run** method name is predefined, and your workflow executes only by calling this **Run** method at runtime. Data from your workflow flows into the **Run** method through the parameter that has **WorkflowContext** type. The **WorkflowContext** object not only gives your code access to outputs from the trigger, any preceding actions, and the workflow, you can also use this method to accept a function logger as a parameter and cancellation token. This token is necessary if you have a long-running script that requires graceful termination in case the function host shuts down.
+
+   The following example shows the action's **Parameters** tab with the sample script code:
 
    :::image type="content" source="media/add-run-csharp-scripts/action-sample-script.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, Request trigger, Execute CSharp Script Code action with information pane open, and Response action. Information pane shows sample C# script." lightbox="media/add-run-csharp-scripts/action-sample-script.png":::
 
-   This example continues with the following sample script code:
+   The following example shows the sample script code:
 
    ```csharp
    // Add the required libraries.
@@ -76,7 +87,7 @@ This guide shows how to add the action in your workflow and add the C# script co
    {
        var triggerOutputs = (await context.GetTriggerResults().ConfigureAwait(false)).Outputs;
  
-       //// Dereference the 'name' property from the trigger payload.
+       //// Dereferences the 'name' property from the trigger payload.
        var name = triggerOutputs?["body"]?["name"]?.ToString();
  
        //// To get the action outputs from a preceding action, you can uncomment and use the following code.
@@ -98,18 +109,32 @@ This guide shows how to add the action in your workflow and add the C# script co
        public string Message {get; set;}
    }
    ```
-   
+
+   For more information, see the following documentation:
+
+  - ["#r" - Reference external assemblies](/azure/azure-functions/functions-reference-csharp?tabs=functionsv2%2Cfixed-delay%2Cazure-cli#referencing-external-assemblies)
+  - []
 
 1. When you're done, save your workflow.
 
+<a name="view-script-file"></a>
+
 ## View the script file
 
+To find and view the C# script file (.csx), follow these steps: 
 
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource that has the workflow you want.
 
-## How scripting works in this scenario
+1. On the logic app resource menu, under **Development Tools**, select **Advanced Tools**.
 
-The .csx format allows you to write less "boilerplate" and focus on writing just a C# function. Instead of wrapping everything in a namespace and class, just define a Run method. Include any assembly references and namespaces at the beginning of the file as usual. The name of this method is predefined, and your workflow can run only invoke this Run method at runtime. 
+1. On the **Advanced Tools** page, select **Go**, which opens the **KuduPlus** console.
 
-Data from your workflow flows into your Run method through parameter of WorkflowContext type. In addition to the workflow context, you can also have this method take function logger as a parameter and a cancellation tokens (needed if your script is long running and needs to be gracefully terminate in case of Function Host is shutting down).
+1. Open the **Debug console** menu, and select **CMD**.
+
+1. Browse to the following folder location, which contains the .csx file: **site/wwwroot/{workflow-name}**
+
+1. Next to the file name, select **Edit** to open and view the file.
 
 ## Related content
+
+[Add and run JavaScript code snippets](add-run-javascript-code-snippets.md)

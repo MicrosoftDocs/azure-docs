@@ -232,7 +232,6 @@ The following table has more information about these properties:
 | `actions` | Object collection | The result objects from any preceding actions that run before your code snippet runs. Each object has a *key-value* pair where the key is the action name, and the value is equivalent to the result from calling the [actions() function](workflow-definition-language-functions-reference.md#actions) with the `@actions('<action-name>')` expression. <br><br>The action's name uses the same action name that appears in the underlying workflow definition, which replaces spaces (**" "**) in the action name with underscores (**\_**). This object collection provides access to the action's property values from the current workflow instance run. |
 | `trigger` | Object | The result object from the trigger where the result is the equivalent to calling the [trigger() function](workflow-definition-language-functions-reference.md#trigger). This object provides access to trigger's property values from the current workflow instance run. |
 | `workflow` | Object | The workflow object that is the equivalent to calling the [workflow() function](workflow-definition-language-functions-reference.md#workflow). This object provides access to the property values, such as the workflow name, run ID, and so on, from the current workflow instance run. |
-||||
 
 In this article's example, the `workflowContext` JSON object might have the following sample properties and values from the Outlook trigger:
 
