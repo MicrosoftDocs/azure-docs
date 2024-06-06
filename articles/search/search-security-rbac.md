@@ -72,8 +72,6 @@ In this section, assign roles for:
 
 + [Development or write-access to a search service](#assign-roles-for-development)
 
-    + CRUD operations
-
     | Task | Role | ID|
     | --- | --- | --- |
     | CRUD operations | `Search Service Contributor`|7ca78c08-252a-4471-8644-bb5ff32d4ba0|
