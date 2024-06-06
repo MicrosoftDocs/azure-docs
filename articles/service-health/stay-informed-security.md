@@ -37,7 +37,7 @@ We send an email notification to subscription admins/owners when a security issu
 We communicate security-related information affecting your Azure **tenant** workloads via Email and/or Azure Service Health Notifications. We send notifications to Global Admin(s), Technical Contacts, and Security Admin(s). 
 
 > [!Note]
-> You should ensure that there is a **contactable email address** entered for your organization's [Global Admin](../active-directory/roles/permissions-reference.md), [Technical Contact](../active-directory/fundamentals/active-directory-properties-area.md), and [Security Admin](/azure/defender-for-cloud/permissions) on your tenant. This email address is used for security issues that would have impact at the tenant level.  
+> You should ensure that there are **contactable email addresses** entered for your organization's [Global Admin(s)](../active-directory/roles/permissions-reference.md), [Technical Contact(s)](../active-directory/fundamentals/active-directory-properties-area.md), and [Security Admin(s)](/azure/defender-for-cloud/permissions). These email addresses are used for security issues that would have impact at the tenant level.  
 As of June 2024, we've enhanced the visibility of our Azure Service Health security communications. Typically, notifications are issued at the level for which they are architected. If a service is architected at the subscription level, we send communications at the subscription level. If the service is architected at the tenant level (such as Entra), we send communications at the tenant level. However, when Microsoft determines a security event is particularly impactful AND architected at the subscription level, we will also proactively issue additional communications at the tenant level to guarantee the broadest possible awareness. 
 
 ## Three steps to help you stay informed about Azure security issues
@@ -48,7 +48,7 @@ Ensure that there is a **contactable email address** as the [subscription admini
 
 **2. Check Contacts for Tenant Global Admin, Technical Contact, and Security Admin Roles**
 
-Ensure that there are **contactable email addresses** entered for your [Global Admin(s)](../active-directory/roles/permissions-reference.md), [Technical contact(s)](../active-directory/fundamentals/active-directory-properties-area.md), and [security admin(s)](/azure/defender-for-cloud/permissions) on your tenant. This email address is used for security issues that would have an impact at the tenant level.
+Ensure that there are **contactable email addresses** entered for your [Global Admin(s)](../active-directory/roles/permissions-reference.md), [Technical contact(s)](../active-directory/fundamentals/active-directory-properties-area.md), and [security admin(s)](/azure/defender-for-cloud/permissions). These email addresses are used for security issues that would have an impact at the tenant level.
 
 **3. Create Azure Service Health Alerts for Subscription Notifications**
 
