@@ -32,8 +32,6 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 
 ---
 
-> [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. If you need assistance, open an issue on this repo to contact Microsoft.
 
 ## Setup 
 ### Retrieve key and endpoint

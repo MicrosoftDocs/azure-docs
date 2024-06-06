@@ -22,8 +22,6 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Ja
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
-> [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true). If you need assistance, open an issue on this repo to contact Microsoft.
 
 ## Setup
 
