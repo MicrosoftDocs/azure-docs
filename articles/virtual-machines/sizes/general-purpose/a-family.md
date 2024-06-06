@@ -28,8 +28,6 @@ ms.author: mattmcinnes
 
 [!INCLUDE [av2-series-specs](./includes/av2-series-specs.md)]
 
-[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
-
 
 ### Previous-generation A family series
 For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#general-purpose-previous-gen-sizes).

@@ -1,6 +1,6 @@
 ---
 title: L family VM size series
-description: List of sizes in the M family.
+description: List of sizes in the L family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
