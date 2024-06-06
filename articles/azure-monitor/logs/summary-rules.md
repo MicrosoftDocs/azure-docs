@@ -9,7 +9,7 @@ ms.author: guywild
 ms.reviewer: yossi-y
 ms.date: 04/23/2024
 
-# Customer intent: As a Log Analytics workspace administrator or developer, I want to optimize my cost-effectiveness, query performance, and analysis capabilities by using summary rules to aggregate data I ingest to specific tables.
+# Customer intent: As a Log Analytics workspace administrator or developer, I want to optimize my query performance, cost-effectiveness, security, and analysis capabilities by using summary rules to aggregate data I ingest to specific tables.
 ---
 
 # Aggregate data in a Log Analytics workspace with summary rules
@@ -20,7 +20,7 @@ A summary rule lets you aggregate log data at a regular cadence and send the agg
 
 - **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a cheap Basic log table, and send summarized data to an Analytics table for analysis and reports. 
 
-- **Security and privacy** by removing or obfuscating privacy details in summarized shareable data and limiting access to tables with raw data.
+- **Security and data privacy** by removing or obfuscating privacy details in summarized shareable data and limiting access to tables with raw data.
 
 This article describes how summary rules work and how to define and view summary rules, and provides some examples of the use and benefits of summary rules.
 
@@ -351,55 +351,47 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 Authorization: {credential}
 ```
 
-## Examine data completeness
+## Monitor summary rules
 
-Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](../service-limits.md#log-analytics-workspaces). The retry mechanism includes 10 attempts within 8 hours and skips a bin, if exhausted. The rule is set to `isActive: false` and put on hold after eight consecutive bins with retries. If diagnostic settings are enabled in your workspace, an event is sent to the LASummaryLogs table in your workspace.
+To monitor summary rules, enable the **Summary Logs** category in the [diagnostic settings] of you Log Analytics workspace. Azure Monitor sends summary rule execution details, including summary rule run Start, Succeeded, and Failed information, to the [LASummaryLogs](/azure/azure-monitor/reference/tables/lasummarylogs) table in your workspace. 
 
-Failed bins can`t be run again, but they can be detected by using the following query in your workspace. If the query reveals missing bins, see the [Monitor summary rules](#monitor-summary-rules) section for rule remediation options and proactive alerts.
+We recommend you that you [set up log alert rules](../alerts/alerts-create-log-alert-rule.md) to receive notificaiton of bin failures, or when bin execution is nearing time-out, as shown below. Depending on the failure reason, you can either reduce the bin size to process less data on each execution, or modify the query to return fewer records or fields with higher volume.
 
-In the following query, the `step` value is equal to the bin size defined in the rule.
+This query returns failed runs:
+
+```kusto
+LASummaryLogs | where Status == "Failed"
+```
+
+This query returns bin runs where the `QueryDurationMs` value is greater than 0.9 x 600,000 milliseconds:
+
+```kusto
+LASummaryLogs | where QueryDurationMs > 0.9 * 600000
+```
+
+### Verify data completeness
+
+Summary rules are designed for scale, and include a retry mechanism to overcome transient service or query failures related to [query limits](../service-limits.md#log-analytics-workspaces), for example. The retry mechanism includes 10 attempts within eight hours and skips a bin, if exhausted. The rule is set to `isActive: false` and put on hold after eight consecutive bin retries. If you enable [monitor summary rules](#monitor-summary-rules), Azure Monitor logs an event in the `LASummaryLogs` table in your workspace.
+
+You can't rerun a failed bin run, but you can use the following query to view failed runs: 
 
 ```kusto
 let startTime = datetime("2024-02-16");
 let endtTime = datetime("2024-03-03");
 let ruleName = "myRuleName";
-let stepSize = 20m;
+let stepSize = 20m; // The stepSize value is equal to the bin size defined in the rule
 LASummaryLogs
 | where RuleName == ruleName
 | where Status == 'Succeeded'
 | make-series dcount(BinStartTime) default=0 on BinStartTime from startTime to endtTime step stepSize
 | render timechart
 ```
-
-The following graph charts the query results for failed bins in summary rules:
+This example shows the query results presented as a timechart:
 
 :::image type="content" source="media/summary-rules/data-completeness.png" alt-text="Screenshot that shows a graph that charts the query results for failed bins in summary rules." lightbox="media/summary-rules/data-completeness.png":::
 
-## Monitor summary rules
+See the [Monitor summary rules](#monitor-summary-rules) section for rule remediation options and proactive alerts.
 
-To receive diagnostics data in the LASummaryLogs table, enable Diagnostics settings for the **Summary Logs** category in your Log Analytics workspace. The data indicates the summary rule run Start, Succeeded, and Failed information.
-
-Summary rules are designed for scale, and include a retry mechanism that can overcome transient failure related to service or query, such as hitting [query limits](../service-limits.md#log-analytics-workspaces). After eight consecutive bins with failures, the rule operation is suspended. The rule configuration is updated to `isActive: false`, and the diagnostic event is sent to the LASummaryLogs table, if Diagnostic settings are enabled in your workspace.
-
-Events in the LASummaryLogs diagnostic table include the `QueryDuationMs` value, which indicates the time for the query to complete. This value can help to indicate if the run is approaching the query timeout limit. The recommendation is to set alerts and receive notifications for bin failures, or when bin execution is nearing time-out. Depending on the failure reason, you can either reduce the bin size to process less data on each execution, or alter the query to return fewer records or fields with higher volume.
-
-The following sections provide example queries for the LASummaryLogs diagnostic table.
-
-### Exhausted bin execution
-
-The following query searches rule date in the LASummaryLogs table for Failed runs:
-
-```kusto
-LASummaryLogs | where Status == "Failed"
-```
-
-### Summary execution at 90% of query timeout
-
-The following query searches rule data in the LASummaryLogs table for entries where the `QueryDurationMs` value is greater than 0.9 x 600,000 milliseconds:
-
-```kusto
-LASummaryLogs | where QueryDurationMs > 0.9 * 600000
-```
 
 ## Encrypt summary rule queries by using customer-managed keys
 
@@ -414,15 +406,17 @@ Considerations when you work with encrypted queries:
 
 ## Troubleshoot summary rules
 
-Review the following troubleshooting tips for working with summary rules:
+This section provides tips for troubleshooting summary rules.
 
-- **Destination table accidental delete**: If a table was deleted from the UI or by using an API while a summary rule is active, the rule remains active although no data returned. The diagnostics logs to the LASummaryLogs table show the run as successful. 
+### Summary rule destination table accidentally deleted
 
-   - If you don't need the summary results in the destination table, delete the rule.
+If you delete the destination table while the summary rule is active, the rule remains active even though it doesn't return data. The logs in the LASummaryLogs table show the run as successful. 
 
-   - If you need the summary results, see the instructions for a previously defined query in the [Create or update summary rules](#create-or-update-a-summary-rule) section. The results table restores, including the data ingested before the delete, depending on the retention policy in the table.
+If you don't need the summary results in the destination table, delete the rule. If you need the summary results, follow the steps in [Create or update summary rules](#create-or-update-a-summary-rule) section to recreate the table. The results table restores all data, including the data ingested before the delete, depending on the retention policy in the table.
 
-- **Query operators allow output schema expansion**: If the query in the rule includes operators that allow output schema expansion per incoming data, such as `arg_max(expression, *)`, `bag_unpack()`, and so on, new fields can be generated in the output per the incoming data. New fields generated after rule creation or updates aren't added to the destination table and dropped. You can add the new fields to the destination table when you perform a [rule update](#create-or-update-a-summary-rule), or add fields manually in [Table management](manage-logs-tables.md#view-table-properties).
+### Query operators create new columns in the destination table
+
+If the query in the summary rule includes operators that allow output schema expansion based on incoming data - for example, if the query the `arg_max(expression, *)` function and or the `bag_unpack()` plugin - the summary rule needs to create new columns in the destination table. However, Azure Monitor doesn't add new columns to the destination table after after you create or update the summary rule, and the output data that requires these columns will be dropped. To add the new fields to the destination table, [update the summary rule](#create-or-update-a-summary-rule) or [add a column to your table manually](create-custom-table.md#add-or-delete-a-custom-column).
 
 - **Data remains in workspace, subjected to retention period**: When you [delete fields or a custom log table](manage-logs-tables.md#view-table-properties), data remains in the workspace and is subjected to the [retention](data-retention-archive.md) period defined on the table or workspace. Recreating the table with the same name and fields, cause old data to show up. If you want to delete old data, [update the table retention period](/rest/api/loganalytics/tables/update) with the minimum retention supported (four days) and then delete the table.
 
