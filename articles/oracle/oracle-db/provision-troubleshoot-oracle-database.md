@@ -1,6 +1,6 @@
 ---
 title: Provision troubleshooting for Oracle Database@Azure
-description: Provision an Exadata VM Cluster for Oracle Database@Azure.
+description: Provision troubleshooting for Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
