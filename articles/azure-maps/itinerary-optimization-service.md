@@ -12,7 +12,7 @@ services: azure-maps
 
 # Create multi-itinerary optimization service
 
-​​​This guide explains how to use [Azure Maps] and [NVIDIA cuOpt] to create an itinerary optimization service. This service automates the process of building itineraries for multiple agents and mixed fleets, utilizing the NVIDIA cuOpt world-record-breaking route optimization engine to optimize routes across multiple destinations.​​
+​​​This guide explains how to use [Azure Maps] and [NVIDIA cuOpt] to create an itinerary optimization service. This service automates the process of building itineraries for multiple agents and mixed fleets, utilizing the NVIDIA cuOpt route optimization engine to optimize routes across multiple destinations.​​
 
 This is a two-step process that requires a cost matrix for the travel time and a solver to optimize the problem and generate an outcome. A cost matrix represents the cost of traveling between every two sets of locations in the problem, which includes the travel time cost and other costs of travel.
 
