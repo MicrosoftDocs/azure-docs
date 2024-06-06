@@ -50,7 +50,7 @@ using Azure.Storage.Blobs.ChangeFeed;
 
 ### Create a client object
 
-To connect the application to Blob Storage, create an instance of the `BlobServiceClient` class. The following example shows how to create a client object using `DefaultAzureCredential` for authorization. To learn more, see [Authorize access and connect to Blob Storage](storage-blob-dotnet-get-started.md#authorize-access-and-connect-to-blob-storage). To work with the change feed, you'll need Azure RBAC built-in role **Storage Blob Data Reader** or higher.
+To connect the application to Blob Storage, create an instance of the `BlobServiceClient` class. The following example shows how to create a client object using `DefaultAzureCredential` for authorization. To learn more, see [Authorize access and connect to Blob Storage](storage-blob-dotnet-get-started.md#authorize-access-and-connect-to-blob-storage). To work with the change feed, you need Azure RBAC built-in role **Storage Blob Data Reader** or higher.
 
 ```csharp
 // TODO: Replace <storage-account-name> with the name of your storage account
@@ -142,9 +142,9 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 ## Stream processing of records
 
-You can choose to process change feed records as they are committed to the change feed. See [Specifications](storage-blob-change-feed.md#specifications). The change events are published to the change feed at a period of 60 seconds on average. We recommend that you poll for new changes with this period in mind when specifying your poll interval.
+You can choose to process change feed records as they're committed to the change feed. See [Specifications](storage-blob-change-feed.md#specifications). The change events are published to the change feed at a period of 60 seconds on average. We recommend that you poll for new changes with this period in mind when specifying your poll interval.
 
-This example periodically polls for changes.  If change records exist, this code processes those records and saves change feed cursor. That way if the process is stopped and then started again, the application can use the cursor to resume processing records where it last left off. This example saves the cursor to a local file for demonstration purposes, but your application can save it in any form that makes the most sense for your scenario.
+This example periodically polls for changes. If change records exist, this code processes those records and saves change feed cursor. That way if the process is stopped and then started again, the application can use the cursor to resume processing records where it last left off. This example saves the cursor to a local file for demonstration purposes, but your application can save it in any form that makes the most sense for your scenario.
 
 ```csharp
 public async Task ChangeFeedStreamAsync(
