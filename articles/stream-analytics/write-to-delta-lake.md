@@ -14,7 +14,7 @@ ms.custom: build-2023
 
 Delta Lake is an open format that brings reliability, quality, and performance to data lakes. Azure Stream Analytics allows you to directly write streaming data to your Delta Lake tables without writing a single line of code.
 
-A Stream Analytics job can be configured to write through a native Delta Lake output connector, either to a new or a precreated Delta table in an Azure Data Lake Storage Gen2 account. This connector is optimized for high-speed ingestion to Delta tables in Append mode. It also provides exactly once semantics, which guarantees that no data is lost or duplicated. Ingesting real-time data streams from Azure Event Hubs into Delta tables allows you to perform ad-hoc interactive or batch analytics.
+A Stream Analytics job can be configured to write through a native Delta Lake output connector, either to a new or a precreated Delta table in an Azure Data Lake Storage Gen2 account. This connector is optimized for high-speed ingestion to Delta tables in Append mode. It also provides exactly-once semantics, which guarantees that no data is lost or duplicated. Ingesting real-time data streams from Azure Event Hubs into Delta tables allows you to perform ad-hoc interactive or batch analytics.
 
 ## Delta Lake configuration
 
@@ -69,9 +69,9 @@ If there isn't already a Delta Lake table with the same name and in the location
 
 If a Delta Lake table already exists with the same name and in the location specified by the Delta path name, by default, Stream Analytics writes new records to the existing table.
 
-### Exactly once delivery
+### Exactly-once delivery
 
-The transaction log enables Delta Lake to guarantee exactly once processing. Stream Analytics also provides exactly once delivery when outputting data to Data Lake Storage Gen2 during a single job run.
+The transaction log enables Delta Lake to guarantee exactly-once processing. Stream Analytics also provides exactly-once delivery when outputting data to Data Lake Storage Gen2 during a single job run.
 
 ### Schema enforcement
 
