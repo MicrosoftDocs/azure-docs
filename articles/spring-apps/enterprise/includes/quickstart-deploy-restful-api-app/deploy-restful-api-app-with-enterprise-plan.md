@@ -78,7 +78,7 @@ Use the following steps to connect your service instances:
    - **PostgreSQL database**: Select the database you created.
    - **Client type**: **SpringBoot**
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to Service Bus." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-basics.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Created connection pane for connecting to Service Bus." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-basics.png":::
 
 1. Configure the **Next: Authentication** tab with the following information:
 

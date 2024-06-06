@@ -1,6 +1,6 @@
 ---
 title: E family VM size series
-description: Overview of the 'E' family and sub families of virtual machine sizes
+description: List of sizes in the E family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -97,3 +97,9 @@ ms.author: mattmcinnes
 [View the full Ebdsv5 and Ebsv5-series page](../../ebdsv5-ebsv5-series.md).
 
 [!INCLUDE [ebdsv5-ebsv5-series-specs](./includes/ebdsv5-ebsv5-series-specs.md)]
+
+
+### Previous-generation E family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#memory-optimized-previous-gen-sizes).
+
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

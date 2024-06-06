@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 05/13/2024
 ms.custom: devdivchpfy22
 ---
 
@@ -96,7 +96,7 @@ Each key-value in App Configuration has a content type attribute. You can option
 > [!div class="nextstepaction"]
 > [Point-in-time snapshot](./concept-point-time-snapshot.md)
 
-> [!div class="nextstepaction"]
+> [!div class="neSxtstepaction"]
 > [Feature management](./concept-feature-management.md)
 
 > [!div class="nextstepaction"]

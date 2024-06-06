@@ -1,85 +1,65 @@
 ---
-title: Integrate security solutions in Microsoft Defender for Cloud
-description: Learn about how Microsoft Defender for Cloud integrates with partner solutions.
-ms.topic: conceptual
-ms.date: 01/10/2023
+title: Integrate security solutions in Defender for Cloud
+description: Learn about how Microsoft Defender for Cloud integrates with partner solutions to enhance your security posture and protect your Azure resources.
+ms.topic: concept-article
+ms.date: 05/16/2024
+#customer intent: As a reader, I want to learn how security solutions integrate into Defender for Cloud.
 ---
 
-# Integrate security solutions in Defender for Cloud
+# Integrated solutions in Defender for Cloud
 
-This document helps you to manage security solutions already connected to Microsoft Defender for Cloud and add new ones.
+This article provides information about security solutions that integrate with Microsoft Defender for Cloud.
 
-## Integrated Azure security solutions
+Defender for Cloud integrates with both Microsoft services and partner solutions. Integration with solutions helps you to:
 
-Defender for Cloud makes it easy to enable integrated security solutions in Azure. Benefits include:
+- **Simplify deployment**: Defender for Cloud offers streamlined provisioning of integrated partner solutions. For solutions like antimalware and vulnerability assessment, Defender for Cloud can provision the agent on your virtual machines. For firewall appliances, Defender for Cloud can take care of much of the network configuration required.
+- **Integrate detection**: Security events from partner solutions are automatically collected, aggregated, and displayed as part of Defender for Cloud alerts and incidents. These events are also fused with detections from other sources to provide advanced threat-detection capabilities.
+- **Unify monitoring and management**: Integrated events in Defender for Cloud help you to monitor partner solutions at a glance. Basic management is available, with easy access to advanced setup by using the partner solution.
+- **Extend capabilities**: Some integrations extend Defender for Cloud capabilities. For example:
+    - Defender for Cloud supports [third-party integrations](defender-partner-applications.md) to help enhance runtime security capabilities provided by Defender for APIs.
+    - Defender for Cloud [integrates with ServiceNow](integration-servicenow.md) to help prioritize remediation of security recommendations, and to create and monitor tickets.
 
-- **Simplified deployment**: Defender for Cloud offers streamlined provisioning of integrated partner solutions. For solutions like antimalware and vulnerability assessment, Defender for Cloud can provision the agent on your virtual machines. For firewall appliances, Defender for Cloud can take care of much of the network configuration required.
-- **Integrated detections**: Security events from partner solutions are automatically collected, aggregated, and displayed as part of Defender for Cloud alerts and incidents. These events are also fused with detections from other sources to provide advanced threat-detection capabilities.
-- **Unified health monitoring and management**: Customers can use integrated health events to monitor all partner solutions at a glance. Basic management is available, with easy access to advanced setup by using the partner solution.
 
-Currently, integrated security solutions include vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/).
+## Integrations
 
-> [!NOTE]
-> Defender for Cloud does not install the Log Analytics agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
-
-Learn more about the integration of [vulnerability scanning tools from Qualys](deploy-vulnerability-assessment-vm.md), including a built-in scanner available to customers that enable Microsoft Defender for Servers.
-
-## How security solutions are integrated
+Integrated solutions appear in the Azure portal, in **Defender for Cloud** -> **Management** -> **Security solutions**.
 
 Azure security solutions that are deployed from Defender for Cloud are automatically connected. You can also connect other security data sources, including computers running on-premises or in other clouds.
 
 :::image type="content" source="./media/partner-integration/security-solutions-page-01-2023.png" alt-text="Screenshot showing security Solutions page." lightbox="./media/partner-integration/security-solutions-page-01-2023.png":::
 
-## Manage integrated Azure security solutions and other data sources
-
-1. From the [Azure portal](https://azure.microsoft.com/features/azure-portal/), open **Defender for Cloud**.
-
-1. From Defender for Cloud's menu, select **Security solutions**.
-
-From the **Security solutions** page, you can see the health of integrated Azure security solutions and run basic management tasks.
-
 ### Connected solutions
 
-The **Connected solutions** section includes security solutions that are currently connected to Defender for Cloud. It also shows the health status of each solution.  
+The **Connected solutions** section includes security solutions that are currently connected to Defender for Cloud.
 
-![Connected solutions.](./media/partner-integration/connected-solutions.png)
+:::image type="content" source="media/partner-integration/connected-solutions.png" alt-text="Screenshot that shows the available connectable solutions.":::
 
 The status of a security solution can be:
 
-- **Healthy** (green) - no health issues.
-- **Unhealthy** (red) - there's a health issue that requires immediate attention.
-- **Stopped reporting** (orange) - the solution has stopped reporting its health.
-- **Not reported** (gray) - the solution hasn't reported anything yet and no health data is available. A solution's status might be unreported if it was connected recently and is still deploying.
+- **Healthy** (green): No health issues.
+- **Unhealthy** (red): There's a health issue that requires immediate attention. If no health data is available and no alerts were received within the last 14 days, Defender for Cloud indicates that the solution is unhealthy or not reporting.
+- **Stopped reporting** (orange): The solution stopped reporting health status.
+- **Not reported** (gray): No health data is available. The solution didn't report anything yet and no health data is available. A solution's status might be unreported if it was connected recently and is still deploying.
 
-> [!NOTE]
-> If health status data is not available, Defender for Cloud shows the date and time of the last event received to indicate whether the solution is reporting or not. If no health data is available and no alerts were received within the last 14 days, Defender for Cloud indicates that the solution is unhealthy or not reporting.
->
->
+If health status isn't available, Defender for Cloud shows the date and time of the last event received to indicate whether the solution is reporting or not.
 
-Select **VIEW** for additional information and options such as:
-
-- **Solution console** - Opens the management experience for this solution.
-- **Link VM** - Opens the Link Applications page. Here you can connect resources to the partner solution.
-- **Delete solution**
-- **Configure**
-
-   ![Partner solution detail.](./media/partner-integration/partner-solutions-detail.png)
+You can drill down into each solution to manage it.
 
 ### Discovered solutions
 
-Defender for Cloud automatically discovers security solutions running in Azure but not connected to Defender for Cloud and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Microsoft Entra ID Protection](../active-directory/identity-protection/overview-identity-protection.md), and partner solutions.
-
-> [!NOTE]
-> Enable **advanced protections** at the subscription level for the discovered solutions feature. Learn more in [Quickstart: Enable enhanced security features](enable-enhanced-security.md).
-
-Select **CONNECT** under a solution to integrate with Defender for Cloud and be notified of security alerts.
+Defender for Cloud automatically discovers security solutions that are running in Azure but not connected to Defender for Cloud, and displays them in the **Discovered solutions** section. You can connect solutions as needed to integrate it with Defender for Cloud.
 
 ### Add data sources
 
 The **Add data sources** section includes other available data sources that can be connected. For instructions on adding data from any of these sources, select **ADD**.
 
-![Data sources.](./media/partner-integration/add-data-sources.png)
+:::image type="content" source="media/partner-integration/add-data-sources.png" alt-text="Screenshot that shows the available additional data sources.":::
 
-## Next steps
 
-In this article, you learned how to integrate partner solutions in Defender for Cloud. To learn how to set up an integration with Microsoft Sentinel, or any other SIEM, see [Continuously export Defender for Cloud data](continuous-export.md).
+
+
+
+
+## Related content
+
+[Continuously export Defender for Cloud data](continuous-export.md).

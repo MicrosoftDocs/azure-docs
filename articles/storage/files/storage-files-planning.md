@@ -155,12 +155,11 @@ Defender for Storage detects known malware, such as ransomware, viruses, spyware
 Defender for Storage doesn't access the storage account data and doesn't impact its performance. You can [enable Microsoft Defender for Storage](../common/azure-defender-storage-configure.md) at the subscription level (recommended) or the resource level.
 
 ## Storage tiers
+
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-#### Limitations
-[!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
-
 ## Redundancy
+
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 For more information about redundancy, see [Azure Files data redundancy](files-redundancy.md).
