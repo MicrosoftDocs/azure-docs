@@ -507,6 +507,85 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
 
 ### [Version-3.0](#tab/version3) 
 
+The Azure Key Vault VM extension can be deployed by using the Azure CLI. Save Key Vault VM extension settings to a JSON file (settings.json). 
+
+The following JSON snippets provide example settings for deploying the Key Vault VM extension with the Azure CLI.
+
+```json
+{
+    "loggingSettings": {
+              "logger": "fluentd",
+              "endpoint": "unix:///var/run/azuremonitoragent/sometenant/default_fluent.socket",
+              "format": "forward",
+              "servicename": "akvvm_service"
+    },   
+   "secretsManagementSettings": {
+   "pollingIntervalInS": "3600",
+   "linkOnRenewal": true,
+   "observedCertificates":
+   [
+      {
+          "url": "https://<examplekv>.vault.azure.net/secrets/mycertificate1",
+          "certificateStoreLocation":  "/var/lib/waagent/Microsoft.Azure.KeyVault.Store",
+          "acls": 
+          [
+              {
+                  "user": "app1",
+                  "group": "appGroup1"
+              },
+              {
+                  "user": "service1"
+              }
+          ]
+      },
+      {
+          "url": "https://<examplekv>.vault.azure.net/secrets/mycertificate2",
+          "certificateStoreLocation": "/var/lib/waagent/Microsoft.Azure.KeyVault.Store",
+          "acls": 
+          [
+              {
+                  "user": "app2"
+              }
+          ]
+      }
+   ]},
+   "authenticationSettings": {
+      "msiEndpoint":  "http://169.254.169.254/metadata/identity/oauth2/token",
+      "msiClientId":  "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
+   }      
+}
+
+```
+
+* To deploy the extension on a virtual machine
+
+```azurecli
+
+    # Start the deployment
+      az vm extension set -n "KeyVaultForLinux" `
+      --publisher Microsoft.Azure.KeyVault `
+      -g "<resourcegroup>" `
+      --vm-name "<vmName>" `
+      --version 3.0 `
+      --enable-auto-upgrade true `
+      --settings "@settings.json"
+
+```
+
+* To deploy the extension on a virtual machine scale set:
+
+```azurecli
+    # Start the deployment
+    az vmss extension set -n "KeyVaultForLinux" `
+    --publisher Microsoft.Azure.KeyVault `
+    -g "<resourcegroup>" `
+    --vmss-name "<vmssName>" `
+    --version 3.0 `
+    --enable-auto-upgrade true `
+    --settings "@settings.json"
+
+```
+
 ### [Version-1.0/2.0](#tab/version12)
 
     ```azurecli
