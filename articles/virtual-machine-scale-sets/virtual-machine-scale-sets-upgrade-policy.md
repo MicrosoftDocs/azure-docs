@@ -22,7 +22,9 @@ Additionally, there can be situations where you might want specific instances in
 ### Automatic upgrade policy
 
 > [!NOTE]
-> Automatic upgrade policy is only available for Virtual Machine Scale Sets with Uniform Orchestration. 
+> Automatic upgrade policy is in general availability (GA) for Virtual Machine Scale Sets with Uniform Orchestration. 
+>
+>**Automatic upgrade policy is in preview for Virtual Machine Scale Sets with Flexible Orchestration**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 
 With an automatic upgrade policy, the scale set makes no guarantees about the order of virtual machines being brought down. The scale set might take down all virtual machines at the same time to perform upgrades. 
 
