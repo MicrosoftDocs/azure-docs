@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-conten
 
 The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults.  The extension retrieves and installs the corresponding certificates after detecting a change. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Linux.
 
-### Operating system
+## Operating system
 
 The Key Vault VM extension supports these Linux distributions:
 
@@ -29,6 +29,16 @@ The Key Vault VM extension supports these Linux distributions:
 
 - PKCS #12
 - PEM
+
+## Updates in Version 3.0+
+
+Version 3.0+ of the Key Vault VM extension for Linux adds support for the following features:
+
+- Add ACL permissions for downloaded certificates
+- Certificate installation location configuration
+- Custom symbolic name support
+- VM extension logging integration support through [Fluentd](https://www.fluentd.org/)
+
 
 ## Prerequisites
   - Key Vault instance with certificate. See [Create a Key Vault](../../key-vault/general/quick-create-portal.md)
@@ -56,20 +66,88 @@ The Key Vault VM extension supports these Linux distributions:
    `
 ## Key Vault VM extension version
 
-* Users can choose to upgrade their Key Vault vm extension version to `V2.0` to use full certificate chain download feature. Issuer certificates (intermediate and root) are included with leaf certificate in the PEM file.
+* Users can choose to upgrade their existing Key Vault vn extension version to newer version.
 
-* If you prefer to upgrade to `v2.0`, you would need to delete `v1.0` first, then install `v2.0`.
+* If you prefer to upgrade to newer version, you would need to delete previous version first, then install newer version.
 ```azurecli
   az vm extension delete --name KeyVaultForLinux --resource-group ${resourceGroup} --vm-name ${vmName}
-  az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" –settings .\akvvm.json –version 2.0
+  az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" –settings .\akvvm.json –version 3.0
 ```
-  The flag --version 2.0 is optional because the latest version is installed by default.
+  The flag --version 3.0 is optional because the latest version is installed by default.
 
-* If the VM has certificates downloaded by v1.0, deleting the v1.0 AKVVM extension doesn't delete the downloaded certificates.  After installing v2.0, the existing certificates aren't modified.  You would need to delete the certificate files or roll-over the certificate to get the PEM file with full-chain on the VM.
+* If the VM has certificates downloaded by previous version, deleting VM extension doesn't delete the downloaded certificates.  After installing newer version, the existing certificates aren't modified.  You would need to delete the certificate files or roll-over the certificate to get the PEM file with full-chain on the VM.
 
 ## Extension schema
 
 The following JSON shows the schema for the Key Vault VM extension. The extension doesn't require protected settings - all its settings are considered information without security impact. The extension requires a list of monitored secrets, polling frequency, and the destination certificate store. Specifically:
+
+### [Version-3.0](#tab/version3)  
+
+```json
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "KVVMExtensionForLinux",
+      "apiVersion": "2022-11-01",
+      "location": "<location>",
+      "dependsOn": [
+          "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
+      ],
+      "properties": {
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForLinux",
+      "typeHandlerVersion": "3.0",
+      "autoUpgradeMinorVersion": true,
+      "enableAutomaticUpgrade": true,
+      "settings": {
+      "loggingSettings": {
+              "logger": <Logger engine name. e.g.: "fluentd">,
+              "endpoint": <Logger listening endpoint "unix:///var/run/azuremonitoragent/sometenant/default_fluent.socket">,
+              "format": <Logging format. e.g.: "forward">,
+              "servicename": <Service name used in logs. e.g.: "akvvm_service">
+          },
+        "secretsManagementSettings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
+          "linkOnRenewal": <Not available on Linux e.g.: false>,
+          "requireInitialSync": <initial synchronization of certificates e..g: true>,
+          "aclEnabled": <Enables ACLs for downloaded certificates, e.g.: true>,
+          "observedCertificates": <An array of KeyVault URIs that represent monitored certificates, including certificate store location, ACL permission to certificate private key, and custom symbolic name. e.g.: 
+             [
+                {
+                    "url": <A Key Vault URI to the secret portion of the certificate. e.g.: "https://myvault.vault.azure.net/secrets/mycertificate1">,
+                    "certificateStoreLocation": <disk path where certificate is stored, e.g.: "/var/lib/waagent/Microsoft.Azure.KeyVault/app1">,
+                    "customSymbolicLinkName": <symbolic name for the certificate. e.g.: "app1Cert1">,
+                    "acls": [
+                        {
+                            "user": "app1",
+                            "group": "appGroup1"
+                        },
+                        {
+                            "user": "service1"
+                        }
+                    ]
+                },
+                {
+                    "url": <Example: "https://myvault.vault.azure.net/secrets/mycertificate2">,
+                    "certificateStoreLocation": <disk path where the certificate is stored, e.g.: "/var/lib/waagent/Microsoft.Azure.KeyVault/app2">,
+                    "acls": [
+                        {
+                            "user": "app2",
+                        }
+                    ]
+                }
+             ]>
+        },
+        "authenticationSettings": {
+          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity">,
+          "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619".>
+        }
+       }
+      }
+    }
+```
+
+### [Version-1.0/2.0](#tab/version12)  
+
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -103,6 +181,8 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
     }
 ```
 
+---
+
 > [!NOTE]
 > Your observed certificates URLs should be of the form `https://myVaultName.vault.azure.net/secrets/myCertName`.
 >
@@ -116,6 +196,34 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > Set msiEndpoint to `http://localhost:40342/metadata/identity`.
 
 ### Property values
+
+#### [Version-3.0](#tab/version3) 
+
+| Name | Value / Example | Data Type |
+| ---- | ---- | ---- |
+| apiVersion | 2022-07-01 | date |
+| publisher | Microsoft.Azure.KeyVault | string |
+| type | KeyVaultForLinux | string |
+| typeHandlerVersion | 3.0 | int |
+| pollingIntervalInS | 3600 | string |
+| certificateStoreName | It's ignored on Linux | string |
+| linkOnRenewal | false | boolean |
+| requireInitialSync | true | boolean |
+| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault.Store | string |
+| observedCertificates  | [{...}, {...}] | string array |
+| observedCertificates/url  | "https://myvault.vault.azure.net/secrets/mycertificate1" | string |
+| observedCertificates/certificateStoreLocation | "/var/lib/waagent/Microsoft.Azure.KeyVault/app1" | string |
+| observedCertificates/customSymbolicLinkName | "app1Cert1" | string |
+| observedCertificates/acls | "{...}, {...}" | string array |
+| msiEndpoint | http://169.254.169.254/metadata/identity | string |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
+| logger | "fluentd" | string |
+| endpoint | "unix:///var/run/azuremonitoragent/sometenant/default_fluent.socket" | string |
+| format | "forward" | string |
+| servicename | "akvvm_service" | string |
+ 
+
+#### [Version-1.0/2.0](#tab/version12)
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
@@ -132,6 +240,8 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
+---
+
 ## Template deployment
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment refresh of certificates. The extension can be deployed to individual VMs or virtual machine scale sets. The schema and configuration are common to both template types.
@@ -141,6 +251,74 @@ The JSON configuration for a virtual machine extension must be nested inside the
  > [!NOTE]
 > The VM extension would require system or user managed identity to be assigned to authenticate to Key vault.  See [How to authenticate to Key Vault and assign a Key Vault access policy.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 >
+
+### [Version-3.0](#tab/version3) 
+
+```json
+   {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "KeyVaultForLinux",
+      "apiVersion": "2022-11-01",
+      "location": "<location>",
+      "dependsOn": [
+          "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
+      ],
+      "properties": {
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForLinux",
+      "typeHandlerVersion": "3.0",
+      "autoUpgradeMinorVersion": true,
+      "enableAutomaticUpgrade": true,
+      "settings": {
+          "loggingSettings": {
+              "logger": <Logger engine name. e.g.: "fluentd">,
+              "endpoint": <Logger listening endpoint "unix:///var/run/azuremonitoragent/sometenant/default_fluent.socket">,
+              "format": <Logging format. e.g.: "forward">,
+              "servicename": <Service name used in logs. e.g.: "akvvm_service">
+          },
+          "secretsManagementSettings": {
+          "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
+          "requireInitialSync": <initial synchronization of certificates e..g: false>,
+          "observedCertificates": <An array of KeyVault URIs that represent monitored certificates, including certificate store location and ACL permission to certificate private key. Example:
+             [
+                {
+                    "url": <A Key Vault URI to the secret portion of the certificate. Example: "https://myvault.vault.azure.net/secrets/mycertificate1">,
+                    "certificateStoreLocation": <The certificate store location, which currently works locally only. Example: "/var/lib/waagent/Microsoft.Azure.KeyVault.Store">,
+                    "acls": <Optional. An array of preferred acls with read access to certificate private keys. Example: 
+                    [
+                        {
+                            "user": "app1",
+                            "group": "appGroup1"
+                        },
+                        {
+                            "user": "service1"
+                        }
+                    ]>
+                },
+                {
+                    "url": <Example: "https://myvault.vault.azure.net/secrets/mycertificate2">,
+                    "certificateStoreName": <ignored on linux>,
+                    "certificateStoreLocation": <The certificate store location, which currently works locally only. Example: "/var/lib/waagent/Microsoft.Azure.KeyVault.Store">,
+                    "acls": <Optional. An array of preferred acls with read access to certificate private keys. Example: 
+                    [
+                        {
+                            "user": "app2"
+                        }
+                    ]>
+                }
+               
+             ]>   
+          },
+          "authenticationSettings": {
+              "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity">,
+              "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+          }
+        } 
+      }
+    }
+```
+
+### [Version-1.0/2.0](#tab/version12)
 
 ```json
     {
@@ -160,16 +338,23 @@ The JSON configuration for a virtual machine extension must be nested inside the
       "settings": {
           "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
-          "certificateStoreName": <ingnored on linux>,
+          "certificateStoreName": <ignored on linux>,
           "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+        },
+          "authenticationSettings": {
+              "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity">,
+              "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+          }
         }
-      }
       }
     }
 ```
 
+---
+
 ### Extension Dependency Ordering
+
 The Key Vault VM extension supports extension ordering if configured. By default the extension reports successful start as soon as polling starts. However, you can configure it to wait until it successfully download the complete list of certificates before reporting a successful start. If other extensions depend on installed certificates before they start, then enabling this setting will allow those extensions to declare a dependency on the Key Vault extension. This will prevent those extensions from starting until all certificates they depend on have been installed. The extension will retry the initial download indefinitely and remain in a `Transitioning` state.
 
 To turn on extension dependency, set the following:
@@ -189,6 +374,50 @@ To turn on extension dependency, set the following:
 The Azure PowerShell can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set.
 
 * To deploy the extension on a VM:
+
+### [Version-3.0](#tab/version3) 
+    
+    ```powershell
+
+        # Build settings
+        $settings = '{"secretsManagementSettings":
+        { "pollingIntervalInS": "' + <pollingInterval> +
+        '", "certificateStoreName": "' + <certStoreName> +
+        '", "certificateStoreLocation": "' + <certStoreLoc> +
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
+        $extName =  "KeyVaultForLinux"
+        $extPublisher = "Microsoft.Azure.KeyVault"
+        $extType = "KeyVaultForLinux"
+
+
+        # Start the deployment
+        Set-AzVmExtension -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+
+    ```
+
+* To deploy the extension on a virtual machine scale set:
+
+    ```powershell
+
+        # Build settings
+        $settings = '{"secretsManagementSettings":
+        { "pollingIntervalInS": "' + <pollingInterval> +
+        '", "certificateStoreName": "' + <certStoreName> +
+        '", "certificateStoreLocation": "' + <certStoreLoc> +
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
+        $extName = "KeyVaultForLinux"
+        $extPublisher = "Microsoft.Azure.KeyVault"
+        $extType = "KeyVaultForLinux"
+
+        # Add Extension to VMSS
+        $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
+        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -Setting $settings
+
+        # Start the deployment
+        Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss
+    ``` 
+
+### [Version-1.0/2.0](#tab/version12)
 
     ```powershell
         # Build settings
@@ -228,12 +457,17 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
         # Start the deployment
         Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss
     ```
+---
 
 ## Azure CLI deployment
 
 The Azure CLI can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set.
 
 * To deploy the extension on a VM:
+
+### [Version-3.0](#tab/version3) 
+
+### [Version-1.0/2.0](#tab/version12)
 
     ```azurecli
        # Start the deployment
@@ -258,10 +492,12 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
         --enable-auto-upgrade true `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
+---
+
 Please be aware of the following restrictions/requirements:
 - Key Vault restrictions:
   - It must exist at the time of the deployment
-  - The Key Vault Access Policy must be set for VM/VMSS Identity using a Managed Identity. See [How to Authenticate to Key Vault](../../key-vault/general/authentication.md) and [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy-cli.md).
+  - The Key Vault Secrets User role must be assigned to Key Vault for VM identity
 
 
 ## Troubleshoot and Support
@@ -278,11 +514,11 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
 
-[!INCLUDE [azure-cli-troubleshooting.md](~/reusable-content/ce-skilling/azure/includes/azure-cli-troubleshooting.md)]
+[!INCLUDE [azure-cli-troubleshooting.md](../../../includes/azure-cli-troubleshooting.md)]
 
 ### Logs and configuration
 
-The Key Vault VM extension logs only exist locally on the VM and are most informative when it comes to troubleshooting.
+The Key Vault VM extension logs exist locally on the VM and are most informative when it comes to troubleshooting.
 
 |Location|Description|
 |--|--|
