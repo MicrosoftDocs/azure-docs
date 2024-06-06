@@ -98,12 +98,13 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1. Select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
 1. (Optional) Select a region in which your alert rule will be processed. If you need to make sure the rule is processed within [EU Data Boundary](/privacy/eudb/eu-data-boundary-learn), select the North Europe or West Europe region. In all other cases you can select the Global region (which is the default).
 
-> [!NOTE]
-> Service Health alert rules can only be located in the Global region.
+   > [!NOTE]
+   > Service Health alert rules can only be located in the Global region.
 
 1. [!INCLUDE [alerts-wizard-custom=properties](../includes/alerts-wizard-custom-properties.md)]
 
 [!INCLUDE [alerts-wizard-finish](../includes/alerts-wizard-finish.md)]
 
 ## Next steps
- [View and manage your alert instances](alerts-manage-alert-instances.md)
+
+[View and manage your alert instances](alerts-manage-alert-instances.md)
