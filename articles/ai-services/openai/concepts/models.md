@@ -152,7 +152,7 @@ This table doesn't include fine-tuning regional availability, consult the dedica
 
 ### Standard deployment model quota
 
-[!INCLUDE [Quota](~/reusable-content/ce-skilling/azure/includes/ai-services/openai/includes/model-matrix/quota.md)]
+[!INCLUDE [Quota](../includes/model-matrix/quota.md)]
 
 ### Provisioned deployment model availability
 

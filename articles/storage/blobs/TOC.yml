@@ -795,6 +795,8 @@ items:
           href: storage-blob-use-access-tier-javascript.md
       - name: Client library configuration options
         items:
+        - name: Performance tuning for uploads and downloads
+          href: storage-blobs-tune-upload-download-javascript.md
         - name: Implement a retry policy
           href: storage-retry-policy-javascript.md
       - name: 'Tutorial: Upload and process image files'

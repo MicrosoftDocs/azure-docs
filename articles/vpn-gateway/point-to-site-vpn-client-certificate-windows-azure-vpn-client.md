@@ -62,7 +62,7 @@ If you don't see the file, verify the following items:
 
 ## Download the Azure VPN Client
 
-[!INCLUDE [Download the Azure VPN client](../../includes/vpn-gateway-download-vpn-client.md)]
+[!INCLUDE [Download the Azure VPN client](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-download-vpn-client.md)]
 
 ## Configure the Azure VPN Client profile
 

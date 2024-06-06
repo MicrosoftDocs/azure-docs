@@ -1,6 +1,6 @@
 ---
 title: HB sub-family VM size series
-description: Overview of the 'HB' sub-family of virtual machine sizes
+description: List of sizes in the HB family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -52,5 +52,8 @@ ms.author: mattmcinnes
 
 [!INCLUDE [hbv4-series-specs](./includes/hbv4-series-specs.md)]
 
+
+### Previous-generation HB family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#hpc-previous-gen-sizes).
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

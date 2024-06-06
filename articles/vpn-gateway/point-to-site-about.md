@@ -95,7 +95,7 @@ The client configuration requirements vary, based on the VPN client that you use
 
 The following table shows gateway SKUs by tunnel, connection, and throughput. For more information, see  [About gateway SKUs](about-gateway-skus.md).
 
-[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+[!INCLUDE [aggregate throughput sku](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 > [!NOTE]
 > The Basic SKU has limitations and does not support IKEv2, IPv6, or RADIUS authentication. For more information, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).

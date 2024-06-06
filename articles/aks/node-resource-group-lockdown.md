@@ -14,7 +14,7 @@ AKS deploys infrastructure into your subscription for connecting to and running 
 
 To prevent changes from being made to the node resource group, you can apply a deny assignment and block users from modifying resources created as part of the AKS cluster.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Before you begin
 
@@ -63,7 +63,11 @@ az extension update --name aks-preview
 Create a cluster with node resource group lockdown using the [`az aks create`][az-aks-create] command with the `--nrg-lockdown-restriction-level` flag set to `ReadOnly`. This configuration allows you to view the resources but not modify them.
 
 ```azurecli-interactive
-az aks create --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --nrg-lockdown-restriction-level ReadOnly
+az aks create \
+    --name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --nrg-lockdown-restriction-level ReadOnly \
+    --generate-ssh-keys
 ```
 
 ## Update an existing cluster with node resource group lockdown

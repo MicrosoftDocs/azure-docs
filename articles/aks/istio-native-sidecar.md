@@ -119,12 +119,13 @@ When creating a new AKS cluster with [az aks create][az-aks-create] command, cho
 
 ```bash
 az aks create \
-  --resource-group $RESOURCE_GROUP \
-  --name $CLUSTER \
-  --enable-asm \
-  --kubernetes-version 1.29 \
-  --revision asm-1-20
-  ...
+    --resource-group $RESOURCE_GROUP \
+    --name $CLUSTER \
+    --enable-asm \
+    --kubernetes-version 1.29 \
+    --revision asm-1-20 \
+    --generate-ssh-keys    
+    ...
 ```
 
 ## Next steps

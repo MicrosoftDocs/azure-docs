@@ -97,6 +97,9 @@ Once you have submitted the short code program brief application in the Azure po
 > [!IMPORTANT]
 > Effective **November 30, 2023**, unregistered alphanumeric sender IDs sending messages to Australia and Italy phone numbers will have its traffic blocked. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status.
 
+> [!IMPORTANT]
+> Effective **June 30, 2024**, unregistered alphanumeric sender IDs sending messages to UK phone numbers will have its traffic blocked. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status.
+
 ### How should an alphanumeric sender ID be formatted?
 **Formatting guidelines**:
 - Must contain at least one letter
