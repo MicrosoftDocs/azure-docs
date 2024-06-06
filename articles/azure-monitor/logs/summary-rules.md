@@ -71,14 +71,14 @@ You can export summarized data from a custom log table to a storage account or E
 
 ## Create or update a summary rule
 
-For rules that you create and configure, the `ruleType` parameter is always `User` and the `destinationTable` name must end with `_CL`, which is prefixed to all custom log tables. If you update a query and remove output fields from the results set, Azure Monitor doesn't automatically remove the fields from the destination table. You can remove the fields by using the [Table API](/rest/api/loganalytics/tables/update?tabs=HTTP). 
+Before you create a rule, experiment with the query in [Log Analytics](log-analytics-overview.md). Verify that the query doesn't reach or near the query limit. Confirm the query produces the intended schema and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
 
-> [!NOTE]
-> Before you create a rule, experiment with the query in [Log Analytics](log-analytics-overview.md). Verify that the query doesn't reach or near the query limit. Confirm the query produces the intended schema and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
+When you update a query and remove output fields from the results set, Azure Monitor doesn't automatically remove the columns from the destination table. You need to [delete columns from your table](create-custom-table.md#add-or-delete-a-custom-column) manually.
+
 
 ### [API](#tab/api)
 
-To create a summary role, make this `PUT` API call:
+To create or update a summary rule, make this `PUT` API call:
 
 ```kusto
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summarylogs/{ruleName}?api-version=2023-01-01-preview
@@ -99,7 +99,7 @@ Authorization: {credential}
 
 ### [Azure Resource Manager template](#tab/azure-resource-manager)
 
-Use this template to create a summary rule. For more information about using and deploying Azure Resource Manager templates, see [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
+Use this template to create or update a summary rule. For more information about using and deploying Azure Resource Manager templates, see [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 #### Template file
 
