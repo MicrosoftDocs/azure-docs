@@ -16,7 +16,7 @@ ms.date: 04/23/2024
 
 A summary rule lets you aggregate log data at a regular cadence and send the aggregated results to a custom log table in your Log Analytics workspace. Use summary rules to optimize your data for:
 
-- **Analysis and reports**, especially over large data sets and time ranges, as required for security and incident analysis, month-over-month or annual business reports, and so on. Complex queries on a large data set often time out. It's easier and more efficient to analyze and report on summarized data that's _cleaned_ and _aggregated_. 
+- **Analysis and reports**, especially over large data sets and time ranges, as required for security and incident analysis, month-over-month or annual business reports, and so on. Complex queries on a large data set often time out. It's easier and more efficient to analyze and report on _cleaned_ and _aggregated_ summarized data. 
 
 - **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a cheap Basic log table, and send summarized data to an Analytics table for analysis and reports. 
 
@@ -212,16 +212,16 @@ Use this template to create a summary rule. For more information about using and
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
-      "value": "yossiy-eus"
+      "value": "myworkspace"
     },
     "summaryRuleName": {
-      "value": "SummaryOfStorage"
+      "value": "myrulename"
     },
     "description": {
-      "value": "A test rule"
+      "value": "My rule description."
     },
     "location": {
-      "value": "eastus"
+      "value": "eastus" //Log Analytics workspace region
     },
     "ruleType": {
       "value": "User"
@@ -233,7 +233,7 @@ Use this template to create a summary rule. For more information about using and
       "value": 20
     },
     "destinationTable": {
-      "value": "SummaryStorageBlobLogs_CL"
+      "value": "MySummaryLogs_CL"
     }
   }
 }
@@ -250,13 +250,13 @@ This table describes the summary rule properties:
 | `query` | [KQL query](get-started-queries.md) | Defines the query to execute in the rule. You don't need to specify a time range because the `binSize` property determines the aggregation - for example, `02:00 to 03:00` if `"binSize": 60`. If you add a time filter in the query, the time rage used in the query is the intersection between the filter and the bin size. |
 | `destinationTable` | `tablename_CL` | Specifies the name of the destination custom log table. The name value must have the suffix `_CL`. Azure Monitor creates the table in the workspace, if it doesn't already exist, based on the query you set in the rule. If the table already exists in the workspace, Azure Monitor adds any new columns introduced in the query. <br><br> If the summary results include a reserved column name - such as `TimeGenerated`, `_IsBillable`, `_ResourceId`, `TenantId`, or `Type` - Azure Monitor appends the `_Original` prefix to the original fields to preserve their original values.|
 | `binDelay` (optional) | Integer (minutes) | Sets a time to delay before bin execution for late arriving data, also known as [ingestion latency](data-ingestion-time.md). The delay allows for most data to arrive and for service load distribution. The default delay is from three and a half minutes to 10% of the `binSize` value. <br><br> If you know that the data you query is typically ingested with delay, set the `binDelay` property with the known delay value or greater. For more information, see [Configure the aggregation timing](#configure-the-aggregation-timing).|
-| `binStartTime` (optional) | Datetime in<br>`%Y-%n-%eT%H:%M %Z` format. | Specifies the date and time for the initial bin execution. The value can start at rule creation datetime minus the `binSize` value, or later and in whole hours. For example, if the datetime is `2023-12-03T12:13Z` and `binSize` is 1,440, the minimum `binStartTime` value can be `2023-12-02T13:00Z`, and execution of the first bin 02T13:00 to 03T13:00 is at 03T13:00 plus a specified delay. <br><br> The `binStartTime` property is useful in daily summary scenarios and helps specify the time of a bin. Suppose datetime is `2023-12-03T12:13Z` and you're located in the UTC-8 time zone, and you want a daily rule to complete before you start your day at 8:00 (00:00 UTC). Set the `binStartTime` property to `2023-12-02T22:00Z`. The first bin occurs at 02T:06:00 to 03T:06:00 local time and recurs daily. <br><br> When you update rules, you have several options: <br> - Use the existing `binStartTime` value: Execution continues per the initial definition. <br> - Remove the `binStartTime` property: Execution continues per the initial definition. <br> - Update the rule with a new `binStartTime` value: Executions adhere to the new datetime value. |
+| `binStartTime` (optional) | Datetime in<br>`%Y-%n-%eT%H:%M %Z` format. | Specifies the date and time for the initial bin execution. The value can start at rule creation datetime minus the `binSize` value, or later and in whole hours. For example, if the datetime is `2023-12-03T12:13Z` and `binSize` is 1,440, the earliest valid `binStartTime` value is `2023-12-02T13:00Z`, and the aggregation includes data logged between 02T13:00 and 03T13:00. In this scenario, the rules start aggregating a 03T13:00 plus the default or specified delay. <br><br> The `binStartTime` property is useful in daily summary scenarios. Suppose you're located in the UTC-8 time zone and you create a daily rule at `2023-12-03T12:13Z`. You want the rule to complete before you start your day at 8:00 (00:00 UTC). Set the `binStartTime` property to `2023-12-02T22:00Z`. The first aggregation includes all data logged between 02T:06:00 and 03T:06:00 local time, and the rule runs at the same time daily. <br><br> When you update rules, you can either: <br> - Use the existing `binStartTime` value or remove the `binStartTime` parameter: Execution continues based on the initial definition.<br> - Update the rule with a new `binStartTime` value: Sets a new datetime value. |
 | `timeSelector` (optional) | `TimeGenerated` | Provides the datetime field for use by the query. |
 
 
 ### Configure the aggregation timing
 
-By default, the summary rule creates the first aggregation a shortly after the next whole hour. 
+By default, the summary rule creates the first aggregation shortly after the next whole hour. 
 
 The short delay Azure Monitor adds accounts for ingestion latency - or the time between when the data is created in the monitored system and the time that it becomes available for analysis in Azure Monitor. By default, this delay is between three and a half minutes to 10% of the `binSize` value before aggregating each chunk of data. In most cases, this delay ensures that Azure Monitor aggregates all data logged within each bin period and doesn't miss "late arriving data".
 
