@@ -220,11 +220,11 @@ If you're using Azure Network Security Group (NSG) rules/firewall proxy to contr
 
 #### Possible cause
 
-The custom proxy settings are invalid and the Mobility service agent didn't autodetect the proxy settings from Internet Explorer (IE).
+The custom proxy settings are invalid and the Mobility service agent didn't autodetect the proxy settings from Internet Explorer.
 
 #### Fix the problem
 
-1. The Mobility service agent detects the proxy settings from IE on Windows and `/etc/environment` on Linux.
+1. The Mobility service agent detects the proxy settings from Internet Explorer on Windows and `/etc/environment` on Linux.
 1. If you prefer to set proxy only for the Mobility service, then you can provide the proxy details in _ProxyInfo.conf_ located at:
 
    - **Linux**: `/usr/local/InMage/config/`

@@ -295,12 +295,7 @@ To learn more about the structures of initiative definitions, review
 
 ### Assignments
 
-An assignment is a policy definition or initiative that has been assigned to a
-specific scope. This scope could range from a [management group](../management-groups/overview.md)
-to an individual resource. The term _scope_ refers to all the resources, resource groups,
-subscriptions, or management groups that the definition is assigned to. Assignments are inherited by
-all child resources. This design means that a definition applied to a resource group is also applied
-to resources in that resource group. However, you can exclude a subscope from the assignment.
+An assignment is a policy definition or initiative that has been assigned to a specific scope. This scope could range from a [management group](../management-groups/overview.md) to an individual resource. The term _scope_ refers to all the resources, resource groups, subscriptions, or management groups that the definition is assigned to. Assignments are inherited by all child resources. This design means that a definition applied to a resource group is also applied to resources in that resource group. However, you can exclude a subscope from the assignment.
 
 For example, at the subscription scope, you can assign a definition that prevents the creation of
 networking resources. You could exclude a resource group in that subscription that is intended for

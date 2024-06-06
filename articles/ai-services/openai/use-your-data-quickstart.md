@@ -48,7 +48,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 
-- An Azure OpenAI resource deployed in a [supported region](./concepts/use-your-data.md#regional-availability-and-model-support) with a [supported model](./concepts/use-your-data.md#supported-models).
+- An Azure OpenAI resource deployed in a [supported region and with a supported model](./concepts/use-your-data.md#regional-availability-and-model-support).
 
 - Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource.
 

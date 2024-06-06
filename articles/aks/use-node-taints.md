@@ -78,7 +78,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
 
 ## Use node initialization taints (preview)
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ### Prerequisites and limitations
 
@@ -137,10 +137,11 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
 
     ```azurecli-interactive
     az aks create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $CLUSTER_NAME \
-    --node-count 1 \
-    --node-init-taints "sku=gpu:NoSchedule"
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $CLUSTER_NAME \
+        --node-count 1 \
+        --node-init-taints "sku=gpu:NoSchedule" \
+        --generate-ssh-keys
     ```
 
 2. [Check the status of the node pool](#check-the-status-of-the-node-pool).
