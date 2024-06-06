@@ -65,23 +65,24 @@ Microsoft provides best-effort support for [the latest version of Dapr and two p
 
 You can run Azure CLI commands to retreive a list of available versions in [a cluster](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-cluster) or [a location](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-location).
 
-Run the following command to get a list of stable Dapr versions by managed AKS cluster:
+To view a list of the stable Dapr versions available to your managed AKS cluster, run the following command:
 
 ```azurecli
 az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr --release-train stable
 ```
 
-Run the following command to see the latest stable Dapr version by managed AKS cluster:
+To see the latest stable Dapr version available to your managed AKS cluster, run the following:
 
 ```azurecli
-az k8s-extension extension-types list-versions-by-cluster --resource-group aca-development --cluster-name test-aks-extension2 --cluster-type managedClusters --extension-type microsoft.dapr  --release-train stable --show-latest
+az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr  --release-train stable --show-latest
 ```
 
-
-Run the following command to get a list of versions by location:
+To view a list of the stable Dapr versions available _by location_:
+1. [Make sure you've registered the `ExtenstionTypes` feature to your Azure subscription.](./dapr.md#register-the-extenstiontypes-feature-to-your-azure-subscription)
+1. Run the following command.
 
 ```azurecli
-az k8s-extension extension-types list-versions-by-location --location eastus --extension-type microsoft.dapr
+az k8s-extension extension-types list-versions-by-location --location westus --extension-type microsoft.dapr
 ```
 
 The Dapr extension support varies depending on how you manage the runtime.
