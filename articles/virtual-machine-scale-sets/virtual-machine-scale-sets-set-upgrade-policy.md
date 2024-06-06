@@ -38,7 +38,7 @@ az vmss create \
     --orchestration-mode Flexible \
     --image Ubuntu2204 \
     --lb myLoadBalancer \
-    --upgrade-policy-mode Manual \
+    --upgrade-policy-mode automatic \
     --instance-count 5 \
     --admin-username azureuser \
     --generate-ssh-keys
@@ -70,7 +70,7 @@ If using a rolling upgrade policy, see [configure rolling upgrade policy](virtua
 ```ARM
 "properties": {
         "upgradePolicy": {
-            "mode": "Manual",
+            "mode": "Automatic",
         }
     }
 ```
