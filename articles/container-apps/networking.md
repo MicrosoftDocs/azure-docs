@@ -286,7 +286,9 @@ Below is an example environment with peer-to-peer encryption enabled.
 :::image type="content" source="media/networking/peer-to-peer-encryption-traffic-diagram.png" alt-text="Diagram of how traffic is encrypted/decrypted with peer-to-peer encryption enabled.":::
 
 <sup>1</sup> Inbound TLS traffic is terminated at the ingress proxy on the edge of the environment.
+
 <sup>2</sup> Traffic to and from the ingress proxy within the environment is TLS encrypted with the private CA and decrypted by the receiver. 
+
 <sup>3</sup> Calls made from app A to app B are first sent to the edge ingress proxy, and are TLS encrypted.
 
 Applications within a Container Apps environment are automatically authenticated. However, the Container Apps runtime doesn't support authorization for access control between applications using the built-in peer-to-peer encryption.
