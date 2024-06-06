@@ -1,9 +1,10 @@
 ---
 title: Connect your GitHub organizations
-description: Learn how to connect your GitHub Environment to Defender for Cloud.
-ms.date: 01/24/2023
+description: Learn how to connect your GitHub Environment to Defender for Cloud and enhance the security of your GitHub resources.
+ms.date: 05/30/2024
 ms.topic: quickstart
 ms.custom: ignite-2023
+#customer intent: As a user, I want to learn how to connect my GitHub Environment to Defender for Cloud so that I can enhance the security of my GitHub resources.
 ---
 
 # Quickstart: Connect your GitHub Environment to Microsoft Defender for Cloud
@@ -90,7 +91,7 @@ The Defender for Cloud service automatically discovers the organizations where y
 > [!NOTE]
 > To ensure proper functionality of advanced DevOps posture capabilities in Defender for Cloud, only one instance of a GitHub organization can be onboarded to the Azure Tenant you are creating a connector in.
 
-The **DevOps security** pane shows your onboarded repositories grouped by Organization. The **Recommendations** pane shows all security assessments related to GitHub repositories.
+Upon successful onboarding, DevOps resources (e.g., repositories, builds) will be present within the Inventory and DevOps security pages. It might take up to 8 hours for resources to appear. Security scanning recommendations might require [an additional step to configure your pipelines](azure-devops-extension.yml). Refresh intervals for security findings vary by recommendation and details can be found on the Recommendations page.
 
 ## Next steps
 

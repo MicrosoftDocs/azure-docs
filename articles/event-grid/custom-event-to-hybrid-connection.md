@@ -47,11 +47,11 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 The following script gets the resource ID of the relay namespace. It constructs the ID for the hybrid connection, and subscribes to an Event Grid topic. The script sets the endpoint type to `hybridconnection` and uses the hybrid connection ID for the endpoint.
 
 ```azurecli-interactive
-relayname=<namespace-name>
+relaynsname=<namespace-name>
 relayrg=<resource-group-for-relay>
 hybridname=<hybrid-name>
 
-relayid=$(az resource show --name $relayname --resource-group $relayrg --resource-type Microsoft.Relay/namespaces --query id --output tsv)
+relayid=$(az relay namespace show --resource-group $relayrg --name $relaynsname --query id --output tsv)
 hybridid="$relayid/hybridConnections/$hybridname"
 topicid=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query id --output tsv)
 

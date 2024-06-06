@@ -37,7 +37,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 |------------------------------|--------------------------------------------------------------|-------------------------------------------------------------------------------|
 | Cluster scale                | 5000 nodes and 250 pods/node                                 | 400 nodes and 250 pods/node                                                   |
 | Network configuration        | Simple - no extra configurations required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
-| Pod connectivity performance | Performance on par with VMs in a VNet                        | Extra hop adds minor latency                                                  |
+| Pod connectivity performance | Performance on par with VMs in a VNet                        | Extra hop adds latency                                                  |
 | Kubernetes Network Policies  | Azure Network Policies, Calico, Cilium                       | Calico                                                                        |
 | OS platforms supported       | Linux and Windows Server 2022, 2019                          | Linux only                                                                    |
 
@@ -106,11 +106,14 @@ clusterName="myOverlayCluster"
 resourceGroup="myResourceGroup"
 location="westcentralus"
 
-az aks create -n $clusterName -g $resourceGroup \
-  --location $location \
-  --network-plugin azure \
-  --network-plugin-mode overlay \
-  --pod-cidr 192.168.0.0/16
+az aks create \
+    --name $clusterName \
+    --resource-group $resourceGroup \
+    --location $location \
+    --network-plugin azure \
+    --network-plugin-mode overlay \
+    --pod-cidr 192.168.0.0/16 \
+    --generate-ssh-keys
 ```
 
 ## Add a new nodepool to a dedicated subnet
@@ -127,7 +130,7 @@ subscriptionId=$(az account show --query id -o tsv)
 vnetName="yourVnetName"
 subnetName="yourNewSubnetName"
 subnetResourceId="/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnetName/subnets/$subnetName"
-az aks nodepool add  -g $resourceGroup --cluster-name $clusterName \
+az aks nodepool add --resource-group $resourceGroup --cluster-name $clusterName \
   --name $nodepoolName --node-count 1 \
   --mode system --vnet-subnet-id $subnetResourceId
 ```
@@ -233,16 +236,20 @@ The following attributes are provided to support dual-stack clusters:
 1. Create an Azure resource group for the cluster using the [`az group create`][az-group-create] command.
 
     ```azurecli-interactive
-    az group create -l <region> -n <resourceGroupName>
+    az group create --location <region> --name <resourceGroupName>
     ```
 
 2. Create a dual-stack AKS cluster using the [`az aks create`][az-aks-create] command with the `--ip-families` parameter set to `ipv4,ipv6`.
 
     ```azurecli-interactive
-    az aks create -l <region> -g <resourceGroupName> -n <clusterName> \
-      --network-plugin azure \
-      --network-plugin-mode overlay \
-      --ip-families ipv4,ipv6
+    az aks create \
+        --location <region> \
+        --resource-group <resourceGroupName> \
+        --name <clusterName> \
+        --network-plugin azure \
+        --network-plugin-mode overlay \
+        --ip-families ipv4,ipv6 \
+        --generate-ssh-keys
     ```
 
 ---

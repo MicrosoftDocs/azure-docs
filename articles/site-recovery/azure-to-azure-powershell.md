@@ -30,7 +30,7 @@ You learn how to:
 > Not all scenario capabilities available through the portal may be available through Azure PowerShell. Some of the scenario capabilities not currently supported through Azure PowerShell are:
 > - The ability to specify that all disks in a virtual machine should be replicated without having to explicitly specify each disk of the virtual machine.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

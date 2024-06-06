@@ -1,7 +1,7 @@
 ---
 title: Overview
 description: This article describes the REST API that makes the data collected by Azure Log Analytics easily available.
-ms.date: 02/28/2023
+ms.date: 05/26/2024
 author: guywi-ms
 ms.author: guywild
 ms.topic: article
@@ -49,7 +49,7 @@ To try the API without writing any code, you can use:
 Instead of calling the REST API directly, you can use the idiomatic Azure Monitor Query client libraries:
 
 - [.NET](/dotnet/api/overview/azure/Monitor.Query-readme)
-- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery)
+- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/query/azlogs)
 - [Java](/java/api/overview/azure/monitor-query-readme)
 - [JavaScript](/javascript/api/overview/azure/monitor-query-readme)
 - [Python](/python/api/overview/azure/monitor-query-readme)

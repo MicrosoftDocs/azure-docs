@@ -12,6 +12,8 @@ ms.author: cephalin
 
 # Deployment Best Practices
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 Every development team has unique requirements that can make implementing an efficient deployment pipeline difficult on any cloud service. This article introduces the three main components of deploying to App Service: deployment sources, build pipelines, and deployment mechanisms. This article also covers some best practices and tips for specific language stacks.
 
 ## Deployment Components
@@ -80,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
-    - name: 'Checkout Github Action'
+    - name: 'Checkout GitHub Action'
       uses: actions/checkout@main
 
     - uses: azure/docker-login@v1

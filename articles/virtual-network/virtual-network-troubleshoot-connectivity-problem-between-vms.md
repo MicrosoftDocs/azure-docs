@@ -14,7 +14,7 @@ ms.author: allensu
 
 You might experience connectivity problems between Azure virtual machines (VMs). This article provides troubleshooting steps to help you resolve this problem. 
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Symptom
 
@@ -47,7 +47,7 @@ If the problem occurs after you modify the network interface (NIC), follow these
 1. Add a NIC.
 2. Fix the problems in the bad NIC or remove the bad NIC.  Then add the NIC again.
 
-For more information, see [Add network interfaces to or remove from virtual machines](virtual-network-network-interface-vm.md).
+For more information, see [Add network interfaces to or remove from virtual machines](virtual-network-network-interface-vm.yml).
 
 **Single-NIC VM** 
 

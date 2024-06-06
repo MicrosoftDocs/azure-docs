@@ -30,7 +30,7 @@ Two host network interfaces and one management network interface are created at 
 
 With the Azure Payment HSM provisioning service, customers have native access to two host network interfaces and one management interface on the payment HSM. This screenshot displays the Azure Payment HSM resources within a resource group.
 
-:::image type="content" source="./media/portal-view-payment-hsms.png" lightbox="./media/high-level-architecture.png" alt-text="A screenshot illustrating that the owner of a payment HSM has access to two host network interfaces and one management interface.":::
+:::image type="content" source="./media/portal-view-payment-hsms.png" lightbox="./media/portal-view-payment-hsms.png" alt-text="A screenshot illustrating that the owner of a payment HSM has access to two host network interfaces and one management interface.":::
 
 ## Why use Azure Payment HSM?
 

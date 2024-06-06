@@ -76,7 +76,7 @@ Next, you must prepare two Azure CLI sessions. If you're using the Cloud Shell, 
    az extension add --name azure-iot
    ```
 
-   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+   [!INCLUDE [iot-hub-cli-version-info](~/reusable-content/ce-skilling/azure/includes/iot-hub-cli-version-info.md)]
 
 1. Open the second CLI session.  If you're using the Cloud Shell in a browser, select the **Open new session** icon on the toolbar of your first CLI session. If using the CLI locally, open a second CLI instance.
 
@@ -284,7 +284,7 @@ In this article, you:
 
 To learn how to:
 
-* Send telemetry from devices, see [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json).
+* Send telemetry from devices, see [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json).
 
 * Configure devices using device twin's desired properties, see [Tutorial: Configure your devices from a back-end service](tutorial-device-twins.md).
 

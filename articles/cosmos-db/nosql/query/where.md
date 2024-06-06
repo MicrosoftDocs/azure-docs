@@ -58,14 +58,15 @@ In this final example, a property reference to a boolean property is used as the
 
 - In order for an item to be returned, an expression specified as a filter condition must evaluate to true. Only the boolean value ``true`` satisfies the condition, any other value: ``undefined``, ``null``, ``false``, a number scalar, an array, or an object doesn't satisfy the condition.
 - If you include your partition key in the ``WHERE`` clause as part of an equality filter, your query automatically filters to only the relevant partitions.
-- You can use the following supported binary operators:  
-  | | Operators |
+- You can use the following supported binary operators:
+  
+  | Operators | Examples |
   | --- | --- |
   | **Arithmetic** | ``+``,``-``,``*``,``/``,``%`` |
-  | **Bitwise** | ``|``, ``&``, ``^``, ``<<``, ``>>``, ``>>>`` *(zero-fill right shift)* |
+  | **Bitwise** | ``\|``, ``&``, ``^``, ``<<``, ``>>``, ``>>>`` *(zero-fill right shift)* |
   | **Logical** | ``AND``, ``OR``, ``NOT`` |
   | **Comparison** | ``=``, ``!=``, ``<``, ``>``, ``<=``, ``>=``, ``<>`` |
-  | **String** |  ``||`` *(concatenate)* |
+  | **String** |  ``\|\|`` *(concatenate)* |
 
 ## Related content
 

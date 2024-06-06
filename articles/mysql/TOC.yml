@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: What is Azure Database for MySQL - Flexible Server?
-    href: flexible-server/overview-single.md
+    href: flexible-server/overview.md
   - name: Select the right deployment type
     href: select-right-deployment-type.md
   - name: Try for free
@@ -21,8 +21,6 @@
   items:
   - name: Overview
     items:
-      - name: Flexible server deployment model
-        href: flexible-server/overview.md
       - name: What's new?
         href: flexible-server/whats-new.md
       - name: Release notes
@@ -32,8 +30,10 @@
           - name: February 2024
             href: flexible-server/release-notes/february-2024.md
           - name: April 2024
-            href: flexible-server/release-notes/april-2024.md            
-      - name: Compute and storage
+            href: flexible-server/release-notes/april-2024.md
+          - name: May 2024
+            href: flexible-server/release-notes/may-2024.md
+      - name: Service tiers
         href: flexible-server/concepts-service-tiers-storage.md
   - name: Quickstarts
     expanded: true

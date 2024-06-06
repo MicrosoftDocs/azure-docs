@@ -121,7 +121,7 @@ For more information, see the [Azure Information Protection product documentatio
 |- Custom templates, including departmental templates     |     GA       |    GA     |   GA         |
 |- Manual, default, and mandatory document classification     |       GA       |    GA     |   GA       |
 |- Configure conditions for automatic and recommended classification      GA       |    GA     |   GA        |
-|- [Protection for non-Microsoft Office file formats, including PTXT, PJPG, and PFILE (generic protection)](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        GA       |    GA     |   GA       |
+|- [Protection for non-Microsoft Office file formats, including PTXT, PJPG, and PFILE (generic protection)](/purview/information-protection-client#supported-file-types)     |        GA       |    GA     |   GA       |
 |     |         |         |         |
 
 <sup><a name="aipnote3"></a>3</sup> The Mobile Device Extension for AD RMS is currently not available for government customers.
@@ -149,7 +149,7 @@ The following table displays the current Defender for Cloud feature availability
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
 | **Microsoft Defender for Cloud free features**                                                                                                                                       |                |                                |
 | <li> [Continuous export](../../defender-for-cloud/continuous-export.md)                                                                                                                 | GA             | GA                             |
-| <li> [Workflow automation](../../defender-for-cloud/workflow-automation.md)                                                                                                               | GA             | GA                             |
+| <li> [Workflow automation](../../defender-for-cloud/workflow-automation.yml)                                                                                                               | GA             | GA                             |
 | <li> [Recommendation exemption rules](../../defender-for-cloud/exempt-resource.md)                                                                                                      | Public Preview | Not Available                  |
 | <li> [Alert suppression rules](../../defender-for-cloud/alerts-suppression-rules.md)                                                                                                    | GA             | GA                             |
 | <li> [Email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md)                                                            | GA             | GA                             |

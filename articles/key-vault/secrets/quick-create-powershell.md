@@ -18,7 +18,7 @@ Azure Key Vault is a cloud service that works as a secure secrets store. You can
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 5.0.0 or later. Type `Get-Module az -ListAvailable` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -28,7 +28,7 @@ Connect-AzAccount
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
 
 ## Create a key vault
 
@@ -36,11 +36,7 @@ Connect-AzAccount
 
 ## Give your user account permissions to manage secrets in Key Vault
 
-Use the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to update the Key Vault access policy and grant secret permissions to your user account.
-
-```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToSecrets get,set,delete
-```
+[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac-powershell.md)]
 
 ## Adding a secret to Key Vault
 

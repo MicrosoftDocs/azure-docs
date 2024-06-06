@@ -118,7 +118,7 @@ The [GPT-35-Turbo & GPT-4 how-to guide](../how-to/chatgpt.md) provides an in-dep
 
 ## Clean up resources
 
-Once you're done testing out the Chat playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+Once you're done testing out the Chat playground, if you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)

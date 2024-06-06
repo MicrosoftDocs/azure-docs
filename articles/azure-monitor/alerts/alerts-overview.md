@@ -31,7 +31,7 @@ An **alert** is triggered if the conditions of the alert rule are met. The alert
 Alerts are stored for 30 days and are deleted after the 30-day retention period. You can see all alert instances for all of your Azure resources on the [Alerts page](alerts-manage-alert-instances.md) in the Azure portal.
 
 Alerts consist of:
- - **Action groups**: These groups can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
+ - **Action groups**: These groups can trigger notifications to let users know that an alert has been triggered or start automated workflows. Action groups can include:
      - Notification methods, such as email, SMS, and push notifications.
      - Automation runbooks.
      - Azure functions.

@@ -90,7 +90,10 @@ AKS uses several managed identities for built-in services and add-ons.
 2. Create an AKS cluster using the [`az aks create`][az-aks-create] command.
 
     ```azurecli-interactive
-    az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
+    az aks create \
+        --resource-group myResourceGroup \
+        --name myManagedCluster \
+        --generate-ssh-keys
     ```
 
 3. Get credentials to access the cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
@@ -104,7 +107,7 @@ AKS uses several managed identities for built-in services and add-ons.
 To update your existing AKS cluster that's using a service principal to use a system-assigned managed identity, run the [`az aks update`][az-aks-update] command.
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myManagedCluster --enable-managed-identity
+az aks update --resource-group myResourceGroup --name myManagedCluster --enable-managed-identity
 ```
 
 After updating your cluster, the control plane and pods use the managed identity. Kubelet continues using a service principal until you upgrade your agentpool. You can use the `az aks nodepool upgrade --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --node-image-only` command on your nodes to update to a managed identity. A node pool upgrade causes downtime for your AKS cluster as the nodes in the node pools are cordoned/drained and reimaged.
@@ -220,8 +223,8 @@ A custom user-assigned managed identity for the control plane enables access to 
         --vnet-subnet-id <subnet-id> \
         --dns-service-ip 10.2.0.10 \
         --service-cidr 10.2.0.0/24 \
-        --enable-managed-identity \
-        --assign-identity <identity-resource-id>
+        --assign-identity <identity-resource-id> \
+        --generate-ssh-keys
     ```
 
 ### Update managed identity on an existing cluster
@@ -355,9 +358,9 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
         --vnet-subnet-id <subnet-id> \
         --dns-service-ip 10.2.0.10 \
         --service-cidr 10.2.0.0/24 \
-        --enable-managed-identity \
         --assign-identity <identity-resource-id> \
-        --assign-kubelet-identity <kubelet-identity-resource-id>
+        --assign-kubelet-identity <kubelet-identity-resource-id> \
+        --generate-ssh-keys
     ```
 
     A successful AKS cluster creation using your own kubelet managed identity should resemble the following example output:
@@ -396,7 +399,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 1. Confirm your AKS cluster is using the user-assigned managed identity using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show -g <RGName> -n <ClusterName> --query "servicePrincipalProfile"
+    az aks show --resource-group <RGName> --name <ClusterName> --query "servicePrincipalProfile"
     ```
 
     If your cluster is using a managed identity, the output shows `clientId` with a value of **msi**. A cluster using a service principal shows an object ID. For example:
@@ -410,7 +413,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 2. After confirming your cluster is using a managed identity, find the managed identity's resource ID using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show -g <RGName> -n <ClusterName> --query "identity"
+    az aks show --resource-group <RGName> --name <ClusterName> --query "identity"
     ```
 
     For a user-assigned managed identity, your output should look similar to the following example output:

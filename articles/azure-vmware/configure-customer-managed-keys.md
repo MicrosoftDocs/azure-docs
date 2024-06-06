@@ -3,7 +3,7 @@ title: Configure CMK encryption at rest in Azure VMware Solution
 description: Learn how to encrypt data in Azure VMware Solution with customer-managed keys by using Azure Key Vault.
 ms.topic: how-to 
 ms.custom: devx-track-azurecli, engagement-fy23
-ms.date: 12/05/2023
+ms.date: 4/12/2024
 ---
 
 # Configure customer-managed key encryption at rest in Azure VMware Solution
@@ -46,7 +46,7 @@ Before you begin to enable CMK functionality, ensure that the following requirem
 
     1. Sign in to the Azure portal.
 
-    1. Go to **Azure VMware Solution** and locate your SDDC.
+    1. Go to **Azure VMware Solution** and locate your private cloud.
 
     1. On the leftmost pane, open **Manage** and select **Identity**.
 

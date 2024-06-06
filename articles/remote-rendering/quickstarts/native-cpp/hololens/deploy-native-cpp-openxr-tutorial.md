@@ -26,7 +26,7 @@ To get access to the Azure Remote Rendering service, you first need to [create a
 
 The following software must be installed:
 
-* Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
+* Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-sdk/)
 * The latest version of Visual Studio 2022 [(download)](https://visualstudio.microsoft.com/vs/)
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**

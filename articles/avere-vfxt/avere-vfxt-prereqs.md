@@ -73,7 +73,7 @@ To accept the software terms in advance:
 1. Issue this command to accept service terms and enable programmatic access for the Avere vFXT for Azure software image:
 
    ```azurecli
-   az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
+   az vm image terms accept --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
 
 ## Create a storage service endpoint in your virtual network (if needed)

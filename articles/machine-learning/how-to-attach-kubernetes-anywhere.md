@@ -66,7 +66,7 @@ Train model in cloud, deploy model on-premises | Cloud | Make use of cloud compu
 
 `KubernetesCompute` target in Azure Machine Learning workloads (training and model inference) has the following limitations:
 * The availability of **Preview features** in Azure Machine Learning isn't guaranteed.
-    * Identified limitation: Models (including the foundational model) from the **Model Catalog** aren't supported on Kubernetes online endpoints.
+    * Identified limitation: Models (including the foundational model) from the **Model Catalog** and **Registry** aren't supported on Kubernetes online endpoints.
 
 ## Recommended best practices
 

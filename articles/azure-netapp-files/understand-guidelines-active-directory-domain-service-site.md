@@ -72,7 +72,7 @@ Ensure that you meet the following requirements about the DNS configurations:
     * Ensure that DNS servers have network connectivity to the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
     * Ensure that network ports UDP 53 and TCP 53 are not blocked by firewalls or NSGs.
 * Ensure that [the SRV records registered by the AD DS Net Logon service](https://social.technet.microsoft.com/wiki/contents/articles/7608.srv-records-registered-by-net-logon.aspx) have been created on the DNS servers.
-* Ensure that the PTR records for the AD DS domain controllers used by Azure NetApp Files have been created on the DNS servers.
+* Ensure the PTR records for the AD DS domain controllers used by Azure NetApp Files have been created on the DNS servers in the same domain as your Azure NetApp Files configuration.
 * Azure NetApp Files doesn’t automatically delete pointer records (PTR) associated with DNS entries when a volume is deleted. PTR records are used for reverse DNS lookups, which map IP addresses to hostnames. They are typically managed by the DNS server's administrator.
 When you create a volume in Azure NetApp Files, you can associate it with a DNS name. However, the management of DNS records, including PTR records, is outside the scope of Azure NetApp Files. Azure NetApp Files provides the option to associate a volume with a DNS name for easier access, but it doesn't manage the DNS records associated with that name. 
 If you delete a volume in Azure NetApp Files, the associated DNS records (such as the A records for forwarding DNS lookups) need to be managed and deleted from the DNS server or the DNS service you are using.

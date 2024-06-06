@@ -61,7 +61,7 @@ Here's a basic deployment manifest with one module as an example:
             "edgeAgent": {
               "type": "docker",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
                 "createOptions": "{}"
               }
             },
@@ -70,7 +70,7 @@ Here's a basic deployment manifest with one module as an example:
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
@@ -82,7 +82,7 @@ Here's a basic deployment manifest with one module as an example:
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5",
                 "createOptions": "{}"
               }
             }
