@@ -460,8 +460,8 @@ The following steps describe how this topology works:
     The first step in ensuring a Custom DNS solution works with your Azure Machine Learning workspace is to create two Private DNS Zones rooted at the following domains:
 
     **Azure Public regions**:
-    - ``` privatelink.api.azureml.ms```
-    - ``` privatelink.notebooks.azure.net```
+    - ```privatelink.api.azureml.ms```
+    - ```privatelink.notebooks.azure.net```
 
     **Microsoft Azure operated by 21Vianet regions**:
     - ```privatelink.api.ml.azure.cn```
@@ -621,7 +621,7 @@ The following table lists the location of the `hosts` file:
 
 The following is an example of `hosts` file entries for Azure Machine Learning:
 
-```
+```bash
 # For core Azure Machine Learning hosts
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms
