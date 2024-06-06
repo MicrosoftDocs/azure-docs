@@ -121,7 +121,7 @@ In this section, you add authentication code to your working directory and perfo
         # Call get_token() to get a token from Microsft Entra ID and add it as the password in the URI.
         # Note the requested scope parameter in the call to get_token, "https://ossrdbms-aad.database.windows.net/.default".
         credential = DefaultAzureCredential()
-        password=credential.get_token("https://ossrdbms-aad.database.windows.net/.default").token
+        password = credential.get_token("https://ossrdbms-aad.database.windows.net/.default").token
     
         db_uri = f"postgresql://{dbuser}:{password}@{dbhost}/{dbname}?sslmode={sslmode}"
         return db_uri
