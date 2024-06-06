@@ -62,7 +62,7 @@ Some upgrades require a virtual machine restart while others can be completed wi
 
 - Password or SSH keys updates
 - Custom Data changes
-- Minor OS upgrades
+- Image Reference updates
 - Virtual machine size changes
 - Adding Availability Zones
 - Fault Domain changes
