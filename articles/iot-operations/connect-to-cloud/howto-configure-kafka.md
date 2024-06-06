@@ -119,6 +119,8 @@ The following example shows a *KafkaConnector* CR that connects to an Event Hubs
 
 ### [Managed identity](#tab/managed-identity)
 
+To use managed identity, specify it as the only method under authentication. You also need to assign a role to the managed identity that grants permission to send and receive messages from Event Hubs, such as Azure Event Hubs Data Owner or Azure Event Hubs Data Sender/Receiver. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](/azure/event-hubs/authenticate-application#built-in-roles-for-azure-event-hubs).
+
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: KafkaConnector
@@ -155,6 +157,16 @@ spec:
 
 ### [SASL](#tab/sasl)
 
+To connect to Event Hubs using a connection string and Kubernetes secret, use `plain` SASL type and `$ConnectionString` as the username and the full connection string as the password. First create the Kubernetes secret:
+
+```bash
+kubectl create secret generic cs-secret -n azure-iot-operations \
+  --from-literal=username='$ConnectionString' \
+  --from-literal=password='Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY_NAME>;SharedAccessKey=<KEY>'
+```
+
+Then, reference the secret in the configuration:
+
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: KafkaConnector
@@ -177,11 +189,53 @@ spec:
     authentication:
       enabled: true
       authType:
+        sasl:
+          saslType: plain
+          token:
+            secretName: cs-secret
+  localBrokerConnection:
+    endpoint: "aio-mq-dmqtt-frontend:8883"
+    tls:
+      tlsEnabled: true
+      trustedCaCertificateConfigMap: "aio-ca-trust-bundle-test-only"
+    authentication:
+      kubernetes: {}
 
+```
+
+To use Azure Key Vault instead of Kubernetes secrets, create an Azure Key Vault secret with the connection string `Endpoint=sb://..`, reference it with `vaultSecret`, and specify the username as `"$ConnectionString"` in the configuration. You can use the above YAML file, but make sure to change the authentication portion to the one below. 
+
+```yaml
+authentication:
+  enabled: true
+  authType:
+    sasl:
+      saslType: plain
+      token:
+        keyVault:
+          username: "$ConnectionString"
+          vault:
+            name: my-key-vault
+            directoryId: <AKV directory ID>
+            credentials:
+              servicePrincipalLocalSecretName: aio-akv-sp
+          vaultSecret:
+            name: my-cs # Endpoint=sb://..
+            # version: 939ecc2...
 ```
 
 ### [X.509](#tab/x509)
 
+For X.509, use Kubernetes TLS secret containing the public certificate and private key.
+
+```bash
+kubectl create secret tls my-tls-secret -n azure-iot-operations \
+  --cert=path/to/cert/file \
+  --key=path/to/key/file
+```
+
+Then specify the `secretName` in configuration.
+
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: KafkaConnector
@@ -204,7 +258,46 @@ spec:
     authentication:
       enabled: true
       authType:
+        x509:
+          secretName: my-tls-secret
+  localBrokerConnection:
+    endpoint: "aio-mq-dmqtt-frontend:8883"
+    tls:
+      tlsEnabled: true
+      trustedCaCertificateConfigMap: "aio-ca-trust-bundle-test-only"
+    authentication:
+      kubernetes: {}
+```
 
+To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`. You can use the above YAML file, but make sure to change the authentication portion to the one below. 
+
+```yaml
+authentication:
+  enabled: true
+  authType:
+    x509:
+      keyVault:
+        vault:
+          name: my-key-vault
+          directoryId: <AKV directory ID>
+          credentials:
+            servicePrincipalLocalSecretName: aio-akv-sp
+        vaultCert:
+          name: my-cert
+          # version: 939ecc2...
+        ## If presenting full chain also  
+        # vaultCaChainSecret:
+        #   name: my-chain
+```
+
+Or, if presenting the full chain is required, upload the full chain cert and key to AKV as a PFX file and use the `vaultCaChainSecret` field instead.
+
+```yaml
+# ...
+keyVault:
+  vaultCaChainSecret:
+    name: my-cert
+    # version: 939ecc2...
 ```
 
 ---
@@ -264,109 +357,6 @@ The authentication field supports different types of authentication methods, suc
 
 To learn how to use Azure Key Vault and the `keyVault` to manage secrets for Azure IoT MQ instead of Kubernetes secrets, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
 
-##### Authenticate to Event Hubs
-
-To connect to Event Hubs using a connection string and Kubernetes secret, use `plain` SASL type and `$ConnectionString` as the username and the full connection string as the password. First create the Kubernetes secret:
-
-```bash
-kubectl create secret generic cs-secret -n azure-iot-operations \
-  --from-literal=username='$ConnectionString' \
-  --from-literal=password='Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY_NAME>;SharedAccessKey=<KEY>'
-```
-
-Then, reference the secret in the configuration:
-
-```yaml
-authentication:
-  enabled: true
-  authType:
-    sasl:
-      saslType: plain
-      token:
-        secretName: cs-secret
-```
-
-To use Azure Key Vault instead of Kubernetes secrets, create an Azure Key Vault secret with the connection string `Endpoint=sb://..`, reference it with `vaultSecret`, and specify the username as `"$ConnectionString"` in the configuration.
-
-```yaml
-authentication:
-  enabled: true
-  authType:
-    sasl:
-      saslType: plain
-      token:
-        keyVault:
-          username: "$ConnectionString"
-          vault:
-            name: my-key-vault
-            directoryId: <AKV directory ID>
-            credentials:
-              servicePrincipalLocalSecretName: aio-akv-sp
-          vaultSecret:
-            name: my-cs # Endpoint=sb://..
-            # version: 939ecc2...
-```
-
-To use managed identity, specify it as the only method under authentication. You also need to assign a role to the managed identity that grants permission to send and receive messages from Event Hubs, such as Azure Event Hubs Data Owner or Azure Event Hubs Data Sender/Receiver. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](/azure/event-hubs/authenticate-application#built-in-roles-for-azure-event-hubs).
-
-```yaml
-authentication:
-  enabled: true
-  authType:
-    systemAssignedManagedIdentity:
-      audience: https://<NAMESPACE>.servicebus.windows.net
-```
-
-##### X.509
-
-For X.509, use Kubernetes TLS secret containing the public certificate and private key.
-
-```bash
-kubectl create secret tls my-tls-secret -n azure-iot-operations \
-  --cert=path/to/cert/file \
-  --key=path/to/key/file
-```
-
-Then specify the `secretName` in configuration.
-
-```yaml
-authentication:
-  enabled: true
-  authType:
-    x509:
-      secretName: my-tls-secret
-```
-
-To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`.
-
-```yaml
-authentication:
-  enabled: true
-  authType:
-    x509:
-      keyVault:
-        vault:
-          name: my-key-vault
-          directoryId: <AKV directory ID>
-          credentials:
-            servicePrincipalLocalSecretName: aio-akv-sp
-        vaultCert:
-          name: my-cert
-          # version: 939ecc2...
-        ## If presenting full chain also  
-        # vaultCaChainSecret:
-        #   name: my-chain
-```
-
-Or, if presenting the full chain is required, upload the full chain cert and key to AKV as a PFX file and use the `vaultCaChainSecret` field instead.
-
-```yaml
-# ...
-keyVault:
-  vaultCaChainSecret:
-    name: my-cert
-    # version: 939ecc2...
-```
 
 ### Manage local broker connection
 
