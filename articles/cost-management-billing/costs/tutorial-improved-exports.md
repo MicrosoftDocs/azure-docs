@@ -139,6 +139,8 @@ All types of data support various schedule frequency options, as described in th
 
 ## Understand data types
 
+For a comprehensive reference of all available datasets, including the schema for current and historical versions, please visit [Cost Management dataset schema index](/azure/cost-management-billing/dataset-schema/schema-index). 
+
 - Cost and usage details (actual) - Select this option to export standard usage and purchase charges.
 - Cost and usage details (amortized) - Select this option to export amortized costs for purchases like Azure reservations and Azure savings plan for compute.
 - Cost and usage details (FOCUS) - Select this option to export cost and usage details using the open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format. It combines actual and amortized costs. This format reduces data processing time and storage and compute charges for exports. The management group scope isn't supported for Cost and usage details (FOCUS) exports.

@@ -33,7 +33,13 @@ You can disable local accounts using the parameter `disable-local-accounts`. The
 1. Create a new AKS cluster without any local accounts using the [`az aks create`][az-aks-create] command with the `disable-local-accounts` flag.
 
     ```azurecli-interactive
-    az aks create --resource-group <resource-group> --name <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
+    az aks create \
+        --resource-group <resource-group> \
+        --name <cluster-name> \
+        --enable-aad \
+        --aad-admin-group-object-ids <aad-group-id> \
+        --disable-local-accounts \
+        --generate-ssh-keys
     ```
 
 2. In the output, confirm local accounts are disabled by checking that the field `properties.disableLocalAccounts` is set to `true`.

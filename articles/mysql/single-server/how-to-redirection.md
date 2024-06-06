@@ -15,7 +15,7 @@ ms.topic: how-to
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[Azure-database-for-mysql-single-server-deprecation](../includes/Azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[Azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article explains how to connect an application to your Azure Database for MySQL server with redirection mode. Redirection reduces network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes.
 
