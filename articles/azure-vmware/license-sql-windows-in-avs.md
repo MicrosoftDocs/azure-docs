@@ -79,7 +79,7 @@ You can enable Azure Hybrid Benefit for SQL Server and achieve unlimited virtual
 
 ##### License a virtual machine
 You can register SQL Server licenses and apply them to VMs running SQL Server in Azure VMware Solution by registering through Azure Arc:
-1.	Azure VMware Solution must be Azure Arc-enabled. For more information, see [Deploy Azure Arc-enabled VMware vSphere for Azure VMware Solution](azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows). You can Azure Arc-enable the VMs and install extensions to that VM by following the steps provided in the section titled "Enable guest management and extension installation."
+1.	Azure VMware Solution must be Azure Arc-enabled. For more information, see [Deploy Azure Arc-enabled VMware vSphere for Azure VMware Solution](/azure/azure-vmware/deploy-arc-for-azure-vmware-solution). You can Azure Arc-enable the VMs and install extensions to that VM by following the steps provided in the section titled "Enable guest management and extension installation."
 1.	When **Guest Management** is configured, the Azure Extension for SQL Server should be installed on that VM. The extension installation enables you to configure the license type for the SQL Server instance running in the VM.
 1. Now you can configure the license type and other SQL Server configuration settings by using the Azure portal, PowerShell, or the Azure CLI for a specific Azure Arc-enabled server. To configure from the Azure portal with VMware vSphere in the Azure VMware Solution experience, follow these steps:
  
@@ -87,9 +87,9 @@ You can register SQL Server licenses and apply them to VMs running SQL Server in
    1. On the left pane, under **Operations**, select **SQL Server Configuration**.
    1. You can now apply and save your license type for the VM along with other server configurations.
 
-You can also configure these settings within the Azure Arc portal experience and by using PowerShell or the Azure CLI. To access the Azure Arc portal experience and code to update the configuration values, see [Configure SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/manage-configuration?view=sql-server-ver16&tabs=azure).
+You can also configure these settings within the Azure Arc portal experience and by using PowerShell or the Azure CLI. To access the Azure Arc portal experience and code to update the configuration values, see [Configure SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/manage-configuration).
 
-For available license types, see [License types](/sql/sql-server/azure-arc/manage-license-billing?view=sql-server-ver16#license-types).
+For available license types, see [License types](/sql/sql-server/azure-arc/manage-license-billing).
 
 > [!NOTE]
 > At this time, Azure VMware Solution doesn't have support for the new `SQLServerLicense` resource type.
