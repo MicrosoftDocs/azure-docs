@@ -90,8 +90,7 @@ To create a private endpoint to a node in an existing cluster, open the
    > default values for the form fields might not be correct. Check them and
    > update if necessary.
 
-3. Select **Next: Resource**. For **Target sub-resource**, choose the target
-   node of the cluster. Usually **coordinator** is the desired node.
+3. Select **Next: Resource**. Choose "Microsoft.DocumentDB/mongoClusters" for **Resource type**, and choose the target cluster for **Resource**. For **Target sub-resource**, choose "MongoCluster".
 
 4. Select **Next: Virtual Network**. Choose the desired **Virtual network** and
    **Subnet**. Under **Private IP configuration**, select **Statically allocate IP address** or keep the default, **Dynamically allocate IP address**.
