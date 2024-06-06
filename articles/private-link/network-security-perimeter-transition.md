@@ -1,11 +1,11 @@
 ---
-title: Transition to a network security perimeter in Azure?
+title: Transition to a network security perimeter in Azure
 description: Learn about the different access modes and how to transition to a network security perimeter in Azure.
 author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: overview
-ms.date: 05/29/2024
+ms.date: 06/05/2024
 #CustomerIntent: As a network administrator, I want to understand the different access modes and how to transition to a network security perimeter in Azure.
 ---
 
@@ -31,7 +31,7 @@ Along with the original two values (*enabled* and *disabled*) on `publicNetworkA
 | **SecuredByPerimeter** | In Secured mode, the network security perimeter configuration governs the resource's inbound and outbound connectivity. Specifically, PaaS-to-PaaS communication is restricted to members of the same perimeter. Public access is granted in accordance with the access rules defined by the associated perimeter profile. |
 
 > [!NOTE]
-> Most onboarded PaaS teams are in the phase of UX implementation, and this configuration point may or may not be available until then in the resource specific blades.
+> Currently, most [onboarded Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) teams are in the phase of user experience implementation. Until this work completes for each service, this configuration point may or may not be available within the specific service's configuration experience.
 
 ### Access mode configuration point on resource associations 
 
@@ -51,18 +51,18 @@ The possible values of `accessMode` are currently Enforced and Learnin
 Both the `publicNetworkAccess` and `accessMode` properties can be set using the Azure portal by following these steps:
 
 1. Navigate to your network security perimeter resource in the Azure portal.
-2. Select **Settings** > **Associations** to view the list of resources associated with the perimeter.
+2. Select **Settings** > **Resources** to view the list of resources associated with the perimeter.
 3. Select *...* (ellipsis) next to the resource you want to configure.
-
     :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-resources-page-full-size.png" alt-text="Screenshot of resources page with management options selected for resource." lightbox="media/network-security-perimeter-transition/network-security-perimeter-association-settings-lightbox.png":::
 
-4. Select the desired access mode from the three options available: **Enabled**, **Disabled**, or **SecuredByPerimeter**.
+4. From the dropdown menu, select **Configure public network access**, and then select the desired access mode from the three options available: **Enabled**, **Disabled**, or **SecuredByPerimeter**.
 
-    :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-settings.png" alt-text="Screenshot of association settings with access mode options.":::
+    :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-settings.png" alt-text="Screenshot of public network access settings with access mode options.":::
 
+5. To set the access mode, select **Configure access mode** from the dropdown menu, and then select the desired access mode from the two options available: **Learning** or **Enforced**.
 
-
-
+    :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-access-mode.png" alt-text="Screenshot of access mode settings with access mode options.":::
+    
 ## Prevent connectivity disruptions while adopting network security perimeter 
 
 In order to prevent undesired connectivity disruptions while adopting network security perimeter to exist PaaS resources and  ensure a smooth transition to secure configurations, administrators can add PaaS resources to network security perimeter in Learning access mode and leave publicNetworkAccess set to either Enabled or Disabled. While this step doesn't secure the PaaS resources, it: 
@@ -123,6 +123,6 @@ The behavior of public network access on PaaS resources according to the associa
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md).
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md)
 
  

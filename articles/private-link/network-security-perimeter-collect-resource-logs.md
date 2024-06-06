@@ -1,11 +1,11 @@
 ---
 title: 'Collecting resource logs for Azure Network Security Perimeter'
-description: Learn the options for collecting resource logs for Network Security Perimeter and how to enable logging through the Azure portal.
+description: Learn the options for collecting resource logs for Azure Network Security Perimeter and how to enable logging through the Azure portal.
 author: mbender-ms
 ms.author: mbender
 ms.service: private-link
-ms.topic: concept
-ms.date: 05/29/2024
+ms.topic: conceptual
+ms.date: 06/04/2024
 #CustomerIntent: As a network administrator, I want to collect resource logging for Azure Network Security Perimeter, so that I can monitor and analyze the network traffic to and from my resources.
 ---
 
@@ -49,7 +49,7 @@ You can store the resource logs in the following locations:
 
 You can enable resource logging for network security perimeter by using the Azure portal under **Diagnostic settings**. When adding a diagnostic setting, you can choose the log categories you want to collect and the destination where you want to store the logs.
 
-:::image type="content" source="media/network-security-perimeter-concepts/network-security-perimeter-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings options for network security perimeter.":::
+:::image type="content" source="media/network-security-perimeter-diagnostic-logs/network-security-perimeter-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings options for network security perimeter.":::
   
 > [!NOTE]
 > The Diagnostics settings page provides the settings for the resource logs. You can use Log Analytics, storage account and/or event hubs to save the resource logs. 
@@ -61,4 +61,4 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md).
+> [Create a network security perimeter in the Azure portal](./network-security-perimeter-collect-resource-logs.md)

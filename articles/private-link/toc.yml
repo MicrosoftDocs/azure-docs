@@ -65,13 +65,13 @@
     href: private-endpoint-overview.md
   - name: Private Link service
     href: private-link-service-overview.md
-  - name: Network Security Perimeter
+  - name: Network security perimeter
     items:
     - name: What is a network security perimeter?
       href: network-security-perimeter-concepts.md
     - name: Diagnostic logs
-      href: network-security-perimeter-collect-resource-logs.md
-    - name: role-based access control permissions
+      href: network-security-perimeter-diagnostic-logs.md
+    - name: Role-based access control permissions
       href: network-security-perimeter-role-based-access-control-requirements.md
     - name: Transition to a network security perimeter
       href: network-security-perimeter-transition.md
@@ -133,7 +133,7 @@
     href: /azure/templates/microsoft.network/allversions
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
-  - Name: Network Security Perimeter
+  - Name: Network security perimeter
     items:
     - name: Azure CLI
       href: /cli/azure/network/network-security-perimeter

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 05/30/2024
+ms.date: 06/04/2024
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure CLI, so that I can control the network traffic to and from the resource.
 ---
 
@@ -50,12 +50,19 @@ Before you can create a network security perimeter, you have to create a resourc
 This example creates a resource group named **test-rg** in the WestCentralUS location and a key vault named **key-vault-YYYYDDMM** in the resource group with the following commands:
 
 ```azurecli-interactive
-az group create --name test-rg --location westcentralus
+az group create \
+    --name test-rg \
+    --location westcentralus
 
 # Create a key vault using a datetime value to ensure a unique name
 
 key_vault_name="key-vault-$(date +%s)"
-az keyvault create --name $key_vault_name --resource-group test-rg --location westcentralus --query 'id' --output tsv
+az keyvault create \
+    --name $key_vault_name \
+    --resource-group test-rg \
+    --location westcentralus \
+    --query 'id' \
+    --output tsv
 
 ```
  
@@ -67,40 +74,68 @@ In this step, create a network security perimeter with the `az network perimeter
 > Please do not put any personal identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.
 
 ```azurecli-interactive
-az network perimeter create -n network-security-perimeter -g test-rg -l westcentralus
+az network perimeter create\
+    --name network-security-perimeter \
+    --resource-group test-rg \
+    -l westcentralus
 ```
 
 ## Create and update PaaS resources’ association with a new profile
 
 In this step, you create a new profile and associate the PaaS resource, the Azure Key Vault with the profile using the `az network perimeter profile create` and `az network perimeter association create` commands.
 
+> [!NOTE]
+> For the `--private-link-resource` and `--profile` parameter values, replace `<PaaSArmId>` and `<networkSecurityPerimeterProfileId>` with the values for the key vault and the profile ID, respectively.
+
 1. Create a new profile for your network security perimeter with the following command:
 
     ```azurecli-interactive
     # Create a new profile
-    az network perimeter profile create --name network-perimeter-profile --resource-group test-rg --perimeter-name network-security-perimeter --location westcentralus
+    az network perimeter profile create \
+        --name network-perimeter-profile \
+        --resource-group test-rg \
+        --perimeter-name network-security-perimeter \
+        --location westcentralus
 
-    
     ```
-2. Associate the Azure Key Vault (PaaS resource) with the network security perimeter profile. You need to fill in your **key vault ID** and **profile ID** in the following commands:
+2. Associate the Azure Key Vault (PaaS resource) with the network security perimeter profile with the following commands. 
 
     ```azurecli-interactive
-
+    
     # Get key vault id
-    az keyvault show --name $key_vault_name --resource-group test-rg --query 'id'
-    
+    az keyvault show \
+        --name $key_vault_name \
+        --resource-group test-rg \
+        --query 'id'
+        
     # Get the profile id
-    az network perimeter profile show --name network-perimeter-profile --resource-group test-rg --perimeter-name network-security-perimeter
-
-    # Associate the Azure Key Vault with the network security perimeter profile
-    az network perimeter association create -n network-perimeter-association --perimeter-name network-security-perimeter -g test-rg --access-mode Learning  --private-link-resource "{id:/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/key-vault-1710348729}"  --profile "{id:/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/test-rg/providers/Microsoft.Network/networkSecurityPerimeters/network-security-perimeter/profiles/network-perimeter-profile}"
+    az network perimeter profile show \
+        --name network-perimeter-profile \
+        --resource-group test-rg \
+        --perimeter-name network-security-perimeter
     
+    # Associate the Azure Key Vault with the network security perimeter profile
+    # Replace <PaaSArmId> and <networkSecurityPerimeterProfileId> with the ID values for your key vault and profile
+    az network perimeter association create \
+        --name network-perimeter-association \
+        --perimeter-name network-security-perimeter \
+        --resource-group test-rg \
+        --access-mode Learning  \
+        --private-link-resource "{id:<PaaSArmId>}" \
+        --profile "{id:<networkSecurityPerimeterProfileId>}"
+        
     ```
  
-3. Update association by changing the access mode to **enforced** with the `az network perimeter association create` command as follows:
+1. Update association by changing the access mode to **enforced** with the `az network perimeter association create` command as follows:
 
     ```azurecli-interactive
-    az network perimeter association create -n network-perimeter-association --perimeter-name network-security-perimeter -g test-rg --access-mode Enforced  --private-link-resource "{id:/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/key-vault-1710348729}"  --profile "{id:/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/test-rg/providers/Microsoft.Network/networkSecurityPerimeters/network-security-perimeter/profiles/network-perimeter-profile}"
+    az network perimeter association create \
+        --name network-perimeter-association \
+        --perimeter-name network-security-perimeter \
+        --resource-group test-rg \
+        --access-mode Enforced  \
+        --private-link-resource "{id:<PaaSArmId>}" \
+        --profile "{id:<networkSecurityPerimeterProfileId>}"
     ```
 
 ## Create and update network security perimeter access rules
@@ -112,7 +147,12 @@ In this step, you create and update network security perimeter access rules with
     ```azurecli-interactive
 
     # Create an inbound access rule
-    az network perimeter profile access-rule create -n access-rule --profile-name network-perimeter-profile --perimeter-name network-security-perimeter -g test-rg --address-prefixes "[20.10.0.0/16]"
+    az network perimeter profile access-rule create \
+        --name access-rule \
+        --profile-name network-perimeter-profile \
+        --perimeter-name network-security-perimeter \
+        --resource-group test-rg \
+        --address-prefixes "[10.10.0.0/16]"
 
     ```
 
@@ -121,7 +161,12 @@ In this step, you create and update network security perimeter access rules with
     ```azurecli-interactive
     
     # Update the inbound access rule
-    az network perimeter profile access-rule create -n access-rule --profile-name network-perimeter-profile --perimeter-name network-security-perimeter -g test-rg --address-prefixes "['20.11.0.0/16', '20.10.0.0/16']"
+    az network perimeter profile access-rule create\
+        --name access-rule \
+        --profile-name network-perimeter-profile \
+        --perimeter-name network-security-perimeter \
+        --resource-group test-rg \
+        --address-prefixes "['10.11.0.0/16', '10.10.0.0/16']"
 
     ```
 
@@ -132,16 +177,26 @@ To delete a network security perimeter and other resources in this quickstart, u
 ```azurecli-interactive
 
     # Delete the network security perimeter association
-    az network perimeter association delete -n network-perimeter-association -g test-rg --perimeter-name network-security-perimeter
+    az network perimeter association delete \
+        --name network-perimeter-association \
+        --resource-group test-rg \
+        --perimeter-name network-security-perimeter
 
     # Delete the network security perimeter
-    az network perimeter delete -g test-rg -n network-security-perimeter --yes
+    az network perimeter delete \
+        --resource-group test-rg \
+        --name network-security-perimeter --yes
     
     # Delete the key vault
-    az keyvault delete --name $key_vault_name --resource-group test-rg
+    az keyvault delete \
+        --name $key_vault_name \
+        --resource-group test-rg
     
     # Delete the resource group
-    az group delete --name test-rg --yes --no-wait
+    az group delete \
+        --name test-rg \
+        --yes \
+        --no-wait
 
 ```
 
