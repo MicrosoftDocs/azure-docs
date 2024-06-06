@@ -376,47 +376,86 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
 * To deploy the extension on a VM:
 
 ### [Version-3.0](#tab/version3) 
+
+The Azure Key Vault VM extension can be deployed with Azure PowerShell. Save Key Vault VM extension settings to a JSON file (settings.json). 
+
+The following JSON snippets provide example settings for deploying the Key Vault VM extension with PowerShell.
     
+```json
+{
+    "loggingSettings": {
+              "logger": "fluentd",
+              "endpoint": "unix:///var/run/azuremonitoragent/sometenant/default_fluent.socket",
+              "format": "forward",
+              "servicename": "akvvm_service"
+    },   
+   "secretsManagementSettings": {
+   "pollingIntervalInS": "3600",
+   "linkOnRenewal": true,
+   "observedCertificates":
+   [
+      {
+          "url": "https://<examplekv>.vault.azure.net/secrets/mycertificate1",
+          "certificateStoreLocation":  "/var/lib/waagent/Microsoft.Azure.KeyVault.Store",
+          "acls": 
+          [
+              {
+                  "user": "app1",
+                  "group": "appGroup1"
+              },
+              {
+                  "user": "service1"
+              }
+          ]
+      },
+      {
+          "url": "https://<examplekv>.vault.azure.net/secrets/mycertificate2",
+          "certificateStoreLocation": "/var/lib/waagent/Microsoft.Azure.KeyVault.Store",
+          "acls": 
+          [
+              {
+                  "user": "app2"
+              }
+          ]
+      }
+   ]},
+   "authenticationSettings": {
+      "msiEndpoint":  "http://169.254.169.254/metadata/identity/oauth2/token",
+      "msiClientId":  "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
+   }      
+}
+```
+
+* To deploy the extension on a virtual machine:
+
 ```powershell
-
-    # Build settings
-    $settings = '{"secretsManagementSettings":
-    { "pollingIntervalInS": "' + <pollingInterval> +
-    '", "certificateStoreName": "' + <certStoreName> +
-    '", "certificateStoreLocation": "' + <certStoreLoc> +
-    '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
-    $extName =  "KeyVaultForLinux"
-    $extPublisher = "Microsoft.Azure.KeyVault"
-    $extType = "KeyVaultForLinux"
-
-
-    # Start the deployment
-    Set-AzVmExtension -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+# Build settings
+$settings = (get-content -raw ".\settings.json")
+$extName =  "KeyVaultForLinux"
+$extPublisher = "Microsoft.Azure.KeyVault"
+$extType = "KeyVaultForLinux"
+ 
+# Start the deployment
+Set-AzVmExtension -TypeHandlerVersion "3.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
 
 ```
 
 * To deploy the extension on a virtual machine scale set:
 
 ```powershell
-
     # Build settings
-    $settings = '{"secretsManagementSettings":
-    { "pollingIntervalInS": "' + <pollingInterval> +
-    '", "certificateStoreName": "' + <certStoreName> +
-    '", "certificateStoreLocation": "' + <certStoreLoc> +
-    '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
+    $settings = (get-content -raw ".\settings.json")
     $extName = "KeyVaultForLinux"
     $extPublisher = "Microsoft.Azure.KeyVault"
     $extType = "KeyVaultForLinux"
-
-    # Add Extension to VMSS
+      
+    # Add extension to Virtual Machine Scale Sets
     $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
-    Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -Setting $settings
-
+    Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "3.0" -Setting $settings
+    
     # Start the deployment
-    Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss
+    Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
 ``` 
-
 ### [Version-1.0/2.0](#tab/version12)
 
 ```powershell
