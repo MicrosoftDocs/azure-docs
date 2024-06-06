@@ -31,7 +31,7 @@ If you wait to test your rules all at the same time or when you're all done, and
 
 - The XML file that contains the ruleset that you want to work on and the facts that you want to test.
 
-  To add facts, specify their values in the XML documents that you point at from the RuleSet Explorer window. Or, you can use a fact creator to supply your rules engine with an array that contains .NET objects to use as facts. For more information, see [Build fact creators and retrievers](build-fact-creators-retrievers.md).
+  To add facts, specify their values in the XML files that you reference from the **Select Facts** window that opens after you select **Test Ruleset** in the following steps. You might want to build a fact creator to add .NET facts. For more information, see [Build fact creators and retrievers](build-fact-creators-retrievers.md).
 
 ## Test a ruleset version
 
@@ -51,7 +51,7 @@ If you wait to test your rules all at the same time or when you're all done, and
 
 1. To remove a fact instance, select the corresponding fact type, and then select **Remove Instance**.
 
-1. To add a fact creator that you wrote, in the fact creator pane, select **Add**.
+1. To add a fact creator that you built, in the **Fact Creators** window, select **Add**.
 
 1. When you're ready, select **Test**.
 
