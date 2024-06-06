@@ -430,16 +430,16 @@ Starting from verion 3.3.1, you can capture spans for a method in your applicati
 }
 ```
 
-## Disable ingestion sampling (preview)
+## Locally disabling ingestion sampling (preview)
 
-By default, when the sampling percentage is 100%, and
-[ingestion sampling](./sampling-classic-api.md#ingestion-sampling)
-is set to something less than 100%, then ingestion sampling is applied.
+By default, when the effective sampling percentage in the Java agent is 100%
+and [ingestion sampling](./sampling-classic-api.md#ingestion-sampling) has been configured,
+then the ingestion sampling percentage will be applied.
 
-Note that this behavior also applies to rate-limited sampling when the rate limit is not exceeded,
-since in that case effectively 100% of telemetry is captured.
+Note that this behavior applies to both fixed-rate sampling of 100% and also applies to rate-limited sampling when the
+request rate doesn't exceed the rate limit (effectively capturing 100% during the continuously sliding time window).
 
-If you want to disable ingestion sampling:
+To manually disable ingestion sampling (and keep 100% of telemetry in these cases even when ingestion sampling has been configured):
 
 ```json
 {
