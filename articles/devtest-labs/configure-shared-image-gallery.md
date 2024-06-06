@@ -135,7 +135,7 @@ The following GET call returns the list of DevTest Labs resources for a subscrip
 - `subscriptionId`: The subscription ID for which to return the list of DevTest Labs resources.
 - `resourceGroupName`: The name of the resource group to search for DevTest Labs resources.
 
-```rest
+```http
 GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs?api-version= 2018-10-15-preview
 ```
 
@@ -147,7 +147,7 @@ The following GET call returns the list of shared image galleries associated wit
 - `resourceGroupName`: The name of the resource group for the DevTest Labs resource.
 - `labName`: The name of the DevTest Labs resource for which to to return the list of associated shared image galleries.
 
-```rest
+```http
 GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries?api-version= 2018-10-15-preview
 ```
 
@@ -162,7 +162,7 @@ The following PUT call creates or updates a shared image gallery for a specified
 - `galleryId`: The ID of the shared gallery to create or update for the lab.
 - `allowAllImages`: Set to `Enabled` to allow all images in the gallery to be used with the lab resource.
 
-```rest
+```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}?api-version=2018-10-15-preview
 Body: 
 {
@@ -182,7 +182,7 @@ The following GET call returns the list of images in a specified shared image ga
 - `labName`: The name of the DevTest Labs resource.
 - `name`: The name of the shared gallery associated with the lab for which you want to list the images.
 
-```rest
+```http
 GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version=2018-10-15-preview
 ```
 
