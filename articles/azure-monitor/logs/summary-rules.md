@@ -50,7 +50,7 @@ ContainerLogV2 | summarize Count = count() by  Computer, ContainerName, PodName,
 
 Here's the raw data in the `ContainerLogsV2` table:
 
-:::image type="content" source="media/summary-rules/summary-rules-aggregated-logs.png" alt-text="Screenshot that shows raw log data in the ContainerLogsV2 table." lightbox="media/summary-rules/summary-rules-aggregated-logs.png":::
+:::image type="content" source="media/summary-rules/summary-rules-raw-data-verbose-logs.png" alt-text="Screenshot that shows raw log data in the ContainerLogsV2 table." lightbox="media/summary-rules/summary-rules-raw-data-verbose-logs.png":::
 
 Here's the aggregated data that the summary rule sends to the destination table:
 
