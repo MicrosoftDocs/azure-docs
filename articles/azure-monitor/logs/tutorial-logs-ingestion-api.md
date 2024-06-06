@@ -148,7 +148,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
 
     ```json
     {
-        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2023-03-11/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "dataCollectionRuleName": {
