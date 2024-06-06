@@ -1,6 +1,6 @@
 ---
 title: HC sub-family VM size series
-description: Overview of the 'HC' sub-family of virtual machine sizes
+description: List of sizes in the HC family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -28,5 +28,8 @@ ms.author: mattmcinnes
 
 [!INCLUDE [hc-series-specs](./includes/hc-series-specs.md)]
 
+
+### Previous-generation HC family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#hpc-previous-gen-sizes).
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
