@@ -21,11 +21,11 @@ This article describes how Azure Machine Learning registries decouple machine le
 - Subscriptions. Development environments and production environments often use separate subscriptions for billing, budgeting, and cost management purposes.
 - Regions. You might need to deploy to different Azure regions to support latency and redundancy requirements.
 
-In the preceding scenarios, you might use different Azure Machine Learning workspaces for development, testing, and production. This configuration presents the following challenges for model training and deployment:
+In the preceding scenarios, you might use different Azure Machine Learning workspaces for development, testing, and production. This configuration presents the following potential challenges for model training and deployment:
 
 - You might need to train a model in a development workspace, but deploy it to an endpoint in a production workspace, possibly in a different Azure subscription or region. In this case, you must be able to trace back the training job. For example, if you encounter accuracy or performance issues with the production deployment, you need to analyze the metrics, logs, code, environment, and data you used to train the model.
 
-- You need to develop a training pipeline with test data or anonymized data in the development workspace, but retrain the model with production data in the production workspace. In this case, you might need to compare training metrics on sample vs. production data to ensure the training optimizations perform well with actual data.
+- You might need to develop a training pipeline with test data or anonymized data in the development workspace, but retrain the model with production data in the production workspace. In this case, you might need to compare training metrics on sample vs. production data to ensure the training optimizations perform well with actual data.
 
 ## Cross-workspace MLOps with registries
 
