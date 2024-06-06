@@ -436,12 +436,13 @@ For example, this is the cost calculation for hourly rule that returns 100 recor
 | Rule configuration | Monthly price calculation
 | --- | --- |
 | Query Analytics table  | Ingestion price x record size x number of records x 24 hours x 30 days | 
-| Query Basic table scanning 1 GB each bin | Scanned GB price x scanned size + record size x number of records x 24 hours x 30 days | 
+| Query Basic table scanning 1 GB each bin | Scanned GB price x scanned size + Ingestion price x record size x number of records x 24 hours x 30 days | 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Related content
 
+- Learn more about [Azure Monitor Logs data plans](basic-logs-configure.md).
 - Walk through a [tutorial on using KQL mode in Log Analytics](../logs/log-analytics-tutorial.md).
 - Access the complete [reference documentation for KQL](/azure/kusto/query/).
 
