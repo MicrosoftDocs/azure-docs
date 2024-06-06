@@ -1,5 +1,5 @@
 ---
-title: Aggregate data in a Log Analytics workspace using summary rules (Preview)
+title: Aggregate data in a Log Analytics workspace by using summary rules (Preview)
 description: Aggregate data in Log Analytics workspace with summary rules feature in Azure Monitor, including creating, starting, stopping, and troubleshooting rules. 
 ms.service: azure-monitor
 ms.subservice: logs
@@ -12,7 +12,7 @@ ms.date: 04/23/2024
 # Customer intent: As a Log Analytics workspace administrator or developer, I want to optimize my query performance, cost-effectiveness, security, and analysis capabilities by using summary rules to aggregate data I ingest to specific tables.
 ---
 
-# Aggregate data in a Log Analytics workspace using summary rules (Preview)
+# Aggregate data in a Log Analytics workspace by using summary rules (Preview)
 
 A summary rule lets you aggregate log data at a regular cadence and send the aggregated results to a custom log table in your Log Analytics workspace. Use summary rules to optimize your data for:
 
@@ -42,7 +42,7 @@ Summary rules perform batch processing directly in your Log Analytics workspace.
 
 For example, if you're monitoring containers, you ingest a large volume of verbose logs into the `ContainerLogsV2` table.
 
-You might use this query in your summary rule to count the number of similar log entries you get within 60 minutes, and drop log data that's less useful: 
+You might use this query in your summary rule to aggregate all unique log entries within 60 minutes, keeping the data that's useful for analysis and dropping data you don't need: 
 
 ```kusto
 ContainerLogV2 | summarize Count = count() by  Computer, ContainerName, PodName, PodNamespace, LogSource, LogLevel, Message = tostring(LogMessage.Message)
