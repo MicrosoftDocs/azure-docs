@@ -1,0 +1,33 @@
+---
+title: Data and privacy
+description: Data and privacy for Arc-enabled servers.
+ms.topic: conceptual
+ms.date: 06/06/2024
+---
+
+# Data and privacy for Arc-enabled servers
+
+This article explains the data collection process by the Azure Connected Machine agent for Azure Arc-enabled servers, detailing how system metadata is gathered and sent to Azure. It outlines the replication and disaster recovery mechanisms along with and automatic failover processes.
+
+## Information collected by Azure Arc
+
+As part of its normal operation, the Azure Connected Machine agent collects system metadata and sends it to Azure as part of its regular heartbeat. This metadata is populated in the Azure Arc-enabled server resource so you can identify and query your servers as part of your Azure inventory. No end user-identifiable data is collected by Azure Arc.
+
+See [instance metadata](/azure/azure-arc/servers/agent-overview#instance-metadata) for a complete list of metadata collected by Azure Arc. This list is regularly updated to reflect the data collected by the most recent release of the Azure Connected Machine agent. It is not possible to opt out of this data collection because it is used across Azure experiences to help filter and identify your servers.
+
+To collect cloud metadata, the Azure Connected Machine agent will query the instance metadata endpoints for AWS, GCP, Oracle Cloud, Azure Stack HCI and Azure. The agent checks if it’s in a cloud once, each time the “himds” service is started. Your security software may notice the agent reaching out to the following endpoints as part of that process: 169.254.169.254, 169.254.169.253, and metadata.google.internal.
+
+All data is handled according to [Microsoft’s privacy standards](https://www.microsoft.com/en-us/trust-center/privacy).
+
+## Data replication and disaster recovery
+
+Azure Arc-enabled servers is a software-as-a-service offering and handles data replication and disaster recovery preparation on your behalf. When you select the region to store your metadata, we automatically replicate that data to another region in that same geography to protect against a regional outage. In the event a region becomes unavailable, we will automatically change our DNS records to point to the failover region. No action is required from you and your agents will automatically reconnect when the failover is complete.
+
+In some geographies, only one region supports Azure Arc-enabled servers. In these situations, we will still replicate data for backup purposes to another region in that geography but will not be able to fail over to another region during an outage. You will still see metadata in Azure from the last time your servers sent a heartbeat but won’t be able to make changes to them or connect new servers until region functionality is restored. The Azure Arc team regularly considers region expansion opportunities to minimize the number of geographies in this configuration.
+
+## Compliance with regulatory standards
+
+Azure Arc is regularly audited for compliance with many global, regional, and industry-specific regulatory standards. A summary table of the compliance offerings is available at [https://aka.ms/AzureCompliance](https://aka.ms/AzureCompliance). 
+
+For more information on a particular standard and to download audit documents, see [Azure and other Microsoft cloud services compliance offerings](/azure/compliance/offerings/).
+
