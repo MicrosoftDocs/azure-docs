@@ -435,7 +435,7 @@ If you don't need the summary results in the destination table, delete the rule.
 
 ### Query uses operators that create new columns in the destination table
 
-If the query in the summary rule includes operators that allow output schema expansion based on incoming data - for example, if the query the `arg_max(expression, *)` function and or the `bag_unpack()` plugin - the summary rule needs to create new columns in the destination table. However, Azure Monitor doesn't add new columns to the destination table after you create or update the summary rule, and the output data that requires these columns will be dropped. To add the new fields to the destination table, [update the summary rule](#create-or-update-a-summary-rule) or [add a column to your table manually](create-custom-table.md#add-or-delete-a-custom-column).
+If the query in the summary rule includes operators that allow output schema expansion based on incoming data - for example, if the query the `arg_max(expression, *)` function - the summary rule needs to create new columns in the destination table. However, Azure Monitor doesn't add new columns to the destination table after you create or update the summary rule, and the output data that requires these columns will be dropped. To add the new fields to the destination table, [update the summary rule](#create-or-update-a-summary-rule) or [add a column to your table manually](create-custom-table.md#add-or-delete-a-custom-column).
 
 ### Deleted data remains in workspace, subject to retention period
 
