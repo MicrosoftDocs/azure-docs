@@ -20,8 +20,6 @@ In the following sections, you'll use the Azure CLI to sign in, and obtain a bea
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to the Azure OpenAI Service in the desired Azure subscription
--   Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the [Request Access to Azure OpenAI Service form](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 
 - [Custom subdomain names are required to enable features like Microsoft Entra ID for authentication.](
 ../../cognitive-services-custom-subdomains.md)

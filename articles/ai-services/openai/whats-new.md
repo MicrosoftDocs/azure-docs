@@ -20,6 +20,11 @@ This article provides a summary of the latest releases and major documentation u
 
 ## July 2024
 
+### Limited Access removed for all base models
+
+tbd
+
+
 ### New Responsible AI default content filtering policy 
 
 The new default content filtering policy `DefaultV2` delivers the latest safety and security mitigations for the GPT model series (text), including:
