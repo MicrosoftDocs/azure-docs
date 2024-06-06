@@ -499,39 +499,51 @@ public static string EncryptString(string plainText)
 }
 ```
 
-## Classes
-
-### WorkflowContext class
+## WorkflowContext class
 
 Represents a workflow context.
 
-#### Methods
+### Methods
 
-##### Task<WorkflowOperationResult> GetActionResult(string actionName)
+#### GetActionResult(string actionName)
 
 Gets the result from a specific action in the workflow.
 
-###### Parameters
+The asynchronous version uses the [**Task<TResult>** return type](/dotnet/api/system.threading.tasks.task-1), for example:
+
+`Task<WorkflowOperationResult> GetActionResult(string actionName)`
+
+##### Parameters
 
 **`actionName`**: The action name.
 
 ##### Returns
 
-A **`Task`** object that represents the asynchronous operation. The task result contains a **`WorkflowOperationResult`** object.
+The asynchronous version returns a **`Task`** object that represents the asynchronous operation. The task result contains a **`WorkflowOperationResult`** object. For information about the **WorkflowOperationResult** object properties, see [WorkflowOperationResult class](#workflowoperationresult-class).
 
-##### Task<WorkflowOperationResult> RunTriggerResult()
+#### RunTriggerResult()
 
 Gets the result from the trigger in the workflow.
 
+The asynchronous version uses the [**Task<TResult>** return type](/dotnet/api/system.threading.tasks.task-1), for example:
+
+`Task<WorkflowOperationResult> RunTriggerResult()`
+
+##### Parameters
+
+None.
+
 ##### Returns
 
-A **`Task`** object that represents the asynchronous operation. The task result contains a **`WorkflowOperationResult`** object with the following properties:
+The asynchronous version returns a **`Task`** object that represents the asynchronous operation. The task result contains a **`WorkflowOperationResult`** object. For information about the **WorkflowOperationResult** object properties, see [WorkflowOperationResult class](#workflowoperationresult-class).
 
-### WorkflowOperationResult class
+<a name="workflowoperationresult-class"></a>
+
+## WorkflowOperationResult class
 
 Represents the result from a workflow operation.
 
-#### Properties
+### Properties
 
 | Name | Type | Description |
 |------|------|-------------|
