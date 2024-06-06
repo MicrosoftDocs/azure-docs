@@ -1,5 +1,5 @@
 ---
-title: Virtual Machine Sizes Overview 
+title: Virtual machine sizes overview 
 description: Lists the different instance sizes available for virtual machines in Azure.
 author: mattmcinnes
 ms.service: virtual-machines
@@ -41,7 +41,7 @@ VM naming is further broken down into the 'Series' name and the 'Size' name. Siz
 
 Here's a breakdown of a 'General purpose, **DCads_v5**-series' size series.
 
-:::image type="content" source="./media/size-series-breakdown.png" alt-text="A breakdown of the DCadsv5 VM size series with text describing each letter and section of the name.":::
+:::image type="content" source="./media/size-series-breakdown.png" alt-text="Graphic showing a breakdown of the DCadsv5 VM size series with text describing each letter and section of the name.":::
 <sup>1</sup> Most families are represented using one letter, but others such as GPU sizes (`ND-series`, `NV-series`, etc.) use two.
 <br><sup>2</sup> Most subfamilies are represented with a single upper case letter, but others (such as `Ebsv5-series`) are still considered subfamilies of their parent family due to feature differences.
 <br><sup>3</sup> If no feature letter for a CPU is listed, the series uses Intel x86-64 CPUs. If the CPU is AMD, it's listed as `a`. If the CPU is ARM based (Microsoft Cobalt or Ampere Altra), it's listed as `p`.
@@ -55,7 +55,7 @@ Here's a breakdown of a 'General purpose, **DCads_v5**-series' size series.
 
 Here's a breakdown of a 'Standard_**DC8ads_v5**' size in the 'DCadsv5-series'
 
-:::image type="content" source="./media/size-instance-breakdown.png" alt-text="A breakdown of the DC8ads_v5 VM size with text describing each letter and section of the name.":::
+:::image type="content" source="./media/size-instance-breakdown.png" alt-text="Graphic showing a breakdown of the DC8ads_v5 VM size with text describing each letter and section of the name.":::
 <sup>1</sup> Most families are represented using one letter, but others such as GPU sizes (`ND-series`, `NV-series`, etc.) use two.
 <br><sup>2</sup> Most subfamilies are represented with a single upper case letter, but others (such as `Ebsv5-series`) are still considered subfamilies of their parent family due to feature differences.
 <br><sup>3</sup> If no feature letter for a CPU is listed, the series uses Intel x86-64 CPUs. If the CPU is AMD, it will be listed as `a`. If the CPU is ARM based (Microsoft Cobalt or Ampere Altra), it will be listed as `p`.
