@@ -15,7 +15,7 @@ ms.custom: devx-track-python, mode-other
 
  In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control Python apps to create an end-to-end implementation of feature management.
 
-The feature management support entends the dynmic configuration feature in App Configuration. These examples in the quickstart build on thePpython apps introduced in the dynamic configuration tutorial. Before you continue, finish the [quickstart](./quickstart-python-provider.md) and the [tutorial](./enable-dynamic-configuration-python.md) to create python apps with dynamic configuration first.
+The feature management support extends the dynamic configuration feature in App Configuration. These examples in the quickstart build on thePpython apps introduced in the dynamic configuration tutorial. Before you continue, finish the [quickstart](./quickstart-python-provider.md) and the [tutorial](./enable-dynamic-configuration-python.md) to create python apps with dynamic configuration first.
 
 This library does **not** have a dependency on any Azure libraries. They seamlessly integrate with App Configuration through its Python configuration provider.
 
@@ -31,7 +31,7 @@ This library does **not** have a dependency on any Azure libraries. They seamles
 Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag). At this stage the Enable feature flag check bock should be unchecked.
 
 > [!div class="mx-imgBorder"]
-> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
+> ![Screenshot of enable feature flag named Beta.](media/add-beta-feature-flag.png)
 
 ## Console applications
 
@@ -191,7 +191,7 @@ Update your template `index.html` to use the new feature flags.
 Once you have updated and run your application, you can see the feature flag in action, where the `Beta is enabled` message will appear on the page, but only if the feature flag is enabled in the App Configuration store.
 
 > [!div class="mx-imgBorder"]
-> ![Enable feature flag beta enabled](media/manage-feature-flags/beta-enabled.png)
+> ![Screenshot of enable feature flag beta enabled.](media/manage-feature-flags/beta-enabled.png)
 
 You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-flask-webapp-sample).
 
@@ -249,7 +249,7 @@ Update your template `index.html` to use the new configuration values.
 Once you have updated and run your application, you can see the feature flag in action, where the `Beta is enabled` message will appear on the page, but only if the feature flag is enabled in the App Configuration store.
 
 > [!div class="mx-imgBorder"]
-> ![Enable feature flag beta enabled](media/manage-feature-flags/beta-enabled.png)
+> ![Screenshot of enable feature flag beta enabled.](media/manage-feature-flags/beta-enabled.png)
 
 You can find a full sample project [here](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-django-webapp-sample).
 
