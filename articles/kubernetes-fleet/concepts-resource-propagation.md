@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes resource propagation from hub cluster to member clusters (Preview)"
+title: "Kubernetes resource propagation from hub cluster to member clusters"
 description: This article describes the concept of Kubernetes resource propagation from hub cluster to member clusters.
 ms.date: 03/04/2024
 author: shashankbarsin
@@ -10,7 +10,7 @@ ms.custom:
 ms.topic: conceptual
 ---
 
-# Kubernetes resource propagation from hub cluster to member clusters (Preview)
+# Kubernetes resource propagation from hub cluster to member clusters
 
 This article describes the concept of Kubernetes resource propagation from hub clusters to member clusters using Azure Kubernetes Fleet Manager (Fleet).
 

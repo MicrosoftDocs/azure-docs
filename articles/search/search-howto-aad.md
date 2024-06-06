@@ -64,7 +64,7 @@ All calls to the Management REST API are authenticated through Microsoft Entra I
    GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2023-11-01
    ```
 
-1. Use PATCH to update service configuration. The following modifications enable both keys and role-based access. If you want a roles-only configuration, see [Disable API keys](search-security-rbac.md#disable-api-key-authentication).
+1. Use PATCH to update service configuration. The following modifications enable both keys and role-based access. If you want a roles-only configuration, see [Disable API keys](search-security-enable-roles.md#disable-api-key-authentication).
 
    Under "properties", set ["authOptions"](/rest/api/searchmanagement/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
 
@@ -114,7 +114,7 @@ It's a best practice to grant minimum permissions. If your application only need
 
 1. Select **+ Add** > **Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot of Access control (IAM) page with Add role assignment menu open." border="true":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot of Access control (IAM) page with Add role assignment menu open." border="true":::
 
 1. Select an applicable role:
 

@@ -226,7 +226,6 @@ Commvault has made it easy to deploy their solution in Azure to protect Azure Vi
 
 - [Deploy Commvault via the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault?tab=Overview)
 - [Commvault for Azure datasheet](https://www.commvault.com/resources/microsoft-azure-cloud-platform-datasheet)
-- [Commvault's list of supported Azure features and services](https://documentation.commvault.com/2023e/essential/cloud_feature_support_for_azure.html)
 - [How to use Commvault to protect SAP HANA in Azure](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/)
 
 ## Next steps

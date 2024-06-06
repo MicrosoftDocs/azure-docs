@@ -20,7 +20,7 @@ The steps in this article apply to the [Resource Manager deployment model](../az
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram.":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png":::
 
 ## <a name="about"></a>About connecting VNets
 
@@ -454,7 +454,7 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 ## <a name="verify"></a>How to verify a connection
 
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [vpn-gateway-no-nsg-include](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 

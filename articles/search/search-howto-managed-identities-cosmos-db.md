@@ -25,8 +25,7 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 
 * Assign the **Cosmos DB Account Reader** role to the search service managed identity. This role grants the ability to read Azure Cosmos DB account data. For more information about role assignments in Cosmos DB, see [Configure role-based access control to data](search-howto-managed-identities-data-sources.md#assign-a-role).
 
-* Data Plane Role assignment: Follow [Data plane Role assignment](../cosmos-db/how-to-setup-rbac.md)
-to know more.
+* Data Plane Role assignment: Follow [Data plane Role assignment](../cosmos-db/how-to-setup-rbac.md) to know more.
 
 * Example for a read-only data plane role assignment:
 ```azurepowershell

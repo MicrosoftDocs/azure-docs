@@ -6,7 +6,7 @@ ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: article
 ms.date: 12/12/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, references_regions
 ms.author: jacobjaygbay
 ---
 
@@ -48,6 +48,12 @@ Oracle Database@Azure is available in the following locations. Oracle Database@A
 |Azure region|
 |------------|
 |Germany West Central (Frankfurt)|
+
+### France
+
+|Azure region|
+|------------|
+|France Central (Paris)|
 
 ### United Kingdom
 

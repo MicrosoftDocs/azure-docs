@@ -15,7 +15,7 @@ In this article, you use Azure Functions with Bicep to create a function app and
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 After you create the function app, you can deploy Azure Functions project code to that app.
 
