@@ -38,6 +38,7 @@ This article describes how summary rules work and how to define and view summary
 | Query all logs in workspace | `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
 | Query logs in table | `Microsoft.OperationalInsights/workspaces/query/<table>/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
 | Query logs in table (table action) | `Microsoft.OperationalInsights/workspaces/tables/query/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
+| Use queries encrypted in a customer-managed storage account|`Microsoft.Storage/storageAccounts/*` permissions to the storage account, as provided by the [Storage Account Contributor built-in role](/azure/role-based-access-control/built-in-roles/storage#storage-account-contributor), for example|
 
 ## How summary rules work
 
@@ -247,7 +248,7 @@ This table describes the summary rule properties:
 | `ruleType` | `User` or `System` | Specifies the type of rule. <br> - `User`: Rules you define. <br> - `System`: Predefined rules managed by Azure services. |
 | `description` | String | Describes the rule and its function. This property is helpful when you have several rules and can help with rule management. |
 | `binSize` |`20`, `30`, `60`, `120`, `180`, `360`, `720`, or `1,440` (minutes) | Defines the time interval for the aggregation. For values over an hour, the aggregation starts at the beginning of the whole hour - if you set `"binSize": 120`, you might get entries for `02:00 to 04:00` and `04:00 to 06:00`. When the bin size is smaller than an hour, the rule begins aggregating immediately. |
-| `query` | [KQL query](get-started-queries.md) | Defines the query to execute in the rule. You don't need to specify a time range because the `binSize` property determines the aggregation - for example, `02:00 to 03:00` if `"binSize": 60`. If you add a time filter in the query, the time rage used in the query is the intersection between the filter and the bin size. |
+| `query` | [Kusto Query Language (KQL) query](get-started-queries.md) | Defines the query to execute in the rule. You don't need to specify a time range because the `binSize` property determines the aggregation - for example, `02:00 to 03:00` if `"binSize": 60`. If you add a time filter in the query, the time rage used in the query is the intersection between the filter and the bin size. |
 | `destinationTable` | `tablename_CL` | Specifies the name of the destination custom log table. The name value must have the suffix `_CL`. Azure Monitor creates the table in the workspace, if it doesn't already exist, based on the query you set in the rule. If the table already exists in the workspace, Azure Monitor adds any new columns introduced in the query. <br><br> If the summary results include a reserved column name - such as `TimeGenerated`, `_IsBillable`, `_ResourceId`, `TenantId`, or `Type` - Azure Monitor appends the `_Original` prefix to the original fields to preserve their original values.|
 | `binDelay` (optional) | Integer (minutes) | Sets a time to delay before bin execution for late arriving data, also known as [ingestion latency](data-ingestion-time.md). The delay allows for most data to arrive and for service load distribution. The default delay is from three and a half minutes to 10% of the `binSize` value. <br><br> If you know that the data you query is typically ingested with delay, set the `binDelay` property with the known delay value or greater. For more information, see [Configure the aggregation timing](#configure-the-aggregation-timing).|
 | `binStartTime` (optional) | Datetime in<br>`%Y-%n-%eT%H:%M %Z` format | Specifies the date and time for the initial bin execution. The value can start at rule creation datetime minus the `binSize` value, or later and in whole hours. For example, if the datetime is `2023-12-03T12:13Z` and `binSize` is 1,440, the earliest valid `binStartTime` value is `2023-12-02T13:00Z`, and the aggregation includes data logged between 02T13:00 and 03T13:00. In this scenario, the rules start aggregating a 03T13:00 plus the default or specified delay. <br><br> The `binStartTime` property is useful in daily summary scenarios. Suppose you're located in the UTC-8 time zone and you create a daily rule at `2023-12-03T12:13Z`. You want the rule to complete before you start your day at 8:00 (00:00 UTC). Set the `binStartTime` property to `2023-12-02T22:00Z`. The first aggregation includes all data logged between 02T:06:00 and 03T:06:00 local time, and the rule runs at the same time daily. For more information, see [Configure the aggregation timing](#configure-the-aggregation-timing).<br><br> When you update rules, you can either: <br> - Use the existing `binStartTime` value or remove the `binStartTime` parameter: Execution continues based on the initial definition.<br> - Update the rule with a new `binStartTime` value: Sets a new datetime value. |
@@ -399,6 +400,17 @@ The following query searches rule data in the LASummaryLogs table for entries wh
 ```kusto
 LASummaryLogs | where QueryDurationMs > 0.9 * 600000
 ```
+
+## Encrypt summary rule queries by using customer-managed keys
+
+A KQL query can contain sensitive information in comments or in the query syntax. To encrypt summary rule queries, [link a storage account to your Log Analytics workspace and use customer-managed keys](private-storage.md).
+
+Considerations when you work with encrypted queries:
+
+-	If you already have summary rule queries before you link a storage account to your Log Analytics workspace, update your existing query rules to encrypt the queries.
+-	Linking a storage account to encrypt your queries doesn’t interrupt existing rules.
+-	Queries that you save in a storage account are considered service artifacts and their format may change.
+-	You can use the same storage account for summary rules queries, [saved queries in Log Analytics](save-query.md), and [log alerts](.././alerts/alerts-types.md#log-search-alerts).
 
 ## Troubleshoot summary rules
 
