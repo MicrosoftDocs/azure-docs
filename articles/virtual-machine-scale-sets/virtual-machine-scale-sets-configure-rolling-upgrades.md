@@ -12,11 +12,11 @@ ms.custom: upgradepolicy
 # Configure rolling upgrades on Virtual Machine Scale Sets
 
 > [!NOTE]
-> Rolling upgrade policy is in general availability (GA) for Virtual Machine Scale sets with Uniform Orchestration. 
+> Rolling upgrade policy for Virtual Machine Scale sets with Uniform Orchestration is in general availability (GA) . 
 >
-> **Rolling upgrade policy is in preview for Virtual Machine scale Sets with Flexible Orchestration.** 
+> **Rolling upgrade policy for Virtual Machine scale Sets with Flexible Orchestration is currently in preview.** 
 >
-> **MaxSurge is in preview for Virtual Machine Scale Sets with Flexible Orchestration and Uniform Orchestration.**
+> **MaxSurge for Virtual Machine Scale Sets with Flexible Orchestration and Uniform Orchestration is currently in preview.**
 >
 > Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 
