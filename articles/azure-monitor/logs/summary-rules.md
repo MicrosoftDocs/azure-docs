@@ -405,7 +405,7 @@ LASummaryLogs
 | make-series dcount(BinStartTime) default=0 on BinStartTime from startTime to endtTime step stepSize
 | render timechart
 ```
-This example shows the query results presented as a timechart:
+This query renders the results as a timechart:
 
 :::image type="content" source="media/summary-rules/data-completeness.png" alt-text="Screenshot that shows a graph that charts the query results for failed bins in summary rules." lightbox="media/summary-rules/data-completeness.png":::
 
