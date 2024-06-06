@@ -1,5 +1,5 @@
 ---
-title: Aggregate data in a Log Analytics workspace with summary rules
+title: Aggregate data in a Log Analytics workspace using summary rules
 description: Aggregate data in Log Analytics workspace with summary rules feature in Azure Monitor, including creating, starting, stopping, and troubleshooting rules. 
 ms.service: azure-monitor
 ms.subservice: logs
@@ -12,7 +12,7 @@ ms.date: 04/23/2024
 # Customer intent: As a Log Analytics workspace administrator or developer, I want to optimize my query performance, cost-effectiveness, security, and analysis capabilities by using summary rules to aggregate data I ingest to specific tables.
 ---
 
-# Aggregate data in a Log Analytics workspace with summary rules
+# Aggregate data in a Log Analytics workspace using summary rules
 
 A summary rule lets you aggregate log data at a regular cadence and send the aggregated results to a custom log table in your Log Analytics workspace. Use summary rules to optimize your data for:
 
