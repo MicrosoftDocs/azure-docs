@@ -71,18 +71,11 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
 ## Configure roles for authorization
 
-1. Find the [role](/azure/role-based-access-control/built-in-roles#ai--machine-learning) for your usage of Azure AI Search. Depending on how you intend to set that role, you'll need either the name or ID. 
+1. Find the [role](search-security-rbac.md#assign-roles) for your usage of Azure AI Search. Depending on how you intend to set that role, you'll need either the name or ID. 
 
     |Role name|Role ID|
     |--|--|
     |For Azure CLI or Azure PowerShell, you can use role name. |For Bicep, you need the role ID.|
-
-1. Use the following table to select a role and ID. 
-
-    |Use case|Role name|Role ID|
-    |--|--|--|
-    |Use case 1|`Role 1`|`GUID 2`|
-    |Use case 2|`Role 2`|`GUID 3`|
 
 1. Select an identity type to use.
 
@@ -193,7 +186,7 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
         'User'
     ])
     param principalType string = 'ServicePrincipal'
-    param roleDefinitionId string
+    param roleDefinitionId string // Role ID
 
     resource role 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
         name: guid(subscription().id, resourceGroup().id, principalId, roleDefinitionId)
