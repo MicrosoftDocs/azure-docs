@@ -11,13 +11,11 @@ ms.date: 08/01/2023
 ---
 # Collect custom metrics for a Linux VM with the InfluxData Telegraf agent
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article explains how to deploy and configure the [InfluxData](https://www.influxdata.com/) Telegraf agent on a Linux virtual machine to send metrics to Azure Monitor.
 
 > [!NOTE]
-> InfluxData Telegraf is an open source agent and not officially supported by Azure Monitor. For issues with the Telegraf connector, please refer to the Telegraf GitHub page here: [InfluxData](https://github.com/influxdata/telegraf)
+> InfluxData Telegraf is an open source agent and not officially supported by Azure Monitor. For issues with the Telegraf connector,  refer to the Telegraf GitHub page here: [InfluxData](https://github.com/influxdata/telegraf)
 
 ## InfluxData Telegraf agent
 
@@ -59,7 +57,7 @@ Install the package:
    sudo apt-get update
    sudo apt-get install telegraf
 ```
-# [RHEL, CentOS, Oracle Linux](#tab/redhat)
+# [RHEL, Oracle Linux](#tab/redhat)
 
 Add the repository:
 
