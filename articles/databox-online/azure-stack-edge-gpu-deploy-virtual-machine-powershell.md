@@ -986,12 +986,11 @@ To resize an existing virtual machine, run the following cmdlets:
 > Before you resize it, stop the VM without the `-StayProvisioned` flag.
 
 ```powershell
-$vm = Get-azvm [-Name] <String> [-ResourceGroupName] <String>
+$vm = Get-AzVM [-Name] <String> [-ResourceGroupName] <String>
 
 $vm.HardwareProfile.VmSize = <new size> - Example: "Standard_D3_v2"
 
-$vm | Update-Azvm
-
+$vm | Update-AzVM
 ```
 
 ### [AzureRM](#tab/azure-rm)
@@ -1000,11 +999,11 @@ $vm | Update-Azvm
 > Before you resize it, stop the VM without the `-StayProvisioned` flag.
 
 ```powershell
-$vm = Get-azvm [-Name] <String> [-ResourceGroupName] <String>
+$vm = Get-AzureRmVM  [-Name] <String> [-ResourceGroupName] <String>
 
 $vm.HardwareProfile.VmSize = <new size> - Example: "Standard_D3_v2"
 
-$vm | Update-Azvm
+$vm | Update-AzureRmVM
 ```
 ---
 
