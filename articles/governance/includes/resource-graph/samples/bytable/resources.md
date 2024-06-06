@@ -104,7 +104,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.keyvault/vaults' | c
 
 ### Count of virtual machines by power state
 
-Returns count of virtual machines (type `Microsoft.Compute/virtualMachines`) categorized according to their power state. For more information on power states, please see [Power states overview](../../../../articles/virtual-machines/states-billing.md).
+Returns count of virtual machines (type `Microsoft.Compute/virtualMachines`) categorized according to their power state. For more information on power states, please see [Power states overview](../../../../../../articles/virtual-machines/states-billing.md).
 
 ```kusto
 Resources
@@ -168,7 +168,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 ### Count virtual machines by OS type
 
-Building on the previous query, we're still limiting by Azure resources of type `Microsoft.Compute/virtualMachines`, but are no longer limiting the number of records returned. Instead, we used `summarize` and `count()` to define how to group and aggregate the values by property, which in this example is `properties.storageProfile.osDisk.osType`. For an example of how this string looks in the full object, see [explore resources - virtual machine discovery](../../../../articles/governance/resource-graph/concepts/explore-resources.md#virtual-machine-discovery).
+Building on the previous query, we're still limiting by Azure resources of type `Microsoft.Compute/virtualMachines`, but are no longer limiting the number of records returned. Instead, we used `summarize` and `count()` to define how to group and aggregate the values by property, which in this example is `properties.storageProfile.osDisk.osType`. For an example of how this string looks in the full object, see [explore resources - virtual machine discovery](../../../../resource-graph/concepts/explore-resources.md#virtual-machine-discovery).
 
 ```kusto
 Resources
@@ -239,12 +239,12 @@ Similar to the 'Find storage accounts with a specific case-sensitive tag on the 
 Resources
 | where type =~ 'microsoft.storage/storageaccounts'
 | join kind=inner (
-	ResourceContainers
-	| where type =~ 'microsoft.resources/subscriptions/resourcegroups'
-	| mv-expand bagexpansion=array tags
-	| where isnotempty(tags)
-	| where tags[0] =~ 'key1' and tags[1] =~ 'value1'
-	| project subscriptionId, resourceGroup)
+  ResourceContainers
+  | where type =~ 'microsoft.resources/subscriptions/resourcegroups'
+  | mv-expand bagexpansion=array tags
+  | where isnotempty(tags)
+  | where tags[0] =~ 'key1' and tags[1] =~ 'value1'
+  | project subscriptionId, resourceGroup)
 on subscriptionId, resourceGroup
 | project-away subscriptionId1, resourceGroup1
 ```
@@ -279,10 +279,10 @@ The following query uses an **inner** `join` to connect storage accounts with re
 Resources
 | where type =~ 'microsoft.storage/storageaccounts'
 | join kind=inner (
-	ResourceContainers
-	| where type =~ 'microsoft.resources/subscriptions/resourcegroups'
-	| where tags['Key1'] =~ 'Value1'
-	| project subscriptionId, resourceGroup)
+  ResourceContainers
+  | where type =~ 'microsoft.resources/subscriptions/resourcegroups'
+  | where tags['Key1'] =~ 'Value1'
+  | project subscriptionId, resourceGroup)
 on subscriptionId, resourceGroup
 | project-away subscriptionId1, resourceGroup1
 ```
@@ -311,7 +311,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccou
 
 ### Get count and percentage of Arc-enabled servers by domain
 
-This query summarizes the **domainName** property on [Azure Arc-enabled servers](../../../../articles/azure-arc/servers/overview.md) and uses a calculation with `bin` to create a **Pct** column for the percent of Arc-enabled servers per domain.
+This query summarizes the **domainName** property on [Azure Arc-enabled servers](../../../../../../articles/azure-arc/servers/overview.md) and uses a calculation with `bin` to create a **Pct** column for the percent of Arc-enabled servers per domain.
 
 ```kusto
 Resources
@@ -456,11 +456,11 @@ Returns the connected cluster ID of each Azure Arc-enabled Kubernetes cluster th
 Resources
 | where type =~ 'Microsoft.Kubernetes/connectedClusters' | extend connectedClusterId = tolower(id) | project connectedClusterId
 | join kind = leftouter
-	(KubernetesConfigurationResources
-	| where type == 'microsoft.kubernetesconfiguration/extensions'
-	| where properties.ExtensionType  == 'microsoft.azuremonitor.containers'
-	| parse tolower(id) with connectedClusterId '/providers/microsoft.kubernetesconfiguration/extensions' *
-	| project connectedClusterId
+  (KubernetesConfigurationResources
+  | where type == 'microsoft.kubernetesconfiguration/extensions'
+  | where properties.ExtensionType  == 'microsoft.azuremonitor.containers'
+  | parse tolower(id) with connectedClusterId '/providers/microsoft.kubernetesconfiguration/extensions' *
+  | project connectedClusterId
 )  on connectedClusterId
 | where connectedClusterId1 == ''
 | project connectedClusterId
@@ -566,16 +566,16 @@ First, this query uses `extend` on the virtual machines resource type to get the
 Resources
 | where type == 'microsoft.compute/virtualmachines'
 | extend
-	JoinID = toupper(id),
-	OSName = tostring(properties.osProfile.computerName),
-	OSType = tostring(properties.storageProfile.osDisk.osType),
-	VMSize = tostring(properties.hardwareProfile.vmSize)
+  JoinID = toupper(id),
+  OSName = tostring(properties.osProfile.computerName),
+  OSType = tostring(properties.storageProfile.osDisk.osType),
+  VMSize = tostring(properties.hardwareProfile.vmSize)
 | join kind=leftouter(
-	Resources
-	| where type == 'microsoft.compute/virtualmachines/extensions'
-	| extend
-		VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
-		ExtensionName = name
+  Resources
+  | where type == 'microsoft.compute/virtualmachines/extensions'
+  | extend
+    VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
+    ExtensionName = name
 ) on $left.JoinID == $right.VMId
 | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize
 | order by tolower(OSName) asc
@@ -611,16 +611,16 @@ First, this query uses `project` on the hybrid machine resource type to get the 
 Resources
 | where type == 'microsoft.hybridcompute/machines'
 | project
-	id,
-	JoinID = toupper(id),
-	ComputerName = tostring(properties.osProfile.computerName),
-	OSName = tostring(properties.osName)
+  id,
+  JoinID = toupper(id),
+  ComputerName = tostring(properties.osProfile.computerName),
+  OSName = tostring(properties.osName)
 | join kind=leftouter(
-	Resources
-	| where type == 'microsoft.hybridcompute/machines/extensions'
-	| project
-		MachineId = toupper(substring(id, 0, indexof(id, '/extensions'))),
-		ExtensionName = name
+  Resources
+  | where type == 'microsoft.hybridcompute/machines/extensions'
+  | project
+    MachineId = toupper(substring(id, 0, indexof(id, '/extensions'))),
+    ExtensionName = name
 ) on $left.JoinID == $right.MachineId
 | summarize Extensions = make_list(ExtensionName) by id, ComputerName, OSName
 | order by tolower(OSName) asc
@@ -790,12 +790,12 @@ ResourceContainers
 | extend tagKey = tostring(bag_keys(tags)[0])
 | extend tagValue = tostring(tags[tagKey])
 | union (
-	resources
-	| where isnotempty(tags)
-	| project tags
-	| mvexpand tags
-	| extend tagKey = tostring(bag_keys(tags)[0])
-	| extend tagValue = tostring(tags[tagKey])
+  resources
+  | where isnotempty(tags)
+  | project tags
+  | mvexpand tags
+  | extend tagKey = tostring(bag_keys(tags)[0])
+  | extend tagValue = tostring(tags[tagKey])
 )
 | distinct tagKey, tagValue
 | where tagKey !startswith "hidden-"
@@ -833,18 +833,18 @@ AdvisorResources
 | where properties.category == 'HighAvailability'
 | where properties.shortDescription.solution == 'Upgrade to the latest version of the Azure Connected Machine agent'
 | project
-		id,
-		JoinId = toupper(properties.resourceMetadata.resourceId),
-		machineName = tostring(properties.impactedValue),
-		agentVersion = tostring(properties.extendedProperties.installedVersion),
-		expectedVersion = tostring(properties.extendedProperties.latestVersion)
+    id,
+    JoinId = toupper(properties.resourceMetadata.resourceId),
+    machineName = tostring(properties.impactedValue),
+    agentVersion = tostring(properties.extendedProperties.installedVersion),
+    expectedVersion = tostring(properties.extendedProperties.latestVersion)
 | join kind=leftouter(
-	Resources
-	| where type == 'microsoft.hybridcompute/machines'
-	| project
-		machineId = toupper(id),
-		status = tostring (properties.status)
-	) on $left.JoinId == $right.machineId
+  Resources
+  | where type == 'microsoft.hybridcompute/machines'
+  | project
+    machineId = toupper(id),
+    status = tostring (properties.status)
+  ) on $left.JoinId == $right.machineId
 | where status != 'Expired'
 | summarize by id, machineName, agentVersion, expectedVersion
 | order by tolower(machineName) asc
@@ -883,10 +883,10 @@ Resources
 | mvexpand clusterExtensionIds
 | extend clusterExtensionId = tolower(clusterExtensionIds)
 | join kind=leftouter(
-	ExtendedLocationResources
-	| where type =~ 'microsoft.extendedlocation/customLocations/enabledResourcetypes'
-	| project clusterExtensionId = tolower(properties.clusterExtensionId), extensionType = tolower(properties.extensionType)
-	| where extensionType in~ ('microsoft.scvmm','microsoft.vmware')
+  ExtendedLocationResources
+  | where type =~ 'microsoft.extendedlocation/customLocations/enabledResourcetypes'
+  | project clusterExtensionId = tolower(properties.clusterExtensionId), extensionType = tolower(properties.extensionType)
+  | where extensionType in~ ('microsoft.scvmm','microsoft.vmware')
 ) on clusterExtensionId
 | where extensionType in~ ('microsoft.scvmm','microsoft.vmware')
 | summarize virtualMachineKindsEnabled=make_set(extensionType) by id,name,location
@@ -958,13 +958,13 @@ Returns some of the Azure resources that are impacted when you transfer a subscr
 ```kusto
 Resources
 | where type in (
-	'microsoft.managedidentity/userassignedidentities',
-	'microsoft.keyvault/vaults',
-	'microsoft.sql/servers/databases',
-	'microsoft.datalakestore/accounts',
-	'microsoft.containerservice/managedclusters')
-	or identity has 'SystemAssigned'
-	or (type =~ 'microsoft.storage/storageaccounts' and properties['isHnsEnabled'] == true)
+  'microsoft.managedidentity/userassignedidentities',
+  'microsoft.keyvault/vaults',
+  'microsoft.sql/servers/databases',
+  'microsoft.datalakestore/accounts',
+  'microsoft.containerservice/managedclusters')
+  or identity has 'SystemAssigned'
+  or (type =~ 'microsoft.storage/storageaccounts' and properties['isHnsEnabled'] == true)
 | summarize count() by type
 ```
 
@@ -1000,8 +1000,8 @@ Resources
 | where properties.extended.instanceView.powerState.code != 'PowerState/running'
 | project vmName = name, power = properties.extended.instanceView.powerState.code
 | join kind = leftouter (GuestConfigurationResources
-	| extend vmName = tostring(split(properties.targetResourceId,'/')[(-1)])
-	| project vmName, name, compliance = properties.complianceStatus) on vmName | project-away vmName1
+  | extend vmName = tostring(split(properties.targetResourceId,'/')[(-1)])
+  | project vmName, name, compliance = properties.complianceStatus) on vmName | project-away vmName1
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -1035,11 +1035,11 @@ Resources
 | where type =~ 'microsoft.compute/virtualmachines'
 | project resourceGroup, Id = tolower(id), PowerState = tostring( properties.extended.instanceView.powerState.code)
 | join kind=leftouter (
-	HealthResources
-	| where type =~ 'microsoft.resourcehealth/availabilitystatuses'
-	| where tostring(properties.targetResourceType) =~ 'microsoft.compute/virtualmachines'
-	| project targetResourceId = tolower(tostring(properties.targetResourceId)), AvailabilityState = tostring(properties.availabilityState))
-	on $left.Id == $right.targetResourceId
+  HealthResources
+  | where type =~ 'microsoft.resourcehealth/availabilitystatuses'
+  | where tostring(properties.targetResourceType) =~ 'microsoft.compute/virtualmachines'
+  | project targetResourceId = tolower(tostring(properties.targetResourceId)), AvailabilityState = tostring(properties.availabilityState))
+  on $left.Id == $right.targetResourceId
 | project-away targetResourceId
 | where PowerState != 'PowerState/deallocated'
 ```
@@ -1139,10 +1139,10 @@ Resources
 | where type =~ 'microsoft.sql/servers/databases'
 | project databaseId = id, databaseName = name, elasticPoolId = tolower(tostring(properties.elasticPoolId))
 | join kind=leftouter (
-	Resources
-	| where type =~ 'microsoft.sql/servers/elasticpools'
-	| project elasticPoolId = tolower(id), elasticPoolName = name, elasticPoolState = properties.state)
-	on elasticPoolId
+  Resources
+  | where type =~ 'microsoft.sql/servers/elasticpools'
+  | project elasticPoolId = tolower(id), elasticPoolName = name, elasticPoolState = properties.state)
+  on elasticPoolId
 | project-away elasticPoolId1
 ```
 
@@ -1180,19 +1180,19 @@ Resources
 | where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic)
 | project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id)
 | join kind=leftouter (
-	Resources
-	| where type =~ 'microsoft.network/networkinterfaces'
-	| extend ipConfigsCount=array_length(properties.ipConfigurations)
-	| mv-expand ipconfig=properties.ipConfigurations
-	| where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true'
-	| project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id))
-	on nicId
+  Resources
+  | where type =~ 'microsoft.network/networkinterfaces'
+  | extend ipConfigsCount=array_length(properties.ipConfigurations)
+  | mv-expand ipconfig=properties.ipConfigurations
+  | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true'
+  | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id))
+  on nicId
 | project-away nicId1
 | summarize by vmId, vmName, vmSize, nicId, publicIpId
 | join kind=leftouter (
-	Resources
-	| where type =~ 'microsoft.network/publicipaddresses'
-	| project publicIpId = id, publicIpAddress = properties.ipAddress)
+  Resources
+  | where type =~ 'microsoft.network/publicipaddresses'
+  | project publicIpId = id, publicIpAddress = properties.ipAddress)
 on publicIpId
 | project-away publicIpId1
 ```
@@ -1417,7 +1417,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ### Summarize virtual machine by the power states extended property
 
-This query uses the [extended properties](../../../../articles/governance/resource-graph/concepts/query-language.md#extended-properties) on virtual machines to summarize by power states.
+This query uses the [extended properties](../../../../resource-graph/concepts/query-language.md#extended-properties) on virtual machines to summarize by power states.
 
 ```kusto
 Resources

@@ -9,7 +9,7 @@ ms.custom: generated
 
 ### Count machines in scope of guest configuration policies
 
-Displays the count of Azure virtual machines and Arc connected servers in scope for [Azure Policy guest configuration](../../../../articles/governance/machine-configuration/overview.md) assignments.
+Displays the count of Azure virtual machines and Arc connected servers in scope for [Azure Policy guest configuration](../../../../machine-configuration/overview.md) assignments.
 
 ```kusto
 GuestConfigurationResources
@@ -46,7 +46,7 @@ Search-AzGraph -Query "GuestConfigurationResources | where type =~ 'microsoft.gu
 
 ### Count of non-compliant guest configuration assignments
 
-Displays a count of non-compliant machines per [guest configuration assignment reason](../../../../articles/governance/policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration). Limits results to first 100 for performance.
+Displays a count of non-compliant machines per [guest configuration assignment reason](../../../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration). Limits results to first 100 for performance.
 
 ```kusto
 GuestConfigurationResources
@@ -87,7 +87,7 @@ Search-AzGraph -Query "GuestConfigurationResources | where type =~ 'microsoft.gu
 
 ### Find all reasons a machine is non-compliant for guest configuration assignments
 
-Display all [guest configuration assignment reasons](../../../../articles/governance/policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) for a specific machine. Remove the first `where` clause to also include audits where the machine is compliant.
+Display all [guest configuration assignment reasons](../../../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) for a specific machine. Remove the first `where` clause to also include audits where the machine is compliant.
 
 ```kusto
 GuestConfigurationResources
@@ -175,8 +175,8 @@ Resources
 | where properties.extended.instanceView.powerState.code != 'PowerState/running'
 | project vmName = name, power = properties.extended.instanceView.powerState.code
 | join kind = leftouter (GuestConfigurationResources
-	| extend vmName = tostring(split(properties.targetResourceId,'/')[(-1)])
-	| project vmName, name, compliance = properties.complianceStatus) on vmName | project-away vmName1
+  | extend vmName = tostring(split(properties.targetResourceId,'/')[(-1)])
+  | project vmName, name, compliance = properties.complianceStatus) on vmName | project-away vmName1
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -203,7 +203,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ### Query details of guest configuration assignment reports
 
-Display report from [guest configuration assignment reason](../../../../articles/governance/policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) details. In the following example, the query returns only results where the Guest Assignment name is `installed_application_linux` and the output contains the string `Chrome` to list all Linux machines where a package is installed that includes the name **Chrome**.
+Display report from [guest configuration assignment reason](../../../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) details. In the following example, the query returns only results where the Guest Assignment name is `installed_application_linux` and the output contains the string `Chrome` to list all Linux machines where a package is installed that includes the name **Chrome**.
 
 ```kusto
 GuestConfigurationResources
