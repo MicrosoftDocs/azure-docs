@@ -24,11 +24,7 @@ A summary rule lets you aggregate log data at a regular cadence and send the agg
 
 This article describes how summary rules work and how to define and view summary rules, and provides some examples of the use and benefits of summary rules.
 
-## Prerequisites
-
-- For limits and restrictions related to Summary rules in Log Analytics, see [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces).
-
-### Permissions required
+## Permissions required
 
 | Action | Permissions required |
 | --- | --- |
@@ -46,7 +42,7 @@ Summary rules perform batch processing directly in your Log Analytics workspace.
 
 You can aggregate data you ingest into any table, including both [Analytics and Basic](basic-logs-query.md) tables. 
 
-You can configure up to 10 rules to aggregate data from multiple tables and send the aggregated data to the same destination table or to separate tables. 
+You can configure up to 30 rules to aggregate data from multiple tables and send the aggregated data to the same destination table or to separate tables. 
 
 You can export summarized data from a custom log table to a storage account or Event Hubs for further integrations by defining a [data export rule](logs-data-export.md).
 
@@ -342,7 +338,7 @@ Authorization: {credential}
 
 ## Delete a summary rule
 
-You can have up to 10 active summary rules in your Log Analytics workspace. If you want to create a new rule, but you already have 10 active rules, you must stop or delete an active summary rule. 
+You can have up to 30 active summary rules in your Log Analytics workspace. If you want to create a new rule, but you already have 10 active rules, you must stop or delete an active summary rule. 
 
 To delete a rule, use this `DELETE` API call:
 
@@ -421,6 +417,24 @@ If the query in the summary rule includes operators that allow output schema exp
 ### Deleted data remains in workspace, subject to retention period
 
 When you [delete columns or a custom log table](create-custom-table.md), data remains in the workspace and is subjected to the [retention period](data-retention-archive.md) defined on the table or workspace. During the retention period, if you create a table with the same name and fields, Azure Monitor recreates the table with the old data. To delete old data, [update the table retention period](/rest/api/loganalytics/tables/update) with the minimum retention supported (four days) and then delete the table.
+
+## Restrictions and limitations
+
+| Category | Limit | Comments |
+|:---|:---|:---|
+| Maximum number of active rules in a workspace | 30 | |
+| Maximum number of results per bin | 500,000 | |
+| Maximum results set volume | 100 MB | |
+| Query time-out for bin processing | 10 minutes | |
+
+- The summary rule processes incoming data and can't be configured on a historical time range. 
+- When bin execution retries are exhausted, the bin is skipped and can't be re-executed.
+- Querying a Log Analytics workspace in another tenant by using Lighthouse isn't supported.
+- KQL limits depend on the table plan of the source table. The following KQL limits apply:
+
+   - Analytics: Supports all KQL commands, except for data reshaping plugins, including [bag unpack](/azure/data-explorer/kusto/query/bag-unpack-plugin), [narrow](/azure/data-explorer/kusto/query/narrow-plugin), and [pivot](/azure/data-explorer/kusto/query/pivot-plugin). Cross-resource, including [workspaces()](/azure/azure-monitor/logs/cross-workspace-query#query-across-log-analytics-workspaces-using-workspace), [app()](/azure/azure-monitor/logs/cross-workspace-query#query-across-classic-application-insights-applications-using-app), [resource()](/azure/azure-monitor/logs/cross-workspace-query#correlate-data-between-resources-using-resource), [ADX()](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy), and [arg()](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy) aren't supported in the Private Preview.
+   - Basic: Supports all KQL commands on a single Basic or Auxiliary table. Because `summarize` and `join` aren't supported, use lookup for up to five Analytics tables.
+   - Functions: User-defined functions aren't supported. System functions provided by Microsoft are supported. 
 
 ## Pricing model
 
