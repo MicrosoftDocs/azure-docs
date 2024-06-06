@@ -120,7 +120,7 @@ When starting the application, a broswer window will open to authenticate the us
     python app.py
     ```
 
-1. In the App Configuration portal select **Feature Manager**, and change the state of the **Beta** key to **On**.
+1. In the App Configuration portal select **Feature Manager**, and change the state of the **Beta** key to **On**, using the toggle in the Enabled field.
 
     | Key | State |
     |---|---|
