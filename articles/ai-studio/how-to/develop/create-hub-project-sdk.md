@@ -64,7 +64,7 @@ created_hub = ml_client.workspaces.begin_create(my_hub).result()
 # [Azure CLI](#tab/azurecli)
 
 ```azurecli
-az ml workspace --kind hub --resource-group {my_resource_group} --name {my_hub_name}
+az ml workspace create --kind hub --resource-group {my_resource_group} --name {my_hub_name}
 ```
 
 ---
@@ -96,7 +96,7 @@ ml_client.connections.create_or_update(my_connection)
 # [Azure CLI](#tab/azurecli)
 
 ```azurecli
-az ml connection create --file {connection.yml} --resource-group {MY_RESOURCE_GROUP} --workspace-name {MY_PROJECT_NAME}
+az ml connection create --file {connection.yml} --resource-group {my_resource_group} --workspace-name {my_hub_name}
 ```
 
 You can use either an API key or credential-less YAML configuration file:

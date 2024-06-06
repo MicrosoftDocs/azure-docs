@@ -51,6 +51,12 @@ Use the tabs below to select the method you plan to use to create a project:
     created_project = ml_client.workspaces.begin_create(workspace=my_hub).result() 
     ```
 
+# [Azure CLI](#tab/azurecli)
+
+```azurecli
+az ml workspace create --kind project --hub-id {my_hub_ARM_ID} --resource-group {my_resource_group} --name {my_project_name}
+```
+
 ---
 
 ## Project settings
@@ -76,6 +82,15 @@ To manage or use the new project, include it in the `MLClient`:
 ```python
 ml_client = MLClient(workspace_name=my_project_name, resource_group_name=my_resource_group, subscription_id=my_subscription_id,credential=DefaultAzureCredential())
 ```
+
+# [Azure CLI](#tab/azurecli)
+
+To view settings for the project, use the `az ml workspace show` command. For example:
+
+```azurecli
+az ml workspace show --name {my_project_name} --resource-group {my_resource_group}
+```
+
 
 ---
 
