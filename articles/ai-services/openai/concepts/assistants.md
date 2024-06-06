@@ -55,7 +55,7 @@ We provide a walkthrough of the Assistants playground in our [quickstart guide](
 |**Run Step** | A detailed list of steps the Assistant took as part of a Run. An Assistant can call tools or create Messages during it’s run. Examining Run Steps allows you to understand how the Assistant is getting to its final results. |
 
 ## Assistants data access
-
+TBD
 Currently, assistants, threads, messages, and files created for Assistants are scoped at the Azure OpenAI resource level. Therefore, anyone with access to the Azure OpenAI resource or API key access is able to read/write assistants, threads, messages, and files.
 
 We strongly recommend the following data access controls:
