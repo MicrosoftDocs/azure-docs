@@ -1,11 +1,11 @@
 ---
 title: What's new in Azure Virtual Desktop? - Azure
-description: New features and product updates for Azure Virtual Desktop.
+description: Learn about new features and product updates for Azure Virtual Desktop.
 ms.topic: release-notes
 ms.custom: references_regions
-author: Heidilohr
-ms.author: helohr
-ms.date: 05/29/2024
+author: sipastak
+ms.author: sipastak
+ms.date: 06/06/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,36 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## May 2024 
+
+Here's what changed in May 2024: 
+
+### Configuring client device redirection for Windows App and the Remote Desktop app using Microsoft Intune is now in preview
+
+You can now use Microsoft Intune to configure client device redirection settings for Windows App and the Remote Desktop app in preview. IT admins can configure different redirection scenarios based on group membership and whether the device is managed by Intune or unmanaged. Additional capabilities include the ability to check and restrict access to Azure Virtual Desktop based on criteria such as OS version, allowed app (Windows App or the Remote Desktop app), allowed app version number, whether a threat is detected by Mobile Threat Defense (MTD), the device is jailbroken/rooted, and more.
+
+For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune).
+
+### Getting started feature for Azure Virtual Desktop renamed Quickstart
+
+Quickstart offers a streamlined onboarding experience in the Azure portal to set up your Azure Virtual Desktop environment. Create deployments with Microsoft Entra Domain Services or use with an existing Active Directory Domain Services domain the simple and easy way. 
+
+For more information, along with instructions, see [Use quickstart to create a sample infrastructure](quickstart.md).
+
+### Hibernate support for session hosts in a personal host pool is generally available
+
+Deploying session hosts in a personal host pool with hibernate support is now generally available. With hibernate support, you can pause session hosts you aren't using. For more information, see [Hibernating Windows virtual machines](../virtual-machines/windows/hibernate-resume-windows.md).
+
+### Hibernate support for autoscale is generally available
+
+Autoscale support for virtual machines that use hibernate is generally available, enabling session hosts to be scaled automatically while preserving their state. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+
+### Support for Trusted Launch virtual machines support in Azure Government and Azure operated by 21Vianet 
+
+Trusted Launch virtual machines are now available in Azure Government and Azure operated by 21Vianet. Deploying Trusted Launch virtual machines in your Azure Virtual Desktop environment improves the security posture of your session hosts by helping protect against advanced and persistent attack techniques. You can select Trusted Launch when you create a new host pool with machines or add a new virtual machine to an existing host pool.
+
+For more information about the benefits of Trusted Launch, see our [Trusted Launch documentation](../virtual-machines/trusted-launch.md).
 
 ## April 2024 
 
@@ -120,11 +150,15 @@ For more information on preparing, storing and sharing images to be used to crea
 
 Windows 11 Enterprise multi-session, versions 23H2 and 22H2 with Microsoft 365 apps preinstalled are now available in the Azure Marketplace. You can use these images when you [deploy Azure Virtual Desktop in the Azure portal](deploy-azure-virtual-desktop.md?tabs=portal), [add session hosts to a host pool](add-session-hosts-host-pool.md), or [create custom images](custom-image-templates.md).
 
-### Autoscale for personal host pools is now generally available
+### Autoscale for personal host pools is generally available
 
-Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule, optimizing deployment costs. Autoscale now also supports the hibernate feature (preview), which can pause session hosts you aren't using.
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule, optimizing deployment costs. 
 
-For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
+
+### Hibernate support for autoscale is in preview
+
+Autoscale can now use the hibernate feature in preview, which can pause session hosts you aren't using. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
 
 ### Updated preview of Azure Virtual Desktop on Azure Stack HCI
 
@@ -232,9 +266,9 @@ Autoscale for personal host pools is now in preview. Autoscale lets you scale yo
 
 To learn more about autoscale for personal host pools, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
 
-### Confidential VMs are now generally available in Azure Virtual Desktop
+### Confidential virtual machines and Trusted Launch virtual machines are now generally available in Azure Virtual Desktop
 
-Confidential VM and Trusted Launch security features for Azure Virtual Desktop host pool provisioning are now generally available.
+Confidential virtual machines and Trusted Launch virtual machines for Azure Virtual Desktop are now generally available. You can select these options when you create a new host pool with machines or add a new virtual machine to an existing host pool.
 
 Azure confidential virtual machines (VMs) offer VM memory encryption with integrity protection, which strengthens guest protections to deny the hypervisor and other host management components code access to the VM memory and state. For more information about the security benefits of confidential VMs, see our [confidential computing documentation](../confidential-computing/confidential-vm-overview.md).  
 
@@ -449,7 +483,7 @@ We've made the following updates to the Azure portal:
 - Improved search, filtering, and performance.
 - Added Windows Server 2022 images to the image selection list.
 - Added "Preferred group type" to the "Basics" tab in the host pool creation process.
-- Enabled custom images for trusted launch VMs.
+- Enabled custom images for Trusted Launch VMs.
 - New selectable cards, including the following:
   - Unavailable machines.
   - User session.
@@ -624,7 +658,7 @@ Here's what changed in December 2021:
 
 ### Azure portal updates
 
-You can now automatically create trusted launch virtual machines through the host pool creation process instead of having to manually create and add them to a host pool after deployment. To access this feature, select the **Virtual machines** tab while creating a host pool. Learn more at [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+You can now automatically create Trusted Launch virtual machines through the host pool creation process instead of having to manually create and add them to a host pool after deployment. To access this feature, select the **Virtual machines** tab while creating a host pool. Learn more at [Trusted Launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
  
 ### Azure Active Directory Join VMs with FSLogix profiles on Azure Files
 
