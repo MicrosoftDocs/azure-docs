@@ -30,7 +30,7 @@ Here's what changed in May 2024:
 
 You can now use Microsoft Intune to configure client device redirection settings for Windows App and the Remote Desktop app in preview. IT admins can configure different redirection scenarios based on group membership and whether the device is managed by Intune or unmanaged. Additional capabilities include the ability to check and restrict access to Azure Virtual Desktop based on criteria such as OS version, allowed app (Windows App or the Remote Desktop app), allowed app version number, whether a threat is detected by Mobile Threat Defense (MTD), the device is jailbroken/rooted, and more.
 
-For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune).
+For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
 
 ### Getting started feature for Azure Virtual Desktop renamed Quickstart
 
