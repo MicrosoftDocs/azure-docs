@@ -23,7 +23,7 @@ The Key Vault VM extension supports these Linux distributions:
 - [Azure Linux](../../azure-linux/intro-azure-linux.md)
 
 > [!NOTE]
-> The Key Vault VM Extension downloads the certificates in the default location or to the location provided by "certStoreLocation" property in the VM Extension settings. The Key Vault VM Extension updates the folder permission to 700 (drwx------) allowing read, write and execute permission to the owner of the folder only
+> The Key Vault VM Extension downloads the certificates in the default location or to the location provided by "certStoreLocation" property in the VM Extension settings (version 1/2), or individual certificate settings (version 3). The Key Vault VM Extension updates the folder permission to 700 (drwx------) allowing read, write and execute permission to the owner of the folder only
 
 ### Supported certificate content types
 
