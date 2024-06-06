@@ -78,7 +78,7 @@ The following table provides information about supported authorization options f
 
 The following section briefly describes the authorization options for Azure Storage:
 
-- **Shared Key authorization**: Applies to blobs, files, queues, and tables. A client using Shared Key passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key/).
+- **Shared Key authorization**: Applies to blobs, files, queues, and tables. A client using Shared Key passes a header with every request that is signed using the storage account access key. Shared Key provides permanent access to resources, and revoking the access requires manual steps. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key/).
 
     Microsoft recommends that you disallow Shared Key authorization for your storage account. When Shared Key authorization is disallowed, clients must use Microsoft Entra ID or a user delegation SAS to authorize requests for data in that storage account. For more information, see [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md).
 
