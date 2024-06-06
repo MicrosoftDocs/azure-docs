@@ -38,6 +38,7 @@ We communicate security-related information affecting your Azure **tenant** work
 
 > [!Note]
 > You should ensure that there are **contactable email addresses** entered for your organization's [Global Admin(s)](../active-directory/roles/permissions-reference.md), [Technical Contact(s)](../active-directory/fundamentals/active-directory-properties-area.md), and [Security Admin(s)](/azure/defender-for-cloud/permissions). These email addresses are used for security issues that would have impact at the tenant level.  
+
 As of June 2024, we've enhanced the visibility of our Azure Service Health security communications. Typically, notifications are issued at the level for which they are architected. If a service is architected at the subscription level, we send communications at the subscription level. If the service is architected at the tenant level (such as Entra), we send communications at the tenant level. However, when Microsoft determines a security event is particularly impactful AND architected at the subscription level, we will also proactively issue additional communications at the tenant level to guarantee the broadest possible awareness. 
 
 ## Three steps to help you stay informed about Azure security issues
