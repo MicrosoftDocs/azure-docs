@@ -84,7 +84,7 @@ This VNet will have two subnets.
     | -------- | ------ |
     | Subscription  | Select your Azure subscription. |
     | Resource group | Select **Test-FW-RG**. |
-    | Name | Enter *Test-FW-VN*. |
+    | Name | Enter **Test-FW-VN**. |
     | Region | Select the same location that you used previously. |
 
 1. Select **Next**.
@@ -97,7 +97,7 @@ This VNet will have two subnets.
 1. For **Starting address**, type **10.0.1.0**.
 1. Select **Save**.
 
-   Next, create a subnet for the workload server.
+Next, create a subnet for the workload server.
 
 1. Select **Add subnet**.
 1. For **Subnet name**, type **Workload-SN**.
@@ -118,7 +118,7 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
    | ------- | ----- |
    | Subscription  | Select your Azure subscription. |
    | Resource group     | Select **Test-FW-RG**. |
-   | Virtual machine name     | Enter *Srv-Work*.|
+   | Virtual machine name     | Enter **Srv-Work**.|
    | Region     | Select the same location that you used previously. |
    | Username     | Enter a username. |
    | Password     | Enter a password. |
