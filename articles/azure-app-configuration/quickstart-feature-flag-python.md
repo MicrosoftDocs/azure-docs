@@ -70,7 +70,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     print("Beta is ", feature_manager.is_enabled("Beta"))
     ```
 
-When starting the application, a broswer window will open to authenticate the user. The user must have at least the `App Configuration Data Reader` role to access the App Configuration store.
+When starting the application, a broswer window will open to authenticate the user. The user must have at least the `App Configuration Data Reader` role to access the App Configuration store, see [App Configuration roles](./concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration) for more info.
 
 1. Set an environment variable named **APP_CONFIGURATION_ENDPOINT**, and set it to the endpoint to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
