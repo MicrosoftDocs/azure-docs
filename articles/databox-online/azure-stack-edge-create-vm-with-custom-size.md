@@ -95,7 +95,7 @@ Use the following steps to get custom VM sizes for Azure Stack Edge.
 
    [![Screenshot of Azure portal dropdown menu with custom VM size.](./media/azure-stack-edge-create-vm-with-custom-size/azure-stack-edge-custom-vm-size.png)](./media/azure-stack-edge-create-vm-with-custom-size/azure-stack-edge-custom-vm-size.png#lightbox)
 
-For more information about resizing a VM, see [Deploy VMs on your Azure Stack Edge device via PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#resize-a-vm).
+For more information about resizing a VM, see [Deploy VMs on your Azure Stack Edge device via PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#resize-the-vm).
 
 ## Next steps
 
