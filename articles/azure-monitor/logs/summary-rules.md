@@ -45,7 +45,7 @@ Summary rules perform batch processing directly in your Log Analytics workspace.
 
 You can aggregate data you ingest into any table, including both [Analytics and Basic](basic-logs-query.md) tables. 
 
-You can configure several rules to aggregate data from multiple tables and send the aggregated data to the same destination table or separate tables. 
+You can configure up to ten rules to aggregate data from multiple tables and send the aggregated data to the same destination table or to separate tables. 
 
 You can also export summarized data from a custom log table to a Storage Account or Event Hubs for further integrations by defining a [data export rule](logs-data-export.md) in your workspace.
 
@@ -323,21 +323,19 @@ Authorization: {credential}
 
 ## Stop and restart a summary rule
 
-You can stop a rule for a time, such as when test data is ingested to a table and you don't want to affect the summarized table and reports. Starting the rule later starts processing data from the next whole hour or per the defined `binStartTime` (optional) hour.
+You can stop a rule for a period of time - for example, if you want to verify that data is ingested to a table and you don't want to affect the summarized table and reports. When you restart the rule, Azure Monitor starts processing data from the next whole hour or based on the defined `binStartTime` (optional) property.
 
-The following example demonstrates how to stop a rule:
+To stop a rule, use this `POST` API call:
 
 ```kusto
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summarylogs/{ruleName}/stop?api-version=2023-01-01-preview
 Authorization: {credential}
 ```
 
-If a summary rule is deliberately stopped, or stopped due to bin execution exhaustion, you can restart the rule. Processing starts from the next whole hour, or per the defined `binStartTime` (optional) hour.
-
-The following example demonstrates how to start a rule:
+To restart the rule, use this `POST` API call:
 
 ```kusto
-POST https://management.azure.com/subscriptions/{su	bscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summarylogs/{ruleName}/start?api-version=2023-01-01-preview
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summarylogs/{ruleName}/start?api-version=2023-01-01-preview
 Authorization: {credential}
 ```
 
@@ -345,7 +343,7 @@ Authorization: {credential}
 
 You can have up to 10 active summary rules in your Log Analytics workspace. If you want to create a new rule, but you already have 10 active rules, you must stop or delete an active summary rule. 
 
-The following example demonstrates how to delete an active rule:
+To delete a rule, use this `DELETE` API call:
 
 ```kusto
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace}/summarylogs/{ruleName}?api-version=2023-01-01-preview
