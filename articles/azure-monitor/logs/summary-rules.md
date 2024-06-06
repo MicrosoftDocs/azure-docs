@@ -40,7 +40,7 @@ This article describes how summary rules work and how to define and view summary
 
 Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule takes a chunk of data, defined by bin size, aggregates the data based on a KQL query, and reingests the summarized results into a custom [Analytics table](basic-logs-configure.md) in your Log Analytics workspace. 
 
-For example, if you're monitoring containers, you'll notice that the you ingest a very large volume of verbose logs into the `ContainerLogsV2` table.
+For example, if you're monitoring containers, you ingest a large volume of verbose logs into the `ContainerLogsV2` table.
 
 You might use this query in your summary rule to count the number of similar log entries you get within 60 minutes, and drop log data that's less useful: 
 
