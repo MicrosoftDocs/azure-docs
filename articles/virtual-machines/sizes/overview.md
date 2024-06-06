@@ -111,6 +111,8 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 [View the full D family page](./general-purpose/d-family.md)
 [!INCLUDE [d-family-workloads](./general-purpose/includes/d-family-workloads.md)]
 
+
+#### [DC family](#tab/gen-dc-fam)
 ##### DC family
 [!INCLUDE [dc-family-summary](./general-purpose/includes/dc-family-summary.md)]
 
@@ -173,6 +175,16 @@ To learn more about a specific size family, sub-family, or specific series, clic
 [View the full E family page](./memory-optimized/e-family.md)
 [!INCLUDE [e-series-workloads](./memory-optimized/includes/e-family-workloads.md)]
 
+
+#### [Eb family](#tab/mem-eb-fam)
+##### Eb family
+[!INCLUDE [eb-family-summary](./memory-optimized/includes/eb-family-summary.md)]
+
+[View the full Eb family page](./memory-optimized/eb-family.md)
+[!INCLUDE [eb-series-workloads](./memory-optimized/includes/eb-family-workloads.md)]
+
+
+#### [EC family](#tab/mem-ec-fam)
 ##### EC family
 [!INCLUDE [ec-family-summary](./memory-optimized/includes/ec-family-summary.md)]
 
