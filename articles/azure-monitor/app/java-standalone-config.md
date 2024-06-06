@@ -430,6 +430,27 @@ Starting from verion 3.3.1, you can capture spans for a method in your applicati
 }
 ```
 
+## Disable ingestion sampling (preview)
+
+By default, when the sampling percentage is 100%, and
+[ingestion sampling](https://learn.microsoft.com/en-us/azure/azure-monitor/app/sampling-classic-api#ingestion-sampling)
+is set to something less than 100%, then ingestion sampling is applied.
+
+Note that this behavior also applies to rate-limited sampling when the rate limit is not exceeded,
+since in that case effectively 100% of telemetry is captured.
+
+If you want to disable ingestion sampling:
+
+```json
+{
+  "preview": {
+    "sampling": {
+      "ingestionSamplingEnabled": false
+    }
+  }
+}
+```
+
 ## Autocollected logging
 
 Log4j, Logback, JBoss Logging, and java.util.logging are autoinstrumented. Logging performed via these logging frameworks is autocollected.
