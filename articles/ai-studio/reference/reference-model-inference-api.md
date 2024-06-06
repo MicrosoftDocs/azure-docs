@@ -156,7 +156,7 @@ __Response__
 
 ## Content safety
 
-The Azure AI model inference API supports [Azure AI Content Safety](../concepts/content-filtering). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI Content Safety](../../concepts/content-filtering). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 The following example shows the response for a chat completion request that has triggered content safety. 
 
