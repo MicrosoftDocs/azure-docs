@@ -16,13 +16,38 @@ author: sdgilley
 
 # Create a project in Azure AI Studio
 
-This article describes how to create a project in Azure AI Studio. A project is used to organize your work and save state while building customized AI apps. 
+This article describes how to create an Azure AI Studio project. A project is used to organize your work and save state while building customized AI apps. 
 
 Projects are hosted by an Azure AI Studio hub that provides enterprise-grade security and a collaborative environment. For more information about the projects and resources model, see [Azure AI Studio hubs](../concepts/ai-resources.md).
 
 ## Create a project
 
+# [Azure AI Studio](#tab/ai-studio)
+
 [!INCLUDE [Create Azure AI Studio project](../includes/create-projects.md)]
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [SDK setup](../../includes/development-environment-config.md)]
+
+1. Use the following code to create a project from a hub you or your administrator created previously. Replace example string values with your own values:
+
+    ```Python
+    from azure.ai.ml.entities import Project
+
+    my_project_name = "myexampleproject"
+    my_location = "East US"
+    my_display_name = "My Example Project"
+
+    my_hub = Project(name=my_hub_name, 
+                    location=my_location,
+                    display_name=my_display_name,
+                    hub_id=created_hub.id)
+
+    created_project = ml_client.workspaces.begin_create(workspace=my_hub).result() 
+    ```
+
+---
 
 ## Project settings
 
