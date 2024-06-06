@@ -117,6 +117,100 @@ The *KafkaConnector* custom resource (CR) allows you to configure a Kafka connec
 
 The following example shows a *KafkaConnector* CR that connects to an Event Hubs endpoint using different authentication types. It assumes other MQ resources were installed using the quickstart:
 
+```yaml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: KafkaConnector
+metadata:
+  name: my-eh-connector
+  namespace: azure-iot-operations # same as one used for other MQ resources
+spec:
+  image:
+    pullPolicy: IfNotPresent
+    repository: mcr.microsoft.com/azureiotoperations/kafka
+    tag: 0.4.0-preview
+  instances: 2
+  clientIdPrefix: my-prefix
+  kafkaConnection:
+    # Port 9093 is Event Hubs' Kakfa endpoint
+    # Plug in your Event Hubs namespace name
+    endpoint: <NAMESPACE>.servicebus.windows.net:9093
+    tls:
+      tlsEnabled: true
+    authentication:
+      enabled: true
+      authType:
+        systemAssignedManagedIdentity:
+          # plugin in your Event Hubs namespace name
+          audience: "https://<NAMESPACE>.servicebus.windows.net" 
+  localBrokerConnection:
+    endpoint: "aio-mq-dmqtt-frontend:8883"
+    tls:
+      tlsEnabled: true
+      trustedCaCertificateConfigMap: "aio-ca-trust-bundle-test-only"
+    authentication:
+      kubernetes: {}
+```
+
+---
+
+
+The following table describes the fields in the KafkaConnector custom resource:
+
+| Field | Description | Required |
+| ----- | ----------- | -------- |
+| image | The image of the Kafka connector. You can specify the `pullPolicy`, `repository`, and `tag` of the image. Default values are shown in the prior example. | Yes |
+| instances | The number of instances of the Kafka connector to run. | Yes |
+| clientIdPrefix | The string to prepend to a client ID used by the connector. | No |
+| kafkaConnection | The connection details of the Event Hubs endpoint. See [Kafka Connection](#kafka-connection). | Yes |
+| localBrokerConnection | The connection details of the local broker that overrides the default broker connection. See [Manage local broker connection](#manage-local-broker-connection). | No |
+| logLevel | The log level of the Kafka connector. Possible values are: *trace*, *debug*, *info*, *warn*, *error*, or *fatal*. Default is *warn*. | No |
+
+### Kafka connection
+
+The `kafkaConnection` field defines the connection details of the Kafka endpoint.
+
+| Field | Description | Required |
+| ----- | ----------- | -------- |
+| endpoint | The host and port of the Event Hubs endpoint. The port is typically 9093. You can specify multiple endpoints separated by commas to use [bootstrap servers](https://docs.confluent.io/platform/current/kafka-mqtt/configuration_options.html#stream) syntax. | Yes |
+| tls | The configuration for TLS encryption. See [TLS](#tls). | Yes |
+| authentication | The configuration for authentication. See [Authentication](#authentication). | No |
+
+#### TLS
+
+The `tls` field enables TLS encryption for the connection and optionally specifies a CA config map.
+
+| Field | Description | Required |
+| ----- | ----------- | -------- |
+| tlsEnabled | A boolean value that indicates whether TLS encryption is enabled or not. It must be set to true for Event Hubs communication. | Yes |
+| trustedCaCertificateConfigMap | The name of the config map that contains the CA certificate for verifying the server's identity. This field isn't required for Event Hubs communication, as Event Hubs uses well-known CAs that are trusted by default. However, you can use this field if you want to use a custom CA certificate. | No |
+
+When specifying a trusted CA is required, create a ConfigMap containing the public potion of the CA in PEM format, and specify the name in the `trustedCaCertificateConfigMap` property.
+
+```bash
+kubectl create configmap ca-pem --from-file path/to/ca.pem
+```
+
+#### Authentication
+
+The authentication field supports different types of authentication methods, such as SASL, X509, or managed identity.
+
+| Field | Description | Required |
+| ----- | ----------- | -------- |
+| enabled | A boolean value that indicates whether authentication is enabled or not. | Yes |
+| authType | A field containing the authentication type used. See [Authentication Type](#authentication-type) | Yes |
+
+##### Authentication Type
+
+| Field | Description | Required |
+| ----- | ----------- | -------- |
+| sasl | The configuration for SASL authentication. Specify the `saslType`, which can be *plain*, *scramSha256*, or *scramSha512*, and `token` to reference the Kubernetes `secretName` or Azure Key Vault `keyVault` secret containing the password. | Yes, if using SASL authentication |
+| systemAssignedManagedIdentity | The configuration for managed identity authentication. Specify the audience for the token request, which must match the Event Hubs namespace (`https://<NAMESPACE>.servicebus.windows.net`) [because the connector is a Kafka client](/azure/event-hubs/authenticate-application). A system-assigned managed identity is automatically created and assigned to the connector when it's enabled. | Yes, if using managed identity authentication |
+| x509 | The configuration for X509 authentication. Specify the `secretName` or `keyVault` field. The `secretName` field is the name of the secret that contains the client certificate and the client key in PEM format, stored as a TLS secret. | Yes, if using X509 authentication |
+
+To learn how to use Azure Key Vault and the `keyVault` to manage secrets for Azure IoT MQ instead of Kubernetes secrets, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
+
+### Authenticate to Event Hubs
+
 ### [Managed identity](#tab/managed-identity)
 
 To use managed identity, specify it as the only method under authentication. You also need to assign a role to the managed identity that grants permission to send and receive messages from Event Hubs, such as Azure Event Hubs Data Owner or Azure Event Hubs Data Sender/Receiver. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](/azure/event-hubs/authenticate-application#built-in-roles-for-azure-event-hubs).
@@ -299,64 +393,6 @@ keyVault:
     name: my-cert
     # version: 939ecc2...
 ```
-
----
-
-The following table describes the fields in the KafkaConnector custom resource:
-
-| Field | Description | Required |
-| ----- | ----------- | -------- |
-| image | The image of the Kafka connector. You can specify the `pullPolicy`, `repository`, and `tag` of the image. Default values are shown in the prior example. | Yes |
-| instances | The number of instances of the Kafka connector to run. | Yes |
-| clientIdPrefix | The string to prepend to a client ID used by the connector. | No |
-| kafkaConnection | The connection details of the Event Hubs endpoint. See [Kafka Connection](#kafka-connection). | Yes |
-| localBrokerConnection | The connection details of the local broker that overrides the default broker connection. See [Manage local broker connection](#manage-local-broker-connection). | No |
-| logLevel | The log level of the Kafka connector. Possible values are: *trace*, *debug*, *info*, *warn*, *error*, or *fatal*. Default is *warn*. | No |
-
-### Kafka connection
-
-The `kafkaConnection` field defines the connection details of the Kafka endpoint.
-
-| Field | Description | Required |
-| ----- | ----------- | -------- |
-| endpoint | The host and port of the Event Hubs endpoint. The port is typically 9093. You can specify multiple endpoints separated by commas to use [bootstrap servers](https://docs.confluent.io/platform/current/kafka-mqtt/configuration_options.html#stream) syntax. | Yes |
-| tls | The configuration for TLS encryption. See [TLS](#tls). | Yes |
-| authentication | The configuration for authentication. See [Authentication](#authentication). | No |
-
-#### TLS
-
-The `tls` field enables TLS encryption for the connection and optionally specifies a CA config map.
-
-| Field | Description | Required |
-| ----- | ----------- | -------- |
-| tlsEnabled | A boolean value that indicates whether TLS encryption is enabled or not. It must be set to true for Event Hubs communication. | Yes |
-| trustedCaCertificateConfigMap | The name of the config map that contains the CA certificate for verifying the server's identity. This field isn't required for Event Hubs communication, as Event Hubs uses well-known CAs that are trusted by default. However, you can use this field if you want to use a custom CA certificate. | No |
-
-When specifying a trusted CA is required, create a ConfigMap containing the public potion of the CA in PEM format, and specify the name in the `trustedCaCertificateConfigMap` property.
-
-```bash
-kubectl create configmap ca-pem --from-file path/to/ca.pem
-```
-
-#### Authentication
-
-The authentication field supports different types of authentication methods, such as SASL, X509, or managed identity.
-
-| Field | Description | Required |
-| ----- | ----------- | -------- |
-| enabled | A boolean value that indicates whether authentication is enabled or not. | Yes |
-| authType | A field containing the authentication type used. See [Authentication Type](#authentication-type) | Yes |
-
-##### Authentication Type
-
-| Field | Description | Required |
-| ----- | ----------- | -------- |
-| sasl | The configuration for SASL authentication. Specify the `saslType`, which can be *plain*, *scramSha256*, or *scramSha512*, and `token` to reference the Kubernetes `secretName` or Azure Key Vault `keyVault` secret containing the password. | Yes, if using SASL authentication |
-| systemAssignedManagedIdentity | The configuration for managed identity authentication. Specify the audience for the token request, which must match the Event Hubs namespace (`https://<NAMESPACE>.servicebus.windows.net`) [because the connector is a Kafka client](/azure/event-hubs/authenticate-application). A system-assigned managed identity is automatically created and assigned to the connector when it's enabled. | Yes, if using managed identity authentication |
-| x509 | The configuration for X509 authentication. Specify the `secretName` or `keyVault` field. The `secretName` field is the name of the secret that contains the client certificate and the client key in PEM format, stored as a TLS secret. | Yes, if using X509 authentication |
-
-To learn how to use Azure Key Vault and the `keyVault` to manage secrets for Azure IoT MQ instead of Kubernetes secrets, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
-
 
 ### Manage local broker connection
 
