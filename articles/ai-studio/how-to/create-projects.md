@@ -51,6 +51,8 @@ Projects are hosted by an Azure AI Studio hub that provides enterprise-grade sec
 
 ## Project settings
 
+# [Azure AI Studio](#tab/ai-studio)
+
 On the project **Settings** page you can find information about the project, such as the project name, description, and the hub that hosts the project. You can also find the project ID, which is used to identify the project via SDK or API.
 
 :::image type="content" source="../media/how-to/projects/project-settings.png" alt-text="Screenshot of an AI Studio project settings page." lightbox = "../media/how-to/projects/project-settings.png":::
@@ -62,6 +64,16 @@ On the project **Settings** page you can find information about the project, suc
 - Resource group: The resource group that hosts the hub that hosts the project.
 
 Select **Manage in the Azure portal** to navigate to the project resources in the Azure portal.
+
+# [Python SDK](#tab/python)
+
+To manage or use the new project, include it in the `MLClient`:
+
+```python
+ml_client = MLClient(workspace_name=my_project_name, resource_group_name=my_resource_group, subscription_id=my_subscription_id,credential=DefaultAzureCredential())
+```
+
+---
 
 ## Next steps
 
