@@ -6,7 +6,7 @@ ms.author: peterwhiting
 ms.service: azure-operator-service-manager
 ms.topic: troubleshooting
 ms.date: 03/19/2024
-ms.custom: troubleshooting
+ms.custom: troubleshooting, devx-track-azurecli
 ---
 
 # Azure CLI Azure Operator Service Manager (AOSM) extension issues

@@ -3,10 +3,9 @@ title: Send Prometheus metrics from Virtual Machines to an Azure Monitor workspa
 description: How to configure remote-write to send data from self-managed Prometheus to an Azure Monitor managed service for Prometheus
 author: bwren 
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 04/15/2024
-
 #customer intent: As an azure administrator, I want to send Prometheus metrics from my self-managed Prometheus instance to an Azure Monitor workspace.
-
 ---
 
 # Send Prometheus metrics from Virtual Machines to an Azure Monitor workspace
@@ -354,6 +353,3 @@ If remote data isn't appearing in your Azure Monitor workspace, see [Troubleshoo
 
 - [Learn more about Azure Monitor managed service for Prometheus](./prometheus-metrics-overview.md).
 - [Learn more about Azure Monitor reverse proxy side car for remote-write from self-managed Prometheus running on Kubernetes](../containers/prometheus-remote-write.md)
-
-
-

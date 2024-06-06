@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 04/30/2024
 ms.author: greglin
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # What is Azure Application Gateway v2?

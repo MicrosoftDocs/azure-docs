@@ -6,7 +6,7 @@ ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/08/2024
-ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli
+ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
 zone_pivot_groups: app-service-portal-azd
 ---
 
