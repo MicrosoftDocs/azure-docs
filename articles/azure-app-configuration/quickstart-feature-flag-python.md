@@ -166,6 +166,7 @@ Also update your routes to check for updated feature flags.
 @app.route("/")
 def index():
     ...
+    context["message"] = azure_app_config.get("message")
     context["beta"] = feature_manager.is_enabled("Beta")
     ...
 ```
