@@ -35,7 +35,7 @@ If using a rolling upgrade policy, see [configure rolling upgrade policy](virtua
 az vmss update \
     --name myScaleSet \
     --resource-group myResourceGroup \
-    --set upgradePolicy.mode=manual
+    --set upgradePolicy.mode=Automatic
 ```
 
 ### [PowerShell](#tab/powershell)
@@ -63,7 +63,7 @@ If using a rolling upgrade policy, see [configure rolling upgrade policy](virtua
 ```ARM
 "properties": {
         "upgradePolicy": {
-            "mode": "manual",
+            "mode": "automatic",
         }
     }
 ```
