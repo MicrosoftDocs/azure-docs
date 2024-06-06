@@ -148,7 +148,7 @@ global azure_app_config, feature_manager
 # credential is used to authenticate the client, the InteractiveBrowserCredential is used for this sample. It will open a browser window to authenticate the user. For all credential options see [credential classes](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#credential-classes).
 # feature_flag_enabled makes it so that the provider will load feature flags from Azure App Configuration
 # feature_flag_refresh_enabled makes it so that the provider will refresh feature flags from Azure App Configuration, when the refresh operation is triggered
-azure_app_config = load(connection_string=os.environ.get("APP_CONFIGURATION_CONNECTION_STRING")
+azure_app_config = load(endpoint=endpoint, credential=InteractiveBrowserCredential(),
                         refresh_on=[WatchKey("sentinel")],
                         on_refresh_success=on_refresh_success,
                         refresh_interval=10, # Default value is 30 seconds, shortened for this sample
@@ -205,7 +205,7 @@ from featuremanagement import FeatureManager
 # feature_flag_enabled makes it so that the provider will load feature flags from Azure App Configuration
 # feature_flag_refresh_enabled makes it so that the provider will refresh feature flags from Azure App Configuration, when the refresh operation is triggered
 AZURE_APPCONFIGURATION = load(
-        connection_string=os.environ.get("APP_CONFIGURATION_CONNECTION_STRING"),
+        endpoint=endpoint, credential=InteractiveBrowserCredential(),
         refresh_on=[WatchKey("sentinel")],
         on_refresh_success=on_refresh_success,
         refresh_interval=10, # Default value is 30 seconds, shortened for this sample
