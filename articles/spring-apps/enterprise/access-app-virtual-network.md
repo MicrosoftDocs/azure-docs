@@ -21,9 +21,11 @@ This article explains how to access an endpoint for your application in a privat
 
 When you assign an endpoint on an application in an Azure Spring Apps service instance deployed in your virtual network, the endpoint uses a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in the [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments) section of [Set up a staging environment in Azure Spring Apps](./how-to-staging-environment.md). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
-To make the endpoint you assigned accessible, there are generally two options available:
-1. Create your own private DNS zone and link it to Azure Spring Apps. This method is highly recommended as Azure Spring Apps will automatically link the DNS zone with your virtual network and manage DNS record for your application's endpoint.
-2. Create your own private DNS zone and manually manage the virtual network link and DNS records following instructions for locating the Load Balancer (LB) IP of your Azure Spring Apps service instance.
+There are two available options to make the endpoint you assigned accessible:
+
+- Create your own private DNS zone and link it to Azure Spring Apps. This method is highly recommended as Azure Spring Apps automatically links the DNS zone with your virtual network and manages DNS record for your application's endpoint.
+
+- Create your own private DNS zone and manually manage the virtual network link and DNS records following instructions for locating the Load Balancer (LB) IP of your Azure Spring Apps service instance.
 
 ## Prerequisites
 
@@ -61,14 +63,15 @@ az network private-dns zone create \
 
 It might take a few minutes to create the zone.
 
-## Configure Your Private DNS Zone with Azure Spring Apps provided feature
+## Configure your private DNS zone to automatically manage endpoints
 
-After creating a private DNS zone, you have the option to directly leverage Azure Spring Apps to manage your private DNS zones. This approach simplifies the process of handling virtual network links and DNS records, particularly beneficial for environments with multiple instances within a single virtual network or those utilizing virtual network peerings. Azure Spring Apps automates the management of virtual network links and the dynamic addition or removal of DNS "A" records as endpoints are assigned or unassigned.
+After creating a private DNS zone, you have the option to directly use Azure Spring Apps to manage your private DNS zones for you. This approach simplifies the process of handling virtual network links and DNS records, particularly beneficial for environments with multiple instances within a single virtual network or those utilizing virtual network peerings. Azure Spring Apps automates the management of virtual network links and the dynamic addition or removal of DNS "A" records as endpoints are assigned or unassigned.
 
 > [!NOTE]
-> Azure Spring Apps will not automatically manage endpoints that were assigned before the addition of the private DNS zone. To enable DNS record management for these endpoints, unassign and then reassign the endpoint.
+> Azure Spring Apps doesn't automatically manage endpoints assigned before the addition of the private DNS zone. To enable DNS record management for these endpoints, unassign and then reassign the endpoint.
 
-### Grant permission to the private dns zone 
+### Grant permission to the private DNS zone
+
 #### [Azure portal](#tab/azure-portal)
 
 Use the following steps to grant permission:
@@ -77,14 +80,14 @@ Use the following steps to grant permission:
 
 1. Select **Access control (IAM)**, and then select **Add** > **Add role assignment**.
 
-   :::image type="content" source="media/access-app-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/access-app-virtual-network/access-control.png":::
+   :::image type="content" source="media/access-app-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page that shows the Check access tab with the Add role assignment button highlighted." lightbox="media/access-app-virtual-network/access-control.png":::
 
 1. Assign the `Private DNS Zone Contributor` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
    > [!NOTE]
    > If you don't find Azure Spring Apps Resource Provider, search for *Azure Spring Cloud Resource Provider*.
 
-   :::image type="content" source="./media/access-app-virtual-network/assign-resource-provider.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page, with the Add Role Assignment pane open and search results displaying the Azure Spring Apps Resource Provider." lightbox="./media/access-app-virtual-network/assign-resource-provider.png":::
+   :::image type="content" source="./media/access-app-virtual-network/assign-resource-provider.png" alt-text="Screenshot of the Azure portal that shows the Access Control (IAM) page, with the Add Role Assignment pane open and search results displaying the Azure Spring Apps Resource Provider." lightbox="./media/access-app-virtual-network/assign-resource-provider.png":::
 
 #### [Azure CLI](#tab/azure-CLI)
 
@@ -107,11 +110,12 @@ The `--assignee` argument represents the service principal Azure Spring Apps use
 
 ---
 
-### Link the private DNS zone with Azure Spring Apps 
+### Link the private DNS zone with Azure Spring Apps
 
-To link the private DNS zone with your Azure Spring Apps instance, you can use the Azure CLI. This step involves specifying your resource group, the Azure Spring Apps instance name, and the resource ID of the private DNS zone.
+To link the private DNS zone with your Azure Spring Apps service instance, use the Azure CLI. This step involves specifying your resource group, the Azure Spring Apps instance name, and the resource ID of the private DNS zone.
 
-1. Config the private dns zone with Azure Spring Apps using azure cli. This configuration allows Azure Spring Apps to automatically create a virtual network link in the private DNS zone and manage the addition or removal of DNS "A" records as endpoints are assigned or unassigned.
+Use the following command to configure the private DNS zone with Azure Spring Apps. This configuration allows Azure Spring Apps to automatically create a virtual network link in the private DNS zone and manage the addition or removal of DNS "A" records as endpoints are assigned or unassigned.
+
 ```azurecli
 az spring private-dns-zone add \
    --resource-group $RESOURCE_GROUP \
@@ -119,23 +123,23 @@ az spring private-dns-zone add \
    --zone-id $PRIVATE_DNS_ZONE_RESOURCE_ID
 ```
 
+If you wish to unlink your Azure Spring Apps instance from the private DNS zone and stop the automatic management of DNS "A" records, you can clean the configuration. Use the following command to clean the private DNS zone configured with Azure Spring Apps (optional):
 
-1. (Optional) Clean the private dns zone configured with Azure Spring Apps using azure cli. If you wish to unlink your Azure Spring Apps instance from the private DNS zone and stop the automatic management of DNS "A" records, you can clean the configuration.
 ```azurecli
 az spring private-dns-zone clean \
    --resource-group $RESOURCE_GROUP \
    --service $AZURE_SPRING_APPS_INSTANCE_NAME 
 ```
 
-## (Alternatively) Configure Your Private DNS Zone manually
+## (Alternatively) Configure your private DNS zone manually
 
-If you prefer to have full control over your Private DNS Zone, you can manually configure it by following the instructions provided below.
+If you prefer to have full control over your private DNS zone, use the following steps to manually configure it:
 
 ### Find the IP for your application
 
 #### [Azure portal](#tab/azure-portal)
 
-Use the following steps to find the IP address for your application.
+Use the following steps to find the IP address for your application:
 
 1. Go to the Azure Spring Apps service **Networking** page.
 
@@ -184,20 +188,20 @@ Use the following steps to initialize the local environment and find the IP addr
 
 ---
 
-### Add a DNS for the IP 
+### Add a DNS for the IP
 
 If you have your own DNS solution for your virtual network, like Active Directory Domain Controller, Infoblox, or another, you need to point the domain `*.private.azuremicroservices.io` to the [IP address](#find-the-ip-for-your-application). Otherwise, use the following instructions to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
 > [!NOTE]
 > If you're using Microsoft Azure operated by 21Vianet, be sure to replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. For more information, see the [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) section of the [Azure China developer guide](/azure/china/resources-developer-guide).
 
-### Create DNS record
+### Create the DNS record
 
 You must create an "A" type record in the private DNS zone.
 
 #### [Azure portal](#tab/azure-portal)
 
-Use the following steps to use the private DNS zone to translate/resolve DNS.
+Use the following steps to use the private DNS zone to translate/resolve DNS:
 
 1. Select the private DNS zone resource you created - for example, **private.azuremicroservices.io**.
 
@@ -219,7 +223,7 @@ Use the following steps to use the private DNS zone to translate/resolve DNS.
 
 #### [Azure CLI](#tab/azure-CLI)
 
-Use the following commands to create the A record in your DNS zone:
+Use the following commands to create the "A" record in your DNS zone:
 
 ```azurecli
 az network private-dns record-set a add-record \
@@ -231,7 +235,7 @@ az network private-dns record-set a add-record \
 
 ---
 
-### Link the private DNS zone to virtual network
+### Link the private DNS zone to a virtual network
 
 To link the private DNS zone to the virtual network, you need to create a virtual network link.
 
@@ -268,7 +272,7 @@ az network private-dns link vnet create \
 
 ## Assign a private FQDN for your application
 
-After you have configured your Private DNS Zone, you can assign a private FQDN for your application after you deploy Azure Spring Apps in a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
+After you have configured your Private DNS Zone and deployed Azure Spring Apps in a virtual network, you can assign a private FQDN for your application. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 
 ### [Azure portal](#tab/azure-portal)
 
