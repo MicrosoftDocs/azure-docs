@@ -311,7 +311,7 @@
         items:
         - name: Overview
           displayName: Eb-series, sizes, size, vm size
-          href: ./sizes/memory-optimized/e-family.md
+          href: ./sizes/memory-optimized/eb-family.md
         - name: Ebdsv5 and Ebsv5 series
           href: ebdsv5-ebsv5-series.md
       - name: EC family (confidential)

@@ -10,7 +10,7 @@ ms.date: 06/06/2024
 ms.author: mattmcinnes
 ms.custom: include file
 ---
-**Memory-Intensive Workloads:** Eb-family VMs are for workloads that demands a large memory footprint to efficiently handle tasks, such as simulations, large-scale computations in scientific research, or financial risk modeling.
+**Memory-Intensive Workloads:** Eb-family VMs are for workloads that demand a large memory footprint to efficiently handle tasks, such as simulations, large-scale computations in scientific research, or financial risk modeling.
 
 **Large Databases and SQL Servers:** Eb-family VMs are ideal for hosting large relational databases like SQL Server and NoSQL databases that benefit from high memory capacities for improved performance in data processing and transaction handling.
 
