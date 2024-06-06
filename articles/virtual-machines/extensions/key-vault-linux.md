@@ -578,7 +578,7 @@ The following JSON snippets provide example settings for deploying the Key Vault
 
 ### [Version-1.0/2.0](#tab/version12)
 
-    ```azurecli
+```azurecli
        # Start the deployment
          az vm extension set -n "KeyVaultForLinux" `
          --publisher Microsoft.Azure.KeyVault `
@@ -587,11 +587,11 @@ The following JSON snippets provide example settings for deploying the Key Vault
          --version 2.0 `
          --enable-auto-upgrade true `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
-    ```
+```
 
 * To deploy the extension on a virtual machine scale set:
 
-   ```azurecli
+```azurecli
         # Start the deployment
         az vmss extension set -n "KeyVaultForLinux" `
         --publisher Microsoft.Azure.KeyVault `
@@ -600,7 +600,8 @@ The following JSON snippets provide example settings for deploying the Key Vault
         --version 2.0 `
         --enable-auto-upgrade true `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
-    ```
+```
+
 ---
 
 Please be aware of the following restrictions/requirements:
