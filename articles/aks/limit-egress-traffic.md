@@ -323,7 +323,7 @@ az role assignment create --assignee-object-id $myIdentity_objId --assignee-prin
 Create an AKS cluster with your existing identities in the subnet using the [`az aks create`][az-aks-create] command, provide the resource ID of the managed identity for the control plane by including the `assign-kubelet-identity` argument.
 
 ```azurecli-interactive
-az aks create -g $RG -n $AKSNAME -l $LOC \
+az aks create --resource-group $RG --name $AKSNAME --location $LOC \
     --node-count 3 \
     --network-plugin kubenet \
     --outbound-type userDefinedRouting \
