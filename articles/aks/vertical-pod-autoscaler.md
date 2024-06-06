@@ -594,7 +594,7 @@ To diagnose problems with a VPA installation, perform the following steps.
 1. Check if all system components are running using the following command:
 
    ```bash
-   kubectl ---namespace=kube-system get pods|grep vpa
+   kubectl --namespace=kube-system get pods|grep vpa
    ```
 
 The output should list three pods - recommender, updater and admission-controller all with the state showing a status of `Running`.
@@ -602,7 +602,7 @@ The output should list three pods - recommender, updater and admission-controlle
 2. Confirm if the system components log any errors. For each of the pods returned by the previous command, run the following command:
 
     ```bash
-    kubectl ---namespace=kube-system logs [pod name] | grep -e '^E[0-9]\{4\}'
+    kubectl --namespace=kube-system logs [pod name] | grep -e '^E[0-9]\{4\}'
     ```
 
 3. Confirm that the custom resource definition was created by running the following command:

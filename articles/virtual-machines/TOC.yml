@@ -182,9 +182,6 @@
       href: ./sizes/overview.md
     - name: General purpose
       items:
-      - name: Overview
-        displayName: General purpose, sizes, size, vm size
-        href: sizes-general.md
       - name: A family
         items:
         - name: Overview
@@ -265,9 +262,6 @@
           href: dasv6-dadsv6-series.md
     - name: Compute optimized
       items:
-      - name: Overview
-        displayName: compute optimized, sizes, size, vm size, compute
-        href: sizes-compute.md
       - name: F family
         items:
         - name: Overview
@@ -286,9 +280,6 @@
           href: fx-series.md
     - name: Memory optimized
       items:
-      - name: Overview
-        displayName: memory optimized, sizes, size, vm size, memory
-        href: sizes-memory.md
       - name: E family
         items:
         - name: Overview
@@ -320,7 +311,7 @@
         items:
         - name: Overview
           displayName: Eb-series, sizes, size, vm size
-          href: ./sizes/memory-optimized/e-family.md
+          href: ./sizes/memory-optimized/eb-family.md
         - name: Ebdsv5 and Ebsv5 series
           href: ebdsv5-ebsv5-series.md
       - name: EC family (confidential)
@@ -360,9 +351,6 @@
         href: constrained-vcpu.md
     - name: Storage optimized
       items:
-      - name: Overview
-        displayName: storage optimized, sizes, size, vm size, storage
-        href: sizes-storage.md
       - name: L family
         items:
         - name: Overview
@@ -384,9 +372,6 @@
           href: ./windows/storage-performance.md
     - name: GPU - accelerated compute
       items:
-      - name: Overview
-        displayName: GPU, sizes, size, accelerated compute, compute, nvidia
-        href: sizes-gpu.md
       - name: NC family
         items:
         - name: Overview
@@ -471,9 +456,6 @@
         href: ./n-series-migration.md
     - name: FPGA - accelerated compute
       items:
-      - name: Overview
-        displayName: FPGA, accelerated compute, compute, accelerated, gpu
-        href: sizes-field-programmable-gate-arrays.md
       - name: NP family
         items:
         - name: Overview
@@ -485,18 +467,6 @@
         href: field-programmable-gate-arrays-attestation.md
     - name: High performance compute
       items:
-      - name: Overview
-        displayName: HPC, high performance compute, sizes, size
-        href: sizes-hpc.md
-      - name: Set up Azure HPC or AI VMs
-        displayName: How to setup HPC/AI VMs
-        href: set-up-hpc-vms.md
-      - name: Configure and optimize VMs
-        displayName: Configure and optimize Infiniband enabled VMs
-        href: configure.md
-      - name: Azure HPC VM images
-        displayName: Azure HPC VM images
-        href: azure-hpc-vm-images.md
       - name: HB family
         items:
         - name: Overview
@@ -560,6 +530,15 @@
             href: hx-series.md
           - name: Performance
             href: hx-performance.md
+      - name: Set up Azure HPC or AI VMs
+        displayName: How to setup HPC/AI VMs
+        href: set-up-hpc-vms.md
+      - name: Configure and optimize VMs
+        displayName: Configure and optimize Infiniband enabled VMs
+        href: configure.md
+      - name: Azure HPC VM images
+        displayName: Azure HPC VM images
+        href: azure-hpc-vm-images.md
       - name: HPC for HB-series and N-series VMs
         href: overview-hb-hc.md
       - name: Known issues with HB-series and N-series VMs
