@@ -12,7 +12,7 @@ ms.custom: include file
 
 When developing locally with passwordless authentication, make sure the user account that connects to Cosmos DB is assigned a role with the correct permissions to perform data operations. Currently, Azure Cosmos DB for NoSQL doesn't include built-in roles for data operations, but you can create your own using the Azure CLI or PowerShell.
 
-Roles consist of a collection of permissions or actions that a user is allowed to perform, such as read, write, and delete. You can read more about [configuring role-based access control (RBAC)](../../../articles/cosmos-db/how-to-setup-rbac.md) in the Cosmos DB security configuration documentation. 
+Roles consist of a collection of permissions or actions that a user is allowed to perform, such as read, write, and delete. You can read more about [configuring role-based access control (RBAC)](../how-to-setup-rbac.md) in the Cosmos DB security configuration documentation. 
 
 ## Create the custom role
 

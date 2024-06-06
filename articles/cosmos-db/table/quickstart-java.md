@@ -31,7 +31,7 @@ Java applications can access the Azure Cosmos DB Tables API using the [azure-dat
 
 The sample application is written in [Spring Boot 2.6.4](https://spring.io/projects/spring-boot), You can use either [Visual Studio Code](https://code.visualstudio.com/), or [IntelliJ IDEA](https://www.jetbrains.com/idea/) as an IDE.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note-java.md)]
+[!INCLUDE [quickstarts-free-trial-note](../includes/quickstarts-free-trial-note-java.md)]
 
 ## Sample application
 
