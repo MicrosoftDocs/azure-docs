@@ -29,9 +29,9 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 >
 > | US               | Europe | Asia             |
 > |------------------|--------|------------------|
-> | West Central US  | Italy  | East Asia        |
-> | West US 3        | Spain  | Taiwan Northwest |
-> | North Central US | Norway | Taiwan North     |
+> | West US 3        | Italy  | East Asia        |
+> | North Central US | Spain  | Taiwan Northwest |
+> |                  | Norway | Taiwan North     |
 >
 > - This feature is currently only available on new namespaces. If a namespace had this feature enabled before, it can be disabled (by removing the secondary regions), and re-enabled.
 > - The following features currently aren't supported. We're continuously working on bringing more features to the public preview, and will update this list with the latest status.
@@ -40,7 +40,6 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 >     - Identities (MSI, disable local auth) and encryption settings (customer-managed key (CMK) encryption or bring your own key (BYOK) encryption).
 >     - Autoscaling.
 >     - Partitioned namespaces.
->     - Autodelete entities.
 >     - Send events to Event Grid.
 > - This feature can't be used in combination with the [Azure Service Bus Geo-Disaster Recovery](service-bus-geo-dr.md) feature.
 
@@ -92,7 +91,7 @@ With **asynchronous** replication:
 
 As such, it doesn’t have the absolute guarantee that all regions have the data before we commit it like synchronous replication does, and data loss or duplication may occur. However, as you're no longer immediately impacted when a single region lags or is unavailable, application availability improves, in addition to having a lower latency.
 
-|                                | Synchronous replication                                      | Asynchronous replication                                           |
+| Capability                     | Synchronous replication                                      | Asynchronous replication                                           |
 |--------------------------------|--------------------------------------------------------------|--------------------------------------------------------------------|
 | Latency                        | Longer due to distributed commit operations                  | Minimally impacted                                                 |
 | Availability                   | Tied to availability of secondary regions                    | Loss of a secondary region doesn't immediately impact availability |
