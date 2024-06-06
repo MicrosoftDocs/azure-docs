@@ -1,6 +1,6 @@
 ---
 title: ND sub-family virtual machine size series
-description: Overview of the 'ND' sub-family of virtual machine sizes
+description: List of sizes in the ND family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -69,5 +69,8 @@ ms.author: mattmcinnes
 
 [!INCLUDE [nd-mi300x-v5-series-specs](./includes/nd-mi300x-v5-series-specs.md)]
 
+
+### Previous-generation ND family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#gpu-accelerated-previous-gen-sizes).
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
