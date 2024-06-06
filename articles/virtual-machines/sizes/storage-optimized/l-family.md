@@ -40,7 +40,7 @@ ms.author: mattmcinnes
 ### Lasv3-series
 [!INCLUDE [lasv3-series-summary](./includes/lasv3-series-summary.md)]
 
-[Vew the full Lasv3-series page](../../lasv3-series.md).
+[View the full Lasv3-series page](../../lasv3-series.md).
 
 [!INCLUDE [lasv3-series-specs](./includes/lasv3-series-specs.md)]
 

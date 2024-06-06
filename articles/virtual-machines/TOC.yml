@@ -564,7 +564,7 @@
         href: overview-hb-hc.md
       - name: Known issues with HB-series and N-series VMs
         href: hb-hc-known-issues.md
-      - name: Setup MPI for HPC
+      - name: Set up MPI for HPC
         href: setup-mpi.md
       - name: Scaling HPC applications
         href: compiling-scaling-applications.md

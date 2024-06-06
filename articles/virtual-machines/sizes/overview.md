@@ -14,26 +14,26 @@ ms.author: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Azure Virtual Machine (VM) sizes are designed to provide a wide range of options for various workloads and Workloadss for hosting your servers in the cloud. Sizes are categorized into different families and types, each optimized for specific purposes. Users can choose the most suitable VM size based on their requirements, such as CPU, memory, storage, and network bandwidth.
+Azure Virtual Machine (VM) sizes are designed to provide a wide range of options for hosting your servers and their workloads in the cloud. Sizes are categorized into different families and types, each optimized for specific purposes. Users can choose the most suitable VM size based on their requirements, such as CPU, memory, storage, and network bandwidth.
 
 This article describes what sizes are, gives an overview of the available sizes and shows different options for Azure virtual machine instances you can use to run your apps and workloads.
 
 > [!TIP]
 > Try the **[Virtual machines selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
 
-:::image type="content" source="./media/azurevmsthumb.jpg" alt-text="YouTube video for selecting the right size for your VM." link="https://youtu.be/zOSvnJFd3ZM":::
+:::image type="content" source="./media/azure-vms-thumb.jpg" alt-text="YouTube video for selecting the right size for your VM." link="https://youtu.be/zOSvnJFd3ZM":::
 
 ## VM size and series naming
 
-Azure VM sizes follow specific naming conventions to denote varying features and specifications. Each character in the name represents different aspects of the VM, such as the VM family, number of vCPUs, and additional features like memory-intensive or premium storage capable.
+Azure VM sizes follow specific naming conventions to denote varying features and specifications. Each character in the name represents different aspects of the VM. These include the VM family, number of vCPUs, and extra features like premium storage or included accelerators.
 
 VM naming is further broken down into the 'Series' name and the 'Size' name. Size names include extra characters representing the number of vCPUs, type of storage, etc.
 
 | Category | Description | Links |
 |---| --- | --- |
-| **Type** | 	Basic categorization by intended workload. | [General purpose](#general-purpose) <br>[Compute optimized](#compute-optimized) <br>[Memory optimized](#memory-optimized) <br>[Storage optimized](#storage-optimized) <br>[GPU acelerated](#gpu-accelerated) <br>[FPGA accelerated](#fpga-accelerated) |
-| **Series** | Group of sizes with similar hardware and features.| [Click here and enter the 'Series' tab.](#name-structure-breakdown) |
-| **Size** | Specific VM configuration, including vCPUs, memory, and accelerators. | [Click here and enter the 'Size' tab.](#name-structure-breakdown) |
+| **Type** | 	Basic categorization by intended workload. | [General purpose](#general-purpose) <br>[Compute optimized](#compute-optimized) <br>[Memory optimized](#memory-optimized) <br>[Storage optimized](#storage-optimized) <br>[GPU accelerated](#gpu-accelerated) <br>[FPGA accelerated](#fpga-accelerated) |
+| **Series** | Group of sizes with similar hardware and features.| [Enter the 'Series' tab here.](#name-structure-breakdown) |
+| **Size** | Specific VM configuration, including vCPUs, memory, and accelerators. | [Enter the 'Size' tab here.](#name-structure-breakdown) |
 
 ### Name structure breakdown
 
@@ -44,8 +44,8 @@ Here's a breakdown of a 'General purpose, **DCads_v5**-series' size series.
 :::image type="content" source="./media/size-series-breakdown.png" alt-text="A breakdown of the DCadsv5 VM size series with text describing each letter and section of the name.":::
 <sup>1</sup> Most families are represented using one letter, but others such as GPU sizes (`ND-series`, `NV-series`, etc.) use two.
 <br><sup>2</sup> Most subfamilies are represented with a single upper case letter, but others (such as `Ebsv5-series`) are still considered subfamilies of their parent family due to feature differences.
-<br><sup>3</sup> If no feature letter for a CPU is listed, the series uses Intel x86-64 CPUs. If the CPU is AMD, it will be listed as `a`. If the CPU is ARM based (Microsoft Cobalt or Ampere Altra), it will be listed as `p`.
-<br><sup>4</sup> There can be any number of additional features in a size name. There could be none (`Dv5-series`) or there could be three (`Dplds_v6-series`).
+<br><sup>3</sup> If no feature letter for a CPU is listed, the series uses Intel x86-64 CPUs. If the CPU is AMD, it's listed as `a`. If the CPU is ARM based (Microsoft Cobalt or Ampere Altra), it's listed as `p`.
+<br><sup>4</sup> There can be any number of extra features in a size name. There could be none (`Dv5-series`) or there could be three (`Dplds_v6-series`).
 <br><sup>5</sup> Version numbers only appear in the size name if there are multiple versions of the same series. If you're using the first version of a series (`HB-series`, `B-series`, etc.) it is often not included in the size name.
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Here's a breakdown of a 'Standard_**DC8ads_v5**' size in the 'DCadsv5-series'
 <sup>1</sup> Most families are represented using one letter, but others such as GPU sizes (`ND-series`, `NV-series`, etc.) use two.
 <br><sup>2</sup> Most subfamilies are represented with a single upper case letter, but others (such as `Ebsv5-series`) are still considered subfamilies of their parent family due to feature differences.
 <br><sup>3</sup> If no feature letter for a CPU is listed, the series uses Intel x86-64 CPUs. If the CPU is AMD, it will be listed as `a`. If the CPU is ARM based (Microsoft Cobalt or Ampere Altra), it will be listed as `p`.
-<br><sup>4</sup> There can be any number of additional features in a size name. There could be none (`Dv5-series`) or there could be three (`Dplds_v6-series`).
+<br><sup>4</sup> There can be any number of extra features in a size name. There could be none (`Dv5-series`) or there could be three (`Dplds_v6-series`).
 <br><sup>5</sup> Spacers can show up multiple times in a size name such as in the `ND_H100_v5-series`. In this case they separate the GPU ID from the rest of the size name.
 <br><sup>6</sup> Version numbers only appear in the size name if there are multiple versions of the same series. If you're using the first version of a series (`HB-series`, `B-series`, etc.) it is often not included in the size name.
 
@@ -313,7 +313,7 @@ To learn more about a specific size family, sub-family, or specific series, clic
 
 ---
 
-## Additional Size Info
+## Learn platform sizes content
 - For information about pricing of the various sizes, see the pricing pages for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) or [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/Windows/#Windows).
 - For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
 - To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
