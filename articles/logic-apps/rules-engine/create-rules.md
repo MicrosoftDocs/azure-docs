@@ -86,7 +86,7 @@ A *ruleset* is a set of rules that you group together based on domain, bounded c
 
    The Microsoft Rules Composer creates a new empty ruleset with a ruleset version numbered **1.0** as the default version.
 
-1. Save your rule store. On the **Rule Store** menu, select **Save**, which creates an XML file for your rule store.
+1. Save your ruleset. On the **Rule Store** menu, select **Save**, which creates an XML file for your ruleset.
 
 The following table describes other RuleSet Explorer commands that you can use to work with rulesets:
 
