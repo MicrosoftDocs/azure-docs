@@ -8,7 +8,7 @@ ms.date: 05/16/2024
 
 # Integrated solutions in Defender for Cloud
 
-This document provides information about security solutions that integrate with Microsoft Defender for Cloud.
+This article provides information about security solutions that integrate with Microsoft Defender for Cloud.
 
 Defender for Cloud integrates with both Microsoft services and partner solutions. Integration with solutions helps you to:
 
@@ -16,8 +16,8 @@ Defender for Cloud integrates with both Microsoft services and partner solutions
 - **Integrate detection**: Security events from partner solutions are automatically collected, aggregated, and displayed as part of Defender for Cloud alerts and incidents. These events are also fused with detections from other sources to provide advanced threat-detection capabilities.
 - **Unify monitoring and management**: Integrated events in Defender for Cloud help you to monitor partner solutions at a glance. Basic management is available, with easy access to advanced setup by using the partner solution.
 - **Extend capabilities**: Some integrations extend Defender for Cloud capabilities. For example:
-    - Defender for Cloud supports third-party tools to help enhance runtime security capabilities provided by Defender for APIs.
-    - Defender for Cloud integrates with ServiceNow to help prioritize remediation of security recommendations, and to create and monitor tickets.
+    - Defender for Cloud supports [third-party integrations](defender-partner-applications.md) to help enhance runtime security capabilities provided by Defender for APIs.
+    - Defender for Cloud [integrates with ServiceNow](/integration-servicenow.md) to help prioritize remediation of security recommendations, and to create and monitor tickets.
 
 
 ## Integrations
