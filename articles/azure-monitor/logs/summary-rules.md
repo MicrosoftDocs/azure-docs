@@ -424,19 +424,21 @@ When you [delete columns or a custom log table](create-custom-table.md), data re
 
 ## Pricing model
 
-The cost of summary rules includes the cost of queries and ingested results to the Analytics table, depending on the tier of tables you query.
+The cost of summary rules consists of the cost of the query on the source table and the cost of ingesting the results to the destination Analytics table:
 
-| Plan of table used in query | Query cost | Results ingestion cost |
+| Source table plan | Query cost | Query results ingestion cost |
 | --- | --- | --- |
-| Analytics |            | Analytics ingested GB | 
+| Analytics | No cost    | Analytics ingested GB | 
 | Basic     | Scanned GB | Analytics ingested GB | 
 
-Cost calculation for hourly rule returning 100 records per bin:
+For example, this is the cost calculation for hourly rule that returns 100 records per bin:
 
 | Rule configuration | Monthly price calculation
 | --- | --- |
 | Query Analytics table  | Ingestion price x record size x number of records x 24 hours x 30 days | 
 | Query Basic table scanning 1 GB each bin | Scanned GB price x scanned size + record size x number of records x 24 hours x 30 days | 
+
+For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Related content
 
