@@ -17,7 +17,7 @@ This article discusses how provision and conduct basic management functions for 
 1. You provision an Oracle Autonomous Database instance from the Microsoft Azure portal. Select the Oracle Autonomous Database@Azure blade.
 1. There are two paths to begin the Oracle Autonomous Database instance provisioning flow.
     1. From the Oracle Autonomous Database@Azure application Home, select the **Create an Oracle Autonomous Database** button.
-    2. From the Oracle Autonomous Database blade, select the **+ Create** at the top of the blade. The Oracle Autonomous Database@Azure blade shows all your existing Autonomous Databases along with their current status. Selecting a specific Autonomous Database shows you that instance's detailed information.
+    2. From the Oracle Autonomous Database blade, select the **+ Create** at the top of the blade. The Oracle Autonomous Database@Azure blade shows all your existing Autonomous Databases along with their current status. Selecting a specific Autonomous Database shows you detailed information of that instance.
 
 1. From the **Basics** tab of the Create Oracle Autonomous Database flow, enter the following information.
     1. The **Subscription** field is a drop-down containing the current subscription, plus any other subscriptions that your account can access.
