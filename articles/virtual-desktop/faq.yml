@@ -188,7 +188,7 @@ sections:
       - question: |
          If I store my host pools and VMs in different regions, what would happen in a disaster scenario where the host pool region goes down but the VM region stays online?
         answer: |
-         Metadata of a host pool is replicated within a geography for resiliency. If the region your host pool is in goes down, it fails over to its replica. During this failover period, Azure Virtual Desktop doesn't accept new user connections to the session host VMs in that host pool until the failover has completed. Any existing sessions on the session host VMs in that host pool remain connected and unaffected. To learn more about how service resilience is implemented for Azure Virtual Desktop, see [Azure Virtual Desktop service architecture and resilience](../virtual-desktop/service-architecture-resilience.md).
+         Metadata of a host pool is replicated within a geography for resiliency. If the region your host pool is in goes down, it fails over to its replica. During this failover period, Azure Virtual Desktop doesn't accept new user connections to the session host VMs in that host pool until the failover is complete. Any existing sessions on the session host VMs in that host pool remain connected and unaffected. To learn more about how service resilience is implemented for Azure Virtual Desktop, see [Azure Virtual Desktop service architecture and resilience](../virtual-desktop/service-architecture-resilience.md).
 
       - question: |
          What happens when you try to add more than 200 VMs to an availability set in Azure Virtual Desktop? 
