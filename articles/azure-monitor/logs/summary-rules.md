@@ -1,5 +1,5 @@
 ---
-title: Aggregate data in a Log Analytics workspace using summary rules
+title: Aggregate data in a Log Analytics workspace using summary rules (Preview)
 description: Aggregate data in Log Analytics workspace with summary rules feature in Azure Monitor, including creating, starting, stopping, and troubleshooting rules. 
 ms.service: azure-monitor
 ms.subservice: logs
@@ -12,7 +12,7 @@ ms.date: 04/23/2024
 # Customer intent: As a Log Analytics workspace administrator or developer, I want to optimize my query performance, cost-effectiveness, security, and analysis capabilities by using summary rules to aggregate data I ingest to specific tables.
 ---
 
-# Aggregate data in a Log Analytics workspace using summary rules
+# Aggregate data in a Log Analytics workspace using summary rules (Preview)
 
 A summary rule lets you aggregate log data at a regular cadence and send the aggregated results to a custom log table in your Log Analytics workspace. Use summary rules to optimize your data for:
 
@@ -455,7 +455,7 @@ When you [delete columns or a custom log table](create-custom-table.md), data re
 - Querying a Log Analytics workspace in another tenant by using Lighthouse isn't supported.
 - KQL limits depend on the table plan of the source table. The following KQL limits apply:
 
-   - Analytics: Supports all KQL commands, except for data reshaping plugins, including [bag unpack](/azure/data-explorer/kusto/query/bag-unpack-plugin), [narrow](/azure/data-explorer/kusto/query/narrow-plugin), and [pivot](/azure/data-explorer/kusto/query/pivot-plugin). Cross-resource, including [workspaces()](/azure/azure-monitor/logs/cross-workspace-query#query-across-log-analytics-workspaces-using-workspace), [app()](/azure/azure-monitor/logs/cross-workspace-query#query-across-classic-application-insights-applications-using-app), [resource()](/azure/azure-monitor/logs/cross-workspace-query#correlate-data-between-resources-using-resource), [ADX()](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy), and [arg()](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy) aren't supported in the Private Preview.
+   - Analytics: Supports all KQL commands, except for data reshaping plugins, including [bag unpack](/azure/data-explorer/kusto/query/bag-unpack-plugin), [narrow](/azure/data-explorer/kusto/query/narrow-plugin), and [pivot](/azure/data-explorer/kusto/query/pivot-plugin). 
    - Basic: Supports all KQL commands on a single Basic or Auxiliary table. Because `summarize` and `join` aren't supported, use lookup for up to five Analytics tables.
    - Functions: User-defined functions aren't supported. System functions provided by Microsoft are supported. 
 
