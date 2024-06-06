@@ -21,7 +21,7 @@ To perform custom integration tasks inline with your Standard workflow in Azure 
 
 This capability provides the following benefits:
 
-- Write your own scripts to solve more complex integration problems without having to separately provision Azure Functions.
+- Write your own scripts to solve more complex integration problems without having to use Azure Functions.
 
   This benefit streamlines workflow development plus reduces the complexity and cost with managing more services.
 
@@ -41,7 +41,7 @@ This guide shows how to add the action in your workflow and add the C# script co
 
 The following list describes some example scenarios where you can use a script helps with certain integration tasks:
 
-- You have a payload where you want to parse and perform transformations or manipulations beyond built-in expressions and data operations capabilities. For example, you can use a script to return a modified schema for downstream processing.
+- Parse and perform transformations or manipulations on a payload beyond the built-in expressions and data operations capabilities. For example, you can use a script to return a modified schema for downstream processing.
 
 - Manage Azure resources such as virtual machines and start or step them, based on some business logic.
 
@@ -67,7 +67,7 @@ The following list describes some example scenarios where you can use a script h
 
 | Name | Limit | Notes |
 |------|-------|-------|
-| Script run duration | 10 minutes | If you have scenarios that need longer durations, use the product feedback option to provide more information abour your needs. |
+| Script run duration | 10 minutes | If you have scenarios that need longer durations, use the product feedback option to provide more information about your needs. |
 | Output size | 100 MB | Output size depends on the output size limit for actions, which is generally 100 MB.
 
 ## Add the Execute CSharp Script Code action
@@ -179,7 +179,7 @@ The following list describes some example scenarios where you can use a script h
 
 ## Import namespaces
 
-To import namespaces, do so with the **`using`** clause as usual. The following list includes an automatically imported namespaces, so they're optional for you to include in your script:
+To import namespaces, do so with the **`using`** clause as usual. The following list includes automatically imported namespaces, so they're optional for you to include in your script:
 
 ```text
 System
@@ -210,7 +210,7 @@ using Newtonsoft.Json.Linq;
 public static async Task<Results> Run(WorkflowContext context, ILogger log)
 ```
 
-The following list includes automatically assemblies that are add by the Azure Functions hosting environment:
+The following list includes assemblies automatically added by the Azure Functions hosting environment:
 
 ```text
 mscorlib
@@ -364,7 +364,7 @@ The following example shows a sample method call:
 
 ## Compilation errors
 
-In this release, the web-based editor has limited IntelliSense support, which is still under improvement. Any compilation errors are detected when you save your workflow, and the Azure Logic Apps runtime compiles your script. These errors appear in your logic app's error logs.
+In this release, the web-based editor includes limited IntelliSense support, which is still under improvement. Any compilation errors are detected when you save your workflow, and the Azure Logic Apps runtime compiles your script. These errors appear in your logic app's error logs.
 
 ## Runtime errors
 
@@ -374,7 +374,7 @@ If an error happens when your script executes, Azure Logic Apps performs these s
 - Marks the script action as **Failed**.
 - Provides an error object that represents the exception thrown from your script.
 
-The followng example shows a sample error:
+The following example shows a sample error:
 
 **The function 'CSharp_MyLogicApp-InvalidAction_execute_csharp_script_code.csx' failed with the error 'The action 'nonexistent' does not exist in the workflow.' when executing. Please verify function code is valid.**
 

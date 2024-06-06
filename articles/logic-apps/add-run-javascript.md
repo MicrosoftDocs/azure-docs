@@ -42,7 +42,7 @@ The following diagram shows the highlights from example workflow:
 
 * The logic app workflow where you want to add your code snippet. The workflow must already start with a trigger.
 
-  This article's example uses the Office 365 Outlook trigger that's named **When a new email arrives**.
+  This article's example uses the Office 365 Outlook trigger that is named **When a new email arrives**.
 
   If you don't have a workflow, see the following documentation:
 
