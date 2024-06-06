@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 05/15/2024
+ms.date: 06/06/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -131,22 +131,38 @@ To view your cluster on the Azure portal, use the following steps:
 > [!TIP]
 > You can run `az iot ops check` to assess health and configurations of deployed AIO workloads. By default, MQ including cloud connectors are assessed and you can [specifiy the service](/cli/azure/iot/ops#az-iot-ops-check-examples) with `--ops-service --svc`.
 
+## Uninstall Azure IoT Operations
+
+Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete or uninstall Azure IoT Operations from a cluster. The `delete` command evaluates the Azure IoT Operations related resources on the cluster and presents a tree view of the resources to be deleted. The cluster should be online prior to running.
+
+The `delete` command removes:
+
+* Azure IoT Operations extensions
+* Azure IoT Operations resource sync rules
+* Azure IoT Operations resources
+* Associated custom location
+
+```azurecli
+az iot ops delete --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
+```
+
 ## Update Azure IoT Operations
 
-Currently, there's no support for updating an existing Azure IoT Operations deployment. Instead, use the following steps to uninstall and redeploy a new version of Azure IoT Operations.
+Currently, there's no support for updating an existing Azure IoT Operations deployment. Instead, uninstall and redeploy a new version of Azure IoT Operations.
 
-1. Delete the Azure IoT Operations deployment on your cluster so that you can redeploy to it.
+1. Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete the Azure IoT Operations deployment on your cluster.
 
-   1. In the Azure portal, navigate to your cluster.
-   1. Select all of the extensions of the type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. Keep the secrets provider on your cluster, as that's a prerequisite for deployment and not included in a fresh deployment. 
+   ```azurecli
+   az iot ops delete --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
+   ```
 
 1. Update the CLI extension to get the latest Azure IoT Operations version.
 
-  ```azurecli
-  az extension add --upgrade --name azure-iot-ops
-  ```
+   ```azurecli
+   az extension update --name azure-iot-ops
+   ```
 
-1. Follow the steps in this article to deploy Azure IoT Operations to your cluster again.
+1. Follow the steps in this article to deploy the newest version of Azure IoT Operations to your cluster.
 
    >[!TIP]
    >Add the `--ensure-latest` flag to the `az iot ops init` command to check that the latest Azure IoT Operations CLI version is installed and raise an error if an upgrade is available.
