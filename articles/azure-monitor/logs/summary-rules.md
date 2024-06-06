@@ -453,7 +453,7 @@ When you [delete columns or a custom log table](create-custom-table.md), data re
 - The summary rule processes incoming data and can't be configured on a historical time range. 
 - When bin execution retries are exhausted, the bin is skipped and can't be re-executed.
 - Querying a Log Analytics workspace in another tenant by using Lighthouse isn't supported.
-- KQL limits depend on the table plan of the source table. The following KQL limits apply:
+- KQL limits depend on the table plan of the source table. 
 
    - Analytics: Supports all KQL commands, except for data reshaping plugins, including [bag unpack](/azure/data-explorer/kusto/query/bag-unpack-plugin), [narrow](/azure/data-explorer/kusto/query/narrow-plugin), and [pivot](/azure/data-explorer/kusto/query/pivot-plugin). 
    - Basic: Supports all KQL commands on a single Basic or Auxiliary table. Because `summarize` and `join` aren't supported, use lookup for up to five Analytics tables.
