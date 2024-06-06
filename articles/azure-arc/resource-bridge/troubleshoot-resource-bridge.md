@@ -244,6 +244,11 @@ When you deploy Arc resource bridge, you may encounter the error:
 
 This error is caused when there's a clock/time difference between ESXi host(s) and the management machine where the deployment commands for Arc resource bridge are being executed. To resolve this issue, turn on NTP time sync on the ESXi host(s) and confirm that the management machine is also synced to NTP, then try the deployment again.
 
+### Arc resource bridge status is disconnected
+
+When running the initial Arc-enabled VMware onboarding script, you were prompted to provide a vSphere account. This account is stored locally within the Arc resource bridge as an encrypted Kubernetes secret. It is used to allow the Arc resource bridge to interact with vCenter. If your Arc resource bridge status is disconnected, this may be due to the vSphere account stored locally within the resource bridge being expired. You will need to update the credentials within Arc resource bridge and for Arc-enabled VMware by [following the updating vSphere account credentials instructions](/vmware-vsphere/administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding).
+
+
 ### Error during host configuration
 
 If you have been using the same template to deploy and delete the Arc resource bridge multiple times, you might encounter the following error:
