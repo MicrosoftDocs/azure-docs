@@ -41,8 +41,9 @@ Use the tabs below to select the method you plan to use to create a project:
     my_project_name = "myexampleproject"
     my_location = "East US"
     my_display_name = "My Example Project"
+    hub_id = "" # Azure resource manager ID of the hub
 
-    my_hub = Project(name=my_hub_name, 
+    my_project = Project(name=my_hub_name, 
                     location=my_location,
                     display_name=my_display_name,
                     hub_id=created_hub.id)

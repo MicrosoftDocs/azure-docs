@@ -1,7 +1,7 @@
 ---
-title: How to create a hub using the Azure Machine Learning SDK
+title: How to create a hub using the Azure Machine Learning SDK/CLI
 titleSuffix: Azure AI Studio
-description: This article provides instructions on how to create an AI Studio hub using the Azure Machine Learning SDK.
+description: This article provides instructions on how to create an AI Studio hub using the Azure Machine Learning SDK and Azure CLI extension.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
@@ -13,11 +13,11 @@ ms.author: eur
 author: eric-urban
 ---
 
-# Create a hub using the Azure Machine Learning SDK
+# Create a hub using the Azure Machine Learning SDK and CLI
 
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-In this article, you learn how to create the following AI Studio resources using the Azure Machine Learning SDK:
+In this article, you learn how to create the following AI Studio resources using the Azure Machine Learning SDK and Azure CLI (with machine learning extension):
 - An Azure AI Studio hub
 - An Azure AI Services connection
 
@@ -27,15 +27,26 @@ In this article, you learn how to create the following AI Studio resources using
 
 ## Set up your environment
 
+Use the tabs below to select whether you are using the Python SDK or Azure CLI:
+
+# [Python SDK](#tab/python)
+
 [!INCLUDE [SDK setup](../../includes/development-environment-config.md)]
 
+# [Azure CLI](#tab/azurecli)
+
+TODO
+
+---
+
 ## Create the AI Studio hub and AI Services connection
+
+# [Python SDK](#tab/python)
 
 Use the following code to create a new hub and AI Services connection. Replace example string values with your own values:
 
 ```Python
 from azure.ai.ml.entities import Hub
-from azure.ai.ml.entities import AzureAIServicesConnection
 
 my_hub_name = "myexamplehub"
 my_location = "East US"
@@ -48,21 +59,66 @@ my_hub = Hub(name=my_hub_name,
 
 created_hub = ml_client.workspaces.begin_create(my_hub).result()
 
+```
+
+# [Azure CLI](#tab/azurecli)
+
+```azurecli
+az ml workspace --kind hub --resource-group {my_resource_group} --name {my_hub_name}
+```
+
+---
+
+## Create an AI Services connection
+
+After creating your own AI Services, you can connect it to your hub:
+
+# [Python SDK](#tab/python)
+
+```python
+from azure.ai.ml.entities import AzureAIServicesConnection
+
 # constrict an AI Services connection
 my_connection_name = "myaiservivce"
 my_endpoint = "demo.endpoint" # this could also be called target
 my_api_keys = None # leave blank for Authentication type = AAD
 my_ai_services_resource_id = "" # ARM id required
 
-my_connection = AIServicesConnection(name=my_connection_name,
+my_connection = AzureAIServicesConnection(name=my_connection_name,
                                     endpoint=my_endpoint, 
                                     api_key= my_api_keys,
                                     ai_services_resource_id=my_ai_services_resource_id)
 
+# Create the connection
 ml_client.connections.create_or_update(my_connection)
 ```
 
+# [Azure CLI](#tab/azurecli)
 
+```azurecli
+az ml connection create --file {connection.yml} --resource-group {MY_RESOURCE_GROUP} --workspace-name {MY_PROJECT_NAME}
+```
+
+You can use either an API key or credential-less YAML configuration file:
+
+- API Key example:
+
+    ```yml
+    name: myazai_ei
+    type: azure_ai_services
+    endpoint: https://contoso.cognitiveservices.azure.com/
+    api_key: XXXXXXXXXXXXXXX
+    ```
+
+- Credential-less
+
+    ```yml    
+    name: myazai_apk
+    type: azure_ai_services
+    endpoint: https://contoso.cognitiveservices.azure.com/
+    ```
+
+---
 
 ## Related content
 
