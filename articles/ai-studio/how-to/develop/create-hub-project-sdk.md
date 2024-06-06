@@ -1,7 +1,7 @@
 ---
-title: How to create a hub and project using the Azure Machine Learning SDK
+title: How to create a hub using the Azure Machine Learning SDK
 titleSuffix: Azure AI Studio
-description: This article provides instructions on how to create an AI Studio hub and project using the Azure Machine Learning SDK.
+description: This article provides instructions on how to create an AI Studio hub using the Azure Machine Learning SDK.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
@@ -13,14 +13,13 @@ ms.author: eur
 author: eric-urban
 ---
 
-# Create a hub and project using the Azure Machine Learning SDK
+# Create a hub using the Azure Machine Learning SDK
 
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to create the following AI Studio resources using the Azure Machine Learning SDK:
 - An Azure AI Studio hub
 - An Azure AI Services connection
-- An Azure AI Studio project
 
 ## Prerequisites
 
@@ -63,32 +62,7 @@ my_connection = AIServicesConnection(name=my_connection_name,
 ml_client.connections.create_or_update(my_connection)
 ```
 
-## Create AI Studio project
 
-Use the following code to create a project from the hub you created previously. Replace example string values with your own values:
-
-```Python
-from azure.ai.ml.entities import Project
-
-my_project_name = "myexampleproject"
-my_location = "East US"
-my_display_name = "My Example Project"
-
-my_hub = Project(name=my_hub_name, 
-                location=my_location,
-                display_name=my_display_name,
-                hub_id=created_hub.id)
-
-created_project = ml_client.workspaces.begin_create(workspace=my_hub).result() 
-```
-
-## Update the MLClient
-
-To use the new project, include it in the `MLClient`.
-
-```python
-ml_client = MLClient(workspace_name=my_project_name, resource_group_name=my_resource_group, subscription_id=my_subscription_id,credential=DefaultAzureCredential())
-```
 
 ## Related content
 
