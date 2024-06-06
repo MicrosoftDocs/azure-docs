@@ -775,6 +775,7 @@
         "articles/migrate/**/*.md": "evansma",
         "articles/quotas/**/*.md": "rayoflores",
         "articles/remote-rendering/**/*.md": "jlyons",
+        "articles/search/**/*.md": "nitinme",
         "articles/site-recovery/**/*.md": "evansma",
         "articles/virtual-desktop/**/*.md": "femila",
         "articles/virtual-machines/**/*.md": "mamccrea",
@@ -957,7 +958,13 @@
         "articles/vpn-gateway/*.md": "networking",
         "articles/vpn-gateway/*.yml": "networking",
         "articles/web-application-firewall/*.md": "networking",
-        "articles/web-application-firewall/*.yml": "anetworking"
+        "articles/web-application-firewall/*.yml": "anetworking",
+        "articles/ai-services/*.md": "ce-skilling-ai-copilot",
+        "articles/ai-services/*.yml": "ce-skilling-ai-copilot",
+        "articles/ai-studio/*.md": "ce-skilling-ai-copilot",
+        "articles/ai-studio/*.yml": "ce-skilling-ai-copilot",
+        "articles/search/*.md": "ce-skilling-ai-copilot",
+        "articles/search/*.yml": "ce-skilling-ai-copilot"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "advisor",

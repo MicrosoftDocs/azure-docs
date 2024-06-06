@@ -4,8 +4,8 @@ description: Resolve common issues in Azure IoT Edge solutions. Learn how to tro
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/05/2024
-ms.topic: conceptual
+ms.date: 06/06/2024
+ms.topic: troubleshooting-general
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
