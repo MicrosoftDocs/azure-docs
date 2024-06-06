@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/21/2024
+ms.date: 06/06/2024
 ms.author: mattmcinnes
 ---
 
@@ -315,6 +315,7 @@ To learn more about a specific size family, sub-family, or specific series, clic
 
 ## Learn platform sizes content
 - For information about pricing of the various sizes, see the pricing pages for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) or [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/Windows/#Windows).
+- Want to change the size of your VM? See [Change the size of a VM](./resize-vm.md).
 - For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
 - To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - For more information on how Azure names its VMs, see [Azure virtual machine sizes naming conventions](../vm-naming-conventions.md).
