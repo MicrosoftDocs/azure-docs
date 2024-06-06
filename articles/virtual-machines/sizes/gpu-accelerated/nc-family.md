@@ -1,6 +1,6 @@
 ---
 title: NC sub-family VM size series
-description: Overview of the 'NC' sub-family of virtual machine sizes
+description: List of sizes in the NC family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -68,5 +68,8 @@ ms.author: mattmcinnes
 
 [!INCLUDE [nc_a100_v4-series-specs](./includes/nc-a100-v4-series-specs.md)]
 
+
+### Previous-generation NC family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#gpu-accelerated-previous-gen-sizes).
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
