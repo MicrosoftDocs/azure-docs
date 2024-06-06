@@ -7,7 +7,7 @@ ms.author: edbaynash
 ms.reviewer: priyamishra
 ms.topic: conceptual
 ms.custom: linux-related-content
-ms.date: 06/06/2025
+ms.date: 06/06/2024
 ---
 # Collect custom metrics for a Linux Virtual Machine with the InfluxData Telegraf agent
 
