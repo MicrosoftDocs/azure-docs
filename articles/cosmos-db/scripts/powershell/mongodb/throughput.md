@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 ---
 
 # Throughput (RU/s) operations with PowerShell for a database or collection for Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
