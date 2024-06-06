@@ -46,8 +46,6 @@ You can configure up to 30 rules to aggregate data from multiple tables and send
 
 You can export summarized data from a custom log table to a storage account or Event Hubs for further integrations by defining a [data export rule](logs-data-export.md).
 
-:::image type="content" source="media/summary-rules/ingestion-flow.png" alt-text="Screenshot that shows how Summary rules ingest data through the Azure Monitor pipeline to Log Analytics workspace." border="false" lightbox="media/summary-rules/ingestion-flow.png":::
-
 ## Create or update a summary rule
 
 For rules that you create and configure, the `ruleType` parameter is always `User` and the `destinationTable` name must end with `_CL`, which is prefixed to all custom log tables. If you update a query and remove output fields from the results set, Azure Monitor doesn't automatically remove the fields from the destination table. You can remove the fields by using the [Table API](/rest/api/loganalytics/tables/update?tabs=HTTP). 
@@ -349,7 +347,7 @@ Authorization: {credential}
 
 ## Monitor summary rules
 
-To monitor summary rules, enable the **Summary Logs** category in the [diagnostic settings] of you Log Analytics workspace. Azure Monitor sends summary rule execution details, including summary rule run Start, Succeeded, and Failed information, to the [LASummaryLogs](/azure/azure-monitor/reference/tables/lasummarylogs) table in your workspace. 
+To monitor summary rules, enable the **Summary Logs** category in the [diagnostic settings](../essentials/create-diagnostic-settings.md) of your Log Analytics workspace. Azure Monitor sends summary rule execution details, including summary rule run Start, Succeeded, and Failed information, to the [LASummaryLogs](/azure/azure-monitor/reference/tables/lasummarylogs) table in your workspace. 
 
 We recommend you that you [set up log alert rules](../alerts/alerts-create-log-alert-rule.md) to receive notification of bin failures, or when bin execution is nearing time-out, as shown below. Depending on the failure reason, you can either reduce the bin size to process less data on each execution, or modify the query to return fewer records or fields with higher volume.
 
