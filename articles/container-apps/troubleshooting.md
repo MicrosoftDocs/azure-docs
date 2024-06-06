@@ -182,7 +182,7 @@ For more information about configuring traffic splitting, see [Traffic splitting
 
 ## Verify latest version of Azure Container Apps extension is installed
 
-If, when you run `az containerapp` commands in Azure CLI, or cmdlets from the `Az.App` module in Azure PowerShell, you receive errors about missing parameters, be sure you have the latest version of the Azure Container Apps extension installed.
+If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in Azure PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
 
 # [Bash](#tab/bash)
 
@@ -196,7 +196,7 @@ az extension add --name containerapp --upgrade
 Install-Module -Name Az.App
 ```
 
-If you have an older version of the Az.App module installed, update it.
+If you have an older version of the `Az.App` module installed, update it.
 
 ```azurepowershell
 Update-Module -Name Az.App
@@ -206,7 +206,7 @@ Update-Module -Name Az.App
 
 ## Verify Azure Container Apps extension allows preview features
 
-If, when you run `az containerapp` commands in the Azure CLI, [preview features](./whats-new.md) are not available, be sure you have enabled preview features on the Azure Container Apps extension.
+If [preview features](./whats-new.md) are not available when you run `az containerapp` commands in the Azure CLI, enable preview features on the Azure Container Apps extension.
 
 ```azurecli
 az extension add --name containerapp --upgrade --allow-preview true
