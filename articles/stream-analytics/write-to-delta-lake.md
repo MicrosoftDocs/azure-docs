@@ -12,9 +12,9 @@ ms.custom: build-2023
 
 # Azure Stream Analytics: Write to a Delta Lake table
 
-Delta Lake is an open format that brings reliability, quality, and performance to data lakes. Azure Stream Analytics allows you to directly write streaming data to your Delta Lake tables without writing a single line of code.
+Delta Lake is an open format that brings reliability, quality, and performance to data lakes. You can use Azure Stream Analytics to directly write streaming data to your Delta Lake tables without writing a single line of code.
 
-A Stream Analytics job can be configured to write through a native Delta Lake output connector, either to a new or a precreated Delta table in an Azure Data Lake Storage Gen2 account. This connector is optimized for high-speed ingestion to Delta tables in Append mode. It also provides exactly-once semantics, which guarantees that no data is lost or duplicated. Ingesting real-time data streams from Azure Event Hubs into Delta tables allows you to perform ad-hoc interactive or batch analytics.
+A Stream Analytics job can be configured to write through a native Delta Lake output connector, either to a new or a precreated Delta table in an Azure Data Lake Storage Gen2 account. This connector is optimized for high-speed ingestion to Delta tables in Append mode. It also provides exactly-once semantics, which guarantees that no data is lost or duplicated. Ingesting real-time data streams from Azure Event Hubs into Delta tables allows you to perform ad hoc interactive or batch analytics.
 
 ## Delta Lake configuration
 
@@ -22,9 +22,9 @@ To write data in Delta Lake, you need to connect to a Data Lake Storage Gen2 acc
 
 |Property name  |Description  |
 |----------|-----------|
-|Event serialization format|Serialization format for output data. JSON, CSV, AVRO, and Parquet are supported. Delta Lake is listed as an option here. The data is in Parquet format if Delta Lake is selected. |
+|Event serialization format|Serialization format for output data. JSON, CSV, Avro, and Parquet are supported. Delta Lake is listed as an option here. The data is in Parquet format if Delta Lake is selected. |
 |Delta path name| The path that's used to write your Delta Lake table within the specified container. It includes the table name. More information is in the next section. |
-|Partition column |Optional. The {field} name from your output data to partition. Only one partition column is supported. The column's value must be of `string` type. |
+|Partition column |Optional. The `{field}` name from your output data to partition. Only one partition column is supported. The column's value must be of `string` type. |
 
 To see the full list of Data Lake Storage Gen2 configuration, see [Azure Data Lake Storage Gen2 overview](blob-storage-azure-data-lake-gen2-output.md).
 
@@ -39,7 +39,7 @@ The segment name is alphanumeric and can include spaces, hyphens, and underscore
 Restrictions on the Delta path name include:
 
 - Field names aren't case sensitive. For example, the service can't differentiate between column `ID` and `id`.
-- No dynamic {field} name is allowed. For example, {ID} is treated as text {ID}.
+- No dynamic `{field}` name is allowed. For example, `{ID}` is treated as text {ID}.
 - The number of path segments that comprise the name can't exceed 254.
 
 ### Examples
@@ -100,11 +100,11 @@ The Stream Analytics job creates [Delta log checkpoints](https://github.com/delt
 - Writing to existing tables of Writer Version 7 or above with writer features fail.
     - Example: Writing to existing tables with [Deletion Vectors](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#deletion-vectors) enabled fail.
     - The exceptions here are the [changeDataFeed and appendOnly Writer Features](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#valid-feature-names-in-table-features).
-- When a Stream Analytics job writes a batch of data to a Delta Lake, it can generate multiple [Add File Actions](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#add-file-and-remove-file). When there are too many Add File Actions generated for a single batch, a Stream Analytics job can be stuck.
-    - The number of Add File Actions generated are determined by many factors:
+- When a Stream Analytics job writes a batch of data to a Delta Lake, it can generate multiple [Add File actions](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#add-file-and-remove-file). When there are too many Add File actions generated for a single batch, a Stream Analytics job can be stuck.
+    - The number of Add File actions generated are determined by many factors:
         - Size of the batch. It's determined by the data volume and the batching parameters [Minimum Rows and Maximum Time](blob-storage-azure-data-lake-gen2-output.md#output-configuration).
         - Cardinality of the [partition column values](#delta-lake-configuration) of the batch.
-    - To reduce the number of Add File Actions generated for a batch:
+    - To reduce the number of Add File actions generated for a batch:
         - Reduce the batching configurations [Minimum Rows and Maximum Time](blob-storage-azure-data-lake-gen2-output.md#output-configuration).
         - Reduce the cardinality of the [partition column values](#delta-lake-configuration) by tweaking the input data or choosing a different partition column.
 - Stream Analytics jobs can only read and write single part V1 checkpoints. Multipart checkpoints and the checkpoint V2 format aren't supported.
