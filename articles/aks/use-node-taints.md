@@ -294,7 +294,7 @@ When you remove all initialization taint occurrences from node pool replicas, th
     az aks update \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
-    --node-init-taints "sku=gpu:NoSchedule"
+    --node-init-taints ""
     ```
 
 ## Check that the taint has been removed from the node
