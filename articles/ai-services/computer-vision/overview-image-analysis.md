@@ -113,6 +113,15 @@ Image Analysis works on images that meet the following requirements:
 
 ---
 
+## Service limits
+
+### Language support
+
+Different Image Analysis features are available in different languages. See the [Language support](/azure/ai-services/content-safety/language-support) page.
+
+### Region/location availability
+
+
 ## Data privacy and security
 
 As with all of the Azure AI services, developers using the Azure AI Vision service should be aware of Microsoft's policies on customer data. See the [Azure AI services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
