@@ -116,4 +116,4 @@ Once an attack path is resolved, it can take up to 24 hours for an attack path t
 ## Next Step
 
 > [!div class="nextstepaction"]
-> [build queries with cloud security explorer](how-to-manage-cloud-security-explorer.md).
+> [Build queries with cloud security explorer](how-to-manage-cloud-security-explorer.md).
