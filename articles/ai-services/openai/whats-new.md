@@ -18,6 +18,12 @@ recommendations: false
 
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
+## June 2024
+
+### Limited Access removed for all base models
+
+tbd
+
 ## May 2024
 
 ### Assistants v2 (preview)

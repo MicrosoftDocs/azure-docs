@@ -10,11 +10,6 @@ ms.author: mbullwin
 ## Prerequisites
 
 * An Azure subscription - [Create one for free][01]
-* Access granted to Azure OpenAI in the desired Azure subscription.
-
-  Currently, access to this service is granted only by application. You can apply for access to
-  Azure OpenAI by completing the form at [https://aka.ms/oai/access][02]. Open an issue on this
-  repo to contact us if you have an issue.
 * An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed.
 
   This model is currently only available in [certain regions][03].  If you don't have a resource
