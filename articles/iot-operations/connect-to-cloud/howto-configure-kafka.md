@@ -251,7 +251,9 @@ spec:
 
 ### [SASL](#tab/sasl)
 
-To connect to Event Hubs using a connection string and Kubernetes secret, use `plain` SASL type and `$ConnectionString` as the username and the full connection string as the password. First create the Kubernetes secret:
+To connect to Event Hubs using a connection string and Kubernetes secret, use `plain` SASL type and `$ConnectionString` as the username and the full connection string as the password. 
+
+First create the Kubernetes secret:
 
 ```bash
 kubectl create secret generic cs-secret -n azure-iot-operations \
@@ -297,7 +299,9 @@ spec:
 
 ```
 
-To use Azure Key Vault instead of Kubernetes secrets, create an Azure Key Vault secret with the connection string `Endpoint=sb://..`, reference it with `vaultSecret`, and specify the username as `"$ConnectionString"` in the configuration. Use the previous YAML example and change the authentication section to the following:
+To use Azure Key Vault instead of Kubernetes secrets, create an Azure Key Vault secret with the connection string `Endpoint=sb://..`, reference it with `vaultSecret`, and specify the username as `"$ConnectionString"` in the configuration. 
+
+Use the previous YAML example and change the authentication section to the following:
 
 ```yaml
 authentication:
@@ -363,7 +367,9 @@ spec:
       kubernetes: {}
 ```
 
-To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`. Use the previous YAML example and change the authentication section to the following:
+To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`. 
+
+Use the previous YAML example and change the authentication section to the following:
 
 ```yaml
 authentication:
