@@ -2,7 +2,7 @@
 title: Azure CycleCloud Cluster Configuration Reference
 description: Read reference information about configuring clusters in Azure CycleCloud. Configuration objects define the configurable properties subordinate to node and nodearray.
 author: adriankjohnson
-ms.date: 03/27/2023
+ms.date: 06/03/2024
 ms.author: adjohnso
 ---
 
