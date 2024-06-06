@@ -211,7 +211,7 @@ To learn how to use Azure Key Vault and the `keyVault` to manage secrets for Azu
 
 ### Authenticate to Event Hubs
 
-### [Managed identity](#tab/managed-identity)
+#### [Managed identity](#tab/managed-identity)
 
 To use managed identity, specify it as the only method under authentication. You also need to assign a role to the managed identity that grants permission to send and receive messages from Event Hubs, such as Azure Event Hubs Data Owner or Azure Event Hubs Data Sender/Receiver. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](/azure/event-hubs/authenticate-application#built-in-roles-for-azure-event-hubs).
 
@@ -249,7 +249,7 @@ spec:
       kubernetes: {}
 ```
 
-### [SASL](#tab/sasl)
+#### [SASL](#tab/sasl)
 
 To connect to Event Hubs using a connection string and Kubernetes secret, use `plain` SASL type and `$ConnectionString` as the username and the full connection string as the password. 
 
@@ -296,7 +296,6 @@ spec:
       trustedCaCertificateConfigMap: "aio-ca-trust-bundle-test-only"
     authentication:
       kubernetes: {}
-
 ```
 
 To use Azure Key Vault instead of Kubernetes secrets, create an Azure Key Vault secret with the connection string `Endpoint=sb://..`, reference it with `vaultSecret`, and specify the username as `"$ConnectionString"` in the configuration. 
@@ -322,7 +321,7 @@ authentication:
             # version: 939ecc2...
 ```
 
-### [X.509](#tab/x509)
+#### [X.509](#tab/x509)
 
 For X.509, use Kubernetes TLS secret containing the public certificate and private key.
 
@@ -467,8 +466,8 @@ The compression field enables compression for the messages sent to Kafka topics.
 | ----- | ----------- | --------- |
 | none | No compression or batching is applied. *none* is the default value if no compression is specified. | Yes |
 | gzip | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. [Event Hubs Premium](../../event-hubs/event-hubs-premium-overview.md) pricing tier is required for GZIP compression. | Yes |
-| Snappy | Snappy compression is not supported by [Azure Event Hubs](../../event-hubs/azure-event-hubs-kafka-overview.m#compression). | No. Use [Apache Kafka](https://kafka.apache.org) |
-| LZ4 | LZ4 compression is not supported by [Azure Event Hubs](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). | No. Use [Apache Kafka](https://kafka.apache.org) |
+| snappy | Snappy compression is not supported by [Azure Event Hubs](../../event-hubs/azure-event-hubs-kafka-overview.m#compression). | No. Use [Apache Kafka](https://kafka.apache.org). |
+| lz4 | LZ4 compression is not supported by [Azure Event Hubs](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). | No. Use [Apache Kafka](https://kafka.apache.org). |
 
 
 ### Batching
