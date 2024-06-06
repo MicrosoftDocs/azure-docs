@@ -3,7 +3,7 @@ title: Integrate security solutions in Defender for Cloud
 description: Learn about how Microsoft Defender for Cloud integrates with partner solutions to enhance your security posture and protect your Azure resources.
 ms.topic: concept-article
 ms.date: 05/16/2024
-#customer intent: As a reader, I want to learn how partner and third-party solutions integrate into Defender for Cloud.
+#customer intent: As a reader, I want to learn how security solutions integrate into Defender for Cloud.
 ---
 
 # Integrated solutions in Defender for Cloud
@@ -38,8 +38,8 @@ The status of a security solution can be:
 
 - **Healthy** (green): No health issues.
 - **Unhealthy** (red): There's a health issue that requires immediate attention. If no health data is available and no alerts were received within the last 14 days, Defender for Cloud indicates that the solution is unhealthy or not reporting.
-- **Stopped reporting** (orange): The solution has stopped reporting health status.
-- **Not reported** (gray): No health data is available. The solution hasn't reported anything yet and no health data is available. A solution's status might be unreported if it was connected recently and is still deploying.
+- **Stopped reporting** (orange): The solution stopped reporting health status.
+- **Not reported** (gray): No health data is available. The solution didn't report anything yet and no health data is available. A solution's status might be unreported if it was connected recently and is still deploying.
 
 If health status isn't available, Defender for Cloud shows the date and time of the last event received to indicate whether the solution is reporting or not.
 
@@ -53,7 +53,7 @@ Defender for Cloud automatically discovers security solutions that are running i
 
 The **Add data sources** section includes other available data sources that can be connected. For instructions on adding data from any of these sources, select **ADD**.
 
-:::image type="content" source="media/partner-integration/add-data-sources.png" alt-text="Screenshot that shows the available additonal data sources.":::
+:::image type="content" source="media/partner-integration/add-data-sources.png" alt-text="Screenshot that shows the available additional data sources.":::
 
 
 
