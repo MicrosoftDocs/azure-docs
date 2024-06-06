@@ -16,7 +16,7 @@ ms.custom:
 
 # Reference: Info | Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Returns the information about the model deployed under the endpoint.
 

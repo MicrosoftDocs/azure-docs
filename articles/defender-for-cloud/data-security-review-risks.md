@@ -12,8 +12,8 @@ ms.custom: template-how-to-pattern
 
 After you [discover resources with sensitive data](data-security-posture-enable.md), Microsoft Defender for Cloud lets you explore sensitive data risk for those resources with these features:
 
-- **Attack paths**: When sensitive data discovery is enabled in the Defender Cloud Security Posture Management (CSPM) plan, you can use attack paths to discover risk of data breaches. [Learn more](concept-data-security-posture.md#data-security-in-defender-cspm).
-- **Security Explorer**: When sensitive data discovery is enabled in the Defender CSPM plan, you can use Cloud Security Explorer to find sensitive data insights. [Learn more](concept-data-security-posture.md#data-security-in-defender-cspm).
+- **Attack paths**: When sensitive data discovery is enabled in the Defender Cloud Security Posture Management (CSPM) plan, you can use attack paths to discover risk of data breaches. For more information, see [Data security posture management in Defender CSPM](concept-data-security-posture.md#data-security-posture-management-in-defender-cspm).
+- **Security Explorer**: When sensitive data discovery is enabled in the Defender CSPM plan, you can use Cloud Security Explorer to find sensitive data insights. For more information, see [Data security posture management in Defender CSPM](concept-data-security-posture.md#data-security-posture-management-in-defender-cspm).
 - **Security alerts**: When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize and explore ongoing threats to sensitive data stores by applying sensitivity filters Security Alerts settings.
 
 ## Explore risks through attack paths

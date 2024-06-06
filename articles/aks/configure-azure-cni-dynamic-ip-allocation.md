@@ -94,13 +94,17 @@ Create the cluster, referencing the node subnet using `--vnet-subnet-id` and the
 CLUSTER_NAME="myAKSCluster"
 SUBSCRIPTION="aaaaaaa-aaaaa-aaaaaa-aaaa"
 
-az aks create --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --location $LOCATION \
+az aks create \
+    --name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --location $LOCATION \
     --max-pods 250 \
     --node-count 2 \
     --network-plugin azure \
     --vnet-subnet-id /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME_1 \
     --pod-subnet-id /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME_2 \
-    --enable-addons monitoring
+    --enable-addons monitoring \
+    --generate-ssh-keys
 ```
 
 ### Adding node pool

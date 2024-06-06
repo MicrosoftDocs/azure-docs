@@ -15,7 +15,7 @@ ms.custom: mode-api, devx-track-bicep
 
 This quickstart shows how to create an Azure Container Registry instance by using a Bicep file.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

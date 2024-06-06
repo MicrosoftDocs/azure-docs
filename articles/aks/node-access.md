@@ -234,7 +234,7 @@ If your Linux proxy node isn't reachable, using Azure Bastion as a proxy is an a
 
 If you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the [AKS agent pool API (preview)][agent-pool-rest-api], (available on preview versions `07-02-2023` or above) to connect to AKS nodes.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ### Create an interactive shell connection to a node using the IP address
 

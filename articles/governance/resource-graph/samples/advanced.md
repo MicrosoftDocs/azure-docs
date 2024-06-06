@@ -1,12 +1,14 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 12/18/2023
+ms.date: 06/05/2024
 ms.topic: sample
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Advanced Resource Graph query samples
+
+[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/archive-samples.md)]
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
 [Query Language](../concepts/query-language.md). If you aren't already familiar with [Azure Data
