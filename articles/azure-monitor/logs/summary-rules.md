@@ -56,11 +56,11 @@ Here's the aggregated data that the summary rule sends to the destination table:
 
 :::image type="content" source="media/summary-rules/summary-rules-aggregated-logs.png" alt-text="Screenshot that aggregated data that the summary rules sends to the destination table." lightbox="media/summary-rules/summary-rules-aggregated-logs.png":::
 
-You can see that, instead of logging hundereds of similar entries within an hour, the destination shows the count of each unique entry, as defined in the KQL query. Set the [Basic data plan](basic-logs-configure.md) on the `ContainerLogsV2` table for cheap retention of the raw data, and use the summarized data in the destination table for your analysis needs.
+You can see that, instead of logging hundreds of similar entries within an hour, the destination shows the count of each unique entry, as defined in the KQL query. Set the [Basic data plan](basic-logs-configure.md) on the `ContainerLogsV2` table for cheap retention of the raw data, and use the summarized data in the destination table for your analysis needs.
 
 All entries in the destination table include a set of standard fields: 
 
-- `_RuleName`: The summary rule that created the.
+- `_RuleName`: The summary rule that generated the aggregated log entry.
 - `_RuleLastModifiedTime`: When the rule was last modified. 
 - `_BinSize`: The aggregation interval.  
 - `_BinStartTime` The aggregation start time.
