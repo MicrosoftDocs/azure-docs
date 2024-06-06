@@ -45,16 +45,18 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
     ```python
     from featuremanagement import FeatureManager
+    from azure.identity import InteractiveBrowserCredential
     from azure.appconfiguration.provider import load
     import os
     from time import sleep
     
-    connection_string = os.environ["APP_CONFIGURATION_CONNECTION_STRING"]
+    endpoint = os.environ["APP_CONFIGURATION_ENDPOINT"]
     
-    # Connecting to Azure App Configuration using a connection string
+    # Connecting to Azure App Configuration using an endpoint
+    # credential is used to authenticate the client, the InteractiveBrowserCredential is used for this sample. It will open a browser window to authenticate the user. For all credential options see [credential classes](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#credential-classes).
     # feature_flag_enabled makes it so that the provider will load feature flags from Azure App Configuration
     # feature_flag_refresh_enabled makes it so that the provider will refresh feature flags from Azure App Configuration, when the refresh operation is triggered
-    config = load(connection_string=connection_string, feature_flag_enabled=True, feature_flag_refresh_enabled=True)
+    config = load(endpoint=endpoint, credential=InteractiveBrowserCredential(), feature_flag_enabled=True, feature_flag_refresh_enabled=True)
     
     feature_manager = FeatureManager(config)
     
@@ -68,14 +70,14 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     print("Beta is ", feature_manager.is_enabled("Beta"))
     ```
 
-1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the connection string to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **APP_CONFIGURATION_ENDPOINT**, and set it to the connection string to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
     To build and run the app locally using the Windows command prompt, run the following command:
 
     ```console
-    setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx APP_CONFIGURATION_ENDPOINT "endpoing-of-your-app-configuration-store"
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -85,7 +87,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-    $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    $Env:APP_CONFIGURATION_ENDPOINT = "endpoing-of-your-app-configuration-store"
     ```
 
     ### [macOS](#tab/unix)
@@ -93,7 +95,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use macOS, run the following command:
 
     ```console
-    export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT='endpoing-of-your-app-configuration-store'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -103,7 +105,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use Linux, run the following command:
 
     ```console
-    export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT='endpoing-of-your-app-configuration-store'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -130,7 +132,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Web applications
 
-The following example shows how to update an existing web application, using Azure App Configuration with dynamic refresh to also use feature flags. See [Python Dynamic Configuration](./enable-dynamic-configuration-python.md) for a more detailed example of how to use dynamic refresh for configuration values.
+The following example shows how to update an existing web application, using Azure App Configuration with dynamic refresh to also use feature flags. See [Python Dynamic Configuration](./enable-dynamic-configuration-python.md) for a more detailed example of how to use dynamic refresh for configuration values. Before continuing, make sure you have the Beta feature flag enabled in your App Configuration store.
 
 ### [Flask](#tab/flask)
 
@@ -142,6 +144,10 @@ from featuremanagement import FeatureManager
 ...
 
 global azure_app_config, feature_manager
+# Connecting to Azure App Configuration using an endpoint
+# credential is used to authenticate the client, the InteractiveBrowserCredential is used for this sample. It will open a browser window to authenticate the user. For all credential options see [credential classes](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#credential-classes).
+# feature_flag_enabled makes it so that the provider will load feature flags from Azure App Configuration
+# feature_flag_refresh_enabled makes it so that the provider will refresh feature flags from Azure App Configuration, when the refresh operation is triggered
 azure_app_config = load(connection_string=os.environ.get("APP_CONFIGURATION_CONNECTION_STRING")
                         refresh_on=[WatchKey("sentinel")],
                         on_refresh_success=on_refresh_success,
@@ -179,6 +185,8 @@ Update your template `index.html` to use the new feature flags.
 </body>
 ```
 
+Once you have updated and run your application, you can see the feature flag in action, where the `Beta is enabled` message will appear on the page, but only if the feature flag is enabled in the App Configuration store.
+
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag beta enabled](media/manage-feature-flags/beta-enabled.png)
 
@@ -192,7 +200,10 @@ Set up Azure App Configuration in your Django settings file, `settings.py` to lo
 from featuremanagement import FeatureManager
 
 ...
-
+# Connecting to Azure App Configuration using an endpoint
+# credential is used to authenticate the client, the InteractiveBrowserCredential is used for this sample. It will open a browser window to authenticate the user. For all credential options see [credential classes](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#credential-classes).
+# feature_flag_enabled makes it so that the provider will load feature flags from Azure App Configuration
+# feature_flag_refresh_enabled makes it so that the provider will refresh feature flags from Azure App Configuration, when the refresh operation is triggered
 AZURE_APPCONFIGURATION = load(
         connection_string=os.environ.get("APP_CONFIGURATION_CONNECTION_STRING"),
         refresh_on=[WatchKey("sentinel")],
@@ -231,6 +242,8 @@ Update your template `index.html` to use the new configuration values.
   </main>
 </body>
 ```
+
+Once you have updated and run your application, you can see the feature flag in action, where the `Beta is enabled` message will appear on the page, but only if the feature flag is enabled in the App Configuration store.
 
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag beta enabled](media/manage-feature-flags/beta-enabled.png)
