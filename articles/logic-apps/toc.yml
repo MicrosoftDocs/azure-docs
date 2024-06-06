@@ -165,8 +165,10 @@ items:
       href: logic-apps-create-variables-store-values.md
     - name: Perform data operations
       href: logic-apps-perform-data-operations.md
-    - name: Add and run code snippets with inline code
-      href: logic-apps-add-run-inline-code.md
+    - name: Add and run C# scripts
+      href: add-run-csharp-scripts.md
+    - name: Add and run JavaScript snippets
+      href: add-run-javascript.md
     - name: Create cross-environment parameters for workflows
       href: create-parameters-workflows.md
     - name: Call Azure Functions

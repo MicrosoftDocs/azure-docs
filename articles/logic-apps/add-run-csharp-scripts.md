@@ -78,7 +78,7 @@ The following list describes some example scenarios where you can use a script h
 
 1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopluated sample code with your own script code.
 
-   - At the top of the script, [import the necessary namespaces](#import-namespaces) and [add required assembly references](#add-assembly-references) as usual. You can also [add private modules](#add-private-modules), if needed.
+   - At the top of the script, [import the necessary namespaces](#import-namespaces) and [add any required assembly references](#add-assembly-references) as usual. You can also [add private modules](#add-private-modules), if needed.
 
    - Implement the **`Run`** method:
 
@@ -90,7 +90,7 @@ The following list describes some example scenarios where you can use a script h
 
        - [Access environment variables and logic app setting values](#access-environment-variables-app-settings).
 
-     - To return the script's results or other data to your workflow, implement the **`Run`** method with a return type. If you want an asynchronous version, implement the **`Run`** method as a **`Task<>`**, and set the return value to the script action's outputs body, which any subsequent workflow actions can then reference. For more information, see [Return data to your workflow](#return-data-to-workflow).
+     - To return the script's results or other data to your workflow, implement the **`Run`** method with a return type. For more information, see [Return data to your workflow](#return-data-to-workflow).
 
      - To log the output from your script in C#, implement the **`Run`** method to accept a function logger through a parameter with **`ILogger`** type, and use **`log`** as the argument name for easy identification. Avoid including **`Console.Write`** in your script.
 
@@ -99,7 +99,11 @@ The following list describes some example scenarios where you can use a script h
        > If you have a long-running script that requires graceful termination in case the function host shuts down, 
        > include a cancellation token, which is required, with your function logger.
 
-       For more information, see [Log output to a streaming log or Application Insights](#log-output).
+       For more information, see the following sections:
+
+       - [Log output to a stream](#log-output-stream).
+
+       - [Log output to Application Insights](#log-output-application-insights).
 
    The following example shows the action's **Parameters** tab with the sample script code:
 
@@ -157,8 +161,6 @@ The following list describes some example scenarios where you can use a script h
 
 ## View the script file
 
-To find and view the C# script file (.csx), follow these steps:
-
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource that has the workflow you want.
 
 1. On the logic app resource menu, under **Development Tools**, select **Advanced Tools**.
@@ -167,7 +169,9 @@ To find and view the C# script file (.csx), follow these steps:
 
 1. Open the **Debug console** menu, and select **CMD**.
 
-1. Browse to the following folder location, which contains the .csx file: **site/wwwroot/{workflow-name}**
+1. Go to your logic app's root location: **site/wwwroot**
+
+1. Go to your workflow's folder, which contains the .csx file, along this path: **site/wwwroot/{workflow-name}**
 
 1. Next to the file name, select **Edit** to open and view the file.
 
@@ -226,11 +230,11 @@ Newtonsoft.Json
 
 ## Add private modules
 
-If necessary, you can add and store custom modules at the logic app level by using the **KuduPlus** console. In your logic app's directory, at the root level, you can add an **Modules** folder where you can create another folder with your module's name. Here, you can add a PowerShell module (.psm1) file. At your logic app's root level, you can also add any PowerShell manifest (.psd1) files that you might want to use, such as a **`requirements.psd1`** file.
+You can add and store custom modules at the logic app level by using the **KuduPlus** console in the Azure portal. In your logic app's directory at the root level, **site/wwwroot**, you can add a **Modules** folder that includes another folder with your module's name. In this subfolder, you can add a PowerShell module (.psm1) file. At your logic app's root level, you can also add any PowerShell manifest (.psd1) files that you might want to use, such as a **`requirements.psd1`** file.
 
-To go to your logic app's directory, [follow the same steps to find your script's .csx file in the **KuduPlus** console](#view-script-file).
+To browse your logic app's directory, [follow the same steps to find your script's .csx file in the **KuduPlus** console](#view-script-file).
 
-Here is an example folder and file structure:
+This example shows a sample logic app folder and file structure:
 
 ```text
 | Modules
@@ -247,7 +251,7 @@ Here is an example folder and file structure:
 
 ## Access workflow trigger and action outputs in your script
 
-The **`WorkflowContext`** context object has the following methods that you can use to access the data from your workflow:
+To access data from your workflow, use the following methods available for the **`WorkflowContext`** context object:
 
 - **`GetTriggerResults`** method
 
@@ -301,329 +305,246 @@ public static string GetEnvironmentVariable(string name)
 
 ## Return data to your workflow
 
-Your **`Run`** method can have a return type. If you want an async version, the method can also be a **`Task<>`**, so that the return value is set as the script action's outputs body, which any subsequent workflow actions can reference.
+For this task, implement your **`Run`** method with a return type. If you want an asynchronous version, implement the **`Run`** method as a **`Task<>`**, and set the return value to the script action's outputs body, which any subsequent workflow actions can then reference.
 
-        ```csharp
-        public static void Run(WorkflowContext context, ILogger log)
-        {
-            return new Results
-            {
-                Message = !string.IsNullOrEmpty(name) ? $"Returning results with status message."
-            };
-        }
+```csharp
+public static void Run(WorkflowContext context, ILogger log)
+{
+    return new Results
+    {
+        Message = !string.IsNullOrEmpty(name) ? $"Returning results with status message."
+    };
+}
 
-        public class Results
-        {
-            public string Message {get; set;}
-        }
-        ```
+public class Results
+{
+    public string Message {get; set;}
+}
+```
 
-        -or-
+-or-
 
-        ```csharp
-        public static async Task<Results> Run(WorkflowContext context, ILogger log)
-        {
-            return new Results
-            {
-                Message = !string.IsNullOrEmpty(name) ? $"Returning results with status message."
-            };
-        }
+```csharp
+public static async Task<Results> Run(WorkflowContext context, ILogger log)
+{
+    return new Results
+    {
+        Message = !string.IsNullOrEmpty(name) ? $"Returning results with status message."
+    };
+}
 
-        public class Results
-        {
-            public string Message {get; set;}
-        }
-        ```
+public class Results
+{
+    public string Message {get; set;}
+}
+```
 
-<a name="log-output"></a>
+<a name="log-output-stream"></a>
 
-## Log output to streaming log or Application Insights
+## Log output to a stream
 
-To log output to your streaming logs in C#, include an argument with **`ILogger`**  type. We recommend that you name it log. Avoid using Console.Write in in your script.
+In your **`Run`** method, include a parameter with **`ILogger`** type and **`log`** as the name, for example:
 
+```csharp
+public static void Run(WorkflowContext context, ILogger log)
+{
+    log.LogInformation($"C# script successfully executed.");
+}
+``` 
 
-public static void Run(WorkflowContext context, ILogger log) 
+<a name="log-output-application-insights"></a>
 
-{ 
+## Log output to Application Insights
 
-    log.LogInformation($"C# script has executed successfully"); 
+To create custom metrics in Application Insights, use the **`LogMetric`** extension method on **`ILogger`**.
 
-} 
+The following example shows a sample method call: 
 
- 
-
-Custom metrics logging 
-
-You can use the LogMetric extension method on ILogger to create custom metrics in Application Insights. Here's a sample method call: 
-
- logger.LogMetric("TestMetric", 1234); 
+`logger.LogMetric("TestMetric", 1234);`
 
 ## Compilation errors
 
-The web-based editor has limited IntelliSense support at this time, and we are working on improving as we make this capability generally available. Any compilation error will hence be detected at save time when the logic app runtime compiles the script. These errors will appear in the error-logs of your logic
+In this release, the web-based editor has limited IntelliSense support, which is still under improvement. Any compilation errors are detected when you save your workflow, and the Azure Logic Apps runtime compiles your script. These errors appear in your logic app's error logs.
 
 ## Runtime errors
 
-Any error that happens at execution time in the script will propagate back to the workflow and the script action will be marked as failed with the error object representing the exception that was thrown from your script.
+If an error happens when your script executes, Azure Logic Apps performs these steps:
 
- A screenshot of a computer
+- Passes the error back to your workflow.
+- Marks the script action as **Failed**.
+- Provides an error object that represents the exception thrown from your script.
 
-Description automatically generated
+The followng example shows a sample error:
+
+**The function 'CSharp_MyLogicApp-InvalidAction_execute_csharp_script_code.csx' failed with the error 'The action 'nonexistent' does not exist in the workflow.' when executing. Please verify function code is valid.**
 
 ## Example scripts
 
-Uncompressing a ZIP file containing multiple text files retrieved from an HTTP action into an array of strings
+The following example scripts perform various tasks that you might
 
-// Add the required libraries
+### Decompress a ZIP file with text files from an HTTP action into a string array
 
+```csharp
+// Add the required libraries.
 #r "Newtonsoft.Json"
-
 #r "Microsoft.Azure.Workflows.Scripting"
-
 using Microsoft.AspNetCore.Mvc;
-
 using Microsoft.Extensions.Primitives;
-
 using Microsoft.Azure.Workflows.Scripting;
-
 using System;
-
 using System.IO;
-
 using System.IO.Compression;
-
 using System.Text;
-
 using System.Collections.Generic;
 
-
-
 /// <summary>
-
-/// Executes the inline csharp code.
-
+/// Executes the inline C# code.
 /// </summary>
-
 /// <param name="context">The workflow context.</param>
-
 public static async Task<List<string>> Run(WorkflowContext context)
-
 {
 
-  var outputs = (await context.GetActionResults("HTTP_1").ConfigureAwait(false)).Outputs;
+    var outputs = (await context.GetActionResults("HTTP_1").ConfigureAwait(false)).Outputs;
+    var base64zipFileContent = outputs["body"]["$content"].ToString();
 
-  var base64zipFileContent = outputs["body"]["$content"].ToString();
+    // Decode base64 to bytes.
+    byte[] zipBytes = Convert.FromBase64String(base64zipFileContent);
 
+    List<string> fileContents = new List<string>();
 
+    // Creates an in-memory stream from the zip bytes.
+    using (MemoryStream zipStream = new MemoryStream(zipBytes))
+    {
 
-  // Decode base64 to bytes
+        // Extracts files from the zip archive.
+        using (ZipArchive zipArchive = new ZipArchive(zipStream))
+        {
 
-  byte[] zipBytes = Convert.FromBase64String(base64zipFileContent);
+            foreach (ZipArchiveEntry entry in zipArchive.Entries)
+            {
 
+                // Read each file's content.
+                using (StreamReader reader = new StreamReader(entry.Open()))
+                {
+                    string fileContent = reader.ReadToEnd();
+                    fileContents.Add(fileContent);
+                }
+            }
+        }
+    }
 
-
-  List<string> fileContents = new List<string>();
-
-  // Create an in-memory stream from the zip bytes
-
-  using (MemoryStream zipStream = new MemoryStream(zipBytes))
-
-  {
-
-      // Extract files from the zip archive
-
-      using (ZipArchive zipArchive = new ZipArchive(zipStream))
-
-      {
-
-          foreach (ZipArchiveEntry entry in zipArchive.Entries)
-
-          {
-
-              // Read each file's content
-
-              using (StreamReader reader = new StreamReader(entry.Open()))
-
-              {
-
-                  string fileContent = reader.ReadToEnd();
-
-                  fileContents.Add(fileContent);
-
-              }
-
-          }
-
-      }
-
-  }
-
-
-
-  return fileContents;
-
+    return fileContents;
 }
+```
 
+### Encrypt data using a key from app settings
 
-
-Encrypt Data using a key from App-Settings
-
-
-
-// Add the required libraries
-
+```csharp
+// Add the required libraries.
 #r "Newtonsoft.Json"
-
 #r "Microsoft.Azure.Workflows.Scripting"
-
 using Microsoft.AspNetCore.Mvc;
-
 using Microsoft.Extensions.Primitives;
-
 using Microsoft.Azure.Workflows.Scripting;
-
 using Newtonsoft.Json.Linq;
-
 using System;
-
 using System.IO;
-
 using System.Security.Cryptography;
-
 using System.Text;
 
-
-
 /// <summary>
-
 /// Executes the inline csharp code.
-
 /// </summary>
-
 /// <param name="context">The workflow context.</param>
-
 public static async Task<string> Run(WorkflowContext context)
-
 {
 
-  var compose = (await context.GetActionResults("compose").ConfigureAwait(false)).Outputs;
+    var compose = (await context.GetActionResults("compose").ConfigureAwait(false)).Outputs;
+    var text = compose["sampleData"].ToString();
 
-  var text = compose["sampleData"].ToString();
-
-
-
-  return EncryptString(text);
+    return EncryptString(text);
 
 }
 
-
-
 public static string EncryptString(string plainText)
-
 {
 
-      var key = Environment.GetEnvironmentVariable("app-setting-key");
+    var key = Environment.GetEnvironmentVariable("app-setting-key");
+    var iv = Environment.GetEnvironmentVariable("app-setting-iv");
 
-      var iv = Environment.GetEnvironmentVariable("app-setting-iv");
+    using (Aes aesAlg = Aes.Create())
+    {
 
-      using (Aes aesAlg = Aes.Create())
+        aesAlg.Key = Encoding.UTF8.GetBytes(key);
+        aesAlg.IV = Encoding.UTF8.GetBytes(iv);
+        ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
-      {
+        using (MemoryStream msEncrypt = new MemoryStream())
+        {
 
-          aesAlg.Key = Encoding.UTF8.GetBytes(key);
+            using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+            {
 
-          aesAlg.IV = Encoding.UTF8.GetBytes(iv);
+                using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                {
+                    swEncrypt.Write(plainText);
+                }
 
+            }
 
+             return Convert.ToBase64String(msEncrypt.ToArray());
 
-          ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+        }
+    }
+}
+```
 
+## Classes
 
+### WorkflowContext class
 
-          using (MemoryStream msEncrypt = new MemoryStream())
+Represents a workflow context.
 
-          {
+#### Methods
 
-              using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+##### Task<WorkflowOperationResult> GetActionResult(string actionName)
 
-              {
+Gets the result from a specific action in the workflow.
 
-                  using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+###### Parameters
 
-                  {
+**`actionName`**: The action name.
 
-                      swEncrypt.Write(plainText);
+##### Returns
 
-                  }
+A **`Task`** object that represents the asynchronous operation. The task result contains a **`WorkflowOperationResult`** object.
 
-              }
+##### Task<WorkflowOperationResult> RunTriggerResult()
 
-              return Convert.ToBase64String(msEncrypt.ToArray());
+Gets the result from the trigger in the workflow.
 
-          }
+##### Returns
 
-      }
+A **`Task`** object that represents the asynchronous operation. The task result contains a **`WorkflowOperationResult`** object with the following properties:
 
-## WorkflowContext Class
+### WorkflowOperationResult class
 
-Represents the context of a workflow.
+Represents the result from a workflow operation.
 
-Methods
+#### Properties
 
-Task<WorkflowOperationResult> GetActionResult(string actionName)
-Gets the result of a specific action within the workflow.
-
-Parameters
-
-actionName
-The name of the action.
-
-Returns
-
-A Task representing the asynchronous operation. The task result contains a WorkflowOperationResult object.
-
-Task<WorkflowOperationResult> RunTriggerResult()
-Gets the result of the workflow trigger.
-
-Returns
-
-A Task representing the asynchronous operation. The task result contains a WorkflowOperationResult object with the following properties:
-
-WorkflowOperationResult Class
-
-Represents the result of a workflow operation.
-
-Properties
-
-string Name
-Gets or sets the operation name.
-
-JToken Inputs
-Gets or sets the operation execution inputs.
-
-JToken Outputs
-Gets or sets the operation execution outputs.
-
-DateTime? StartTime
-Gets or sets the operation start time.
-
-DateTime? EndTime
-Gets or sets the operation end time.
-
-string OperationTrackingId
-Gets or sets the operation tracking id.
-
-string Code
-Gets or sets the status code of the action.
-
-string Status
-Gets or sets the status of the action.
-
-JToken Error 
-Gets or sets the error of the action
-
-JToken TrackedProperties 
-Gets or sets the tracked properties of the action
+| Name | Type | Description |
+|------|------|-------------|
+| **Name** | String | Gets or sets the operation name. |
+| **Inputs** | JToken | Gets or sets the operation execution inputs. |
+| **Outputs** | JToken | Gets or sets the operation execution outputs. |
+| **StartTime** | DateTime | Gets or sets the operation start time. |
+| **EndTime** | DateTime | Gets or sets the operation end time. |
+| **OperationTrackingId** | String | Gets or sets the operation tracking ID. |
+| **Code** | String | Gets or sets the status code for the action. |
+| **Status** | String | Gets or sets the status for the action. |
+| **Error** | JToken | Gets or sets the error for the action. |
+| **TrackedProperties** | JToken | Gets or sets the tracked properties for the action. |
 
 ## Related content
 
