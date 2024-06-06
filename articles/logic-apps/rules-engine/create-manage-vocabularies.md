@@ -28,7 +28,7 @@ This guide shows how to create and define vocabularies that are placed in the sh
 
 - Download and install the [Microsoft Rules Composer](https://go.microsoft.com/fwlink/?linkid=2274238).
 
-- An XML file that contains the rule store where you want to add a vocabulary.
+- The XML file that contains the rule store where you want to add a vocabulary.
 
 ## How does a vocabulary make rules easier to read and understand?
 

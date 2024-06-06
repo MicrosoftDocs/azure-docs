@@ -28,12 +28,12 @@ This how-to guide provides an overview for how rules work and how to create a ru
 
 - Download and install the [Microsoft Rules Composer](https://go.microsoft.com/fwlink/?linkid=2274238).
 
-- The XML file that contains the rule store that you want to work on.
+- If you have an existing ruleset that you want to work on, you need the XML file that contains that ruleset. Otherwise, this guide shows you how to create a new ruleset, which you save as an XML file.
 
   > [!IMPORTANT]
   >
-  > If your XML file depends on any .NET assemblies, or if the assemblies that you 
-  > use to add facts have other dependencies, make sure to keep all these files 
+  > If your existing XML file depends on any .NET assemblies, or if the assemblies that 
+  > you use to add facts have other dependencies, make sure to keep all these files 
   > in the same folder and in a directory local to the Microsoft Rules Composer.
 
 ## What is a rule?
@@ -85,6 +85,8 @@ A *ruleset* is a set of rules that you group together based on domain, bounded c
 1. In the **RuleSet Explorer** window, open the **RuleSets** shortcut menu, and select **Add New RuleSet**.
 
    The Microsoft Rules Composer creates a new empty ruleset with a ruleset version numbered **1.0** as the default version.
+
+1. Save your rule store. On the **Rule Store** menu, select **Save**, which creates an XML file for your rule store.
 
 The following table describes other RuleSet Explorer commands that you can use to work with rulesets:
 

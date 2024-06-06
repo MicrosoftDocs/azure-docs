@@ -26,7 +26,7 @@ This guide describes how to optimize code for your rules engine by using control
 
 - Download and install the [Microsoft Rules Composer](https://go.microsoft.com/fwlink/?linkid=2274238).
 
-- The XML file that contains the rule store that you want to work on.
+- The XML file that contains the ruleset that you want to work on.
 
   To add facts, specify their values in the XML documents that you point at from the RuleSet Explorer window. Or, you can use a fact creator to supply your rules engine with an array that contains .NET objects as facts. For more information, see [Build fact creators and retrievers](build-fact-creators-retrievers.md).
 

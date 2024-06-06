@@ -26,7 +26,7 @@ This guide describes how to add arithmetic and logical operators to the rules in
 
 - Download and install the [Microsoft Rules Composer](https://go.microsoft.com/fwlink/?linkid=2274238).
 
-- An XML file that contains the rule store that you want to work on.
+- The XML file that contains the ruleset that you want to work on.
 
 <a name="add-arithmetic-operator"></a>
 

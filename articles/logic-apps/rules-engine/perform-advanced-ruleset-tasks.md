@@ -26,7 +26,7 @@ This guide describes more advanced operations that you can perform on rulesets i
 
 - Download and install the [Microsoft Rules Composer](https://go.microsoft.com/fwlink/?linkid=2274238).
 
-- An XML file that contains the rule store that you want to work on.
+- The XML file that contains the ruleset that you want to work on.
 
 ## Copy a ruleset version
 

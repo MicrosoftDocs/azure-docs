@@ -78,7 +78,7 @@ The following sample code shows how to assert .NET and XML facts using a fact re
 using System;
 using System.Xml;
 using System.Collections;
-using Microsoft.RuleEngine;
+using Microsoft.Azure.Workflows.RuleEngine;
 using System.IO;
 using System.Data;
 using System.Data.SqlClient;
@@ -86,7 +86,7 @@ namespace MyApplication.FactRetriever
 {
     public class myFactRetriever:IFactRetriever
     {
-        public object UpdateFacts(RuleSetInfo rulesetInfo, Microsoft.RuleEngine.RuleEngine engine, object factsHandleIn)
+        public object UpdateFacts(RuleSetInfo rulesetInfo, RuleEngine engine, object factsHandleIn)
         {
             object factsHandleOut;
             if (factsHandleIn == null)

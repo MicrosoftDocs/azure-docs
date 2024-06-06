@@ -29,9 +29,9 @@ If you wait to test your rules all at the same time or when you're all done, and
 
 - Download and install the [Microsoft Rules Composer](https://go.microsoft.com/fwlink/?linkid=2274238).
 
-- The XML file that contains the rule store that you want to work on and the facts that you want to test.
+- The XML file that contains the ruleset that you want to work on and the facts that you want to test.
 
-  To add facts, specify their values in the XML documents that you point at from the RuleSet Explorer window. Or, you can use a fact creator to supply your rules engine with an array that contains .NET objects as facts. For more information, see [Build fact creators and retrievers](build-fact-creators-retrievers.md).
+  To add facts, specify their values in the XML documents that you point at from the RuleSet Explorer window. Or, you can use a fact creator to supply your rules engine with an array that contains .NET objects to use as facts. For more information, see [Build fact creators and retrievers](build-fact-creators-retrievers.md).
 
 ## Test a ruleset version
 
