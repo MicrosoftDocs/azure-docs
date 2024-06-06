@@ -32,7 +32,7 @@ Each service specific guide can contain service-specific information on topics s
 
 ## Service categories across region types
 
-[!INCLUDE [Service categories across region types](../../includes/service-categories/service-category-definitions.md)]
+[!INCLUDE [Service categories across region types](~/reusable-content/ce-skilling/azure/includes/service-categories/service-category-definitions.md)]
 
 ## Azure services relocation guides
 

@@ -26,7 +26,7 @@ To complete this tutorial:
 
 You must have an Azure Cosmos DB account that uses the SQL API before you create the output binding.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## Add an output binding
 
@@ -154,7 +154,7 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
 You've successfully added a binding to your HTTP trigger to store unstructured data in an Azure Cosmos DB instance.
 
-[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
 
 ## Next steps
 

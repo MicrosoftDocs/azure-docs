@@ -31,7 +31,7 @@ For this article, you create a simplified single VNet with three subnets for eas
 For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ![Tutorial network infrastructure](media/deploy-ps/tutorial-network.png)
 

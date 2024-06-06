@@ -119,7 +119,7 @@ Once a request is admitted to the search service, it must still undergo authenti
 
 + [Key-based authentication](search-security-api-keys.md) is performed on the request (not the calling app or user) through an API key, where the key is a string composed of randomly generated numbers and letters that prove the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
-You can use both authentication methods, or [disable an approach](search-security-rbac.md#disable-api-key-authentication) that you don't want available on your search service.
+You can use both authentication methods, or [disable an approach](search-security-enable-roles.md) that you don't want available on your search service.
 
 ## Authorization
 
