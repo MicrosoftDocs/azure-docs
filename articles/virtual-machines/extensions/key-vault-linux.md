@@ -34,7 +34,7 @@ The Key Vault VM extension supports these Linux distributions:
 
 Version 3.0+ of the Key Vault VM extension for Linux adds support for the following features:
 
-- Add ACL permissions for downloaded certificates
+- Add ACL permissions for downloaded certificates to provide read access for users and groups
 - Certificate installation location configuration
 - Custom symbolic name support
 - VM extension logging integration support through [Fluentd](https://www.fluentd.org/)
@@ -99,12 +99,13 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
       "autoUpgradeMinorVersion": true,
       "enableAutomaticUpgrade": true,
       "settings": {
-      "loggingSettings": {
+      "loggingSettings": <Optional logging settings, e.g.:
+        {
               "logger": <Logger engine name. e.g.: "fluentd">,
-              "endpoint": <Logger listening endpoint "unix:///var/run/azuremonitoragent/sometenant/default_fluent.socket">,
+              "endpoint": <Logger listening endpoint "tcp://localhost:24224">,
               "format": <Logging format. e.g.: "forward">,
               "servicename": <Service name used in logs. e.g.: "akvvm_service">
-          },
+          }>,
         "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
           "linkOnRenewal": <Not available on Linux e.g.: false>,
@@ -137,10 +138,11 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
                 }
              ]>
         },
-        "authenticationSettings": {
+        "authenticationSettings": <Optional msi settings, e.g.:
+        {
           "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity">,
           "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619".>
-        }
+        }>
        }
       }
     }
@@ -201,44 +203,47 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
-| apiVersion | 2022-07-01 | date |
-| publisher | Microsoft.Azure.KeyVault | string |
-| type | KeyVaultForLinux | string |
-| typeHandlerVersion | 3.0 | int |
-| pollingIntervalInS | 3600 | string |
-| certificateStoreName | It's ignored on Linux | string |
-| linkOnRenewal | false | boolean |
-| requireInitialSync | true | boolean |
-| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault.Store | string |
-| observedCertificates  | [{...}, {...}] | string array |
-| observedCertificates/url  | "https://myvault.vault.azure.net/secrets/mycertificate1" | string |
-| observedCertificates/certificateStoreLocation | "/var/lib/waagent/Microsoft.Azure.KeyVault/app1" | string |
-| observedCertificates/customSymbolicLinkName | "app1Cert1" | string |
-| observedCertificates/acls | "{...}, {...}" | string array |
-| msiEndpoint | http://169.254.169.254/metadata/identity | string |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
-| logger | "fluentd" | string |
-| endpoint | "unix:///var/run/azuremonitoragent/sometenant/default_fluent.socket" | string |
-| format | "forward" | string |
-| servicename | "akvvm_service" | string |
+| `apiVersion` | 2022-07-01 | date |
+| `publisher` | Microsoft.Azure.KeyVault | string |
+| `type` | KeyVaultForLinux | string |
+| `typeHandlerVersion` | 3.0 | int |
+| `pollingIntervalInS` | 3600 | string |
+| `certificateStoreName` | It's ignored on Linux | string |
+| `linkOnRenewal` | false | boolean |
+| `requireInitialSync` | true | boolean |
+| `aclEnabled` | true | boolean |
+| `certificateStoreLocation`  | /var/lib/waagent/Microsoft.Azure.KeyVault.Store | string |
+| `observedCertificates`  | [{...}, {...}] | string array |
+| `observedCertificates/url`  | "https://myvault.vault.azure.net/secrets/mycertificate1" | string |
+| `observedCertificates/certificateStoreLocation` | "/var/lib/waagent/Microsoft.Azure.KeyVault/app1" | string |
+| `observedCertificates/customSymbolicLinkName` (optional) | "app1Cert1" | string |
+| `observedCertificates/acls` (optional) | "{...}, {...}" | string array |
+| `authenticationSettings` (optional) | {...} | object |
+| `authenticationSettings/msiEndpoint` | http://169.254.169.254/metadata/identity | string |
+| `authenticationSettings/msiClientId` | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
+| `loggingSettings` (optional) | {...} | object |
+| `loggingSettings/logger` | "fluentd" | string |
+| `loggingSettings/endpoint` | "tcp://localhost:24224" | string |
+| `loggingSettings/format` | "forward" | string |
+| `loggingSettings/servicename` | "akvvm_service" | string |
  
 
 #### [Version-1.0/2.0](#tab/version12)
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
-| apiVersion | 2022-07-01 | date |
-| publisher | Microsoft.Azure.KeyVault | string |
-| type | KeyVaultForLinux | string |
-| typeHandlerVersion | 2.0 | int |
-| pollingIntervalInS | 3600 | string |
-| certificateStoreName | It's ignored on Linux | string |
-| linkOnRenewal | false | boolean |
-| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault.Store | string |
-| requireInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
-| msiEndpoint | http://169.254.169.254/metadata/identity | string |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
+| `apiVersion` | 2022-07-01 | date |
+| `publisher` | Microsoft.Azure.KeyVault | string |
+| `type` | KeyVaultForLinux | string |
+| `typeHandlerVersion` | 2.0 | int |
+| `pollingIntervalInS` | 3600 | string |
+| `certificateStoreName` | It's ignored on Linux | string |
+| `linkOnRenewal` | false | boolean |
+| `certificateStoreLocation`  | /var/lib/waagent/Microsoft.Azure.KeyVault.Store | string |
+| `requireInitialSync` | true | boolean |
+| `observedCertificates`  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
+| `msiEndpoint` | http://169.254.169.254/metadata/identity | string |
+| `msiClientId` | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
 ---
 
@@ -270,15 +275,10 @@ The JSON configuration for a virtual machine extension must be nested inside the
       "autoUpgradeMinorVersion": true,
       "enableAutomaticUpgrade": true,
       "settings": {
-          "loggingSettings": {
-              "logger": <Logger engine name. e.g.: "fluentd">,
-              "endpoint": <Logger listening endpoint "unix:///var/run/azuremonitoragent/sometenant/default_fluent.socket">,
-              "format": <Logging format. e.g.: "forward">,
-              "servicename": <Service name used in logs. e.g.: "akvvm_service">
-          },
           "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
           "requireInitialSync": <initial synchronization of certificates e..g: false>,
+          "aclEnabled": <enables/disables acls on defined certificates e.g.: true>,
           "observedCertificates": <An array of KeyVault URIs that represent monitored certificates, including certificate store location and ACL permission to certificate private key. Example:
              [
                 {
@@ -383,15 +383,10 @@ The following JSON snippets provide example settings for deploying the Key Vault
     
 ```json
 {
-    "loggingSettings": {
-              "logger": "fluentd",
-              "endpoint": "unix:///var/run/azuremonitoragent/sometenant/default_fluent.socket",
-              "format": "forward",
-              "servicename": "akvvm_service"
-    },   
    "secretsManagementSettings": {
    "pollingIntervalInS": "3600",
    "linkOnRenewal": true,
+   "aclEnabled": true,
    "observedCertificates":
    [
       {
@@ -513,15 +508,10 @@ The following JSON snippets provide example settings for deploying the Key Vault
 
 ```json
 {
-    "loggingSettings": {
-              "logger": "fluentd",
-              "endpoint": "unix:///var/run/azuremonitoragent/sometenant/default_fluent.socket",
-              "format": "forward",
-              "servicename": "akvvm_service"
-    },   
    "secretsManagementSettings": {
    "pollingIntervalInS": "3600",
    "linkOnRenewal": true,
+   "aclEnabled": true,
    "observedCertificates":
    [
       {
@@ -637,7 +627,7 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 
 ### Logs and configuration
 
-The Key Vault VM extension logs exist locally on the VM and are most informative when it comes to troubleshooting.
+The Key Vault VM extension logs exist locally on the VM and are most informative when it comes to troubleshooting. You can use optional logging section to integrate with logging provider through `fluentd`
 
 |Location|Description|
 |--|--|
@@ -654,7 +644,6 @@ Symbolic links or Symlinks are advanced shortcuts. To avoid monitoring the folde
 
 * Is there's a limit on the number of observedCertificates you can configure?
   No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
-
 
 ### Support
 
