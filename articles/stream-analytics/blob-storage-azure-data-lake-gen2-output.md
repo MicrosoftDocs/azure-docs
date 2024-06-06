@@ -1,5 +1,5 @@
 ---
-title: Blob Storage and Azure Data Lake Gen2 output
+title: Azure Blob Storage and Data Lake Storage Gen2 output
 description: This article describes Azure Blob Storage and Azure Data Lake Gen2 as output for an Azure Stream Analytics job.
 author: an-emma
 ms.author: raan
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 02/27/2024
 ---
 
-# Blob Storage and Azure Data Lake Gen2 output from Stream Analytics
+# Azure Blob Storage and Data Lake Storage Gen2 output from Stream Analytics
 
 Azure Data Lake Storage Gen2 makes Azure Storage the foundation for building enterprise data lakes on Azure. Data Lake Storage Gen2 is designed to service multiple petabytes of information while sustaining hundreds of gigabits of throughput. You can use it to easily manage massive amounts of data. A fundamental part of Data Lake Storage Gen2 is the addition of a hierarchical namespace to Azure Blob Storage.
 
@@ -29,7 +29,7 @@ The following table lists the property names and their descriptions for creating
 | Container   | A logical grouping for blobs stored in Blob Storage. When you upload a blob to Blob Storage, you must specify a container for that blob. <br /><br /> A dynamic container name is optional. It supports one and only one dynamic `{field}` in the container name. The field must exist in the output data and follow the [container name policy](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br />The field data type must be `string`. To use multiple dynamic fields or combine static text along with a dynamic field, you can define it in the query with built-in string functions, like `CONCAT` and `LTRIM`. |
 | Event serialization format | The serialization format for output data. JSON, CSV, Avro, and Parquet are supported. Delta Lake is listed as an option here. The data is in Parquet format if Delta Lake is selected. Learn more about [Delta Lake](write-to-delta-lake.md). |
 | Delta path name | Required when the Event serialization format is Delta Lake. The path that's used to write the Delta Lake table within the specified container. It includes the table name. For more information and examples, see [Write to a Delta Lake table](write-to-delta-lake.md). |
-|Write mode | Write mode controls the way that Azure Stream Analytics writes to an output file. Exactly once delivery only happens when Write mode is Once. For more information, see the next section. |
+|Write mode | Write mode controls the way that Azure Stream Analytics writes to an output file. Exactly-once delivery only happens when Write mode is Once. For more information, see the next section. |
 | Partition column | Optional. The {field} name from your output data to partition. Only one partition column is supported.  |
 | Path pattern | Required when the Event serialization format is Delta Lake. The file path pattern that's used to write your blobs within the specified container. <br /><br /> In the path pattern, you can choose to use one or more instances of the date and time variables to specify the frequency at which blobs are written: {date}, {time}. <br /><br />If your Write mode is Once, you need to use both {date} and {time}.  <br /><br />You can use custom blob partitioning to specify one custom {field} name from your event data to partition blobs. The field name is alphanumeric and can include spaces, hyphens, and underscores. Restrictions on custom fields include the following ones: <ul><li>No dynamic custom {field} name is allowed if your Write mode is Once. </li><li>Field names aren't case sensitive. For example, the service can't differentiate between column `ID` and column `id`.</li><li>Nested fields aren't permitted. Instead, use an alias in the job query to "flatten" the field.</li><li>Expressions can't be used as a field name.</li></ul> <br />This feature enables the use of custom date/time format specifier configurations in the path. Custom date/time formats must be specified one at a time and enclosed by the {datetime:\<specifier>} keyword. Allowable inputs for `\<specifier>` are `yyyy`, `MM`, `M`, `dd`, `d`, `HH`, `H`, `mm`, `m`, `ss`, or `s`. The {datetime:\<specifier>} keyword can be used multiple times in the path to form custom date/time configurations. <br /><br />Examples: <ul><li>Example 1: `cluster1/logs/{date}/{time}`</li><li>Example 2: `cluster1/logs/{date}`</li><li>Example 3: `cluster1/{client_id}/{date}/{time}`</li><li>Example 4: `cluster1/{datetime:ss}/{myField}` where the query is `SELECT data.myField AS myField FROM Input;`</li><li>Example 5: `cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}`</ul><br />The time stamp of the created folder structure follows UTC and not local time. [System.Timestamp](./stream-analytics-time-handling.md#choose-the-best-starting-time) is the time used for all time-based partitioning.<br /><br />File naming uses the following convention: <br /><br />`{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension`<br /><br /> Here, `Guid` represents the unique identifier assigned to an internal writer that's created to write to a blob file. The number represents the index of the blob block. <br /><br /> Example output files:<ul><li>`Myoutput/20170901/00/45434_gguid_1.csv`</li>  <li>`Myoutput/20170901/01/45434_gguid_1.csv`</li></ul> <br />For more information about this feature, see [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Date format | Required when the Event serialization format is Delta Lake. If the date token is used in the prefix path, you can select the date format in which your files are organized. An example is `YYYY/MM/DD`. |
@@ -40,22 +40,22 @@ The following table lists the property names and their descriptions for creating
 | Delimiter   | Applicable only for CSV serialization. Stream Analytics supports many common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar. |
 | Format      | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. If you select **Line separated**, the JSON is read one object at a time. The whole content by itself wouldn't be a valid JSON. **Array** specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it's preferable to use line-separated JSON because it doesn't require any special handling while the output file is still being written to. |
 
-## Exactly once delivery (public preview)
+## Exactly-once delivery (preview)
 
-End-to-end exactly once delivery when reading any streaming input means that processed data is written to Data Lake Storage Gen2 output once without duplicates. When the feature is enabled, your Stream Analytics job guarantees no data loss and no duplicates being produced as output, across user-initiated restart from the last output time. It simplifies your streaming pipeline by not having to implement and troubleshoot deduplication logic.
+End-to-end exactly-once delivery when reading any streaming input means that processed data is written to Data Lake Storage Gen2 output once without duplicates. When the feature is enabled, your Stream Analytics job guarantees no data loss and no duplicates being produced as output, across user-initiated restart from the last output time. It simplifies your streaming pipeline by not having to implement and troubleshoot deduplication logic.
 
 ### Write mode
 
-There are two ways that Stream Analytics writes to your Blob Storage or Data Lake Storage Gen2 account. One way is to append results either to the same file or to a sequence of files as results are coming in. The other way is to write after all the results for the time partition, when all the data for the time partition is available. Exactly once delivery is enabled when Write mode is Once.
+There are two ways that Stream Analytics writes to your Blob Storage or Data Lake Storage Gen2 account. One way is to append results either to the same file or to a sequence of files as results are coming in. The other way is to write after all the results for the time partition, when all the data for the time partition is available. Exactly-once delivery is enabled when Write mode is Once.
 
-There's no Write mode option for Delta Lake. However, Delta Lake output also provides exactly once guarantees by using the Delta log. It doesn't require time partition and writes results continuously based on the batching parameters that the user defined.
+There's no Write mode option for Delta Lake. However, Delta Lake output also provides exactly-once guarantees by using the Delta log. It doesn't require time partition and writes results continuously based on the batching parameters that the user defined.
 
 > [!NOTE]
-> If you prefer not to use the preview feature for exactly once delivery, select **Append as results arrive**.
+> If you prefer not to use the preview feature for exactly-once delivery, select **Append as results arrive**.
 
 ### Configuration
 
-To receive exactly once delivery for your Blob Storage or Data Lake Storage Gen2 account, you need to configure the following settings:
+To receive exactly-once delivery for your Blob Storage or Data Lake Storage Gen2 account, you need to configure the following settings:
 
 * Select **Once after all results of time partition is available** for your **Write Mode**.
 * Provide **Path Pattern** with both {date} and {time} specified.
