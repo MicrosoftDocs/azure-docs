@@ -95,7 +95,7 @@ For available license types, see [License types](/sql/sql-server/azure-arc/manag
 > At this time, Azure VMware Solution doesn't have support for the new `SQLServerLicense` resource type.
 
 ##### Manage the environment
-After the Azure Extension for SQL Server is installed, you can query the SQL Server configuration settings and track your SQL Server license inventory for each VM. For sample queries, see [Query SQL Server configuration](/sql/sql-server/azure-arc/manage-configuration?view=sql-server-ver16&tabs=azure#query-sql-server-configuration).
+After the Azure Extension for SQL Server is installed, you can query the SQL Server configuration settings and track your SQL Server license inventory for each VM. For sample queries, see [Query SQL Server configuration](/sql/sql-server/azure-arc/manage-configuration#query-sql-server-configuration).
 
 #### Windows Server
 Currently, there's no way to register your Windows licenses in Azure VMware Solution.
