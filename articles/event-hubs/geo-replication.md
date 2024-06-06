@@ -10,6 +10,7 @@ ms.date: 06/10/2024
 There are two features that provide Geo-disaster recovery in Azure Event Hubs. There's ***Geo-disaster recovery*** (Metadata DR) that just provides replication of metadata and then a second feature, in public preview, ***Geo replication*** that provides replication of both metadata and the data itself. Neither geo-disaster recovery feature should be confused with Availability Zones. Both geographic recovery features provide resilience between Azure regions such as East US and West US. Availability Zone support provides resilience within a specific geographic region, such as East US. For more details on Availability Zones, read the documentation here: [Event Hubs Availability Zone support](./event-hubs-availability-and-consistency.md).
 
 **High level feature differences**
+
 The Metadata DR feature replicates configuration information for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken. No data is replicated other than configuration information nor are permission assignments replicated. 
 The Geo replication feature replicates configuration information and all of the data from a primary namespace to one, or more secondary namespaces. When a failover is performed, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired. 
 This rest of this document is focused on the Geo replication feature. For details on the metadata DR feature, read [Event Hubs Geo-disater recovery for metadata](./event-hubs-geo-dr.md).
@@ -51,12 +52,15 @@ There are some current limitations worth noting:
 There are two replication consistency configurations, synchronous and asynchronous. It's important to know the differences between the two configurations as they have an impact on your applications and your data consistency.
 
 **Asynchronous replication**
+
 With asynchronous replication enabled, all messages are committed in the primary and then sent to the secondary. Users can configure an acceptable amount of lag time that the secondary has to catch-up. When the lag for an active secondary is greater than user lag configuration, the primary region throttles incoming publish requests. 
 
 **Synchronous replication**
+
 When synchronous replication is enabled, published events are replicated to the secondary, which must confirm the message before it's committed in the primary. With synchronous replication, your application publishes at the rate it takes to publish, replicate, acknowledge and commit. It also means that your application is tied to the availability of both regions. If the secondary region goes down, messages can't be acknowledged or committed. 
 
 **Replication consistency comparison**
+
 With synchronous replication:
 -	Latency is longer due to the distributed commit
 - Availability is tied to the availability of two regions. If one region goes down, your namespace is unavailable.
@@ -69,7 +73,7 @@ The general reasons to have synchronous replication enabled are tied to the impo
 
 ## Secondary region selection
 To enable the Geo replication feature, you need to use a primary and secondary region where the Geo replication feature is enabled. You also need to have Event Hubs cluster already existing in both the primary and secondary regions. 
-The Geo replication feature depends on being able to replicate published events from the primary to the secondary region. If the secondary region is on another continent, it has a major impact on replication lag from the primary to the secondary region. If using Geo replication for availability and reliability reasons, you're best off with secondary regions being at least on the same continent where possible. To get a better understanding of the latency induced by geographic distance, you can learn more from [Azure network round-trip latency statistics | Microsoft Learn](../../networking/azure-network-latency.md). 
+The Geo replication feature depends on being able to replicate published events from the primary to the secondary region. If the secondary region is on another continent, it has a major impact on replication lag from the primary to the secondary region. If using Geo replication for availability and reliability reasons, you're best off with secondary regions being at least on the same continent where possible. To get a better understanding of the latency induced by geographic distance, you can learn more from [Azure network round-trip latency statistics | Microsoft Learn](../networking/azure-network-latency.md). 
 
 ## Geo replication management
 The Geo replication feature enables customers to configure a secondary region to replicate configuration and data to. Customers can:
