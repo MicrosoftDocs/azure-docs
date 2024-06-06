@@ -85,6 +85,8 @@ To view a list of the stable Dapr versions available _by location_:
 az k8s-extension extension-types list-versions-by-location --location westus --extension-type microsoft.dapr
 ```
 
+### Runtime support
+
 The Dapr extension support varies depending on how you manage the runtime.
 
 #### Self-managed 
