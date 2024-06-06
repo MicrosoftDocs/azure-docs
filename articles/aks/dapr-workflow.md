@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.reviewer: nuversky
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 04/23/2024
+ms.date: 06/06/2024
 ms.subservice: aks-developer
 ms.custom: devx-track-azurecli
 ---
@@ -190,7 +190,7 @@ Notice that the workflow status is marked as completed.
 <!-- Links Internal -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [install-cli]: /cli/azure/install-azure-cli
-[k8s-ext]: ./dapr.md#set-up-the-azure-cli-extension-for-cluster-extensions
+[k8s-ext]: ./dapr.md#add-the-azure-cli-extension-for-cluster-extensions
 [cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [k8s-sp]: ./dapr.md#register-the-kubernetesconfiguration-resource-provider
 [dapr-config]: ./dapr-settings.md
