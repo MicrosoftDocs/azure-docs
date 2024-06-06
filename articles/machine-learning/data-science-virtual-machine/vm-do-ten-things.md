@@ -63,7 +63,7 @@ After you start Jupyter, navigate to the `/notebooks` directory. This directory 
 ## Explore data and develop models with Microsoft Machine Learning Server
 
 > [!NOTE]
-> Support for Machine Learning Server Standalone ended on July 1, 2021. We removed it from the DSVM images after June 30, 2021. Existing deployments can still access the software but when they reached the support end date, support ended after July 1, 2021.
+> Support for Machine Learning Server Standalone ended on July 1, 2021. We removed it from the DSVM images after June 30, 2021. Existing deployments can still access the software, but support ended after July 1, 2021.
 
 You can use R and Python for your data analytics directly on the DSVM.
 
@@ -77,7 +77,7 @@ For Python, you can use an IDE - for example, Visual Studio Community Edition -w
 
 Visit the [PTVS documentation](/visualstudio/python/) resource for more information about how to create Python environments.
 
-You can now create a new Python project. Select **File** > **New** > **Project** > **Python**, and select the type of Python application you want to build. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right-selecting **Python environments**, and then selecting **Add/Remove Python Environments**. Visit the [product documentation](/visualstudio/python/) for more information about working with PTVS.
+You can now create a new Python project. Select **File** > **New** > **Project** > **Python**, and select the type of Python application you want to build. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right-clicking **Python environments**, and then selecting **Add/Remove Python Environments**. Visit the [product documentation](/visualstudio/python/) for more information about working with PTVS.
 
 ## Manage Azure resources
 
