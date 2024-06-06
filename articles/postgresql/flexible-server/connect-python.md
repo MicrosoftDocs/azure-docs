@@ -4,7 +4,7 @@ description: This quickstart provides several Python code samples you can use to
 author: agapovm
 ms.author: maximagapov
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 06/06/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -152,10 +152,10 @@ In this section, you add authentication code to your working directory and perfo
     ### [macOS/Linux](#tab/bash)
 
     ```bash
-    DBHOST=<server-name>
-    DBNAME=<database-name>
-    DBUSER=<username>
-    SSLMODE=require
+    export DBHOST=<server-name>
+    export DBNAME=<database-name>
+    export DBUSER=<username>
+    export SSLMODE=require
     ```
 
     ---
@@ -220,11 +220,11 @@ In this section, you add authentication code to your working directory and perfo
     ### [macOS/Linux](#tab/bash)
 
     ```bash
-    DBHOST=<server-name>
-    DBNAME=<database-name>
-    DBUSER=<username>
-    DBPASSWORD=<password>
-    SSLMODE=require
+    export DBHOST=<server-name>
+    export DBNAME=<database-name>
+    export DBUSER=<username>
+    export DBPASSWORD=<password>
+    export SSLMODE=require
     ```
 
     ---
