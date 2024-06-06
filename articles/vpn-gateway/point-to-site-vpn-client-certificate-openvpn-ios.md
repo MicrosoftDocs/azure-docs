@@ -53,7 +53,8 @@ For information about working with certificates, see [Point-to site: Generate ce
 
 The following example uses **OpenVPN Connect** from the App store.
 
-[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
+[!INCLUDE [OpenVPN iOS](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-config-openvpn-ios.md)]
+
 
 ## Next steps
 
