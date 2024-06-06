@@ -4,7 +4,7 @@ author: Elazark
 ms.author: elkrieger
 description: Learn how to remediate recommendations with Copilot in Microsoft Defender for Cloud and improve your security posture.
 ms.topic: how-to
-ms.date: 06/04/2024
+ms.date: 06/06/2024
 #customer intent: As a security professional, I want to understand how to use Copilot to remediate recommendations in Defender for Cloud so that I can improve my security posture.
 ---
 
@@ -20,11 +20,11 @@ Once a recommendation is summarized with Copilot for Security in Defender for Cl
 
 - [Have access to Azure Copilot](../copilot/overview.md).
 
-- Have [Security Compute Units assigned for Copilot for Security](/copilot/security/get-started-security-copilot).
+- [Have Security Compute Units assigned for Copilot for Security](/copilot/security/get-started-security-copilot).
 
 ## Remediate a recommendation
 
-Copilot for Security in Defender for Cloud allows you to remediate your recommendations.
+Copilot in Defender for Cloud can assist with the remediation process for recommendations.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

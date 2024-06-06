@@ -1,7 +1,7 @@
 ---
 title: Copilot for Security in Defender for Cloud (Preview)
 description: Learn about the benefits of copilot in Microsoft Defender for Cloud and how it applies to analyzing your security posture.
-ms.date: 05/30/2024
+ms.date: 06/06/2024
 author: dcurwin
 ms.author: dacurwin
 ms.topic: concept-article
@@ -10,7 +10,7 @@ ms.topic: concept-article
 
 # Copilot for Security in Defender for Cloud (Preview)
 
-Microsoft Copilot for Security is a cloud-based AI platform that provides natural language copilot experience. It can help support security professionals to understand the context of a recommendation, the effect of implementing a recommendation, and assist with remediating or delegating a recommendation. For more information about what it can do, go to [What is Microsoft Copilot for Security?](/copilot/security/microsoft-security-copilot)
+Microsoft Copilot for Security is a cloud-based AI platform that provides natural language copilot experience. It can help support security professionals to understand the context of a recommendation, the effect of implementing a recommendation, assist with remediating or delegating a recommendation, and assist with the remediation of misconfigurations in code. For more information about what it can do, go to [What is Microsoft Copilot for Security?](/copilot/security/microsoft-security-copilot)
 
 **Copilot for Security integrates with Microsoft Defender for Cloud**
 
@@ -56,3 +56,4 @@ Learn more about [usage limits](/copilot/security/manage-usage).
 - [Summarize recommendations with Copilot for Security](summarize-with-copilot.md)
 - [Remediate recommendations with Copilot for Security](remediate-with-copilot.md)
 - [Delegate recommendations with Copilot for Security](delegate-with-copilot.md)
+- [Remediate code with Copilot for Security](remediate-code-with-copilot.md)
