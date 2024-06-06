@@ -58,7 +58,7 @@ Execute the following commands to create your resource group, container apps env
     export ENVIRONMENT=my-environment
     export JAVA_COMPONENT_NAME=admin
     export APP_NAME=sample-admin-client
-    export IMAGE="caoxuyang/sba-test-client:0.0.3"
+    export IMAGE="mcr.microsoft.com/javacomponents/samples/sample-admin-for-spring-client:latest"
     ```
 
     | Variable | Description |

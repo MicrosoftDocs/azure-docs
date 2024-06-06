@@ -54,7 +54,7 @@ Before you begin, create the necessary resources by executing the following comm
     export EUREKA_COMPONENT_NAME=eureka
     export ADMIN_COMPONENT_NAME=admin
     export CLIENT_APP_NAME=sample-service-eureka-client
-    export EUREKA_CLIENT_IMAGE="caoxuyang/sba-test-client:0.0.3"
+    export CLIENT_IMAGE="mcr.microsoft.com/javacomponents/samples/sample-admin-for-spring-client:latest"
     ```
 
     | Variable | Description |
@@ -65,7 +65,7 @@ Before you begin, create the necessary resources by executing the following comm
     | `EUREKA_COMPONENT_NAME` | The name of the Eureka Server Java component. |
     | `ADMIN_COMPONENT_NAME` | The name of the Admin for Spring Java component. |
     | `CLIENT_APP_NAME` | The name of the container app that will bind to the Eureka Server. |
-    | `EUREKA_CLIENT_IMAGE` | The container image used in your Eureka Server container app. |
+    | `CLIENT_IMAGE` | The container image used in your Eureka Server container app. |
 
 1. Log in to Azure with the Azure CLI.
 
@@ -124,7 +124,7 @@ With the Eureka Server set up, you can now bind other applications to it for ser
       --name $CLIENT_APP_NAME \
       --resource-group $RESOURCE_GROUP \
       --environment $ENVIRONMENT \
-      --image $EUREKA_CLIENT_IMAGE \
+      --image $CLIENT_IMAGE \
       --min-replicas 1 \
       --max-replicas 1 \
       --ingress external \
