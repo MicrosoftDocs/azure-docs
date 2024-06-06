@@ -19,18 +19,18 @@ This article describes how to attach a shared image gallery to your lab. Users c
 
 ## Explore shared image galleries
 
-Some of the benefits of using a shared image gallery include:
+Some of the benefits of using a shared image gallery with DevTest Labs include:
 
 - Manage global replication of images
 - Apply versioning and grouping for images to enable easier management
 - Access highly available images with Zone Redundant Storage (ZRS) accounts in regions that support availability zones for better resilience against zonal failures
 - Share images across subscriptions and between tenants by using role-based access control (RBAC)
  
-There are some considerations to keep in mind when working with a shared gallery:
+Keep in mind the following considerations when working with a shared gallery:
 
-- You can attach only one shared image gallery to your lab at a time. To attach a different gallery, first detach the current gallery. 
+- You can attach only one shared image gallery to your lab at a time. To attach a different gallery, you must first detach the current gallery. 
 - You can only select images from an attached gallery through DevTest Labs. You can't upload images or change the images in the gallery through DevTest Labs.
-- When you create a VM from a shared image, DevTest Labs uses the latest published version of the image in the attached gallery. If an image has multiple versions, you can choose an earlier version on the **Advanced Settings** tab during VM creation.  
+- When you create a VM from a shared image, DevTest Labs uses the latest published version of the image in the attached gallery. If an image has multiple versions, you can choose an earlier version under **Advanced Settings** during VM creation.  
 - DevTest Labs attempts to replicate all images in the attached gallery to the lab region. Sometimes, replication isn't possible. To avoid users having issues when creating VMs from images, ensure the images in the attached gallery fully replicate to the lab region.
 
 To learn about costs associated with using a shared image gallery, see [Billing for Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md#billing).
@@ -49,13 +49,17 @@ Follow these steps to attach a shared image gallery to your DevTest Labs resourc
 
 1. Select **Attach** to add an existing shared image gallery to your lab.
 
-1. In the **Attach gallery** dropdown list, select the shared image gallery to add to your lab, and then select **OK**:
+1. In the **Attach existing gallery** dropdown list, select the shared image gallery to add to your lab, and then select **OK**:
 
    :::image type="content" source="./media/configure-shared-image-gallery/attach-gallery.png" border="false" alt-text="Screenshot that shows how to attach a shared image gallery to a lab.":::
 
 1. After DevTest Labs attaches the gallery to your lab, you can select the gallery name to see the full list of images:
 
-    :::image type="content" source="./media/configure-shared-image-gallery/view-allowed-images.png" alt-text="Screenshot that shows the list of images in the shared gallery with indicators to show the allowed images for VM creation.":::
+    :::image type="content" source="./media/configure-shared-image-gallery/view-attached-gallery.png" alt-text="Screenshot that shows how to see the list of all images in the attached shared gallery for the lab.":::
+
+    The **Shared images** page opens:
+
+    :::image type="content" source="./media/configure-shared-image-gallery/view-allowed-images.png" alt-text="Screenshot of the list of images in the shared gallery with checkbox indicators to show the images allowed for VM creation.":::
 
 ## Control available images
 
@@ -80,6 +84,18 @@ After you attach a shared image gallery to your lab, lab users can choose from t
 The gallery images are included in the list of available options in the **Choose your base** page during the VM creation process:
 
 :::image type="content" source="./media/configure-shared-image-gallery/lab-users.png" alt-text="Screenshot that shows the list of available images for the VM instance, including the allowed images from the attached gallery.":::
+
+## Detach current shared image gallery
+
+A lab can have only one attached shared image gallery at a time. If your lab has an attached gallery and you want to use a different gallery, you need to detach the existing gallery and then attach the other gallery.
+
+1. On the **Configuration and policies** page for your lab, go to the **Virtual machine bases** > **Shared Image Galleries** screen.
+
+1. Select **More options** (...) for the attached gallery and select **Detach**:
+
+   :::image type="content" source="./media/configure-shared-image-gallery/detach-gallery.png" alt-text="Screenshot that shows how to detach the current shared image gallery from the lab.":::
+
+The **Detach** option is also available on the **Shared images** page for the attached gallery. 
 
 ## Attach gallery by using template
 
