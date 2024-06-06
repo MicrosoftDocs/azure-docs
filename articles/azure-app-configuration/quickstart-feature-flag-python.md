@@ -70,6 +70,8 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     print("Beta is ", feature_manager.is_enabled("Beta"))
     ```
 
+When starting the application, a broswer window will open to authenticate the user. The user must have at least the `App Configuration Data Reader` role to access the App Configuration store.
+
 1. Set an environment variable named **APP_CONFIGURATION_ENDPOINT**, and set it to the endpoint to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
     ### [Windows command prompt](#tab/windowscommandprompt)
@@ -77,7 +79,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     To build and run the app locally using the Windows command prompt, run the following command:
 
     ```console
-    setx APP_CONFIGURATION_ENDPOINT "endpoing-of-your-app-configuration-store"
+    setx APP_CONFIGURATION_ENDPOINT "endpoint-of-your-app-configuration-store"
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -87,7 +89,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-    $Env:APP_CONFIGURATION_ENDPOINT = "endpoing-of-your-app-configuration-store"
+    $Env:APP_CONFIGURATION_ENDPOINT = "endpoint-of-your-app-configuration-store"
     ```
 
     ### [macOS](#tab/unix)
@@ -95,7 +97,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use macOS, run the following command:
 
     ```console
-    export APP_CONFIGURATION_ENDPOINT='endpoing-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT='endpoint-of-your-app-configuration-store'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -105,7 +107,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use Linux, run the following command:
 
     ```console
-    export APP_CONFIGURATION_ENDPOINT='endpoing-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT='endpoint-of-your-app-configuration-store'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
