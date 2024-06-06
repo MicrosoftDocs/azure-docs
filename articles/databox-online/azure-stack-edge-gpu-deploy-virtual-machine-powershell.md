@@ -976,7 +976,7 @@ For more information about this cmdlet, see [Stop-AzureRmVM cmdlet](/powershell/
 
 ---
 
-### Resize a VM
+### Resize the VM
 
 To resize an existing virtual machine, run the following cmdlets:
 
