@@ -21,12 +21,21 @@ ms.author: mattmcinnes
 
 ## Series in family
 
+### Ev5 and Esv5-series
+[!INCLUDE [ev5-esv5-series-summary](./includes/ev5-esv5-series-summary.md)]
+
+[View the full Ev5 and Esv5-series page](../../ev5-esv5-series.md).
+
+[!INCLUDE [ev5-esv5-series-specs](./includes/ev5-esv5-series-specs.md)]
+
+
 ### Edv5 and Edsv5-series
 [!INCLUDE [edv5-edsv5-series-summary](./includes/edv5-edsv5-series-summary.md)]
 
 [View the full Edv5 and Edsv5-series page](../../edv5-edsv5-series.md).
 
 [!INCLUDE [edv5-edsv5-series-specs](./includes/edv5-edsv5-series-specs.md)]
+
 
 ### Easv5 and Eadsv5-series
 [!INCLUDE [easv5-eadsv5-series-summary](./includes/easv5-eadsv5-series-summary.md)]
