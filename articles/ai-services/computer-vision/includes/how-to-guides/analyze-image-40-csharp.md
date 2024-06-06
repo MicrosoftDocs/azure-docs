@@ -29,7 +29,7 @@ Start by creating a [ImageAnalysisClient](/dotnet/api/azure.ai.vision.imageanaly
 
 ## Select the image to analyze
 
-You can select an image by providing a publicly accessible image URL, or by passing binary data to the SDK. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
+You can select an image by providing a publicly accessible image URL, or by passing binary data to the SDK. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#input-requirements) for supported image formats.
 
 ### Image URL
 
