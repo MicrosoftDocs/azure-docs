@@ -40,7 +40,7 @@ The following table lists the property names and their descriptions for creating
 | Delimiter   | Applicable only for CSV serialization. Stream Analytics supports many common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar. |
 | Format      | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. If you select **Line separated**, the JSON is read one object at a time. The whole content by itself wouldn't be a valid JSON. **Array** specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it's preferable to use line-separated JSON because it doesn't require any special handling while the output file is still being written to. |
 
-## Exactly-once delivery (preview)
+## Exactly-once delivery (public preview)
 
 End-to-end exactly-once delivery when reading any streaming input means that processed data is written to Data Lake Storage Gen2 output once without duplicates. When the feature is enabled, your Stream Analytics job guarantees no data loss and no duplicates being produced as output, across user-initiated restart from the last output time. It simplifies your streaming pipeline by not having to implement and troubleshoot deduplication logic.
 
