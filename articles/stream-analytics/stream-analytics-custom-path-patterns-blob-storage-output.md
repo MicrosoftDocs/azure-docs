@@ -85,7 +85,7 @@ The following format specifier tokens can be used alone or in combination to ach
 |{datetime:m}|Minutes from 0 to 60|6|
 |{datetime:ss}|Seconds from 00 to 60|08|
 
-If you don't want to use custom `DateTime` patterns, you can add the {date} and/or {time} token to the **Path Prefix** field to generate a dropdown with built-in `DateTime` formats.
+If you don't want to use custom `DateTime` patterns, you can add the `{date}` and/or `{time}` token to the **Path Prefix** field to generate a dropdown with built-in `DateTime` formats.
 
 ![Screenshot that shows Stream Analytics old DateTime formats.](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-old-date-time-formats.png)
 
