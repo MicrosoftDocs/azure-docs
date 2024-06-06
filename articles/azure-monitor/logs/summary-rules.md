@@ -421,7 +421,7 @@ Considerations when you work with encrypted queries:
 -	If you already have summary rule queries before you link a storage account to your Log Analytics workspace, update your existing query rules to encrypt the queries.
 -	Linking a storage account to encrypt your queries doesn’t interrupt existing rules.
 -	Queries that you save in a storage account are considered service artifacts and their format might change.
--	You can use the same storage account for summary rules queries, [saved queries in Log Analytics](save-query.md), and [log alerts](.././alerts/alerts-types.md#log-alerts).
+-	You can use the same storage account for summary rules queries, [saved queries in Log Analytics](save-query.md), and [log alerts](../alerts/alerts-types.md#log-alerts).
 
 ## Troubleshoot summary rules
 
