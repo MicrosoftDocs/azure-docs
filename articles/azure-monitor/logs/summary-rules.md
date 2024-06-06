@@ -40,9 +40,9 @@ This article describes how summary rules work and how to define and view summary
 
 Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule takes a chunk of data, defined by bin size, aggregates the data based on a KQL query, and reingests the summarized results into a custom [Analytics table](basic-logs-configure.md) in your Log Analytics workspace. 
 
-For example, if you're monitoring your containers, you'll notice that the you ingest a very large volume of verbose logs into the `ContainerLogsV2` table.
+For example, if you're monitoring containers, you'll notice that the you ingest a very large volume of verbose logs into the `ContainerLogsV2` table.
 
-You might use this query in your summary rule to counte the number of similar log entries you get within 60 minutes, and drop log data that's less useful: 
+You might use this query in your summary rule to count the number of similar log entries you get within 60 minutes, and drop log data that's less useful: 
 
 ```kusto
 ContainerLogV2 | summarize Count = count() by  Computer, ContainerName, PodName, PodNamespace, LogSource, LogLevel, Message = tostring(LogMessage.Message)
@@ -56,7 +56,9 @@ Here's the aggregated data that the summary rule sends to the destination table:
 
 :::image type="content" source="media/summary-rules/summary-rules-aggregated-logs.png" alt-text="Screenshot that aggregated data that the summary rules sends to the destination table." lightbox="media/summary-rules/summary-rules-aggregated-logs.png":::
 
-You can see that, instead of logging hundereds of similar entries within an hour, the destination shows the count of each unique entry, as defined in the KQL query. All entries in the destination table also include a set of standard fields: 
+You can see that, instead of logging hundereds of similar entries within an hour, the destination shows the count of each unique entry, as defined in the KQL query. Set the [Basic data plan](basic-logs-configure.md) on the `ContainerLogsV2` table for cheap retention of the raw data, and use the summarized data in the destination table for your analysis needs.
+
+All entries in the destination table include a set of standard fields: 
 
 - `_RuleName`: The summary rule that created the.
 - `_RuleLastModifiedTime`: When the rule was last modified. 
