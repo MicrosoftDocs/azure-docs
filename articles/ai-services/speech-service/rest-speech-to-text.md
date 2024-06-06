@@ -5,7 +5,7 @@ description: Get reference documentation for Speech to text REST API.
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: reference
-ms.date: 4/15/2024
+ms.date: 6/6/2024
 ms.reviewer: eur
 author: eric-urban
 ms.author: eur
@@ -16,7 +16,7 @@ ms.author: eur
 Speech to text REST API is used for [batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md). 
 
 > [!IMPORTANT]
-> Speech to text REST API v3.2 is the latest version that's generally available.
+> Speech to text REST API v3.2 is the latest version that's generally available. Preview versions *3.2-preview.1* and *3*.2-preview.2* will be removed in September 2024.
 > [Speech to text REST API](rest-speech-to-text.md) v3.1 will be retired on a date to be announced. For more information about upgrading, see the Speech to text REST API [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guide.
 > Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information about upgrading, see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides.
 
