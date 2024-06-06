@@ -60,7 +60,7 @@ sections:
           Where can I read about better ways to use Azure OpenAI to get the responses I want from the service?
         answer: | 
           Check out our [introduction to prompt engineering](./concepts/prompt-engineering.md). While these models are powerful, their behavior is also very sensitive to the prompts they receive from the user. This makes prompt construction an important skill to develop. After you've completed the introduction, check out our article on [advanced prompt engineering techniques](./concepts/advanced-prompt-engineering.md).
-      - question: |
+      TBD- question: |
           My guest account has been given access to an Azure OpenAI resource, but I'm unable to access that resource in the Azure OpenAI Studio. How do I enable access?
         answer: | 
           This is expected behavior when using the default sign-in experience for the [Azure OpenAI Studio](https://oai.azure.com).
@@ -123,16 +123,6 @@ sections:
           If the service doesn't perform processing, you won't be charged.
           For example, a 401 error due to authentication or a 429 error due to exceeding the Rate Limit.
           
-  - name: Getting access to Azure OpenAI Service
-    questions:
-      - question: |
-          How do I get access to Azure OpenAI? 
-        answer: |
-          Access is currently limited as we navigate high demand, upcoming product improvements, and Microsoft's commitment to responsible AI. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. Apply here for initial access: [Apply now](https://aka.ms/oaiapply)          
-      - question: |
-          After I apply for access, how long will I have to wait to get approved?
-        answer: |
-          We don't currently provide a timeline for access approval.
   - name: Learning more and where to ask questions
     questions:
       - question: |

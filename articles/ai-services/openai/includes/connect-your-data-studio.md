@@ -15,7 +15,7 @@ recommendations: false
 > [!TIP]
 > You can [use the Azure Developer CLI](../how-to/azure-developer-cli.md) to programmatically create the resources needed for Azure OpenAI On Your Data 
 
-Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
+Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with your credentials. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
 1. Select the **Bring your own data** tile
 
