@@ -27,7 +27,7 @@ Service Health notifications are published by Azure and contain information abou
 
 **Email Notification**
 
-We send an email notification to subscription admins/owners when a security issue requires direct action by subscription admins/owners.
+We communicate security-related information affecting your Azure subscription workloads via Email and/or Azure Service Health Notifications. We send notifications to subscription admins or owners.
 
 >[!Note]
 >You should ensure that there is a **contactable email address** as the [subscription administrator or subscription owner](../cost-management-billing/manage/add-change-subscription-administrator.md). This email address is used for security issues that would have impact at the subscription level.
