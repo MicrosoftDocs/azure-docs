@@ -394,6 +394,8 @@ keyVault:
     # version: 939ecc2...
 ```
 
+---
+
 ### Manage local broker connection
 
 Like MQTT bridge, the Event Hubs connector acts as a client to the IoT MQ MQTT broker. If you've customized the listener port and/or authentication of your IoT MQ MQTT broker, override the local MQTT connection configuration for the Event Hubs connector as well. To learn more, see [MQTT bridge local broker connection](howto-configure-mqtt-bridge.md).
