@@ -53,7 +53,7 @@ A cluster host:
 
 * An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu).
 
-  If you've already deployed Azure IoT Operations to your cluster, uninstall those resources before continuing. For more information, see [Update a deployment](#update-a-deployment).
+  If you've already deployed Azure IoT Operations to your cluster, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](#update-azure-iot-operations).
 
   Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows. Using Ubuntu in Windows Subsystem for Linux (WSL) is the simplest way to get a Kubernetes cluster for testing.
 
