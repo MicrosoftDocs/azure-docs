@@ -377,86 +377,87 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
 
 ### [Version-3.0](#tab/version3) 
     
-    ```powershell
+```powershell
 
-        # Build settings
-        $settings = '{"secretsManagementSettings":
-        { "pollingIntervalInS": "' + <pollingInterval> +
-        '", "certificateStoreName": "' + <certStoreName> +
-        '", "certificateStoreLocation": "' + <certStoreLoc> +
-        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
-        $extName =  "KeyVaultForLinux"
-        $extPublisher = "Microsoft.Azure.KeyVault"
-        $extType = "KeyVaultForLinux"
+    # Build settings
+    $settings = '{"secretsManagementSettings":
+    { "pollingIntervalInS": "' + <pollingInterval> +
+    '", "certificateStoreName": "' + <certStoreName> +
+    '", "certificateStoreLocation": "' + <certStoreLoc> +
+    '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
+    $extName =  "KeyVaultForLinux"
+    $extPublisher = "Microsoft.Azure.KeyVault"
+    $extType = "KeyVaultForLinux"
 
 
-        # Start the deployment
-        Set-AzVmExtension -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+    # Start the deployment
+    Set-AzVmExtension -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
 
-    ```
+```
 
 * To deploy the extension on a virtual machine scale set:
 
-    ```powershell
+```powershell
 
-        # Build settings
-        $settings = '{"secretsManagementSettings":
-        { "pollingIntervalInS": "' + <pollingInterval> +
-        '", "certificateStoreName": "' + <certStoreName> +
-        '", "certificateStoreLocation": "' + <certStoreLoc> +
-        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
-        $extName = "KeyVaultForLinux"
-        $extPublisher = "Microsoft.Azure.KeyVault"
-        $extType = "KeyVaultForLinux"
+    # Build settings
+    $settings = '{"secretsManagementSettings":
+    { "pollingIntervalInS": "' + <pollingInterval> +
+    '", "certificateStoreName": "' + <certStoreName> +
+    '", "certificateStoreLocation": "' + <certStoreLoc> +
+    '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
+    $extName = "KeyVaultForLinux"
+    $extPublisher = "Microsoft.Azure.KeyVault"
+    $extType = "KeyVaultForLinux"
 
-        # Add Extension to VMSS
-        $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
-        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -Setting $settings
+    # Add Extension to VMSS
+    $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
+    Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -Setting $settings
 
-        # Start the deployment
-        Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss
-    ``` 
+    # Start the deployment
+    Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss
+``` 
 
 ### [Version-1.0/2.0](#tab/version12)
 
-    ```powershell
-        # Build settings
-        $settings = '{"secretsManagementSettings":
-        { "pollingIntervalInS": "' + <pollingInterval> +
-        '", "certificateStoreName": "' + <certStoreName> +
-        '", "certificateStoreLocation": "' + <certStoreLoc> +
-        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
-        $extName =  "KeyVaultForLinux"
-        $extPublisher = "Microsoft.Azure.KeyVault"
-        $extType = "KeyVaultForLinux"
+```powershell
+    # Build settings
+    $settings = '{"secretsManagementSettings":
+    { "pollingIntervalInS": "' + <pollingInterval> +
+    '", "certificateStoreName": "' + <certStoreName> +
+    '", "certificateStoreLocation": "' + <certStoreLoc> +
+    '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
+    $extName =  "KeyVaultForLinux"
+    $extPublisher = "Microsoft.Azure.KeyVault"
+    $extType = "KeyVaultForLinux"
 
 
-        # Start the deployment
-        Set-AzVmExtension -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+    # Start the deployment
+    Set-AzVmExtension -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
 
-    ```
+```
 
 * To deploy the extension on a virtual machine scale set:
 
-    ```powershell
+```powershell
 
-        # Build settings
-        $settings = '{"secretsManagementSettings":
-        { "pollingIntervalInS": "' + <pollingInterval> +
-        '", "certificateStoreName": "' + <certStoreName> +
-        '", "certificateStoreLocation": "' + <certStoreLoc> +
-        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
-        $extName = "KeyVaultForLinux"
-        $extPublisher = "Microsoft.Azure.KeyVault"
-        $extType = "KeyVaultForLinux"
+    # Build settings
+    $settings = '{"secretsManagementSettings":
+    { "pollingIntervalInS": "' + <pollingInterval> +
+    '", "certificateStoreName": "' + <certStoreName> +
+    '", "certificateStoreLocation": "' + <certStoreLoc> +
+    '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
+    $extName = "KeyVaultForLinux"
+    $extPublisher = "Microsoft.Azure.KeyVault"
+    $extType = "KeyVaultForLinux"
 
-        # Add Extension to VMSS
+    # Add Extension to VMSS
         $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
         Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -EnableAutomaticUpgrade true -Setting $settings
 
         # Start the deployment
         Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss
-    ```
+```
+
 ---
 
 ## Azure CLI deployment
