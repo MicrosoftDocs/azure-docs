@@ -32,7 +32,7 @@ While foundational models excel in specific domains, they lack a uniform set of 
 > * Use smaller models that can run faster on specific tasks.
 > * Compose multiple models to develop intelligent experiences.
 
-Having a uniform way to consume foundational models allow developers to realize all those benefits without changing a single line of code on their applications.
+Having a uniform way to consume foundational models allow developers to realize all those benefits without sacrificing portability or changing the underlying code.
 
 ## Availability
 
@@ -153,6 +153,49 @@ __Response__
 
 > [!TIP]
 > You can inspect the property `details.loc` to understand the location of the offending parameter and `details.input` to see the value that was passed in the request.
+
+## Content safety
+
+The Azure AI model inference API supports [Azure AI Content Safety](../concepts/content-filtering). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+The following example shows the response for a chat completion request that has triggered content safety. 
+
+__Request__
+
+```HTTP/1.1
+POST /chat/completions?api-version=2024-04-01-preview
+Authorization: Bearer <bearer-token>
+Content-Type: application/json
+```
+
+```JSON
+{
+    "messages": [
+    {
+        "role": "system",
+        "content": "You are a helpful assistant"
+    },
+    {
+        "role": "user",
+        "content": "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."
+    }
+    ],
+    "temperature": 0,
+    "top_p": 1,
+}
+```
+
+__Response__
+
+```JSON
+{
+    "status": 400,
+    "code": "content_filter",
+    "message": "The response was filtered",
+    "param": "messages",
+    "type": null
+}
+```
 
 ## Getting started
 
