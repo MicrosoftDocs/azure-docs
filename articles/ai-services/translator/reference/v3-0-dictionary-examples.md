@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 09/19/2023
+ms.date: 06/06/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD033 -->
@@ -41,9 +41,9 @@ Request headers include:
 
 | Headers  | Description |
 | ------ | ----------- |
-| Authentication header(s) <img width=200/>  | **Required request header**.<br>See [Authentication](v3-0-reference.md#authentication)>available options for authentication</a>. |
+| Authentication headers <img width=200/>  | **Required request header**.<br>See [Authentication](v3-0-reference.md#authentication)>available options for authentication</a>. |
 | Content-Type | **Required request header**.<br>Specifies the content type of the payload. Possible values are: `application/json`. |
-| Content-Length   | **Required request header**.<br>The length of the request body. |
+| Content-Length   | **Optional**.<br>The length of the request body. |
 | X-ClientTraceId   | **Optional**.<br>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`. |
 
 ## Request body
@@ -77,11 +77,11 @@ A successful response is a JSON array with one result for each string in the inp
 
 * `examples`: A list of examples for the (source term, target term) pair. Each element of the list is an object with the following properties:
 
-* `sourcePrefix`: The string to concatenate _before_ the value of `sourceTerm` to form a complete example. Don't add a space character, since it's already there when it should be. This value may be an empty string.
+* `sourcePrefix`: The string to concatenate _before_ the value of `sourceTerm` to form a complete example. Don't add a space character, since it's already there when it should be. This value can be an empty string.
 
 * `sourceTerm`: A string equal to the actual term looked up. The string is added with `sourcePrefix` and `sourceSuffix` to form the complete example. Its value is separated so it can be marked in a user interface, for example, by bolding it.
 
-  * `sourceSuffix`: The string to concatenate _after_ the value of `sourceTerm` to form a complete example. Don't add a space character, since it's already there when it should be. This value may be an empty string.
+  * `sourceSuffix`: The string to concatenate _after_ the value of `sourceTerm` to form a complete example. Don't add a space character, since it's already there when it should be. This value can be an empty string.
 
   * `targetPrefix`: A string similar to `sourcePrefix` but for the target.
 
