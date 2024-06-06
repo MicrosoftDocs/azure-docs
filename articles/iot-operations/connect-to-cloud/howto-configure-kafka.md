@@ -465,10 +465,9 @@ The compression field enables compression for the messages sent to Kafka topics.
 | Value | Description | Supported |
 | ----- | ----------- | --------- |
 | none | No compression or batching is applied. *none* is the default value if no compression is specified. | Yes |
-| gzip | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. [Event Hubs Premium](../../event-hubs/event-hubs-premium-overview.md) pricing tier is required for GZIP compression. | Yes |
+| gzip | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. | Yes. [Event Hubs Premium](../../event-hubs/event-hubs-premium-overview.md) pricing tier is required for GZIP compression. |
 | snappy | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. | Not supported by [Azure Event Hubs](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). Use [Apache Kafka](https://kafka.apache.org). |
 | lz4 | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. | Not supported by [Azure Event Hubs](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). Use [Apache Kafka](https://kafka.apache.org). |
-
 
 ### Batching
 
