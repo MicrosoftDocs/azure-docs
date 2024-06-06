@@ -32,7 +32,7 @@ Role-based access is optional, but recommended. The alternative is [key-based au
 
 ## Prerequisites
 
-+ **Owner**, **User Access Administrator**, or a role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
++ **Owner**, **User Access Administrator**, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
 
 + A search service in any region, on any tier, [enabled for role-based access](search-security-enable-roles.md).
 
