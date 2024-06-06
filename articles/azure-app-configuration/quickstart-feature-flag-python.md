@@ -70,7 +70,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     print("Beta is ", feature_manager.is_enabled("Beta"))
     ```
 
-1. Set an environment variable named **APP_CONFIGURATION_ENDPOINT**, and set it to the connection string to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **APP_CONFIGURATION_ENDPOINT**, and set it to the endpoint to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
