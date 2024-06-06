@@ -166,7 +166,7 @@ Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient
 
 ### Create ContainerClient directly
 
-#### [Passwordless](#tab/azure-ad)
+#### [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 :::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-container-client-from-default-azure-credential.ts" :::
 
@@ -206,7 +206,7 @@ List of Blob clients:
 
 ### Create BlobClient directly
 
-#### [Passwordless](#tab/azure-ad)
+#### [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 :::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-blob-client-from-default-azure-credential.ts" :::
 

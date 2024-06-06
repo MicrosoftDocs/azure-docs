@@ -120,7 +120,7 @@ To connect an application to Blob Storage, create an instance of the [BlobServic
 
 To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
-You can authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS).
+You can authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS). For optimal security, Microsoft recommends using Microsoft Entra ID with managed identities to authorize requests against blob data. For more information, see [Authorize access to Azure Storage data with Azure Active Directory](/azure/storage/common/storage-auth-aad.md).
 
 <a name='azure-ad-recommended'></a>
 
