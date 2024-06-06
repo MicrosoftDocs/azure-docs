@@ -414,11 +414,13 @@ If you delete the destination table while the summary rule is active, the rule r
 
 If you don't need the summary results in the destination table, delete the rule. If you need the summary results, follow the steps in [Create or update summary rules](#create-or-update-a-summary-rule) section to recreate the table. The results table restores all data, including the data ingested before the delete, depending on the retention policy in the table.
 
-### Query operators create new columns in the destination table
+### Query uses operators that create new columns in the destination table
 
 If the query in the summary rule includes operators that allow output schema expansion based on incoming data - for example, if the query the `arg_max(expression, *)` function and or the `bag_unpack()` plugin - the summary rule needs to create new columns in the destination table. However, Azure Monitor doesn't add new columns to the destination table after after you create or update the summary rule, and the output data that requires these columns will be dropped. To add the new fields to the destination table, [update the summary rule](#create-or-update-a-summary-rule) or [add a column to your table manually](create-custom-table.md#add-or-delete-a-custom-column).
 
-- **Data remains in workspace, subjected to retention period**: When you [delete fields or a custom log table](manage-logs-tables.md#view-table-properties), data remains in the workspace and is subjected to the [retention](data-retention-archive.md) period defined on the table or workspace. Recreating the table with the same name and fields, cause old data to show up. If you want to delete old data, [update the table retention period](/rest/api/loganalytics/tables/update) with the minimum retention supported (four days) and then delete the table.
+### Data remains in workspace, subjected to retention period
+
+When you [delete columns or a custom log table](create-custom-table.md), data remains in the workspace and is subjected to the [retention period](data-retention-archive.md) defined on the table or workspace. During the retention period, if you create a table with the same name and fields, Azure Monitor recreates the table with the old data. To delete old data, [update the table retention period](/rest/api/loganalytics/tables/update) with the minimum retention supported (four days) and then delete the table.
 
 ## Pricing model
 
