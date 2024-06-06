@@ -74,7 +74,7 @@ Edit the values in the parameter file and deploy the template using any valid me
 
 ### AKS cluster
 
-**Template file:** https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file
+**Template file:** https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file<br>
 **Parameter file:** https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file
 
 
@@ -90,7 +90,7 @@ Edit the values in the parameter file and deploy the template using any valid me
 
 ### Arc-enabled Kubernetes cluster
 
-**Template file:** https://aka.ms/arc-k8s-azmon-extension-msi-arm-template
+**Template file:** https://aka.ms/arc-k8s-azmon-extension-msi-arm-template<br>
 **Parameter file:** https://aka.ms/arc-k8s-azmon-extension-msi-arm-template-params
 
 | Parameter | Description |
