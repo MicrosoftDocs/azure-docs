@@ -215,7 +215,7 @@ The following steps provide details about the specific network and application r
     az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'dfs' --source-addresses '*' --protocols 'https=443' --target-fqdns "*.dfs.core.windows.net"
     ```
   
-   **Change the `Sql.<Region> `in the following syntax to your region as per your requirement. For example: `Sql.EastUS`**
+   **Change the `Sql.<Region>` in the following syntax to your region as per your requirement. For example: `Sql.EastUS`**
 
    ```azurecli
     az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'mysql' --protocols 'TCP' --source-addresses '*' --destination-addresses "Sql.<Region>" --destination-ports '11000-11999'
