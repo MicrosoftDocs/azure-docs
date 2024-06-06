@@ -1,15 +1,15 @@
 ---
-title: 'Migrating to Azure Data Explorer | Microsoft Docs'
-Description: How to migrate Azure Time Series Insights environments to Azure Data Explorer.
+title: 'Migrating to Fabric Real-Time Intelligence | Microsoft Docs'
+Description: How to migrate Azure Time Series Insights environments to Fabric Real-Time Intelligence.
 ms.service: time-series-insights
-author: tedvilutis
-ms.author: atributes
+author: herauch
+ms.author: attributes
 ms.topic: conceptual
-ms.date: 3/15/2022
-ms.custom: atributes
+ms.date: 6/6/2024
+ms.custom: attributes
 ---
 
-# Migrating to Azure Data Explorer
+# Migrating to Fabric Real-Time Intelligence
 
 [!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
