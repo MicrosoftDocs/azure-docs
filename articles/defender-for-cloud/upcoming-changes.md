@@ -25,7 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers | June 9, 2024 | July 2024 |
+| [SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers](#sql-vulnerability-assessment-automatic-enablement-using-express-configuration-on-unconfigured-servers) | June 9, 2024 | July 2024 |
 | [Changes to identity recommendations](#changes-to-identity-recommendations) | June 3, 2024 | July 2024 |
 | [Removal of FIM over AMA and release of new version over Defender for Endpoint](#removal-of-fim-over-ama-and-release-of-new-version-over-defender-for-endpoint) | May 1, 2024 | June 2024 |
 | [Deprecation of system update recommendations](#deprecation-of-system-update-recommendations) | May 1, 2024 | May 2024 |
