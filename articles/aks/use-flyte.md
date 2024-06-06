@@ -3,7 +3,7 @@ title: Build and deploy data and machine learning pipelines with Flyte on Azure 
 titleSuffix: Azure Kubernetes Service
 description: Learn about Flyte, an open-source platform for building and deploying data and machine learning pipelines on Azure Kubernetes Service (AKS).
 ms.topic: how-to
-ms.date: 05/31/2024
+ms.date: 06/06/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
@@ -14,6 +14,16 @@ ms.service: azure-kubernetes-service
 This article shows you how to use Flyte on Azure Kubernetes Service (AKS). Flyte is an open-source workflow orchestrator that unifies machine learning, data engineering, and data analytics stacks to help you build robust and reliable applications. When using Flyte as a Kubernetes-native workflow automation tool, you can focus on experimentation and providing business value without increasing your scope to infrastructure and resource management. Keep in mind that Flyte isn't officially supported by Microsoft, so use it at your own discretion.
 
 For more information, see [Introduction to Flyte][flyte].
+
+## Flyte use cases
+
+Flyte can be used for a variety of use cases, including:
+
+* Deliver models for streamlined profit and loss financial calculations.
+* Process petabytes of data to efficiently conduct 3D mapping of new areas.
+* Quickly rollback to previous versions and minimize impact of bugs in your pipelines.
+
+For more information, see [Core Flyte use cases](https://docs.flyte.org/en/latest/core_use_cases/index.html).
 
 ## Prerequisites
 
