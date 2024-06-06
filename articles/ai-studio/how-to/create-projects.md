@@ -23,7 +23,7 @@ Projects are hosted by an Azure AI Studio hub that provides enterprise-grade sec
 
 ## Create a project
 
-Use the tabs below to select the method you plan to use to create a project:
+Use the following tabs to select the method you plan to use to create a project:
 
 # [Azure AI Studio](#tab/ai-studio)
 
@@ -52,6 +52,26 @@ Use the tabs below to select the method you plan to use to create a project:
     ```
 
 # [Azure CLI](#tab/azurecli)
+
+If you don't have the Azure CLI extension for machine learning, use the following steps to install it:
+
+1. [Install the Azure CLI](/cli/azure/install-azure-cli), then use the following command to install the extension for machine learning:
+
+    ```azurecli
+    az extension add --name ml
+    ```
+
+    For more information on the extension, see [Install and set up the machine learning extension (v2)](/machine-learning/how-to-configure-cli).
+
+1. To authenticate to your Azure subscription, use the following command:
+
+    ```azurecli
+    az login
+    ```
+
+    For more information on authenticating, see [Authentication methods](/cli/azure/authenticate-azure-cli).
+
+Once the extension is installed authenticated to your Azure subscription, use the following command to create a new Azure AI project from an existing Azure AI hub:
 
 ```azurecli
 az ml workspace create --kind project --hub-id {my_hub_ARM_ID} --resource-group {my_resource_group} --name {my_project_name}

@@ -27,7 +27,7 @@ In this article, you learn how to create the following AI Studio resources using
 
 ## Set up your environment
 
-Use the tabs below to select whether you are using the Python SDK or Azure CLI:
+Use the following tabs to select whether you're using the Python SDK or Azure CLI:
 
 # [Python SDK](#tab/python)
 
@@ -35,7 +35,21 @@ Use the tabs below to select whether you are using the Python SDK or Azure CLI:
 
 # [Azure CLI](#tab/azurecli)
 
-TODO
+1. [Install the Azure CLI](/cli/azure/install-azure-cli), then use the following command to install the extension for machine learning:
+
+    ```azurecli
+    az extension add --name ml
+    ```
+
+    For more information on the extension, see [Install and set up the machine learning extension (v2)](/machine-learning/how-to-configure-cli).
+
+1. To authenticate to your Azure subscription, use the following command:
+
+    ```azurecli
+    az login
+    ```
+
+    For more information on authenticating, see [Authentication methods](/cli/azure/authenticate-azure-cli).
 
 ---
 
@@ -118,10 +132,11 @@ You can use either an API key or credential-less YAML configuration file:
     endpoint: https://contoso.cognitiveservices.azure.com/
     ```
 
+For more information on the YAML configuration file, see the [AI Services connection YAML schema](/azure/machine-learning/reference-yaml-connection-ai-services)
 ---
 
 ## Related content
 
 - [Get started building a chat app using the prompt flow SDK](../../quickstarts/get-started-code.md)
-- [Work with projects in VS Code](vscode.md)
+- [Work with projects in Visual Studio Code](vscode.md)
 - [Configure a managed network](../configure-managed-network.md?tabs=python)
