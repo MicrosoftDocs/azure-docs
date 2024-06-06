@@ -7,7 +7,7 @@ ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 06/05/2024
+ms.date: 06/06/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ to send and receive messages between Azure IoT MQ and Kafka.
 ---
@@ -461,14 +461,14 @@ The following table describes the fields in the KafkaConnectorTopicMap CR:
 
 ### Compression
 
-The compression field enables compression for the messages sent to Kafka topics. Compression helps to reduce the network bandwidth and storage space required for data transfer. However, compression also adds some overhead and latency to the process. The supported compression types are listed in the following table.
+The compression field enables compression for the messages sent to Kafka topics. Compression helps to reduce the network bandwidth and storage space required for data transfer. However, compression also adds some overhead and latency to the process. The compression types values and support are listed in the following table.
 
-| Value | Description |
-| ----- | ----------- |
-| none | No compression or batching is applied. *none* is the default value if no compression is specified. |
-| gzip | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. [Event Hubs Premium](../../event-hubs/event-hubs-premium-overview.md) pricing tier is required for GZIP compression. |
-| Snappy | Snappy compression is not supported by [Azure Event Hub](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview). Use [Apache Kafka](https://kafka.apache.org) for Snappy compression type. |
-| LZ4 | LZ4 compression is not supported by [Azure Event Hub](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview). Use [Apache Kafka](https://kafka.apache.org) for LZ4 compression type. |
+| Value | Description | Supported |
+| ----- | ----------- | --------- |
+| none | No compression or batching is applied. *none* is the default value if no compression is specified. | Yes |
+| gzip | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. [Event Hubs Premium](../../event-hubs/event-hubs-premium-overview.md) pricing tier is required for GZIP compression. | Yes |
+| Snappy | Snappy compression is not supported by [Azure Event Hub](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview). | No. Use [Apache Kafka](https://kafka.apache.org) |
+| LZ4 | LZ4 compression is not supported by [Azure Event Hub](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview). | No. Use [Apache Kafka](https://kafka.apache.org) |
 
 
 ### Batching
