@@ -1,40 +1,38 @@
 ---
-title: Run code snippets in workflows
-description: Run code snippets in workflows using Inline Code operations in Azure Logic Apps.
+title: Add and run JavaScript code snippets in workflows
+description: Write and run JavaScript code snippets in workflows to perform custom integration tasks using Inline Code operations in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 06/10/2024
 ms.custom: devx-track-js
+# Customer intent: As a logic app workflow developer, I want to write and run my own JavaScript code snippets so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
-# Run code snippets in workflows with Inline Code operations in Azure Logic Apps
+# Add and run JavaScript code snippets inline with workflows for Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
 
-To create and run a code snippet in your logic app workflow without much setup, you can use the **Inline Code** built-in connector. This connector has an action that returns the result from the code snippet so that you can use that output in your workflow's subsequent actions.
-
-Currently, the connector only has a single action, which works best for a code snippet with the following attributes, but more actions are in development. The **Inline Code** built-in connector also has 
-[different limits](logic-apps-limits-and-config.md#inline-code-action-limits), based on whether your logic app workflow is [Consumption or Standard](logic-apps-overview.md#resource-environment-differences).
+To perform custom integration tasks inline with your workflow in Azure Logic Apps, you can directly add and run simple JavaScript code snippets from your workflow in the Azure portal. For this task, use the **Inline Code** action named **Execute JavaScript Code**. This action returns the result from the code snippet so you can use that output in your workflow's subsequent actions. This action also has [different limits](logic-apps-limits-and-config.md#inline-code-action-limits), based on whether you have a [Consumption or Standard workflow](logic-apps-overview.md#resource-environment-differences) and works best for code snippets with the following attributes:
 
 | Action | Language | Language version | Run duration | Data size | Other notes |
 |--------|----------|------------------|--------------|-----------|-------------|
 | **Execute JavaScript Code** | JavaScript | **Standard**: <br>Node.js 16.x.x <br><br>**Consumption**: <br>Node.js 8.11.1 <br><br>For more information, review [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). | Finishes in 5 seconds or fewer. | Handles data up to 50 MB. | - Doesn't require working with the [**Variables** actions](logic-apps-create-variables-store-values.md), which are unsupported by the action. <br><br>- Doesn't support the `require()` function for running JavaScript. |
 
-To run code that doesn't fit these attributes, you can [create and call a function through Azure Functions](logic-apps-azure-functions.md) instead.
+To run code that doesn't fit these attributes, you can [create and call a function using Azure Functions](logic-apps-azure-functions.md).
 
-This article shows how the action works in an example workflow that starts with an Office 365 Outlook trigger. The workflow runs when a new email arrives in the associated Outlook email account. The sample code snippet extracts any email addresses that exist the email body and returns those addresses as output that you can use in a subsequent action.
+This guide shows how the action works in an example workflow that starts with an Office 365 Outlook trigger. The workflow runs when a new email arrives in the associated Outlook email account. The sample code snippet extracts any email addresses that exist the email body and returns those addresses as output that you can use in a subsequent action.
 
 The following diagram shows the highlights from example workflow:
 
 ### [Consumption](#tab/consumption)
 
-![Screenshot showing an example Consumption logic app workflow with the Execute JavaScript Code action.](./media/logic-apps-add-run-inline-code/inline-code-overview-consumption.png)
+:::image type="content" source="media/logic-apps-add-run-inline-code/inline-code-overview-consumption.png" alt-text="Screenshot shows example Consumption workflow with the Execute JavaScript Code action." lightbox="media/logic-apps-add-run-inline-code/inline-code-overview-consumption.png":::
 
 ### [Standard](#tab/standard)
 
-![Screenshot showing an example Standard logic app workflow with the Execute JavaScript Code action.](./media/logic-apps-add-run-inline-code/inline-code-overview-standard.png)
+:::image type="content" source="media/logic-apps-add-run-inline-code/inline-code-overview-standard.png" alt-text="Screenshot shows example Standard workflow with the Execute JavaScript Code action." lightbox="media/logic-apps-add-run-inline-code/inline-code-overview-standard.png":::
 
 ---
 
