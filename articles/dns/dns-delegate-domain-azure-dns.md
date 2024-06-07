@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: tutorial
-ms.date: 05/20/2024
+ms.date: 06/07/2024
 ms.author: greglin
 ms.custom: template-tutorial
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS, so I can host DNS zones.
@@ -13,7 +13,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Host your domain in Azure DNS
 
-You can use Azure DNS to host your DNS domain and manage your DNS records. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
+You can use Azure DNS to host your DNS domain and manage your DNS records. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
 Suppose you buy the domain `contoso.com` from a domain name registrar and then create a zone with the name `contoso.com` in Azure DNS. Since you're the owner of the domain, your registrar offers you the option to configure the name server (NS) records for your domain. The registrar stores the NS records in the `.com` parent zone. Internet users around the world are then directed to your domain in your Azure DNS zone when they try to resolve DNS records in `contoso.com`.
 
@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
 
 > [!NOTE]
-> In this tutorial, `contoso.com` is used as an example domain name. Replace `contoso.com` with your own domain name.
+> In this tutorial, `contoso.xyz` is used as an example domain name. Replace `contoso.xyz` with your own domain name.
 
 ## Sign in to Azure
 
