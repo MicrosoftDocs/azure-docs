@@ -38,6 +38,22 @@ On the project **Settings** page you can find information about the project, suc
 
 Select **Manage in the Azure portal** to navigate to the project resources in the Azure portal.
 
+## Project resource access
+
+Shared configurations on the hub including connections, compute instances, and network access are shared with your project. 
+
+In addition, a number of resources are only accessible by users in your project workspace:
+
+1. Azure Storage blob containers, and a fileshare for data upload. You can access them using the following (auto-created) connections:
+   - Workspaceblobstore
+   - Workspaceartifactstore
+   - Workspacefilestore
+1. Connections created by you under 'project settings'.
+1. Components including datasets, indexes, open and serverless API model endpoints.
+
+> [!NOTE]
+> Storage connections are not created directly with the project when your storage account has public network access set to disabled. These are created later when a user accesses AI studio over a private network connection that is allowed by your storage account configuration.
+
 ## Next steps
 
 - [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md)
