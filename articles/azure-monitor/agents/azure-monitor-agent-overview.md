@@ -21,6 +21,17 @@ Here's a short **introduction to Azure Monitor agent video**, which includes a q
 > [!NOTE]
 > Azure Monitor Agent replaces the [Legacy Agent](./log-analytics-agent.md) for Azure Monitor. The Log Analytics agent is on a **deprecation path** and won't be supported after **August 31, 2024**. Any new data centers brought online after January 1 2024 will not support the Log Analytics agent. If you use the Log Analytics agent to ingest data to Azure Monitor, [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date. 
 
+## Basic operation
+The Azure Monitor agent is one method of [data collection for Azure Monitor](../data-sources.md). It's installed on virtual machines running in Azure, in other clouds, or on-premises where it has access to local logs and performance data. Without the agent, you could only collect data from the host machine since you would have no access to the client operating system and running processes.
+
+The agent can be installed using different methods as described in [Manage Azure Monitor Agent](./azure-monitor-agent-manage.md). You can install the agent on a single machine or at scale using Azure Policy or other tools. In some cases, the agent will be automatically installed when you enable a feature that requires it, such as Microsoft Sentinel.
+
+Data to collect from the agent is defined in one or more [data collection rules (DCR)](../essentials/data-collection-rule-overview.md). The DCR defines what data to collect and where that data should be sent. A single DCR and be associated with multiple machines, and a single machine can be associated with multiple DCRs. This allows you to centrally define the logic for different data collection scenarios and apply them to different sets of machines.
+
+When an agent is installed, it connects to Azure Monitor to retrieve any DCRs that are associated with it. The agent periodically checks back with Azure Monitor to determine if there are any changes to existing DCRs or associations with new ones.
+
+There are multiple methods for creating DCRs and associating them with machines. 
+
 ## Supported regions
 
 Azure Monitor Agent is available in all public regions, Azure Government and China clouds, for generally available features. It's not yet supported in air-gapped clouds. For more information, see [Product availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&rar=true&regions=all).
@@ -31,7 +42,7 @@ There's no cost for the Azure Monitor Agent, but you might incur charges for the
 
 ## Supported services and features
 
-The following tables identify the different environments and features that are supported by Azure Monitor agent in addition to those supported by the legacy agent. This information will assist you in determining whether Azure Monitor agent can support your current requirements. See [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md#migrate-additional-services-and-features) for guidance on migrating specific features.
+The following tables identify the different environments and features that are currently supported by Azure Monitor agent in addition to those supported by the legacy agent. This information will assist you in determining whether Azure Monitor agent can support your current requirements. See [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md#migrate-additional-services-and-features) for guidance on migrating specific features.
 
 
 ### Windows agents
@@ -86,7 +97,6 @@ The following tables identify the different environments and features that are s
 
 ## Install the agent and configure data collection
 
-Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md), where you define which data you want each agent to collect. Data collection rules let you manage data collection settings at scale and define unique, scoped configurations for subsets of machines. You can define a rule to send data from multiple machines to multiple destinations across regions and tenants.
 
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
