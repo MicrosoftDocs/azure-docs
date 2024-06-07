@@ -14,7 +14,7 @@ Azure Kubernetes Service (AKS) offers three pricing tiers for cluster management
 
 |                  |Free tier|Standard tier|Premium tier|
 |------------------|---------|--------|
-|**When to use**|• You want to experiment with AKS at no extra cost <br> • You're new to AKS and Kubernetes|• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA |• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA. <br>• All mission critical, at scale, or production workloads requiring 2 years of one Kubernetes version support|
+|**When to use**|• You want to experiment with AKS at no extra cost <br> • You're new to AKS and Kubernetes|• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA |• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA <br>• All mission critical, at scale, or production workloads requiring *two years* of one Kubernetes version support|
 |**Supported cluster types**|• Development clusters or small scale testing environments <br> • Clusters with fewer than 10 nodes|• Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes| • Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes |
 |**Pricing**|• Free cluster management <br> • Pay-as-you-go for resources you consume|• Pay-as-you-go for resources you consume <br> • [Standard tier Cluster Management Pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/) | • Pay-as-you-go for resources you consume <br> • [Premium tier Cluster Management Pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/) |
 |**Feature comparison**|• Recommended for clusters with fewer than 10 nodes, but can support up to 1,000 nodes <br> • Includes all current AKS features|• Uptime SLA is enabled by default <br> • Greater cluster reliability and resources <br> • Can support up to 5,000 nodes in a cluster <br> • Includes all current AKS features | • Includes all current AKS features from standard tier <br> • [Microsoft maintenance past community support][long-term-support] |
@@ -32,28 +32,28 @@ In the Standard tier and Premium tier, the Uptime SLA feature is enabled by defa
 
 ## Before you begin
 
-Make sure you have installed [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Create a new cluster and select the pricing tier
 
 Use the Azure CLI to create a new cluster on an AKS pricing tier. You can create your cluster in an existing resource group or create a new one. To learn more about resource groups and working with them, see [managing resource groups using the Azure CLI][manage-resource-group-cli].
 
-Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The commands below show you how to create a new resource group named *myResourceGroup* and a cluster named *myAKSCluster* in that resource group in each tier.
+Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The following commands show you how to create a new cluster in the Free, Standard, and Premium tiers.
 
 ```azurecli-interactive
 # Create a new AKS cluster in the Free tier
 
 az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
+    --resource-group $RESOURCE_GROUP \
+    --name $CLUSTER_NAME \
     --tier free \
     --generate-ssh-keys
 
 # Create a new AKS cluster in the Standard tier
 
 az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
+    --resource-group $RESOURCE_GROUP \
+    --name $CLUSTER_NAME \
     --tier standard \
     --generate-ssh-keys
 
@@ -61,8 +61,8 @@ az aks create \
 # LongTermSupport and Premium tier should be enabled/disabled together
 
 az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
+    --resource-group $RESOURCE_GROUP \
+    --name $CLUSTER_NAME \
     --tier premium \
     --k8s-support-plan AKSLongTermSupport \
     --generate-ssh-keys
@@ -103,21 +103,21 @@ The following example uses the [`az aks update`](/cli/azure/aks#az_aks_update) c
 ```azurecli-interactive
 # Update an existing cluster from the Standard tier to the Free tier
 
-az aks update --resource-group myResourceGroup --name myAKSCluster --tier free
+az aks update --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --tier free
 
 # Update an existing cluster from the Free tier to the Standard tier
 
-az aks update --resource-group myResourceGroup --name myAKSCluster --tier standard
+az aks update --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --tier standard
 ```
 
-To [update existing clusters from and to the Premium tier][long-term-support-update] it requires also the changing the support plan.
+[Updating existing clusters from and to the Premium tier][long-term-support-update] requires changing the support plan.
 
 ```azurecli-interactive
 # Update an existing cluster to the Premium tier
-az aks update --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support-plan AKSLongTermSupport
+az aks update --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --tier premium --k8s-support-plan AKSLongTermSupport
 
 # Update an existing cluster to from Premium tier to Free or Standard tier
-az aks update --resource-group myResourceGroup --name myAKSCluster --tier [free|standard] --k8s-support-plan KubernetesOfficial
+az aks update --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --tier [free|standard] --k8s-support-plan KubernetesOfficial
 ```
 
 This process takes several minutes to complete. You shouldn't experience any downtime while your cluster tier is being updated. When finished, the following example JSON snippet shows updating the existing cluster to the Standard tier in the Base SKU.
