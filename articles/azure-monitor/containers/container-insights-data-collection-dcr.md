@@ -24,6 +24,7 @@ Specific configuration you can perform with the DCR includes:
 > Complete configuration of data collection in Container insights may require editing of both the DCR and the ConfigMap for the cluster since each method allows configuration of a different set of settings. 
 > 
 > See [Configure data collection in Container insights using ConfigMap](./container-insights-data-collection-configmap.md) for a list of settings and the process to configure data collection using ConfigMap.
+> Customers should not delete or manually edit their DCR resource. 
 
 ## Prerequisites
 
