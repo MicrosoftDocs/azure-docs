@@ -54,14 +54,12 @@ Resources are the most critical part of the tape migration process, and we divid
 | Hardware | - Different tape generations require different type of hardware <br> - Speed of the migration is proportional to available drives |
 | Software | - Access to software that created the data is needed <br> - Access to encryption keys is needed |
 
-Hardware is usually the most challenging part. If we're migrating existing tape generations, hardware is available, but used as part of the existing production. When migrating older tape generations, hardware is often not available anymore, and it's harder to acquire. With older tape generation, using a tape migration partner is a preferred option.
-When hardware is available, careful planning is needed to make sure migration doesn't interfere with the existing production workloads. Here we can apply three different models:
+Hardware is usually the most challenging part. If we're migrating existing tape generations, hardware is available, but used as part of the existing production. But for older tape generations, hardware is often end-of-life, and it's harder to acquire. With older tape generation, using a tape migration partner is a preferred, and simpler option.
+When production hardware is used for migrations, careful planning is needed to make sure migration doesn't interfere with the production workloads. Here we can apply three different models:
 
-| Model | Pros | Cons |
-| ----- | ---- | ---- |
-| Run production, and migration together | - Easy to schedule, and plan | - Possible impact to production <br> - Reduced hardware available for production |
-| Run migration off-hours | - No impact to production | - Complex schedule, and execution <br> - Requires people working off-hours |
-| Use dedicated hardware for migration | - Easy to schedule, and plan <br> - No impact to production | - Cost increase <br> - Hardware utilization post migration |
+1. Use dedicated hardware for migration: simplest migration model, it is easy to schedule, and plan with no impact to production. It includes additional cost for acquiring the hardware (if not available already), and causes a low hardware utilization post-migration.
+1. Run migration off-hours on production hardware: migration model with no impact to production. Requires complex scheduling, execution, and people working off-hours. Possible only if production hardware is not utilized 24x7.
+1. Run production, and migration together: least-preferred migration model as it can easily impact production. This model reduces hardware available for production, requires complex scheduling, and planning. If this model is used, processes around reducing impact to production are critical to keep the migration timeline under control. This model is recommended only when production hardware has low utilization.
 
 ### Data transfer options
 
@@ -87,7 +85,7 @@ Here is a simple flowchart to ease the selection process.
 
 ### Data format
 
-Data format has a large impact on migration design, and is the critical consideration for future data usability. Data can be stored in a proprietary, or native format. Proprietary formats are commonly stored as a virtual tapes, a raw image from the original tape. Native format requires to restore the data from tapes, and store them as files, or objects.
+Data format has a large impact on migration design, and is the critical consideration for future data usability. Data can be stored in a proprietary, or native format. Proprietary formats are commonly stored as virtual tapes. Native format requires restoring files from tapes, and storing them as files, or objects.
 
 | Model | Pros | Cons |
 | ----- | ---- | ---- |
@@ -98,7 +96,7 @@ Main criteria for deciding the format is how do we plan to use the migrated data
 
 ## Migration process
 
-Once we made decisions on file format, and migration execution, we can start with the migration. Migration goes through several phases.
+Once we made decisions on migration execution, and prefeered file format, we can start with the migration. Migration goes through several phases.
 ![Picture showing tape migration phases](./media/tape-migration-guide/tape-migration-steps.png)
 
 ### Information phase
