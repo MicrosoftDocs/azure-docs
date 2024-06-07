@@ -48,11 +48,11 @@ items:
       - name: Create a hub in the Azure portal
         href: how-to/create-secure-ai-hub.md
       - name: Create a hub from template
-        href: how-to/create-azure-ai-hub-template.md      
+        href: how-to/create-azure-ai-hub-template.md
+      - name: Create a hub using the Azure Machine Learning SDK and CLI
+        href: how-to/develop/create-hub-project-sdk.md
     - name: Create a project
       href: how-to/create-projects.md
-    - name: Create a hub and project using the Azure Machine Learning SDK
-      href: how-to/develop/create-hub-project-sdk.md
     - name: Create and manage compute
       href: how-to/create-manage-compute.md
     - name: Connect to external resources
@@ -270,6 +270,8 @@ items:
         href: how-to/configure-managed-network.md
       - name: Configure private link
         href: how-to/configure-private-link.md
+      - name: Configure custom DNS
+        href: ../machine-learning/how-to-custom-dns.md?context=/azure/ai-studio/context/context
       - name: Troubleshoot secure project connectivity
         href: how-to/troubleshoot-secure-connection-project.md
     - name: Data protection & encryption

@@ -48,6 +48,8 @@ Azure Database for PostgreSQL supports TLS version 1.2 and later. In [RFC 8996](
 
 All incoming connections that use earlier versions of the TLS protocol, such as TLS 1.0 and TLS 1.1, are denied by default.
 
+The Internet Engineering Task Force (IETF) released the TLS 1.3 specification in RFC 8446 in August of 2018 and is now the most common and recommended TLS version in use. TLS 1.3 is significantly faster and more secure than TLS 1.2. 
+
 > [!NOTE]  
 > SSL and TLS certificates certify that your connection is secured with state-of-the-art encryption protocols. By encrypting your  connection on the wire, you prevent unauthorized access to your data while in transit. This is why we strongly recommend using latest versions of TLS to encrypt your connections to Azure Database for PostgreSQL flexible server.  
 > Although it's not recommended, if needed, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL flexible server by updating  the **require_secure_transport** server parameter to OFF. You can also set TLS version by setting **ssl_min_protocol_version** and **ssl_max_protocol_version** server parameters.

@@ -82,7 +82,7 @@ The models are made available through [Azure Machine Learning registries](../../
 
 * Supports enterprise security requirements as limiting access to models with Azure Policy and secure deployment with managed virtual networks. 
 
-### Deploy models for inference with managed compute 
+### Deploy models for inference with Managed compute 
 
 Models available for deployment to a Managed compute can be deployed to Azure Machine Learning Online Endpoints for real-time inference. Deploying to managed compute requires you to have Virtual Machine quota in your Azure Subscription for the specific SKUs needed to optimally run the model.  Some models allow you to deploy to [temporarily shared quota for testing the model](deploy-models-open.md). Learn more about deploying models: 
 
