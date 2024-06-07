@@ -567,7 +567,7 @@ kafkaToMqtt:
   qos: 0
 ```
 
-In this example, messages from Kafka topic *sending-event-hub** are published to MQTT topic *heater-commands* with QoS level 0.
+In this example, messages from Kafka topic *sending-event-hub* are published to MQTT topic *heater-commands* with QoS level 0.
 
 ### Event hub name must match Kafka topic
 
