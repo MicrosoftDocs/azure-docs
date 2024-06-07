@@ -14,57 +14,51 @@ ms.custom: attributes
 [!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 ## Overview
+Time Series Insights is a service that enables operational analytics and reporting on historical data. It offers data ingestion, storage, contextualization, analysis, and querying capabilities. As part of migrating to [Fabric Real-Time Intelligence](/fabric/real-time-intelligence/overview), all of these capabilities can be met and even improved by migrating to [Eventhouse](/fabric/real-time-intelligence/eventhouse), the time series database in Fabric Real-Time Intelligence.
 
-Time Series Insights (TSI) service provides access to historical data ingested through hubs for operational analytics and reporting. Service features are:
-- Data ingestion via hubs or bulk upload capability.
-- Data storage on hot, limited retention, and cold, infinite retention, paths.
-- Data contextualization applying hierarchies through the Time Series Model.
-- Data charting and operational analysis through TSI Explorer.
-- Data query using TSQ through API or TSI Explorer.
-- Connectors to access data with Databricks Spark or PBI.
+## Migration steps
 
+Time Series Insights has two offerings, Gen1 and Gen2, with different migration steps.
 
-## Feature Comparison with Azure Data Explorer (ADX)
+### Time Series Insights Gen1
 
-| Feature | TSI | ADX |
-| ---| ---| ---|
-| Data ingestion | Event Hubs, IoT hub limited to 1 MB/s | Event Hubs, IoT hub, Kafka, Spark, Azure storage, Azure Stream Analytics, Azure Data Factory, Logstash, Power automate, Logic apps, Telegraf, Apache Nifi. No limits on ingestion (scalable), Ingestion benchmark is 200 MB/s/node on a 16 core machine in ADX cluster. |
-| Data storage and retention | Warm store – multitenant ADX Cluster | Cold Store - Azure Blob storage in customer’s subscription	Distributed columnar store with highly optimized hot(on SSD of compute nodes) and cold(on Azure storage) store. Choose any ADX SKU for full flexibility |
-| Data formats | JSON | JSON, CSV, Avro, Parquet, ORC, TXT, and various others [Data formats supported by Azure Data Explorer for ingestion](/azure/data-explorer/ingestion-supported-formats). |
-| Data Querying | TSQ | KQL, SQL |
-| Data Visualization | TSI Explorer, PBI | PBI, ADX Dashboards, Grafana, Kibana, and other visualization tools using ODBC/JDBC connectors |
-| Machine Learning | NA | Supports R and Python in building ML models or scoring data by exporting existing models. Native capabilities for forecasting. Anomaly detection at scale. Clustering capabilities for diagnostics and RCA |
-| PBI Connector | Public preview | Optimized native PBI connector(GA), supports direct query or import mode, supports query parameters and filters |
-| Data Export | Data is available as Parquet files in BLOB storage | Supports automatic continuous export to Azure storage, external tables to query exported data | 
-| Customer owns HA/DR | Storage, so it depends on the selected config. | HA SLA of 99.9% availability, AZ supported, Storage is built on durable Azure Blob storage |
-| Security | Private link for incoming traffic, but open for storage and hubs | VNet injection, Private Link, Encryption at rest with customer-managed keys supported |
-| RBAC role and RLS | Limited RBAC role, no RLS | Granular RBAC role for functions and data access, RLS and data masking supported |
-
-## TSI Migration to ADX Steps
-
-TSI has two offerings, Gen1 and Gen2, with different migration steps.
-
-### TSI Gen1
-
-TSI Gen1 doesn’t have cold Storage or hierarchy capability. All data has fixed retention. Extracting data and mapping it to ADX would be complicated and time-consuming for TSI developers and the customer. The suggested migration path is to set up parallel data ingestion to ADX. After the fixed data retention period passes, the TSI environment can be deleted, as ADX will contain the same data.
-1.	Create ADX Cluster
-1.	Set up parallel ingestion from hubs to ADX Cluster
+Time Series Insights Gen1 doesn’t have cold Storage or hierarchy capability. All data has fixed retention. The suggested migration path is to set up parallel data ingestion to Eventhouse. After the fixed data retention period passes, the Time Series Insights environment can be deleted, as Eventhouse will contain the same data.
+1.	[Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse)
+1.	Set up parallel [ingestion](/fabric/real-time-intelligence/get-data-event-hub) from [Azure Event Hubs](/azure/event-hubs/event-hubs-about) to the Eventhouse
 1.	Continue ingesting data for the period of fixed retention
-1.	Start using ADX Cluster
-1.	Delete TSI environment
+1.	Start using Eventhouse
+1.	Delete Time Series Insights environment
 
-Detailed FAQ and engineering experience are outlined in [How to migrate TSI Gen1 to ADX](./how-to-tsi-gen1-migration.md)
+Detailed FAQ and engineering experience are outlined in [How to migrate TSI Gen1 to Fabric Real-Time Intelligence](./how-to-tsi-gen1-migration.md)
 
-### TSI Gen2
+### Time Series Insights Gen2
 
-TSI Gen2 stores all data on cold storage using Parquet format as a blob in the customer’s subscription. To migrate data, the customer should take the blob and import it into ADX using the bulk upload capability Lightingest. More information on lighting can be found here.
-1.	Create ADX Cluster
-1.	Redirect data ingestion to ADX Cluster
-1.	Import TSI cold data using lighting
-1.	Start using ADX Cluster
-1.	Delete TSI Environment 
+Time Series Insights Gen2 stores all data on cold storage using Parquet format as a blob in the customer’s subscription. To migrate data, the customer should take the blob and import it into Eventhouse using the GetData experience.
+1.	[Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse)
+1.	Redirect data [ingestion](/fabric/real-time-intelligence/get-data-event-hub) to Eventhouse
+1.	[Import(/fabric/real-time-intelligence/get-data-azure-storage)] Time Series Insights cold data 
+1.	Start using Eventhouse
+1.	Delete Time Series Insights Environment 
 
-Detailed FAQ and engineering experience are outlined in [How to migrate TSI Gen2 to ADX](./how-to-tsi-gen2-migration.md)
+Detailed FAQ and engineering experience are outlined in [How to migrate TSI Gen2 to Fabric Real-Time Intelligence](./how-to-tsi-gen2-migration.md)
+
+### Data consumption and visualization
+
+Once you have successfully migrated your data and established continuous data ingestion from your sources, you can consume the data using a variety of tools and technologies. These include:
+
+* [Power BI](/fabric/real-time-intelligence/create-powerbi-report): Power BI is a powerful business intelligence tool that allows you to create interactive visualizations and reports based on your data. You can connect Power BI to your Fabric Real-Time Intelligence environment and leverage its rich set of features to gain insights from your data.
+
+* [KQL Querysets](/fabric/real-time-intelligence/create-query-set): KQL (Kusto Query Language) is a query language used in Azure Data Explorer and other Azure services. With KQL, you can write powerful queries to analyze and manipulate your data in Fabric Real-Time Intelligence. 
+
+* [Real-Time Dashboards](/fabric/real-time-intelligence/dashboard-real-time-create): Fabric Real-Time Intelligence provides built-in support for creating real-time dashboards. These dashboards allow you to monitor and visualize your data in real-time, providing you with up-to-date insights and analytics. You can customize these dashboards to suit your specific needs and requirements.
+
+* [KustoTrender](https://github.com/Azure/azure-kusto-trender): A JavaScript library for custom time series dashboards
+
+* SDKs for Custom Applications: Fabric Real-Time Intelligence offers SDKs (Software Development Kits) for various programming languages, including [C#](/azure/data-explorer/kusto/api/netfx/about-the-sdk?context=%2Ffabric%2Fcontext%2Fcontext-rti&pivots=fabric), Java [Java](/azure/data-explorer/kusto/api/java/kusto-java-client-library?context=%2Ffabric%2Fcontext%2Fcontext-rti&pivots=fabric), and [Node.js](/azure/data-explorer/kusto/api/node/kusto-node-client-library?context=%2Ffabric%2Fcontext%2Fcontext-rti&pivots=fabric). These SDKs provide a set of libraries and tools that allow you to integrate Fabric Real-Time Intelligence into your custom applications. You can use these SDKs to perform data ingestion, querying, and other operations programmatically.
+
+### Migration of the Time Series Model
+
+Time Series Insights Gen 2 offers the capability to contextualize raw time series data using a model known as the [Time Series Model](/azure/time-series-insights/concepts-model-overview), which defines assets and their relationships as hierarchies. Leveraging the [Kusto Graph Semantics](/azure/data-explorer/graph-overview?context=%2Ffabric%2Fcontext%2Fcontext-rti&pivots=fabric) within Eventhouse, it is possible to model the Time Series Model hierarchy as a graph. This enables the traversal of assets within the graph and facilitates the contextualization of time series data.
 
 > [!NOTE]
-> Your Time Series Insights resources will be automatically deleted if you cannot migrate from Time Series Insights to Azure Data Explorer by 7 July 2024. You’ll be able to access Gen2 data in your storage account. However, you can only perform management operations (such as updating storage account settings, getting storage account properties/keys, and deleting storage accounts) through Azure Resource Manager. 
+> Your Time Series Insights resources will be automatically deleted if you cannot migrate from Time Series Insights to Fabric Real-Time Intelligence by 7 July 2024. You’ll be able to access Gen2 data in your storage account. However, you can only perform management operations (such as updating storage account settings, getting storage account properties/keys, and deleting storage accounts) through Azure Resource Manager. 

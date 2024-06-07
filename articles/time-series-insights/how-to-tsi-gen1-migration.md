@@ -1,6 +1,6 @@
 ---
-title: 'Time Series Insights Gen1 migration to Azure Data Explorer | Microsoft Docs'
-description: How to migrate Azure Time Series Insights Gen 1 environments to Azure Data Explorer.
+title: 'Time Series Insights Gen1 migration to to Fabric Real-Time Intelligence | Microsoft Docs'
+description: How to migrate Azure Time Series Insights Gen 1 environments to to Fabric Real-Time Intelligence.
 ms.service: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
@@ -9,26 +9,43 @@ ms.date: 3/15/2022
 ms.custom: tvilutis
 ---
 
-# Migrating Time Series Insights Gen1 to Azure Data Explorer
+# Migrating Time Series Insights Gen1 to to Fabric Real-Time Intelligence
 
 [!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 ## Overview
 
-The recommendation is to set up Azure Data Explorer cluster with a new consumer group from the Event Hub or IoT Hub and wait for retention period to pass and fill Azure Data Explorer with the same data as Time Series Insights environment.
-If telemetry data is required to be exported from Time Series Insights environment, the suggestion is to use Time Series Insights Query API to download the events in batches and serialize in required format. 
-For reference data, Time Series Insights Explorer or Reference Data API can be used to download reference data set and upload it into Azure Data Explorer as another table. Then, materialized views in Azure Data Explorer can be used to join reference data with telemetry data. Use materialized view with arg_max() aggregation function which will get the latest record per entity, as demonstrated in the following example. For more information about materialized views, read the following documentation: [Materialized views use cases](/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview#materialized-views-use-cases).
+[Eventhouse](/fabric/real-time-intelligence/eventhouse) is the time series database in Fabric Real-Time Intelligence. It serves as the target for migrating data away from Time Series Insights.
 
-```
-.create materialized-view MVName on table T
-{
-    T
-    | summarize arg_max(Column1,*) by Column2
-}
-```
+### Prerequisites
+
+To begin the migration process, ensure that you have created a new Eventhouse in Fabric Real-Time Intelligence. Follow the documentation on how to [create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse).
+
+### Ingest new data
+
+To start ingesting new data into your Eventhouse, follow these steps:
+
+1. Configure your [Azure Event Hub](/azure/event-hubs/event-hubs-about) with a new consumer group.
+
+2. Consume data from the data source and ingest it into your Eventhouse. Refer to the documentation on how to [ingest data from your EventHub](/fabric/real-time-intelligence/get-data-event-hub).
+
+### Migrate historical data from Time Series Insights
+
+If you need to export telemetry data from your Time Series Insights environment, you can use the Time Series Insights Query API to download the events in batches and serialize them in the required format. Depending on where you stored the exported data, you can ingest the data from [Azure Storage](/real-time-intelligence/get-data-azure-storage), [local files](/fabric/real-time-intelligence/get-data-local-file), or [OneLake](/fabric/real-time-intelligence/get-data-onelake).
+
+### Migrate reference data
+
+For migrating reference data, you can follow these steps:
+
+1. Use Time Series Insights Explorer or the Reference Data API to download the reference data set. This will allow you to retrieve the necessary data for migration.
+
+2. Once you have the reference data set, you can upload it into your Eventhouse as another table. This can be done using the [Upload](/fabric/real-time-intelligence/get-data-local-file) feature in Fabric Real-Time Intelligence. By uploading the reference data set, you will be able to access and utilize it within your Eventhouse environment.
+
+Please note that these steps assume you have already created a new Eventhouse in Fabric Real-Time Intelligence as a prerequisite for the migration process.
+
 ## Translate Time Series Insights Queries to KQL
 
-For queries, the recommendation is to use KQL in Azure Data Explorer.
+For queries, the recommendation is to use KQL in Eventhouse.
 
 #### Events
 ```TSQ
