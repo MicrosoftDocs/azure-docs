@@ -46,7 +46,7 @@ For more information, see [Azure OpenAI Service models](../ai-services/openai/co
         remaining-tokens-header-name="header name"  
         remaining-tokens-variable-name="policy expression variable name"
         tokens-consumed-header-name="header name"
-        tokens-consume-variable-name="policy expression variable name" />
+        tokens-consumed-variable-name="policy expression variable name" />
 ```
 ## Attributes
 
