@@ -3,7 +3,7 @@ title:  Syslog and CEF AMA connectors - Microsoft Sentinel
 description: Learn how Microsoft Sentinel collects Syslog and Common Event Format (CEF) messages with the Azure Monitor Agent.
 author: yelevin
 ms.author: yelevin
-ms.topic: concept
+ms.topic: concept-article
 ms.custom: linux-related-content
 ms.date: 05/13/2024
 #Customer intent: As a security operator, I want to understand how Microsoft Sentinel collects Syslog and CEF messages with the Azure Monitor Agent so that I can determine if this solution fits my organization's needs.  

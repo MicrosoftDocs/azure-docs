@@ -4,7 +4,7 @@ description: Learn about how to connect and authenticate using managed identity 
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/24/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.custom:
 
 # Connect with managed identity to Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 You can use both system-assigned and user-assigned managed identities to authenticate to Azure Database for PostgreSQL flexible server. This article shows you how to use a system-assigned managed identity for an Azure Virtual Machine (VM) to access an Azure Database for PostgreSQL flexible server instance. Managed Identities are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication without needing to insert credentials into your code.
 
@@ -83,7 +83,7 @@ Your application can now retrieve an access token from the Azure Instance Metada
 This token retrieval is done by making an HTTP request to `http://169.254.169.254/metadata/identity/oauth2/token` and passing the following parameters:
 
 * `api-version` = `2018-02-01`
-* `resource` = `https://server-name.database.windows.net`
+* `resource` = `https://ossrdbms-aad.database.windows.net`
 * `client_id` = `CLIENT_ID` (that you retrieved earlier)
 
 You get back a JSON result containing an `access_token` field - this long text value is the Managed Identity access token you should use as the password when connecting to the database.
@@ -96,7 +96,7 @@ For testing purposes, you can run the following commands in your shell.
 ```bash
 # Retrieve the access token
 
-export PGPASSWORD=`curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fserver-name.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token`
+export PGPASSWORD=`curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token`
 
 # Connect to the database
 
@@ -138,7 +138,7 @@ namespace Driver
             //
             Console.Out.WriteLine("Getting access token from Azure AD...");
 
-            // Azure AD resource ID for Azure Database for PostgreSQL Flexible Server is https://server-name.database.windows.net/
+            // Azure AD resource ID for Azure Database for PostgreSQL Flexible Server is https://ossrdbms-aad.database.windows.net/
             string accessToken = null;
 
             try
@@ -146,7 +146,7 @@ namespace Driver
                 // Call managed identities for Azure resources endpoint.
                 var sqlServerTokenProvider = new DefaultAzureCredential();
                 accessToken = (await sqlServerTokenProvider.GetTokenAsync(
-                    new Azure.Core.TokenRequestContext(scopes: new string[] { "https://server-name.database.windows.net/.default" }) { })).Token;
+                    new Azure.Core.TokenRequestContext(scopes: new string[] { "https://ossrdbms-aad.database.windows.net/.default" }) { })).Token;
 
             }
             catch (Exception e)
