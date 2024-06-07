@@ -25,11 +25,11 @@ Before you create a workspace in the Azure portal, you must have an Azure accoun
 
 To get started with Azure Health Data Services, you must [create a resource](https://portal.azure.com/#create/hub) in the Azure portal. Enter *Azure Health Data Services* in the **Search services and marketplace** box.
 
-[![Screenshot of the Azure search services and marketplace text box.](media/search-services-marketplace.png)](media/search-services-marketplace.png#lightbox)
+[![Screenshot of the Azure search services and marketplace text box.](media/healthcare-apis-quickstart/search-services-marketplace.png)](media/healthcare-apis-quickstart/search-services-marketplace.png#lightbox)
 
 After you locate the Azure Health Data Services resource, select **Create**.
 
-[![Screenshot of the create Azure Health Data Services resource button.](media/create-azure-health-data-services-resource.png)](media/create-azure-health-data-services-resource.png#lightbox)
+[![Screenshot of the create Azure Health Data Services resource button.](media/healthcare-apis-quickstart/create-azure-health-data-services-resource.png)](media/healthcare-apis-quickstart/create-azure-health-data-services-resource.png#lightbox)
 
 ## Create workspace
 
