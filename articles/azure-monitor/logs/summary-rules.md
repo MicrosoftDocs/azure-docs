@@ -41,6 +41,8 @@ This article describes how summary rules work and how to define and view summary
 
 Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule aggregates chunks of data, defined by bin size, based on a KQL query, and reingests the summarized results into a custom table with an [Analytics log plan](basic-logs-configure.md) in your Log Analytics workspace. 
 
+:::image type="content" source="media/summary-rules/ingestion-flow.png" alt-text="A diagram that shows how data is ingested from various data sources to a Log Analytics workspace and is aggregated and reingested into the workspace by using a summary rule." lightbox="media/summary-rules/ingestion-flow.png":::
+
 For example, if you're monitoring containers, you ingest a large volume of verbose logs into the `ContainerLogsV2` table.
 
 You might use this query in your summary rule to aggregate all unique log entries within 60 minutes, keeping the data that's useful for analysis and dropping data you don't need: 
@@ -298,7 +300,7 @@ Use this template to create or update a summary rule. For more information about
 ```
 ---
 
-This table describes the summary rule properties:
+This table describes the summary rule parameters:
 
 | Parameter | Valid values | Description |
 | --- | --- |
