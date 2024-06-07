@@ -25,7 +25,7 @@ The following topics provide detailed information about creating and managing ta
 
 * [Provision Exadata infrastructure](provision-oracle-exadata-infrastructure.md)
 * [Provision an Exadata VM Cluster](provision-oracle-exadata-vm-cluster.md)
-* [Provision Oracle autonomous databases](provision-oracle-autonomous-databases.md)
+* [Provision Oracle autonomous databases](provision-autonomous-oracle-databases.md)
 * [Use HashiCorp Terraform to provision Oracle Database@Azure](provision-use-terraform-oracle-database.md)
 * [Manage resources for Oracle Database@Azure](provision-manage-oracle-resources.md)
 * [Troubleshoot provisioning issues](provision-troubleshoot-oracle-database.md)
