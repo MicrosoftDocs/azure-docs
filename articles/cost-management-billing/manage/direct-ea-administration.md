@@ -261,7 +261,7 @@ If you're a new EA account owner with a .onmicrosoft.com account, you might not 
 
 EA admins can use the Azure portal to transfer account ownership of selected or all subscriptions in an enrollment. When you complete a subscription or account ownership transfer, Microsoft updates the account owner.
 
-Transferring one or more subscriptions from one EA enrollment to another EA enrollment requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). For more information, see [Product transfer support](https://learn.microsoft.com/azure/cost-management-billing/manage/subscription-transfer#product-transfer-support).
+Transferring one or more subscriptions from one EA enrollment to another EA enrollment requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). For more information, see [Product transfer support](subscription-transfer.md#product-transfer-support).
 
 Before starting the ownership transfer, get familiar with the following Azure role-based access control (RBAC) policies:
 
