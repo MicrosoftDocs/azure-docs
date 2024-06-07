@@ -1,6 +1,6 @@
 ---
 title: About Azure CDN from Microsoft (classic) to Standard or Premium tier migration
-description: This article explains the migration process and changes expected when using the migration tool to Azure Front Door Standard/Premium tier.
+description: This article explains the migration process and changes expected when changing from Azure CDN from Microsoft (classic) to Azure Front Door Standard or Premium tier.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
@@ -71,13 +71,13 @@ After you migrate your Azure Front Door profile, you'll need to change your Dev-
 
 ### Endpoint with hash value
 
-Azure Front Door Standard and Premium endpoints are generated to include a hash value to prevent your domain from being taken over. The format of the endpoint name is `<endpointname>-<hashvalue>.z01.azurefd.net`. The Front Door (classic) endpoint name will continue to work after migration but we recommend replacing it with the newly created endpoint name from your new Standard or Premium profile. For more information, see [Endpoint domain names](endpoint.md#endpoint-domain-names). If you're using Azure CDN endpoint in your application code, it's recommended to update using a custom domain name.
+Azure Front Door Standard and Premium endpoints are generated to include a hash value to prevent your domain from being taken over. The format of the endpoint name is `<endpointname>-<hashvalue>.z01.azurefd.net`. The Front Door (classic) endpoint name will continue to work after migration but we recommend replacing it with the newly created endpoint name from your new Standard or Premium profile. For more information, see [Endpoint domain names](../frontdoor/endpoint.md#endpoint-domain-names). If you're using Azure CDN endpoint in your application code, it's recommended to update using a custom domain name.
 
 ### Logs, metrics, core analytics
 
 Diagnostic logs and metrics aren't migrated. Azure Front Door Standard and Premium log fields are different from Azure CDN from Microsoft (classic). Standard and Premium tier has heath probe logging and we recommend that you enable diagnostic logging after you migrate. 
 
-Core Analytics aren't supported with Azure Front Door Standard or Premium tier. Instead, built-in reports are provided and starts displaying data once the migration is completed. For more information, see [Azure Front Door reports](standard-premium/how-to-reports.md).
+Core Analytics aren't supported with Azure Front Door Standard or Premium tier. Instead, built-in reports are provided and starts displaying data once the migration is completed. For more information, see [Azure Front Door reports](../frontdoor/standard-premium/how-to-reports.md).
 
 ## Resource states
 
@@ -115,6 +115,5 @@ When you migrate your Azure CDN from Microsoft (classic) to Azure Front Door Sta
 
 ## Next steps
 
-* Understand the [settings mapping between Azure Front Door tiers](tier-mapping.md).
-* Learn how to [migrate from Azure Front Door (classic) to Standard or Premium tier](migrate-tier.md) using the Azure portal.
+* Learn how to [migrate from Azure CDN from Microsoft (classic) to Azure Front Door](migrate-tier.md) using the Azure portal.
 
