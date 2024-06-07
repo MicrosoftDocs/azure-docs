@@ -520,7 +520,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
             "newClusterVersion": "4.0.x-scala2.11",
             "accessToken": {
                 "type": "SecureString",
-                "value": "dapif33c9c721144c3a790b35000b57f7124f"
+                "value": "&lt;your_secure_string_value&gt;"
             }
         }
     }
@@ -539,7 +539,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
         "domain": "https://westeurope.azuredatabricks.net",
         "accessToken": {
             "type": "SecureString", 
-            "value": "dapif33c9c72344c3a790b35000b57f7124f"
+            "value": "&lt;your_secure_string_value&gt;"
           },
         "existingClusterId": "{clusterId}"
         }
