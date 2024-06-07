@@ -26,7 +26,7 @@ items:
     - name: Provision exadata VM cluster
       href: oracle-db/provision-oracle-exadata-vm-cluster.md
     - name: Provision autonomous databases
-      href: oracle-db/provision-autonomous-oracle-database.md
+      href: oracle-db/provision-autonomous-oracle-databases.md
     - name: Use HashiCorp Terraform to provision Oracle Database@Azure
       href: oracle-db/provision-use-terraform-oracle-database.md
     - name: Manage resources for Oracle Database@Azure
