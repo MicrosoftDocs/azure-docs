@@ -8,7 +8,7 @@ ms.subservice: aks-security
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-ms.date: 06/03/2024
+ms.date: 06/07/2024
 ms.author: tamram
 ---
 
@@ -22,7 +22,7 @@ This article shows how to enable the following types of managed identity on a ne
 
 * **System-assigned managed identity.** A system-assigned managed identity is associated with a single Azure resource, such as an AKS cluster. It exists for the lifecycle of the cluster only.
 * **User-assigned managed identity.** A user-assigned managed identity is a standalone Azure resource that an AKS cluster can use to authorize access to other Azure services. It persists separately from the AKS cluster and can be used by multiple Azure resources.
-* **Pre-created Kubelet managed identity.**
+* **Pre-created kubelet managed identity.** A pre-created kubelet managed identity is an optional user-assigned identity that kubelet can use to access other resources in Azure. If you don't specify a user-assigned managed identity for kubelet, AKS creates a system-assigned kubelet identity in the node resource group.
 
 To learn more about managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
@@ -290,7 +290,7 @@ If the cluster is using a service principal, the value of the *type* property wi
 
 ## Use a pre-created kubelet managed identity
 
-A kubelet identity enables access to the existing identity prior to cluster creation. The kubelet identity must be a user-assigned managed identity. This feature enables scenarios such as connection to ACR with a pre-created managed identity.
+A pre-created kubelet identity is a user-assigned managed identity that exists prior to cluster creation. This feature enables scenarios such as connection to Azure Container Registry (ACR) during cluster creation.
 
 > [!NOTE]
 > AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][use-a-pre-created-kubelet-managed-identity].
@@ -354,7 +354,7 @@ az aks create \
     --generate-ssh-keys
 ```
 
-A successful AKS cluster creation using a kubelet managed identity should resemble the following example output:
+A successful AKS cluster creation using a kubelet managed identity should result in output similar to the following:
 
 ```output
   "identity": {
@@ -387,7 +387,10 @@ To update an existing cluster to use the kubelet managed identity, first get the
 1. Confirm your AKS cluster is using the user-assigned managed identity using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show --resource-group <RGName> --name <ClusterName> --query "servicePrincipalProfile"
+    az aks show \
+        --resource-group <RGName> \
+        --name <ClusterName> \
+        --query "servicePrincipalProfile"
     ```
 
     If your cluster is using a managed identity, the output shows `clientId` with a value of **msi**. A cluster using a service principal shows an object ID. For example:
@@ -402,7 +405,9 @@ To update an existing cluster to use the kubelet managed identity, first get the
 1. After confirming your cluster is using a managed identity, find the managed identity's resource ID using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show --resource-group <RGName> --name <ClusterName> --query "identity"
+    az aks show --resource-group <RGName> \
+        --name <ClusterName> \
+        --query "identity"
     ```
 
     For a user-assigned managed identity, your output should look similar to the following example output:
@@ -418,7 +423,7 @@ To update an existing cluster to use the kubelet managed identity, first get the
     },
     ```
 
-1. Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument, and the kubelet managed identity for `assign-kubelet-identity` argument.
+1. Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Provide the resource ID of the user-assigned managed identity for the control plane for the `assign-identity` argument. Provide the resource ID of the kubelet managed identity for the `assign-kubelet-identity` argument.
 
     ```azurecli-interactive
     az aks update \
