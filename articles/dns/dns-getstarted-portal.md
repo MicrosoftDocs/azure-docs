@@ -5,7 +5,7 @@ description: Use this step-by-step quickstart guide to learn how to create an Az
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 05/22/2024
+ms.date: 06/07/2024
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui
@@ -47,7 +47,7 @@ A DNS zone contains the DNS entries for a domain. To start hosting your domain i
 2. On the **DNS zone** page, select **Create**.
 
 <!-- Reducing the size of this screenshot: (![A screenshot of the DNS zone marketplace.](./media/dns-getstarted-portal/dns-new-zone.png))-->
-  <img src="./media/dns-getstarted-portal/dns-new-zone.png" alt="A screenshot of the DNS zone marketplace." width="50%">
+   <img src="./media/dns-getstarted-portal/dns-new-zone.png" alt="A screenshot of the DNS zone marketplace." width="50%">
 
 3. On the **Create DNS zone** page, type or select the following values:
 
@@ -59,7 +59,7 @@ A DNS zone contains the DNS entries for a domain. To start hosting your domain i
 
    ![A screenshot showing how to create a DNS zone.](./media/dns-getstarted-portal/dns-create-zone.png)
 
-It may take a few minutes to create the zone.
+   It may take a minute to create the zone.
 
 ## Create a DNS record
 
@@ -67,7 +67,7 @@ Next, DNS records are created for your domain inside the DNS zone. A new address
 
 **To create an 'A' record:**
 
-1. In the Azure portal, under **All resources**, open the **contoso.xyz** DNS zone in the **MyResourceGroup** resource group. You can enter *contoso.xyz* in the **Filter by name** box to find it more easily.
+1. In the Azure portal, under **Resources**, open the **contoso.xyz** DNS zone.
 2. At the top of the **contoso.xyz** DNS zone page, select **Record sets** and then select **+ Add**. The **Add a record set** window appears.
 3. In the **Add a record set** window, enter or select the following values:
 
