@@ -36,9 +36,10 @@ This article describes how summary rules work and how to define and view summary
 | Query logs in table (table action) | `Microsoft.OperationalInsights/workspaces/tables/query/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
 | Use queries encrypted in a customer-managed storage account|`Microsoft.Storage/storageAccounts/*` permissions to the storage account, as provided by the [Storage Account Contributor built-in role](/azure/role-based-access-control/built-in-roles/storage#storage-account-contributor), for example|
 
+
 ## How summary rules work
 
-Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule aggregates chunks of data, defined by bin size, based on a KQL query, and reingests the summarized results into a custom [Analytics table](basic-logs-configure.md) in your Log Analytics workspace. 
+Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule aggregates chunks of data, defined by bin size, based on a KQL query, and reingests the summarized results into a custom table with an [Analytics log plan](basic-logs-configure.md) in your Log Analytics workspace. 
 
 For example, if you're monitoring containers, you ingest a large volume of verbose logs into the `ContainerLogsV2` table.
 
@@ -70,6 +71,43 @@ You can aggregate data you ingest into any table, including both [Analytics and 
 You can configure up to 30 rules to aggregate data from multiple tables and send the aggregated data to the same destination table or to separate tables. 
 
 You can export summarized data from a custom log table to a storage account or Event Hubs for further integrations by defining a [data export rule](logs-data-export.md).
+
+## Restrictions and limitations
+
+| Category | Limit | Comments |
+|:---|:---|:---|
+| Maximum number of active rules in a workspace | 30 | |
+| Maximum number of results per bin | 500,000 | |
+| Maximum results set volume | 100 MB | |
+| Query time-out for bin processing | 10 minutes | |
+
+- The summary rule processes incoming data and can't be configured on a historical time range. 
+- When bin execution retries are exhausted, the bin is skipped and can't be re-executed.
+- Querying a Log Analytics workspace in another tenant by using Lighthouse isn't supported.
+- KQL limits depend on the table plan of the source table. 
+
+   - Analytics: Supports all KQL commands, except for data reshaping plugins, including [bag unpack](/azure/data-explorer/kusto/query/bag-unpack-plugin), [narrow](/azure/data-explorer/kusto/query/narrow-plugin), and [pivot](/azure/data-explorer/kusto/query/pivot-plugin). 
+   - Basic: Supports all KQL commands on a single Basic or Auxiliary table. Because `summarize` and `join` aren't supported, use lookup for up to five Analytics tables.
+   - Functions: User-defined functions aren't supported. System functions provided by Microsoft are supported. 
+
+## Pricing model
+
+The cost you incur for summary rules consists of the cost of the query on the source table and the cost of ingesting the results to the destination table:
+
+| Source table plan | Query cost | Query results ingestion cost |
+| --- | --- | --- |
+| Analytics | No cost    | Analytics ingested GB | 
+| Basic     | Scanned GB | Analytics ingested GB | 
+
+For example, this is the cost calculation for hourly rule that returns 100 records per bin:
+
+| Rule configuration | Monthly price calculation
+| --- | --- |
+| Query Analytics table  | Ingestion price x record size x number of records x 24 hours x 30 days | 
+| Query Basic table scanning 1 GB each bin | Scanned GB price x scanned size + Ingestion price x record size x number of records x 24 hours x 30 days | 
+
+For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
 
 ## Create or update a summary rule
 
@@ -440,42 +478,6 @@ If the query in the summary rule includes operators that allow output schema exp
 ### Deleted data remains in workspace, subject to retention period
 
 When you [delete columns or a custom log table](create-custom-table.md), data remains in the workspace and is subjected to the [retention period](data-retention-archive.md) defined on the table or workspace. During the retention period, if you create a table with the same name and fields, Azure Monitor recreates the table with the old data. To delete old data, [update the table retention period](/rest/api/loganalytics/tables/update) with the minimum retention supported (four days) and then delete the table.
-
-## Restrictions and limitations
-
-| Category | Limit | Comments |
-|:---|:---|:---|
-| Maximum number of active rules in a workspace | 30 | |
-| Maximum number of results per bin | 500,000 | |
-| Maximum results set volume | 100 MB | |
-| Query time-out for bin processing | 10 minutes | |
-
-- The summary rule processes incoming data and can't be configured on a historical time range. 
-- When bin execution retries are exhausted, the bin is skipped and can't be re-executed.
-- Querying a Log Analytics workspace in another tenant by using Lighthouse isn't supported.
-- KQL limits depend on the table plan of the source table. 
-
-   - Analytics: Supports all KQL commands, except for data reshaping plugins, including [bag unpack](/azure/data-explorer/kusto/query/bag-unpack-plugin), [narrow](/azure/data-explorer/kusto/query/narrow-plugin), and [pivot](/azure/data-explorer/kusto/query/pivot-plugin). 
-   - Basic: Supports all KQL commands on a single Basic or Auxiliary table. Because `summarize` and `join` aren't supported, use lookup for up to five Analytics tables.
-   - Functions: User-defined functions aren't supported. System functions provided by Microsoft are supported. 
-
-## Pricing model
-
-The cost of summary rules consists of the cost of the query on the source table and the cost of ingesting the results to the destination table:
-
-| Source table plan | Query cost | Query results ingestion cost |
-| --- | --- | --- |
-| Analytics | No cost    | Analytics ingested GB | 
-| Basic     | Scanned GB | Analytics ingested GB | 
-
-For example, this is the cost calculation for hourly rule that returns 100 records per bin:
-
-| Rule configuration | Monthly price calculation
-| --- | --- |
-| Query Analytics table  | Ingestion price x record size x number of records x 24 hours x 30 days | 
-| Query Basic table scanning 1 GB each bin | Scanned GB price x scanned size + Ingestion price x record size x number of records x 24 hours x 30 days | 
-
-For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Related content
 
