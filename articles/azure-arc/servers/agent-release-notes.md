@@ -68,6 +68,7 @@ The first release of the 1.40 agent may impact SQL Server enabled by Azure Arc w
 ### New features
 
 - Oracle Linux 9 is now a [supported operating system](prerequisites.md#supported-operating-systems)
+- Customers no longer need to download an intermediate CA certificate for delivery of WS2012/R2 ESUs (Requires April 2024 SSU update)
 
 ### Fixed
 
