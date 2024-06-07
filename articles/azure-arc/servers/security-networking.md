@@ -1,11 +1,11 @@
 ---
-title: Security networking
-description: Agent and extension updates for Azure Arc-enabled servers.
+title: Network security
+description: Network security for Azure Arc-enabled servers.
 ms.topic: conceptual
 ms.date: 06/06/2024
 ---
 
-# Networking
+# Network security
 
 This article describes the networking requirements and options for Azure Arc-enabled servers. It details the necessary network endpoints and IP addresses. It also covers how extensions may require additional endpoints and the impact of TLS inspection.
 

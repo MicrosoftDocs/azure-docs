@@ -21,7 +21,7 @@ The security of your Azure Arc-enabled Servers deployment is a shared responsibi
 You are responsible for:
 
 - Managing and monitoring RBAC access to your Azure Arc-enabled resources in your Azure subscription.
-- Protecting and regularly rotating the credentials of any accounts used to manage Azure Arcenabled servers. This includes any service principal secrets or credentials used to onboard new servers.
+- Protecting and regularly rotating the credentials of any accounts used to manage Azure Arc-enabled servers. This includes any service principal secrets or credentials used to onboard new servers.
 - Determining if and how any security features described in this document (e.g., extension allowlists) should be applied to the Azure Connected Machine agents you deploy.
 - Keeping the Azure Connected Machine agent and extensions up-to-date.
 - Determining Azure Arc’s compliance with your organization’s legal, and regulatory, and internal policy obligations.

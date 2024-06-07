@@ -1,11 +1,11 @@
 ---
-title: Tier 0 considerations
-description: Special considerations for Tier 0 assets.
+title: Tier 0 security considerations
+description: Tier 0 security considerations.
 ms.topic: conceptual
 ms.date: 06/06/2024
 ---
 
-# Special considerations for Tier 0 assets
+# Security considerations for Tier 0 assets
 
 Tier 0 assets such as an Active Directory Domain Controller, Certificate Authority server, or highly sensitive business application server can be connected to Azure Arc with extra care to ensure only the desired management functions and authorized users can manage the servers. These recommendations are not required but are strongly recommended to maintain the security posture of your Tier 0 assets.
 
