@@ -52,17 +52,4 @@ For all other `ParticipantEndSubReason` codes that don't start with **560**, the
 
 ## Detailed information on individual error codes
 
-For more information about common errors and suggested actions on how to further troubleshoot and mitigate the issue, select a `ParticipantEndReason` code as follows:
-
-- [0   No Error](./acs-pstn-response-codes-0.md)
-- [403 Forbidden](./acs-pstn-response-codes-403.md)
-- [404 Not Found](./acs-pstn-response-codes-404.md)
-- [408 Request Timeout](./acs-pstn-response-codes-408.md)
-- [410 Gone](./acs-pstn-response-codes-410.md)
-- [480 Temporarily Unavailable](./acs-pstn-response-codes-480.md)
-- [484 Address Incomplete](./acs-pstn-response-codes-484.md)
-- [486 Busy Here](./acs-pstn-response-codes-486.md)
-- [487 Request Terminated](./acs-pstn-response-codes-487.md)
-- [500 Server Internal Error](./acs-pstn-response-codes-500.md)
-- [503 Service Unavailable](./acs-pstn-response-codes-503.md)
-- [603 Service Unavailable](./acs-pstn-response-codes-603.md)
+For more information about common error codes and suggested actions, see [Troubleshooting PSTN call failures using ParticipantEndReason](./pstn-response-codes.md).
