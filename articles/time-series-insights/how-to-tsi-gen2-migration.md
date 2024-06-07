@@ -26,7 +26,7 @@ High-level migration recommendations.
 | PBI Connector                            | Use [Eventhouse Power BI Connector](/fabric/real-time-intelligence/create-powerbi-report). Rewrite TSQ to KQL manually.                                                       |
 | Spark Connector                          | Migrate data to Eventhouse. [Use a notebook with Apache Spark to query an Eventhouse](/fabric/real-time-intelligence/spark-connector) or [Explore the data in your lakehouse with a notebook](/fabric/data-engineering/lakehouse-notebook-explore) |
 | Bulk Upload                              | [Get data from Azure storage](/fabric/real-time-intelligence/get-data-azure-storage)                      |
-| Time Series Model                        | Can be exported as JSON file. Can be [imported](/fabric/real-time-intelligence/get-data-local-file) to Eventhouse to perform joins in KQL.                             |
+| Time Series Model                        | Can be exported as JSON file. Can be [imported](/fabric/real-time-intelligence/get-data-local-file) to Eventhouse. [Kusto Graph Semantics](/azure/data-explorer/graph-overview?context=%2Ffabric%2Fcontext%2Fcontext-rti&pivots=fabric) allow model, traverse and analyze Time Series Model hierarchy as a graph                            |
 | TSI Explorer                             | [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create), [Power BI report](/fabric/real-time-intelligence/create-powerbi-report) or write a custom dashboard using [KustoTrender](https://github.com/Azure/azure-kusto-trender)                                                                                          |
 | Query language                           | Rewrite queries in KQL.                                              |
 
@@ -58,7 +58,7 @@ Follow the tutorial on [getting data from Azure Storage](/fabric/real-time-intel
 
 Now that you have successfully ingested the data, you can begin exploring it using a [KQL query set](/fabric/real-time-intelligence/create-query-set). If you need to access the data from your custom client application, Eventhouse provides SDKs for major programming languages such as C# ([link](/azure/data-explorer/kusto/api/netfx/about-the-sdk?context=%2Ffabric%2Fcontext%2Fcontext-rti&pivots=fabric)), Java ([link](/azure/data-explorer/kusto/api/java/kusto-java-client-library?context=%2Ffabric%2Fcontext%2Fcontext-rti&pivots=fabric)), and Node.js ([link](/azure/data-explorer/kusto/api/node/kusto-node-client-library?context=%2Ffabric%2Fcontext%2Fcontext-rti&pivots=fabric)).
 
-## Migrating Time Series Model (TSM) to Azure Data Explorer
+## Migrating Time Series Model to Azure Data Explorer
 
 The model can be download in JSON format from TSI Environment using TSI Explorer UX or TSM Batch API.
 Then the model can be imported to Eventhouse.
@@ -73,6 +73,8 @@ Then the model can be imported to Eventhouse.
     :::image type="content" source="media/gen2-migration/adx-tsm-2.png" alt-text="Screenshot of TSM migration to the Azure Data Explorer - search and replace" lightbox="media/gen2-migration/adx-tsm-2.png":::
 
 1.	Ingest as JSON into ADX as a separate table using [Get data from a single file](/fabric/real-time-intelligence/get-data-local-file).
+
+Once you have migrated your time series data to Eventhouse in Fabric Real-Time Intelligence, you can leverage the power of [Kusto Graph Semantics](/azure/data-explorer/graph-overview?context=%2Ffabric%2Fcontext%2Fcontext-rti&pivots=fabric) to contextualize and analyze your data. Kusto Graph Semantics allows you to model, traverse, and analyze the hierarchy of your Time Series Model as a graph. By using Kusto Graph Semantics, you can gain insights into the relationships between different entities in your time series data, such as assets, sites, and data points. This can help you understand the dependencies and interactions between various components of your system.
 
 ## Translate Time Series Queries (TSQ) to KQL
 
