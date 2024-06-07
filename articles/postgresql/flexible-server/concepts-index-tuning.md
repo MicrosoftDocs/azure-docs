@@ -1,6 +1,6 @@
 ---
-title: Index tuning
-description: This article describes the index tuning feature in Azure Database for PostgreSQL - Flexible Server.
+title: Automated index tuning
+description: This article describes the automated index tuning feature in Azure Database for PostgreSQL - Flexible Server.
 author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
@@ -147,6 +147,7 @@ Index tuning in Azure Database for PostgreSQL - Flexible Server has the followin
 - The feature is available in specific regions, including East Asia, Central India, North Europe, Southeast Asia, South Central US, UK South, and West US 3. 
 - Index tuning is supported on all currently available tiers (Burstable, General Purpose, and Memory Optimized) and on any currently supported compute SKU with at least 4 vCores.
 - The feature is supported on major versions 14 or greater of Azure Database for PostgreSQL Flexible Server.
+- [Prepared statements](https://www.postgresql.org/docs/current/protocol-flow.html#PROTOCOL-FLOW-EXT-QUERY) aren't analyzed to produce recommendations on them.
 - In read replicas or when an instance is in read-only mode, index tuning isn't supported.
 - It's important to consider the implications of creating recommended indexes on servers with high availability or read replicas, especially when the size of the indexes is estimated to be large.
 
@@ -178,6 +179,10 @@ Index tuning is supported on [major versions](concepts-supported-versions.md) **
 > [!IMPORTANT]
 > Although you can enable the feature on instances running versions lower than 14, you're not expected to do it as the feature is not supported in those versions.
 
+### Prepared statements
+
+Currently, index tuning doesn't analyze [prepared statements](https://www.postgresql.org/docs/current/protocol-flow.html#PROTOCOL-FLOW-EXT-QUERY).
+
 ### Read-only mode and read replicas
 
 When an Azure Database for PostgreSQL - Flexible Server instance is in read-only modes, such as when the `default_transaction_read_only` parameter is set to `on,` or if the read-only mode is [automatically enabled due to reaching storage capacity](concepts-limits.md#storage), Query Store doesn't capture any data.
@@ -191,8 +196,5 @@ If you have [high availability](../../reliability/reliability-postgresql-flexibl
 ## Related content
 
 - [Monitor performance with Query Store](concepts-query-store.md)
-- [Usage scenarios for Query Store - Azure Database for PostgreSQL - Flexible Server](concepts-query-store-scenarios.md)
-- [Best practices for Query Store - Azure Database for PostgreSQL - Flexible Server](concepts-query-store-best-practices.md)
-- [Query Performance Insight for Azure Database for PostgreSQL - Flexible Server](concepts-query-performance-insight.md)
 - [Enable, disable and configure index tuning](how-to-configure-index-tuning.md)
 - [Read, interpret and use recommendations produced by index tuning](how-to-get-and-apply-recommendations-from-index-tuning.md)
