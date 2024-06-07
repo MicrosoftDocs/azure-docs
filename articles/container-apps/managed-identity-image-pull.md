@@ -248,7 +248,7 @@ This article describes how to configure your container app to use managed identi
 
 Next, set the following environment variables. Replace the placeholders surrounded by `<>` with your values.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli
 RESOURCE_GROUP="<YOUR_RESOURCE_GROUP_NAME>"
@@ -274,7 +274,7 @@ $ImageName = '<IMAGE_NAME>'
 
 If you already have a resource group, skip this step. Otherwise, create a resource group.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli
 az group create \
@@ -294,7 +294,7 @@ New-AzResourceGroup -Location $Location -Name $ResourceGroupName
 
 If the environment doesn't exist, run the following command:
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 To create the environment, run the following command:
 
@@ -351,7 +351,7 @@ Follow this procedure to configure user-assigned managed identity:
 
 ### Create a user-assigned managed identity
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 Create a user-assigned managed identity. Before you run the following command, replace placeholders surrounded by `<>` with the name of your managed identity.
 
@@ -379,7 +379,7 @@ New-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup
 
 ---
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 Get identity's resource ID.
 
@@ -417,7 +417,7 @@ New-AzRoleAssignment -ObjectId $PrincipalId -Scope $RegistryId -RoleDefinitionNa
 
 Create your container app with your image from the private registry authenticated with the identity.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 Copy the identity's resource ID to paste into the *\<IDENTITY_ID\>* placeholders in the command below. If your image tag isn't `latest`, replace 'latest' with your tag.
 
@@ -473,7 +473,7 @@ New-AzContainerApp @AppArgs
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP
@@ -499,7 +499,7 @@ To configure a system-assigned identity, you'll need to:
 
 Create a container with a public image.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp create \
@@ -541,7 +541,7 @@ New-AzContainerApp @AppArgs
 
 Update the container app with the image from your private container registry and add a system-assigned identity to authenticate the Azure Container Registry pull. You can also include other settings necessary for your container app, such as ingress, scale and Dapr settings.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 Set the registry server and turn on system-assigned managed identity in the container app.
 
@@ -594,7 +594,7 @@ Update-AzContainerApp @AppArgs
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP
@@ -627,7 +627,7 @@ This article describes how to use a Bicep template to configure your container a
 
 If you don't have Bicep installed, you can install it as follows.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli
 az bicep install
@@ -651,7 +651,7 @@ You must manually install Bicep for any use other than Azure CLI. For more infor
 
 Next, set the following environment variables. Replace placeholders surrounded by `<>` with your values.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli
 RESOURCE_GROUP="<RESOURCE_GROUP_NAME>"
@@ -811,7 +811,7 @@ output environmentId string = appEnvironment.id
 
 Deploy your container app with the following command.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli
 az deployment group create \
