@@ -83,4 +83,4 @@ The following steps remove only the deployment artifacts and tracking profile fo
 
 ## Related content
 
-[What is Business Process Tracking](overview.md)?
+[What is Azure Business Process Tracking](overview.md)?

@@ -1,23 +1,24 @@
 ---
-title: Create business processes to add business context
-description: Model a business process to add business context about transactions in Standard workflows created with Azure Logic Apps.
+title: Create business processes 
+description: Model a business process to visualize and map transactions to Azure resources, such as Standard workflows in Azure Logic Apps.
 ms.service: azure-business-process-tracking
 ms.topic: how-to
 ms.reviewer: estfan, azla
 ms.date: 06/07/2024
+
 # CustomerIntent: As a business analyst or business SME, I want a way to visualize my organization's business processes so I can map them to the actual resources that implement these business use cases and scenarios.
 ---
 
-# Create a business process to add business context to Azure resources (Preview)
+# Create a business process to add business context about Azure resources using Azure Business Process Tracking (Preview)
 
 > [!IMPORTANT]
 >
 > This capability is in public preview and isn't ready yet for production use. For more information, see the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To add business context around the Azure resources in an integration solution, you can visualize business processes flows for the tasks implemented by these resources. A business process is a series of stages that represent the tasks that flow through a real-world business scenario. This business process also specifies a single business identifer or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that exists across all the stages in the business process and to correlate those stages together.
+To add business context around the Azure resources in an integration solution, you can visualize business processes flows for the tasks implemented by these resources. In Azure Business Process Tracking, a business process is a series of stages that represent the tasks that flow through a real-world business scenario. This business process also specifies a single business identifer or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that exists across all the stages in the business process and to correlate those stages together.
 
-When you add a stage to your business process, you can also define other business property values to capture as data moves through each stage. You can then later map the transaction ID and other properties to specific operations and data outputs in Standard logic app workflows. For more information, see [What is Business Process Tracking](overview.md)?
+When you add a stage to your business process, you can also define other business property values to capture as data moves through each stage. You can then later map the transaction ID and other properties to specific operations and data outputs in Standard logic app workflows. For more information, see [What is Azure Business Process Tracking](overview.md)?
 
 For example, suppose you're a developer or business analyst at a power company. Your company's customer service team has the following business process to resolve a customer ticket for a power outage:
 
@@ -25,7 +26,7 @@ For example, suppose you're a developer or business analyst at a power company. 
 
 After you create a **Business Process** resource in Azure, you can use the process editor to create a flow chart that visually describes this business process, for example:
 
-:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process editor for business process tracking feature in an integration environment." lightbox="media/create-business-process/business-process-stages-complete.png":::
+:::image type="content" source="media/create-business-process/business-process-stages-complete.png" alt-text="Screenshot shows process editor for Azure Business Process Tracking." lightbox="media/create-business-process/business-process-stages-complete.png":::
 
 > [!NOTE]
 >
@@ -55,7 +56,7 @@ After you define a business process, you can then map each stage to actual Azure
 
   > [!NOTE]
   >
-  > Although Business Process Tracking doesn't incur charges during preview, Azure Data 
+  > Although Azure Business Process Tracking doesn't incur charges during preview, Azure Data 
   > Explorer incurs charges, based on the selected pricing option. For more information, see 
   > [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
 
@@ -87,7 +88,7 @@ After you define a business process, you can then map each stage to actual Azure
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar business identifier that's available across all stages in your business process. <br><br>This example uses the transaction ID named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing. <br><br>**Note**: Business Process Tracking automatically includes and records the transaction timestamp so that you don't have to separately add this value. Although you can define only a single transaction ID when you create a business process, you can later define other business properties in each stage that you want to record. |
+   | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar business identifier that's available across all stages in your business process. <br><br>This example uses the transaction ID named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing. <br><br>**Note**: Azure Business Process Tracking automatically includes and records the transaction timestamp so that you don't have to separately add this value. Although you can define only a single transaction ID when you create a business process, you can later define other business properties in each stage that you want to record. |
    | **Data type** | Yes | <*transacton-ID-data-type*> | The data type for your transaction ID: **String** or **Integer**. <br><br>This example uses the **Integer** data type. |
 
    The following example shows the sample transaction ID:
