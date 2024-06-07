@@ -38,7 +38,7 @@ The following queries are excluded from that list:
 - System-initiated queries. (that is, queries executed by `azuresu` role)
 - Queries executed in the context of any system database (`azure_sys`, `template0`, `template1`, and `azure_maintenance`).
 
-The algorithm iterates over the target databases, searching for possible indexes that could improve the performance of analyzed workloads. It also searches for indexes that can be eliminated because they're identified as duplicates or haven't been used for a long period of time.
+The algorithm iterates over the target databases, searching for possible indexes that could improve the performance of analyzed workloads. It also searches for indexes that can be eliminated because they're identified as duplicates or not used for a configurable period of time.
 
 ### CREATE INDEX recommendations
 
@@ -61,7 +61,9 @@ Potential recommendations aim to improve the performance of these types of queri
 > [!NOTE]
 > The only type of indexes the system currently recommends are those of type [B-Tree](https://www.postgresql.org/docs/current/indexes-types.html#INDEXES-TYPES-BTREE).
 
-If a query references one column of a table and that table has no statistics because it was never analyzed (manually using the ANALYZE command or automatically by the autovacuum daemon), then the whole query is skipped, and no indexes are recommended to improve its execution.
+If a query references one column of a table and that table has no statistics, then the whole query is skipped and results in no index recommendations to improve its execution.
+
+Analysis required to gather statistics can be triggered manually using the ANALYZE command or automatically by the autovacuum daemon.
 
 `index_tuning.max_indexes_per_table` specifies the number of indexes that can be recommended, excluding any indexes that might already exist on the table for any single table referenced by any number of queries during a tuning session.
 
@@ -151,7 +153,7 @@ Index tuning in Azure Database for PostgreSQL - Flexible Server has the followin
 - In read replicas or when an instance is in read-only mode, index tuning isn't supported.
 - It's important to consider the implications of creating recommended indexes on servers with high availability or read replicas, especially when the size of the indexes is estimated to be large.
 
-For more information on index tuning and related articles, see the documentation links provided below.
+For more information on index tuning and related articles, see the documentation links provided in [Related content](#related-content).
 
 ### Supported regions
 
@@ -187,11 +189,11 @@ Currently, index tuning doesn't analyze [prepared statements](https://www.postgr
 
 When an Azure Database for PostgreSQL - Flexible Server instance is in read-only modes, such as when the `default_transaction_read_only` parameter is set to `on,` or if the read-only mode is [automatically enabled due to reaching storage capacity](concepts-limits.md#storage), Query Store doesn't capture any data.
 
-Also, index tuning isn't supported currently on read replicas. Any recommendations seen on a read replica, is one that has been produced on the primary replica after having analyzed the workload recorded in it.
+Also, index tuning isn't supported currently on read replicas. Any recommendations seen on a read replica, were produced on the primary replica after having analyzed the workload recorded in it.
 
 ### Important considerations
 
-If you have [high availability](../../reliability/reliability-postgresql-flexible-server.md) or [read replicas](concepts-read-replicas.md) configured on your server, be aware of the implications associated with producing write-intensive workloads on the primary server when recommended indexes are created by the index tuning feature. Be especially careful when creating indexes whose size is estimated to be large.
+If you have [high availability](../../reliability/reliability-postgresql-flexible-server.md) or [read replicas](concepts-read-replicas.md) configured on your server, be aware of the implications associated with producing write-intensive workloads on the primary server when indexes recommended are implemented. Be especially careful when creating indexes whose size is estimated to be significantly large.
 
 ## Related content
 
