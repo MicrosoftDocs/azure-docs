@@ -6,7 +6,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 05/22/2024
+ms.date: 06/07/2024
 ms.custom: mvc, engagement-fy24
 ---
 
@@ -17,17 +17,17 @@ ms.custom: mvc, engagement-fy24
 ## Update (April 2024)
 
 - Movere: Movere service has been retired on 1st March 2024. Users are requested to use Azure Migrate for the discovery and assessment of on-premises workloads.
-- Public preview: Azure Migrate now supports discovery and assessment of SAP Systems. Using this capability, you can now perform import-based assessments for your on-premises SAP inventory and workloads. [Learn more.](./concepts-azure-sap-systems-assessment.md)
-- Public Preview: You now have the capability to assess your Java (Tomcat) web apps to both Azure App Service and Azure Kubernetes Service (AKS).  
+- Public preview: Azure Migrate now supports discovery and assessment of SAP Systems. Using this capability, you can now perform import-based assessments for your on-premises SAP inventory and workloads. [Learn more](./concepts-azure-sap-systems-assessment.md).
+- Public Preview: You now have the capability to assess your Java (Tomcat) web apps to both Azure App Service and Azure Kubernetes Service (AKS). [Learn more](concepts-azure-webapps-assessment-calculation.md).
 
 
 ## Update (March 2024)
 
-- Public preview: Springboot Apps discovery and assessment is now available using Packaged solution to deploy Kubernetes appliance. 
+- Public preview: Spring Boot Apps discovery and assessment is now available using Packaged solution to deploy Kubernetes appliance. [Learn more](tutorial-discover-spring-boot.md).
 
 ## Update (February 2024)
 
-- Public preview: Envision savings with Azure Hybrid Benefits by bringing your existing Enterprise Linux subscriptions (RHEL and SLES) to Azure using Azure VM assessments and business case.
+- Public preview: Envision savings with Azure Hybrid Benefits by bringing your existing Enterprise Linux subscriptions (RHEL and SLES) to Azure using Azure VM assessments and business case. [Learn more](concepts-azure-sql-assessment-calculation.md).
 
 
 ## Update (January 2024)
@@ -36,7 +36,7 @@ ms.custom: mvc, engagement-fy24
 
 ## Update (December 2023)
 
-- Envision cost savings from Azure Management Services (Azure Backup, Azure Monitor and Azure Update Manager) using Azure Migrate Business case. 
+- Envision cost savings from Azure Management Services (Azure Backup, Azure Monitor and Azure Update Manager) using Azure Migrate Business case. [Learn more](how-to-view-a-business-case.md).
 
 ## Update (November 2023)
 - Public Preview: Assess your ASP.NET web apps for migration to Azure Kubernetes Service (AKS). Using this feature, you get insights such as app readiness, cluster rightsizing and cost of running these web apps on AKS. [Learn more](tutorial-assess-aspnet-aks.md).
