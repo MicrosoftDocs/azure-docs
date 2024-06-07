@@ -35,7 +35,7 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <connection-string>
 ```
 
 Fill in the following parameters in the configuration file: `<connection-string>`.
-For more description of the parameters, you can refer to [Azure Event Hubs configurations](#available-configurations)
+For more description of the parameters, you can refer to [Azure Event Hubs configurations](#available-configurations).
 
 ### Step 3: Upload the Apache Spark configuration file to Apache Spark pool
 
