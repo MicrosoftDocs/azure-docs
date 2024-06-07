@@ -13,7 +13,7 @@ ms.date: 04/02/2024
 
 # Open-source vector databases
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 When developers select vector databases, the open-source options provide numerous benefits. "Open source" means that the software's source code is available freely, enabling users to customize the database according to their specific needs. This flexibility is beneficial for organizations that are subject to unique regulatory requirements on data, such as companies in the financial services industry.
 
