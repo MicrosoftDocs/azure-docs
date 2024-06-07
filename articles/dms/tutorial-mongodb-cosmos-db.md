@@ -79,7 +79,7 @@ If the feature is disabled, select **Enable**.
 
 ![Screenshot that shows how to enable Server Side Retry.](~/reusable-content/ce-skilling/azure/media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
 
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]  
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)]  
 
 ## Create an instance
 
