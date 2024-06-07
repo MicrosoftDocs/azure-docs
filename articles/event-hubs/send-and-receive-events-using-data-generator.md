@@ -19,8 +19,8 @@ If you're new to Azure Event Hubs, see the [Event Hubs overview](event-hubs-abou
 To complete this QuickStart, you need the following prerequisites: 
 
 - Microsoft Azure subscription. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-
 - Create Event Hubs namespace and an event hub. The first step is to use the Azure portal to create an Event Hubs namespace and an event hub in the namespace. To create a namespace and an event hub, see [QuickStart: Create an event hub using Azure portal](event-hubs-create.md).
+- If the event hub is in a virtual network, you need to access the portal from a VM in the same virtual network. The data generator doesn't work with private endpoints with public access blocked unless you access the portal from the subnet of the virtual network for which the private endpoint is configured.
 
 > [!NOTE]
 > Data Generator for Azure Event Hubs is in Public Preview.

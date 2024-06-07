@@ -20,7 +20,7 @@ Azure Cosmos DB for Table and Azure Table Storage share the same table data mode
 > [!NOTE]
 > The *serverless capacity mode* is now available on Azure Cosmos DB API for Table. For more information, see [Azure Cosmos DB serverless](../serverless.md).
 
-[!INCLUDE [storage-table-cosmos-comparison](../../../includes/storage-table-cosmos-comparison.md)]
+[!INCLUDE [storage-table-cosmos-comparison](../includes/storage-table-cosmos-comparison.md)]
 
 ## Azure SDKs
 
