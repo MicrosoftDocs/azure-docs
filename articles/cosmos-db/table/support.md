@@ -26,6 +26,8 @@ Azure Cosmos DB for Table and Azure Table Storage share the same table data mode
 
 ### Current release
 
+The following SDK packages work with both the Azure Cosmos DB for Table and Table Storage.
+
 | Language | Package | Source Code |
 | --- | --- | --- |
 | **.NET** | [NuGet \| Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) | [azure-sdk-for-net/sdk/tables/Azure.Data.Tables](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables) |
