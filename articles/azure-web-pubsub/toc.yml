@@ -120,6 +120,8 @@
           href: tutorial-serverless-static-web-app.md
         - name: Azure IoT Hub
           href: tutorial-serverless-iot.md
+        - name: Azure Application Gateway
+          href: howto-integrate-app-gateway.md
     - name: Monitor and manage
       items:
         - name: Audit compliance using Azure Policy

@@ -168,9 +168,6 @@ After you modify the template, use the following steps to deploy the template an
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the top search box, search for *Deploy a custom template*.
-
-    :::image type="content" source="media/how-to-move-across-regions/search-deploy-template.png" alt-text="Screenshot of Azure portal showing search results." lightbox="media/how-to-move-across-regions/search-deploy-template.png" border="true":::
-
 1. Under **Services**, select **Deploy a custom template**.
 1. Go to the **Select a template** tab, and then select **Build your own template in the editor**.
 1. In the template editor, paste in the *template.json* file you modified earlier, and then select **Save**.

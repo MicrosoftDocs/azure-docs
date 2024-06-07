@@ -46,8 +46,7 @@ For more information, see [Azure OpenAI Service models](../ai-services/openai/co
         remaining-tokens-header-name="header name"  
         remaining-tokens-variable-name="policy expression variable name"
         consumed-tokens-header-name="header name"
-        consumed-tokens-variable-name="policy expression variable name">
-</azure-openai-token-limit>
+        consumed-tokens-variable-name="policy expression variable name" />
 ```
 ## Attributes
 
@@ -73,19 +72,19 @@ For more information, see [Azure OpenAI Service models](../ai-services/openai/co
 
 * This policy can be used multiple times per policy definition.
 * This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
+* [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
 
 ## Example
 
-In the following example, the token limit of 5000 per minute is keyed by the caller IP address. The policy doesn't estimate the number of tokens required for a prompt. After each policy execution, the remaining tokens allowed in the time period are stored in the variable `remainingTokens`.
+In the following example, the token limit of 5000 per minute is keyed by the caller IP address. The policy doesn't estimate the number of tokens required for a prompt. After each policy execution, the remaining tokens allowed for that caller IP address in the time period are stored in the variable `remainingTokens`.
 
 ```xml
 <policies>
     <inbound>
         <base />
-        <azure-openai-token-limit>
+        <azure-openai-token-limit
             counter-key="@(context.Request.IpAddress)"
-            tokens-per-minute="5000" estimate-prompt-tokens="false" "remaining-tokens-variable-name="remainingTokens"
-        </azure-openai-token-limit>
+            tokens-per-minute="5000" estimate-prompt-tokens="false" remaining-tokens-variable-name="remainingTokens" />
     </inbound>
     <outbound>
         <base />

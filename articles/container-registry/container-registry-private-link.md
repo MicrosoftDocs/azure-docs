@@ -219,12 +219,12 @@ The following [az network nic show][az-network-nic-show] commands get the privat
 ```azurecli
 REGISTRY_PRIVATE_IP=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry'].privateIpAddress" \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry'].privateIPAddress" \
   --output tsv)
 
 DATA_ENDPOINT_PRIVATE_IP=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REGISTRY_LOCATION'].privateIpAddress" \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REGISTRY_LOCATION'].privateIPAddress" \
   --output tsv)
 
 # An FQDN is associated with each IP address in the IP configurations
@@ -248,7 +248,7 @@ If your registry is [geo-replicated](container-registry-geo-replication.md), que
 REPLICA_LOCATION=eastus
 GEO_REPLICA_DATA_ENDPOINT_PRIVATE_IP=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateIpAddress" \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateIPAddress" \
   --output tsv) 
 
 GEO_REPLICA_DATA_ENDPOINT_FQDN=$(az network nic show \

@@ -28,17 +28,7 @@ For more information about HTTP bindings, see the [overview](./functions-binding
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
 ::: zone-end
 ::: zone pivot="programming-language-python"
-Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
-
-# [v2](#tab/python-v2)
-The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
-
-# [v1](#tab/python-v1)
-The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
-
----
-
-This article supports both programming models.
+[!INCLUDE [functions-bindings-python-models-intro](../../includes/functions-bindings-python-models-intro.md)]
 
 ::: zone-end
 
@@ -49,7 +39,7 @@ This article supports both programming models.
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
 
 The code in this article defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
@@ -510,11 +500,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `HttpTriggerAttribute` to define the trigger binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-trigger).
+Both the [isolated worker model](dotnet-isolated-process-guide.md) and the [in-process model](functions-dotnet-class-library.md) use the `HttpTriggerAttribute` to define the trigger binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-trigger).
 
 # [Isolated worker model](#tab/isolated-process)
 
-In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `HttpTriggerAttribute` supports the following parameters:
+In [isolated worker model](dotnet-isolated-process-guide.md) function apps, the `HttpTriggerAttribute` supports the following parameters:
 
 | Parameters | Description|
 |---------|----------------------|

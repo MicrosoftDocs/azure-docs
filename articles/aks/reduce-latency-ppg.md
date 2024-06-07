@@ -83,6 +83,7 @@ Accelerated networking greatly improves networking performance of virtual machin
         --resource-group myResourceGroup \
         --name myAKSCluster \
         --ppg myPPGResourceID
+        --generate-ssh-keys
     ```
 
 ## Add a proximity placement group to an existing cluster

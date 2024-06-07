@@ -29,7 +29,7 @@ You may use the HPC images when creating a VM from either Azure Marketplace or A
 
 ### Azure Marketplace
 
-Search for "Ubuntu HPC" by the publisher "Microsoft-DSVM", or "AlmaLinux HPC" by the publisher "AlmaLinux".
+Search for `Ubuntu HPC` by the publisher `Microsoft-DSVM`, or `AlmaLinux HPC` by the publisher `AlmaLinux`.
 
 ### Azure CLI
 
@@ -41,7 +41,7 @@ Run the following commands to find image URNs of the HPC images:
 az vm image list --publisher microsoft-dsvm --offer ubuntu-hpc --output table --all
 ```
 
-All images support [Gen 2 VMs]](generation-2.md).
+All images support [Gen 2 VMs](generation-2.md).
 
 #### AlmaLinux-HPC
 

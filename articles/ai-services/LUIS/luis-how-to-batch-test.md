@@ -60,7 +60,7 @@ Import an app that takes a pizza order such as `1 pepperoni pizza on thin crust`
 1. Select **Train** in the top-right corner of the navigation to train the app.
 
 
-[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
+[!INCLUDE [Entity roles in batch testing - currently not supported](../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ### Batch test file
 

@@ -29,7 +29,8 @@ Enabling CMK kicks off a background, asynchronous process to encrypt all the exi
 
 All the prerequisite steps needed while configuring Customer Managed Keys for new accounts is applicable to enable CMK on your existing account. Refer to the steps [here](./how-to-setup-customer-managed-keys.md?tabs=azure-portal#prerequisites)
 
-It is important to note that enabling encryption on your Azure Cosmos DB account will add a small overhead to your document's ID, limiting the maximum size of the document ID to 990 bytes instead of 1024 bytes. If your account has any documents with IDs larger than 990 bytes, the encryption process will fail until those documents are deleted.
+> [!NOTE]
+> It is important to note that enabling encryption on your Azure Cosmos DB account will add a small overhead to your document's ID, limiting the maximum size of the document ID to 990 bytes instead of 1024 bytes. If your account has any documents with IDs larger than 990 bytes, the encryption process will fail until those documents are deleted.
  
 To verify if your account is compliant, you can use the provided console application [hosted here](https://github.com/AzureCosmosDB/Cosmos-DB-Non-CMK-to-CMK-Migration-Scanner) to scan your account. Make sure that you are using the endpoint from your 'sqlEndpoint' account property, no matter the API selected. 
 
@@ -56,9 +57,6 @@ The output of this CLI command for enabling CMK waits for the completion of encr
 ### Steps to enable CMK on your existing Azure Cosmos DB account with Continuous backup or Analytical store account
 
 For enabling CMK on existing account that has continuous backup and point in time restore enabled, we need to follow some extra steps. Follow step 1 to step 5 and then follow instructions to enable CMK on existing account.
-
-> [!NOTE]
-> System-assigned identity and continuous backup mode is currently under Public Preview and may change in the future. Currently, only user-assigned managed identity is supported for enabling CMK on continuous backup accounts.
 
 
 
