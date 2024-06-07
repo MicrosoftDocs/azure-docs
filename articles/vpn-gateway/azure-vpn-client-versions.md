@@ -18,7 +18,7 @@ This article helps you view each of the versions of the Azure VPN Client. As new
 | Version | New in this release |
 |---|---|
 | 3.2.0.0 | - Microsoft Entra authentication is now available from the settings page<br> - Accessibility Improvements<br>- Connection logs in UTCM<br>- Minor bug fixes
-| 3.3.1.0 | - Microsoft-registered App ID support for Microsoft Entra ID authentication Audience<br> - Backward compatibility for manually registered Microsoft Entra ID authentication<br> -TLS 1.3 support|
+| 3.3.1.0 | - Microsoft-registered App ID support for Microsoft Entra ID authentication Audience<br> - Backward compatibility for manually registered Microsoft Entra ID authentication<br> - TLS 1.3 support|
 
 ## Azure VPN Client - Linux
 
@@ -31,7 +31,7 @@ This article helps you view each of the versions of the Azure VPN Client. As new
 | Version | New in this release |
 |---|---|
 | 2.5.3 | - Rebranding of Azure Active Directory to Microsoft Entra |
-| 2.5.0 | - Microsoft-registered App ID support for Microsoft Entra ID authentication Audience<br> - TLSv 1.3 support<br> - version rolled back |
+| 2.5.0 | - Microsoft-registered App ID support for Microsoft Entra ID authentication Audience<br> - TLSv 1.3 support<br> - Version rolled back |
 | 2.4.0 | - Multiple server root certificate feature |
 
 ## Next steps
