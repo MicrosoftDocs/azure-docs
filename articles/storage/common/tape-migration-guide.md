@@ -144,3 +144,8 @@ For each file we migrate, we need to perform data validation to make sure that d
 After migration is done, there are still couple of steps we need to consider, before successfully closing the migration project. First, we need to dispose hardware used for the migration, if it's not needed anymore. The most important question is how to dispose of the tapes. Tape disposal is a two steps process. If tapes are storing sensitive, and confidential information (and they typically do), they must be degaussed first. Degaussing ensures that all data is magnetically deleted from the media. After deletion, tapes need to be properly destroyed, and recycled. If we used a tape migration partner, we can also let the partner securely dispose of the tapes. After the disposal, a final report can be generated. Report contains all the details of our migration. One area we're mostly interested in are all the unrecoverable errors. This shows all the data that couldn't be migrated, and are caused by deteriorated tapes. We can estimate if this data is critical. If yes, special companies exist that can try to recover the data.
 
 ## Next steps
+
+- [Azure Storage overview](../blobs/storage-blobs-overview.md)
+- [Azure offline media import](https://azure.microsoft.com/products/databox/offline-media-import/)
+- [Compare data transfer options](./storage-choose-data-transfer-solution.md)
+- [Storage migration overview](../blobs/storage-blobs-overview.md)
