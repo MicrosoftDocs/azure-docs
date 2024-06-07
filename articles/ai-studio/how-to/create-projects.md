@@ -40,16 +40,18 @@ Select **Manage in the Azure portal** to navigate to the project resources in th
 
 ## Project resource access
 
-Shared configurations on the hub including connections, compute instances, and network access are shared with your project. 
+Common configurations on the hub are shared with your project, including connections, compute instances, and network access, so you can start developing right away.
 
 In addition, a number of resources are only accessible by users in your project workspace:
 
-1. Azure Storage blob containers, and a fileshare for data upload. You can access them using the following (auto-created) connections:
-   - Workspaceblobstore
-   - Workspaceartifactstore
-   - Workspacefilestore
+1. Components including datasets, flows, indexes, deployed model API endpoints (open and serverless).
 1. Connections created by you under 'project settings'.
-1. Components including datasets, indexes, open and serverless API model endpoints.
+1. Azure Storage blob containers, and a fileshare for data upload within your project. Access storage using the following connections:
+   | Data connection | Storage location | Purpose
+   | === | === | === |
+   | workspaceblobstore | {project-GUID}-blobstore | Default container for data upload |
+   | workspaceartifactstore | {project-GUID}-blobstore | Stores components and metadata for your project such as model weights |
+   | workspacefilestore | {project-GUID}-code | Hosts files created on your compute and using prompt flow |
 
 > [!NOTE]
 > Storage connections are not created directly with the project when your storage account has public network access set to disabled. These are created later when a user accesses AI studio over a private network connection that is allowed by your storage account configuration.
