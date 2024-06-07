@@ -15,7 +15,7 @@ Azure Managed CCF (Managed CCF) is a new and highly secure service for deploying
 
 In this quickstart, you learn how to create a Managed CCF resource using the Azure SDK for Go library.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/confidentialledger/armconfidentialledger@v1.2.0-beta.1#section-documentation) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/confidentialledger/armconfidentialledger) | [Package (Go)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/confidentialledger/armconfidentialledger@v1.2.0-beta.1)
 

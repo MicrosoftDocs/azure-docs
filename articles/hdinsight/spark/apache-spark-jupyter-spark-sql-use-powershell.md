@@ -34,7 +34,7 @@ Creating an HDInsight cluster includes creating the following Azure objects and 
 
 You use a PowerShell script to create the resources. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 When you run the PowerShell script, you are prompted to enter the following values:
 

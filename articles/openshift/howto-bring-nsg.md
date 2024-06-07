@@ -38,6 +38,9 @@ This article shows how to use the "bring your own" Network Security Group (NSG) 
 
 - If you used this feature during preview, your existing preconfigured clusters are now fully supported. 
 
+> [!NOTE]
+> If you're using the "bring your own" NSG feature and want to use NSG flow logs, please refer to [Flow logging for network security groups](/azure/network-watcher/nsg-flow-logs-overview) in Azure Network Watcher documentation, rather than the ARO specific flow log documentation (which won't work with the bring your own NSG feature).
+
 ### Using rules
 
 > [!WARNING]

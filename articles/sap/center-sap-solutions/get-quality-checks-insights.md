@@ -55,7 +55,7 @@ Azure Center for SAP solutions runs more than 100 quality checks on all VIS reso
 - Pacemaker configuration checks for HANA DB and ASCS Instance for SUSE and Redhat 
 - OS Configuration checks for Application Instances
 
-The table in the **Advisor Recommendations** tab shows all the recommendations for ASCS, Application and Database instances in the VIS.
+The table in the **Advisor Recommendations** tab shows all the recommendations for ASCS, Application, and Database instances in the VIS.
 
 :::image type="content" source="media/get-quality-checks-insights/advisor-recommendation.png" lightbox="media/get-quality-checks-insights/advisor-recommendation.png" alt-text="Screenshot of the Advisor Recommendations tab, showing overview of recommendations for all instances in the VIS.":::
 
@@ -64,7 +64,7 @@ Select an instance name to see all recommendations, including which action to ta
 :::image type="content" source="media/get-quality-checks-insights/recommendation-detail.png" lightbox="media/get-quality-checks-insights/recommendation-detail.png" alt-text="Screenshot of detailed advisor recommendations for an instance and which actions to take to resolve each issue.":::
 
 ### Set Alerts for Quality check recommendations
-As the Quality checks recommendations in Azure Center for SAP solutions are integrated with *Azure Advisor*, you can set alerts for the recommendations. See how to [Configure alerts for recommendations](/azure/advisor/advisor-alerts-portal)
+As the Quality checks recommendations in Azure Center for SAP solutions are integrated with *Azure Advisor*, you can set alerts for the recommendations. See how to [Configure alerts for recommendations.](/azure/advisor/advisor-alerts-portal)
 
 > [!NOTE]
 > These quality checks run on all VIS instances at a regular frequency of once every 1 hour. The corresponding recommendations in Azure Advisor also refresh at the same 1-hour frequency.If you take action on one or more recommendations from Azure Center for SAP solutions, wait for the next refresh to see any new recommendations from Azure Advisor.
@@ -86,9 +86,15 @@ The **Virtual Machine** tab provides insights about the VMs in your VIS. There a
 
 ### Azure Compute
 
-The **Azure Compute** tab shows a summary graph of the VMs inside the VIS. 
+The **Azure Compute** tab shows summarized information regarding the virtual machines inside the VIS. It starts with a visual signifying the VM running status for all VMs. 
 
-:::image type="content" source="media/get-quality-checks-insights/azure-compute.png" lightbox="media/get-quality-checks-insights/azure-compute.png" alt-text="Screenshot of Azure Compute tab, showing a pie chart of running virtual machines.":::
+:::image type="content" source="media/get-quality-checks-insights/azure-compute-metrics.png" lightbox="media/get-quality-checks-insights/azure-compute-metrics.png" alt-text="Screenshot of Azure Compute tab, showing a pie chart of running virtual machines and key metrics.":::
+
+This visual is followed by Key monitoring metrics at a virtual machine level that shows a 24 hours trend for key metrics such as VM Availability, CPU, Disk, and Network usage. 
+
+:::image type="content" source="media/get-quality-checks-insights/azure-compute-health.png" lightbox="media/get-quality-checks-insights/azure-compute-health.png" alt-text="Screenshot of Azure Compute tab, showing a pie chart of running virtual machines.":::
+
+It also shows the current availability state of VMs along with corresponding reasons for unavailability. This visual is followed by a list of key health events that occurred in the last 14 days in any of the VMs of the VIS. 
 
 ### Compute List
 

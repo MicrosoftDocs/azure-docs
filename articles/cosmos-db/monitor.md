@@ -31,7 +31,7 @@ For more information about the resource types for Azure Cosmos DB, see [Azure Co
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-Azure Monitor collects Azure Cosmos DB metrics by default. You don't need to explicitly configure anything. Most of the metrics are available from the Azure Cosmos DB portal page or from the Azure Monitor page. By default, the metrics are collected with one-minute granularity. The granularity might vary based on the metric you choose. By default, these metrics have a retention period of 30 days.
+Azure Monitor collects Azure Cosmos DB metrics by default. You don't need to explicitly configure anything. Most of the metrics are available from the Azure Cosmos DB portal page or from the Azure Monitor page. By default, the metrics are collected with one-minute granularity. The granularity might vary based on the metric you choose. For more information on the default retention period, see [Azure Monitor metrics retention](../azure-monitor/essentials/data-platform-metrics.md#platform-and-custom-metrics)
 
 Azure Cosmos DB server-side metrics include throughput, storage, availability, latency, consistency, and system level metrics. On the client side, you can collect details for request charge, activity ID, exception and stack trace information, HTTP status and substatus code, and diagnostic string. By default, these metrics have a retention period of seven days. You can use this data to debug issues or if you need to contact the Azure Cosmos DB support team.
 

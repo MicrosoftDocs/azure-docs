@@ -10,13 +10,14 @@ ms.author: danlep
 
 # Quickstart: Create your API center - Azure CLI
 
-[!INCLUDE [quickstart-intro-prerequisites](includes/quickstart-intro-prerequisites.md)]
+[!INCLUDE [quickstart-intro](includes/quickstart-intro.md)]
+
+[!INCLUDE [quickstart-prerequisites](includes/quickstart-prerequisites.md)]
 
 * For Azure CLI:
     [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-    > [!NOTE]
-    > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+    [!INCLUDE [install-apic-extension](includes/install-apic-extension.md)]
 
 ## Register the Microsoft.ApiCenter provider
 

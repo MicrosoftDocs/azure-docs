@@ -82,7 +82,7 @@ You can also use your organization’s pricing to estimate costs with the Azure 
 ## Check your billing account type
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
 
-## Next steps
+## Related content
 
 If you're an EA customer, see:
 

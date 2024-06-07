@@ -52,7 +52,7 @@ Deep learning frameworks on the DSVM are listed here:
 | Supported versions | 1.9.0 (Linux, Windows 2019) |
 | Supported DSVM editions | Windows Server 2019<br>Linux |
 | How is it configured and installed on the DSVM? | Installed in Python, conda environments 'py38_default', 'py38_pytorch' |
-| How to run it | At the terminal, activate the appropriate environment, and then run Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Connect, and then open the PyTorch directory for samples. |
+| How to run it | At the terminal, activate the appropriate environment, and then run Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#access-the-ubuntu-data-science-virtual-machine): Connect, and then open the PyTorch directory for samples. |
 
 ## [TensorFlow](https://www.tensorflow.org/)
 
@@ -61,4 +61,4 @@ Deep learning frameworks on the DSVM are listed here:
 | Supported versions | 2.5 |
 | Supported DSVM editions | Windows Server 2019<br>Linux |
 | How is it configured and installed on the DSVM? | Installed in Python, conda environments 'py38_default', 'py38_tensorflow' |
-| How to run it | At the terminal, activate the correct environment, and then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the TensorFlow directory for samples. |
+| How to run it | At the terminal, activate the correct environment, and then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#access-the-ubuntu-data-science-virtual-machine), and then open the TensorFlow directory for samples. |

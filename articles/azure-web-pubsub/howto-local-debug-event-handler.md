@@ -1,5 +1,5 @@
 ---
-title: How to troubleshoot and debug Azure Web PubSub event handler locally 
+title: How to troubleshoot and debug Azure Web PubSub event handler 
 description: Guidance about debugging event handler locally when developing with Azure Web PubSub service.
 author: vicancy
 ms.author: lianwei
@@ -8,9 +8,11 @@ ms.topic: how-to
 ms.date: 12/20/2023
 ---
 
-# How to troubleshoot and debug Azure Web PubSub event handler locally
+# How to troubleshoot and debug Azure Web PubSub event handler
 
 When a WebSocket connection connects to Web PubSub service, the service formulates an HTTP POST request to the registered upstream and expects an HTTP response. We call the upstream as the **event handler** and the **event handler** is responsible to handle the incoming events following the [Web PubSub CloudEvents specification](./reference-cloud-events.md).
+
+## Run the event handler endpoint locally
 
 When the **event handler** runs locally, the local server isn't publicly accessible.
 
@@ -29,6 +31,16 @@ The webview contains four tabs:
 :::image type="content" alt-text="Screenshot of showing the traffic inspection." source="media\howto-web-pubsub-tunnel-tool\overview-tunnel.png" :::
 
 Follow [Develop with local tunnel tool](./howto-web-pubsub-tunnel-tool.md) to install and run the tunnel tool locally to develop your **event handler** server locally.
+
+## Debug the event handler endpoint online
+
+Sometimes you might have issues sending events to a configured event handler upstream. One typical error type is related to abuse protection failure, for example, `AbuseProtectionResponseInvalidStatusCode`, `AbuseProtectionResponseMissingAllowedOrigin`, or `AbuseProtectionResponseFailed`. Such an error is probably related to your upstream app server settings, for example, 403 status code might be related to your app server authentication configuration, 404 status code might be caused by inconsistent event handler path configuration. One way to troubleshoot such failure is to send an abuse protection request to your configured event handler URL to see if it works, for example, using `curl` command to send an abuse protection request to your configured event handler URL `https://abc.web.com/eventhandler` is as below:
+
+```bash
+curl https://abc.web.com/eventhandler -X OPTIONS -H "WebHook-Request-Origin: *" -H "ce-awpsversion: 1.0" --ssl-no-revoke -i
+```
+
+The command should return 204.
 
 ## Next steps
 

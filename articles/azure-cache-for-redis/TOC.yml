@@ -172,7 +172,7 @@
     href: cache-administration.md#reboot
   - name: Update channel and schedule updates
     href: cache-administration.md#update-channel-and-schedule-updates
-  - name: Configure redis-cli.exe access
+  - name: Configure redis-cli access
     href: cache-how-to-redis-cli-tool.md
   - name: Create and manage a cache using CLI
     href: cache-manage-cli.md
