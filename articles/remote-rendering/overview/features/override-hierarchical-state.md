@@ -41,7 +41,7 @@ The fixed set of states that can be overridden are:
   > [!NOTE]
   > The see-through effect is ignored for point clouds.
 
-* **`Shell`**: The geometry is rendered as a transparent, desaturated shell. This mode allows fading out nonimportant parts of a scene while still retaining a sense of shape and relative positioning. To change the shell rendering's appearance, use the [ShellRenderingSettings](shell-effect.md) state. See the following image for the car model being entirely shell-rendered, except for the blue springs:
+* **`Shell`**: The geometry is rendered as a transparent, desaturated shell. This mode allows fading out unimportant parts of a scene while still retaining a sense of shape and relative positioning. To change the shell rendering's appearance, use the [ShellRenderingSettings](shell-effect.md) state. See the following image for the car model being entirely shell-rendered, except for the blue springs:
 
   ![Shell mode used to fade out specific objects](./media/shell.png)
 
