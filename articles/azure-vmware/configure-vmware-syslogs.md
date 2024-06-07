@@ -3,7 +3,7 @@ title: Configure VMware syslogs for Azure VMware Solution
 description: Learn how to configure diagnostic settings to collect VMware syslogs for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 12/07/2023
+ms.date: 6/7/2024
 ms.custom: engagement-fy23
 
 #Customer intent: As an Azure service administrator, I want to collect VMware syslogs and store it in my storage account so that I can view the vCenter Server logs and analyze for any diagnostic purposes.
@@ -20,21 +20,20 @@ In this article, learn how to configure a diagnostic setting to collect VMware s
    >- vCenter Server logs
    >- ESXi logs
    >- vSAN logs
-   >- NSX-T Manager logs
-   >- NSX-T Data Center Distributed Firewall logs
-   >- NSX-T Data Center Gateway Firewall logs
-   >- NSX-T Data Center Edge Appliance logs
+   >- NSX Manager logs
+   >- NSX Distributed Firewall logs
+   >- NSX Gateway Firewall logs
+   >- NSX Edge Appliance logs
 
 ## Prerequisites
 
-Make sure you have an Azure VMware Solution private cloud with access to the vCenter Server and NSX-T Manager interfaces. 
+Make sure you have an Azure VMware Solution private cloud with access to the vCenter Server and NSX Manager interfaces. 
 
 ## Configure diagnostic settings
 
 1. From your Azure VMware Solution private cloud, select **Diagnostic settings**, then **Add diagnostic settings**.
 
 :::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-1.png" alt-text="Screenshot showing where to configure VMware syslogs.":::
-
 
 1. Select the **vmwaresyslog**, **All metrics**, and select one of the following options presented.
 
