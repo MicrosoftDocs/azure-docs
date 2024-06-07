@@ -106,6 +106,9 @@ items:
     displayName: Azure CLI, az iot, az iot du
   - name: Use delta updates
     href: delta-updates.md
+  - name: Use TLS downloads
+    href: device-update-tls-download.md
+    displayName: IoT, update, TLS, https
   - name: Use related files
     href: related-files.md
   - name: Configure private endpoints
