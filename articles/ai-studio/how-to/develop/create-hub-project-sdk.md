@@ -49,9 +49,9 @@ Use the following tabs to select whether you're using the Python SDK or Azure CL
 
 ## Create the AI Studio hub and AI Services connection
 
-# [Python SDK](#tab/python)
+Use the following examples to create a new hub. Replace example string values with your own values:
 
-Use the following code to create a new hub and AI Services connection. Replace example string values with your own values:
+# [Python SDK](#tab/python)
 
 ```Python
 from azure.ai.ml.entities import Hub
@@ -107,7 +107,7 @@ ml_client.connections.create_or_update(my_connection)
 az ml connection create --file {connection.yml} --resource-group {my_resource_group} --workspace-name {my_hub_name}
 ```
 
-You can use either an API key or credential-less YAML configuration file:
+You can use either an API key or credential-less YAML configuration file. For more information on the YAML configuration file, see the [AI Services connection YAML schema](/azure/machine-learning/reference-yaml-connection-ai-services):
 
 - API Key example:
 
@@ -126,7 +126,6 @@ You can use either an API key or credential-less YAML configuration file:
     endpoint: https://contoso.cognitiveservices.azure.com/
     ```
 
-For more information on the YAML configuration file, see the [AI Services connection YAML schema](/azure/machine-learning/reference-yaml-connection-ai-services)
 ---
 
 ## Related content
