@@ -37,7 +37,7 @@ The following regions currently support availability zones:
 | US Gov Virginia | West Europe  | | | China North 3 |
 | West US 2 | Sweden Central | | | |
 | West US 3 | Switzerland North | | | |
-| Mexico Central* | Poland Central ||||
+| Mexico Central| Poland Central ||||
 ||Spain Central* ||||
 
 
@@ -186,7 +186,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 
 | **Products**   | **Resiliency**   |
 | --- | --- |
-[Azure API Center](../api-center/overview.md)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+|[Azure API Center](../api-center/overview.md)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Automation](../automation/automation-availability-zones.md)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure HPC Cache](../hpc-cache/hpc-cache-overview.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
