@@ -10,19 +10,16 @@ ms.date: 09/30/2022
 - [Install the Azure SQL Migration extension](/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
 - Have an Azure account that's assigned to one of the following built-in roles:
 
-  - Contributor for the target instance of SQL Server on Azure Virtual Machines and for the storage account where you upload your database backup files from a Server Message Block (SMB) network share
-  - Reader role for the Azure resource group that contains the target instance of SQL Server on Azure Virtual Machines or for your Azure Storage account
-  - Owner or Contributor role for the Azure subscription
-  
-  As an alternative to using one of these built-in roles, you can [assign a custom role](../articles/dms/resource-custom-roles-sql-database-ads.md).
+  - Contributor for the target instance of Azure SQL Managed Instance and for the storage account where you upload your database backup files from a Server Message Block (SMB) network share
+  - Reader role for the Azure resource groups that contain the target instance of Azure SQL Managed Instance or your Azure Storage account
+  - Owner or Contributor role for the Azure subscription (required if you create a new Database Migration Service instance)
+
+  As an alternative to using one of these built-in roles, you can [assign a custom role](../resource-custom-roles-sql-database-ads.md).
 
   > [!IMPORTANT]
   > An Azure account is required only when you configure the migration steps. An Azure account isn't required for the assessment or to view Azure recommendations in the migration wizard in Azure Data Studio.
 
-- Create a target instance of [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal).
-
-    > [!IMPORTANT]
-    > If you have an existing Azure virtual machine, it should be registered with the [SQL IaaS Agent extension in Full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes).
+- Create a target instance of [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
 
 - Ensure that the logins that you use to connect the source SQL Server instance are members of the SYSADMIN server role or have CONTROL SERVER permission.
 
@@ -31,18 +28,18 @@ ms.date: 09/30/2022
   > [!IMPORTANT]
   >
   > - The Azure SQL Migration extension for Azure Data Studio doesn't take database backups, or neither initiate any database backups on your behalf. Instead, the service uses existing database backup files for the migration.
-  > - If your database backup files are in an SMB network share, [create an Azure storage account](../articles/storage/common/storage-account-create.md) that Database Migration Service can use to upload database backup files to and to migrate databases. Make sure you create the Azure storage account in the same region where you create your instance of Database Migration Service.
+  > - If your database backup files are in an SMB network share, [create an Azure storage account](../../storage/common/storage-account-create.md) that Database Migration Service can use to upload database backup files to and to migrate databases. Make sure you create the Azure storage account in the same region where you create your instance of Database Migration Service.
   > - You can write each backup to either a separate backup file or to multiple backup files. Appending multiple backups such as full and transaction logs into a single backup media isn't supported.
   > - You can provide compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
 
 - Ensure that the service account that's running the source SQL Server instance has read and write permissions on the SMB network share that contains database backup files.
 
-- If you're migrating a database that's protected by Transparent Data Encryption (TDE), the certificate from the source SQL Server instance must be migrated to SQL Server on Azure Virtual Machines before you migrate data. To learn more, see [Move a TDE-protected database to another SQL Server instance](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+- If you're migrating a database that's protected by Transparent Data Encryption (TDE), the certificate from the source SQL Server instance must be migrated to your target managed instance before you restore the database. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).
 
     > [!TIP]
-    > If your database contains sensitive data that's protected by [Always Encrypted](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio), the migration process automatically migrates your Always Encrypted keys to your target instance of SQL Server on Azure Virtual Machines.
+    > If your database contains sensitive data that's protected by [Always Encrypted](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio), the migration process automatically migrates your Always Encrypted keys to your target managed instance.
 
-- If your database backups are on a network file share, provide a computer on which you can install a [self-hosted integration runtime](../articles/data-factory/create-self-hosted-integration-runtime.md) to access and migrate database backups. The migration wizard gives you the download link and authentication keys to download and install your self-hosted integration runtime.
+- If your database backups are on a network file share, provide a computer on which you can install a [self-hosted integration runtime](../../data-factory/create-self-hosted-integration-runtime.md) to access and migrate database backups. The migration wizard gives you the download link and authentication keys to download and install your self-hosted integration runtime.
 
    In preparation for the migration, ensure that the computer on which you install the self-hosted integration runtime has the following outbound firewall rules and domain names enabled:
 
@@ -59,4 +56,4 @@ ms.date: 09/30/2022
 
 - Enable outbound port 445 to allow access to the network file share. For more information, see [recommendations for using a self-hosted integration runtime](../articles/dms/migration-using-azure-data-studio.md#recommendations-for-using-a-self-hosted-integration-runtime-for-database-migrations).
 
-- If you're using Azure Database Migration Service for the first time, make sure that the Microsoft.DataMigration [resource provider is registered in your subscription](../articles/dms/quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
+- If you're using Database Migration Service for the first time, make sure that the Microsoft.DataMigration resource provider is registered in your subscription. You can complete the steps to [register the resource provider](../quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
