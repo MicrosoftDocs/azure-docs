@@ -24,8 +24,22 @@ The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.m
 > - **OS Support:** Support for new Linux or Windows distros (incl. service packs) will not be added after the deprecation of the legacy agents.
 
 ## Benefits
+Using Azure Monitor agent, you get immediate benefits as shown below:
 
-In addition to consolidating and improving on the legacy Log Analytics agents, Azure Monitor Agent provides [various immediate benefits](./azure-monitor-agent-overview.md#benefits), including **cost savings, a simplified management experience, and enhanced security and performance.**
+:::image type="content" source="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" lightbox="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" alt-text="Snippet of the Azure Monitor Agent benefits at a glance. This is described in more details below.":::
+
+- **Cost savings** by [using data collection rules](data-collection-rule-azure-monitor-agent.md):
+  - Enables targeted and granular data collection for a machine or subset(s) of machines, as compared to the "all or nothing" approach of legacy agents.
+  - Allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
+- **Security and Performance**
+  - Enhanced security through Managed Identity and Microsoft Entra tokens (for clients).
+  - Higher event throughput that is 25% better than the legacy Log Analytics (MMA/OMS) agents.
+- **Simpler management** including efficient troubleshooting:
+  - Supports data uploads to multiple destinations (multiple Log Analytics workspaces, i.e. *multihoming* on Windows and Linux) including cross-region and cross-tenant data collection (using Azure LightHouse).
+  - Centralized agent configuration "in the cloud" for enterprise scale throughout the data collection lifecycle, from onboarding to deployment to updates and changes over time.
+  - Any change in configuration is rolled out to all agents automatically, without requiring a client side deployment.
+  - Greater transparency and control of more capabilities and services, such as Microsoft Sentinel, Defender for Cloud, and VM Insights.
+- **A single agent** that serves all data collection needs across [supported](#supported-operating-systems) servers and client devices. A single agent is the goal, although Azure Monitor Agent is currently converging with the Log Analytics agents.
 
 ## Migration guidance
 

@@ -696,15 +696,15 @@ items:
       items:
       - name: Overview
         href: agents/agents-overview.md
+      - name: Supported operating systems
+        href: agents/azure-monitor-agent-supported-operating-systems.md
       - name: Install Azure Monitor Agent
         displayName: Azure Monitor agent
         items:
-        - name: On virtual machines and servers
+        - name: Virtual machines
           href: agents/azure-monitor-agent-manage.md
-        - name: On Windows client machines
+        - name: Windows clients
           href: agents/azure-monitor-agent-windows-client.md
-        - name: View health
-          href: agents/azure-monitor-agent-health.md
       - name: Configure data collection
         items:
         - name: Collect events and performance
@@ -728,9 +728,12 @@ items:
           href: agents/gateway.md
         - name: Send data to Event Hubs and Storage
           href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
-      - name: Define network settings
+      - name: Monitor
+        href: agents/azure-monitor-agent-health.md
+      - name: Network settings
         href: agents/azure-monitor-agent-data-collection-endpoint.md
-      - name: Configure Private Link for Azure Monitor Agent
+      - name: Private link
+        displayName: Azure Monitor agent, AMA
         href: agents/azure-monitor-agent-private-link.md
       - name: Migrate from Log Analytics Agent
         items:
