@@ -33,7 +33,7 @@ This table lists the limits of specific data visualizations.
 
 |Visualization|Limits |
 |---------|---------|
-|Grid|By default, grids only display the first 250 rows of data. This setting can be changed in the query component's advanced settings to display up to 10,000 rows. Any further items are ignored, and a warning appears.|
+|Grid|By default, grids only display the first 250 rows of data. This setting can be changed in the query component's advanced settings to display up to 10,000 rows. Any further items are ignored, and a warning appears.<br>The checkbox for toggling the selection of all items is available only when the grid displays 150 rows of data or fewer.|
 |Charts|Charts are limited to 100 series.<br>Charts are limited to 10,000 data points. |
 |Tiles|Tiles is limited to displaying 100 tiles. Any further items are ignored, and a warning appears.|
 |Maps|Maps are limited to displaying 100 points. Any further items are ignored, and a warning appears.|

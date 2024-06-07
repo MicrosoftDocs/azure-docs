@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 5/30/2024
 ms.reviewer: dantaylo
 ms.author: eur
 author: eric-urban
@@ -15,7 +15,7 @@ author: eric-urban
 
 # Build a custom chat app in Python using the prompt flow SDK
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this quickstart, we walk you through setting up your local development environment with the prompt flow SDK. We write a prompt, run it as part of your app code, trace the LLM calls being made, and run a basic evaluation on the outputs of the LLM.
 
@@ -140,7 +140,7 @@ Activating the Python environment means that when you run ```python``` or ```pip
 
 ## Install the prompt flow SDK
 
-In this section, we use prompt flow to build our application. [https://microsoft.github.io/promptflow/](Prompt flow) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring.
+In this section, we use prompt flow to build our application. [Prompt flow](https://microsoft.github.io/promptflow/) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring.
 
 Use pip to install the prompt flow SDK into the virtual environment that you created.
 ```

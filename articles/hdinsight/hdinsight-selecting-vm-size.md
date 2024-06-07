@@ -5,19 +5,19 @@ keywords: vm sizes, cluster sizes, cluster configuration
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 05/22/2024
 ---
 # Selecting the right VM size for your Azure HDInsight cluster
 
 This article discusses how to select the right VM size for the various nodes in your HDInsight cluster. 
 
-Begin by understanding how the properties of a virtual machine such as CPU processing, RAM size, and network latency will affect the processing of your workloads. Next, think about your application and how it matches with what different VM families are optimized for. Make sure that the VM family that you would like to use is compatible with the cluster type that you plan to deploy. For a list of all supported and recommended VM sizes for each cluster type, see [Azure HDInsight supported node configurations](hdinsight-supported-node-configuration.md). Lastly, you can use a benchmarking process to test some sample workloads and check which SKU within that family is right for you.
+Begin by understanding how the properties of a virtual machine such as CPU processing, RAM size, and network latency affect the processing of your workloads. Next, think about your application and how it matches with what different VM families are optimized for. Make sure that the VM family that you would like to use is compatible with the cluster type that you plan to deploy. For a list of all supported and recommended VM sizes for each cluster type, see [Azure HDInsight supported node configurations](hdinsight-supported-node-configuration.md). Lastly, you can use a benchmarking process to test some sample workloads and check which SKU within that family is right for you.
 
 For more information on planning other aspects of your cluster such as selecting a storage type or cluster size, see [Capacity planning for HDInsight clusters](hdinsight-capacity-planning.md).
 
 ## VM properties and big data workloads
 
-The VM size and type is determined by CPU processing power, RAM size, and network latency:
+The VM size and type are determined by CPU processing power, RAM size, and network latency:
 
 - CPU: The VM size dictates the number of cores. The more cores, the greater the degree of parallel computation each node can achieve. Also, some VM types have faster cores.
 
@@ -27,14 +27,14 @@ The VM size and type is determined by CPU processing power, RAM size, and networ
 
 ## Understanding VM optimization
 
-Virtual machine families in Azure are optimized to suit different use cases. In the table below, you can find some of the most popular use cases and the VM families that match to them.
+Virtual machine families in Azure are optimized to suit different use cases. In the table following, you can find some of the most popular use cases and the VM families that match to them.
 
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Entry-level](../virtual-machines/sizes-general.md)          | Av2  | Have CPU performance and memory configurations best suited for entry level workloads like development and test. They are economical and provide a low-cost option to get started with Azure. |
-| [General purpose](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
-| [Compute optimized](../virtual-machines/sizes-compute.md)        | F           | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
-| [Memory optimized](../virtual-machines/sizes-memory.md)         | Esv3, Ev3  | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
+| [Entry-level](../virtual-machines/sizes-general.md)          | `Av2`  | Have CPU performance and memory configurations best suited for entry level workloads like development and test. They're economical and provide a low-cost option to get started with Azure. |
+| [General purpose](../virtual-machines/sizes-general.md)          | `D`, `DSv2`, `Dv2`  | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
+| [Compute optimized](../virtual-machines/sizes-compute.md)        | `F`           | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
+| [Memory optimized](../virtual-machines/sizes-memory.md)         | `Esv3`, `Ev3`  | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 
 - For information about pricing of available VM instances across HDInsight supported regions, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -57,7 +57,7 @@ To see the specifications of each F-series SKU, see [F-series VM sizes](https://
 
 ## Benchmarking
 
-Benchmarking is the process of running simulated workloads on different VMs to measure how well they will perform for your production workloads. 
+Benchmarking is the process of running simulated workloads on different VMs to measure how well they perform for your production workloads. 
 
 For more information on benchmarking for VM SKUs and cluster sizes, see [Cluster capacity planning in Azure HDInsight ](hdinsight-capacity-planning.md#choose-the-vm-size-and-type).
 

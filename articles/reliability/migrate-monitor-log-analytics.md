@@ -17,16 +17,11 @@ This guide describes how to migrate Log Analytics workspaces from non-availabili
 > Application Insights resources can also use availability zones, but only if they are workspace-based and the workspace uses a dedicated cluster. Classic (non-workspace-based) Application Insights resources cannot use availability zones.
 
 
-## Prerequisites
-
-For availability zone support, your workspace must be located in one of the following supported regions:
-
-- East US 2
-- West US 2
-
 ## Dedicated clusters
 
-Azure Monitor support for availability zones requires a Log Analytics workspace linked to an [Azure Monitor dedicated cluster](../azure-monitor/logs/logs-dedicated-clusters.md). Dedicated clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs including availability zones.
+Dedicated clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs including availability zones.
+
+In some regions, Azure Monitor support for availability zones requires a Log Analytics workspace linked to an Azure Monitor dedicated cluster, while others also support data resiliency for the shared clusters.  To see which regions support data resiliency for the shared clusters, see [Supported regions](../azure-monitor/logs/availability-zones.md#supported-regions). 
 
 Not all dedicated clusters can use availability zones. Dedicated clusters created after mid-October 2020 can be set to support availability zones when they are created. New clusters created after that date default to be enabled for availability zones in regions where Azure Monitor supports them.
 
@@ -52,7 +47,7 @@ Transitioning to a new cluster can be a gradual process. Don't remove the previo
 Any queries against your workspace queries both clusters as required to provide you with a single, unified result set. As a result, all Azure Monitor features that rely on the workspace, such as workbooks and dashboards, continue to receive the full, unified result set based on data from both clusters.
 
 ## Billing
-[Dedicated clustrs](../azure-monitor/logs/logs-dedicated-clusters.md#create-a-dedicated-cluster) require a commitment tier starting at 100 GB per day.
+[Dedicated clusters](../azure-monitor/logs/logs-dedicated-clusters.md#create-a-dedicated-cluster) require a commitment tier starting at 100 GB per day.
 
 The new cluster isn’t billed during its first day to avoid double billing during configuration. Only the data ingested before the migration completes would still be billed on the date of migration. 
 

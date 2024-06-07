@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: nosql
-ms.date: 02/27/2024
+ms.date: 06/05/2024
 ms.custom: query-reference
 ---
 
@@ -39,7 +39,7 @@ Returns a numeric expression.
 
 The following example shows positive numeric, negative, and zero values evaluated with this function.  
 
-:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/query.sql" highlight="2-7":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/query.sql" highlight="2-4":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/ceiling/result.json":::
 

@@ -14,7 +14,7 @@ zone_pivot_groups: azure-cosmos-db-quickstart-env
 
 # Quickstart: Azure Cosmos DB for MongoDB driver for Node.js
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 >

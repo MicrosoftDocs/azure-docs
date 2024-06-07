@@ -12,7 +12,7 @@ ms.date: 04/20/2023
 
 # Premigration steps for data migrations from MongoDB to Azure Cosmos DB for MongoDB
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!IMPORTANT]  
 > Please read this entire guide before carrying out your pre-migration steps.
@@ -20,7 +20,7 @@ ms.date: 04/20/2023
 
 This MongoDB pre-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are pre-migration, migration, and [post-migration](post-migration-optimization.md), as shown in this guide.
 
-![Diagram of the migration steps from pre to post migration.](./media/pre-migration-steps/overall-migration-steps.png)
+![Diagram of the migration steps from pre to post migration.](~/reusable-content/ce-skilling/azure/media/pre-migration-steps/overall-migration-steps.png)
 
 ## Overview of pre-migration
 

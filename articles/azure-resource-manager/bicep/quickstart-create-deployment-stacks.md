@@ -164,10 +164,10 @@ The output shows two managed resources - one storage account and one virtual net
   ],
   "systemData": {
     "createdAt": "2024-05-17T14:50:18.382948+00:00",
-    "createdBy": "jgao@microsoft.com",
+    "createdBy": "johndoe@contoso.com",
     "createdByType": "User",
     "lastModifiedAt": "2024-05-17T14:50:18.382948+00:00",
-    "lastModifiedBy": "jgao@microsoft.com",
+    "lastModifiedBy": "johndoe@contoso.com",
     "lastModifiedByType": "User"
   },
   "tags": {},
@@ -263,10 +263,10 @@ The output is similar to:
   ],
   "systemData": {
     "createdAt": "2024-05-17T14:50:18.382948+00:00",
-    "createdBy": "jgao@microsoft.com",
+    "createdBy": "johndoe@contoso.com",
     "createdByType": "User",
     "lastModifiedAt": "2024-05-17T14:50:18.382948+00:00",
-    "lastModifiedBy": "jgao@microsoft.com",
+    "lastModifiedBy": "johndoe@contoso.com",
     "lastModifiedByType": "User"
   },
   "tags": {},

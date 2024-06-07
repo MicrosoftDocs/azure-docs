@@ -2,7 +2,7 @@
 author: akashraokm
 ms.author: akashrao
 ms.reviewer: maghan
-ms.date: 05/10/2024
+ms.date: 05/22/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include
@@ -13,6 +13,7 @@ ms.topic: include
 | [address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | Address Standardizer US dataset example                                                                             | 3.3.3                     | 3.3.1                     | 3.2.3                     | 3.2.3                     | 3.2.3                     | 3.2.3|
 | [amcheck](https://www.postgresql.org/docs/13/amcheck.html)                                   | Functions for verifying relation integrity                                                                          | 1.3                       | 1.3                       | 1.3                       | 1.2                       | 1.2                       | 1.1|
 | [azure_ai](../generative-ai-azure-overview.md)                                               | Azure AI and ML Services integration for PostgreSQL                                                                 | 1.1.0                     | 1.1.0                     | 1.1.0                     | 1.1.0                     | 1.1.0                     | N/A|
+| [azure_local_ai](../azure-local-ai.md) (Preview)                                             | Local AI capabilities for PostgreSQL                                                                                | 0.1.0                     | 0.1.0                     | 0.1.0                     | 0.1.0                     | N/A                       | N/A|
 | [azure_storage](../concepts-storage-extension.md)                                            | Azure integration for PostgreSQL                                                                                    | 1.4 :heavy_check_mark:    | 1.4 :heavy_check_mark:    | 1.4 :heavy_check_mark:    | 1.4 :heavy_check_mark:    | 1.4 :heavy_check_mark:    | N/A|
 | [bloom](https://www.postgresql.org/docs/13/bloom.html)                                       | Bloom access method - signature file based index                                                                    | 1.0                       | 1.0                       | 1.0                       | 1.0                       | 1.0                       | 1.0|
 | [btree_gin](https://www.postgresql.org/docs/13/btree-gin.html)                               | Support for indexing common datatypes in GIN                                                                        | 1.3                       | 1.3                       | 1.3                       | 1.3                       | 1.3                       | 1.3|

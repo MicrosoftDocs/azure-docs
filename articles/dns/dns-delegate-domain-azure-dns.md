@@ -17,6 +17,19 @@ You can use Azure DNS to host your DNS domain and manage your DNS records. By ho
 
 Suppose you buy the domain `contoso.com` from a domain name registrar and then create a zone with the name `contoso.com` in Azure DNS. Since you're the owner of the domain, your registrar offers you the option to configure the name server (NS) records for your domain. The registrar stores the NS records in the `.com` parent zone. Internet users around the world are then directed to your domain in your Azure DNS zone when they try to resolve DNS records in `contoso.com`.
 
+## Overview
+
+To host your domain in Azure:
+
+* Create the DNS zone.
+* [Create resource records](dns-operations-recordsets-portal.md) in the DNS zone.
+* Retrieve the list of Azure nameservers for your DNS zone.
+* Delegate the domain to Azure's nameservers at your registrar.
+
+For example:
+
+:::image type="content" source="./media/dns-delegate-domain-azure-dns/public-dns.png" alt-text="A simple diagram of a DNS zone hosted in Azure that is delegated at the registrar." lightbox="./media/dns-delegate-domain-azure-dns/public-dns.png":::
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
