@@ -16,6 +16,10 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Connected Machine agent](agent-release-notes-archive.md).
 
+> [!WARNING]
+> Only Connected Machine agent versions within the last 1 year are officially supported by the product group. Customers should update to an agent version within this window.
+> 
+
 ## Version 1.42 - May 2024 (Second Release)
 
 Download for [Windows](https://download.microsoft.com/download/9/6/0/9600825a-e532-4e50-a2d5-7f07e400afc1/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)

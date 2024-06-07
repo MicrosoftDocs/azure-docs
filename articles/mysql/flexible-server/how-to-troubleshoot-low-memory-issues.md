@@ -13,7 +13,7 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 To help ensure that an Azure Database for MySQL flexible server instance performs optimally, it's very important to have the appropriate memory allocation and utilization. By default, when you create an instance of Azure Database for MySQL flexible server, the available physical memory is dependent on the tier and size you select for your workload. In addition, memory is allocated for buffers and caches to improve database operations. For more information, see [How MySQL Uses Memory](https://dev.mysql.com/doc/refman/5.7/en/memory-use.html).
 

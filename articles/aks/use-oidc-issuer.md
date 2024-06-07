@@ -36,7 +36,12 @@ In this article, you learn how to create, update, and manage the OIDC issuer for
 You can create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to enable the OIDC issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-oidc-issuer
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 1 \
+    --enable-oidc-issuer \
+    --generate-ssh-keys
 ```
 
 ## Update an AKS cluster with OIDC issuer

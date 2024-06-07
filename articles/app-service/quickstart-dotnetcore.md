@@ -240,12 +240,6 @@ Retrieve and initialize [the ASP.NET Core web app template](https://github.com/A
 
 ## 2. Publish your web app
 
-The AZD template contains files that will generate the following required resources for your application to run in App service:
-
-- A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
-- A new [App Service plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
-- A new [App Service app](overview-hosting-plans.md) instance to run the deployed application.
-
 Follow these steps to create your App Service resources and publish your project:
 
 :::zone target="docs" pivot="development-environment-vs"
@@ -537,6 +531,12 @@ Follow these steps to create your App Service resources and publish your project
 :::zone-end
 
 :::zone target="docs" pivot="development-environment-azd"
+
+The AZD template contains files that will generate the following required resources for your application to run in App service:
+
+- A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
+- A new [App Service plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
+- A new [App Service app](overview-hosting-plans.md) instance to run the deployed application.
 
 1. Sign into your Azure account by using the az login command and following the prompt:
 
@@ -842,12 +842,12 @@ The **Overview** page for your web app, contains options for basic management li
 <!-- markdownlint-disable MD044 -->
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
-[!INCLUDE [Clean-up CLI resources](../../includes/cli-samples-clean-up.md)]
+[!INCLUDE [Clean-up CLI resources](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
 :::zone-end
 
 :::zone target="docs" pivot="development-environment-ps"
 <!-- markdownlint-enable MD044 -->
-[!INCLUDE [Clean-up PowerShell resources](../../includes/powershell-samples-clean-up.md)]
+[!INCLUDE [Clean-up PowerShell resources](~/reusable-content/ce-skilling/azure/includes/powershell-samples-clean-up.md)]
 :::zone-end
 <!-- markdownlint-enable MD044 -->
 
