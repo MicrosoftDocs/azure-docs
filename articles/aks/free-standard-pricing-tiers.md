@@ -1,48 +1,34 @@
 ---
-title: Azure Kubernetes Service (AKS) Free, Standard and Premium pricing tiers for cluster management
+title: Azure Kubernetes Service (AKS) Free, Standard, and Premium pricing tiers for cluster management
 description: Learn about the Azure Kubernetes Service (AKS) Free, Standard, and Premium pricing plans and what features, deployment patterns, and recommendations to consider between each plan.
 ms.topic: conceptual
-ms.date: 04/07/2023
+ms.date: 06/07/2024
 author: schaffererin
 ms.author: schaffererin
-
 ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Free, Standard and Premium pricing tiers for Azure Kubernetes Service (AKS) cluster management
 
-Azure Kubernetes Service (AKS) is now offering three pricing tiers for cluster management: the **Free tier**, the **Standard tier** and the **Premium tier**. All tiers are in the **Base** sku. 
+Azure Kubernetes Service (AKS) offers three pricing tiers for cluster management: the **Free tier**, the **Standard tier**, and the **Premium tier**. All tiers are in the **Base** SKU.
 
-|                  |Free tier|Standard tier|Premium tier |
+|                  |Free tier|Standard tier|Premium tier|
 |------------------|---------|--------|
-|**When to use**|• You want to experiment with AKS at no extra cost <br> • You're new to AKS and Kubernetes|• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA |• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA. <br>• All mission critical, at scale or production workloads requiring 2 years of support|
+|**When to use**|• You want to experiment with AKS at no extra cost <br> • You're new to AKS and Kubernetes|• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA |• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA. <br>• All mission critical, at scale, or production workloads requiring 2 years of one Kubernetes version support|
 |**Supported cluster types**|• Development clusters or small scale testing environments <br> • Clusters with fewer than 10 nodes|• Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes| • Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes |
 |**Pricing**|• Free cluster management <br> • Pay-as-you-go for resources you consume|• Pay-as-you-go for resources you consume <br> • [Standard tier Cluster Management Pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/) | • Pay-as-you-go for resources you consume <br> • [Premium tier Cluster Management Pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/) |
 |**Feature comparison**|• Recommended for clusters with fewer than 10 nodes, but can support up to 1,000 nodes <br> • Includes all current AKS features|• Uptime SLA is enabled by default <br> • Greater cluster reliability and resources <br> • Can support up to 5,000 nodes in a cluster <br> • Includes all current AKS features | • Includes all current AKS features from standard tier <br> • [Microsoft maintenance past community support][long-term-support] |
-
-> [!IMPORTANT]
->
-> Uptime SLA has been repositioned as a default feature included with the Standard tier.
->
-> The repositioning will result in the following API changes:
->
-> | SKU      |Prior to 2023-02-01 API|Starting from 2023-02-01 API|
-> |----------|-----------|------------|
-> |ManagedClusterSKUName|"Basic"|"Base"|
-> |ManagedClusterSKUTier|"Free" <br> "Paid"|"Free" <br> "Standard"|
->
-> "Basic" and "Paid" are removed in the 2023-02-01 and 2023-02-02 Preview API version, and this will be a breaking change in API versions 2023-02-01 and 2023-02-02 Preview or newer. If you use automated scripts, CD pipelines, ARM templates, Terraform, or other third-party tooling that relies on the above parameters, please be sure to update the API parameters to use "Base" with "Free" or "Base" with "Standard" before upgrading to the 2023-02-01 and 2023-02-02 Preview API or newer API versions. 
 
 For more information on pricing, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
 ## Uptime SLA terms and conditions
 
-In the Standard tier, the Uptime SLA feature is enabled by default per cluster. The Uptime SLA feature guarantees 99.95% availability of the Kubernetes API server endpoint for clusters using [Availability Zones][availability-zones], and 99.9% of availability for clusters that aren't using Availability Zones.For more information, see [SLA](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
+In the Standard tier and Premium tier, the Uptime SLA feature is enabled by default per cluster. The Uptime SLA feature guarantees 99.95% availability of the Kubernetes API server endpoint for clusters using [Availability Zones][availability-zones], and 99.9% of availability for clusters that aren't using Availability Zones. For more information, see [SLA](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
 
 ## Region availability
 
-* Free tier and Standard tier are available in public regions and Azure Government regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-* Free tier and Standard tier are available for [private AKS clusters][private-clusters] in all public regions where AKS is supported.
+* Free tier, Standard tier, and Premium tier are available in public regions and Azure Government regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+* Free tier, Standard tier, and Premium tier are available for [private AKS clusters][private-clusters] in all public regions where AKS is supported.
 
 ## Before you begin
 
