@@ -1,6 +1,6 @@
 ---
-title: Enable Trusted launch on existing VMSS
-description: Enable Trusted launch on existing Azure VMSS.
+title: Enable Trusted launch on existing scale set
+description: Enable Trusted launch on existing Azure scale set.
 author: AjKundnani
 ms.author: ajkundna
 ms.reviewer: cynthn
@@ -11,31 +11,31 @@ ms.date: 06/10/2024
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
-# (Preview) Enable Trusted launch on existing Azure VMSS
+# (Preview) Enable Trusted launch on existing Azure scale set
 
 **Applies to:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: Virtual Machine Scale Sets Uniform
 
-Azure Virtual Machines supports enabling Trusted launch on existing [Azure Virtual Machine Scale Sets Uniform](overview.md) VMs by upgrading to [Trusted launch](trusted-launch.md) security type.
+Azure Virtual machine scale sets supports enabling Trusted launch on existing [Uniform scale sets](overview.md) VMs by upgrading to [Trusted launch](trusted-launch.md) security type.
 
-[Trusted launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2](generation-2.md). Trusted launch protects your Virtual Machine Scale Sets (VMSS) against advanced and persistent attack techniques like boot kits and rootkits by combining infrastructure technologies like Secure Boot, vTPM and Boot Integrity Monitoring on your VMSS.
+[Trusted launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2](generation-2.md). Trusted launch protects your Scale Sets and Virtual machines against advanced and persistent attack techniques like boot kits and rootkits. It does so by combining infrastructure technologies like Secure Boot, vTPM, and Boot Integrity Monitoring on your scale set.
 
 > [!IMPORTANT]
 >
-> - Enabling Trusted launch on existing Azure virtual machine scale sets (VMSS) Flex is currently not supported.
+> - Enabling Trusted launch on existing [virtual machine scale sets Flex](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) is currently not supported.
 > - Enabling Trusted launch on existing [Service fabric clusters](../service-fabric/service-fabric-overview.md) and [Service fabric managed clusters](../service-fabric/overview-managed-cluster.md) is currently not supported.
 
 ## Prerequisites
 
 - Register Preview Feature `ImageSkuGenUpdateWithVMSS` on subscription. Refer to [How to register feature using PowerShell](/powershell/module/az.resources/register-azproviderfeature)
-- VMSS is not dependent on [features currently not supported with Trusted launch](trusted-launch.md#unsupported-features).
-- VMSS should be configured with [Trusted launch supported size family](trusted-launch.md#virtual-machines-sizes)
+- Scale set is not dependent on [features currently not supported with Trusted launch](trusted-launch.md#unsupported-features).
+- Scale set should be configured with [Trusted launch supported size family](trusted-launch.md#virtual-machines-sizes)
     > [!NOTE]
     >
-    > VM size can be changed along with Trusted launch upgrade. Ensure quota for new VM Size is in-place to avoid upgrade failures. Refer to [Check vCPU quotas](quotas.md).
-    > Changes in VM size will re-create VM instance with new size and will require downtime of individual VM instance. It can be done in a Rolling Upgrade fashion to avoid VMSS downtime.
-- VMSS should be configured with [Trusted launch supported OS Image](trusted-launch.md#operating-systems-supported). For [Azure compute gallery OS image](azure-compute-gallery.md), ensure image definition is marked as [TrustedLaunchSupported](trusted-launch-portal.md#deploy-a-trusted-launch-vm-from-an-azure-compute-gallery-image)
+    > Virtual machine size can be changed along with Trusted launch upgrade. Ensure quota for new VM Size is in-place to avoid upgrade failures. Refer to [Check vCPU quotas](quotas.md).
+    > Changes in Virtual machine size will re-create Virtual machine instance with new size and will require downtime of individual Virtual machine instance. It can be done in a Rolling Upgrade fashion to avoid Scale set downtime.
+- Scale set should be configured with [Trusted launch supported OS Image](trusted-launch.md#operating-systems-supported). For [Azure compute gallery OS image](azure-compute-gallery.md), ensure image definition is marked as [TrustedLaunchSupported](trusted-launch-portal.md#deploy-a-trusted-launch-vm-from-an-azure-compute-gallery-image)
 
-## Enable Trusted launch on existing VMSS Uniform
+## Enable Trusted launch on existing Scale set Uniform
 
 > [!NOTE]
 >
@@ -44,15 +44,15 @@ Azure Virtual Machines supports enabling Trusted launch on existing [Azure Virtu
 
 ### [Template](#tab/template)
 
-This section steps through using an ARM template to enable Trusted launch on existing Azure Generation 2 VM.
+This section steps through using an ARM template to enable Trusted launch on existing Virtual machine scale set uniform.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-Make the following modifications to your existing ARM template deployment code. For complete template, refer to [Quickstart Trusted launch VMSS ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vmss-trustedlaunch-windows/azuredeploy.json).
+Make the following modifications to your existing ARM template deployment code. For complete template, refer to [Quickstart Trusted launch Scale set ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vmss-trustedlaunch-windows/azuredeploy.json).
 
 > [!IMPORTANT]
 >
-> Trusted launch security type is available with VMSS `apiVersion` `2020-12-01` or above. Ensure API version is set correctly prior to upgrade.
+> Trusted launch security type is available with Scale set `apiVersion` `2020-12-01` or higher. Ensure API version is set correctly prior to upgrade.
 
 1. **OS Image**: Update the OS Image reference to Gen2-Trusted launch supported OS image. Make sure the source Gen2 image has `TrustedLaunchSupported` security type if using Azure Compute Gallery OS image.
 
@@ -71,7 +71,7 @@ Make the following modifications to your existing ARM template deployment code. 
     }
     ```
 
-2. (Optional) **VMSS Size**: Modify the VMSS size if current size family is not [supported with Trusted launch](trusted-launch.md#virtual-machines-sizes) security configuration.
+2. (Optional) **Scale set Size**: Modify the Scale set size if current size family is not [supported with Trusted launch](trusted-launch.md#virtual-machines-sizes) security configuration.
 
     ```json
         "sku": { 
@@ -97,7 +97,7 @@ Make the following modifications to your existing ARM template deployment code. 
     }
     ```
 
-4. (Optional) **Guest Attestation Extension**: Add [Guest Attestation (GA) extension](trusted-launch.md#microsoft-defender-for-cloud-integration) for VMSS resource, which will enable [Boot integrity monitoring](boot-integrity-monitoring-overview.md) for VMSS.
+4. (Optional) **Guest Attestation Extension**: Add [Guest Attestation (GA) extension](trusted-launch.md#microsoft-defender-for-cloud-integration) for Scale set resource, which enables [Boot integrity monitoring](boot-integrity-monitoring-overview.md) for Scale set.
     > [!NOTE]
     >
     > Guest attestation extension requires `secureBoot` and `vTPM` set to `true`.
@@ -556,9 +556,9 @@ Make the following modifications to your existing ARM template deployment code. 
         -TemplateFile $templateFile -TemplateParameterFile $parameterFile
     ```
 
-7. Verify that the deployment is successful. Check for the security type and UEFI settings of the VMSS uniform using Azure portal. Check the Security type section in the Overview page.
+7. Verify that the deployment is successful. Check for the security type and UEFI settings of the Scale set uniform using Azure portal. Check the Security type section in the Overview page.
 
-8. Update the VM instances manually if VMSS uniform [upgrade mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) is set to `Manual`.
+8. Update the VM instances manually if Scale set uniform [upgrade mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) is set to `Manual`.
 
     ```azurepowershell-interactive
     $resourceGroupName = "myResourceGroup"
@@ -566,7 +566,7 @@ Make the following modifications to your existing ARM template deployment code. 
     Update-AzVmssInstance -ResourceGroupName $resourceGroupName -VMScaleSetName $vmssName -InstanceId "0"
     ```
 
-9. **Roll-back**, to roll-back changes from Trusted launch to previous known good configuration, set `securityProfile` as shown below along with revert of other parameter changes - OS image, VM size, Guest attestation extension and repeat steps 5-8
+9. **Roll-back**, to roll-back changes from Trusted launch to previous known good configuration, set `securityProfile` as shown in example, along with revert of other parameter changes - OS image, VM size, Guest attestation extension, and repeat steps 5-8
 
     ```json
     "securityProfile": {
@@ -577,13 +577,13 @@ Make the following modifications to your existing ARM template deployment code. 
 
 ### [CLI](#tab/cli)
 
-This section steps through using the Azure CLI to enable Trusted launch on existing Azure VMSS Uniform resource.
+This section steps through using the Azure CLI to enable Trusted launch on existing Azure Scale set Uniform resource.
 
 Make sure that you've installed the latest [Azure CLI](/cli/azure/install-az-cli2) and are logged in to an Azure account with [az login](/cli/azure/reference-index).
 
 > [!NOTE]
 >
-> Azure CLI currently does not supports roll-back of VMSS Uniform from Trusted launch to Standard. As workaround, use Azure PowerShell or ARM template to execute roll-back.
+> Azure CLI currently does not supports roll-back of Scale set Uniform from Trusted launch to Standard. As workaround, use Azure PowerShell or ARM template to execute roll-back.
 
 1. Log in to Azure Subscription
 
@@ -620,13 +620,13 @@ Make sure that you've installed the latest [Azure CLI](/cli/azure/install-az-cli
     }
     ```
 
-4. Update the VM instances manually if VMSS uniform [upgrade mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) is set to `Manual`.
+4. Update the VM instances manually if Scale set uniform [upgrade mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) is set to `Manual`.
 
     ```azurecli-interactive
     az vmss update-instances --instance-ids 1 --name MyScaleSet --resource-group MyResourceGroup
     ```
 
-5. Start rolling upgrade if VMSS uniform [upgrade mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) is set to `RollingUpgrade`.
+5. Start rolling upgrade if Scale set uniform [upgrade mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) is set to `RollingUpgrade`.
 
     ```azurecli-interactive
     az vmss rolling-upgrade start --name MyScaleSet --resource-group MyResourceGroup
@@ -663,7 +663,7 @@ Make sure that you've installed the latest [Azure PowerShell](/powershell/azure/
 
     > [!NOTE]
     >
-    > OS Image SKU used in command above should be from same OS Image Publisher and Offer.
+    > OS Image SKU used in Update-AzVMSS command should be from same OS Image Publisher and Offer.
 
 3. Validate `securityProfile` configuration is returned with [Get-AzVMSS](/powershell/module/az.compute/get-azvmss) command output.
 
@@ -679,19 +679,19 @@ Make sure that you've installed the latest [Azure PowerShell](/powershell/azure/
     }
     ```
 
-4. Update the VM instances manually if VMSS uniform [upgrade mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) is set to `Manual`.
+4. Update the VM instances manually if Scale set uniform [upgrade mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) is set to `Manual`.
 
     ```azurepowershell-interactive
     Update-AzVmssInstance -ResourceGroupName "MyResourceGroup" -VMScaleSetName "MyScaleSet" -InstanceId "0"
     ```
 
-5. Start rolling upgrade if VMSS uniform [upgrade mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) is set to `RollingUpgrade`.
+5. Start rolling upgrade if Scale set uniform [upgrade mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) is set to `RollingUpgrade`.
 
     ```azurepowershell-interactive
     Start-AzVmssRollingOSUpgrade -ResourceGroupName "MyResourceGroup" -VMScaleSetName "MyScaleSet"
     ```
 
-6. **Roll-back**, to roll-back changes from Trusted launch to previous known good configuration, set `-SecurityType` to `Standard` as shown below along with revert of other parameter changes - OS image, VM size and repeat steps 2-5
+6. **Roll-back**, to roll-back changes from Trusted launch to previous known good configuration, set `-SecurityType` to `Standard` as shown with example, along with revert of other parameter changes - OS image, virtual machine size, and repeat steps 2-5
 
     ```azurepowershell-interactive
     $vmss = Get-AzVmss -VMScaleSetName MyVmssName -ResourceGroupName MyResourceGroup
