@@ -180,6 +180,14 @@ If you see metrics missed, you can first check if the ingestion limits are being
 
 Refer to [service quotas and limits](../service-limits.md#prometheus-metrics) for default quotas and also to understand what can be increased based on your usage. You can request quota increase for Azure Monitor workspaces using the `Support Request` menu for the Azure Monitor workspace. Ensure you include the ID, internal ID and Location/Region for the Azure Monitor workspace in the support request, which you can find in the `Properties' menu for the Azure Monitor workspace in the Azure portal.
 
+## Creation of Azure Monitor Workspace failed due to Azure Policy evaluation
+
+If creation of Azure Monitor Workspace fails with an error saying "*Resource *'<resource-name>'* was disallowed by policy*", there might an Azure policy that enforces a name for your Azure resources or resource groups.
+
+When you create an Azure Monitor workspace, by default a data collection rule and a data collection endpoint in the form <azure-monitor-workspace-name> will automatically be created in a resource group in the form MA_<azure-monitor-workspace-name>_<location>_managed. Currently there is no way to change the names of these resources.
+
+You can set an exemption on the Azure Policy to exempt the above resources from policy evaluation. See [Azure Policy exemption structure](../../governance/policy/concepts/exemption-structure.md).
+
 ## Next steps
 
 - [Check considerations for collecting metrics at high scale](prometheus-metrics-scrape-scale.md).
