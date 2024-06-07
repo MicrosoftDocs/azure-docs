@@ -43,7 +43,15 @@ Summary rules perform batch processing directly in your Log Analytics workspace.
 
 :::image type="content" source="media/summary-rules/ingestion-flow.png" alt-text="A diagram that shows how data is ingested from various data sources to a Log Analytics workspace and is aggregated and reingested into the workspace by using a summary rule." lightbox="media/summary-rules/ingestion-flow.png":::
 
-For example, if you're monitoring containers, you ingest a large volume of verbose logs into the `ContainerLogsV2` table.
+You can aggregate data you ingest into any table, including both [Analytics and Basic](basic-logs-query.md) tables. 
+
+You can configure up to 30 rules to aggregate data from multiple tables and send the aggregated data to the same destination table or to separate tables. 
+
+You can export summarized data from a custom log table to a storage account or Event Hubs for further integrations by defining a [data export rule](logs-data-export.md).
+
+### Eaxmple: Aggregating ContainerLogsV2 data
+
+If you're monitoring containers, you ingest a large volume of verbose logs into the `ContainerLogsV2` table.
 
 You might use this query in your summary rule to aggregate all unique log entries within 60 minutes, keeping the data that's useful for analysis and dropping data you don't need: 
 
@@ -67,12 +75,6 @@ All entries in the destination table include a set of standard fields:
 - `_RuleLastModifiedTime`: When the rule was last modified. 
 - `_BinSize`: The aggregation interval.  
 - `_BinStartTime` The aggregation start time.
-
-You can aggregate data you ingest into any table, including both [Analytics and Basic](basic-logs-query.md) tables. 
-
-You can configure up to 30 rules to aggregate data from multiple tables and send the aggregated data to the same destination table or to separate tables. 
-
-You can export summarized data from a custom log table to a storage account or Event Hubs for further integrations by defining a [data export rule](logs-data-export.md).
 
 ## Restrictions and limitations
 
