@@ -23,7 +23,7 @@ This article shows how to initiate an account failover for your storage account 
 
 To learn more about account failover, see [Azure storage disaster recovery planning and failover](storage-disaster-recovery-guidance.md).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+<!--[INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]-->
 
 ## Prerequisites
 
