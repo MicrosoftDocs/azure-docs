@@ -50,7 +50,7 @@ In this tutorial:
     notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.2.0/notation-azure-kv_1.2.0_linux_amd64.tar.gz --sha256sum 06bb5198af31ce11b08c4557ae4c2cbfb09878dfa6b637b7407ebc2d57b87b34
     ```
 
-3. List the available plugins and confirm that the `azure-kv` plugin with version `1.1.0` is included in the list. 
+3. List the available plugins and confirm that the `azure-kv` plugin with version `1.2.0` is included in the list. 
 
     ```bash
     notation plugin ls
