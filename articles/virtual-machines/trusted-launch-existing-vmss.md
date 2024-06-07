@@ -22,6 +22,7 @@ Azure Virtual Machines supports enabling Trusted launch on existing [Azure Virtu
 > [!IMPORTANT]
 >
 > - Enabling Trusted launch on existing Azure virtual machine scale sets (VMSS) Flex is currently not supported.
+> - Enabling Trusted launch on existing [Service fabric clusters](../service-fabric/service-fabric-overview.md) and [Service fabric managed clusters](../service-fabric/overview-managed-cluster.md) is currently not supported.
 
 ## Prerequisites
 
@@ -48,6 +49,10 @@ This section steps through using an ARM template to enable Trusted launch on exi
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 Make the following modifications to your existing ARM template deployment code. For complete template, refer to [Quickstart Trusted launch VMSS ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vmss-trustedlaunch-windows/azuredeploy.json).
+
+> [!IMPORTANT]
+>
+> Trusted launch security type is available with VMSS `apiVersion` `2020-12-01` or above. Ensure API version is set correctly prior to upgrade.
 
 1. **OS Image**: Update the OS Image reference to Gen2-Trusted launch supported OS image. Make sure the source Gen2 image has `TrustedLaunchSupported` security type if using Azure Compute Gallery OS image.
 
