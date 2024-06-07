@@ -255,7 +255,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
         1. Ask, "*@workspace How does the app connect to the database?*". Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured. 
         1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in Tomcat but I want to do it dynamically.*". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the [ContextListener](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app/blob/starter-no-infra/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java) class. 
         1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
-        GitHub Copilot doesn't give you the same response every time, you might need to add additional questions to fine-tune its reponse. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+        GitHub Copilot doesn't give you the same response every time, you might need to add additional questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-java-tomcat-mysql-app/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-java-tomcat-mysql-app/github-copilot-1.png":::
@@ -499,7 +499,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
 
-    GitHub Copilot doesn't give you the same response every time, you might need to add additional questions to fine-tune its reponse. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+    GitHub Copilot doesn't give you the same response every time, you might need to add additional questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 1. Back in the codespace terminal, run `azd deploy`.
  
