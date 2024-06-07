@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 05/07/2024
+ms.date: 06/07/2024
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
@@ -188,7 +188,7 @@ The following table lists the fields in the schema and what they signify for vir
 > | **FlowIntervalStartTime** | Date and time in UTC | Starting time of the flow log processing interval (time from which flow interval is measured). |
 > | **FlowIntervalEndTime**| Date and time in UTC | Ending time of the flow log processing interval. |
 > | **FlowStartTime** | Date and time in UTC | First occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. This flow gets aggregated based on aggregation logic. |
-> | **FlowEndTime** | Date and time in UTC | Last occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. In terms of flow log v2, this field contains the time when the last flow with the same four-tuple started (marked as **B** in the raw flow record). |
+> | **FlowEndTime** | Date and time in UTC | Last occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. |
 > | **FlowType**  | - IntraVNet <br> - InterVNet <br> - S2S <br> - P2S  <br> - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow  <br> - Unknown Private <br> - Unknown | See [Notes](#notes) for definitions. |
 > | **SrcIP** | Source IP address | Blank in AzurePublic and ExternalPublic flows. |
 > | **DestIP** | Destination IP address | Blank in AzurePublic and ExternalPublic flows. |
@@ -236,7 +236,7 @@ The following table lists the fields in the schema and what they signify for vir
 > | **PacketsSrcToDest** | - | Represents packets sent from the source to the destination of the flow . |
 > | **BytesDestToSrc** | - | Represents bytes sent from the destination to the source of the flow. |
 > | **BytesSrcToDest** | - | Represents bytes sent from the source to the destination of the flow. |
-> | **CompletedFlows** | - | Populated with nonzero value only for the Version 2 of network security group flow log schema. |
+> | **CompletedFlows** | - | Total number of flows completed (populated with non-zero value when a flow gets a completed event). |
 > | **SrcPublicIPs** | \<SOURCE_PUBLIC_IP\>\|\<FLOW_STARTED_COUNT\>\|\<FLOW_ENDED_COUNT\>\|\<OUTBOUND_PACKETS\>\|\<INBOUND_PACKETS\>\|\<OUTBOUND_BYTES\>\|\<INBOUND_BYTES\> | Entries separated by bars. |
 > | **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 > | **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows. |
