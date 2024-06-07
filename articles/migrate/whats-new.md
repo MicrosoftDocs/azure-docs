@@ -6,7 +6,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 05/22/2024
+ms.date: 06/07/2024
 ms.custom: mvc, engagement-fy24
 ---
 
@@ -17,17 +17,17 @@ ms.custom: mvc, engagement-fy24
 ## Update (April 2024)
 
 - Movere: Movere service has been retired on 1st March 2024. Users are requested to use Azure Migrate for the discovery and assessment of on-premises workloads.
-- Public preview: Azure Migrate now supports discovery and assessment of SAP Systems. Using this capability, you can now perform import-based assessments for your on-premises SAP inventory and workloads. [Learn more.](./concepts-azure-sap-systems-assessment.md)
-- Public Preview: You now have the capability to assess your Java (Tomcat) web apps to both Azure App Service and Azure Kubernetes Service (AKS).  
+- Public preview: Azure Migrate now supports discovery and assessment of SAP Systems. Using this capability, you can now perform import-based assessments for your on-premises SAP inventory and workloads. [Learn more](./concepts-azure-sap-systems-assessment.md).
+- Public Preview: You now have the capability to assess your Java (Tomcat) web apps to both Azure App Service and Azure Kubernetes Service (AKS). [Learn more](concepts-azure-webapps-assessment-calculation.md).
 
 
 ## Update (March 2024)
 
-- Public preview: Springboot Apps discovery and assessment is now available using Packaged solution to deploy Kubernetes appliance. 
+- Public preview: Spring Boot Apps discovery and assessment is now available using Packaged solution to deploy Kubernetes appliance. [Learn more](tutorial-discover-spring-boot.md).
 
 ## Update (February 2024)
 
-- Public preview: Envision savings with Azure Hybrid Benefits by bringing your existing Enterprise Linux subscriptions (RHEL and SLES) to Azure using Azure VM assessments and business case.
+- Public preview: Envision savings with Azure Hybrid Benefits by bringing your existing Enterprise Linux subscriptions (RHEL and SLES) to Azure using Azure VM assessments and business case. [Learn more](concepts-azure-sql-assessment-calculation.md).
 
 
 ## Update (January 2024)
@@ -36,10 +36,10 @@ ms.custom: mvc, engagement-fy24
 
 ## Update (December 2023)
 
-- Envision cost savings from Azure Management Services (Azure Backup, Azure Monitor and Azure Update Manager) using Azure Migrate Business case. 
+- Envision cost savings from Azure Management Services (Azure Backup, Azure Monitor, and Azure Update Manager) using Azure Migrate Business case. [Learn more](how-to-view-a-business-case.md).
 
 ## Update (November 2023)
-- Public Preview: Assess your ASP.NET web apps for migration to Azure Kubernetes Service (AKS). Using this feature, you get insights such as app readiness, cluster rightsizing and cost of running these web apps on AKS. [Learn more](tutorial-assess-aspnet-aks.md).
+- Public Preview: Assess your ASP.NET web apps for migration to Azure Kubernetes Service (AKS). Using this feature, you get insights such as app readiness, cluster rightsizing, and cost of running these web apps on AKS. [Learn more](tutorial-assess-aspnet-aks.md).
 - Public Preview: Assess your ASP.NET web apps for migration to Azure App Service Containers. [Learn more](tutorial-assess-webapps.md).
 - Public Preview: Get the total cost of ownership (TCO) comparison for your ASP.NET web apps running on AKS and App Service Containers in Azure Migrate Business Case. [Learn more](how-to-build-a-business-case.md).
 
@@ -142,7 +142,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 ## Update (December 2021)
 - Support to discover, assess, and migrate VMs from multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
-- Simplified [Azure VMware Solution assessment](./concepts-azure-vmware-solution-assessment-calculation.md) experience to understand sizing assumptions, resource utilization and limiting factor for migrating on-premises VMware VMs to Azure VMware Solution. Other enhancements added:
+- Simplified [Azure VMware Solution assessment](./concepts-azure-vmware-solution-assessment-calculation.md) experience to understand sizing assumptions, resource utilization, and limiting factor for migrating on-premises VMware VMs to Azure VMware Solution. Other enhancements added:
     - Support for two new target assessment regions: Central US and Canada East
     - Support for Reserved Instances in assessment properties for more accurate cost estimates
     - New readiness condition to highlight Operating Systems deprecated by VMware
@@ -152,7 +152,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 - Azure Migrate now supports new public cloud geographies and regions. [Learn more](migrate-support-matrix.md#public-cloud).
 
 ## Update (September 2021)
-- Discover, assess, and migrate servers over a private network using [Azure Private Link.](../private-link/private-endpoint-overview.md)  is now in preview in supported [government cloud geographies.](migrate-support-matrix.md#azure-government) [Learn more](how-to-use-azure-migrate-with-private-endpoints.md)
+- Discover, assess, and migrate servers over a private network using [Azure Private Link.](../private-link/private-endpoint-overview.md) is now in preview in supported [government cloud geographies.](migrate-support-matrix.md#azure-government) [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
 - Support to tag and add custom names to resources for agentless VMware VM migrations using PowerShell.
 - Azure Migrate appliance: Option to remove servers from the physical servers discovery list.
 
@@ -160,9 +160,9 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 - At-scale discovery and assessment of ASP.NET web apps running on IIS servers in your VMware environment, is now in preview. [Learn More](concepts-azure-webapps-assessment-calculation.md). Refer to the [Discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-webapps.md) tutorials to get started.
 - Support for Azure [ultra disks](../virtual-machines/disks-types.md#ultra-disks) in Azure VM assessment recommendation.
-- General Availability of at-scale, software inventory and agentless dependency analysis for VMware virtual machines.
+- General Availability of at-scale, software inventory, and agentless dependency analysis for VMware virtual machines.
 - Azure Migrate appliance updates:
-    - ‘Diagnose and solve’ on appliance to help users identify and self-assess any issues with the appliance.
+    - "Diagnose and solve" on appliance to help users identify and self-assess any issues with the appliance.
     - Unified installer script- common script where users need to select from the scenario, cloud, and connectivity options to deploy an appliance with the desired configuration.
     - Support to add a user account with ‘sudo’ access on appliance configuration manager to perform discovery of Linux servers (as an alternative to providing root account or enabling setcap permissions).
     - Support to edit the SQL Server connection properties on the appliance configuration manager.
@@ -203,7 +203,7 @@ For more information, see [ASP.NET app containerization and migration to Azure K
 - Migration of servers to Availability Zones is now supported.
 - Migration of UEFI-based VMs and physical servers to Azure generation 2 VMs is now supported. With this release, Migration and modernization tool won't perform the conversion from Gen 2 VM to Gen 1 VM during migration.
 - A new Azure Migrate Power BI assessment dashboard is available to help you compare costs across different assessment settings. The dashboard comes with a PowerShell utility that automatically creates the assessments that plug into the Power BI dashboard. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
-- Dependency analysis (agentless) can now be run concurrently on a 1000 VMs.
+- Dependency analysis (agentless) can now be run concurrently on a 1,000 VMs.
 - Dependency analysis (agentless) can now be enabled or disabled at scale using PowerShell scripts. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - Visualize network connections in Power BI using the data collected using dependency analysis (agentless) [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - Migration of VMware VMs with data disk size of up to 32 TB is now supported using the Migration and modernization agentless VMware migration method.
@@ -272,10 +272,10 @@ The current version of Azure Migrate (released in July 2019) provides many new f
 - **Azure Migrate appliance**: Azure Migrate deploys a lightweight appliance for discovery and assessment of on-premises VMware VMs and Hyper-V VMs.
     - This appliance is used by Azure Migrate Server Assessment, and the Migration and modernization tool for agentless migration.
     - The appliance continuously discovers server metadata and performance data, for the purposes of assessment and migration.  
-- **VMware VM migration**:  The Migration and modernization tool provides a couple of methods for migrating on-premises VMware VMs to Azure.  An agentless migration using the Azure Migrate appliance, and an agent-based migration that uses a replication appliance, and deploys an agent on each VM you want to migrate. [Learn more](server-migrate-overview.md)
+- **VMware VM migration**:  The Migration and modernization tool provides a couple of methods for migrating on-premises VMware VMs to Azure. An agentless migration using the Azure Migrate appliance, and an agent-based migration that uses a replication appliance, and deploys an agent on each VM you want to migrate. [Learn more](server-migrate-overview.md).
  - **Database assessment and migration**: From Azure Migrate, you can assess on-premises databases for migration to Azure using the Azure Database Migration Assistant. You can migrate databases using the Azure Database Migration Service.
 - **Web app migration**: You can assess web apps using a public endpoint URL with the Azure App Service. For migration of internal .NET apps, you can download and run the App Service Migration Assistant.
-- **Data Box**: Import large amounts offline data into Azure using Azure Data Box in Azure Migrate.
+- **Data Box**: Import large amounts of offline data into Azure using Azure Data Box in Azure Migrate.
 
 ## Azure Migrate previous version
 
