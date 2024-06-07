@@ -13,11 +13,11 @@ This article provides information on troubleshooting and resolving issues that c
 
 ### Logs collection
 
-For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If you're using a different machine to collect logs, you need to run the `az arcappliance get-credentials` command first before collecting logs.
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the management machine used to deploy the Arc resource bridge. If you're using a different machine, it needs to meet the [management machine requirements](system-requirements.md#management-machine-requirements).
 
 If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM. Contact your network administrator to allow SSH communication from the management machine to the Appliance VM on TCP port 22. 
 
-You can collect the Arc resource bridge logs by passing either the appliance VM IP or the kubeconfig in the logs command.
+You can collect the Arc resource bridge logs by passing either the appliance VM IP or the kubeconfig in the logs command. 
 
 To collect Arc resource bridge logs on VMware using the appliance VM IP address: 
 
