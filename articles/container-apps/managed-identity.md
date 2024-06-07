@@ -169,7 +169,7 @@ Specify each user-assigned identity by adding an item to the `userAssignedIdenti
 For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=arm-template#container-app-examples).
 
 > [!NOTE]
-> An application can have both system-assigned and user-assigned identities at the same time. In this case, the value for `type` property would be `SystemAssigned,UserAssigned`.
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the value for the `type` property would be `SystemAssigned,UserAssigned`.
 
 # [YAML](#tab/yaml)
 
@@ -203,7 +203,7 @@ For some resources, you need to configure role assignments for your app's manage
 
 With managed identities, an app can obtain tokens to access Azure resources that use Microsoft Entra ID, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application accessing the resource, and not any specific user of the application.
 
-Container Apps provides an internally accessible [REST endpoint](managed-identity.md?tabs=cli%2Chttp#rest-endpoint-reference) to retrieve tokens. The REST endpoint is availasble from within the app with a standard HTTP `GET` request, which you can implement with a generic HTTP client in your preferred language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint. You can connect to other Azure services by adding a credential object to the service-specific client.
+Container Apps provides an internally accessible [REST endpoint](managed-identity.md?tabs=cli%2Chttp#rest-endpoint-reference) to retrieve tokens. The REST endpoint is available from within the app with a standard HTTP `GET` request, which you can send with a generic HTTP client in your preferred language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint. You can connect to other Azure services by adding a credential object to the service-specific client.
 
 > [!NOTE]
 > When using Azure Identity client library, you need to explicitly specify the user-assigned managed identity client id.
