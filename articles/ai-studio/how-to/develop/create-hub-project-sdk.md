@@ -35,15 +35,9 @@ Use the following tabs to select whether you're using the Python SDK or Azure CL
 
 # [Azure CLI](#tab/azurecli)
 
-1. [Install the Azure CLI](/cli/azure/install-azure-cli), then use the following command to install the extension for machine learning:
+1. If you don't have the Azure CLI and machine learning extension installed, follow the steps in the [Install and set up the machine learning extension](/azure/machine-learning/how-to-configure-cli) article.
 
-    ```azurecli
-    az extension add --name ml
-    ```
-
-    For more information on the extension, see [Install and set up the machine learning extension (v2)](/azure/machine-learning/how-to-configure-cli).
-
-1. To authenticate to your Azure subscription, use the following command:
+1. To authenticate to your Azure subscription from the Azure CLI, use the following command:
 
     ```azurecli
     az login

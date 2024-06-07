@@ -53,17 +53,9 @@ Use the following tabs to select the method you plan to use to create a project:
 
 # [Azure CLI](#tab/azurecli)
 
-If you don't have the Azure CLI extension for machine learning, use the following steps to install it:
+1. If you don't have the Azure CLI and machine learning extension installed, follow the steps in the [Install and set up the machine learning extension](/azure/machine-learning/how-to-configure-cli) article.
 
-1. [Install the Azure CLI](/cli/azure/install-azure-cli), then use the following command to install the extension for machine learning:
-
-    ```azurecli
-    az extension add --name ml
-    ```
-
-    For more information on the extension, see [Install and set up the machine learning extension](/azure/machine-learning/how-to-configure-cli).
-
-1. To authenticate to your Azure subscription, use the following command:
+1. To authenticate to your Azure subscription from the Azure CLI, use the following command:
 
     ```azurecli
     az login
@@ -71,11 +63,11 @@ If you don't have the Azure CLI extension for machine learning, use the followin
 
     For more information on authenticating, see [Authentication methods](/cli/azure/authenticate-azure-cli).
 
-Once the extension is installed authenticated to your Azure subscription, use the following command to create a new Azure AI project from an existing Azure AI hub:
+1. Once the extension is installed and authenticated to your Azure subscription, use the following command to create a new Azure AI project from an existing Azure AI hub:
 
-```azurecli
-az ml workspace create --kind project --hub-id {my_hub_ARM_ID} --resource-group {my_resource_group} --name {my_project_name}
-```
+    ```azurecli
+    az ml workspace create --kind project --hub-id {my_hub_ARM_ID} --resource-group {my_resource_group} --name {my_project_name}
+    ```
 
 ---
 
