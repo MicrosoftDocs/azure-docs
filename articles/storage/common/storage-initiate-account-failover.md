@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 06/06/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ---

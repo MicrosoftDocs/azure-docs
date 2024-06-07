@@ -12,7 +12,7 @@ ms.custom: "include file", references_regions
 ---
 
 > [!IMPORTANT]
-> In some cases, a storage account's Last Sync Time (LST) value may be reported as NULL when Azure Files data is present.
+> After a planned failover, a storage account's Last Sync Time (LST) value might appear stale or be reported as NULL when Azure Files data is present.
 >
 > System snapshots are periodically created in a storage account's secondary region to maintain consistent recovery points used during failover and failback. Initiating customer-managed planned failover causes the original primary region becomes the new secondary. In some cases there are no system snapshots available on new secondary after the planned failover completes, causing the account's overall LST value to appear stale or be displayed as `Null`.
 >
