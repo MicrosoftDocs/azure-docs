@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Use a service principal with Azure Kubernetes Service (AKS)
 
-An AKS cluster requires either an [Microsoft Entra service principal][aad-service-principal] or a [managed identity][managed-identity-resources-overview] to dynamically create and manage other Azure resources, such as an Azure Load Balancer or Azure Container Registry (ACR).
+An AKS cluster requires either a [Microsoft Entra service principal][aad-service-principal] or a [managed identity][managed-identity-resources-overview] to dynamically create and manage other Azure resources, such as an Azure Load Balancer or Azure Container Registry (ACR).
 
 For optimal security and ease of use, Microsoft recommends using managed identities rather than service principals to authorize access from an AKS cluster to other resources in Azure. A managed identity is a special type of service principal that can be used to obtain Microsoft Entra credentials without the need to manage and secure credentials. For more information about using a managed identity with your cluster, see [Use a managed identity in AKS][use-managed-identity].
 
