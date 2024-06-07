@@ -4,8 +4,8 @@ description: Learn how to back up a virtual machine in Azure Extended Zones usin
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure
-ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 06/05/2024
+ms.topic: how-to
+ms.date: 06/07/2024
 
 ---
 
@@ -31,7 +31,7 @@ A Recovery Services vault is a management entity that stores recovery points tha
 
 1. On the **Overview** page, select **+ Vault**.
 
-    :::image type="content" source="./media/backup-virtual-machine/backup-center.png" alt-text="Screenshot that shows the Backup center in the Azure portal." lightbox="./media/backup-virtual-machine/backup-center.png":::
+    :::image type="content" source="./media/backup-virtual-machine/backup-center-vault.png" alt-text="Screenshot that shows how to create a vault from the Backup center in the Azure portal." lightbox="./media/backup-virtual-machine/backup-center-vault.png":::
 
 1. On the **Start: Create Vault** page, select **Recovery Services vault** and then select **Continue**.
 
@@ -54,6 +54,30 @@ A Recovery Services vault is a management entity that stores recovery points tha
 
 1. Review the settings, and then select **Create**.
 
+## Apply a backup policy
+
+1. On the **Overview** page of **Backup center**, select **+ Backup**.
+
+    :::image type="content" source="./media/backup-virtual-machine/backup-center-backup.png" alt-text="Screenshot that shows how to create a backup from the Backup center in the Azure portal." lightbox="./media/backup-virtual-machine/backup-center-backup.png":::
+
+1. On **Start: Configure Backup** page, select the following information:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Datasource type** |  |
+    | Datasource type | Select **Azure virtual machines**. |
+    | Vault | Select **myVault**. You'll use this Recovery Services vault to store your VM backups. |
+
+    :::image type="content" source="./media/backup-virtual-machine/configure-backup-vault.png" alt-text="Screenshot that shows how to select the Recovery Services vault." lightbox="./media/backup-virtual-machine/configure-backup-vault.png":::
+
+1. Select **Continue**.
+
+1. On **Configure backup** page, select **Enhanced** to choose the Enhanced policy, then select **Add** to add the virtual machines that you want to backup using this policy.
+
+    :::image type="content" source="./media/backup-virtual-machine/configure-backup.png" alt-text="Screenshot that shows how to add virtual machines to the backup policy." lightbox="./media/backup-virtual-machine/configure-backup.png":::
+
+1. Select **Enable backup**.
+
 ## Clean up resources
 
 When no longer needed, delete the resource group and the resources it contains:
@@ -65,7 +89,6 @@ When no longer needed, delete the resource group and the resources it contains:
 1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
-
 
 ## Related content
 
