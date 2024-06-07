@@ -9,7 +9,7 @@ ms.custom:
   - build-2024
   - references_regions
 ms.topic: reference
-ms.date: 04/23/2024
+ms.date: 05/28/2024
 ---
 
 #	Azure AI Vision multimodal embeddings skill
@@ -19,7 +19,7 @@ ms.date: 04/23/2024
 
 The **Azure AI Vision multimodal embeddings** skill uses Azure AI Vision's [multimodal embeddings API](../ai-services/computer-vision/concept-image-retrieval.md) to generate embeddings for image or text input.
 
-The skill is only supported in search services located in a region that supports the [Azure AI Vision Multimodal embeddings API](../ai-services/computer-vision/how-to/image-retrieval.md). Currently this is East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, and West US.
+The skill is only supported in search services located in a region that supports the [Azure AI Vision Multimodal embeddings API](../ai-services/computer-vision/how-to/image-retrieval.md). Currently this is East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, and West US. Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed. 
 
 > [!NOTE]
 > This skill is bound to Azure AI services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).

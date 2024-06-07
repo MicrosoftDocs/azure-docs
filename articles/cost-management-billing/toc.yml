@@ -47,6 +47,8 @@
     href: manage/withholding-tax-credit-india.md
   - name: Plan to manage Azure costs
     href: understand/plan-manage-costs.md
+  - name: Region optimization
+    href: manage/region-optimization.md
 - name: How-to guides
   items:
   - name: Configure billing

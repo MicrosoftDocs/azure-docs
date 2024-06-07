@@ -5,9 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: tutorial
-ms.date: 09/21/2023
+ms.date: 03/18/2024
 ms.service: azure-migrate
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 
 ---
 
@@ -75,7 +75,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 1. In the portal, search for users, and under **Services**, select **Users**.
 

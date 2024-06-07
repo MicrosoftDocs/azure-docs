@@ -19,23 +19,26 @@ ms.custom: engagement-fy23, linux-related-content
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
-In this article we will cover the following -
+In this article, we will cover the following:
 - Types of Images 
 - Partners 
 - Image Update Cadence 
 - Azure-tuned Kernels 
 
-There are several different sources of Linux VM images for Azure. Each source provides a different expectation for quality, utility and support. This document will summarize each source (marketplace images, platform images, custom images, and community gallery images). It will further provide more details about platform images which are images provided in partnership between Microsoft and several mainstream Linux publishers such as Red Hat, Canonical, and SUSE. 
+There are several different sources of Linux VM images for Azure. Each source provides a different expectation for quality, utility, and support. This document summarizes each source (marketplace images, platform images, custom images, and community gallery images) and gives you more details about platform images, which are images provided in partnership between Microsoft and several mainstream Linux publishers such as Red Hat, Canonical, and SUSE. 
 
 
 Microsoft’s Linux distribution partners provide a multitude of Linux images in the Azure Marketplace. For distributions that are not available from the Marketplace, you can always  provide a custom built Linux image by following the guidelines found in  [Create and upload a virtual hard disk that contains the Linux operating system](create-upload-generic.md). For older versions see [Linux Kernel Requirements](create-upload-generic.md#linux-kernel-requirements).
 
 
 
-The Azure Linux Agent is already pre-installed on Azure Marketplace images and is typically available from the distribution package repository. Source code can be found on [GitHub](https://github.com/azure/walinuxagent).  
+The Azure Linux Agent is already preinstalled on Azure Marketplace images and is typically available from the distribution package repository. Source code can be found on [GitHub](https://github.com/azure/walinuxagent).  
 
 For more information on support by distribution, see [Support for Linux images in Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure).
 
+For more information about running Azure workloads on Linux, see the following video:
+
+> [!VIDEO https://www.youtube.com/embed/K3ybTXorG5I?si=Bedb40scj_A0oD3U]
 
 ## Types of Images
 Azure Linux images can be grouped into three categories: 
@@ -83,7 +86,7 @@ Azure requires that the publishers of the endorsed Linux distributions regularly
 ## Azure-tuned Kernels 
 Azure works closely with various endorsed Linux distributions to optimize the images that they published to Azure Marketplace. One aspect of this collaboration is the development of "tuned" Linux kernels that are optimized for the Azure platform and delivered as fully supported components of the Linux distribution. The Azure-Tuned kernels incorporate new features and performance improvements, and at a faster (typically quarterly) cadence compared to the default or generic kernels that are available from the distribution. 
 
-In most cases, you will find these kernels pre-installed on the default images in Azure Marketplace so customers will immediately get the benefit of these optimized kernels. More information about these Azure-Tuned kernels can be found in the following links: 
+In most cases, you will find these kernels preinstalled on the default images in Azure Marketplace so customers will immediately get the benefit of these optimized kernels. More information about these Azure-Tuned kernels can be found in the following links: 
 - [CentOS Azure-Tuned Kernel - Available via the CentOS Virtualization SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Debian Cloud Kernel - Available with the Debian 10 and Debian 9 "backports" image on Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
 - [SLES Azure-Tuned Kernel](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images)

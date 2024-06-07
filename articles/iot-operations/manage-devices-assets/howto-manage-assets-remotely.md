@@ -28,8 +28,8 @@ In the Azure IoT Operations (preview) portal, an _instance_ represents an Azure 
 
 This article describes how to use the Azure IoT Operations (preview) portal and the Azure CLI to:
 
-- Define asset endpoints
-- Add assets, and define tags and events
+- Define the asset endpoints that connect assets to your Azure IoT Operations instance.
+- Add assets, and define their tags and events to enable data flow from OPC UA servers to the Azure IoT MQ broker.
 
 These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQ broker and Azure IoT Data Processor Preview pipelines.
 
@@ -124,7 +124,7 @@ The previous example uses the `Anonymous` authentication mode. This mode doesn't
 
 To use the `UsernamePassword` authentication mode, complete the following steps:
 
-1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-opc-ua-user-authentication-with-username-and-password) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
+1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-username-and-password-authentication) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
 2. In the Azure IoT Operations (preview) portal, select **Username & password** for the **User authentication** field to configure the asset endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
 
 | Field | Value |
@@ -136,7 +136,7 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 To use the `UsernamePassword` authentication mode, complete the following steps:
 
-1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-opc-ua-user-authentication-with-username-and-password) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
+1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-username-and-password-authentication) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
 
 1. Use a command like the following example to create your asset endpoint:
 
@@ -152,12 +152,12 @@ To configure the asset endpoint to use a transport authentication certificate, c
 
 # [Azure IoT Operations portal](#tab/portal)
 
-1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#how-to-handle-the-opc-ua-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
+1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
 2. In the Azure IoT Operations (preview) portal, select **Use transport authentication certificate** for the **Transport authentication** field and enter the certificate thumbprint.
 
 # [Azure CLI](#tab/cli)
 
-1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#how-to-handle-the-opc-ua-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
+1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
 
 1. Use a command like the following example to create your asset endpoint:
 

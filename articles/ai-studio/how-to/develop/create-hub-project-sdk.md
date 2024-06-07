@@ -15,7 +15,7 @@ author: eric-urban
 
 # Create a hub and project using the Azure Machine Learning SDK
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to create the following AI Studio resources using the Azure Machine Learning SDK:
 - An Azure AI Studio hub
