@@ -22,7 +22,6 @@ Azure Virtual Machines supports enabling Trusted launch on existing [Azure Gener
 > [!IMPORTANT]
 >
 > - Support for **enabling Trusted launch on existing Azure Generation 1 VMs** is currently in private preview. You can gain access to preview using registration link **https://aka.ms/Gen1ToTLUpgrade**.
-> - Enabling Trusted launch on existing Azure virtual machine scale sets (VMSS) Uniform & Flex are currently not supported.
 
 ## Prerequisites
 
@@ -86,48 +85,48 @@ Make sure that you've installed the latest [Azure CLI](/cli/azure/install-az-cli
 
 1. Log in to Azure Subscription
 
-```azurecli-interactive
-az login
-
-az account set --subscription 00000000-0000-0000-0000-000000000000
-```
+    ```azurecli-interactive
+    az login
+    
+    az account set --subscription 00000000-0000-0000-0000-000000000000
+    ```
 
 2. **Deallocate** VM
 
-```azurecli-interactive
-az vm deallocate \
-    --resource-group myResourceGroup --name myVm
-```
+    ```azurecli-interactive
+    az vm deallocate \
+        --resource-group myResourceGroup --name myVm
+    ```
 
 3. Enable Trusted launch by setting `--security-type` to `TrustedLaunch`.
 
-```azurecli-interactive
-az vm update \
-    --resource-group myResourceGroup --name myVm \
-    --security-type TrustedLaunch \
-    --enable-secure-boot true --enable-vtpm true
-```
+    ```azurecli-interactive
+    az vm update \
+        --resource-group myResourceGroup --name myVm \
+        --security-type TrustedLaunch \
+        --enable-secure-boot true --enable-vtpm true
+    ```
 
 4. **Validate** output of previous command. `securityProfile` configuration is returned with command output.
 
-```json
-{
-  "securityProfile": {
-    "securityType": "TrustedLaunch",
-    "uefiSettings": {
-      "secureBootEnabled": true,
-      "vTpmEnabled": true
+    ```json
+    {
+      "securityProfile": {
+        "securityType": "TrustedLaunch",
+        "uefiSettings": {
+          "secureBootEnabled": true,
+          "vTpmEnabled": true
+        }
+      }
     }
-  }
-}
-```
+    ```
 
 5. **Start** the VM.
 
-```azurecli-interactive
-az vm start \
-    --resource-group myResourceGroup --name myVm
-```
+    ```azurecli-interactive
+    az vm start \
+        --resource-group myResourceGroup --name myVm
+    ```
 
 6. Start the upgraded Trusted launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
@@ -139,45 +138,45 @@ Make sure that you've installed the latest [Azure PowerShell](/powershell/azure/
 
 1. Log in to Azure Subscription
 
-```azurepowershell-interactive
-Connect-AzAccount -SubscriptionId 00000000-0000-0000-0000-000000000000
-```
+    ```azurepowershell-interactive
+    Connect-AzAccount -SubscriptionId 00000000-0000-0000-0000-000000000000
+    ```
 
 2. **Deallocate** VM
 
-```azurepowershell-interactive
-Stop-AzVM -ResourceGroupName myResourceGroup -Name myVm
-```
+    ```azurepowershell-interactive
+    Stop-AzVM -ResourceGroupName myResourceGroup -Name myVm
+    ```
 
-3. Enable Trusted launch by setting `--security-type` to `TrustedLaunch`. 
+3. Enable Trusted launch by setting `-SecurityType` to `TrustedLaunch`. 
 
-```azurepowershell-interactive
-Get-AzVM -ResourceGroupName myResourceGroup -VMName myVm `
-    | Update-AzVM -SecurityType TrustedLaunch `
-        -EnableSecureBoot $true -EnableVtpm $true
-```
+    ```azurepowershell-interactive
+    Get-AzVM -ResourceGroupName myResourceGroup -VMName myVm `
+        | Update-AzVM -SecurityType TrustedLaunch `
+            -EnableSecureBoot $true -EnableVtpm $true
+    ```
 
 4. **Validate** `securityProfile` in updated VM configuration.
 
-```azurepowershell-interactive
-# Following command output should be `TrustedLaunch`
-
-(Get-AzVM -ResourceGroupName myResourceGroup -VMName myVm `
-    | Select-Object -Property SecurityProfile `
-        -ExpandProperty SecurityProfile).SecurityProfile.SecurityType
-
-# Following command output should return `SecureBoot` and `vTPM` settings
-(Get-AzVM -ResourceGroupName myResourceGroup -VMName myVm `
-    | Select-Object -Property SecurityProfile `
-        -ExpandProperty SecurityProfile).SecurityProfile.Uefisettings
-
-```
+    ```azurepowershell-interactive
+    # Following command output should be `TrustedLaunch`
+    
+    (Get-AzVM -ResourceGroupName myResourceGroup -VMName myVm `
+        | Select-Object -Property SecurityProfile `
+            -ExpandProperty SecurityProfile).SecurityProfile.SecurityType
+    
+    # Following command output should return `SecureBoot` and `vTPM` settings
+    (Get-AzVM -ResourceGroupName myResourceGroup -VMName myVm `
+        | Select-Object -Property SecurityProfile `
+            -ExpandProperty SecurityProfile).SecurityProfile.Uefisettings
+    
+    ```
 
 5. **Start** the VM.
 
-```azurepowershell-interactive
-Start-AzVM -ResourceGroupName myResourceGroup -Name myVm
-```
+    ```azurepowershell-interactive
+    Start-AzVM -ResourceGroupName myResourceGroup -Name myVm
+    ```
 
 6. Start the upgraded Trusted launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
