@@ -15,7 +15,7 @@ To replicate the EDW workload in Azure, your code uses Azure SDKs to work with A
 
 The AWS workload relies on AWS services and their associated data access AWS SDKs. You have already [mapped AWS services to equivalent Azure services](eks-edw-rearchitect.md#map-aws-services-to-azure-services). Now you need to create the code that accesses data for the producer queue and the consumer results database table in Python, using Azure SDKs.
 
-For the data plane, the producer message body (payload) is JSON, and it doesn't need any schema changes for Azure. However, the consumer saves results in a database, and the table schema for DynamoDB is incompatible with an equivalent table definition in Azure Cosmos DB. The DynamoDB table schema will need to be re-mapped to an Azure Cosmos DB table schema. The data access layer code will also require changes to work with Azure Cosmos DB. Finally, you need to change the authentication logic for the Azure Storage Queue and the Azure Cosmos DB results table.
+For the data plane, the producer message body (payload) is JSON, and it doesn't need any schema changes for Azure. However, the consumer saves results in a database, and the table schema for DynamoDB is incompatible with an equivalent table definition in Azure Table storage. The DynamoDB table schema will need to be re-mapped to an Azure Table storage table schema. The data access layer code will also require changes to work with Azure Cosmos DB. Finally, you need to change the authentication logic for the Azure Storage Queue and the Azure Table storage results table.
 
 ## Authentication code changes for service-to-service
 
@@ -66,101 +66,46 @@ aws iam attach-role-policy --role-name keda-sample-iam-role --policy-arn=arn:aws
 
 ### Azure service-to-service authentication implementation
 
-Next, we’ll explore how to perform similar AWS service-to-service logic within the Azure environment using AKS. To control data plane access to the Azure Storage Queue and the Azure Cosmos DB database, two Azure RBAC role definitions will be applied. These roles are like the resource-based policies that AWS uses to control access to SQS and DynamoDB. However, Azure RBAC roles are not bundled with the resource, but rather assigned to a given resource at a given scope. The user-assigned managed identity security principal linked to the workload identity in an Azure Kubernetes Service (AKS) pod will have these roles assigned to it. The Azure Python SDKs for Azure Storage Queue and Azure Cosmos DB automatically use the context of the security principal to access data in both resources.
+Next, we’ll explore how to perform similar AWS service-to-service logic within the Azure environment using AKS. To control data plane access to the Azure Storage Queue and the Azure Table storage table, two Azure RBAC role definitions will be applied. These roles are like the resource-based policies that AWS uses to control access to SQS and DynamoDB. However, Azure RBAC roles are not bundled with the resource, but rather assigned to a service principal associated with a given resource. The user-assigned managed identity linked to the workload identity in an Azure Kubernetes Service (AKS) pod will have these roles assigned to it. The Azure Python SDKs for Azure Storage Queue and Azure Table storage automatically use the context of the security principal to access data in both resources.
 
-The **Storage Queue Data Contributor** role definition is shown below. Note the data actions which permit the role assignee to read, write, or delete against the Azure Storage Queue.
+The [**Storage Queue Data Contributor** role definition](/azure/role-based-access-control/built-in-roles/storage) permits the role assignee to read, write, or delete against the Azure Storage Queue.
 
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "createdBy": null,
-  "createdOn": "2017-12-21T00:01:24.797231+00:00",
-  "description": "Allows for read, write, and delete access to Azure Storage queues and queue messages",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/974c5e8b-45b9-4653-ba55-5f855dd0fb88",
-  "name": "974c5e8b-45b9-4653-ba55-5f855dd0fb88",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Storage/storageAccounts/queueServices/queues/delete",
-        "Microsoft.Storage/storageAccounts/queueServices/queues/read",
-        "Microsoft.Storage/storageAccounts/queueServices/queues/write"
-      ],
-      "condition": null,
-      "conditionVersion": null,
-      "dataActions": [
-        "Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete",
-        "Microsoft.Storage/storageAccounts/queueServices/queues/messages/read",
-        "Microsoft.Storage/storageAccounts/queueServices/queues/messages/write",
-        "Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action"
-      ],
-      "notActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Storage Queue Data Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions",
-  "updatedBy": null,
-  "updatedOn": "2021-11-11T20:13:55.472546+00:00"
-}
-```
+The [**Storage Table Data Contributor** role definition](/azure/role-based-access-control/built-in-roles/storage) permits the assignee to read, write, or delete data against an Azure storage table.
 
-The **Cosmos DB Built-in Data Contributor** role works differently than previously applied RBAC roles, and it can't be assigned directly in the Azure portal or through `az role assignment` using the Azure CLI. Instead, a resource [Microsoft.DocumentDB databaseAccounts/sqlRoleAssignments](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroleassignments?pivots=deployment-language-bicep) can be used.
-
-To simplify assignment, you can use the following Azure CLI command to assign this role. Replace `--principal-id` with the `objectid` of the security principal used. In our case, this is the `objectid` associated with the user-assigned managed identity that is bound to the AKS workload identity.
-
-```azurecli
-az cosmosdb sql role assignment create --account-name MyAccountName --resource-group MyResourceGroup --role-assignment-id 00000000-0000-0000-0000-000000000002 --role-definition-name "Cosmos DB Built-in Data Contributor" --scope "/dbs/mydb/collections/mycontainer" --principal-id 00000000-0000-0000-0000-000000000000
-```
-
-To create the EDW workload in Azure, you need to set up service-to-service authentication to allow application code running AKS to authenticate to both Azure Storage Queues and Azure Cosmos DB, in a manner similar to EKS to SQS/DynamoDB. The following steps show how to use Azure CLI to create a single AKS cluster that will let an application access Azure Queue Service and Azure Cosmos DB from a pod using workload identity.
-
-1. Enable the AKS cluster for workload identity and enable the OIDC issuer:
-
-   ```azurecli
-   az aks update -g "${RESOURCE_GROUP}" -n $AKS_CLUSTER_NAME --enable-oidc-issuer --enable-workload-identity
-   ```
-
-1. Next, you need to configure an identity from an external OpenID Connect Provider (AKS) to get tokens as the user assigned managed identity to access [Microsoft Entra ID protected services](/entra/identity-platform/v2-protocols-oidc) such as Azure Storage Queues or Cosmos DB. Retrieve the OIDC Issuer URL from the AKS cluster before creating the managed identity:
-
-   ```azurecli
-   KS_OIDC_ISSUER=$(az aks show --name $AKS_CLUSTER_NAME --resource-group "$RESOURCE_GROUP_NAME" --query "oidcIssuerProfile.issuerUrl" -otsv)
-   ```
+The following steps show how to create a managed identity and assign to it the Storage Queue Data Contributor and **Storage Table Data Contributor** roles using the Azure CLI:
 
 1. Create a managed identity:
 
    ```azurecli
-   managedIdentity=$(az identity create --name "$AKS_MANAGED_IDENTITY_NAME" 
-   managedIdentityObjectId=$(echo "$managedIdentity" | jq -r '.principalId')
-   managedIdentityResourceId=$(echo "$managedIdentity" | jq -r '.id')
+   managedIdentity=$(az identity create /
+   –name <display-name-of-the-managed-identity> /
+   –resource-group <name-of-the-resource-group-containing-the-identity>)
    ```
 
-1. Create a Kubernetes service account in the AKS cluster:
+   For convenience, save the JSON object produced by the `az identity create` command in a shell variable for later use.
+
+1. Assign the **Storage Queue Data Contributor** role to the managed identity:
 
    ```azurecli
-   kubectl create serviceaccount "$SERVICE_ACCOUNT_NAME" -n "$SERVICE_ACCOUNT_NAMESPACE"
-   kubectl annotate serviceaccount "$SERVICE_ACCOUNT_NAME" -n "$SERVICE_ACCOUNT_NAMESPACE" "azure.workload.identity/client-id=$workloadManagedIdentityClientId"
+   principalId=$(echo $managedIdentity | jq -r `.principalId`)
+   az role assignment create \
+   --assignee-object-id $principalId \
+   --assignee-principal-type ServicePrincipal \
+   --role "Storage Queue Data Contributor" \
+   --scope <resource-id-to-scope-access-down-to>
    ```
 
-1. Establish a federated identity credential to link the managed identity and Kubernetes service account:
+1. Assign the **Storage Table Data Contributor** role to the managed identity:
 
    ```azurecli
-   az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name ${WORKLOAD_MANAGED_IDENTITY_NAME} --resource-group "$RESOURCE_GROUP_NAME" --issuer ${AKS_OIDC_ISSUER} --subject system=serviceaccount=${SERVICE_ACCOUNT_NAMESPACE}=${SERVICE_ACCOUNT_NAME}
-   ```
+   az role assignment create \
+    --assignee-object-id $principalId \
+    --assignee-principal-type ServicePrincipal \
+    --role "Storage Queue Data Contributor" \
+    --scope <resource-id-to-scope-access-down-to>```
+   ```dotnetcli
 
-1. Grant data plane RBAC role assignements to Azure Queue Service and Azure Cosmos DB for the managed identity:
-
-   ```azurecli
-   az role assignment create --assignee-object-id "$workloadManagedIdentityObjectId" --role "Storage Queue Data Contributor" --scope "$storageAccountResourceId" --assignee-principal-type ServicePrincipal
-   
-   az role assignment create --assignee-object-id "$workloadManagedIdentityObjectId" --role "DocumentDB Account Contributor" --scope "$cosmosdbAccountResourceId" --assignee-principal-type ServicePrincipal
-   ```
-
-1. Deploy the application and validate:
-
-   TODO: Link to full completed deploy.sh file here
+To see a working example, refer to the `deploy.sh` script in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws).
 
 ## Producer code changes
 
@@ -185,13 +130,7 @@ response = sqs_client.send_message(
 
 In Azure, an equivalent means of making connections to Azure Storage Queue is to use 'passwordless' OAuth authentication. The [DefaultAzureCredential](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#authorize-access-and-create-a-client-object) Python class is workload identity aware and will transparently use the managed identity associated with workload identity to authenticate to the storage queue.
 
-> [!NOTE]
->
-> `DefaultAzureCredential` also exists in Azure SDKs for other popular programming languages including [JavaScript](/javascript/api/overview/azure/identity-readme), [Java](/java/api/overview/azure/identity-readme), [Go](/azure/developer/go/azure-sdk-authentication?tabs=bash), and [.NET](/dotnet/api/azure.identity.defaultazurecredential). This example uses Python, but applications written in any of these programming languages would authenticate easily in a similar manner to what is shown below.
->
-> For more fine-grained control over credential discovery, you could use the [ChainedTokenCredential](/python/api/azure-identity/azure.identity.chainedtokencredential), which also exists in all of the languages listed above.
-
-This example shows the code required For Azure:
+The following example shows how to authenticate to an Azure Storage Queu using the `DefaultAzureCredential` class instead of secrets such as a connection string:
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -207,7 +146,7 @@ aqs_queue_client.create_queue()
 aqs_queue_client.send_message('messageBody1')
 ```
 
-TODO: Insert link to final python code file from the sample (keda-aqs-reader.py)
+The code for the queue producer (`aqs-producer.py`) can be found in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws).
 
 ## Consumer code changes
 
@@ -215,7 +154,7 @@ In the original AWS code for DynamoDB access, the AWS boto3 library is used to i
 
 ### AWS consumer code implementation
 
-The consumer part of the workload works similarly to the producer. In the AWS workload, Python code similar to the example below is used to connect to DynamoDB using the AWS IAM `AssumeRole` capability to authenticate to the DynamoDB endpoint, using the IAM identity assocated with the EKS pod hosting the application.
+The consumer part of the workload uses the same code as the producer for connecting to the AWS SQS queue to read messages. In addition, the consumer contains Python code similar to that shown below to connect to DynamoDB. This connection is made using the AWS IAM `AssumeRole` capability to authenticate to the DynamoDB endpoint, using the IAM identity assocated with the EKS pod hosting the application.
 
 ```python
 # presumes policy deployment ahead of time such as: aws iam create-policy --policy-name <policy_name> --policy-document <policy_document.json>
@@ -233,12 +172,11 @@ table.put_item(
 
 #### Azure consumer code implementation
 
-You learned how replicate the passwordless authentication mechanism used in the AWS Workload by using workload identity for AKS. Now you need the producer code to authenticate to Azure Cosmos DB. As discussed earlier, the schema used in the preceeding section with DynamoDB is incompatible with Azure Cosmos DB. You'll also use a table schema that is compatible with Azure Cosmos DB, which stores the same data as the AWS workload does in DynamoDB.
+Now you need the producer code to authenticate to Azure Cosmos DB. As discussed earlier, the schema used in the preceeding section with DynamoDB is incompatible with Azure Cosmos DB. You'll also use a table schema that is compatible with Azure Cosmos DB, which stores the same data as the AWS workload does in DynamoDB.
 
 This example shows the code required For Azure:
 
 ```python
-# presumes Azure RBAC assignment with a built-in or equivalent Azure RBAC role definition such as 'Cosmos DB Built-in Data Contributor' that is associated with the managed identity used by Microsoft Entra Workload ID with Azure Kubernetes Service.
 from azure.storage.queue import QueueClient
 from azure.data.tables import (TableServiceClient)
 
@@ -259,7 +197,7 @@ response = table.insert_entity(
 
 Notice that unlike DynamoDB, the Azure Cosmos DB code specifies both `PartitionKey` and `RowKey`. The `PartitionKey` is similar to the 'id' `uniqueidentifer` in DynamoDB. A `PartitionKey` is a `uniqueidentifier` for a partition in a logical container in Azure Cosmos DB while the `RowKey` is a `uniqueidentifier` for all the rows in a given partition. In the case of the AWS workload, each partition will contain at most one row, which doesn't necessitate the use of a `RowKey`.
 
-TODO: Insert link to final python code file for the consumer from the sample (karpenter-keda-aqs-reader.py)
+Completed versions of both the producer and consumer code can be found in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws).
 
 ## Create container images and push to Azure Container Registry
 

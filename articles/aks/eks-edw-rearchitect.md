@@ -13,9 +13,9 @@ Now that you understand some key platform differences between AWS and Azure rele
 
 ## Understand the AWS workload architecture
 
-The AWS workload is a basic example of the [Competing Consumers design pattern](/azure/architecture/patterns/competing-consumers). The AWS implementation is a reference architecture for managing scale and cost for event-driven workflows using [Kubernetes](https://kubernetes.io/), [KEDA (Kubernetes Event-driven Autoscaling)](https://keda.sh/), and [Karpenter](https://karpenter.sh/). A producer simulation script is used to generate load via messages to a queue. These messages are then processed by a consumer running in a Kubernetes pod, with the result written to a database. KEDA is used to managed pod autoscaling via a declarative binding to the producer queue, and Karpenter is used to manage node autoscaling with just enough compute to optimize for cost. Authentication to the queue and the database uses OAuth based [service account token volume](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) projection.
+The AWS workload is a basic example of the [Competing Consumers design pattern](/azure/architecture/patterns/competing-consumers). The AWS implementation is a reference architecture for managing scale and cost for event-driven workflows using [Kubernetes](https://kubernetes.io/), [KEDA (Kubernetes Event-driven Autoscaling)](https://keda.sh/), and [Karpenter](https://karpenter.sh/). A producer app is used to generate load via messages to a queue. These messages are then processed by a consumer app running in a Kubernetes pod, with the result written to a database. KEDA is used to managed pod autoscaling via a declarative binding to the producer queue, and Karpenter is used to manage node autoscaling with just enough compute to optimize for cost. Authentication to the queue and the database uses OAuth based [service account token volume](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) projection.
 
-Within the workload, an AWS EKS cluster is set up for orchestration with an Amazon Simple Queue Service (SQS) for consumers to find work and an AWS DynamoDB for producers to store results. A producer script generates messages and enqueues them to the AWS SQS. These messages are then processed by Python code that utilizes KEDA to dynamically scale the number of EKS pods, which in turn store the processed data in a DynamoDB table.
+The workload consists of an AWS EKS cluster to orchestrate consumers reading messages from an Amazon Simple Queue Service (SQS) and saving processed messages to an AWS DynamoDB table. A producer app generates messages and enqueues them on the AWS SQS queue. KEDA and Karpenter are used to dynamically scale the number of EKS nodes and pods used for the consumers.
 
 The architecture of the EDW workload in AWS is represented in the following diagram:
 
@@ -23,14 +23,14 @@ The architecture of the EDW workload in AWS is represented in the following diag
 
 ## Map AWS services to Azure services
 
-To recreate the AWS workload in Azure with minimal changes, use an Azure equivalent for each AWS service and keep authentication methods similar to the original. In this case, you can use [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) to queue up work, as this example doesn't require the [advanced features](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted) of Azure Service Bus or Event Hub, and [Azure CosmosDB for Table](/azure/cosmos-db/table/introduction) to store results.
+To recreate the AWS workload in Azure with minimal changes, use an Azure equivalent for each AWS service and keep authentication methods similar to the original. In this case, you can use [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) to queue up work, as this example doesn't require the [advanced features](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted) of Azure Service Bus or Event Hub, and Azure Table storage to store results.
 
 The following table summarizes the service mapping:
 
 | **Service mapping** |       **AWS service**      |     **Azure service**    |
 |:--------------------|:---------------------------|:-------------------------|
 | Queuing             | Simple Queue Service       | [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction)     |
-| Persistance         | DynamoDB (No SQL)          | [Azure CosmosDB for Table](/azure/cosmos-db/table/introduction) (No SQL)        |
+| Persistence         | DynamoDB (No SQL)          | [Azure Table storage](/azure/storage/tables/table-storage-overview)        |
 | Orchestration       | Elastic Kubernetes Service | [Azure Kubernetes Service](/azure/aks/) |
 | Identity | AWS IAM | [Microsoft Entra](/entra) |
 
