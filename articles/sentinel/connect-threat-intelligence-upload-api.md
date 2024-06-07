@@ -1,7 +1,7 @@
 ---
-title: Connect your TIP with upload indicators API
+title: Connect your TIP with STIX objects API
 titleSuffix: Microsoft Sentinel
-description: Learn how to connect your threat intelligence platform (TIP) or custom feed using the upload indicators API to Microsoft Sentinel.
+description: Learn how to connect your threat intelligence platform (TIP) or custom feed using the STIX objects API to Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
 ms.date: 3/14/2024
@@ -10,10 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a SOC admin, I want to connect my Threat Intelligence Platform with the upload indicators API to ingest threat intelligence, so I can utilize the benefits of this updated API.
+#customer intent: As a SOC admin, I want to connect my Threat Intelligence Platform with the STIX objects API to ingest threat intelligence, so I can utilize the benefits of this updated API.
 ---
 
-# Connect your threat intelligence platform to Microsoft Sentinel with the upload indicators API
+# Connect your threat intelligence platform to Microsoft Sentinel with the STIX objects API
 
 Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. The **Threat Intelligence Upload Indicators API** data connector allows you to use these solutions to import threat indicators into Microsoft Sentinel. This data connector uses the Sentinel upload indicators API to ingest threat intelligence indicators into Microsoft Sentinel. For more information, see [Threat Intelligence](understand-threat-intelligence.md).
 
