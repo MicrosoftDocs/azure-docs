@@ -402,5 +402,8 @@ For example, suppose you have the following XML schema:
 
 ## Related content
 
-- [Create an Azure Logic Apps Rules Engine project](create-rules-engine-project.md)
 - [Add arithmetic and logical operators to rules](add-rules-operators.md)
+- [Add control functions to actions for optimizing rules exection](add-rules-control-functions.md)
+- [Perform advanced tasks on rulesets](perform-advanced-ruleset-tasks.md)
+- [Test your rulesets](test-rulesets.md)
+- [Create an Azure Logic Apps Rules Engine project](create-rules-engine-project.md)

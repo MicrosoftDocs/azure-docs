@@ -1,6 +1,6 @@
 ---
 title: Create and manage vocabularies for rulesets
-description: Learn how to build and manage vocabularies for use with rulesets in your Azure Logic Apps Rules Engine project.
+description: Learn how to build and manage vocabularies for use with rulesets using the Microsoft Rules Composer.
 ms.service: logic-apps
 ms.suite: integration
 author: haroldcampos
@@ -12,7 +12,7 @@ ms.date: 06/10/2024
 #CustomerIntent: As a developer, I want to build vocabularies so I can use them with rulesets for my Azure Logic Apps Rules Engine project.
 ---
 
-# Create and manage vocabularies to use with rulesets (Preview)
+# Create and manage vocabularies to use with rulesets using the Microsoft Rules Composer (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
 
@@ -396,4 +396,5 @@ You can create vocabulary definitions from XML elements and attributes by browsi
 ## Related content
 
 - [Create rules with the Microsoft Rules Composer](create-rules.md)
+- [Test your rulesets](test-rulesets.md)
 - [Create an Azure Logic Apps Rules Engine project](create-rules-engine-project.md)

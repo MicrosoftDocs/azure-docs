@@ -1,6 +1,6 @@
 ---
-title: Add control functions to rules
-description: Learn how to optimize rules execution by adding control functions to rules for your Azure Logic Apps rules engine.
+title: Add control functions to optimize rules
+description: Learn how to optimize rules execution by adding control functions to rules using Microsoft Rules Composer.
 ms.service: logic-apps
 ms.suite: integration
 author: haroldcampos
@@ -9,10 +9,10 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 06/10/2024
 
-#CustomerIntent: As a developer, I want to understand how to optimize rules execution by using control functions.
+#CustomerIntent: As a developer, I want to understand how to optimize rules execution by adding control functions to actions in rules using Microsoft Rules Composer.
 ---
 
-# Add control functions to optimize rules execution (Preview)
+# Add control functions in actions to optimize rules execution using Microsoft Rules Composer (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
 
@@ -20,7 +20,7 @@ ms.date: 06/10/2024
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This guide describes how to optimize code for your rules engine by using control functions that help your application or ruleset control the facts in the engine's working memory. These control functions include the **Assert**, **Clear**, **Halt**, **Retract**, **RetractByType**, **Reassert**, and **Update** functions for the .NET object and **TypedXmlDocument** entities that you can use as facts. The existence of facts in working memory drives the conditions that the engine evaluates and the actions that execute.
+This guide describes how to optimize rules execution by adding control functions to actions in your rules using the Microsoft Rules Composer. Control functions help your application or ruleset control the facts in the rules engine's working memory. These functions include the **Assert**, **Clear**, **Halt**, **Retract**, **RetractByType**, **Reassert**, and **Update** functions for the .NET object and **TypedXmlDocument** entities that you can use as facts. The existence of facts in working memory drives the conditions that the engine evaluates and the actions that execute.
 
 ## Prerequisites
 
@@ -548,4 +548,6 @@ Update(ProcessPO.Order:/Order/Items)
 ## Related content
 
 - [Create rules with the Microsoft Rules Composer](create-rules.md)
+- [Add arithmetic and logical operators to rules](add-rules-operators.md)
+- [Test your rulesets](test-rulesets.md)
 - [Create an Azure Logic Apps Rules Engine project](create-rules-engine-project.md)

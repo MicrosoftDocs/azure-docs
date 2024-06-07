@@ -373,5 +373,6 @@ After the assertion, the engine reevaluates all rules that contain the **Employe
 
 ## Related content
 
+- [What is the Azure Logic Apps Rules Engine](rules-engine-overview.md)?
 - [Create rules with the Microsoft Rules Composer](create-rules.md)
-- [Add arithmetic and logical operators to rules](add-rules-operators.md)
+- [Create an Azure Logic Apps Rules Engine project](create-rules-engine-project.md)

@@ -12,7 +12,7 @@ ms.date: 06/10/2024
 #CustomerIntent: As a developer, I want to understand how use arithmetic and logic operators in the rules that I create for my Azure Logic Apps Rules Engine project.
 ---
 
-# Add arithmetic and logical operators to rules in your ruleset (Preview)
+# Add arithmetic and logical operators to rules using Microsoft Rules Composer (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
 
@@ -142,3 +142,6 @@ In the preceding example, the `<CheckQuantityAndDoSomething>` function checks th
 ## Related content
 
 - [Create rules with the Microsoft Rules Composer](create-rules.md)
+- [Add control functions to actions for optimizing rules exection](add-rules-control-functions.md)
+- [Test your rulesets](test-rulesets.md)
+- [Create an Azure Logic Apps Rules Engine project](create-rules-engine-project.md)

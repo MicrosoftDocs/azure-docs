@@ -57,3 +57,4 @@ For more information on how to configure a Standard logic app resource with a Ru
 
 - [Create rules with the Microsoft Rules Composer](create-rules.md)
 - [Create an Azure Logic Apps Rules Engine project](create-rules-engine-project.md)
+- [Optimization for Azure Logic Apps Rules Engine execution](rules-engine-optimization.md)
