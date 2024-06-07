@@ -110,6 +110,8 @@ Create the array of STIX objects using the STIX format specification. Some of th
 |`external_references` (optional) | list of object | The `external_references` property specifies a list of external references which refers to non-STIX information. This property is used to provide one or more URLs, descriptions, or IDs to records in other systems.|
 |`granular_markings` (optional) | list of [granular-marking](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) | The `granular_markings` property helps define parts of the indicator differently. For example, the indicator language is English, `en` but the description is German, `de`.<br><br>In some cases, though uncommon, marking definitions themselves might be marked with sharing or handling guidance. In this case, this property *must not* contain any references to the same Marking Definition object (that is, it can't contain any circular references).<br><br>See section [7.2.3](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_robezi5egfdr) for further definition of data markings.|
 
+For more information, see [STIX common properties](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_xzbicbtscatx).
+
 #### Indicator
 
 |Property Name	|Type |	Description |
@@ -123,6 +125,8 @@ Create the array of STIX objects using the STIX format specification. Some of th
 |`valid_from` (required) | timestamp | The time from which this indicator is considered a valid indicator of the behaviors it's related to or represents.|
 |`valid_until` (optional) | timestamp | The time at which this indicator should no longer be considered a valid indicator of the behaviors it's related to or represents.<br><br>If the valid_until property is omitted, then there's no constraint on the latest time for which the indicator is valid.<br><br>This timestamp *must* be greater than the valid_from timestamp.|
 |`kill_chain_phases` (optional) | list of string | The kill chain phases to which this indicator corresponds.<br><br>The value for this property *should* come from the [Kill Chain Phase](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_i4tjv75ce50h).|
+
+For more information, see [STIX indicator](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_muftrcpnf89v).
 
 #### Attack pattern
 
