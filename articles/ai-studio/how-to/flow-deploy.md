@@ -255,4 +255,4 @@ If you aren't going use the endpoint after completing this tutorial, you should 
 
 - Learn more about what you can do in [Azure AI Studio](../what-is-ai-studio.md)
 - Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml)
-- /develop/trace-production-sdk
+- [Enable trace and collect feedback for your deployment] (./develop/trace-production-sdk.md)
