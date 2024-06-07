@@ -286,7 +286,7 @@ The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Micr
 <!-- LINKS - external -->
 [byo-kubelet-identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [image-pull-secret]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
-[summary-msi]: use-managed-identity.md#summary-of-managed-identities
+[summary-msi]: use-managed-identity.md#summary-of-managed-identities-used-by-aks
 [acr-pull]: ../role-based-access-control/built-in-roles.md#acrpull
 [azure-cli-install]: /cli/azure/install-azure-cli
 [azure-powershell-install]: /powershell/azure/install-az-ps
