@@ -236,7 +236,7 @@ The following table lists the fields in the schema and what they signify for vir
 > | **PacketsSrcToDest** | - | Represents packets sent from the source to the destination of the flow . |
 > | **BytesDestToSrc** | - | Represents bytes sent from the destination to the source of the flow. |
 > | **BytesSrcToDest** | - | Represents bytes sent from the source to the destination of the flow. |
-> | **CompletedFlows** | - | Total number of flows completed. |
+> | **CompletedFlows** | - | Total number of flows completed (populated with non-zero value when a flow gets a completed event). |
 > | **SrcPublicIPs** | \<SOURCE_PUBLIC_IP\>\|\<FLOW_STARTED_COUNT\>\|\<FLOW_ENDED_COUNT\>\|\<OUTBOUND_PACKETS\>\|\<INBOUND_PACKETS\>\|\<OUTBOUND_BYTES\>\|\<INBOUND_BYTES\> | Entries separated by bars. |
 > | **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 > | **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows. |
