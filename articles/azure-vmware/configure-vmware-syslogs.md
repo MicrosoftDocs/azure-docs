@@ -103,7 +103,7 @@ For more information, see
 
 2. Go to your **Storage accounts**, verify **Insight logs vmwarelog** was created, and select it. 
  
-:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-3.png" alt-text="Screenshot showing the Insight logs vmwarelog option created and available." border="false"  lightbox="edia/diagnostic-settings/diagnostic-settings-log-analytics-workspace-3.png":::
+:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-3.png" alt-text="Screenshot showing the Insight logs vmwarelog option created and available." border="false"  lightbox="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-3.png":::
 
 
 3. Browse **Insight logs vmwarelog** to locate and download the json file to view the logs.
