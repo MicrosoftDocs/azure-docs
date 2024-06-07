@@ -22,7 +22,7 @@ In this article, you learn to register and work with models in Azure Machine Lea
 - The Azure Machine Learning V2 CLI.
 - The Python Azure Machine Learning V2 SDK.
 
-You learn how to to:
+You learn how to:
 - Create registered models in the model registry from local files, datastores, or job outputs.
 - Work with different types of models, such as custom, MLflow, and Triton.
 - Manage the lifecycle of model assets.
@@ -134,7 +134,7 @@ The following code snippets cover how to register a model as an asset in Azure M
 
 The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, you connect to your Azure Machine Learning workspace to create the registered model.
 
-In the following code snippets, replace `<subscription-id>`, `<resource-group>`, `<workspace-name>`, and `<location>` and placeholders with the values for your environment.
+In the following code snippets, replace `<subscription-id>`, `<resource-group>`, `<workspace-name>`, and `<location>` placeholders with the values for your environment.
 
 # [Azure CLI](#tab/cli)
 
@@ -180,7 +180,7 @@ To create a registered model, use the following code, depending on whether the m
 
 1. Run the following command, using the name of your YAML file:
 
-   ```bash
+   ```azurecli
    az ml model create -f <yaml-filename>.yml
    ```
 
@@ -218,14 +218,14 @@ The following example uses the shorthand `azureml` scheme for pointing to a path
 
 #### Job output
 
-If your model data comes from a job output, you have two options. You can use the MLflow `runs` URI format or the `azureml://jobs` URI format.
+If your model data comes from a job output, you have two options. You can use the MLflow `runs:` URI format or the `azureml://jobs` URI format.
 
 >[!NOTE]
 >The *artifacts* reserved keyword represents output from the default artifact location.
 
-- **MLflow runs URI format**
+- **MLflow runs: URI format**
 
-  This option is optimized for MLflow users, who are probably already familiar with the MLflow `runs` URI format. This option creates a model from artifacts in the default *artifact* location, where all MLflow-logged models and artifacts are located. This option also establishes a lineage between a registered model and the run the model came from.
+  This option is optimized for MLflow users, who are probably already familiar with the MLflow `runs:` URI format. This option creates a model from artifacts in the default *artifact* location, where all MLflow-logged models and artifacts are located. This option also establishes a lineage between a registered model and the run the model came from.
 
   Format: `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
 
@@ -264,9 +264,9 @@ If your model data comes from a job output, you have two options. You can use th
 
   For example:
   - Default artifact location: `azureml://jobs/<run-id>/outputs/artifacts/paths/<path-to-model>/`. This location is equivalent to MLflow `runs:/<run-id>/<model>/`.
-  - From a named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>`
-  - From a specific file within the named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>/paths/<model-filename>`
-  - From a specific folder path within the named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>/paths/<model-folder-name>/`
+  - Named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>`
+  - Specific file within the named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>/paths/<model-filename>`
+  - Specific folder path within the named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>/paths/<model-folder-name>/`
 
   # [Azure CLI](#tab/cli)
 
@@ -476,7 +476,7 @@ Your job can write a model to your cloud-based storage by using *outputs*.
 
 # [Azure CLI](#tab/cli)
 
-1. Create a job specification YAML file `<file-name>.yml`. Populate the `outputs` section with the output model type and path.
+1. Create a job specification YAML file *<file-name>.yml*. Populate the `outputs` section with the output model type and path.
 
    :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-model-as-output.yml":::
 
@@ -511,7 +511,7 @@ from azure.ai.ml import Input, Output
 from azure.ai.ml.constants import AssetTypes
 
 my_job_inputs = {
-    "input_model": Input(type=AssetTypes.<input-model-asset-type>, path="<input-model-path"),
+    "input_model": Input(type=AssetTypes.<input-model-asset-type>, path="<input-model-path>"),
     "input_data": Input(type=AssetTypes.uri_file, path="<input-data-path>")
 }
 
