@@ -78,7 +78,7 @@ The following list describes some example scenarios where you can use a script h
 
 1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopluated sample code with your own script code.
 
-   - At the top of the script, [import the necessary namespaces](#import-namespaces) and [add any required assembly references](#add-assembly-references) as usual. You can also [add private modules](#add-private-modules), if needed.
+   - At the top of the script, [import the necessary namespaces](#import-namespaces) and [add any required assembly references](#add-assembly-references) as usual.
 
    - Implement the **`Run`** method:
 
@@ -224,27 +224,6 @@ Microsoft.Azure.WebJobs.Extensions
 System.Web.Http
 System.Net.Http.Formatting
 Newtonsoft.Json
-```
-
-<a name="Add-private-modules"></a>
-
-## Add private modules
-
-You can add and store custom modules at the logic app level by using the **KuduPlus** console in the Azure portal. In your logic app's directory at the root level, **site/wwwroot**, you can add a **Modules** folder that includes another folder with your module's name. In this subfolder, you can add a PowerShell module (.psm1) file. At your logic app's root level, you can also add any PowerShell manifest (.psd1) files that you might want to use, such as a **`requirements.psd1`** file.
-
-To browse your logic app's directory, [follow the same steps to find your script's .csx file in the **KuduPlus** console](#view-script-file).
-
-This example shows a sample logic app folder and file structure:
-
-```text
-| Modules
-  || HelloWorldModule
-     ||| HelloWorldModule.psm1
-     ||| HelloWorldModule.psd1
-| MyLogicApp
-  || workflow.json
-| host.json
-| requirements.psd1
 ```
 
 <a name="access-trigger-action-outputs"></a>
