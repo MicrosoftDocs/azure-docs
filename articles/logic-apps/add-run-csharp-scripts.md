@@ -529,8 +529,8 @@ Represents the result from a workflow operation.
 | **Name** | String | Gets or sets the operation name. |
 | **Inputs** | JToken | Gets or sets the operation execution inputs. |
 | **Outputs** | JToken | Gets or sets the operation execution outputs. |
-| **StartTime** | DateTime | Gets or sets the operation start time. |
-| **EndTime** | DateTime | Gets or sets the operation end time. |
+| **StartTime** | DateTime? | Gets or sets the operation start time. |
+| **EndTime** | DateTime? | Gets or sets the operation end time. |
 | **OperationTrackingId** | String | Gets or sets the operation tracking ID. |
 | **Code** | String | Gets or sets the status code for the action. |
 | **Status** | String | Gets or sets the status for the action. |
