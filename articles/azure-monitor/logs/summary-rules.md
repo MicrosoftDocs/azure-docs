@@ -49,7 +49,7 @@ You can configure up to 30 rules to aggregate data from multiple tables and send
 
 You can export summarized data from a custom log table to a storage account or Event Hubs for further integrations by defining a [data export rule](logs-data-export.md).
 
-### Eaxmple: Aggregating ContainerLogsV2 data
+### Eaxmple: Summarize ContainerLogsV2 data
 
 If you're monitoring containers, you ingest a large volume of verbose logs into the `ContainerLogsV2` table.
 
