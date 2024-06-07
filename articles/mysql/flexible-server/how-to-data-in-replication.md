@@ -173,7 +173,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    You can use mysqldump to dump databases from your primary server. For details, refer to [Dump & Restore](../concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
 
-2. Set source server to read/write mode.
+1. Set source server to read/write mode.
 
    After the database has been dumped, change the source MySQL server back to read/write mode.
 
@@ -185,7 +185,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    >[!NOTE]
    > Before the server is set back to read/write mode, you can retrieve the GTID information using global variable GTID_EXECUTED. The same will be used at the later stage to set GTID on the replica server
 
-3. Restore dump file to new server.
+1. Restore dump file to new server.
 
    Restore the dump file to the server created in Azure Database for MySQL flexible server. Refer to [Dump & Restore](../concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL flexible server instance from the virtual machine.
 
