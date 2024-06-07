@@ -19,7 +19,7 @@ Tape is one of the dominant storage media, and it stores a large part of world's
 
 Tapes are a great medium for storing cold data. They're fast in sequential reading, but stages requiring mechanical movements (like loading, and unloading of tapes, tape seeks, etc.) are slower. That makes tapes unusable for traditional, random based access, and is the main reason that even today data stored on tapes is rarely used. In addition, tapes are a magnetic medium that require special handling. They're sensitive to environment, particularly temperature, and humidity. If kept within their operating environmental range, they can achieve high durability, and good restore success rate. However, when kept in unfriendly environment, deterioration happens often, and renders the tape unreadable.
 
-Customers store a lot of data on tapes. Large portion of that data is dark data (data that is collected, and stored, but not used for any other purpose). Dark data brings no value to the data owner. With the increase in AI capability, and accessibility, the trend is changing. Customers are looking closer into how dark data can help them to increase efficiency, open new revenue streams, or increase their competitive advantage. However, data on tapes can't be directly accessed. It must be moved to an online storage (disks) first. This movement requires a manual effort. To take advantage of dark data, many organizations are considering migrating the data from tapes to cloud storage. Cloud storage is also great in storing old data, among other benefits. But, unlike tapes, it also provides an easy way to analyze the data, extract business value, and consuming services like AI, Machine Learning, Azure Search, etc.
+Large portion of tapes store dark data (data that is created, and stored, but not used for any purpose). Dark data brings no value to the data owner. With the increase in AI capability, and accessibility, the trend is changing. Customers are looking into how dark data can help them to increase efficiency, open new revenue streams, or increase their competitive advantage. To take advantage of dark data, many organizations are considering migrating the data from tapes to cloud storage. Cloud storage provides an easy way to analyze the data, extract business value, and consume services like AI, Machine Learning, Azure Search, etc.
 
 Some of the major reasons we're seeing increase in tape to cloud migrations are:
 
@@ -27,7 +27,7 @@ Some of the major reasons we're seeing increase in tape to cloud migrations are:
 - Reduce the effort required for managing data with long term retention,
 - Avoid migration process from one tape generation to another,
 - Reduce the risk for data loss, particularly for older generations of tapes,
-- Replace off-site tape storage facility,
+- Replace off-site tape storage facilities,
 - Simplify disaster recovery processes,
 - Applying modern tools like AI, and ML to historical data.
 
@@ -39,7 +39,7 @@ Before a tape migration process starts, options must be carefully considered. Fi
 
 |Approach | Pros | Cons |
 | ------- | ---- | ---- |
-| Customer performed migration | - Data never leaves site <br> - No logistics for shipping tapes | - Requires hardware resources <br> - Adds more work to existing personnel <br> - Requires specific knowledge in handling tapes <br> - Possible unknown costs|
+| Customer performed migration | - Data never leaves the site <br> - No logistics for shipping tapes | - Requires hardware resources <br> - Adds more work to personnel <br> - Requires specific knowledge in handling tapes <br> - Possible unknown costs|
 | Tape migration partner | - Simple pricing, and known cost upfront (paid per tape) <br> - No impact on production <br> - No impact on personnel | - Requires logistics for shipping tapes <br> - Security considerations required due to shipping tapes <br> - Multiple copies needed for data availability during migration |
 
 Several major considerations can easily guide our decision on who can execute the migration, customer, or partner.
@@ -54,7 +54,7 @@ Resources are the most critical part of the tape migration process, and we divid
 | Hardware | - Different tape generations require different type of hardware <br> - Speed of the migration is proportional to available drives |
 | Software | - Access to software that created the data is needed <br> - Access to encryption keys is needed |
 
-Hardware is usually the most challenging part. If we're migrating existing tape generations, hardware is available, but used as part of the existing production. When migrating older tape generations, hardware is often not available anymore, and it's harder to acquire. With older tape generation, using a tape migration partner is preferred option.
+Hardware is usually the most challenging part. If we're migrating existing tape generations, hardware is available, but used as part of the existing production. When migrating older tape generations, hardware is often not available anymore, and it's harder to acquire. With older tape generation, using a tape migration partner is a preferred option.
 When hardware is available, careful planning is needed to make sure migration doesn't interfere with the existing production workloads. Here we can apply three different models:
 
 | Model | Pros | Cons |
@@ -78,23 +78,23 @@ If there are no available resources to perform the migration, no matter what typ
 1. **Migration performed on customer's site** when tape migration partner ships the hardware, and hires people, and performs the work on customer's location. Customer needs to provide access to the tapes, dedicated space for the equipment, network connections, and access to Azure Storage service. Partner is responsible for all other activities.
 1. **Migration performed on partner's site** when customer ships the tapes to the partner, and provides access to Azure Storage service. Tape migration partner performs all the work to migrate the data from tapes to Azure Storage.
 
-Second option is easier, and more commonly used. Tape migration partners have facilities that are designed and equipped to perform tape migration on a large scale. This option also reduces the risk, and the timeline since partners have more hardware resources available. Performing migration on customer's site is used only when security, and privacy concerns don't allow the customer to ship the tapes to the partner.
+Second option is easier, and more commonly used. Tape migration partners have facilities that are designed, and equipped to perform tape migration on a large scale. This option also reduces the risk, and the timeline since partners have more hardware resources available. Performing migration on customer's site is used only when security, and privacy concerns don't allow the customer to ship the tapes to the partner.
 
 Several partners can perform tape migrations to Azure. The full list of partners can be found on [offline media import](https://azure.microsoft.com/products/databox/offline-media-import/).
 
 Here is a simple flowchart to ease the selection process.
 ![Chart showing tape migration selection process](./media/tape-migration-guide/tape-migration-chart.png)
 
-### Other considerations
+### Data format
 
-There are other considerations that we need to think about before starting the migration. They don+t impact our decision on how we perform the migration, but make a huge impact on the later stages, and on migration design. Format that will be used to store the data is the critical consideration for future usability. Data can be stored in a proprietary, or native format. Proprietary formats are stored as a virtual tape, a raw image from the original tape. Native format requires to restore the data from tapes, and store them as files, or objects.
+Data format has a large impact on migration design, and is the critical consideration for future data usability. Data can be stored in a proprietary, or native format. Proprietary formats are commonly stored as a virtual tapes, a raw image from the original tape. Native format requires to restore the data from tapes, and store them as files, or objects.
 
 | Model | Pros | Cons |
 | ----- | ---- | ---- |
-|Virtual tapes | - Easier, and faster migration <br> - Can recreate identical tape media as the original <br> - No need to have access to the original software to write the data | - Requires maintaining virtual tape inventory <br> - Data stored in application dependent format <br> - Requires original software to restore the data |
+|Virtual tapes | - Easier, and faster migration <br> - Can recreate identical tape media as the original <br> - No need to have access to the original software to write the data | - Requires maintaining virtual tape inventory <br> - Data stored in application dependent format, requires original software to restore the data <br> - Data not accessible by Azure services (AI / ML) without restore |
 | Native files | - Files accessible by any application, and service (AI / ML) <br> - Possible to monetize the data <br> - No need to have access to original software for restores | - More complex migration <br> - Requires access to original software to write the data |
 
-Main criteria for deciding the format is how do we plan to use the migrated data. If data is migrated only for long-term retention, then virtual tapes are a great choice. It simplifies the migration. In any other case, storing data in native format is a preferred option. It allows simple usage of data in the future, and opens up many possibilities with data analysis.
+Main criteria for deciding the format is how do we plan to use the migrated data. If data is migrated only for long-term retention, then virtual tapes are a great choice. In any other case, storing data in native format is a preferred option. It allows simple usage of data in the future, and opens up many possibilities with data analysis.
 
 ## Migration process
 
@@ -110,26 +110,28 @@ Information phase is critical for gathering key requirements. Gathered informati
 - What software was used to write the data on tapes, is that software still available?
 - What is the format used to write the data on tapes, is the format open, or proprietary, is compression applied?
 - Was encryption used, and if yes, what is the most secure option to exchange encryption keys?
-- What is the target region, and storage service?
-- What is available network bandwidth for data migration?
-- Where are tapes physically stored, and can they be shipped?
-- Are any regulatory requirements critical (HIPAA, GDPR, etc.)? Is chain of custody mandatory?
-- Are tapes needed after migration?
+- What is the target region?
+- What storage service is used?
+- What regulatory requirements are critical (HIPAA, GDPR, etc.)? Is chain of custody mandatory?
 - What is the migration deadline? Are there any critical milestones?
+- How much network bandwidth is available for migration?
+- Where are tapes physically stored, and can they be shipped?
+- Are tapes needed after migration?
 - How to maintain temperature, and humidity for tapes during migration / transport?
+- Who are main stakeholders?
 
 ### Preparation phase
 
-After we gathered basic information, we can prepare for the migration. Every migration is different. Preparation phase can include many different steps, depending on the goals. But there are some common steps most migrations go through:
+After we gathered basic information, we can prepare for the migration. Preparation phase can include many different steps, but there are some common steps most migrations go through:
 
-1. **Data analysis** provides information on the data that needs to be migrated. Information is critical to estimate how fast data can be read from tapes, and how much parallelism we need to achieve to successfully finish the migration before the deadline. It impacts estimates on the required hardware (libraries, robots, drives). Data analysis is done by sampling multiple tapes that  represent the data set to be migrated. Typical information we are looking for is:
+1. **Data analysis** provides information on the data that needs to be migrated. Information is critical to estimate how fast data can be read from tapes, and how much parallelism we need to achieve to successfully finish the migration before the deadline. It impacts estimates on the required hardware (libraries, robots, drives). Data analysis is done by sampling multiple tapes that represent the data set to be migrated. Typical information we are looking for is:
     - file sizes, 
     - amount of data stored per tape, 
     - number of files per tape, 
     - minimum, and maximum file sizes, 
     - file types. 
-1. **Data quality** helps in estimating final, and unique dataset that needs to be migrated. One of the most common issues with tape migration is duplication of data. Tape migration is ideal time to clean all duplicated data. This process improves data quality for future use, it reduces cost, and the duration of the migration.
-1. **Data prioritization** determines the order in which the data can be migrated. Ideally, we want to achieve direct streaming from each tape instead of randomly reading files from different tapes (to avoid constant loading, and unloading). This approach allows the highest possible throughput, and is always the fastest migration path. Data prioritization takes business requirements and technical feasibility to achieve the best possible migration option.
+1. **Data quality** helps in estimating final, and unique dataset that needs to be migrated. One of the most common issues with tape migration is duplication of data. Tape migration is ideal time to clean up duplicated data. This process improves data quality for future use, it reduces cost, and the duration of the migration.
+1. **Data prioritization** determines the order in which the data can be migrated. Ideally, we want to achieve direct streaming from each tape instead of randomly reading files from different tapes (to avoid constant loading, unloading, and seeks). This approach achieves the highest possible throughput, and is always the fastest migration path. Data prioritization takes business requirements, and technical feasibility to achieve the best results.
 1. **Migration design** includes all the technical aspects of the migration, and the gathered information to form a final migration process. It's a written document that becomes source of truth for the remaining stages. It must contain at least:
 
     - clear migration process, and migration deadline,
@@ -142,7 +144,7 @@ After we gathered basic information, we can prepare for the migration. Every mig
 ### Migration phase
 
 Once the migration design is final, we start the migration process. Before ramping up to full migration pace, we always perform a test with a smaller sample. Goal for the test is to make sure that end-to-end process works. It allows us to make tweaks, and improve the process. Once the test is successful, we ramp up fully till the migration is done.
-For each file we migrate, we need to perform data validation to make sure that data wasn't corrupted during the migration process. In ideal situation, source data already contains hash values that can be easily compared to hash values post-migration. If they match, file is marked as migrated. If not, file is discarded, and migrated again. Sometimes. The original data is corrupted on the source tapes, and that is the reason why having the original hash values helps with catching those cases. In cases like that, we can read the data from secondary copy if it exists. Data validation process is a critical component for migration design and process for handling failed validation must be defined. Migration phase is also constantly monitored to make sure we can react to unpredictable situation, and adapt to it. Regular reporting to main stakeholders is important to keep the migration on track.
+For each file we migrate, we need to perform data validation to make sure that data wasn't corrupted during the migration process. In ideal situation, source data already contains hash values that can be easily compared to hash values post-migration. If hashes don't exist, they must be calculated before the file is migrated. If hashes match, file is marked as migrated. If not, file is discarded, and migrated again. Sometimes the data is corrupted on the source tapes. Having the original hash values helps with catching those rare cases. If they happen, we can read the data from secondary copy if it exists. Data validation process is a critical component for a migration design. Process for handling failed validation must be defined. Migration phase is also constantly monitored to make sure we can react to unpredictable situation, and adapt to it. Regular reporting to main stakeholders is important to keep the migration on track.
 
 ### Post-migration phase
 
