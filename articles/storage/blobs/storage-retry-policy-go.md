@@ -20,7 +20,7 @@ In this article, you learn how to use the Azure Storage client module for Go to 
 
 Retry policies for Blob Storage are configured programmatically, offering control over how retry options are applied to various service requests and scenarios. For example, a web app issuing requests based on user interaction might implement a policy with fewer retries and shorter delays to increase responsiveness and notify the user when an error occurs. Alternatively, an app or component running batch requests in the background might increase the number of retries and use an exponential backoff strategy to allow the request time to complete successfully.
 
-The following table lists the fields available for a [RetryOptions](/java/api/com.azure.storage.common.policy.requestretryoptions) instance, along with the type, a brief description, and the default value if you make no changes. You should be proactive in tuning the values of these properties to meet the needs of your app.
+The following table lists the fields available to configure in a [RetryOptions](/java/api/com.azure.storage.common.policy.requestretryoptions) instance, along with the type, a brief description, and the default value if you make no changes. You should be proactive in tuning the values of these properties to meet the needs of your app.
 
 | Property | Type | Description | Default value |
 | --- | --- | --- | --- |
@@ -31,7 +31,7 @@ The following table lists the fields available for a [RetryOptions](/java/api/co
 | `StatusCodes` | []int | Optional. Specifies the HTTP status codes that indicate the operation should be retried. Specifying values will replace the default values. Specifying an empty slice disables retries for HTTP status codes. | 408 - http.StatusRequestTimeout</br>429 - http.StatusTooManyRequests</br>500 - http.StatusInternalServerError</br>502 - http.StatusBadGateway</br>503 - http.StatusServiceUnavailable</br>504 - http.StatusGatewayTimeout |
 | `ShouldRetry` | `func(*http.Response, error) bool` | Optional. evaluates if the retry policy should retry the request. When specified, the function overrides comparison against the list of HTTP status codes and error checking within the retry policy. `Context` and `NonRetriable` errors remain evaluated before calling `ShouldRetry`. The `*http.Response` and `error` parameters are mutually exclusive, that is, if one is nil, the other is not nil. A return value of true means the retry policy should retry. | |
 
-In the following code example, we configure the retry options in an instance of [RetryOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore/policy#RetryOptions) and pass it to `BlobServiceClientBuilder` to create a client object:
+In the following code example, we configure the retry options in an instance of [RetryOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore/policy#RetryOptions), include it in a [ClientOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore/policy#ClientOptions) instance, and create a new client object:
 
 ```go
 options := blob.ClientOptions{
@@ -50,7 +50,7 @@ cred, err := azidentity.NewDefaultAzureCredential(nil)
 client := blob.NewClient("http://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>", cred, &options)
 ```
 
-In this example, each service request issued from the `BlobServiceClient` object uses the retry options as defined in the `RetryOptions` instance. This policy applies to client requests. You can configure various retry strategies for service clients based on the needs of your app.
+In this example, each service request issued from `client` uses the retry options as defined in the `RetryOptions` struct. This policy applies to client requests. You can configure various retry strategies for service clients based on the needs of your app.
 
 ## Related content
 
