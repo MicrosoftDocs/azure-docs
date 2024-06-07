@@ -13,7 +13,7 @@ Worldwide public holiday data sourced from PyPI holidays package and Wikipedia, 
 
 Each row indicates the holiday info for a specific date, country or region, and whether most people have paid time off.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Volume and retention
 
