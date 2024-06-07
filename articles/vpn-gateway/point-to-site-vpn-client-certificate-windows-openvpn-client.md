@@ -70,7 +70,7 @@ Locate and unzip the VPN client profile configuration package you generated. For
 
 ## Configure the client
 
-[!INCLUDE [Configuration steps](../../includes/vpn-gateway-vwan-config-openvpn-windows.md)]
+[!INCLUDE [Configuration steps](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-config-openvpn-windows.md)]
 
 ## Next steps
 

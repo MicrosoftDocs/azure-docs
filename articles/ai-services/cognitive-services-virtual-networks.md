@@ -26,7 +26,7 @@ An application that accesses an Azure AI services resource when network rules ar
 >
 > Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Scenarios
 

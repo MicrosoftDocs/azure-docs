@@ -1,6 +1,6 @@
 ---
 title: NP family VM size series
-description: Overview of the 'NP' family and sub families of virtual machine sizes
+description: List of sizes in the NP family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -27,3 +27,8 @@ ms.author: mattmcinnes
 [View the full np-series page](../../np-series.md).
 
 [!INCLUDE [np-series-specs](./includes/np-series-specs.md)]
+
+### Previous-generation NP family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#fpga-accelerated-previous-gen-sizes).
+
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
