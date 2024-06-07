@@ -282,12 +282,12 @@ You can fully secure your ingress and egress networking traffic workload profile
 
 Azure Container Apps supports peer-to-peer TLS encryption within the environment. Enabling this feature encrypts all network traffic within the environment with a private certificate that is valid within the Azure Container Apps environment scope. These certificates are automatically managed by Azure Container Apps. 
 
-Below is an example environment with peer-to-peer encryption enabled.
+The following example shows an environment with peer-to-peer encryption enabled.
 :::image type="content" source="media/networking/peer-to-peer-encryption-traffic-diagram.png" alt-text="Diagram of how traffic is encrypted/decrypted with peer-to-peer encryption enabled.":::
 
 <sup>1</sup> Inbound TLS traffic is terminated at the ingress proxy on the edge of the environment.
 
-<sup>2</sup> Traffic to and from the ingress proxy within the environment is TLS encrypted with the private CA and decrypted by the receiver. 
+<sup>2</sup> Traffic to and from the ingress proxy within the environment is TLS encrypted with a private certificate and decrypted by the receiver. 
 
 <sup>3</sup> Calls made from app A to app B are first sent to the edge ingress proxy, and are TLS encrypted.
 
