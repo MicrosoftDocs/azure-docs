@@ -11,9 +11,9 @@ ms.date: 06/07/2024
 
 # What is Azure Business Process Tracking? (Preview)
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> This capability is in public preview and isn't ready yet for production use. For more information, see the 
+> This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 As a developer or business analyst working on solutions that integrate services and systems using various Azure resources, you might have difficulties visualizing the relationship between the technical components in your solution and your business scenario. To include business context about the Azure resources in your solution, you can build business processes that visually represent the business logic implemented by these resources. In Azure Business Process Tracking, a business process is a series of stages that represent the tasks flowing through real-world business scenario.

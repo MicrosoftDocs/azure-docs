@@ -10,9 +10,9 @@ ms.date: 06/07/2024
 
 # Manage a business process in an application group (Preview)
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> This capability is in public preview and isn't ready yet for production use. For more information, see the 
+> This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 After you create or deploy a business process that shows the flow through a real-world business scenario and tracks real-world data that moves through that flow, you can manage various aspects of that business process.

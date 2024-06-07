@@ -10,9 +10,9 @@ ms.date: 06/07/2024
 
 # Create an integration environment (Preview)
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> This capability is in public preview and isn't ready yet for production use. For more information, see the 
+> This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To centrally and logically organize and manage Azure resources associated with your integration solutions, create an integration environment. For more information, see [What is Azure Integration Environments](overview.md)?

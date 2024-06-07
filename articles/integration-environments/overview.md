@@ -10,9 +10,9 @@ ms.date: 06/07/2024
 
 # What is Azure Integration Environments? (Preview)
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> This capability is in public preview and isn't ready yet for production use. For more information, see the 
+> This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 As a developer who works on solutions that integrate services and systems in the cloud, on premises, or both, you often have multiple or different Azure resources to implement your solutions. If you have many Azure resources across various solutions, you might struggle to find and manage these resources across the Azure portal and to keep these resources organized per solution.

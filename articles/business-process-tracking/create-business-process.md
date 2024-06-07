@@ -11,9 +11,9 @@ ms.date: 06/07/2024
 
 # Create a business process to add business context about Azure resources using Azure Business Process Tracking (Preview)
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> This capability is in public preview and isn't ready yet for production use. For more information, see the 
+> This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To add business context around the Azure resources in an integration solution, you can visualize business processes flows for the tasks implemented by these resources. In Azure Business Process Tracking, a business process is a series of stages that represent the tasks that flow through a real-world business scenario. This business process also specifies a single business identifer or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that exists across all the stages in the business process and to correlate those stages together.
