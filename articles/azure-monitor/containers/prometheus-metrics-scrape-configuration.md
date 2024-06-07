@@ -467,10 +467,10 @@ If you are using `basic_auth` setting in your prometheus configuration, please f
 
 Below is an example of creating a secret.
 
-1. Create a secret object in the **kube-system** namespace named **ama-metrics-mtls-secret**. 
+1. Create a secret object in the **kube-system** namespace named **ama-metrics-mtls-secret**. Inside the secret object , you can specify as many number of secret values under data section and name them how ever you want.
+   Each secret name-value pair specified in the data section of the secret object will be mounted as a seperate file in this /etc/prometheus/certs  location with filename(s) same as key(s) specified in the data section.
+   The secret values should be base64 encoded before putting them under the data section.
 
-
-The value for password1 is **base64encoded**
 The key *password1* can be anything, but just needs to match your scrapeconfig *password_file* filepath.
 
 ```yaml
@@ -497,53 +497,42 @@ basic_auth:
 If you have a Prometheus instance served with TLS and you want to scrape metrics from it, you need to set scheme to `https` and set the TLS settings in your configmap or respective CRD. 
 Please follow the below steps.
 
-1. Create a secret object in the **kube-system** namespace named **ama-metrics-mtls-secret**. Example command for creating secret below:
-    ```console
-    kubectl create secret generic ama-metrics-mtls-secret --from-file=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem --from-file=secret_kube-system_ama-metrics-mtls-secret_client-key.pem=secret_kube-system_ama-metrics-mtls-secret_client-key.pem -n kube-system
+1. Create a secret object using the TLS certificate in the **kube-system** namespace named **ama-metrics-mtls-secret**. 
+   Below is an example command for creating a secret using the TLS self-signed certificate, in case of CRD based scraping. Please make sure that the secret object is created using the file naming format exactly as in the example below, in case of a CRD based scraping.
+     ```console
+    kubectl create secret generic ama-metrics-mtls-secret --from-file=secret_kube-system_ama-metrics-mtls-secret_<certfile>=secret_kube-system_ama-metrics-mtls-secret_<certfile> --from-file=secret_kube-system_ama-metrics-mtls-secret_<keyfile>=secret_kube-system_ama-metrics-mtls-secret_<keyfile> -n kube-system
     ```
+  Below is an example command for creating a secret using the TLS self-signed certificate, in case of config map based scraping. 
+     ```console
+    kubectl create secret generic ama-metrics-mtls-secret --from-file=<certfile>=<certfile> --from-file=<keyfile>=<keyfile> -n kube-system
+    ```   
 
-The value for password1 is **base64encoded**
-The key *password1* can be anything, but just needs to match with the keys/filenames mentioned in your CRD/Configmap.
+2. Below are the details about how to provide the TLS config settings through a configmap or CRD. 
 
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: ama-metrics-mtls-secret
-  namespace: kube-system
-type: Opaque
-data:
-  password1: <base64-encoded-string>
-```
-
-2. Below are the details about how to provide the TLS config settings through a configmap or CRD.
-
-- To provide the TLS config setting in a configmap, please create the self-signed certificate and key inside your mtls enabled app.
-        An example tlsConfig inside the config map should look like this:
+- To provide the TLS config setting in a configmap, please follow the below example.
 
 ```yaml
 tls_config:
-    ca_file: /etc/prometheus/certs/client-cert.pem
-    cert_file: /etc/prometheus/certs/client-cert.pem
-    key_file: /etc/prometheus/certs/client-key.pem
+    ca_file: /etc/prometheus/certs/<certfile> # since it is self-signed
+    cert_file: /etc/prometheus/certs/<certfile>
+    key_file: /etc/prometheus/certs/<keyfile>
     insecure_skip_verify: false
 ```
 
-- To provide the TLS config setting in a CRD, please create the self-signed certificate and key inside your mtls enabled app.
-    An example tlsConfig inside a Podmonitor should look like this:
+- To provide the TLS config setting in a configmap, please follow the below example.
 
 ```yaml
 tlsConfig:
     ca:
         secret:
-        key: "client-cert.pem" # since it is self-signed
+        key: "<certfile>" # since it is self-signed
         name: "ama-metrics-mtls-secret"
     cert:
         secret:
-        key: "client-cert.pem"
+        key: "<certfile>"
         name: "ama-metrics-mtls-secret"
     keySecret:
-        key: "client-key.pem"
+        key: "<keyfile>"
         name: "ama-metrics-mtls-secret"
     insecureSkipVerify: false
 ```
@@ -556,15 +545,9 @@ tlsConfig:
 >
 > The base64 encoded value is automatically decoded by the agent pods when the secret is mounted as file.
 >
-> Any other configuration setting for authorization that is considered as a secret in the [prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) needs to use the file setting alternative instead as described above.
->
-> Make sure the name is **ama-metrics-mtls-secret** and it is in **kube-system** namespace.
+> Make sure the secret name is **ama-metrics-mtls-secret** and it is in **kube-system** namespace.
 > 
-> Inside the secret object , you can specify as many number of secret values under data section and name them how ever you want. Each secret name-value pair specified in the data section of the secret object will be mounted as a seperate file in this /etc/prometheus/certs  location with filename(s) same as key(s) specified in the data section. The secret values should be base64 encoded before putting them under the data section.
-> 
-> Please make sure that the mounted secret object is created using the command above and the file naming is followed as-is, in case of a CRD based scraping.
-> 
-> The secret should be created in kube-system namespace and then the configmap/CRD should be created in kube-system namespace. The order of secret creation matters. When there's no secret but a valid CRD/config map, you will find errors in collector log -> `no file found for cert....`
+> The secret should be created and then the configmap/CRD should be created in kube-system namespace. The order of secret creation matters. When there's no secret but a valid CRD/config map, you will find errors in collector log -> `no file found for cert....`
 > 
 > To read more on TLS configuration settings, please follow this [Configurations](https://aka.ms/tlsconfigsetting).
 
