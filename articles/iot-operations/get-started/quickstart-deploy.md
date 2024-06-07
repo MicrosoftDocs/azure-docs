@@ -144,15 +144,11 @@ In this quickstart, you configured your Arc-enabled Kubernetes cluster so that i
 
 If you're continuing on to the next quickstart, keep all of your resources.
 
-If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, be sure to keep the secrets provider on your cluster.
+If you want to delete the Azure IoT Operations deployment but want to keep your cluster, use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command.
 
-1. In your resource group in the Azure portal, select your cluster.
-1. On your cluster resource page, select **Extensions**.
-1. Select all of the extensions of type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. Don't uninstall the secrets provider extension.
-
-    :::image type="content" source="media/quickstart-deploy/uninstall-extensions.png" alt-text="Screenshot that shows the extensions to uninstall.":::
-
-1. Return to your resource group and select the custom location resource, then select **Delete**.
+   ```azurecli
+   az iot ops delete --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
+   ```
 
 If you want to delete all of the resources you created for this quickstart, delete the Kubernetes cluster where you deployed Azure IoT Operations and remove the Azure resource group that contained the cluster.
 
