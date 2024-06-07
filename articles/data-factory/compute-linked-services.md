@@ -564,7 +564,6 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 | newClusterSparkConf  | a set of optional, user-specified Spark configuration key-value pairs. Users can also pass in a string of extra JVM options to the driver and the executors via spark.driver.extraJavaOptions and spark.executor.extraJavaOptions respectively. | No  |
 | newClusterInitScripts| a set of optional, user-defined initialization scripts for the new cluster. You can specify the init scripts in workspace files (recommended) or via the DBFS path (legacy). | No  |
 
-
 ## Azure SQL Database linked service
 
 You create an Azure SQL linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a pipeline. See [Azure SQL Connector](connector-azure-sql-database.md#linked-service-properties) article for details about this linked service.
