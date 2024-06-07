@@ -33,7 +33,7 @@ Use the following tabs to select the method you plan to use to create a project:
 
 [!INCLUDE [SDK setup](../includes/development-environment-config.md)]
 
-1. Use the following code to create a project from a hub you or your administrator created previously. Replace example string values with your own values:
+8. Use the following code to create a project from a hub you or your administrator created previously. Replace example string values with your own values:
 
     ```Python
     from azure.ai.ml.entities import Project
