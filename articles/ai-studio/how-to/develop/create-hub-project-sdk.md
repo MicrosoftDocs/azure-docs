@@ -41,7 +41,7 @@ Use the following tabs to select whether you're using the Python SDK or Azure CL
     az extension add --name ml
     ```
 
-    For more information on the extension, see [Install and set up the machine learning extension (v2)](/machine-learning/how-to-configure-cli).
+    For more information on the extension, see [Install and set up the machine learning extension (v2)](/azure/machine-learning/how-to-configure-cli).
 
 1. To authenticate to your Azure subscription, use the following command:
 
