@@ -48,7 +48,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 
 1. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Enable Live Metrics by using code for any .NET application
 

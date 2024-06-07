@@ -40,7 +40,7 @@ Defender for Cloud helps you find and fix security vulnerabilities. Defender for
 
     The Defender for Cloud's overview page opens.
 
-    :::image type="content" source="./media/get-started/overview.png" alt-text="Screenshot of Defender for Cloud's overview dashboard." lightbox="./media/get-started/overview.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/get-started/overview.png" alt-text="Screenshot of Defender for Cloud's overview dashboard." lightbox="~/reusable-content/ce-skilling/azure/media/get-started/overview.png":::
 
 Defender for Cloud is now enabled on your subscription and you have access to the basic features provided by Defender for Cloud. These features include:
 
