@@ -28,7 +28,9 @@ You need to use [speech synthesis markup language (SSML)](./speech-synthesis-mar
 
 - `DragonLatestNeural` is a base model with superior voice cloning similarity compared to `PhoenixLatestNeural`. `PhoenixLatestNeural` is a base model with more accurate pronunciation and lower latency than `DragonLatestNeural`.
 
-- `Dragon` model doesn't support `<lang xml:lang>` element in SSML.  
+- `Dragon` model doesn't support `<lang xml:lang>` element in SSML.
+
+- For personal voice, if you want to switch languages, you need to use the `<lang xml:lang>` element to adjust the speaking language. It's the same as with multilingual voices. See [how to use the lang element to speak different languages](speech-synthesis-markup-voice.md#lang-examples).
   
 Here's example SSML in a request for text to speech with the voice name and the speaker profile ID. 
 
