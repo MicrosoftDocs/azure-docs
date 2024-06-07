@@ -1,7 +1,7 @@
 ---
 title: Manage business processes
-description: Edit a business process, make a copy, discard pending changes, or undeploy a business process in Business Process Tracking.
-ms.service: logic-apps
+description: Edit a business process, make a copy, discard pending changes, or undeploy a business process in Azure Business Process Tracking.
+ms.service: azure-business-process-tracking
 ms.topic: how-to
 ms.reviewer: estfan, azla
 ms.date: 06/07/2024

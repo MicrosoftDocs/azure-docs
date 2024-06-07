@@ -1,7 +1,7 @@
 ---
 title: Overview for Business Process Tracking
 description: Learn why modeling and mapping business processes help add business context to Azure resources in your integration solution.
-ms.service: logic-apps
+ms.service: azure-business-process-tracking
 ms.topic: overview
 ms.reviewer: estfan, azla
 ms.date: 06/07/2024

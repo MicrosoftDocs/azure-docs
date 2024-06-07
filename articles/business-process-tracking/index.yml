@@ -6,7 +6,7 @@ summary: Model business processes that you can map to Azure resources used for i
 metadata:
   title: Azure Business Process Tracking documentation
   description: Model business processes that you can map to Azure resources used to implement business logic. Record key business data from deployed resources during run time.
-  ms.service: logic-apps
+  ms.service: azure-business-process-tracking
   ms.topic: landing-page
   author: ecfan
   ms.author: estfan; azla
