@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Configure event handler settings for Azure Web PubSub
 > * Hanlde events in the app server and build a real-time chat app
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

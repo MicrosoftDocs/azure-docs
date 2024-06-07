@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to 
-ms.date: 03/15/2023
+ms.date: 03/15/2024
 ms.custom: template-how-to
 ---
 # Protect high-risk network ports with Security Admin Rules in Azure Virtual Network Manager

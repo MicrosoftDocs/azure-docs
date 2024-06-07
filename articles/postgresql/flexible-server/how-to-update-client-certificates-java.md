@@ -3,7 +3,8 @@ title: Updating Client SSL/TLS Certificates for Java
 description: Learn about updating Java clients with Flexible Server using SSL and TLS.
 author: GennadNY
 ms.author: gennadyk
-ms.date: 04/05/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -11,7 +12,7 @@ ms.topic: conceptual
 
 # Update Client TLS Certificates for Application Clients with Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 
 ## Import Root CA Certificates in Java Key Store on the client for certificate pinning scenarios

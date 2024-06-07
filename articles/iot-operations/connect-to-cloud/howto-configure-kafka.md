@@ -7,7 +7,7 @@ ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 01/16/2024
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ to send and receive messages between Azure IoT MQ and Kafka.
 ---
@@ -127,7 +127,7 @@ spec:
   image:
     pullPolicy: IfNotPresent
     repository: mcr.microsoft.com/azureiotoperations/kafka
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
   instances: 2
   clientIdPrefix: my-prefix
   kafkaConnection:

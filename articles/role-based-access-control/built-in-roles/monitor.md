@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -301,6 +301,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/smartGroups/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/migrateFromSmartDetection/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/investigations/* |  |
+> | [Microsoft.Monitor](../permissions/monitor.md#microsoftmonitor)/investigations/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -355,7 +356,8 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.AlertsManagement/actionRules/*",
         "Microsoft.AlertsManagement/smartGroups/*",
         "Microsoft.AlertsManagement/migrateFromSmartDetection/*",
-        "Microsoft.AlertsManagement/investigations/*"
+        "Microsoft.AlertsManagement/investigations/*",
+        "Microsoft.Monitor/investigations/*"
       ],
       "notActions": [],
       "dataActions": [],

@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 05/23/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---

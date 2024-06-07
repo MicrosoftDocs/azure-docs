@@ -1,0 +1,214 @@
+### YamlMime:FAQ
+metadata:
+  title: NVMe - Remote NVMe Disks FAQ
+  description: Provides answers to some of the common questions about working with Remote NVMe disks on virtual machines
+  ms.service: virtual-machines
+  ms.topic: faq
+  ms.custom: references_regions
+title: NVMe - Remote NVMe Disks FAQ
+summary: |
+  This article addresses some common questions about support for Remote NVMe Disks on virtual machines created in Azure.
+
+
+
+sections:
+  - name: Azure Storage Considerations for remote NVMe Disks
+    questions:
+      - question: |
+          What are the prerequisites to enable the remote NVMe interface on my VM?
+        answer: |
+          A feature has been added to the VM configuration, called DiskControllerType, which allows customers to select their preferred controller type as NVMe or SCSI. If the customer does not specify a DiskControllerType value, then the platform will automatically choose the default controller based on the VM size configuration. If the VM size is configured for SCSI as the default and supports NVMe, SCSI will be used unless updated to the NVMe DiskControllerType.
+          To enable the NVMe interface, the following prerequisites must be met:
+           - Choose a VM family that supports NVMe. 
+           - Select the operating system image that is tagged with NVMe support.
+           - Opt-in to NVMe by selecting NVMe disk controller type in Azure portal or ARM/CLI/Power Shell template. For step-by-step instructions, refer [here](/azure/virtual-machines/enable-nvme-faqs).
+           - Only Gen2 images are supported.
+           By meeting the above four conditions, you'll be able to enable NVMe on the supported VM family in no time. Please follow the above conditions to successfully create or resize a VM with NVMe without any complications.
+      - question: |
+          How do I enable a remote NVMe disk on a VM family?
+        answer: |
+          To enable the NVMe  for remote disk, ensure that the following five conditions are met:
+          - Choose a VM family that supports NVMe. It's important to note that only Ebsv5 and Ebdsv5 VM sizes are equipped with NVMe in the Intel v5 generation VMs. Make sure to select either one of the series, Ebsv5 or Ebdsv5 VM.
+          - [Select the operating system image](/azure/virtual-machines/enable-nvme-interface) that is tagged with NVMe support.
+          Once supported **VM family and OS image** is selected, you are prompted to select the NVMe disk controller type.
+            
+            :::image type="content" source="./media/enable-nvme/nvme-faq-1.png" alt-text="Screenshot of prompt to select NVMe disk controller type.":::
+
+          - Opt in to NVMe by selecting NVMe disk controller type in Azure portal or ARM/CLI/PowerShell template. For step-by-step instructions, refer [here](/azure/virtual-machines/enable-nvme-faqs).
+          - Only Gen2 images are supported.  
+          - Choose one of the Azure regions where NVMe is enabled. 
+          By meeting the five conditions, you are able to enable NVMe on the supported VM family in no time. Follow the above conditions while creating and resizing a VM with NVMe to ensure successful launch of feature.
+      - question: |
+          Can I encrypt my remote NVMe disks?
+        answer: |
+          There is not a native way within Azure to encrypt these disks. You are welcome to encrypt them within the OS, but you will need to re-encrypt after mounting on boot. 
+      - question: |
+          How can I resize a SCSI VM to a remote NVMe-enabled VM of a different size?
+        answer: |
+          The following process can be used to either:
+          - Resize a SCSI VM created using an untagged image to an NVMe-enabled VM of a different size without recreating the VM configurations and without tagging the image. 
+          - Resize a SCSI VM to an NVMe-enabled VM of a different size without re-creating the VM configurations.
+          The source VM can either be:
+          - An untagged OS image that supports NVMe
+           - An NVMe tagged OS image
+           To resize the VM:
+           - Set the destination *discontrollertype* of the VM as NVMe. 
+           - Use the following PowerShell script to do so: [SAP-on-Azure-Scripts-and-Utilities/NVMe-Preflight-Check at main · Azure/SAP-on-Azure-Scripts-and-Utilities · GitHub](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/NVMe-Preflight-Check)
+           ```PowerShell
+           `azure-nvme-VM-update.ps1 [-subscription_id] <String> [-resource_group_name] <String> [-vm_name] <String> [[-disk_controller_change_to] <String>] [-vm_size_change_to] <String> [[-start_vm_after_update] <Boolean>] [[-write_logfile] <Boolean>]`
+           ```
+      - question: |
+          How can I check if a given image is tagged as NVMe? 
+        answer: |
+          To check if a given image is tagged as NVMe, please use the following command:
+          ```
+          az vm image show --urn URN_OF_IMAGE
+          ```
+      - question: |
+          How do I tag an image that supports NVMe for remote disk? 
+        answer: |
+          To tag an image that supports NVMe, follow the four steps below: 
+          1. Upload NVMe-supported vhd to your storage account. AzCopy is a fast way, but you can also use the portal to upload.
+            - AzCopy Reference: 
+                [https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10]
+            ```
+            `azcopy copy <local path to your vhd> <container in your storage account>`
+            ```
+          2. Create your image gallery either using powershell/portal/cli:
+            [https://docs.microsoft.com/azure/virtual-machines/create-gallery]
+          3. Create the image definition:
+            [https://docs.microsoft.com/azure/virtual-machines/image-version]
+            **Please make sure to include --feature DiskControllerTypes=SCSI,NVMe**
+            
+            CLI Example:
+            ```
+            `az sig image-definition create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --publisher <publisher> --offer <offerName> --sku <skuName> --os-type <osType> --os-state <osState> --feature DiskControllerTypes=SCSI,NVMe`
+            ```
+
+          4. Create the image version under the NVMe-tagged gallery with the NVMe-supported vhd: 
+            [https://docs.microsoft.com/azure/virtual-machines/image-version]
+            
+            CLI Example:
+            ```
+            `az sig image-version create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --gallery-image-version <version> --target-regions <region1> <region2> --replica-count <replicaCount> --os-vhd-uri <NVMe-supported vhd uri> --os-vhd-storage-account <storageAccount>`
+            ```  
+      - question: |
+          How do I configure an ARM template for my initial VM launch?
+        answer: |
+          You can utilize the Azure Custom Script Extension in conjunction with Azure Resource Manager templates. This allows you to download and execute scripts on Azure virtual machines and is compatible with both Windows and Linux. For detailed guidance, refer to the Azure Custom Script Extension documentation for [Windows](/azure/virtual-machines/extensions/custom-script-windows) and [Linux](/azure/virtual-machines/extensions/custom-script-linux). Examples for Windows can be found [here](/azure/virtual-machines/extensions/custom-script-windows#examples). 
+      - question: |
+          What happens if I want to use another VM family that does not support remote NVMe disk?
+        answer: |
+          If you select a non-supported VM family, you'll receive an error message that reads:
+          "The selected VM size can't boot with DiskControllerType. Check that the disk controller type provided is one of the supported disk controller types for the VM size Y Please query SKU API at [https://docs.microsoft.com/rest/api/compute/resource-skus/list] to determine supported disk controller types for the VM size Resource SKUs - List - REST API (Azure Compute)".
+          Therefore, be sure that you select a VM family that supports the NVMe interface.
+      - question: |
+          Which Azure disk storage options are compatible with remote NVMe disk?
+        answer: |
+          NVMe sizes can be combined with Premium SSD v1, Premium SSD v2, and Ultra disks. For additional information on Azure disk offerings, refer to [Azure Managed disks](/azure/virtual-machines/disks-types).
+      - question: |
+          Does Azure support live resizing on disks with NVMe VM sizes?
+        answer: |
+          Live resizing of NVMe is supported on Premium SSD v1 disks, Standard SSD, and Standard HDD disks. You can also add NVMe disks without restarting the VM. 
+          Additionally, live resizing is also supported on Premium SSD v1, Standard SSD, and Standard HDD disks.
+      - question: |
+          How can I identify remote NVMe disks on a Linux VM?
+        answer: |
+          1. Get nvme-cli package 
+            ```
+            `sudo apt install nvme-cli`
+            ```
+          2. Run NVMe list command to fetch NVMe disk details:
+
+            ```
+            `sudo nvme list`
+            ``` 
+                         
+             :::image type="content" source="./media/enable-nvme/nvme-faq-4.png" alt-text="Screenshot of instructions to identify NVMe disks on Linux VM.":::
+
+            :::image type="content" source="./media/enable-nvme/nvme-faq-5.png" alt-text="Screenshot of instructions to choose namespace ID in Linux portal.":::
+            
+            Here's how the data shows in response to Azure PowerShell commands:
+                     
+            :::image type="content" source="./media/enable-nvme/nvme-faq-6.png" alt-text="Screenshot of an example of response to Azure PowerShell command.":::
+      - question: |
+          How can I identify NVMe disks on windows VM?  
+        answer: |
+          Launch PowerShell and use the following command: 
+            wmic diskdrive get model,scsilogicalunit
+
+          :::image type="content" source="./media/enable-nvme/nvme-faq-7.png" alt-text="Screenshot of an example of Powershell command example to launch NVMe on Windows.":::
+        
+          The ASAP attached disks are presented in the guest with model string “Virtual_Disk NVME Premium” and the SCSI Logical Unit will have value portal visible LUN ID incremented by 1.   
+          Here's a snapshot of how NVMe disks are seen in NVMe enabled Windows VM: 
+
+          :::image type="content" source="./media/enable-nvme/nvme-faq-8.png" alt-text="Diagram that shows example of PowerShell command to identify the NVMe disk on Windows VM.":::
+
+          The following snapshot shows in guest output for data disks attached at LUN 0 and LUN 4 (CRP). The LUN ID is equivalent to NAMESPACE ID.
+
+          :::image type="content" source="./media/enable-nvme/nvme-faq-9.png" alt-text="Diagram that shows the example of how NVMe disks are seen in NVMe enabled Windows VM.":::
+
+      - question: |
+          Can I convert a SCSI VM to NVMe-enabled while retaining the same VM vCPU size with a NVMe tagged OS image?
+        answer: |
+          This scenario is only supported by Linux operating systems and is not supported by Windows operating systems. 
+      - question: |
+          Are shared disks in remote disks supported with NVMe VMs?
+        answer: |
+          The shared disk feature is supported for disks Premium SSD, Premium SSD v2, and Ultra.
+      - question: |
+          Can I use Azure PowerShell / CLI to create a VM with an OS disk from an existing BLOB with NVMe enabled?
+        answer: |
+          It is currently not possible. However, the following workaround based on the REST API can be used instead:
+          ```
+          # This is the workaround using REST-API
+          # to create a VM with an OS disk from an existing BLOB with NVMe enabled 
+          
+          $subscriptionID = '<Your Subscription ID>'
+          $resourceGroupName = '<Your Resource Group Name>'
+          $storageAccountName = '<Your Account Name>'
+          $storageAccountContainer = '<Your Account Container>'
+          $blobName = 'blob-nvme_OsDisk_1.vhd'
+          
+          $diskName = 'test'
+          $diskSkuName = 'Standard_LRS'
+          $diskSizeGB = 30
+          $osType = 'Linux' 
+          $hyperVGeneration = 'V2'
+          $location = 'eastus'
+          
+          $azContext = Get-AzContext
+          $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+          $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+          $token = ($profileClient.AcquireAccessToken($azContext.Subscription.TenantId)).AccessToken
+          
+          $body = @{
+              location = $location
+              sku = @{ name = $diskSkuName }
+              properties = @{
+                  osType                  = $osType
+                  hyperVGeneration        = $hyperVGeneration
+                  supportedCapabilities   = @{diskControllerTypes = 'SCSI, NVMe'}
+                  diskSizeGB              = $diskSizeGB
+                  creationData = @{
+                      storageAccountId	= "/subscriptions/$subscriptionID/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+          
+                      sourceUri           = "https://$storageAccountName.blob.core.windows.net/$storageAccountContainer/$blobName"
+                      createOption		= 'Import'
+                  }
+              }
+          }
+          
+          $apiVersion='2023-10-02'
+          $restUri = "https://management.azure.com/subscriptions/$subscriptionID/resourceGroups/$resourceGroupName/providers/Microsoft.Compute/disks/$diskName`?api-version=$apiVersion"
+          $authHeader = @{
+              'Content-Type'='application/json'
+              'Authorization'='Bearer ' + $token
+          }
+          
+          Invoke-RestMethod `
+              -Uri $restUri `
+              -Method 'Put' `
+              -Headers $authHeader `
+              -Body ($body | ConvertTo-Json)
+          ```

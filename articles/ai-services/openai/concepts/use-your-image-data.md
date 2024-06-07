@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 11/02/2023
+ms.date: 05/09/2024
 recommendations: false
 ---
 
@@ -17,7 +17,7 @@ recommendations: false
 Use this article to learn how to provide your own image data for GPT-4 Turbo with Vision, Azure OpenAI’s vision model. GPT-4 Turbo with Vision on your data allows the model to generate more customized and targeted answers using Retrieval Augmented Generation based on your own images and image metadata. 
 
 > [!IMPORTANT]
-> This article is for using your data on the GPT-4 Turbo with Vision model. If you are interested in using your data for text-based models, see [Use your text data](./use-your-data.md).  
+> Once the GPT4-Turbo with vision preview model is deprecated, you will no longer be able to use Azure OpenAI On your image data. To implement a Retrieval Augmented Generation (RAG) solution with image data, see the following sample on [github](https://github.com/Azure-Samples/azure-search-openai-demo/).
 
 ## Prerequisites 
 

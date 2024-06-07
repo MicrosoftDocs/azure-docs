@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, linux-related-content
 ms.topic: how-to
-ms.date: 03/28/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---

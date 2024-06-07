@@ -4,7 +4,7 @@ description: Determine the level of support for each storage account feature giv
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 01/11/2024
+ms.date: 06/06/2024
 ms.author: normesta
 ---
 

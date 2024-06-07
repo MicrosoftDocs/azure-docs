@@ -40,7 +40,7 @@ Review these important topics detailed in the [disaster recovery guidance](stora
 
 You can initiate either a planned or unplanned customer-managed failover using the Azure portal, PowerShell, or the Azure CLI.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## [Portal](#tab/azure-portal)
 

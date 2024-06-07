@@ -538,7 +538,5 @@ When data is stored in Application Insights, it contains the history of Azure Sp
 * [Stream logs in real time](./how-to-log-streaming.md)
 * [Application Map](../../azure-monitor/app/app-map.md)
 * [Live Metrics](../../azure-monitor/app/live-stream.md)
-* [Performance](../../azure-monitor/app/tutorial-performance.md)
-* [Failures](../../azure-monitor/app/tutorial-runtime-exceptions.md)
 * [Metrics](../../azure-monitor/essentials/tutorial-metrics.md)
 * [Logs](../../azure-monitor/logs/data-platform-logs.md)
