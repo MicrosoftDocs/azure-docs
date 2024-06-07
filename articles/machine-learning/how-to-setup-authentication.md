@@ -323,7 +323,41 @@ print(ml_client)
 ## Use Conditional Access
 
 As an administrator, you can enforce [Microsoft Entra Conditional Access policies](../active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
-can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to the app named __Azure Machine Learning__. The app ID is __0736f41a-0425-bdb5-1563eff02385__. 
+can require two-factor authentication, or allow sign in only from managed devices. The following are the app IDs to use for conditional access:
+
+| Application ID | Name | Note |
+| ----- | ----- | ----- |
+| d7304df8-741f-47d3-9bc2-df0e24e2071f | Azure Machine Learning Workbench Web App | Azure Machine Learning studio |
+| cb2ff863-7f30-4ced-ab89-a00194bcf6d9 | Azure AI Studio App | Azure AI Studio |
+
+### Check for service principal
+
+Before adding the conditional access policy, verify that the application ID is listed in the __Enterprisee applications__ section of the [Azure portal](https://portal.azure.com):
+
+> [!IMPORTANT]
+> To perform the steps in this section, you must have __Microsoft Entra ID P2__. For more information, see [Microsoft Entra licensing](/entra/fundamentals/licensing).
+
+1. Search for __Enterprise Applications__ in the search field at the top of the portal and select the enterprise application entry.
+
+    :::image type="content" source="./media/how-to-setup-authentication/azure-portal-search.png" alt-text="Screenshot of the Azure portal search field with a search for 'Enterprise applications'." lightbox="./media/how-to-setup-authentication/azure-portal-search.png":::
+
+1. From Enterprise Applications, use the __Search by application name or object ID__ field to search for the entry you want to use with conditional access. If an entry appears, a service principal already exists for the application ID. Skip the rest of the steps in this section and go to the [Add conditional access](#add-conditional-access) section.
+
+    :::image type="content" source="./media/how-to-setup-authentication/no-application-found.png" alt-text="Screenshot of the Enterprise Applications search with no matching results." lightbox="./media/how-to-setup-authentication/no-application-found.png":::
+
+1. If no entry appears, use the following [Azure Powershell](/powershell/azure/install-azure-powershell) cmdlet to create a service principal for the application ID:
+
+    ```azurepowershell-interactive
+    New-AzAdServicePrincipal -ApplicationId "application-ID"
+    ```
+
+    For example, `New-AzADServicePrincipal -ApplicationId "d7304df8-741f-47d3-9bc2-df0e24e2071f"`.
+
+1. After creating the service principal, return to __Enterprise applications__ and verify that you can now find the application ID.
+
+### Add conditional access
+
+To use Conditional Access, [assign the Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to the application ID. If the application doesn't appear in Conditional Access, use the steps in the [Check for service principal](#check-for-service-principal) section.
 
 ## Next steps
 
