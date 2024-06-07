@@ -48,7 +48,7 @@ The system-assigned and user-assigned identity types differ a [Microsoft Entra W
 
 * To [use a pre-created kubelet managed identity][use-a-pre-created-kubelet-managed-identity], you need Azure CLI version 2.26.0 or later installed.
 
-* To update an existing cluster to use a [a system-assigned managed identity][update-system-assigned-managed-identity-on-an-existing-cluster] or [a user-assigned managed identity][update-user-assigned-managed-identity-on-an-existing-cluster], you need Azure CLI version 2.49.0 or later installed.
+* To update an existing cluster to use a [system-assigned managed identity][update-system-assigned-managed-identity-on-an-existing-cluster] or [a user-assigned managed identity][update-user-assigned-managed-identity-on-an-existing-cluster], you need Azure CLI version 2.49.0 or later installed.
 
 Before running the examples in this article, set your subscription as the current active subscription by calling the [az account set][az-account-set] command and passing in your subscription ID.
 
