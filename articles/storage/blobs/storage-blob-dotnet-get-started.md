@@ -116,6 +116,9 @@ To learn more about generating and managing SAS tokens, see the following articl
 - [Create a user delegation SAS for a container with .NET](storage-blob-container-user-delegation-sas-create-dotnet.md)
 - [Create a user delegation SAS for a blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
 
+> [!NOTE]
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key.
+
 ## [Account key](#tab/account-key)
 
 Create a [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) by using the storage account name and account key. Then use that object to initialize a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient).

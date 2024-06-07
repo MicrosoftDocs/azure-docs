@@ -160,6 +160,9 @@ To learn more about generating and managing SAS tokens, see the following articl
 - [Create a user delegation SAS for a container with Java](storage-blob-container-user-delegation-sas-create-java.md)
 - [Create a user delegation SAS for a blob with Java](storage-blob-user-delegation-sas-create-java.md)
 
+> [!NOTE]
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key.
+
 ## [Account key](#tab/account-key)
 
 Create a [StorageSharedKeyCredential](/java/api/com.azure.storage.common.storagesharedkeycredential) by using the storage account name and account key. Then use that object to initialize a [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) object.

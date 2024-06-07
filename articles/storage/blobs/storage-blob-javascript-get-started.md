@@ -145,13 +145,15 @@ Depending on which tool you use to generate your SAS token, the querystring `?` 
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-sas-token.js" highlight="13-16":::
 
-The `dotenv` package is used to read your storage account name and sas token from a `.env` file. This file should not be checked into source control.
+The `dotenv` package is used to read your storage account name and SAS token from a `.env` file. This file should not be checked into source control.
 
 To generate and manage SAS tokens, see any of these articles:
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
-
 - [Create a service SAS for a container or blob](sas-service-create.md)
+
+> [!NOTE]
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key. To learn more, see [Create a user delegation SAS with JavaScript](storage-blob-create-user-delegation-sas-javascript.md).
 
 ---
 
@@ -183,6 +185,8 @@ Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js" highlight="19, 24":::
 
+> [!NOTE]
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key. To learn more, see [Create a user delegation SAS with JavaScript](storage-blob-create-user-delegation-sas-javascript.md).
 
 -----------------
 
@@ -220,6 +224,9 @@ List of Blob clients:
 #### [SAS token](#tab/sas-token)
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-sas-token.js" highlight="17, 36":::
+
+> [!NOTE]
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key. To learn more, see [Create a user delegation SAS with JavaScript](storage-blob-create-user-delegation-sas-javascript.md).
 
 -----------------
 

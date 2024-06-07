@@ -151,6 +151,9 @@ To learn more about generating and managing SAS tokens, see the following articl
 - [Create a user delegation SAS for a container with Python](storage-blob-container-user-delegation-sas-create-python.md)
 - [Create a user delegation SAS for a blob with Python](storage-blob-user-delegation-sas-create-python.md)
 
+> [!NOTE]
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key. 
+
 ## [Account key](#tab/account-key)
 
 To use a storage account shared key, provide the key as a string and initialize a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object.
