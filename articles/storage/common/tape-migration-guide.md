@@ -39,8 +39,8 @@ Before a tape migration process starts, options must be carefully considered. Fi
 
 |Approach | Pros | Cons |
 | ------- | ---- | ---- |
-| Customer performed migration | - Data never leaves the site <br> - No logistics for shipping tapes | - Requires hardware resources <br> - Adds more work to personnel <br> - Requires specific knowledge in handling tapes <br> - Possible unknown costs|
-| Tape migration partner | - Simple pricing, and known cost upfront (paid per tape) <br> - No impact on production <br> - No impact on personnel | - Requires logistics for shipping tapes <br> - Security considerations required due to shipping tapes <br> - Multiple copies needed for data availability during migration |
+| **Customer performed migration** | - Data never leaves the site <br> - No logistics for shipping tapes | - Requires hardware resources <br> - Adds more work to personnel <br> - Requires specific knowledge in handling tapes <br> - Possible unknown costs|
+| **Tape migration partner** | - Simple pricing, and known cost upfront (paid per tape) <br> - No impact on production <br> - No impact on personnel | - Requires logistics for shipping tapes <br> - Security considerations required due to shipping tapes <br> - Multiple copies needed for data availability during migration |
 
 Several major considerations can easily guide our decision on who can execute the migration, customer, or partner.
 
@@ -50,9 +50,9 @@ Resources are the most critical part of the tape migration process, and we divid
 
 | Category | Notes |
 | -------- | ------|
-| People   | - Specific set of skills are required<br> - Process is labor intensive |
-| Hardware | - Different tape generations require different type of hardware <br> - Speed of the migration is proportional to available drives |
-| Software | - Access to software that created the data is needed <br> - Access to encryption keys is needed |
+| **People**   | - Specific set of skills are required<br> - Process is labor intensive |
+| **Hardware** | - Different tape generations require different type of hardware <br> - Speed of the migration is proportional to available drives |
+| **Software** | - Access to software that created the data is needed <br> - Access to encryption keys is needed |
 
 Hardware is usually the most challenging part. If we're migrating existing tape generations, hardware is available, but used as part of the existing production. But for older tape generations, hardware is often end-of-life, and it's harder to acquire. With older tape generation, using a tape migration partner is a preferred, and simpler option.
 When production hardware is used for migrations, careful planning is needed to make sure migration doesn't interfere with the production workloads. Here we can apply three different models:
@@ -96,7 +96,7 @@ Main criteria for deciding the format is how do we plan to use the migrated data
 
 ## Migration process
 
-Once we made decisions on migration execution, and preferred file format, we can start with the migration. Migration goes through several phases.
+Once we made decisions on migration execution, and preferred data format, we can start with the migration. Migration goes through several phases.
 ![Picture showing tape migration phases](./media/tape-migration-guide/tape-migration-steps.png)
 
 ### Information phase
@@ -141,7 +141,11 @@ After we gathered basic information, we can prepare for the migration. Preparati
 
 ### Migration phase
 
-Once the migration design is final, we start the migration process. Before ramping up to full migration pace, we always perform a test with a smaller sample. Goal for the test is to make sure that end-to-end process works. It allows us to make tweaks, and improve the process. Once the test is successful, and we're happy with the results, we execute the migration. For each file we migrate, we need to perform data validation to make sure that data wasn't corrupted during the migration process. In ideal situation, source data already contains hash values that can be easily compared to hash values post-migration. If hashes don't exist, they must be calculated before the file is migrated. If hashes match, file is marked as migrated. If not, file is discarded, and migrated again. Sometimes the data is corrupted on the source tapes. Having the original hash values helps with catching those rare cases. If they happen, we can read the data from secondary copy if it exists. Data validation process is a critical component for a migration design. Process for handling failed validation must be defined. Migration phase is also constantly monitored to make sure we can react to unpredictable situation, and adapt to it. Regular reporting to main stakeholders is important to keep the migration on track.
+Once the migration design is final, we start the migration process. Before ramping up to full migration pace, we always perform a test with a smaller sample. Goal for the test is to make sure that end-to-end process works. It allows us to make tweaks, and improve the process. Once the test is successful, and we're happy with the results, we execute the migration. Migration phase is slightly different if we're using native files vs. virtual tapes. In both cases, it's a repetitive process that circles through all the tapes, and reads their entire content. This flowchart shows the migration phase when migrating to native files.
+![Flowchart that shows migration phase](./media/tape-migration-guide/tape-migration-phase.png) 
+
+#### Data validation
+For each file we migrate, we need to perform data validation to make sure that data wasn't corrupted during the migration process. In ideal situation, source data already contains hash values that can be easily compared to hash values post-migration. If hashes don't exist, they must be calculated before the file is migrated. If hashes match, file is marked as migrated. If not, file is discarded, and migrated again. Sometimes the data is corrupted on the source tapes. Having the original hash values helps with catching those rare cases. If they happen, we can read the data from secondary copy if it exists. Data validation process is a critical component for a migration design. Process for handling failed validation must be defined. Migration phase is also constantly monitored to make sure we can react to unpredictable situation, and adapt to it. Regular reporting to main stakeholders is important to keep the migration on track.
 
 ### Post-migration phase
 
