@@ -17,9 +17,12 @@ ms.custom: cli-v2, sdk-v2, devx-track-azurecli, update-code
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you learn how to register and work with models in Azure Machine Learning by using the Azure Machine Learning studio UI, the Azure Machine Learning CLI v2, or Python Azure Machine Learning SDK v2.
+In this article, you learn to register and work with models in Azure Machine Learning by using:
+- The Azure Machine Learning studio UI.
+- The Azure Machine Learning V2 CLI.
+- The Python Azure Machine Learning V2 SDK.
 
-You learn to:
+You learn how to to:
 - Create registered models in the model registry from local files, datastores, or job outputs.
 - Work with different types of models, such as custom, MLflow, and Triton.
 - Manage the lifecycle of model assets.
@@ -28,9 +31,9 @@ You learn to:
 ## Prerequisites
 
 - An Azure subscription with a free or paid version of Azure Machine Learning. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- An [Azure Machine Learning workspace](quickstart-create-resources.md#create-the-workspace) created.
+- An [Azure Machine Learning workspace](quickstart-create-resources.md#create-the-workspace).
 
-To work with the code samples in this article or with v2 of the Azure Machine Learning CLI or Python Azure Machine Learning SDK:
+To run the code samples in this article, or work with the Azure Machine Learning V2 CLI or Python Azure Machine Learning V2 SDK:
 
 # [Azure CLI](#tab/cli)
 
@@ -52,9 +55,10 @@ To work with the code samples in this article or with v2 of the Azure Machine Le
 ---
 
 > [!NOTE]
-> You can still use model assets from the v1 SDK or CLI. Full backward compatibility is provided. All models registered with the v1 CLI or SDK are assigned the type `custom`.
+> You can still use model assets from the v1 SDK or CLI. V2 provides full backward compatibility. All models registered with the v1 CLI or SDK are assigned the type `custom`.
 
-## Register a model in the model registry
+<a name="create-a-model-in-the-model-registry"></a>
+## Model registration
 
 [Model registration](concept-model-management-and-deployment.md) lets you store and version your models in your workspace in the Azure cloud. The model registry helps you organize and keep track of your trained models. You can register models as assets in Azure Machine Learning by using the Azure CLI, the Python SDK, or the Machine Learning studio UI.
 
@@ -62,14 +66,14 @@ To work with the code samples in this article or with v2 of the Azure Machine Le
 
 To register a model, you need to specify a path that points to the data or job location. The following table shows the various data locations Azure Machine Learning supports, and the syntax for the `path` parameter:
 
-|Location  | Example  |
+|Location  | Syntax  |
 |---------|---------|
-|On your local computer     | `<model-folder>/<model-filename>`         |
-|On an Azure Machine Learning datastore   |   `azureml://datastores/<datastore-name>/paths/<path_on_datastore>`      |
-|From an Azure Machine Learning job   |   `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`      |
-|From an MLflow job   |   `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`      |
-|From a model asset in an Azure Machine Learning workspace  | `azureml:<model-name>:<version>`|
-|From a model asset in an Azure Machine Learning registry  | `azureml://registries/<registry-name>/models/<model-name>/versions/<version>`|
+|Local computer     | `<model-folder>/<model-filename>`         |
+|Azure Machine Learning datastore   |   `azureml://datastores/<datastore-name>/paths/<path_on_datastore>`      |
+|Azure Machine Learning job   |   `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`      |
+|MLflow job   |   `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`      |
+|Model asset in a Machine Learning workspace  | `azureml:<model-name>:<version>`|
+|Model asset in a Machine Learning registry  | `azureml://registries/<registry-name>/models/<model-name>/versions/<version>`|
 
 ### Supported modes
 
@@ -79,42 +83,48 @@ When you run a job with model inputs or outputs, you can specify which of the fo
 - `rw_mount`: Read-write mount the data.
 - `download`: Download the data to the compute target.
 - `upload`: Upload the data from the compute target.
-- `direct`: Pass in the URI as a string to access at runtime.
+- `direct`: Pass in the URI as a string.
 
-The following table shows the mode options for different model type inputs and outputs.
+The following table shows the mode options that are available for different model type inputs and outputs.
 
 |Type | `upload` | `download` | `ro_mount` | `rw_mount` | `direct` |
 |------ | ------ | :---: | :---: | :---: | :---: | :---: |
 |`custom` file input  |   |  |   |  |    |
-|`custom` file output  | ✓  |   |    | ✓  | ✓   |
 |`custom` folder input |   | ✓ | ✓  | |✓  |
-|`custom` folder output | ✓  |   |   | ✓ | ✓  |
 |`mlflow` input |   | ✓ |  ✓ |   |   |
+|`custom` file output  | ✓  |   |    | ✓  | ✓   |
+|`custom` folder output | ✓  |   |   | ✓ | ✓  |
 |`mlflow` output | ✓  |   |    | ✓  | ✓ |
 
 ## Register a model by using the studio UI
 
-To register a model by using the Machine Learning studio UI:
+To register a model by using the Azure Machine Learning studio UI:
 
 1. In your workspace in the studio, select **Models** from the left navigation.
-1. On the **Model List** page, select **Register**, and then select one of the following model locations from the dropdown list:
+
+1. On the **Model List** page, select **Register**, and select one of the following locations from the dropdown list:
    - **From local files**
    - **From a job output**
    - **From datastore**
    - **From local files (based on framework)**
+   
 1. On the first **Register model** screen:
    1. Navigate to the local file, datastore, or job output for your model.
    1. Select the input model type: **MLflow**, **Triton**, or **Unspecified type**.
+   
 1. On the **Model settings** screen, provide a name and other optional settings for your registered model, and select **Next**.
-1. On the **Review** screen, review the settings and then select **Register**.
+
+1. On the **Review** screen, review the configuration and then select **Register**.
 
 :::image type="content" source="./media/how-to-manage-models/register-model-local.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-local.png":::
 
+<a name="register-your-model-as-an-asset-in-machine-learning-by-using-the-cli"></a>
+<a name="register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk"></a>
 ## Register a model by using the Azure CLI or Python SDK
 
 The following code snippets cover how to register a model as an asset in Azure Machine Learning by using the Azure CLI or Python SDK. These snippets use `custom` and `mlflow` model types.
 
-- `custom` type refers to a model file or folder trained with a custom standard that's not currently supported by Azure Machine Learning.
+- `custom` type refers to a model file or folder trained with a custom standard that Azure Machine Learning doesn't currently support.
 - `mlflow` type refers to a model trained with [MLflow](how-to-use-mlflow-cli-runs.md). MLflow trained models are in a folder that contains the *MLmodel* file, the *model* file, the *conda dependencies* file, and the *requirements.txt* file.
 
 >[!TIP]
@@ -122,9 +132,9 @@ The following code snippets cover how to register a model as an asset in Azure M
 
 ### Connect to your workspace
 
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, you connect to your Azure Machine Learning workspace.
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, you connect to your Azure Machine Learning workspace to create the registered model.
 
-In the following code snippets, replace `<subscription-id>`, `<resource-group>`, `<location>`, and `<workspace-name>` placeholders with the values for your environment.
+In the following code snippets, replace `<subscription-id>`, `<resource-group>`, `<workspace-name>`, and `<location>` and placeholders with the values for your environment.
 
 # [Azure CLI](#tab/cli)
 
@@ -158,27 +168,29 @@ az configure --defaults workspace=<workspace-name> group=<resource-group> locati
 
 ### Create the registered model
 
-To create the registered model, run the following code, depending on whether your model is on your local computer, on an Azure Machine Learning datastore, or from an Azure Machine Learning job.
+To create a registered model, use the following code, depending on whether the model you want to register is on your local computer, on an Azure Machine Learning datastore, or from an Azure Machine Learning job.
 
 #### Local file or folder
 
 # [Azure CLI](#tab/cli)
 
-1. Create a YAML file named *\<yaml-example>.yml*. In the file, provide a name for your registered model, a path to the local model file, and a description.
+1. Create a YAML file *\<yaml-filename>.yml*. In the file, provide a name for your registered model, a path to the local model file, and a description. For example:
 
    :::code language="yaml" source="~/azureml-examples-main/cli/assets/model/local-file.yml":::
 
 1. Run the following command, using the name of your YAML file:
 
    ```bash
-   az ml model create -f <yaml-example>.yml
+   az ml model create -f <yaml-filename>.yml
    ```
 
 For a complete example, see the [model YAML](https://github.com/Azure/azureml-examples/tree/main/cli/assets/model).
 
 # [Python SDK](#tab/python)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/model/model.ipynb?name=file_model)]
+For example:
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/assets/model/model.ipynb?name=file_model)]
 
 ---
 
@@ -200,26 +212,29 @@ For a complete example, see the [CLI reference](/cli/azure/ml/model).
 
 The following example uses the shorthand `azureml` scheme for pointing to a path on the datastore by using the syntax `azureml://datastores/${{datastore-name}}/paths/${{path_on_datastore}}`.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/assets/model/model.ipynb?name=cloud_model)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/assets/model/model.ipynb?name=cloud_model)]
 
 ---
 
 #### Job output
 
-If your model data comes from job output, you have two options. You can use the MLflow `runs` URI format or the azureml `jobs` URI format.
+If your model data comes from a job output, you have two options. You can use the MLflow `runs` URI format or the `azureml://jobs` URI format.
+
+>[!NOTE]
+>The *artifacts* reserved keyword represents output from the default artifact location.
 
 - **MLflow runs URI format**
 
-  This option is optimized for MLflow users, who are probably already familiar with the MLflow `runs` URI format. This option creates a model from artifacts in the default artifact location, where all MLflow-logged models and artifacts are located. This option also establishes a lineage between a registered model and the run the model came from.
+  This option is optimized for MLflow users, who are probably already familiar with the MLflow `runs` URI format. This option creates a model from artifacts in the default *artifact* location, where all MLflow-logged models and artifacts are located. This option also establishes a lineage between a registered model and the run the model came from.
 
   Format: `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
 
-  Example: `runs:/<run-id>/model/`
+  Example: `runs:/<run-id>/<path>/`
 
   # [Azure CLI](#tab/cli)
 
   ```azurecli
-  az ml model create --name my-model --version 1 --path runs:/<run-id>/model/ --type mlflow_model
+  az ml model create --name <registered-model-name> --version 1 --path runs:/<run-id>/<path-to-model>/ --type mlflow_model
   ```
 
   # [Python SDK](#tab/python)
@@ -230,38 +245,35 @@ If your model data comes from job output, you have two options. You can use the 
   
   run_model = Model(
       path="runs:/<run-id>/model/"
-      name="run-model-example",
+      name="<registered-model-name>",
       description="Model created from run.",
-     type=ModelType.MLFLOW
+      type=ModelType.mlflow_model
   )
   
   ml_client.models.create_or_update(run_model) 
   ```
 
 ---
-- **azureml jobs URI format**
+- **azureml://jobs URI format**
 
-  The azureml `jobs` reference URI option helps you register a model from artifacts in any of the job's outputs. This format aligns with the azureml datastore reference URI format, and also supports referencing artifacts from named outputs of the job, not just the default artifact location.
+  The `azureml://jobs` reference URI option lets you register a model from artifacts in any of the job's outputs. This format aligns with the `azureml://datastores` reference URI format, and also supports referencing artifacts from named outputs other than the default artifact location.
 
-  If you didn't directly register your model within the training script by using MLflow, you can establish a lineage between a registered model and the job it was trained from.
+  If you didn't directly register your model within the training script by using MLflow, you can use this option to establish a lineage between a registered model and the job it was trained from.
 
-  Format: `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`
+  Format: `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model>`
 
-  Examples:
-  - Default artifact location: `azureml://jobs/<run-id>/outputs/artifacts/paths/model/`
-    - This location is equivalent to `runs:/<run-id>/model/`.
-    - *artifacts* is the reserved keyword to refer to the output that represents the default artifact location.
-  - From a named output directory: `azureml://jobs/<run-id>/outputs/trained-model`
-  - From a specific file or folder path within the named output directory:
-    - `azureml://jobs/<run-id>/outputs/trained-model/paths/<filename>.pt`
-    - `azureml://jobs/<run-id>/outputs/checkpoints/paths/model/`
+  For example:
+  - Default artifact location: `azureml://jobs/<run-id>/outputs/artifacts/paths/<path-to-model>/`. This location is equivalent to MLflow `runs:/<run-id>/<model>/`.
+  - From a named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>`
+  - From a specific file within the named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>/paths/<model-filename>`
+  - From a specific folder path within the named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>/paths/<model-folder-name>/`
 
   # [Azure CLI](#tab/cli)
 
-  Save a model from a named output:
+  Save a model from a named output folder:
 
   ```azurecli
-  az ml model create --name <model-name> --version 1 --path azureml://jobs/<run-id>/outputs/trained-model
+  az ml model create --name <registered-model-name> --version 1 --path azureml://jobs/<run-id>/outputs/<model-folder-name>
   ```
 
   For a complete example, see the [CLI reference](/cli/azure/ml/model).
@@ -286,13 +298,13 @@ The Azure CLI and Python SDK also allow you to manage the lifecycle of your Azur
 
 List all the models in your workspace:
 
-```cli
+```azurecli
 az ml model list
 ```
 
 List all the model versions under a given name:
 
-```cli
+```azurecli
 az ml model list --name run-model-example
 ```
 
@@ -321,7 +333,7 @@ Get the details of a specific model:
 
 # [Azure CLI](#tab/cli)
 
-```cli
+```azurecli
 az ml model show --name run-model-example --version 1
 ```
 
@@ -342,7 +354,7 @@ Update mutable properties of a specific model:
 
 # [Azure CLI](#tab/cli)
 
-```cli
+```azurecli
 az ml model update --name  run-model-example --version 1 --set description="This is an updated description." --set tags.stage="Prod"
 ```
 
@@ -366,13 +378,13 @@ You can archive all versions or only specific versions of a model. If you don't 
 
 Archive all versions of a model:
 
-```cli
+```azurecli
 az ml model archive --name run-model-example
 ```
 
 Archive a specific model version:
 
-```cli
+```azurecli
 az ml model archive --name run-model-example --version 1
 ```
 
@@ -407,11 +419,11 @@ The v2 Azure CLI and Python SDK also let you use models as inputs or outputs in 
 
    :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-model-as-input.yml":::
 
-1. Next, run the following command, substituting your YAML filename.
+1. Run the following command, substituting your YAML filename.
 
-```azurecli
-az ml job create -f <filename>.yml
-```
+   ```azurecli
+   az ml job create -f <filename>.yml
+   ```
 
 For a complete example, see the [model GitHub repo](https://github.com/Azure/azureml-examples/tree/main/cli/assets/model).
 
@@ -458,21 +470,21 @@ returned_job.services["Studio"].endpoint
 ```
 
 ---
-### Use a model as output in a job
+### Write a model as output for a job
 
 Your job can write a model to your cloud-based storage by using *outputs*.
 
 # [Azure CLI](#tab/cli)
 
-1. Create a job specification YAML file `<file-name>.yml`, and populate the `outputs` section with the model type and path to write your data to.
+1. Create a job specification YAML file `<file-name>.yml`. Populate the `outputs` section with the output model type and path.
 
    :::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-model-as-output.yml":::
 
 1. Create a job by using the CLI:
 
-```azurecli
-az ml job create --file <file-name>.yml
-```
+   ```azurecli
+   az ml job create --file <file-name>.yml
+   ```
 For a complete example, see the [model GitHub repo](https://github.com/Azure/azureml-examples/tree/main/cli/assets/model).
 
 # [Python SDK](#tab/python)
@@ -525,7 +537,7 @@ returned_job.services["Studio"].endpoint
 ---
 ## Related content
 
-- [Azure ML Package client library for Python - version 1.16.1](https://aka.ms/sdk-v2-install)
+- [Azure Machine Learning package client library for Python - version 1.16.1](https://aka.ms/sdk-v2-install)
 - [Azure CLI ml extension](/cli/azure/ml)
 - [MLflow and Azure Machine Learning](concept-mlflow.md)
 - [Deploy MLflow models to online endpoints](how-to-deploy-mlflow-models-online-endpoints.md)
