@@ -97,7 +97,7 @@ items:
   - name: Enable and disable Spring Cloud Config Server
     href: quickstart-standard-consumption-config-server.md
   - name: Set up a Config Server
-    href: ../enterprise/how-to-enterprise-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+    href: ../enterprise/how-to-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
   - name: Enable and disable Eureka Server
     href: quickstart-standard-consumption-eureka-server.md
   - name: Enable Service Registration
