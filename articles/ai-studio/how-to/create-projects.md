@@ -47,7 +47,8 @@ In addition, a number of resources are only accessible by users in your project 
 1. Components including datasets, flows, indexes, deployed model API endpoints (open and serverless).
 1. Connections created by you under 'project settings'.
 1. Azure Storage blob containers, and a fileshare for data upload within your project. Access storage using the following connections:
-   | Data connection | Storage location | Purpose
+   
+   | Data connection | Storage location | Purpose |
    | === | === | === |
    | workspaceblobstore | {project-GUID}-blobstore | Default container for data upload |
    | workspaceartifactstore | {project-GUID}-blobstore | Stores components and metadata for your project such as model weights |
