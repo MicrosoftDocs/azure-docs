@@ -38,7 +38,7 @@ The following regions currently support availability zones:
 | West US 2 | Sweden Central | | | |
 | West US 3 | Switzerland North | | | |
 | Mexico Central* | Poland Central ||||
-||Spain Central* ||||
+||Spain Central ||||
 
 
 
