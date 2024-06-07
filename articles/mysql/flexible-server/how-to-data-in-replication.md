@@ -88,10 +88,11 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    The Master server needs to be started with GTID mode enabled by setting the gtid_mode variable to ON. It's also essential that the enforce_gtid_consistency variable is enabled to make sure that only the statements, which are safe for MySQL GTIDs Replication are logged.
 
+   ```sql
    SET @@GLOBAL.ENFORCE_GTID_CONSISTENCY = ON;
-
    SET @@GLOBAL.GTID_MODE = ON;
-
+   ```
+   
    If the master server is another Azure Database for MySQL flexible server instance, then these server parameters can also be updated from the portal by navigating to server parameter page.
 
 
@@ -180,7 +181,7 @@ The results should appear similar to the following. Make sure to note the binary
    SET GLOBAL read_only = OFF;
    UNLOCK TABLES;
    ```
-[!NOTE]
+>[!NOTE]
 > Before the server is set back to read/write mode, you can retrieve the GTID information using global variable GTID_EXECUTED. The same will be used at the later stage to set GTID on the replica server
 
 3. Restore dump file to new server.
