@@ -66,6 +66,8 @@ items:
     href: concepts-schedule-automated-recurring-tasks-workflows.md
   - name: Serverless with Azure
     href: logic-apps-serverless-overview.md
+  - name: Business rules engine integration
+    href: rules-engine/rules-engine-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
   - name: Mainframe modernization
@@ -99,14 +101,36 @@ items:
       href: estimate-storage-costs.md
     - name: Set up SQL storage
       href: set-up-sql-db-storage-single-tenant-standard-workflows.md
-    - name: Create and run .NET Framework code
-      href: create-run-custom-code-functions.md
-    - name: Enable stateful mode for stateless built-in connectors
-      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
-    - name: Edit app and host settings
-      href: edit-app-settings-host-settings.md
     - name: Secure traffic between Standard workflows and virtual networks
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+    - name: Develop for rules engine integration
+      items:
+      - name: Overview for rules engine integration
+        href: rules-engine/rules-engine-overview.md
+      - name: Create business rules
+        href: rules-engine/create-rules.md
+      - name: Add operators to rules
+        href: rules-engine/add-rules-operators.md
+      - name: Add control functions to rules
+        href: rules-engine/add-rules-control-functions.md
+      - name: Create and manage vocabularies
+        href: rules-engine/create-manage-vocabularies.md
+      - name: Advanced ruleset tasks
+        href: rules-engine/perform-advanced-ruleset-tasks.md
+      - name: Rules engine optimization
+        href: rules-engine/rules-engine-optimization.md
+      - name: Build fact creators and retrievers
+        href: rules-engine/build-fact-creators-retrievers.md
+      - name: Test your ruleset
+        href: rules-engine/test-rulesets.md
+      - name: Create a rules engine project
+        href: rules-engine/create-rules-engine-project.md
+    - name: Create and run .NET Framework code
+      href: create-run-custom-code-functions.md
+    - name: Edit app and host settings
+      href: edit-app-settings-host-settings.md
+    - name: Enable stateful mode for stateless built-in connectors
+      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
     - name: Create custom built-in connectors
       href: create-custom-built-in-connector-standard.md
     - name: Set up deployment slots
