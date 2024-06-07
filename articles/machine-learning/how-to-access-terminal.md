@@ -51,7 +51,7 @@ In addition to the previous steps, you can also access the terminal from:
 
 > * Windows: `Ctrl-Insert` to copy and use `Ctrl-Shift-v` or `Shift-Insert` to paste.
 > * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
-> * FireFox/IE may not support clipboard permissions properly.
+> * FireFox and Internet Explorer may not support clipboard permissions properly.
 
 ## <a name=git></a> Use files from Git and version files
 

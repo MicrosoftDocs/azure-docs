@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 Before you start this tutorial, install the [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create a vault
 

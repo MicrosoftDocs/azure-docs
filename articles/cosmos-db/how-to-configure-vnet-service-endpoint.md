@@ -95,7 +95,7 @@ To ensure that you have access to Azure Cosmos DB metrics from the portal, you n
 
 ## <a id="configure-using-powershell"></a>Configure a service endpoint by using Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Use the following steps to configure a service endpoint to an Azure Cosmos DB account by using Azure PowerShell:  
 

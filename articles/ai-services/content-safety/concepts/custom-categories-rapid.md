@@ -50,9 +50,7 @@ See the following table for the input limitations of the custom categories (rapi
 
 ### Region availability
 
-To use this API, you must create your Azure AI Content Safety resource in one of the supported regions:
-- East US
-- Sweden Central
+To use this API, you must create your Azure AI Content Safety resource in one of the supported regions. See [Region availability](/azure/ai-services/content-safety/overview#region-availability).
 
 ## Next steps
 

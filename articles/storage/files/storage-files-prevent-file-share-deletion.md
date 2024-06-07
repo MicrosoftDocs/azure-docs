@@ -1,17 +1,17 @@
 ---
 title: Prevent accidental deletion of Azure file shares
-description: Learn about soft delete for Azure Files and how you can use it for data recovery and preventing accidental deletion of SMB file shares.
+description: Learn about soft delete for Azure Files and how you can use it for data recovery and preventing accidental deletion of Azure file shares.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/08/2024
+ms.date: 06/07/2024
 ms.author: kendownie
 services: storage
 ---
 
 # Use soft delete to prevent accidental deletion of Azure file shares
 
-Azure Files offers soft delete for SMB file shares. Soft delete allows you to recover your file share when it's mistakenly deleted by an application or other storage account user.
+Azure Files offers soft delete, which allows you to recover your file share when it's mistakenly deleted by an application or other storage account user.
 
 ## Applies to
 
@@ -19,7 +19,7 @@ Azure Files offers soft delete for SMB file shares. Soft delete allows you to re
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) (preview)|
 
 ## How soft delete works
 
