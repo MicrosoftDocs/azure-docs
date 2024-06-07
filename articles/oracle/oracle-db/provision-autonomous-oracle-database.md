@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 ms.author: jacobjaygbay
 ---
 
-# Provision Oracle Autonomous Databases
+# Provision Oracle autonomous databases
 
 This article discusses how provision and conduct basic management functions for an Oracle Autonomous Database Serverless instance from the Oracle Autonomous Database@Azure blade. More management functions are available within the Oracle Cloud Infrastructure (OCI) portal available via the link to that Oracle Autonomous Database from the Oracle Autonomous Database@Azure blade.
 

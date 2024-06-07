@@ -12,18 +12,18 @@ ms.author: jacobjaygbay
 
 # Use HashiCorp Terraform to provision Oracle Database@Azure
 
-Using HashiCorp Terraform, you can provision and manage resources for Oracle Database@Azure using the Terraform tool that enables you to provision and manage infrastructure in Oracle Cloud Infrastructure (OCI).
+You can provision and manage resources for Oracle Database@Azure using the Terraform tool that enables you to provision and manage infrastructure in Oracle Cloud Infrastructure (OCI).
 
 The OCI mechanism for Terraform provisioning and management is done via JSON scripts. Here are sample scripts.
 
 >[!NOTE]
 >This document describes examples of provisioning and management of Oracle Database@Azure resources through Terraform provider AzAPI. See the [The AzAPI TF provider resources and data sources](https://registry.terraform.io/providers/Azure/azapi/latest/docs).
 
-The API spec version used in the examples is "2023-09-01-preview" as denoted in the "type" field in the examples. This will be changed to the public version when its made available.
+The API spec version used in the examples is "2023-09-01-preview" as denoted in the "type" field in the examples. This is changed to the public version when it's made available.
 
 ## Create an Oracle Exadata Infrastructure
 
-```azurecli
+```
 resource "azapi_resource" "resource_group" {
   type     = "Microsoft.Resources/resourceGroups@2023-07-01"
   name     = "ExampleRG"
@@ -60,10 +60,9 @@ resource "azapi_resource" "cloudExadataInfrastructure" {
 }
 ```
 
-### List Oracle Exadata Infrastructures by Subscription
+## List Oracle Exadata Infrastructures by subscription
 
-```azurecli
-
+```
 
 data "azapi_resource" "subscription" {
   type                   = "Microsoft.Resources/subscriptions@2020-06-01"
@@ -78,10 +77,9 @@ data "azapi_resource_list" "listCloudExadataInfrastructuresBySubscription" {
 }
 ```
 
-List Oracle Exadata Infrastructures by Resource Group
+## List Oracle Exadata Infrastructures by Resource Group
 
-```dotnetcli
-
+```
 
 data "azurerm_resource_group" "example" {
   name = "existing"
@@ -95,13 +93,12 @@ data "azapi_resource_list" "listCloudExadataInfrastructuresByResourceGroup" {
 }
 ```
 
-Patch an Oracle Exadata Infrastructure
+## Patch an Oracle Exadata Infrastructure
 
 > [!NOTE]
 > Only Microsoft Azure tags on the resource can be updated through the AzAPI provider.
 
-```dotnetcli
-
+```
 
 data "azapi_resource" "subscription" {
   type                   = "Microsoft.Resources/subscriptions@2020-06-01"
@@ -123,9 +120,9 @@ resource "azapi_resource_action" "patch_cloudExadataInfrastructure" {
 }
 ```
 
-### List Database Servers on an Oracle Exadata Infrastructure
+## List Database Servers on an Oracle Exadata Infrastructure
 
-```dotnetcli
+```
 
 // OperationId: DbServers_Get
 // GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Oracle.Database/cloudExadataInfrastructures/{cloudexadatainfrastructurename}/dbServers/{dbserverocid}
@@ -136,9 +133,9 @@ data "azapi_resource" "dbServer" {
 }
 ```
 
-Create an Oracle Exadata VM Cluster
+## Create an Oracle Exadata virtual machine cluster
 
-```dotnetcli
+```
 
 resource "azapi_resource" "resource_group" {
   type     = "Microsoft.Resources/resourceGroups@2023-07-01"
@@ -237,10 +234,9 @@ resource "azapi_resource" "cloudVmCluster" {
 }
 ```
 
-List Oracle Exadata VM Clusters by Subscription
+## List Oracle Exadata virtual machine clusters by subscription
 
-```dotnetcli
-
+```
 
 data "azapi_resource" "subscription" {
   type                   = "Microsoft.Resources/subscriptions@2020-06-01"
@@ -255,9 +251,9 @@ data "azapi_resource_list" "listCloudExadataInfrastructuresBySubscription" {
 }
 ```
 
-List Oracle Exadata VM Clusters by Resource Group
+## List Oracle Exadata VM Clusters by Resource Group
 
-```dotnetcli
+```
 data "azurerm_resource_group" "example" {
   name = "existing"
 }
@@ -270,9 +266,10 @@ data "azapi_resource_list" "listCloudExadataInfrastructuresByResourceGroup" {
 }
 ```
 
-### List Database Nodes on an Oracle Exadata VM Cluster
+## List Database Nodes on an Oracle Exadata VM Cluster
 
-```dotnetcli
+```
+
 // OperationId: DbNodes_Get
 // GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Oracle.Database/cloudVmClusters/{cloudvmclustername}/dbNodes/{dbnodeocid}
 data "azapi_resource" "dbNode" {
@@ -282,9 +279,9 @@ data "azapi_resource" "dbNode" {
 }
 ```
 
-### Add a Virtual Network Address to an Oracle Exadata VM Cluster
+## Add a Virtual Network Address to an Oracle Exadata VM Cluster
 
-```dotnetcli
+```
 // OperationId: VirtualNetworkAddresses_CreateOrUpdate, VirtualNetworkAddresses_Get, VirtualNetworkAddresses_Delete
 // PUT GET DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Oracle.Database/cloudVmClusters/{cloudvmclustername}/virtualNetworkAddresses/{virtualnetworkaddressname}
 resource "azapi_resource" "virtualNetworkAddress" {
@@ -301,10 +298,9 @@ resource "azapi_resource" "virtualNetworkAddress" {
 }
 ```
 
-### List Virtual Network Addresses on an Oracle Exadata VM Cluster
+## List Virtual Network Addresses on an Oracle Exadata VM Cluster
 
-```dotnetcli
-
+```
 
 // OperationId: VirtualNetworkAddresses_ListByCloudVmCluster
 // GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Oracle.Database/cloudVmClusters/{cloudvmclustername}/virtualNetworkAddresses
@@ -314,10 +310,9 @@ data "azapi_resource_list" "listVirtualNetworkAddressesByCloudVmCluster" {
 }
 ```
 
-### List an Oracle Exadata Database Shape
+## List an Oracle Exadata Database shape
 
-```dotnetcli
-
+```
 
 data "azapi_resource_id" "location" {
   type      = "Oracle.Database/locations@2023-12-12"
@@ -334,10 +329,9 @@ data "azapi_resource" "dbSystemShape" {
 }
 ```
 
-### List Oracle Exadata Database Shapes by Location
+## List Oracle Exadata Database Shapes by location
 
-```dotnetcli
-
+```
 
 // OperationId: DbSystemShapes_ListByLocation
 // GET /subscriptions/{subscriptionId}/providers/Oracle.Database/locations/{location}/dbSystemShapes
@@ -347,13 +341,12 @@ data "azapi_resource_list" "listDbSystemShapesByLocation" {
 }
 ```
 
-### Terraform Script to Test the examples
+## Terraform script to test the examples
 
 >[!NOTE]
 >The following script creates an Oracle Exadata Infrastructure and an Oracle Exadata VM Cluster using the AzAPI Terraform provider followed by creating an Oracle Database deployment using the OCI Terraform provider [https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_home](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_home).
 
-```dotnetcli
-
+```
 
 terraform {
   required_providers {

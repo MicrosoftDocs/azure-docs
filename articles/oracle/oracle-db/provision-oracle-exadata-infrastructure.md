@@ -1,6 +1,6 @@
 ---
-title: Provision Exadata Infrastructure for Oracle Database@Azure
-description: Provision Exadata Infrastructure for Oracle Database@Azure
+title: Provision Exadata infrastructure for Oracle Database@Azure
+description: Provision Exadata infrastructure for Oracle Database@Azure
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
@@ -10,12 +10,12 @@ ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 ---
 
-# Provision Exadata Infrastructure
+# Provision Exadata infrastructure
 
 Provisioning Oracle Exadata Infrastructure is a time-consuming process. Provisioning an Oracle Exadata Infrastructure is a prerequisite for provisioning Oracle Exadata VM Clusters and any Oracle Exadata Databases.
 
-[!NOTE]
-Review the [Provisioning Troubleshooting](https://docs.oracle.com/en-us/iaas/odaaz/odaaz-provisioningtroubleshooting.html#GUID-DACCA740-025E-4466-8BB7-AC8C1D23E450), specifically the IP Address Requirement Differences, to ensure you have all the information needed for a successful provisioning flow.
+> [!NOTE]
+> To ensure you have all the information needed for a successful provisioning flow, review the [Provisioning Troubleshooting](https://docs.oracle.com/en-us/iaas/odaaz/odaaz-provisioningtroubleshooting.html#GUID-DACCA740-025E-4466-8BB7-AC8C1D23E450) document specifically the IP Address Requirement Differences.
 
 1. Provision your Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources from the OracleDB@Azure blade. By default, the Oracle Exadata Infrastructure tab is selected. To create a Oracle Exadata VM Cluster resource, select that tab first.
 1. Select the __+ Create__ icon at the top of the blade to begin the provisioning flow.

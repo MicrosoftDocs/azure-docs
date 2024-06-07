@@ -1,6 +1,6 @@
 ---
-title: Provision an Exadata VM Cluster for Oracle Database@Azure
-description: Provision an Exadata VM Cluster for Oracle Database@Azure.
+title: Provision an Exadata VM Cluster
+description: Provision an Exadata VM Cluster.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
@@ -11,7 +11,7 @@ ms.author: jacobjaygbay
 ---
 
 
-# Provision an Exadata VM Cluster for Oracle Database@Azure
+# Provision an Exadata VM Cluster
 
 Provisioning an Oracle Exadata VM Cluster requires the existence of an Oracle Exadata Infrastructure, and is a prerequisite for Oracle Exadata Databases that runs on the cluster.
 
