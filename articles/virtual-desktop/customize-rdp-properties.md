@@ -142,7 +142,7 @@ To edit custom RDP properties manually in Azure CLI:
 
 ### Add or edit multiple custom RDP properties
 
-To add or edit multiple custom RDP properties in PowerShell: 
+To add or edit multiple custom RDP properties in Azure CLI: 
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
@@ -169,7 +169,7 @@ To add or edit multiple custom RDP properties in PowerShell:
 
 To remove all custom RDP properties: 
 
-1. You can remove all custom RDP properties for a host pool by running the following PowerShell cmdlet:
+1. You can remove all custom RDP properties for a host pool by running the following Azure CLI cmdlet:
 
     ```azurecli
     az desktopvirtualization hostpool update \
