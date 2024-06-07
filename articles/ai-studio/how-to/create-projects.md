@@ -49,7 +49,7 @@ In addition, a number of resources are only accessible by users in your project 
 1. Azure Storage blob containers, and a fileshare for data upload within your project. Access storage using the following connections:
    
    | Data connection | Storage location | Purpose |
-   | === | === | === |
+   | --- | --- | --- |
    | workspaceblobstore | {project-GUID}-blobstore | Default container for data upload |
    | workspaceartifactstore | {project-GUID}-blobstore | Stores components and metadata for your project such as model weights |
    | workspacefilestore | {project-GUID}-code | Hosts files created on your compute and using prompt flow |
