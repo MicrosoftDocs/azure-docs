@@ -33,7 +33,7 @@ Some of the major reasons we're seeing increase in tape to cloud migrations are:
 
 ## Considerations
 
-Before a tape migration process starts, options must be carefully considered. First consideration is deciding who executes the migration. This leads to two options:
+Before a tape migration process starts, options must be carefully considered. First consideration is deciding who executes the migration. Two options are commonly used:
 - **Customer performed migration** where customer executes the migration end-to-end,
 - **Tape migration partner** where customer ships the tapes to the partner, and partner executes the migration process.
 
@@ -94,7 +94,7 @@ There are other considerations that we need to think about before starting the m
 |Virtual tapes | - Easier, and faster migration <br> - Can recreate identical tape media as the original <br> - No need to have access to the original software to write the data | - Requires maintaining virtual tape inventory <br> - Data stored in application dependent format <br> - Requires original software to restore the data |
 | Native files | - Files accessible by any application, and service (AI / ML) <br> - Possible to monetize the data <br> - No need to have access to original software for restores | - More complex migration <br> - Requires access to original software to write the data |
 
-Main criteria for deciding the format is how do we plan to use the migrated data. If data is migrated only for long-term retention then virtual tapes are a great choice. It simplifies the migration. In any other case, storing data in native format is a preferred option. It allows simple usage of data in the future, and opens up many possibilities with data analysis.
+Main criteria for deciding the format is how do we plan to use the migrated data. If data is migrated only for long-term retention, then virtual tapes are a great choice. It simplifies the migration. In any other case, storing data in native format is a preferred option. It allows simple usage of data in the future, and opens up many possibilities with data analysis.
 
 ## Migration process
 
@@ -122,8 +122,13 @@ Information phase is critical for gathering key requirements. Gathered informati
 
 After we gathered basic information, we can prepare for the migration. Every migration is different. Preparation phase can include many different steps, depending on the goals. But there are some common steps most migrations go through:
 
-1. **Data analysis** provides information on the data that needs to be migrated. Some of the things we're looking to find are file sizes, amount of data stored per tape, number of files per tape, minimum, and maximum file sizes, file type, etc. This information is critical to estimate how fast data can be read from tapes, and how much parallelism we need to achieve to successfully finish the migration before the deadline. It impacts estimates on the required hardware (libraries, robots, drives). Data analysis is done by sampling multiple tapes that correctly represent the data set to be migrated.
-1. **Data quality** helps in estimating final, and unique dataset that needs to be migrated. One of the most common issues with tape migration is duplication of data. Tape migration is ideal time when to clean all duplicated data. This improves data quality for future use, and it reduces cost, and the duration of the migration.
+1. **Data analysis** provides information on the data that needs to be migrated. Information is critical to estimate how fast data can be read from tapes, and how much parallelism we need to achieve to successfully finish the migration before the deadline. It impacts estimates on the required hardware (libraries, robots, drives). Data analysis is done by sampling multiple tapes that  represent the data set to be migrated. Typical information we are looking for is:
+    - file sizes, 
+    - amount of data stored per tape, 
+    - number of files per tape, 
+    - minimum, and maximum file sizes, 
+    - file types. 
+1. **Data quality** helps in estimating final, and unique dataset that needs to be migrated. One of the most common issues with tape migration is duplication of data. Tape migration is ideal time to clean all duplicated data. This process improves data quality for future use, it reduces cost, and the duration of the migration.
 1. **Data prioritization** determines the order in which the data can be migrated. Ideally, we want to achieve direct streaming from each tape instead of randomly reading files from different tapes (to avoid constant loading, and unloading). This approach allows the highest possible throughput, and is always the fastest migration path. Data prioritization takes business requirements and technical feasibility to achieve the best possible migration option.
 1. **Migration design** includes all the technical aspects of the migration, and the gathered information to form a final migration process. It's a written document that becomes source of truth for the remaining stages. It must contain at least:
 
@@ -141,7 +146,7 @@ For each file we migrate, we need to perform data validation to make sure that d
 
 ### Post-migration phase
 
-After migration is done, there are still couple of steps we need to consider, before successfully closing the migration project. First, we need to dispose hardware used for the migration, if it's not needed anymore. The most important question is how to dispose of the tapes. Tape disposal is a two steps process. If tapes are storing sensitive, and confidential information (and they typically do), they must be degaussed first. Degaussing ensures that all data is magnetically deleted from the media. After deletion, tapes need to be properly destroyed, and recycled. If we used a tape migration partner, we can also let the partner securely dispose of the tapes. After the disposal, a final report can be generated. Report contains all the details of our migration. One area we're mostly interested in are all the unrecoverable errors. This shows all the data that couldn't be migrated, and are caused by deteriorated tapes. We can estimate if this data is critical. If yes, special companies exist that can try to recover the data.
+After migration is done, there are still couple of steps we need to consider, before successfully closing the migration project. We need to dispose hardware used for the migration, if not needed anymore. The most important question is how to dispose of the tapes. Tape disposal is a two steps process. If tapes are storing sensitive, and confidential information (and they typically do), they must be degaussed first. Degaussing ensures that all data is magnetically deleted from the media. After deletion, tapes need to be properly destroyed, and recycled. If we used a tape migration partner, we can also let the partner securely dispose of the tapes.
 
 ## Next steps
 
