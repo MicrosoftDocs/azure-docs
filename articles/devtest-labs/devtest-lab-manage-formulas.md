@@ -14,9 +14,7 @@ ms.custom: UpdateFrequency2
 
 This article describes how to create and manage formulas in Azure DevTest Labs. A formula in DevTest Labs is a list of default property values that are used to create a virtual machine (VM). When you create a VM from a formula, the default values can be used as-is, or modified.
 
-Formulas are similar to [custom images](../articles/devtest-labs/devtest-lab-create-template.md) and [Marketplace images](../articles/devtest-labs/devtest-lab-configure-marketplace-images.md), as they provide a mechanism for fast VM provisioning. Similar to [custom images](../articles/devtest-labs/devtest-lab-create-template.md), formulas enable you to create a base image from a virtual hard disk (VHD) file. The base image can then be used to provision a new VM. To help decide which approach is right for your particular environment, see [Comparing custom images and formulas in DevTest Labs](../articles/devtest-labs/devtest-lab-comparing-vm-base-image-types.md).
-
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+Formulas are similar to [custom images](devtest-lab-create-template.md) and [Marketplace images](devtest-lab-configure-marketplace-images.md), as they provide a mechanism for fast VM provisioning. Similar to [custom images](devtest-lab-create-template.md), formulas enable you to create a base image from a virtual hard disk (VHD) file. The base image can then be used to provision a new VM. To help decide which approach is right for your particular environment, see [Comparing custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
 
 ## Use formulas in DevTest Labs
 
@@ -103,7 +101,7 @@ Follow these steps to create a formula from a base image:
 
 After DevTest Labs creates the formula, it's visible in the list on the **Formulas (reusable bases)** page:
 
-:::image type="content" source="./media/devtest-lab-create-formulas/lab-formulas.png" border="false" alt-text="Screenshot that shows the list of Formulas and reusable bases for a lab in DevTest Labs." lightbox="./media/devtest-lab-create-formulas/lab-formulas-large.png":::
+:::image type="content" source="./media/devtest-lab-create-formulas/lab-formulas.png" alt-text="Screenshot that shows the list of Formulas and reusable bases for a lab in DevTest Labs." lightbox="./media/devtest-lab-create-formulas/lab-formulas-large.png":::
 
 ## Create formula from existing VM
 
