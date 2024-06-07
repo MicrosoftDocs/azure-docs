@@ -1,18 +1,18 @@
 ---
-title: Send and receive events using Azure Event Hubs Data Generator. 
-description: This quickstart helps you send and receive events to Azure event hubs using Data generator.
+title: Send and receive events using Data Generator. 
+description: This quickstart shows you how to send and receive events to an Azure event hub using Data generator in the Azure portal.
 author:      Saglodha # GitHub alias
 ms.author:   saglodha # Microsoft alias
 ms.service:  event-hubs
 ms.topic:    quickstart
 ms.date:     06/07/2024
+#customer intent: As a developer, I want to send test events to an event hub in Azure Event Hubs and receive or view them.
 ---
 
 # QuickStart: Send and receive events using Azure Event Hubs Data Generator
-
 In this QuickStart, you learn how to send and receive Events using Azure Event Hubs Data Generator.  
 
-### Prerequisites
+## Prerequisites
 
 If you're new to Azure Event Hubs, see the [Event Hubs overview](event-hubs-about.md) before you go through this QuickStart. 
 
@@ -72,8 +72,7 @@ As soon as you select **Send**, data generator sends events to the selected even
 
    Multiple applications can connect to event hubs at the same time. If there are multiple applications sending data to event hubs alongside data generator, view events section also shows events sent by other clients. At any instance, the view events section lets you view the last 15 events that were sent to Azure Event Hubs.
 
-## Next Steps
+## Related content
 
-[Send and Receive events using Event Hubs SDKs(AMQP)](event-hubs-dotnet-standard-getstarted-send.md)
-
-[Send and Receive events using Apache Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Send and Receive events using Event Hubs SDKs(AMQP)](event-hubs-dotnet-standard-getstarted-send.md)
+- [Send and Receive events using Apache Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
