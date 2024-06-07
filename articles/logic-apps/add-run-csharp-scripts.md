@@ -509,7 +509,7 @@ Represents a workflow context.
 
 Gets the result from a specific action in the workflow.
 
-The asynchronous version uses the [**Task<TResult>** return type](/dotnet/api/system.threading.tasks.task-1), for example:
+The asynchronous version uses [**Task<>**](/dotnet/api/system.threading.tasks.task-1) as the return type, for example:
 
 `Task<WorkflowOperationResult> GetActionResult(string actionName)`
 
@@ -525,7 +525,7 @@ The asynchronous version returns a **`Task`** object that represents the async
 
 Gets the result from the trigger in the workflow.
 
-The asynchronous version uses the [**Task<TResult>** return type](/dotnet/api/system.threading.tasks.task-1), for example:
+The asynchronous version uses [**Task<>**](/dotnet/api/system.threading.tasks.task-1) as the return type, for example:
 
 `Task<WorkflowOperationResult> RunTriggerResult()`
 
