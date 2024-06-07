@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency2
 
 This article describes how to create and manage formulas in Azure DevTest Labs. A formula in DevTest Labs is a list of default property values that are used to create a virtual machine (VM). When you create a VM from a formula, the default values can be used as-is, or modified.
 
-Formulas are similar to [custom images](devtest-lab-create-template.md) and [Marketplace images](devtest-lab-configure-marketplace-images.md), as they provide a mechanism for fast VM provisioning. Similar to [custom images](devtest-lab-create-template.md), formulas enable you to create a base image from a virtual hard disk (VHD) file. The base image can then be used to provision a new VM. To help decide which approach is right for your particular environment, see [Comparing custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
+Formulas are similar to [custom images](devtest-lab-create-template.md) and [Marketplace images](devtest-lab-configure-marketplace-images.md), as they provide a mechanism for fast VM provisioning. Similar to custom images, formulas enable you to create a base image from a virtual hard disk (VHD) file. The base image can then be used to provision a new VM. To help decide which approach is right for your particular environment, see [Comparing custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
 
 ## Use formulas in DevTest Labs
 
