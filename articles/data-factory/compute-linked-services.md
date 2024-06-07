@@ -532,7 +532,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 
 ```json
 {
-    "name": " AzureDataBricksLinedService",
+    "name": " AzureDataBricksLinkedService",
     "properties": {
       "type": " AzureDatabricks",
       "typeProperties": {
