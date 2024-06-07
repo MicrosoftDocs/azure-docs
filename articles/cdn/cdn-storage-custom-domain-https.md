@@ -15,8 +15,7 @@ ms.custom: mvc
 After you've integrated your Azure Storage account with Azure Content Delivery Network, you can add a custom domain and enable HTTPS on that domain for your custom blob storage endpoint.
 
 > [!NOTE]  
-> Azure Content Delivery Network provides a permanent access to Azure Storage resources and removing the access requires manual steps.
-> 
+> Azure Content Delivery Network provides permanent access to Azure Storage resources and removing access requires manual steps.
 
 ## Prerequisites
 
