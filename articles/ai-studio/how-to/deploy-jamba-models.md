@@ -104,122 +104,26 @@ To learn about billing for Jamba-Instruct deployed as a serverless API, see [Cos
 
 For more information on using the APIs, see the [reference](#reference-for-jamba-models-deployed-a-serverless-api) section.
 
-### Reference for Jamba models deployed a serverless API
+### Reference for Jamba-Instruct deployed a serverless API
 
-Llama models accept both the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions` or a [Llama Chat API](#chat-api) on `/v1/chat/completions`. In the same way, text completions can be generated using the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/completions` or a [Llama Completions API](#completions-api) on `/v1/completions`
+Since Jamba-Instruct is fine-tuned for chat completion, we support the route `/chat/completions` as part of the [Azure AI Model Inference API](reference-model-inference-api.md) for multi-turn chat or single-turn question-answering. AI21's [Jamba Instruct model](https://docs.ai21.com/reference/jamba-instruct-api) can also be used. For more information about the REST endpoint being called, visit [AI21's REST documentation](https://docs.ai21.com/reference/jamba-instruct-api).
 
 The [Azure AI Model Inference API](reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](reference-model-inference-api.md?tabs=rest#getting-started).
 
-#### Completions API
-
-Use the method `POST` to send the request to the `/v1/completions` route:
-
-__Request__
-
-```rest
-POST /v1/completions HTTP/1.1
-Host: <DEPLOYMENT_URI>
-Authorization: Bearer <TOKEN>
-Content-type: application/json
-```
-
-#### Request schema
-
-Payload is a JSON formatted string containing the following parameters:
-
-| Key           | Type      | Default | Description    |
-|---------------|-----------|---------|----------------|
-| `prompt`      | `string`  |  No default. This value must be specified.  | The prompt to send to the model. |
-| `stream`      | `boolean` | `False`  | Streaming allows the generated tokens to be sent as data-only server-sent events whenever they become available. |
-| `max_tokens`  | `integer` | `16`    | The maximum number of tokens to generate in the completion. The token count of your prompt plus `max_tokens` can't exceed the model's context length.  |
-| `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering `top_p` or `temperature`, but not both. |
-| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. We recommend altering this or `top_p`, but not both. |
-| `n`           | `integer` | `1`     | How many completions to generate for each prompt. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota. |
-| `stop`        | `array`   | `null`  | String or a list of strings containing the word where the API stops generating further tokens. The returned text won't contain the stop sequence.   |
-| `best_of`     | `integer` | `1`     | Generates `best_of` completions server-side and returns the "best" (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, `best_of` controls the number of candidate completions and `n` specifies how many to return—best_of must be greater than `n`. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota.|
-| `logprobs` | `integer` |  `null` | A number indicating to include the log probabilities on the `logprobs` most likely tokens and the chosen tokens. For example, if `logprobs` is 10, the API returns a list of the 10 most likely tokens. the API always returns the logprob of the sampled token, so there might be up to `logprobs`+1 elements in the response.  |
-| `presence_penalty`    | `float`   | `null`  | Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
-| `ignore_eos`          | `boolean` | `True`  | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated.  |
-| `use_beam_search`     | `boolean` | `False` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than `1` and `temperature` must be `0`. |
-| `stop_token_ids`      | `array`   | `null`  | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens. |
-| `skip_special_tokens` | `boolean` | `null`  | Whether to skip special tokens in the output. |
-
-#### Example
-
-__Body__
+Single- and multi-turn chat have the same request and response format, except that question answering (single-turn) involves only a single user message in the request, while multi-turn chat requires that you send the entire chat message history in each request. In a multi-turn chat, the message thread includes all messages from the user and the model, ordered oldest to newest, alternating between `user` and `assistant` role messages, optionally starting with a system
+message to provide context. For example, the message stack for the fourth call in a chat request that includes an initial system message would look like this in pseudocode:
 
 ```json
-{
-    "prompt": "What's the distance to the moon?",
-    "temperature": 0.8,
-    "max_tokens": 512,
-}
-```
-
-#### Response schema
-
-The response payload is a dictionary with the following fields.
-
-| Key       | Type      | Description                                                              |
-|-----------|-----------|--------------------------------------------------------------------------|
-| `id`      | `string`  | A unique identifier for the completion.                                  |
-| `choices` | `array`   | The list of completion choices the model generated for the input prompt. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created.      |
-| `model`   | `string`  | The model_id used for completion.                                        |
-| `object`  | `string`  | The object type, which is always `text_completion`.                      |
-| `usage`   | `object`  | Usage statistics for the completion request.                             |
-
-> [!TIP]
-> In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`. 
-
-
-The `choices` object is a dictionary with the following fields. 
-
-| Key     | Type      | Description  |
-|---------|-----------|------|
-| `index` | `integer` | Choice index. When `best_of` > 1, the index in this array might not be in order and might not be 0 to n-1. |
-| `text`  | `string`  | Completion result. |
-| `finish_reason` | `string` | The reason the model stopped generating tokens: <br>- `stop`: model hit a natural stop point, or a provided stop sequence. <br>- `length`: if max number of tokens have been reached. <br>- `content_filter`: When RAI moderates and CMP forces moderation. <br>- `content_filter_error`: an error during moderation and wasn't able to make decision on the response. <br>- `null`: API response still in progress or incomplete. |
-| `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
-
-The `usage` object is a dictionary with the following fields. 
-
-| Key                 | Type      | Value                                         |
-|---------------------|-----------|-----------------------------------------------|
-| `prompt_tokens`     | `integer` | Number of tokens in the prompt.               |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens`      | `integer` | Total tokens.                                 |
-
-The `logprobs` object is a dictionary with the following fields:
-
-| Key              | Type  | Value |
-|------------------|-------------------------|----|
-| `text_offsets`   | `array` of `integers`   | The position or index of each token in the completion output.  |
-| `token_logprobs` | `array` of `float`      | Selected `logprobs` from dictionary in `top_logprobs` array.  |
-| `tokens`         | `array` of `string`     | Selected tokens. |
-| `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the prob. |
-
-#### Example
-
-```json
-{
-    "id": "12345678-1234-1234-1234-abcdefghijkl",
-    "object": "text_completion",
-    "created": 217877,
-    "choices": [
-        {
-            "index": 0,
-            "text": "The Moon is an average of 238,855 miles away from Earth, which is about 30 Earths away.",
-            "logprobs": null,
-            "finish_reason": "stop"
-        }
-    ],
-    "usage": {
-        "prompt_tokens": 7,
-        "total_tokens": 23,
-        "completion_tokens": 16
-    }
-}
+[
+    {"role": "system", "message": "Some contextual information here"},
+    {"role": "user", "message": "User message 1"},
+    {"role": "assistant", "message": "System response 1"},
+    {"role": "user", "message": "User message 2"},
+    {"role": "assistant"; "message": "System response 2"},
+    {"role": "user", "message": "User message 3"},
+    {"role": "assistant", "message": "System response 3"},
+    {"role": "user", "message": "User message 4"}
+]
 ```
 
 #### Chat API
@@ -228,7 +132,7 @@ Use the method `POST` to send the request to the `/v1/chat/completions` route:
 
 __Request__
 
-```rest
+```HTTP/1.1
 POST /v1/chat/completions HTTP/1.1
 Host: <DEPLOYMENT_URI>
 Authorization: Bearer <TOKEN>
@@ -239,122 +143,140 @@ Content-type: application/json
 
 Payload is a JSON formatted string containing the following parameters:
 
-| Key | Type | Default | Description |
-|-----|-----|-----|-----|
-| `messages`    | `string`  | No default. This value must be specified.  | The message or history of messages to use to prompt the model.  |
-| `stream`      | `boolean` | `False` | Streaming allows the generated tokens to be sent as data-only server-sent events whenever they become available.  |
-| `max_tokens`  | `integer` | `16`    | The maximum number of tokens to generate in the completion. The token count of your prompt plus `max_tokens` can't exceed the model's context length. |
-| `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering `top_p` or `temperature`, but not both.  |
-| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. We recommend altering this or `top_p`, but not both.  |
-| `n`           | `integer` | `1`     | How many completions to generate for each prompt. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota. |
-| `stop`        | `array`   | `null`  | String or a list of strings containing the word where the API stops generating further tokens. The returned text won't contain the stop sequence. |
-| `best_of`     | `integer` | `1`     | Generates `best_of` completions server-side and returns the "best" (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, `best_of` controls the number of candidate completions and `n` specifies how many to return—`best_of` must be greater than `n`. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota.|
-| `logprobs` | `integer` |  `null` | A number indicating to include the log probabilities on the `logprobs` most likely tokens and the chosen tokens. For example, if `logprobs` is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to `logprobs`+1 elements in the response.  |
-| `presence_penalty`    | `float`   | `null`  | Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
-| `ignore_eos`          | `boolean` | `True`  | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. |
-| `use_beam_search`     | `boolean` | `False` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than `1` and `temperature` must be `0`. |
-| `stop_token_ids`      | `array`   | `null`  | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens.|
-| `skip_special_tokens` | `boolean` | `null`  | Whether to skip special tokens in the output. |
+| Key           | Type           | Required/Default | Allowed values    | Description                                                                                                                                                                                                                                                                                         |
+| ------------- | -------------- | :-----------------:| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `model`       | `string`       | Y    | Must be `jamba-instruct`                                                                                                                                                                                                                                                                            |
+| `messages`    | `list[object]` | Y     | A list of objects, one per message, from oldest to newest. The oldest message can be role `system`. All later messages must alternate between user and assistant roles. See the message object definition below.                                                                                    |
+| `max_tokens`  | `integer`      | N <br>`4096` |  0 – 4096     | The maximum number of tokens to allow for each generated response message. Typically the best way to limit output length is by providing a length limit in the system prompt (for example, "limit your answers to three sentences")                                                                 |
+| `temperature` | `float`        | N <br>`1`  |  0.0 – 2.0      | How much variation to provide in each answer. Setting this value to 0 guarantees the same response to the same question every time. Setting a higher value encourages more variation. Modifies the distribution from which tokens are sampled. We recommend altering this or `top_p`, but not both. |
+| `top_p`       | `float`        | N <br>`1`  | 0 < _value_ <=1.0 | Limit the pool of next tokens in each step to the top N percentile of possible tokens, where 1.0 means the pool of all possible tokens, and 0.01 means the pool of only the most likely next tokens.                                                                                                |
+| `stop`        | `string` OR `list[string]`      | N <br>  | ""  | String or list of strings containing the word(s) where the API should stop generating output. Newlines are allowed as "\n". The returned text won't contain the stop sequence. |
+| `n`           | `integer`      | N <br>`1`  | 1 – 16          | How many responses to generate for each prompt. If set to &gt;1, you cannot set `temperature=0`.                                                                                                                                                                                                      |
+| `stream`   | `boolean`      | N <br>`False` | `True` OR `False` | Whether to enable streaming. If true, results are returned one token at a time. If set to true, `n` must be 1.                                                                                                                                                                                      |
 
 The `messages` object has the following fields:
+  - `role`: [_string, required_] The author or purpose of the message. One of the following values:
+    - `user`:  Input provided by the user. Any instructions given here that conflict with instructions given in the `system` prompt take precedence over the `system` prompt instructions.
+    - `assistant`:  A response generated by the model.
+    - `system`:  Initial instructions to provide general guidance on the tone and voice of the generated message. An initial system message is optional, but recommended to provide guidance on the tone of the chat. For example, "You are a helpful chatbot with a background in earth sciences and a charming French accent."
+  - `content`: [_string, required_] The content of the message.
 
-| Key       | Type      | Value |
-|-----------|-----------|------------|
-| `content` | `string` | The contents of the message. Content is required for all messages. |
-| `role`    | `string` | The role of the message's author. One of `system`, `user`, or `assistant`. |
 
+#### Request Example
 
-#### Example
+__Single-turn example__
 
-__Body__
-
-```json
+```JSON
 {
-    "messages":
-    [
-        { 
-        "role": "system", 
-        "content": "You are a helpful assistant that translates English to Italian."},
-        {
-        "role": "user", 
-        "content": "Translate the following sentence from English to Italian: I love programming."
-        }
-    ],
+    "model": "jamba-instruct",
+    "messages": [
+    {
+      "role":"user",
+      "content":"Who was the first emperor of rome?"}
+  ],
     "temperature": 0.8,
-    "max_tokens": 512,
+    "max_tokens": 512
+}
+```
+
+__Chat example (fourth request containing third user response)__
+
+```JSON
+{
+  "model": "jamba-instruct",
+  "messages": [
+     {"role": "system",
+      "content": "You are a helpful genie just released from a bottle. You start the conversation with 'Thank you for freeing me! I grant you one wish.'"},
+     {"role":"user",
+      "content":"I want a new car"},
+     {"role":"assistant",
+      "content":"🚗 Great choice, I can definitely help you with that! Before I grant your wish, can you tell me what kind of car you're looking for?"},
+     {"role":"user",
+      "content":"A corvette"},
+     {"role":"assistant",
+      "content":"Great choice! What color and year?"},
+     {"role":"user",
+      "content":"1963 black split window Corvette"}
+  ],
+  "n":3
 }
 ```
 
 #### Response schema
 
+The response depends slightly on whether the result is streamed or not.
+
+**In a non-streamed result**, all responses are delivered together in a single response, which also includes a `usage` property.
+
+**In a streamed result:**
+
+* Each response includes a single token in the `choices` field
+* The `choices` object structure is different
+* Only the last response includes a `usage` object
+* The entire response is wrapped in a `data` object
+* The final response object is `data: [DONE]` 
+
 The response payload is a dictionary with the following fields.
 
-| Key       | Type      | Description                                                                |
-|-----------|-----------|----------------------------------------------------------------------------|
-| `id`      | `string`  | A unique identifier for the completion.                                    |
-| `choices` | `array`   | The list of completion choices the model generated for the input messages. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created.        |
-| `model`   | `string`  | The model_id used for completion.                                          |
-| `object`  | `string`  | The object type, which is always `chat.completion`.                        |
-| `usage`   | `object`  | Usage statistics for the completion request.                               |
+| Key       | Type      | Description                                                         |
+| --------- | --------- | ------------------------------------------------------------------- |
+| `id`      | `string`  | A unique identifier for the request.                                |
+| `model`   | `string`  | Name of the model used.                                   |
+| `choices` | `list[object`]|The model-generated response text. For a non-streaming response it is a list with `n` items. For a streaming response, it is a single object containing a single token. See the object description below. |
+| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created. |
+| `object`  | `string`  | The object type, which is always `chat.completion`.                 |
+| `usage`   | `object`  | Usage statistics for the completion request. See below for details. |
 
-> [!TIP]
-> In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`. In each `choices` object, the key for `messages` is changed by `delta`. 
+The `choices` response object contains the model-generated response. The object has the following fields:
 
+| Key             | Type      | Description                                                                                                                                                                                                                                                                                                                                      |
+| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `index`         | `integer` | Zero-based index of the message in the list of messages. Might not correspond to the position in the list. For streamed messages this is always zero.                                                                                                                                                                                           |
+| `message` OR `delta`      | `object`  | The generated message (or token in a streaming response). Same object type as described in the request with two changes:<br> - In a non-streaming response, this object is called `message`. <br>- In a streaming response, it is called `delta`, and contains either `message` or `role` but never both.                                                                                                                                                                                                                                        |
+| `finish_reason` | `string`  | The reason the model stopped generating tokens: <br>- `stop`: The model reached a natural stop point, or a provided stop sequence. <br>- `length`: Max number of tokens have been reached. <br>- `content_filter`: The generated response violated a responsible AI policy. <br>- `null`: Streaming only. In a streaming response, all responses except the last will be `null`. |
 
-The `choices` object is a dictionary with the following fields. 
+The `usage` response object contains the following fields. 
 
-| Key     | Type      | Description  |
-|---------|-----------|--------------|
-| `index` | `integer` | Choice index. When `best_of` > 1, the index in this array might not be in order and might not be `0` to `n-1`. |
-| `messages` or `delta`   | `string`  | Chat completion result in `messages` object. When streaming mode is used, `delta` key is used.  |
-| `finish_reason` | `string` | The reason the model stopped generating tokens: <br>- `stop`: model hit a natural stop point or a provided stop sequence. <br>- `length`: if max number of tokens have been reached. <br>- `content_filter`: When RAI moderates and CMP forces moderation <br>- `content_filter_error`: an error during moderation and wasn't able to make decision on the response <br>- `null`: API response still in progress or incomplete. |
-| `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
+| Key                 | Type      | Value                                                                                                                                                                                                                                                                                                                   |
+| ------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `prompt_tokens`     | `integer` | Number of tokens in the prompt. Note that the prompt token count includes extra tokens added by the system to format the prompt list into a single string as required by the model. The number of extra tokens is typically proportional to the number of messages in the thread, and should be relatively small. |
+| `completion_tokens` | `integer` | Number of tokens generated in the completion.                                                                                                                                                                                                                                                                           |
+| `total_tokens`      | `integer` | Total tokens. 
 
+#### Non-streaming response example
 
-The `usage` object is a dictionary with the following fields.
-
-| Key                 | Type      | Value                                         |
-|---------------------|-----------|-----------------------------------------------|
-| `prompt_tokens`     | `integer` | Number of tokens in the prompt.               |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens`      | `integer` | Total tokens.                                 |
-
-The `logprobs` object is a dictionary with the following fields:
-
-| Key              | Type                    | Value   |
-|------------------|-------------------------|---------|
-| `text_offsets`   | `array` of `integers`   | The position or index of each token in the completion output. |
-| `token_logprobs` | `array` of `float`      | Selected `logprobs` from dictionary in `top_logprobs` array.   |
-| `tokens`         | `array` of `string`     | Selected tokens.   |
-| `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the prob. |
-
-#### Example
-
-The following is an example response:
-
-```json
+```JSON
 {
-    "id": "12345678-1234-1234-1234-abcdefghijkl",
-    "object": "chat.completion",
-    "created": 2012359,
-    "model": "",
-    "choices": [
-        {
-            "index": 0,
-            "finish_reason": "stop",
-            "message": {
-                "role": "assistant",
-                "content": "Sure, I\'d be happy to help! The translation of ""I love programming"" from English to Italian is:\n\n""Amo la programmazione.""\n\nHere\'s a breakdown of the translation:\n\n* ""I love"" in English becomes ""Amo"" in Italian.\n* ""programming"" in English becomes ""la programmazione"" in Italian.\n\nI hope that helps! Let me know if you have any other sentences you\'d like me to translate."
-            }
-        }
-    ],
-    "usage": {
-        "prompt_tokens": 10,
-        "total_tokens": 40,
-        "completion_tokens": 30
+  "id":"cmpl-524c73beb8714d878e18c3b5abd09f2a",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"The human nose can detect over 1 trillion different scents, making it one of the most sensitive smell organs in the animal kingdom."
+      },
+      "finishReason":"stop"
     }
+  ],
+  "created": 1717487036,
+  "usage":{
+    "promptTokens":116,
+    "completionTokens":30,
+    "totalTokens":146
+  }
 }
+```
+#### Streaming response example
+```JSON
+data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"role": "assistant"}, "created": 1717487336, "finish_reason": null}]}
+data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": ""}, "created": 1717487336, "finish_reason": null}]}
+data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": " The"}, "created": 1717487336, "finish_reason": null}]}
+data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": " first e"}, "created": 1717487336, "finish_reason": null}]}
+data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": "mpe"}, "created": 1717487336, "finish_reason": null}]}
+... 115 responses omitted for sanity ...
+data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": "me"}, "created": 1717487336, "finish_reason": null}]}
+data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": "."}, "created": 1717487336,"finish_reason": "stop"}], "usage": {"prompt_tokens": 107, "completion_tokens": 121, "total_tokens": 228}}
+data: [DONE]
 ```
 
 ## Deploy Jamba models to managed compute
