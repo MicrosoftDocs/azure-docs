@@ -10,26 +10,26 @@ ms.date: 06/07/2024
 
 # Syslog via AMA data connector - Configure specific appliance or device for the Microsoft Sentinel data ingestion
 
-Some Microsoft Sentinel solutions are supported by the **Syslog via AMA** data connector in Microsoft Sentinel. This article lists solution provider supplied installation instructions for specific security appliances and devices that use this data connector. For changes or more information, contact the solution provider.
+Some Microsoft Sentinel solutions are supported by the **Syslog via AMA** data connector in Microsoft Sentinel. This article lists solution provider supplied installation instructions for specific security appliances and devices that use this data connector. For updates to these instructions or more information, contact the solution provider.
 
-To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). As you complete those steps, install the **Syslog via AMA** data connector in Microsoft Sentinel. Then, use the appropriate provider's instructions in this article to complete the setup.
+To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). As you complete those steps, install the **Syslog via AMA** data connector in Microsoft Sentinel. Then, use the appropriate provider's instructions in this article to complete the setup.
 
 For more information about the related Microsoft solution for each of these appliances or devices, search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for the **Product Type** > **Solution Templates** or review the solution from the **Content hub** in Microsoft Sentinel.
 
 ## Barracuda CloudGen Firewall
 
-[Follow instructions](https://aka.ms/sentinel-barracudacloudfirewall-connector) to configure syslog streaming. Use the IP address or hostname for the Linux machine with the Microsoft Sentinel agent installed for the Destination IP address.
+[Follow instructions](https://aka.ms/sentinel-barracudacloudfirewall-connector) to configure syslog streaming. Use the IP address or hostname for the Linux machine with the Microsoft Sentinel agent installed for the **Destination IP** address.
 
 ## Blackberry CylancePROTECT
 
-[Follow these instructions](https://docs.blackberry.com/content/dam/docs-blackberry-com/release-pdfs/en/cylance-products/syslog-guides/Cylance%20Syslog%20Guide%20v2.0%20rev12.pdf) to configure the CylancePROTECT to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+[Follow these instructions](https://docs.blackberry.com/content/dam/docs-blackberry-com/release-pdfs/en/cylance-products/syslog-guides/Cylance%20Syslog%20Guide%20v2.0%20rev12.pdf) to configure the CylancePROTECT to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 ## Cisco Application Centric Infrastructure (ACI)
 
-Configure Cisco ACI system to send logs via Syslog to the remote server where you install the agent.
-[Follow these steps](https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/1-x/basic-config/b_ACI_Config_Guide/b_ACI_Config_Guide_chapter_010.html#d2933e4611a1635) to configure Syslog Destination, Destination Group, and Syslog Source.
+Configure Cisco ACI system to send logs via syslog to the remote server where you install the agent.
+[Follow these steps](https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/1-x/basic-config/b_ACI_Config_Guide/b_ACI_Config_Guide_chapter_010.html#d2933e4611a1635) to configure **Syslog Destination**, **Destination Group**, and **Syslog Source**.
 
-This data connector was developed using Cisco ACI Release 1.x
+This data connector was developed using Cisco ACI Release 1.x.
 
 ## Cisco Identity Services Engine (ISE)
 
@@ -57,7 +57,7 @@ This data connector was developed using Cisco Stealthwatch version 7.3.2
 
 ## Cisco Unified Computing Systems (UCS)
 
-[Follow these instructions](https://www.cisco.com/c/en/us/support/docs/servers-unified-computing/ucs-manager/110265-setup-syslog-for-ucs.html#configsremotesyslog) to configure the Cisco UCS to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+[Follow these instructions](https://www.cisco.com/c/en/us/support/docs/servers-unified-computing/ucs-manager/110265-setup-syslog-for-ucs.html#configsremotesyslog) to configure the Cisco UCS to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
@@ -68,7 +68,7 @@ This data connector was developed using Cisco Stealthwatch version 7.3.2
 
 ## Cisco Web Security Appliance (WSA)
 
-Configure Cisco to forward logs via Syslog to the remote server where you install the agent.
+Configure Cisco to forward logs via syslog to the remote server where you install the agent.
 [Follow these steps](https://www.cisco.com/c/en/us/td/docs/security/esa/esa14-0/user_guide/b_ESA_Admin_Guide_14-0/b_ESA_Admin_Guide_12_1_chapter_0100111.html#con_1134718) to configure Cisco WSA to forward logs via Syslog
 
 Select **Syslog Push** as a Retrieval Method.
@@ -82,7 +82,7 @@ Configure Citrix ADC (former NetScaler) to forward logs via Syslog.
 1. Navigate to **Configuration tab > System > Auditing > Syslog > Servers tab**
 2. Specify **Syslog action name**.
 3. Set IP address of remote Syslog server and port.
-4. Set **Transport type** as **TCP** or **UDP** depending on your remote Syslog server configuration.
+4. Set **Transport type** as **TCP** or **UDP** depending on your remote syslog server configuration.
 5. For more information, see the [Citrix ADC (former NetScaler) documentation](https://docs.netscaler.com/).
 
 > [!NOTE]
@@ -106,8 +106,8 @@ Complete the following steps to configure Digital Guardian to forward logs via S
 1. From the **Data Sources** list, select **Alerts** or **Events** as the data source.
 1. From the **Export type** list, select **Syslog**.
 1. From the **Type list**, select **UDP, or TCP** as the transport protocol.
-1. In the **Server** field, type the IP address of your remote Syslog server.
-1. In the **Port** field, type 514 (or other port if your Syslog server was configured to use non-default port).
+1. In the **Server** field, type the IP address of your remote syslog server.
+1. In the **Port** field, type 514 (or other port if your syslog server was configured to use nondefault port).
 1. From the **Severity Level** list, select a severity level.
 1. Select the **Is Active** check box.
 1. Select **Next**.
@@ -137,7 +137,7 @@ Complete the following steps to get Forescout logs into Microsoft Sentinel.
 
 1. [Select an Appliance to Configure.](https://docs.forescout.com/bundle/syslog-3-6-1-h/page/syslog-3-6-1-h.Select-an-Appliance-to-Configure.html)
 1. [Follow these instructions](https://docs.forescout.com/bundle/syslog-3-6-1-h/page/syslog-3-6-1-h.Send-Events-To-Tab.html#pID0E0CE0HA) to forward alerts from the Forescout platform to a syslog server.
-1. [Configure](https://docs.forescout.com/bundle/syslog-3-6-1-h/page/syslog-3-6-1-h.Syslog-Triggers.html) the settings in the Syslog Triggers tab.
+1. [Configure](https://docs.forescout.com/bundle/syslog-3-6-1-h/page/syslog-3-6-1-h.Syslog-Triggers.html) the settings in the **Syslog Triggers** tab.
 
 This data connector was developed using Forescout Syslog Plugin version: v3.6
 
@@ -148,11 +148,11 @@ This data connector was developed using Forescout Syslog Plugin version: v3.6
 ## ISC Bind
 
 1. Follow these instructions to configure the ISC Bind to forward syslog: [DNS Logs](https://kb.isc.org/docs/aa-01526). 
-1. Configure Syslog to send the Syslog traffic to the agent. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+1. Configure syslog to send the syslog traffic to the agent. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 ## Infoblox Network Identity Operating System (NIOS)
 
-[Follow these instructions](https://www.infoblox.com/wp-content/uploads/infoblox-deployment-guide-slog-and-snmp-configuration-for-nios.pdf) to enable syslog forwarding of Infoblox NIOS Logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+[Follow these instructions](https://www.infoblox.com/wp-content/uploads/infoblox-deployment-guide-slog-and-snmp-configuration-for-nios.pdf) to enable syslog forwarding of Infoblox NIOS Logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
@@ -182,7 +182,7 @@ This data connector was developed using Ivanti Unified Endpoint Management Relea
    - [Traffic Logs (Security Policy Logs)](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16509&actp=METADATA) 
    - [System Logs](https://kb.juniper.net/InfoCenter/index?page=content&id=kb16502)
  
-2. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+2. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 ## McAfee Network Security Platform
 
@@ -235,7 +235,7 @@ Complete the following steps.
 
 ## Pulse Connect Secure
 
-[Follow the instructions](https://help.ivanti.com/ps/help/en_US/PPS/9.1R13/ag/configuring_an_external_syslog_server.htm) to enable syslog streaming of Pulse Connect Secure logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+[Follow the instructions](https://help.ivanti.com/ps/help/en_US/PPS/9.1R13/ag/configuring_an_external_syslog_server.htm) to enable syslog streaming of Pulse Connect Secure logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
@@ -261,7 +261,7 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 ## Sophos XG Firewall
 
 
-[Follow these instructions](https://doc.sophos.com/nsg/sophos-firewall/20.0/Help/en-us/webhelp/onlinehelp/AdministratorHelp/SystemServices/LogSettings/SyslogServerAdd/index.html) to enable syslog streaming. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+[Follow these instructions](https://doc.sophos.com/nsg/sophos-firewall/20.0/Help/en-us/webhelp/onlinehelp/AdministratorHelp/SystemServices/LogSettings/SyslogServerAdd/index.html) to enable syslog streaming. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
@@ -273,7 +273,7 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 ## Symantec Endpoint Protection
 
 
-[Follow these instructions](https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-protection/all/Monitoring-Reporting-and-Enforcing-Compliance/viewing-logs-v7522439-d37e464/exporting-data-to-a-syslog-server-v8442743-d15e1107.html) to configure the Symantec Endpoint Protection to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+[Follow these instructions](https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-protection/all/Monitoring-Reporting-and-Enforcing-Compliance/viewing-logs-v7522439-d37e464/exporting-data-to-a-syslog-server-v8442743-d15e1107.html) to configure the Symantec Endpoint Protection to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
@@ -293,7 +293,7 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 
 1. Select **OK**.
 1. Select **Apply**n.
-1. [Follow these instructions](https://knowledge.broadcom.com/external/article/166529/sending-access-logs-to-a-syslog-server.html) to enable syslog streaming of **Access** logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address
+1. [Follow these instructions](https://knowledge.broadcom.com/external/article/166529/sending-access-logs-to-a-syslog-server.html) to enable syslog streaming of **Access** logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address
 
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
@@ -304,7 +304,7 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 
 ## Symantec VIP
 
-[Follow these instructions](https://aka.ms/sentinel-symantecvip-configurationsteps) to configure the Symantec VIP Enterprise Gateway to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+[Follow these instructions](https://aka.ms/sentinel-symantecvip-configurationsteps) to configure the Symantec VIP Enterprise Gateway to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
@@ -313,14 +313,14 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 >
 > To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **SymantecVIP**. Alternatively, directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Symantec%20VIP/Parsers/SymantecVIP.txt). It might take about 15 minutes post-installation to update.
 
-## VMWare ESXi
+## VMware ESXi
 
-1. Follow these instructions to configure the VMWare ESXi to forward syslog:
+1. Follow these instructions to configure the VMware ESXi to forward syslog:
 
    - [VMware ESXi 3.5 and 4.x](https://kb.vmware.com/s/article/1016621)
    - [VMware ESXi 5.0+](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.monitoring.doc/GUID-9F67DB52-F469-451F-B6C8-DAE8D95976E7.html)
 
-1. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+1. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
@@ -335,5 +335,5 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 
 ## Related content
 
-- [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
+- [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
 - [Syslog via AMA and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md)
