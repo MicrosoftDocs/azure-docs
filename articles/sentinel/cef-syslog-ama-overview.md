@@ -86,8 +86,8 @@ After you create the DCR, and AMA is installed, run the "installation" script on
 For more information, see the following articles:
 
 - [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
-- [CEF via AMA data connector - Configure specific appliances and devices for Microsoft Sentinel data ingestion](unified-connector-cef-devices.md)
-- [Syslog via AMA data connector - Configure specific appliances and devices for the Microsoft Sentinel data ingestion](unified-connector-syslog-devices.md)
+- [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+- [Syslog via AMA data connector - Configure specific appliance or device for the Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
 
 ## Data ingestion duplication avoidance
 
