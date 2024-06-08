@@ -337,11 +337,11 @@ The resubmit capability is available for all actions except for non-sequential a
 | **Switch** action and all actions in the **Default** path and **Case** paths | - Yes for **Switch** action <br>- No for actions in the **Default** path and **Case** paths |
 | **Until** action and all actions inside the loop | No for all actions |
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. On the workflow menu, select **Overview**. On the **Overview** page, select **Run History**, which shows the run history for the current workflow.
+1. On the logic app resource menu, select **Overview**. On the **Overview** page, select **Runs History**, which shows the run history for the workflow.
 
-1. On the **Run History** tab, select the run that you want to resubmit.
+1. On the **Runs history** tab, select the run that you want to resubmit.
 
    The run details page opens and shows the status for each step in the run.
 
