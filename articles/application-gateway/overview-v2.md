@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 04/30/2024
+ms.date: 06/06/2024
 ms.author: greglin
 ms.custom: references_regions, devx-track-azurepowershell
 ---
@@ -66,8 +66,6 @@ With the v2 SKU, consumption drives the pricing model and is no longer attached 
 
 Currently, the Standard_v2 and WAF_v2 SKUs aren't available in the following regions:
 
-- UK North
-- UK South 2
 - China East
 - China North
 - US DOD East

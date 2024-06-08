@@ -30,7 +30,7 @@ Role-based access is optional, but recommended. The alternative is [key-based au
 
 ## Prerequisites
 
-+ **Owner**, **User Access Administrator**, or a role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
++ **Owner**, **User Access Administrator**, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
 
 + A search service in any region, on any tier, [enabled for role-based access](search-security-enable-roles.md).
 
@@ -102,8 +102,8 @@ New-AzRoleAssignment -SignInName <email> `
 
 Role assignments are global across the search service. To [scope permissions to a single index](#rbac-single-index), use PowerShell or the Azure CLI to create a custom role.
 
-> [!IMPORTANT]
-> If you configure role-based access for a service or index and you also provide an API key on the request, the search service uses the API key to authenticate.
+> [!NOTE]
+> If you make a request, such as a REST call, that includes an API key, and you're also part of a role assignment, the API key takes precedence. For instance, if you have a read-only role assignment but make a request with an admin API key, the permissions granted by the API key override the role assignment. This behavior only applies if both keys and roles are enabled for your search service.
 
 #### [**Azure portal**](#tab/roles-portal)
 

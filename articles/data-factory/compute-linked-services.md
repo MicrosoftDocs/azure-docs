@@ -520,7 +520,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
             "newClusterVersion": "4.0.x-scala2.11",
             "accessToken": {
                 "type": "SecureString",
-                "value": "dapif33c9c721144c3a790b35000b57f7124f"
+                "value": "&lt;your_secure_string_value&gt;"
             }
         }
     }
@@ -532,14 +532,14 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 
 ```json
 {
-    "name": " AzureDataBricksLinedService",
+    "name": " AzureDataBricksLinkedService",
     "properties": {
       "type": " AzureDatabricks",
       "typeProperties": {
         "domain": "https://westeurope.azuredatabricks.net",
         "accessToken": {
             "type": "SecureString", 
-            "value": "dapif33c9c72344c3a790b35000b57f7124f"
+            "value": "&lt;your_secure_string_value&gt;"
           },
         "existingClusterId": "{clusterId}"
         }
@@ -563,7 +563,6 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 | newClusterNodeType   | This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster. For example, the Spark nodes can be provisioned and optimized for memory or compute intensive workloads. This field is required for new cluster                | No               |
 | newClusterSparkConf  | a set of optional, user-specified Spark configuration key-value pairs. Users can also pass in a string of extra JVM options to the driver and the executors via spark.driver.extraJavaOptions and spark.executor.extraJavaOptions respectively. | No  |
 | newClusterInitScripts| a set of optional, user-defined initialization scripts for the new cluster. You can specify the init scripts in workspace files (recommended) or via the DBFS path (legacy). | No  |
-
 
 ## Azure SQL Database linked service
 
