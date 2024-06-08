@@ -241,7 +241,7 @@ Note the value of the `clientId` of the managed identity that you create. This I
     -n win-vm-prom \
     --identities /subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity
     ```
-For more information, see [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) and [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create).
+For more information, see [az identity create](/cli/azure/identity#az-identity-create) and [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
 #### Create a Microsoft Entra ID application
 To create a Microsoft Entra ID application using CLI, and assign the `Monitoring Metrics Publisher` role, run the following command:
@@ -270,7 +270,7 @@ The following is an example of the output displayed:
 
 The output contains the `appId` and `password` values. Save these values to use in the Prometheus remote write configuration as values for `client_id` and `client_secret` The password or client secret value is only visible when created and can't be retrieved later. If lost, you must create a new client secret.
 
-For more information, see [az ad app create](/cli/azure/ad/app?view=azure-cli-latest#az-ad-app-create) and [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac).
+For more information, see [az ad app create](/cli/azure/ad/app#az-ad-app-create) and [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac).
 
 ---
 ## Configure remote-write
@@ -307,7 +307,7 @@ Find your client ID for the managed identity using the following Azure CLI comma
 ```azurecli
 az identity list --resource-group <resource group name>
 ```
-For more information, see [az identity list](/cli/azure/identity?view=azure-cli-latest#az-identity-list).
+For more information, see [az identity list](/cli/azure/identity#az-identity-list).
 
 To find your client for managed identity authentication in the portal, go to the **Managed Identities** page in the Azure portal and select the relevant identity name. Copy the value of the **Client ID** from the **Identity overview** page.
 
@@ -318,7 +318,7 @@ To find the client ID for the Microsoft Entra ID application, use the following 
 ```azurecli
 $ az ad app list --display-name < application name>
 ```
-For more information, see [az ad app list](/cli/azure/ad/app?view=azure-cli-latest#az-ad-app-list).
+For more information, see [az ad app list](/cli/azure/ad/app#az-ad-app-list).
 
 
 >[!NOTE]
