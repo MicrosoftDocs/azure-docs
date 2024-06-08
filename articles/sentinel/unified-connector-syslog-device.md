@@ -227,7 +227,7 @@ OpenVPN server logs are written into common syslog file (depending on the Linux 
 
 Complete the following steps.
  
-1. Create the Oracle database [Follow these steps.](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-database-quick-create) 
+1. Create the Oracle database [Follow these steps.](/azure/virtual-machines/workloads/oracle/oracle-database-quick-create) 
 1. Sign in to the Oracle database you created. [Follow these steps](https://docs.oracle.com/cd/F49540_01/DOC/server.815/a67772/create.htm).
 1. Enable unified logging over syslog by **Alter the system to enable unified logging** [Following these steps](https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/UNIFIED_AUDIT_COMMON_SYSTEMLOG.html#GUID-9F26BC8E-1397-4B0E-8A08-3B12E4F9ED3A).
 1. Create and  **enable an Audit policy for unified auditing** [Follow these steps](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-AUDIT-POLICY-Unified-Auditing.html#GUID-8D6961FB-2E50-46F5-81F7-9AEA314FC693).

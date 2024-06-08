@@ -435,7 +435,7 @@ Configure With Secure Elements Connector to forward Syslog messages in CEF forma
 1. If api access has not been configured during installation follow [Configuring API access for Elements Connector](https://help.f-secure.com/product.html#business/connector/latest/en/task_F657F4D0F2144CD5913EE510E155E234-latest-en).
 1. Go to EPP, then Profiles, then use For Connector from where you can see the connector profiles. Create a new profile (or edit an existing not read-only profile). In Event forwarding enable it. SIEM system address: **127.0.0.1:514**. Set format to **Common Event Format**. Protocol is **TCP**. Save profile and assign it to Elements Connector in Devices tab.
 1. To use the relevant schema in Log Analytics for the WithSecure Elements Connector, search for CommonSecurityLog.
-1. Continue with [validating your CEF connectivity](https://docs.microsoft.com/azure/sentinel/troubleshooting-cef-syslog?tabs=rsyslog#validate-cef-connectivity).
+1. Continue with [validating your CEF connectivity](/azure/sentinel/troubleshooting-cef-syslog?tabs=rsyslog#validate-cef-connectivity).
 
 ## Zscaler
 

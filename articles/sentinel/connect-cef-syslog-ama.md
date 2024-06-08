@@ -5,7 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 05/13/2024
+ms.date: 06/07/2024
 #Customer intent: As a security operator, I want to ingest and filter Syslog and CEF messages from Linux machines and from network and security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---
 
@@ -357,8 +357,8 @@ If you're using a log forwarder, configure the Syslog daemon to listen for messa
 
 Get specific instructions to configure your security device or appliance by going to one of the following articles:
 
-- [CEF via AMA data connector - Configure specific appliances and devices for Microsoft Sentinel data ingestion](unified-connector-cef-devices.md)
-- [Syslog via AMA data connector - Configure specific appliances and devices for the Microsoft Sentinel data ingestion](unified-connector-syslog-devices.md)
+- [CEF via AMA data connector - Configure specific appliances and devices for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+- [Syslog via AMA data connector - Configure specific appliances and devices for the Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
 
 Contact the solution provider for more information or where information is unavailable for the appliance or device.
 
