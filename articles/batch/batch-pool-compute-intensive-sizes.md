@@ -3,12 +3,10 @@ title: Use compute-intensive Azure VMs with Batch
 description: How to take advantage of HPC and GPU virtual machine sizes in Azure Batch pools. Learn about OS dependencies and see several scenario examples.
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 05/01/2023
+ms.date: 06/07/2024
 ---
 # Use RDMA or GPU instances in Batch pools
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 To run certain Batch jobs, you can take advantage of Azure VM sizes designed for large-scale computation. For example:
 
@@ -33,9 +31,9 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 22.04 LTS, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, NCv3, NDv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 22.04 LTS, or<br/>CentOS 8.1<br/>(Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
-| [NV, NVv2, NVv4 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 22.04 LTS, or<br/>CentOS 8.1<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
+| [H16r, H16mr](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
+| [NC, NCv2, NCv3, NDv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 22.04 LTS  <br/> (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
+| [NV, NVv2, NVv4 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
 
@@ -71,15 +69,11 @@ To configure a specialized VM size for your Batch pool, you have several options
 
 * For pools in the virtual machine configuration, choose a preconfigured [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM image that has drivers and software preinstalled. Examples:
 
-  * [CentOS-based 8.1 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) - includes RDMA drivers and Intel MPI 5.1
+* [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md) for Linux or Windows - includes NVIDIA CUDA drivers
 
-  * [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md) for Linux or Windows - includes NVIDIA CUDA drivers
+* Linux images for Batch container workloads that also include GPU and RDMA drivers:
 
-  * Linux images for Batch container workloads that also include GPU and RDMA drivers:
-
-    * [CentOS (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.centos-container-rdma?tab=Overview)
-
-    * [Ubuntu Server (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
+* [Ubuntu Server (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
 
 * Create a [custom Windows or Linux VM image](batch-sig-images.md) on which you have installed drivers, software, or other settings required for the VM size.
 
