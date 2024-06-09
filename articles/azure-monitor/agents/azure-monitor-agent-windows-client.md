@@ -41,17 +41,17 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 | On-premises servers | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premises by installing Arc agent |
 
 ## Prerequisites
-1. The machine must be running Windows client OS version 10 RS4 or higher.
-2. To download the installer, the machine should have [C++ Redistributable version 2015)](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) or higher
-3. The machine must be domain joined to a Microsoft Entra tenant (AADj or Hybrid AADj machines), which enables the agent to fetch Microsoft Entra device tokens used to authenticate and fetch data collection rules from Azure.
-4. You might need tenant admin permissions on the Microsoft Entra tenant.
-5. The device must have access to the following HTTPS endpoints:
+- The machine must be running Windows client OS version 10 RS4 or higher.
+- To download the installer, the machine should have [C++ Redistributable version 2015)](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) or higher
+- The machine must be domain joined to a Microsoft Entra tenant (AADj or Hybrid AADj machines), which enables the agent to fetch Microsoft Entra device tokens used to authenticate and fetch data collection rules from Azure.
+- You might need tenant admin permissions on the Microsoft Entra tenant.
+- The device must have access to the following HTTPS endpoints:
     - global.handler.control.monitor.azure.com
     - `<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
     - `<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)
     (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-dce))
-6. A data collection rule you want to associate with the devices. If it doesn't exist already, [create a data collection rule](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule). **Do not associate the rule to any resources yet**.
-7. Before using any PowerShell cmdlet, ensure cmdlet related PowerShell module is installed and imported.
+- A data collection rule you want to associate with the devices. If it doesn't exist already, [create a data collection rule](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule). **Do not associate the rule to any resources yet**.
+- Before using any PowerShell cmdlet, ensure cmdlet related PowerShell module is installed and imported.
 
 
 ## Limitations
