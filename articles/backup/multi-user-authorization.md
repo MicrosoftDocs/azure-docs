@@ -304,7 +304,7 @@ By default, the above setup may not have an approver (and an approval flow requi
 1. Select **Edit** to add the reviewers who must review and approve the activation request for the **Backup MUA Operator** role in case you find that Approvers show None or display incorrect approver(s).
 
 1. On the **Activation** tab, select **Require approval to activate** and add the approver(s) who need to approve each request.
-1. Select security options, such as Multi-Factor Authentication (MFA), Mandating ticket to activate **Backup MUA Operator** role.
+1. Select security options, such as multifactor authentication (MFA), Mandating ticket to activate **Backup MUA Operator** role.
 1. Select the appropriate options on the **Assignment** and **Notification** tabs as required.
 
    :::image type="content" source="./media/multi-user-authorization/edit-role-settings.png" alt-text="Screenshot showing how to edit role setting.":::
@@ -611,7 +611,7 @@ By default, the above setup may not have an approver (and an approval flow requi
 1. Select **Edit** to add the reviewers who must review and approve the activation request for the *Contributor* role in case you find that Approvers show *None* or display incorrect approver(s).
 
 1. On the **Activation** tab, select **Require approval to activate** to add the approver(s) who must approve each request. 
-1. Select security options, such as Multi-Factor Authentication (MFA), Mandating ticket to activate *Contributor* role.
+1. Select security options, such as multifactor authentication (MFA), Mandating ticket to activate *Contributor* role.
 1. Select the appropriate options on **Assignment** and **Notification** tabs as per your requirement.
 
    :::image type="content" source="./media/multi-user-authorization/edit-role-settings.png" alt-text="Screenshot showing how to edit the role setting.":::
