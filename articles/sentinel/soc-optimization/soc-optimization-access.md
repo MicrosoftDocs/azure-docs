@@ -1,5 +1,5 @@
 ---
-title: Optimize security operations (preview)
+title: Optimize security operations
 description: Use SOC optimization recommendations to optimize your security operations center (SOC) team activities.
 ms.service: defender-xdr
 ms.pagetype: security
@@ -11,14 +11,14 @@ ms.collection:
   - tier1
   - usx-security
 ms.topic: how-to
-ms.date: 05/05/2024
+ms.date: 06/09/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
 #customerIntent: As a SOC admin or SOC engineer, I want to learn about about how to optimize my security operations center with SOC optimization recommendations.
 ---
 
-# Optimize your security operations (preview)
+# Optimize your security operations
 
 Security operations center (SOC) teams actively look for opportunities to optimize both processes and outcomes. You want to ensure that you have all the data you need to take action against risks in your environment, while also ensuring that you're not paying to ingest *more* data than you need. At the same time, your teams must regularly adjust security controls as threat landscapes and business priorities change, adjusting quickly and efficiently to keep your return on investments high.
 
@@ -153,7 +153,7 @@ From here, either select the options menu or select **View full details** to tak
 
 The `Recommendations` operation group provides access to SOC optimizations via the Azure REST API. For example, use the API to get details about a specific recommendations, or all current recommendations across your workspaces, or to reevaluate a recommendation if you've made changes.
 
-While SOC optimizations are in preview, API documentation is available only in the Swagger specification, and not in the REST API reference. For more information, see [API versions of Microsoft Sentinel REST APIs](/rest/api/securityinsights/api-versions).
+SOC opimtization API documentation is available only in the Swagger specification and not in the REST API reference. For more information, see [API versions of Microsoft Sentinel REST APIs](/rest/api/securityinsights/api-versions).
 
 ## SOC optimization usage flow
 
@@ -186,4 +186,4 @@ This section provides a sample flow for using SOC optimizations, from either the
 
 ## Related content
 
-- [SOC optimization reference of recommendations (preview)](soc-optimization-reference.md)
+- [SOC optimization reference of recommendations](soc-optimization-reference.md)
