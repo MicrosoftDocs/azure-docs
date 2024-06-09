@@ -359,7 +359,7 @@ The following table describes the common parameters for each set of policies.
 |effect| Enable or disable the execution of the policy|DeployIfNotExists,<br>AuditIfNotExists,<br>Disabled|DeployIfNotExists|
 |diagnosticSettingName|Diagnostic Setting Name||setByPolicy-{LogAnalytics\|EventHubs\|Storage}|
 |categoryGroup|Diagnostic category group|none,<br>audit,<br>allLogs|audit|
-|resourceTypeList|For initiatives, a list of Resource Types to be evaluated for diagnostic setting existence.|Supported resources|All supported resources|
+|resourceTypeList|For initiatives, a list of resource types to be evaluated for diagnostic setting existence.|Supported resources|All supported resources|
 
 ## Policy-specific parameters
 ### Log Analytics policy parameters
