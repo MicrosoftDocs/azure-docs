@@ -101,7 +101,7 @@ We're announcing the general availability (GA) of [permissions management](permi
 
 May 6, 2024
 
-We're announcing the public preview of the inclusion of AI security posture management in Defender for Cloud. This feature provides AI security posture management capabilities for Azure and AWS that enhance the security of your AI pipelines and services.
+We're announcing the inclusion of AI security posture management in Defender for Cloud in public preview. This feature provides AI security posture management capabilities for Azure and AWS that enhance the security of your AI pipelines and services.
 
 Learn more about [AI security posture management](ai-security-posture.md).
 
