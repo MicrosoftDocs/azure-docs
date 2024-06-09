@@ -1841,9 +1841,9 @@ Learn more in [Introduction to Microsoft Defender for Key Vault](defender-for-ke
 
 **Severity**: Medium
 
-### [Unused identities in your Azure environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/7af29efb-41cc-47b6-81b8-800a0888f9a2)
+### [Permissions of inactive identities in your Azure subscription should be revoked](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/7af29efb-41cc-47b6-81b8-800a0888f9a2)
 
-**Description**: Inactive Identities are the identities that have not performed any action on any infrastructure resources in the last 90 days. Inactive identities pose a significant risk to your organization as they could be used by attackers to gain access and execute tasks in your environment.
+**Description**: Microsoft Defender for Cloud discovered an identity that has not performed any action on any resource within your Azure subscription in the past 45 days. It is recommended to revoke permissions of inactive identities, in order to reduce the attack surface of your cloud environment.
 
 **Severity**: Medium
 
