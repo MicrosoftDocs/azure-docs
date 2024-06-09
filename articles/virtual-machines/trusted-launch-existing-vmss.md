@@ -1,6 +1,6 @@
 ---
-title: Enable Trusted launch on existing scale set
-description: Enable Trusted launch on existing Azure scale set.
+title: Enable Trusted launch on existing Scale set
+description: Enable Trusted launch on existing Azure Scale set.
 author: AjKundnani
 ms.author: ajkundna
 ms.reviewer: cynthn
@@ -11,17 +11,17 @@ ms.date: 06/10/2024
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
-# (Preview) Enable Trusted launch on existing Azure scale set
+# (Preview) Enable Trusted launch on existing Azure Scale set
 
 **Applies to:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: Virtual Machine Scale Sets Uniform
 
-Azure Virtual machine scale sets supports enabling Trusted launch on existing [Uniform scale sets](overview.md) VMs by upgrading to [Trusted launch](trusted-launch.md) security type.
+Azure Virtual machine Scale sets supports enabling Trusted launch on existing [Uniform Scale sets](overview.md) VMs by upgrading to [Trusted launch](trusted-launch.md) security type.
 
-[Trusted launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2](generation-2.md). Trusted launch protects your Scale Sets and Virtual machines against advanced and persistent attack techniques like boot kits and rootkits. It does so by combining infrastructure technologies like Secure Boot, vTPM, and Boot Integrity Monitoring on your scale set.
+[Trusted launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2](generation-2.md). Trusted launch protects your Scale sets and Virtual machines against advanced and persistent attack techniques like boot kits and rootkits. It does so by combining infrastructure technologies like Secure Boot, vTPM, and Boot Integrity Monitoring on your Scale set.
 
 > [!IMPORTANT]
 >
-> - Enabling Trusted launch on existing [virtual machine scale sets Flex](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) is currently not supported.
+> - Enabling Trusted launch on existing [virtual machine Scale sets Flex](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) is currently not supported.
 > - Enabling Trusted launch on existing [Service fabric clusters](../service-fabric/service-fabric-overview.md) and [Service fabric managed clusters](../service-fabric/overview-managed-cluster.md) is currently not supported.
 
 ## Prerequisites
@@ -44,7 +44,7 @@ Azure Virtual machine scale sets supports enabling Trusted launch on existing [U
 
 ### [Template](#tab/template)
 
-This section steps through using an ARM template to enable Trusted launch on existing Virtual machine scale set uniform.
+This section steps through using an ARM template to enable Trusted launch on existing Virtual machine Scale set uniform.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -200,7 +200,7 @@ Make the following modifications to your existing ARM template deployment code. 
           "type": "string",
           "defaultValue": "myPublicIP",
           "metadata": {
-            "description": "Name for the Public IP used to access the virtual machine scale set."
+            "description": "Name for the Public IP used to access the virtual machine Scale set."
           }
         },
         "publicIPAllocationMethod": {
@@ -222,14 +222,14 @@ Make the following modifications to your existing ARM template deployment code. 
             "Standard"
           ],
           "metadata": {
-            "description": "SKU for the Public IP used to access the virtual machine scale set."
+            "description": "SKU for the Public IP used to access the virtual machine Scale set."
           }
         },
         "dnsLabelPrefix": {
           "type": "string",
           "defaultValue": "[toLower(format('{0}-{1}', parameters('vmssName'), uniqueString(resourceGroup().id)))]",
           "metadata": {
-            "description": "Unique DNS Name for the Public IP used to access the virtual machine scale set."
+            "description": "Unique DNS Name for the Public IP used to access the virtual machine Scale set."
           }
         },
         "healthExtensionProtocol": {
@@ -293,7 +293,7 @@ Make the following modifications to your existing ARM template deployment code. 
             "type": "bool",
             "defaultValue": false,
             "metadata": {
-                "description": "This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. The default behavior is: The Encryption at host will be disabled unless this property is set to true for the resource."
+                "description": "This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine Scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. The default behavior is: The Encryption at host will be disabled unless this property is set to true for the resource."
             }
         }
       },
@@ -566,14 +566,14 @@ Make the following modifications to your existing ARM template deployment code. 
     Update-AzVmssInstance -ResourceGroupName $resourceGroupName -VMScaleSetName $vmssName -InstanceId "0"
     ```
 
-9. **Roll-back**, to roll-back changes from Trusted launch to previous known good configuration, set `securityProfile` as shown in example, along with revert of other parameter changes - OS image, VM size, Guest attestation extension, and repeat steps 5-8
+**Roll-back**, to roll-back changes from Trusted launch to previous known good configuration, set `securityProfile` as shown in example, along with revert of other parameter changes - OS image, VM size, Guest attestation extension, and repeat steps 5-8
 
-    ```json
-    "securityProfile": {
-        "securityType": "Standard",
-        "uefiSettings": "[null()]"
-    }
-    ```
+  ```json
+  "securityProfile": {
+      "securityType": "Standard",
+      "uefiSettings": "[null()]"
+  }
+  ```
 
 ### [CLI](#tab/cli)
 
@@ -634,7 +634,7 @@ Make sure that you've installed the latest [Azure CLI](/cli/azure/install-az-cli
 
 ### [PowerShell](#tab/powershell)
 
-This section steps through using the Azure PowerShell to enable Trusted launch on existing Azure Virtual machine scale set Uniform.
+This section steps through using the Azure PowerShell to enable Trusted launch on existing Azure Virtual machine Scale set Uniform.
 
 Make sure that you've installed the latest [Azure PowerShell](/powershell/azure/install-azps-windows) and are logged in to an Azure account with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
@@ -691,19 +691,19 @@ Make sure that you've installed the latest [Azure PowerShell](/powershell/azure/
     Start-AzVmssRollingOSUpgrade -ResourceGroupName "MyResourceGroup" -VMScaleSetName "MyScaleSet"
     ```
 
-6. **Roll-back**, to roll-back changes from Trusted launch to previous known good configuration, set `-SecurityType` to `Standard` as shown with example, along with revert of other parameter changes - OS image, virtual machine size, and repeat steps 2-5
+**Roll-back**, to roll-back changes from Trusted launch to previous known good configuration, set `-SecurityType` to `Standard` as shown with example, along with revert of other parameter changes - OS image, virtual machine size, and repeat steps 2-5
 
-    ```azurepowershell-interactive
-    $vmss = Get-AzVmss -VMScaleSetName MyVmssName -ResourceGroupName MyResourceGroup
-    
-    # Enable Trusted Launch
-    Set-AzVmssSecurityProfile -virtualMachineScaleSet $vmss -SecurityType Standard
-    
-    Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName `
-        -VMScaleSetName $vmss.Name -VirtualMachineScaleSet $vmss `
-        -SecurityType Standard `
-        -ImageReferenceSku 2022-datacenter-azure-edition
-    ```
+  ```azurepowershell-interactive
+  $vmss = Get-AzVmss -VMScaleSetName MyVmssName -ResourceGroupName MyResourceGroup
+  
+  # Roll-back Trusted Launch
+  Set-AzVmssSecurityProfile -virtualMachineScaleSet $vmss -SecurityType Standard
+  
+  Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName `
+      -VMScaleSetName $vmss.Name -VirtualMachineScaleSet $vmss `
+      -SecurityType Standard `
+      -ImageReferenceSku 2022-datacenter-azure-edition
+  ```
 
 ---
 
