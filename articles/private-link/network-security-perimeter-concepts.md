@@ -85,7 +85,6 @@ A private-link resource is the network security perimeter aware PaaS resource th
 | Private-link resource name | Resource type | Resources |
 |---------------------------|---------------|-----------|
 | Azure Monitor             | Microsoft.Insights/dataCollectionEndpoints<br>Microsoft.Insights/ScheduledQueryRules<br>Microsoft.Insights/actionGroups<br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service |
-| Azure AI Search          | Microsoft.Search/searchServices | - |
 | Cognitive Services        | Microsoft.CognitiveServices/accounts | Form Recognizer, Anomaly Detector, Immersive Reader, Computer Vision |
 | Cosmos DB                | Microsoft.DocumentDB/databaseAccounts | - |
 | Event Hubs                | Microsoft.EventHub/namespaces | - |
