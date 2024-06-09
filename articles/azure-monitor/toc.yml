@@ -695,9 +695,17 @@ items:
     - name: Azure Monitor Agent
       items:
       - name: Overview
+        displayName: Azure Monitor agent, AMA
         href: agents/azure-monitor-agent-overview.md
       - name: Supported operating systems
+        displayName: Azure Monitor agent, AMA
         href: agents/azure-monitor-agent-supported-operating-systems.md
+      - name: Requirements
+        displayName: Azure Monitor agent, AMA
+        href: agents/azure-monitor-agent-requirements.md
+      - name: Network settings
+        displayName: Azure Monitor agent, AMA
+        href: agents/azure-monitor-agent-network-configuration.md
       - name: Install Azure Monitor Agent
         displayName: Azure Monitor agent
         items:
@@ -730,8 +738,6 @@ items:
           href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
       - name: Monitor
         href: agents/azure-monitor-agent-health.md
-      - name: Network settings
-        href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Private link
         displayName: Azure Monitor agent, AMA
         href: agents/azure-monitor-agent-private-link.md

@@ -1,5 +1,5 @@
 ---
-title: Define Azure Monitor Agent network settings
+title: Azure Monitor network configuration
 description: Define network settings and enable network isolation for Azure Monitor Agent.
 ms.topic: conceptual
 ms.date: 5/1/2023
@@ -7,13 +7,10 @@ ms.custom: references_region
 ms.reviewer: shseth
 
 ---
-# Azure Monitor Agent requirements
+# Azure Monitor network configuration
+Azure Monitor Agent supports connecting by using direct proxies, Log Analytics gateway, and private links. This article explains how to define network settings and enable network isolation for Azure Monitor Agent.
 
 
-
-
-## Network configuration
-Azure Monitor Agent supports connection by using direct proxies, Log Analytics gateway, and private links.
 
 ## Virtual network service tags
 
