@@ -45,7 +45,7 @@ If you have SAP HANA database audit logs configured with Syslog, you'll also nee
 
 In Microsoft Sentinel, check to confirm that HANA database events are now shown in the ingested logs. For example, run the following query:
 
-```KQL
+```Kusto
 //generated function structure for custom log Syslog
 // generated on 2024-05-07
 let D_Syslog = datatable(TimeGenerated:datetime
@@ -58,6 +58,7 @@ let D_Syslog = datatable(TimeGenerated:datetime
 ,ProcessName:string
 ,Type:string
 )['1000-01-01T00:00:00Z', '1000-01-01T00:00:00Z', 'initialString', 'initialString', 'initialString', 'initialString',1,'initialString', 'initialString', 'initialString'];
+
 let T_Syslog = (Syslog | project
 TimeGenerated = column_ifexists('TimeGenerated', '1000-01-01T00:00:00Z')
 ,EventTime = column_ifexists('EventTime', '1000-01-01T00:00:00Z')
