@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # How to deploy AI21's Jamba-Instruct model with Azure AI Studio
 
-In this article, you will learn how to deploy AI21's Jamba-Instruct model through Models-as-a-Service (MaaS), through serverless APIs with pay-as you go billing.
+In this article, you will learn how to deploy AI21's Jamba-Instruct model through [Models-as-a-Service (MaaS)](https://youtu.be/GS5ZIiNqcEY?si=VJnSgICGhv-dq77r), through serverless APIs with pay-as you go billing.
 
 > [!IMPORTANT]
 > See our announcements of AI21's Jamba-Instruct model available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
@@ -151,7 +151,7 @@ Payload is a JSON formatted string containing the following parameters:
 | `temperature` | `float`        | N <br>`1`  |  0.0 – 2.0      | How much variation to provide in each answer. Setting this value to 0 guarantees the same response to the same question every time. Setting a higher value encourages more variation. Modifies the distribution from which tokens are sampled. We recommend altering this or `top_p`, but not both. |
 | `top_p`       | `float`        | N <br>`1`  | 0 < _value_ <=1.0 | Limit the pool of next tokens in each step to the top N percentile of possible tokens, where 1.0 means the pool of all possible tokens, and 0.01 means the pool of only the most likely next tokens.                                                                                                |
 | `stop`        | `string` OR `list[string]`      | N <br>  | ""  | String or list of strings containing the word(s) where the API should stop generating output. Newlines are allowed as "\n". The returned text won't contain the stop sequence. |
-| `n`           | `integer`      | N <br>`1`  | 1 – 16          | How many responses to generate for each prompt. With Azure AI Playground, `n=1` as we work on multi-response Playground.                                                                                                                                                                                              |
+| `n`           | `integer`      | N <br>`1`  | 1 – 16          | How many responses to generate for each prompt. With Azure AI Studio's Playground, `n=1` as we work on multi-response Playground.                                                                                                                                                                                              |
 | `stream`   | `boolean`      | N <br>`False` | `True` OR `False` | Whether to enable streaming. If true, results are returned one token at a time. If set to true, `n` must be 1, which is automatically set.                                                                                                                                                                                     |
 
 The `messages` object has the following fields:
@@ -267,6 +267,7 @@ The `usage` response object contains the following fields.
 }
 ```
 #### Streaming response example
+
 ```JSON
 data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"role": "assistant"}, "created": 1717487336, "finish_reason": null}]}
 data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": ""}, "created": 1717487336, "finish_reason": null}]}
