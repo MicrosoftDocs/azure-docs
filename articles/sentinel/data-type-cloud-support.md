@@ -1,10 +1,10 @@
 ---
 title: Support for Microsoft Sentinel connector data types in different clouds
 description: This article describes the types of clouds that affect data streaming from the different connectors that Microsoft Sentinel supports.  
-author: limwainstein
+author: batamig
 ms.topic: conceptual
-ms.date: 11/14/2022
-ms.author: lwainstein
+ms.date: 06/09/2024
+ms.author: bagol
 ---
 
 # Support for data types in Microsoft Sentinel across different clouds
@@ -52,3 +52,4 @@ In this article, you learned about the types of clouds that affect the supported
 
 - To get started with Microsoft Sentinel, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
 - Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md) and [get visibility into your data and potential threats](get-visibility.md).
+- Microsoft Sentinel is available as part of the unified security operations platform in the Microsoft Defender portal. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md) and [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
