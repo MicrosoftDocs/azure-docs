@@ -4,7 +4,7 @@ description: This article lists all Microsoft Defender for Cloud security recomm
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 04/04/2024
+ms.date: 06/09/2024
 ms.author: dacurwin
 ms.custom: generated
 ai-usage: ai-assisted
@@ -294,13 +294,6 @@ When you restore from a recovery point, you can restore the whole VM or specific
 
 **Description**: To ensure you can recreate activity trails for investigation purposes when a security incident occurs or your network is compromised, enable logging. If your diagnostic logs aren't being sent to a Log Analytics workspace, Azure Storage account, or Azure Event Hubs, ensure you've configured diagnostic settings to send platform metrics and platform logs to the relevant destinations. Learn more in Create diagnostic settings to send platform logs and metrics to different destinations.
 (Related policy: [Diagnostic logs in Logic Apps should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f34f95f76-5386-4de7-b824-0d8478470c9d)).
-
-**Severity**: Low
-
-### [Diagnostic logs in Search services should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dea5192e-1bb3-101b-b70c-4646546f5e1e)
-
-**Description**: Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised.
-(Related policy: [Diagnostic logs in Search services should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb4330a05-a843-4bc8-bf9a-cacce50c67f4)).
 
 **Severity**: Low
 
@@ -613,7 +606,7 @@ Available resources and information about this tool & migration:
  Use Azure Disk Encryption to encrypt all this data.
  Disregard this recommendation if:
 
- 1. You're using the encryption-at-host feature, or 2. Server-side encryption on Managed Disks meets your security requirements.
+1. You're using the encryption-at-host feature, or 2. Server-side encryption on Managed Disks meets your security requirements.
 Learn more in [Server-side encryption of Azure Disk Storage](https://aka.ms/disksse).
 (Related policy: [Disk encryption should be applied on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0961003e-5a0a-4549-abde-af6a37f2724d))
 
@@ -659,17 +652,17 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Severity**: High
 
-### [[Preview]: Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/a40cc620-e72c-fdf4-c554-c6ca2cd705c0)
+### [Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/a40cc620-e72c-fdf4-c554-c6ca2cd705c0)
 
 **Description**: By default, a virtual machine's OS and data disks are encrypted-at-rest using platform-managed keys; temp disks and data caches aren't encrypted, and data isn't encrypted when flowing between compute and storage resources. Use Azure Disk Encryption or EncryptionAtHost to encrypt all this data. Visit [https://aka.ms/diskencryptioncomparison](https://aka.ms/diskencryptioncomparison) to compare encryption offerings. This policy requires two prerequisites to be deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol).
-(Related policy: [[Preview]: Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2fca88aadc-6e2b-416c-9de2-5a0f01d1693f)).
+(Related policy: [Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2fca88aadc-6e2b-416c-9de2-5a0f01d1693f)).
 
 **Severity**: High
 
-### [[Preview]: Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/0cb5f317-a94b-6b80-7212-13a9cc8826af)
+### [Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/0cb5f317-a94b-6b80-7212-13a9cc8826af)
 
 **Description**: By default, a virtual machine's OS and data disks are encrypted-at-rest using platform-managed keys; temp disks and data caches aren't encrypted, and data isn't encrypted when flowing between compute and storage resources. Use Azure Disk Encryption or EncryptionAtHost to encrypt all this data. Visit [https://aka.ms/diskencryptioncomparison](https://aka.ms/diskencryptioncomparison) to compare encryption offerings. This policy requires two prerequisites to be deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol).
-(Related policy: [[Preview]: Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3dc5edcd-002d-444c-b216-e123bbfa37c0)).
+(Related policy: [Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3dc5edcd-002d-444c-b216-e123bbfa37c0)).
 
 **Severity**: High
 
@@ -679,25 +672,25 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Severity**: Medium
 
-### [(Preview) Azure Stack HCI servers should meet Secured-core requirements](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f56c47221-b8b7-446e-9ab7-c7c9dc07f0ad)
+### [[Preview] Azure Stack HCI servers should meet Secured-core requirements](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2Fmicrosoft.authorization%2Fpolicydefinitions%2F5e6bf724-0154-49bc-985f-27b2e07e636b)
 
 **Description**: Ensure that all Azure Stack HCI servers meet the Secured-core requirements. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)).
 
 **Severity**: Low
 
-### [(Preview) Azure Stack HCI servers should have consistently enforced application control policies](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7384fde3-11b0-4047-acbd-b3cf3cc8ce07)
+### [[Preview] Azure Stack HCI servers should have consistently enforced application control policies](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2Fmicrosoft.authorization%2Fpolicydefinitions%2Fdad3a6b9-4451-492f-a95c-69efc6f3fada)
 
 **Description**: At a minimum, apply the Microsoft WDAC base policy in enforced mode on all Azure Stack HCI servers. Applied Windows Defender Application Control (WDAC) policies must be consistent across servers in the same cluster. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)).
 
 **Severity**: High
 
-### [(Preview) Azure Stack HCI systems should have encrypted volumes](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fae95f12a-b6fd-42e0-805c-6b94b86c9830)
+### [[Preview] Azure Stack HCI systems should have encrypted volumes](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2Fmicrosoft.authorization%2Fpolicydefinitions%2Fee8ca833-1583-4d24-837e-96c2af9488a4)
 
 **Description**: Use BitLocker to encrypt the OS and data volumes on Azure Stack HCI systems. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)).
 
 **Severity**: High
 
-### [(Preview) Host and VM networking should be protected on Azure Stack HCI systems](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faee306e7-80b0-46f3-814c-d3d3083ed034)
+### [[Preview] Host and VM networking should be protected on Azure Stack HCI systems](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2Fmicrosoft.authorization%2Fpolicydefinitions%2F36f0d6bc-a253-4df8-b25b-c3a5023ff443)
 
 **Description**: Protect data on the Azure Stack HCI host's network and on virtual machine network connections. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)).
 
@@ -1417,6 +1410,13 @@ Learn more in [Introduction to Microsoft Defender for Storage](defender-for-stor
 
 **Severity**: Low
 
+### [Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d103537b-9f3d-4658-a568-31dd66eb05cb)
+
+**Description**: Over-provisioned identities in subscription should be investigated to reduce the Permission Creep Index (PCI) and to safeguard your infrastructure. Reduce the PCI by removing the unused high risk permission assignments. High PCI reflects risk associated with the identities with permissions that exceed their normal or required usage
+(No related policy).
+
+**Severity**: Medium
+
 ### [Private endpoint connections on Azure SQL Database should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/75396512-3323-9be4-059d-32ecb113c3de)
 
 **Description**: Private endpoint connections enforce secure communication by enabling private connectivity to Azure SQL Database.
@@ -2125,20 +2125,13 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 
 **Severity**: Medium
 
+### [Diagnostic logs in Azure AI services resources should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dea5192e-1bb3-101b-b70c-4646546f5e1e)
+
+**Description**: Enable logs for Azure AI services resources. This enables you to recreate activity trails for investigation purposes, when a security incident occurs or your network is compromised. 
+
+**Severity**: Low
+
 ## Deprecated recommendations
-
-### Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)
-
-**Description**: Over-provisioned identities in subscription should be investigated to reduce the Permission Creep Index (PCI) and to safeguard your infrastructure. Reduce the PCI by removing the unused high risk permission assignments. High PCI reflects risk associated with the identities with permissions that exceed their normal or required usage
-(No related policy).
-
-**Severity**: Medium
-
-### Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)
-
-**Description**: Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI) and to safeguard your infrastructure. Reduce the PCI by removing the unused high risk permission assignments. High PCI reflects risk associated with the identities with permissions that exceed their normal or required usage.
-
-**Severity**: Medium
 
 ### Access to App Services should be restricted
 

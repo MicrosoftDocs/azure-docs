@@ -256,7 +256,7 @@ To copy your custom neural voice model to another project:
 
    :::image type="content" source="../../../../media/custom-voice/cnv-model-copy.png" alt-text="Screenshot of the copy to project option.":::
 
-1. Select the **Region**, **Speech resource**, and **Project** where you want to copy the model. You must have a speech resource and project in the target region, otherwise you need to create them first.
+1. Select the **Subscription**, **Region**, **Speech resource**, and **Project** where you want to copy the model. You must have a speech resource and project in the target region, otherwise you need to create them first.
 
     :::image type="content" source="../../../../media/custom-voice/cnv-model-copy-dialog.png" alt-text="Screenshot of the copy voice model dialog.":::
 

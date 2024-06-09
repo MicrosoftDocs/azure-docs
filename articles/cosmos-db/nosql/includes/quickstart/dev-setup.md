@@ -37,7 +37,7 @@ zone_pivot_groups: azure-cosmos-db-quickstart-env
 1. During initialization, configure a unique environment name.
 
     > [!TIP]
-    > The environment name will also be used as the target resource group name. For this quickstart, consider using `msdocs-cosmos-db-`.
+    > The environment name will also be used as the target resource group name. For this quickstart, consider using `msdocs-cosmos-db`.
 
 1. Deploy the Azure Cosmos DB account using `azd up`. The Bicep templates also deploy a sample web application.
 

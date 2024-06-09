@@ -16,7 +16,7 @@ ms.reviewer: jojoh
 EA customers who were previously using the Enterprise Reporting consumption.azure.com API to get their balance summary need to migrate to a replacement Azure Resource Manager API. The following instructions help  you migrate and discuss any contract differences between the old API and the new API.
 
 > [!NOTE]
-> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) before then.
+> All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
 
 ## Assign permissions to a service principal to call the API
 
@@ -117,6 +117,6 @@ The same data is now available in the properties field of the new API response. 
 }
 ```
 
-## Next steps
+## Related content
 
 - Read the [Migrate from EA Reporting to ARM APIs – Overview](migrate-ea-reporting-arm-apis-overview.md) article.

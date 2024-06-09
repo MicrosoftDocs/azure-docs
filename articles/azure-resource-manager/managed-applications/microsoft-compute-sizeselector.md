@@ -1,7 +1,7 @@
 ---
 title: SizeSelector UI element
 description: Describes the Microsoft.Compute.SizeSelector UI element for Azure portal. Use for selecting the size of a virtual machine.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 06/27/2018
 ---
 

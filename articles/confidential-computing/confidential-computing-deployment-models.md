@@ -5,7 +5,7 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: conceptual
-ms.date: 11/04/2021
+ms.date: 4/30/2024
 ms.author: jushiman
 ---
 
@@ -17,7 +17,7 @@ Azure confidential computing supports multiple deployment models. These differen
 
 Under Infrastructure as a Service (IaaS) deployment model, you can use **Confidential VMs** (CVMs) based on [AMD SEV-SNP](confidential-vm-overview.md) or [Intel TDX](tdx-confidential-vm-overview.md) for VM isolation or **Application Enclaves** with [Intel SGX](confidential-computing-enclaves.md) for App isolation. These options provide organizations with differing deployment models depending your trust boundary, or desired ease of deployment.
 
-![Infrastructure-Boundary](https://github.com/MicrosoftDocs/azure-docs-pr/assets/63871188/e32cfafe-23ca-47c8-91e2-b86431add46d)
+![Diagram showing the customer trust boundary of confidential computing technologies.](./media/confidential-computing-deployment-models/cloud-trust-boundary.png)
 
 Infrastructure as a Service (IaaS) is a cloud computing deployment model that grants access to scalable computing resources, such as servers, storage, networking, and virtualization, on demand. By adopting IaaS deployment model, organizations can forego the process of procuring, configuring, and managing their own infrastructure, instead only paying for the resources they utilize. This makes it a cost-effective solution.
 
@@ -67,7 +67,7 @@ There are some differences in the security postures of [confidential VMs](#confi
 
 VM admins or any other app or service running inside the VM, operate beyond the protected boundaries. These users and services can access data and code within the VM.
 
-![ConfidentialVM](https://github.com/michamcr/azure-docs-pr/assets/63871188/b64f2d68-56f9-46b1-95bf-9b0f348c367b)
+![Diagram showing the customer trust boundary of confidential VM technologies.](./media/confidential-computing-deployment-models/cvm-architecture.png)
 
 ### Application Enclaves
 
@@ -75,7 +75,7 @@ VM admins or any other app or service running inside the VM, operate beyond the 
 
 Intel SGX enhances application security by isolating data in use. It creates secure enclaves that prevent modifications to selected code and data, ensuring that only authorized code can access them. Even with high-level permissions, entities outside the enclave, including the OS and hypervisor, cannot access enclave memory through standard calls. Accessing enclave functions requires specific Intel SGX CPU instructions, which include multiple security checks.
 
-![AppEnclaves](https://github.com/michamcr/azure-docs-pr/assets/63871188/bedacca5-fb81-4f9f-b6fb-51f90fccc372)
+![Diagram showing the customer trust boundary of App Enclaves technologies.](./media/confidential-computing-deployment-models/enclaves-architecture.png)
 
 ## Next steps
 

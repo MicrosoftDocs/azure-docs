@@ -240,7 +240,7 @@ In the above image, Contoso has two subscriptions. The Azure Reservation benefit
 
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Next steps
+## Related content
 
 - [Create a more Azure subscriptions for Microsoft Customer Agreement](create-subscription.md)
 - [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)

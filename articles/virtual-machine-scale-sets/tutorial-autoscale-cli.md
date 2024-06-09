@@ -23,7 +23,7 @@ When you create a scale set, you define the number of VM instances that you wish
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

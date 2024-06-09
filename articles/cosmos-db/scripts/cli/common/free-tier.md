@@ -18,7 +18,7 @@ The script in this article demonstrates how to locate an Azure Cosmos DB free-ti
 
 Each Azure subscription can have up to one Azure Cosmos DB free-tier account. If you're trying to create a free-tier account, the option may be disabled in the Azure portal, or you get an error when attempting to create a free-tier account. If either of these issues occur, use this script to locate the name of the existing free-tier account, and the resource group it belongs to.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -26,7 +26,7 @@ Each Azure subscription can have up to one Azure Cosmos DB free-tier account. If
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 

@@ -7,7 +7,7 @@ ms.author: khelanmodi
 ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
-ms.topic: demonstration
+ms.topic: concept-article
 ms.date: 03/12/2024
 ---
 
