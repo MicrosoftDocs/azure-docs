@@ -148,6 +148,8 @@
           href: concepts-network-ip-address-planning.md
         - name: Services
           href: concepts-network-services.md
+        - name: Ingress
+          href: concepts-network-ingress.md
     - name: Advanced Container Networking Services 
       items:
         - name: Advanced Container Networking Services overview
@@ -403,10 +405,10 @@
           items:
             - name: Azure kubelogin
               href: kubelogin-authentication.md
-            - name: Create service principal
-              href: kubernetes-service-principal.md
             - name: Use managed identities
               href: use-managed-identity.md
+            - name: Create a service principal
+              href: kubernetes-service-principal.md
             - name: Enable access to AKS clusters using Trusted Access
               href: trusted-access-feature.md
             - name: Limit access to cluster configuration file
