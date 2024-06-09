@@ -73,7 +73,7 @@ The following table describes what the role assignment properties mean.
 | Property | Description |
 | --- | --- |
 | `RoleAssignmentName`<br />`name` | The name of the role assignment, which is a globally unique identifier (GUID). |
-| `RoleAssignmentId`<br />`id` | The unique ID of the role assignment, which includes the name. |
+| `RoleAssignmentId`<br />`id` | The unique ID of the role assignment, which includes the name. Even if the role assignment is renamed, the role assignment ID does not change. It's a best practice to use the role assignment ID in your scripts. |
 | `Scope`<br />`scope` | The Azure resource identifier that the role assignment is scoped to. |
 | `RoleDefinitionId`<br />`roleDefinitionId` | The unique ID of the role. |
 | `RoleDefinitionName`<br />`roleDefinitionName` | The name of the role. |
