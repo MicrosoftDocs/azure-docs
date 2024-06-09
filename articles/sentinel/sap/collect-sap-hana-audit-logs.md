@@ -41,9 +41,46 @@ If you have SAP HANA database audit logs configured with Syslog, you'll also nee
     > Because the facilities where HANA database events are saved can change between different distributions, we recommend that you add all facilities. Check them against your Syslog logs, and then remove any that aren't relevant.
     >
 
-1. In Microsoft Sentinel, check to confirm that HANA database events are now shown in the ingested logs.
+## Verify your configuration
 
-## Next steps
+In Microsoft Sentinel, check to confirm that HANA database events are now shown in the ingested logs. For example, run the following query:
+
+```KQL
+//generated function structure for custom log Syslog
+// generated on 2024-05-07
+let D_Syslog = datatable(TimeGenerated:datetime
+,EventTime:datetime
+,Facility:string
+,HostName:string
+,SeverityLevel:string
+,ProcessID:int
+,HostIP:string
+,ProcessName:string
+,Type:string
+)['1000-01-01T00:00:00Z', '1000-01-01T00:00:00Z', 'initialString', 'initialString', 'initialString', 'initialString',1,'initialString', 'initialString', 'initialString'];
+let T_Syslog = (Syslog | project
+TimeGenerated = column_ifexists('TimeGenerated', '1000-01-01T00:00:00Z')
+,EventTime = column_ifexists('EventTime', '1000-01-01T00:00:00Z')
+,Facility = column_ifexists('Facility', 'initialString')
+,HostName = column_ifexists('HostName', 'initialString')
+,SeverityLevel = column_ifexists('SeverityLevel', 'initialString')
+,ProcessID = column_ifexists('ProcessID', 1)
+,HostIP = column_ifexists('HostIP', 'initialString')
+,ProcessName = column_ifexists('ProcessName', 'initialString')
+,Type = column_ifexists('Type', 'initialString')
+);
+T_Syslog | union isfuzzy= true (D_Syslog | where TimeGenerated != '1000-01-01T00:00:00Z')
+```
+
+Alternately, use the following built-in analytics rules to show that SAP logs are being ingested:
+- **SAP - (PREVIEW) HANA DB -Assign Admin Authorizations**
+- **SAP - (PREVIEW) HANA DB -Audit Trail Policy Changes**
+- **SAP - (PREVIEW) HANA DB -Deactivation of Audit Trail**
+- **SAP - (PREVIEW) HANA DB -User Admin actions**
+
+For more information, see [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md).
+
+## Related content
 
 Learn more about the Microsoft Sentinel solution for SAP® applications:
 
