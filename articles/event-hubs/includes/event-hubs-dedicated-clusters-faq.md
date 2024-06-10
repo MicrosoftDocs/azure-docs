@@ -39,7 +39,7 @@ If you create the cluster with the **Support scaling** option set, you can use t
 - You need to scale out or scale in a dedicated cluster that was created before the self-serve experience was released.
 
 > [!WARNING]
-> You won't be able to delete the cluster for at least four hours after you create it. You're charged for a minimum of four hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+> You won't be able to delete the cluster for at least four hours after you create it. You're charged for a minimum of four hours of usage of the cluster. For more information on pricing, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### Can I migrate from a legacy cluster to a self-serve scalable cluster?
 
@@ -51,12 +51,12 @@ CPU consumption is the key indicator of the resource consumption of your dedicat
 
 To monitor the CPU usage of the dedicated cluster, follow these steps:
 
-- On the **Metrics** page of your Event Hubs dedicated cluster, select **Add metric**.
-- Select **CPU** as the metric and use **Max** as the aggregation.
+1. On the **Metrics** page of your Event Hubs dedicated cluster, select **Add metric**.
+1. Select **CPU** as the metric and use **Max** as the aggregation.
 
     :::image type="content" source="./media/event-hubs-dedicated-clusters-faq/metrics-cpu-max.png" alt-text="Screenshot that shows the Metrics page with the CPU metric." lightbox="./media/event-hubs-dedicated-clusters-faq/metrics-cpu-max.png":::
 
-- Then, select **Add filter** and add a filter for the **Property** type **Role**. Use the equal operator and select all the values (**Backend** and **Gateway**) from the dropdown list.
+1. Select **Add filter** and add a filter for the **Property** type **Role**. Use the equal operator and select all the values (**Backend** and **Gateway**) from the dropdown list.
 
     :::image type="content" source="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png" alt-text="Screenshot that shows the Metrics page with CPU consumption metric and roles." lightbox="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png":::
 
