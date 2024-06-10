@@ -4,7 +4,7 @@ description: This article is an overview of the Azure Web Application Firewall J
 services: web-application-firewall
 author: sowmyam2019
 ms.service: web-application-firewall
-ms.date: 05/20/2024
+ms.date: 06/10/2024
 ms.author: victorh
 ms.topic: concept-article
 
@@ -17,7 +17,7 @@ ms.topic: concept-article
 > Azure Web Application Firewall JavaScript challenge is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Web Application Firewall (WAF) on Azure Front Door offers a JavaScript challenge feature as one of the mitigation options for advanced bot protection. It's available on the Azure Front Door premium version as an action in the custom rule set and the Bot Manager 1.x ruleset.
+Azure Web Application Firewall (WAF) on Azure Front Door and Azure Application Gateway offers a JavaScript challenge feature as one of the mitigation options for advanced bot protection. For Azure Front Door, It's available on the premium version as an action in the custom rule set and the Bot Manager 1.x ruleset.
 
 The JavaScript challenge is an invisible web challenge used to distinguish between legitimate users and bots. Malicious bots fail the challenge, which protects web applications. In addition, the JavaScript challenge is beneficial as it reduces friction for legitimate users. This is because it doesn't require any human intervention.
 
@@ -43,4 +43,4 @@ The WAF policy setting defines the JavaScript challenge cookie validity lifetime
 - The challenge isn't supported on Microsoft Internet Explorer. The challenge is supported on the latest versions of the Microsoft Edge, Chrome, Firefox, and Safari web browsers.
 - Cross-origin resource sharing (CORS) requests result in a challenge loop. If you visit a page that triggers the JavaScript challenge action from a domain that isn't the same as the domain running the JavaScript challenge, you're challenged regardless of prior challenge passes.
 - If one IP address receives the JavaScript challenge, and a different IP address that belongs to the same domain solves it, the computation result becomes invalid, potentially causing a challenge loop.
-- The JavaScript Challenge action on Web Application Firewall on Application Gateway is not supported for *Rate Limit* type custom rules during the public preview.
+- The JavaScript challenge action on Web Application Firewall on Application Gateway is not supported for *Rate Limit* type custom rules during the public preview.
