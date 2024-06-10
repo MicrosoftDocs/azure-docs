@@ -260,9 +260,12 @@
           href: concept-agentless-containers.md
     - name: Improve your AI security posture management
       items:
-      - name: AI security posture management
+      - name: AI security posture management (Preview)
         displayName: AI, security, posture, management
         href: ai-security-posture.md
+    - name: Copilot for Security in Defender for Cloud
+      displayName: copilot, security, recommendations
+      href: copilot-security-in-defender-for-cloud.md
     - name: Security recommendations
       items:
         - name: Reference list of Azure recommendations
@@ -354,6 +357,23 @@
         href: remediate-server-secrets.md
       - name: Remediate cloud deployment secrets
         href: remediate-cloud-deployment-secrets.md
+    - name: Improve security posture with Copilot for Security
+      items:
+        - name: Analyze recommendations with Copilot for Security
+          displayName: copilot, security, recommendations, analyze
+          href: analyze-with-copilot.md
+        - name: Summarize recommendations with Copilot for Security
+          displayName: copilot, security, recommendations, summarize
+          href: summarize-with-copilot.md
+        - name: Remediate recommendations with Copilot for Security
+          displayName: copilot, security, recommendations, remediate
+          href: remediate-with-copilot.md
+        - name: Delegate recommendations with Copilot for Security
+          displayName: copilot, security, recommendations, delegate
+          href: delegate-with-copilot.md
+        - name: Remediate code with Copilot for Security
+          displayName: copilot, security, recommendations, code, remediate, iac, infrastructure as code
+          href: remediate-code-with-copilot.md
     - name: Manage security standards and recommendations
       items:
       - name: Choose standards for your compliance dashboard
