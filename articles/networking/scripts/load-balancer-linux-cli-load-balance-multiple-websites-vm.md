@@ -6,7 +6,7 @@ author: asudbring
 manager: KumudD
 ms.service: load-balancer
 ms.devlang: azurecli
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: allensu
