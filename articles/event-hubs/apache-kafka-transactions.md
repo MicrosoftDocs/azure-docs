@@ -85,7 +85,7 @@ Then, the consumer must be configured to read only nontransactional messages, or
 
 ```java
 
-	consumerProps.put(“isolation.level”, “read_committed”);
+	consumerProps.put("isolation.level", "read_committed");
 	KafkaConsumer <K,V> consumer = new KafkaConsumer<>(consumerProps);
 
 ```
@@ -94,7 +94,7 @@ Once the consumer is instantiated, it can subscribe to the topic from where the 
 
 ```java
 
-    consumer.subscribe(singleton(“inputTopic”));
+    consumer.subscribe(singleton("inputTopic"));
 
 ```
 
