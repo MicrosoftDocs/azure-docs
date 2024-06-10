@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: virtual-machines
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 09/25/2023
+ms.date: 06/10/2024
 ms.author: ankitadutta
 ---
 
@@ -420,9 +420,10 @@ Check whether the regional VMs you added have any dependencies on other resource
     AdditionalInfo :
     Code           :
     Detail         :
+    EndTime        : 
     EndTime        : 9/8/2023 6:52:14 AM
-    Id             : /subscriptions/<Subscription-id>/resourceGroups/RegionToZone-DemoMCRG/providers/Microsoft.Migrate/moveCollections/RegionToZone-DemoMC/o
-                     perations/bc68354b-ec1f-44cb-92ab-fb3b4ad90229
+
+    Id             : /subscriptions/<Subscription-id>/resourceGroups/RegionToZone-DemoMCRG/providers/Microsoft.Migrate/moveCollections/RegionToZone-DemoMC/operations/bc68354b-ec1f-44cb-92ab-fb3b4ad90229
     Message        :
     Name           : bc68354b-ec1f-44cb-92ab-fb3b4ad90229
     Property       : Microsoft.Azure.PowerShell.Cmdlets.ResourceMover.Models.Any
@@ -478,6 +479,75 @@ Check whether the regional VMs you added have any dependencies on other resource
 
 1. To remove resources from the resource collection, follow these [instructions](../resource-mover/remove-move-resources.md).
     
+### Availability Zones VM SKU, Quota and Capacity validations
+
+Azure provides recommendations when the selected Availability Zone doesn't have the virtual machine SKU, or when there is not enough Quota or Capacity available. Here are some examples of these recommendations and the actions that should be taken. If the VM SKU is not available.
+
+#### VM SKU not available
+
+When the source virtual machine size `Standard_DC1ds_v3` isn't available in the selected availability zone `1`.
+
+**Recommended Action**: Choose a different virtual machine size in the same availability zone or select a different availability zone with corresponding recommended VM size.
+
+**Recommendations**:
+
+- SKU: Standard_DC1ds_v3, Zones: [ 2 ]
+- SKU: Standard_DC2ds_v3, Zones: [ 2 ]
+- SKU: Standard_DC4ds_v3, Zones: [ 2 ]
+- SKU: Standard_DC1s_v3, Zones: [ 2 ]
+- SKU: Standard_D2ds_v5, Zones: [ 2, 3 ]
+- SKU: Standard_D2as_v4, Zones: [ 1, 2, 3 ]
+- SKU: Standard_D2s_v3, Zones: [ 1, 2, 3 ]
+- SKU: Standard_D2as_v5, Zones: [ 1, 2, 3 ]
+- SKU: Standard_D2s_v5, Zones: [ 2, 3 ]
+
+
+### Capacity recommendations
+
+Capacity recommendations for the current selection virtual machine size `Standard_DC1ds_v3` in the selected availability zone `1`.
+
+**Recommended Action:** To increase the likelihood of a successful deployment, Azure has identified other recommended virtual machine sizes and zones. To deploy seamlessly, choose a different VM size in the same availability zone or a different availability zone with corresponding virtual machine size.
+
+**Recommendations**:
+
+- SKU: Standard_DC1ds_v3, Zones: [ 2 ]
+- SKU: Standard_DC2ds_v3, Zones: [ 2 ]
+- SKU: Standard_DC4ds_v3, Zones: [ 2 ]
+- SKU: Standard_DC1s_v3, Zones: [ 2 ]
+- SKU: Standard_D2ds_v5, Zones: [ 2, 3 ]
+- SKU: Standard_D2as_v4, Zones: [ 1, 2, 3 ]
+- SKU: Standard_D2s_v3, Zones: [ 1, 2, 3 ]
+- SKU: Standard_D2as_v5, Zones: [ 1, 2, 3 ]
+- SKU: Standard_D2s_v5, Zones: [ 2, 3 ]
+
+### Address the recommendations
+
+To address the situations where the VM SKU is not found or there is a capacity issue, update the move resource and then run resolve again. Here is an example for reference:
+
+1. Update virtual machine move resource object to new Zone or SKU as per the recommendations.
+
+  ```azurepowershell
+  $targetResourceSettingsObj.TargetVmSize = "Standard_DC1ds_v3"
+  $targetResourceSettingsObj.TargetAvailabilityZone = "3"
+  ```
+
+1. Update virtual machine move resource
+
+  ```azurepowershell
+  Add-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" -SourceId "/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Compute/virtualMachines/vmtwo" -Name "demoVM-MoveResource2" -ResourceSetting $targetResourceSettingsObj
+  ```
+
+1. Run resolve again
+
+  `Resolve-AzResourceMoverMoveCollectionDependency -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC"`
+
+### Insufficient Quota
+
+Selected virtual machine can't be moved to availability zone due to insufficient quota.
+
+**Recommended Action:** In-sufficient quota found. Refer to link and contact [support](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+
+
 
 ## Initiate move of VM resources
 
