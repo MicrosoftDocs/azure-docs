@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/28/2023
+ms.date: 06/10/2024
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
