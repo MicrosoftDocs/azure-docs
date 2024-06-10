@@ -1,6 +1,6 @@
 ---
 title: Azure Operator Nexus cluster deployment overview
-description: Get an overview of cluster deployment overview for Azure Operator Nexus.
+description: Get an overview of cluster deployment for Azure Operator Nexus.
 author: sbatchu
 ms.author: sbatchu
 ms.service: azure-operator-nexus
@@ -12,11 +12,11 @@ ms.custom: template-concept
 # Azure Operator Nexus cluster
 Azure Operator Nexus is built on basic constructs like compute servers, storage appliances, and network fabric devices. Azure Operator Nexus cluster represents an on-premises deployment of the platform. The lifecycle of platform-specific resources is dependent on the cluster state.
 
-## Cluster Deployment Overview
+## Cluster deployment overview
 
 During the cluster deployment, cluster undergoes various lifecycle phases, which have specific roles designated to ensure the target state is achieved.
 
-### Hardware Validation Phase:
+### Hardware Validation phase:
 
 Hardware Validation is initiated during the cluster deployment process, assessing the state of hardware components for the machines provided through the Cluster's rack definition. Based on the results of these checks and any user skipped machines, a determination is done on whether sufficient nodes passed and/or are available to meet the thresholds necessary for deployment to continue.
 
@@ -29,7 +29,7 @@ Hardware validation results for a given server are written into the Log Analytic
 
 This article provides instructions on how to check hardware results information [Troubleshoot Hardware validation](troubleshoot-hardware-validation-failure.md)
 
-### Bootstrap Phase:
+### Bootstrap phase:
 
 Once the Hardware Validation is successful, bootstrap image is generated for cluster deploy action on the cluster manager. This image iso URL is used to bootstrap the ephemeral node, which would deploy the target cluster components, which are provisioning the kubernetes control plane (KCP), Nexus Management plane (NMP), and storage appliance. These various states are reflected in the cluster status, which these stages are executed as part of the ephemeral bootstrap workflow.
 

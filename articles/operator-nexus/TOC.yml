@@ -13,7 +13,7 @@
       href: concepts-compute.md
     - name: Storage overview
       href: concepts-storage.md
-    - name: Cluster Deployment
+    - name: Cluster deployment
       href: concepts-cluster-deployment-overview.md
     - name: Network Fabric
       expanded: false

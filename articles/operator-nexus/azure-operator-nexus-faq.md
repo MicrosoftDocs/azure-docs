@@ -70,7 +70,7 @@ The Azure Operator Nexus doesn't offer the capability to select specific racks o
 ### In the event of a network disruption between the cluster manager and on-premises servers during deployment, can the process be resumed once connectivity is restored?
 It depends on the cluster's status: if the cluster is failed, it needs to be deleted and redeployed. However, if the cluster is still deploying, it undergoes a reconcile process, allowing the deployment process to continue.
 
-### Does cluster deploy wait for all the computes node provisioned?
+### Does cluster deploy wait for all the compute node provisioned?
 The deployment process will continuously retry the provisioning of compute nodes until all nodes are successfully provisioned. When the cluster reaches the defined threshold, cluster status changes to running. However, the remaining nodes continue undergoing the provisioning process until they too are successfully provisioned.
 
 ## Compute
