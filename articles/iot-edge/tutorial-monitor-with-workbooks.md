@@ -1,10 +1,9 @@
 ---
 title: Tutorial - Azure Monitor workbooks for IoT Edge
-description: Learn how to monitor IoT Edge modules and devices using Azure Monitor Workbooks for IoT
+description: Learn how to monitor IoT Edge modules and devices using Azure Monitor Workbooks for IoT. Monitor the health and performance of your IoT Edge deployments.
 author: PatAltimore
-manager: lizross
 ms.author: patricka
-ms.date: 9/22/2022
+ms.date: 06/10/2024
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -139,9 +138,9 @@ The fleet view workbook shows all of your devices, and lets you select specific 
 
 1. Select the device name to view detailed metrics from the device.
 
-1. On any of the time charts, use the arrow icons under the X-axis or click on the chart and drag your cursor to change the time range.
+1. On any of the time charts, use the arrow icons under the X-axis or select the chart and drag your cursor to change the time range.
 
-   :::image type="content" source="./media/tutorial-monitor-with-workbooks/health-snapshot-custom-time-range.png" alt-text="Click and drag or use the arrow icons on any chart to change the time range.":::
+   :::image type="content" source="./media/tutorial-monitor-with-workbooks/health-snapshot-custom-time-range.png" alt-text="Select and drag or use the arrow icons on any chart to change the time range.":::
 
 1. Close the health snapshot workbook. Select **Workbooks** from the fleet view workbook to return to the workbooks gallery.
 
@@ -156,7 +155,7 @@ details for an individual device. Use the following steps to explore the workboo
 
    On the left, a table displays the routes on the device, organized by endpoint. For our device, we see that the **upstream** endpoint, which is the special term used for routing to IoT Hub, is receiving messages from the **temperatureOutput** output of the simulated temperature sensor module.
 
-   On the right, a graph keeps track of the number of connected clients over time. You can click and drag the graph to change the time range.
+   On the right, a graph keeps track of the number of connected clients over time. You can select and drag the graph to change the time range.
 
    :::image type="content" source="./media/tutorial-monitor-with-workbooks/device-details-messaging-routing.png" alt-text="Select the messaging view to see the status of communications on the device.":::
 
