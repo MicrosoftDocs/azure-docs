@@ -28,7 +28,7 @@ Microsoft Sentinel is built on Microsoft Azure environments—both commercial an
 
 This diagram shows the hierarchy of the Office 365 and Microsoft Azure clouds and how they relate to each other and to Microsoft Sentinel. 
 
-:::image type="content" source="./media/data-type-cloud-support/cloud-architecture-microsoft-sentinel.png" alt-text="Diagram showing how the Microsoft cloud architecture relates to Microsoft Sentinel data." border="false" lightbox="./media/data-type-cloud-support/cloud-architecture-microsoft-sentinel.png":::
+:::image type="content" source="./media/data-type-cloud-support/cloud-architecture-microsoft-sentinel.png" alt-text="Diagram showing how the Microsoft cloud architecture relates to Microsoft Sentinel data." lightbox="./media/data-type-cloud-support/cloud-architecture-microsoft-sentinel.png":::
 
 Because of this complexity, different types of data streaming into Microsoft Sentinel may or may not be fully supported.
 
