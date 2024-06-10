@@ -27,8 +27,6 @@ Additionally, there can be situations where you might want specific instances in
 
 ### Automatic upgrade policy
 
- 
-
 With an automatic upgrade policy, the scale set makes no guarantees about the order of virtual machines being brought down. The scale set might take down all virtual machines at the same time to perform upgrades. 
 
 Automatic upgrade policy is best suited for DevTest scenarios where you aren't concerned about the uptime of your instances while making changes to configurations and settings. 
