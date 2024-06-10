@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to implement a custom feature filter and use 
 
 ## Implement a custom feature filter
 
-You've added a custom feature filter named **Random** with a **Percentage** parameter for your *Beta* feature flag in the prerequisites. Next, you'll implement the feature filter to enable the *Beta* feature flag based on the chance defined by the **Percentage** parameter.
+You've added a custom feature filter named **Random** with a **Percentage** parameter for your *Beta* feature flag in the prerequisites. Next, you implement the feature filter to enable the *Beta* feature flag based on the chance defined by the **Percentage** parameter.
 
 1. Add a `RandomFilter.py` file with the following code.
 

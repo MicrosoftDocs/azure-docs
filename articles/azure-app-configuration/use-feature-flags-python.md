@@ -14,9 +14,9 @@ ms.custom: devx-track-python
 
 # Tutorial: Use feature flags in a Python app
 
-The Python Feature Management libraries provide idiomatic support for implementing feature flags in a Python application. This libray allow you to declaratively add feature flags to your code so that you don't have to manually write code to enable or disable features with `if` statements.
+The Python Feature Management library provides idiomatic support for implementing feature flags in a Python application. This libray allow you to declaratively add feature flags to your code so that you don't have to manually write code to enable or disable features with `if` statements.
 
-The Feature Management library also manage feature flag lifecycles behind the scenes. For example, the library refresh and cache flag states.
+The Feature Management library also manages the feature flag lifecycles behind the scenes. For example, the library refresh and cache flag states.
 
 For the Python feature management API reference documentation, see [FeatureManagement-Python API Docs](https://microsoft.github.io/FeatureManagement-Python/html/index.html).
 
