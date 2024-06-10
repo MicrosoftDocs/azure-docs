@@ -969,7 +969,9 @@
         "articles/ai-studio/*.md": "ce-skilling-ai-copilot",
         "articles/ai-studio/*.yml": "ce-skilling-ai-copilot",
         "articles/search/*.md": "ce-skilling-ai-copilot",
-        "articles/search/*.yml": "ce-skilling-ai-copilot"
+        "articles/search/*.yml": "ce-skilling-ai-copilot",
+        "articles/machine-learning/*.md": "ce-skilling-ai-copilot",
+        "articles/machine-learning/*.yml": "ce-skilling-ai-copilot"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "advisor",
