@@ -170,7 +170,7 @@
   - name: Machine configuration
     href: security-machine-configuration.md
   - name: Identify and authorization
-    href: security-indentify-authorization.md
+    href: security-identity-authorization.md
   - name: Remote access
     href: security-remote-access.md
   - name: Tier 0 security considerations
