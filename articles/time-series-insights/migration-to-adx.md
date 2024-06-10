@@ -1,9 +1,9 @@
 ---
 title: 'Migrating to Azure Data Explorer | Microsoft Docs'
-Description: How to migrate Azure Time Series Insights environments to Azure Data Explorer.
+description: How to migrate Azure Time Series Insights environments to Azure Data Explorer.
 ms.service: time-series-insights
 author: tedvilutis
-ms.author: atributes
+ms.author: tvilutis
 ms.topic: conceptual
 ms.date: 3/15/2022
 ms.custom: atributes
