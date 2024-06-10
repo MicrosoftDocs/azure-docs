@@ -29,7 +29,7 @@ To get started with Azure Health Data Services, you must [create a resource](htt
 
 After you locate the Azure Health Data Services resource, select **Create**.
 
-[![Screenshot of the create Azure Health Data Services resource button.](media/healthcare-apis-quickstart/create-azure-health-data-services-resource.png)](media/healthcare-apis-quickstart/create-azure-health-data-services-resource.png#lightbox)
+[![Screenshot of the create Azure Health Data Services resource button.](media/healthcare-apis-quickstart/create-health-data-services-resource.png)](media/healthcare-apis-quickstart/create-health-data-services-resource.png#lightbox)
 
 ## Create workspace
 
