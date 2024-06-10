@@ -38,7 +38,7 @@ Conceptually, Kafka and Event Hubs are very similar. They're both partitioned lo
 ### Kafka Streams
 
 > [!NOTE]
-> Kafka Streams is currently in Public preview in Standard, Premium, and Dedicated tier.
+> Kafka Streams is currently in Public preview in Premium, and Dedicated tier.
 >
 
 Kafka Streams is a client library for stream analytics that is part of the Apache Kafka open-source project, but is separate from the Apache Kafka event broker.
@@ -66,7 +66,7 @@ If you must use the Kafka Streams framework on Azure, [Apache Kafka on HDInsight
 ### Kafka Transactions
 
 > [!NOTE]
-> Kafka Transactions is currently in Public preview in Standard, Premium, and Dedicated tier.
+> Kafka Transactions is currently in Public preview in Premium, and Dedicated tier.
 >
 
 Azure Event Hubs supports Kafka transactions. More details regarding the support and concepts is available [here](apache-kafka-transactions.md)
