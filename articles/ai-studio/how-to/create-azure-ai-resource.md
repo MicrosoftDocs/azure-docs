@@ -102,11 +102,44 @@ For hubs that use CMK encryption mode, you can update the encryption key to a ne
 
 ### Update Azure Application Insights and Azure Container Registry
 
-To use custom environments for Prompt Flow, you're required to configure an Azure Container Registry for your hub. To use Azure Application Insights for Prompt Flow deployments, a configured Azure Application Insights resource is required for your hub.
+To use custom environments for Prompt Flow, you're required to configure an Azure Container Registry for your hub. To use Azure Application Insights for Prompt Flow deployments, a configured Azure Application Insights resource is required for your hub. Updating the workspace-attached Azure Container Registry or ApplicationInsights resources may break lineage of previous jobs, deployed inference endpoints, or your ability to rerun earlier jobs in the workspace. 
 
-You can configure your hub for these resources during creation or update after creation. To update Azure Application Insights from the Azure portal, navigate to the **Properties** for your hub in the Azure portal, then select **Change Application Insights**. You can also use the Azure SDK/CLI options or infrastructure-as-code templates to update both Azure Application Insights and Azure Container Registry for the hub.
+You can use the Azure Portal, Azure SDK/CLI options, or the infrastructure-as-code templates to update both Azure Application Insights and Azure Container Registry for the hub.
+
+# [Azure portal](#tab/portal)
+
+You can configure your hub for these resources during creation or update after creation. 
+
+To update Azure Application Insights from the Azure portal, navigate to the **Properties** for your hub in the Azure portal, then select **Change Application Insights**.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/how-to/resource-manage-update-associated-resources.png" alt-text="Screenshot of the properties page of the hub resource in the Azure portal." lightbox="~/reusable-content/ce-skilling/azure/media/how-to/resource-manage-update-associated-resources.png":::
+
+# [Python SDK](#tab/python)
+
+```python
+from azure.ai.ml.entities import Hub
+
+my_app_insights = "{APPLICATION_INSIGHTS_ARM_ID}"
+my_container_registry = "{CONTAINER_REGISTRY_ARM_ID}"
+
+# construct a basic hub
+my_hub = Hub(name="myexamplehub", 
+             location="East US", 
+             application_insights=my_app_insights,
+             container_registry=my_container_registry)
+
+# update_dependent_resources is used to give consent to update the workspace dependent resources.
+created_hub = ml_client.workspaces.begin_update(workspace=my_hub, update_dependent_resources=True).result()
+```
+
+# [Azure CLI](#tab/azurecli)
+
+See flag documentation for [```az ml workspace update```](/cli/azure/ml/workspace#az-ml-workspace-update)
+
+```azurecli
+az ml workspace update -n "myexamplehub" -g "{MY_RESOURCE_GROUP}" -a "APPLICATION_INSIGHTS_ARM_ID" -u
+```
+---
 
 ## Next steps
 
