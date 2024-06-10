@@ -3,6 +3,7 @@ title: Azure Service Bus Geo-Replication | Microsoft Docs
 description: How to use geographical regions to promote between regions in Azure Service Bus for metadata and data
 ms.topic: article
 ms.date: 04/29/2024
+ms.custom: references_regions
 ---
 
 # Azure Service Bus Geo-Replication (Preview)
@@ -25,15 +26,15 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 
 > [!IMPORTANT]
 > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
-> - Only the below regions are currently supported, with more regions being enabled in the upcoming months.
+> - The below regions are currently supported, with more regions being enabled in the upcoming months.
 >
 > | US               | Europe | Asia             |
 > |------------------|--------|------------------|
-> | West US 3        | Italy  | East Asia        |
-> | North Central US | Spain  | Taiwan Northwest |
-> |                  | Norway | Taiwan North     |
+> | North Central US | Italy  | East Asia        |
+> | Canada East      | Spain  | Taiwan Northwest |
+> | Mexico           | Norway | Taiwan North     |
 >
-> - This feature is currently only available on new namespaces. If a namespace had this feature enabled before, it can be disabled (by removing the secondary regions), and re-enabled.
+> - This feature is currently available on new namespaces. If a namespace had this feature enabled before, it can be disabled (by removing the secondary regions), and re-enabled.
 > - The following features currently aren't supported. We're continuously working on bringing more features to the public preview, and will update this list with the latest status.
 >     - Large message support.
 >     - VNET / advanced network features (private endpoints, IP ACLs, NSP, service endpoints).
@@ -54,7 +55,7 @@ There are times when you want to migrate your Service Bus workloads to run in a 
 
 ## Basic concepts
 
-The Geo-Replication feature implements metadata and data replication in a primary-secondary replication model. At a given time there’s only one primary region, which is serving both producers and consumers. The secondaries act as hot stand-by regions, meaning that it is not possible to interact with these secondary regions. However, they run in the same configuration as the primary region, allowing for fast promotion, and meaning they your workloads can immediately continue running after promotion has been completed. The Geo-Replication feature is available for the [Premium tier](service-bus-premium-messaging.md) only.
+The Geo-Replication feature implements metadata and data replication in a primary-secondary replication model. At a given time there’s a single primary region, which is serving both producers and consumers. The secondaries act as hot stand-by regions, meaning that it is not possible to interact with these secondary regions. However, they run in the same configuration as the primary region, allowing for fast promotion, and meaning they your workloads can immediately continue running after promotion has been completed. The Geo-Replication feature is available for the [Premium tier](service-bus-premium-messaging.md).
 
 Some of the key aspects of Geo-Replication feature are: 
 - Service Bus services perform fully managed replication of metadata, message data, and message state and property changes across regions adhering to the replication consistency configured at the namespace.
@@ -95,7 +96,7 @@ As such, it doesn’t have the absolute guarantee that all regions have the data
 |--------------------------------|--------------------------------------------------------------|--------------------------------------------------------------------|
 | Latency                        | Longer due to distributed commit operations                  | Minimally impacted                                                 |
 | Availability                   | Tied to availability of secondary regions                    | Loss of a secondary region doesn't immediately impact availability |
-| Data consistency               | Data always committed in both regions before acknowledgment  | Data only committed in primary before acknowledgment               |
+| Data consistency               | Data always committed in both regions before acknowledgment  | Data committed in primary only before acknowledgment               |
 | RPO (Recovery Point Objective) | RPO 0, no data loss on promotion                             | RPO > 0, possible data loss on promotion                           |
 
 The replication mode can be changed after configuring Geo-Replication. You can go from synchronous to asynchronous or from asynchronous to synchronous. If you go from asynchronous to synchronous, your secondary will be configured as synchronous after lag reaches zero. If you're running with a continual lag for whatever reason, then you may need to pause your publishers in order for lag to reach zero and your mode to be able to switch to synchronous. The reasons to have synchronous replication enabled, instead of asynchronous replication, are tied to the importance of the data, specific business needs, or compliance reasons, rather than availability of your application.
@@ -112,7 +113,7 @@ To enable the Geo-Replication feature, you need to use primary and secondary reg
 The Geo-Replication feature enables customers to configure a secondary region towards which to replicate metadata and data. As such, customers can perform the following management tasks:
 - Configure Geo-Replication; Secondary regions can be configured on any new or existing namespace in a region with the Geo-Replication feature enabled.
     > [!NOTE]
-    > Currently only new namespaces are supported, existing namespaces will be supported later on.
+    > Currently new namespaces are supported, existing namespaces will be supported later on.
 - Configure the replication consistency; Synchronous and asynchronous replication is set when Geo-Replication is configured but can also be switched afterwards.
 - Trigger promotion; All promotions are customer initiated.
 - Remove a secondary; If at any time you want to remove a secondary region, you can do so after which the data in the secondary region is deleted.
