@@ -19,8 +19,6 @@ ms.custom: devx-track-go, devguide-go
 
 This article shows how to use blob index tags to manage and find data using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme).
 
-To learn about setting blob index tags using asynchronous APIs, see [Set blob index tags asynchronously](#set-blob-index-tags-asynchronously).
-
 [!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
 ## Set up your environment
