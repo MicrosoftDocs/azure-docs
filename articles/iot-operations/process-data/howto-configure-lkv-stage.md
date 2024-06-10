@@ -1,6 +1,6 @@
 ---
 title: Track last known values in a pipeline
-description: Configure a last known value pipeline stage to track and maintain up to date and complete data in a Azure IoT Data Processor pipeline.
+description: Configure a last known value pipeline stage to track and maintain up to date and complete data in an Azure IoT Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
