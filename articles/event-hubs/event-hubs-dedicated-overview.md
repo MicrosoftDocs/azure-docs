@@ -104,7 +104,7 @@ You can determine the cluster type that you're using with the following methods.
 
 The Event Hubs Dedicated offering is billed at a fixed monthly price with a *minimum of four hours of usage*. The Dedicated tier offers all the features of the Premium plan, but with enterprise-scale capacity and limits for customers with demanding workloads.
 
-For more information about quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md)
+For more information about quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md).
 
 ## FAQs
 
