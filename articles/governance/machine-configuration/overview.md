@@ -114,8 +114,11 @@ status is then written to Azure Resource Graph.
 
 Machine configuration policy definitions are inclusive of new versions. Older versions of operating
 systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
-compatible. Additionally, Linux server versions that are out of lifetime support by their respective publishers are excluded from our support matrix. The following table shows a list of supported operating systems on Azure images. The
-`.x` text is symbolic to represent new minor versions of Linux distributions.
+compatible. Additionally, Linux server versions that are out of lifetime support by their
+respective publishers are excluded from the support matrix.
+
+The following table shows a list of supported operating systems on Azure images. The `.x` text is
+symbolic to represent new minor versions of Linux distributions.
 
 | Publisher | Name                       | Versions         |
 | --------- | -------------------------- | ---------------- |
