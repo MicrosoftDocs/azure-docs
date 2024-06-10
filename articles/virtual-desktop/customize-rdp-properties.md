@@ -12,13 +12,13 @@ ms.custom: devx-track-azurepowershell, docs_inherited
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
 
-You can customize a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience and audio redirection, to deliver an optimal experience for your users based on their needs. If you'd like to change the default RDP file properties, you can customize RDP properties in Azure Virtual Desktop by either using the Azure portal or by using the `-CustomRdpProperty` parameter in the `Update-AzWvdHostPool` cmdlet.
+When users sign in to Windows App or the Remote Desktop app, all desktops and applications that they have access to are shown. For each of these, there is a corresponding `.rdp` file that contains all the connection properties to use in the remote session. These RDP properties are set on the host pool.
 
-See [Supported RDP properties with Azure Virtual Desktop](rdp-properties.md) for a full list of supported properties and their default values.
+This article shows you how to set the host pool RDP properties using the Azure portal, Azure PowerShell and Azure CLI. 
 
 ## Default host pool RDP properties
 
-RDP files have the following properties by default:
+Host pools have the following RDP properties by default:
 
 |Name  |RDP Property |Details  |
 |---------|---------|---------|
@@ -29,20 +29,16 @@ RDP files have the following properties by default:
 | Drive/storage redirection |`drivestoredirect:s:*`   |Determines which disk drives on the local computer will be redirected and available in the remote session.    |
 |Printer redirection  |  `redirectprinters:i:1`        | Determines whether printers configured on the local computer will be redirected and available in the remote session.         |
 | Media Transfer Protocol (MTP) and Picture Transfer Protocol (PTP)   |`devicestoredirect:s:*`  | Determines which devices on the local computer will be redirected and available in the remote session.   |
-|Multiple displays	   | `use multimon:i:1`   | Determines whether the remote session will use one or multiple displays from the local computer.        |
+|Multiple displays	   | `use multimon:i:1`   | Determines whether the remote session will use one or multiple displays from the local computer. Only applicable for desktop application groups. It's ignored for RemoteApp application groups.    |
 | Smart card redirection	 |  `redirectsmartcards:i:1` | Determines whether smart card devices on the local computer will be redirected and available in the remote session.    |
 |USB device redirection   |  `usbdevicestoredirect:s:*`  | Determines which supported RemoteFX USB devices on the client computer will be redirected and available in the remote session when you connect to a remote session that supports RemoteFX USB redirection.    |
 |Video playback  |  `videoplaybackmode:i:1`  | Determines if the connection will use RDP-efficient multimedia streaming for video playback.   |
 |WebAuthn redirection   | `redirectwebauthn:i:1` | Determines whether WebAuthn requests on the remote computer will be redirected to the local computer allowing the use of local authenticators (such as Windows Hello for Business and security key). |
 
+See [Supported RDP properties with Azure Virtual Desktop](rdp-properties.md) for a full list of supported properties and their default values.
+
 
 >[!IMPORTANT]
->- Multi-monitor mode is only enabled for Desktop application groups and will be ignored for RemoteApp application groups.
->
->- All default RDP file properties are exposed in the Azure Portal.
->
->- A null CustomRdpProperty field will apply all default RDP properties to your host pool. An empty CustomRdpProperty field won't apply any default RDP properties to your host pool.
->
 >- If you also configure device redirection settings using Group Policy objects (GPOs), the settings in the GPOs will override the RDP properties you specify on the host pool.
 
 ## Prerequisites
@@ -117,6 +113,9 @@ Name              : 0301HP
 CustomRdpProperty : audiocapturemode:i:1;audiomode:i:0;
 ```
 
+>[!IMPORTANT]
+>- A null CustomRdpProperty field will apply all default RDP properties to your host pool. An empty CustomRdpProperty field won't apply any default RDP properties to your host pool.
+
 
 ### Remove all RDP properties
 
@@ -166,6 +165,8 @@ To add or edit multiple custom RDP properties in Azure CLI:
         --name $hostPoolName 
     ```
     
+>[!IMPORTANT]
+>- A null CustomRdpProperty field will apply all default RDP properties to your host pool. An empty CustomRdpProperty field won't apply any default RDP properties to your host pool.
     
 ### Remove all RDP properties
 
@@ -192,12 +193,6 @@ To remove all custom RDP properties:
 ---
 
 
-## Next steps
+## Related content
 
-Now that you've customized the RDP properties for a given host pool, you can sign in to an Azure Virtual Desktop client to test them as part of a user session. These next how-to guides will tell you how to connect to a session using the client of your choice:
-
-- [Connect with the Windows Desktop client](./users/connect-windows.md)
-- [Connect with the web client](./users/connect-web.md)
-- [Connect with the Android client](./users/connect-android-chrome-os.md)
-- [Connect with the macOS client](./users/connect-macos.md)
-- [Connect with the iOS client](./users/connect-ios-ipados.md)
+- [Supported RDP properties with Azure Virtual Desktop](rdp-properties.md)
