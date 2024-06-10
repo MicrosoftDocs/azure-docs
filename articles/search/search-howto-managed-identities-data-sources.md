@@ -16,9 +16,9 @@ ms.date: 06/10/2024
 
 # Configure a search service to connect using a managed identity in Azure AI Search
 
-You can use Microsoft Entra ID and role assignments for outbound connections from Azure AI Search to resources providing data, applied AI, or vectorization during during indexing or queries. Managed identities and role assignments eliminate the need for passing secrets and credentials in a connection string or code.
+You can use Microsoft Entra ID and role assignments for outbound connections from Azure AI Search to resources providing data, applied AI, or vectorization during indexing or queries. 
 
-To use roles on an outbound connection, first configure your search service to use either a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) as the security principle for your search service in a Microsoft Entra tenant. Once you have a managed identity, you can assign roles for authorized access. 
+To use roles on an outbound connection, first configure your search service to use either a [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) as the security principle for your search service in a Microsoft Entra tenant. Once you have a managed identity, you can assign roles for authorized access. Managed identities and role assignments eliminate the need for passing secrets and credentials in a connection string or code.
 
 ## Prerequisites
 

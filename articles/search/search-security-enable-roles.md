@@ -16,12 +16,12 @@ ms.date: 06/10/2024
 
 If you want to use Azure role-based access control for connections into Azure AI Search, this article explains how to enable it for your search service.
 
-Role-based access for data plane operations is optional, but recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. Before you can use role for data plane operations, you must enable role-based access on your search service.
+Role-based access for data plane operations is optional, but recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. 
 
-Roles for service administration (control plane) are mandatory and can't be disabled. 
+Roles for service administration (control plane) are built-in and can't be enabled or disabled. 
 
 > [!NOTE]
-> *Data plane* refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries.
+> *Data plane* refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent Azure SDK client libraries.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Roles for service administration (control plane) are mandatory and can't be disa
 
 ## Enable role-based access for data plane operations
 
-When you enable roles, the change is effective immediately, but wait a few seconds before assigning roles.
+When you enable roles for the data plane, the change is effective immediately, but wait a few seconds before assigning roles.
 
 The default failure mode is `http401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`. 
 
