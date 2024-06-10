@@ -403,7 +403,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     $appSecret = "0000000000000000000000000000000000000000" #Secret created for the application
     
     # information needed to send data to the DCR endpoint
-    $endpoint_uri = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" #Logs ingestion URI for the DCR
+    $endpoint_uri = "https://my-url.monitor.azure.com" #Logs ingestion URI for the DCR
     $dcrImmutableId = "dcr-00000000000000000000000000000000" #the immutableId property of the DCR object
     $streamName = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
     

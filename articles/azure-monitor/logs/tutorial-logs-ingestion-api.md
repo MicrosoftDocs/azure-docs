@@ -64,6 +64,80 @@ Start by registering a Microsoft Entra application to authenticate against the A
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" alt-text="Screenshot that shows the secret value for the new app.":::
 
+## Create data collection endpoint
+
+## [DCR endpoint](#tab/dcr)
+A DCE isn't required if you use the DCR ingestion endpoint.
+
+## [DCE](#tab/dce)
+
+A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accept the data being sent to Azure Monitor. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE must be located in the same region as the DCR and the Log Analytics workspace where the data will be sent.
+
+1. In the Azure portal's search box, enter **template** and then select **Deploy a custom template**.
+
+    :::image type="content" source="media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot that shows how to deploy a custom template.":::
+
+1. Select **Build your own template in the editor**.
+
+    :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows how to build a template in the editor.":::
+
+1. Paste the following ARM template into the editor and then select **Save**. You don't need to modify this template because you'll provide values for its parameters.
+
+    :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot that shows how to edit an ARM template.":::
+
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "dataCollectionEndpointName": {
+                "type": "string",
+                "metadata": {
+                    "description": "Specifies the name of the Data Collection Endpoint to create."
+                }
+            },
+            "location": {
+                "type": "string",
+                "defaultValue": "westus2",
+                "metadata": {
+                    "description": "Specifies the location for the Data Collection Endpoint."
+                }
+            }
+        },
+        "resources": [
+            {
+                "type": "Microsoft.Insights/dataCollectionEndpoints",
+                "name": "[parameters('dataCollectionEndpointName')]",
+                "location": "[parameters('location')]",
+                "apiVersion": "2021-04-01",
+                "properties": {
+                    "networkAcls": {
+                    "publicNetworkAccess": "Enabled"
+                    }
+                }
+            }
+        ],
+        "outputs": {
+            "dataCollectionEndpointId": {
+                "type": "string",
+                "value": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dataCollectionEndpointName'))]"
+            }
+        }
+    }
+    ```
+
+1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the DCR and then provide values like a **Name** for the DCE. The **Location** should be the same location as the workspace. The **Region** will already be populated and will be used for the location of the DCE.
+
+    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-custom-deploy.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-custom-deploy.png" alt-text="Screenshot to edit custom deployment values.":::
+
+1. Select **Review + create** and then select **Create** after you review the details.
+
+1. Select **JSON View** to view other details for the DCE. Copy the **Resource ID** and the **logsIngestion endpoint** which you'll need in a later step.
+
+    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows the DCE resource ID.":::
+
+---
 
 ## Create new table in Log Analytics workspace
 The custom table must be created before you can send data to it. The table for this tutorial will include five columns shown in the schema below. The `name`, `type`, and `description` properties are mandatory for each column. The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
@@ -146,6 +220,8 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
     - `destinations`: Destination workspace.
     - `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table. The output of the destination query is what will be sent to the destination table.
 
+    ## [DCR endpoint](#tab/dcr)
+
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2023-03-11/deploymentTemplate.json#",
@@ -173,6 +249,96 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
                 "type": "string",
                 "metadata": {
                     "description": "Specifies the Azure resource ID of the Data Collection Endpoint to use."
+                }
+            }
+        },
+        "resources": [
+            {
+                "type": "Microsoft.Insights/dataCollectionRules",
+                "name": "[parameters('dataCollectionRuleName')]",
+                "location": "[parameters('location')]",
+                "apiVersion": "2021-09-01-preview",
+                "properties": {
+                    "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
+                    "streamDeclarations": {
+                        "Custom-MyTableRawData": {
+                            "columns": [
+                                {
+                                    "name": "Time",
+                                    "type": "datetime"
+                                },
+                                {
+                                    "name": "Computer",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "AdditionalContext",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "CounterName",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "CounterValue",
+                                    "type": "real"
+                                }
+                            ]
+                        }
+                    },
+                    "destinations": {
+                        "logAnalytics": [
+                            {
+                                "workspaceResourceId": "[parameters('workspaceResourceId')]",
+                                "name": "myworkspace"
+                            }
+                        ]
+                    },
+                    "dataFlows": [
+                        {
+                            "streams": [
+                                "Custom-MyTableRawData"
+                            ],
+                            "destinations": [
+                                "myworkspace"
+                            ],
+                            "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, CounterName=tostring(jsonContext.CounterName), CounterValue=toreal(jsonContext.CounterValue)",
+                            "outputStream": "Custom-MyTable_CL"
+                        }
+                    ]
+                }
+            }
+        ],
+        "outputs": {
+            "dataCollectionRuleId": {
+                "type": "string",
+                "value": "[resourceId('Microsoft.Insights/dataCollectionRules', parameters('dataCollectionRuleName'))]"
+            }
+        }
+    }
+    ```
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2023-03-11/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "dataCollectionRuleName": {
+                "type": "string",
+                "metadata": {
+                    "description": "Specifies the name of the Data Collection Rule to create."
+                }
+            },
+            "location": {
+                "type": "string",
+                "metadata": {
+                    "description": "Specifies the location in which to create the Data Collection Rule."
+                }
+            },
+            "workspaceResourceId": {
+                "type": "string",
+                "metadata": {
+                    "description": "Specifies the Azure resource ID of the Log Analytics workspace to use."
                 }
             }
         },
@@ -240,6 +406,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
         }
     }
     ```
+---
 
 4. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the DCR. Then provide values defined in the template. The values include a **Name** for the DCR and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and will be used for the location of the DCR.
 
