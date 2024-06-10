@@ -5,8 +5,8 @@ author: microsoftshawarma
 ms.author: rakiasegev 
 ms.service: trusted-signing
 ms.topic: how-to 
-ms.date: 04/04/2024 
-ms.custom: template-how-to-pattern 
+ms.date: 06/03/2024 
+ms.custom: template-how-to-pattern, devx-track-azurepowershell
 ---
 
 # Sign a CI policy by using Trusted Signing
@@ -32,12 +32,12 @@ To complete the steps in this article, you need:
    Import-Module .\Az.CodeSigning.psd1
    ```
 
-1. Optionally, you can create a *metadata.json* file that looks like this example:
+1. Optionally, you can create a *metadata.json* file that looks like this example:(`"Endpoint"` URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources.)
 
    ```json
    {
    "Endpoint":"https://xxx.codesigning.azure.net/",
-   "TrustedSigningAccountName":"<Trusted Signing Account Name>",
+   "CodeSigningAccountName":"<Trusted Signing Account Name>",
    "CertificateProfileName":"<Certificate Profile Name>"
    }
    ```

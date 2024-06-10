@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Query data by using Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 The [Azure Cosmos DB for MongoDB](introduction.md) supports [MongoDB queries](https://docs.mongodb.com/manual/tutorial/query-documents/).
 

@@ -24,7 +24,7 @@ This article assumes you have a basic understanding of Kubernetes concepts. For 
 
 ## Prerequisites
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 * This article requires version 2.47.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 * Make sure that the identity that you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 * If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set][az-account-set] command.
@@ -360,6 +360,8 @@ az aks update \
 ## Next steps
 
 In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential. Now you're ready to deploy your application and configure it to use the workload identity with the latest version of the [Azure Identity][azure-identity-libraries] client library. If you can't rewrite your application to use the latest client library version, you can [set up your application pod][workload-identity-migration] to authenticate using managed identity with workload identity as a short-term migration solution.
+
+The [Service Connector](../service-connector/overview.md) integration helps simplify the connection configuration for AKS workloads and Azure backing services. It securely handles authentication and network configurations and follows best practices for connecting to Azure services. For more information, see [Connect to Azure OpenAI Service in AKS using Workload Identity](../service-connector/tutorial-python-aks-openai-workload-identity.md) and the [Service Connector introduction](https://azure.github.io/AKS/2024/05/23/service-connector-intro).
 
 <!-- EXTERNAL LINKS -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

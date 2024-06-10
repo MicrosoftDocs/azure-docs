@@ -13,8 +13,6 @@ ms.custom: FY23 content-maintenance, engagement-FY24
 
 In this tutorial, you create a hub and spoke network topology using Azure Virtual Network Manager. You then deploy a virtual network gateway in the hub virtual network to allow resources in the spoke virtual networks to communicate with remote networks using VPN. Also, you configure a security configuration to block outbound network traffic to the internet on ports 80 and 443. Last, you verify that configurations were applied correctly by looking at the virtual network and virtual machine settings.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
