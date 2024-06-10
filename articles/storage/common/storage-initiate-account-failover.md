@@ -14,14 +14,9 @@ ms.subservice: storage-common-concepts
 
 # Initiate a storage account failover
 
-Azure Storage supports customer-initiated account failover for geo-redundant storage accounts. With account failover, you can initiate the failover process for your storage account if the primary storage service endpoints become unavailable, or to perform disaster recovery testing. The failover updates the Domain Name System (DNS) entries for the storage service endpoints such that the endpoints for the secondary region become the new primary endpoints for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoints.
+Microsoft strives to ensure that Azure services are always available. However, unplanned service outages might occasionally occur. To help minimize downtime, Azure Storage supports account failover to keep your data available during both partial and complete outages.
 
-This article shows how to initiate an account failover for your storage account using the Azure portal, PowerShell, or the Azure CLI.
-
-> [!WARNING]
-> An account failover typically results in some data loss. To understand the implications of an account failover and to prepare for data loss, review [Data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies).
-
-To learn more about account failover, see [Azure storage disaster recovery planning and failover](storage-disaster-recovery-guidance.md).
+This article shows how to initiate an account failover for your storage account using the Azure portal, PowerShell, or the Azure CLI. To learn more about account failover, see [Azure storage disaster recovery planning and failover](storage-disaster-recovery-guidance.md).
 
 <!--[INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]-->
 
@@ -286,6 +281,29 @@ You can use Azure PowerShell to get the current redundancy and failover informat
 You can use Azure PowerShell to get the current redundancy and failover information for your storage account. To check the status of the storage account failover see [Get the current status of the storage account with Azure CLI](#get-the-current-status-of-the-storage-account-with-azure-cli).
 
 ---
+
+## Important implications of unplanned failover
+
+When you initiate an unplanned failover of your storage account, the DNS records for the secondary endpoint are updated so that the secondary endpoint becomes the primary endpoint. Make sure that you understand the potential impact to your storage account before you initiate a failover.
+
+To estimate the extent of likely data loss before you initiate a failover, check the **Last Sync Time** property. For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
+
+The time it takes to failover after initiation can vary though typically less than one hour.
+
+After the failover, your storage account type is automatically converted to locally redundant storage (LRS) in the new primary region. You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account. Note that converting from LRS to GRS or RA-GRS incurs an additional cost. The cost is due to the network egress charges to re-replicate the data to the new secondary region. For additional information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+After you re-enable GRS for your storage account, Microsoft begins replicating the data in your account to the new secondary region. Replication time depends on many factors, which include:
+
+- The number and size of the objects in the storage account. Many small objects can take longer than fewer and larger objects.
+- The available resources for background replication, such as CPU, memory, disk, and WAN capacity. Live traffic takes priority over geo replication.
+- If using Blob storage, the number of snapshots per blob.
+- If using Table storage, the [data partitioning strategy](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). The replication process can't scale beyond the number of partition keys that you use.
+
+When an unplanned failover occurs, all data in the primary region is lost as the secondary region becomes the new primary. All write operations made to the primary region's storage account need to be repeated after geo-redundancy is re-enabled. For more details, refer to  [Azure storage disaster recovery planning and failover](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies).
+
+The Azure Storage resource provider does not fail over during the failover process. As a result, the Azure Storage REST API's [Location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) property continues to return the original location after the failover is complete.
+
+Storage account failover is a temporary solution to a service outage and shouldn't be used as part of your data migration strategy. For information about how to  migrate your storage accounts, see [Azure Storage migration overview](storage-migration-overview.md).
 
 ## See also
 
