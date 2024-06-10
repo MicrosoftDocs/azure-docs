@@ -14,7 +14,7 @@ In this quickstart, you learn how to send and receive large messages (up to 20 M
 
 To complete this quickstart, you need the following prerequisites:
 
-- Azure subscription. To use Azure services, including Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com/).
+- An Azure subscription. To use Azure services, including Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com/).
 - A [self-serve scalable dedicated cluster](event-hubs-dedicated-cluster-create-portal.md), an event hubs namespace, and an event hub. The first step to meet this prerequisite is to use the Azure portal to create a dedicated cluster and namespace inside a cluster. To create an event hub, see [Quickstart: Create an event hub by using the Azure portal](event-hubs-create.md). You can skip this step if you already have a self-serve scalable dedicated cluster.
 
 > [!NOTE]
