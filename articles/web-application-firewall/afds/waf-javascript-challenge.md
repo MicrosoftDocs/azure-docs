@@ -27,7 +27,7 @@ The JavaScript challenge is an invisible web challenge used to distinguish betwe
 
 Here's an example JavaScript challenge page:
 
-:::image type="content" source="media/waf-javascript-challenge/javascript-challenge-page.png" alt-text="Screenshot showing the JavaScript challenge page.":::
+:::image type="content" source="../media/waf-javascript-challenge/javascript-challenge-page.png" alt-text="Screenshot showing the JavaScript challenge page.":::
 
 ## Expiration
 
