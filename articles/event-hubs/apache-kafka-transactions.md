@@ -14,6 +14,10 @@ Event Hubs provides a Kafka endpoint that can be used by your existing Kafka cli
 
 This document focuses on how to use Kafka’s transactional API with Azure Event Hubs seamlessly.
 
+> [!NOTE]
+> Kafka Transactions is currently in Public preview in Premium, and Dedicated tier.
+>
+
 ## Transactions in Apache Kafka
 In cloud native environments, applications must be made resilient to network disruptions and namespace restarts and upgrades. Applications requiring strict processing guarantees must utilize a transactional framework or API to ensure that either all of the operations are executed, or none are so that the application and data state is reliably managed. If the set of operations fail, they can be reliably tried again atomically to ensure the right processing guarantees.
 
