@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-scenario-function-sb-trigger.md",
+            "redirect_url": "/azure/connectors/connectors-api-servicebus",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-create-logic-apps-from-templates.md",
+            "redirect_url": "/azure/logic-apps/quickstart-create-example-consumption-workflow",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/logic-apps-add-run-inline-code.md",
             "redirect_url": "/azure/logic-apps/add-run-javascript",
             "redirect_document_id": true
