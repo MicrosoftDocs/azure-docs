@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.date: 05/14/2024
 ms.service: event-grid
-ms.topic: concept
+ms.topic: how-to
 ms.custom:
   - subject-relocation
 #Customer intent: As an Azure service administrator, I want to be able to move Event Grid custom topics from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
@@ -14,7 +14,7 @@ ms.custom:
 # Relocate Azure Event Grid custom topics to another region
 You might want to move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 
-Here are the high-level steps covered in this article: 
+The high-level steps are: 
 
 - **Export the custom topic** resource to an Azure Resource Manager template. 
 
@@ -43,7 +43,8 @@ To get started, export a Resource Manager template for the custom topic.
     :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Select the custom topic":::   
 4. On the **Event Grid Topic** page, select **Export Template** under **Settings** on the left menu, and then select **Download** on the toolbar. 
 
-    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/export-template-download.png" alt-text="Export template -> Download":::   
+    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/export-template-download.png" lightbox="media/relocation/event-grid/move-custom-topics-across-regions/export-template-download.png" alt-text="Export template -> Download":::
+
 
     > [!IMPORTANT]
     > Only the topic is exported to the template. Subscriptions for the topic aren't exported. So, you need to create subscriptions for the topic after you move the topic to the target region. 

@@ -1,11 +1,11 @@
 ---
-title: Relocate an Azure Event Grid domains to another region
+title: Relocate Azure Event Grid domains to another region
 description: This article shows you how to move Azure Event Grid domains to another region.
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 05/14/2024
 ms.service: event-grid
-ms.topic: concept
+ms.topic: how-to
 ms.custom:
   - subject-relocation
 #Customer intent: As an Azure service administrator, I want to be able to move Event Grid domains from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
@@ -13,7 +13,7 @@ ms.custom:
 
 # Relocate Azure Event Grid domains to another region
 
- This article covers the recommended approach, guidelines, and practices to relocate Event Grid domain to another region. 
+ This article covers the recommended approach, guidelines, and practices to relocate Event Grid domains to another region. 
 
 
 Here are the high-level steps covered in this article: 

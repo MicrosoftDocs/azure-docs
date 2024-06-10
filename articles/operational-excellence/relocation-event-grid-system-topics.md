@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.date: 05/14/2024
 ms.service: event-grid
-ms.topic: concept
+ms.topic: how-to
 ms.custom:
   - subject-relocation
 #Customer intent: As an Azure service administrator, I want to be able to move an Azure event source and its associated system topic from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
@@ -32,10 +32,12 @@ To get started, export a Resource Manager template for the resource group that c
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Resource groups** on the left menu. Then, select the resource group that contains the event source for which the system topic was created. In the following example, it's the **Azure Storage** account. The resource group contains the storage account and its associated system topic. 
 
-    :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/resource-group-page.png" alt-text="Resource group page":::        
+    :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/resource-group-page.png" lightbox="media/relocation/event-grid/move-system-topics-across-regions/resource-group-page.png" alt-text="Resource group page.":::
+
 3. On the left menu, select **Export template** under **Settings**, and then, select **Download** on the toolbar. 
 
-    :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/export-template-menu.png" alt-text="Stroage account - Export template page":::        
+    :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/export-template-menu.png" lightbox="media/relocation/event-grid/move-system-topics-across-regions/export-template-menu.png" alt-text="Storage account - Export template page.":::        
+    
 5. Locate the **.zip** file that you downloaded from the portal, and unzip that file to a folder of your choice. This zip file contains template and parameters JSON files. 
 1. Open the **template.json** in an editor of your choice. 
 1. URL for the Webhook isn't exported to the template. So, do the following steps:
