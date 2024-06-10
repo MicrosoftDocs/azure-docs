@@ -13,7 +13,7 @@ ms.topic: tutorial
 
 # Tutorial: Migrate from on-premises or an Azure VM hosted PostgreSQL to Azure Database for PostgreSQL using the migration service
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This tutorial guides you in migrating a PostgreSQL instance from your on-premises or Azure virtual machines (VMs) to Azure Database for PostgreSQL flexible server using the Azure portal and Azure CLI.
 

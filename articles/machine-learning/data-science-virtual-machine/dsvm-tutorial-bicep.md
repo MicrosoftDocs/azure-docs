@@ -16,7 +16,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 This quickstart shows how to create an Ubuntu Data Science Virtual Machine using Bicep. A Data Science Virtual Machine (DSVM) is a cloud-based virtual machine, preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

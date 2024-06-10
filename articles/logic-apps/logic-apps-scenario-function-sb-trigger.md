@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 
 # Set up long running tasks by calling logic app workflows with Azure Functions
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 When you need to deploy a long-running listener or task, you can create a logic app workflow that uses the Request trigger and Azure Functions to call that trigger and run the workflow.
 

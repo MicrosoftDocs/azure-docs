@@ -67,7 +67,7 @@ You can authorize a client object using a Microsoft Entra authorization token (r
 
 <a name='azure-ad'></a>
 
-## [Microsoft Entra ID](#tab/azure-ad)
+## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 To authorize with Microsoft Entra ID, you need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). The following articles provide guidance on different authentication scenarios:
 
@@ -88,7 +88,7 @@ To use a shared access signature (SAS) token, append the token to the account UR
 :::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="snippet_get_service_client_SAS":::
 
 > [!NOTE]
-> A user delegation SAS offers superior security to a SAS that is signed with the storage account key. Microsoft recommends using a user delegation SAS when possible. For more information, see [Grant limited access to data with shared access signatures (SAS)](../common/storage-sas-overview.md).
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key. For more information, see [Grant limited access to data with shared access signatures (SAS)](../common/storage-sas-overview.md).
 
 ## [Account key](#tab/account-key)
 

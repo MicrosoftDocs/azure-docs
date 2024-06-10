@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Major version upgrade of Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides a step-by-step procedure to perform a major version upgrade in an Azure Database for PostgreSQL flexible server instance using Azure portal
 

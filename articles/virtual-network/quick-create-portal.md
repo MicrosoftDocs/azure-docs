@@ -29,7 +29,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 [!INCLUDE [create-two-virtual-machines.md](../../includes/create-two-virtual-machines.md)]
 
@@ -81,7 +81,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 1. Close the Bastion connection to **vm-2**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

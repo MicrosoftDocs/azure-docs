@@ -45,7 +45,7 @@ To run distributed training using MPI, follow these steps:
 1. Define  a `command` with `instance_count`. `instance_count` should be equal to the number of GPUs per node for per-process-launch, or set to 1 (the default) for per-node-launch if the user script is responsible for launching the processes per node.
 1. Use the `distribution` parameter of the `command` to specify settings for `MpiDistribution`.
 
-[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb?name=job)]
+[!notebook-python[](~/azureml-examples-temp-fix/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb?name=job)]
 
 ### Horovod
 

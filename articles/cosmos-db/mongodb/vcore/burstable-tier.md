@@ -13,7 +13,7 @@ ms.date: 11/01/2023
 
 # Burstable Tier (M25) on vCore-based Azure Cosmos DB for MongoDB
 
-[!INCLUDE[MongoDB (vCore)](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB (vCore)](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 
 ## What is burstable SKU (M25)?

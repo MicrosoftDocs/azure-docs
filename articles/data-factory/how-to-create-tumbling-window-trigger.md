@@ -203,7 +203,7 @@ You can also rerun a canceled window. The rerun will take the _latest_ published
 
 This section shows you how to use Azure PowerShell to create, start, and monitor a trigger.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ### Prerequisites
 

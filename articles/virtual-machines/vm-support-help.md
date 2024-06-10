@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 02/28/2023
+ms.date: 05/30/2024
 ms.custom: support-help-page
 ---
 
@@ -20,7 +20,7 @@ Here are suggestions for where you can get help when developing your Azure Virtu
 
 Various articles explain how to determine, diagnose, and fix issues that you might encounter when using Azure Virtual Machines. Use these articles to troubleshoot deployment failures, unexpected restarts, connection issues and more. 
 
-For a full list of self help troubleshooting content, see [Azure Virtual Machine troubleshooting documentation](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
+For a full list of self help troubleshooting content, see [Azure Windows Virtual Machines troubleshooting documentation](/troubleshoot/azure/virtual-machines/windows/welcome-virtual-machines-windows) and [Azure Linux Virtual Machines troubleshooting documentation](/troubleshoot/azure/virtual-machines/linux/welcome-virtual-machines-linux).
 
 
 ## Post a question on Microsoft Q&A
