@@ -16,7 +16,7 @@ ms.custom:
  This article covers the recommended approach, guidelines, and practices to relocate Event Grid domains to another region. 
 
 
-Here are the high-level steps covered in this article: 
+The high-level steps are: 
 
 - **Export the domain** resource to an Azure Resource Manager template. 
 
