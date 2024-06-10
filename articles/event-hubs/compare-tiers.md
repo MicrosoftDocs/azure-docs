@@ -10,7 +10,7 @@ ms.date: 02/15/2024
 This article compares tiers of Azure Event Hubs.
 
 > [!NOTE]
-> This article compares only features and quotas of tiers. For pricing information, see [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/)
+> This article compares only features and quotas of tiers. For pricing information, see [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## Features
 
@@ -22,4 +22,4 @@ This article compares tiers of Azure Event Hubs.
 
 ## Related content
 
-For pricing information for each tier, see [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/)
+For pricing information for each tier, see [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
