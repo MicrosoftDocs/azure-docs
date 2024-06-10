@@ -83,7 +83,13 @@ You can enable the cost analysis with the `--enable-cost-analysis` flag during o
 The following example creates a new AKS cluster in the `Standard` tier with cost analysis enabled:
 
 ```azurecli-interactive
-az aks create --resource-group <resource-group> --name <cluster-name> --location <location> --enable-managed-identity --generate-ssh-keys --tier standard --enable-cost-analysis
+az aks create \
+    --resource-group <resource-group> \
+    --name <cluster-name> \
+    --location <location> \
+    --tier standard \
+    --enable-cost-analysis \
+    --generate-ssh-keys
 ```
 
 The following example updates an existing AKS cluster in the `Standard` tier to enable cost analysis:

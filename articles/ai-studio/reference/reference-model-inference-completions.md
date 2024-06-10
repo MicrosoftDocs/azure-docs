@@ -16,7 +16,7 @@ ms.custom:
 
 # Reference: Completions | Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Creates a completion for the provided prompt and parameters.
 

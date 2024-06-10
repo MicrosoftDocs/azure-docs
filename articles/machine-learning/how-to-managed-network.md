@@ -221,7 +221,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 
 * __Update an existing workspace__:
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example updates an existing workspace. The `--managed-network allow_internet_outbound` parameter configures a managed VNet for the workspace:
 
@@ -288,7 +288,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 
 * __Update an existing workspace__:
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`:
     
@@ -346,7 +346,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 
 * __Update an existing workspace__:
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed VNet isolation for.
     1. Select __Networking__, then select __Private with Internet Outbound__.
@@ -439,7 +439,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 
 * __Update an existing workspace__
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed VNet for an existing workspace:
 
@@ -553,7 +553,7 @@ To configure a managed VNet that allows only approved outbound communications, u
 
 * __Update an existing workspace__:
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. The example also adds several outbound rules for the managed VNet:
 
@@ -668,7 +668,7 @@ To configure a managed VNet that allows only approved outbound communications, u
 
 * __Update an existing workspace__:
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed VNet isolation for.
     1. Select __Networking__, then select __Private with Approved Outbound__.

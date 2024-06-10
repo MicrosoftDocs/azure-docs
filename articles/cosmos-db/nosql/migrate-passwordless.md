@@ -19,7 +19,7 @@ The following tutorial explains how to migrate an existing application to connec
 
 ## Configure roles and users for local development authentication
 
-[!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
+[!INCLUDE [cosmos-nosql-create-assign-roles](../includes/cosmos-nosql-create-assign-roles.md)]
 
 ### Sign-in to Azure locally
 
