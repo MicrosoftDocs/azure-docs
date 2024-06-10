@@ -64,7 +64,7 @@ $readOnlyRoleDefinitionId = "00000000-0000-0000-0000-00000000000"
 $scope=$(az cosmosdb show --name $cosmosdbname --resource-group $resourcegroup --query id --output tsv)
 ```
 
-Define a role asisgnment for the system-assigned identity:
+Define a role assignment for the system-assigned identity:
 
 ```azurepowershell
 az cosmosdb sql role assignment create --account-name $cosmosdbname --resource-group $resourcegroup --role-definition-id $readOnlyRoleDefinitionId --principal-id $sys_principal --scope $scope
@@ -92,7 +92,7 @@ When you're connecting with a system-assigned managed identity, the only change 
 * For MongoDB collections, add "ApiKind=MongoDb" to the connection string and use a preview REST API.
 * For Gremlin graphs, add "ApiKind=Gremlin" to the connection string and use a preview REST API.
 
-Here's an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+Here's an example of how to create a data source to index data from a Cosmos DB account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2023-11-01

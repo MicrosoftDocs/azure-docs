@@ -18,7 +18,7 @@ If you want to use Azure role-based access control for connections into Azure AI
 
 Role-based access for data plane operations is optional, but recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. 
 
-Roles for service administration (control plane) are built-in and can't be enabled or disabled. 
+Roles for service administration (control plane) are built in and can't be enabled or disabled. 
 
 > [!NOTE]
 > *Data plane* refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent Azure SDK client libraries.
