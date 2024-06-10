@@ -32,7 +32,8 @@ To get started, export a Resource Manager template for the resource group that c
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Resource groups** on the left menu. Then, select the resource group that contains the event source for which the system topic was created. In the following example, it's the **Azure Storage** account. The resource group contains the storage account and its associated system topic. 
 
-    :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/resource-group-page.png" alt-text="Resource group page":::        
+    :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/resource-group-page.png" lightbox="media/relocation/event-grid/move-system-topics-across-regions/resource-group-page.png" alt-text="Resource group page.":::
+
 3. On the left menu, select **Export template** under **Settings**, and then, select **Download** on the toolbar. 
 
     :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/export-template-menu.png" lightbox="media/relocation/event-grid/move-system-topics-across-regions/export-template-menu.png" alt-text="Storage account - Export template page.":::        
