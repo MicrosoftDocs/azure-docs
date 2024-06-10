@@ -32,15 +32,8 @@
       href: concept-log-analytics-extension-deployment.md
     - name: Security
       items:
-       - name: Security controls by Azure Policy
-         displayName: regulatory, compliance, standards, domains
-         href: security-controls-policy.md
        - name: Security overview
          href: security-overview.md
-       - name: Private Link networking
-         href: private-link-security.md
-       - name: Security baseline
-         href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
 - name: How-to guides
   items:
   - name: Deploy
@@ -51,6 +44,8 @@
       href: prerequisites.md
     - name: Network requirements
       href: network-requirements.md
+     - name: Private Link networking
+      href: private-link-security.md
     - name: Deployment options
       href: deployment-options.md
     - name: Connect machines interactively
@@ -179,6 +174,11 @@
     href: security-data-privacy.md
   - name: Logging and auditing
     href: security-logging-auditing.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
+  - name: Security controls by Azure Policy
+    displayName: regulatory, compliance, standards, domains
+    href: security-controls-policy.md
 - name: Reference
   items:
   - name: azcmagent CLI
