@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 06/10/2024
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp
