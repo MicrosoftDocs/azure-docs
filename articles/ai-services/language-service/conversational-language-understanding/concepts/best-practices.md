@@ -73,17 +73,31 @@ To resolve this, you would label a learned component in your training data for a
 If you require the learned component, make sure that *ticket quantity* is only returned when the learned component predicts it in the right context. If you also require the prebuilt component, you can then guarantee that the returned *ticket quantity* entity is both a number and in the correct position.
 
 
-## Addressing casing inconsistencies
+## Addressing model inconsistencies
 
-If you have poor AI quality and determine the casing used in your training data is dissimilar to the testing data, you can use the `normalizeCasing` project setting. This normalizes the casing of utterances when training and testing the model. If you've migrated from LUIS, you might recognize that LUIS did this by default.
+If your model is overly sensitive to small grammatical changes, like casing or diacritics, you can systematically manipulate your dataset directly in the Language Studio. To use these features, click on the Settings tab on the left toolbar and locate the **Advanced project settings** section. First, you can ***Enable data transformation for casing***, which normalizes the casing of utterances when training, testing, and implementing your model. If you've migrated from LUIS, you might recognize that LUIS did this normalization by default. To access this feature via the API, set the `"normalizeCasing"` parameter to `true`. See an example below:
 
 ```json
 {
   "projectFileVersion": "2022-10-01-preview",
     ...
     "settings": {
-      "confidenceThreshold": 0.5,
+      ...
       "normalizeCasing": true
+      ...
+    }
+...
+```
+Second, you can also leverage the **Advanced project settings** to ***Enable data augmentation for diacritics*** to generate variations of your training data for possible diacritic variations used in natural language. This feature is available for all languages, but it is especially useful for Germanic and Slavic languages, where users often write words using classic English characters instead of the correct characters. For example, the phrase "Navigate to the sports channel" in French is "Accédez à la chaîne sportive". When this feature is enabled, the phrase "Accedez a la chaine sportive" (without diacritic characters) is also included in the training dataset. If you enable this feature, please note that the utterance count of your training set will increase, and you may need to adjust your training data size accordingly. The current maximum utterance count after augmentation is 25,000. To access this feature via the API, set the `"augmentDiacritics"` parameter to `true`. See an example below: 
+
+```json
+{
+  "projectFileVersion": "2022-10-01-preview",
+    ...
+    "settings": {
+      ...
+      "augmentDiacritics": true
+      ...
     }
 ...
 ```
