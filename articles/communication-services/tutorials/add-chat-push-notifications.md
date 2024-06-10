@@ -82,19 +82,21 @@ If you're a Microsoft internal customer, [submit a ticket](https://aka.ms/mapsup
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the option for uploading a certificate signing request.](./media/add-chat-push-notification/cert-5.png)
+   
+   In this area, you upload a certificate signing request (CSR):
 
-1. On a new browser tab, follow [this Apple help page](https://help.apple.com/developer-account/#/devbfa00fef7) to create a certificate signing request (CSR) and save the file as *App name.cer*. The instructions include using the Certificate Assistant to request a certificate and to fill in the certificate information.
+   1. On a new browser tab, follow [this Apple help page](https://help.apple.com/developer-account/#/devbfa00fef7) to create a CSR and save the file as *App name.cer*. The instructions include using the Certificate Assistant to request a certificate and to fill in the certificate information.
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows selections for requesting a certificate from a certificate authority.](./media/add-chat-push-notification/cert-6.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot that shows selections for requesting a certificate from a certificate authority.](./media/add-chat-push-notification/cert-6.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows an example of filling in certificate information.](./media/add-chat-push-notification/cert-7.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot that shows an example of filling in certificate information.](./media/add-chat-push-notification/cert-7.png)
+   
+   1. Drag the .cer file to the **Choose File** area. Then select **Continue** on the upper-right corner.
 
-1. Drag the .cer file to the **Choose File** area. Then select **Continue** on the upper-right corner.
-
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of the area for choosing a certificate file.](./media/add-chat-push-notification/cert-8.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot of the area for choosing a certificate file.](./media/add-chat-push-notification/cert-8.png)
 
 1. Select **Download**.
 
