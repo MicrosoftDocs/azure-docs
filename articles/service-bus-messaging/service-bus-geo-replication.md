@@ -169,19 +169,16 @@ After the promotion is initiated:
 You can automate promotion either with monitoring systems, or with custom-built monitoring solutions. However, such automation takes extra planning and work, which is out of the scope of this article.
 
 ### Monitoring data replication
-Users can monitor the progress of the replication job by monitoring the replication lag metric in Application Metrics logs.
-- Enable Application Metrics logs in your Service Bus namespace as described at [Monitor Azure Service Bus](/azure/service-bus-messaging/monitor-service-bus). 
-- Once Application Metrics logs are enabled, you need to produce and consume data from the namespace for a few minutes before you start to see the logs. 
-- To view Application Metrics logs, navigate to Monitoring section of Service Bus and click on the **Logs** blade. You can use the following query to find the replication lag (in seconds) between the primary and secondary regions. 
+Users can monitor the progress of the replication job by monitoring the replication lag metric in Log Analytics.
+- Enable Metrics logs in your Service Bus namespace as described at [Monitor Azure Service Bus](/azure/service-bus-messaging/monitor-service-bus). 
+- Once Metrics logs are enabled, you need to produce and consume data from the namespace for a few minutes before you start to see the logs. 
+- To view Metrics logs, navigate to Monitoring section of Service Bus and click on the **Logs** blade. You can use the following query to find the replication lag (in seconds) between the primary and secondary regions. 
 
 ```kusto
-AzureDiagnostics
+AzureMetrics
 | where TimeGenerated > ago(1h)
-| where Category == "ApplicationMetricsLogs"
-| where ActivityName_s == "ReplicationLag
+| where MetricName == "ReplicationLagDuration"
 ```
-
-The column count_d indicates the replication lag in seconds between the primary and secondary region.
 
 ### Publishing data
 Publishing applications can publish data to geo replicated namespaces via the namespace hostname of the Geo-Replication enabled namespace. The publishing approach is the same as the non-Geo-Replication case and no changes to data plane SDKs or client applications are required. 
