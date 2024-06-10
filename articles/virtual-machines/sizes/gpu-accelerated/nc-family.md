@@ -1,11 +1,11 @@
 ---
-title: NC sub-family VM size series
+title: NC family VM size series
 description: List of sizes in the NC family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 04/18/2024
+ms.date: 06/06/2024
 ms.author: mattmcinnes
 ---
 

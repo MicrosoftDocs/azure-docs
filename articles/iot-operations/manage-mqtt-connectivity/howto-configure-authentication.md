@@ -3,7 +3,7 @@ title: Configure Azure IoT MQ authentication
 description: Configure Azure IoT MQ authentication.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023

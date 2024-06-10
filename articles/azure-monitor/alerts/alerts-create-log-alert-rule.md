@@ -12,7 +12,7 @@ ms.reviewer: nolavime
 
 # Create or edit a log search alert rule
 
-This article shows you how to create a new alert rule for log search or edit an existing alert rule for log search. To learn more about alerts, see the [alerts overview](alerts-overview.md).
+This article shows you how to create a new alert rule or edit an existing alert rule for log search in Azure Monitor. To learn more about alerts, see the [alerts overview](alerts-overview.md).
 
 You create an alert rule by combining the resources to be monitored, the monitoring data from the resource, and the conditions that you want to trigger the alert. You can then define [action groups](./action-groups.md) and [alert processing rules](alerts-action-rules.md) to determine what happens when an alert is triggered.
 
@@ -22,9 +22,9 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 ### Edit an existing alert rule
 
-1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** on the left pane.
+1. In the [Azure portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** on the left pane.
 1. Select **Alert rules**.
-1. Select the alert rule you want to edit, and then select **Edit**.
+1. Select the alert rule that you want to edit, and then select **Edit**.
 
     :::image type="content" source="media/alerts-create-log-alert-rule/alerts-edit-log-search-alert-rule.png" alt-text="Screenshot that shows steps to edit an existing log search alert rule.":::
 1. Select any of the tabs for the alert rule to edit the settings.
@@ -37,9 +37,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 1. (Optional) If you selected **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
     - **Signal type**: Select **Log search**.
-    - **Signal source**: The service that sends the "Custom log search" and "Log (saved query)" signals.
-
-    Select the signal name, and then select **Apply**.
+    - **Signal source**: The service that sends the **Custom log search** and **Log (saved query)** signals. Select the signal name, and then select **Apply**.
 
 1. On the **Logs** pane, write a query that returns the log events for which you want to create an alert. To use one of the predefined alert rule queries, expand the **Schema and filter** pane next to the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
@@ -50,7 +48,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
    - `AggregatedValue` is a reserved word. You can't use it in the query on log search alert rules.
    - The combined size of all data in the properties of the log search alert rules can't exceed 64 KB.
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the query pane in the creation of a new log search alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the query pane during the creation of a new log search alert rule.":::
 
 1. (Optional) If you're querying an Azure Data Explorer or Azure Resource Graph cluster, the Log Analytics workspace can't automatically identify the column with the event time stamp. We recommend that you add a time range filter to the query. For example:
 
@@ -65,7 +63,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         | project _ResourceId=tolower(id), tags
     ```
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab in the creation of a new log search alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab for creating a new log search alert rule.":::
 
     [Sample log search alert queries](./alerts-log-alert-query-samples.md) are available for Azure Data Explorer and Resource Graph.
 
@@ -83,7 +81,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     |**Aggregation type**| The calculation performed on multiple records to aggregate them to one numeric value by using the aggregation granularity. Examples are **Total**, **Average**, **Minimum**, and **Maximum**.    |
     |**Aggregation granularity**| The interval for aggregating multiple records to one numeric value.|
 
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-measurements.png" alt-text="Screenshot that shows the measurement options in the creation of a new log search alert rule.":::
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-measurements.png" alt-text="Screenshot that shows the measurement options during the creation of a new log search alert rule.":::
 
 1. <a name="dimensions"></a>(Optional) In the **Split by dimensions** section, you can use dimensions to help provide context for the triggered alert.
 
@@ -93,12 +91,12 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     For example:
 
-    - You could use dimensions to monitor CPU usage on multiple instances that runs your website or app. Each instance is monitored individually, and notifications are sent for each instance where the CPU usage exceeds the configured value.
+    - You could use dimensions to monitor CPU usage on multiple instances that run your website or app. Each instance is monitored individually, and notifications are sent for each instance where the CPU usage exceeds the configured value.
     - You could decide not to split by dimensions when you want a condition applied to multiple resources in the scope. For example, you wouldn't use dimensions if you want to fire an alert if at least five machines in the resource group scope have CPU usage above the configured value.
 
     In general, if your alert rule scope is a workspace, the alerts are fired on the workspace. If you want a separate alert for each affected Azure resource, you can:
 
-    - Use the Azure Resource Manager **Azure Resource ID** column as a dimension. When you use this option, the is fired on **workspace** with the **Azure Resource ID** column as a dimension.
+    - Use the Azure Resource Manager **Azure Resource ID** column as a dimension. When you use this option, the alert is fired on the workspace with the **Azure Resource ID** column as a dimension.
     - Specify the alert as a dimension in the **Azure Resource ID** property. This option makes the resource that your query returns the target of the alert. Alerts are then fired on the resource that your query returns, such as a virtual machine or a storage account, as opposed to the workspace.
 
       When you use this option, if the workspace  gets data from resources in more than one subscription, alerts can be triggered on resources from a subscription that's different from the alert rule subscription.
@@ -119,7 +117,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     |Field  |Description  |
     |---------|---------|
-    |**Operator**| The query results are transformed into a number. In this field, select the operator to use to compare the number against the threshold.|
+    |**Operator**| The query results are transformed into a number. In this field, select the operator to use for comparing the number against the threshold.|
     |**Threshold value**| A number value for the threshold. |
     |**Frequency of evaluation**|How often the query is run. You can set it anywhere from one minute to one day (24 hours).|
 
@@ -128,7 +126,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     > [!NOTE]
     > The frequency is not a specific time that the alert runs every day. It's how often the alert rule will run.
     >
-    > There are some limitations to using a <a name="frequency">one minute</a> alert rule frequency. When you set the alert rule frequency to one minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations. The following are the most common reasons why a query isn't supported:
+    > There are some limitations to using an alert rule frequency of <a name="frequency">one minute</a>. When you set the alert rule frequency to one minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations. The most common reasons why a query isn't supported are:
     >
     > - The query contains the `search`, `union`, or `take` (limit) operation.
     > - The query contains the `ingestion_time()` function.
@@ -137,9 +135,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     [Sample log search alert queries](./alerts-log-alert-query-samples.md) are available for Azure Data Explorer and Resource Graph.
 
-1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set **Aggregation granularity** to 5 minutes, you can specify that you want to trigger an alert only if three failures (15 minutes) happened in the last hour. Your application business policy determines this setting.
-
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-preview-advanced-options.png" alt-text="Screenshot that shows the section for advanced options in a new log search alert rule.":::
+1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period that's required to trigger an alert. For example, if you set **Aggregation granularity** to 5 minutes, you can specify that you want to trigger an alert only if three failures (15 minutes) happened in the last hour. Your application's business policy determines this setting.
 
     Select values for these fields under **Number of violations to trigger the alert**:
 
@@ -147,10 +143,12 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
    |---------|---------|
    |**Number of violations**|The number of violations that trigger the alert.|
    |**Evaluation period**|The time period within which the number of violations occur. |
-   |**Override query time range**| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an `ago` command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains `ago(7d)`, the query only scans up to two days of data. If the query requires more data than the alert evaluation, you can change the time range manually. If the query contains an `ago` command, it will change automatically to two days (48 hours).|
+   |**Override query time range**| If you want the alert evaluation period to be different from the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an `ago` command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains `ago(7d)`, the query only scans up to two days of data. If the query requires more data than the alert evaluation, you can change the time range manually. If the query contains an `ago` command, it will change automatically to two days (48 hours).|
+
+   :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-preview-advanced-options.png" alt-text="Screenshot that shows the section for advanced options in a new log search alert rule.":::
 
    > [!NOTE]
-   > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage**. If you don't, the rule creation will fail because it won't meet the policy requirements.
+   > If you or your administrator assigned the Azure policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage**. If you don't, the rule creation will fail because it won't meet the policy requirements.
 
 1. The **Preview** chart shows the results of query evaluations over time. You can change the chart period or select different time series that resulted from a unique alert splitting by dimensions.
 
@@ -187,10 +185,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     - If the query is accessing a Log Analytics workspace, the identity must be assigned a reader role for all workspaces that the query accesses. If you're creating resource-centric log search alerts, the alert rule might access multiple workspaces, and the identity must have a reader role on all of them.
     - If you're querying an Azure Data Explorer or Resource Graph cluster, you must add the reader role for all data sources that the query accesses. For example, if the query is resource centric, it needs a reader role on that resource.
     - If the query is [accessing a remote Azure Data Explorer cluster](../logs/azure-monitor-data-explorer-proxy.md), the identity must be assigned:
-      - *Reader* role for all data sources that the query accesses. For example, if the query is calling a remote Azure Data Explorer cluster by using the `adx()` function, it needs a reader role on that Azure Data Explorer cluster.
-      - *Database viewer* role for all databases that the query is accesses.
+      - A reader role for all data sources that the query accesses. For example, if the query is calling a remote Azure Data Explorer cluster by using the `adx()` function, it needs a reader role on that Azure Data Explorer cluster.
+      - A database viewer role for all databases that the query accesses.
 
-    For detailed information on managed identities, see [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+    For detailed information on managed identities, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
     Select one of the following options for the identity that the alert rule uses:
 
@@ -207,7 +205,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     |Field |Description |
     |---------|---------|
     |**Enable upon creation**| Select this option to make the alert rule start running as soon as you finish creating it.|
-    |**Automatically resolve alerts (preview)** |Select this option to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met for a specific time range. The time range differs based on the frequency of the alert:<br>**1 minute**: The alert condition isn't met for 10 minutes.<br>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.<br>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.<br>**11 to 12 hours**: The alert condition isn't met for one frequency period. <br><br>Note that stateful log search alerts have [these limitations](https://learn.microsoft.com/azure/azure-monitor/service-limits#alerts).|
+    |**Automatically resolve alerts (preview)** |Select this option to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met for a specific time range. The time range differs based on the frequency of the alert:<br>**1 minute**: The alert condition isn't met for 10 minutes.<br>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.<br>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.<br>**11 to 12 hours**: The alert condition isn't met for one frequency period. <br><br>Note that stateful log search alerts have [these limitations](/azure/azure-monitor/service-limits#alerts).|
     |**Mute actions** |Select this option to set a period of time to wait before alert actions are triggered again. In the **Mute actions for** field that appears, select the amount of time to wait after an alert is fired before triggering actions again.|
     |**Check workspace linked storage**|Select this option if workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 
