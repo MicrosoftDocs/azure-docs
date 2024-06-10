@@ -19,7 +19,7 @@ Tape stores a large portion of worlds data, and remains one of the dominant type
 
 Tapes are a great medium for storing cold data. They're fast in sequential reading, but stages requiring mechanical movements (like loading, and unloading of tapes, tape seeks, etc.) are slower. That makes tapes unusable for traditional, random based access, and is the main reason that even today data stored on tapes is rarely used. In addition, tapes are a magnetic medium that require special handling. They're sensitive to environment, particularly temperature, and humidity. If kept within their operating environmental range, they can achieve high durability, and good restore success rate. However, when kept in unfriendly environment, deterioration happens often, and renders the tape unreadable.
 
-Large portions of tapes store dark data (data that is created, and stored, but not used for any purpose). Dark data brings no value to the data owner. With the increase in AI capability, and accessibility, the trend is changing. Customers are looking into how dark data can help them to increase efficiency, open new revenue streams, or increase their competitive advantage. To take advantage of dark data, many organizations are considering migrating the data from tapes to cloud storage. Cloud storage provides an easy way to analyze the data, extract business value, and consume services like AI, Machine Learning, Azure Search, etc.
+Large portions of tapes store dark data (data that is created, and stored, but not used for any purpose). Dark data brings no value to the data owner. With the increase in AI capability, and accessibility, the trend is changing. Customers are looking into how dark data can help them to increase efficiency, open new revenue streams, or increase their competitive advantage. To take advantage of dark data, many organizations are considering migrating the data from tapes to cloud storage. Cloud storage provides an easy way to analyze the data, extract business value (with services like AI, Machine Learning, Azure Search, etc.), or reduce cost by taking advantage of archival storage for long-term retention.
 
 Some of the major reasons we're seeing increase in tape to cloud migrations are:
 
@@ -39,7 +39,7 @@ Before a tape migration process starts, options must be carefully considered. Fi
 
 |Approach | Pros | Cons |
 | ------- | ---- | ---- |
-| **Customer performed migration** | - Data never leaves the site <br> - No logistics for shipping tapes | - Requires hardware resources <br> - Adds more work to personnel <br> - Requires specific knowledge in handling tapes <br> - Possible unknown costs|
+| **Customer performed migration** | - Data never leaves the site <br> - No logistics for shipping tapes | - Requires hardware resources <br> - Adds more work to personnel <br> - Requires specific knowledge in handling tapes <br> - Possible unknown costs |
 | **Tape migration partner** | - Simple pricing, and known cost upfront (paid per tape) <br> - No impact on production <br> - No impact on personnel | - Requires logistics for shipping tapes <br> - Security considerations required due to shipping tapes <br> - Multiple copies needed for data availability during migration |
 
 Several major considerations can easily guide our decision on who can execute the migration, customer, or partner.
@@ -51,7 +51,7 @@ Resources are the most critical part of the tape migration process, and we divid
 | Category | Notes |
 | -------- | ------|
 | **People**   | - Specific set of skills are required<br> - Process is labor intensive |
-| **Hardware** | - Different tape generations require different type of hardware <br> - Speed of the migration is proportional to available drives |
+| **Hardware** | - Different tape generations require different type of hardware <br> - Speed of the migration is proportional to available drives, and network bandwidth |
 | **Software** | - Access to software that created the data is needed <br> - Access to encryption keys is needed |
 
 Hardware is usually the most challenging part. If we're migrating existing tape generations, hardware is available, but used as part of the existing production. But for older tape generations, hardware is often end-of-life, and it's harder to acquire. With older tape generation, using a tape migration partner is a preferred, and simpler option.
