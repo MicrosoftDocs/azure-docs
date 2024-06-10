@@ -3,8 +3,7 @@ title: ADE extensibility model for custom Pulumi images
 titleSuffix: Azure Deployment Environments
 description: Learn how to use the ADE extensibility model to build and utilize custom Pulumi images with your environment definitions for deployment environments.
 ms.service: deployment-environments
-ms.custom:
-  - build-2024
+ms.custom: build-2024, devx-track-azurecli
 author: MikhailShilkov
 ms.date: 05/10/2024
 ms.topic: how-to

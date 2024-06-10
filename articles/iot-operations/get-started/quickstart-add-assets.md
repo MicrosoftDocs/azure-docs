@@ -61,7 +61,7 @@ When you deployed Azure IoT Operations, you chose to include a built-in OPC PLC 
 
 To add an asset endpoint:
 
-1. Select **Manage asset endpoints** and then **Create asset endpoint**:
+1. Select **Asset endpoints** and then **Create asset endpoint**:
 
     :::image type="content" source="media/quickstart-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations (preview) portal.":::
 
@@ -127,9 +127,7 @@ After you select your instance in Azure IoT Operations (preview) portal, you see
 
 ### Create an asset
 
-To create an asset, select **Create asset**.
-
-Enter the following asset information:
+To create an asset, select **Create asset**. Then enter the following asset information:
 
 | Field | Value |
 | --- | --- |
