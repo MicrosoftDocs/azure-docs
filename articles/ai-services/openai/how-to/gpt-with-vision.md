@@ -498,6 +498,9 @@ To use a User assigned identity on your Azure AI Services resource, follow these
 
     > [!TIP]
     > For more detailed instructions on creating a video index, see [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval).
+
+    > [!IMPORTANT]
+    > A video index name can be up to 24 characters long, unless it's a GUID, which can be 36 characters.
         
     ```bash
     curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
