@@ -1,10 +1,10 @@
 ---
-title: Set up AWS integration with Cost Management
+title: Set up Amazon Web Services (AWS_ integration with Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/30/2023
+ms.date: 02/26/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,6 +12,9 @@ ms.reviewer: shasulin
 ---
 
 # Set up and configure AWS Cost and Usage report integration
+
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 With Amazon Web Services (AWS) Cost and Usage report (CUR) integration, you monitor and control your AWS spending in Cost Management. The integration allows a single location in the Azure portal where you monitor and control spending for both Azure and AWS. This article explains how to set up the integration and configure it so that you can use Cost Management features to analyze costs and review budgets.
 
@@ -188,7 +191,7 @@ Use the following information to create an AWS connector and start monitoring yo
 1. Select **Connectors for AWS**.
 1. Select **Add connector**.
 1. On the **Create connector** page, in **Display name**, enter a name for your connector.  
-    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Example of the page for creating an AWS connector" :::
+    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Screenshot showing the Create connector page where you configure and an AWS connector." :::
 1. Optionally, select the default management group. It stores all discovered linked accounts. You can set it up later.
 1. In the **Billing** section, select **Auto-Renew** to **On** if you want to ensure continuous operation. If you select the automatic option, you must select a billing subscription.
 1. For **Role ARN**, enter the value that you used when you set up the role in AWS.
@@ -220,7 +223,7 @@ When you select a connector on the **Connectors for AWS** page, you can:
 - Select **Edit** to update the connector. You can't change the AWS account number, because it appears in the role ARN. But you can create a new connector.
 - Select **Verify** to rerun the verification test to make sure that Cost Management can collect data by using the connector settings.
 
-:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="Example AWS connector details" :::
+:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="Screenshot showing AWS connector details." :::
 
 ## Set up Azure management groups
 
@@ -232,7 +235,7 @@ If you want to separate costs, you can create a management group that holds just
 
 The AWS consolidated account combines billing and payment for multiple AWS accounts. It also acts as an AWS linked account. You can view the details for your AWS consolidated account using the link on the AWS connector page. 
 
-:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="Example details for an AWS consolidated account" :::
+:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="Screenshot showing details for an AWS consolidated account." :::
 
 From the page, you can:
 
@@ -254,7 +257,7 @@ From this page, you can:
 - Select **Update** to update the association of an AWS linked account with a management group.
 - Select **Access Control** to set a role assignment for the scope.
 
-:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="Example of the AWS Linked Account page" :::
+:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="Screenshot showing the AWS Linked Account page." :::
 
 ### Permissions for an AWS linked account
 

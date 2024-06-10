@@ -20,7 +20,7 @@ The command execution produces an output file containing the results that can be
 1. Install the latest version of the
   [appropriate CLI extensions](./howto-install-cli-extensions.md)
 1. Ensure that the target BMM must have its `poweredState` set to `On` and have its `readyState` set to `True`
-1. Get the Resource group name that you created for `Cluster` resource
+1. Get the Managed Resource group name (cluster_MRG) that you created for `Cluster` resource
 
 ## Executing a run-read command
 
@@ -34,6 +34,10 @@ is wrong.
 Also note that some commands begin with `nc-toolbox nc-toolbox-runread` and must be entered as shown.
 `nc-toolbox-runread` is a special container image that includes more tools that aren't installed on the
 baremetal host, such as `ipmitool` and `racadm`.
+
+Some of the run-read commands require specific arguments be supplied to enforce read-only capabilities of the commands.
+An example of run-read commands that require specific arguments is the allowed Mellanox command `mstconfig`,
+which requires the `query` argument be provided to enforce read-only.
 
 The list below shows the commands you can use. Commands in `*italics*` cannot have `arguments`; the rest can.
 
@@ -194,14 +198,19 @@ The list below shows the commands you can use. Commands in `*italics*` cannot ha
 - *`nc-toolbox nc-toolbox-runread racadm vflashsd status`*
 - *`nc-toolbox nc-toolbox-runread racadm vflashpartition list`*
 - *`nc-toolbox nc-toolbox-runread racadm vflashpartition status -a`*
+- `nc-toolbox nc-toolbox-runread mstregdump`
+- `nc-toolbox nc-toolbox-runread mstconfig`   (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mstflint`    (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mstlink`     (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mstfwmanager` (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mlx_temp`
 
 The command syntax is:
-
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<machine-name>"
-    --limit-time-seconds <timeout> \
+    --limit-time-seconds "<timeout>" \
     --commands '[{"command":"<command1>"},{"command":"<command2>","arguments":["<arg1>","<arg2>"]}]' \
-    --resource-group "<resourceGroupName>" \
+    --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 
@@ -221,7 +230,7 @@ When an optional argument `--output-directory` is provided, the output result is
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
     --limit-time-seconds 60 \
     --commands '[{"command":"hostname"},{"command":"ping","arguments":["198.51.102.1","-c","3"]}]' \
-    --resource-group "<resourceGroupName>" \
+    --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 
@@ -231,7 +240,7 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
     --limit-time-seconds 60 \
     --commands '[{"command":"nc-toolbox nc-toolbox-runread racadm getsysinfo","arguments":["-c"]}]' \
-    --resource-group "<resourceGroupName>" \
+    --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 

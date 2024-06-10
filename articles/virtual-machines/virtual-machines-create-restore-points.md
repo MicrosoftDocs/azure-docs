@@ -63,7 +63,6 @@ The throttling would fail with error code 429. Please retry the operation after 
 - The API version for a crash-consistent restore point is 2021-07-01, or later.
 - Crash consistent restore point is supported on all Azure public regions.
 - Crash consistent restore point is supported for VM sizes that support Premium storage like DSv2.
-- Crash consistent restore points are not supported via portal. We will enable this soon.
 - A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections or consistency type.
 - Concurrent creation of restore points for a VM isn't supported.
 - Restore points for virtual machine scale sets in Uniform orchestration mode aren't supported.

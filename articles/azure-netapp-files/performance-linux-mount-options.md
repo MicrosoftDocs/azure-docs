@@ -4,6 +4,7 @@ description: Describes mount options and the best practices about using them wit
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 12/07/2022
 ms.author: anfdocs

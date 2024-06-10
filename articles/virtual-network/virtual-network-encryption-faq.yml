@@ -13,7 +13,7 @@ sections:
     questions:
       - question: Can I enable virtual network encryption on an existing virtual network, virtual machine, network interface, or NSG? 
         answer: |
-          Yes.
+          Yes. For more information about enabling virtual network encryption on an existing virtual network, see [Enable encryption](/azure/virtual-network/how-to-create-encryption-portal#enable-encryption).
       
       - question: How do I verify my data is encrypted?
         answer: |
@@ -46,3 +46,7 @@ sections:
       - question: How is virtual network encryption priced?
         answer: |
           Azure Virtual Network encryption is a free feature offered under the Azure subscription within Azure Virtual Network. Standard charges are applicable for resources, such as Virtual Machines (VMs) and other products that you use.
+
+      - question: Is asymmetric encryption supported for a scenario where one direction is encryption enabled and the reverse is encryption disabled?
+        answer: |
+          Asymmetric encryption can happen when there is asymmetric routing and traffic is flowing encrypted in one direction and un-encrypted in the other direction. Asymmetric encryption is not supported and is not recommended.

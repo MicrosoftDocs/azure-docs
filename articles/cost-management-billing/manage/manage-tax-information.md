@@ -24,7 +24,7 @@ This article helps you review and update the sold to information, ship-to/servic
 
 1. Sign in to the Azure portal using the email address with an owner or a contributor role on the billing account for a Microsoft Customer Agreement (MCA). Or, sign in with an account administrator role for a Microsoft Online Subscription Program (MOSP) billing account. MOSP is also referred to as pay-as-you-go.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows where to search in the Azure portal.](./media/manage-tax-information/search-cmb.png)
+    :::image type="content" border="true" source="./media/manage-tax-information/search-cmb.png" alt-text="Screenshot that shows where to search in the Azure portal.":::
 1. In the left menu, select **Properties** and then select **Update sold-to**.  
     :::image type="content" source="./media/manage-tax-information/update-sold-to.png" alt-text="Screenshot showing the properties for an M C A billing account where you modify the sold-to address." lightbox="./media/manage-tax-information/update-sold-to.png" :::
 1. Enter the new address and select **Save**.
@@ -110,7 +110,7 @@ Customers in the following countries or regions can add their Tax IDs.
 
 1. Sign in to the Azure portal using the email address that has an owner or a contributor role on the billing account for an MCA or an account administrator role for a MOSP billing account.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows where to search for Cost Management + Billing.](./media/manage-tax-information/search-cmb.png)
+    :::image type="content" border="true" source="./media/manage-tax-information/search-cmb.png" alt-text="Screenshot that shows where to search for Cost Management + Billing.":::
 1. In the left menu under **Settings**, select **Properties**.
 1. Select **Manage Tax IDs**.  
     :::image type="content" source="./media/manage-tax-information/update-tax-id.png" alt-text="Screenshot showing where to update the Tax I D." lightbox="./media/manage-tax-information/update-tax-id.png" :::

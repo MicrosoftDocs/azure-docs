@@ -12,7 +12,7 @@ ms.custom: template-overview
 # Tutorial: Process Aqua satellite data using NASA-provided tools
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 > [!NOTE]
 > NASA has deprecated support of the DRL software used to process Aqua satellite imagery. Please see: [DRL Current Status](https://directreadout.sci.gsfc.nasa.gov/home.html). Steps 2, 3, and 4 of this tutorial are no longer relevant but presented for informational purposes only.

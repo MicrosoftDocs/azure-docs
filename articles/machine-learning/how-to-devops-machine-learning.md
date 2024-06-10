@@ -45,9 +45,9 @@ https://github.com/azure/azureml-examples
 
 ## Step 2: Sign in to Azure Pipelines
 
-[!INCLUDE [include](~/articles/reusable-content/devops-pipelines/sign-in-azure-pipelines.md)]
+[!INCLUDE [include](~/reusable-content/devops-pipelines/sign-in-azure-pipelines.md)]
 
-[!INCLUDE [include](~/articles/reusable-content/devops-pipelines/create-project.md)]
+[!INCLUDE [include](~/reusable-content/devops-pipelines/create-project.md)]
 
 ## Step 3: Create a service connection
 

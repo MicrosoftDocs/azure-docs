@@ -29,13 +29,13 @@ Learn more about these topics:
 
 * [Understand IoT Hub endpoints](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing)
 
-* [Use IoT Hub message routing to send device-to-cloud messages to different endponts](iot-hub-devguide-messages-d2c.md)
+* [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md)
 
 ## Send cloud-to-device messages from IoT Hub
 
 You can send cloud-to-device messages from the IoT solution back end to your devices.
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
 
 Core properties of IoT Hub messaging functionality are the reliability and durability of messages. These properties enable resilience to intermittent connectivity on the device side, and to load spikes in event processing on the cloud side. IoT Hub implements *at least once* delivery guarantees for both device-to-cloud and cloud-to-device messaging.
 

@@ -5,6 +5,7 @@ description: Overview of how using virtual node with Azure Kubernetes Services (
 ms.topic: conceptual
 ms.date: 11/06/2023
 ms.custom: references_regions
+ms.subservice: aks-nodes
 ---
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes

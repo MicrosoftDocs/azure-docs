@@ -15,7 +15,7 @@
     href: quickstart-host-arm-template.md
 - name: Tutorials
   items:
-  - name: Deploy Bastion with manual settings
+  - name: Deploy Bastion using manually specified settings
     href: tutorial-create-host-portal.md
 - name: Concepts
   items:
@@ -25,6 +25,8 @@
     href: work-remotely-support.md
   - name: Bastion FAQ
     href: bastion-faq.md
+  - name: Design architecture
+    href: design-architecture.md
   - name: Bastion configuration settings
     href: configuration-settings.md
   - name: VM connections and features
@@ -49,6 +51,8 @@
       href: create-host-cli.md
     - name: Developer SKU
       href: quickstart-developer-sku.md
+  - name: Deploy private-only Bastion
+    href: private-only-deployment.md
   - name: Configure Bastion settings
     items:
     - name: View or upgrade SKU
@@ -65,6 +69,8 @@
       href: shareable-link.md
     - name: Configure Kerberos authentication
       href: kerberos-authentication-portal.md
+    - name: Configure session recording
+      href: session-recording.md
   - name: Connect to a virtual machine
     items:
     - name: Windows VM

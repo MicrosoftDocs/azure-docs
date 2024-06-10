@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 03/09/2023
+ms.date: 02/28/2024
 ms.author: allensu
 ms.custom: mode-arm, devx-track-bicep
 ---
@@ -17,7 +17,9 @@ This quickstart shows you how to create a virtual network with two virtual machi
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+:::image type="content" source="./media/quick-create-bicep/virtual-network-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-bicep/virtual-network-bicep-resources.png":::
+
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -91,7 +93,7 @@ When the deployment finishes, a message indicates that the deployment succeeded.
 Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
 
 > [!NOTE]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 Use the [Azure Bastion as a Service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Bastion in your virtual network. This Bicep template defines the following Azure resources:
 
@@ -282,7 +284,7 @@ Remove-AzResourceGroup -Name TestRG
 
 ## Next steps
 
-In this quickstart, you created a virtual network that has two subnets: one that contains two VMs and the other for Bastion. You deployed Bastion, and you used it to connect to the VMs and start communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
+In this quickstart, you created a virtual network that has two subnets: one that contains two VMs and the other for Bastion. You deployed Bastion, and you used it to connect to the VMs and start communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.yml).
 
 Private communication between VMs is unrestricted in a virtual network. To learn more about configuring various types of VM communications in a virtual network, continue to the next article:
 

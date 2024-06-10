@@ -54,7 +54,7 @@ For those alert types, you can use alert processing rules to add action groups.
 
 This section describes the scope and filters for alert processing rules.
 
-Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, a specific resource group, or an entire subscription. The alert processing rule applies to alerts that fired on resources within that scope. You cannot create an alert processing rule on a resource from a different subsciption.   
+Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, a specific resource group, or an entire subscription. The alert processing rule applies to alerts that fired on resources within that scope. You cannot create an alert processing rule on a resource from a different subscription.   
 
 You can also define filters to narrow down which specific subset of alerts are affected within the scope. The available filters are described in the following table.  
 
@@ -77,7 +77,7 @@ Severity |  The rule applies only to alerts with the selected severities. |
 * If you define multiple filters in a rule, all the rules apply. There's a logical AND between all filters.  
   For example, if you set both `resource type = "Virtual Machines"` and `severity = "Sev0"`, then the rule applies only for `Sev0` alerts on virtual machines in the scope.
 * Each filter can include up to five values. There's a logical OR between the values.  
-  For example, if you set `description contains "this, that" (in the field there is no need to write the apostrophes), then the rule applies only to alerts whose description contains either `this` or `that`.
+  For example, if you set description contains "this, that" (in the field there is no need to write the apostrophes), then the rule applies only to alerts whose description contains either "this" or "that".
 * Notice that you dont have any spaces (before, after or between) the string that is matched it will effect the matching of the filter.
 
 ### What should this rule do?

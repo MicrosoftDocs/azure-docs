@@ -129,7 +129,7 @@ You can get your content into the Audio Content Creation tool in either of two w
 
         ```xml
         <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-            <voice name="en-US-JennyNeural">
+            <voice name="en-US-AvaMultilingualNeural">
             Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
             </voice>
         </speak>

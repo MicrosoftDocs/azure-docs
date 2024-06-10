@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: training
 ms.topic: conceptual
 ms.date: 01/29/2024
-ms.custom: sdkv2, update-code
+ms.custom: sdkv2, update-code1
 ---
 
 # Distributed GPU training guide (SDK v2)
@@ -41,11 +41,11 @@ Azure Machine Learning offers an [MPI job](https://www.mcs.anl.gov/research/proj
 
 To run distributed training using MPI, follow these steps:
 
-1. Use an Azure Machine Learning environment with the preferred deep learning framework and MPI. Azure Machine Learning provides [curated environments](resource-curated-environments.md) for popular frameworks. Or [create a custom environment](how-to-manage-environments-v2.md#create-an-environment) with the preferred deep learning framework and MPI.
+1. Use an Azure Machine Learning environment with the preferred deep learning framework and MPI. Azure Machine Learning provides [curated environments](resource-curated-environments.md) for popular frameworks. Or [create a custom environment](how-to-manage-environments-v2.md#create-a-custom-environment) with the preferred deep learning framework and MPI.
 1. Define  a `command` with `instance_count`. `instance_count` should be equal to the number of GPUs per node for per-process-launch, or set to 1 (the default) for per-node-launch if the user script is responsible for launching the processes per node.
 1. Use the `distribution` parameter of the `command` to specify settings for `MpiDistribution`.
 
-[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb?name=job)]
+[!notebook-python[](~/azureml-examples-temp-fix/sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnist-distributed-horovod.ipynb?name=job)]
 
 ### Horovod
 

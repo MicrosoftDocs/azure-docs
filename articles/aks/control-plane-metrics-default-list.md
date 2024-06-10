@@ -2,7 +2,11 @@
 title: List of control plane metrics in Azure Monitor managed service for Prometheus (preview)
 description: This article describes the minimal ingestion profile metrics for Azure Kubernetes Service (AKS) control plane metrics.
 ms.topic: conceptual
+ms.subservice: aks-monitoring
 ms.date: 01/31/2024
+author: nickomang
+ms.author: nickoman
+
 ms.reviewer: aritraghosh
 ---
 
@@ -114,3 +118,4 @@ The following are metrics that are allow-listed with `minimalingestionprofile=tr
 
 <!-- INTERNAL LINKS -->
 [azure-monitor-prometheus-metrics-scrape-config-minimal]: ../azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal.md
+

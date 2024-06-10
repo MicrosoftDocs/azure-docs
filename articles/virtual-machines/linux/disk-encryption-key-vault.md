@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 02/20/2024
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
 # Creating and configuring a key vault for Azure Disk Encryption
@@ -55,7 +55,7 @@ az login
 Connect-AzAccount
 ```
 
-[!INCLUDE [disk-encryption-key-vault](../../../includes/disk-encryption-key-vault.md)]
+[!INCLUDE [disk-encryption-key-vault](~/reusable-content/ce-skilling/azure/includes/disk-encryption-key-vault.md)]
  
  
 ## Next steps

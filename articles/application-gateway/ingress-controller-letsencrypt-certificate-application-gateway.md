@@ -4,7 +4,7 @@ description: This article provides information on how to obtain a certificate fr
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.author: greglin
@@ -95,7 +95,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
         solvers:
           - http01:
                ingress:
-                  class: azure/application-gateway
+                  ingressclassName: azure/application-gateway
     EOF
     ```
 

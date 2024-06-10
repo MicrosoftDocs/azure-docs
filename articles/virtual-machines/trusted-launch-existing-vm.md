@@ -21,7 +21,6 @@ Azure Virtual Machines supports enabling Trusted launch on existing [Azure Gener
 
 > [!IMPORTANT]
 >
-> - If enabled for Generation 2 VM, **[Server-side encryption with customer-managed keys](disk-encryption.md)** (SSE-CMK) should be disabled before executing Trusted launch upgrade. SSE-CMK encryption should be re-enabled after completion of Trusted launch upgrade.
 > - Support for **enabling Trusted launch on existing Azure Generation 1 VMs** is currently in private preview. You can gain access to preview using registration link **https://aka.ms/Gen1ToTLUpgrade**.
 > - Enabling Trusted launch on existing Azure virtual machine scale sets (VMSS) Uniform & Flex are currently not supported.
 
@@ -33,7 +32,7 @@ Azure Virtual Machines supports enabling Trusted launch on existing [Azure Gener
 - Azure Generation 2 VM(s) is not using [features currently not supported with Trusted launch](trusted-launch.md#unsupported-features).
 - Azure Generation 2 VM(s) should be **stopped and deallocated** before enabling Trusted launch security type.
 - Azure Backup if enabled for VM(s) should be configured with [Enhanced Backup Policy](../backup/backup-azure-vms-enhanced-policy.md). Trusted launch security type cannot be enabled for Generation 2 VM(s) configured with *Standard Policy* backup protection.
-    - Existing Azure VM backup can be migrated from *Standard* to *Enhanced* policy using private preview migration feature. Submit on-boarding request to preview using link https://aka.ms/formBackupPolicyMigration.
+  - Existing Azure VM backup can be migrated from *Standard* to *Enhanced* policy using [Migrate Azure VM backups from standard to enhanced policy (preview)](../backup/backup-azure-vm-migrate-enhanced-policy.md).
 
 ## Best practices
 
@@ -69,7 +68,7 @@ This section steps through using the Azure portal to enable Trusted launch on ex
 
 > [!NOTE]
 >
-> - Generation 2 VMs created using [Azure Compute Gallery (ACG)](azure-compute-gallery.md), [Managed Image](capture-image-resource.md), [OS Disk](./scripts/create-vm-from-managed-os-disks.md) cannot be upgraded to Trusted launch using Portal. Please ensure [OS Version is supported for Trusted launch](trusted-launch.md#operating-systems-supported) and use PowerShell, CLI or ARM template to execute upgrade.
+> - Generation 2 VMs created using [Azure Compute Gallery (ACG)](azure-compute-gallery.md), [Managed Image](capture-image-resource.yml), [OS Disk](./scripts/create-vm-from-managed-os-disks.md) cannot be upgraded to Trusted launch using Portal. Please ensure [OS Version is supported for Trusted launch](trusted-launch.md#operating-systems-supported) and use PowerShell, CLI or ARM template to execute upgrade.
 
 :::image type="content" source="./media/trusted-launch/05-generation-2-to-trusted-launch-select-uefi-settings.png" alt-text="Screenshot of the Secure boot and vTPM settings.":::
 
@@ -186,7 +185,7 @@ Start-AzVM -ResourceGroupName myResourceGroup -Name myVm
 
 This section steps through using an ARM template to enable Trusted launch on existing Azure Generation 2 VM.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 1. Review the template.
 

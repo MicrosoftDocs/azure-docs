@@ -13,9 +13,6 @@ ms.custom: mode-other
 # Quickstart: Use a sample notebook from the Synapse Analytics gallery
 
 In this quickstart, you'll learn how to copy a sample machine learning notebook from the Synapse Analytics gallery into your workspace, modify it, and run it.
-The sample notebook ingests an Open Dataset of NYC Taxi trips and uses visualization to help you prepare the data. It then trains a model to predict whether there will be a tip on a given trip.
-
-This notebook demonstrates the basic steps used in creating a model: **data import**, **data prep**, **model training**, and **evaluation**. You can use this sample as a starting point for creating a model with your own data.
 
 ## Prerequisites
 

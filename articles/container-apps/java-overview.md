@@ -4,8 +4,9 @@ description: Learn about the tools and resources needed to run Java applications
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 03/04/2024
+ms.date: 04/30/2024
 ms.author: cshoe
 ---
 
@@ -23,7 +24,9 @@ When you use Container Apps for your containerized Java applications, you get:
 
 - **Build environment variables**: You can configure [custom key-value pairs](java-build-environment-variables.md) to control the Java image build from source code.
 
-- **WAR deployment**: You can deploy your container app directly from a [WAR file](java-deploy-war-file.md).
+- **JAR deployment**: You can deploy your container app directly from a [JAR file](java-get-started.md?tabs=jar).
+
+- **WAR deployment**: You can deploy your container app directly from a [WAR file](java-get-started.md?tabs=war).
 
 This article details the information you need to know as you build Java applications on Azure Container Apps.
 
@@ -33,8 +36,8 @@ Running containerized applications usually means you need to create a Dockerfile
 
 | Type | Description | Uses Buildpacks | Uses a Dockerfile |
 |--|--|--|--|
-| Artifact build | You can deploy directly to Container Apps from your source code. | Yes | No |
-| Maven build | You can create a Maven build to deploy to Container Apps | Yes | No |
+| [Source code build](./quickstart-code-to-cloud.md?tabs=bash%2Cjava&pivots=without-dockerfile) | You can deploy directly to Container Apps from your source code. | Yes | No |
+| [Artifact build](deploy-artifact.md) | You can create a Maven build to deploy to Container Apps | Yes | No |
 | Dockerfile | You can create your Dockerfile manually and take full control over your deployment. | No | Yes |
 
 > [!NOTE]
@@ -95,7 +98,7 @@ To help optimize memory management in your Java application, you can ensure [JVM
 
 Memory is measured in gibibytes (Gi) and CPU core pairs. The following table shows the range of resources available to your container app.
 
-| Threshold | CPU cores | Memory in Gibytes (Gi) |
+| Threshold | CPU cores | Memory in Gibibytes (Gi) |
 |---|---|---|
 | Minimum | 0.25 | 0.5 |
 | Maximum | 4 | 8 |
@@ -105,7 +108,15 @@ Cores are available in 0.25 core increments, with memory available at a 2:1 rati
 > [!NOTE]
 > For apps using JDK versions 9 and lower, make sure to define custom JVM memory settings to match the memory allocation in Azure Container Apps.
 
+## Spring components support
+
+Azure Container Apps offers support for the following Spring Components as managed services:
+
+- **Eureka Server for Spring**: Service registration and discovery are key requirements for maintaining a list of live application instances. Your application uses this list to for routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error. Eureka Server simplifies the management of service discovery by functioning as a [service registry](java-eureka-server-usage.md) where microservices can register themselves and discover other services within the system.
+
+- **Config Server for Spring**: Config Server provides centralized external configuration management for distributed systems. This component designed to address the challenges of [managing configuration settings across multiple microservices](java-config-server-usage.md) in a cloud-native environment.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure build environment variables](java-build-environment-variables.md)
+> [Launch your first Java app](java-get-started.md)

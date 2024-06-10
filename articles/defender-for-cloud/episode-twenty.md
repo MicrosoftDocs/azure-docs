@@ -24,17 +24,17 @@ ms.date: 04/27/2023
 
 - [19:25](/shows/mdc-in-the-field/security-explorer#time=19m25s) - Saving cloud security explorer queries
 
-
 ## Recommended resources
-  - [Learn more](./concept-attack-path.md) about Attack path.
-  - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
-  - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
-  - For more about [Microsoft Security](https://msft.it/6002T9HQY)
+
+- [Learn more](./concept-attack-path.md) about Attack path.
+- Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
+- Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
+- For more about [Microsoft Security](https://msft.it/6002T9HQY)
 
 - Follow us on social media:
 
-     - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
-     - [Twitter](https://twitter.com/msftsecurity)
+  - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
+  - [Twitter](https://twitter.com/msftsecurity)
 
 - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
 

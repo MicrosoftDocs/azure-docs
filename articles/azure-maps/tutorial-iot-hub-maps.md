@@ -267,7 +267,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [C# script]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx
 [create a storage account]: ../storage/common/storage-account-create.md?tabs=azure-portal
 [Create an Azure storage account]: #create-an-azure-storage-account
-[create an IoT hub]: ../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub
+[create an IoT hub]: ../iot/tutorial-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub
 [Create a function and add an Event Grid subscription]: #create-a-function-and-add-an-event-grid-subscription
 [free account]: https://azure.microsoft.com/free/
 [general-purpose v2 storage account]: ../storage/common/storage-account-overview.md
@@ -275,7 +275,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [How to create data registry]: how-to-create-data-registries.md
 [IoT Hub message routing]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[IoT Plug and Play]: ../iot-develop/index.yml
+[IoT Plug and Play]: ../iot/overview-iot-plug-and-play.md
 [geofence JSON data file]: https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4
 [Plug and Play schema for geospatial data]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md
 [Postman]: https://www.postman.com/
@@ -284,7 +284,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [resource group]: ../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups
 [the root of the sample]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing
 [Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
-[Send telemetry from a device]: ../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp
+[Send telemetry from a device]: ../iot/tutorial-send-telemetry-iot-hub.md?pivots=programming-language-csharp
 [Spatial Geofence Get API]: /rest/api/maps/spatial/getgeofence
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Upload a geofence into your Azure storage account]: #upload-a-geofence-into-your-azure-storage-account

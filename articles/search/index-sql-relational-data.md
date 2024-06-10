@@ -1,7 +1,7 @@
 ---
 title: Model SQL relational data for import and indexing
 titleSuffix: Azure AI Search
-description: Learn how to model relational data, de-normalized into a flat result set, for indexing and full text search in Azure AI Search.
+description: Learn how to model relational data, denormalized into a flat result set, for indexing and full text search in Azure AI Search.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,13 +9,14 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 03/18/2024
 ---
+
 # How to model relational SQL data for import and indexing in Azure AI Search
 
 Azure AI Search accepts a flat rowset as input to the [indexing pipeline](search-what-is-an-index.md). If your source data originates from joined tables in a SQL Server relational database, this article explains how to construct the result set, and how to model a parent-child relationship in an Azure AI Search index.
 
-As an illustration, we refer to a hypothetical hotels database, based on [demo data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/hotels). Assume the database consists of a Hotels$ table with 50 hotels, and a Rooms$ table with rooms of varying types, rates, and amenities, for a total of 750 rooms. There's a one-to-many relationship between the tables. In our approach, a view provides the query that returns 50 rows, one row per hotel, with associated room detail embedded into each row.
+As an illustration, we refer to a hypothetical hotels database, based on [demo data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/hotels). Assume the database consists of a `Hotels$` table with 50 hotels, and a `Rooms$` table with rooms of varying types, rates, and amenities, for a total of 750 rooms. There's a one-to-many relationship between the tables. In our approach, a view provides the query that returns 50 rows, one row per hotel, with associated room detail embedded into each row.
 
    ![Tables and view in the Hotels database](media/index-sql-relational-data/hotels-database-tables-view.png "Tables and view in the Hotels database")
 
@@ -43,7 +44,7 @@ To deliver the expected search experience, your data set should consist of one r
 
 The solution is to capture the room detail as nested JSON, and then insert the JSON structure into a field in a view, as shown in the second step. 
 
-1. Assume you've two joined tables, Hotels$ and Rooms$, that contain details for 50 hotels and 750 rooms and are joined on the HotelID field. Individually, these tables contain 50 hotels and 750 related rooms.
+1. Assume you have two joined tables, `Hotels$` and `Rooms$`, that contain details for 50 hotels and 750 rooms and are joined on the HotelID field. Individually, these tables contain 50 hotels and 750 related rooms.
 
     ```sql
     CREATE TABLE [dbo].[Hotels$](
@@ -106,7 +107,7 @@ This rowset is now ready for import into Azure AI Search.
 
 ## Use a complex collection for the "many" side of a one-to-many relationship
 
-On the Azure AI Search side, create an index schema that models the one-to-many relationship using nested JSON. The result set you created in the previous section generally corresponds to the index schema provided below (we cut some fields for brevity).
+On the Azure AI Search side, create an index schema that models the one-to-many relationship using nested JSON. The result set you created in the previous section generally corresponds to the index schema provided next (we cut some fields for brevity).
 
 The following example is similar to the example in [How to model complex data types](search-howto-complex-data-types.md#create-complex-fields). The *Rooms* structure, which has been the focus of this article, is in the fields collection of an index named *hotels*. This example also shows a complex type for *Address*, which differs from *Rooms* in that it's composed of a fixed set of items, as opposed to the multiple, arbitrary number of items allowed in a collection.
 
@@ -144,11 +145,11 @@ The following example is similar to the example in [How to model complex data ty
 }
 ```
 
-Given the previous result set and the above index schema, you've all the required components for a successful indexing operation. The flattened data set meets indexing requirements yet preserves detail information. In the Azure AI Search index, search results will fall easily into hotel-based entities, while preserving the context of individual rooms and their attributes.
+Given the previous result set and the above index schema, you have all the required components for a successful indexing operation. The flattened data set meets indexing requirements yet preserves detail information. In the Azure AI Search index, search results fall easily into hotel-based entities, while preserving the context of individual rooms and their attributes.
 
 ## Facet behavior on complex type subfields
 
-Fields that have a parent, such as the fields under Address and Rooms, are called *subfields*. Although you can assign a "facetable" attribute to a subfield, the count of the facet will always be for the main document.
+Fields that have a parent, such as the fields under Address and Rooms, are called *subfields*. Although you can assign a "facetable" attribute to a subfield, the count of the facet is always for the main document.
 
 For complex types like Address, where there's just one "Address/City" or "Address/stateProvince" in the document, the facet behavior works as expected. However, in the case of Rooms, where there are multiple subdocuments for each main document, the facet counts can be misleading.
 

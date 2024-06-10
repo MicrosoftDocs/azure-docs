@@ -27,7 +27,7 @@ We use an [MVC application](/aspnet/core/tutorials/first-mvc-app) example. If yo
 
 An [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. For more information, see [OpenTelemetry overview](opentelemetry-overview.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 > [!NOTE]
 > If you want to use standalone ILogger provider, use [Microsoft.Extensions.Logging.ApplicationInsight](./ilogger.md).
@@ -659,7 +659,7 @@ For more information about custom data reporting in Application Insights, see [A
 ### How do I capture Request and Response body in my telemetry?
 
 ASP.NET Core has [built-in
-support](https://learn.microsoft.com/aspnet/core/fundamentals/http-logging) for
+support](/aspnet/core/fundamentals/http-logging) for
 logging HTTP Request/Response information (including body) via
 [`ILogger`](#ilogger-logs). It is recommended to leverage this. This may
 potentially expose personally identifiable information (PII) in telemetry, and
@@ -798,6 +798,8 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
     ```
 
 ## Troubleshooting
+
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 

@@ -251,20 +251,17 @@
       href: batch-task-output-files.md
     - name: Persist output with File Conventions library
       href: batch-task-output-file-conventions.md
-  - name: Monitor Batch solutions
-    href: monitoring-overview.md
+  - name: Monitor
+    href: monitor-batch.md
     items:
-    - name: Use metrics and diagnostic logs
-      displayName: alert, monitor
-      href: batch-diagnostics.md
     - name: Monitor with Application Insights
       displayName: debug
       href: monitor-application-insights.md
-    - name: Count resources by state
-      href: batch-get-resource-counts.md
-    - name: Query resources efficiently
+    - name: Create efficient query lists
       displayName: monitor, queries
       href: batch-efficient-list-queries.md
+    - name: Count resources by state
+      href: batch-get-resource-counts.md
   - name: Use scripting tools
     items:
     - name: Use Azure PowerShell
@@ -322,7 +319,9 @@
       href: /rest/api/batchmanagement/
   - name: Resource Manager template
     href: /azure/templates/microsoft.batch/allversions
-  - name: Batch Analytics
+  - name: Monitoring data reference
+    href: monitor-batch-reference.md
+  - name: Batch analytics
     href: batch-analytics.md
     items:
     - name: Pool create event

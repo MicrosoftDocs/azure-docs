@@ -133,11 +133,11 @@ If you're not going to use this application, you can delete the Azure Static Web
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Authenticate and authorize](./authentication-authorization.md)
+> [Authenticate and authorize](./authentication-authorization.yml)
 
 ## Related articles
 
-- [Set up authentication and authorization](authentication-authorization.md)
-- [Configure app settings](application-settings.md)
+- [Set up authentication and authorization](authentication-authorization.yml)
+- [Configure app settings](application-settings.yml)
 - [Enable monitoring](monitor.md)
 - [Azure CLI](https://github.com/Azure/static-web-apps-cli)

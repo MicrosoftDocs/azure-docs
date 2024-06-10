@@ -31,12 +31,16 @@
     href: enable-multi-zone-redundancy.md
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
+  - name: Troubleshoot Azure Container Storage
+    href: troubleshoot-container-storage.md    
 - name: Concepts
   items:
   - name: FAQ
     href: container-storage-faq.md
 - name: Reference
   items:
+  - name: Storage pool parameters
+    href: container-storage-storage-pool-parameters.md
   - name: APIs for data access
     items:
     - name: REST API

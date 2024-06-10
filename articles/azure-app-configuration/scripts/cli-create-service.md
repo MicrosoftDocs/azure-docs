@@ -7,7 +7,7 @@ author: maud-lv
 
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 01/18/2023
+ms.date: 04/12/2024
 ms.author: malev 
 ms.custom: devx-track-azurecli
 ---
@@ -16,9 +16,9 @@ ms.custom: devx-track-azurecli
 
 This sample script creates a new instance of Azure App Configuration using the Azure CLI in a new resource group.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -57,7 +57,7 @@ echo "$appConfigConnectionString"
 
 Make a note of the actual name generated for the new resource group. You'll use that resource group name when you want to delete all group resources.
 
-[!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-cleanup](~/reusable-content/ce-skilling/azure/includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

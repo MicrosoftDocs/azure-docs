@@ -13,6 +13,8 @@ ms.author: danlep
 
 # Use Azure API Management with microservices deployed in Azure Kubernetes Service
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Microservices are perfect for building APIs. With [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS), you can quickly deploy and operate a [microservices-based architecture](/azure/architecture/guide/architecture-styles/microservices) in the cloud. You can then leverage [Azure API Management](https://aka.ms/apimrocks) (API Management) to publish your microservices as APIs for internal and external consumption. This article describes the options of deploying API Management with AKS. It assumes basic knowledge of Kubernetes, API Management, and Azure networking. 
 
 ## Background

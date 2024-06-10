@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about continuous backup point-in-time restore in same account (preview)
+  title: Frequently asked questions about continuous backup point-in-time restore in same account  
   titleSuffix: Azure Cosmos DB
   description: This article lists frequently asked questions about the same account restore feature for continuous backup in Azure Cosmos DB.
   author: kanshiG
@@ -9,8 +9,8 @@ metadata:
   ms.service: cosmos-db
   ms.custom: build-2023
   ms.topic: faq
-  ms.date: 05/08/2023
-title: Frequently asked questions about continuous backup point-in-time restore in same account (preview)
+  ms.date: 04/24/2024
+title: Frequently asked questions about continuous backup point-in-time restore in same account 
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
@@ -22,6 +22,10 @@ sections:
           Can I read or update other resources while a restore is in progress? 
         answer: |
           Yes, you can read or update other databases or containers while a restore operation is in progress on previously deleted resources. Deleted containers and databases aren't available for those same operations in that same time period. 
+      - question: |
+          How many same account restore actions can be done on an account? 
+        answer: |
+          More than three resources in an account can not be restored in parallel.
       - question: |
           What is the granularity of resources which I'm able to restore into the same account? 
         answer: |

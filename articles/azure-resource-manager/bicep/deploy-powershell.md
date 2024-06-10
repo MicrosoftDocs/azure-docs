@@ -1,9 +1,9 @@
 ---
 title: Deploy resources with PowerShell and Bicep
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Bicep file.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-arm-template, devx-track-bicep, devx-track-azurepowershell
-ms.date: 11/03/2023
+ms.date: 03/22/2024
 ---
 
 # Deploy resources with Bicep and Azure PowerShell
@@ -166,6 +166,8 @@ New-AzResourceGroupDeployment `
 ```
 
 The `TemplateParameterUri` parameter doesn't support `.bicepparam` files, it only supports JSON parameters files.
+
+You can use inline parameters and a location parameters file in the same deployment operation. For more information, see [Parameter precedence](./parameter-files.md#parameter-precedence).
 
 ## Preview changes
 

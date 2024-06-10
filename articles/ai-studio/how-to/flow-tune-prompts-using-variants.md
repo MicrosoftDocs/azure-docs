@@ -2,20 +2,21 @@
 title: Tune prompts using variants
 titleSuffix: Azure AI Studio
 description: Learn how to tune prompts using variants in Prompt flow with Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-ms.date: 2/24/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Tune prompts using variants in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to use variants to tune prompts and evaluate the performance of different variants.
 
@@ -51,8 +52,10 @@ Benefits of using variants include:
 In this article, we use **Web Classification** sample flow as example.
 
 1. Open the sample flow and remove the **prepare_examples** node as a start.
-
-
+	  1. Under *Tools* select **Prompt flow**.
+	  2. Select **Create** to open the flow creation wizard.
+	  3. In the flow gallery under *Explore gallery* in the "Web Classification" box select **Clone**.
+	  4. In the flow tab, delete the **prepare_examples** node.
 2. Use the following prompt as a baseline prompt in the **classify_with_llm** node.
 
 ```

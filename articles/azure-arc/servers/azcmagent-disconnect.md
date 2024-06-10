@@ -37,14 +37,14 @@ azcmagent disconnect --force-local-only
 
 ## Authentication options
 
-There are 4 ways to provide authentication credentials to the Azure connected machine agent. Choose one authentication option and replace the `[authentication]` section in the usage syntax with the recommended flags.
+There are four ways to provide authentication credentials to the Azure connected machine agent. Choose one authentication option and replace the `[authentication]` section in the usage syntax with the recommended flags.
 
 > [!NOTE]
 > The account used to disconnect a server must be from the same tenant as the subscription where the server is registered.
 
 ### Interactive browser login (Windows-only)
 
-This option is the default on Windows operating systems with a desktop experience. The login page opens in your default web browser. This option might be required if your organization has configured conditional access policies that require you to log in from trusted machines.
+This option is the default on Windows operating systems with a desktop experience. The login page opens in your default web browser. This option might be required if your organization configured conditional access policies that require you to log in from trusted machines.
 
 No flag is required to use the interactive browser login.
 
@@ -54,11 +54,19 @@ This option generates a code that you can use to log in on a web browser on anot
 
 To authenticate with a device code, use the `--use-device-code` flag.
 
-### Service principal
+### Service principal with secret
 
-Service principals allow you to authenticate non-interactively and are often used for at-scale operations where the same script is run across multiple servers. It's recommended that you provide service principal information via a configuration file (see `--config`) to avoid exposing the secret in any console logs.
+Service principals allow you to authenticate non-interactively and are often used for at-scale operations where the same script is run across multiple servers. It's recommended that you provide service principal information via a configuration file (see `--config`) to avoid exposing the secret in any console logs. The service principal should also be dedicated for Arc onboarding and have as few permissions as possible, to limit the impact of a stolen credential.
 
-To authenticate with a service principal, provide the service principal's application ID and secret: `--service-principal-id [appid] --service-principal-secret [secret]`
+To authenticate with a service principal using a secret, provide the service principal's application ID, secret, and tenant ID: `--service-principal-id [appid] --service-principal-secret [secret] --tenant-id [tenantid]`
+
+### Service principal with certificate
+
+Certificate-based authentication is a more secure way to authenticate using service principals. The agent accepts both PCKS #12 (.PFX) files and ASCII-encoded files (such as .PEM) that contain both the private and public keys. The certificate must be available on the local disk and the user running the `azcmagent` command needs read access to the file. Password-protected PFX files are not supported.
+
+To authenticate with a service principal using a certificate, provide the service principal's application ID, tenant ID, and path to the certificate file: `--service-principal-id [appId] --service-principal-cert [pathToPEMorPFXfile] --tenant-id [tenantid]`
+
+For more information, see [create a service principal for RBAC with certificate-based authentication](/cli/azure/azure-cli-sp-tutorial-3).
 
 ### Access token
 
@@ -74,15 +82,19 @@ Specifies the Microsoft Entra access token used to create the Azure Arc-enabled 
 
 `-f`, `--force-local-only`
 
-Disconnects the server without deleting the resource in Azure. Primarily used if the Azure resource has already been deleted and the local agent configuration needs to be cleaned up.
+Disconnects the server without deleting the resource in Azure. Primarily used if the Azure resource was deleted and the local agent configuration needs to be cleaned up.
 
 `-i`, `--service-principal-id`
 
-Specifies the application ID of the service principal used to create the Azure Arc-enabled server resource in Azure. Must be used with the `--service-principal-secret` and `--tenant-id` flags. For more information, see [authentication options](#authentication-options).
+Specifies the application ID of the service principal used to create the Azure Arc-enabled server resource in Azure. Must be used with the  `--tenant-id` and either the `--service-principal-secret` or `--service-principal-cert` flags. For more information, see [authentication options](#authentication-options).
+
+`--service-principal-cert`
+
+Specifies the path to a service principal certificate file. Must be used with the `--service-principal-id` and `--tenant-id` flags. The certificate must include a private key and can be in a PKCS #12 (.PFX) or ASCII-encoded text (.PEM, .CRT) format. Password-protected PFX files are not supported. For more information, see [authentication options](#authentication-options).
 
 `-p`, `--service-principal-secret`
 
-Specifies the service principal secret. Must be used with the `--service-principal-id` and `--tenant-id` flags. To avoid exposing the secret in console logs, it's recommended to pass in the service principal secret in a configuration file. For more information, see [authentication options](#authentication-options).
+Specifies the service principal secret. Must be used with the `--service-principal-id` and `--tenant-id` flags. To avoid exposing the secret in console logs, Microsoft recommends providing the service principal secret in a configuration file. For more information, see [authentication options](#authentication-options).
 
 `--use-device-code`
 

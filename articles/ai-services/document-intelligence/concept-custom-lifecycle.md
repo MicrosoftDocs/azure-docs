@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 02/29/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.1.0'
 ---
@@ -20,11 +20,13 @@ monikerRange: '>=doc-intel-3.1.0'
 [!INCLUDE [applies to v4.0 and v3.1](includes/applies-to-v40-v31.md)]
 ::: moniker-end
 
-With the v3.1 (GA) and later APIs, custom models introduce a expirationDateTime property that is set for each model trained with the 3.1 API or later.  Custom models are dependent on the API version of the Layout API version and the API version of the model build operation. For best results, continue to use the API version the model was trained with for all analyze requests. The guidance applies to all Document Intelligence custom models including extraction and classification models.
+With the v3.1 (GA) and later APIs, custom models introduce a expirationDateTime property that is set for each model trained with the 3.1 API or later. Custom models are dependent on the API version of the Layout API version and the API version of the model build operation. For best results, continue to use the API version the model was trained with for all analyze requests. The guidance applies to all Document Intelligence custom models including extraction and classification models.
 
 ## Models trained with GA API version
 
-With the v3.1 API, custom models introduce a new model expiration property. The model expiration is set to two years from the date the model is built for all requests that use a GA API to build a model. To continue to use the model past the expiration date, it's required that you train the model with a current GA API version.
+With the v3.1 API, custom models introduce a new model expiration property. The model expiration is set to two years from the date the model is built for all requests that use a GA API to build a model. To continue to use the model past the expiration date, you need to  train the model with a current GA API version. The API version can be the one that the model was originally trained with or a later API version. The following figure illustrates the options when you need to retrain an expiring or expired model.
+
+:::image type="content" source="media/model-lifecycle.png" alt-text="Screenshot showing how to choose an API version and retrain a model.":::
 
 ## Models trained with preview API version
 

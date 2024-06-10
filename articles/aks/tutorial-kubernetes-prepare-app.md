@@ -3,6 +3,9 @@ title: Kubernetes on Azure tutorial - Prepare an application for Azure Kubernete
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to prepare and build a multi-container app with Docker Compose that you can then deploy to AKS.
 ms.topic: tutorial
 ms.date: 02/15/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: mvc, devx-track-extended-azdevcli
 
 #Customer intent: As a developer, I want to learn how to build a container-based application so that I can deploy the app to Azure Kubernetes Service.
@@ -64,23 +67,21 @@ The [sample application][sample-application] used in this tutorial is a basic st
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-1. If you are using AZD locally, create an empty directory named `aks-store-demo` to host the azd template files.
+1. If you're using `azd` locally, create an empty directory named `aks-store-demo` to host the azd template files.
 
-    ```azurecli
+    ```console
     mkdir aks-store-demo
     ```
 
-1. Change into the new directory to load all the files from the azd template.
+2. Change into the new directory to load all the files from the azd template.
 
-    ```azurecli
+    ```console
     cd aks-store-demo
     ```
 
-1. Run the Azure Developer CLI ([azd][]) init command which clones the sample application into your empty directory.
+3. Clone the sample application into the `aks-store-demo` directory using the [`azd init`][azd-init] command with the `--template` flag set to `aks-store-demo`.
 
-    Here, the `--template` flag is specified to point to the aks-store-demo application.
-
-    ```azurecli
+    ```azdeveloper
     azd init --template aks-store-demo
     ```
 
@@ -182,7 +183,7 @@ You can use [Docker Compose][docker-compose] to automate building container imag
 
 ### Docker
 
-1. Create the container image, download the Redis image, and start the application using the `docker compose` command:
+1. Create the container image, download the RabbitMQ image, and start the application using the `docker compose` command:
 
     ```console
     docker compose -f docker-compose-quickstart.yml up -d
@@ -239,27 +240,25 @@ Since you validated the application's functionality, you can stop and remove the
     docker compose down
     ```
 
-
 ### [Azure Developer CLI](#tab/azure-azd)
 
-When you use AZD, there are no manual container image dependencies. AZD handles the provisioning, deployment, and cleans up of your applications and clusters with the `azd up` and `azd down` commands, similar to Docker.
+When you use `azd`, there are no manual container image dependencies. `azd` handles the provisioning, deployment, and clean up of your applications and clusters with the `azd up` and `azd down` commands, similar to Docker.
 
-You can customize the preparation steps to use either Terraform or Bicep before deploying the cluster.
+You can customize the preparation steps to use either Terraform or Bicep before deploying the cluster within the `infra` section of your `azure.yaml`. By default, this project uses Terraform:
 
-1. This is selected within your `azure.yaml` infra section. By default, this project uses terraform.
+```yml
+infra:
+  provider: terraform
+  path: infra/terraform
+```
 
-    ```yml
-    infra:
-      provider: terraform
-      path: infra/terraform
+If you want to change the provider to Bicep, update the `azure.yaml` file as follows:
 
-2. To select Bicep change the provider and path from terraform to bicep
-
-    ```yml
-    infra:
-      provider: bicep
-      path: infra/bicep
-    ```
+```yml
+infra:
+  provider: bicep
+  path: infra/bicep
+```
 
 ---
 ## Next steps
@@ -280,13 +279,13 @@ In the next tutorial, you learn how to store container images in an ACR.
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
-In this tutorial, you cloned a sample application using AZD. You learned how to:
+In this tutorial, you cloned a sample application using `azd`. You learned how to:
 
 > [!div class="checklist"]
-> * Clone a sample azd template from GitHub.
+> * Clone a sample `azd` template from GitHub.
 > * View where container images are used from the sample application source.
 
-In the next tutorial, you learn how to create a cluster using the azd template you cloned.
+In the next tutorial, you learn how to create a cluster using the `azd` template you cloned.
 
 > [!div class="nextstepaction"]
 > [Create an AKS Cluster][aks-tutorial-deploy-cluster]

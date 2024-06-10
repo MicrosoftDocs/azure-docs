@@ -35,6 +35,8 @@
         href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
       - name: Send push notifications to specific users
         href: push-notifications-android-specific-users-firebase-cloud-messaging.md
+      - name: Send push notifications using Firebase SDK version 0.6
+        href: notification-hubs-android-push-notification-google-fcm-get-started.md
       - name: Send push notifications to Xamarin Android apps 
         href: xamarin-notification-hubs-push-notifications-android-gcm.md
   - name: iOS
@@ -75,8 +77,8 @@
     href: uwp-react.md
 - name: Concepts
   items:
-  - name: High availability
-    href: notification-hubs-high-availability.md
+  - name: Availability zones and disaster recovery
+    href: ../reliability/reliability-notification-hubs.md?toc=/azure/reliability/toc.json
   - name: EU Data Boundary
     href: eu-data-boundary.md
   - name: Data encryption at rest
@@ -158,7 +160,9 @@
     href: notification-hubs-baidu-china-android-notifications-get-started.md
   - name: Use APNS VOIP through Notification Hubs
     href: voip-apns.md  
-  - name: Enable diagnostic logs for Notification Hubs
+  - name: Monitor
+    href: monitor-notification-hubs.md
+  - name: Enable diagnostic logs
     href: notification-hubs-diagnostic-logs.md
 - name: Reference
   items:  
@@ -172,6 +176,8 @@
     href: /rest/api/notificationhubs/
   - name: Resource Manager template
     href: /azure/templates/microsoft.notificationhubs/allversions
+  - name: Monitoring data reference
+    href: monitor-notification-hubs-reference.md
 - name: Resources
   items:
   - name: FAQ

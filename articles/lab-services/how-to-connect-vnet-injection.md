@@ -77,7 +77,7 @@ The network security group configuration for advanced networking consists of two
 1. Create a network security group that allows RDP/SSH traffic
 1. Associate the network security group with the virtual network subnet
 
-[!INCLUDE [nsg intro](../../includes/virtual-networks-create-nsg-intro-include.md)]
+[!INCLUDE [nsg intro](~/reusable-content/ce-skilling/azure/includes/virtual-networks-create-nsg-intro-include.md)]
 
 You can use an NSG to control traffic to one or more virtual machines (VMs), role instances, network adapters (NICs), or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances.
 

@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Configure multiple connections
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 You can configure multiple connections to a credential provider in your API Management instance. For example, if you configured Microsoft Entra ID as a credential provider, you might need to create multiple connections for different scenarios and users.
 
 In this article, you learn how to add a connection to an existing provider, using credential manager in the portal. For an overview of credential manager, see [About API credentials and credential manager](credentials-overview.md).

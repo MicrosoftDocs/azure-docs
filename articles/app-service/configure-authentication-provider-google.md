@@ -41,8 +41,8 @@ To complete the procedure in this topic, you must have a Google account that has
 
 1. Click **Add**.
 
-> [Note]
-    > For adding scope: You can define what permissions your application has in the provider's registration portal. The app can request scopes at login time which leverage these permissions.
+> [!NOTE]
+> For adding scope: You can define what permissions your application has in the provider's registration portal. The app can request scopes at login time which leverage these permissions.
 
 You are now ready to use Google for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 

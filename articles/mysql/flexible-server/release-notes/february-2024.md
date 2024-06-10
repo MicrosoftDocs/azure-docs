@@ -13,6 +13,9 @@ ms.topic: conceptual
 
 We're pleased to announce the February 2024 maintenance for Azure Database for MySQL Flexible Server. This maintenance mainly focuses on known issue fix, underlying OS upgrading and vulnerability patching.
 
+> [!NOTE]
+> During the preliminary stages of our February-March maintenance period, we identified a regression issue that necessitated a reevaluation of our scheduled maintenance activities. Consequently, all maintenance sessions originally planned for the period from March 2nd, 13:00 UTC, to March 14th, 00:00 UTC, have been canceled. We are currently in the process of rescheduling these maintenance activities. Affected customers will be promptly notified of the new maintenance timetable. We apologize for any inconvenience this may cause and thank you for your understanding and continued support.
+
 ## Engine version changes
  - All existing 5.7.42 engine version server will upgrade to 5.7.44 engine version.
  - All existing 8.0.34 engine version server will upgrade to 8.0.35 engine version.

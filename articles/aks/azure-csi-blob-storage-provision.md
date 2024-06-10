@@ -1,10 +1,13 @@
 ---
 title: Create a persistent volume with Azure Blob storage in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
-description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
+description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS).
+author: tamram
+
+ms.author: tamram
 ms.topic: article
-ms.custom: linux-related-content
-ms.date: 01/18/2024
+ms.subservice: aks-storage
+ms.date: 04/22/2024
 ---
 
 # Create and use a volume with Azure Blob storage in Azure Kubernetes Service (AKS)
@@ -35,9 +38,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 This section provides guidance for cluster administrators who want to provision one or more persistent volumes that include details of Blob storage for use by a workload. A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Blob storage container.
 
-### Storage class parameters for dynamic PersistentVolumes
+### Storage class parameters for dynamic persistent volumes
 
-The following table includes parameters you can use to define a custom storage class for your PersistentVolumeClaim.
+The following table includes parameters you can use to define a custom storage class for your persistent volume claim.
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | --- |
@@ -162,7 +165,7 @@ The following YAML creates a pod that uses the persistent volume claim **azure-b
 
 ### Create a custom storage class
 
-The default storage classes suit the most common scenarios, but not all. For some cases, you might want to have your own storage class customized with your own parameters. To demonstrate, two examples are shown. One based on using the NFS protocol, and the other using blobfuse.
+The default storage classes suit the most common scenarios, but not all. In some cases you might want to have your own storage class customized with your own parameters. In this section, we provide two examples. The first one uses the NFS protocol, and the second one uses blobfuse.
 
 #### Storage class using NFS protocol
 
@@ -242,9 +245,9 @@ In this example, the following manifest configures using blobfuse and mounts a B
 
 This section provides guidance for cluster administrators who want to create one or more persistent volumes that include details of Blob storage for use by a workload.
 
-### Static provisioning parameters for PersistentVolume
+### Static provisioning parameters for persistent volumes
 
-The following table includes parameters you can use to define a PersistentVolume.
+The following table includes parameters you can use to define a persistent volume.
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
@@ -341,7 +344,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
     ```
 
    > [!NOTE]
-   > While the [Kubernetes API](https://github.com/kubernetes/kubernetes/blob/release-1.26/pkg/apis/core/types.go#L303-L306) **capacity** attribute is mandatory, this value isn't used by the Azure Blob storage CSI driver because you can flexibly write data until you reach your storage account's capacity limit. The value of the `capacity` attribute is used only for size matching between *PersistentVolumes* and *PersistenVolumeClaims*. We recommend using a fictitious high value. The pod sees a mounted volume with a fictitious size of 5 Petabytes.
+   > While the [Kubernetes API](https://github.com/kubernetes/kubernetes/blob/release-1.26/pkg/apis/core/types.go#L303-L306) **capacity** attribute is mandatory, this value isn't used by the Azure Blob storage CSI driver because you can flexibly write data until you reach your storage account's capacity limit. The value of the `capacity` attribute is used only for size matching between *PersistentVolumes* and *PersistentVolumeClaims*. We recommend using a fictitious high value. The pod sees a mounted volume with a fictitious size of 5 Petabytes.
 
 2. Run the following command to create the persistent volume using the [kubectl create][kubectl-create] command referencing the YAML file created earlier:
 
@@ -532,6 +535,7 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [azure-blob-storage-csi]: azure-blob-csi.md
 [azure-blob-storage-nfs-support]: ../storage/blobs/network-file-system-protocol-support.md
 [enable-blob-csi-driver]: azure-blob-csi.md#before-you-begin
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [az-tags]: ../azure-resource-manager/management/tag-resources.md
 [sas-tokens]: ../storage/common/storage-sas-overview.md
 [azure-datalake-storage-account]: ../storage/blobs/upgrade-to-data-lake-storage-gen2-how-to.md

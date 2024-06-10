@@ -4,7 +4,7 @@ description: Learn about Azure ExpressRoute monitoring, metrics, and alerts usin
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 03/31/2024
 ms.author: duau
 ---
 
@@ -12,15 +12,15 @@ ms.author: duau
 
 This article helps you understand ExpressRoute monitoring, metrics, and alerts using Azure Monitor. Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure.
  
->[!NOTE]
->Using **Classic Metrics** is not recommended.
+> [!NOTE]
+> Using **Classic Metrics** is not recommended.
 >
 
 ## ExpressRoute metrics
 
 To view **Metrics**, go to the *Azure Monitor* page and select *Metrics*. To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
 
-Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
+Once a metric is selected, the default aggregation is applied. Optionally, you can apply splitting, which shows the metric with different dimensions.
 
 > [!IMPORTANT]
 > When viewing ExpressRoute metrics in the Azure portal, select a time granularity of **5 minutes or greater** for best possible results.
@@ -29,7 +29,7 @@ Once a metric is selected, the default aggregation will be applied. Optionally, 
 
 ### Aggregation Types:
 
-Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metric.
+Metrics explorer supports sum, maximum, minimum, average and count as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metric.
 
 * Sum: The sum of all values captured during the aggregation interval. 
 * Count: The number of measurements captured during the aggregation interval. 
@@ -41,8 +41,8 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 
 | Metric | Category | Unit | Aggregation Type | Description | Dimensions |  Exportable via Diagnostic Settings? | 
 | --- | --- | --- | --- | --- | --- | --- | 
-| [Arp Availability](#arp) | Availability | Percent | Average | ARP Availability from MSEE towards all peers. | Peering Type, Peer |  Yes | 
-| [Bgp Availability](#bgp) | Availability | Percent | Average | BGP Availability from MSEE towards all peers. | Peering Type, Peer |  Yes | 
+| [ARP Availability](#arp) | Availability | Percent | Average | ARP Availability from MSEE towards all peers. | Peering Type, Peer |  Yes | 
+| [BGP Availability](#bgp) | Availability | Percent | Average | BGP Availability from MSEE towards all peers. | Peering Type, Peer |  Yes | 
 | [BitsInPerSecond](#circuitbandwidth) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | Peering Type | Yes | 
 | [BitsOutPerSecond](#circuitbandwidth) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | Peering Type | Yes | 
 | DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | Peering Type | Yes | 
@@ -174,7 +174,7 @@ You can also view the bits out per second across both links of the ExpressRoute 
 
 Aggregation type: *Avg*
 
-You can view the line protocol across each link of the ExpressRoute Direct port pair. The Line Protocol indicates if the physical link is up and running over ExpressRoute Direct. Monitor this dashboard and set alerts to know when the physical connection has gone down.
+You can view the line protocol across each link of the ExpressRoute Direct port pair. The Line Protocol indicates if the physical link is up and running over ExpressRoute Direct. Monitor this dashboard and set alerts to know when the physical connection goes down.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="ER Direct line protocol":::
 
@@ -228,7 +228,7 @@ When you deploy an ExpressRoute gateway, Azure manages the compute and functions
 * Active flows
 * Max flows created per second
 
-It's highly recommended you set alerts for each of these metrics so that you're aware of when your gateway could be seeing performance issues.
+We highly recommended you set alerts for each of these metrics so that you're aware of when your gateway could be seeing performance issues.
 
 ### <a name = "gwbits"></a>Bits received per second - Split by instance
 
@@ -242,7 +242,7 @@ This metric captures inbound bandwidth utilization on the ExpressRoute virtual n
 
 Aggregation type: *Avg*
 
-You can view the CPU utilization of each gateway instance. The CPU utilization may spike briefly during routine host maintenance but prolong high CPU utilization could indicate your gateway is reaching a performance bottleneck. Increasing the size of the ExpressRoute gateway may resolve this issue. Set an alert for how frequent the CPU utilization exceeds a certain threshold.
+You can view the CPU utilization of each gateway instance. The CPU utilization might spike briefly during routine host maintenance but prolong high CPU utilization could indicate your gateway is reaching a performance bottleneck. Increasing the size of the ExpressRoute gateway might resolve this issue. Set an alert for how frequent the CPU utilization exceeds a certain threshold.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="Screenshot of CPU utilization - split metrics.":::
 
@@ -258,7 +258,7 @@ This metric captures the number of inbound packets traversing the ExpressRoute g
 
 Aggregation type: *Max*
 
-This metric shows the number of routes the ExpressRoute gateway is advertising to the circuit. The address spaces may include virtual networks that are connected using VNet peering and uses remote ExpressRoute gateway. You should expect the number of routes to remain consistent unless there are frequent changes to the virtual network address spaces. Set an alert for when the number of advertised routes drop below the threshold for the number of virtual network address spaces you're aware of.
+This metric shows the number of routes the ExpressRoute gateway is advertising to the circuit. The address spaces might include virtual networks that are connected using virtual network peering and uses remote ExpressRoute gateway. You should expect the number of routes to remain consistent unless there are frequent changes to the virtual network address spaces. Set an alert for when the number of advertised routes drop below the threshold for the number of virtual network address spaces you're aware of.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Screenshot of count of routes advertised to peer.":::
 
@@ -266,7 +266,7 @@ This metric shows the number of routes the ExpressRoute gateway is advertising t
 
 Aggregation type: *Max*
 
-This metric shows the number of routes the ExpressRoute gateway is learning from peers connected to the ExpressRoute circuit. These routes can be either from another virtual network connected to the same circuit or learned from on-premises. Set an alert for when the number of learned routes drop below a certain threshold. This could indicate either the gateway is seeing a performance problem or remote peers are no longer advertising routes to the ExpressRoute circuit. 
+This metric shows the number of routes the ExpressRoute gateway is learning from peers connected to the ExpressRoute circuit. These routes can be either from another virtual network connected to the same circuit or learned from on-premises. Set an alert for when the number of learned routes drop below a certain threshold. This metric can indicate either the gateway is seeing a performance problem or remote peers are no longer advertising routes to the ExpressRoute circuit. 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Screenshot of count of routes learned from peer.":::
 
@@ -274,7 +274,7 @@ This metric shows the number of routes the ExpressRoute gateway is learning from
 
 Aggregation type: *Sum*
 
-This metric shows the frequency of routes being learned from or advertised to remote peers. You should first investigate your on-premises devices to understand why the network is changing so frequently. A high frequency in routes change could indicate a performance problem on the ExpressRoute gateway where scaling the gateway SKU up may resolve the problem. Set an alert for a frequency threshold to be aware of when your ExpressRoute gateway is seeing abnormal route changes.
+This metric shows the frequency of routes being learned from or advertised to remote peers. You should first investigate your on-premises devices to understand why the network is changing so frequently. A high frequency in routes change could indicate a performance problem on the ExpressRoute gateway where scaling the gateway SKU up might resolve the problem. Set an alert for a frequency threshold to be aware of when your ExpressRoute gateway is seeing abnormal route changes.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="Screenshot of frequency of routes changed metric.":::
 
@@ -282,7 +282,7 @@ This metric shows the frequency of routes being learned from or advertised to re
 
 Aggregation type: *Max*
 
-This metric shows the number of virtual machines that are using the ExpressRoute gateway. The number of virtual machines may include VMs from peered virtual networks that use the same ExpressRoute gateway. Set an alert for this metric if the number of VMs goes above a certain threshold that could affect the gateway performance. 
+This metric shows the number of virtual machines that are using the ExpressRoute gateway. The number of virtual machines might include VMs from peered virtual networks that use the same ExpressRoute gateway. Set an alert for this metric if the number of VMs goes above a certain threshold that could affect the gateway performance. 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Screenshot of number of virtual machines in the virtual network metric.":::
 
@@ -307,7 +307,7 @@ Aggregation type: *Max*
 
 Split by: Gateway Instance and Direction (Inbound/Outbound)
 
-This metric display maximum number of flows created per second on the ExpressRoute Gateway. Through split at instance level and direction, you can see max flow creation rate per gateway instance and inbound/outbound direction respectively. For more information, see [understand network flow limits](../virtual-network/virtual-machine-network-throughput.md#network-flow-limits).
+This metric displays the maximum number of flows created per second on the ExpressRoute Gateway. Through split at instance level and direction, you can see max flow creation rate per gateway instance and inbound/outbound direction respectively. For more information, see [understand network flow limits](../virtual-network/virtual-machine-network-throughput.md#network-flow-limits).
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/max-flows-per-second.png" alt-text="Screenshot of the maximum number of flows created per second metrics dashboard.":::
 
@@ -327,7 +327,7 @@ Aggregation type: *Avg* (of percentage of total utilized CPU)
 
 *Granularity: 5 min*  
 
-You can view the CPU utilization of each ExpressRoute Traffic Collector instance. The CPU utilization may spike briefly during routine host maintenance, but prolonged high CPU utilization could indicate your ExpressRoute Traffic Collector is reaching a performance bottleneck.  
+You can view the CPU utilization of each ExpressRoute Traffic Collector instance. The CPU utilization might spike briefly during routine host maintenance, but prolonged high CPU utilization could indicate your ExpressRoute Traffic Collector is reaching a performance bottleneck.  
 
 **Guidance:** Set an alert for when avg CPU utilization exceeds a certain threshold.
 
@@ -339,7 +339,7 @@ Aggregation type: *Avg* (of percentage of total utilized Memory)
 
 *Granularity: 5 min*
 
-You can view the memory utilization of each ExpressRoute Traffic Collector instance. Memory utilization may spike briefly during routine host maintenance, but prolonged high memory utilization could indicate your Azure Traffic Collector is reaching a performance bottleneck.  
+You can view the memory utilization of each ExpressRoute Traffic Collector instance. Memory utilization might spike briefly during routine host maintenance, but prolonged high memory utilization could indicate your Azure Traffic Collector is reaching a performance bottleneck.  
 
 **Guidance:** Set an alert for when avg memory utilization exceeds a certain threshold.  
 
@@ -351,9 +351,9 @@ Aggregation type: *Count*
 
 *Granularity: 5 min*  
 
-You can view the count of number of flow records processed by ExpressRoute Traffic Collector, aggregated across ExpressRoute Circuits. Customer can split the metrics across each ExpressRoute Traffic Collector instance or ExpressRoute circuit when multiple circuits are associated to the ExpressRoute Traffic Collector. Monitoring this metric will help you understand if you need to deploy more ExpressRoute Traffic Collector instances or migrate ExpressRoute circuit association from one ExpressRoute Traffic Collector deployment to another.  
+You can view the count of number of flow records processed by ExpressRoute Traffic Collector, aggregated across ExpressRoute Circuits. Customer can split the metrics across each ExpressRoute Traffic Collector instance or ExpressRoute circuit when multiple circuits are associated to the ExpressRoute Traffic Collector. Monitoring this metric helps you understand if you need to deploy more ExpressRoute Traffic Collector instances or migrate ExpressRoute circuit association from one ExpressRoute Traffic Collector deployment to another.  
 
-**Guidance:** Splitting by circuits is recommended when multiple ExpressRoute circuits are associated with an ExpressRoute Traffic Collector deployment. This will help determine the flow count of each ExpressRoute circuit and ExpressRoute Traffic Collector utilization by each ExpressRoute circuit. 
+**Guidance:** Splitting by circuits is recommended when multiple ExpressRoute circuits are associated with an ExpressRoute Traffic Collector deployment. This metric helps determine the flow count of each ExpressRoute circuit and ExpressRoute Traffic Collector utilization by each ExpressRoute circuit. 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/flow-records.png" alt-text="Screenshot of average flow records for an ExpressRoute circuit." lightbox="./media/expressroute-monitoring-metrics-alerts/flow-records.png":::
 
@@ -367,11 +367,11 @@ You can view the count of number of flow records processed by ExpressRoute Traff
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/select-expressroute-gateway.png" alt-text="Screenshot of the selecting ExpressRoute virtual network gateway from the select a resource page.":::
 
-1. On the *Select a signal* page, select a metric, resource health, or activity log that you want to be alerted. Depending on the signal you select, you may need to enter additional information such as a threshold value. You may also combine multiple signals into a single alert. Select **Next: Actions >** to define who and how they get notify.
+1. On the *Select a signal* page, select a metric, resource health, or activity log that you want to be alerted. Depending on the signal you select, you might need to enter additional information such as a threshold value. You can also combine multiple signals into a single alert. Select **Next: Actions >** to define who and how they get notify.
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/signal.png" alt-text="Screenshot of list of signals that can be alerted for ExpressRoute gateways.":::
 
-1. Select **+ Select action groups** to choose an existing action group you previously created or select **+ Create action group** to define a new one. In the action group, you determine how notifications get sent and who will receive them.
+1. Select **+ Select action groups** to choose an existing action group you previously created or select **+ Create action group** to define a new one. In the action group, you determine how notifications get sent and who receives them.
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/action-group.png" alt-text="Screenshot of add action groups page.":::
 
@@ -379,9 +379,9 @@ You can view the count of number of flow records processed by ExpressRoute Traff
 
 ### Alerts based on each peering
 
-After you select a metric, certain metrics allow you to set up dimensions based on peering or a specific peer (virtual networks).
+After you select a metric, certain metric allow you to set up dimensions based on peering or a specific peer (virtual networks).
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerts-peering-dimensions.png" alt-text="Screenshot of an alert rule based on ExpressRoute peering set up.":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerts-peering-dimensions.png" alt-text="Screenshot of an alert rule based on ExpressRoute peering setup.":::
 
 ### Configure alerts for activity logs on circuits
 
@@ -391,12 +391,12 @@ When selecting signals to be alerted on, you can select **Activity Log** signal 
 
 ## More metrics in Log Analytics
 
-You can also view ExpressRoute metrics by going to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output will contain the columns below.
+You can also view ExpressRoute metrics by going to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output contains the following columns.
 
 | **Column** | **Type** | **Description** | 
 |  ---  |  ---  |  ---  | 
 | TimeGrain | string | PT1M (metric values are pushed every minute) | 
-| Count | real | Usually equal to 2 (each MSEE pushes a single metric value every minute) | 
+| Count | real | Usually is 2 (each MSEE pushes a single metric value every minute) | 
 | Minimum | real | The minimum of the two metric values pushed by the two MSEEs | 
 | Maximum | real | The maximum of the two metric values pushed by the two MSEEs | 
 | Average | real | Equal to (Minimum + Maximum)/2 | 
@@ -408,4 +408,4 @@ Set up your ExpressRoute connection.
   
 * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
 * [Create and modify peering configuration](expressroute-howto-routing-arm.md)
-* [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
+* [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)

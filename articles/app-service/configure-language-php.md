@@ -5,11 +5,10 @@ description: Learn how to configure a PHP app in a pre-built PHP container, in A
 ms.devlang: php
 ms.topic: article
 ms.date: 08/31/2023 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
 ms.author: msangapu
 author: msangapu-msft
-
 ---
 
 # Configure a PHP app for Azure App Service

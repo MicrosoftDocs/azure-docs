@@ -24,9 +24,6 @@ To get started, make sure you have the following prerequisites:
 - **Azure subscription:** [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 - **Speech resource:** <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Create a speech resource</a> in the Azure portal. Select "Standard S0" pricing tier if you want to create speech resource to access avatar. 
 - **Your speech resource key and region:** After your Speech resource is deployed, select **Go to resource** to view and manage keys. For more information about Azure AI services resources, see [Get the keys for your resource](/azure/ai-services/multi-service-resource?pivots=azportal&tabs=windows#get-the-keys-for-your-resource).
-- If you build an application of real time avatar: 
-   - **Communication resource:** Create a [Communication resource](https://portal.azure.com/#create/Microsoft.Communication) in the Azure portal (for real-time avatar synthesis only).
-   - You also need your network relay token for real-time avatar synthesis. After deploying your Communication resource, select **Go to resource** to view the endpoint and connection string under **Settings** -> **Keys** tab, and then follow [Access TURN relays](/azure/communication-services/quickstarts/relay-token) to generate the relay token with the endpoint and connection string filled.
 
 ## Set up environment
 
@@ -55,7 +52,7 @@ Specify the language or voice of `SpeechConfig` to match your input text and use
 const speechConfig = SpeechSDK.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
 // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
 speechConfig.speechSynthesisLanguage = "en-US";
-speechConfig.speechSynthesisVoiceName = "en-US-JennyNeural";   
+speechConfig.speechSynthesisVoiceName = "en-US-AvaMultilingualNeural";   
 ```
 
 All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech," and you select es-ES-ElviraNeural, the text is spoken in English with a Spanish accent.
@@ -85,9 +82,18 @@ const avatarConfig = new SpeechSDK.AvatarConfig(
 
 Real-time avatar uses WebRTC protocol to output the avatar video stream. You need to set up the connection with the avatar service through WebRTC peer connection.
 
-First, you need to create a WebRTC peer connection object. WebRTC is a P2P protocol, which relies on ICE server for network relay. Azure provides [Communication Services](../../../communication-services/overview.md), which can provide network relay function. Therefore, we recommend you fetch the ICE server from the Azure Communication resource, which is mentioned in the [prerequisites section](#prerequisites). You can also choose to use your own ICE server.
+First, you need to create a WebRTC peer connection object. WebRTC is a P2P protocol, which relies on ICE server for network relay. Speech service provides network relay function and exposes a REST API to issue the ICE server information. Therefore, we recommend you fetch the ICE server from the speech service. You can also choose to use your own ICE server.
 
-The following code snippet shows how to create the WebRTC peer connection. The ICE server URL, ICE server username, and ICE server credential can all be fetched from the network relay token you prepared in the [prerequisites section](#prerequisites) or from the configuration of your own ICE server.
+Here is a sample request to fetch ICE information from the speech service endpoint:
+
+```HTTP
+GET /cognitiveservices/avatar/relay/token/v1 HTTP/1.1
+
+Host: westus2.tts.speech.microsoft.com
+Ocp-Apim-Subscription-Key: YOUR_RESOURCE_KEY
+```
+
+The following code snippet shows how to create the WebRTC peer connection. The ICE server URL, ICE server username, and ICE server credential can all be fetched from the payload of above HTTP request.
 
 ```JavaScript
 // Create WebRTC peer connection
@@ -143,6 +149,8 @@ avatarSynthesizer.startAvatarAsync(peerConnection).then(
     (error) => { console.log("Avatar failed to start. Error: " + error) }
 );
 ```
+
+Our real-time API disconnects after 5 minutes of avatar's idle state. Even if the avatar is not idle and functioning normally, the real-time API will disconnect after a 10-minute connection. To ensure continuous operation of the real-time avatar for more than 10 minutes, you can enable auto-reconnect. For how to set up auto-reconnect, refer to this [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/browser/avatar/README.md) (search "auto reconnect").
 
 ## Synthesize talking avatar video from text input
 

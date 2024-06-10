@@ -262,8 +262,8 @@ var jobPrepTaskConfig = {id:"installprereq",commandLine:"sudo sh startup_prereq.
 
 If there are no prerequisites to be installed for your tasks to run, you can skip the preparation tasks. Following code creates a job with display name "process csv files."
 
- ```javascript
- // Setting Batch Pool ID
+```javascript
+// Setting Batch Pool ID
 const poolInfo = { poolId: poolId };
 // Batch job configuration object
 const jobId = "processcsvjob";
@@ -273,13 +273,14 @@ const jobConfig = {
     jobPreparationTask: jobPrepTaskConfig,
     poolInfo: poolInfo
 };
- // Adding Azure batch job to the pool
- const job = batchClient.job.add(jobConfig, function (error, result) {
+// Adding Azure batch job to the pool
+const job = batchClient.job.add(jobConfig, function (error, result) {
         if (error !== null) {
             console.log("An error occurred while creating the job...");
             console.log(error.response);
         }
-    });
+    }
+);
 ```
 
 ### Step 5: Submit Azure Batch tasks for a job

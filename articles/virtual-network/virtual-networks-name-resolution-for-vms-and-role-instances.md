@@ -5,7 +5,7 @@ description: Name resolution scenarios for Azure IaaS, hybrid solutions, between
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 04/02/2024
 ms.author: allensu
 ms.custom: fasttrack-edit, linux-related-content
 ---
@@ -13,7 +13,7 @@ ms.custom: fasttrack-edit, linux-related-content
 # Name resolution for resources in Azure virtual networks
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Azure can be used to host IaaS, PaaS, and hybrid solutions. In order to facilitate communication between the virtual machines (VMs) and other resources deployed in a virtual network, it may be necessary to allow them to communicate with each other. The use of easily remembered and unchanging names simplifies the communication process, rather than relying on IP addresses.
 
@@ -338,11 +338,7 @@ If you provide your own DNS solution, it needs to:
 
 Suppose you need to perform name resolution from your web app built by using App Service, linked to a virtual network, to VMs in the same virtual network. In addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), perform the following steps:
 
-1. Enable virtual network integration for your web app, if not done already, as described in [Integrate your app with a virtual network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-1. In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**.
-
-    ![Screenshot of virtual network name resolution](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
+Enable virtual network integration for your web app, if not done already, as described in [Integrate your app with a virtual network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 If you need to perform name resolution from your vnet-linked web app (built by using App Service) to VMs in a different vnet that is **not linked** to the same private zone, use custom DNS servers or [Azure DNS Private Resolvers](../dns/dns-private-resolver-overview.md) on both vnets.
 
@@ -356,8 +352,6 @@ To use custom DNS servers:
 
 * Enable virtual network integration for your web app to link to the source virtual network, following the instructions in [Integrate your app with a virtual network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-* In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**.
-
 To use an Azure DNS Private Resolver, see [Ruleset links](../dns/private-resolver-endpoints-rulesets.md#ruleset-links).
 
 ## Specify DNS servers
@@ -367,7 +361,7 @@ When you're using your own DNS servers, Azure enables you to specify multiple DN
 > [!NOTE]
 > Network connection properties, such as DNS server IPs, should not be edited directly within VMs. This is because they might get erased during service heal when the virtual network adaptor gets replaced. This applies to both Windows and Linux VMs.
 
-When you're using the Azure Resource Manager deployment model, you can specify DNS servers for a virtual network and a network interface. For details, see [Manage a virtual network](manage-virtual-network.md) and [Manage a network interface](virtual-network-network-interface.md).
+When you're using the Azure Resource Manager deployment model, you can specify DNS servers for a virtual network and a network interface. For details, see [Manage a virtual network](manage-virtual-network.yml) and [Manage a network interface](virtual-network-network-interface.md).
 
 > [!NOTE]
 > If you opt for custom DNS server for your virtual network, you must specify at least one DNS server IP address; otherwise, virtual network will ignore the configuration and use Azure-provided DNS instead.
@@ -379,6 +373,6 @@ When you're using the Azure Resource Manager deployment model, you can specify D
 
 Azure Resource Manager deployment model:
 
-* [Manage a virtual network](manage-virtual-network.md)
+* [Manage a virtual network](manage-virtual-network.yml)
 
 * [Manage a network interface](virtual-network-network-interface.md)

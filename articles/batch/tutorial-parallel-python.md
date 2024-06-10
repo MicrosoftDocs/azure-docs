@@ -4,7 +4,7 @@ description: Learn how to process media files in parallel using ffmpeg in Azure 
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/01/2024
-ms.custom: mvc, devx-track-python, linux-related-content
+ms.custom: mvc, devx-track-python
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the Python API
@@ -21,7 +21,7 @@ Use Azure Batch to run large-scale parallel and high-performance computing (HPC)
 
 In this tutorial, you convert MP4 media files to MP3 format, in parallel, by using the [ffmpeg](https://ffmpeg.org/) open-source tool.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

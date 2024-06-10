@@ -4,6 +4,7 @@ description: Learn how to deploy an application that uses OpenAI on Azure Kubern
 ms.topic: how-to
 ms.date: 10/02/2023
 ms.custom: template-how-to, devx-track-azurecli 
+ms.subservice: aks-developer
 ---
 
 # Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS)
@@ -31,7 +32,7 @@ To access the GitHub codebase for the sample application, see [AKS Store Demo][a
   - If you plan on using Azure OpenAI service, you need to request access to enable it on your Azure subscription using the [Request access to Azure OpenAI Service form][aoai-access].
   - If you plan on using OpenAI, sign up on the [OpenAI website][open-ai-landing].
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -228,8 +229,8 @@ Now that the application is deployed, you can deploy the Python-based microservi
                 cpu: 20m
                 memory: 50Mi
               limits:
-                cpu: 30m
-                memory: 85Mi
+                cpu: 50m
+                memory: 128Mi
     ---
     apiVersion: v1
     kind: Service
@@ -283,7 +284,7 @@ Now that the application is deployed, you can deploy the Python-based microservi
           nodeSelector:
             "kubernetes.io/os": linux
           containers:
-          - name: order-service
+          - name: ai-service
             image: ghcr.io/azure-samples/aks-store-demo/ai-service:latest
             ports:
             - containerPort: 5001
@@ -297,10 +298,10 @@ Now that the application is deployed, you can deploy the Python-based microservi
             resources:
               requests:
                 cpu: 20m
-                memory: 46Mi
+                memory: 50Mi
               limits:
-                cpu: 30m
-                memory: 65Mi
+                cpu: 50m
+                memory: 128Mi
     ---
     apiVersion: v1
     kind: Service

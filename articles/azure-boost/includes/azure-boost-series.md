@@ -17,7 +17,7 @@ ms.custom:
 | Easv6                                                          | Memory Optimized               | Preview        |
 | [DCesv5](../../virtual-machines/dcesv5-dcedsv5-series.md)                                                         | General Purpose                | Preview        |
 | [ECesv5](../../virtual-machines/ecesv5-ecedsv5-series.md)                                                          | Memory Optimized               | Preview        |
-| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| High Memory to CPU Optimized | Preview  |
+| [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| High Memory to CPU Optimized | Production  |
 | Falsv6/Famsv6                                                  | Compute Optimized              | Preview    |
 | [Dlsv5](../../virtual-machines/dlsv5-dldsv5-series.md)         | General Purpose                | Production |
 | [Dsv5](../../virtual-machines/dv5-dsv5-series.md)              | General Purpose                | Production |

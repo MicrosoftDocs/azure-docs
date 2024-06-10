@@ -5,13 +5,13 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual 
-ms.date: 03/22/2023
+ms.date: 03/22/2024
 ---
 # Virtual network enforcement with security admin rules in Azure Virtual Network Manager
 
 In this article, you'll learn how [security admins rules](concept-security-admins.md) provide flexible and scalable enforcement of security policies over tools like [network security groups](../virtual-network/network-security-groups-overview.md). First, you learn the different models of virtual network enforcement. Then, you learn the general steps for enforcing security with security admin rules.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
+ 
 
 ## Virtual network enforcement 
 

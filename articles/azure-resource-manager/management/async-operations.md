@@ -2,8 +2,9 @@
 title: Status of asynchronous operations
 description: Describes how to track asynchronous operations in Azure. It shows the values you use to get the status of a long-running operation.
 ms.topic: conceptual
-ms.date: 01/04/2024
+ms.date: 03/19/2024
 ---
+
 # Track asynchronous Azure operations
 
 Some Azure REST operations run asynchronously because the operation can't be completed quickly. This article describes how to track the status of asynchronous operations through values returned in the response.  

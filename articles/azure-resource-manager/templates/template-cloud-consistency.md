@@ -3,14 +3,14 @@ title: Reuse templates across clouds
 description: Develop Azure Resource Manager templates (ARM templates) that work consistently for different cloud environments. Create new or update existing templates for Azure Stack.
 author: marcvaneijk
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 03/20/2024
 ms.author: mavane
 ms.custom: devx-track-arm-template, devx-track-azurecli
 ---
 
 # Develop ARM templates for cloud consistency
 
-[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](~/reusable-content/ce-skilling/azure/includes/requires-azurerm.md)]
 
 A key benefit of Azure is consistency. Development investments for one location are reusable in another. An Azure Resource Manager template (ARM template) makes your deployments consistent and repeatable across environments, including the global Azure, Azure sovereign clouds, and Azure Stack. To reuse templates across clouds, however, you need to consider cloud-specific dependencies as this guide explains.
 

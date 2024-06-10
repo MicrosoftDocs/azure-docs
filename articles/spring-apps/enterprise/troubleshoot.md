@@ -4,7 +4,7 @@ description: Troubleshooting guide for Azure Spring Apps
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: troubleshooting
-ms.date: 09/08/2020
+ms.date: 04/23/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -22,7 +22,7 @@ This article provides instructions for troubleshooting Azure Spring Apps develop
 
 ### My application can't start
 
-When your application can't start, you may find that its endpoint can't be connected or it returns a 502 after a few retries.
+When your application can't start, you might find that its endpoint can't be connected or it returns a 502 after a few retries.
 
 For troubleshooting, export the logs to Azure Log Analytics. The table for Spring application logs is named *AppPlatformLogsforSpring*. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
@@ -148,7 +148,7 @@ If the polling is interrupted, you can still use the following command to fetch 
 az spring app show-deploy-log --name <app-name>
 ```
 
-Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you receive an error message similar to the following example: `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
+Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you receive an error message similar to the following example: `Error: Invalid or corrupt jarfile /jar/11111111-1111-1111-1111-111111111111`.
 
 ### I can't deploy a source package
 
@@ -183,7 +183,7 @@ Environment variables inform the Azure Spring Apps framework, ensuring that Azur
 > [!WARNING]
 > This procedure exposes your environment variables by using your test endpoint. Do not proceed if your test endpoint is publicly accessible or if you've assigned a domain name to your application.
 
-1. Go to `https://<your-application-test-endpoint>/actuator/health`. To find the test endpoint, see the [Verify app through test endpoint](concept-manage-monitor-app-spring-boot-actuator.md#verify-app-through-test-endpoint) section of [Manage and monitor app with Spring Boot Actuator](concept-manage-monitor-app-spring-boot-actuator.md).
+1. Go to `https://<your-application-test-endpoint>/actuator/health`.
 
    A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled. If the response is negative, include the following dependency in your *POM.xml* file:
 
@@ -270,13 +270,13 @@ Creating an Azure Spring Apps Enterprise plan instance fails with error code "11
 
 ### No plans are available for market '\<Location>'
 
-When you visit the SaaS offer [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) in the Azure Marketplace, it may say "No plans are available for market '\<Location>'" as in the following image.
+When you visit the SaaS offer [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) in the Azure Marketplace, it might say "No plans are available for market '\<Location>'" as in the following image.
 
-![No plans available error image](./media/troubleshoot/no-enterprise-plans-available.png)
+:::image type="content" source="./media/troubleshoot/no-enterprise-plans-available.png" alt-text="Screenshot of the Azure portal that shows the No plans are available for market error message." lightbox="./media/troubleshoot/no-enterprise-plans-available.png":::
 
 The Azure Spring Apps Enterprise plan needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
 
-[Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
+[Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See the [Supported geographic locations](/partner-center/marketplace/marketplace-geo-availability-currencies#supported-geographic-locations) section of [Geographic availability and currency support for the commercial marketplace](/partner-center/marketplace/marketplace-geo-availability-currencies).
 
 You can view the billing account for your subscription if you have admin access. See [view billing accounts](../../cost-management-billing/manage/view-all-accounts.md#check-the-type-of-your-account).
 

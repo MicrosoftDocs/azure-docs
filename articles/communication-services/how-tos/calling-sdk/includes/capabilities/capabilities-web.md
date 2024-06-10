@@ -75,3 +75,4 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
 - *stopLiveCaptions*: Ability to stop live captions (beta only)
 - *raiseHand*: Ability to raise hand (beta only)
 - *reaction*: Ability to react in the meeting (beta only)
+- *viewAttendeeNames*: Ability to view attendee names in the meeting

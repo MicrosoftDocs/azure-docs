@@ -1,8 +1,8 @@
 ---
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
-ms.topic: conceptual
-ms.date: 03/04/2024
+ms.topic: how-to
+ms.date: 04/17/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -115,6 +115,7 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
   - Closing square brackets (])
   - Semicolon (;)
   - Forward slash (/)
+  - Percentage (%)
 
 - SQL Backup configuration doesn't support the single quotation in the database name and causes deployment failure. If there is any database with single quote, we recommend that you rename the database or take the native backup approach.
 - Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
@@ -124,7 +125,7 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
 -	Changing the casing of an SQL database isn't supported after configuring protection.
 
 >[!NOTE]
->The **Configure Protection** operation for databases with special characters, such as '+' or '&', in their name isn't supported. You can change the database name or enable **Auto Protection**, which can successfully protect these databases.
+>The **Configure Protection** operation for databases with special characters, such as `{`, `'}`, `[`, `]`, `,`, `=`, `-`, `(`, `)`, `.`, `+`, `&`, `;`, `'`, or `/`, in their name isn't supported. You can change the database name or enable **Auto Protection**, which can successfully protect these databases.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

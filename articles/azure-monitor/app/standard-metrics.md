@@ -9,7 +9,7 @@ ms.reviewer: vitalyg
 
 # Application Insights standard metrics
 
-Standard metrics are pre-aggregated during collection, they have better performance at query time. This makes them the best choice for dashboards and real-time alerting.
+Standard metrics are pre-aggregated during collection, which gives them better performance at query time. This makes them the best choice for dashboards and real-time alerting.
 
 [!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 

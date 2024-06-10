@@ -125,7 +125,6 @@ You can use the data export and rules capabilities in IoT Central to integrate w
 - [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 - [Transform data for IoT Central](howto-transform-data.md)
 - [Use workflows to integrate your Azure IoT Central application with other cloud services](howto-configure-rules-advanced.md)
-- [Extend Azure IoT Central with custom analytics using Azure Databricks](howto-create-custom-analytics.md)
 
 ## Integrate with companion applications
 
@@ -138,8 +137,8 @@ You use *data plane* REST APIs to access the entities in and the capabilities of
 
 To learn more, see [Tutorial: Use the REST API to manage an Azure IoT Central application](tutorial-use-rest-api.md).
 
-You use the *control plane* to manage IoT Central-related resources in your Azure subscription. You can use the REST API, the Azure CLI, or Resource Manager templates for control plane operations. For example, you can use the Azure CLI to create an IoT Central application. To learn more, see [Manage IoT Central from Azure CLI](howto-manage-iot-central-from-cli.md).
+You use the *control plane* to manage IoT Central-related resources in your Azure subscription. You can use the REST API, the Azure CLI, or Resource Manager templates for control plane operations. For example, you can use the Azure CLI to create an IoT Central application. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
 
-## Next steps
+## Next step
 
-If you want to learn more about using IoT Central, the suggested next steps are to try the quickstarts, beginning with [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
+If you want to learn more about using IoT Central, the suggested next steps are to try the quickstarts, beginning with [Use your smartphone as a device to send telemetry to an IoT Central application](./quick-deploy-iot-central.md).

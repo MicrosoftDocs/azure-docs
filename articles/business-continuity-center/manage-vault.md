@@ -2,7 +2,7 @@
 title: Manage vault lifecycle used for Azure Backup and Azure Site Recovery
 description: In this article, you'll learn how to manage the lifecycle of the vaults (Recovery Services and Backup vault) used for Azure Backup and/or Azure Site Recovery.
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 03/29/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -46,6 +46,11 @@ Follow these steps:
 7.	You can use **Select columns** to add or remove columns. 
     :::image type="content" source="./media/manage-vault/select-columns.png" alt-text="Screenshot showing *select columns* option." lightbox="./media/manage-vault/select-columns.png":::
  
+You can also query information for your vaults at no additional cost using Azure Resource Graph (ARG). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions. 
+
+To get started with querying information for your vaults using ARG, you can use the sample query provided by selecting **Open query**.
+
+:::image type="content" source="./media/manage-vault/query-vault-details.png" alt-text="Screenshot showing how to view samples to view vault details." lightbox="./media/manage-vault/query-vault-details.png":::
 
 ## Modify security level
 

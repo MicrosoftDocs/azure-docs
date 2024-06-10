@@ -3,7 +3,7 @@ title: How to create and manage private endpoints (with v2 experience) for Azure
 description: This article explains how to configure and manage private endpoints for Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.date: 07/27/2023
+ms.date: 03/26/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -200,6 +200,16 @@ But if you remove private endpoints for the vault after a MARS agent has been re
 >[!NOTE]
 > - Private endpoints are supported with only DPM server 2022 and later.
 > - Private endpoints are not yet supported with MABS.
+
+#### Cross Subscription Restore to a Private Endpoint enabled vault
+
+To perform Cross Subscription Restore to a Private Endpoint enabled vault:
+
+1. In the *source Recovery Services vault*, go to the **Networking** tab.
+2. Go to the **Private access** section and create **Private Endpoints**.
+3. Select the *subscription* of the target vault in which you want to restore.
+4. In the **Virtual Network** section, select the **VNet** of the target VM that you want to restore across subscription.
+5. Create the **Private Endpoint** and trigger the restore process.
 
 ## Deleting private endpoints
 

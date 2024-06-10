@@ -183,4 +183,4 @@ It returns a JSON response that accounts for each position in the planogram docu
 Get started with Product Recognition by trying out the stitching and rectification APIs. Then do basic analysis with the Product Understanding API.
 * [Prepare images for Product Recognition](./how-to/shelf-modify-images.md)
 * [Analyze a shelf image](./how-to/shelf-analyze.md)
-* [API reference](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/644aba14fb42681ae06f1b0b)
+* [API reference](/rest/api/computervision/operation-groups?view=rest-computervision-2023-04-01-preview)

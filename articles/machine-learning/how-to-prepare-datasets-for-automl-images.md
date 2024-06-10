@@ -9,7 +9,7 @@ ms.subservice: automl
 ms.topic: how-to
 ms.custom: template-how-to, update-code, sdkv2, 
 ms.reviewer: ssalgado
-ms.date: 05/26/2022
+ms.date: 03/26/2024
 ---
 
 # Prepare data for computer vision tasks with automated machine learning
@@ -43,7 +43,7 @@ It helps to create, manage, and monitor data labeling tasks for
 + Object detection (bounding box)
 + Instance segmentation (polygon)
 
-If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure Machine Learning Dataset](how-to-manage-labeling-projects.md#export-the-labels) and then access the dataset under 'Datasets' tab in Azure Machine Learning studio. This exported dataset can then be passed as an input using `azureml:<tabulardataset_name>:<version>` format. Here's an example of how to pass existing dataset as input for training computer vision models.
+If you already have labeled data you want to use, you can [export your labeled data as an Azure Machine Learning Dataset](how-to-manage-labeling-projects.md#export-the-labels) and then access the dataset under 'Datasets' tab in Azure Machine Learning studio. This exported dataset can then be passed as an input using `azureml:<tabulardataset_name>:<version>` format. Here's an example of how to pass existing dataset as input for training computer vision models. 
 
 # [Azure CLI](#tab/cli)
 
@@ -78,7 +78,7 @@ Refer to CLI/SDK tabs for reference.
 ---
 
 ### Using prelabeled training data from local machine
-If you have previously labeled data that you would like to use to train your model, you'll first need to upload the images to the default Azure Blob Storage of your Azure Machine Learning Workspace and register it as a [data asset](how-to-create-data-assets.md). 
+If you have labeled data that you would like to use to train your model, you need to upload the images to Azure. You can upload the your images to the default Azure Blob Storage of your Azure Machine Learning Workspace and register it as a [data asset](how-to-create-data-assets.md). 
 
 The following script uploads the image data on your local machine at path "./data/odFridgeObjects" to datastore in Azure Blob Storage. It then creates a new data asset with the name "fridge-items-images-object-detection" in your Azure Machine Learning Workspace. 
 
@@ -149,11 +149,11 @@ my_data = Data(
 
 ---
 
-Next, you'll need to get the label annotations in JSONL format. The schema of labeled data depends on the computer vision task at hand. Refer to [schemas for JSONL files for AutoML computer vision experiments](reference-automl-images-schema.md) to learn more about the required JSONL schema for each task type.
+Next, you need to get the label annotations in JSONL format. The schema of labeled data depends on the computer vision task at hand. Refer to [schemas for JSONL files for AutoML computer vision experiments](reference-automl-images-schema.md) to learn more about the required JSONL schema for each task type.
 
 If your training data is in a different format (like, pascal VOC or COCO), [helper scripts](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to convert the data to JSONL are available in [notebook examples](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs).
 
-Once you have created jsonl file following the above steps, you can register it as a data asset using UI. Make sure you select `stream` type in schema section as shown below.
+Once you created jsonl file following the above steps, you can register it as a data asset using UI. Make sure you select `stream` type in schema section as shown in this animation.
 
 ![Animation showing how to register a data asset from the jsonl files](media\how-to-prepare-datasets-for-automl-images\ui-dataset-jsnol.gif)
 
@@ -162,7 +162,7 @@ If you have your labeled training data present in a container in Azure Blob stor
 
 ## Create MLTable
 
-Once you have your labeled data in JSONL format, you can use it to create `MLTable` as shown below. MLtable packages your data into a consumable object for training.
+Once you have your labeled data in JSONL format, you can use it to create `MLTable` as shown in this yaml snippet. MLtable packages your data into a consumable object for training.
 
 ```yaml
 paths:

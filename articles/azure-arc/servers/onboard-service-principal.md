@@ -34,6 +34,8 @@ Before you get started, be sure to review the [prerequisites](prerequisites.md) 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
+
 ## Create a service principal for onboarding at scale
 
 You can create a service principal in the Azure portal or by using Azure PowerShell.

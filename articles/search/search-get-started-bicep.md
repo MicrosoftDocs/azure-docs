@@ -18,7 +18,7 @@ ms.date: 02/26/2024
 
 This article walks you through the process for using a Bicep file to deploy an Azure AI Search resource in the Azure portal.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 Only those properties included in the template are used in the deployment. If more customization is required, such as [setting up network security](search-security-overview.md#network-security), you can update the service as a post-deployment task. To customize an existing service with the fewest steps, use [Azure CLI](search-manage-azure-cli.md) or [Azure PowerShell](search-manage-powershell.md). If you're evaluating preview features, use the [Management REST API](search-manage-rest.md).
 
@@ -61,7 +61,7 @@ The Azure resource defined in this Bicep file:
     ---
 
     > [!NOTE]
-    > Replace **\<service-name\>** with the name of the Search service. The service name must only contain lowercase letters, digits, dashes, or underscores. You can't use a dash as the first two characters or the last character. The name has a minimum length of 2 characters and a maximum length of 60 characters.
+    > Replace **\<service-name\>** with the name of the Search service. The service name must only contain lowercase letters, digits, or dashes. You can't use a dash as the first two characters or the last character. The name has a minimum length of 2 characters and a maximum length of 60 characters.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 

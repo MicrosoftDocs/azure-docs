@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 01/24/2024
+ms.date: 05/22/2024
 ms.custom: engagement-fy23
 
 ---
@@ -23,12 +23,8 @@ This article describes how to build a Business case for on-premises servers and 
 
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project. You can also reuse an existing project to use this capability.
 - Once you've created a project, the Azure Migrate: Discovery and assessment tool is automatically [added](how-to-assess.md) to the project.
-- Before you build the Business case, you need to first discover your IT estate. You can choose one of the two discovery sources based on your use case:
+- Before you build the Business case, you need to first discover your IT estate. You can choose one of the two [discovery sources](./concepts-business-case-calculation.md#discovery-sources-to-create-a-business-case) based on your use case.
 
-    **Discovery Source** | **Details** | **Migration strategies that can be used to build a business case**
-    --- | --- | ---
-    Use more accurate data insights collected via **Azure Migrate appliance** | You need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md) or [Physical/Bare-metal or other clouds](how-to-set-up-appliance-physical.md). The appliance discovers servers, SQL Server instance and databases, and ASP.NET webapps and sends metadata and performance (resource utilization) data to Azure Migrate. [Learn more](migrate-appliance.md). | Azure recommended to minimize cost, Migrate to all IaaS (Infrastructure as a Service), Modernize to PaaS (Platform as a Service), Migrate to AVS (Azure VMware Solution)
-    Build a quick business case using the **servers imported via a .csv file** | You need to provide the server inventory in a [.CSV file and import in Azure Migrate](tutorial-discover-import.md) to get a quick business case based on the provided inputs. You don't need to set up the Azure Migrate appliance to discover servers for this option. | Migrate to all IaaS (Infrastructure as a Service), Migrate to AVS (Azure VMware Solution)
 
 ## Business case overview
 
@@ -60,6 +56,8 @@ There are three types of migration strategies that you can choose while building
 
 ## Build a business case
 
+To build a business case, follow these steps:
+
 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/how-to-build-a-business-case/assess-inline.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-build-a-business-case/assess-expanded.png":::
@@ -68,7 +66,8 @@ There are three types of migration strategies that you can choose while building
 
     :::image type="content" source="./media/how-to-build-a-business-case/build-inline.png" alt-text="Screenshot of the Build Business case button." lightbox="./media/how-to-build-a-business-case/build-expanded.png":::
 
-   We recommend that you wait at least a day after starting discovery before you build a Business case so that enough performance/resource utilization data points are collected. Also, review the **Notifications**/**Resolve issues** blades on the Azure Migrate hub to identify any discovery related issues prior to Business case computation. It ensures that the IT estate in your datacenter is represented more accurately and the Business case recommendations are more valuable.
+    > [!Note]
+    > We recommend you wait at least a day after you start discovery before you build a Business case. This allows enough collection of performance/resource utilization data points. Also, review the **Notifications**/**Resolve issues** blades on the Azure Migrate hub to identify any discovery related issues prior to Business case computation. It ensures that the IT estate in your datacenter is represented more accurately and the Business case recommendations are more valuable.
 
 1. In **Business case name**, specify a name for the Business case. Make sure the Business case name is unique within a project, else the previous Business case with the same name gets recomputed.
 

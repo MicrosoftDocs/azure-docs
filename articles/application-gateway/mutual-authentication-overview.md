@@ -4,7 +4,7 @@ description: This article is an overview of mutual authentication on Application
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.date: 07/29/2023
+ms.date: 03/12/2024
 ms.topic: conceptual 
 ms.author: greglin
 
@@ -32,7 +32,8 @@ If you're uploading a certificate chain with root CA and intermediate CA certifi
 Each SSL profile can support up to 100 trusted client CA certificate chains.  A single Application Gateway can support a total of 200 trusted client CA certificate chains.
 
 > [!NOTE] 
-> Mutual authentication is only available on Standard_v2 and WAF_v2 SKUs. 
+> * Mutual authentication is only available on Standard_v2 and WAF_v2 SKUs.
+> * Configuration of Mutual authentication for [TLS protocol listeners (preview)](tcp-tls-proxy-overview.md) is currently available through REST API, PowerShell, and CLI. Azure Portal support is coming soon.
 
 ### Certificates supported for mutual authentication
 

@@ -12,6 +12,8 @@ ms.author: danlep
 ---
 # Tutorial: Mock API responses
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Backend APIs are imported into an API Management (APIM) API or created and managed manually. The steps in this tutorial, show you how to:
 
 + Use API Management to create a blank HTTP API
@@ -100,7 +102,7 @@ Although not required for this example, you can configure more settings for an A
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To add an operation to your test API, run the [az apim api operation create](/cli/azure/apim/api/operation#az-apim-api-operation-create) command:
 

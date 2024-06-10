@@ -81,7 +81,7 @@ Optionally, you can improve query performance by scoping the request to specific
 
 ## Testing fuzzy search
 
-For simple testing, we recommend [Search explorer](search-explorer.md) or [Postman](search-get-started-rest.md) for iterating over a query expression. Both tools are interactive, which means you can quickly step through multiple variants of a term and evaluate the responses that come back.
+For simple testing, we recommend [Search explorer](search-explorer.md) or a [REST client](search-get-started-rest.md) for iterating over a query expression. Both tools are interactive, which means you can quickly step through multiple variants of a term and evaluate the responses that come back.
 
 When results are ambiguous, [hit highlighting](search-pagination-page-layout.md#hit-highlighting) can help you identify the match in the response. 
 

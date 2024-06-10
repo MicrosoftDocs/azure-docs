@@ -155,4 +155,4 @@ In this guide, you learned how to make a basic analysis call using the pretraine
 > [Train a custom model for Product Recognition](../how-to/shelf-model-customization.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)
-* [API reference](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/644aba14fb42681ae06f1b0b)
+* [API reference](/rest/api/computervision/operation-groups?view=rest-computervision-2023-04-01-preview)

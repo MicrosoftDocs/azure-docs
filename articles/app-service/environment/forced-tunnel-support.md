@@ -152,4 +152,4 @@ In addition to simply breaking communication, you can adversely affect your ASE 
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
-[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table
+[routetable]: ../../virtual-network/manage-route-table.yml#create-a-route-table

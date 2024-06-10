@@ -27,7 +27,7 @@ Users with an individual subscription can get the amortized cost data from their
 7. Set the chart type to **Table**.
 8. Set the **Group by** option to **Resource**.
 
-[![Example showing reservation resource costs that you can use for chargeback](./media/charge-back-usage/amortized-reservation-costs.png)](./media/charge-back-usage/amortized-reservation-costs.png#lightbox)
+:::image type="content" border="true" source="./media/charge-back-usage/amortized-reservation-costs.png" lightbox="./media/charge-back-usage/amortized-reservation-costs.png" alt-text="Screenshot showing reservation resource costs that you can use for chargeback.":::
 
 Here's a video showing how to view reservation usage costs at subscription, resource group and resource level in the Azure portal.
 
@@ -78,7 +78,7 @@ In the Azure portal, navigate to [Cost management + billing](https://portal.azur
 1. Select the billing account.
 2. Select **Usage + charges**.
 3. Select **Download**.  
-![Example showing where to Download the CSV usage data file in the Azure portal](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
+:::image type="content" border="true" source="./media/understand-reserved-instance-usage-ea/portal-download-csv.png" alt-text="Screenshot showing where to Download the CSV usage data file in the Azure portal.":::
 4. In **Usage Details**, select **Amortized usage data**.
 
 The CSV files that you download contain actual costs and amortized costs.

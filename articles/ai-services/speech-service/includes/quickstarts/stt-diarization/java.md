@@ -45,7 +45,7 @@ To set up your environment, [install the Speech SDK](~/articles/ai-services/spee
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk</artifactId>
-            <version>1.35.0</version>
+            <version>1.37.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -147,9 +147,6 @@ Follow these steps to create a console application for conversation transcriptio
 1. Get the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/sampledata/audiofiles/katiesteve.wav) or use your own `.wav` file. Replace `katiesteve.wav` with the path and name of your `.wav` file.
 
    The application recognizes speech from multiple participants in the conversation. Your audio file should contain multiple speakers.
-
-   > [!NOTE]
-   > The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
 
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md).
 

@@ -1,6 +1,7 @@
 ---
 author: PatrickFarley
 ms.service: azure-ai-vision
+ms.custom: linux-related-content
 ms.topic: include
 ms.date: 08/01/2023
 ms.author: pafarley
@@ -30,6 +31,3 @@ Java 8 or above is required.
 Install a Java Development Kit (JDK) such as [Azul Zulu OpenJDK](https://www.azul.com/downloads/?package=jdk), [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk), [Oracle Java](https://www.java.com/download/), or your preferred JDK. 
 
 Run `java -version` from a command line to confirm successful installation and see the version. Make sure that the Java installation is native to the system architecture and not running through emulation.
-
-
-

@@ -4,6 +4,7 @@ description: Learn to create and upload a VHD that contains a Flatcar Container 
 author: mattmcinnes
 ms.author: mattmcinnes
 ms.service: virtual-machines
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
 ms.date: 07/16/2020

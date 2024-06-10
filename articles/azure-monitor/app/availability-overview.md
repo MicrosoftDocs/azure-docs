@@ -2,8 +2,8 @@
 title: Application Insights availability tests 
 description: Set up recurring web tests to monitor availability and responsiveness of your app or website.
 ms.topic: conceptual
-ms.date: 12/15/2023
-ms.reviewer: shyamala
+ms.date: 04/28/2024
+ms.reviewer: cogoodson
 ---
 
 # Application Insights availability tests
@@ -15,6 +15,7 @@ You can set up availability tests for any HTTP or HTTPS endpoint that's accessib
 ## Types of tests
 
 > [!IMPORTANT]
+> There are two upcoming availability tests retirements. On August 31, 2024 multi-step web tests in Application Insights will be retired. We advise users of these tests to transition to alternative availability tests before the retirement date. Following this date, we will be taking down the underlying infrastructure which will break remaining multi-step tests.
 > On September 30, 2026, URL ping tests in Application Insights will be retired. Existing URL ping tests will be removed from your resources. Review the [pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing) for standard tests and [transition](https://aka.ms/availabilitytestmigration) to using them before September 30, 2026 to ensure you can continue to run single-step availability tests in your Application Insights resources.
 
 There are four types of availability tests:
@@ -44,12 +45,16 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 This section provides answers to common questions.
 
-### Can I run Availability web tests on an intranet server?
+### Can I run Availability tests on an intranet server?
 
 Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
           
 * **Firewall door**: Allow requests to your server from [the long and changeable list of web test agents](../ip-addresses.md).
 * **Custom code**: Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights by using the `TrackAvailability()` API.
+
+### What is the user agent string for availability tests?
+
+The user agent string is **Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; AppInsights**
 
 ## Next steps
 

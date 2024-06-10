@@ -1422,11 +1422,9 @@ The response can be set in several ways:
 
 ::: zone-end
 
-## HTTP streams (preview)
+## HTTP streams
 
 HTTP streams is a feature that makes it easier to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. It lets you stream requests to and responses from HTTP endpoints in your Node.js function app. Use HTTP streams in scenarios where your app requires real-time exchange and interaction between client and server over HTTP. You can also use HTTP streams to get the best performance and reliability for your apps when using HTTP.
-
-HTTP streams is currently in preview.
 
 ::: zone pivot="nodejs-model-v3"  
 >[!IMPORTANT]
@@ -1494,9 +1492,9 @@ This example shows an HTTP triggered function that streams a file's content as t
   
 ---
 
-### Stream considerations
+For a ready-to-run sample app using streams, check out this example on [GitHub](https://github.com/Azure-Samples/azure-functions-nodejs-stream).
 
-+ The `request.params` object isn't supported when using HTTP streams during preview. Refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229) for more information and suggested workaround.
+### Stream considerations
 
 + Use `request.body` to obtain the maximum benefit from using streams. You can still continue to use methods like `request.text()`, which always return the body as a string.
 ::: zone-end  
@@ -1617,11 +1615,11 @@ Before upgrading your Node.js version, make sure your function app is running on
 Run the Azure CLI [`az functionapp config appsettings set`](/cli/azure/functionapp/config#az-functionapp-config-appsettings-set) command to update the Node.js version for your function app running on Windows:
 
 ```azurecli-interactive
-az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~18 \
+az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~20 \
  --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> 
 ```
 
-This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~18`.
+This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~20`.
 
 # [Azure portal](#tab/azure-portal/windows)
 
@@ -1634,11 +1632,11 @@ Use the following steps to change the Node.js version:
 Run the Azure CLI [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version for your function app running on Linux:
 
 ```azurecli-interactive
-az functionapp config set --linux-fx-version "node|18" --name "<FUNCTION_APP_NAME>" \
+az functionapp config set --linux-fx-version "node|20" --name "<FUNCTION_APP_NAME>" \
  --resource-group "<RESOURCE_GROUP_NAME>"
 ```
 
-This sets the base image of the Linux function app to Node.js version 18.
+This sets the base image of the Linux function app to Node.js version 20.
 
 # [Azure portal](#tab/azure-portal/linux)
 
@@ -1896,7 +1894,7 @@ export default { logHello };
 
 It's recommended to use VS Code for local debugging, which starts your Node.js process in debug mode automatically and attaches to the process for you. For more information, see [run the function locally](./create-first-function-vs-code-node.md#run-the-function-locally).
 
-If you're using a different tool for debugging or want to start your Node.js process in debug mode manually, add `"languageWorkers__node__arguments": "--inspect"` under `Values` in your [local.settings.json](./functions-develop-local.md#local-settings-file). The `--inspect` argument tells Node.js to listen for a debug client, on port 9229 by default. For more information, see the [Node.js debugging guide](https://nodejs.org/en/docs/guides/debugging-getting-started).
+If you're using a different tool for debugging or want to start your Node.js process in debug mode manually, add `"languageWorkers__node__arguments": "--inspect"` under `Values` in your [local.settings.json](./functions-develop-local.md#local-settings-file). The `--inspect` argument tells Node.js to listen for a debug client, on port 9229 by default. For more information, see the [Node.js debugging guide](https://nodejs.org/en/learn/getting-started/debugging).
 
 <a name="considerations-for-javascript-functions"></a>
 

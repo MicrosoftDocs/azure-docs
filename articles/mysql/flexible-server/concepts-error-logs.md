@@ -16,9 +16,6 @@ ms.date: 12/15/2023
 In Azure Database for MySQL - Flexible Server, the error log is available to users to configure and access. Error logs in MySQL gather diagnostic messages during server startup and shutdown, and while the server is running, information that can help proactive troubleshooting. For more information about the MySQL error log, see the [Error log](https://dev.mysql.com/doc/refman/8.0/en/error-log.html) section in the MySQL documentation. 
 Under Preview phase, error logs are available under Server logs only, error logs **can't be emitted** to [Azure Diagnostic logs](./../../azure-monitor/essentials/platform-logs-overview.md).
 
->[!Note]
->The Error Log feature is accessible for new servers created after *November 14, 2023, 00:00 UTC*. For existing servers, this feature will become available following their scheduled maintenance in January 2024. [Learn more about scheduled maintainence](./concepts-maintenance.md) on your server. To enable the Error Log feature on existing servers, before the scheduled maintainence, kindly contact us via [support ticket](./../../azure-portal/supportability/how-to-manage-azure-support-request.md).
-
 In Azure Database for MySQL - Flexible Server, enabling the error log under [Server logs](./concepts-monitoring.md#server-logs) in the Azure portal records details in multiple files named using the syntax *mysql-error-servername-timestamp.log*. In the file name, the timestamp (in GMT/UTC) associated with when the file was generated is appended, identifying the specific time that that log entries were recorded. For more information, see [Server logs retention.](./concepts-monitoring.md#server-logs)
 
 ## Enabling error logs (Preview)
@@ -70,6 +67,13 @@ When logging is enabled for an Azure Database for MySQL - Flexible Server, logs 
 Importantly, you can download the logs before rotation, ensuring they have access to valuable server logs at any point within the retention period.
 For more detailed information on log rotation schedules and storage limits for various log types, refer to the [documentation on Server log retention](./concepts-monitoring.md#server-logs).
 
+
+### Handling of Personal Identifiable Information (PII) and Sensitive Data
+In Azure MySQL Flexible Server, we prioritize the security of your data. As such, any Personal Identifiable Information (PII) or sensitive data such as hostnames, IP addresses, usernames, and database names in error logs are hashed out due to security reasons.
+This means that while you can gain insights into the operational status and potential issues of your server from the error logs, specific details that could compromise the security of your server are not directly accessible.
+However, if you need more detailed information on errors, such as “Access Denied” errors where the username would typically be printed, you can find this information in the audit logs of Azure MySQL Flexible Server. The audit logs provide a more granular view of the activities and transactions on your server, allowing you to troubleshoot and resolve issues more effectively.
+
+For more information on how to access and interpret the audit logs, please refer to the [official documentation](./concepts-audit-logs.md).
 
 ## Frequently asked questions
 

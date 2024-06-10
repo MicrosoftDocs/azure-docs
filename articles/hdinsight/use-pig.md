@@ -64,7 +64,7 @@ DUMP RESULT;
 
 The following image shows a summary of what each transformation does to the data.
 
-:::image type="content" source="./media/use-pig/hdi-data-transformation.gif" alt-text="Graphical representation of the transformations" border="false":::
+:::image type="content" source="./media/use-pig/hdi-data-transformation.gif" alt-text="Graphical representation of the transformations." border="false":::
 
 ## <a id="run"></a>Run the Pig Latin job
 

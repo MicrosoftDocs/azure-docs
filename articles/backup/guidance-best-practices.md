@@ -2,11 +2,12 @@
 title: Guidance and best practices
 description: Discover the best practices and guidance for backing up cloud and on-premises workload to the cloud
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 03/12/2024
 ms.reviewer: dapatil
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Backup cloud and on-premises workloads to cloud
@@ -311,7 +312,7 @@ The Azure Backup service offers the flexibility to effectively manage your costs
   * Optimize retention settings for Instant Restore.
   * Choose the right backup type to meet requirements, while taking supported backup types (full, incremental, log, differential) by the workload in Azure Backup.
 
-* **Reduce the backup storage cost with Selectively backup disks**: Exclude disk (preview feature) provides an efficient and cost-effective choice to selectively backup critical data. For example, you can back up only one disk when you don't want to back up all disks attached to a VM. This is also useful when you have multiple backup solutions. For example, to back up your databases or data with a workload backup solution (SQL Server database in Azure VM backup), use Azure VM level backup for selected disks.
+* **Reduce the backup storage cost with Selectively backup disks**: Exclude disk feature provides an efficient and cost-effective choice to selectively backup critical data. For example, you can back up only one disk when you don't want to back up all disks attached to a VM. This is also useful when you have multiple backup solutions. For example, to back up your databases or data with a workload backup solution (SQL Server database in Azure VM backup), use Azure VM level backup for selected disks.
 
 - **Speed up your Restores and minimize RTO using the Instant Restore feature**: Azure Backup takes snapshots of Azure VMs and stores them along with the disks to boost recovery point creation and to speed up restore operations. This is called Instant Restore. This feature allows a restore operation from these snapshots by cutting down the restore times. It reduces the time needed to transform and copy data back from the vault. Therefore,  it’ll incur storage costs for the snapshots taken during this period. Learn more about [Azure Backup Instant Recovery capability](./backup-instant-restore-capability.md).
 

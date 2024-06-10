@@ -81,7 +81,7 @@ Spark doesn't natively support writing to Hive's managed ACID tables. However, u
     hive.table("sampletable_colorado").show()
     ```
     
-    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png" alt-text="hive warehouse connector show hive table" border="true":::
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png" alt-text="hive warehouse connector show hive table." border="true":::
 
 
 ## Structured streaming writes

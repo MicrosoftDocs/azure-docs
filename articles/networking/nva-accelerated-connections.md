@@ -49,8 +49,7 @@ Network Virtual Appliances (NVAs) with the largest scale workloads requiring vir
 * Feature support may vary as per the NVAs available on Marketplace.
 * Detaching and attaching a network interface on a VM requires stop-deallocate first. 
 * Marketplace portal isn't supported for the limited GA. Other tools such as templates, CLI, Terraform and other multi-cloud tools are supported. 
-* This feature is free during the limited GA, but chargeable after limited GA. 
-
+  
 ## Prerequisites
 
 The following section lists the required prerequisites:
@@ -71,10 +70,11 @@ This list will be updated as more regions become available. The following region
 * Central US
 * South UK
 * West Europe
+* Central India
 
 ## Supported SKUs
 
-This feature is supported on all SKUs supported by Accelerated Networking except the Dv5 VM family, which isn't yet supported during limited GA.
+This feature is supported on all SKUs supported by [Accelerated Networking](../virtual-network/accelerated-networking-overview.md) except the Dv5 VM family, which isn't yet supported during limited GA.
 
 ## Supported enablement methods
 

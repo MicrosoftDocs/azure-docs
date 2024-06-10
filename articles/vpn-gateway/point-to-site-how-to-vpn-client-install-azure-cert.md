@@ -4,10 +4,10 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to install client certificates for P2S certificate authentication - Windows, Mac, Linux.
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/07/2023
 ms.author: cherylmc
-
 ---
 # Install client certificates for P2S certificate authentication connections
 
@@ -21,14 +21,14 @@ If you want to generate a client certificate from a self-signed root certificate
 
 ## <a name="installwin"></a>Windows
 
-[!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
+[!INCLUDE [Install on Windows](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
 ## <a name="installmac"></a>macOS
 
 >[!NOTE]
 >macOS VPN clients are supported for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not supported for the classic deployment model.
 
-[!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
+[!INCLUDE [Install on Mac](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
 ## <a name="installlinux"></a>Linux
 

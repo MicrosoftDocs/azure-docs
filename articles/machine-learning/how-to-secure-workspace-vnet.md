@@ -78,7 +78,7 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 
 ### Azure Container Registry
 
-When ACR is behind a virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, the compute cluster is used to build the images.
+When your Azure Machine Learning workspace or any resource is configured with a private endpoint it may be required to setup a user managed compute cluster for AzureML Environment image builds. Default scenario is leveraging [serverless compute](how-to-use-serverless-compute.md) and currently intended for scenarios with no network restrictions on resources associated with AzureML Workspace.
 
 > [!IMPORTANT]
 > The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](concept-vulnerability-management.md#using-a-private-package-repository), or use [custom Docker images (SDK v1)](v1/how-to-train-with-custom-image.md?view=azureml-api-1&preserve-view=true) that already include the packages.
@@ -310,6 +310,12 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     Currently there isn't a way to set the image build compute from the Azure portal.
 
     ---
+
+> [!TIP]
+> If you have configured your image build compute to use a compute cluster and want to reverse this decision, execute the same command but leave the image-build-compute reference empty:
+> ```azurecli
+>   az ml workspace update --name myworkspace --resource-group myresourcegroup --image-build-compute ''
+>    ```
 
 > [!TIP]
 > When ACR is behind a VNet, you can also [disable public access](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.

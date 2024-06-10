@@ -49,7 +49,7 @@ This tutorial describes how to create an Azure Payment HSM with the host and man
   You can continue with this quick start if all four of these commands return "Registered".
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]  
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]  
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -70,7 +70,7 @@ Get-AzProviderFeature -FeatureName "FastPathEnabled" -ProviderNamespace Microsof
 
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
   
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]\
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]\
 
 - You must install the Az.DedicatedHsm PowerShell module:
 
@@ -84,11 +84,11 @@ Get-AzProviderFeature -FeatureName "FastPathEnabled" -ProviderNamespace Microsof
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Create a resource group with the Azure CLI](../../includes/cli-rg-create.md)]
+[!INCLUDE [Create a resource group with the Azure CLI](~/reusable-content/ce-skilling/azure/includes/cli-rg-create.md)]
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Create a resource group with the Azure PowerShell](../../includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group with the Azure PowerShell](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
 
 ---
 

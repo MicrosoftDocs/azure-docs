@@ -57,6 +57,9 @@ If you have an existing custom table to which you currently send data using the 
 
     This is the preferred option, especially if you to need to make changes to the existing table. Changes to existing data types and multiple schema changes to existing Data Collector API custom tables can lead to errors.
 
+> [!TIP]
+> To identify which tables use the Data Collector API, [view table properties](../logs/manage-logs-tables.md#view-table-properties). The **Type** property of tables that use the Data Collector API is set to **Custom table (classic)**. Note that tables that ingest data using the legacy Log Analytics agent (MMA) also have the **Type** property set to **Custom table (classic)**. Be sure to migrate from Log Analytics agent to Azure Monitor Agent before converting MMA tables. Otherwise, you'll stop ingesting data into custom fields in these tables after the table conversion.   
+
 This table summarizes considerations to keep in mind for each option:
 
 ||Table migration|Side-by-side implementation|
@@ -64,7 +67,7 @@ This table summarizes considerations to keep in mind for each option:
 |**Table and column naming**|Reuse existing table name.<br>Column naming options: <br>- Use new column names and define a transformation to direct incoming data to the newly named column.<br>- Continue using old names.|Set the new table name freely.<br>Need to adjust integrations, dashboards, and alerts before switching to the new table.|
 |**Migration procedure**|One-off table migration. Not possible to roll back a migrated table. |Migration can be done gradually, per table.|
 |**Post-migration**|You can continue to ingest data using the HTTP Data Collector API with existing columns, except custom columns.<br>Ingest data into new columns using the Log Ingestion API only.| Data in the old table is available until the end of retention period.<br>When you first set up a new table or make schema changes, it can take 10-15 minutes for the data changes to start appearing in the destination table.|
-  
+
 To convert a table that uses the Data Collector API to data collection rules and the Log Ingestion API, issue this API call against the table:  
 
 ```rest

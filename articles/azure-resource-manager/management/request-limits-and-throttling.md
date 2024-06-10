@@ -2,7 +2,7 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits are reached.
 ms.topic: conceptual
-ms.date: 03/01/2024
+ms.date: 03/15/2024
 ms.custom: devx-track-arm-template
 ---
 
@@ -85,7 +85,7 @@ This section discusses the throttling limits of some widely used resource provid
 
 ### Storage throttling
 
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-storage-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-azure-resource-manager.md)]
 
 ### Network throttling
 
@@ -111,16 +111,15 @@ In addition to those general limits, the following limits apply to DNS operation
 | --------- | ----- |
 | Create or Update | 200 per minute |
 | Delete | 200 per minute |
-| Get | 1000 per minute |
+| Get | 2000 per minute |
 | List By DNS Zone | 60 per minute |
 | List By Type | 60 per minute |
 | Update | 200 per minute |
 
 ### Compute throttling
 
-For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
+Microsoft Compute implements throttling to provide an optimal experience for Virtual Machine and Virtual Machine Scale Set users. [Compute Throttling Limits](/azure/virtual-machines/compute-throttling-limits) provides comprehensive information on throttling policies and limits for VM, Virtual Machine Scale Sets and Scale Set VMs.    
 
-For checking virtual machine instances within a Virtual Machine Scale Set, use the [Virtual Machine Scale Sets operations](/rest/api/compute/virtualmachinescalesetvms). For example, use the [Virtual Machine Scale Set VMs - List](/rest/api/compute/virtualmachinescalesetvms/list) with parameters to check the power state of virtual machine instances. This API reduces the number of requests.
 
 ### Azure Resource Graph throttling
 

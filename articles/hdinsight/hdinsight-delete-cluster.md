@@ -22,7 +22,7 @@ HDInsight cluster billing starts once a cluster is created and stops when the cl
 
 3. From the default view, select the **Delete** icon. Follow the prompt to delete your cluster.
 
-    :::image type="content" source="./media/hdinsight-delete-cluster/hdinsight-delete-cluster.png" alt-text="HDInsight delete cluster button":::
+    :::image type="content" source="./media/hdinsight-delete-cluster/hdinsight-delete-cluster.png" alt-text="HDInsight delete cluster button.":::
 
 ## Azure PowerShell
 

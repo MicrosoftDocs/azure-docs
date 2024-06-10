@@ -14,6 +14,8 @@ ms.custom: subject-moving-resources
 
 # How to move Azure API Management across regions
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 This article describes how to move an API Management instance to a different Azure region. You might move your instance to another region for many reasons. For example:
 
 * Locate your instance closer to your API consumers
@@ -24,8 +26,6 @@ To move API Management instances from one Azure region to another, use the servi
 
 > [!NOTE]
 > API Management also supports [multi-region deployment](api-management-howto-deploy-multi-region.md), which distributes a single Azure API management service across multiple Azure regions. Multi-region deployment helps reduce request latency perceived by geographically distributed API consumers and improves service availability if one region goes offline.
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Considerations
 
