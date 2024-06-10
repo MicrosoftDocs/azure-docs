@@ -23,7 +23,7 @@ The upgrade policy can be set during scale set creation or changed post deployme
 During the Virtual Machine Scale Set creation in the Azure portal, under the **Management** tab, set the upgrade policy to **Rolling**, **Automatic**, or **Manual**. 
 
 > [!NOTE]
-> Setting or changing the upgrade policy to automatic in the Azure Portal is not yet available. To set or change the upgrade policy to automatic, use [CLI](#tab/cli), [PowerShell](#tab/powershell), [ARM Template](#tab/arm-template), or any other SDK. 
+> Setting or changing the upgrade policy to automatic in the Azure Portal is not yet available. To set or change the upgrade policy to automatic, use [CLI](virtual-machine-scale-sets-set-upgrade-policy.md#tab/cli), [PowerShell](#tab/powershell), [ARM Template](#tab/arm-template), or any other SDK. 
 
 If using a rolling upgrade policy, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
 
