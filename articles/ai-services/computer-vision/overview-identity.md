@@ -91,6 +91,7 @@ Concepts
 Face liveness SDK reference docs:
 - [Java (Android)](https://aka.ms/liveness-sdk-java)
 - [Swift (iOS)](https://aka.ms/liveness-sdk-ios)
+- [JavaScript (Web)](https://aka.ms/liveness-sdk-web)
 
 ## Face recognition
 

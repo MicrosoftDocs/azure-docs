@@ -56,7 +56,7 @@ The following services are billed hourly under an Enterprise Agreement instead o
 
 If you have an Enterprise Agreement, you pay for Azure RemoteApp based on your Enterprise Agreement price level. There aren't extra charges. The standard price includes an initial 40 hours. The unlimited price covers an initial 80 hours. RemoteApp stops emitting usage over 80 hours.
 
-## Next steps
+## Related content
 
 - Get more information about [Pricing](ea-pricing-overview.md).
 - Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) to see a list of questions and answers about Azure Marketplace services and Azure EA Prepayment.

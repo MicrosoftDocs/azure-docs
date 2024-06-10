@@ -6,8 +6,9 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
-ms.date: 3/28/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: lagayhar
 author: lgayhardt
@@ -15,9 +16,9 @@ author: lgayhardt
 
 # Evaluation of generative AI applications
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-Advancements in language models such as OpenAI GPT-4 and Llama 2 offer great promise while coming with challenges related to responsible AI. If not designed carefully, systems built upon these models can perpetuate existing societal biases, promote misinformation, create manipulative content, or lead to a wide range of other negative impacts. Addressing these risks while maximizing benefits to users is possible with an iterative approach through four stages: [identify, measure, and mitigate, operate](https://aka.ms/LLM-RAI-devstages).
+Advancements in language models such as GPT-4 via Azure OpenAI Service offer great promise while coming with challenges related to responsible AI. If not designed carefully, systems built upon these models can perpetuate existing societal biases, promote misinformation, create manipulative content, or lead to a wide range of other negative impacts. Addressing these risks while maximizing benefits to users is possible with an iterative approach through four stages: [identify, measure, and mitigate, operate](https://aka.ms/LLM-RAI-devstages).
 
 The measurement stage provides crucial information for steering development toward quality and safety. On the one hand, this includes evaluation of performance and quality. On the other hand, when evaluating risk and safety, this includes evaluation of an AI system’s predisposition toward different risks (each of which can have different severities). In both cases, this is achieved by establishing clear metrics, creating test sets, and completing iterative, systematic testing. This measurement stage provides practitioners with signals that inform targeted mitigation steps such as prompt engineering and the application of content filters. Once mitigations are applied, one can repeat evaluations to test effectiveness.
 
@@ -49,7 +50,7 @@ By instructing an LLM to annotate these attributes, you can build a metric for h
 
 ### AI-assisted performance and quality metrics
 
-To run AI-assisted performance and quality evaluations, an LLM is possibly leveraged for two separate functions. First, a test dataset must be created. This can be created manually by choosing prompts and capturing responses from your AI system, or it can be created synthetically by simulating interactions between your AI system and an LLM (referred to as the AI-assisted dataset generator in the following diagram). Then, an LLM is also used to annotate your AI system’s outputs in the test set. Finally, annotations are aggregated into performance and quality metrics and logged to your Azure AI studio project for viewing and analysis.
+To run AI-assisted performance and quality evaluations, an LLM is possibly leveraged for two separate functions. First, a test dataset must be created. This can be created manually by choosing prompts and capturing responses from your AI system, or it can be created synthetically by simulating interactions between your AI system and an LLM (referred to as the AI-assisted dataset generator in the following diagram). Then, an LLM is also used to annotate your AI system’s outputs in the test set. Finally, annotations are aggregated into performance and quality metrics and logged to your AI Studio project for viewing and analysis.
 
 :::image type="content" source="../media/evaluations/quality-evaluation-diagram.png" alt-text="Diagram of evaluate generative AI quality applications in AI Studio." lightbox="../media/evaluations/quality-evaluation-diagram.png":::
 

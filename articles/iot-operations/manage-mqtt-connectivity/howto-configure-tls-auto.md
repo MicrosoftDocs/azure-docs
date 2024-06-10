@@ -3,7 +3,7 @@ title: Configure TLS with automatic certificate management to secure MQTT commun
 description: Configure TLS with automatic certificate management to secure MQTT communication between the Azure IoT MQ MQTT broker and client.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023

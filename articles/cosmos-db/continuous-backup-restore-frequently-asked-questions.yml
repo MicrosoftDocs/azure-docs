@@ -40,7 +40,7 @@ sections:
       - question: |
           Is continuous backup supported for Azure Synapse Link-enabled accounts?
         answer: |
-          Yes. The capability to use Synapse Link and continuous backup in the same database account is available now. It's possible to turn on Synapse Link for accounts using continuous backup, and vice-versa. But currently database accounts that had Synapse Link disabled on containers level can't migrate to continuous backup.
+          * Synapse Link for database accounts using continuous backup mode and continuous backup mode for Synapse Link enabled accounts are generally available. Currently, customers that disabled Synapse Link from containers can't migrate to continuous backup.
 additionalContent: |
   ## Next steps
   

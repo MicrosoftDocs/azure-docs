@@ -1,7 +1,7 @@
 ---
 title: How to respond to Microsoft Defender for Resource Manager alerts
 description: Learn about the steps necessary for responding to alerts from Microsoft Defender for Resource Manager
-ms.date: 11/09/2021
+ms.date: 05/30/2024
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
@@ -11,13 +11,13 @@ author: dcurwin
 
 When you receive an alert from Microsoft Defender for Resource Manager, we recommend you investigate and respond to the alert as described below. Defender for Resource Manager protects all connected resources, so even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.  
 
-## Step 1: Contact
+## Contact
 
 1. Contact the resource owner to determine whether the behavior was expected or intentional.
 1. If the activity is expected, dismiss the alert.
 1. If the activity is unexpected, treat the related user accounts, subscriptions, and virtual machines as compromised and mitigate as described in the following step.
 
-## Step 2: Investigate alerts from Microsoft Defender for Resource Manager
+## Investigate alerts from Microsoft Defender for Resource Manager
 
 Security alerts from Defender for Resource Manager are based on threats detected by monitoring Azure Resource Manager operations. Defender for Cloud uses internal log sources of Azure Resource Manager as well as Azure Activity log, a platform log in Azure that provides insight into subscription-level events.
 
@@ -45,7 +45,7 @@ To investigate security alerts from Defender for Resource Manager:
 > [!TIP]
 > For a better, richer investigation experience, stream your Azure activity logs to Microsoft Sentinel as described in [Connect data from Azure Activity log](../sentinel/data-connectors/azure-activity.md).
 
-## Step 3: Immediate mitigation
+## Mitigate immediately
 
 1. Remediate compromised user accounts:
     - If they’re unfamiliar, delete them as they might have been created by a threat actor

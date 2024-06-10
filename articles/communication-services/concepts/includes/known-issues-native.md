@@ -37,6 +37,10 @@ Note: if the application tries to touch any of the notification APIs like `chatA
 
 Incoming video stops when app goes to background. If the application is in foreground the video renders correctly.
 
+## iOS answering incoming call via CallKit
+
+Outgoing audio settings would not apply when CallKit is enabled and users answer the incoming calls through CallKit directly. 
+
 ## UI Library
 
 You can follow the known issues wiki page in the GitHub repositories.

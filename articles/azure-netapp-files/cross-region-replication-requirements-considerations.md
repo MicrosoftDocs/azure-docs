@@ -31,6 +31,30 @@ This article describes requirements and considerations about [using the volume c
 * You can revert a source or destination volume of a cross-region replication to a snapshot, provided the snapshot is newer than the most recent SnapMirror snapshot. Snapshots older than the SnapMirror snapshot can't be used for a volume revert operation. For more information, see [Revert a volume using snapshot revert](snapshots-revert-volume.md). 
 * Data replication volumes support [customer-managed keys](configure-customer-managed-keys.md).
 * If you use the cool access feature, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations.
+* [Large volumes](large-volumes-requirements-considerations.md) are supported with cross-region replication only with an hourly or daily replication schedule.
+
+## Large volumes configuration
+
+[Large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) are supported with cross-region replication. You must [first register for the large volumes feature](large-volumes-requirements-considerations.md#register-the-feature) then register to use large volumes with cross-region replication:
+
+>[!NOTE]
+>Cross-zone and cross-region replication use the same Azure Feature Exposure Control (AFEC) name of `ANFLargeVolumesCRR`. If you've registered for cross-zone replication, the registration also works for cross-region replication. 
+
+1.  Register the feature by running the following commands:
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumesCRR
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumesCRR
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Next steps
 * [Create volume replication](cross-region-replication-create-peering.md)
