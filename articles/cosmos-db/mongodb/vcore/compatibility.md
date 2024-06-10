@@ -485,6 +485,18 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 > The `$lookup` aggregation does not yet support using variable expressions using 'let'.
 > AvgObjsize and size in "collStats" & "dbStats" works with document size less than 2KB only.
 
+
+<tr><td rowspan="10">Variables in Aggregation Expressions</td><td><code>NOW</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>ROOT</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>REMOVE</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>CURRENT</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td><td><img src="media/compatibility/yes-icon.svg" alt="Yes">Yes</td></tr>
+<tr><td><code>CLUSTER_TIME</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>DESCEND</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>PRUNE</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>KEEP</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>SEARCH_META</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+<tr><td><code>USER_ROLES</code></td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td><td><img src="media/compatibility/no-icon.svg" alt="No">No</td></tr>
+ 
 </table>
 
 ## Indexes and index properties
