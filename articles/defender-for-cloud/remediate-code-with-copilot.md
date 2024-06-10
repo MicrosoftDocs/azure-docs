@@ -37,7 +37,7 @@ With Copilot for Security in Defender for Cloud you can remediate recommendation
 
 1. Select **Reduce risk with Copilot**.
 
-    :::image type="content" source="media/remediate-code-with-copilot/copilot-summarize.png" alt-text="Screenshot that shows where teh summarize with copilot button is located." lightbox="media/remediate-code-with-copilot/copilot-summarize.png":::
+    :::image type="content" source="media/remediate-code-with-copilot/copilot-summarize.png" alt-text="Screenshot that shows where the summarize with copilot button is located." lightbox="media/remediate-code-with-copilot/copilot-summarize.png":::
 
 1. Select **Help me remediate this recommendation**.
 
