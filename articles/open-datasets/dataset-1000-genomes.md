@@ -20,7 +20,7 @@ For details on data formats refer to http://www.internationalgenome.org/formats
 
 **[NEW]** the dataset is also available in [parquet format](https://github.com/microsoft/genomicsnotebook/tree/main/vcf2parquet-conversion/1000genomes)
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Data source
 

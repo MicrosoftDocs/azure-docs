@@ -54,7 +54,7 @@ This article uses the REST APIs to illustrate each step.
   
 The OneLake files indexer can extract text from the following document formats:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)] 
+[!INCLUDE [search-blob-data-sources](./includes/search-blob-data-sources.md)] 
 
 ## Supported shortcuts
 
