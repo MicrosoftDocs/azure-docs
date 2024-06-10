@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, docs_inherited
 
 When users sign in to Windows App or the Remote Desktop app, all desktops and applications that they have access to are shown. For each of these, there is a corresponding `.rdp` file that contains all the connection properties to use in the remote session. These RDP properties are set on the host pool.
 
-This article shows you how to set the host pool RDP properties using the Azure portal, Azure PowerShell and Azure CLI. 
+This article shows you how to set the host pool RDP properties using the Azure portal, Azure PowerShell, and Azure CLI. 
 
 ## Default host pool RDP properties
 
