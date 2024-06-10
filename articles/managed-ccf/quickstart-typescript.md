@@ -6,7 +6,7 @@ ms.author: settiy
 ms.date: 09/11/2023
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: mode-api, devx-track-js
+ms.custom: mode-api, devx-track-js, devx-track-ts
 ---
 
 # Quickstart: Create an Azure Managed CCF resource using the Azure SDK for JavaScript and TypeScript
