@@ -840,9 +840,6 @@
       - name: Troubleshoot
         displayName: Image builder, images, building
         href: ./linux/image-builder-troubleshoot.md
-      - name: Connecting to Build VM
-        displayName: Image builder, images, building
-        href: ./linux/image-builder-connect-to-build-vm.md
       - name: Best practices
         displayName: Image builder, images, building, best practices
         href: image-builder-best-practices.md
