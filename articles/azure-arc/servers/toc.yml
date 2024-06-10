@@ -150,35 +150,6 @@
       href: troubleshoot-agent-onboard.md
     - name: VM Extension issues
       href: troubleshoot-vm-extensions.md
-- name: Security
-  items:
-  - name: Security basics
-    href: security-basics.md
-  - name: Onboarding
-    href: security-onboarding.md
-  - name: Updates
-    href: security-updates.md
-  - name: Networking security
-    href: security-networking.md
-  - name: Extensions security
-    href: security-extensions.md
-  - name: Machine configuration
-    href: security-machine-configuration.md
-  - name: Identify and authorization
-    href: security-identity-authorization.md
-  - name: Remote access
-    href: security-remote-access.md
-  - name: Tier 0 security considerations
-    href: security-tier-zero.md
-  - name: Data and privacy
-    href: security-data-privacy.md
-  - name: Logging and auditing
-    href: security-logging-auditing.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
-  - name: Security controls by Azure Policy
-    displayName: regulatory, compliance, standards, domains
-    href: security-controls-policy.md
 - name: Reference
   items:
   - name: azcmagent CLI
@@ -230,6 +201,35 @@
     href: policy-reference.md
   - name: License terms
     href: /legal/azure-arc/license-terms?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
+- name: Security
+  items:
+  - name: Security basics
+    href: security-basics.md
+  - name: Onboarding
+    href: security-onboarding.md
+  - name: Updates
+    href: security-updates.md
+  - name: Networking security
+    href: security-networking.md
+  - name: Extensions security
+    href: security-extensions.md
+  - name: Machine configuration
+    href: security-machine-configuration.md
+  - name: Identify and authorization
+    href: security-identity-authorization.md
+  - name: Remote access
+    href: security-remote-access.md
+  - name: Tier 0 security considerations
+    href: security-tier-zero.md
+  - name: Data and privacy
+    href: security-data-privacy.md
+  - name: Logging and auditing
+    href: security-logging-auditing.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
+  - name: Security controls by Azure Policy
+    displayName: regulatory, compliance, standards, domains
+    href: security-controls-policy.md
 - name: Resources
   items:
   - name: Azure Arc Jumpstart
