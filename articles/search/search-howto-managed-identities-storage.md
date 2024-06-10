@@ -30,8 +30,11 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 ## Create a role assignment in Azure Storage
 
 1. Sign in to Azure portal and find your storage account.
+
 1. Select **Access control (IAM)**.
+
 1. Select **Add** and then select **Role assignment**.
+
 1. From the list of job function roles, select the roles needed for your search service:
 
    | Task | Role assignment |
@@ -45,8 +48,11 @@ You can use a system-assigned managed identity or a user-assigned managed identi
    | Save debug session state | Add **Storage Blob Data Contributor**  |
 
 1. Select **Next**.
+
 1. Select **Managed identity** and then select **Members**.
-1. Filter by system-assigned managed identities or user-assigned managed identities. If you don't have a managed identity, see [Configure search to use a managed identity](search-howto-managed-identities-data-sources.md). If you already set one up but it's not available, give it a few minutes.
+
+1. Filter by system-assigned managed identities or user-assigned managed identities. You should see the managed identity that you previously created for your search service. If you don't have one, see [Configure search to use a managed identity](search-howto-managed-identities-data-sources.md). If you already set one up but it's not available, give it a few minutes.
+
 1. Select the identity and save the role assignment.
 
 ## Specify a managed identity in a connection string

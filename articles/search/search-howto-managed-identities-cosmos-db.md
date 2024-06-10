@@ -34,11 +34,22 @@ Indexer support for Azure Cosmos DB for Gremlin and MongoDB Collections is curre
 ### [**Azure portal**](#tab/portal)
 
 1. Sign in to Azure portal and find your Cosmos DB for NoSQL account.
-1. Select **Access control (IAM)**.
-1. Select **Add** and then select **Role assignment**.
-1. From the list of job function roles, assign the **Cosmos DB Account Reader**.
 
-* Data Plane Role assignment: Follow [Data plane Role assignment](../cosmos-db/how-to-setup-rbac.md) to know more.
+1. Select **Access control (IAM)**.
+
+1. Select **Add** and then select **Role assignment**.
+
+1. From the list of job function roles, select **Cosmos DB Account Reader**.
+
+1. Select **Next**.
+
+1. Select **Managed identity** and then select **Members**.
+
+1. Filter by system-assigned managed identities or user-assigned managed identities. You should see the managed identity that you previously created for your search service. If you don't have one, see [Configure search to use a managed identity](search-howto-managed-identities-data-sources.md). If you already set one up but it's not available, give it a few minutes.
+
+1. Select the identity and save the role assignment.
+
+For more information, see [Configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account](../cosmos-db/how-to-setup-rbac.md).
 
 ### [**PowerShell**](#tab/powershell)
 
