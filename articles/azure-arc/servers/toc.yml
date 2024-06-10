@@ -44,7 +44,7 @@
       href: prerequisites.md
     - name: Network requirements
       href: network-requirements.md
-     - name: Private Link networking
+    - name: Private Link networking
       href: private-link-security.md
     - name: Deployment options
       href: deployment-options.md
