@@ -42,7 +42,7 @@ To complete this tutorial, you need to:
 
 * Create or use an existing instance of Azure Database for MySQL – Single Server (the source server).
 * To complete the online migration successfully, ensure that the following prerequisites are in place:
-  * Use the MySQL command line tool of your choice to verify that log_bin is enabled on the source server by running the command: SHOW VARIABLES LIKE 'log_bin’. If log_bin isn't enabled, be sure to enable it before starting the migration.
+  * Use the MySQL command line tool of your choice to verify that log_bin is enabled on the source server by running the command: SHOW VARIABLES LIKE 'log_bin’. If log_bin isn't enabled, create a read replica for your Single Server instance and then delete it. This operation will set the parameter log_bin to ON and you can then trigger the migration operation.
   * Ensure that the user has “REPLICATION CLIENT” and “REPLICATION SLAVE” permissions on the source server for reading and applying the bin log.
   * If you're targeting a online migration, configure the binlog_expire_logs_seconds parameter on the source server to ensure that binlog files aren't purged before the replica commits the changes. We recommend at least two days to start. After a successful cutover, you can reset the value.
 * To complete a schema migration successfully, on the source server, the user performing the migration requires the following privileges:

@@ -13,7 +13,7 @@ ms.date: 10/21/2023
 
 # MongoDB compatibility and feature support with Azure Cosmos DB for MongoDB vCore
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 Azure Cosmos DB for MongoDB vCore allows you to experience the familiar MongoDB advantages while accessing the enhanced enterprise features offered by Azure Cosmos DB. It ensures compatibility by following the MongoDB wire protocol, allowing you to leverage existing client drivers, SDKs and other tools you're already familiar with.
  
