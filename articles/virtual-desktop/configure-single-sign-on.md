@@ -35,11 +35,11 @@ When single sign-on is enabled, you sign in to Windows using a Microsoft Entra I
 
 Disconnecting the session also ensures that when the connection is relaunched after a period of inactivity, Microsoft Entra ID reevaluates any applicable conditional access policies.
 
-### Using an Active Directory domain administrator account with single sign-on
+### Active Directory domain administrator accounts with single sign-on
 
-In environments with an Active Directory Domain Services (AD DS) and hybrid user accounts, the default *Password Replication Policy* on read-only domain controllers denies password replication for members of *Domain Admins* and *Administrators* security groups. This policy prevents these administrator accounts from signing in to Microsoft Entra hybrid joined hosts and might keep prompting them to enter their credentials. It also prevents administrator accounts from accessing on-premises resources that use Kerberos authentication from Microsoft Entra joined hosts.
+In environments with an Active Directory Domain Services (AD DS) and hybrid user accounts, the default *Password Replication Policy* on read-only domain controllers denies password replication for members of *Domain Admins* and *Administrators* security groups. This policy prevents these administrator accounts from signing in to Microsoft Entra hybrid joined hosts and might keep prompting them to enter their credentials. It also prevents administrator accounts from accessing on-premises resources that use Kerberos authentication from Microsoft Entra joined hosts. We don't recommend connecting to a remote session using an account that is a domain administrator.
 
-To allow these admin accounts to connect when single sign-on is enabled, see [Allow Active Directory domain administrator accounts to connect](#allow-active-directory-domain-administrator-accounts-to-connect).
+If you need to make changes to a session host as an administrator, sign in to the session host using a non-administrator account, then use the *Run as administrator* option or [runas](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771525(v=ws.11)) from a command prompt to change to an administrator.
 
 ## Prerequisites
 
@@ -203,24 +203,6 @@ To enable single sign-on on your host pool, you must configure the following RDP
 
 - In the Azure portal, set **Microsoft Entra single sign-on** to **Connections will use Microsoft Entra authentication to provide single sign-on**.
 - For PowerShell, set the **enablerdsaadauth** property to **1**.
-
-## Allow Active Directory domain administrator accounts to connect
-
-To allow Active Directory domain administrator accounts to connect when single sign-on is enabled:
-
-1. On a device that you use to manage your Active Directory domain, open the **Active Directory Users and Computers** console using an account that is a member of the **Domain Admins** security group.
-
-1. Open the **Domain Controllers** organizational unit for your domain.
-
-1. Find the **AzureADKerberos** object, right-click it, then select **Properties**.
-
-1. Select the **Password Replication Policy** tab.
-
-1. Change the policy for **Domain Admins** from *Deny* to *Allow*.
-
-1. Delete the policy for **Administrators**. The Domain Admins group is a member of the Administrators group, so denying replication for administrators also denies it for domain admins.
-
-1. Select **OK** to save your changes.
 
 ## Next steps
 
