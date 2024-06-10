@@ -5,7 +5,7 @@ description: Learn how to specify mandatory artifacts to install at creation of 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 06/04/2024
+ms.date: 06/10/2024
 ms.custom: UpdateFrequency2
 
 #customer intent: As a developer, I want to specify mandatory artifacts in Azure DevTest Labs so that I can create new virtual machines that automatically have the mandatory artifacts installed.
@@ -64,18 +64,6 @@ To change the order of installation for the mandatory artifacts:
 
 1. Select **Save**.
 
-## Delete mandatory artifacts
-
-You can also delete artifacts in the **Mandatory artifacts** lists:
-
-1. On the **External resources** > **Mandatory artifacts** screen for your lab, select the **Windows** or **Linux** tab.
-
-1. Select the checkbox next to the artifact in the list, and then select **Delete**:
-
-   :::image type="content" source="./media/devtest-lab-mandatory-artifacts/remove-artifact.png" alt-text="Screenshot that shows how to select the Delete option to remove a mandatory artifact." lightbox="./media/devtest-lab-mandatory-artifacts/remove-artifact-large.png":::
-
-1. At the confirmation prompt, select **Yes**.
-
 ## View mandatory artifacts
 
 After you specify mandatory artifacts for a lab, DevTest Labs shows the mandatory artifacts for all lab VMs based on the operating system (Windows or Linux). When a lab user creates a new VM, they can see the mandatory artifacts that DevTest Labs plans to install.
@@ -95,6 +83,18 @@ To view the mandatory artifacts for a VM:
 1. On the **Add artifacts** screen, the mandatory artifacts are displayed above the **Available artifacts** list. The mandatory artifacts are listed in order of installation from top to bottom:
 
    :::image type="content" source="./media/devtest-lab-mandatory-artifacts/save-to-lab.png" alt-text="Screenshot that shows the Add artifacts screen with the list of mandatory artifacts that DevTest Labs plans to install." lightbox="./media/devtest-lab-mandatory-artifacts/save-to-lab-large.png":::
+
+## Delete mandatory artifacts
+
+You can also delete artifacts in the **Mandatory artifacts** lists:
+
+1. On the **External resources** > **Mandatory artifacts** screen for your lab, select the **Windows** or **Linux** tab.
+
+1. Select the checkbox next to the artifact in the list, and then select **Delete**:
+
+   :::image type="content" source="./media/devtest-lab-mandatory-artifacts/remove-artifact.png" alt-text="Screenshot that shows how to select the Delete option to remove a mandatory artifact." lightbox="./media/devtest-lab-mandatory-artifacts/remove-artifact-large.png":::
+
+1. At the confirmation prompt, select **Yes**.
 
 ## Related content
 
