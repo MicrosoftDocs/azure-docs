@@ -80,7 +80,7 @@ Microsoft Sentinel can use agents provided by the Azure Monitor service (on whic
 The following sections describe the different types of Microsoft Sentinel agent-based data connectors. To configure connections using agent-based mechanisms, follow the steps in each Microsoft Sentinel data connector page.
 
 > [!IMPORTANT]
-> The Log Analytics agent will be [retired on ](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/)**[31 August, 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/)**. If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the Azure Monitor Agent (AMA). For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+> The Log Analytics agent will be [**retired on 31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/) and succeeded by the Azure Monitor Agent (AMA). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 <a name="syslog"></a><a name="common-event-format-cef"></a>
 
