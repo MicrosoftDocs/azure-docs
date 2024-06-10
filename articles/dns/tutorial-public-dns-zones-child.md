@@ -105,7 +105,7 @@ After the new child DNS zone `subdomain.contoso.com` created, verify that the de
 
 1. Retrieve the name servers from the DNS zone **Overview** page. In this example, the zone `subdomain.contoso.com` has been assigned name servers `ns1-05.azure-dns.com.`, `ns2-05.azure-dns.net.`, `ns3-05.azure-dns.org.`, and `ns4-05.azure-dns.info.`:
 
-      :::image type="content" source="./media/tutorial-public-dns-zones-child/child-zone-name-servers-inline.png" alt-text="Screenshot of child DNS zone Overview page showing its name servers." lightbox="./media/tutorial-public-dns-zones-child/child-zone-name-servers-expanded.png":::
+      :::image type="content" source="./media/tutorial-public-dns-zones-child/child-zone-name-servers.png" alt-text="Screenshot of child DNS zone Overview page showing its name servers." lightbox="./media/tutorial-public-dns-zones-child/child-zone-name-servers.png":::
 
 ### Check the NS record set in parent DNS zone
 
