@@ -183,7 +183,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    ```
 
    >[!NOTE]
-   > Before the server is set back to read/write mode, you can retrieve the GTID information using global variable GTID_EXECUTED. The same will be used at the later stage to set GTID on the replica server
+   > Before the server is set back to read/write mode, you can retrieve the GTID information using global variable GTID_EXECUTED. This will be used at the later stage to set GTID on the replica server.
 
 1. Restore dump file to new server.
 
