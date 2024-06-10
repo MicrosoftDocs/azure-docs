@@ -8,7 +8,7 @@ ms.custom: generated
 
 # Azure Resource Graph sample queries by category
 
-[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/archive-samples.md)]
+[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/samples/archive-samples.md)]
 
 This page is a collection of Azure Resource Graph sample queries grouped by general and service
 categories. To jump to a specific **category**, use the links on the top of the page.
