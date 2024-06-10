@@ -35,7 +35,8 @@ To get started, export a Resource Manager template for the resource group that c
     :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/resource-group-page.png" alt-text="Resource group page":::        
 3. On the left menu, select **Export template** under **Settings**, and then, select **Download** on the toolbar. 
 
-    :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/export-template-menu.png" alt-text="Stroage account - Export template page":::        
+    :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/export-template-menu.png" lightbox="media/relocation/event-grid/move-system-topics-across-regions/export-template-menu.png" alt-text="Storage account - Export template page.":::        
+    
 5. Locate the **.zip** file that you downloaded from the portal, and unzip that file to a folder of your choice. This zip file contains template and parameters JSON files. 
 1. Open the **template.json** in an editor of your choice. 
 1. URL for the Webhook isn't exported to the template. So, do the following steps:
