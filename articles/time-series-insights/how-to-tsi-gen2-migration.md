@@ -1,6 +1,6 @@
 ---
-title: 'Time Series Insights Gen2 migration to Fabric Real-Time Intelligence | Microsoft Docs'
-description: How to migrate Azure Time Series Insights Gen 2 environments to Fabric Real-Time Intelligence.
+title: 'Time Series Insights Gen2 migration to Real-Time Intelligence in Microsoft Fabric | Microsoft Docs'
+description: How to migrate Azure Time Series Insights Gen 2 environments to Real-Time Intelligence in Microsoft Fabric.
 ms.service: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
@@ -9,13 +9,13 @@ ms.date: 3/15/2022
 ms.custom: tvilutis
 ---
 
-# Migrating Time Series Insights Gen2 to Fabric Real-Time Intelligence
+# Migrating Time Series Insights Gen2 to Real-Time Intelligence in Microsoft Fabric
 
 [!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 ## Overview
 
-[Eventhouse](/fabric/real-time-intelligence/eventhouse) is the time series database in Fabric Real-Time Intelligence. It serves as the target for migrating data away from Time Series Insights.
+[Eventhouse](/fabric/real-time-intelligence/eventhouse) is the time series database in Real-Time Intelligence. It serves as the target for migrating data away from Time Series Insights.
 
 High-level migration recommendations.
 
@@ -48,11 +48,19 @@ Data
 
 #### Create an Eventhouse
 
-Follow the tutorial on [creating an Eventhouse](/fabric/real-time-intelligence/create-eventhouse) to learn how to set up an Eventhouse for your migration process. This tutorial will provide step-by-step instructions and guidance on creating an Eventhouse in Fabric Real-Time Intelligence.
+Follow the steps in [creating an Eventhouse](/fabric/real-time-intelligence/create-eventhouse) to lset up an Eventhouse for your migration process.
 
 #### Data Ingestion
 
-Follow the tutorial on [getting data from Azure Storage](/fabric/real-time-intelligence/get-data-azure-storage) to retrieve data for the storage account corresponding to your Time Series Insights instance. Ensure that you select the appropriate container and provide its URI, along with the necessary [SAS token](/azure/data-explorer/kusto/api/connection-strings/storage-connection-strings#shared-access-sas-token) or [account key](/azure/data-explorer/kusto/api/connection-strings/storage-connection-strings#storage-account-access-key). When configuring the file filters, specify the folder path `V=1/PT=Time` to filter the relevant blobs. Next, verify the inferred schema and remove any infrequently queried columns, while retaining at least the timestamp, TSID column(s), and values. To ensure that all your data is copied to Eventhouse add an additional column and use the [DropMappedFields](/azure/data-explorer/kusto/management/mappings#dropmappedfields-transformation) mapping transformation. Finally, complete the ingestion process.
+Follow the steps in [getting data from Azure Storage](/fabric/real-time-intelligence/get-data-azure-storage) to retrieve data for the storage account corresponding to your Time Series Insights instance.
+
+Make sure that you:
+
+1. Select the appropriate container and provide its URI, along with the necessary [SAS token](/azure/data-explorer/kusto/api/connection-strings/storage-connection-strings#shared-access-sas-token) or [account key](/azure/data-explorer/kusto/api/connection-strings/storage-connection-strings#storage-account-access-key).
+
+1. Configure file filters folder path as `V=1/PT=Time` to filter the relevant blobs.
+1. Verify the inferred schema and remove any infrequently queried columns, while retaining at least the timestamp, TSID column(s), and values. To ensure that all your data is copied to Eventhouse add an additional column and use the [DropMappedFields](/azure/data-explorer/kusto/management/mappings#dropmappedfields-transformation) mapping transformation.
+1. Complete the ingestion process.
 
 #### Querying the data
 

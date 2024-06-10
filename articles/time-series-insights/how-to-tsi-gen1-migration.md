@@ -1,29 +1,30 @@
 ---
-title: 'Time Series Insights Gen1 migration to to Fabric Real-Time Intelligence | Microsoft Docs'
-description: How to migrate Azure Time Series Insights Gen 1 environments to to Fabric Real-Time Intelligence.
+title: 'Time Series Insights Gen1 migration to Real-Time Intelligence in Microsoft Fabric | Microsoft Docs'
+description: How to migrate Azure Time Series Insights Gen 1 environments to Real-Time Intelligence in Microsoft Fabric.
 ms.service: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 ms.topic: conceptual
-ms.date: 3/15/2022
+ms.date: 6/10/2024
 ms.custom: tvilutis
 ---
 
-# Migrating Time Series Insights Gen1 to to Fabric Real-Time Intelligence
+# Migrating Time Series Insights Gen1 to Real-Time Intelligence in Microsoft Fabric
 
 [!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 ## Overview
 
-[Eventhouse](/fabric/real-time-intelligence/eventhouse) is the time series database in Fabric Real-Time Intelligence. It serves as the target for migrating data away from Time Series Insights.
+[Eventhouse](/fabric/real-time-intelligence/eventhouse) is the time series database in Real-Time Intelligence. It serves as the target for migrating data away from Time Series Insights.
 
 ### Prerequisites
 
-To begin the migration process, ensure that you have created a new Eventhouse in Fabric Real-Time Intelligence. Follow the documentation on how to [create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse).
+* A [workspace](/fabric/get-started/create-workspaces.md) with a Microsoft Fabric-enabled [capacity](/fabric/enterprise/licenses.md#capacity)
+* An [event house](/fabric/real-time-intelligence/create-eventhouse) in your workspace
 
 ### Ingest new data
 
-To start ingesting new data into your Eventhouse, follow these steps:
+Use the following steps to start ingesting new data into your Eventhouse:
 
 1. Configure your [Azure Event Hub](/azure/event-hubs/event-hubs-about) with a new consumer group.
 
@@ -35,13 +36,11 @@ If you need to export telemetry data from your Time Series Insights environment,
 
 ### Migrate reference data
 
-For migrating reference data, you can follow these steps:
+Use the following steps to migrate reference data:
 
-1. Use Time Series Insights Explorer or the Reference Data API to download the reference data set. This will allow you to retrieve the necessary data for migration.
+1. Use Time Series Insights Explorer or the Reference Data API to download the reference data set. This allows you to retrieve the necessary data for migration.
 
-2. Once you have the reference data set, you can upload it into your Eventhouse as another table. This can be done using the [Upload](/fabric/real-time-intelligence/get-data-local-file) feature in Fabric Real-Time Intelligence. By uploading the reference data set, you will be able to access and utilize it within your Eventhouse environment.
-
-Please note that these steps assume you have already created a new Eventhouse in Fabric Real-Time Intelligence as a prerequisite for the migration process.
+2. Once you have the reference data set, [upload it to your Eventhouse](/fabric/real-time-intelligence/get-data-local-file) as another table. By uploading the reference data set, you can access and utilize it within your Eventhouse environment.
 
 ## Translate Time Series Insights Queries to KQL
 
@@ -171,4 +170,3 @@ _q
     _meas3,
 | sort by _dim0 nulls last, _dim1 nulls last
 ```
-
