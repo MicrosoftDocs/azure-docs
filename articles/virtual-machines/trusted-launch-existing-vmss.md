@@ -31,8 +31,8 @@ Azure Virtual machine Scale sets supports enabling Trusted launch on existing [U
 - Scale set should be configured with [Trusted launch supported size family](trusted-launch.md#virtual-machines-sizes)
     > [!NOTE]
     >
-    > Virtual machine size can be changed along with Trusted launch upgrade. Ensure quota for new VM Size is in-place to avoid upgrade failures. Refer to [Check vCPU quotas](quotas.md).
-    > Changes in Virtual machine size will re-create Virtual machine instance with new size and will require downtime of individual Virtual machine instance. It can be done in a Rolling Upgrade fashion to avoid Scale set downtime.
+    > - Virtual machine size can be changed along with Trusted launch upgrade. Ensure quota for new VM Size is in-place to avoid upgrade failures. Refer to [Check vCPU quotas](quotas.md).
+    > - Changes in Virtual machine size will re-create Virtual machine instance with new size and will require downtime of individual Virtual machine instance. It can be done in a Rolling Upgrade fashion to avoid Scale set downtime.
 - Scale set should be configured with [Trusted launch supported OS Image](trusted-launch.md#operating-systems-supported). For [Azure compute gallery OS image](azure-compute-gallery.md), ensure image definition is marked as [TrustedLaunchSupported](trusted-launch-portal.md#deploy-a-trusted-launch-vm-from-an-azure-compute-gallery-image)
 
 ## Enable Trusted launch on existing Scale set Uniform
