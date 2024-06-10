@@ -1,6 +1,6 @@
 ---
-title: Overview - provision and manage Oracle Database@Azure 
-description: Learn about Oracle Database@Azure.
+title: Overview - Oracle Database@Azure 
+description: Overview - Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
@@ -11,7 +11,7 @@ ms.author: jacobjaygbay
 ---
 
 
-# Overview - provision and manage Oracle Database@Azure
+# Overview - Oracle Database@Azure
 
 Oracle Database@Azure is an Oracle database service running on Oracle Cloud Infrastructure (OCI), colocated in Microsoft data centers. This ensures that the Oracle Database@Azure service has the fastest possible access to Azure resources and applications.
 
