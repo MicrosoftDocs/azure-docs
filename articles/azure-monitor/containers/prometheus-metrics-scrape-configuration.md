@@ -462,6 +462,7 @@ metric_relabel_configs:
 
 
 ### Basic Authentication
+### [Scrape Configs using Config file](#tab/ConfigFileScrapeConfigBasicAuth)
 
 If you are using `basic_auth` setting in your prometheus configuration, please follow the steps -
 
@@ -483,6 +484,7 @@ type: Opaque
 data:
   password1: <base64-encoded-string>
 ```
+The **ama-metrics-mtls-secret** secret is mounted on to the ama-metrics containers at path - **/etc/prometheus/certs/**  and is made available to the process that is scraping prometheus metrics. The key( ex - password1) in the above example will be the file name and the value is base64 decoded and added to the contents of the file within the container and the prometheus scraper uses the contents of this file to get the value that is used as the password used to scrape the endpoint.
 
 2. In the configmap for the custom scrape configuration use the following setting -
 ```yaml
@@ -491,6 +493,12 @@ basic_auth:
   password_file: /etc/prometheus/certs/password1
 
 ```
+By providing the path to the password_file above, the prometheus scraper uses the contents of the file named password1 in the path /etc/prometheus/certs  as the value of password for basic auth based scraping.
+
+### [Scrape Configs using CRD(Pod/Service Monitor)](#tab/CRDScrapeConfigBasicAuth)
+Scraping targets using basic auth is currently not supported using pod/service monitors. Support for this will be added in the upcoming releases.
+
+---
 
 ### TLS based scraping
 
