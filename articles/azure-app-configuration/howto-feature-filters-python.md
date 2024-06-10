@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to implement a custom feature filter and use 
 
 ## Prerequisites
 
-- Create an [Python app with a feature flag](./quickstart-feature-flag-python.md).
+- Create a [Python app with a feature flag](./quickstart-feature-flag-python.md).
 - [Add a custom feature filter to the feature flag](./howto-feature-filters.md)
 
 ## Implement a custom feature filter

@@ -28,7 +28,7 @@ In this tutorial, you will learn how to:
 
 ## Prerequisites
 
-- The [Add feature flags to an Python app Quickstart](./quickstart-feature-flag-python.md) shows a simple example of how to use feature flags in a Python applications. This tutorial shows additional setup options and capabilities of the Feature Management library. You can use the sample app created in the quickstart to try out the sample code shown in this tutorial.
+- The [Add feature flags to a Python app quickstart](./quickstart-feature-flag-python.md) shows a simple example of how to use feature flags in a Python application. This tutorial shows additional setup options and capabilities of the Feature Management library. You can use the sample app created in the quickstart to try out the sample code shown in this tutorial.
 
 ## Set up feature management
 
@@ -55,11 +55,11 @@ feature_manager = FeatureManager(feature_flags)
 
 You can use feature filters to enable conditional feature flags. To use either built-in feature filters or create your own, see [Enable conditional features with feature filters](./howto-feature-filters.md).
 
-Rather than hard coding your feature flags into your application, we recommend that you keep feature flags outside the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes take effect in the application right away. The Azure App Configuration service provides a dedicated portal UI for managing all of your feature flags. The Azure App Configuration service also delivers the feature flags to your application directly through its Python client library.
+Rather than hard coding your feature flags into your application, we recommend that you keep feature flags outside of the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes take effect in the application right away. The Azure App Configuration service provides a dedicated portal UI for managing all of your feature flags. App Configuration also delivers the feature flags to your application directly through its Python client library.
 
 The easiest way to connect your Python application to App Configuration is through the configuration provider included in the `azure-appconfiguration-python` package. After installing the package, follow these steps to use it.
 
-1. Open *app.py* file and add the following code.
+1. Open the *app.py* file and add the following code.
 
     ```python
     from featuremanagement import FeatureManager
@@ -74,7 +74,7 @@ The easiest way to connect your Python application to App Configuration is throu
     feature_manager = FeatureManager(config)
     ```
 
-In a typical scenario, you will update your feature flag values periodically as you deploy and enable different features of your application. By default, the feature flag values are cached for a period of 30 seconds. You can update your app to periodically do a refresh operation. The following code shows how to change the cache expiration time or polling interval to 5 minutes.
+In a typical scenario, you update your feature flag values periodically as you deploy and enable different features of your application. By default, the feature flag values are cached for a period of 30 seconds. You can update your app to periodically do a refresh operation. The following code shows how to change the cache expiration time or polling interval to 5 minutes.
 
 ```python
 config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_flag_enabled=True, refresh_interval=300)
@@ -86,7 +86,7 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_fl
 config.refresh()
 ```
 
-Because the feature manager has access to the configuration provider, it will automatically get the refreshed values of the feature flags.
+Because the feature manager has access to the configuration provider, it automatically gets the refreshed values of the feature flags.
 
 ## Feature flag declaration
 
