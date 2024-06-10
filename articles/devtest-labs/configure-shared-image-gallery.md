@@ -55,11 +55,11 @@ Follow these steps to attach a shared image gallery to your DevTest Labs resourc
 
 1. After DevTest Labs attaches the gallery to your lab, you can select the gallery name to see the full list of images:
 
-    :::image type="content" source="./media/configure-shared-image-gallery/view-attached-gallery.png" alt-text="Screenshot that shows how to see the list of all images in the attached shared gallery for the lab.":::
+   :::image type="content" source="./media/configure-shared-image-gallery/view-attached-gallery.png" alt-text="Screenshot that shows how to see the list of all images in the attached shared gallery for the lab.":::
 
-    The **Shared images** page opens:
+   The **Shared images** page opens:
 
-    :::image type="content" source="./media/configure-shared-image-gallery/view-allowed-images.png" alt-text="Screenshot of the list of images in the shared gallery with checkbox indicators to show the images allowed for VM creation.":::
+   :::image type="content" source="./media/configure-shared-image-gallery/view-allowed-images.png" alt-text="Screenshot of the list of images in the shared gallery with checkbox indicators to show the images allowed for VM creation.":::
 
 ## Control available images
 
@@ -89,7 +89,7 @@ After you attach a shared image gallery to your lab, lab users can choose from t
 
 1. Return to your lab **Overview** page, and select **Add**.
 
-1. On the **Choose a base** page, select the gallery image that you want to use to create the new VM:
+1. On the **Choose a base** page, select the gallery image that you want to use to create the new VM. In the list of images, the allowed images from the attached shared image gallery follow images available from Azure Resource Manager (ARM) templates:
 
    :::image type="content" source="./media/configure-shared-image-gallery/select-image.png" alt-text="Screenshot that shows the list of available images for the VM instance, including the allowed images from the attached shared image gallery." lightbox="./media/configure-shared-image-gallery/select-image-large.png":::
 
@@ -109,7 +109,7 @@ The **Detach** option is also available on the **Shared images** page for the at
 
 ## Attach gallery by using template
 
-You can use an Azure Resource Manager (ARM) template to attach a shared image gallery to your lab. You need to add the gallery as a resource for your ARM template, as shown in the following example:
+You can use an ARM template to attach a shared image gallery to your lab. You need to add the gallery as a resource for your ARM template, as shown in the following example:
 
 ```json
 "resources": [
