@@ -214,13 +214,13 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot that shows how to edit an ARM template.":::
 
+    ## [DCR endpoint](#tab/dcr)
+
     Notice the following details in the DCR defined in this template:
 
     - `streamDeclarations`: Column definitions of the incoming data.
     - `destinations`: Destination workspace.
     - `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table. The output of the destination query is what will be sent to the destination table.
-
-    ## [DCR endpoint](#tab/dcr)
 
     ```json
     {
@@ -319,6 +319,13 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
     ```
     
       ## [DCE](#tab/dce)
+
+    Notice the following details in the DCR defined in this template:
+
+    - `dataCollectionEndpointId`: Resource ID of the data collection endpoint.
+    - `streamDeclarations`: Column definitions of the incoming data.
+    - `destinations`: Destination workspace.
+    - `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table. The output of the destination query is what will be sent to the destination table.
 
     ```json
     {
