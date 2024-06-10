@@ -1,6 +1,6 @@
 ---
-title: Azure Storage tape migration guide
-description: Azure Storage tape migration overview guide provides basic guidance for tape migrations
+title: Azure Storage tape migration overview
+description: Azure Storage tape migration overview provides basic guidance for tape migrations
 author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual 
@@ -9,13 +9,13 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ---
 
-# Azure Storage tape migration guide
+# Azure Storage tape migration overview
 
 This article focuses on tape migrations. It aims to simplify, provide guidance, and considerations to run through a successful migration of data stored on various tape media to Azure storage services.
 
 ## Overview
 
-Tape is one of the dominant storage media, and it stores a large part of world's data. Technology exists for decades, but hundreds of exabytes of new tapes are still being shipped every year.
+Tape stores a large portion of worlds data, and remains one of the dominant types of storage media. Tape media has existed for decades, and is still heavily used with hundreds of exabytes of new tapes shipped every year.
 
 Tapes are a great medium for storing cold data. They're fast in sequential reading, but stages requiring mechanical movements (like loading, and unloading of tapes, tape seeks, etc.) are slower. That makes tapes unusable for traditional, random based access, and is the main reason that even today data stored on tapes is rarely used. In addition, tapes are a magnetic medium that require special handling. They're sensitive to environment, particularly temperature, and humidity. If kept within their operating environmental range, they can achieve high durability, and good restore success rate. However, when kept in unfriendly environment, deterioration happens often, and renders the tape unreadable.
 
@@ -114,6 +114,7 @@ Information phase is critical for gathering key requirements. Gathered informati
 - What is the migration deadline? Are there any critical milestones?
 - How much network bandwidth is available for migration?
 - Where are tapes physically stored, and can they be shipped?
+- Do you already have hash values for all files? If yes, which hashing algorithm is used?
 - Are tapes needed after migration?
 - How to maintain temperature, and humidity for tapes during migration / transport?
 - Who are main stakeholders?
@@ -145,7 +146,7 @@ Once the migration design is final, we start the migration process. Before rampi
 ![Flowchart that shows migration phase](./media/tape-migration-guide/tape-migration-phase.png) 
 
 #### Data validation
-For each file we migrate, we need to perform data validation to make sure that data wasn't corrupted during the migration process. In ideal situation, source data already contains hash values that can be easily compared to hash values post-migration. If hashes don't exist, they must be calculated before the file is migrated. If hashes match, file is marked as migrated. If not, file is discarded, and migrated again. Sometimes the data is corrupted on the source tapes. Having the original hash values helps with catching those rare cases. If they happen, we can read the data from secondary copy if it exists. Data validation process is a critical component for a migration design. Process for handling failed validation must be defined. Migration phase is also constantly monitored to make sure we can react to unpredictable situation, and adapt to it. Regular reporting to main stakeholders is important to keep the migration on track.
+For each file we migrate, we need to perform data validation to make sure that data wasn't corrupted during the migration process. Data validation is done by comparing hash values before the migration, and after the migration. There are many types of hashing algorithms that can be used. A common approach is to use MD5 since Azure Storage contains a pre-defined metadata field Content-MD5 that can be filled during the migration. This allows referring to that MD5 value when ever we interact with the data to validate the data hasn't been changed, or corrupted.In ideal situation, source data already contains hash values that can be easily compared to hash values post-migration. If hashes don't exist, they must be calculated before the file is migrated. If hashes match, file is marked as migrated. If not, file is discarded, and migrated again. Sometimes the data is corrupted on the source tapes. Having the original hash values helps with catching those rare cases. If they happen, we can read the data from secondary copy if it exists. Data validation process is a critical component for a migration design. Process for handling failed validation must be defined. Migration phase is also constantly monitored to make sure we can react to unpredictable situation, and adapt to it. Regular reporting to main stakeholders is important to keep the migration on track.
 
 ### Post-migration phase
 
