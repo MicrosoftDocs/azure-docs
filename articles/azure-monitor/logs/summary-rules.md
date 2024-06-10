@@ -43,14 +43,14 @@ Summary rules perform batch processing directly in your Log Analytics workspace.
 
 :::image type="content" source="media/summary-rules/ingestion-flow.png" alt-text="A diagram that shows how data is ingested from various data sources to a Log Analytics workspace and is aggregated and reingested into the workspace by using a summary rule." lightbox="media/summary-rules/ingestion-flow.png":::
 
-You can aggregate data from any table, regardless of whether the table has an [Analytics or Basic data plan](basic-logs-query.md). Azure Monitor creates the destination table schema based on the query you define. If the destination table already exists, Azure Monitor adds any columns required to support the query results. 
-
-You can configure up to 30 active rules to aggregate data from multiple tables and send the aggregated data to separate destination tables or the same table. All destination tables include a set of standard fields with summary rule information, including: 
+You can aggregate data from any table, regardless of whether the table has an [Analytics or Basic data plan](basic-logs-query.md). Azure Monitor creates the destination table schema based on the query you define. If the destination table already exists, Azure Monitor adds any columns required to support the query results. All destination tables also include a set of standard fields with summary rule information, including: 
 
 - `_RuleName`: The summary rule that generated the aggregated log entry.
 - `_RuleLastModifiedTime`: When the rule was last modified. 
 - `_BinSize`: The aggregation interval.  
 - `_BinStartTime` The aggregation start time.
+
+You can configure up to 30 active rules to aggregate data from multiple tables and send the aggregated data to separate destination tables or the same table. 
 
 You can export summarized data from a custom log table to a storage account or Event Hubs for further integrations by defining a [data export rule](logs-data-export.md).
 
@@ -104,19 +104,19 @@ The cost you incur for summary rules consists of the cost of the query on the so
 | Analytics | No cost    | Analytics ingested GB | 
 | Basic     | Scanned GB | Analytics ingested GB | 
 
-For example, this is the cost calculation for hourly rule that returns 100 records per bin:
+For example, this is the cost calculation for an hourly rule that returns 100 records per bin:
 
-| Rule configuration | Monthly price calculation
+| Source table plan | Monthly price calculation
 | --- | --- |
-| Query Analytics table  | Ingestion price x record size x number of records x 24 hours x 30 days | 
-| Query Basic table | Scanned GB price x scanned size + Ingestion price x record size x number of records x 24 hours x 30 days | 
+| Analytics  | Ingestion price x record size x number of records x 24 hours x 30 days | 
+| Basic | Scanned GB price x scanned size + Ingestion price x record size x number of records x 24 hours x 30 days | 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## Create or update a summary rule
 
-Before you create a rule, experiment with the query in [Log Analytics](log-analytics-overview.md). Verify that the query doesn't reach or near the query limit. Confirm the query produces the intended schema and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
+Before you create a rule, experiment with the query in [Log Analytics](log-analytics-overview.md). Verify that the query doesn't reach or near the query limit. Check that the query produces the intended schema and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
 
 When you update a query and remove output fields from the results set, Azure Monitor doesn't automatically remove the columns from the destination table. You need to [delete columns from your table](create-custom-table.md#add-or-delete-a-custom-column) manually.
 
@@ -433,7 +433,7 @@ LASummaryLogs | where QueryDurationMs > 0.9 * 600000
 
 ### Verify data completeness
 
-Summary rules are designed for scale, and include a retry mechanism to overcome transient service or query failures related to [query limits](../service-limits.md#log-analytics-workspaces), for example. The retry mechanism includes 10 attempts within eight hours and skips a bin, if exhausted. The rule is set to `isActive: false` and put on hold after eight consecutive bin retries. If you enable [monitor summary rules](#monitor-summary-rules), Azure Monitor logs an event in the `LASummaryLogs` table in your workspace.
+Summary rules are designed for scale, and include a retry mechanism to overcome transient service or query failures related to [query limits](../service-limits.md#log-analytics-workspaces), for example. The retry mechanism makes 10 attempts to aggregate a failed bin within eight hours, and skips a bin, if exhausted. The rule is set to `isActive: false` and put on hold after eight consecutive bin retries. If you enable [monitor summary rules](#monitor-summary-rules), Azure Monitor logs an event in the `LASummaryLogs` table in your workspace.
 
 You can't rerun a failed bin run, but you can use the following query to view failed runs: 
 
