@@ -37,7 +37,7 @@ Time Series Insights Gen2 stores all data on cold storage using Parquet format a
 
 1. [Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse).
 1. Redirect data [ingestion](/fabric/real-time-intelligence/get-data-event-hub) to Eventhouse.
-1. [Import(/fabric/real-time-intelligence/get-data-azure-storage)] Time Series Insights cold data.
+1. [Import](/fabric/real-time-intelligence/get-data-azure-storage) Time Series Insights cold data.
 1. Start using Eventhouse.
 1. Delete the Time Series Insights Environment .
 
