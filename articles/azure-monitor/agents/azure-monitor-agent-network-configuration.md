@@ -39,6 +39,9 @@ The following table provides the endpoints that firewalls need to provide access
 > If you use private links on the agent, you must **only** add the [private data collection endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md#components-of-a-dce). The agent does not use the non-private endpoints listed above when using private links/data collection endpoints.
 > The Azure Monitor Metrics (custom metrics) preview isn't available in Azure Government and Azure operated by 21Vianet clouds.
 
+> [!NOTE]
+> When using AMA with AMPLS, all of your Data Collection Rules much use Data Collection Endpoints. Those DCE's must be added to the AMPLS configuration using [private link](../logs/private-link-configure.md#connect-azure-monitor-resources)
+
 ## Proxy configuration
 
 The Azure Monitor Agent extensions for Windows and Linux can communicate either through a proxy server or a [Log Analytics gateway](./gateway.md) to Azure Monitor by using the HTTPS protocol. Use it for Azure virtual machines, Azure virtual machine scale sets, and Azure Arc for servers. Use the extensions settings for configuration as described in the following steps. Both anonymous and basic authentication by using a username and password are supported.
