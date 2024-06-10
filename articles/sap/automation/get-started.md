@@ -8,6 +8,7 @@ ms.date: 1/2/2023
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-azurecli
 ---
 
 # Get started with SAP Deployment Automation Framework

@@ -31,7 +31,7 @@ Contributors and Search Service Contributors have the same access as Owner, minu
 
 Readers have access to service information in the Essentials section and in the Monitoring tab. Access is limited. A reader can get basic information about a search service, but not enough to set up a connection or confirm the existence of objects on the service. 
 
-For data plane tasks, such as creating and configuring indexes and indexers: on a default system, the portal attempts admin API keys first, even if there are role assignments. If [keys are disabled](search-security-rbac.md#disable-api-key-authentication), here's the portal experience for the following roles:
+For data plane tasks, such as creating and configuring indexes and indexers: on a default system, the portal attempts admin API keys first, even if there are role assignments. If [keys are disabled](search-security-enable-roles.md#disable-api-key-authentication), here's the portal experience for the following roles:
 
 * Search Index Data Contributor can see the list of indexers, and access an individual one to see its historical runs and status, but cannot run, reset, create, update, or delete it.
 
@@ -107,7 +107,7 @@ In Azure portal, under **Settings** on the leftmost pane, select **Semantic rank
 
 Initially, only an owner has access to search service information and operations. [Assign roles](search-security-rbac.md) to extend access, or provide users with a search endpoint with an API key.
 
-A search service is always created with [API keys](search-security-api-keys.md). An admin API key grants read-write access to all data plane operations. You can't delete admin API keys but you can [disable API keys](search-security-rbac.md#disable-api-key-authentication) if you want all users to access data plane operations through role assignments.
+A search service is always created with [API keys](search-security-api-keys.md). An admin API key grants read-write access to all data plane operations. You can't delete admin API keys but you can [disable API keys](search-security-enable-roles.md#disable-api-key-authentication) if you want all users to access data plane operations through role assignments.
 
 ### Provide connection information to developers
 

@@ -27,7 +27,10 @@ Contoso also wants to reduce the amount of data at the edge and send the final d
 
 ## Prerequisite
 
-- Follow the steps in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations on an Azure Arc-enabled Kubernetes cluster.
+- Follow the steps in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations on an Azure Arc-enabled Kubernetes cluster. Add the `--include-dp` argument to the `az iot ops init` command to include the optional Data Processor component in your deployment.
+
+    > [!IMPORTANT]
+    > You must use the `--include-dp` argument to include the Data Processor component when you first deploy Azure IoT Operations. You can't add this optional component to an existing deployment.
 
 - An Azure Data Explorer cluster and database. Follow the steps in [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database?tabs=free) to create a free cluster and database to use in this tutorial. Name your database `bakery_ops`.
 
@@ -48,8 +51,6 @@ To add the managed identity to the database, navigate to the Azure Data Explorer
 ```kusto
 .add database ['bakery_ops'] admins ('aadapp=<app-ID>;<tenant-ID>');
 ```
-
-<!-- TODO: Do we need admins or can we go for something more restrictive? https://learn.microsoft.com/en-us/azure/data-explorer/kusto/access-control/role-based-access-control -->
 
 ### Add a table to your database
 

@@ -157,5 +157,5 @@ The reason for this issue arises due to an open [Hive Jira](https://issues.apach
   :::image type="content" source="./media/hive-dialect-flink/flink-container-table-3.png" alt-text="Screenshot shows container table 3." lightbox="./media/hive-dialect-flink/flink-container-table-3.png":::
 
 ### Reference
-- [Hive Dialect in Apache Flink](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/hive/hive_dialect/#hive-dialect)
+- [Hive Dialect in Apache Flink](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/table/hive-compatibility/hive-dialect/overview/)
 - Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
