@@ -68,7 +68,7 @@ You can use the Azure portal to remove records from a record set. Removing the l
 2. A message appears asking if you want to delete the record set.
 3. Verify that the name matches the record set that you want to delete, and then select **Yes**.
 
-   ![A screenshot of adding records to a recordset.](./media/dns-operations-recordsets-portal/delete-record-set.png)
+   ![A screenshot of adding new records to a recordset.](./media/dns-operations-recordsets-portal/delete-record-set.png)
 
 4. On the **DNS zone** page, verify that the record set is no longer visible.
 
