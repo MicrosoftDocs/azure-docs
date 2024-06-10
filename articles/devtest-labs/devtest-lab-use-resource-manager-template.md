@@ -12,7 +12,7 @@ ms.custom: UpdateFrequency2
 
 You can use Azure Resource Manager (ARM) templates to create preconfigured Azure virtual machines (VMs) in Azure DevTest Labs. 
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 Single-VM ARM templates use the [Microsoft.DevTestLab/labs/virtualmachines](/azure/templates/microsoft.devtestlab/2018-09-15/labs/virtualmachines) resource type. Each VM created with this resource type appears as a separate item in the lab's **My virtual machines** list.
 

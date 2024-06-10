@@ -1,7 +1,7 @@
 ---
 title: MultiStorageAccountCombo UI element
 description: Describes the Microsoft.Storage.MultiStorageAccountCombo UI element for Azure portal.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 06/28/2018
 ---
 

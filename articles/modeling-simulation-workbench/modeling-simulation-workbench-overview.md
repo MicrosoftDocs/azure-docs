@@ -44,6 +44,7 @@ To use the Modeling and Simulation Workbench APIs, you must create your Azure Mo
 - Sweden Central
 - West US 3
 - USGov Virginia
+- USGov Arizona
 
 ## Contact us
 

@@ -61,7 +61,7 @@ When you deployed Azure IoT Operations, you chose to include a built-in OPC PLC 
 
 To add an asset endpoint:
 
-1. Select **Manage asset endpoints** and then **Create asset endpoint**:
+1. Select **Asset endpoints** and then **Create asset endpoint**:
 
     :::image type="content" source="media/quickstart-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations (preview) portal.":::
 
@@ -127,9 +127,7 @@ After you select your instance in Azure IoT Operations (preview) portal, you see
 
 ### Create an asset
 
-To create an asset, select **Create asset**.
-
-Enter the following asset information:
+To create an asset, select **Create asset**. Then enter the following asset information:
 
 | Field | Value |
 | --- | --- |
@@ -235,16 +233,15 @@ kubectl get pods -n azure-iot-operations |  Select-String -Pattern "akri"
 
 The output from the previous command looks like the following example:
 
-```console
-akri-opcua-asset-discovery-daemonset-h47zk     1/1     Running   3 (4h15m ago)    2d23h
+```output
 aio-akri-otel-collector-5c775f745b-g97qv       1/1     Running   3 (4h15m ago)    2d23h
 aio-akri-agent-daemonset-mp6v7                 1/1     Running   3 (4h15m ago)    2d23h
 ```
 
-On the machine where your Kubernetes cluster is running, run the following command to apply a new configuration for the discovery handler:
+In your Codespaces terminal, run the following command to apply a new configuration for the discovery handler:
 
 ```console
-kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/akri-opcua-asset.yaml
+kubectl apply -f /workspaces/explore-iot-operations/samples/quickstarts/akri-opcua-asset.yaml
 ```
 
 The following snippet shows the YAML file that you applied:
@@ -261,16 +258,16 @@ It might take a few minutes for the instance to show up.
 
 The output from the previous command looks like the following example.
 
-```console
-NAMESPACE              NAME                      CONFIG             SHARED   NODES            AGE
-azure-iot-operations   akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["dom-aio-vm"]   35m
+```output
+NAME                      CONFIG             SHARED   NODES                          AGE
+akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["k3d-k3s-default-server-0"]   45s
 ```
 
 Now you can use these resources in the local cluster namespace.
 
 To confirm that Akri connected to the OPC UA Broker, copy and paste the name of the Akri instance from the previous step into the following command:
 
-```bash
+```console
 kubectl get akrii <AKRI_INSTANCE_NAME> -n azure-iot-operations -o json
 ```
 

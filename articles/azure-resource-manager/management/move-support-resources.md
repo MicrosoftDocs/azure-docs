@@ -624,6 +624,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | workspaces | No | No | No |
+> |accessConnectors| No| No| No|
 
 ## Microsoft.DataCatalog
 

@@ -92,7 +92,7 @@ The following examples show how the Isolated Stamp Fee reserved instance discoun
 - **Example 3**: You purchase one instance of Isolated Reserved Stamp capacity in a region with an App Service Isolated stamp already deployed. You start receiving the reserved rate on the deployed stamp. Later, you delete the stamp and deploy a new one. You receive the reserved rate for the new stamp. Discounts don't carry over for durations without deployed stamps.
 - **Example 4**: You purchase one instance of Isolated Linux Reserved Stamp capacity in a region then deploy a new stamp to the region. When the stamp is initially deployed without workers, it emits the Windows stamp meter. No discount is received. When the first Linux worker is deployed the stamp, it emits the Linux Stamp meter and the reservation discount applies. If a windows worker is later deployed to the stamp, the stamp meter reverts to Windows. You no longer receive a discount for the Isolated Linux Reserved Stamp reservation.
 
-## Next steps
+## Related content
 
 - To learn how to manage a reservation, see [Manage Azure Reservations](manage-reserved-vm-instance.md).
 - To learn more about prepurchasing App Service Premium v3 and Isolated Stamp reserved capacity to save money, see [Prepay for Azure App Service with reserved capacity](prepay-app-service.md).

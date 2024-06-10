@@ -106,7 +106,7 @@ In scenarios where Azure EA customers have used all their Azure Prepayment, rese
 
 You'll receive email notifications, first one 30 days prior to reservation expiry and other one at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate. For more information, see [Reserved Virtual Machine Instances offering.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-## Next steps
+## Related content
 
 - For more information about Azure reservations, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
 - To learn more about enterprise reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md).
