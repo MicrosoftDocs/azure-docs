@@ -9,15 +9,15 @@ ms.author: jenhayes
 
 # Prepare to deploy the event-driven workflow (EDW) workload to Azure
 
-The AWS workload is designed to be deployed using Bash, CloudFormation, and AWS CLI. The producer/consumer app is distributed as a container containing the Python scripts, which will work unchanged with Azure Kubernetes Service (AKS). In the following sections, you'll make changes to several Bash shell scripts, and make modifications to the Kubernetes deployment manifests to configure KEDA to use a Azure Storage Queue scaler in place of the Amazon Simple Queue Service (SQS) scaler.
+The AWS workload sample is deployed using Bash, CloudFormation, and AWS CLI. The consumer Python app is deployed as a container. The following sections describe how the Azure workflow is different. There are changes in the Bash scripts used to deploy the Azure Kubernetes Service (AKS) cluster and supporting infrastructure, and modifications in the Kubernetes deployment manifests to configure KEDA to use a Azure Storage Queue scaler in place of the Amazon Simple Queue Service (SQS) scaler.
 
-For Karpenter, you'll use the [AKS Node Autoprovisioning (NAP)](/azure/aks/node-autoprovision) feature, which is based on Karpenter. This greatly simplifies the deployment and usage of Karpenter on AKS by eliminating the need to use Helm to deploy Karpenter explicitly. However, if you have a need to deploy Karpenter directly, this can be done using the AKS [Karpenter provider on Github](https://github.com/Azure/karpenter-provider-azure).
+The Azure workflow uses the [AKS Node Autoprovisioning (NAP)](/azure/aks/node-autoprovision) feature, which is based on Karpenter. This greatly simplifies the deployment and usage of Karpenter on AKS by eliminating the need to use Helm to deploy Karpenter explicitly. However, if you have a need to deploy Karpenter directly, this can be done using the AKS [Karpenter provider on Github](https://github.com/Azure/karpenter-provider-azure).
 
 ## Configure Kubernetes deployment manifest
 
 A Kubernetes deployment YAML manifest is used to deploy the AWS Workload to EKS. The deployment YAML has references to SQS and DynamoDB for KEDA scalers, so you'll need to change them to specify values that KEDA equivalent Azure scalers can use to connect to the Azure-specific infrastructure. To do so, configure the [Azure Storage Queue KEDA scaler](https://keda.sh/docs/1.4/scalers/azure-storage-queue/).
 
-The following snippets show the differences between the YAML manifest in AWS and Azure.
+The following snippets show the differences in the YAML manifest between AWS and Azure.
 
 ### AWS workload deployment manifest example
 
@@ -50,21 +50,36 @@ The following snippets show the differences between the YAML manifest in AWS and
         env:
         - name: AZURE_QUEUE_NAME
           value: $AZURE_QUEUE_NAME
+        - name: AZURE_STORAGE_ACCOUNT_NAME
+          value: $AZURE_STORAGE_ACCOUNT_NAME
         - name: AZURE_COSMOSDB_TABLE
           value: $AZURE_COSMOSDB_TABLE
-        - name: AZURE_COSMOSDB_CONNECTION_STRING
-          value: $AZURE_COSMOSDB_CONNECTION_STRING
+        - name: AZURE_COSMOSDB_ACCOUNT_NAME
+          value: $AZURE_COSMOSDB_ACCOUNT_NAME
         resources:
         <omitted>
-      imagePullSecrets:
-      - name: acr-auth
 ```
 
 ## Set environment variables
 
-In Visual Studio Code Explorer, in the `deployment` directory, you'll find a file called `environmentVariables.sh`. This file contains the environment variables that you'll use to set up the Azure environment.
+Before executing any of the deployment steps, you need to set some configuration information using environment variables. In our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws), there is a Bash script, `enviromentVariables.sh`, located in the `deployment` directory. These environment variables have defaults set in the `./deployment/environmentVariables.sh` file, so you don't need to update the file unless you want to change the defaults.
 
-Open the `environmentVariables.sh` file, add values for your Azure environment. The following environment variables must be provided. These names can refer to existing resources that you want to use, or they can be new values to be used as the script creates new Azure resources.
+**TODO: update this section after discussion**
+
+- 'K8sversion`: The version of Kubenetes deployed on the AKS cluster
+- 'KARPENTER_VERSION`: The version of Karpenter deployed on the AKS cluster
+- 'SERVICE_ACCOUNT`: The name of the service account associated with the managed identity
+- 'AQS_TARGET_DEPLOYMENT`: Name of the consumer app container deployment 
+- 'AQS_TARGET_NAMESPACE`: The namespace into which the consumer app is to be deployed
+- 'AZURE_QUEUE_NAME`: Name of the Azure Storage Queue
+- 'AZURE_COSMOSDB_TABLE`: Name of the Table where the processed messages are stored
+- 'LOCAL_NAME`: A simple root for resource names constructed in the deployment scripts. 
+- 'LOCATION`: The Azure Region where the deployment is to be located
+- 'TAGS`: Any user defined tags along with their associated value.
+- 'STORAGE_ACCOUNT_SKU`: Azure Storage Account SKU
+- 'ACR_SKU`: Azure Container Registry SKU.
+- 'AKS_NODE_COUNT`:Number of nodes
+
 
 - `CLUSTER_NAME`: The name of the AKS cluster
 - `K8sversion`: The version of Kubernetes to use
@@ -97,4 +112,4 @@ Open the `environmentVariables.sh` file, add values for your Azure environment. 
 
 ## Next steps
 
-- Now that you've configured your manifest and set enivronment variables, [deploy the EDS workload to Azure](eks-edw-deploy.md).
+- Now that you've configured your manifest and set environment variables, [deploy the EDS workload to Azure](eks-edw-deploy.md).
