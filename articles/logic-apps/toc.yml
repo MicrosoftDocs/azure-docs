@@ -165,8 +165,6 @@ items:
         href: azure-integration-services-choose-capabilities.md
       - name: Migration options and best practices
         href: biztalk-server-azure-integration-services-migration-approaches.md
-      - name: Migrate from BizTalk Services
-        href: logic-apps-move-from-mabs.md
   - name: Develop
     items:
     - name: Build your workflow with a trigger or action
