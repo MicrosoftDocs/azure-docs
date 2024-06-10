@@ -26,12 +26,16 @@ landingContent:
             url: overview.md
 
   # Card 
-  - title: Deploy a virtual machine in an Extended Zone
+  - title: Deploy and manage virtual machines in Azure Extended Zones
     linkLists:
       - linkListType: quickstart
         links:
           - text: Deploy a virtual machine in an Extended Zone using the Azure portal
-            url: deploy-vm-arm-template.md
+            url: deploy-vm-portal.md
+      - linkListType: tutorial
+        links:
+          - text: Back up an Azure Extended Zone virtual machine
+            url: backup-virtual-machine.md
 
   # Card
   - title: Reference
