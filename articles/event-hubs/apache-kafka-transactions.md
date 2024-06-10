@@ -84,14 +84,18 @@ First the transactional producer is instantiated -
 Then, the consumer must be configured to read only nontransactional messages, or committed transactional messages by setting the below property –
 
 ```java
+
 	consumerProps.put(“isolation.level”, “read_committed”);
 	KafkaConsumer <K,V> consumer = new KafkaConsumer<>(consumerProps);
+
 ```
 
 Once the consumer is instantiated, it can subscribe to the topic from where the records must be read –
 
 ```java
+
     consumer.subscribe(singleton(“inputTopic”));
+
 ```
 
 After the consumer polls the records from the input topic, the producer begins the transactional scope within which the record is processed and written to the output topic. Once the records are written, the updated map of offsets for all partitions is created. The producer then sends this updated offset map to the transaction before committing the transaction.
