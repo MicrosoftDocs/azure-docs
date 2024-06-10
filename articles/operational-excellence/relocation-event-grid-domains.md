@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.date: 05/14/2024
 ms.service: event-grid
-ms.topic: concept
+ms.topic: how-to
 ms.custom:
   - subject-relocation
 #Customer intent: As an Azure service administrator, I want to be able to move Event Grid domains from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
