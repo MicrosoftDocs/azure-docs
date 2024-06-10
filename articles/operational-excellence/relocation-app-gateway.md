@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 04/03/2024
 ms.service: application-gateway
-ms.topic: concept
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 # Customer intent: As an Azure Application Gateway Standard and Web Application Firewall v2 administrator, I want to move my vault to another region.
@@ -55,7 +55,7 @@ If you only want to relocate in order to gain availability zones support, see [M
 1. Create an Application Gateway and configure a new Frontend Public IP Address for the virtual network:
     - Without WAF:  [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway).
     - With WAF: [Create an application gateway with a Web Application Firewall](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md) 
-    
+
 1. If you have a WAF config or custom rules-only WAF Policy, [transition it to to a full WAF policy](../web-application-firewall/ag/migrate-policy.md).
 
 1. If you use a zero-trust network (source region) for web applications with Azure Firewall and Application Gateway, follow the guidelines and strategies in [Zero-trust network for web applications with Azure Firewall and Application Gateway](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall).
@@ -79,7 +79,7 @@ The certificates for TLS termination can be supplied in two ways:
 - *Key Vault reference.* Provide a reference to an existing Key Vault certificate when you create a HTTPS/TLS-enabled listener. For more information on downloading a certificate, see [Relocate Key Vault to another region](./relocation-key-vault.md). 
 
 >[!WARNING]
- >References to Key Vaults in other Azure subscriptions are supported, but must be configured via ARM template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure portal.
+>References to Key Vaults in other Azure subscriptions are supported, but must be configured via ARM template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure portal.
 
 
 Follow the documented procedure to enable [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs#configure-your-key-vault) for your relocated Application Gateway. 
