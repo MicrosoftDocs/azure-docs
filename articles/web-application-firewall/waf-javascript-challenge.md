@@ -27,11 +27,11 @@ The JavaScript challenge is an invisible web challenge used to distinguish betwe
 
 Here's an example JavaScript challenge page:
 
-:::image type="content" source="../media/waf-javascript-challenge/javascript-challenge-page.png" alt-text="Screenshot showing the JavaScript challenge page.":::
+:::image type="content" source="media/waf-javascript-challenge/javascript-challenge-page.png" alt-text="Screenshot showing the JavaScript challenge page.":::
 
 ## Expiration
 
-The WAF policy setting defines the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. The lifetime is an integer between 5 and 1440 and the default is 30 minutes. The JavaScript challenge cookie name is `afd_azwaf_jsclearance`.
+The WAF policy setting defines the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. The lifetime is an integer between 5 and 1440 minutes and the default is 30 minutes. The JavaScript challenge cookie name is `afd_azwaf_jsclearance` on Azure Front Door, and `appgw_azwaf_jsclearance` on Azure Application Gateway.
 
 > [!NOTE]
 > The JavaScript challenge expiration cookie is injected into the user’s browser after successfully completing the challenge.
@@ -42,4 +42,5 @@ The WAF policy setting defines the JavaScript challenge cookie validity lifetime
 - If the first call that receives a JavaScript challenge has a POST body size greater than 128 KB, it blocks it. Additionally, challenges for non-HTML resources embedded in a page aren't supported. For example images, css, js, and so on. However, if there's a prior successful JavaScript challenge request, then the previous limitations are removed.
 - The challenge isn't supported on Microsoft Internet Explorer. The challenge is supported on the latest versions of the Microsoft Edge, Chrome, Firefox, and Safari web browsers.
 - Cross-origin resource sharing (CORS) requests result in a challenge loop. If you visit a page that triggers the JavaScript challenge action from a domain that isn't the same as the domain running the JavaScript challenge, you're challenged regardless of prior challenge passes.
-- If one IP address receives the JavaScript challenge and a different IP address solves it, the computation result becomes invalid, potentially causing a challenge loop.
+- If one IP address receives the JavaScript challenge, and a different IP address that belongs to the same domain solves it, the computation result becomes invalid, potentially causing a challenge loop.
+- The JavaScript Challenge action on Web Application Firewall on Application Gateway is not supported for *Rate Limit* type custom rules during the public preview.
