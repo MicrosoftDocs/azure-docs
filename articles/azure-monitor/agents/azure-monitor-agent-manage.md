@@ -15,8 +15,10 @@ ms.reviewer: jeffwo
 This article provides the different options currently available to install, uninstall, and update the [Azure Monitor agent](azure-monitor-agent-overview.md). This agent extension can be installed on Azure virtual machines, scale sets, and Azure Arc-enabled servers. It also lists the options to create [associations with data collection rules](data-collection-rule-azure-monitor-agent.md) that define which data the agent should collect. Installing, upgrading, or uninstalling Azure Monitor Agent won't require you to restart your server.
 
 ## Prerequisites
+See the following articles for prerequisites and other requirements for the Azure Monitor agent:
 
-- See [Azure Monitor agent requirements](./azure-monitor-agent-requirements.md) and [Azure Monitor network configuration](./azure-monitor-agent-network-configuration.md) for prerequisites and requirements for the Azure Monitor agent.
+- [Azure Monitor agent requirements](./azure-monitor-agent-requirements.md) 
+- [Azure Monitor agent network configuration](./azure-monitor-agent-network-configuration.md)
 
 ## Install
 
