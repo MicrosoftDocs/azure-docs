@@ -19,7 +19,7 @@ ms.custom: tvilutis
 
 ### Prerequisites
 
-* A [workspace](/fabric/get-started/create-workspaces.md) with a Microsoft Fabric-enabled [capacity](/fabric/enterprise/licenses.md#capacity)
+* A [workspace](/fabric/get-started/create-workspaces) with a Microsoft Fabric-enabled [capacity](/fabric/enterprise/licenses#capacity)
 * An [event house](/fabric/real-time-intelligence/create-eventhouse) in your workspace
 
 ### Ingest new data
@@ -32,7 +32,7 @@ Use the following steps to start ingesting new data into your Eventhouse:
 
 ### Migrate historical data from Time Series Insights
 
-If you need to export data from your Time Series Insights environment, you can use the Time Series Insights Query API to download the events in batches and serialize them in the required format. Depending on where you stored the exported data, you can ingest the data from [Azure Storage](/real-time-intelligence/get-data-azure-storage), [local files](/fabric/real-time-intelligence/get-data-local-file), or [OneLake](/fabric/real-time-intelligence/get-data-onelake).
+If you need to export data from your Time Series Insights environment, you can use the Time Series Insights Query API to download the events in batches and serialize them in the required format. Depending on where you stored the exported data, you can ingest the data from [Azure Storage](/fabric/real-time-intelligence/get-data-azure-storage), [local files](/fabric/real-time-intelligence/get-data-local-file), or [OneLake](/fabric/real-time-intelligence/get-data-onelake).
 
 ### Migrate reference data
 
