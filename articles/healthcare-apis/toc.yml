@@ -22,15 +22,15 @@
       href: business-continuity-disaster-recovery.md
     - name: Manage network access security
       href: network-access-security.md
-- name: Quickstarts
+- name: Get started
   expanded: true
   items: 
-    - name: Deployment overview
-      href: health-data-services-get-started.md
     - name: Workspace overview
       href: workspace-overview.md
-    - name: Azure Health Data Services quickstart
+    - name: Workspace quickstart
       href: healthcare-apis-quickstart.md
+    - name: Deployment overview
+      href: health-data-services-get-started.md
     - name: Deploy services programatically
       href: deploy-healthcare-apis-using-bicep.md
 - name: How-tos
