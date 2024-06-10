@@ -30,14 +30,6 @@
       href: agent-overview.md
     - name: Deploy Azure Monitor agent
       href: concept-log-analytics-extension-deployment.md
-    - name: Security
-      items:
-       - name: Security overview
-         href: security-overview.md
-       - name: Security baseline
-         href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
-       - name: Security controls by Azure Policy
-         href: security-controls-policy.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -156,8 +148,8 @@
       href: troubleshoot-vm-extensions.md
 - name: Security
   items:
-  - name: Security basics
-    href: security-basics.md
+  - name: Security overview
+    href: security-overview.md
   - name: Onboarding
     href: security-onboarding.md
   - name: Updates
@@ -178,6 +170,10 @@
     href: security-data-privacy.md
   - name: Logging and auditing
     href: security-logging-auditing.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
+  - name: Security controls by Azure Policy
+    href: security-controls-policy.md
 - name: Reference
   items:
   - name: azcmagent CLI
