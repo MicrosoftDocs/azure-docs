@@ -4,8 +4,7 @@ description: Use the Document Intelligence REST API v3.0 to create a forms proce
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, linux-related-content
 ms.topic: include
 ms.date: 05/23/2024
 ms.author: lajanuar
