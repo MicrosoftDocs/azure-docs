@@ -18,7 +18,7 @@ ms.author: lajanuar
 
 :::moniker range="doc-intel-2.1.0 || doc-intel-4.0.0"
 
-Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` for all models and `2023-07-31 (GA)` for Read and Layout only:
+Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` for all models and `2023-07-31 (GA)` for Read, Layout, Invoice, Receipt and ID Document models:
 
 * [REST API `2022-08-31 (GA)`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)
 * [REST API `2023-07-31 (GA)`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.1%20(2023-07-31)&tabs=HTTP&preserve-view=true)
@@ -68,6 +68,9 @@ The following containers support DocumentIntelligence v3.0 models and features:
 |[**Document Intelligence Studio**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/studio/tags)| `mcr.microsoft.com/azure-cognitive-services/form-recognizer/studio:latest`|
 | [**Read 3.1**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/read-3.1/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.1:latest`|
 | [**Layout 3.1**](https://mcr.microsoft.com/en-us/product/azure-cognitive-services/form-recognizer/layout-3.1/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.1:latest`|
+| [**Invoice 3.1**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/invoice-3.1/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.1:latest`|
+| [**ID Document 3.1**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/id-document-3.1/tags) |  `mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document-3.1:latest` |
+| [**Receipt 3.1**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/receipt-3.1/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt-3.1:latest`|
 
 ::: moniker-end
 

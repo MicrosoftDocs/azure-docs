@@ -3,7 +3,7 @@ title: Relocation guidance overview for Microsoft Azure products and services (P
 description: Relocation guidance overview for Microsoft Azure products and services. View Azure service specific relocation guides.
 author: anaharris-ms
 ms.service: reliability
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 01/16/2024
 ms.author: anaharris
 ms.custom:
@@ -32,7 +32,7 @@ Each service specific guide can contain service-specific information on topics s
 
 ## Service categories across region types
 
-[!INCLUDE [Service categories across region types](../../includes/service-categories/service-category-definitions.md)]
+[!INCLUDE [Service categories across region types](~/reusable-content/ce-skilling/azure/includes/service-categories/service-category-definitions.md)]
 
 ## Azure services relocation guides
 

@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 05/24/2024
 ---
@@ -15,7 +16,6 @@ The scale to zero feature allows customers to create clusters that have one or m
 
 ## Limitations
 
-* Scaling to zero only works for Service Fabric API version `2024-06-01 preview or later`.
 * Scaling to zero only work for **secondary node types**.
 
 ## Scale to zero in your ARM template

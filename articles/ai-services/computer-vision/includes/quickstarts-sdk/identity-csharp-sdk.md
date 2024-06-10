@@ -13,7 +13,7 @@ ms.date: 05/03/2022
 ms.author: pafarley
 ---
 
-Get started with facial recognition using the Face client library for .NET. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images. Follow these steps to install the package and try out the example code for basic face identification using remote images.
+Get started with facial recognition using the Face client library for .NET. The Azure AI Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images. Follow these steps to install the package and try out the example code for basic face identification using remote images.
 
 [Reference documentation](/dotnet/api/overview/azure/cognitiveservices/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.3) | [Samples](/samples/browse/?products=azure&term=face)
 
@@ -27,8 +27,9 @@ Get started with facial recognition using the Face client library for .NET. The 
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 
+## Create environment variables
 
-[!INCLUDE [create environment variables](../environment-variables.md)]
+[!INCLUDE [create environment variables](../face-environment-variables.md)]
 
 ## Identify and verify faces
 

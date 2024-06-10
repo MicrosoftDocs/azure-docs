@@ -39,7 +39,12 @@ az group create --name myResourceGroup --location westus2
 Create an AKS cluster with managed Microsoft Entra integration and Azure RBAC for Kubernetes Authorization using the [`az aks create`][az-aks-create] command.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myManagedCluster --enable-aad --enable-azure-rbac
+az aks create \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --enable-aad \
+    --enable-azure-rbac \
+    --generate-ssh-keys
 ```
 
 The output will look similar to the following example output:
