@@ -117,7 +117,7 @@ Document summarization uses natural language processing techniques to generate a
 
 A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for both [**AbstractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-abstractive-summarization) and [**ExtractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-extractive-summarization) capabilities.
 
- Currently **Text Summarization** supports the following native document formats:
+ Currently **Document Summarization** supports the following native document formats:
 
 |File type|File extension|Description|
 |---------|--------------|-----------|
