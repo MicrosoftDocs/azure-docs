@@ -43,7 +43,7 @@ Copilot for Security gives you the ability to analyze your recommendations. Thro
     - Show risks for publicly exposed resources
     - Show risks for resources with sensitive data
     - Show risks for critical resources
-    - show risk to data
+    - Show risk to data
 
 1. Review the provided answer.
 
