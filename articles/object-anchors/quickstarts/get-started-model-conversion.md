@@ -29,7 +29,7 @@ To complete this quickstart, make sure you have:
 * <a href="https://git-scm.com" target="_blank">Git for Windows</a>.
 * The <a href="https://dotnet.microsoft.com/download/dotnet/6.0">.NET 6.0 SDK</a>.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create an Object Anchors account
 
@@ -85,7 +85,7 @@ Now, you can go ahead and convert your 3D model.
 ## Error Codes
 For details on the different error codes that can result from a failed asset conversion job and how to handle each, refer to the [conversion error codes page](..\model-conversion-error-codes.md).
 
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
 
 ## Next steps
 

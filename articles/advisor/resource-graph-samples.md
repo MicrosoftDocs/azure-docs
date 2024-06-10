@@ -7,10 +7,7 @@ ms.custom: subject-resourcegraph-sample
 ---
 # Azure Resource Graph sample queries for Azure Advisor
 
-This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md)
-sample queries for Azure Advisor. For a complete list of Azure Resource Graph samples, see
-[Resource Graph samples by Category](../governance/resource-graph/samples/samples-by-category.md)
-and [Resource Graph samples by Table](../governance/resource-graph/samples/samples-by-table.md).
+This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md) sample queries for Azure Advisor. For a complete list of Azure Resource Graph samples, see [Resource Graph samples by Category](../governance/resource-graph/samples/samples-by-category.md) and [Resource Graph samples by Table](../governance/resource-graph/samples/samples-by-table.md).
 
 ## Sample queries
 

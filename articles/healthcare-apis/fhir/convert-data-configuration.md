@@ -141,11 +141,11 @@ To reference specific template versions in the API, be sure to use the exact ima
 
 2. Select **Add** > **Add role assignment**. If the **Add role assignment** option is unavailable, ask your Azure administrator to grant you the permissions for performing this task.
 
-   :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot of the Access control pane and the 'Add role assignment' menu.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot of the Access control pane and the 'Add role assignment' menu.":::
 
 3. On the **Role** pane, select the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role.
 
-   :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot showing the add role assignment pane." lightbox="../../../includes/role-based-access-control/media/add-role-assignment-page.png"::: 
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot showing the add role assignment pane." lightbox="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png"::: 
 
 4. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 

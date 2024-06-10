@@ -1,7 +1,7 @@
 ---
 title: Bicep numeric operators
 description: Describes Bicep numeric operators that calculate values.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 06/23/2023
 ---

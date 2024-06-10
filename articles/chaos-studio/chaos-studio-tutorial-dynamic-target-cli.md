@@ -19,7 +19,7 @@ You can use these same steps to set up and run an experiment for any fault that 
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - An Azure Virtual Machine Scale Sets instance.
 
 ## Open Azure Cloud Shell

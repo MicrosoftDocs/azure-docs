@@ -201,6 +201,9 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
 
 ### [Codespaces](#tab/codespaces)
 
+> [!IMPORTANT]
+> Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only.
+
 [!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
 
 ---

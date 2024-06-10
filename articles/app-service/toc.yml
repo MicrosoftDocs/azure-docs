@@ -251,7 +251,7 @@
         
     - name: Configure identity providers
       items:
-        - name: Use Microsoft Entra ID
+        - name: Use Microsoft Entra
           href: configure-authentication-provider-aad.md
         - name: Use Facebook
           href: configure-authentication-provider-facebook.md

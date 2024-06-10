@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/30/2023
+ms.date: 06/06/2024
 ms.author: victorh
 ---
 
@@ -33,7 +33,7 @@ Here's an example policy:
 
 Assuming BaseRCG1 is a rule collection group priority (200) that contains the rule collections: DNATRC1, DNATRC3,NetworkRC1.\
 BaseRCG2 is a rule collection group priority (300) that contains the rule collections: AppRC2, NetworkRC2.\
-ChildRCG1 is a rule collection group priority (200) that contains the rule collections: ChNetRC1, ChAppRC1.\
+ChildRCG1 is a rule collection group priority (300) that contains the rule collections: ChNetRC1, ChAppRC1.\
 ChildRCG2 is a rule collection group that contains the rule collections: ChNetRC2, ChAppRC2,ChDNATRC3.
 
 As per following table:

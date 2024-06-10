@@ -14,6 +14,7 @@ ms.custom:
   - build-2023
   - devx-track-azurecli
   - ignite-2023
+  - build-2024
 ---
 
 # Workspace Managed Virtual Network Isolation
@@ -100,8 +101,6 @@ Before following the steps in this article, make sure you have the following pre
 
 * The Azure CLI examples in this article use `ws` to represent the name of the workspace, and `rg` to represent the name of the resource group. Change these values as needed when using the commands with your Azure subscription.
 
-* With Azure CLI and managed VNet, SSH using public IP works, but SSH using private IP doesn't work. 
-
 # [Python SDK](#tab/python)
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
@@ -162,7 +161,7 @@ Before following the steps in this article, make sure you have the following pre
 ---
 
 > [!NOTE]
-> If you are using UAI workspace please make sure to add the Network Contributor role to your identity. For more information, see [User-assigned managed identity](how-to-identity-based-service-authentication.md).
+> If you are using UAI workspace please make sure to add the Azure AI Enterprise Network Connection Approver role to your identity. For more information, see [User-assigned managed identity](how-to-identity-based-service-authentication.md).
 
 ## Configure a managed virtual network to allow internet outbound
 
@@ -222,7 +221,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 
 * __Update an existing workspace__:
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example updates an existing workspace. The `--managed-network allow_internet_outbound` parameter configures a managed VNet for the workspace:
 
@@ -289,7 +288,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 
 * __Update an existing workspace__:
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`:
     
@@ -347,7 +346,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 
 * __Update an existing workspace__:
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed VNet isolation for.
     1. Select __Networking__, then select __Private with Internet Outbound__.
@@ -440,7 +439,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 
 * __Update an existing workspace__
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed VNet for an existing workspace:
 
@@ -554,7 +553,7 @@ To configure a managed VNet that allows only approved outbound communications, u
 
 * __Update an existing workspace__:
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. The example also adds several outbound rules for the managed VNet:
 
@@ -669,7 +668,7 @@ To configure a managed VNet that allows only approved outbound communications, u
 
 * __Update an existing workspace__:
 
-    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed VNet isolation for.
     1. Select __Networking__, then select __Private with Approved Outbound__.
@@ -810,9 +809,11 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
 
 ## Manually provision a managed VNet
 
-The managed VNet is automatically provisioned when you create a compute resource. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. If you have a large set of outbound rules to be provisioned in the managed network, it can take longer for provisioning to complete. The increased provisioning time can cause your first compute creation, or your first managed online endpoint deployment, to time out.
+The managed VNet is automatically provisioned when you create a compute instance. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute instance as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. If you have a large set of outbound rules to be provisioned in the managed network, it can take longer for provisioning to complete. The increased provisioning time can cause your first compute instance creation to time out.
 
-To reduce the wait time and avoid potential timeout errors, we recommend manually provisioning the managed network. Then wait until the provisioning completes before you create a compute resource or managed online endpoint deployment.
+To reduce the wait time and avoid potential timeout errors, we recommend manually provisioning the managed network. Then wait until the provisioning completes before you create a compute instance.
+
+To create an online deployment, you must manually provision the managed network, or create a compute instance first which will automatically provision it. 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -979,7 +980,7 @@ __Outbound__ service tag rules:
 * `AzureMachineLearning`
 * `BatchNodeManagement.region`
 * `AzureResourceManager`
-* `AzureFrontDoor`
+* `AzureFrontDoor.FirstParty`
 * `MicrosoftContainerRegistry`
 * `AzureMonitor`
 
@@ -1056,6 +1057,9 @@ If you want to enable access from specific IP addresses, use the following actio
 1. Enable public network access to the workspace. For more information, see [public network access enabled](how-to-configure-private-link.md#enable-public-access).
 1. Add your IP addresses to the firewall for Azure Machine Learning. For more information, see [enable access only from IP ranges](how-to-configure-private-link.md#enable-public-access-only-from-internet-ip-ranges-preview).
 
+    > [!NOTE]
+    > Only IPv4 addresses are supported.
+
 ## Private endpoints
 
 Private endpoints are currently supported for the following Azure services:
@@ -1074,9 +1078,9 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Redis Cache
 * Azure Databricks
 * Azure Database for MariaDB
-* Azure Database for PostgreSQL
+* Azure Database for PostgreSQL Single Server
+* Azure Database for PostgreSQL Flexible Server
 * Azure Database for MySQL
-* Azure SQL Managed Instance
 * Azure API Management
 
 When you create a private endpoint, you provide the _resource type_ and _subresource_ that the endpoint connects to. Some resources have multiple types and subresources. For more information, see [what is a private endpoint](/azure/private-link/private-endpoint-overview).
@@ -1105,6 +1109,8 @@ The Azure Machine Learning managed VNet feature is free. However, you're charged
 * Creating a compute cluster in a different region than the workspace isn't supported when using a managed VNet.
 * Kubernetes and attached VMs aren't supported in an Azure Machine Learning managed VNet.
 * Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
+* FQDN outbound rules only support ports 80 and 443.
+* If your compute instance is in a managed network and is configured for no public IP, use the `az ml compute connect-ssh` command to connect to it using SSH.
 
 ### Migration of compute resources
 

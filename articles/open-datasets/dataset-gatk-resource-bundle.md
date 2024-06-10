@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 The [GATK resource bundle](https://gatk.broadinstitute.org/hc/articles/360035890811-Resource-bundle) is a collection of standard files for working with human resequencing data with the GATK.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Data source
 

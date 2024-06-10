@@ -1,7 +1,7 @@
 ---
 title: Deploy resources with PowerShell and Bicep
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Bicep file.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-arm-template, devx-track-bicep, devx-track-azurepowershell
 ms.date: 03/22/2024
 ---

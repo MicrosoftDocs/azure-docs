@@ -6,18 +6,26 @@ items:
   items:
   - name: What is HDInsight on AKS?
     href: overview.md
+  - name: Preview information 
+    href: preview.md
   - name: What's new?
     href: whats-new.md 
-  - name: Preview information
-    href: preview.md
 - name: Quickstarts
   items:
   - name: Subscription prerequisites
-    href: prerequisites-subscription.md
+    href: quickstart-prerequisites-subscription.md
   - name: Resource prerequisites
-    href: prerequisites-resources.md
+    href: quickstart-prerequisites-resources.md
   - name: One click deployment
-    href: get-started.md
+    href: quickstart-get-started.md
+  - name: Create a cluster pool and cluster
+    items:
+    - name: Create a cluster pool and cluster - Azure portal
+      href: quickstart-create-cluster.md
+    - name: Create an HDInsight on AKS cluster pool and cluster - Azure CLI
+      href: quickstart-create-cli.md
+    - name: Create an HDInsight on AKS cluster pool and cluster - Azure PowerShell
+      href: quickstart-create-powershell.md
 - name: Concepts
   items:
   - name: Reliability

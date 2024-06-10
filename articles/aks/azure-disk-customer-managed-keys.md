@@ -64,7 +64,7 @@ keyVaultId=$(az keyvault show --name myKeyVaultName --query "[id]" -o tsv)
 keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName --name myKeyName --query "[key.kid]" -o tsv)
 
 # Create a DiskEncryptionSet
-az disk-encryption-set create --name myDiskEncryptionSetName -location myAzureRegionName -resource-group myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl
+az disk-encryption-set create --name myDiskEncryptionSetName --location myAzureRegionName --resource-group myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl
 ```
 
 > [!IMPORTANT]
@@ -84,7 +84,7 @@ az keyvault set-policy --name myKeyVaultName --resource-group myResourceGroup --
 
 ## Create a new AKS cluster and encrypt the OS disk
 
-Either create a new resource group, or select an existing resource group hosting other AKS clusters, then use your key to encrypt the either using network-attached OS disks or ephemeral OS disk. By default, a cluster uses ephemeral OS disk when possible in conjunction with VM size and OS disk size.
+Either create a new resource group, or select an existing resource group hosting other AKS clusters, then use your key to encrypt either using network-attached OS disks or ephemeral OS disk. By default, a cluster uses ephemeral OS disk when possible in conjunction with VM size and OS disk size.
 
 Run the following command to retrieve the DiskEncryptionSet value and set a variable:
 
@@ -166,4 +166,3 @@ Review [best practices for AKS cluster security][best-practices-security]
 [customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
-

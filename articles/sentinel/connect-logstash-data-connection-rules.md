@@ -41,7 +41,9 @@ The Logstash engine is composed of three components:
 - Output plugins: Customized sending of collected and processed data to various destinations.
 
 > [!NOTE]
-> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)**, v1.1.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
+> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)**, v1.2.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
+>
+>   This version, v1.2.0, now supports Managed Identity authentication on both Azure VMs and Azure Arc-connected machines. For more version information, see the [changelog](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin/CHANGELOG.md). Older versions do not support managed identity.
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
