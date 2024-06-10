@@ -12,7 +12,7 @@ ms.custom:
 ---
 
 # Relocate Azure Event Grid custom topics to another region
-You might want to move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
+This article describes how to relocate your Azure Event Grid resources to another Azure region. You might relocate these resources for a number of reasons, such as to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 
 The high-level steps are: 
 
