@@ -112,8 +112,8 @@ After the new child DNS zone `subdomain.contoso.com` created, verify that the de
 After retrieving the name servers from the child DNS zone, check that the parent DNS zone **contoso.com** has the NS record set entry for its child zone name servers.
 
 1. In the Azure portal, enter *contoso.com* in the search box at the top of the portal and then select **contoso.com** DNS zone from the search results.
-1.	Check the record sets in **Overview** page of **contoso.com** DNS zone.
-1.	You'll find a record set of type **NS** and name **subdomain** created in the parent DNS zone. Compare the name servers in this record set with the ones you retrieved from the **Overview** page of the child DNS zone.
+1.	Check the record sets under **Recordsets** for the **contoso.com** DNS zone.
+1.	You'll find a record set of type **NS** and name **subdomain** created in the parent DNS zone. Compare the name servers in this record set with the ones you retrieved from the child DNS zone. The NS records should match.
 
      :::image type="content" source="./media/tutorial-public-dns-zones-child/parent-zone-name-servers.png" alt-text="Screenshot of child zone name servers validation in the parent DNS zone Overview page." lightbox="./media/tutorial-public-dns-zones-child/parent-zone-name-servers.png":::
 
