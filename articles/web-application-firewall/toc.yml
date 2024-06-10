@@ -87,6 +87,8 @@ items:
       href: ./afds/waf-front-door-rate-limit.md
     - name: Geo-filtering
       href: ./afds/waf-front-door-geo-filtering.md
+    - name: JavaScript challenge
+      href: ./afds/waf-javascript-challenge.md
     - name: Best practices
       href: ./afds/waf-front-door-best-practices.md
     - name: FAQ
@@ -101,8 +103,6 @@ items:
       href: waf-copilot.md
   - name: WAF and Azure Policy
     href: ./shared/waf-azure-policy.md
-  - name: JavaScript challenge
-    href: waf-javascript-challenge.md
 - name: How-to guides
   items:
   - name: Application Gateway
