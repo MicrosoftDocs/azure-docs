@@ -26,8 +26,7 @@ Azure Event Hubs natively supports both the AMQP and Kafka protocol. However, to
 | Property | Default behavior for Event Hubs | Modified behavior for Kafka streams | Explanation |
 | ----- | ---- | ----| ---- |
 | `messageTimestampType` | set to `AppendTime` | should be set to `CreateTime` | Kafka Streams relies on creation timestamp rather than append timestamp |
-| `message.timestamp.difference.max.ms` | | Property is used to govern past timestamps only. Future time is set to 1 hour and cannot be changed. |
-| `message.timestamp.difference.max.ms` | max allowed value is 90 days | no changes needed | This is in line with the Kafka protocol specification |
+| `message.timestamp.difference.max.ms` | max allowed value is 90 days | Property is used to govern past timestamps only. Future time is set to 1 hour and cannot be changed. | This is in line with the Kafka protocol specification |
 | `min.compaction.lag.ms` | | max allowed value is 2 days ||
 | Infinite retention topics | | size based truncation of 250GB for each topic-partition||
 | Delete record API for infinite retention topics| | Not implemented. As a workaround, the topic can be updated and a finite retention time can be set.| This will be done in GA |
