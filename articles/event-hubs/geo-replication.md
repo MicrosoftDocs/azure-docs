@@ -38,11 +38,11 @@ Changing a secondary to being a new primary is done two ways:
 - Forced: as a failover where the secondary becomes primary as fast as possible.
 The Geo-replication feature replicates all data and metadata from the primary region to the selected secondary regions. The namespace FQDN always points to the primary region.
 
- :::image type="content" source="./media/geo-replication/a-as-primary.png" alt-text="Diagram showing when region A is primary, B is secondary"::: 
+ :::image type="content" source="./media/geo-replication/a-as-primary.png" alt-text="Diagram showing when region A is primary, B is secondary."::: 
  
 When a customer initiates a promotion of a secondary, the FQDN points to the region selected to be the new primary. The old primary then becomes a secondary. You can promote your secondary to be the new primary for reasons other than a failover. Those reasons can include application upgrades, failover testing, or any number of other things. In those situations, it's common to switch back when those activities are completed.
 
- :::image type="content" source="./media/geo-replication/b-as-primary.png" alt-text="Diagram showing when B is made the primary, that A becomes the new secondary"::: 
+ :::image type="content" source="./media/geo-replication/b-as-primary.png" alt-text="Diagram showing when B is made the primary, that A becomes the new secondary."::: 
  
 Secondary regions are added, or removed at the customer's discretion. 
 There are some current limitations worth noting:
@@ -102,14 +102,14 @@ Users can monitor the progress of the replication job by monitoring the replicat
 -	The column count_d indicates the replication lag in seconds between the primary and secondary region.
 
  ## Publishing Data 
-Event publishing applications can publish data to geo replicated namespaces via stable namespace FQDN of the geo replicated namespace. The event publishing approach is the same as the non-Geo DR case and no changes to client applications are required. 
+Event publishing applications can publish data to geo-replicated namespaces via stable namespace FQDN of the geo replicated namespace. The event publishing approach is the same as the non-Geo DR case and no changes to client applications are required. 
 Event publishing may not be available during the following circumstances: 
 -	During Failover grace period, the existing primary region rejects any new events that are published to Event Hubs. 
 -	When replication lag between primary and secondary regions reaches the max replication lag duration, the publisher ingress workload may get throttled. 
 Publisher applications can't directly access any namespaces in the secondary regions. 
 
 **Consuming Data**
-Event consuming applications can consume data using the stable namespace FQDN of a geo replicated namespace. The consumer operations aren't supported, from when the failover is initiated until it's completed. 
+Event consuming applications can consume data using the stable namespace FQDN of a geo-replicated namespace. The consumer operations aren't supported, from when the failover is initiated until it's completed. 
 
 ### Checkpointing/Offset Management
 Event consuming applications can continue to maintain offset management as they would do it with a single namespace. 
