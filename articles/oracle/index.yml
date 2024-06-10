@@ -45,7 +45,7 @@ landingContent:
             url: oracle-db/oracle-database-network-plan.md
           - text: Groups and roles for Oracle Database@Azure
             url: oracle-db/oracle-database-groups-roles.md          
-          - text: Provision and manage Oracle Database@Azure
+          - text: Overview - Provision and manage Oracle Database@Azure
             url: oracle-db/provision-oracle-database.md
           - text: Provision Oracle Autonomous databases
             url: oracle-db/provision-autonomous-oracle-databases.md

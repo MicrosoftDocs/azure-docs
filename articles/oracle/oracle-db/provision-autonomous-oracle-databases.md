@@ -10,11 +10,11 @@ ms.custom: engagement-fy24
 ms.author: jacobjaygbay
 ---
 
-# Provision Oracle autonomous databases
+# Provision Oracle Autonomous Databases
 
 This article discusses how provision and conduct basic management functions for an Oracle Autonomous Database Serverless instance from the Oracle Autonomous Database@Azure blade. More management functions are available within the Oracle Cloud Infrastructure (OCI) portal available via the link to that Oracle Autonomous Database from the Oracle Autonomous Database@Azure blade.
 
-1. You provision an Oracle Autonomous Database instance from the Microsoft Azure portal. Select the Oracle Autonomous Database@Azure blade.
+1. Provision an Oracle Autonomous Database instance from the Microsoft Azure portal. Select the Oracle Autonomous Database@Azure blade.
 1. There are two paths to begin the Oracle Autonomous Database instance provisioning flow.
     1. From the Oracle Autonomous Database@Azure application Home, select the **Create an Oracle Autonomous Database** button.
     2. From the Oracle Autonomous Database blade, select the **+ Create** at the top of the blade. The Oracle Autonomous Database@Azure blade shows all your existing Autonomous Databases along with their current status. Selecting a specific Autonomous Database shows you detailed information of that instance.
@@ -54,8 +54,8 @@ This article discusses how provision and conduct basic management functions for 
     1. Select the Next button to continue the provisioning flow.
 1. From the **Consent tab** of the Create Oracle Autonomous Database flow, review the Oracle terms of use and the Oracle privacy policy. When reviewed, select the I agree to the terms of service checkbox to continue. Select the Next button to continue the provisioning flow.
 1. From the Tags tab of the Create Oracle Autonomous Database flow, set one or more tags to enable easier management and tracking of multiple Oracle Autonomous Databases. For more information, see [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources?wt.mc_id=azuremachinelearning_inproduct_portal_utilities-tags-tab).
-1. From the Review + Create tab of the Create Oracle Autonomous Database flow, check the field values you have entered. Validation occurs as you enter this page, and all validations must pass for the provisioning to be started. Even if the validation passes, you may have incorrectly entered a value or values.
-1. Once your validations complete successfully and you have reviewed the values, select the Create button to start the provisioning process.
-1. The provisioning process starts. You return to the Oracle Autonomous Database@Azure blade. You can see the status of your provisioning processes. Assuming your process succeeds, select that entry in the list.
+1. From the Review + Create tab of the Create Oracle Autonomous Database flow, check the field values you have entered. Validation occurs as you enter this page, and all validations must pass for the provisioning to be started. Even if the validation passes, it's possible you entered some of the values incorrectly.
+1. Once your validations complete successfully and you have reviewed the values, select the **Create** button to start the provisioning process.
+1. The provisioning process starts. You return to the Oracle Autonomous Database@Azure blade. You can see the status of your provisioning processes. Assuming your process succeeds, select that successful entry in the list.
 1. This is the basic information for your Oracle Autonomous Database Serverless instance. You can perform functions shared with Microsoft Azure. For most administrative functions for the database, select the Go to OCI link under the OCI Database URL field.
 1. For the complete documentation on using an Oracle Autonomous Database, see [Using Oracle Autonomous Database Serverless](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/autonomous-intro-adb.html#GUID-8EAA5AE6-397D-4E9A-9BD0-3E37A0345E24).

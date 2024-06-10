@@ -12,9 +12,9 @@ ms.author: jacobjaygbay
 
 # Troubleshoot provisioning issues
 
-Use the information in this section to resolve common errors and provisioning issues in your Oracle Database@Azure environments.
+This article describes how to resolve common errors and provisioning issues in your Oracle Database@Azure environments.
 
-The issues covered in this guide do not cover general issues related to Oracle Database@Azure configuration, settings, and account setup. For more information on those topics, see [Oracle Database@Azure Overview](database-overview.md).
+The issues covered in this article do not cover general issues related to Oracle Database@Azure configuration, settings, and account setup. For more information on those topics, see [Oracle Database@Azure Overview](database-overview.md).
 
 ## Terminations and Microsoft Azure Locks
 

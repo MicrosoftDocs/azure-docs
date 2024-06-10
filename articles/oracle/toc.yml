@@ -19,13 +19,13 @@ items:
     href: oracle-db/oracle-database-groups-roles.md
   - name: Provision and manage Oracle Database@Azure
     items:
-    - name: Provision Oracle Database
+    - name: Overview - provision and manage Oracle Database@Azure
       href: oracle-db/provision-oracle-database.md
     - name: Provision Exadata Infrastructure
       href: oracle-db/provision-oracle-exadata-infrastructure.md
-    - name: Provision exadata VM cluster
+    - name: Provision Exadata VM cluster
       href: oracle-db/provision-oracle-exadata-vm-cluster.md
-    - name: Provision autonomous databases
+    - name: Provision Autonomous Databases
       href: oracle-db/provision-autonomous-oracle-databases.md
     - name: Use HashiCorp Terraform to provision Oracle Database@Azure
       href: oracle-db/provision-use-terraform-oracle-database.md

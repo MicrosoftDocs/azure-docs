@@ -1,5 +1,5 @@
 ---
-title: Provision and manage Oracle Database@Azure
+title: Overview - provision and manage Oracle Database@Azure
 description: Provision and manage Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
@@ -10,7 +10,7 @@ ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 ---
 
-# Provision and manage Oracle Database@Azure
+# Overview - provision and manage Oracle Database@Azure
 
 Oracle Database@Azure (OracleDB@Azure) provides you seamless integration of Oracle resources within your Microsoft Azure cloud environment.
 
