@@ -182,7 +182,7 @@ Refer to [service quotas and limits](../service-limits.md#prometheus-metrics) fo
 
 ## Creation of Azure Monitor Workspace failed due to Azure Policy evaluation
 
-If creation of Azure Monitor Workspace fails with an error saying "*Resource '<resourcename>' was disallowed by policy*", there might an Azure policy that enforces a name for your Azure resources or resource groups.
+If creation of Azure Monitor Workspace fails with an error saying "*Resource 'resourcename' was disallowed by policy*", there might an Azure policy that enforces a name for your Azure resources or resource groups.
 
 When you create an Azure Monitor workspace, by default a data collection rule and a data collection endpoint in the form "*azure-monitor-workspace-name*" will automatically be created in a resource group in the form "*MA_azure-monitor-workspace-name_location_managed*". Currently there is no way to change the names of these resources.
 
