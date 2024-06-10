@@ -13,7 +13,7 @@ ms.custom:
 
 # Relocate Azure Event Grid domains to another region
 
- This article covers the recommended approach, guidelines, and practices to relocate Event Grid domain to another region. 
+ This article covers the recommended approach, guidelines, and practices to relocate Event Grid domains to another region. 
 
 
 Here are the high-level steps covered in this article: 
