@@ -656,6 +656,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/azure/azure-resource-manager/templates/create-templates-use-intellij.md",
+          "redirect_url": "/azure/azure-resource-manager/templates/create-visual-studio-deployment-project",
+          "redirect_document_id": false
+      },        
+        {
             "source_path_from_root": "/articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md",
             "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
