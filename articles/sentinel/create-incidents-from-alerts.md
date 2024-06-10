@@ -35,6 +35,12 @@ The most direct way to automatically create incidents from alerts generated from
 
 1. Under **Create incidents &ndash; Recommended**, select **Enable** to enable the default analytics rule that creates incidents automatically from alerts generated in the connected security service. You can then edit this rule under **Analytics** and then **Active rules**.
 
+   > [!IMPORTANT]
+   >
+   > If you don't see this section as shown, you most likely have enabled incident integration in your Microsoft Defender XDR connector, or you have onboarded Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal.
+   >
+   > In either case, this article does not apply to your environment, since your incidents are created by the Microsoft Defender correlation engine instead of by Microsoft Sentinel.
+
 ## Create incident creation rules from a Microsoft Security template
 
 Microsoft Sentinel provides ready-made rule templates to create Microsoft Security rules. Each Microsoft source solution has its own template. For example, there's one for Microsoft Defender for Endpoint, one for Microsoft Defender for Cloud, and so on. Create a rule from each template that corresponds with the solutions in your environment, for which you want to create incidents automatically. Modify the rules to define more specific options for filtering which alerts should result in incidents. For example, you can choose to create Microsoft Sentinel incidents automatically only from high-severity alerts from Microsoft Defender for Identity.
