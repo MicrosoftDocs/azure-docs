@@ -46,8 +46,7 @@ A DNS zone contains the DNS entries for a domain. To start hosting your domain i
 1. At the upper left, select **Create a resource**, enter **DNS zone** into **Search services and marketplace** and then select **DNS zone**.
 2. On the **DNS zone** page, select **Create**.
 
-<!-- Reducing the size of this screenshot: (![A screenshot of the DNS zone marketplace.](./media/dns-getstarted-portal/dns-new-zone.png))-->
-   <img src="./media/dns-getstarted-portal/dns-new-zone.png" alt="A screenshot of the DNS zone marketplace." width="50%">
+  <img src="./media/dns-getstarted-portal/dns-new-zone.png" alt="A screenshot of the DNS zone marketplace." width="50%">
 
 3. On the **Create DNS zone** page, type or select the following values:
 
