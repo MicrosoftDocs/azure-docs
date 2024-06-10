@@ -46,14 +46,14 @@ Use the following steps to configure Remote Desktop to use multiple monitors.
    :::image type="content" source="media/tutorial-configure-multiple-monitors/turn-off-default-settings.png" alt-text="Screenshot showing the Use default settings slider.":::
  
 1. In **Display Settings**, in the **Display configuration** list, select the displays to use and configure the options:
- 
+
+   :::image type="content" source="media/tutorial-configure-multiple-monitors/remote-desktop-select-display.png" alt-text="Screenshot showing the Remote Desktop display settings, highlighting the option to select the number of displays.":::
+   
    | Value | Description | Options |
    |---|---|---|
    | All displays | Remote desktop uses all available displays. | - Use only a single display when in windowed mode. <br> - Fit the remote session to the window. |
    | Single display | Remote desktop uses a single display. | - Start the session in full screen mode. <br> - Fit the remote session to the window. <br> - Update the resolution on when a window is resized. |
-   | Select displays | Remote Desktop uses only the monitors you select. | - Maximize the session to the current displays. <br> - Use only a single display when in windowed mode. <br> - Fit the remote connection session to the window. |
-
-   :::image type="content" source="media/tutorial-configure-multiple-monitors/remote-desktop-select-display.png" alt-text="Screenshot showing the Remote Desktop display settings, highlighting the option to select the number of displays.":::
+   | Select displays | Remote Desktop uses only the monitors you select. | - Maximize the session to the current displays. <br> - Use only a single display when in windowed mode. <br> - Fit the remote connection session to the window. |   
 
 1. Close the settings pane, and then select your dev box to begin the Remote Desktop session.
 
