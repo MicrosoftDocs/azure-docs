@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: quickstart-arm  #Don't change
-ms.date: 06/06/2024
+ms.date: 06/10/2024
 ms.custom: subject-armqs
 
 # Customer intent: As a cloud administrator, I want a quick method to deploy a virtual machine in an Azure Extended Zone.
@@ -24,6 +24,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - An Azure account with an active subscription.
+
+- Bash environment in [Azure Cloud Shell](https://shell.azure.com) or the Azure CLI installed locally. To learn more about using Bash in Azure Cloud Shell, see [Azure Cloud Shell Quickstart - Bash](../cloud-shell/quickstart.md). 
+
+	- If you choose to install and use Azure CLI locally, this article requires the Azure CLI version 2.26 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to sign in to Azure.
 
 ## Review the template
 
@@ -300,6 +304,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 }
 
 ```
+
 
 
 ## Related content
