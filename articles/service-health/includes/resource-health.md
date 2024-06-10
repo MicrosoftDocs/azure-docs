@@ -1,13 +1,12 @@
 ---
-author: davidsmatlak
-ms.service: resource-graph
+ms.service: service-health
 ms.topic: include
 ms.date: 07/07/2022
-ms.author: davidsmatlak
-ms.custom: generated
+author: rboucher
+ms.author: robb
 ---
 
-### Count of virtual machines by availability state and Subscription Id
+### Count of virtual machines by availability state and subscription ID
 
 Returns the count of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by their availability state across each of your subscriptions.
 
@@ -39,9 +38,9 @@ Search-AzGraph -Query "HealthResources | where type =~ 'microsoft.resourcehealth
 
 ---
 
-### List of virtual machines and associated availability states by Resource Ids
+### List of virtual machines and associated availability states by resource IDs
 
-Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by availability state. The query also provides the associated Resource Id based on `properties.targetResourceId`, for easy debugging and mitigation. Availability states can be one of four values: Available, Unavailable, Degraded and Unknown. For more details on what each of the availability states mean, please see [Azure Resource Health overview](../../../../articles/service-health/resource-health-overview.md#health-status).
+Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by availability state. The query also provides the associated Resource ID based on `properties.targetResourceId`, for easy debugging and mitigation. Availability states can be one of four values: Available, Unavailable, Degraded, and Unknown. For more details on what each of the availability states mean, go to [Azure Resource Health overview](../resource-health-overview.md#health-status).
 
 ```kusto
 HealthResources
@@ -71,20 +70,20 @@ Search-AzGraph -Query "HealthResources | where type =~ 'microsoft.resourcehealth
 
 ---
 
-### List of virtual machines by availability state and power state with Resource Ids and resource Groups
+### List of virtual machines by availability state and power state with resource IDs and resource groups
 
-Returns list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated on their power state and availability state to provide a cohesive state of health for your virtual machines. The query also provides details on the resource group and resource Id associated with each entry for detailed visibility into your resources.
+Returns list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated on their power state and availability state to provide a cohesive state of health for your virtual machines. The query also provides details on the resource group and resource ID associated with each entry for detailed visibility into your resources.
 
 ```kusto
 Resources
 | where type =~ 'microsoft.compute/virtualmachines'
 | project resourceGroup, Id = tolower(id), PowerState = tostring( properties.extended.instanceView.powerState.code)
 | join kind=leftouter (
-	HealthResources
-	| where type =~ 'microsoft.resourcehealth/availabilitystatuses'
-	| where tostring(properties.targetResourceType) =~ 'microsoft.compute/virtualmachines'
-	| project targetResourceId = tolower(tostring(properties.targetResourceId)), AvailabilityState = tostring(properties.availabilityState))
-	on $left.Id == $right.targetResourceId
+  HealthResources
+  | where type =~ 'microsoft.resourcehealth/availabilitystatuses'
+  | where tostring(properties.targetResourceType) =~ 'microsoft.compute/virtualmachines'
+  | project targetResourceId = tolower(tostring(properties.targetResourceId)), AvailabilityState = tostring(properties.availabilityState))
+  on $left.Id == $right.targetResourceId
 | project-away targetResourceId
 | where PowerState != 'PowerState/deallocated'
 ```
@@ -111,9 +110,9 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ---
 
-### List of virtual machines that are not Available by Resource Ids
+### List of virtual machines that aren't available by resource IDs
 
-Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by their availability state. The populated list only highlights virtual machines whose availability state is not "Available" to ensure you are aware of all the concerning states your virtual machines are in. When all your virtual machines are Available, you can expect to receive no results.
+Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by their availability state. The populated list only highlights virtual machines whose availability state isn't _Available_ to ensure you're aware of all the concerning states your virtual machines are in. When all your virtual machines are Available, you can expect to receive no results.
 
 ```kusto
 HealthResources

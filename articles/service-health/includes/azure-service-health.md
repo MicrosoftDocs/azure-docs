@@ -1,10 +1,9 @@
 ---
-author: davidsmatlak
-ms.service: resource-graph
+ms.service: service-health
 ms.topic: include
 ms.date: 04/09/2024
-ms.author: davidsmatlak
-ms.custom: generated
+author: rboucher
+ms.author: robb
 ---
 
 ### Active Service Health event subscription impact
