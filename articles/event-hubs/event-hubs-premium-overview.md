@@ -43,7 +43,7 @@ It implements a *cluster in cluster* model in its multitenant clusters to provid
 
 ### Cost savings and scalability
 
-The Premium tier is a multitenant offering, so it can dynamically scale more flexibly and quicker. Capacity is allocated in PUs that allocate isolated pods of CPU and memory inside the cluster. The number of those pods can be scaled up or down per namespace. For this reason, the Premium tier is a low-cost option for messaging scenarios with the overall throughput range that's less than 120 MB/sec but higher than what you can achieve with the Standard tier.
+The Premium tier is a multitenant offering, so it can dynamically scale flexibly and quickly. Capacity is allocated in PUs that allocate isolated pods of CPU and memory inside the cluster. The number of those pods can be scaled up or down per namespace. For this reason, the Premium tier is a low-cost option for messaging scenarios with the overall throughput range that's less than 120 MB/sec but higher than what you can achieve with the Standard tier.
 
 ## Encryption of events
 
@@ -64,7 +64,7 @@ Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](../
 
 > [!IMPORTANT]
 > - Availability zone support is only available in [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
-> - In certain regions, Premium tier's support for availability zones is limited even though the region supports availability zones.
+> - In certain regions, the Premium tier's support for availability zones is limited even though the region supports availability zones.
 
 ## Premium vs. Dedicated tiers
 
@@ -92,5 +92,5 @@ The Premium offering is billed by [PUs](event-hubs-scalability.md#processing-uni
 See the following articles:
 
 - [Create an event hub](event-hubs-create.md). Select **Premium** for **Pricing tier**.
-- [Event Hubs Premium pricing](https://azure.microsoft.com/pricing/details/event-hubs/) for more details on pricing
+- [Event Hubs Premium pricing](https://azure.microsoft.com/pricing/details/event-hubs/) for more details on pricing.
 - [Event Hubs FAQ](event-hubs-faq.yml) to find answers to some frequently asked questions about Event Hubs.
