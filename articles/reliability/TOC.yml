@@ -338,6 +338,8 @@
       href: ../azure-signalr/signalr-concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Spring Apps
       href: reliability-spring-apps.md
+    - name: Azure Storage Actions
+      href: reliability-storage-actions.md
     - name: Azure Storage Mover
       href: reliability-azure-storage-mover.md
     - name: Azure VMware Solution
