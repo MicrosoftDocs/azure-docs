@@ -13,7 +13,7 @@ ms.date: 06/06/2024
 
 This article describes the features available in Microsoft Sentinel across different Azure environments. Features are listed as GA (generally available), public preview, or shown as not available.
 
-While Microsoft Sentinel is also available in the [Microsoft Defender portal](../microsoft-sentinel-defender-portal.md), this article only covers Azure environments.
+While Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md), this article only covers Azure environments.
 
 > [!NOTE]
 > These lists and tables do not include feature or bundle availability in the Azure Government Secret or Azure Government Top Secret clouds. 
