@@ -56,7 +56,7 @@ When you use models for inputs or outputs, you can specify one of the following 
 - `upload`: Upload the data from the compute target.
 - `direct`: Pass in the URI as a string.
 
-The following table shows the mode options that are available for different model type inputs and outputs.
+The following table shows the available mode options for different model type inputs and outputs.
 
 |Type | `upload` | `download` | `ro_mount` | `rw_mount` | `direct` |
 |------ | ------ | :---: | :---: | :---: | :---: | :---: |
@@ -170,7 +170,7 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 
 ### Create the registered model
 
-You can create a registered model from a model:
+You can create a registered model from a model that's:
 
 - Located on your local computer.
 - Located on an Azure Machine Learning datastore.
@@ -229,16 +229,18 @@ If your model data comes from a job output, you have two options for specifying 
 >[!NOTE]
 >The *artifacts* reserved keyword represents output from the default artifact location.
 
-- **MLflow runs: URI format**
+- **MLflow runs:** URI format
 
-  This option is optimized for MLflow users, who are probably already familiar with the MLflow `runs:` URI format. This option creates a model from artifacts in the default *artifact* location, where all MLflow-logged models and artifacts are located. This option also establishes a lineage between a registered model and the run the model came from.
+  This option is optimized for MLflow users, who are probably already familiar with the MLflow `runs:` URI format. This option creates a model from artifacts in the default artifact location, where all MLflow-logged models and artifacts are located. This option also establishes a lineage between a registered model and the run the model came from.
 
   Format: `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
+
+  Example:
 
   # [Azure CLI](#tab/cli)
 
   ```azurecli
-  az ml model create --name <registered-model-name> --version 1 --path runs:/<run-id>/<path-to-model>/ --type mlflow_model
+  az ml model create --name my-registered-model --version 1 --path runs:/my_run_0000000000/model/ --type mlflow_model
   ```
 
   # [Python SDK](#tab/python)
@@ -248,37 +250,37 @@ If your model data comes from a job output, you have two options for specifying 
   from azure.ai.ml.constants import ModelType
   
   run_model = Model(
-      path="runs:/<run-id>/model/"
-      name="<registered-model-name>",
+      path="runs:/my_run_0000000000/model/"
+      name="my-registered-model",
       description="Model created from run.",
-      type=ModelType.mlflow_model
+      type=ModelType.MLFLOW_MODEL
   )
   
   ml_client.models.create_or_update(run_model) 
   ```
 
 ---
-- **azureml://jobs URI format**
+- **azureml://jobs** URI format
 
   The `azureml://jobs` reference URI option lets you register a model from artifacts in any of the job's output paths. This format aligns with the `azureml://datastores` reference URI format, and also supports referencing artifacts from named outputs other than the default artifact location.
 
   If you didn't directly register your model within the training script by using MLflow, you can use this option to establish a lineage between a registered model and the job it was trained from.
 
-  Format: `azureml://jobs/<run-id>/outputs/<output-name>/paths/<path-to-model>/`
+  Format: `azureml://jobs/<run-id>/outputs/<output-name>/paths/<path-to-model>`
 
-  - Default artifact location: `azureml://jobs/<run-id>/outputs/artifacts/paths/<path-to-model>/`. This location is equivalent to MLflow `runs:/<run-id>/<model>/`.
+  - Default artifact location: `azureml://jobs/<run-id>/outputs/artifacts/paths/<path-to-model>/`. This location is equivalent to MLflow `runs:/<run-id>/<model>`.
   - Named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>`
   - Specific file within the named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>/paths/<model-filename>`
-  - Specific folder path within the named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>/paths/<model-folder-name>/`
+  - Specific folder path within the named output folder: `azureml://jobs/<run-id>/outputs/<named-output-folder>/paths/<model-folder-name>`
 
-  For example:
+  Example:
   
   # [Azure CLI](#tab/cli)
 
   Save a model from a named output folder:
 
   ```azurecli
-  az ml model create --name run-model-example --version 1 --path azureml://jobs/<job_name>/outputs/artifacts/paths/model/
+  az ml model create --name run-model-example --version 1 --path azureml://jobs/my_run_0000000000/outputs/artifacts/paths/model/
   ```
 
   For a complete example, see the [CLI reference](/cli/azure/ml/model).
@@ -393,7 +395,7 @@ The `Output` class allows you to define:
   - Job: `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`
   - Model asset: `azureml:<my_model>:<version>`
 
-The following code creates an output that mounts your AzureML default datastore in read-write mode. The code simply loads the local MLflow model as input and exports the same model as an output of the job saved in the mounted datastore.
+The following example creates an output that mounts your default datastore in read-write mode. The code simply loads the local MLflow model as input and exports the same model as an output of the job saved in the mounted datastore.
 
 ```python
 from azure.ai.ml import command
