@@ -260,7 +260,7 @@
           href: concept-agentless-containers.md
     - name: Improve your AI security posture management
       items:
-      - name: AI security posture management
+      - name: AI security posture management (Preview)
         displayName: AI, security, posture, management
         href: ai-security-posture.md
     - name: Copilot for Security in Defender for Cloud
