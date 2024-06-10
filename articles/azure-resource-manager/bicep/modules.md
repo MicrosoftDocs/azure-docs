@@ -3,14 +3,14 @@ title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/02/2024
+ms.date: 06/06/2024
 ---
 
 # Bicep modules
 
 Bicep enables you to organize deployments into modules. A module is a Bicep file (or an ARM JSON template) that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
-To share modules with other people in your organization, create a [template spec](../bicep/template-specs.md), [public registry](https://github.com/Azure/bicep-registry-modules), or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
+To share modules with other people in your organization, create a [template spec](../bicep/template-specs.md), or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
 
 > [!TIP]
 > The choice between module registry and template specs is mostly a matter of preference. There are a few things to consider when you choose between the two:
@@ -93,32 +93,42 @@ For example, to deploy a file that is up one level in the directory from your ma
 
 ### File in registry
 
-#### Public module registry
+#### Azure Verified Modules
 
-The public module registry is hosted in a Microsoft container registry (MCR). The source code and the modules are stored in [GitHub](https://github.com/azure/bicep-registry-modules). To view the available modules and their versions, see [Bicep registry Module Index](https://aka.ms/br-module-index). 
+> [!NOTE]
+> Non-AVM modules are retired from the public registry.
 
-:::image type="content" source="./media/modules/bicep-public-module-registry-modules.png" alt-text="The screenshot of public module registry.":::
+[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) are pre-built, pre-tested, and pre-verified modules for deploying resources on Azure. These modules are created by Microsoft or trusted partners and are designed to simplify and accelerate the deployment process for common Azure resources and configurations. Select the highlighted numbers in the following screenshot to see the list of modules.
 
-Select the versions to see the available versions. You can also select **Source code** to see the module source code, and open the Readme files.
+:::image type="content" source="./media/modules/bicep-azure-verified-modules-avm.png" alt-text="The screenshot of Azure Verified Modules(AVM).":::
 
-There are only a few published modules currently. More modules are coming. If you like to contribute to the registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
+The module list shows the latest version. Select the version number to see a list of available versions:
 
-To link to a public registry module, specify the module path with the following syntax:
+:::image type="content" source="./media/modules/bicep-azure-verified-modules-avm-version.png" alt-text="The screenshot of Azure Verified Modules(AVM).":::
+
+To link to an Azure verified module, specify the module path with the following syntax:
 
 ```bicep
 module <symbolic-name> 'br/public:<file-path>:<tag>' = {}
 ```
 
-- **br/public** is the alias for the public module registry. This alias is predefined in your configuration.
+- **br/public** is the alias for Azure Verfied Modules. This alias is predefined in your configuration.
 - **file path** can contain segments that can be separated by the `/` character.
 - **tag** is used for specifying a version for the module.
 
 For example:
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition-public.bicep" highlight="1" :::
+```bicep
+module storage 'br/public:avm/res/storage/storage-account:0.9.0' = {
+  name: 'myStorage'
+  params: {
+    name: 'store${resourceGroup().name}'
+  }
+}
+```
 
 > [!NOTE]
-> **br/public** is the alias for the public registry. It can also be written as
+> **br/public** is the alias for Azure Verified Modules. It can also be written as:
 >
 > ```bicep
 > module <symbolic-name> 'br:mcr.microsoft.com/bicep/<file-path>:<tag>' = {}
@@ -149,7 +159,14 @@ The full path for a module in a registry can be long. Instead of providing the f
 
 An alias for the public module registry has been predefined:
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition-public.bicep" highlight="1" :::
+```bicep
+module storage 'br/public:avm/res/storage/storage-account:0.9.0' = {
+  name: 'myStorage'
+  params: {
+    name: 'store${resourceGroup().name}'
+  }
+}
+```
 
 You can override the public alias in the bicepconfig.json file.
 
