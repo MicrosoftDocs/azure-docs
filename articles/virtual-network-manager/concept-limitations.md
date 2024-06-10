@@ -14,8 +14,6 @@ ms.custom: template-concept
 
 This article provides an overview of the current limitations when you're using [Azure Virtual Network Manager](overview.md) to manage virtual networks. Understanding these limitations can help you properly deploy an Azure Virtual Network Manager instance in your environment. The article covers topics like the maximum number of virtual networks, overlapping IP spaces, and the evaluation cycle for policy compliance.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## General limitations
 
 * [Cross-tenant support](concept-cross-tenant.md) is available only when virtual networks are assigned to network groups with static membership.
