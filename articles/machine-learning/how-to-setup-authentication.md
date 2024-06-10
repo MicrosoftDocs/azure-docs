@@ -332,7 +332,7 @@ can require two-factor authentication, or allow sign in only from managed device
 
 ### Check for service principal
 
-Before adding the conditional access policy, verify that the application ID is listed in the __Enterprisee applications__ section of the [Azure portal](https://portal.azure.com):
+Before adding the conditional access policy, verify that the application ID is listed in the __Enterprise applications__ section of the [Azure portal](https://portal.azure.com):
 
 > [!IMPORTANT]
 > To perform the steps in this section, you must have __Microsoft Entra ID P2__. For more information, see [Microsoft Entra licensing](/entra/fundamentals/licensing).
@@ -342,6 +342,9 @@ Before adding the conditional access policy, verify that the application ID is l
     :::image type="content" source="./media/how-to-setup-authentication/azure-portal-search.png" alt-text="Screenshot of the Azure portal search field with a search for 'Enterprise applications'." lightbox="./media/how-to-setup-authentication/azure-portal-search.png":::
 
 1. From Enterprise Applications, use the __Search by application name or object ID__ field to search for the entry you want to use with conditional access. If an entry appears, a service principal already exists for the application ID. Skip the rest of the steps in this section and go to the [Add conditional access](#add-conditional-access) section.
+
+    > [!IMPORTANT]
+    > The only filter should be __Application ID starts with__. Remove any other filter that may be present.
 
     :::image type="content" source="./media/how-to-setup-authentication/no-application-found.png" alt-text="Screenshot of the Enterprise Applications search with no matching results." lightbox="./media/how-to-setup-authentication/no-application-found.png":::
 
@@ -353,7 +356,7 @@ Before adding the conditional access policy, verify that the application ID is l
 
     For example, `New-AzADServicePrincipal -ApplicationId "d7304df8-741f-47d3-9bc2-df0e24e2071f"`.
 
-1. After creating the service principal, return to __Enterprise applications__ and verify that you can now find the application ID.
+1. After creating the service principal, return to __Enterprise applications__ and verify that you can now find the application ID. You can find the list of IDs in the [Use Conditional Access](#use-conditional-access) section.
 
 ### Add conditional access
 
