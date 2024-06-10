@@ -1,10 +1,9 @@
 ---
-author: davidsmatlak
-ms.service: resource-graph
+ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 02/14/2023
-ms.author: davidsmatlak
-ms.custom: generated
+author: dcurwin
+ms.author: dacurwin
 ---
 ### Display all active Microsoft Defender for Cloud alerts
 
@@ -48,16 +47,16 @@ Returns controls secure score per subscription.
 SecurityResources
 | where type == 'microsoft.security/securescores/securescorecontrols'
 | extend controlName=properties.displayName,
-	controlId=properties.definition.name,
-	notApplicableResourceCount=properties.notApplicableResourceCount,
-	unhealthyResourceCount=properties.unhealthyResourceCount,
-	healthyResourceCount=properties.healthyResourceCount,
-	percentageScore=properties.score.percentage,
-	currentScore=properties.score.current,
-	maxScore=properties.definition.properties.maxScore,
-	weight=properties.weight,
-	controlType=properties.definition.properties.source.sourceType,
-	controlRecommendationIds=properties.definition.properties.assessmentDefinitions
+  controlId=properties.definition.name,
+  notApplicableResourceCount=properties.notApplicableResourceCount,
+  unhealthyResourceCount=properties.unhealthyResourceCount,
+  healthyResourceCount=properties.healthyResourceCount,
+  percentageScore=properties.score.percentage,
+  currentScore=properties.score.current,
+  maxScore=properties.definition.properties.maxScore,
+  weight=properties.weight,
+  controlType=properties.definition.properties.source.sourceType,
+  controlRecommendationIds=properties.definition.properties.assessmentDefinitions
 | project tenantId, subscriptionId, controlName, controlId, unhealthyResourceCount, healthyResourceCount, notApplicableResourceCount, percentageScore, currentScore, maxScore, weight, controlType, controlRecommendationIds
 ```
 
@@ -91,21 +90,21 @@ Returns count of healthy, unhealthy, and not applicable resources per recommenda
 SecurityResources
 | where type == 'microsoft.security/assessments'
 | extend resourceId=id,
-	recommendationId=name,
-	resourceType=type,
-	recommendationName=properties.displayName,
-	source=properties.resourceDetails.Source,
-	recommendationState=properties.status.code,
-	description=properties.metadata.description,
-	assessmentType=properties.metadata.assessmentType,
-	remediationDescription=properties.metadata.remediationDescription,
-	policyDefinitionId=properties.metadata.policyDefinitionId,
-	implementationEffort=properties.metadata.implementationEffort,
-	recommendationSeverity=properties.metadata.severity,
-	category=properties.metadata.categories,
-	userImpact=properties.metadata.userImpact,
-	threats=properties.metadata.threats,
-	portalLink=properties.links.azurePortal
+  recommendationId=name,
+  resourceType=type,
+  recommendationName=properties.displayName,
+  source=properties.resourceDetails.Source,
+  recommendationState=properties.status.code,
+  description=properties.metadata.description,
+  assessmentType=properties.metadata.assessmentType,
+  remediationDescription=properties.metadata.remediationDescription,
+  policyDefinitionId=properties.metadata.policyDefinitionId,
+  implementationEffort=properties.metadata.implementationEffort,
+  recommendationSeverity=properties.metadata.severity,
+  category=properties.metadata.categories,
+  userImpact=properties.metadata.userImpact,
+  threats=properties.metadata.threats,
+  portalLink=properties.links.azurePortal
 | summarize numberOfResources=count(resourceId) by tostring(recommendationName), tostring(recommendationState)
 ```
 
@@ -236,23 +235,23 @@ SecurityResources
 | where properties.displayName contains 'Container registry images should have vulnerability findings resolved'
 | summarize by assessmentKey=name //the ID of the assessment
 | join kind=inner (
-	securityresources
-	| where type == 'microsoft.security/assessments/subassessments'
-	| extend assessmentKey = extract('.*assessments/(.+?)/.*',1,  id)
+  securityresources
+  | where type == 'microsoft.security/assessments/subassessments'
+  | extend assessmentKey = extract('.*assessments/(.+?)/.*',1,  id)
 ) on assessmentKey
 | project assessmentKey, subassessmentKey=name, id, parse_json(properties), resourceGroup, subscriptionId, tenantId
 | extend description = properties.description,
-	displayName = properties.displayName,
-	resourceId = properties.resourceDetails.id,
-	resourceSource = properties.resourceDetails.source,
-	category = properties.category,
-	severity = properties.status.severity,
-	code = properties.status.code,
-	timeGenerated = properties.timeGenerated,
-	remediation = properties.remediation,
-	impact = properties.impact,
-	vulnId = properties.id,
-	additionalData = properties.additionalData
+  displayName = properties.displayName,
+  resourceId = properties.resourceDetails.id,
+  resourceSource = properties.resourceDetails.source,
+  category = properties.category,
+  severity = properties.status.severity,
+  code = properties.status.code,
+  timeGenerated = properties.timeGenerated,
+  remediation = properties.remediation,
+  impact = properties.impact,
+  vulnId = properties.id,
+  additionalData = properties.additionalData
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -285,20 +284,20 @@ Returns all Microsoft Defender assessments, organized in tabular manner with fie
 SecurityResources
 | where type == 'microsoft.security/assessments'
 | extend resourceId=id,
-	recommendationId=name,
-	recommendationName=properties.displayName,
-	source=properties.resourceDetails.Source,
-	recommendationState=properties.status.code,
-	description=properties.metadata.description,
-	assessmentType=properties.metadata.assessmentType,
-	remediationDescription=properties.metadata.remediationDescription,
-	policyDefinitionId=properties.metadata.policyDefinitionId,
-	implementationEffort=properties.metadata.implementationEffort,
-	recommendationSeverity=properties.metadata.severity,
-	category=properties.metadata.categories,
-	userImpact=properties.metadata.userImpact,
-	threats=properties.metadata.threats,
-	portalLink=properties.links.azurePortal
+  recommendationId=name,
+  recommendationName=properties.displayName,
+  source=properties.resourceDetails.Source,
+  recommendationState=properties.status.code,
+  description=properties.metadata.description,
+  assessmentType=properties.metadata.assessmentType,
+  remediationDescription=properties.metadata.remediationDescription,
+  policyDefinitionId=properties.metadata.policyDefinitionId,
+  implementationEffort=properties.metadata.implementationEffort,
+  recommendationSeverity=properties.metadata.severity,
+  category=properties.metadata.categories,
+  userImpact=properties.metadata.userImpact,
+  threats=properties.metadata.threats,
+  portalLink=properties.links.azurePortal
 | project tenantId, subscriptionId, resourceId, recommendationName, recommendationId, recommendationState, recommendationSeverity, description, remediationDescription, assessmentType, policyDefinitionId, implementationEffort, userImpact, category, threats, source, portalLink
 ```
 
@@ -334,23 +333,23 @@ SecurityResources
 | where * contains 'vulnerabilities in your virtual machines'
 | summarize by assessmentKey=name //the ID of the assessment
 | join kind=inner (
-	securityresources
-	| where type == 'microsoft.security/assessments/subassessments'
-	| extend assessmentKey = extract('.*assessments/(.+?)/.*',1,  id)
+  securityresources
+  | where type == 'microsoft.security/assessments/subassessments'
+  | extend assessmentKey = extract('.*assessments/(.+?)/.*',1,  id)
 ) on assessmentKey
 | project assessmentKey, subassessmentKey=name, id, parse_json(properties), resourceGroup, subscriptionId, tenantId
 | extend description = properties.description,
-	displayName = properties.displayName,
-	resourceId = properties.resourceDetails.id,
-	resourceSource = properties.resourceDetails.source,
-	category = properties.category,
-	severity = properties.status.severity,
-	code = properties.status.code,
-	timeGenerated = properties.timeGenerated,
-	remediation = properties.remediation,
-	impact = properties.impact,
-	vulnId = properties.id,
-	additionalData = properties.additionalData
+  displayName = properties.displayName,
+  resourceId = properties.resourceDetails.id,
+  resourceSource = properties.resourceDetails.source,
+  category = properties.category,
+  severity = properties.status.severity,
+  code = properties.status.code,
+  timeGenerated = properties.timeGenerated,
+  remediation = properties.remediation,
+  impact = properties.impact,
+  vulnId = properties.id,
+  additionalData = properties.additionalData
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -383,12 +382,12 @@ Returns regulatory compliance assessments state per compliance standard and cont
 SecurityResources
 | where type == 'microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments'
 | extend assessmentName=properties.description,
-	complianceStandard=extract(@'/regulatoryComplianceStandards/(.+)/regulatoryComplianceControls',1,id),
-	complianceControl=extract(@'/regulatoryComplianceControls/(.+)/regulatoryComplianceAssessments',1,id),
-	skippedResources=properties.skippedResources,
-	passedResources=properties.passedResources,
-	failedResources=properties.failedResources,
-	state=properties.state
+  complianceStandard=extract(@'/regulatoryComplianceStandards/(.+)/regulatoryComplianceControls',1,id),
+  complianceControl=extract(@'/regulatoryComplianceControls/(.+)/regulatoryComplianceAssessments',1,id),
+  skippedResources=properties.skippedResources,
+  passedResources=properties.passedResources,
+  failedResources=properties.failedResources,
+  state=properties.state
 | project tenantId, subscriptionId, id, complianceStandard, complianceControl, assessmentName, state, skippedResources, passedResources, failedResources
 ```
 
@@ -422,11 +421,11 @@ Returns regulatory compliance state per compliance standard per subscription.
 SecurityResources
 | where type == 'microsoft.security/regulatorycompliancestandards'
 | extend complianceStandard=name,
-	state=properties.state,
-	passedControls=properties.passedControls,
-	failedControls=properties.failedControls,
-	skippedControls=properties.skippedControls,
-	unsupportedControls=properties.unsupportedControls
+  state=properties.state,
+  passedControls=properties.passedControls,
+  failedControls=properties.failedControls,
+  skippedControls=properties.skippedControls,
+  unsupportedControls=properties.unsupportedControls
 | project tenantId, subscriptionId, complianceStandard, state, passedControls, failedControls, skippedControls, unsupportedControls
 ```
 
@@ -460,13 +459,13 @@ Returns secure score per management group.
 SecurityResources
 | where type == 'microsoft.security/securescores'
 | project subscriptionId,
-	subscriptionTotal = iff(properties.score.max == 0, 0.00, round(tolong(properties.weight) * todouble(properties.score.current)/tolong(properties.score.max),2)),
-	weight = tolong(iff(properties.weight == 0, 1, properties.weight))
+  subscriptionTotal = iff(properties.score.max == 0, 0.00, round(tolong(properties.weight) * todouble(properties.score.current)/tolong(properties.score.max),2)),
+  weight = tolong(iff(properties.weight == 0, 1, properties.weight))
 | join kind=leftouter (
-	ResourceContainers
-	| where type == 'microsoft.resources/subscriptions' and properties.state == 'Enabled'
-	| project subscriptionId, mgChain=properties.managementGroupAncestorsChain )
-	on subscriptionId
+  ResourceContainers
+  | where type == 'microsoft.resources/subscriptions' and properties.state == 'Enabled'
+  | project subscriptionId, mgChain=properties.managementGroupAncestorsChain )
+  on subscriptionId
 | mv-expand mg=mgChain
 | summarize sumSubs = sum(subscriptionTotal), sumWeight = sum(weight), resultsNum = count() by tostring(mg.displayName), mgId = tostring(mg.name)
 | extend secureScore = iff(tolong(resultsNum) == 0, 404.00, round(sumSubs/sumWeight*100,2))
@@ -504,9 +503,9 @@ Returns secure score per subscription.
 SecurityResources
 | where type == 'microsoft.security/securescores'
 | extend percentageScore=properties.score.percentage,
-	currentScore=properties.score.current,
-	maxScore=properties.score.max,
-	weight=properties.weight
+  currentScore=properties.score.current,
+  maxScore=properties.score.max,
+  weight=properties.weight
 | project tenantId, subscriptionId, percentageScore, currentScore, maxScore, weight
 ```
 
