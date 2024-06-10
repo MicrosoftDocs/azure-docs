@@ -140,7 +140,7 @@ The fleet view workbook shows all of your devices, and lets you select specific 
 
 1. On any of the time charts, use the arrow icons under the X-axis or select the chart and drag your cursor to change the time range.
 
-   :::image type="content" source="./media/tutorial-monitor-with-workbooks/health-snapshot-custom-time-range.png" alt-text="Select and drag or use the arrow icons on any chart to change the time range.":::
+   :::image type="content" source="./media/tutorial-monitor-with-workbooks/health-snapshot-custom-time-range.png" alt-text="Screenshot showing to select and drag or use the arrow icons on any chart to change the time range.":::
 
 1. Close the health snapshot workbook. Select **Workbooks** from the fleet view workbook to return to the workbooks gallery.
 
