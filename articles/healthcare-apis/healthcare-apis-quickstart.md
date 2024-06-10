@@ -12,11 +12,11 @@ ms.custom: mode-api
 
 # Create an Azure workspace for Azure Health Data Services
 
-In this article, you learn how to create a workspace when you deploy instances of Azure Health Data Services through the Azure portal. The workspace is a centralized logical container for all your Azure Health Data services such as FHIR&reg; services, DICOM&reg; services, and MedTech services. It allows you to organize and manage configuration settings that are shared among all the underlying datasets and services.
+Follow the steps in this article to create a workspace before you deploy instances of Azure Health Data Services in the Azure portal. The workspace is a centralized logical container for Azure Health Data services such as FHIR&reg; services, DICOM&reg; services, and MedTech services. It allows you to organize and manage configuration settings that are shared among all the underlying datasets and services.
 
 ## Prerequisites
 
-Before you create a workspace in the Azure portal, you need an account subscription. If you don’t have an Azure subscription, see [Create your free Azure account today](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc).
+Before you create a workspace in the Azure portal, you need an Azure account subscription. For more information, see [Create your free Azure account today](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc).
 
 ## Create a resource
 
