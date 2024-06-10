@@ -134,7 +134,7 @@ created_hub = ml_client.workspaces.begin_update(workspace=my_hub, update_depende
 
 # [Azure CLI](#tab/azurecli)
 
-See flag documentation for [```az ml workspace update```](https://learn.microsoft.com/en-us/cli/azure/ml/workspace?view=azure-cli-latest#az-ml-workspace-update)
+See flag documentation for [```az ml workspace update```](/cli/azure/ml/workspace#az-ml-workspace-update)
 
 ```azurecli
 az ml workspace update -n "myexamplehub" -g "{MY_RESOURCE_GROUP}" -a "APPLICATION_INSIGHTS_ARM_ID" -u
