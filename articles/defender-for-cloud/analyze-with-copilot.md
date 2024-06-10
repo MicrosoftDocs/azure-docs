@@ -4,7 +4,7 @@ author: Elazark
 ms.author: elkrieger
 description: Learn how to analyze recommendations with Copilot in Microsoft Defender for Cloud and improve your security posture.
 ms.topic: how-to
-ms.date: 06/06/2024
+ms.date: 06/10/2024
 #customer intent: As a security professional, I want to understand how to use Copilot to analyze recommendations in Defender for Cloud so that I can improve my security posture.
 ---
 
@@ -40,9 +40,10 @@ Copilot for Security gives you the ability to analyze your recommendations. Thro
 
     Some sample prompts include:
 
-    - Show critical risks for publicly exposed resources
-    - Show critical risks to sensitive data
-    - Show resources with high severity vulnerabilities
+    - Show risks for publicly exposed resources
+    - Show risks for resources with sensitive data
+    - Show risks for critical resources
+    - show risk to data
 
 1. Review the provided answer.
 

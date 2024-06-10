@@ -1,7 +1,7 @@
 ---
 title: Copilot for Security in Defender for Cloud (Preview)
 description: Learn about the benefits of copilot in Microsoft Defender for Cloud and how it applies to analyzing your security posture.
-ms.date: 06/06/2024
+ms.date: 06/10/2024
 author: dcurwin
 ms.author: dacurwin
 ms.topic: concept-article
@@ -14,7 +14,7 @@ Microsoft Copilot for Security is a cloud-based AI platform that provides natura
 
 **Copilot for Security integrates with Microsoft Defender for Cloud**
 
-Microsoft Defender for Cloud's integration with Copilot for Security enables users to understand the security posture of connected environments and understand and assist with the remediation process of those recommendations.
+Microsoft Defender for Cloud's integration with Copilot for Security on the recommendations page, allows users to comprehend the security posture of connected environments and aids users in their ability to grasp the reason for the recommendation and facilitate the remediation process of those recommendations.
 
 ## How Copilot works in Defender for Cloud
 
