@@ -1,23 +1,23 @@
 ---
-title: "Quickstart: Deploy JBoss EAP Server on Azure VM using the Azure portal"
+title: "Quickstart: Deploy JBoss EAP on an Azure virtual machine (VM)"
 description: Shows you how to quickly stand up JBoss EAP Server on an Azure virtual machine.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 01/03/2024
+ms.date: 05/29/2024
 ms.service: virtual-machines
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm
 ---
 
-# Quickstart: Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal
+# Quickstart: Deploy JBoss EAP on an Azure virtual machine (VM)
 
-This article shows you how to quickly deploy JBoss EAP Server on an Azure virtual machine (VM) using the Azure portal.
+This article shows you how to quickly deploy JBoss Enterprise Application Platform (EAP) on an Azure virtual machine (VM) using the Azure portal.
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - Install [Azure CLI](/cli/azure/install-azure-cli).
-- Install a Java SE implementation version 8 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
+- Install a Java Standard Edition (SE) implementation version 8 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
 - Install [Maven](https://maven.apache.org/download.cgi), version 3.5.0 or higher.
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
@@ -63,7 +63,7 @@ Depending on network conditions and other activity in your selected region, the 
 
 ## Optional: Verify the functionality of the deployment
 
-1. Open the resource group you just created in the Azure portal.
+1. Open the resource group you created in the Azure portal.
 1. Select the VM resource named `jbosieapVm`.
 1. In the **Overview** pane, note the **Public IP address** assigned to the network interface.
 1. Copy the public IP address.

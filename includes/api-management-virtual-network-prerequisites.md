@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 05/08/2023
+ms.date: 05/10/2024
 ms.author: danlep
 ---
 
@@ -27,9 +27,11 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
 * For certain scenarios, enable **service endpoints** in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article.
 
-* **A Standard SKU [public IPv4 address](../articles/virtual-network/ip-services/public-ip-addresses.md#sku)**. The public IP address resource is required when setting up the virtual network for either external or internal access. With an internal virtual network, the public IP address is used only for management operations. Learn more about [IP addresses of API Management](../articles/api-management/api-management-howto-ip-addresses.md).
+* **(Optional) A Standard SKU [public IPv4 address](../articles/virtual-network/ip-services/public-ip-addresses.md#sku)**.
 
-  * The IP address must be in the same region and subscription as the API Management instance and the virtual network.
+  [!INCLUDE [api-management-publicip-internal-vnet](api-management-publicip-internal-vnet.md)]
+
+  * If provided, the IP address must be in the same region and subscription as the API Management instance and the virtual network.
 
   * When creating a public IP address resource, ensure you assign a **DNS name label** to it. In general, you should use the same DNS name as your API Management instance. If you change it, redeploy your instance so that the new DNS label is applied.
 
@@ -38,8 +40,6 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
   * When creating a public IP address in a region where you plan to enable [zone redundancy](../articles/reliability/migrate-api-mgt.md) for your API Management instance, configure the **Zone-redundant** setting.
 
   * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance in that region. 
-
-  * When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you must configure a different public IP address.   
 
 ### [stv1](#tab/stv1)
 

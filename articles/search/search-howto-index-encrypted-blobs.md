@@ -11,14 +11,14 @@ ms.custom:
   - ignite-2023
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/18/2024
+ms.date: 05/23/2024
 ---
 
 # Tutorial: Index and enrich encrypted blobs for full-text search in Azure AI Search
 
 This tutorial shows you how to use [Azure AI Search](search-what-is-azure-search.md) to index documents that have been previously encrypted with a customer-managed key in [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
-Normally, an indexer can't extract content from encrypted files because it doesn't have access to the customer-managed encryption key in [Azure Key Vault](../key-vault/general/overview.md). However, by leveraging the [DecryptBlobFile custom skill](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile), followed by the [Document Extraction skill](cognitive-search-skill-document-extraction.md), you can provide controlled access to the key to decrypt the files and then extract content from them. This unlocks the ability to index and enrich these documents without compromising the encryption status of your stored documents.
+Normally, an indexer can't extract content from blobs that have been encrypted using the [client side encryption](/azure/storage/blobs/client-side-encryption) of the Azure Blob Storage client library because the indexer doesn't have access to the customer-managed encryption key in [Azure Key Vault](../key-vault/general/overview.md). However, by leveraging the [DecryptBlobFile custom skill](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile), followed by the [Document Extraction skill](cognitive-search-skill-document-extraction.md), you can provide controlled access to the key to decrypt the files and then extract content from them. This unlocks the ability to index and enrich these documents without compromising the encryption status of your stored documents.
 
 Starting with previously encrypted whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob Storage, this tutorial uses a REST client and the Search REST APIs to perform the following tasks:
 

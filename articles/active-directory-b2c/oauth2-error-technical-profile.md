@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 05/07/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 
@@ -73,6 +73,43 @@ The following example shows a technical profile for `ReturnOAuth2Error`:
 </ClaimsProviders> -->
 ```
 
+## Define claims transformation to generate custom values of error code and error message
+
+Use these steps to generate custom values of error code and error message:
+
+1. Locate the `ClaimsTransformations` element, then add the following code inside it
+
+    ```xml
+    <!--
+     <ClaimsTransformations> -->
+    <ClaimsTransformation Id="GenerateErrorCode" TransformationMethod="CreateStringClaim">
+            <InputParameters>
+              <InputParameter Id="value" DataType="string" Value="Error_001" />
+            </InputParameters>
+            <OutputClaims>
+              <OutputClaim ClaimTypeReferenceId="errorCode" TransformationClaimType="createdClaim" />
+            </OutputClaims>
+          </ClaimsTransformation>
+          <ClaimsTransformation Id="GenerateErrorMessage" TransformationMethod="CreateStringClaim">
+            <InputParameters>
+              <InputParameter Id="value" DataType="string" Value="Insert error description." />
+            </InputParameters>
+            <OutputClaims>
+              <OutputClaim ClaimTypeReferenceId="errorMessage" TransformationClaimType="createdClaim" />
+            </OutputClaims>
+          </ClaimsTransformation>
+    <!--
+    </ClaimsTransformations> -->
+    ```
+
+1. Add the two claims transformations in the `OutputClaimsTransformations` element of any technical profile before Oauth2 technical that you define:
+
+    ```xml
+        <OutputClaimsTransformations>
+          <OutputClaimsTransformation ReferenceId="generateErrorCode" />
+          <OutputClaimsTransformation ReferenceId="generateErrorMessage" />
+        </OutputClaimsTransformations>
+    ```
 ## Input claims
 
 The **InputClaims** element contains a list of claims required to return OAuth2 error. 
@@ -122,6 +159,20 @@ In the following example:
   <ClientDefinition ReferenceId="DefaultWeb" />
 </UserJourney>
 ```
+
+Optionally, you can use preconditions to manipulate the Oauth2 error technical profile. For example, if there is no email claim, you can set to call Oauth2 error technical profile:
+
+```xml
+<OrchestrationStep Order="3" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="ReturnOAuth2Error">
+      <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>email</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+    </OrchestrationStep>
+```
+
 
 ## Next steps
 

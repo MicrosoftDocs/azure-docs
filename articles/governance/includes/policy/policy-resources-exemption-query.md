@@ -1,7 +1,7 @@
 ---
-ms.service: resource-graph
+ms.service: azure-policy
 ms.topic: include
-ms.date: 08/31/2023
+ms.date: 06/04/2024
 author: davidsmatlak
 ms.author: davidsmatlak
 ---

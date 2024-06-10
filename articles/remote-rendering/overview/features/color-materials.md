@@ -31,9 +31,9 @@ The following material properties are exposed in the runtime API, for instance o
 * `AlbedoMap`: A [2D texture](../../concepts/textures.md) for per-pixel albedo values.
 
 * `AlphaClipThreshold`: If the `AlphaClipped` flag is set on the `ColorFlags` property, all pixels where the albedo alpha value is lower than the value of `AlphaClipThreshold` won't be drawn. Alpha clipping can be used even without enabling transparency and is much faster to render. Alpha clipped materials are still slower to render than fully opaque materials, though. By default alpha clipping is disabled.
-
-* `TexCoordScale` and `TexCoordOffset`: The scale is multiplied into the UV texture coordinates, the offset is added to it. Can be used to stretch and shift the textures. The default scale is (1, 1) and offset is (0, 0).
-
+* `TexCoordMode`: Defines the mode that is used to produce texture coordinates for the albedo texture. This mode is ignored if this material doesn't use a texture. By default, the texture coordinates are fetched from the mesh's input vertex streams (mode `TextureCoordinateGenerationMode.SourceUv0` or `TextureCoordinateGenerationMode.SourceUv1`) and then transformed through `TexCoordScale` and `TexCoordOffset`. When setting up a material through code, this mode can also be set to `TextureCoordinateGenerationMode.PlanarObjectSpace` or `TextureCoordinateGenerationMode.PlanarWorldSpace` to generate the coordinates as the vertex distance to two configurable 3D planes `TexCoordPlaneU` and `TexCoordPlaneV`. This is referred to as 'planar texture mapping'.
+* `TexCoordScale` and `TexCoordOffset`: For texture coordinates from source mesh, an extra linear transform can be applied. The scale is multiplied into the UV texture coordinates, the offset is added to it. Can be used to stretch and shift the textures. The default scale is (1, 1) and offset is (0, 0).
+* `TexCoordPlaneU` and `TexCoordPlaneV`: For planar mapping modes, these define the texture planes for the u-coordinate and v-coordinate respectively. Planes are defined in standard normal form (A,B,C,D), so a coordinate is calculated as t = A*x + B*y + C*z + D, where (x,y,z) is the vertex position in either world or object space.
 * `FresnelEffectColor`: The fresnel color used for this material. Only important when the fresnel effect flag has been set on this material (see above). This property controls the base color of the fresnel shine (see [fresnel effect](../../overview/features/fresnel-effect.md) for a full explanation). Currently only the RGB-channel values are important and the alpha value will be ignored.
 
 * `FresnelEffectExponent`: The fresnel exponent used for this material. Only important when the fresnel effect flag has been set on this material (see above). This property controls the spread of the fresnel shine. The minimum value 0.01 causes a spread across the whole object. The maximum value 10.0 constricts the shine to only the most grazing edges visible.
@@ -45,6 +45,9 @@ The following material properties are exposed in the runtime API, for instance o
   * `Opaque`: The default mode disables transparency. Alpha clipping is still possible, though, and should be preferred, if sufficient.
   * `AlphaBlended`: This mode is similar to the transparency mode for PBR materials. It should be used for see-through materials like glass.
   * `Additive`: This mode is the simplest and most efficient transparency mode. The contribution of the material is added to the rendered image. This mode can be used to simulate glowing (but still transparent) objects, such as markers used for highlighting important objects.
+
+> [!NOTE]
+> While `AlbedoColor` and `FresnelEffectColor` have the same accepted value range as for [PBR materials](pbr-materials.md), their channels will be effectively clamped to [0;1] for [Color materials](color-materials.md).
 
 ## Color material overrides during conversion
 

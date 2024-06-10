@@ -5,10 +5,8 @@ description: Learn about the tools, behaviors, and approaches for analyzing quer
 author: mattgotteiner
 ms.author: magottei
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 06/06/2024
 ---
 
 # Analyze performance in Azure AI Search

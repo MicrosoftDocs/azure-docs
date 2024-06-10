@@ -3,12 +3,12 @@ title: Create cluster pool and cluster
 description: Creating a cluster pool and cluster in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: quickstart
-ms.date: 12/11/2023
+ms.date: 06/03/2024
 ---
 
 # Create cluster pool and cluster
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 
 HDInsight on AKS has the concept of cluster pools and clusters.
 
@@ -22,7 +22,7 @@ For creating Apache Spark, Apache Flink, or Trino clusters, you need to first cr
 
 ## Prerequisites
 
-Ensure that you have completed the [subscription prerequisites](prerequisites-subscription.md) and [resource prerequisites](prerequisites-resources.md) before creating a cluster pool.
+Ensure that you have completed the [subscription prerequisites](quickstart-prerequisites-subscription.md) and [resource prerequisites](quickstart-prerequisites-resources.md) before creating a cluster pool.
 
 ## Create a cluster pool
 
@@ -204,3 +204,5 @@ For a quickstart, refer to the following steps.
 
    > [!TIP]
    > For troubleshooting any deployment errors, you can refer to this [page](./create-cluster-error-dictionary.md).
+
+

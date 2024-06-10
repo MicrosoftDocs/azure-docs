@@ -43,7 +43,7 @@ BlobServiceClient client = new BlobServiceClientBuilder()
 ```
 
 
-In this example, each service request issued from the `BlobServiceClient` object uses the retry options as defined in the `RequestRetryOptions` instance. This policy applies to client requestsYou can configure various retry strategies for service clients based on the needs of your app.
+In this example, each service request issued from the `BlobServiceClient` object uses the retry options as defined in the `RequestRetryOptions` instance. This policy applies to client requests. You can configure various retry strategies for service clients based on the needs of your app.
 
 ## Related content
 

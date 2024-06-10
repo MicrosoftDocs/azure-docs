@@ -82,23 +82,17 @@ To **create a queue with auto forwarding enabled**, use the [`New-AzServiceBusQu
 ```azurepowershell-interactive
 New-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
-    -QueueName myqueue `
+    -Name myqueue `
     -ForwardTo myqueue2
 ```
 
 To **update the auto forward setting for an existing queue**, use the [`Set-AzServiceBusQueue`](/powershell/module/az.servicebus/set-azservicebusqueue) command as shown in the following example.
 
 ```azurepowershell-interactive
-$queue=Get-AzServiceBusQueue -ResourceGroup myresourcegroup `
-    -NamespaceName mynamespace `
-    -QueueName myqueue 
-
-$queue.ForwardTo='myqueue2'
-
 Set-AzServiceBusQueue -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
-    -QueueName myqueue `
-    -QueueObj $queue
+    -Name myqueue `
+    -ForwardTo myqueue2
 ``` 
 
 To **create a subscription for a topic with auto forwarding enabled**, use the [`New-AzServiceBusSubscription`](/powershell/module/az.servicebus/new-azservicebussubscription) command with `-ForwardTo` set to the name of queue or topic to which you want the messages to be forwarded.
@@ -107,25 +101,18 @@ To **create a subscription for a topic with auto forwarding enabled**, use the [
 New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
     -TopicName mytopic `
-    -SubscriptionName mysubscription `
+    -Name mysubscription `
     -ForwardTo myqueue2
 ```
 
 To **update the auto forward setting for an existing subscription**, see the following example.
 
 ```azurepowershell-interactive
-$subscription=Get-AzServiceBusSubscription -ResourceGroup myresourcegroup `
-    -NamespaceName mynamespace `
-    -TopicName mytopic `
-    -SubscriptionName mysub
-
-$subscription.ForwardTo='mytopic2'
-
 Set-AzServiceBusSubscription -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
-    -Name mytopic `
-    -SubscriptionName mysub `
-    -SubscriptionObj $subscription 
+    -TopicName mytopic `
+    -Name mysub `
+    -ForwardTo mytopic2 
 ```
 
 ## Using Azure Resource Manager template
@@ -273,7 +260,7 @@ srcSubscription.ForwardTo = destTopic;
 namespaceManager.CreateSubscription(srcSubscription));
 ```
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## Java
 
@@ -283,7 +270,7 @@ You can enable the auto forwarding feature by using the [CreateQueueOptions.setF
 ### azure-servicebus (legacy)
 You can enable autoforwarding by using the [QueueDescription.setForwardTo(String forwardTo)](/java/api/com.microsoft.azure.servicebus.management.queuedescription.setforwardto#com_microsoft_azure_servicebus_management_QueueDescription_setForwardTo_java_lang_String_) or [SubscriptionDescription.setForwardTo(String forwardTo)](/java/api/com.microsoft.azure.servicebus.management.subscriptiondescription.setforwardto) for the source. 
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## Next steps
 Try the samples in the language of your choice to explore Azure Service Bus features. 
@@ -298,4 +285,4 @@ Find samples for the older .NET and Java client libraries below:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
