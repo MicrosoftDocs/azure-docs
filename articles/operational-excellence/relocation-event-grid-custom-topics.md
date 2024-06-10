@@ -37,13 +37,13 @@ To get started, export a Resource Manager template for the custom topic.
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the search bar, type **Event Grid topics**, and select **Event Grid Topics** from the results list. 
 
-    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/search-topics.png" alt-text="Search for and select Event Grid topics":::
+    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/search-topics.png" alt-text="Screenshot of search for and select Event Grid topics page.":::
 3. Select the **topic** that you want to export to a Resource Manager template. 
 
-    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Select the custom topic":::   
+    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Screenshot of select the custom topic page.":::   
 4. On the **Event Grid Topic** page, select **Export Template** under **Settings** on the left menu, and then select **Download** on the toolbar. 
 
-    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/export-template-download.png" lightbox="media/relocation/event-grid/move-custom-topics-across-regions/export-template-download.png" alt-text="Export template -> Download":::
+    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/export-template-download.png" lightbox="media/relocation/event-grid/move-custom-topics-across-regions/export-template-download.png" alt-text="Screenshot of export template -> Download.":::
 
 
     > [!IMPORTANT]
@@ -85,7 +85,7 @@ Deploy the template to create a custom topic in the target region.
 
 1. After the deployment succeeds, select **Go to resource**. 
 
-    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Go to resource":::
+    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Screenshot of go to resource page.":::
 1. Confirm that you see the **Event Grid Topic** page for the custom topic.   
 1. Follow steps in the [Route custom events to a web endpoint](../event-grid/custom-event-quickstart-portal.md#send-an-event-to-your-topic) to send events to the topic. Verify that the webhook event handler is invoked. 
 
