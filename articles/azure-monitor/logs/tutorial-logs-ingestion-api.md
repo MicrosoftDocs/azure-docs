@@ -23,7 +23,7 @@ The steps required to configure the Logs ingestion API are as follows:
 6. See [Sample code to send data to Azure Monitor using Logs ingestion API](tutorial-logs-ingestion-code.md) for sample code to send data to using the Logs ingestion API.
 
 > [!NOTE]
-> This article previously included a step to create a data collection endpoint (DCE). This is no longer required since [DCRs now include their own endpoint](../essentials/data-collection-endpoint-overview.md). A DCE is only required with Logs ingestion API if private link is used.
+> This article includes options for using a DCR ingestion endpoint or a data collection endpoint (DCE). You can choose to user either one, but a DCE is required with Logs ingestion API if private link is used. See [When is a DCE required?](../essentials/data-collection-endpoint-overview.md#when-is-a-dce-required).
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -317,6 +317,8 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
         }
     }
     ```
+    
+      ## [DCE](#tab/dce)
 
     ```json
     {
