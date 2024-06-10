@@ -27,7 +27,7 @@ The steps in this article help you create the architecture in the following diag
 
 ## Create a virtual WAN
 
-[!INCLUDE [Create virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name= "p2s-config"></a>Define P2S configuration parameters
 
@@ -59,7 +59,7 @@ In this section, you create the virtual hub with a point-to-site gateway. When c
 
 ### Basics page
 
-[!INCLUDE [Create hub basics page](../../includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create hub basics page](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
 
 ### Point to site page
 

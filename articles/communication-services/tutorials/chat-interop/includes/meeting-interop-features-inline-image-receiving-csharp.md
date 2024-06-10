@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Enable Inline Image Support
+title: Tutorial - Enable inline image support
 author: palatter
 ms.author: palatter
 ms.date: 10/25/2023
@@ -7,22 +7,26 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this tutorial, you learn how to enable inline image support using the Azure Communication Services Chat SDK for C#.
+This tutorial shows you how to enable inline image support by using the Azure Communication Services Chat SDK for C#.
 
-## Prerequisites 
+In this tutorial, you learn how to:
 
-* Go through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
-* Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
-* Set up a Teams meeting using your business account and have the meeting URL ready.
-* Use Chat SDK for C# (Azure.Communication.Chat) 1.3.0 or the latest. See [here](https://www.nuget.org/packages/Azure.Communication.Chat/).
+- Handle inline images for new messages.
+
+## Prerequisites
+
+* Review the quickstart [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md).
+* Create an Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to *record your connection string* for this tutorial.
+* Set up a Teams meeting by using your business account and have the meeting URL ready.
+* Use Chat SDK for C# (Azure.Communication.Chat) 1.3.0 or the latest. For more information, see [Azure Communication Chat client library for .NET](https://www.nuget.org/packages/Azure.Communication.Chat/).
   
 ## Goal
 
-- Grab the previewUri for inline image attachments
+- Grab the `previewUri` property for inline image attachments.
 
 ## Handle inline images for new messages
 
-In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we poll for messages and append new messages to the messageList. We build on this functionality later to include parsing and fetching of the inline images.
+In the [quickstart](../../../quickstarts/chat/meeting-interop.md), you poll for messages and append new messages to the `messageList` property. You build on this functionality later to include parsing and fetching of the inline images.
 
 ```c#
   CommunicationUserIdentifier currentUser = new(user_Id_);
@@ -40,7 +44,8 @@ In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we poll for m
       }
   }
 ```
-From incoming event of type `ChatMessageReceivedEvent`, there's a property named `attachments`, which contains information about inline image, and it's all we need to render inline images in our UI:
+
+From the incoming event of type `ChatMessageReceivedEvent`, the property named `attachments` contains information about the inline image. It's all you need to render inline images in your UI.
 
 ```c#
 public class ChatAttachment
@@ -61,7 +66,7 @@ public struct ChatAttachmentType : System.IEquatable<AttachmentType>
 }
 ```
 
-As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment:
+The following JSON is an example of what `ChatAttachment` might look like for an image attachment:
 
 ```json
 "attachments": [
@@ -75,7 +80,7 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
 ]
 ```
 
-Now let's go back and replace the code to add extra logic to parse and fetch the image attachments.
+Now go back and replace the code to add extra logic to parse and fetch the image attachments:
 
 ```c#
   CommunicationUserIdentifier currentUser = new(user_Id_);
@@ -115,16 +120,16 @@ Now let's go back and replace the code to add extra logic to parse and fetch the
       }
 ```
 
-Noticing in this example, we grab all attachments from the message of type 'Image' and then we fetch each one of the images. We must use our 'Token' in the 'Bearer' portion of the request header for authorization purposes. Once the image is downloaded, we can assign it to the 'InlineImage' element of the view.
+In this example, you grab all attachments from the message of type `Image` and then fetch each one of the images. You must use your `Token` in the `Bearer` portion of the request header for authorization purposes. After the image is downloaded, you can assign it to the `InlineImage` element of the view.
 
-We also include a list of the attachment URIs to be shown along with the message in text message list.
+You also include a list of the attachment URIs to be shown along with the message in the text message list.
 
 ## Demo
 
-* Run the application from the IDE.
+* Run the application from the integrated development environment (IDE).
 * Enter a Teams meeting link.
-* Join meeting.
-* Admit user on the Teams side.
+* Join the meeting.
+* Admit the user on the Teams side.
 * Send a message from the Teams side with an image.
-* The url included with the message is displayed in the message list and the last received image rendered at the bottom of the window.
 
+The URL included with the message appears in the message list. The last received image is rendered at the bottom of the window.

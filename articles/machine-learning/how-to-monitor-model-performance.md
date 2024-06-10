@@ -11,7 +11,7 @@ ms.author: alehughes
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.date: 01/29/2024
-ms.custom: devplatv2, update-code
+ms.custom: devplatv2, update-code, devx-track-azurecli
 ---
 
 # Monitor performance of models deployed to production

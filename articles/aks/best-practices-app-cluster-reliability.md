@@ -348,7 +348,16 @@ To keep up with application demands in AKS, you might need to adjust the number 
 You can use the `--enable-cluster-autoscaler` parameter when creating an AKS cluster to enable the cluster autoscaler, as shown in the following example:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 2 --vm-set-type VirtualMachineScaleSets --load-balancer-sku standard --enable-cluster-autoscaler  --min-count 1 --max-count 3
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 2 \
+    --vm-set-type VirtualMachineScaleSets \
+    --load-balancer-sku standard \
+    --enable-cluster-autoscaler  \
+    --min-count 1 \
+    --max-count 3 \
+    --generate-ssh-keys
 ```
 
 You can also enable the cluster autoscaler on an existing node pool and configure more granular details of the cluster autoscaler by changing the default values in the cluster-wide autoscaler profile.

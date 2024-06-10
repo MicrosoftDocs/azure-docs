@@ -195,6 +195,25 @@ If you already enabled these legacy alert rules, you should disable them and ena
 2. Change the status for each alert rule to **Disabled**.
 
 
+
+### Legacy alert mapping
+The following table maps each of the legacy Container insights metric alerts to its equivalent recommended Prometheus metric alerts.
+
+| Custom metric recommended alert | Equivalent Prometheus/Platform metric recommended alert | Condition |
+|:---|:---|:---|
+| Completed job count | KubeJobStale (Pod level alerts) | At least one Job instance did not complete successfully for the last 6 hours. |
+| Container CPU % | KubeContainerAverageCPUHigh (Pod level alerts) | The average CPU usage per container exceeds 95% for the last 5 minutes. |
+| Container working set memory % | KubeContainerAverageMemoryHigh (Pod level alerts) | The average memory usage per container exceeds 95% for the last 5 minutes. |
+| Failed Pod counts | KubePodFailedState (Pod level alerts) | One or more pods is in a failed state for the last 5 minutes. |
+| Node CPU % | Node cpu percentage is greater than 95% (Platform metric) | The node CPU percentage is greater than 95% for the last 5 minutes. |
+| Node Disk Usage % | N/A | Average disk usage for a node is greater than 80%. |
+| Node NotReady status | KubeNodeUnreachable (Node level alerts) | A node has been unreachable for the last 15 minutes. |
+| Node working set memory % | Node memory working set percentage is greater than 100% | The node memory working set percentage is greater than 100% for the last 5 minutes. |
+| OOM Killed Containers | KubeContainerOOMKilledCount (Cluster level alerts) | One or more containers within pods have been killed due to out-of-memory (OOM) events for the last 5 minutes. |
+| Persistent Volume Usage % | KubePVUsageHigh (Pod level alerts) | The average usage of Persistent Volumes (PVs) on pod exceeds 80% for the last 15 minutes. |
+| Pods ready % | KubePodReadyStateLow (Pod level alerts) | The percentage of pods in a ready state falls below 80% for any deployment or daemonset in the Kubernetes cluster for the last 5 minutes. |
+| Restarting container count | KubePodContainerRestart (Pod level alerts) | One or more containers within pods in the Kubernetes cluster have been restarted at least once within the last hour. |
+
 ## Next steps
 
 - Read about the [different alert rule types in Azure Monitor](../alerts/alerts-types.md).
