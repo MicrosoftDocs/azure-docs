@@ -25,13 +25,13 @@
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Workspace provisioning
-      href: workspace-overview.md
-    - name: Set up a workspace
+    - name: Deployment overview
       href: health-data-services-get-started.md
-    - name: Deploy services in the Azure portal
+    - name: Workspace overview
+      href: workspace-overview.md
+    - name: Azure Health Data Services quickstart
       href: healthcare-apis-quickstart.md
-    - name: Deploy services by using Bicep
+    - name: Deploy services programatically
       href: deploy-healthcare-apis-using-bicep.md
 - name: How-tos
   expanded: true
