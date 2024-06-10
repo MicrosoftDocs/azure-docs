@@ -65,6 +65,8 @@ Currently, routes that are advertised from the Virtual WAN route table to spoke 
 
    * **Address Prefix:** 0.0.0.0/0
    * **Next Hop:** Internet
+  
+2. Also, to ensure the application gateway is able to send traffic to backend instances, enable the 'Propagate gateway routes' option in the route table configuration for the subnet to learn routes from Virtual Wan HUB.
 
 ## Next steps
 
