@@ -72,7 +72,7 @@ Here's the aggregated data that the summary rule sends to the destination table:
 
 :::image type="content" source="media/summary-rules/summary-rules-aggregated-logs.png" alt-text="Screenshot that aggregated data that the summary rules sends to the destination table." lightbox="media/summary-rules/summary-rules-aggregated-logs.png":::
 
-Instead of logging hundreds of similar entries within an hour, the destination shows the count of each unique entry, as defined in the KQL query. Set the [Basic data plan](basic-logs-configure.md) on the `ContainerLogsV2` table for cheap retention of the raw data, and use the summarized data in the destination table for your analysis needs.
+Instead of logging hundreds of similar entries within an hour, the destination table shows the count of each unique entry, as defined in the KQL query. Set the [Basic data plan](basic-logs-configure.md) on the `ContainerLogsV2` table for cheap retention of the raw data, and use the summarized data in the destination table for your analysis needs.
 
 ## Restrictions and limitations
 
