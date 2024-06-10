@@ -3,7 +3,7 @@ title: Connect MQTT bridge cloud connector to other MQTT brokers
 description: Bridge Azure IoT MQ to another MQTT broker.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
