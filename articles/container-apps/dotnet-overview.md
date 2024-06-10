@@ -44,22 +44,28 @@ After you've added a Dockerfile to your .NET project, you can deploy it to Azure
 
 ## Use the HTTP ingress
 
-Azure Container Apps includes a built-in HTTP ingress, which allows you to expose your apps to external traffic. To learn more, see [HTTP ingress in Azure Container Apps](ingress.md).
+Azure Container Apps includes a built-in HTTP ingress that allows you to expose your apps to external traffic. To learn more, see [HTTP ingress in Azure Container Apps](ingress.md).
 
-All incoming HTTP requests are first handled by the ingress, then routed to your app. TLS termination is also handled by the ingress, so you don't need to configure HTTPS in your app.
+All incoming requests are first handled by the ingress, then routed to your app. The ingress handles TLS termination and custom domains, so you don't need to configure them in your app.
+
+The ingress exposes port 443 for HTTPS traffic. Optionally, it can also expose port 80 for HTTP traffic. The ingress forwards requests to your app at its target port.
+
+If your app needs metadata about the original request, it can use X-forwarded headers.
 
 ### Target port
 
-By default, the Dockerfile for an ASP.NET Core app is configured to listen on HTTP. The default port that it listens to depends on the ASP.NET Core version:
+To receive traffic, the ingress must be configured with the correct target port. The target port is the port that your app's HTTP server is listening to.
+
+When ASP.NET Core is running in a container, the port(s) that it listens to is configured in the container image. When you use the [official ASP.NET Core images](/aspnet/core/host-and-deploy/docker/building-net-docker-images), your app is configured to listen to HTTP on a default port. The default port depends on the ASP.NET Core version:
 
 * ASP.NET Core 7 and earlier: `80`
 * ASP.NET Core 8 and later: `8080`
 
-When you configure the ingress, set the target port to the number corresponding to the version of ASP.NET Core you're using.
+When you configure the ingress, set the target port to the number corresponding to the container image you're using.
 
 ### X-forwarded headers
 
-Because the original HTTP request is handled by the ingress, your app will see the ingress as the client. There are some situations where your app needs to know the original client's IP address or the original protocol (HTTP or HTTPS). The HTTP ingress adds [`X-Forwarded-*` headers](ingress-overview.md#http-headers) to the request that contain this information.
+Because the original HTTP request is handled by the ingress, your app will see the ingress as the client. There are situations where your app needs to know the original client's IP address or the original protocol (HTTP or HTTPS). The HTTP ingress adds [`X-Forwarded-*` headers](ingress-overview.md#http-headers) to the request that contain this information.
 
 You can configure your ASP.NET Core app to use these headers by adding the following code:
 
