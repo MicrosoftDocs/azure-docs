@@ -8,7 +8,7 @@ ms.date: 04/04/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: mode-other, devx-track-js
+ms.custom: mode-other
 ---
 
 # Quickstart: Place interop group calls between Azure Communication Services and Microsoft Teams

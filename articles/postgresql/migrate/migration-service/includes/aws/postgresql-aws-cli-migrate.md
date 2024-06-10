@@ -4,6 +4,7 @@ author: markingmyname
 ms.author: maghan
 ms.date: 03/19/2024
 ms.service: postgresql
+ms.custom: devx-track-azurecli
 ms.topic: include
 ---
 
