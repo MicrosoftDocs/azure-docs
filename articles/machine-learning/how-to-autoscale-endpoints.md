@@ -8,7 +8,7 @@ ms.topic: how-to
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.custom: devplatv2, cliv2
+ms.custom: devplatv2, cliv2, update-code
 
 ms.date: 02/07/2023
 ---

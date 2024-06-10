@@ -89,10 +89,6 @@
       href: tutorial-kubernetes-scale.md
     - name: 7 - Upgrade cluster
       href: tutorial-kubernetes-upgrade-cluster.md
-    - name: Security
-      items:
-        - name: Configure application to use workload identity
-          href: learn/tutorial-kubernetes-workload-identity.md
 - name: Concepts
   items:
     - name: Core concepts
@@ -136,12 +132,24 @@
               href: cis-windows.md
     - name: Networking
       items:
-        - name: Concepts
+        - name: Networking concepts
           href: concepts-network.md
         - name: CNI networking
-          href: azure-cni-overview.md
+          items:
+            - name: CNI networking overview
+              href: concepts-network-cni-overview.md
+            - name: Azure CNI Overlay
+              href: concepts-network-azure-cni-overlay.md
+            - name: Azure CNI Pod subnet
+              href: concepts-network-azure-cni-pod-subnet.md
+            - name: Legacy CNI options
+              href: concepts-network-legacy-cni.md
+        - name: IP address planning
+          href: concepts-network-ip-address-planning.md
         - name: Services
           href: concepts-network-services.md
+        - name: Ingress
+          href: concepts-network-ingress.md
     - name: Advanced Container Networking Services 
       items:
         - name: Advanced Container Networking Services overview
@@ -162,6 +170,8 @@
       href: servicemesh-about.md
     - name: Sustainable software engineering
       href: concepts-sustainable-software-engineering.md
+    - name: Preview API life cycle
+      href: concepts-preview-api-life-cycle.md
     - name: Dapr
       href: dapr-overview.md
     - name: GitOps
@@ -349,11 +359,14 @@
         - name: Node autoprovision
           href: node-autoprovision.md
         - name: Availability zones
+          href: availability-zones.md
           items:
             - name: Availability zones overview
               href: availability-zones-overview.md
             - name: Create a cluster with availability zones
               href: availability-zones.md
+        - name: Zone resiliency
+          href: aks-zone-resiliency.md
         - name: Propagate Kubernetes resources across multiple clusters
           href: ../kubernetes-fleet/resource-propagation.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Cluster management
@@ -392,10 +405,10 @@
           items:
             - name: Azure kubelogin
               href: kubelogin-authentication.md
-            - name: Create service principal
-              href: kubernetes-service-principal.md
             - name: Use managed identities
               href: use-managed-identity.md
+            - name: Create a service principal
+              href: kubernetes-service-principal.md
             - name: Enable access to AKS clusters using Trusted Access
               href: trusted-access-feature.md
             - name: Limit access to cluster configuration file
@@ -860,7 +873,7 @@
               href: /azure/azure-app-configuration/reference-kubernetes-provider?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Troubleshoot the Azure App Configuration extension
               href: /troubleshoot/azure/azure-kubernetes/troubleshoot-app-configuration-extension-installation-errors?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-    - name: Deploy Intelligent Apps on AKS
+    - name: AI and machine learning
       items:
         - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
           href: open-ai-quickstart.md

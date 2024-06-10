@@ -126,7 +126,7 @@ Each Azure subscription has default quota limits in place that could impact the 
 
 For more information about quota limits, see [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
+[!INCLUDE [azure-iotdps-limits](~/reusable-content/ce-skilling/azure/includes/iot-dps-limits.md)]
 
 ## Billable service operations and pricing
 
@@ -136,9 +136,9 @@ The tables below show the current billable status for each DPS service API opera
 
 | API | Operation | Billable? |
 | --------------- | -------  | -- |
-|  Device API | [Device Registration Status Lookup](/rest/api/iot-dps/device/device-registration-state) | No|
+|  Device API | [Device Registration Status Lookup](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) | No|
 |  Device API | [Operation Status Lookup](/rest/api/iot-dps/device/operation-groups)| No |
-|  Device API | [Register Device](/rest/api/iot-dps/device/device-registration-state) | Yes |
+|  Device API | [Register Device](/rest/api/iot-dps/device/runtime-registration/register-device) | Yes |
 | DPS Service API (registration state)  | [Delete](/rest/api/iot-dps/service/device-registration-state/delete) | Yes|
 | DPS Service API (registration state)  | [Get](/rest/api/iot-dps/service/device-registration-state/get) | Yes|
 | DPS Service API (registration state)  | [Query](/rest/api/iot-dps/service/device-registration-state/query) | Yes|

@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-add-run-inline-code.md",
+            "redirect_url": "/azure/logic-apps/add-run-javascript",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/logic-apps-azure-functions.md",
             "redirect_url": "/azure/logic-apps/call-azure-functions-from-workflows",
             "redirect_document_id": true

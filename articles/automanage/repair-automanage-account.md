@@ -79,7 +79,7 @@ If you're using an ARM template or the Azure CLI, you'll need the Principal ID (
     | Assign access to | User, group, or service principal  |
     | Members          | \<Name of your Automanage account> |
 
-    ![Screenshot showing Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot showing Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 1. Repeat steps 2 through 4, selecting the **Resource Policy Contributor** role.
 

@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 04/24/2024
+ms.date: 05/28/2024
 ---
 
 # Azure AI Vision vectorizer
@@ -16,7 +16,7 @@ ms.date: 04/24/2024
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
 
-The **Azure AI Vision** vectorizer connects to an Azure AI Vision resource to generate embeddings at query time using [the Multimodal embeddings API](../ai-services/computer-vision/concept-image-retrieval.md).
+The **Azure AI Vision** vectorizer connects to an Azure AI Vision resource to generate embeddings at query time using [the Multimodal embeddings API](../ai-services/computer-vision/concept-image-retrieval.md). Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed. 
 
 > [!NOTE]
 > This vectorizer is bound to Azure AI services. Execution of the vectorizer is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).

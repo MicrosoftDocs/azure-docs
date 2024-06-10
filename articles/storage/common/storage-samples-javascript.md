@@ -9,6 +9,7 @@ ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.custom: devx-track-js
 ms.devlang: javascript
+ai-usage: ai-assisted
 ---
 
 # Azure Storage samples using JavaScript client libraries
