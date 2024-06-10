@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 02/13/2023
 ms.reviewer: azfuncdf
 ms.devlang: typescript
-ms.custom: devx-track-js, mode-api, vscode-azure-extension-update-complete
+ms.custom: devx-track-js, mode-api, vscode-azure-extension-update-complete, devx-track-ts
 zone_pivot_groups: functions-nodejs-model
 ---
 

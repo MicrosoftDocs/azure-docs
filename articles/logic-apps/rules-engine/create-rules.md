@@ -350,7 +350,7 @@ You can specify data source references that you can save in your rule store for 
 
 1. Under **.NET Assemblies**, open the assembly's shortcut menu, and select **Remove**.
 
-## Add an XML schema as a data source for XML facts
+### Add an XML schema as a data source for XML facts
 
 1. In the **Facts Explorer** window, select the **XML Schemas** tab.
 

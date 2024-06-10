@@ -1,6 +1,7 @@
 ---
  author: cherylmc
  ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
  ms.topic: include
  ms.date: 05/15/2024
  ms.author: cherylmc
