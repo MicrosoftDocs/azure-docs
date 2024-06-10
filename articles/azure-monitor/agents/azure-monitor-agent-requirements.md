@@ -67,7 +67,7 @@ You should use `mi_res_id` as the `identifier-name`. The following sample comman
 | Agent Cache | Windows (Azure VM) | C:\WindowsAzure\Resources\AMADataStore.{DataStoreName} | 10.5 GB |
 | Agent Cache | Windows (Azure Arc) | C:\Resources\Directory\AMADataStore. {DataStoreName} | 10.5 GB |
 | Event Cache | Linux | /var/opt/microsoft/azuremonitoragent/events | 10 GB |
-
+| Event Cache | Linux | /var/lib/rsyslog | 1 GB |
 
 
 ## Next steps
