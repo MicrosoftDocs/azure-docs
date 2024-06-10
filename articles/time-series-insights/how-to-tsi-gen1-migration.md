@@ -26,25 +26,25 @@ ms.custom: tvilutis
 
 Use the following steps to start ingesting new data into your Eventhouse:
 
-1. Configure your [Azure Event Hub](/azure/event-hubs/event-hubs-about) with a new consumer group.
+1. Configure your [event hub](/azure/event-hubs/event-hubs-about) with a new consumer group.
 
-2. Consume data from the data source and ingest it into your Eventhouse. Refer to the documentation on how to [ingest data from your EventHub](/fabric/real-time-intelligence/get-data-event-hub).
+2. Consume data from the data source and ingest it into your Eventhouse. Refer to the documentation on how to [ingest data from your event hub](/fabric/real-time-intelligence/get-data-event-hub).
 
 ### Migrate historical data from Time Series Insights
 
-If you need to export telemetry data from your Time Series Insights environment, you can use the Time Series Insights Query API to download the events in batches and serialize them in the required format. Depending on where you stored the exported data, you can ingest the data from [Azure Storage](/real-time-intelligence/get-data-azure-storage), [local files](/fabric/real-time-intelligence/get-data-local-file), or [OneLake](/fabric/real-time-intelligence/get-data-onelake).
+If you need to export data from your Time Series Insights environment, you can use the Time Series Insights Query API to download the events in batches and serialize them in the required format. Depending on where you stored the exported data, you can ingest the data from [Azure Storage](/real-time-intelligence/get-data-azure-storage), [local files](/fabric/real-time-intelligence/get-data-local-file), or [OneLake](/fabric/real-time-intelligence/get-data-onelake).
 
 ### Migrate reference data
 
 Use the following steps to migrate reference data:
 
-1. Use Time Series Insights Explorer or the Reference Data API to download the reference data set. This allows you to retrieve the necessary data for migration.
+1. Use Time Series Insights Explorer or the Reference Data API to download the reference data set.
 
 2. Once you have the reference data set, [upload it to your Eventhouse](/fabric/real-time-intelligence/get-data-local-file) as another table. By uploading the reference data set, you can access and utilize it within your Eventhouse environment.
 
-## Translate Time Series Insights Queries to KQL
+## Translate Time Series Insights Queries to Kusto Query Language
 
-For queries, the recommendation is to use KQL in Eventhouse.
+For queries, the recommendation is to use Kusto Query Language in Eventhouse.
 
 #### Events
 ```TSQ
