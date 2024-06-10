@@ -139,22 +139,6 @@ To run Windows MPI applications on a pool of Azure H16r VM nodes, you need to co
 | **Internode communication enabled** | True |
 | **Max tasks per node** | 1 |
 
-## Example: Intel MPI on a Linux H16r VM pool
-
-To run MPI applications on a pool of Linux HB-series nodes, one option is to use the [CentOS-based 8.1 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) image from the Azure Marketplace. Linux RDMA drivers and Intel MPI are preinstalled. This image also supports Docker container workloads.
-
-Using the Batch APIs or Azure portal, create a pool using this image and with the desired number of nodes and scale. The following table shows sample pool settings:
-
-| Setting | Value |
-| ---- | ---- |
-| **Image Type** | Marketplace (Linux/Windows) |
-| **Publisher** | OpenLogic |
-| **Offer** | CentOS-HPC |
-| **Sku** | 8.1 |
-| **Node size** | H16r Standard |
-| **Internode communication enabled** | True |
-| **Max tasks per node** | 1 |
-
 ## Next steps
 
 * To run MPI jobs on an Azure Batch pool, see the [Windows](batch-mpi.md) or [Linux](/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch) examples.
