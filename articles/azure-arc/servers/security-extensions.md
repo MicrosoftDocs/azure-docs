@@ -25,6 +25,12 @@ All extension operations originate from Azure through an API call, CLI, PowerShe
 
 The extension manager can be used to run scripts on machines using the Custom Script Extension or Run Command. By default, these scripts will run in the extension manager’s user context – Local System on Windows or root on Linux – meaning these scripts will have unrestricted access to the machine. If you do not intend to use these features, you can block them using an allowlist or blocklist. An example is provided in the next section.
 
+## Local agent security controls
+
+Starting with agent version 1.16, you can optionally limit the extensions that can be installed on your server and disable Guest Configuration. These controls can be useful when connecting servers to Azure for a single purpose, such as collecting event logs, without allowing other management capabilities to be used on the server.
+
+These security controls can only be configured by running a command on the server itself and cannot be modified from Azure. This approach preserves the server admin's intent when enabling remote management scenarios with Azure Arc, but also means that changing the setting is more difficult if you later decide to change them. This feature is intended for sensitive servers (for example, Active Directory Domain Controllers, servers that handle payment data, and servers subject to strict change control measures). In most other cases, it's not necessary to modify these settings.
+
 ## Allowlists and blocklists
 
 The Azure Connected Machine agent supports an allowlist and blocklist to restrict which extensions can be installed on your machine. Allowlists are exclusive, meaning that only the specific extensions you include in the list can be installed. Blocklists are exclusive, meaning anything except those extensions can be installed. Allowlists are preferable to blocklists because they inherently block any new extensions that become available in the future.

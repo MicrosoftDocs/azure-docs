@@ -21,6 +21,10 @@ The managed identity certificate is stored on the local disk of the system. Itâ€
 
 When an application on your system wants to get a token for the managed identity, it issues a request to the REST identity endpoint at *http://localhost:40342/identity*. There are slight differences in how Azure Arc handles this request compared to Azure VM. The first response from the API includes a path to a challenge token located on disk. The challenge token is stored in *C:\ProgramData\AzureConnectedMachineAgent\tokens* on Windows or */var/opt/azcmagent/tokens* on Linux. The caller must prove they have access to this folder by reading the contents of the file and reissuing the request with this information in the authorization header. The tokens directory is configured to allow administrators and any identity belonging to the "Hybrid agent extension applications" (Windows) or the "himds" (Linux) group to read the challenge tokens. If you're authorizing a custom application to use the system-assigned managed identity, you should add its user account to the appropriate group to grant it access.
 
+To learn more about using a managed identity with Arc-enabled servers to authenticate and access Azure resources, see the following video.
+
+> [!VIDEO https://www.youtube.com/embed/4hfwxwhWcP4]
+
 ## RBAC roles
 
 There are two built-in roles in Azure that you can use to control access to an Azure Arc-enabled server:
