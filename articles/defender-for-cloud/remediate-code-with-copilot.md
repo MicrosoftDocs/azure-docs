@@ -55,7 +55,7 @@ With Copilot for Security in Defender for Cloud you can remediate recommendation
 
 1. Select the provided link.
 
-1. Review the the PR.
+1. Review the PR.
 
 Once the PR is generated in your code repository, you should have a developer review and approve the PR to have it merged into the code base.
 
