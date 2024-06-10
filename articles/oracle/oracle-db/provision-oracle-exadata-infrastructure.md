@@ -14,8 +14,8 @@ ms.author: jacobjaygbay
 
 Provisioning Oracle Exadata Infrastructure is a time-consuming process. Provisioning an Oracle Exadata Infrastructure is a prerequisite for provisioning Oracle Exadata VM Clusters and any Oracle Exadata Databases.
 
-> [!NOTE]
-> To ensure you have all the information needed for a successful provisioning flow, review the [Provisioning Troubleshooting](https://docs.oracle.com/en-us/iaas/odaaz/odaaz-provisioningtroubleshooting.html#GUID-DACCA740-025E-4466-8BB7-AC8C1D23E450) document specifically the IP Address Requirement Differences.
+  > [!NOTE]
+  > To ensure you have all the information needed for a successful provisioning flow, review the [Troubleshoot provisioning issues](provision-troubleshoot-oracle-database.md) document specifically the IP Address Requirement Differences.
 
 1. Provision your Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources from the OracleDB@Azure blade. By default, the Oracle Exadata Infrastructure tab is selected. To create an Oracle Exadata VM Cluster resource, select that tab first.
 1. Select the **+ Create** icon at the top of the blade to begin the provisioning flow.
@@ -26,7 +26,8 @@ Provisioning Oracle Exadata Infrastructure is a time-consuming process. Provisio
    1. Enter a unique **Name** for the Oracle Exadata Infrastructure on this subscription.
    1. Select the **Region** where this Oracle Exadata Infrastructure is provisioned. **NOTE:** The regions where the OracleDB@Azure service is available are limited.
    1. Select the **Availability zone** where this Oracle Exadata Infrastructure is provisioned.
-     > [!NOTE] The availability zones where the OracleDB@Azure service is available are limited.
+     > [!NOTE]
+     > The availability zones where the OracleDB@Azure service is available are limited.
    1. The **Oracle Cloud account name** field is display-only. If the name isn't showing correctly, your OracleDB@Azure account setup hasn't been successfully completed.
    1. Select **Next** to continue.
 1. From the **Configuration** tab of the Create Oracle Exadata Infrastructure flow, enter the following information.
