@@ -59,7 +59,8 @@ Conversation summarization supports the following languages:
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
-| Chinese-Simplified    | `zh-hant`     |  `zh` also accepted |
+| Chinese-Simplified  | `zh-hans`     |  `zh` also accepted |
+| Chinese-Traditional | `zh-hant`     |                     |
 | English               | `en`          |                     |
 | French                | `fr`          |                     |
 | German                | `de`          |                     |
