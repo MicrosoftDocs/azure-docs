@@ -56,7 +56,7 @@ For more information, see articles in [the Azure Stream Analytics integration se
 
 ### Explore streaming data with Azure Data Explorer
 
-Azure Data Explorer is a fully managed platform for big data analytics that delivers high performance and allows for the analysis of large volumes of data in near real-time. By integrating Event Hubs with Azure Data Explorer, you can perform near real-time analytics and exploration of streaming data.
+Azure Data Explorer is a fully managed platform for big data analytics that delivers high performance and allows for the analysis of large volumes of data in near real time. By integrating Event Hubs with Azure Data Explorer, you can perform near real-time analytics and exploration of streaming data.
 
 :::image type="content" source="./media/event-hubs-about/data-explorer-integration.png" alt-text="Diagram that shows Azure Data Explorer query and output.":::
 
@@ -84,7 +84,7 @@ In most streaming scenarios, data is characterized by being lightweight, typical
 
 ### Capture streaming data for long-term retention and batch analytics
 
-Capture your data in near real-time in Azure Blob Storage or Azure Data Lake Storage for long-term retention or micro-batch processing. You can achieve this behavior on the same stream that you use for deriving real-time analytics. Setting up capture of event data is fast.  
+Capture your data in near real time in Azure Blob Storage or Azure Data Lake Storage for long-term retention or micro-batch processing. You can achieve this behavior on the same stream that you use for deriving real-time analytics. Setting up capture of event data is fast.  
 
 :::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture-msi.png" alt-text="Diagram that shows capturing Event Hubs data into Azure Storage or Azure Data Lake Storage by using Managed Identity.":::
 
