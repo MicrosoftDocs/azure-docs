@@ -25,5 +25,5 @@ ms.date: 02/27/2024
 | Azure Stack HCI                                          |   |
 | Windows IoT Enterprise                                   | ✓ |
 
-<sup>1</sup> Using the Azure Monitor agent [client installer](../agents/azure-monitor-agent-windows-client.md).<br>
+<sup>1</sup> Using the Azure Monitor agent [client installer](../../azure-monitor/agents/azure-monitor-agent-windows-client.md).<br>
 <sup>2</sup> Also supported on Arm64-based machines.
