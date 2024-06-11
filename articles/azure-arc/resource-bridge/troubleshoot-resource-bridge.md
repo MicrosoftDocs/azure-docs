@@ -218,6 +218,10 @@ To install Azure Arc resource bridge on an Azure Stack HCI cluster, `az arcappli
 
 ## Azure Arc-enabled VMware VCenter issues
 
+### errorCode: CreateConfigKvaCustomerError, errorResponse: error getting the vsphere sdk
+
+For errors with errorCode, CreateConfigKvaCustomerError, and an errorResponse of `error getting the vsphere sdk`, these errors occur when your deployment machine is trying to establish a TCP connection to your vCenter address but encounters a problem. You will receive this errorCode and errorResponse if your vCenter address is incorrect (403 or 404 error) or there is a network/proxy/firewall configuration blocking it (connection attempt failed). If you entered your vCenter address as a hostname and receive the error `no such host`, this means that your deployment machine is not able to resolve the vCenter hostname via the client DNS. You may receive an error if the deployment machine is able to resolve the vCenter hostname but the deployment machine can't reach the IP address it was provided back from DNS. Continuing along this flow, you may receive an error if the endpoint returned by DNS is not your vCenter address or the traffic was intercepted by proxy. Finally, you will get an error if your deployment machine is able to communicate with your vCenter address but you entered an incorrect username or password.
+
 ### vSphere SDK client - Connection attempt failed
 
 If you receive an error during deployment that states: `errorCode_: _CreateConfigKvaCustomerError_, _errorResponse_: _error getting the vsphere sdk client: Post \_https://ip.address/sdk\_: dial tcp ip.address:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond._ }` this means that your deployment machine is not able to communicate with your vCenter server. Ensure that your deployment machine meets the [management machine requirements](system-requirements.md#management-machine-requirements) and that there is not a firewall or proxy blocking communication. 
