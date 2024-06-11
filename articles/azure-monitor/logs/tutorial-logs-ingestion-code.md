@@ -43,7 +43,7 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
     using Azure.Monitor.Ingestion;
 
     // Initialize variables
-    var endpoint = new Uri("https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com");
+    var endpoint = new Uri("https://my-url.monitor.azure.com");
     var ruleId = "dcr-00000000000000000000000000000000";
     var streamName = "Custom-MyTableRawData";
     
@@ -160,7 +160,7 @@ The following sample code uses the [Azure Monitor Ingestion Logs client module f
     )
     
     // logs ingestion URI 
-    const endpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com"
+    const endpoint = "https://my-url.monitor.azure.com"
     // data collection rule (DCR) immutable ID
     const ruleID = "dcr-00000000000000000000000000000000"
     // stream name in the DCR that represents the destination table
@@ -257,7 +257,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
         public static void main(String[] args) { 
             
             LogsIngestionClient client = new LogsIngestionClientBuilder()
-                .endpoint("https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com") 
+                .endpoint("https://my-url.monitor.azure.com") 
                 .credential(new DefaultAzureCredentialBuilder().build()) 
                 .buildClient(); 
                 
@@ -325,7 +325,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
     require("dotenv").config();
     
     async function main() {
-      const logsIngestionEndpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com";
+      const logsIngestionEndpoint = "https://my-url.monitor.azure.com";
       const ruleId = "dcr-00000000000000000000000000000000";
       const streamName = "Custom-MyTableRawData";
       const credential = new DefaultAzureCredential();
@@ -484,7 +484,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for P
 
     ```python
     # information needed to send data to the DCR endpoint
-    endpoint_uri = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" # logs ingestion endpoint of the DCR
+    endpoint_uri = "https://my-url.monitor.azure.com" # logs ingestion endpoint of the DCR
     dcr_immutableid = "dcr-00000000000000000000000000000000" # immutableId property of the Data Collection Rule
     stream_name = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
     
