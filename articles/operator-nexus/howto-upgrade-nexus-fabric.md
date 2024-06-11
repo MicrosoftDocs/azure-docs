@@ -1,19 +1,19 @@
 ---
-title: Azure Operator Nexus: How to upgrade Network Fabric
+title: How to upgrade Network Fabric for Azure Operator Nexus
 description: Learn the process for upgrading Network Fabric for Azure Operator Nexus.
-author: sushantjrao
+author: sushantjrao 
 ms.author: sushrao
-ms.reviewer: sushrao
 ms.date: 06/11/2023
+ms.topic: how-to
 ms.service: azure-operator-nexus
 ms.custom: template-how-to
 ---
 
-## **Network Fabric upgrade guide**
+# Network Fabric upgrade guide
 
 This how to guide provides a streamlined upgrade process for your network fabric. It is designed to assist users in enhancing their network infrastructure through Azure APIs, which facilitate the lifecycle management of various network devices. Regular updates are crucial for maintaining system integrity and accessing the latest product improvements.
 
-### **Overview**
+## **Overview**
 
 **Runtime bundle components**: These components require operator consent for upgrades that may affect traffic behavior or necessitate device reboots. The network fabric's design allows for updates to be applied while maintaining continuous data traffic flow.
 
