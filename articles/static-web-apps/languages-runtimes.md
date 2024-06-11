@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 08/30/2022
+ms.date: 05/28/2024
 ms.author: cshoe
 ---
 
@@ -35,9 +35,9 @@ You can specify the runtime version that builds the front end of your static web
 
 ## API
 
-The APIs in Azure Static Web Apps are supported by Azure Functions. Refer to the [Azure Functions supported languages and runtimes](../azure-functions/supported-languages.md) for details.
+The underlying support for APIs in Azure Static Web Apps is provided by Azure Functions. Refer to the [Azure Functions supported languages and runtimes](../azure-functions/supported-languages.md) for details.
 
-The following versions are supported for managed functions in Static Web Apps. If your application requires a version not listed, considering [bringing your own functions](./functions-bring-your-own.md).
+The following versions are supported for managed functions in Static Web Apps. If your application requires a version not listed, consider [bringing your own functions](./functions-bring-your-own.md) to your app.
 
 [!INCLUDE [Languages and runtimes](../../includes/static-web-apps-languages-runtimes.md)]
 

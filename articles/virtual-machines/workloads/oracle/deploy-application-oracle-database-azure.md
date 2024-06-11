@@ -3,8 +3,7 @@ title: Architectures for Oracle applications with database on Azure Virtual Mach
 description: Learn about architectures for Oracle applications with database on Azure Virtual Machines. 
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: oracle
 ms.topic: article
 ms.date: 08/23/2023

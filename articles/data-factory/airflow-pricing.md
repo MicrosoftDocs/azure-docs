@@ -14,7 +14,7 @@ ms.author: abnarain
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
+> This feature is in public preview. Workflow Orchestration Manager is powered by Apache Airflow.
 
 This article describes the pricing for Workflow Orchestration Manager usage within data factory.
 

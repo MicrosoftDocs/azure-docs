@@ -17,3 +17,4 @@ ms.custom: include file
 > - [JavaScript](../../articles/storage/blobs/storage-blob-container-create-javascript.md)
 > - [TypeScript](../../articles/storage/blobs/storage-blob-container-create-typescript.md)
 > - [Python](../../articles/storage/blobs/storage-blob-container-create-python.md)
+> - [Go](../../articles/storage/blobs/storage-blob-container-create-go.md)

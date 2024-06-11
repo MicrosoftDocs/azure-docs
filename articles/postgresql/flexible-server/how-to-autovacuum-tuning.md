@@ -4,7 +4,7 @@ description: Troubleshooting guide for autovacuum in Azure Database for PostgreS
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
-ms.date: 01/23/2024
+ms.date: 05/07/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Autovacuum tuning in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides an overview of the autovacuum feature for [Azure Database for PostgreSQL flexible server](overview.md) and the feature troubleshooting guides that are available to monitor the database bloat, autovacuum blockers and also information around how far the database is from emergency or wraparound situation.
 
@@ -98,7 +98,7 @@ Use the following query to list the tables in a database and identify the tables
         ,C.reltuples AS reltuples
         ,round(current_setting('autovacuum_vacuum_threshold')::INTEGER + current_setting('autovacuum_vacuum_scale_factor')::NUMERIC * C.reltuples) AS av_threshold
         ,date_trunc('minute', greatest(pg_stat_get_last_vacuum_time(C.oid), pg_stat_get_last_autovacuum_time(C.oid))) AS last_vacuum
-        ,date_trunc('minute', greatest(pg_stat_get_last_analyze_time(C.oid), pg_stat_get_last_analyze_time(C.oid))) AS last_analyze
+        ,date_trunc('minute', greatest(pg_stat_get_last_analyze_time(C.oid), pg_stat_get_last_autoanalyze_time(C.oid))) AS last_analyze
       FROM pg_class C
       LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace)
       WHERE C.relkind IN (

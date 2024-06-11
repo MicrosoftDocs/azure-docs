@@ -2,7 +2,8 @@
 title: Review TrackAvailability() test results
 description: This article explains how to review data logged by TrackAvailability() tests
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 04/28/2024
+ms.reviewer: cogoodson
 ---
 
 # Review TrackAvailability() test results

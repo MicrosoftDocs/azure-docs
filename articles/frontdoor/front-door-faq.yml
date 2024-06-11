@@ -73,7 +73,6 @@ sections:
           - API Management
           - Application Gateway
           - Public IP address
-          - Traffic Manager
           - Azure Spring Apps
           - Container Instances
           - Container Apps

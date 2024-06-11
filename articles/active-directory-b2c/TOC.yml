@@ -535,7 +535,7 @@
             href: partner-nevis.md
           - name: Nok Nok
             href: partner-nok-nok.md
-          - name: Transmit Security
+          - name: Transmit Security for passwordless
             href: partner-bindid.md
           - name: Trusona
             href: partner-trusona.md
@@ -569,6 +569,8 @@
         - name: Microsoft Dynamics 365 Fraud Protection
           href: partner-dynamics-365-fraud-protection.md
           displayName: m365 dynamics, dynamics fraud protection, fraud, 365 protection
+        - name: Transmit Security
+          href: partner-transmit-security.md
       - name: Investigate risk with Identity Protection
         href: identity-protection-investigate-risk.md
       - name: Configure Conditional Access

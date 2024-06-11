@@ -73,7 +73,7 @@ Before you deploy this template, replace placeholders surrounded by `<>` with yo
         "destinations": ["appInsights"]
       },
       "logsConfiguration": {
-        "destinations": ["apInsights"]
+        "destinations": ["appInsights"]
       }
     }
   }
@@ -167,7 +167,7 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
     "appInsightsConfiguration": {},
     "openTelemetryConfiguration": {
       "destinationsConfiguration":{
-        "otlpConfiguration": [
+        "otlpConfigurations": [
           {
             "name": "otlp1",
             "endpoint": "ENDPOINT_URL_1",

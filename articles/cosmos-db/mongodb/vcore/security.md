@@ -13,7 +13,7 @@ ms.date: 10/23/2023
 
 # Overview of database security in Azure Cosmos DB for MongoDB vCore
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 This article discusses database security best practices and key features offered by Azure Cosmos DB for MongoDB vCore to help you prevent, detect, and respond to database breaches.
 

@@ -43,6 +43,7 @@ It's important to review all of the details related to a recommendation before t
     - **Scope** - The affected subscription or resource.
     - **Freshness** - The freshness interval for the recommendation.
     - **Last change date** - The date this recommendation last had a change
+    - **Severity** - The severity of the recommendation (High, Medium, or Low). More details below.
     - **Owner** - The person assigned to this recommendation.
     - **Due date** - The assigned date the recommendation must be resolved by.
     - **Tactics & techniques** - The tactics and techniques mapped to MITRE ATT&CK.
@@ -175,6 +176,24 @@ You can use [Azure Resource Graph](../governance/resource-graph/index.yml) to wr
     :::image type="content" source="./media/review-security-recommendations/run-query.png" alt-text="Screenshot of Azure Resource Graph Explorer showing the results for the recommendation shown in the previous screenshot." lightbox="media/review-security-recommendations/run-query.png":::
 
 1. Review the results.
+
+
+## How are recommendations classified?
+
+Every security recommendation from Defender for Cloud is assigned one of three severity ratings:
+
+- **High severity**: These recommendations should be addressed immediately, as they indicate a critical security vulnerability that could be exploited by an attacker to gain unauthorized access to your systems or data. Examples of high severity recommendations are when we’ve discovered unprotected secrets on a machine, overly-permissive inbound NSG rules, clusters allowing images to be deployed from untrusted registries, and unrestricted public access to storage accounts or databases.
+
+- **Medium severity**: These recommendations indicate a potential security risk that should be addressed in a timely manner, but may not require immediate attention. Examples of medium severity recommendations might include containers sharing sensitive host namespaces, web apps not using managed identities, Linux machines not requiring SSH keys during authentication, and unused credentials being left in the system after 90 days of inactivity.
+
+- **Low severity**: These recommendations indicate a relatively minor security issue that can be addressed at your convenience. Examples of low severity recommendations might include the need to disable local authentication in favor of Microsoft Entra ID, health issues with your endpoint protection solution, best practices not being followed with network security groups, or misconfigured logging settings that could make it harder to detect and respond to security incidents.
+
+Of course, the internal views of an organization might differ with Microsoft’s classification of a specific recommendation. So, it's always a good idea to review each recommendation carefully and consider its potential impact on your security posture before deciding how to address it.
+
+> [!NOTE]
+> Defender CSPM customers have access to a richer classification system where recommendations are shown a more dynamic **Risk level** that utilizes the *context* of the resource and all related resources. Learn more about [risk prioritization](risk-prioritization.md).
+
+
 
 ### Example
 

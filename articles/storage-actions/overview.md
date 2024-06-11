@@ -81,8 +81,36 @@ See the [Azure Storage Actions events schema](../event-grid/event-schema-storage
 
 Azure Storage tasks are supported in the following public regions:
 
-- France Central
+- Australia East
+
+- Australia Southeast
+
+- Brazil south
+
 - Canada Central
+
+- Central India
+
+- Central US
+
+- France Central
+- Germany West Central
+
+- North Central US
+
+- North Europe
+
+- South Central Us
+
+- Southeast Asia
+
+- Switzerland North
+
+- West Europe
+
+- West US
+
+- West US 2
 
 ## Pricing and billing
 

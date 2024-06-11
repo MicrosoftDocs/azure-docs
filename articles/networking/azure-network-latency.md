@@ -95,7 +95,7 @@ Use the following tabs to view latency statistics for each region.
 | South India         | 115              | 121        | 131              | 135             |
 | Southeast Asia      | 94               | 98         | 110              | 117             |
 | Sweden Central      | 211              | 223        | 216              | 236             |
-| Switzerland North   | 10               |            | 27               | 17              |
+| Switzerland North   | 109              | 116        | 125              | 129             |
 | Switzerland West    | 187              | 179        | 170              | 166             |
 | UAE Central         | 190              | 177        | 166              | 163             |
 | UAE North           | 143              | 136        | 127              | 122             |

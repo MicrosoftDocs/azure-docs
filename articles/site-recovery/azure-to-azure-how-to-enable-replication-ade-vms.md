@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 05/06/2024
 ms.author: ankitadutta
 
 ---
@@ -167,6 +167,9 @@ Because of the above reasons, the keys are not in sync between source and target
 - Portal
 - REST API
 - PowerShell
+
+> [!NOTE]
+> Azure Site Recovery doesn't support rotating the key for an encrypted virtual machine while it is protected. If you rotate the keys, you must disable and re-enable the replication.
 
 ### Update target VM encryption settings from the Azure portal
 

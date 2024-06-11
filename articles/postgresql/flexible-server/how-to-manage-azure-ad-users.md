@@ -4,16 +4,17 @@ description: This article describes how you can manage Microsoft Entra ID enable
 author: achudnovskij
 ms.author: anchudno
 ms.reviewer: maghan
-ms.date: 02/21/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.custom: devx-track-arm-template
 ms.topic: how-to
+ms.custom:
+  - devx-track-arm-template
 ---
 
 # Manage Microsoft Entra roles in Azure Database for PostgreSQL - Flexible Server 
 
-[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes how you can create a Microsoft Entra ID enabled database roles within an Azure Database for PostgreSQL flexible server instance.
 

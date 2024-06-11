@@ -4,7 +4,7 @@ description: Learn how to migrate Log Analytics workspaces to availability zone 
 author: anaharris-ms
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/21/2022
+ms.date: 05/19/2024
 ms.author: noakuper
 ms.custom: references_regions, subject-reliability
 ---
@@ -17,16 +17,11 @@ This guide describes how to migrate Log Analytics workspaces from non-availabili
 > Application Insights resources can also use availability zones, but only if they are workspace-based and the workspace uses a dedicated cluster. Classic (non-workspace-based) Application Insights resources cannot use availability zones.
 
 
-## Prerequisites
-
-For availability zone support, your workspace must be located in one of the following supported regions:
-
-- East US 2
-- West US 2
-
 ## Dedicated clusters
 
-Azure Monitor support for availability zones requires a Log Analytics workspace linked to an [Azure Monitor dedicated cluster](../azure-monitor/logs/logs-dedicated-clusters.md). Dedicated clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs including availability zones.
+Dedicated clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs including availability zones.
+
+In some regions, Azure Monitor support for availability zones requires a Log Analytics workspace linked to an Azure Monitor dedicated cluster, while others also support data resiliency for the shared clusters.  To see which regions support data resiliency for the shared clusters, see [Supported regions](../azure-monitor/logs/availability-zones.md#supported-regions). 
 
 Not all dedicated clusters can use availability zones. Dedicated clusters created after mid-October 2020 can be set to support availability zones when they are created. New clusters created after that date default to be enabled for availability zones in regions where Azure Monitor supports them.
 
@@ -52,9 +47,7 @@ Transitioning to a new cluster can be a gradual process. Don't remove the previo
 Any queries against your workspace queries both clusters as required to provide you with a single, unified result set. As a result, all Azure Monitor features that rely on the workspace, such as workbooks and dashboards, continue to receive the full, unified result set based on data from both clusters.
 
 ## Billing
-There is a [cost for using a dedicated cluster](../azure-monitor/logs/logs-dedicated-clusters.md#create-a-dedicated-cluster). It requires a daily capacity reservation of 500 GB. 
-
-If you already have a dedicated cluster and choose to retain it to access its data, you are charged for both dedicated clusters. Starting August 4, 2021, the minimum required capacity reservation for dedicated clusters is reduced from 1000 GB/Daily to 500 GB/Daily, so we’d recommend applying that minimum to your old cluster to reduce charges.
+[Dedicated clusters](../azure-monitor/logs/logs-dedicated-clusters.md#create-a-dedicated-cluster) require a commitment tier starting at 100 GB per day.
 
 The new cluster isn’t billed during its first day to avoid double billing during configuration. Only the data ingested before the migration completes would still be billed on the date of migration. 
 

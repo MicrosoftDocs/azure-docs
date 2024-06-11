@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: poojaa
 ms.topic: conceptual
-ms.date: 01/22/2023
+ms.date: 05/31/2024
 ---
 
 # Azure Monitor workspace
