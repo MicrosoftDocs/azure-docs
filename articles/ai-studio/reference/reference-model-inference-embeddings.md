@@ -134,21 +134,23 @@ Status code: 200
 | Name                                                    | Description                                                                                                                                                             |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [ContentFilterError](#contentfiltererror)               | The API call fails when the prompt triggers a content filter as configured. Modify the prompt and try again.                                                            |
-| [CreateEmbeddingRequest](#createembeddingrequest)       | Request for creating embeddings |
-| [CreateEmbeddingResponse](#createembeddingresponse)     | Response from an embeddings request |
-| [Detail](#detail)                                       | Details of the errors |
+| [CreateEmbeddingRequest](#createembeddingrequest)       | Request for creating embeddings. |
+| [CreateEmbeddingResponse](#createembeddingresponse)     | Response from an embeddings request. |
+| [Detail](#detail)                                       | Details of the errors. |
 | [Embedding](#embedding)                                 | Represents the embedding object generated.                                                                                                                                          |
 | [EmbeddingEncodingFormat](#embeddingencodingformat)     | The format to return the embeddings in. Either base64, float, int8, uint8, binary, or ubinary. Returns a 422 error if the model doesn't support the value or parameter. |
 | [EmbeddingInputType](#embeddinginputtype)               | The type of the input. Either `text`, `query`, or `document`. Returns a 422 error if the model doesn't support the value or parameter.                                  |
 | [EmbeddingObject](#embeddingobject)                     | The object type, which is always "embedding".                                                                                                                           |
 | [ListObject](#listobject)                               | The object type, which is always "list".                                                                                                                                |
-| [NotFoundError](#notfounderror)                         |                                                                                                                                                                         |
-| [TooManyRequestsError](#toomanyrequestserror)           |                                                                                                                                                                         |
-| [UnauthorizedError](#unauthorizederror)                 |                                                                                                                                                                         |
+| [NotFoundError](#notfounderror)                         | The route is not valid for the deployed model.                                                                                                       |
+| [TooManyRequestsError](#toomanyrequestserror)           | You have hit your assigned rate limit and your request need to be paced.                                                                                                                                                                        |
+| [UnauthorizedError](#unauthorizederror)                 | Authentication is missing or invalid.                                                                                                                                                                        |
 | [UnprocessableContentError](#unprocessablecontenterror) | The request contains unprocessable content. The error is returned when the payload indicated is valid according to this specification. However, some of the instructions indicated in the payload are not supported by the underlying model. Use the `details` section to understand the offending parameter.                                                                                                                                                                        |
 | [Usage](#usage)                                         | The usage information for the request.                                                                                                                                  |
 
 ### ContentFilterError
+
+The API call fails when the prompt triggers a content filter as configured. Modify the prompt and try again.
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -159,6 +161,10 @@ Status code: 200
 | status | integer | The HTTP status code. |
 
 ### CreateEmbeddingRequest
+
+Response from an embeddings request.
+
+Request for creating embeddings.
 
 | Name            | Required | Type                                                | Description                                                                                                                                                             |
 | --------------- | -------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
