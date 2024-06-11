@@ -1,5 +1,5 @@
 ---
-title: In-place auto-migration
+title: Auto-migration
 description: This tutorial describes how to configure notifications, review migration details and FAQs for an Azure Database for PostgreSQL Single Server instance schedule for auto-migration to Flexible Server.
 author: hariramt
 ms.author: hariramt
@@ -19,7 +19,7 @@ ms.custom:
 
 **Auto-migration** from Azure Database for Postgresql – Single Server to Flexible Server is a service-initiated migration during a planned downtime window for Single Server running PostgreSQL 11 and database workloads with **Basic, General Purpose or Memory Optimized SKU**, data storage used **<= 5 GiB** and **no complex features (CMK, Microsoft Entra ID, Read Replica, Private Link) enabled**. The eligible servers are identified by the service and are sent advance notifications detailing steps to review migration details and make modifications if necessary.
 
-The in-place migration provides a highly resilient and self-healing offline migration experience during a planned maintenance window, with about **10 mins** of downtime. The migration service is a hosted solution using the [pgcopydb](https://github.com/dimitri/pgcopydb) binary and provides a fast and efficient way of copying databases from the source PostgreSQL instance to the target. This migration removes the overhead to manually migrate your server. Post migration, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows. Following described are the key phases of the migration:
+The auto-migration provides a highly resilient and self-healing offline migration experience during a planned migration window, with about **10 mins** of downtime. The migration service is a hosted solution using the [pgcopydb](https://github.com/dimitri/pgcopydb) binary and provides a fast and efficient way of copying databases from the source PostgreSQL instance to the target. This migration removes the overhead to manually migrate your server. Post migration, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows. Following described are the key phases of the migration:
 
 - **Target Flexible Server is deployed** matches your Single server SKU in terms of performance and cost, inheriting all firewall rules from source Single Server.
 
@@ -27,7 +27,7 @@ The in-place migration provides a highly resilient and self-healing offline migr
 
 - **DNS switch and cutover** are performed within the planned migration window with minimal downtime, allowing usage of the same connection string post-migration. Client applications seamlessly connect to the target flexible server without any user driven manual updates or changes. In addition to both connection string formats (Single and Flexible Server) being supported on migrated Flexible Server, both username formats – username@server_name and username are also supported on the migrated Flexible Server.
 
-- The **migrated Flexible Server is online** and can now be managed via Azure portal/CLI. The stopped Single Server is deleted seven days after the migration.
+- The **migrated Flexible Server is online** and can now be managed via Azure portal/CLI. The legacy Single Server is deleted seven days after the migration.
 
 ## Nomination Eligibility
 
@@ -49,17 +49,17 @@ Following described are the ways to review your migration schedule once you rece
 > The migration schedule will be locked 7 days prior to the scheduled migration window during which you'll be unable to reschedule.
 
 - The **Single Server overview page** for your instance displays a portal banner with information about your migration schedule.
-- For Single Servers scheduled for auto-migration, a new **Migration blade** is available on the portal. You can review the migration schedule by navigating to the Migration blade of your Single Server instance.
+- For Single Servers scheduled for auto-migration, the **Overview** page is updated with the relevant information. You can review the migration schedule by navigating to the Overview page of your Single Server instance.
 - If you wish to defer the migration, you can defer by a month at a time on the Azure portal and rescheduling the migration by selecting another migration window within a month.
 
 > [!NOTE]  
-> Since cross region or Geo redundant backups can only be enabled during create time for a postgresql Flexible Server, it's highly recommended that you enable this feature when reviewing the migration schedule if you plan to use it later.
+> Typically, candidate servers short-listed for auto-migration do not use cross region or Geo redundant backups. And these features can only be enabled during create time for a postgresql Flexible Server. In case you plan to use any of these features, it's recommended to opt out of the auto-migration schedule and migrate your server manually.
 
-## Prerequisite checks for in-place auto-migration
+## Prerequisite checks for auto-migration
 
-Review the following prerequisites to ensure a successful in-place auto-migration:
+Review the following prerequisites to ensure a successful auto-migration:
 
-- The Single Server instance should be in **ready state** and shouldn't be in stopped state during the planned maintenance window for auto-migration to take place.
+- The Single Server instance should be in **ready state** during the planned migration window for auto-migration to take place.
 - If your source Azure Database for postgresql Single Server has firewall rule names exceeding 80 characters, rename them to ensure length of name is fewer than 80 characters. (The firewall rule name length supported on Flexible Server is 80 characters whereas on Single Server the allowed length is 128 characters.)
 
 ## How is the target postgresql Flexible Server provisioned?
@@ -93,9 +93,6 @@ The compute tier and SKU for the target flexible server is provisioned based on 
 
 Here's the info you need to know post auto-migration:
 
-> [!NOTE]  
-> Post-migration do no restart the stopped Single Server instance as it might hamper your client's and application connectivity.
-
 - Copy the following properties from the source Single Server to target Flexible Server post auto-migration operation is completed successfully:
   - Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
   - Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
@@ -112,22 +109,22 @@ Here's the info you need to know post auto-migration:
 
 **Q. Why am I being auto-migrated​?**
 
-**A.** Your Azure Database for Postgresql - Single Server instance is eligible for auto-migration to our flagship offering Azure Database for Postgresql - Flexible Server. This in-place migration will remove the overhead to manually migrate your server and ensure you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
+**A.** Your Azure Database for Postgresql - Single Server instance is eligible for auto-migration to our flagship offering Azure Database for Postgresql - Flexible Server. This auto-migration will remove the overhead to manually migrate your server and ensure you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
 
 **Q. How does the auto-migration take place? What all does it migrate?​**
 
-**A.** The Flexible Server is provisioned to closely match the same VCores and storage as that of your Single Server. Next the source Single Server is put to stopped state, data file snapshot is taken and copied to target Flexible Server. The DNS switch is performed to route all existing connections to target and the target Flexible Server is brought online. The auto-migration migrates the entire server's data files (including schema, data, users/roles and privileges). This is an offline migration where you see downtime of about 10 minutes or less.
+**A.** The Flexible Server is provisioned to closely match the same VCores and storage as that of your Single Server. Next the source Single Server is put in a read-only state, schema and data is copied to target Flexible Server. The DNS switch is performed to route all existing connections to target and the target Flexible Server is brought online. The auto-migration migrates the databases (including schema, data, users/roles and privileges). This is an offline migration where you see downtime of about 10 minutes or less.
 
-**Q. How can I set up or view in-place migration alerts?​**
+**Q. How can I set up or view auto-migration alerts?​**
 
 **A.** Following are the ways you can set up alerts:
 
-- Configure service health alerts to receive in-place migration schedule and progress notifications via email/SMS by following steps [here](../../single-server/concepts-planned-maintenance-notification.md#to-receive-planned-maintenance-notification).
-- Check the in-place migration notification on the Azure portal by following steps [here](../single-server/concepts-planned-maintenance-notification.md#check-planned-maintenance-notification-from-azure-portal).
+- Configure service health alerts to receive auto-migration schedule and progress notifications via email/SMS by following steps [here](../../single-server/concepts-planned-maintenance-notification.md#to-receive-planned-maintenance-notification).
+- Check the auto-migration notification on the Azure portal by following steps [here](../single-server/concepts-planned-maintenance-notification.md#check-planned-maintenance-notification-from-azure-portal).
 
 **Q. How can I defer the scheduled migration?​**
 
-**A.** You can review the migration schedule by navigating to the Migration blade of your Single Server instance. If you wish to defer the migration, you can defer by a month at the most by navigating to the Migration blade of your single server instance on the Azure portal and rescheduling the migration by selecting another migration window within a month. The migration details will be locked seven days prior to the scheduled migration window after which you're unable to reschedule. This in-place migration can be deferred monthly until 30 March 2025.
+**A.** You can review the migration schedule by navigating to the Overview page of your Single Server instance. If you wish to defer the migration, you can defer by a month at the most by navigating to the Overview page of your single server instance on the Azure portal and rescheduling the migration by selecting another migration window within a month. The migration details will be locked seven days prior to the scheduled migration window after which you're unable to reschedule. This auto-migration can be deferred monthly until 30 March 2025.
 
 **Q. What username and connection string would be supported for the migrated Flexible Server? ​​**
 
