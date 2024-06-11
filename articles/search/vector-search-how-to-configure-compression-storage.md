@@ -13,7 +13,7 @@ ms.date: 06/05/2024
 # Configure vector quantization and reduced storage for smaller vectors in Azure AI Search
 
 > [!IMPORTANT]
-> These features are in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-03-01-Preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-03-01-preview&preserve-view=true) provides the new data types, vector compression properties, and the `stored` property.
+> These features are in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-03-01-Preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-03-01-preview&preserve-view=true) and later preview APIs provide the new data types, vector compression properties, and the `stored` property.
 
 This article describes vector quantization and other techniques for compressing vector indexes in Azure AI Search.
 

@@ -4,8 +4,8 @@ description: Use your IoT Hub in the Azure portal to push an IoT Edge module fro
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/03/2024
-ms.topic: conceptual
+ms.date: 06/11/2024
+ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
 ---
@@ -13,6 +13,14 @@ services: iot-edge
 # Deploy Azure IoT Edge modules from the Azure portal
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
+
+> [!IMPORTANT]
+> Starting August 28th 2024, Azure Marketplace is updating the distribution model for IoT Edge modules. Partners (module publishers) will begin [hosting their IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&filters=partners&page=1) on publisher-owned container registries. IoT Edge module images won't be available for download from the Azure Marketplace container registry.
+>
+> Contact the [IoT Edge module publisher](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners) to obtain the updated container image URI and [update your IoT Edge](how-to-update-iot-edge.md) device configurations with the new image URI provided by the publisher.
+>
+>
+> IoT Edge devices that don't use [partner modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners&page=1&subcategories=iot-edge-modules) acquired from Azure Marketplace aren't affected and no action is required.
 
 Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
 
@@ -47,8 +55,8 @@ The Azure portal has a wizard that walks you through creating the deployment man
 1. Choose one of the three types of modules from the drop-down menu:
 
    * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. If the module image is stored in a private container registry, add the credentials on this page to access the image.
-   * **Marketplace Module** - Modules hosted in the Azure Marketplace. Some marketplace modules require additional configuration, so review the module details in the [Azure Marketplace IoT Edge Modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) list.
    * **Azure Stream Analytics Module** - Modules generated from an Azure Stream Analytics workload.
+   * **Marketplace Module** - Modules hosted in the Azure Marketplace. Some marketplace modules require additional configuration. Review the module details in the [Azure Marketplace IoT Edge Modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) list.
 
 1. After adding a module, select the module name from the list to open the module settings. Fill out the optional fields if necessary.
 
@@ -118,4 +126,4 @@ Select **Next: Routes** and continue with deployment as described by [Specify ro
 
 ## Next steps
 
-Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md)
+Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).
