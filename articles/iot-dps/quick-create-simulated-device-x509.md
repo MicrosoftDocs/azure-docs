@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-python
+ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 #Customer intent: As a new IoT developer, I want to simulate an X.509 certificate device using the SDK, to learn how secure provisioning works.
 ---
 
 # Quickstart: Provision an X.509 certificate simulated device
 
-In this quickstart, you create a simulated device on your Windows machine. The simulated device is configured to use the [X.509 certificate attestation](concepts-x509-attestation.md) mechanism for authentication. After you've configured your device, you then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
+In this quickstart, you create a simulated device on your Windows machine. The simulated device is configured to use X.509 certificate attestation for authentication. After you've configured your device, you then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.  Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing.
 

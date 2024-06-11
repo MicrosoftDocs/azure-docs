@@ -1,15 +1,15 @@
 ---
 title: Develop for Azure Files with Java
-description: Learn how to develop Java applications and services that use Azure Files to store file data.
+description: Learn how to develop Java applications and services that use Azure Files to store file data. Create and delete files, file shares, and directories.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 05/13/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ms.author: kendownie
 ---
 
-# Develop for Azure Files with Java
+# Develop Java applications that use Azure Files
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
@@ -20,7 +20,7 @@ Learn the basics developing Java applications that use Azure Files to store data
 - Enumerate files and directories in an Azure file share
 - Upload, download, and delete a file
 
-[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
+[!INCLUDE [storage-check-out-samples-java](~/reusable-content/ce-skilling/azure/includes/storage-check-out-samples-java.md)]
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -31,7 +31,7 @@ Learn the basics developing Java applications that use Azure Files to store data
 
 ## Create a Java application
 
-To build the samples, you'll need the Java Development Kit (JDK) and the [Azure Storage SDK for Java](https://github.com/azure/azure-sdk-for-java). You should also have created an Azure storage account.
+To build the samples, you'll need the Java Development Kit (JDK) and the [Azure Storage SDK for Java](https://github.com/azure/azure-sdk-for-java). You'll also need an Azure storage account.
 
 ## Set up your application to use Azure Files
 

@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: tutorial
-ms.date: 07/24/2023
+ms.date: 05/29/2024
 ms.author: allensu
 ms.custom: template-tutorial
 # Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
@@ -18,7 +18,7 @@ You can use a network security group to filter inbound and outbound network traf
 
 Network security groups contain security rules that filter network traffic by IP address, port, and protocol. When a network security group is associated with a subnet, security rules are applied to resources deployed in that subnet.
 
-:::image type="content" source="./media/tutorial-filter-network-traffic/virtual-network-filter-resources.png" alt-text="Diagram of resources created during tutorial.":::
+:::image type="content" source="./media/tutorial-filter-network-traffic/virtual-network-filter-resources.png" alt-text="Diagram of resources created during tutorial." lightbox="./media/tutorial-filter-network-traffic/virtual-network-filter-resources.png":::
 
 In this tutorial, you learn how to:
 
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create.md](../../includes/virtual-network-create.md)]
+[!INCLUDE [virtual-network-create.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create.md)]
 
 ## Create application security groups
 
@@ -114,7 +114,7 @@ In this section, you associate the network security group with the subnet of the
 
 1. In the **Subnets** page, select **+ Associate**:
 
-    :::image type="content" source="./media/tutorial-filter-network-traffic/associate-nsg-subnet.png" alt-text="Screenshot of Associate a network security group to a subnet." border="true":::
+    :::image type="content" source="./media/tutorial-filter-network-traffic/associate-nsg-subnet.png" alt-text="Screenshot of Associate a network security group to a subnet." border="true" lightbox="./media/tutorial-filter-network-traffic/associate-nsg-subnet.png":::
 
 1. Under **Associate subnet**, select **vnet-1 (test-rg)** for **Virtual network**. 
 
@@ -219,19 +219,15 @@ When you created the VMs, Azure created a network interface for each VM, and att
 
 Add the network interface of each VM to one of the application security groups you created previously:
 
-1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results, then select **vm-1**.
 
-1. Select **vm-1**.
+1. Select **Application security groups** from the **Networking** section of **vm-1**.
 
-1. Select **Networking** from the **Settings** section of **vm-1**.
+1. Select **Add application security groups**, then in the **Add application security groups** tab, select **asg-web**. Finally, select **Add**.
 
-1. Select the **Application security groups** tab, then select **Configure the application security groups**.
+    :::image type="content" source="./media/tutorial-filter-network-traffic/configure-app-sec-groups.png" alt-text="Screenshot of Configure application security groups." border="true" lightbox="./media/tutorial-filter-network-traffic/configure-app-sec-groups.png":::
 
-    :::image type="content" source="./media/tutorial-filter-network-traffic/configure-app-sec-groups.png" alt-text="Screenshot of Configure application security groups." border="true":::
-
-1. In **Configure the application security groups**, select **asg-web** in the **Application security groups** pull-down menu, then select **Save**.
-
-1. Repeat the previous steps for **vm-2**, selecting **asg-mgmt** in the **Application security groups** pull-down menu.
+1. Repeat the previous steps for **vm-2**, selecting **asg-mgmt** in the **Add application security groups** tab.
 
 ## Test traffic filters
 
@@ -277,7 +273,7 @@ Add the network interface of each VM to one of the application security groups y
 
 11. On the **Overview** page of **vm-1**, note the **Public IP address** for your VM. The address shown in the following example is 20.230.55.178, your address is different:
 
-    :::image type="content" source="./media/tutorial-filter-network-traffic/public-ip-address.png" alt-text="Screenshot of Public IP address of a virtual machine in the Overview page." border="true":::
+    :::image type="content" source="./media/tutorial-filter-network-traffic/public-ip-address.png" alt-text="Screenshot of Public IP address of a virtual machine in the Overview page." border="true" lightbox="./media/tutorial-filter-network-traffic/public-ip-address.png":::
     
 11. To confirm that you can access the **vm-1** web server from the internet, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`. 
 
@@ -285,7 +281,7 @@ You see the IIS default page, because inbound traffic from the internet to the *
 
 The network interface attached for **vm-1** is associated with the **asg-web** application security group and allows the connection. 
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

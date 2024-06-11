@@ -1,12 +1,14 @@
 ---
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
-ms.date: 12/19/2023
+ms.date: 06/05/2024
 ms.topic: sample
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Starter Resource Graph query samples
+
+[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/samples/archive-samples.md)]
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
 [Query Language](../concepts/query-language.md). If you aren't already familiar with
@@ -41,8 +43,8 @@ before you begin.
 
 Azure CLI (through an extension) and Azure PowerShell (through a module) support Azure Resource
 Graph. Before running any of the following queries, check that your environment is ready. See
-[Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) and [Azure
-PowerShell](../first-query-powershell.md#add-the-resource-graph-module) for steps to install and
+[Azure CLI](../first-query-azurecli.md#install-the-extension) and [Azure
+PowerShell](../first-query-powershell.md#install-the-module) for steps to install and
 validate your shell environment of choice.
 
 ## Count Azure resources

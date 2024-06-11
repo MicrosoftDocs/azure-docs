@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Best practices for seamless migration into Azure Database for PostgreSQL
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article explains common pitfalls encountered and best practices to ensure a smooth and successful migration to Azure Database for PostgreSQL.
 
@@ -164,9 +164,11 @@ Regularly incorporating these vacuuming strategies ensures a well-maintained Pos
 
 There are special conditions that typically refer to unique circumstances, configurations, or prerequisites that learners need to be aware of before proceeding with a tutorial or module. These conditions could include specific software versions, hardware requirements, or additional tools that are necessary for successful completion of the learning content.
 
-### Use of Replica Identity for Online migration
+### Online migration
 
-Online migration makes use of logical replication, which has a few [restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html). In addition, it's recommended to have a primary key in all the tables of a database undergoing Online migration. If primary key is absent, the deficiency may result in only insert operations being reflected during migration, excluding updates or deletes. Add a temporary primary key to the relevant tables before proceeding with the online migration. Another option is to use the [REPLICA IDENTIY](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-REPLICA-IDENTITY) action with `ALTER TABLE`. If none of these options work, perform an offline migration as an alternative.
+Online migration makes use of [pgcopydb follow](https://pgcopydb.readthedocs.io/en/latest/ref/pgcopydb_follow.html) and some of the [logical decoding restrictions](https://pgcopydb.readthedocs.io/en/latest/ref/pgcopydb_follow.html#pgcopydb-follow) apply. In addition, it's recommended to have a primary key in all the tables of a database undergoing Online migration. If primary key is absent, the deficiency may result in only insert operations being reflected during migration, excluding updates or deletes. Add a temporary primary key to the relevant tables before proceeding with the online migration.
+
+An alternative is to use the `ALTER TABLE` command where the action is [REPLICA IDENTIY](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-REPLICA-IDENTITY) with the `FULL` option. The `FULL` option records the old values of all columns in the row so that even in the absence of a Primary key, all CRUD operations are reflected on the target during the Online migration. If none of these options work, perform an offline migration as an alternative.
 
 ### Database with postgres_fdw extension
 

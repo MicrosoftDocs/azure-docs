@@ -30,7 +30,7 @@ Different resources can have the same recommendation with different risk levels.
 
 In Defender for Cloud, navigate to the **Recommendations** dashboard to view an overview of the recommendations that exist for your environments prioritized by risk look at your environments.
 
-On this page you can review the: 
+On this page you can review the:
 
 - **Title** - The title of the recommendation.
 
@@ -88,7 +88,7 @@ Recommendations can be classified into five categories based on their risk level
 
 - **Critical**: Recommendations that indicate a critical security vulnerability that could be exploited by an attacker to gain unauthorized access to your systems or data.
 
-- **High**: Recommendations that indicate a potential security risk that should be addressed in a timely manner, but may not require immediate attention.
+- **High**: Recommendations that indicate a potential security risk that should be addressed in a timely manner, but might not require immediate attention.
 
 - **Medium**: Recommendations that indicate a relatively minor security issue that can be addressed at your convenience.
 
@@ -103,4 +103,4 @@ The risk level is determined by a context-aware risk-prioritization engine that 
 - [Review security recommendations](review-security-recommendations.md)
 - [Remediate security recommendations](implement-security-recommendations.md)
 - [Drive remediation with governance rules](governance-rules.md)
-- [Automate remediation responses](workflow-automation.md)
+- [Automate remediation responses](workflow-automation.yml)

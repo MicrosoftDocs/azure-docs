@@ -31,7 +31,7 @@ Azure HDInsight supports the following Apache Spark versions.
 | HDInsight versions | Apache Spark version on HDInsight | Release date | Release stage |End-of-life announcement date|End of standard support|End of basic support|
 | -- | -- |--|--|--|--|--|
 | 4.0 | 2.4 | July 8, 2019 | End of life announced (EOLA)| February 10, 2023| August 10, 2023 | February 10, 2024 |
-| 5.0 | 3.1 | March 11, 2022 | General availability |-|-|-|
+| 5.0 | 3.1 | March 11, 2022 | General availability |March 28, 2024|March 28, 2024| March 31, 2025|
 | 5.1 |   3.3  | November 1, 2023 | General availability |-|-|-|
 
 ## Support options for HDInsight versions

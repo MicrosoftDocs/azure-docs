@@ -123,4 +123,8 @@ After you delete an image, there's no way to retrieve the image or the associate
 
 ## Next steps
 
-For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md). Visit [FAQs about Defender for IoT Firmware Analysis](defender-iot-firmware-analysis-FAQ.md) for answers to frequent questions.
+For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md).
+
+To use the Azure CLI commands for Defender for IoT Firmware Analysis, refer to the [Azure CLI Quickstart](/azure/defender-for-iot/device-builders/quickstart-upload-firmware-using-azure-command-line-interface), and see [Azure PowerShell Quickstart](/azure/defender-for-iot/device-builders/quickstart-upload-firmware-using-powershell) to use the Azure PowerShell commands. See [Quickstart: Upload firmware using Python](/azure/defender-for-iot/device-builders/quickstart-upload-firmware-using-python) to run a Python script using the SDK to upload and analyze firmware images.
+
+Visit [FAQs about Defender for IoT Firmware Analysis](defender-iot-firmware-analysis-FAQ.md) for answers to frequent questions.

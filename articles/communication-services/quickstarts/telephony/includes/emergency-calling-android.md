@@ -20,7 +20,7 @@ ms.author: zehangzheng
 
   If the IP address can't provide reliable geolocation (for example, the user is on a virtual private network), you must set the ISO code of the calling country or region by using the API in the Calling SDK.
 - If users are dialing from a US territory (for example, Guam, US Virgin Islands, Northern Mariana Islands, or American Samoa), you must set the ISO code to US.
-- Azure Communication Services direct routing is currently in public preview and not intended for production workloads. Emergency dialing is out of scope for Azure Communication Services direct routing.
+- Emergency dialing is out of scope for Azure Communication Services direct routing.
 - For information about billing for the emergency service in Azure Communication Services, see the [pricing page](https://azure.microsoft.com/pricing/details/communication-services/).
 
 ## Set up a button for testing

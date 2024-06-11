@@ -6,7 +6,7 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-ms.date: 04/04/2024
+ms.date: 04/11/2024
 ---
 
 # Microsoft Sentinel feature support for Azure commercial/other clouds
@@ -102,8 +102,8 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Microsoft 365 Defender incident integration](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync) |GA |&#x2705; |&#x2705;| &#10060; |
 |[Microsoft Teams integrations](collaborate-in-microsoft-teams.md) |Public preview |&#x2705; |&#x2705;| &#10060; |
 |[Playbook template gallery](use-playbook-templates.md) |Public preview |&#x2705; |&#x2705;| &#10060; |
-|[Run playbooks on entities](respond-threats-during-investigation.md) |Public preview |&#x2705; |&#x2705; |&#x2705; |
-|[Run playbooks on incidents](automate-responses-with-playbooks.md) |Public preview |&#x2705; |&#x2705;| &#x2705; |
+|[Run playbooks on entities](respond-threats-during-investigation.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Run playbooks on incidents](automate-responses-with-playbooks.md) |GA |&#x2705; |&#x2705;| &#x2705; |
 |[SOC incident audit metrics](manage-soc-with-incident-metrics.md)     |GA         |&#x2705; |&#x2705;| &#x2705;         |
 
 ## Machine Learning
@@ -124,7 +124,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Workspace manager](workspace-manager.md) |Public preview | &#x2705; |&#x2705; |&#10060; |
 |[SIEM migration experience](siem-migration.md) | GA | &#x2705; |&#10060; |&#10060; |
 
-## Normalization		
+## Normalization
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
@@ -136,6 +136,12 @@ This article describes the features available in Microsoft Sentinel across diffe
 |---------|---------|---------|---------|---------|
 |[Notebooks](notebooks.md) |GA |&#x2705; |&#x2705;  |&#x2705;  |
 |[Notebook integration with Azure Synapse](notebooks-with-synapse.md) |Public preview |&#x2705; |&#x2705;  |&#x2705; |
+
+## SOC optimizations
+
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[SOC optimizations](soc-optimization/soc-optimization-access.md) |Public preview |&#x2705; |&#10060; |&#10060; |
 
 ## SAP
 

@@ -13,11 +13,11 @@ This article provides information on troubleshooting and resolving issues that c
 
 ### Logs collection
 
-For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the same management machine that was used to run commands to deploy the Arc resource bridge. If you're using a different machine to collect logs, you need to run the `az arcappliance get-credentials` command first before collecting logs.
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the management machine used to deploy the Arc resource bridge. If you're using a different machine, it needs to meet the [management machine requirements](system-requirements.md#management-machine-requirements).
 
 If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM. Contact your network administrator to allow SSH communication from the management machine to the Appliance VM on TCP port 22. 
 
-You can collect the Arc resource bridge logs by passing either the appliance VM IP or the kubeconfig in the logs command.
+You can collect the Arc resource bridge logs by passing either the appliance VM IP or the kubeconfig in the logs command. 
 
 To collect Arc resource bridge logs on VMware using the appliance VM IP address: 
 
@@ -244,6 +244,11 @@ When you deploy Arc resource bridge, you may encounter the error:
 
 This error is caused when there's a clock/time difference between ESXi host(s) and the management machine where the deployment commands for Arc resource bridge are being executed. To resolve this issue, turn on NTP time sync on the ESXi host(s) and confirm that the management machine is also synced to NTP, then try the deployment again.
 
+### Arc resource bridge status is disconnected
+
+When running the initial Arc-enabled VMware onboarding script, you were prompted to provide a vSphere account. This account is stored locally within the Arc resource bridge as an encrypted Kubernetes secret. It is used to allow the Arc resource bridge to interact with vCenter. If your Arc resource bridge status is disconnected, this may be due to the vSphere account stored locally within the resource bridge being expired. You will need to update the credentials within Arc resource bridge and for Arc-enabled VMware by [following the updating vSphere account credentials instructions](/vmware-vsphere/administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding).
+
+
 ### Error during host configuration
 
 If you have been using the same template to deploy and delete the Arc resource bridge multiple times, you might encounter the following error:
@@ -263,9 +268,7 @@ When deploying the resource bridge on VMware vCenter, you might get an error say
 **Datastore** 
 
 - Allocate space
-
 - Browse datastore
-
 - Low level file operations
 
 **Folder** 
@@ -283,9 +286,7 @@ When deploying the resource bridge on VMware vCenter, you might get an error say
 **Resource**
 
 - Assign virtual machine to resource pool
-
 - Migrate powered off virtual machine
-
 - Migrate powered on virtual machine
 
 **Sessions**
@@ -295,125 +296,68 @@ When deploying the resource bridge on VMware vCenter, you might get an error say
 **vApp**
 
 - Assign resource pool
-
 - Import 
 
 **Virtual machine**
 
 - Change Configuration
-
   - Acquire disk lease
-
   - Add existing disk
-
   - Add new disk
-
   - Add or remove device
-
   - Advanced configuration
-
   - Change CPU count
-
   - Change Memory
-
   - Change Settings
-
   - Change resource
-
   - Configure managedBy
-
   - Display connection settings
-
   - Extend virtual disk
-
   - Modify device settings
-
   - Query Fault Tolerance compatibility
-
   - Query unowned files
-
   - Reload from path
-
   - Remove disk
-
   - Rename
-
   - Reset guest information
-
   - Set annotation
-
   - Toggle disk change tracking
-
   - Toggle fork parent
-
   - Upgrade virtual machine compatibility
-
 - Edit Inventory
-
   - Create from existing
-
   - Create new
-
   - Register
-
   - Remove
-
   - Unregister
-
 - Guest operations
-
   - Guest operation alias modification
-
   - Guest operation modifications
-
   - Guest operation program execution
-
   - Guest operation queries
-
 - Interaction
-
   - Connect devices
-
   - Console interaction
-
   - Guest operating system management by VIX API
-
   - Install VMware Tools
-
   - Power off
-
   - Power on
-
   - Reset
-
   - Suspend
-
 - Provisioning
-
   - Allow disk access
-
   - Allow file access
-
   - Allow read-only disk access
-
   - Allow virtual machine download
-
   - Allow virtual machine files upload
-
   - Clone virtual machine
-
   - Deploy template
-  
   - Mark as template
-
   - Mark as virtual machine
-
+  - Customize guest
 - Snapshot management
-
   - Create snapshot
-
   - Remove snapshot
-
   - Revert to snapshot
 
 ## Next steps

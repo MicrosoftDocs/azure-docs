@@ -19,18 +19,16 @@ This quickstart helps you get started with Azure Communication Services Rooms. A
 
 ## Object model
 
-The table below lists the main properties of `room` objects:
+The following table lists the main properties of `room` objects:
 
 | Name                  | Description                               |
 |-----------------------|-------------------------------------------|
 | `roomId`              | Unique `room` identifier.                  |
 | `validFrom`           | Earliest time a `room` can be used. |
 | `validUntil`          | Latest time a `room` can be used. |
-| `pstnDialOutEnabled`*  | Enable or disable dialing out to a PSTN number in a room.|
+| `pstnDialOutEnabled`  | Enable or disable dialing out to a PSTN number in a room.|
 | `participants`        | List of participants to a `room`. Specified as a `CommunicationIdentifier`. |
 | `roleType`            | The role of a room participant. Can be either `Presenter`, `Attendee`, or `Consumer`. |
-
-*pstnDialOutEnabled is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ::: zone pivot="platform-azcli"
 [!INCLUDE[Use rooms with Azure CLI](./includes/rooms-quickstart-az-cli.md)]
@@ -63,7 +61,7 @@ This quickstart helps you get started with Azure Communication Services Rooms. A
 
 ## Next steps
 
-Once you've created the room and configured it, you can learn how to [join a rooms call](join-rooms-call.md).
+You can learn how to [join a rooms call](join-rooms-call.md) after creating and configuring the room.
 
 In this section you learned how to:
 > [!div class="checklist"]

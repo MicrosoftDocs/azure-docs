@@ -70,7 +70,7 @@ The following metrics are visible through Azure Monitor Metrics.
 
    Our example is based on email notification.
 
-   :::image type="content" source="../azure-monitor/alerts/media/action-groups/action-group-2-notifications.png" alt-text="Screenshot showing email, SMS message, push, and voice settings for the alert." lightbox="../azure-monitor/alerts/media/action-groups/action-group-2-notifications.png":::    
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/azure-monitor/action-group-2-notifications.png" alt-text="Screenshot showing email, SMS message, push, and voice settings for the alert." lightbox="~/reusable-content/ce-skilling/azure/media/azure-monitor/action-group-2-notifications.png":::    
 
 1. (Optional) Configure the **Actions** if you want to take proactive actions and receive notification on the event. Select an available **Action type** and then select **Review + create**. 
 

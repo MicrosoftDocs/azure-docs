@@ -17,6 +17,7 @@ ms.custom: devx-track-dotnet
 > * [Java SDK v4](troubleshoot-java-sdk-v4.md)
 > * [Async Java SDK v2](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dotnet-sdk.md)
+> * [Python SDK](troubleshoot-python-sdk.md)
 > 
 
 This article covers common issues, workarounds, diagnostic steps, and tools when you use the [.NET SDK](sdk-dotnet-v2.md) with Azure Cosmos DB for NoSQL accounts.

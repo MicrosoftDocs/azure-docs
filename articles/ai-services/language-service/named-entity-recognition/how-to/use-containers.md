@@ -34,7 +34,7 @@ You must meet the following prerequisites before using Named Entity Recognition 
 
 ## Host computer requirements and recommendations
 
-[!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 The following table describes the minimum and recommended specifications for the available container. Each CPU core must be at least 2.6 gigahertz (GHz) or faster.
 
@@ -58,7 +58,7 @@ The latest Named Entity Recognition container is available in several languages.
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/ner:latest
 ```
 
-[!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ## Run the container with `docker run`
 
@@ -92,7 +92,7 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-[!INCLUDE [Running multiple containers on the same host](../../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 ## Query the container's prediction endpoint
 
@@ -102,7 +102,7 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 <!-- ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 For information on how to call NER see [our guide](../how-to-call.md).
 
@@ -112,7 +112,7 @@ For information on how to call NER see [our guide](../how-to-call.md).
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## Troubleshooting
 
@@ -124,7 +124,7 @@ If you run the container with an output [mount](../../concepts/configure-contain
 
 The Named Entity Recognition containers send billing information to Azure, using a _Language_ resource on your Azure account.
 
-[!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](../../concepts/configure-containers.md).
 

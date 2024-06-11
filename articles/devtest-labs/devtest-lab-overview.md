@@ -38,7 +38,7 @@ DevTest Labs users can quickly and easily create [IaaS VMs](devtest-lab-add-vm.m
 Lab owners can take several measures to reduce waste and control lab costs.
 
 - [Set lab policies](devtest-lab-set-lab-policy.md) like allowed number or sizes of VMs per user or lab.
-- [Set auto-shutdown](devtest-lab-auto-shutdown.md) and [auto-startup](devtest-lab-auto-startup-vm.md) schedules to shut down and start up lab VMs at specific times of day.
+- [Set auto-shutdown](devtest-lab-auto-shutdown.md) and [auto-startup](devtest-lab-auto-startup-vm.yml) schedules to shut down and start up lab VMs at specific times of day.
 - [Monitor costs](devtest-lab-configure-cost-management.md) to track lab and resource usage and estimate trends.
 - [Set VM expiration dates](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date), or [delete labs or lab VMs](devtest-lab-delete-lab-vm.md) when no longer needed.
 

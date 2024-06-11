@@ -5,7 +5,7 @@ description: Learn about services  offered by partners on Azure.
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 02/14/2024
+ms.date: 04/08/2024
 ---
 
 # Extend Azure with Azure Native ISV Services
@@ -23,14 +23,16 @@ Azure Native ISV Services is available through the Marketplace.
 |[Azure Native Dynatrace Service](dynatrace/dynatrace-overview.md)   | Provides deep cloud observability, advanced AIOps, and continuous runtime application security.  | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) |
 |[Azure Native New Relic Service](new-relic/new-relic-overview.md)    |  A cloud-based end-to-end observability platform for analyzing and troubleshooting the performance of applications, infrastructure, logs, real-user monitoring, and more.   | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview) |
 |[Logz.io](logzio/overview.md)     | Observability platform that centralizes log, metric, and tracing analytics. | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Logz%2Fmonitors) |  |
+|[Split Experimentation](split-experimentation/overview.md)     | Split Experimentation allows you to run A/B tests for your applications and gather feedback for new features. | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResourceBlade/resourceType/SplitIO.Experimentation%2FexperimentationWorkspaces) | [Azure Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/splitio1614896174525.azure-experimentation)|
 
 ## Data and storage
 
 |Partner  |Description  |Portal link | Get started on|
 |---------|-------------|---------------|----|
-|[Apache Kafka for Confluent Cloud](apache-kafka-confluent-cloud/overview.md) | Fully managed event streaming platform powered by Apache Kafka. | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview) |
+|[Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service](apache-kafka-confluent-cloud/overview.md) | Fully managed event streaming platform powered by Apache Kafka. | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview) |
 |[Azure Native Qumulo Scalable File Service](qumulo/qumulo-overview.md) |  Multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.  | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview) |
 | [Apache Airflow on Astro - An Azure Native ISV Service](astronomer/astronomer-overview.md) | Deploy a fully managed and seamless Apache Airflow on Astro on Azure. | [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations) | [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview) |
+ | [Intelligent Data Management Cloud (Preview) - Azure Native ISV Service](informatica/informatica-overview.md) | A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy and master data management. | <!--[Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Informatica_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Informatica.Astro%2Forganizations) --> | <!-- [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/informatica1591719760654.informatica?tab=Overview) --> |
 
 ## Networking and security
 

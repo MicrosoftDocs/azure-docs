@@ -259,6 +259,7 @@ Learn more about the developer portal:
 
 - [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
 - [Extend functionality of the managed developer portal](developer-portal-extend-custom-functionality.md)
+- [Enable logging of developer portal usage](developer-portal-enable-usage-logs.md)
 - [Set up self-hosted version of the portal](developer-portal-self-host.md)
 
 Browse other resources:

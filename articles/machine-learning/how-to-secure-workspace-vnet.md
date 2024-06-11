@@ -273,6 +273,8 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     az ml workspace update --name myworkspace --resource-group myresourcegroup --image-build-compute mycomputecluster
     ```
 
+    You can switch back to serverless compute by executing the same command and referencing the compute as an empty space: `--image-build-compute ' '`.
+
     # [Python SDK](#tab/python)
 
     The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme). Replace `mycomputecluster` with the name of the cluster to use:
@@ -297,7 +299,8 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     # Update to use cpu-cluster for image builds
     ws.image_build_compute="cpu-cluster"
     ml_client.workspaces.begin_update(ws)
-    # To switch back to using ACR to build (if ACR is not in the VNet):
+    
+    # To switch back to serverless compute:
     # ws.image_build_compute = ''
     # ml_client.workspaces.begin_update(ws)
     ```

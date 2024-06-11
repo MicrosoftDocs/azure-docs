@@ -10,7 +10,7 @@ ms.date: 04/26/2022
 
 This article shows you how to set up an alert for new recommendations from Azure Advisor using Bicep.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](../azure-monitor/essentials/platform-logs-overview.md). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally select a resource group to specify the resources that you want to receive alerts on.
 
