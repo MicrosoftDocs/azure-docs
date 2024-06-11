@@ -17,7 +17,7 @@ services: iot-edge
 > [!IMPORTANT]
 > Starting August 28th 2024, Azure Marketplace is updating the distribution model for IoT Edge modules. Partners (module publishers) will begin [hosting their IoT Edge modules] (https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&filters=partners&page=1) on publisher-owned container registries. IoT Edge module images won't be available for download from the Azure Marketplace container registry.
 >
-> To ensure uninterrupted operation of your Azure IoT Edge devices that use Azure Marketplace partner modules, contact the [IoT Edge module publisher] (https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners) to obtain the updated container image URI and [update your IoT Edge](how-to-update-iot-edge.md) device configurations with the new image URI provided by the publisher.
+> Contact the [IoT Edge module publisher] (https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners) to obtain the updated container image URI and [update your IoT Edge](how-to-update-iot-edge.md) device configurations with the new image URI provided by the publisher.
 >
 >
 > IoT Edge devices that don't use [partner modules] (https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners&page=1&subcategories=iot-edge-modules) acquired from Azure Marketplace aren't affected and no action is required.
