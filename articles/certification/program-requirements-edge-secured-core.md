@@ -1,7 +1,7 @@
 ---
 title: Edge Secured-core Certification Requirements
 description: Edge Secured-core Certification program requirements
-author: sufon
+author: sufenfong
 ms.author: sufon
 ms.topic: conceptual 
 ms.date: 02/20/2024
