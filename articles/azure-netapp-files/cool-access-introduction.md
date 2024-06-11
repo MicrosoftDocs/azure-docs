@@ -1,6 +1,6 @@
 ---
-title: Standard storage with cool access in Azure NetApp Files
-description: Explains how to use standard storage with cool access to configure inactive data to move from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure storage account (the cool tier).
+title: Azure NetApp Files storage with cool access
+description: Explains how to use Azure NetApp Files storage with cool access to configure inactive data to move from Azure NetApp Files service-level storage (the hot tier) to an Azure storage account (the cool tier).
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
@@ -10,13 +10,13 @@ ms.author: anfdocs
 ms.custom: references_regions
 ---
 
-# Standard storage with cool access in Azure NetApp Files 
+# Azure NetApp Files storage with cool access in Azure NetApp Files 
 
-Using Azure NetApp Files standard storage with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). Enabling cool access moves inactive data blocks from the volume and the volume's snapshots to the cool tier, resulting in cost savings.
+Using Azure NetApp Files storage with cool access, you can configure inactive data to move from Azure NetApp Files storage (the *hot tier*) to an Azure storage account (the *cool tier*). Enabling cool access moves inactive data blocks from the volume and the volume's snapshots to the cool tier, resulting in cost savings.
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
-Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level.
+Azure NetApp Files supports cool access with three [service levels](azure-netapp-files-service-levels.md) (Standard, Premium and Ultra).
 
 The following diagram illustrates an application with a volume enabled for cool access.
 
@@ -34,7 +34,7 @@ Metadata is never cooled and always remains in the hot tier. As such, the activi
 
 ## Supported regions 
 
-Standard storage with cool access is supported for the following regions: 
+Azure NetApp Files storage with cool access is supported for the following regions: 
 
 * Australia Central
 * Australia Central 2
@@ -332,9 +332,9 @@ Your first twelve-month savings:
 
 
 > [!TIP]     
-> You can use the [Azure NetApp Files standard storage with cool access cost savings estimator](https://aka.ms/anfcoolaccesscalc) to interactively estimate cost savings based on changeable input parameters.
+> You can use the [Azure NetApp Files storage with cool access cost savings estimator](https://aka.ms/anfcoolaccesscalc) to interactively estimate cost savings based on changeable input parameters.
 
 ## Next steps
 
-* [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md)
+* [Manage Azure NetApp Files storage with cool access](manage-cool-access.md)
 * [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md)

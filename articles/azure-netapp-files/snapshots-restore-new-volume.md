@@ -17,7 +17,7 @@ ms.author: anfdocs
 
 * Currently, you can [restore a snapshot only to a new volume](snapshots-introduction.md#restoring-cloning-an-online-snapshot-to-a-new-volume). 
 
-* If you use the standard storage with cool access feature, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations.
+* If you use the cool access feature, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md#considerations) for more considerations.
   
 * Cross-region replication and cross-zone replication operations are suspended and cannot be added while restoring a snapshot to a new volume.
 
