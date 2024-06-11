@@ -22,7 +22,7 @@ The Dependency Agent collects data about processes running on the virtual machin
 
 - The Dependency Agent requires the Azure Monitor Agent to be installed on the same machine.
 - On both the Windows and Linux versions, the Dependency Agent collects data using a user-space service and a kernel driver. 
-    - Dependency Agent supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
+    - Dependency Agent supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2, Windows Server 2022, and Azure Stack HCI.
     - For Linux, see [Dependency Agent Linux support](#dependency-agent-linux-support).
 
 ## Install or upgrade Dependency Agent 
@@ -93,7 +93,7 @@ To uninstall Dependency Agent:
 
 Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. As of Dependency agent version 9.10.* the agent supports * kernels.  The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
 
-[!INCLUDE [dependency-agent-linux-versions](../includes/vm-insights-dependency-agent-linux-versions.md)]
+[!INCLUDE [dependency-agent-linux-versions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/includes/vm-insights-dependency-agent-linux-versions.md)]
 
 ## Next steps
 

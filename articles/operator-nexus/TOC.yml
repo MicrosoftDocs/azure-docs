@@ -13,6 +13,8 @@
       href: concepts-compute.md
     - name: Storage overview
       href: concepts-storage.md
+    - name: Cluster deployment
+      href: concepts-cluster-deployment-overview.md
     - name: Network Fabric
       expanded: false
       items:
@@ -181,6 +183,8 @@
               href: howto-delete-layer-3-isolation-domains.md
             - name: How to put a device into maintenance mode
               href: howto-put-device-in-maintenance-mode.md
+            - name: How to upgrade Network Fabric
+              href: howto-upgrade-nexus-fabric.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
@@ -204,8 +208,10 @@
           href: howto-kubernetes-cluster-action-restart.md
         - name: Customize cluster DNS
           href: how-to-customize-kubernetes-cluster-dns.md
-        - name: Customize Worker Nodes
+        - name: Customize worker nodes
           href: howto-kubernetes-cluster-customize-workers.md
+        - name: Manage SSH keys
+          href: howto-kubernetes-cluster-manage-ssh-key.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
