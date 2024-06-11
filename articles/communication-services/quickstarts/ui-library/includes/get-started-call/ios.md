@@ -37,7 +37,7 @@ In Xcode, create a new project:
 
 ### Install the package and dependencies
 
-1. (Optional) For MacBook with M1, install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
+1. (Optional) For MacBook with M1, install, and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
 
 1. In your project root directory, run `pod init` to create a Podfile. If you encounter an error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to the current version.
 
@@ -54,11 +54,11 @@ In Xcode, create a new project:
 
 1. Run `pod install --repo-update`.
 
-1. In Xcode, open the generated *.xcworkspace* file.
+1. In Xcode, open the generated.xcworkspace* file.
 
 ### Request access to device hardware
 
-To access the device's hardware, including the microphone and camera, update your app's information property list. Set the associated value to a string that's included in the dialog the system uses to request access from the user.
+To access the device's hardware, including the microphone, and camera, update your app's information property list. Set the associated value to a string that's included in the dialog the system uses to request access from the user.
 
 1. Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines to the top level `<dict>` section, and then save the file.
 
@@ -199,7 +199,7 @@ For more information about using a group ID for calls, see [Manage calls](../../
 
 You can join to a Teams meeting using two mechanisms:
 
-- Teams meeting URL or Teams meetiong short URL
+- Teams meeting URL or Teams meeting short URL
 - Teams Meeting ID and Passcode
 
 The Teams meeting link can be retrieved using Graph APIs, which is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
@@ -209,7 +209,7 @@ You can also get the required meeting information from the **Join Meeting** URL 
 
 #### Join via Teams meeting URL
 
-To join a Microsoft Teams meeting, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.teamsMeeting` locator.  Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
+To join a Microsoft Teams meeting, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.teamsMeeting` locator. Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
 
 ```swift
 let remoteOptions = RemoteOptions(for: .teamsMeeting(teamsLink: "<TEAMS_MEETING_LINK>"),
@@ -220,8 +220,8 @@ let remoteOptions = RemoteOptions(for: .teamsMeeting(teamsLink: "<TEAMS_MEETING_
 #### Join via Teams Meeting ID and Passcode
 
 The `TeamsMeetingIdLocator` locates a meeting using a meeting ID and passcode. These can be found under a Teams meeting's join info.
-A Teams meeting ID will be 12 characters long and will consist of numeric digits grouped in threes (i.e. `000 000 000 000`).
-A passcode will consist of 6 alphabet characters (i.e. `aBcDeF`). The passcode is case sensitive.
+A Teams meeting ID is 12 characters long and consists of numeric digits grouped in threes (i.e. `000 000 000 000`).
+A passcode consists of 6 alphabet characters (i.e. `aBcDeF`). The passcode is case sensitive.
 
 ```swift
 
@@ -232,11 +232,11 @@ A passcode will consist of 6 alphabet characters (i.e. `aBcDeF`). The passcode i
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-To set up a Azure Communication Services Rooms call, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.roomCall` locator. Replace `<ROOM_ID>` with the Room ID for your call. Initialize a `LocalOptions` instance with `roleHint`.
+To set up an Azure Communication Services Rooms call, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.roomCall` locator. Replace `<ROOM_ID>` with the Room ID for your call. Initialize a `LocalOptions` instance with `roleHint`.
 
 Replace `<DISPLAY_NAME>` with your name.
 
-`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from Azure Communication Services.
+`CallComposite` uses role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from Azure Communication Services.
 
 
 For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
@@ -316,7 +316,7 @@ For more information about localization and for a list of supported languages, s
 
 ### Subscribe to CallComposite call state changed event
 
-You can implement closures to act on composite events. The call states will be sent to the call state changed handler.
+You can implement closures to act on composite events. The call states are sent to the call state changed handler.
 
 The following example shows an event for a call state changed.
 
