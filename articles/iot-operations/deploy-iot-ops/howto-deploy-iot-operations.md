@@ -89,8 +89,11 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
      * Deploy the Azure IoT Operations resources.
 
    ```azurecli-interactive
-   az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_ID>
+   az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_SETTINGS_PROPERTIES_RESOURCE_ID>
    ```
+
+   > [!IMPORTANT]
+   > By default, the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command doesn't deploy the Data Processor component. To deploy Data Processor, add the `--include-dp` argument.
 
    If you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group, add the `--disable-rsync-rules` feature flag. This flag disables the resource sync rules on the deployment.
 
