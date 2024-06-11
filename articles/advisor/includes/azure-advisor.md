@@ -1,29 +1,28 @@
 ---
-author: davidsmatlak
-ms.service: resource-graph
+ms.service: advisor
 ms.topic: include
 ms.date: 07/07/2022
-ms.author: davidsmatlak
-ms.custom: generated
+author: ikhapova
+ms.author: ikhapova
 ---
 
 ### Get cost savings summary from Azure Advisor
 
-This query summarizes the cost savings of each [Azure Advisor](../../../../articles/advisor/advisor-overview.md) recommendation.
+This query summarizes the cost savings of each [Azure Advisor](../advisor-overview.md) recommendation.
 
 ```kusto
 AdvisorResources
 | where type == 'microsoft.advisor/recommendations'
 | where properties.category == 'Cost'
 | extend
-	resources = tostring(properties.resourceMetadata.resourceId),
-	savings = todouble(properties.extendedProperties.savingsAmount),
-	solution = tostring(properties.shortDescription.solution),
-	currency = tostring(properties.extendedProperties.savingsCurrency)
+  resources = tostring(properties.resourceMetadata.resourceId),
+  savings = todouble(properties.extendedProperties.savingsAmount),
+  solution = tostring(properties.shortDescription.solution),
+  currency = tostring(properties.extendedProperties.savingsCurrency)
 | summarize
-	dcount(resources),
-	bin(sum(savings), 0.01)
-	by solution, currency
+  dcount(resources),
+  bin(sum(savings), 0.01)
+  by solution, currency
 | project solution, dcount_resources, sum_savings, currency
 | order by sum_savings desc
 ```
