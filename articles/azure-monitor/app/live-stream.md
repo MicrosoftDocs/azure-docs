@@ -52,9 +52,9 @@ Using Classic:
    * [.NET Applications: Enable using code](#enable-live-metrics-by-using-code-for-any-net-application).
    * [Node.js](./nodejs.md#live-metrics)
 
-1. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app. Then open Live Stream.
+2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app. Then open Live Stream.
 
-1. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
+3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
