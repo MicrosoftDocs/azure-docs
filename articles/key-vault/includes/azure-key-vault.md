@@ -1,10 +1,9 @@
 ---
-author: davidsmatlak
-ms.service: resource-graph
+ms.service: key-vault
 ms.topic: include
 ms.date: 07/07/2022
-ms.author: davidsmatlak
-ms.custom: generated
+author: msmbaldwin
+ms.author: mbaldwin
 ---
 
 ### Count key vault resources
