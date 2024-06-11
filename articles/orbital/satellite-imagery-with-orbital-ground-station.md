@@ -40,7 +40,7 @@ The above tutorial provides a walkthrough for scheduling a contact with Aqua and
 > In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-your-virtual-machine-and-network-to-receive-public-satellite-data), use the following values:
 >
 >   - **Name:** receiver-vm
->   - **Operating System:** Enter the name of your preferred [endorsed Linux distribution](/virtual-machines/linux/endorsed-distros)
+>   - **Operating System:** Enter the name of your preferred [endorsed Linux distribution](/azure/virtual-machines/linux/endorsed-distros)
 >   - **Size:** Standard_D8s_v5 or higher
 >   - **IP Address:** Ensure that the VM has internet access for downloading tools by having one standard public IP address
 
