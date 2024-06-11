@@ -13,6 +13,9 @@ Container Insights defaults to managed identity authentication, which has a moni
 
 This article describes how to migrate to managed identity authentication if you enabled Container insights using legacy authentication method and also how to enable legacy authentication if you have that requirement.
 
+> [!IMPORTANT]
+> If you have a cluster with legacy authentication and Log Analytics workspace keys are rotated, then monitoring data will stop flowing to the Log Analytics workspace. You must disable and then reenable the Container insights addon to get monitoring data to start flowing again with the new rotated workspace keys.  You should migrate to Container insights managed identity authentication which doesn't use Log Analytics workspace keys.
+
 ## Migrate to managed identity authentication
 
 If you enabled Container insights before managed identity authentication was available, you can use the following methods to migrate your clusters.
