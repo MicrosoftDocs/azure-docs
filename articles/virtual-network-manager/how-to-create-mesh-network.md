@@ -13,8 +13,6 @@ ms.custom: engagement-fy23
 
 In this article, you learn how to create a mesh network topology using Azure Virtual Network Manager. With this configuration, all the virtual networks of the same region in the same network group can communicate with one another. You can enable cross region connectivity by enabling the global mesh setting in the connectivity configuration.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## Prerequisites
 
 * Read about [mesh](concept-connectivity-configuration.md#mesh-network-topology) network topology.
