@@ -235,6 +235,8 @@
             - name: Use a template from Azure PowerShell
               displayName: create IoT Hub, register device, message routing, delete IoT hub, Azure Resource Manager
               href: iot-hub-rm-template-powershell.md
+        - name: Create and connect a device
+          href: create-connect-device.md
         - name: Create message routes and endpoints
           items:
             - name: Azure portal
