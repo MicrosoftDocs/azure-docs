@@ -604,8 +604,8 @@
     - name: All codes
       href: bicep-error-codes.md
     - name: BCP033 
-      href: bcp033.md
+      href: bicep-error-bcp033.md
     - name: BCP035
-      href: bcp035.md
+      href: bicep-error-bcp035.md
   - name: Azure CLI
     href: /cli/azure/resource

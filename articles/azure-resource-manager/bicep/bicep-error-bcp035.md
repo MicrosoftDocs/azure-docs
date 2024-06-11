@@ -80,4 +80,4 @@ resource networkConnection 'Microsoft.Network/connections@2023-11-01' = {
 
 ## Next steps
 
-For more information about the linter, see [Bicep warnings and errors]().
+For more information about Bicep warning and error codes, see [Bicep warnings and errors](./bicep-error-codes.md).

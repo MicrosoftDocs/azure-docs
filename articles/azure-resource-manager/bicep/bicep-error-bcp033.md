@@ -38,4 +38,4 @@ output myString string = myValue
 
 ## Next steps
 
-For more information about the Bicep warning and error codes, see [Bicep warnings and errors]().
+For more information about Bicep warning and error codes, see [Bicep warnings and errors](./bicep-error-codes.md).
