@@ -10,7 +10,7 @@ ms.author: anfdocs
 ms.custom: references_regions
 ---
 
-# Azure NetApp Files storage with cool access in Azure NetApp Files 
+# Azure NetApp Files storage with cool access 
 
 Using Azure NetApp Files storage with cool access, you can configure inactive data to move from Azure NetApp Files storage (the *hot tier*) to an Azure storage account (the *cool tier*). Enabling cool access moves inactive data blocks from the volume and the volume's snapshots to the cool tier, resulting in cost savings.
 
