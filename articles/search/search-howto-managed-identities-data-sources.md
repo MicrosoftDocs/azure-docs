@@ -128,7 +128,10 @@ For more information, see [Create or Update Service (Management REST API)](/rest
 
 ---
 
-## Create a user-assigned managed identity (preview)
+## Create a user-assigned managed identity
+
+> [!IMPORTANT]
+> Part of this scenario is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [Management preview REST API](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity) provides user-assigned managed identity configuration for Azure AI Search.
 
 A user-assigned managed identity is a resource on Azure. You can create multiple user-assigned managed identities if you want more granularity in role assignments. For example, you might want separate identities for different applications and scenarios.
 
@@ -169,7 +172,7 @@ Associating a user-assigned managed identity is supported in the Azure portal, i
 
 You can use a preview Management REST API instead of the portal to assign a user-assigned managed identity. Use API versions `2021-04-01-preview` or later. This example uses `2024-03-01-preview`.
 
-1. Formulate a request to [UPDATE](rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity) a search service.
+1. Formulate a request to [UPDATE](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity) a search service.
 
     ```http
     PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice?api-version=2024-03-01-preview
