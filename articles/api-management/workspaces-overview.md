@@ -67,14 +67,14 @@ The following resources can be managed in workspaces.
 
 ## Runtime isolation with a workspace gateway
 
-A dedicated gateway is created for each workspace, managed by the workspace collaborators and separate from the service gateway and other workspace gateways. The gateway is used to route API traffic to the backend services for the workspace APIs.
+A dedicated gateway is created for each workspace, managed by the workspace collaborators and separate from the service gateway and other workspace gateways. The gateway is used to route API traffic to the backend services for the workspace APIs. The gateway can have either a default or custom hostname.
 
 ### Supported gateway features
 
 * Optionally configure the workspace gateway in a private virtual network to isolate inbound and outbound traffic
 * Monitor APIs with workspace-specific configuration
 * Manage API backends and import APIs from Azure services 
-* Support API types that are supported by the service gateway (except for GraphQL and WebSocket APIs)
+* Support most API types that are can be managed by the service gateway. (Currently, GraphQL and WebSocket APIs aren't supported in workspaces.)
 * Validate client certificates 
 
 ### Gateway constraints
@@ -84,7 +84,7 @@ A dedicated gateway is created for each workspace, managed by the workspace coll
 * Workspace gateways need to be in the same Azure region and subscription as the API Management service
 * Autoscale can't be configured on a workspace gateway
 * APIs in workspaces aren't covered by Defender for APIs
-* Workspace gateways don't support credential manager
+* Workspace gateways don't support the API Management service's credential manager
 * Workspace gateways support only internal cache; external cache isn't supported 
 
 ## RBAC roles for workspaces
