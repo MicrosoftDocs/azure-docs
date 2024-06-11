@@ -4,8 +4,8 @@ description: Use your IoT Hub in the Azure portal to push an IoT Edge module fro
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/10/2024
-ms.topic: conceptual
+ms.date: 06/11/2024
+ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
 ---
@@ -15,12 +15,12 @@ services: iot-edge
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 > [!IMPORTANT]
-> Starting August 28th 2024, Azure Marketplace is updating the distribution model for IoT Edge modules. Partners (module publishers) will begin [hosting their IoT Edge modules] (https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&filters=partners&page=1) on publisher-owned container registries. IoT Edge module images won't be available for download from the Azure Marketplace container registry.
+> Starting August 28th 2024, Azure Marketplace is updating the distribution model for IoT Edge modules. Partners (module publishers) will begin [hosting their IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&filters=partners&page=1) on publisher-owned container registries. IoT Edge module images won't be available for download from the Azure Marketplace container registry.
 >
-> Contact the [IoT Edge module publisher] (https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners) to obtain the updated container image URI and [update your IoT Edge](how-to-update-iot-edge.md) device configurations with the new image URI provided by the publisher.
+> Contact the [IoT Edge module publisher](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners) to obtain the updated container image URI and [update your IoT Edge](how-to-update-iot-edge.md) device configurations with the new image URI provided by the publisher.
 >
 >
-> IoT Edge devices that don't use [partner modules] (https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners&page=1&subcategories=iot-edge-modules) acquired from Azure Marketplace aren't affected and no action is required.
+> IoT Edge devices that don't use [partner modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners&page=1&subcategories=iot-edge-modules) acquired from Azure Marketplace aren't affected and no action is required.
 
 Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
 
