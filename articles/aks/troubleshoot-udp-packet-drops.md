@@ -92,12 +92,12 @@ You can change buffer size values on a node pool level during the node pool crea
 1. Create a `linuxosconfig.json` file on your local machine with the following contents. You can modify the values per your application requirements and node SKU. The minimum value is *212992 bytes*, and the maximum is *134217728 bytes*.
 
     ```json
-    { 
-        "sysctls": { 
-            "netCoreRmemMax": 1048576, 
-            “netCoreRmemDefault”:1048576 
-        } 
-    } 
+    {
+        "sysctls": {
+            "netCoreRmemMax": 1048576,
+            "netCoreRmemDefault": 1048576
+        }
+    }
     ```
 
 2. Make sure you're in the same directory as the `linuxosconfig.json` file and create a new node pool with the buffer size configuration using the [`az aks nodepool add`][az-aks-nodepool-add] command.
