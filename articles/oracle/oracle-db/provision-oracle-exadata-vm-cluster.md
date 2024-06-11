@@ -29,7 +29,9 @@ Provisioning an Oracle Exadata VM Cluster requires the existence of an Oracle Ex
    1. Select the Microsoft Azure subscription to which the Oracle Exadata VM Cluster will be provisioned.
    1. Select an existing **Resource group** or select the **Create new** link to create and use a new Resource group for this resource.
    1. Enter a unique **Name** for the Oracle Exadata VM Cluster on this subscription.
-   1. Select the **Region** where this Oracle Exadata Infrastructure is provisioned. **NOTE:** The regions where the OracleDB@Azure service is available are limited, and you should assign the Oracle Exadata VM Cluster to the same region as the parent Oracle Exadata Infrastructure.
+   1. Select the **Region** where this Oracle Exadata Infrastructure is provisioned. 
+       >[!NOTE] 
+       >The regions where the OracleDB@Azure service is available are limited, and you should assign the Oracle Exadata VM Cluster to the same region as the parent Oracle Exadata Infrastructure.
    1. The **Cluster name** should match the Name to avoid other naming conflicts.
    1. Select the existing **Exadata infrastructure** that is the parent for your Oracle Exadata VM Cluster.
    1. The **License type** is either **License included** or **Bring your own license (BYOL)**. Your selection affects your billing.
@@ -53,9 +55,9 @@ Provisioning an Oracle Exadata VM Cluster requires the existence of an Oracle Ex
    1. The **Client subnet** is selectable based on the selected **Virtual network**.
    1. To use a custom DNS domain, select the **Custom DNS** checkbox. If unchecked, the Oracle Exadata VM Cluster uses the default domain, oraclevcn.com.
    1. If checked, a list of existing DNS private views from OCI is presented. Select the view to use. To create a new private view and zones, see [Private DNS](https://docs.oracle.com/iaas/Content/DNS/Tasks/privatedns.htm).
-   1. Enter the **Host name** prefix. The prefix forms forms the first portion of the Oracle Exadata VM Cluster host name.
+   1. Enter the **Host name** prefix. The prefix forms the first portion of the Oracle Exadata VM Cluster host name.
    1. The **Host domain name** and **Host and domain URL** for your Oracle Exadata VM Cluster are read-only and populated with derived naming.
-   1. Within the **Network ingress rules** section, the **Add additional network ingress rules** checkbox allows you to define addition ingress CIDR rules. Other network CIDR ranges (such as application or hub subnet ranges) can be added, during provisioning, to the network security group (NSG) ingress rules for the VM cluster. The selected virtual network's CIDR is added by default. CIDR ranges are specified. The port can be a single port, port range (for example, 80-8080), a comma-delimited list of ports (for example, 80,8080), or any combination of these port ranges. This only updates the OCI network security group ingress rules. Microsoft Azure virtual network network security rules must be updated in the specific virtual network in Microsoft Azure.
+   1. Within the **Network ingress rules** section, the **Add additional network ingress rules** checkbox allows you to define addition ingress CIDR rules. Other network CIDR ranges (such as application or hub subnet ranges) can be added, during provisioning, to the network security group (NSG) ingress rules for the VM cluster. The selected virtual network's CIDR is added by default. CIDR ranges are specified. The port can be a single port, port range (for example, 80-8080), a comma-delimited list of ports (for example, 80,8080), or any combination of these port ranges. This only updates the OCI network security group ingress rules. Microsoft Azure virtual network security rules must be updated in the specific virtual network in Microsoft Azure.
    1. Select **Next** to continue.
 1. From the **Diagnostics Collection** tab of the Create Oracle Exadata VM Cluster flow allows you to specify the diagnostic events, health monitoring, and incident logs and tracing that Oracle can use to identify, track, and resolve issues. Select **Next** to continue.
 1. From the **Consent** tab of the **Create Oracle Exadata VM Cluster** flow, you must agree to the terms of service, privacy policy, and agree to access permissions. Select **Next** to continue.

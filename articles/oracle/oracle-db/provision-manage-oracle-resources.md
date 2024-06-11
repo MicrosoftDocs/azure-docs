@@ -80,5 +80,5 @@ Follow the following steps to access the Oracle Autonomous Database@Azure blade.
    1. Follow the steps to access the resource blade.
    1. Select the link to the resource from the **Name** field in the table.
    1. From the resource's detail page, select the **Go to OCI** link on the **OCI Database URL** field.
-   1. Login to OCI.
+   1. Log in to OCI.
    1. Manage the resource from within the OCI console.

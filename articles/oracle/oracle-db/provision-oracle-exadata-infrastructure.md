@@ -24,7 +24,9 @@ Provisioning Oracle Exadata Infrastructure is a time-consuming process. Provisio
    1. Select the Microsoft Azure subscription to which the Oracle Exadata Infrastructure will be provisioned and billed.
    1. Select an existing **Resource group** or select the **Create new** link to create and use a new Resource group for this resource. A resource group is a collection of resources sharing the same lifecycle, permissions, and policies.
    1. Enter a unique **Name** for the Oracle Exadata Infrastructure on this subscription.
-   1. Select the **Region** where this Oracle Exadata Infrastructure is provisioned. **NOTE:** The regions where the OracleDB@Azure service is available are limited.
+   1. Select the **Region** where this Oracle Exadata Infrastructure is provisioned. 
+       >[!NOTE] 
+       > The regions where the OracleDB@Azure service is available are limited.
    1. Select the **Availability zone** where this Oracle Exadata Infrastructure is provisioned.
      > [!NOTE]
      > The availability zones where the OracleDB@Azure service is available are limited.
