@@ -1,5 +1,5 @@
-# OSDU M18 Services Available on ADME 
-Below you will find an overview of the OSDU services that are currently available on ADME. Please note that this page will be continuously updated as service versions and availablity evolve. 
+# OSDU:registered: M18 Services Available on ADME 
+Below you will find an overview of the OSDU:registered: services that are currently available on ADME. Please note that this page will be continuously updated as service versions and availablity evolve. 
 ## Core and Helper Services
 - **Indexer**: Provides an endpoint to create aliases for existing indices and features flag index extended properties.
 - **Indexer Queue**: Manages the queuing of indexing tasks and logs important identifiers.
@@ -32,8 +32,8 @@ Below you will find an overview of the OSDU services that are currently availabl
 - **Wellbore DDMS**: Enables secure access and handling of wellbore-related data.
 - **Well Delivery DDMS**: Enables secure access, storage, and interaction of Well Delivery (planning and execution) data.
 
-# OSDU Services Exclusive to M18 Community Version
-NOTE: The following OSDU services are not currently available on ADME.
+# OSDU:registered: Services Exclusive to M18 Community Version
+NOTE: The following OSDU:registered: services are not currently available on ADME.
 - **WITSML Parser**
 - **Reservoir DDMS**
 - **External Data Services**
