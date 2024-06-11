@@ -14,20 +14,25 @@ ms.date: 06/07/2024
 
 On-premises Nutanix environments require the Nutanix customer to support all the hardware and software for running the platform. For NC2 on Azure Microsoft maintains the hardware for the customer. Let's look at what the customer manages versus what Microsoft & Nutanix manages.
 
-
 <table>
+<head>
+    <style>
+table, th, td {
+  border: 1px solid;
+}
+</style>
+</head>
     <thead>
         <tr>
             <th>Areas</th>
-            <th>Deployment</th>
             <th>Life-cycle</th>
             <th>Configuration</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-        <td colspan=1>Physical Infrastructure</td>
-            <td rowspan=8 colspan=4 style="text-align: center;vertical-align: middle;">Microsoft NC2 team</td> 
+        <td>Physical Infrastructure</td>
+            <td rowspan=8 colspan=3 style="text-align: center;vertical-align: middle; border=5">Microsoft NC2 team</td> 
         </tr>
 <tr>
 <td>Physical Security</td>
@@ -73,31 +78,38 @@ NC2 Clusters on Azure</td>
 </tr>
 <tr>
 <td>NC2 Portal</td>
-<td colspan=4 style="text-align: center;vertical-align: middle;">Nutanix manages</td>
+<td colspan=3 style="text-align: center;vertical-align: middle;">
+Nutanix manages</td>
 </tr>
 <tr>
 <td>
 AHV/AOS
 </td>
-<td>Nutanix manages
+<td rowspan=2 style="text-align: center; vertical-align: middle;" border="1">
+Nutanix manages
 </td>
-<td rowspan=2 colspan=2 style="text-align: center;vertical-align: middle;">Customer manages</td>
+<td rowspan=2 colspan=2 style="text-align: center; vertical-align: middle;">
+Customer manages</td>
 </tr>
 
 <tr>
 <td>
 Flow and Network Overlay/FGW</td>
 </td>
-<td>Nutanix manages
-</td>
 </tr>
 
+<tr>
+
+<td> 
+Physical security
+</td>
+<td rowspan=2 colspan=3 style="text-align: center;">
+Microsoft Azure manages</td>
+</tr>
 <tr>
 <td>
 Azure Native Service SRs
 </td>
-<td colspan=3 style="text-align: center;">
-Microsoft Azure native manages</td>
 </tr>
 
 
