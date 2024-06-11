@@ -577,6 +577,8 @@ tlsConfig:
 > Make sure the secret name is **ama-metrics-mtls-secret** and it is in **kube-system** namespace.
 >
 > If you want to use both basic and Tls authentication settings in your configmap/CRD, just make sure that the secret **ama-metrics-mtls-secret** includes all the files(keys) under the data section with their corresponding base 64 encoded values, as shown below.
+
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -588,6 +590,8 @@ data:
   keyfile: base64_key_content      # used for Tls
   password1: base64-encoded-string # used for basic auth
   password2: base64-encoded-string # used for basic auth
+```yaml
+
 > 
 > The secret should be created and then the configmap/CRD should be created in kube-system namespace. The order of secret creation matters. When there's no secret but a valid CRD/config map, you will find errors in collector log -> `no file found for cert....`
 > 
