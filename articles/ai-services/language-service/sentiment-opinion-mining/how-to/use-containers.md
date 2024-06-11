@@ -46,7 +46,7 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 The Sentiment Analysis container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment`
 
-To use the latest version of the container, you can use the `latest` tag, which is for english. You can also find a full list of containers for supported languages using the [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/sentiment/tags).
+To use the latest version of the container, you can use the `latest` tag, which is for English. You can also find a full list of containers for supported languages using the [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/sentiment/tags).
 
 The sentiment analysis container v3 container is available in several languages. To download the container for the English container, use the command below. 
 
@@ -115,7 +115,7 @@ If you run the container with an output [mount](../../concepts/configure-contain
 
 ## Billing
 
-The Sentiment Analysis containers send billing information to Azure, using a _Language_ resource on your Azure account.
+The Sentiment Analysis containers send billing information to Azure, using a *Language* resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

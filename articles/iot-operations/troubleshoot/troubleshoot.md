@@ -63,6 +63,15 @@ Status:
 Events:            <none>
 ```
 
+If you see the following message when you try to access the **Pipelines** tab in the Azure IoT Operations (preview) portal:
+
+_Data Processor not found in the current deployment. Please re-deploy with the additional argument to include the Data Processor._
+
+You need to deploy Azure IoT Operations with the optional Data Processor component included. To do this, you need to add the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. You must use the `--include-dp` argument to include the Data Processor component when you first deploy Azure IoT Operations. You can't add this optional component to an existing deployment.
+
+> [!TIP]
+> If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, use the [az iot ops delete](/cli/azure/iot/ops?az-iot-ops-delete) command.
+
 ## Azure IoT Layered Network Management Preview troubleshooting
 
 The troubleshooting guidance in this section is specific to Azure IoT Operations when using the Layered Network Management component. For more information, see [How does Azure IoT Operations Preview work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).

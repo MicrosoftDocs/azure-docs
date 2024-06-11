@@ -42,7 +42,7 @@ An indexer in Azure AI Search is a crawler that extracts searchable data and met
 
 The SharePoint Online indexer can extract text from the following document formats:
 
-[!INCLUDE [search-document-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-document-data-sources](./includes/search-blob-data-sources.md)]
 
 ## Limitations and considerations
 

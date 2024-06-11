@@ -190,7 +190,6 @@ To add an asset in the Azure IoT Operations (preview) portal:
     - Asset endpoint. Select your asset endpoint from the list.
     - Description
 
-    :::image type="content" source="media/howto-manage-assets-remotely/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the Azure IoT Operations (preview) portal.":::
 
 1. Configure the set of properties that you want to associate with the asset. You can accept the default list of properties or add your own. The following properties are available by default:
 
@@ -203,6 +202,7 @@ To add an asset in the Azure IoT Operations (preview) portal:
     - Serial number
     - Documentation URI
 
+    :::image type="content" source="media/howto-manage-assets-remotely/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the Azure IoT Operations (preview) portal.":::
 1. Select **Next** to go to the **Add tags** page.
 
 ### Add individual tags to an asset

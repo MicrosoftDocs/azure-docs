@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 > * Use Visual Studio Code to build modules and deploy them to your IoT Edge device
 > * View generated data
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
