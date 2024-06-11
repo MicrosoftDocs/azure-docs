@@ -93,8 +93,8 @@ Example output:
 
 ```output
 {
-  "primarySharedKey": "<Primary shared key>==",
-  "secondarySharedKey": "<Secondary shared key>=="
+  "primarySharedKey": "<primarySharedKey>==",
+  "secondarySharedKey": "<secondarySharedKey>=="
 }
 ```
 
