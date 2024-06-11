@@ -33,7 +33,7 @@ When a SAS expiration policy is in effect for the storage account, the signed st
 
 ## Configure a SAS expiration policy
 
-When you configure a SAS expiration policy on a storage account, the policy applies to each type of SAS that is signed with the account key. The types of shared access signatures that are signed with the account key are the service SAS and the account SAS.
+When you configure a SAS expiration policy on a storage account, the policy applies to each type of SAS that is signed with the account key or with a user delegation key. The types of shared access signatures that are signed with the account key are the service SAS and the account SAS.
 
 ### Do I need to rotate the account access keys first?
 
