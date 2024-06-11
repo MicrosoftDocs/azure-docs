@@ -25,8 +25,8 @@ The following are the scenarios where you can define pre and post events:
 |----------|-------------|
 |Turn on machines | Turn on the machine to apply updates.|
 |Create snapshot | Disk snaps used to recover data.| 
-|Notification email | Send a notification alert before patching is triggered. |
-|Stop services | To stop services like Gateway services, NPExServices, SQL services etc.| 
+|Notification email | Send a notification alert before triggering a patch. |
+|Stop services | Stop services like Gateway services, NPExServices, SQL services etc.| 
 
 #### [Post Events](#tab/postevent)
 
@@ -72,9 +72,9 @@ Azure Update Manager uses [Event Grid](../event-grid/overview.md) to create and 
 :::image type="content" source="./media/pre-post-scripts-overview/pre-post-schedule-timeline.png" alt-text="Screenshot that shows the timeline of schedules with pre and post." lightbox="./media/pre-post-scripts-overview/pre-post-schedule-timeline.png":::
 
 
-We recommend you to go through the following table to understand the timeline of the schedule for pre and post events.
+We recommend you go through the following table to understand the timeline of the schedule for pre and post events.
 
-For example, if a maintenance schedule is set to start at **3:00 PM**, with the maintenance window of 3 hours and 55 minutes for **Guest** maintenance scope, The schedule has one pre-event and one post-event following are the details: 
+For example, if a maintenance schedule is set to start at **3:00 PM**, with the maintenance window of 3 hours and 55 minutes for **Guest** maintenance scope. The schedule has one pre-event and one post-event and following are the details: 
 
 
 | **Time**| **Details** |
@@ -87,7 +87,7 @@ For example, if a maintenance schedule is set to start at **3:00 PM**, with the 
 | 6:55 PM   | - At 6:55 PM, the schedule completes installing the updates during the 3 hours 55-mins maintenance window. </br> The post event triggers at 6:55 PM once the updates are installed. </br> **Note** If you have defined a shorter maintenance window of 2 hours, the post maintenance event will trigger after 2 hours and if the update installation is completed before the stipulated time of 2 hours (i.e) 1 hours 50 mins, the post event will start immediately.
 
 We recommend that you're watchful of the following:
-- If you're creating a new schedule or editing an existing schedule with a pre event, you need at least 40 minutes prior to the start of maintenance window (3:00 PM in the above example) for the pre event to run otherwise it will lead to auto-cancellation of the current scheduled run.
+- If you're creating a new schedule or editing an existing schedule with a pre-event, you need at least 40 minutes prior to the start of maintenance window (3:00 PM in the above example) for the pre-event to run otherwise it will lead to auto-cancellation of the current scheduled run.
 - Invoking a cancellation API from your script or code will cancel the schedule run and not the entire schedule.
 - The status of the pre and post event run can be checked in the event handler you chose.
 
