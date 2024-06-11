@@ -424,6 +424,7 @@ The type of the tool. Currently, only `function` is supported.
 
 ### UnprocessableContentError
 
+The request contains unprocessable content. The error is returned when the payload indicated is valid according to this specification. However, some of the instructions indicated in the payload are not supported by the underlying model. Use the `details` section to understand the offending parameter.
 
 | Name | Type | Description |
 | --- | --- | --- |
